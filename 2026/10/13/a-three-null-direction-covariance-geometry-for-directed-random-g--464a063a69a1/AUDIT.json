@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Independence of directed arcs yields multinomial histogram covariance within the in- and out-degree classes. A single shared directed arc when heads/tails differ gives exactly n(n-1)p(1-p) times a difference-binomial rank-one kernel. Standardized binomial score v and constant u are orthonormal, yielding three zero eigenvectors, one 2n eigenvector, and all other eigenvalues n. Exact fractions checked for n=2,3,4 and p=1/3,2/3 in extracted verify.py; no finite experiment substituted for the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/1207.2475v1",
+        "https://arxiv.org/html/1510.00290v1",
+        "https://research.monash.edu/en/publications/the-degree-sequence-of-a-random-graph-i-the-models"
+      ],
+      "reasoning": "Full-text models and principal results were compared. A configuration model or preferential-attachment CLT does not imply an exact finite covariance for all independent-arc directed graphs; the older undirected asymptotic approximation likewise gives no exact paired directed histogram spectrum.",
+      "searches": [
+        "directed random graphs with given degree distributions",
+        "asymptotic normality in- and out-degree counts preferential attachment",
+        "McKay Wormald degree sequences random graph 1997",
+        "\"degree frequency\" \"indegree\" \"outdegree\" covariance \"Erdos Renyi\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1207.2475v1",
+      "https://arxiv.org/html/1510.00290v1",
+      "https://research.monash.edu/en/publications/the-degree-sequence-of-a-random-graph-i-the-models",
+      "https://arxiv.org/abs/1207.2475",
+      "https://arxiv.org/abs/1510.00290"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tournament score histograms arise from mutually exclusive two-way match outcomes, rather than independent opposite directed arcs",
+        "The directed independent-arc paired histogram spectrum here has three null modes and an eigenvalue 2n",
+        "arXiv:1207.2475v1; arXiv:1510.00290v1"
+      ],
+      "reasoning": "Tournament score histogram formulas do not imply the present independent-arc covariance: in tournaments only one of two opposite arcs can exist, whereas here opposite arcs are independent and both the in- and out-degree histograms are used. General binomial score algebra supplies proof ingredients; it is not a stronger published theorem covering this exact statement.",
+      "searches": [
+        "directed Erdos Renyi digraph indegree outdegree histogram joint covariance matrix binomial normalization rank-one singular values zero constraints",
+        "joint covariance of indegree count and outdegree count random directed graphs degree frequency projections",
+        "directed graph simultaneous in-degree out-degree empirical distribution normal covariance counts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen–Olvera-Cravioto arXiv:1207.2475v1, §§1–3",
+        "Wang–Resnick arXiv:1510.00290v1, §§2–4"
+      ],
+      "reasoning": "Searched for singular/eigenvalue and row/column frequency synonyms. The published models define different probability measures; none inspected states the exact paired Bernoulli histogram projection.",
+      "searches": [
+        "directed Erdos Renyi digraph indegree outdegree histogram joint covariance matrix binomial normalization rank-one singular values zero constraints",
+        "joint covariance of indegree count and outdegree count random directed graphs degree frequency projections",
+        "\"row-sum\" \"column-sum\" \"covariance\" \"histogram\" Bernoulli matrix",
+        "directed Erdos Renyi digraph indegree outdegree histogram joint covariance matrix binomial normalization rank-one singular values zero constraints",
+        "joint covariance of indegree count and outdegree count random directed graphs degree frequency projections"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical literature searches did not identify a table covering the complete paired degree-histogram covariance",
+        "Finite check n=2,3,4 computed anew with exact rational arithmetic"
+      ],
+      "reasoning": "No applicable published table of the complete 2n-by-2n covariance was identified. Enumeration is verification and does not assert novelty of individual entries.",
+      "searches": [
+        "Pearson chi-square statistic indegree and outdegree histograms directed Erdos Renyi expected exact",
+        "indegree outdegree degree-count vector covariance projection eigenvalues directed Bernoulli",
+        "Pearson chi-square statistic indegree and outdegree histograms directed Erdos Renyi expected exact"
+      ]
+    },
+    "rationale": "The comparison objects genuinely differ: Chen–Olvera-Cravioto use prescribed degree distributions with a configuration model; Wang–Resnick use a directed preferential attachment process and a bidegree-pair count martingale CLT; McKay–Wormald study undirected degree-sequence approximations. Tournament-style two-way match outcomes are mutually exclusive and therefore do not encode the present independent-arc paired degree histograms. Explicit paired directed-degree covariance spectrum and contrast expectation were not found in searched materials, though implicit Bernoulli-matrix historical coverage remains a risk.",
+    "residual_risks": [
+      "An unlocated older Bernoulli random-matrix row/column occupancy theorem may algebraically imply the exact covariance spectrum.",
+      "Complete McKay–Wormald 1997 full text was not inspected; the degree-sequence model differs, but exhaustive historical exclusion is unavailable.",
+      "Literature search cannot establish uniqueness, and unpublished work is not covered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING under this comparison: prescribed-degree configuration models and asymptotic marginal degree distributions, not the finite independent-arc histogram covariance matrix",
+        "evidence": "arXiv:1207.2475v1 §1 describes drawing approximately i.i.d. prescribed in/out degrees and balancing totals; §3 concerns configuration-model simplicity; posting 2012-07-10.",
+        "identifier_or_url": "https://arxiv.org/html/1207.2475v1",
+        "material_read": "Material from rendered arXiv HTML: abstract, introduction, model description, relevant theorem statements, and covariance-search contexts",
+        "method": "Direct page open and text search for covariance/binomial; comparison of graph-generating probability laws and statements",
+        "title": "Directed Random Graphs with Given Degree Distributions",
+        "trigger": "Same basic objects: both in-degree and out-degree sequences of directed graphs"
+      },
+      {
+        "assessment": "NOT_COVERING: preferential-attachment growth and bidegree-pair count CLT, not Bernoulli independent-arc marginal histograms with finite universal projection",
+        "evidence": "arXiv:1510.00290v1 §4.2 defines counts N_n(i,j) and martingale array covariance for preferential attachment, posted 2015-10-01.",
+        "identifier_or_url": "https://arxiv.org/html/1510.00290v1",
+        "material_read": "Material from rendered arXiv HTML: abstract, model assumptions, joint count definitions, and §4 martingale covariance setup",
+        "method": "Direct rendered text inspection and search for covariance and model definition",
+        "title": "Asymptotic Normality of In- and Out-Degree Counts in a Preferential Attachment Model",
+        "trigger": "Most plausible bidegree-count covariance predecessor"
+      },
+      {
+        "assessment": "Plausible older degree-sequence approach; its inspected abstract discusses asymptotic approximations of undirected degree sequences, so cannot by itself certify full-text noncoverage",
+        "evidence": "McKay–Wormald (1997), Random Structures & Algorithms 11, 97–117: abstract explicitly addresses undirected models and asymptotic degree-sequence distributions.",
+        "identifier_or_url": "https://research.monash.edu/en/publications/the-degree-sequence-of-a-random-graph-i-the-models",
+        "material_read": "Bibliographic record and substantive abstract; full article not retrieved",
+        "method": "Abstract and comparison of model scope",
+        "title": "The degree sequence of a random graph. I. The models",
+        "trigger": "Potential stronger degree-sequence distribution result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "464a063a-69a1-4f39-8b7e-35cedc752137",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Directed-network empirical in- and out-degree histograms are natural goodness-of-fit summaries. A complete finite covariance decomposition is more informative than a single cell covariance: it identifies three exact constraints, a universal doubled eigenmode, all residual eigenspaces, and the exact n-2 calibration of a natural Pearson in/out discrepancy. These structural facts distinguish paired directed histograms from ordinary separate multinomial samples; the invariant is not an arbitrary small parameter slice.",
+    "status": "PASS"
+  }
+}

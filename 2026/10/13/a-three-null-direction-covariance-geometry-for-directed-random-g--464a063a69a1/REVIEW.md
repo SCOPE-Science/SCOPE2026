@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The proof conditions on the sole shared arc of an in-degree and an out-degree at different vertices. It derives the full joint covariance entrywise, then orthogonalizes two binomial score vectors to obtain exactly three zero directions, one doubled eigenvalue, and the Pearson-contrast expectation. Explicit boundaries \(n\ge2\) and \(0<p<1\) are respected. Exhaustive exact-rational enumeration for \(n=2,3,4\) and two probabilities verifies all matrix entries, with the infinite range supplied by the proof.
+
+**Originality — PASS (provisional historical priority).** Inspection of the material in Chen–Olvera-Cravioto (arXiv:1207.2475v1, Introduction, model definition, central asymptotic results and proof sections) identifies a prescribed-degree configuration model, not independent directed Bernoulli arcs. Inspection of the material in Wang–Resnick (arXiv:1510.00290v1, problem statement, martingale array covariance and conclusions) identifies preferential attachment and joint (in,out) degree-pair counts, not the pair of marginal histograms or the finite covariance spectrum. McKay–Wormald 1997 concerns asymptotic undirected degree-sequence approximation. A tournament-style single-histogram calculation would involve mutually exclusive dyad outcomes instead of the present independent reciprocal arcs. The remaining risk is implicit coverage in older Bernoulli row/column-frequency literature; no independent priority certification is asserted.
+
+**Value — PASS.** The complete degree-histogram covariance is a natural finite-sample object for directed-network goodness-of-fit. The universal \(p\)-independent spectrum separates two fixed histogram totals, their shared total-arc constraint, an amplified common degree-score mode, and ordinary contrasts. The exact expectation \(n-2\) of the in/out Pearson discrepancy gives a concrete calibration not furnished by separate multinomial marginals. This is a structural statement about the full pair of histograms, not an arbitrarily chosen degree cell.
+
+**Limitations.** Not a chi-square distribution theorem; assumptions exclude loops, reciprocal-arc dependence, edge-count conditioning, and preferential attachment. Source priority remains subject to independent assessment.
+
+Self-review: passed. Independent audit: not yet performed.
