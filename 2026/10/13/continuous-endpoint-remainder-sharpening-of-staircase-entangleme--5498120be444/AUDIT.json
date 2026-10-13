@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The proof follows directly from Taylor’s theorem with Lagrange remainder. For noninteger \\(x=q+\theta\\), the lower remainder factor \\((1+s)^\theta-s^\theta\\) is positive and strictly decreasing, while the upper remainder factor \\((1+s)^{\theta-1}-s^{\theta-1}\\) is negative and strictly increasing. Endpoint substitution therefore has the claimed directions. The source induction accepts these stronger one-step inequalities without any changed hypothesis. Integer exactness and threshold matching follow algebraically. The packaged high-precision checker reproduces both inequalities and the source example; finite checks are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 source explicitly calls its monogamy curve piecewise and activates correction orders only at integer thresholds.",
+        "The 2025 paper treats other exponent regions and parameterized weight bounds, not the endpoint remainder of the 2026 Taylor hierarchy."
+      ],
+      "reasoning": "No inspected result gives a broader theorem that implies the endpoint correction. Classical Taylor remainder theory is broader as a method, but it does not itself state the entanglement hierarchy or the explicit coefficient corrections; the scientific contribution is the source-specific transfer and continuous threshold law.",
+      "searches": [
+        "fractional-order Taylor remainder refinement monogamy entanglement staircase 2026 Cao Jing Misra Wang",
+        "continuous interpolation piecewise monogamy bound fractional exponent Taylor correction",
+        "Tighter parameterized monogamy relations Cao Jing Misra Wang 2024",
+        "Superior monogamy and polygamy relations and estimates of concurrence 2025"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/s11128-026-05076-6",
+      "arXiv:2607.14370v1",
+      "DOI:10.1140/epjp/s13360-025-06029-1",
+      "DOI:10.1007/s11128-024-04495-7",
+      "arXiv:2302.13601"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DOI:10.1007/s11128-026-05076-6 proves only the sign-truncated staircase bounds.",
+        "arXiv:2302.13601 and the 2024/2025 Cao et al. papers provide other weighted power-transfer bounds but no endpoint-remainder interpolation in the inspected material."
+      ],
+      "reasoning": "The new inequalities strictly dominate the source Taylor bounds for every noninteger exponent and every induction step with \\(\tau_l>l-1\\), while agreeing at integer nodes. None of the inspected prior statements implies these explicit corrections.",
+      "searches": [
+        "Unified monogamy polygamy 2607.14370 Taylor endpoint remainder",
+        "entanglement monogamy noninteger exponent endpoint Taylor remainder",
+        "remove staircase monogamy alpha power continuous correction",
+        "General Monogamy and polygamy properties of quantum systems 2302.13601"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.1007/s11128-026-05076-6, Lemma 2.1, Lemma 2.3, Theorem 3.1, Theorem 4.1, Appendix 5.1–5.3",
+        "DOI:10.1007/s11128-024-04495-7",
+        "DOI:10.1140/epjp/s13360-025-06029-1"
+      ],
+      "reasoning": "The closest equivalent formulation is the source Taylor/Lagrange-remainder construction itself. It retains the unknown intermediate remainder point and discards the remainder after using its sign. The new claim bounds the same remainder by a known endpoint and propagates that nonzero term through the hierarchy; the inspected predecessor bounds use different parameterizations.",
+      "searches": [
+        "Unified monogamy and polygamy relations for multipartite systems",
+        "arXiv 2607.14370",
+        "Cao Jing Misra Wang monogamy staircase alpha",
+        "Taylor Lagrange remainder entanglement monogamy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The anchor full text provides the exact displayed formulas and Example 3.7 parameters; no numerical database or precomputed entanglement table is used.",
+        "The packaged verifier recomputes the example from the formulas."
+      ],
+      "reasoning": "The claim is analytic and not a rediscovery from a known table. The exact source formulas are the relevant database-level comparison.",
+      "searches": [
+        "arXiv 2607.14370",
+        "DOI 10.1007/s11128-026-05076-6 monogamy Taylor remainder",
+        "Cao Jing Misra Wang Example 3.7 concurrence alpha 5"
+      ]
+    },
+    "rationale": "The anchor’s full proof discards the signed Lagrange remainder and explicitly presents a piecewise staircase hierarchy. The new claim retains a computable endpoint portion of that remainder and propagates it to both monogamy and polygamy coefficients. Focused searches and comparison with the 2024, 2025, and 2023 predecessor families found no statement implying this continuous correction.",
+    "residual_risks": [
+      "Classical Taylor-remainder theory is standard; originality is claimed only for the explicit continuous refinement of this newly published entanglement hierarchy and its propagated coefficients.",
+      "A differently phrased or newly indexed entanglement paper could contain an equivalent endpoint correction despite the searches performed.",
+      "The 2024 predecessor was not re-read end-to-end in this run; its relationship was checked through its primary record, available article material, and the 2026 anchor’s own comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the endpoint correction. The proof writes a Lagrange remainder at an unknown intermediate point and drops it after a sign check; the paper describes the resulting monogamy optimum as piecewise/staircase.",
+        "evidence": [
+          "Lemma 2.1 equations (2.1)–(2.2)",
+          "Appendix equations and discussion around the Lagrange remainder",
+          "Theorem 3.1 equation (3.1)",
+          "Theorem 4.1 equation (4.1)",
+          "Example 3.7 and Figure 1 staircase description"
+        ],
+        "identifier_or_url": "DOI:10.1007/s11128-026-05076-6",
+        "material_read": "Open-access full text: introduction; Lemma 2.1 and Corollary 2.2; Lemma 2.3; Theorems 3.1 and 4.1; Example 3.7; Appendix proofs 5.1–5.3; conclusion; MSC metadata.",
+        "method": "Publisher open-access HTML full-text inspection.",
+        "title": "Unified monogamy and polygamy relations for multipartite systems",
+        "trigger": "Exact same hierarchy and mathematical lemma underlying the candidate."
+      },
+      {
+        "assessment": "NOT_COVERING. It uses parameterized weighted inequalities in different exponent regimes and does not state the endpoint Taylor-remainder correction used here.",
+        "evidence": [
+          "Section 2 Lemma 2.1–2.2",
+          "Section 3 Lemma 3.1–3.2",
+          "published abstract"
+        ],
+        "identifier_or_url": "DOI:10.1140/epjp/s13360-025-06029-1",
+        "material_read": "Open-access abstract and Sections 2–3 containing the stated auxiliary inequalities and induced monogamy/polygamy bounds.",
+        "method": "Publisher open-access HTML inspection.",
+        "title": "Superior monogamy and polygamy relations and estimates of concurrence",
+        "trigger": "Immediate predecessor by the same authors with unified lower/upper entanglement bounds."
+      },
+      {
+        "assessment": "No implication of the new endpoint term was identified; residual risk is retained because the full predecessor text was not re-read end-to-end in this run.",
+        "evidence": [
+          "arXiv:2407.18127 abstract",
+          "DOI metadata and 2026 anchor comparisons"
+        ],
+        "identifier_or_url": "DOI:10.1007/s11128-024-04495-7; arXiv:2407.18127",
+        "material_read": "Primary abstract plus available article text/snippets sufficient to identify its parameterized-bound framework; no whole-document absence claim is based on snippets alone.",
+        "method": "ArXiv primary record and publisher-indexed article metadata.",
+        "title": "Tighter parameterized monogamy relations",
+        "trigger": "Earlier source explicitly cited by the 2026 anchor as a predecessor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5498120b-e444-4731-93c0-b522f167ff7c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a structural sharpening of the central analytic mechanism of a recent entanglement-bound hierarchy, not a renamed special case. It removes avoidable staircase loss for every noninteger power, preserves the same hypotheses, has a dual lower/upper form, and in the source’s concrete concurrence example recovers about \\(84.69\\%\\) of the algebraic truncation gap. The result can be used wherever the source hierarchy is used, while explicitly separating Taylor-stage improvement from base-relation slack.",
+    "status": "PASS"
+  }
+}
