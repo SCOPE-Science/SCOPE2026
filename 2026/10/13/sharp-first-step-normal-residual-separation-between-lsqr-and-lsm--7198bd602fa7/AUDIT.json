@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Both first iterates lie on span(A^T b). Direct differentiation gives the LSQR scalar s0/s1 and the LSMR scalar s1/s2. Expanding the two normal-residual norms exposes the same nonnegative moment determinant s0*s2-s1^2, so their nonzero ratio is exactly sqrt(s0*s2)/s1. A sharp endpoint secant inequality for B=A^T A gives the universal factor (kappa^2+1)/(2*kappa), and the diagonal two-mode family attains equality. The packaged exact checker replays the formulas and the kappa=3 witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fong and Saunders state that LSMR minimizes the normal residual and that LSQR has only primal-residual monotonicity, motivating safer early termination for LSMR.",
+        "Paige and Saunders derive LSQR by minimizing the primal residual over the Golub-Kahan Krylov subspace and identify the normal-equation Lanczos structure.",
+        "The accessible LSMB abstract says its iterate is a convex combination of LSQR and LSMR iterates, but does not state the first-step normal-residual ratio or condition-number extremizer."
+      ],
+      "reasoning": "The broader literature establishes the algorithmic relationship and qualitative diagnostic distinction. The new claim solves the exact first-step quantitative separation and its sharp spectral extremum.",
+      "searches": [
+        "LSMR An Iterative Algorithm for Sparse Least-Squares Problems",
+        "LSQR An Algorithm for Sparse Linear Equations and Sparse Least Squares",
+        "LSMB Minimizing the Backward Error for Least-Squares Problems",
+        "CG Versus MINRES empirical comparison"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S0895479897321830",
+      "arxiv:1006.0758",
+      "doi:10.1137/10079687X",
+      "Paige-Saunders LSQR ACM TOMS 8 (1982)",
+      "doi:10.1137/17M1157106",
+      "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+      "2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0",
+      "2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c",
+      "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known steepest-descent bounds can control LSQR normal-residual growth because first-step LSQR is steepest descent on the normal equations, but they do not give the exact ratio to the simultaneously computed LSMR minimum residual.",
+        "LSMR monotonicity says its normal residual does not increase; it does not quantify how much larger LSQR can be on the same Krylov line.",
+        "The equality family simultaneously realizes the sharp cross-method ratio and separates the diagnostics: LSQR grows by 4/3 and LSMR contracts by 4/5 at kappa=3."
+      ],
+      "reasoning": "The cross-method theorem needs both scalar minimizers and cancellation of their shared moment determinant. Neither individual method guarantee implies that exact identity or the sharp comparison factor.",
+      "searches": [
+        "LSQR normal residual can increase steepest descent gradient norm",
+        "LSMR normal residual monotone MINRES normal equations",
+        "conjugate gradient MINRES first residual comparison SPD"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic searches returned generic residual-transient results and the LSMR method paper, but no result with the exact ratio sqrt(s0*s2)/s1 or the sharp factor (kappa^2+1)/(2*kappa).",
+        "Web searches combining LSQR, LSMR, first iteration, normal residual, and Kantorovich terminology likewise returned algorithm descriptions rather than the displayed comparison theorem.",
+        "The full LSMR paper was searched and read through the introduction and the derivation of its normal-residual subproblem; it states the optimization distinction but not the sharp first-step condition-number ratio."
+      ],
+      "reasoning": "An equivalent formulation must compare the two methods on the same first Krylov line and quantify the ratio of their resulting normal residuals. Monotonicity of LSMR alone, or a standalone steepest-descent gradient bound for LSQR, does not imply the exact cross-method ratio.",
+      "searches": [
+        "LSQR LSMR first iteration normal residual ratio condition number sharp",
+        "LSQR versus LSMR normal residual first iteration exact factor",
+        "LSQR normal residual versus LSMR normal residual sharp bound",
+        "LSQR LSMR Kantorovich residual",
+        "CG MINRES residual ratio Kantorovich inequality first iteration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact factor match tied to LSQR versus LSMR was located.",
+        "The constant is derived analytically from a spectral moment inequality and has an explicit equality family rather than coming from a numerical table."
+      ],
+      "reasoning": "The claimed quantity is a closed-form sharp envelope for a solver comparison, not a recomputed benchmark.",
+      "searches": [
+        "LSQR LSMR (kappa^2+1)/(2kappa)",
+        "LSQR LSMR first normal residual 5/3",
+        "LSQR LSMR RMS mean spectral moment ratio"
+      ]
+    },
+    "rationale": "Classical LSQR primal-residual minimization, LSMR normal-residual minimization, their CG/MINRES normal-equation equivalences, and the qualitative early-termination advantage of LSMR are prior work. The inspected full LSQR and LSMR sources do not state the exact first-step normal-residual ratio or its sharp singular-condition-number envelope. Focused database and web searches also did not locate that statement. A later LSMB paper is retained as a specific broader-literature risk because it compares LSQR and LSMR iterates directly.",
+    "residual_risks": [
+      "The factor is a Kantorovich-type moment extremum, so older CG-versus-MINRES or moment-inequality literature may contain an equivalent first-step comparison under different terminology.",
+      "The full body of the later LSMB paper was not obtained during the bounded inspection; its direct LSQR/LSMR comparison makes it the strongest unresolved literature risk.",
+      "The theorem is first-step only and does not quantify later-iteration LSQR/LSMR normal-residual ratios."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_PARTIAL_COVERAGE: establishes LSMR normal-residual minimization and contrasts it with LSQR primal-residual minimization, but no located exact first-step cross-method residual factor.",
+        "evidence": "The paper explicitly states that LSMR is MINRES on the normal equations and minimizes ||A^T r_k||, while LSQR is CG on the normal equations and reduces ||r_k||. Section 2.2 derives the LSMR normal-residual subproblem.",
+        "identifier_or_url": "arxiv:1006.0758 / doi:10.1137/10079687X",
+        "material_read": "The complete 21-page arXiv PDF was accessible. The abstract and introduction, Golub-Kahan derivation, normal-equation equivalence, and Section 2.2 normal-residual minimization subproblem were inspected; the title page and subproblem page were visually rendered.",
+        "method": "Lawful full-text PDF inspection with rendered-page verification and targeted text searches.",
+        "title": "LSMR: An Iterative Algorithm for Sparse Least-Squares Problems",
+        "trigger": "Primary full source explicitly comparing LSQR and LSMR residual criteria."
+      },
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_THE_COMPARISON: defines LSQR and its primal residual minimization but predates LSMR and therefore cannot state the cross-method factor.",
+        "evidence": "Section 4 derives LSQR from minimizing ||b-Ax|| over the bidiagonalized Krylov space; the paper also computes ||A^T r_k|| for stopping rules.",
+        "identifier_or_url": "Paige-Saunders, ACM TOMS 8 (1982), 43-71",
+        "material_read": "The complete 29-page Stanford-hosted PDF was accessible. The introduction, Golub-Kahan/Lanczos relation, Section 4 derivation of the LSQR residual minimization, norm-estimation section, and CGLS comparison were inspected; representative pages were visually rendered.",
+        "method": "Lawful full-text PDF inspection with rendered-page verification and targeted text searches.",
+        "title": "LSQR: An Algorithm for Sparse Linear Equations and Sparse Least Squares",
+        "trigger": "Original full source for LSQR and its Krylov residual minimization."
+      },
+      {
+        "assessment": "CLASSIFICATION_SOURCE: lists MSC 65F10 first and supplies an exact public online date; it is not used to establish noncoverage of the new theorem.",
+        "evidence": "The publisher record lists primary MSC 65F10 and online publication on 2006-07-31.",
+        "identifier_or_url": "doi:10.1137/S0895479897321830",
+        "material_read": "Publisher abstract, bibliographic history, keywords, and MSC list were inspected.",
+        "method": "Publisher-record inspection.",
+        "title": "Solving Generalized Least-Squares Problems with LSQR",
+        "trigger": "Day-resolved archive source with primary numerical-linear-algebra classification."
+      },
+      {
+        "assessment": "PLAUSIBLE_BROADER_SOURCE_WITH_BODY_UNAVAILABLE: the abstract states that LSMB iterates are convex combinations of LSQR and LSMR iterates, so equivalent hidden first-step comparison material cannot be excluded.",
+        "evidence": "The abstract directly compares LSQR primal-residual minimization and LSMR normal-residual minimization, but exposes no sharp first-step residual ratio.",
+        "identifier_or_url": "doi:10.1137/17M1157106",
+        "material_read": "Publisher abstract, bibliographic record, references, keywords, and MSC list were inspected; a full lawful body was not obtained in the bounded search.",
+        "method": "Publisher-record inspection.",
+        "title": "LSMB: Minimizing the Backward Error for Least-Squares Problems",
+        "trigger": "Plausible broader source directly comparing LSQR and LSMR iterates."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7198bd60-2fa7-439a-ad78-ea9bd6ef1194",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The LSMR literature explicitly motivates the method by safer early termination through monotone normal residuals, while LSQR optimizes the primal residual. The theorem gives the exact first-step price of choosing the LSQR objective when stationarity is monitored: a sharp factor (kappa^2+1)/(2*kappa), with a two-dimensional equality family where LSQR already increases the normal residual and LSMR decreases it. This is a concrete stopping-diagnostic comparison rather than a restatement of either solver’s convergence guarantee.",
+    "status": "PASS"
+  }
+}
