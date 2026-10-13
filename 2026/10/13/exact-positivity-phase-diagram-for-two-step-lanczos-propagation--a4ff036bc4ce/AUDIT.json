@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For R>1 and epsilon>0, the two Ritz values of the symmetric restricted Markov generator are distinct and strictly negative. The exact affine Ritz interpolant has positive slope, and the computed components are p_t(-1), c_t, epsilon p_t(-R), and R epsilon c_t divided by 1+epsilon. Since lambda_-<-1 and lambda_+>-R, only p_t(-R) can be negative; it crosses zero precisely once if and only if lambda_->-R. Sylvester’s criterion on the exact two-by-two compressed form gives det(H+RM)=-R P_R(epsilon^2), with first principal minor R-1>0, hence that event is exactly P_R<0. P_R is increasing for u>=0; its constant term changes sign at R=2. The rare-mass limit and mass loss follow from the two Ritz roots and strict convexity. A self-contained rational checker validates the determinant and a strict time-one sign witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Saad gives general norm-error estimates for projected matrix exponentials and the polynomial-interpolation representation.",
+        "Frommer–Güttel–Schweitzer give a general restarting technique and a full Section 2 characterization of the Arnoldi approximation as interpolation at Ritz nodes.",
+        "Hochbruck–Lubich develop operator-exponential Krylov error estimates; the accessible record describes convergence and spectral/pseudospectral bounds, not a stochastic sign law."
+      ],
+      "reasoning": "The general matrix-function results describe the approximation but do not certify positivity. The exact Markov semigroup positivity theorem likewise does not pass automatically to an orthogonal Krylov compression, which need not preserve mass or cone invariance.",
+      "searches": [
+        "Analysis of Some Krylov Subspace Approximations to the Matrix Exponential Operator Saad",
+        "Efficient and Stable Arnoldi Restarts for Matrix Functions Based on Quadrature Frommer Güttel Schweitzer",
+        "On Krylov Subspace Approximations to the Matrix Exponential Operator Hochbruck Lubich",
+        "Krylov Markov chains exponential projected generator nonnegative probability vectors positivity property"
+      ]
+    },
+    "checked_sources": [
+      "mims:2013.48",
+      "doi:10.1137/13093491X",
+      "doi:10.1137/0729014",
+      "doi:10.1137/S0036142995280572",
+      "published-result:2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A previous sharp diagonal positivity threshold at t(L-mu)<=1 gives a sufficient time regime uniform across all nonnegative diagonal systems; the present Markov family can stay positive for all t when 1<R<=2 even though its spectral width is 2R.",
+        "The exact two-link phase transition depends on the slow/fast link decomposition and rare initial mass through P_R(u).",
+        "General Ritz interpolation establishes y_2=p_t(G)z but does not establish when p_t(-R) becomes negative; that requires the new projected-complement determinant."
+      ],
+      "reasoning": "The diagonal theorem and published interpolation results supply ingredients, but their conclusions do not imply the fixed-generator sharp rate/mass sign diagram, the unique first-negative time, or the persistence of negativity after that time. The generator has orthogonal eigenvectors with signed coordinates and a stochastic mass constraint, which are not controlled by diagonal data positivity alone.",
+      "searches": [
+        "two-step Lanczos exponential spectral width positivity diagonal matrix",
+        "Saad matrix exponential Ritz interpolation Arnoldi 1992",
+        "Frommer Güttel Schweitzer Arnoldi exponential positivity stochastic Markov"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published semantic results closest to the object included a Padé Markov positivity barrier, rather than Lanczos projection, and the prior diagonal Lanczos exponential spectral-width threshold.",
+        "Complete MIMS EPrint 2013.48 gives the Ritz interpolation identity and matrix exponential tests but has no located Markov or positivity preservation condition.",
+        "Saad author-hosted full text develops projected exponentials, interpolation, and norm error bounds, but an in-document search returned no Markov or positivity discussion."
+      ],
+      "reasoning": "An implication-equivalent statement must classify the sign of the fast-state coordinate of a two-step Lanczos exponential for the exact four-state reversible Markov family, or give a stronger criterion that implies P_R(u)>=0 with the exact crossing time. Neither standard interpolation, norm-error bounds, nor a small-time uniform spectral-width bound determines this all-time rate/initial-mass phase diagram.",
+      "searches": [
+        "two step Lanczos exponential Markov generator positivity preservation projection 4 state reversible continuous-time Markov chain",
+        "Krylov approximation probability transition semigroup positivity loss two blocks rate contrast initial distribution",
+        "Arnoldi exponential matrix action nonnegative generator positivity loss exact phase diagram rare mass",
+        "Krylov subspace approximation matrix exponential Markov generator negative probabilities positivity preserving Arnoldi Lanczos counterexample",
+        "Lanczos matrix exponential does not preserve positivity Metzler Markov chains Krylov negative entry"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact quadratic in squared mass, its rate-contrast two threshold, and the threshold t_* were not found in searched databases or full-text source comparisons.",
+        "The witness at R=4, epsilon=1/8 is certified by exact rational Gram determinants and symbolic inequalities, not retrieved from a numerical table."
+      ],
+      "reasoning": "The result is a continuous phase diagram on natural rates, masses, and time; a finite example or norm error table cannot dominate this all-parameter sign classification.",
+      "searches": [
+        "two step Lanczos exponential positivity threshold rate contrast R greater than 2 small fast component four state CTMC",
+        "matrix exponential Markov Krylov two disconnected reversible two-state links rare state negative",
+        "Lanczos probability positivity polynomial R^3 epsilon^4 transition"
+      ]
+    },
+    "rationale": "Saad and Frommer–Güttel–Schweitzer establish general Arnoldi/Lanczos exponential projection and interpolation at Ritz values; the latter complete MIMS preprint was inspected for positivity and stochastic constraints and no such analysis was found. The previous diagonal two-step Lanczos positivity law gives a universal spectral-width time frontier but neither implies nor subsumes a fixed Markov-generator all-time phase diagram. The new rate threshold, rare-mass threshold, and unique negative-time formula distinguish it from generic positive-semigroup claims and unrelated Padé/Markov positivity limits. Search without a match is not treated as a proof of uniqueness; the listed residual risks remain.",
+    "residual_risks": [
+      "A less searchable Markov-chain/Krylov positivity source could contain an implication-equivalent criterion for disjoint links.",
+      "Hochbruck–Lubich full text was not read; only its published abstract and scope metadata were inspected.",
+      "A general matrix-function interpolation theorem plus additional unstated sign analysis could reproduce the phase diagram; interpolation by itself is correctly acknowledged as prior.",
+      "The example is reducible, so no irreducible-chain or minimal-dimension conclusion is justified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: establishes the generic approximation and error theory but no located stochastic-cone positivity criterion or rate/mass phase diagram.",
+        "evidence": "Equation (4) defines the reduced exponential projection; the introduction explicitly identifies Ritz interpolation; error theorems quantify norm errors. Searches for Markov and positivity returned no matches.",
+        "identifier_or_url": "doi:10.1137/0729014; https://www-users.cse.umn.edu/~saad/PDF/RIACS-90-ExpTh.pdf",
+        "material_read": "Author-hosted 22-page full text, including the introduction, Sections 2 and 3 setup and polynomial interpolation, Sections 4 and 5 norm error bounds, numerical-experiment section and indexed text searches for Markov and positivity terminology; relevant front page visually inspected.",
+        "method": "Open full PDF textual inspection, targeted searches, and rendered front-page inspection.",
+        "title": "Analysis of Some Krylov Subspace Approximations to the Matrix Exponential Operator",
+        "trigger": "Foundational full paper on ordinary Arnoldi and Lanczos matrix-exponential projection, including polynomial interpolation and possible stronger implications."
+      },
+      {
+        "assessment": "NEARBY_NOT_COVERING: ordinary exponential Arnoldi methods and error/restart machinery, without the Markov probability-sign all-time classification.",
+        "evidence": "The paper states primary MSC 65F60; Lemma 2.1 says the Arnoldi approximant is interpolation at the Ritz values. It discusses matrix exponentials but searches for positivity found no occurrence. The original preprint repository gives deposit 2013-08-28.",
+        "identifier_or_url": "mims:2013.48; doi:10.1137/13093491X; https://eprints.maths.manchester.ac.uk/2018/1/quadrestart.pdf",
+        "material_read": "2013 original 21-page open PDF, first pages and Lemma 2.1, stated problem scope, restarting and exponential experiments; revised 24-page full PDF inspected around setup, approximation lemma, numerical examples and conclusions, with targeted positivity and Markov searches. Page one with MSC was visually inspected.",
+        "method": "Open institutional full-text PDFs, extracted-text inspection, rendered page and targeted in-document searches.",
+        "title": "Efficient and Stable Arnoldi Restarts for Matrix Functions Based on Quadrature",
+        "trigger": "Earliest day-resolved open archive preprint in scope with primary MSC 65F60; includes exact Ritz-polynomial characterization."
+      },
+      {
+        "assessment": "ACCESS_LIMITED_CONTEXT: shows convergence/error focus; no whole-document noncoverage asserted.",
+        "evidence": "The accessible description emphasizes error rates in numerical range, spectra, and pseudospectra rather than positivity. Its full text remains a residual comparison risk.",
+        "identifier_or_url": "doi:10.1137/S0036142995280572",
+        "material_read": "Publisher abstract, method scope, MSC metadata, and bibliographic record were inspected; the full KIT-hosted article body was not read.",
+        "method": "Public bibliographic and abstract inspection.",
+        "title": "On Krylov Subspace Approximations to the Matrix Exponential Operator",
+        "trigger": "Classical alternate error-analysis source potentially implying a general positive-semigroup guarantee."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a4ff036b-c4ce-4ec6-b869-b2a8bd3a6b03",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A time-dependent probability vector must remain nonnegative and sum to one, whereas standard low-memory Krylov exponential propagation is generally assessed by norm errors. On the smallest natural model with two distinct mixing time scales—independent reversible two-state links—the theorem classifies the complete rate/rare-mass/time sign transition rather than merely exhibiting a negative component. It identifies the rate contrast R=2 as the exact all-time safety boundary, a closed-form mass threshold above it, and a finite limiting time for a vanishingly rare fast state. Positive scalar mass renormalization cannot repair the sign. These are concrete structure-preservation diagnostics for Markov evolution, not an arbitrary matrix slice or a minor improvement to an error bound.",
+    "status": "PASS"
+  }
+}
