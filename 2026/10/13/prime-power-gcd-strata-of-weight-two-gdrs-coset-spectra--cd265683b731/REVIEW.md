@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The only external mathematical premises are the explicitly read GDRS subset-sum and coset-enumerator reductions in Davydov–Marcugini–Pambianco, Theorems 3.4 and 5.1, and the classical Li–Wan–Kosters finite-group subset-sum formula, Theorem 2.3. Specializing the character formula to prime-power divisors gives the stated class polynomials. The sign analysis treats odd primes, positive final binary coefficient and negative final binary coefficient separately; the last case places the final stratum strictly between the preceding two strata. Positivity and strictness use a proven injection on subsets. The multiplier \(\binom{q+1}{2}(q-1)\) counts symbol choices per discrete-log ratio and the minimum-distance assumption ensures unique leaders. `verify.py` exhausts 33 selected finite instances independently and returns `VERIFY_OK`. Infinite scope relies on proof, not enumeration.
+
+## Originality — PASS, with limited synthesis risk
+The 2026 origin paper explicitly leaves strict separation across orbit representatives unresolved outside special tables (Conjecture 4.8 and subsequent discussion). Kosters 2011 gives the general subset-sum formula, so the character expression is cited as existing prior work, not advertised as new. The new statement proves exactly \(a+1\) *distinct* complete spectra for every prime-power gcd, gives their class-by-class closed forms and counts all cosets in those strata; neither inspected source states or proves this global strictness. The 2022 twisted-cubic code article concerns a separate generalized weight-five family and a different invariant. Residual risk: an older derivation not found by the searches may already make the strict prime-power comparison explicit; the result is a short synthesis of two strong published ingredients rather than a new algebraic counting principle.
+
+## Value — PASS
+The 2026 paper identifies strictness of orbit values as an unresolved mathematical question and exhibits parameter-by-parameter tables. This exact, all-parameter classification converts a nonuniformity possibility into precise spectral strata for infinitely many codes, including cases with arbitrarily large \(a\), and supplies class multiplicities relevant to coset error statistics. The strictness and multiplicities carry mathematical information not contained in the classical subset-sum formula alone without analyzing its cancellation pattern. No general downstream theorem or broad novelty for subset sums is claimed.
+
+## Closest literature and limitations
+The precise overlap comparison is against arXiv:2605.10594v1 Theorems 3.4, 4.6, 5.1, Table 5.1 and Conjectures 4.8, 4.12, 5.3; arXiv:1112.6294v1 Theorem 2.3; and the 2022 twisted-cubic coset-leader paper. The statement applies only where \(\gcd(q-1,d-2)\) is a positive prime power, and the verifier is finite. An earlier unlocated all-prime-power classification remains the main originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
