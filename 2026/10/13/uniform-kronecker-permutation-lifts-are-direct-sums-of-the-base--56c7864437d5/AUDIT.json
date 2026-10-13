@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The proof is an exact matrix-equivalence argument. Since \\(P\\) is a permutation matrix, \\((A\\otimes P)(I_n\\otimes P^T)=A\\otimes I_m\\); a perfect shuffle turns this into \\(I_m\\otimes A\\). Column permutations preserve the code up to coordinate relabeling and row permutations preserve its kernel, yielding \\(C^{\\oplus m}\\). The enumerator, minimum-distance, dimension, connected-component, and cycle-count consequences are immediate invariants of a direct sum/disjoint union. The bundled finite replay checks the published \\([12,2,8]\\) example and every one of the \\(64\\) lifted words.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General graph-cover and protograph literature uses edge-dependent permutations and includes disconnected covers as a standard possibility.",
+        "The 2025 Deza-graph predecessor advertises a protograph operation and code families, but the accessible statement inspected does not identify the 2026 uniform Kronecker theorem with a direct sum.",
+        "The 2026 paper's own Remark 3.4 moves to position-dependent permutation blocks, which is outside the accepted claim."
+      ],
+      "reasoning": "General lift theory supplies context but does not by itself state the source-specific code equivalence, enumerator identity, or consequence that the advertised uniform family creates no new connected Tanner topology.",
+      "searches": [
+        "LDPC graph lifts permutation matrices all equal voltage trivial cover",
+        "protograph lift identical permutation on every edge disconnected copies",
+        "LDPC Codes from Deza Graphs 2025 protograph operation"
+      ]
+    },
+    "checked_sources": [
+      "Mostarac--Šimac, DOI 10.3336/gm.61.1.08, full public manuscript",
+      "Crnković--Rukavina--Šimac, DOI 10.1134/S0032946025030019, public abstract/metadata",
+      "Focused public searches for direct-sum, disconnected Tanner-lift, equal-permutation protograph, and weight-enumerator formulations",
+      "Published research-record searches for the source theorem and equivalent structural formulations",
+      "Current and completed-prior owned ledgers for source and claim overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.1 implies the stated dimension and minimum-distance consequences but does not imply to a reader, without the additional matrix-equivalence step, the complete direct-sum isomorphism type.",
+        "Remark 3.4 explicitly enlarges the construction by allowing different permutation blocks; that case does not satisfy the factorization used here in general.",
+        "Once the new direct-sum equivalence is proved, the enumerator and all simple-cycle multiplicity formulas follow exactly."
+      ],
+      "reasoning": "The accepted claim is a structural strengthening of the source theorem rather than a special case of a stronger result stated there.",
+      "searches": [
+        "Mostarac Simac Theorem 3.1 A_m=A tensor P dimension distance",
+        "Mostarac Simac Remark 3.4 different permutation matrices greater diversity",
+        "LDPC code direct sum weight enumerator Tanner graph disjoint union"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source's Theorem 3.1 gives the matrix \\(A_m=A\\otimes P\\) and code parameters but no direct-sum or disconnected-Tanner formulation.",
+        "Exact Kronecker manipulation gives a permutation equivalence to \\(I_m\\otimes A\\), which is strictly stronger than matching only dimension and minimum distance.",
+        "Searches using direct-sum, disconnected-lift, and weight-enumerator language found no same-family statement."
+      ],
+      "reasoning": "The direct-sum statement, block-diagonal parity-check statement, and disjoint Tanner-union statement are equivalent after row/column permutations; all were checked as possible prior formulations.",
+      "searches": [
+        "\"LDPC codes from Deza digraphs\" direct sum disconnected",
+        "\"A tensor P\" LDPC direct sum code permutation matrix",
+        "\"Kronecker product\" permutation matrix LDPC disjoint union",
+        "same permutation protograph lift disconnected LDPC"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper lists the Cayley-digraph example with code parameters \\([12,2,8]\\).",
+        "The source tables do not provide the lifted weight enumerator \\(W_C(z)^m\\) or a component count.",
+        "The verifier independently obtains \\(W_C(z)=1+3z^8\\) for that base example and \\((1+3z^8)^3\\) for the uniform three-lift."
+      ],
+      "reasoning": "The source table supplies a reproducible base instance but does not tabulate the new structural invariants.",
+      "searches": [
+        "\"Cay(Z12,{1,2,6})\" LDPC code [12,2,8]",
+        "\"LDPC codes from Deza digraphs\" Table 2 Cay Z12",
+        "\"LDPC codes from Deza digraphs\" weight enumerator"
+      ]
+    },
+    "rationale": "The primary paper states the uniform Kronecker construction and proves only the resulting length, dimension, and minimum distance. Its full text does not state a direct-sum decomposition, disconnected Tanner graph, complete weight-enumerator factorization, or exact replication of all Tanner-cycle counts. Focused searches for those equivalent formulations found no prior statement for this family. The result is not a mere restatement of the source parameter theorem because it identifies the full code/Tanner isomorphism type of the uniform lift.",
+    "residual_risks": [
+      "A specialized graph-cover reference may describe an all-equal voltage assignment as a trivial or disconnected cover without applying that observation to this particular coding theorem.",
+      "The algebraic matrix identity is elementary; the originality lies in recognizing and proving its structural consequence for the newly published uniform LDPC family.",
+      "The position-dependent permutation-block construction in Remark 3.4 can behave differently and is intentionally excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_THEOREM_STRICTLY_WEAKER",
+        "evidence": "The source proves length/dimension/minimum-distance behavior for \\(A\\otimes P\\) and later allows different permutation blocks, but does not state direct-sum equivalence, disconnected Tanner topology, or weight-enumerator factorization.",
+        "identifier_or_url": "DOI:10.3336/gm.61.1.08",
+        "material_read": "Full public manuscript including Theorem 3.1 and proof, Remark 3.4, the code-parameter tables, and the surrounding discussion of girth and absorbing sets.",
+        "method": "public full-text inspection",
+        "title": "LDPC codes from Deza digraphs",
+        "trigger": "Primary source of the uniform Kronecker construction."
+      },
+      {
+        "assessment": "NO_DECISIVE_COVERAGE_FOUND",
+        "evidence": "The accessible description presents a protograph operation and code families but does not state the source-specific all-equal-permutation direct-sum classification.",
+        "identifier_or_url": "DOI:10.1134/S0032946025030019",
+        "material_read": "Public abstract and bibliographic description of the protograph construction and resulting LDPC families.",
+        "method": "public abstract and metadata inspection",
+        "title": "LDPC Codes from Deza Graphs",
+        "trigger": "Closest predecessor by the same research line."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "56c78644-37d5-4d6b-a60d-0348a7c3e247",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source presents the Kronecker construction as a way to generate larger LDPC codes and studies Tanner-graph features such as girth and absorbing sets. The decomposition shows that the uniform version cannot create new connected Tanner topology: it merely replicates the base constituent. This exactly characterizes its full weight distribution and cycle multiplicities and clarifies why the source's position-dependent permutation generalization is the mathematically meaningful route to genuinely mixed lifts.",
+    "status": "PASS"
+  }
+}
