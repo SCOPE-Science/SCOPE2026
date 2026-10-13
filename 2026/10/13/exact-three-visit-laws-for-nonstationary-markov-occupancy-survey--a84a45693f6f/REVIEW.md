@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The nonzero three-word probability formulas follow by conditioning on true site occupancy and multiplying Markov transitions. The ratios determining both transition probabilities have positive denominators for every interior parameter tuple. The remaining two unknowns solve two independent identities in the initial positive-history masses. The three observable equalities, four open inequalities and normalization characterize the entire feasible-law image. A continuous one-parameter family proves global two-visit nonidentifiability. Exact rational checker tests are supplemental and do not replace these general arguments.
+
+**Originality — PASS, residual risk.** The 2010 Hines et al. ecological occupancy paper already develops Markovian spatial and trap-response detection models and discourages fewer than three segments. That practical numerical threshold alone is not asserted as new. The assessed claim is an explicit inverse for the unrestricted initial Markov detection distribution, a complete characterization of all positive three-history laws, and a proof of two-visit nonidentifiability at *every* interior parameter point. The 2014 Hines and 2016 Wright papers develop likelihood models and empirical diagnostics, not this exact characterization. A broader two-component Markov mixture article provides a four-wave sufficient bound; its inaccessible proof leaves nonzero coverage risk. The searched published mathematical records on N-mixture and renewal processes have different observable laws and do not imply this one.
+
+**Value — PASS.** Survey design for site occupancy must distinguish true absence from correlated nondetection. The free first-visit probability is directly motivated by the initial-segment difficulty in sequential ecological transects; the exact third-visit threshold and all-history feasibility equations are interpretable structural benchmarks. This is not a statistical precision or empirical performance theorem.
+
+The open-parameter, homogeneous-site and no-false-positive assumptions are essential for the stated scope. Separate local availability and detection layers, extra observation errors, heterogeneity and finite-sample estimator accuracy are excluded.
+
+Self-review: passed. Independent audit: not yet performed.
