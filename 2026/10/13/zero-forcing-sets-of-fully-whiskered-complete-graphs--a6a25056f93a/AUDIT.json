@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The proof partitions all initial sets by the number of empty core-leaf pairs and handles every case. Two empty pairs permanently leave at least two white core neighbors; one empty pair without a black leaf has no first force; one empty pair with a black leaf clears by leaf-to-core, core-to-missing-core, then core-to-leaf forces; and no empty pair clears after leaf-only pairs activate their cores. The two successful regimes are disjoint and yield the polynomial directly. The standalone verifier independently checks every subset for \\(2\\le n\\le8\\), all coefficients, the minimum value, basis count, and total count.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Javaid et al., Lemma 2.2, explicitly assumes the attached graph has order at least two; Theorem 2.3 builds the main connected-corona recurrence on that regime.",
+        "Javaid et al., Theorem 2.12, treats \\(T\\odot^k K_1\\) only for a specified tree class, which excludes \\(K_n\\) for \\(n\\ge3\\).",
+        "Javaid et al., Theorem 2.13, lists disconnected-factor cases with either a nontrivial component or at least two isolated vertices, leaving \\(H=K_1\\) outside its cases."
+      ],
+      "reasoning": "The strongest retrieved corona theorems have hypotheses that exclude the singleton attached graph for a non-tree complete base. Therefore they do not specialize to the retained theorem.",
+      "searches": [
+        "zero forcing G odot K1 corona graph",
+        "zero forcing number corona K1 complete graph",
+        "On the zero forcing number of corona and lexicographic product of graphs arXiv:1607.04071",
+        "zero forcing polynomial corona graph",
+        "zero forcing polynomial K_n corona"
+      ]
+    },
+    "checked_sources": [
+      "AIM Minimum Rank – Special Graphs Work Group, Zero forcing sets and the minimum rank of graphs, doi:10.1016/j.laa.2007.10.009.",
+      "Javaid, Irshad, Batool, Raza, On the zero forcing number of corona and lexicographic product of graphs, arXiv:1607.04071v1.",
+      "Boyer et al., The zero forcing polynomial of a graph, arXiv:1801.08910v1 / doi:10.1016/j.dam.2018.11.033.",
+      "published-finding corpus semantic searches under corona, fully whiskered, pendant-leaf, all-set, basis-count, and polynomial formulations.",
+      "Web searches under \\(G\\odot K_1\\), \\(K_n\\odot K_1\\), whiskered clique, fully whiskered graph, and zero forcing polynomial aliases."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Foundational Proposition 2.12 gives only a general corona upper bound, and Example 4.1 gives the isolated penta-sun value.",
+        "Javaid et al. do not provide a general non-tree \\(G\\odot K_1\\) exact theorem in the inspected material.",
+        "Boyer et al. define \\(\\mathcal Z(G;x)\\) and treat several families but not this family in the inspected full text."
+      ],
+      "reasoning": "The retained theorem implies the scalar value \\(Z(K_n\\odot K_1)=n-1\\) and all higher coefficient data. Prior upper bounds or isolated examples cannot imply the exact iff condition, the coefficient formula, or the complete basis classification.",
+      "searches": [
+        "doi:10.1016/j.laa.2007.10.009 corona C5 K1 zero forcing",
+        "arXiv:1607.04071 K1 corona zero forcing",
+        "arXiv:1801.08910 corona whisker pendant",
+        "K_n corona K_1 zero forcing set one empty core leaf pair zero forcing polynomial n(2^{n-1}-1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit states the empty-pair criterion or the polynomial for \\(K_n\\odot K_1\\).",
+        "Web searches under corona, whiskered clique, fully whiskered graph, and pendant-leaf aliases returned no same-family exact classification."
+      ],
+      "reasoning": "The claim is equivalent to a complete four-state-per-pair feasibility rule. A source covering only a scalar zero forcing number, a different forcing variant, or another graph family does not imply this all-set criterion or its generating polynomial.",
+      "searches": [
+        "K_n corona K_1 zero forcing set one empty core leaf pair zero forcing polynomial n(2^{n-1}-1)",
+        "zero forcing sets K_n corona K_1 all sets polynomial",
+        "zero forcing whiskered complete graph K_n with one pendant leaf at each vertex",
+        "zero forcing sun graph clique with pendant leaf at every clique vertex",
+        "fully whiskered graph zero forcing",
+        "whiskered complete graph zero forcing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The foundational paper gives \\(Z(C_5\\circ K_1)=3\\) as one example, not a table or formula for complete-core coronas.",
+        "The Boyer et al. zero forcing polynomial full text contains no occurrence of corona, whisker, rooted, or pendant."
+      ],
+      "reasoning": "No inspected database, table, or polynomial catalog records the stated coefficient formula or basis count for the fully whiskered clique.",
+      "searches": [
+        "zero forcing polynomial corona K_n K_1",
+        "zero forcing bases corona product K_n K_1",
+        "zero forcing polynomial whiskered graph"
+      ]
+    },
+    "rationale": "The closest primary corona literature does not imply the singleton-corona complete-core result: its main recurrence assumes the attached graph has at least two vertices, its \\(K_1\\) result is restricted to a tree class, and its disconnected-factor theorem omits a single isolated attached vertex. The foundational article has a general upper bound and one cycle-corona example only. The zero forcing polynomial source does not treat corona/whiskered graphs in its searchable full text. published-finding corpus and web searches returned no equivalent or stronger all-set classification.",
+    "residual_risks": [
+      "A poorly indexed thesis, conference paper, or source using an uncommon name for the fully whiskered clique could contain an equivalent all-set formula.",
+      "The literature search establishes no detected coverage, not a formal proof of global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the foundational definition, a general corona upper bound, and the penta-sun scalar example; NOT_COVERING the complete-core singleton-corona all-set classification or polynomial.",
+        "evidence": [
+          "The source records public availability on 2007-11-26 and AMS 05C50.",
+          "Example 4.1 states \\(Z(C_5\\circ K_1)=3\\); Proposition 2.12 is an upper bound, not the retained exact family theorem."
+        ],
+        "identifier_or_url": "doi:10.1016/j.laa.2007.10.009",
+        "material_read": "Front matter, Proposition 2.12 and its corona construction, and Example 4.1 on \\(C_5\\circ K_1\\).",
+        "method": "Full-text PDF and bibliographic front-matter inspection.",
+        "title": "Zero forcing sets and the minimum rank of graphs",
+        "trigger": "Foundational zero forcing source; contains a corona bound and a singleton-corona example."
+      },
+      {
+        "assessment": "NOT_COVERING the retained family. Main connected-factor machinery assumes attached order at least two; the singleton theorem is tree-specific; the disconnected-factor theorem omits exactly one isolated attached vertex.",
+        "evidence": [
+          "Lemma 2.2 says the attached graph has order at least two.",
+          "Theorem 2.12 assumes the base is a tree with specified structure.",
+          "Theorem 2.13 includes \\(\\alpha=0\\) only when \\(\\beta\\ge2\\), not \\(H=K_1\\)."
+        ],
+        "identifier_or_url": "arXiv:1607.04071v1",
+        "material_read": "Corona definition; Lemma 2.2; Theorem 2.3 and its proof; Theorem 2.12 for \\(K_1\\) attachments to trees; Theorem 2.13 for disconnected attached graphs.",
+        "method": "Full-text arXiv PDF inspection, including relevant theorem pages.",
+        "title": "On the zero forcing number of corona and lexicographic product of graphs",
+        "trigger": "Closest paper by operation and parameter."
+      },
+      {
+        "assessment": "FOUNDATIONAL for the polynomial framework; NOT_COVERING the fully whiskered complete family in the inspected text.",
+        "evidence": [
+          "The paper defines \\(\\mathcal Z(G;x)\\) and gives formulas for several families.",
+          "The searchable full text has no occurrence of corona, whisker, rooted, or pendant."
+        ],
+        "identifier_or_url": "arXiv:1801.08910v1; doi:10.1016/j.dam.2018.11.033",
+        "material_read": "Abstract, definition of the zero forcing polynomial, extremal coefficient results, and the specific-family section; full-text searches for corona, whisker, rooted, and pendant.",
+        "method": "Full-text arXiv PDF inspection and exact-term searches.",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Primary source defining the exact enumerator used in the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a6a25056-f93a-41e1-a496-a0d4de09bd7c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The singleton-corona \\(K_n\\odot K_1\\) is a canonical graph operation boundary that is explicitly outside the main order-at-least-two recurrence in the closest corona-product source. The result gives an exact structural rule for every initial set and, from it, the complete zero forcing polynomial, all minimum bases, and a closed total count. This is substantially more informative than recomputing a scalar zero forcing number and provides a natural benchmark for corona and whiskering questions.",
+    "status": "PASS"
+  }
+}
