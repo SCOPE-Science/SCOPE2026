@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "After centering the fixed data, the Bayesian-bootstrap mean is a Dirichlet linear form A and the weighted variance is B-A^2. Uniform-Dirichlet factorial moments give all required mixed moments exactly. The packaged checker recomputes them by explicit index expansion and the Dirichlet monomial formula for multiple exact integer data sets through N=8.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rubin (1981) was inspected across the complete article; its exact Dirichlet component variances and correlations concern the random support probabilities, not the joint posterior moments of weighted mean and weighted variance.",
+        "Cheng (arXiv:1109.4204) was inspected in the full HTML article; Section 2.2 identifies normalized exponential weights with the Bayesian bootstrap, while the paper's moment results are asymptotic semiparametric consistency statements."
+      ],
+      "reasoning": "A general Dirichlet moment formula is an ingredient from which the theorem can be derived, but the inspected broader bootstrap results do not state the compact joint law for the nonlinear variance functional.",
+      "searches": [
+        "Rubin The Bayesian Bootstrap full text Dirichlet mean variance",
+        "arXiv 1109.4204 Bayesian bootstrap moment consistency",
+        "exchangeably weighted bootstrap Bayesian bootstrap moment variance"
+      ]
+    },
+    "checked_sources": [
+      "Rubin (1981), DOI 10.1214/aos/1176345338, complete article.",
+      "Cheng, arXiv:1109.4204, complete article.",
+      "Previously checked scientific records for bootstrap, Dirichlet-weight, weighted-mean, and weighted-variance overlap.",
+      "Published searches using Bayesian-bootstrap, normalized-exponential-weight, Dirichlet-weight, and skewness formulations."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously checked scientific record 25967ccf-7f95-418d-a8a5-a30e88bf21f0 conditions the ordinary multinomial-bootstrap mean on represented support size; it uses discrete resampling weights and does not determine Dirichlet-weighted mean/variance moments.",
+        "Previously checked Dirichlet scientific records 57e423a7-945b-48f7-b8d4-4114466f55f0 and 8ac68e29-3385-4e86-b93e-7f7b959612d5 concern uniform spacings and Greenwood statistics, not fixed-data Bayesian-bootstrap location and dispersion."
+      ],
+      "reasoning": "The multinomial-bootstrap result has a different weight law and conditioning variable. The spacing results use the same simplex distribution in another model but different functionals; none implies the present covariance or variance identities.",
+      "searches": [
+        "Bayesian bootstrap versus multinomial bootstrap weighted mean variance",
+        "Dirichlet weighted mean variance empirical skewness"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rubin's full article defines the Bayesian bootstrap through Dirichlet spacings and gives the posterior weighted-mean construction, but no joint mean-variance moment formula.",
+        "Searches using Dirichlet-weight, weighted-mean/weighted-variance, and sample-skewness aliases returned no equivalent finite identity."
+      ],
+      "reasoning": "The same object can be described as Bayesian-bootstrap probabilities, normalized iid exponential weights, or a uniform Dirichlet random probability vector. The searches covered all three formulations and both covariance and joint-moment terminology.",
+      "searches": [
+        "\"Bayesian bootstrap\" covariance weighted mean variance",
+        "\"Dirichlet\" weighted mean weighted variance covariance",
+        "\"Bayesian bootstrap\" sample skewness weighted variance",
+        "published-record search: Bayesian bootstrap posterior mean variance covariance exact finite sample Dirichlet weights"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched scientific record reports the displayed coefficient multiplying the empirical third central moment.",
+        "No searched exact table or implementation reference supplies the weighted-variance posterior variance formula in terms of empirical second and fourth central moments."
+      ],
+      "reasoning": "The claim is a symbolic all-data identity, not a numerical table lookup. Existing implementation documentation supports the use of weighted mean and weighted variance under bootstrap weights but does not provide their joint law.",
+      "searches": [
+        "\"Bayesian bootstrap\" \"mean and variance\" exact Dirichlet",
+        "\"weighted mean\" \"weighted variance\" Dirichlet covariance",
+        "published-record search: Dirichlet random weights covariance weighted mean weighted variance sample skewness"
+      ]
+    },
+    "rationale": "Rubin's complete original Bayesian-bootstrap paper defines the Dirichlet-weight construction, treats the weighted mean explicitly, and mentions mean and variance as basic parameters, but does not state their finite joint covariance or the weighted-variance posterior variance. Cheng's complete exchangeably weighted bootstrap article proves asymptotic moment consistency and identifies normalized exponential weights as the Bayesian bootstrap; it does not give these fixed-data finite formulas. Database and exact-phrase searches did not locate the covariance identity or the empirical-skewness sign characterization.",
+    "residual_risks": [
+      "Because the proof is a short reduction from standard Dirichlet moments, an equivalent closed form may appear in older unindexed Bayesian-bootstrap or Dirichlet-moment literature.",
+      "The exact first-public-source day of Rubin's earlier 1979 technical-report version is not available in the inspected metadata; the dated archive anchor used here is Cheng's arXiv v1 submission of 20 September 2011."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_JOINT_MOMENTS",
+        "evidence": "The article defines the random simplex probabilities through uniform spacings, derives their Dirichlet law, and illustrates posterior weighted means. It mentions mean and variance as important parameters but does not state Cov(M,V) or Var(V).",
+        "identifier_or_url": "doi:10.1214/aos/1176345338",
+        "material_read": "Complete five-page article, including construction, examples, theory, model-specification discussion, and references.",
+        "method": "Public full-text PDF inspection.",
+        "title": "The Bayesian Bootstrap",
+        "trigger": "Original primary source defining the Bayesian bootstrap and directly treating weighted means."
+      },
+      {
+        "assessment": "ASYMPTOTIC_NOT_COVERING_FINITE_IDENTITY",
+        "evidence": "The paper identifies normalized iid exponential weights as the Bayesian bootstrap and develops asymptotic moment consistency for semiparametric estimators; it does not give exact fixed-data moments of the weighted mean and nonlinear weighted variance.",
+        "identifier_or_url": "arXiv:1109.4204",
+        "material_read": "Full HTML article with focused inspection of the introduction, exchangeably weighted bootstrap construction, Bayesian-bootstrap example, main moment-consistency result, and references.",
+        "method": "Public arXiv full-text inspection.",
+        "title": "Moment Consistency of the Exchangeably Weighted Bootstrap for Semiparametric M-Estimation",
+        "trigger": "Direct moment-theory source for exchangeably weighted bootstrap procedures, explicitly including the Bayesian bootstrap."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5810f04c-c5f5-4701-ba20-25e98e561043",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Weighted mean and weighted variance are two basic functionals propagated by the Bayesian bootstrap. Their joint posterior uncertainty matters when location and dispersion are reported together. The exact covariance reveals that posterior location-dispersion dependence is controlled solely by empirical third central moment, while the exact dispersion variance uses only empirical second and fourth moments. This is a finite-sample diagnostic rather than an asymptotic approximation or a simulation recipe.",
+    "status": "PASS"
+  }
+}
