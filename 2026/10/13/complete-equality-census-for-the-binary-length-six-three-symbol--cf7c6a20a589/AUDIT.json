@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The claim is finite and exhaustive. The complete 64-word ambient space is regenerated. Every pairwise three-symbol distance is computed by two independent definitions and the matrices agree exactly. Complete Bron--Kerbosch enumeration and an independent fixed-size clique census both obtain maximum size eight and exactly 776 maximizers, with no nine-clique. Affine closure and the entire 768-element translation-dihedral action are then checked on every maximizer.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ding--Zhang--Ge prove the Singleton bound M <= q^(n-d_b+b) for general b-symbol codes.",
+        "Their construction theorem includes linear MDS (n,2b)_q codes for n >= 2b and q >= b-1 with b >= 3, covering q=2,b=3,n=6,d_3=6.",
+        "The paper states that its main focus is linear b-symbol codes; no inspected statement enumerates arbitrary nonlinear equality cases at this parameter."
+      ],
+      "reasoning": "The broader theory determines the maximum cardinality and supplies linear extremizers, but it does not imply the total number 776, the 232/544 affine/nonlinear split, or the ten orbit types.",
+      "searches": [
+        "Maximum Distance Separable Codes for b-Symbol Read Channels arXiv 1609.09236",
+        "Constructions and Decoding of Cyclic Codes Over b-Symbol Read Channels",
+        "nonlinear MDS b-symbol codes binary"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1609.09236v1",
+      "DOI:10.1109/TIT.2016.2522434",
+      "2026/9/8/SCOPE080",
+      "own:b85d4564-f4fb-447d-91ff-ed0b8fb2ae00",
+      "prior:2810c6c2-86b8-4060-b87b-3e9b9e262157"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Singleton bound and the linear construction imply that the maximum cardinality is eight.",
+        "A linear existence theorem does not determine all arbitrary eight-word extremizers; the exhaustive census contains 544 nonlinear maxima.",
+        "The ten orbit sizes and stabilizers require a classification of the entire equality set, not just an optimal construction."
+      ],
+      "reasoning": "Prior work implies only the optimum value and existence of linear equality cases. It does not logically imply the arbitrary-code census or structure.",
+      "searches": [
+        "binary 3-symbol code length 6 minimum 3-symbol distance 6 exact maximum classification",
+        "nonlinear MDS b-symbol binary length 6",
+        "all maximum (6,6)_2 3-symbol codes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining cyclic window formulation is the same b-symbol read-channel metric introduced in the 2016 literature.",
+        "The verifier independently expresses the distance as the number of cyclic length-three windows meeting the support of the binary difference word.",
+        "The current/prior ledger contains a length-six symbol-pair classification, but an exhaustive pairwise comparison finds 96 word pairs on which pair-distance-five admissibility and three-symbol-distance-six admissibility differ."
+      ],
+      "reasoning": "The candidate was compared both in read-vector language and difference-support language, and against the closest own symbol-pair result. The latter is not an equivalent formulation of the present constraint.",
+      "searches": [
+        "binary 3-symbol code length 6 minimum 3-symbol distance 6 exact maximum classification",
+        "b-symbol read channel n=6 b=3 d=6 MDS binary nonlinear classification",
+        "3-symbol read channel binary length six MDS code equality affine nonlinear"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected exact table or indexed record gives a finite census for the binary (n,b,d_b)=(6,3,6) equality layer.",
+        "The closest indexed record found concerns binary cyclic symbol-pair codes at different parameters and does not imply this classification."
+      ],
+      "reasoning": "Failed search alone is not novelty evidence; this check supplements the direct statement-level comparison with the full-text MDS source.",
+      "searches": [
+        "MDS (6,6)_2 3-symbol",
+        "binary 3-symbol length 6 distance 6 table",
+        "776 b-symbol code"
+      ]
+    },
+    "rationale": "The numerical optimum is prior work through the Singleton bound plus the published linear MDS existence theorem. The accepted contribution is narrowed to the arbitrary-code equality census, affine/nonlinear split, and orbit decomposition. Exact-parameter, MDS, nonlinear, and classification searches found no source stating or implying those stronger facts.",
+    "residual_risks": [
+      "An obscure or unindexed finite computation could contain the same 776-code census.",
+      "The 2016 introductory b-symbol source was inspected through its repository metadata and abstract, while the directly decisive MDS comparison was made against full arXiv text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_OPTIMUM_AND_LINEAR_EXISTENCE_NOT_ARBITRARY_EQUALITY_CENSUS",
+        "evidence": "The source gives M <= q^(n-d_b+b) and a linear MDS family containing the binary (6,6) three-symbol case, but no inspected statement counts all eight-word codes or distinguishes affine from nonlinear equality cases.",
+        "identifier_or_url": "arXiv:1609.09236v1",
+        "material_read": "Full lawful arXiv text, including the b-symbol-code definition, Theorem 2.4 Singleton bound, the statement that the paper focuses on linear codes, and the construction family covering b=3, d_3=6, n>=6.",
+        "method": "Full-text inspection with exact-parameter specialization.",
+        "title": "Maximum Distance Separable Codes for b-Symbol Read Channels",
+        "trigger": "Same metric, same Singleton boundary, and an existence theorem covering the exact target parameters."
+      },
+      {
+        "assessment": "DEFINES_B_SYMBOL_DIRECTION_NOT_EQUALITY_CENSUS",
+        "evidence": "The source establishes the b-symbol setting and gives date of publication 2016-01-27; it does not supply the present finite equality classification in the inspected material.",
+        "identifier_or_url": "DOI:10.1109/TIT.2016.2522434",
+        "material_read": "Repository metadata and abstract, including the statement that b>=3 consecutive-symbol outputs are treated and the journal publication date.",
+        "method": "Repository record and abstract inspection.",
+        "title": "Constructions and Decoding of Cyclic Codes Over b-Symbol Read Channels",
+        "trigger": "Primary source introducing the b>=3 read-channel extension and the relevant cyclic-window semantics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cf7c6a20-a589-4050-b4f6-ca50def93842",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The parameter is the smallest binary length in the published linear MDS family with b=3 and d_3=6, so the equality layer is canonical rather than arbitrary. The result shows substantial nonlinear abundance: 544 of 776 optima are nonlinear, and the ten-orbit decomposition gives a reusable structural benchmark for searches and classification in b-symbol coding. The sharp contrast with the nearby symbol-pair equality layer, where all maxima are affine, supplies additional mathematical motivation.",
+    "status": "PASS"
+  }
+}
