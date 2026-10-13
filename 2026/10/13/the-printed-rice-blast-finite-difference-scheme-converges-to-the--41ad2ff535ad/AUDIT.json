@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Equation (2.18) evaluates the host product at delayed time, whereas equation (2.27) uses the current host product outside the history sum and reverses the kernel argument. Taking the Riemann-sum limit gives a different integral operator. For constant infection efficiency and a linear host-product history, their difference is the positive first moment of the nonnegative sporulation kernel. An exact shifted-gamma member is replayed symbolically in the bundled checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 predecessor prints the same structural current-state replacement in its finite-difference spore-production formula.",
+        "The predecessor presents that formula as its numerical approximation rather than as a correction or alternative memory model.",
+        "No inspected broader source gives a statement that subsumes the present source-specific continuum-limit comparison."
+      ],
+      "reasoning": "The predecessor is important prior art for the formula itself, so the result does not claim that the erroneous indexing first appeared in 2023. The accepted originality is the mathematical diagnosis of the mismatch and its implication for the 2023 HLIR simulation.",
+      "searches": [
+        "\"Mathematical Model for Rice Blast Disease Caused by Spore Dispersion Affected from Climate Factors\" finite difference spore production",
+        "\"10.3390/sym14061131\" spore production numerical",
+        "rice blast spore dispersal Volterra convolution finite difference",
+        "plant disease spore production convolution quadrature delayed host"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2023125",
+      "doi:10.3390/sym14061131"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed erratum or source-specific correction of the convolution formula was located.",
+        "The predecessor repeats the problematic indexing and therefore does not imply that the later scheme is consistent.",
+        "The exact first-moment discrepancy shows that the difference survives the zero-mesh limit rather than being a higher-order discretization effect."
+      ],
+      "reasoning": "A prior display of the same formula is not coverage of the correction. The accepted statement compares implications: the printed scheme approaches one operator, while the continuous model defines another, and an explicit kernel-family history separates them.",
+      "searches": [
+        "\"10.3934/math.2023125\" correction erratum",
+        "\"10.3934/math.2023125\" convolution correction",
+        "\"An extension of mathematical model for severity of rice blast disease\" \"2.27\"",
+        "\"10.3390/sym14061131\" correction convolution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary PDF displays the delayed host product in equation (2.18) and the current host product in equation (2.27).",
+        "The final update (2.28) repeats the same history sum and current-state host product.",
+        "No checked indexed result states the continuum-limit correction or identifies the mismatch."
+      ],
+      "reasoning": "The same defect can be phrased as a wrong delayed index, an inconsistent Riemann sum, a memoryless host-product approximation, or convergence to the wrong Volterra operator. The searches covered these equivalent descriptions.",
+      "searches": [
+        "\"10.3934/math.2023125\" \"Eq. (2.27)\"",
+        "\"An extension of mathematical model for severity of rice blast disease\" finite difference convolution",
+        "\"10.3934/math.2023125\" numerical scheme convolution",
+        "rice blast spore production delayed product current state finite difference"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher PDF was visually inspected on the page containing equations (2.18) and on the page containing equations (2.27)–(2.28).",
+        "Equation (2.27) visibly factors the current indexed host product outside the history sum.",
+        "The results section states that the numerical solution from equation (2.28) was used for the rice-blast simulations.",
+        "Publisher metadata gives first publication on 2 November 2022 and MSC 92D25 first."
+      ],
+      "reasoning": "The claim rests on the exact displayed integral and exact displayed finite-difference update, not on a secondary transcription.",
+      "searches": [
+        "doi:10.3934/math.2023125 equation 2.18",
+        "doi:10.3934/math.2023125 equation 2.27",
+        "doi:10.3934/math.2023125 equation 2.28",
+        "doi:10.3934/math.2023125 simulations equation 2.28"
+      ]
+    },
+    "rationale": "Riemann-sum consistency of Volterra integrals is standard and is not claimed as new. The original source-specific contribution is identifying that the published rice-blast update converges to a different memory law, proving an order-one discrepancy for the paper's kernel family, and connecting the defect to the equation used for the reported calibration. The direct predecessor repeats the same formula but does not identify or repair its continuum-limit mismatch.",
+    "residual_risks": [
+      "Unavailable MATLAB code could have used delayed indices even though the paper prints current indices.",
+      "A non-indexed author correction could exist outside the searched records.",
+      "The predecessor already contains the same printed numerical structure, so novelty is limited to diagnosing and proving the consistency failure rather than to the formula's first appearance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRINTED_FDM_CONVERGES_TO_DIFFERENT_MEMORY_OPERATOR",
+        "evidence": "The continuous term uses delayed I and H, while the printed sum uses current I and H. The results section says equation (2.28) is used for simulations and calibration.",
+        "identifier_or_url": "doi:10.3934/math.2023125",
+        "material_read": "Publisher full PDF at the disease-severity definition, equations (2.18)–(2.24), equations (2.27)–(2.28), parameter table, stated initial conditions, simulation setup, and results section; the two numerical-formula pages were visually inspected.",
+        "method": "Compared the time arguments term by term, took the mesh-refinement limit of the printed sum, and constructed a shifted-gamma test history with a strictly positive limiting discrepancy.",
+        "title": "An extension of mathematical model for severity of rice blast disease",
+        "trigger": "Primary source defining both the target convolution and the numerical scheme used for the reported simulations."
+      },
+      {
+        "assessment": "SAME_INDEXING_DEFECT_IS_INHERITED_PRIOR_FORMULA",
+        "evidence": "The predecessor likewise prints a delayed continuous host product but a finite-difference sum containing the current host product.",
+        "identifier_or_url": "doi:10.3390/sym14061131",
+        "material_read": "Open publisher text at the continuous spore-production convolution and the finite-difference section.",
+        "method": "Compared the predecessor's time indexing with the 2023 extension.",
+        "title": "Mathematical Model for Rice Blast Disease Caused by Spore Dispersion Affected from Climate Factors",
+        "trigger": "Direct open predecessor from the same authors and the stated numerical ancestor of the extension."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "41ad2ff5-35ad-4292-a065-35001c04f4b8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source calibrates a biological parameter and evaluates disease-severity agreement from simulations explicitly said to use equation (2.28). An order-one memory-operator mismatch therefore affects the interpretation and reproducibility of the paper's central numerical output. The correction is mathematically simple but scientifically consequential because delayed sporulation is the mechanism being modeled.",
+    "status": "PASS"
+  }
+}
