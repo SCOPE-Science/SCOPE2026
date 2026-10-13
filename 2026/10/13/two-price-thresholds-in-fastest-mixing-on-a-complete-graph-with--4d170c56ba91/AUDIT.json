@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The weighted Laplacian decomposes into four orthogonal eigenspaces with eigenvalues \\(0,sa+rb,sb+rc,(s+r)b\\). Symmetry averaging of \\(\\lambda_2\\), a concave minimum of linear Rayleigh quotients, proves an invariant optimal allocation exists without presupposing all optimizers invariant. Positive homogeneity reduces the optimum to an exact one-dimensional convex piecewise-linear cost. Its slopes on each allowed interval produce the stated \\(\\tau_1\\) and \\(\\tau_2\\), all strict regimes and complete invariant equality intervals. Direct substitution checks budgets and exact spectral gaps. The standalone exact rational checker validates 955 instances and eigenspaces, not the universal theorem by enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "J. Sun, S. Boyd, L. Xiao, P. Diaconis, The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem, SIAM Review 48 (2006), 681–699, doi:10.1137/S0036144504443821.",
+        "S. Boyd, P. Diaconis, P. A. Parrilo, L. Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries, arxiv:0709.0955.",
+        "H. Shakeri et al., Maximizing Algebraic Connectivity in Interconnected Networks, arxiv:1510.06785.",
+        "Shakeri et al., arxiv:1510.06785, optimizes interlayer links while internal layer Laplacians are fixed, rather than pricing all three edge orbits."
+      ],
+      "reasoning": "The general budget-constrained semidefinite theory encompasses the present problem algorithmically but a characterization by an implicit SDP is not an explicit phase classification; the proof here analytically resolves the SDP for all two-block sizes and prices. Shakeri et al. have a different feasible set, with only interlayer links variable, and hence do not imply either zero-costly-clique or counterintuitive zero-cheap-clique phases in this model. Stronger exact two-class-price general theorems remain a historical possibility.",
+      "searches": [
+        "Two-block weighted complete graph optimizing spectral gap with three edge orbits intra group and inter group under budget",
+        "Optimal continuous-time fastest mixing on complete graph with two vertex blocks and different within block edge prices; exact cost minimization and spectral gap thresholds"
+      ]
+    },
+    "checked_sources": [
+      "J. Sun, S. Boyd, L. Xiao, P. Diaconis, The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem, SIAM Review 48 (2006), 681–699, doi:10.1137/S0036144504443821.",
+      "S. Boyd, P. Diaconis, P. A. Parrilo, L. Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries, arxiv:0709.0955.",
+      "H. Shakeri et al., Maximizing Algebraic Connectivity in Interconnected Networks, arxiv:1510.06785.",
+      "2026/9/19/SCOPE-klx-complete-and-complete-bipartite-graphs--b27f97da8029: KLX parameters on complete/bipartite graphs, not conductance-optimized Laplacian λ2.",
+      "2026/9/19/SCOPE-clique-partitions-joined-unequal-cluster-graphs--07df8435d587: clique partition numbers of joined complete clusters, not optimized mixing.",
+      "2026/9/18/SCOPE-spectral-booksize-equality-balanced-multipartite--75d8398c42c7: adjacency spectral booksize equality, not rate-budgeted Laplacian optimization.",
+      "2026/9/20/SCOPE-block-diagonal-graph-projection-threshold--25f28a17b038: projection constants for graph subspaces, unrelated optimization."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "J. Sun, S. Boyd, L. Xiao, P. Diaconis, The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem, SIAM Review 48 (2006), 681–699, doi:10.1137/S0036144504443821.",
+        "S. Boyd, P. Diaconis, P. A. Parrilo, L. Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries, arxiv:0709.0955.",
+        "H. Shakeri et al., Maximizing Algebraic Connectivity in Interconnected Networks, arxiv:1510.06785.",
+        "2026/9/19/SCOPE-klx-complete-and-complete-bipartite-graphs--b27f97da8029: KLX parameters on complete/bipartite graphs, not conductance-optimized Laplacian λ2.",
+        "2026/9/19/SCOPE-clique-partitions-joined-unequal-cluster-graphs--07df8435d587: clique partition numbers of joined complete clusters, not optimized mixing."
+      ],
+      "reasoning": "Sun et al. establish concavity, semidefinite optimization and continuous-time graph rates, but do not state the values \\(\\tau_1=s(r+1)/[r(s-1)]\\) and \\(\\tau_2=2s/(s-1)\\) or the counterintuitive phase deleting cheaper B-internal edges first. Their framework motivates rather than states this classification. Boyd et al. establish symmetry averaging in discrete time; these general techniques are credited. Shakeri et al. vary cross-layer links but keep the within-layer weights fixed, a distinct feasible set and different target. The retrieved published graph-invariant records neither state nor logically imply this Laplacian rate-allocation theorem.",
+      "searches": [
+        "Algebraic connectivity fastest mixing optimal edge weights complete graph K_n with one exceptional expensive edge price budget deleting the edge threshold n+1 equality nonuniqueness",
+        "Complete graph K_n with a priced clique subgraph: optimize algebraic connectivity, semidefinite fastest mixing Markov process, two phase transitions uniform cross edges and deletion",
+        "Two-block weighted complete graph optimizing spectral gap with three edge orbits intra group and inter group under budget",
+        "Optimal continuous-time fastest mixing on complete graph with two vertex blocks and different within block edge prices; exact cost minimization and spectral gap thresholds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "J. Sun, S. Boyd, L. Xiao, P. Diaconis, The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem, SIAM Review 48 (2006), 681–699, doi:10.1137/S0036144504443821.",
+        "S. Boyd, P. Diaconis, P. A. Parrilo, L. Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries, arxiv:0709.0955.",
+        "Continuous-time rate allocation concerns maximizing λ2 of a combinatorial Laplacian; discrete-time fastest mixing minimizes SLEM and is a different objective."
+      ],
+      "reasoning": "The claim has been compared with its semidefinite-program, continuous-time fastest-mixing, Fiedler-value, and two-community network formulations. The general semidefinite objective in Sun et al. permits numerical solution but does not give the derived piecewise linear edge-deletion phase diagram. Boyd et al. supply symmetry principles for a different discrete-time objective, not the asserted two-price exact thresholds. A negative title search would not establish priority.",
+      "searches": [
+        "Algebraic connectivity fastest mixing optimal edge weights complete graph K_n with one exceptional expensive edge price budget deleting the edge threshold n+1 equality nonuniqueness",
+        "Optimal algebraic connectivity of complete graph with edge price, graph design spectral gap weighted Laplacian",
+        "Complete graph K_n with a priced clique subgraph: optimize algebraic connectivity, semidefinite fastest mixing Markov process, two phase transitions uniform cross edges and deletion",
+        "Algebraic connectivity λ2 priced internal clique edges K_(s+r) edge deletion maximizing weighted Laplacian second eigenvalue"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/19/SCOPE-klx-complete-and-complete-bipartite-graphs--b27f97da8029: KLX parameters on complete/bipartite graphs, not conductance-optimized Laplacian λ2.",
+        "2026/9/19/SCOPE-clique-partitions-joined-unequal-cluster-graphs--07df8435d587: clique partition numbers of joined complete clusters, not optimized mixing.",
+        "2026/9/18/SCOPE-spectral-booksize-equality-balanced-multipartite--75d8398c42c7: adjacency spectral booksize equality, not rate-budgeted Laplacian optimization.",
+        "J. Sun, S. Boyd, L. Xiao, P. Diaconis, The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem, SIAM Review 48 (2006), 681–699, doi:10.1137/S0036144504443821."
+      ],
+      "reasoning": "Semantic searches returned graph-invariant classifications, booksize bounds, and general spectral optimization, but no exact database or table of the optimal three edge-orbit rates and thresholds for this priced complete graph. Graph-specific experimental tables would also need to imply the uniform all-integer all-price theorem to dominate the statement. Failure to locate an exact table does not prove nonexistence.",
+      "searches": [
+        "Complete graph K_n with a priced clique subgraph: optimize algebraic connectivity, semidefinite fastest mixing Markov process, two phase transitions uniform cross edges and deletion",
+        "Optimal continuous-time fastest mixing on complete graph with two vertex blocks and different within block edge prices; exact cost minimization and spectral gap thresholds",
+        "Algebraic connectivity λ2 priced internal clique edges K_(s+r) edge deletion maximizing weighted Laplacian second eigenvalue"
+      ]
+    },
+    "rationale": "Primary full-text literature supports the general fastest-mixing SDP and symmetry reduction but no explicit two-price three-orbit complete-graph threshold classification was identified. This claim is strictly the closed-form all-size, all-price phase diagram and its cheaper-edge-deletion intermediate regime, not novelty of \\(\\lambda_2\\) optimization, rate budgeting, SDPs, or group averaging. The search is not a proof of historical priority; residual specialized-literature risk is recorded.",
+    "residual_risks": [
+      "An earlier article or monograph might encode the same three-orbit phase diagram through a general exact weighted-complete-graph theorem; text searches and the three inspected primary papers cannot rule that out.",
+      "The known general semidefinite framework can derive the theorem by the elementary reduction shown here; originality is for the explicit complete classification, not methodological foundations.",
+      "Publication priority for preprint versions of the 2006 paper earlier than the first day-verified public date 2006-11-02 could not be independently resolved; this does not affect archive cohort membership."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General optimization framework and geometry are antecedents, but the inspected examples do not provide the 3-orbit priced complete graph phase formulas.",
+        "evidence": [
+          "DOI 10.1137/S0036144504443821; first page dated 2006-11-02",
+          "Sections on general semidefinite formulation, path and cycle examples; no priced-clique classification among inspected examples."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Primary 19-page PDF obtained and text examined in its mathematical formulation, introduction, example sections (small graph, paths, cycles), and bibliographic reference portions. Relevant figures and initial pages were visually inspected; the claim does not rest on an assertion that every page was individually read.",
+        "method": "Primary full-text page inspection and text searches for complete graphs, priced cliques, edge costs, and symmetry.",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Direct antecedent using continuous-time rate budgets and algebraic connectivity."
+      },
+      {
+        "assessment": "Proves broad symmetry method for discrete-time SLEM. Does not state the present continuously priced three edge class spectral-gap phase thresholds.",
+        "evidence": [
+          "arxiv:0709.0955v1 dated 2007-09-06; discrete-time SLEM objective",
+          "Symmetry-reduced examples concern different topology and cost objectives."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "Public 39-page preprint obtained and examined in its definitions, symmetry theorems, graph examples including complete bipartite and two-cliques-with-bridge, and related sections. Text search was conducted; not every page was individually scrutinized.",
+        "method": "Primary preprint full-text inspection of definitions, symmetry theorems, applications and examples.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Plausible domination by orbit averaging and eigenvalue block diagonalization on graphs with symmetries."
+      },
+      {
+        "assessment": "Optimizes limited interlayer couplings between fixed preweighted layers; cannot specialize to co-optimized clique and all-to-all cross rates.",
+        "evidence": [
+          "arxiv:1510.06785v1 dated 2015-10-22",
+          "Internal layer weights fixed in paper; present feasible set co-optimizes all edge classes."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1510.06785",
+        "material_read": "Public six-page arXiv preprint obtained and all substantive model, theorem, example and conclusion sections examined.",
+        "method": "Primary open-access full-text inspection, with particular attention to fixed internal Laplacians and which edges can vary.",
+        "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+        "trigger": "Two-layer network spectral allocation might contain broader algebraic-connectivity transition result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d170c56-ba91-4583-84b8-9eab30ba84aa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural all-to-all two-population diffusion design has an exact and globally optimal topology/rate allocation for all \\(s,r\\ge2\\) and \\(t>0\\). The distinct two-threshold regime when the costly group is larger proves a non-obvious design phenomenon: expensive internal links remain positive when every cheaper internal link in the other group is dropped. The exact optimal gap and two threshold formulas replace repeated SDP solving and explain comparative-static structure; it is not a random finite slice or textbook restatement.",
+    "status": "PASS"
+  }
+}
