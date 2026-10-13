@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "In a proper rook coloring, each row and column contains every used color at most once. At a cell, every color other than the cell color therefore appears zero, one, or two times in the open neighborhood according as it lies in neither, exactly one, or both of the row and column color sets; the cell color appears zero times. Thus the odd condition is exactly inequality of those two sets. The unbalanced cyclic construction gives the clique lower bound exactly. In the balanced case, n colors make all row and column sets equal, and with n+1 colors the row-missing and column-missing counts agree for each color, forcing an equal missing color on some row-column pair. The explicit n+2 construction separates distance-two row-missing pairs from consecutive column-missing pairs. Direct computation agrees in all checked cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu--Dou--Yang explicitly treat products of paths and cycles and later \\(K_m\\square P_n\\) and \\(K_m\\square C_n\\); the inspected complete-graph section and conclusion do not state \\(K_m\\square K_n\\).",
+        "Dujmović--Morin--Odak obtain broad bounded odd-coloring results through strong-product structure, not the exact rook-graph value."
+      ],
+      "reasoning": "The recent exact-product paper is highly relevant and leaves the complete-by-complete family outside its stated results. The broader structural product paper supplies bounds rather than an exact value that would subsume the claim.",
+      "searches": [
+        "Full-text inspection of Liu--Dou--Yang, DOI 10.3934/math.2026056, including the introduction, stated Cartesian-product theorems, Section 5, Corollary 5.2, and conclusion",
+        "Full-text inspection of Dujmović--Morin--Odak, arXiv:2202.12882v1, for exact Cartesian-product coverage and strong-product bounds"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026056",
+      "arXiv:2202.12882v1",
+      "doi:10.1016/j.dam.2022.07.018",
+      "published-finding corpus:2026/9/30/SCOPE-exact-odd-chromatic-number-and-optimal-coloring-count-for-comple--2f4a2e65a3d2",
+      "published-finding corpus:2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 Cartesian-product paper gives exact values for \\(K_m\\square P_n\\) and \\(K_m\\square C_n\\), not for a second complete factor.",
+        "The graph-product bounds do not force the exact values \\(n\\) and \\(n+2\\).",
+        "The complete-multipartite result does not apply because rook graphs contain intersecting row and column cliques rather than independent multipartite parts."
+      ],
+      "reasoning": "None of the compared statements implies the balanced n+2 lower bound or the unbalanced exact n-color formula. The decisive new ingredient is the equality test between incident row and column color sets in the proper edge-coloring representation.",
+      "searches": [
+        "Statement comparison with Liu--Dou--Yang, DOI 10.3934/math.2026056",
+        "Statement comparison with Dujmović--Morin--Odak, arXiv:2202.12882v1",
+        "Statement comparison with published-result id 2026/9/30/SCOPE-exact-odd-chromatic-number-and-optimal-coloring-count-for-comple--2f4a2e65a3d2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No searched record stated an exact ordinary odd-coloring formula for rook graphs or for \\(L(K_{m,n})\\).",
+        "The nearest published-result hit was the complete-multipartite odd-coloring theorem, which applies to a different family."
+      ],
+      "reasoning": "The searches cover the standard graph aliases and both odd-coloring and neighborhood-parity terminology. A complete multipartite formula cannot be transferred because \\(K_m\\square K_n\\) is generally not complete multipartite.",
+      "searches": [
+        "Published-result database search: odd chromatic number rook graph K_m Cartesian product K_n exact n plus 2",
+        "Published-result database search: ordinary odd coloring line graph complete bipartite L(K_m,n) rook graph",
+        "Published-result database search: odd chromatic number line graph K_{m,n} rook graph exact",
+        "Literature search: \"odd coloring\" rook graph",
+        "Literature search: \"odd chromatic number\" \"K_m\" \"K_n\" Cartesian product"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest result id 2026/9/30/SCOPE-exact-odd-chromatic-number-and-optimal-coloring-count-for-comple--2f4a2e65a3d2 gives the exact invariant on complete multipartite graphs, not rook graphs.",
+        "No searched database entry returned a rook-graph odd-coloring table or formula."
+      ],
+      "reasoning": "The closest exact odd-coloring record has the same invariant but not a containing graph class, so its theorem neither gives nor dominates the rook result.",
+      "searches": [
+        "Published-result database search: Cartesian product complete graphs odd coloring K_n square K_n n+2",
+        "Published-result database search: neighborhood parity coloring rook graph Cartesian complete graphs",
+        "Published-result database search: odd coloring line graph complete bipartite K_mn rook graph row column missing colors"
+      ]
+    },
+    "rationale": "The closest primary paper on exact odd coloring of Cartesian products treats path-cycle products and complete-by-path or complete-by-cycle products, but its inspected full text does not state the complete-by-complete rook case. Searches also used the aliases rook graph, line graph of a complete bipartite graph, and neighborhood-parity coloring. No equivalent exact formula was located. The closest published-result record concerns complete multipartite graphs, which is a different graph class and does not imply the row-column obstruction.",
+    "residual_risks": [
+      "Rook graphs can be indexed as \\(L(K_{m,n})\\), two-dimensional Hamming graphs, or Latin-rectangle graphs, so a poorly indexed equivalent result could escape keyword searches.",
+      "The exact Cartesian-product literature is active in 2026, so concurrent work may not yet be indexed.",
+      "Literature and database searches cannot prove absolute novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Highly relevant but not covering: the stated complete-factor results pair a complete graph with a path or cycle, not another complete graph.",
+        "evidence": "Published 2026-01-16; MSC 05C15, 05C10. Corollary 5.2 gives exact values for \\(K_m\\square P_n\\) and \\(K_m\\square C_n\\); the conclusion lists those families and does not include \\(K_m\\square K_n\\).",
+        "identifier_or_url": "doi:10.3934/math.2026056",
+        "material_read": "Journal PDF metadata and abstract; introductory theorem list; Section 5 result for complete graph with path/cycle; conclusion. PDF page images for the opening and theorem-list pages were also visually inspected.",
+        "method": "Primary full-text and page-image inspection with exact-term searches for complete-by-complete, rook, and line-graph coverage.",
+        "title": "The odd coloring of some Cartesian product graphs",
+        "trigger": "Recent primary source on the same invariant and same graph operation, with primary MSC 05C15."
+      },
+      {
+        "assessment": "Provides bounded odd-coloring results for graphs represented inside strong products but no exact rook-graph formula.",
+        "evidence": "The principal results bound odd chromatic numbers through strong-product decompositions involving paths and complete factors; they do not identify the exact balanced rook obstruction.",
+        "identifier_or_url": "arXiv:2202.12882v1",
+        "material_read": "Abstract, main product-structure theorems, and exact-scope statements in the accessible full text.",
+        "method": "Theorem-level implication comparison.",
+        "title": "Odd Colourings of Graph Products",
+        "trigger": "Broader primary source on odd coloring and graph products that could potentially dominate a special Cartesian-product result."
+      },
+      {
+        "assessment": "Defines the same neighborhood-parity coloring notion but does not supply a covering rook-graph theorem in the searched record.",
+        "evidence": "The paper is the foundational reference for proper colorings requiring an odd-multiplicity color in every non-isolated open neighborhood.",
+        "identifier_or_url": "doi:10.1016/j.dam.2022.07.018",
+        "material_read": "Abstract and invariant definition from indexed bibliographic material.",
+        "method": "Definition and terminology comparison.",
+        "title": "Colorings with neighborhood parity condition",
+        "trigger": "Foundational source for the ordinary odd-coloring invariant and terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4827bdd1-e654-4f41-a4b3-d4484b2d8a40",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem exactly resolves a canonical missing Cartesian-product family in a recently active coloring invariant. It exhibits a sharp structural phase change: every rectangular rook graph with unequal sides attains the clique lower bound, while the balanced family incurs an unavoidable two-color parity surcharge. The row-column set criterion is a reusable structural lemma linking odd vertex colorings of rook graphs to proper edge-coloring incidence data, and the proof gives explicit optimal constructions.",
+    "status": "PASS"
+  }
+}
