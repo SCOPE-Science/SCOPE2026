@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The exact infection-free vaccination-age distribution is obtained by characteristics, including its support y<=x and its normalization to p(x). Linearizing the original host and mosquito equations and integrating infected vaccination age cancels the transfer flux, leaving a positive scalar characteristic kernel. The modulus bound excludes all modes with nonnegative real growth when K<1; monotonicity of the real characteristic function yields a growing eigenmode when K>1. Stationary demographic renewal is checked exactly. The explicit piecewise-positive exposure rate leads to elementary closed forms for K(0), K(1), and the K(infinity) limit, whose sharp inequalities follow from exact Fraction-based rational intervals for exp(-1) (standalone verify.py, output VERIFY_OK). The infinite-dimensional conclusion comes from the displayed analytical proof, not finite computations. The result claims two distinct threshold crossings, not exactly two nor nonlinear endemic stability.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Webb, Numerical Algebra Control Optim., DOI 10.3934/naco.2025013 (early access 2025): infection-age and vaccination-age reproduction numbers, but full text inaccessible and no claim of exclusion beyond inspected abstract and figures.",
+        "Webb and Zhao, Infectious Disease Reports 16 (2024), DOI 10.3390/idr16010004: vaccination-age efficacy and numerical incidence effects; an accessible search excerpt reports reduced infections when uptake doubles in the empirical scenario.",
+        "Rouderfer et al., DOI 10.1016/0025-5564(94)90024-8: optimizing timing rather than the precise re-entrant hazard construction."
+      ],
+      "reasoning": "General next-generation and age-specific vaccination theories can express a control reproduction number; that formalism alone does not state this exact sharp counterexample. A known general theorem specifically ruling out or ensuring multiple hazard-rate threshold crossings for the same chronological-age/waning-efficacy host-vector structure would dominate the result, but no such theorem was identified in the accessible inspected sources. The inaccessible Webb paper is an explicitly recorded coverage risk.",
+      "searches": [
+        "waning vaccine efficacy age at vaccination birth vaccination rate nonmonotone basic reproduction number vaccination increasing transmission epidemic model",
+        "vaccination rate non-monotonic reproduction number waning vaccine age structured vaccination faster causes increased infection",
+        "\"vaccination rate\" \"non-monotonic\" \"waning\" \"reproduction number\"",
+        "\"Basic reproduction numbers for infection and vaccination age epidemic models\" Glenn F Webb"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.21150v1 and complete HTML v2",
+      "doi:10.3934/naco.2025013 (abstract and bibliographic material only)",
+      "doi:10.3390/idr16010004 (indexed excerpts only)",
+      "doi:10.1016/0025-5564(94)90024-8 (abstract only)",
+      "PMC5643245 (indexed excerpt only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Banerjee et al. eq. (29): replaced integral against time-since-vaccination efficacy with constant efficacy 1-Omega_b; Theorem 1 proves uniqueness for resulting model.",
+        "The present proof retains Omega(y)=exp(-y) and obtains protection P_nu(x)=nu(exp(-x)-exp(-nu*x))/(nu-1), yielding K(0)>1>K(1) and K(infinity)>1.",
+        "Webb and Zhao 2024 numerical results concern calendar-time vaccination rates and cases, not the fixed-demography two-sided invasion threshold."
+      ],
+      "reasoning": "The constant-efficacy reduction has a different infection linearization: it cannot reproduce the time-since-dose convolution that causes re-entrance. An existence/uniqueness theorem for a fixed vaccination rate does not imply monotonicity or the two crossing statement as the vaccination rate varies. The qualitative fact that waning impacts vaccination age does not imply the exact full-vector positive-age-exposure construction.",
+      "searches": [
+        "\"Basic reproduction numbers for infection and vaccination age epidemic models\" Glenn F Webb",
+        "\"Age-Structured Epidemic Model under Vaccination with Vector Transmission\" Banerjee Gotz Panda 2602.21150",
+        "vaccination rate faster early vaccination more waning late-age exposure increases invasion threshold two crossings vector host"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Banerjee, Götz, Panda arXiv:2602.21150v2, full text equations (3)-(8), (27), (29), (31), Theorem 1: the averaged-efficacy reduction removes explicit vaccination-age protection from its fixed-point theorem.",
+        "Rouderfer, Becker, Hethcote, Math. Biosci. 124 (1994): age-specific vaccination timing and waning are established considerations."
+      ],
+      "reasoning": "Equivalent labels include loss of vaccination protection, age-at-dose dependence, timing-induced resurgence, and nonmonotone vaccine coverage response. The present mathematical statement requires strictly positive chronological-age exposure, a single-dose hazard varied globally, and the full mosquito/host infection eigenvalue threshold. Classical optimal vaccination age comparisons do not by themselves imply the two specific threshold crossings at fixed parameters.",
+      "searches": [
+        "\"Age-Structured Epidemic Model under Vaccination with Vector Transmission\" Banerjee Gotz Panda 2602.21150",
+        "age structured vector host dengue SISUV time since vaccination exponential waning vaccine efficacy reentrant reproduction number nonmonotone vaccination rate",
+        "vaccination rate faster early vaccination more waning late-age exposure increases invasion threshold two crossings vector host"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2602.21150v2 provides numerical age profiles for two averaged efficacy parameters, but no table of the three exact invasion multipliers at varied vaccination hazard.",
+        "The explicit rational-exponential exact example and inequalities are derived and verified in RESULT.md/verify.py."
+      ],
+      "reasoning": "The claim is a theorem for a fully specified continuous-age transmission system, not an encyclopedia entry or the recomputation of a published numeric table. Database-search silence is not itself evidence of originality.",
+      "searches": [
+        "\"Age-Structured Epidemic Model under Vaccination with Vector Transmission\" Banerjee Gotz Panda 2602.21150",
+        "age targeted dengue transmission vaccinated ageing exponentially waning vaccine one dose invasion nonmonotonic uptake",
+        "two age structured immunity vaccine waning one dose vaccination hazard optimal interior frequency reproduction number"
+      ]
+    },
+    "rationale": "The complete 2026 motivating preprint was inspected: it replaces variable vaccination-age efficacy with a constant averaged coefficient before analyzing an endemic fixed point, whereas the present claim derives the original unaveraged full-system infection threshold and a two-sided vaccination-rate invasion counterexample. Literature on waning immunity, vaccine-age reproductive numbers, and optimal vaccination schedules is acknowledged as antecedent. The particular full vector-host chronological-age example with strictly positive age exposure and exact re-entrant invasion intervals was not found in the accessible material. This is not a claim that vaccination timing effects are generally new. Restricted full texts and unindexed literature are residual risks, and no query is treated as a novelty certificate.",
+    "residual_risks": [
+      "The 2025 Webb general reproduction-number article was not available in full text under the lawful access routes checked. A stronger theorem could potentially overlap.",
+      "The older 1994 vaccination-age optimization paper and 2017 age-structured vaccine-impact analysis were not inspectable in full; precise theorem comparisons are limited.",
+      "Unindexed or inaccessible mathematical epidemiology work could contain an equivalent counterexample; semantic searches and separate model contexts do not constitute a proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Full original dual-age equations retain Omega(y); later endemic theorem assumes a constant averaged efficacy Omega_b. No two-sided vaccination-rate invasion threshold for the original equations appears in the inspected complete text.",
+        "evidence": [
+          "arXiv:2602.21150v2, sections 2-4; original first public version dated 2026-02-24."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.21150",
+        "material_read": "Full accessible HTML text: abstract, sections 1-7, equations (3)-(8), (24)-(31), (33)-(44), proof of Theorem 1 and numerical section.",
+        "method": "Direct inspection of the lawful arXiv full-text HTML.",
+        "title": "Age-Structured Epidemic Model under Vaccination with Vector Transmission",
+        "trigger": "Primary 2026 motivating equations and closest claimed endemic threshold result."
+      },
+      {
+        "assessment": "Related general framework, but exact theorem-by-theorem comparison unavailable; potential overlap is explicitly residual rather than asserted away.",
+        "evidence": [
+          "DOI 10.3934/naco.2025013, early access 2025-04-30, primary MSC 92C60, vaccination-age R0 analysis."
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/naco.2025013",
+        "material_read": "Abstract, publication and classification metadata, figure captions and bibliographic references; not the full theorem text.",
+        "method": "Published HTML metadata/abstract and independent online bibliographic material. Public preprint and lawful open-access full-text attempts unsuccessful; full article text remained inaccessible.",
+        "title": "Basic reproduction numbers for infection and vaccination age epidemic models",
+        "trigger": "Plausible stronger general vaccination-age reproduction-number coverage; published primary MSC 92C60."
+      },
+      {
+        "assessment": "Documents waning efficacy and empirical vaccination-rate comparisons, not the specific chronological-age host-vector re-entrant threshold established here.",
+        "evidence": [
+          "DOI 10.3390/idr16010004, first published 2024-01-10; comparison of half- and double-rate time-varying vaccination scenarios."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/idr16010004",
+        "material_read": "Accessible indexed article abstract, introduction, case-study vaccination-rate description and conclusions excerpt; full page subsequently rate limited.",
+        "method": "Publisher article text surfaced in public search index; full webpage request yielded access limitation.",
+        "title": "An Epidemic Model with Infection Age and Vaccination Age Structure",
+        "trigger": "Predecessor on vaccination-age efficacy and sensitivity to vaccination rate."
+      },
+      {
+        "assessment": "Earlier study shows optimal vaccination timing depends on waning; this broad phenomenon is prior, and the new claim is limited to a different exact full vector-host threshold example.",
+        "evidence": [
+          "PMID 7827424, 1994 abstract explicitly discusses optimal vaccination age and waning protection."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0025-5564(94)90024-8",
+        "material_read": "Abstract and bibliographic metadata, not the entire article.",
+        "method": "PubMed abstract and bibliographic indexing.",
+        "title": "Waning immunity and its effects on vaccination schedules",
+        "trigger": "Potential established superiority of intermediate vaccination ages when immunity wanes."
+      },
+      {
+        "assessment": "Acknowledged age-specific vaccine-impact antecedent; not represented as a complete negative coverage check.",
+        "evidence": [
+          "PMC5643245 indexed excerpt reports waning, vaccine impact and age-specific contact-rate importance."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5643245/",
+        "material_read": "Search-index excerpt about age-structured reproduction-number effects; complete article could not be reopened because of an access challenge.",
+        "method": "Indexed public excerpt; full webpage access challenged.",
+        "title": "Vaccine impact in homogeneous and age-structured models",
+        "trigger": "Age-specific exposure and waning vaccine protection may dominate basic qualitative effect."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "52f5b654-a7c6-4635-9c1b-59f2e3b57834",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result is not a generic positivity or normalization check. It constructs an exact counterexample to monotone epidemic-invasion control by speeding a one-dose vaccination hazard when efficacy wanes and risk is concentrated after the dose has aged. The problem is motivated by the original 2026 dual-age vaccine-age PDE, whose reported averaged-efficacy reduction deletes this timing mechanism. It gives explicit sharp above/below-one thresholds for biologically meaningful strictly positive age exposure and indicates when vaccine boosters, timing and age-specific force of infection cannot be ignored. The theorem has a complete self-contained analytical proof and rigorous rational numeric enclosures, without requiring claims of global nonlinear elimination.",
+    "status": "PASS"
+  }
+}
