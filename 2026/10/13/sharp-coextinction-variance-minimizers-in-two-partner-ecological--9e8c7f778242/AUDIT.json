@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For every multigraph, unordered pairs of indicator events split exhaustively into union sizes four, three, two. Their numbers are C(m,2)-W+D, W-2D and D, giving the exact covariance expansion. Fixed-size coefficients are probabilities of two-three specified losses and the remaining survivors and have exactly the stated strictness ranges. Discrete convexity and a terminating simple-graph edge shift yield achievable W*=minimum with D=0 while maintaining nonisolated primaries, and positive coefficients characterize all equality cases. Independent losses substitute q^j. Exact-rational checker verified 7,132 finite multigraph profiles, all sampled survivor configurations and sample q values, but unrestricted proof does not rely on those computations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Burgos et al., arXiv:q-bio/0609005, Section 3 and Discussion, optimize or compare average attack-tolerance/robustness under different primary-removal orders, with no conditional coextinction variance characterization.",
+        "Chabert-Liddell et al., arXiv:2106.06348, Proposition 4(3), minimize the across-random-network variance for block-model parameters using the Erdos-Renyi case, not a fixed binary incidence network and not its extinction-stage variance.",
+        "Jones et al., doi:10.1002/ecm.1601, analytic methods and degree-variance discussion establish mean robustness improvement from balanced secondary degrees; all candidate secondary degrees here are fixed at two."
+      ],
+      "reasoning": "Potentially broader nestedness, robustness and graph-variance results were compared at the level of random variables, optimization domains, conditions and conclusions. Balancing secondary partner counts is a different constraint from balancing the distribution of the number of secondary species depending on each primary partner. The inspected statements do not dominate the complete theorem, though a more general unindexed induced-edge variance theorem is an explicit residual risk.",
+      "searches": [
+        "variance sampled edge count induced subgraph hypergeometric near regular simple graph and multigraph parallel edges exact optimizer",
+        "Induced edge count variance almost regular graph minimizes conditional vertex percolation fixed size h",
+        "nestedness maximizes variance species extinction bipartite networks fixed degree ecological random primary extinction"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1098/rspb.2004.2909 — all-partners-lost ecological model, random deletion",
+      "arxiv:q-bio/0609005 — nestedness and attack-tolerance expectation",
+      "arxiv:2106.06348 — stochastic-block-ensemble moments, Proposition 3 and Proposition 4",
+      "doi:10.1002/ecm.1601 — expected ecological network robustness and degree balancing",
+      "Research literature searches on variance of random-induced-edge counts, duplicated partner pairs, degree balancing, network nestedness and robustness extrema"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Memmott, Waser and Price (2004) use random without-replacement deletion and require loss of all interaction partners, but report average network robustness rather than a sharp minimum of variance at fixed n and m.",
+        "Burgos et al. (2006) treat average robustness and nested assembly; the key uncertainty objective differs.",
+        "Chabert-Liddell et al. (2021), Proposition 3(1-2) and Proposition 4(3), treat randomized-network ensembles and an aggregate robustness statistic, distinct from the fixed-network conditional secondary-extinction count.",
+        "Jones, Zurell and Wiesner (2024) optimize expected persistence over secondary degree allocation; the present theorem holds the secondary degrees identically two and all expectations equal."
+      ],
+      "reasoning": "The previous contributions establish and analyze related extinction models but cannot alone imply the new all-parameter variance formula and complete minimum/equality classification. The new claim reduces to a multigraph induced-edge covariance extremum, so stronger classical graph extrema remain the most serious potential overlap; the literature search did not locate a decisive dominating statement.",
+      "searches": [
+        "secondary extinction variance bipartite network all species degree two balanced degree pairs robustness",
+        "graph minimizing variance induced edge count random subset fixed edges regular",
+        "coextinction secondary extinction covariance two common partners variance network"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same random variable is the number of induced multigraph edges on a uniformly chosen primary-loss subset; for common iid risk, it is an induced-edge count under vertex percolation.",
+        "Chabert-Liddell et al., arXiv:2106.06348, Proposition 3, gives variance across stochastic-block-network realizations of an aggregate robustness statistic, not this fixed-incidence secondary-loss count.",
+        "Memmott et al., doi:10.1098/rspb.2004.2909, Materials and Methods/Results, model all-partners-lost extinction trajectories, rather than extremize their variance."
+      ],
+      "reasoning": "The induced-edge-count reformulation is mathematically exact, so potential prior graph-theoretic coverage was searched alongside ecology. Generic edge-indicator covariance formulas or near-regular degree inequalities alone do not, without an additional implication, state the joint sharp optimum, duplicate-edge correction, and the exact h-dependent equality classes. Neither reviewed ecological variance theorem gives this conditional-on-a-fixed-incidence-graph statement.",
+      "searches": [
+        "secondary extinction variance bipartite network all species degree two balanced degree pairs robustness",
+        "coextinction variance nestedness network nested maximizes uncertainty nestedness covariance",
+        "variance secondary extinctions degree distribution ecological network binary matrix pair overlap minimum regular",
+        "variance number of edges randomly chosen vertex subset fixed edges regular"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant prior primary works are analytic articles rather than exhaustive databases of degree-two ecological network variance minima.",
+        "The finite profile n=4, three-secondary-taxa case has been compared separately; its variance values are only a finite special case, not an n-parameter classification.",
+        "Exact rational enumerations supporting the stated theorem were regenerated with verify_degree_two_extinction.py for n=4,5,6 and selected m; they were not represented as an exhaustive classification for arbitrary n."
+      ],
+      "reasoning": "No exact table in the inspected publications was found that implied the universal minimum or its endpoint equality classes. Small finite precedent does not imply the unrestricted theorem. The possibility of unpublished or unindexed specialized tables cannot be excluded.",
+      "searches": [
+        "fixed two-interaction species network robustness variance degree-balanced graph no shared partner pairs independent primary extinction",
+        "variance secondary extinctions degree distribution ecological network binary matrix pair overlap minimum regular",
+        "minimum edge count variance induced subgraphs degree sequence exact table"
+      ]
+    },
+    "rationale": "Primary full texts establish the basic coextinction model, nested-network attack tolerance, stochastic-block-ensemble robustness variance, and optimization of mean robustness, but the inspected hypotheses and conclusions do not cover the fixed-incidence two-partner model's universal variance minimum, duplicate-neighborhood correction, or exact boundary equality classes. Result searches for random induced-edge count extrema and equivalent graph formulations revealed no decisive covering statement. A general unindexed induced-edge variance theorem is a material residual risk.",
+    "residual_risks": [
+      "An earlier graph-theoretic sampled-induced-edge variance minimization result may be unindexed or use unexpected terminology; if it supplies the same equality classes, originality would need reassessment.",
+      "The graph-theoretic convexity argument is short; the mathematical value claimed is the ecologically motivated complete simultaneous optimizer and endpoint classification, not invention of covariance algebra.",
+      "Literature searches do not access every published source or unpublished result, and the partition itself cannot establish global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MODEL_RELEVANT_NOT_COVERING_VARIANCE_MINIMUM",
+        "evidence": "Published online 6 December 2004 (page 1); random deletion without replacement repeated 300 times and loss of every pollinator causes secondary plant extinction (pages 2-3); reports trajectories rather than the variance optimizer.",
+        "identifier_or_url": "https://www.bio.bris.ac.uk/research/community/article_PDF/Memmottetal2004.pdf",
+        "material_read": "Original seven-page open PDF: publication banner, abstract, Materials and Methods random and targeted deletions, main figures and Results/Discussion including network degree structure.",
+        "method": "Direct full-PDF text reading and figure-page inspection.",
+        "title": "Tolerance of pollination networks to species extinctions",
+        "trigger": "Earliest public source of the all-original-partners-lost ecological extinction model and random primary-species deletion."
+      },
+      {
+        "assessment": "EXPECTED_ROBUSTNESS_OBJECTIVE_NOT_VARIANCE_MINIMUM",
+        "evidence": "Section 3 derives expected attack-tolerance and robustness curves for nested assemblies; Discussion makes conditional robustness comparisons based on primary-removal order, not variance under uniform stage sampling.",
+        "identifier_or_url": "https://arxiv.org/pdf/q-bio/0609005",
+        "material_read": "Open 14-page manuscript: assembly model definition, analytic Section 3 for nested network extinction curves, figures, Discussion and Conclusions.",
+        "method": "Direct open-preprint PDF reading and page inspection.",
+        "title": "Why Nestedness in Mutualistic Networks?",
+        "trigger": "Plausible more-general network-architecture extremal statement involving nestedness and extinction robustness."
+      },
+      {
+        "assessment": "DISTINCT_RANDOM_VARIABLE_AND_PARAMETER_DOMAIN",
+        "evidence": "Proposition 3, pages 12-13, states variance over A~biSBM network realizations; the paper explicitly distinguishes additional variability over extinction orders. Proposition 4(3), pages 15-17, takes an Erdos-Renyi minimum within density-fixed block-model parameters, not the minimum among fixed n-primary,m-secondary,degree-two incidence networks.",
+        "identifier_or_url": "https://arxiv.org/pdf/2106.06348",
+        "material_read": "Open 35-page arXiv full text: Section 2 fixed-vs-random model definitions, Section 3 extinction sequence distributions, Section 4 Proposition 3 and Remark 3, Section 5 Proposition 4 and its Jensen proof, and supplementary calculations.",
+        "method": "Direct original arXiv full-PDF text reading, targeted proposition searches and figure-page inspection.",
+        "title": "Impact of the mesoscale structure of a bipartite ecological interaction network on its robustness through a probabilistic modeling",
+        "trigger": "Highly relevant article explicitly containing a robustness variance theorem and an extremum."
+      },
+      {
+        "assessment": "MEAN_OBJECTIVE_NOT_THIS_VARIANCE_CLASSIFICATION",
+        "evidence": "The article derives expected secondary losses and the mean-robustness advantage of balanced secondary-species degrees, whereas all such degrees are exactly two and the mean is network-independent here.",
+        "identifier_or_url": "https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecm.1601",
+        "material_read": "Author-hosted publisher open HTML: modeling assumptions, analytic expected-extinction formulas, effects of degree variation and optimization results, and Discussion.",
+        "method": "Read lawful open full article in HTML and compared objective function and adjustable degree dimension.",
+        "title": "Novel analytic methods for predicting extinctions in ecological networks",
+        "trigger": "Recent analytic framework optimizing robustness via species-specialization distributions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9e8c7f77-8242-4efb-a170-0b8952e821f4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At given n,m and loss level every allowed interaction network has exactly the same mean number of secondary extinctions, so variance is a natural independent uncertainty measure. The theorem gives a global and simultaneously sharp minimum under both natural extinction sampling regimes, splits preventable uncertainty into primary degree heterogeneity and duplicated partner-neighborhood components, and completely classifies interior and boundary equality cases. A connected six-primary example yields a variance ratio of 26/15 at q=1/2 with identical mean; useful as a quantitative null benchmark for comparing two-partner ecological networks. Results do not purport to predict real ecological rescue dynamics.",
+    "status": "PASS"
+  }
+}
