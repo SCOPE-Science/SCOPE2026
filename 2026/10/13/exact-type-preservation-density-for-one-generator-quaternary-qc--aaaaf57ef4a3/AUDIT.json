@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The source proves that type preservation is equivalent to having at least one unit multiplier in every active CRT component. Each degree-\\(d_i\\) component has \\(4^{d_i}\\) elements and exactly \\(2^{d_i}\\) nonunits. Thus an active component has \\(4^{\\ell d_i}-2^{\\ell d_i}\\) successful ordered local tuples, while an inactive component is unrestricted. CRT independence gives the product formula. The joint-coprimality count is the same product over all factors. Exhaustive enumeration of every multiplier tuple for the source's \\(m=3\\) examples at \\(\\ell=1,2,3\\) verifies all formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cao's Galois-ring work enumerates GQC code submodules through CRT components.",
+        "Cao's finite-chain-ring work enumerates distinct one-generator QC codes with a fixed parity-check polynomial.",
+        "Those code enumerations identify submodules rather than ordered multiplier tuples; distinct tuples in the present count may generate the same code."
+      ],
+      "reasoning": "The enumeration object is materially different. The accepted theorem is a representation/search-space count conditional on a fixed cyclic seed and its active set, not an enumeration of distinct QC codes.",
+      "searches": [
+        "Generalized quasi-cyclic codes over Galois rings structural properties enumeration Cao",
+        "1-generator quasi-cyclic codes over finite chain rings enumeration fixed parity check polynomial",
+        "quasi-cyclic Z4 multiplier tuple enumeration fixed seed"
+      ]
+    },
+    "checked_sources": [
+      "Aydin--Tyagi, arXiv:2609.21601v1, public full text",
+      "Cao, DOI 10.1007/s00200-011-0145-5, public abstract/metadata",
+      "Cao, DOI 10.1007/s00200-012-0182-8, public abstract/metadata",
+      "Published-research searches for exact type-preserving multiplier counts and active-factor probability laws",
+      "Current and completed-prior owned ledgers for source and claim overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.1 gives the per-active-factor unit condition.",
+        "Remark 2.4 gives the exact sizes \\(4^{d_i}\\) and \\(2^{d_i}\\) of a local ring and its maximal ideal.",
+        "Theorem 3.2 imposes the analogous condition at every factor, while Section 6 uses the exact criterion for systematic search."
+      ],
+      "reasoning": "The product formula is not stated in the prior paper, but follows after a new enumeration step across independent CRT components. The comparison ratio additionally quantifies a distinction the source presents only qualitatively.",
+      "searches": [
+        "arXiv:2609.21601 Lemma 2.2 Remark 2.4 Theorem 4.1",
+        "arXiv:2609.21601 Theorem 3.2 joint coprimality",
+        "arXiv:2609.21601 Section 6 computer search active set"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source states the necessary-and-sufficient active-factor gcd criterion but no multiplier-tuple cardinality or success probability.",
+        "Searches using probability, density, random multipliers, active factors, and exact-count language returned no same result.",
+        "The source's own length-three example shows that the exact active-factor criterion can accept tuples rejected by whole-polynomial joint coprimality, but it gives no general quantitative ratio."
+      ],
+      "reasoning": "The queries cover the exact source identifier and both deterministic and probabilistic formulations of the same representation count.",
+      "searches": [
+        "arXiv 2609.21601 exact number type preserving multiplier tuples Z4 quasi cyclic",
+        "quasi-cyclic Z4 type preservation enumeration probability CRT active factors",
+        "Aydin Tyagi type preservation count 4^(m ell) product 1-2^(-ell d)",
+        "ordered tuples f_i preserving type C_g Z4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source reports 36 improved codes found by searches guided by Theorem 4.1, but no table of the number or density of valid multiplier tuples.",
+        "Its \\(m=3\\) examples identify the active sets and show strictness of the sufficient criteria, enabling an independent finite check of the new formula.",
+        "No searched database entry supplied the representation count."
+      ],
+      "reasoning": "There is no exact source table that already lists these counts; the finite \\(m=3\\) values are new consequences of the source criterion and are replayed exhaustively.",
+      "searches": [
+        "arXiv 2609.21601 multiplier count probability",
+        "Aydin Tyagi Table 1 type preserving multipliers",
+        "m=3 g'=2x^2+2x type preservation count"
+      ]
+    },
+    "rationale": "The September 2026 primary source proves the exact local criterion and uses it to guide computer search, but does not enumerate successful multiplier tuples or state a probability law. Focused research-record and public searches under the paper identifier, type-preservation, CRT-active-factor, multiplier-enumeration, and probability formulations found no same formula. Older Cao enumeration results count distinct QC or GQC submodules, including fixed-parity-check classes, rather than ordered multiplier representations of a fixed seed; they therefore do not cover the accepted count.",
+    "residual_risks": [
+      "An older enumeration paper could contain an equivalent representation count as an intermediate lemma without advertising the fixed-seed probability formulation.",
+      "The accepted count is of ordered multiplier residues rather than distinct generated QC codes.",
+      "The even-length repeated-root setting remains outside the source theorem and the present result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CRITERION_AND_SEARCH_MOTIVATION_NOT_ENUMERATION",
+        "evidence": "The paper gives component sizes and the iff unit condition and reports targeted searches, but contains no count or probability of successful multiplier tuples.",
+        "identifier_or_url": "arXiv:2609.21601v1",
+        "material_read": "Full public HTML around the introduction, CRT decomposition, Lemmas 2.2--2.3, Remark 2.4, Theorems 3.1--3.2, Theorem 4.1 with proof, all length-three examples, Section 6 search description, and open directions.",
+        "method": "public full-text inspection",
+        "title": "Resolution of an Open Problem on Quasi-Cyclic Codes over Z4 and New Quaternary Linear Codes",
+        "trigger": "Primary source of the exact type-preservation criterion and the computational-search motivation."
+      },
+      {
+        "assessment": "DIFFERENT_ENUMERATION_OBJECT",
+        "evidence": "The work enumerates GQC code submodules rather than ordered multipliers preserving the type of one fixed seed.",
+        "identifier_or_url": "DOI:10.1007/s00200-011-0145-5",
+        "material_read": "Public abstract describing CRT decomposition and enumeration of GQC codes and analogous one-generator results.",
+        "method": "public abstract and bibliographic inspection",
+        "title": "Generalized quasi-cyclic codes over Galois rings: structural properties and enumeration",
+        "trigger": "Potential broader enumeration result over Galois rings."
+      },
+      {
+        "assessment": "DIFFERENT_ENUMERATION_OBJECT",
+        "evidence": "The counted objects are distinct QC codes, not ordered multiplier residue tuples from a fixed cyclic seed.",
+        "identifier_or_url": "DOI:10.1007/s00200-012-0182-8",
+        "material_read": "Public abstract describing enumeration of distinct one-generator QC codes with fixed parity-check polynomial.",
+        "method": "public abstract and bibliographic inspection",
+        "title": "1-generator quasi-cyclic codes over finite chain rings",
+        "trigger": "Closest older finite-chain-ring one-generator enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aaaaf57e-f4a3-496c-8bb7-baebd9bd1737",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary paper uses its new criterion to drive systematic searches that produced 36 improved codes. The exact product law measures the viable search space before any distance computation and quantifies the gain from using the necessary-and-sufficient active-factor criterion instead of the simpler sufficient test. It also shows that seed valuation type is irrelevant to search density once the active factor degrees are known, giving a reusable planning invariant for future QC searches.",
+    "status": "PASS"
+  }
+}
