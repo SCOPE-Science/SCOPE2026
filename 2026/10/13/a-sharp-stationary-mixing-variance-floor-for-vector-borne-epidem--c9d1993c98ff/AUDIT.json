@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The matrix K_D exactly matches Gao-Yuan 2024 Eq. (4.4) after factoring constant homogeneous rates. For PF y>0, flow balance makes sum_i(Dy)_i/(y_i/v_i) a nonnegative relative-entropy sum; strict unless y is proportional to v. Groupwise Cauchy-Schwarz yields mu rho(K_D)>=M. Equality plus eigenvector proportionality and the P^T diag(h)(q-M1)=0 identity force q=1; conversely q=1 gives unit K_D column sums after multiplication by mu. Explicit irreducible D_k=k(v1^T-I) yields mu(mu I-D_k)^-1->v1^T, hence the infimum M. Exact two-group algebra independently reproduced using rational standard-library verifier with VERIFY_OK. No finite computational sampling is used as proof for arbitrary n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2019 Theorem 3 exact equality iff equilibrium host-vector spatial ratios align, but hosts and vectors both migrate in an Eulerian patch system; this hypothesis and equality parameter differ.",
+        "2024 Gao-Cao uses residence-time movement for both host and vector rather than an Eulerian vector generator; only abstract/preview obtained.",
+        "2025 Gao-Lou studies host migration with immobile vectors and prevalence comparisons."
+      ],
+      "reasoning": "None of the actually inspected results applies as a stronger general theorem to every generator D in the hybrid host-Lagrangian/vector-Eulerian class with fixed v. Distinct residence-time-only or host-Eulerian formulas cannot automatically be substituted for K_D. Full-text access to the Gao-Cao comparison remains an explicit, nondecisive risk.",
+      "searches": [
+        "\"Vector-borne disease models with Lagrangian approach\" Gao Cao 2024 pdf arxiv",
+        "\"Effect of host movement on the prevalence of vector-borne diseases\" Gao Lou 2025",
+        "Gao van den Driessche Cosner 2019 Habitat fragmentation promotes malaria persistence theorem 3",
+        "Gao Yuan 2024 hybrid model fast vector movement limit reproduction number nonuniform host residence profiles"
+      ]
+    },
+    "checked_sources": [
+      "Gao-Yuan (2024), DOI 10.1007/s00285-024-02109-5, Eqs. (4.2)-(4.4), Thm 4.2, Cor. 4.4, Rems 4.7-4.8, discussion (full accessible article)",
+      "Gao-van den Driessche-Cosner (2019), author-hosted GvdDC-JMB2019.pdf, pp. 13,15, Thm 3 and Cor 1",
+      "Gao-Cao (2024), DOI 10.1007/s00285-023-02044-x, abstract and publisher/repository preview; full text unavailable",
+      "Gao-Lou (2025), DOI 10.1007/s00285-025-02254-5, Sections 1-2 and results description, distinct host-Eulerian migration model",
+      "Public research index closest the published 2026-09-14 two-patch SEIR spectral note (coupled two-patch SEIR spectral bracketing, different object)",
+      "Public research index the published 2026-09-17 dengue switching note (dengue switching, different object)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gao-Yuan prove R0>=R_hom and an intermediate inequality mu rho >= sum h_k q_k^2, but do not formulate or establish its optimality when only D varies with fixed v, strict finite-rate nonattainment, or exact necessary-sufficient q=1 equality.",
+        "The nonproportional but equal-exposure example in their Remark 4.8 rules out simply claiming v=s necessity.",
+        "The 2019 theorem gives different model equality v proportional to host patch equilibrium, a condition not necessary here."
+      ],
+      "reasoning": "The published second-moment inequality alone supplies only a lower bound; it does not imply the bound is globally sharp over D, nor distinguish finite attainment from fast mixing. The additional rank-one-resolvent construction, equality-rigidity argument, and full equality classification are the novel target. Neither is a mere numeric corollary of the source baseline R0>=R_hom.",
+      "searches": [
+        "Gao-Yuan 2024 Theorem 4.2 proof steps (4.2)-(4.4) and Eq. Cauchy-Schwarz",
+        "Gao-Yuan 2024 Corollary 4.4, Remark 4.8 and discussion open question",
+        "Gao et al 2019 Theorem 3 pp. 13-15",
+        "Public research-index query: sharp infimum reproduction number over vector migration generators stationary vector probabilities Jensen variance of host exposure"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gao-Yuan explicitly asks for necessary and sufficient homogeneous-baseline equality after Remark 4.8; their Lemma 4.1/Theorem 4.2 contains a Cauchy-Schwarz second moment but does not identify all finite-D equality cases or sharp fixed-v mixing infimum.",
+        "Public research-record search hits a two-patch SEIR spectral-bracketing finding and crossing-only dengue cover SEIR dispersal and switching boundaries rather than this hybrid-model variational criterion."
+      ],
+      "reasoning": "A putative equivalent theorem must optimize the Perron root of (mu I-D)^(-1)L over all conservative irreducible generators with stationary v, and supply both the exposure moment infimum and the exact equality locus. The nearest reviewed formulas and theorem statements do not. The pure second-moment lower bound is a consequence already implicit in the primary source, hence is not claimed novel in isolation.",
+      "searches": [
+        "Daozhou Gao Xiaoyan Yuan 2024 hybrid Lagrangian Eulerian mosquito hosts vector movement exact equality reproduction number weighted exposure",
+        "sharp infimum reproduction number over vector migration generators stationary vector probabilities Jensen variance of host exposure",
+        "Gao Yuan 2024 hybrid model fast vector movement limit reproduction number nonuniform host residence profiles",
+        "Gao-Yuan 2024 Corollary 4.4 and Remark 4.8; Indexed research-record queries for exposure moment/equality/fast vector movement"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "public mathematical research index returned no exactly matching fixed-stationary-generator variational theorem, closest broad epidemic example was the published 2026-09-14 two-patch SEIR spectral note.",
+        "Accessible prior published mathematical findings contain mosquito release, hostile-boundary SIS migration and other epidemic work, but no claim about Gao-Yuan hybrid vector-generators or host exposure variance floor."
+      ],
+      "reasoning": "There is no finite parameter census or source table on which the result relies. It is a quantified analytical theorem. Search nonmatches are supporting overlap evidence, not proof that all relevant mathematics is unrecorded.",
+      "searches": [
+        "Public research-index query: Daozhou Gao Xiaoyan Yuan 2024 hybrid Lagrangian Eulerian mosquito hosts vector movement exact equality reproduction number weighted exposure",
+        "Public research-index query: sharp infimum reproduction number over vector migration generators stationary vector probabilities Jensen variance of host exposure",
+        "Public research-index query: Gao Yuan 2024 hybrid model fast vector movement limit reproduction number nonuniform host residence profiles",
+        "prior published claim titles and statements searched for vector, mosquito, malaria, migration, mobility, movement, Lagrangian, commuting"
+      ]
+    },
+    "rationale": "The primary 2024 full text explicitly leaves the necessary-sufficient baseline equality problem open. Its Theorem 4.2 already contains the second-moment lower bound implicitly; this part is credited, not advertised as independently new. The full sharp infimum over fixed-stationary-vector migration generators, finite-rate strictness and exposure equality classification do not follow from its stated theorems. Comparisons to 2019 Eulerian, 2024 Lagrangian, 2025 migration and published mathematical research records found no implication-equivalent theorem; Gao-Cao 2024 full-text access remained unavailable.",
+    "residual_risks": [
+      "Gao-Cao (2024) complete full text remained inaccessible; a mathematical equivalence through a limiting or transformed Lagrangian construction has not been excluded by full-document reading.",
+      "Relevant nonindexed or newer mathematical epidemiology literature might contain a stronger formula under another notation.",
+      "The groupwise Cauchy-Schwarz lower bound itself appears in the motivating source and is not asserted novel independently.",
+      "Fixed-stationary-generator optimization does not cover constraints on travel intensity or supported edges."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains baseline inequality and intermediate Cauchy-Schwarz moment, but no fixed-v sharp generator infimum or all-D equality classification",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s00285-024-02109-5",
+          "Theorem 4.2 proof Cauchy-Schwarz; Corollary 4.4; Remark 4.8; discussion Section 6"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00285-024-02109-5",
+        "material_read": "Full open-access article HTML including model formulation, next-generation matrices, Theorem 4.2 proof, Corollary 4.4, Remarks 4.7-4.9, later model analysis and discussion",
+        "method": "Read source equations and full web HTML sections and compared each claim to published theorem statements",
+        "title": "A hybrid Lagrangian–Eulerian model for vector-borne diseases",
+        "trigger": "Identical next-generation model and explicit open equality question"
+      },
+      {
+        "assessment": "Exact theorem concerns Eulerian movement of hosts as patch populations and vectors, not the hybrid host-residence matrix at fixed vector stationary distribution",
+        "evidence": [
+          "Theorem 3 PDF page 13",
+          "Corollary 1 PDF page 15"
+        ],
+        "identifier_or_url": "https://www.math.miami.edu/~dzgao/GvdDC-JMB2019.pdf",
+        "material_read": "25-page author PDF, main model, Theorem 3 page 13 and Corollary 1 and proof page 15 (page images inspected)",
+        "method": "Original manuscript text and rendered page images",
+        "title": "Habitat fragmentation promotes malaria persistence",
+        "trigger": "Author-associated all-Eulerian comparison with exact equality theorem"
+      },
+      {
+        "assessment": "Full text unavailable; vectors also use Lagrangian commuting matrices, rather than an Eulerian conservative generator. Plausible but nondecisive originality risk retained",
+        "evidence": [
+          "https://engagedscholarship.csuohio.edu/scimath_facpub/363/",
+          "https://pubmed.ncbi.nlm.nih.gov/38294559/"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00285-023-02044-x",
+        "material_read": "PubMed abstract, Cleveland State institutional repository abstract and ResearchGate publisher preview, not entire source",
+        "method": "OA and arXiv searches failed to locate a lawful full-text version; complete access not obtained",
+        "title": "Vector-borne disease models with Lagrangian approach",
+        "trigger": "Same author and similar multigroup residence-time model"
+      },
+      {
+        "assessment": "Models Eulerian host dispersal and no vector migration, with main results on prevalence; cannot imply variational sharp infimum for hybrid opposite movement",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s00285-025-02254-5",
+          "Section 2 Equation 2.1"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00285-025-02254-5",
+        "material_read": "Full open-access HTML sections describing model, main results and discussion; particularly host Eulerian equation (2.1)",
+        "method": "Original Springer full HTML",
+        "title": "Effect of host movement on the prevalence of vector-borne diseases",
+        "trigger": "Later source by related author on migration and limits"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c9d1993c-98ff-43a4-b5a6-a526227bcd10",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed-v sharp infimum provides a meaningful structural limit on how much vector mobility alone can suppress epidemic transmission, with the exact intrinsic penalty 1+Var_h(q). Nonattainment for every finite migration rate when heterogeneous group exposure persists and the complete q=1 equality locus resolve a motivated explicit gap in the 2024 paper. The role of nonproportional patch host/vector distributions has biological interpretation and is not a numerical curiosity; the theorem is stronger than, and structurally distinct from, the already known standalone Cauchy-Schwarz inequality.",
+    "status": "PASS"
+  }
+}
