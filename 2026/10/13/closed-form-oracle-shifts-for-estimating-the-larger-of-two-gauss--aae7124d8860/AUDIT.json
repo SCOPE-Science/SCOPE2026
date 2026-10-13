@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "For squared error, the risk of the constant shift \\(b\\) is a strictly convex quadratic whose linear coefficient is \\(E[X_{(2)}-\\theta_{(2)}]\\). This expectation reduces to the positive-part mean of a \\(N(-\\Delta,2)\\) variable and gives the displayed closed form. Completing the square yields the exact regret identity. Direct differentiation gives \\(h'(\\Delta)=-\\Phi(-\\Delta/\\sqrt2)\\), proving strict monotonicity and uniqueness of the crossover. The packaged verifier independently checks the normal positive-part integral, derivative, root, and sign pattern.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 source identifies Blumenthal and Cohen (1968) as early work on the identical larger-normal-mean problem under squared error.",
+        "Bibliographic metadata confirms the 1968 paper, but full article text was unavailable through the checked lawful routes.",
+        "No accessible broader source found by the targeted searches exposed the oracle-shift formula or the crossover constant."
+      ],
+      "reasoning": "The 1968 article is the principal unresolved broader-coverage risk. Because no accessible statement established coverage and the directly motivating modern paper still treats the relevant pairwise ordering qualitatively by simulation, the risk is recorded explicitly rather than converted into a novelty claim from failed access.",
+      "searches": [
+        "Blumenthal Cohen larger normal mean estimator X(2)-sigma/sqrt(pi) risk crossing",
+        "Brewster Zidek larger mean two normals usual estimator crossover squared error",
+        "Estimation of the Larger of Two Normal Means risk X(2) sigma sqrt pi"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2309.13878v1",
+      "DOI:10.1007/s00362-024-01614-5",
+      "DOI:10.2307/2283879",
+      "semantic published-record searches over larger-normal-mean, constant-shift, oracle-shift, Brewster–Zidek, and exact-crossover formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.3 of the direct source proves only an abstract interval statement in terms of \\(b_\\theta\\); it does not compute \\(b_\\theta\\) for the Gaussian example.",
+        "Example 5.1 provides the boundary estimator and a dominating Brewster–Zidek estimator, which does not imply the exact risk difference between the boundary shift and the usual estimator.",
+        "The simulation conclusion states the qualitative reversal with separation, not its unique exact threshold."
+      ],
+      "reasoning": "The new claim requires evaluating \\(E[X_{(2)}-\\theta_{(2)}]\\) exactly and using the resulting risk quadratic. Neither admissibility of the class nor domination of the boundary estimator by a different nonconstant estimator determines this oracle map or pairwise crossover.",
+      "searches": [
+        "On improved estimation of the larger location parameter normal squared error b0",
+        "larger normal mean constant shift class exact optimal b_theta formula phi Phi",
+        "usual estimator X_(2) versus X_(2)-sigma/sqrt(pi) squared error crossover"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2309.13878v1, Theorem 2.3, defines the admissible constant-shift interval using the abstract pointwise minimizer \\(b_\\theta\\).",
+        "arXiv:2309.13878v1, Example 5.1, gives \\(X_{(2)}\\) and the boundary shift \\(X_{(2)}-\\sigma/\\sqrt\\pi\\) but not the explicit \\(b_\\Delta\\) formula.",
+        "Exact-formula and numerical-root searches did not locate the displayed oracle map or \\(\\Delta_*\\)."
+      ],
+      "reasoning": "The comparison searched both the paper's notation \\(b_\\theta,b_0,\\delta_{b_0}\\) and the equivalent larger-normal-mean, constant-shift, positive-part-normal, and risk-crossover formulations. The inspected direct source does not state the new closed form.",
+      "searches": [
+        "usual estimator X_(2) versus X_(2)-sigma/sqrt(pi) squared error crossover",
+        "X_(2)-b optimal constant b larger normal mean squared risk",
+        "oracle shift larger of two normal means sqrt2 phi delta Phi risk"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-value or formula search returned the crossover decimal or defining equation in this estimation problem.",
+        "The decimal in the package is recomputed from the strictly monotone scalar equation."
+      ],
+      "reasoning": "The claimed constant is a natural risk-crossover invariant, not a standard tabulated normal quantile. The searches did not identify a table or database entry providing it.",
+      "searches": [
+        "0.699454801905 larger normal mean estimator",
+        "sqrt(2) phi(delta/sqrt(2)) delta Phi(-delta/sqrt(2)) 1/(2sqrt(pi))",
+        "sigma/sqrt(pi) larger of two normal means"
+      ]
+    },
+    "rationale": "The direct 2023 source defines the same constant-shift class, characterizes its admissible interval through an abstract pointwise minimizer, and in the normal squared-error example gives the boundary shift \\(\\sigma/\\sqrt\\pi\\). Its simulation section reports the small/moderate-versus-large risk reversal but does not give the closed oracle map or crossover value. Candidate-specific semantic and exact-expression searches found no covering statement. The highly relevant Blumenthal–Cohen 1968 paper could not be inspected in full; this is retained as a material residual originality risk rather than treated as evidence of noncoverage.",
+    "residual_risks": [
+      "The full 1968 Blumenthal–Cohen article was not accessible in the checked lawful routes; it is sufficiently close that an equivalent risk calculation could appear there.",
+      "Other older estimation-after-selection or ordered-parameter literature may phrase the same calculation without the modern \\(b_\\theta\\) notation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_SOURCE_NOT_COVERING_CLOSED_ORACLE_MAP_OR_CROSSOVER.",
+        "evidence": "The source gives the abstract \\(b_\\theta\\) framework and \\(b_0=\\sigma/\\sqrt\\pi\\), then reports a qualitative risk reversal in simulation. It does not state \\(b_\\Delta=\\sigma h(\\Delta)\\), the quadratic regret identity, or \\(\\Delta_*\\).",
+        "identifier_or_url": "arXiv:2309.13878v1",
+        "material_read": "Open-access full text: introduction; Section 2.1 including Theorem 2.3; Example 5.1 for the Gaussian squared-error estimators; simulation conclusions and Figure 1 discussion.",
+        "method": "Lawful open-access full-text inspection, including visual inspection of the Gaussian estimator page and simulation conclusion page.",
+        "title": "On improved estimation of the larger location parameter",
+        "trigger": "Direct source defining the constant-shift class, abstract pointwise minimizer, Gaussian boundary estimator, and simulation comparison."
+      },
+      {
+        "assessment": "PLAUSIBLE_PRIOR_SOURCE_UNRESOLVED.",
+        "evidence": "Available metadata confirms topic identity but provides no statement of the oracle-shift formula or crossover. This source is therefore retained as a residual risk and is not used as NOT_COVERING evidence.",
+        "identifier_or_url": "DOI:10.2307/2283879",
+        "material_read": "Bibliographic metadata and the modern source's description/citation context; full article text was unavailable in the checked lawful routes.",
+        "method": "Bibliographic and citation-context inspection; a full-text access attempt did not yield a verified article copy.",
+        "title": "Estimation of the Larger of Two Normal Means",
+        "trigger": "The direct source identifies this 1968 paper as early work on the same normal larger-mean problem under squared-error loss."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aae7124d-8860-4475-a526-fd9af2b39773",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper makes the constant-shift class a central object, proves only an abstract pointwise-minimizer characterization there, and later uses simulation to describe the normal risk reversal. The finding supplies the missing closed oracle parameterization of the entire class, an exact regret identity, and the unique numerical phase boundary for the paper's boundary shift versus the usual estimator. Although the boundary shift is itself dominated by a nonconstant Brewster–Zidek rule, the result is a complete structural calculation for the source's natural class rather than an arbitrary slice.",
+    "status": "PASS"
+  }
+}
