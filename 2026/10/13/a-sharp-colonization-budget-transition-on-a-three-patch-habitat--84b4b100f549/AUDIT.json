@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The explicit generator on all seven transient nonempty occupancy states yields a rational Cramer-rule formula for the center-seeded mean absorption time. Both determinant identities are exact coefficientwise integer-polynomial equalities in the included standalone checker; stochastic scaling gives arbitrary positive extinction rate. Factored endpoint differences are strictly signed throughout the entire feasible product interval, with separate verification of equality cases at C=mu. No empirical or finite-grid extrapolation is needed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Etienne and Heesterbeek 2001, DOI:10.1086/321986: management heuristics for a stochastic winking-patch model, abstract inspected.",
+        "Ross and Pollett 2010, DOI:10.1016/j.ecolmodel.2010.02.016: Levins-type management optimization from abstract.",
+        "Nakagiri et al. 2024, DOI:10.1016/j.ecocom.2024.101090: heterogeneous three-patch reaction/migration and lattice simulations, section snippets inspected."
+      ],
+      "reasoning": "An arbitrary finite-state Markov-chain inverse computes absorption time in principle but does not imply the exact constrained optimizer, multiplicity at the critical budget, or strict inequalities. Levins occupied-patch-count models are not exact lumpings of the weighted three-vertex path: distinct singleton configurations have different birth rates, even for equal edge rates. The more closely related winking-patch paper was not fully available, so broader coverage there remains a residual risk.",
+      "searches": [
+        "stochastic contact process dispersal effort optimal allocation three patch symmetric extinction mean time to extinction",
+        "Rules of thumb conservation metapopulations stochastic winking patch model full text pdf",
+        "Simple rules for ranking and optimally managing metapopulations Ross Pollett PDF",
+        "Three-lattice metapopulation model Connecting corridor patches harmful hub effect"
+      ]
+    },
+    "checked_sources": [
+      "10.1098/rspb.2006.3469",
+      "10.1086/321986",
+      "10.1016/j.ecolmodel.2010.02.016",
+      "10.1016/j.ecocom.2024.101090",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=92D25"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2006 full paper starts all 100 patches occupied and calls a system viable if it has not gone extinct after 1000 discrete-time steps; the new model starts only the center occupied and optimizes an exact continuous-time mean.",
+        "Ross and Pollett 2010 state use of stochastic Levins-type model in abstract, without an exact positional Markov chain result; stronger implication cannot be fully excluded without its complete text.",
+        "The 2024 heterogeneous-death corridor paper uses movement/reaction equations with localized environmental disturbance, a different outcome and resource constraint."
+      ],
+      "reasoning": "The exact theorem does not follow by identifying the named models or replacing a parameter in a published formula: the distinct spatial occupancy states cannot be aggregated into a single count transition rate under edge-specific colonization. The known asymmetry and corridor-harm observations do not assert or imply the specific fixed-budget optimizer. Residual potential coverage is stated explicitly.",
+      "searches": [
+        "metapopulation optimal colonisation rate corridors extinction time Ross Pollett 2010",
+        "Does colonization asymmetry matter metapopulations Vuilleumier Possingham 2006 Methods Results",
+        "Etienne Heesterbeek 2001 management rules asymmetric colonization rates"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Vuilleumier and Possingham 2006 (DOI:10.1098/rspb.2006.3469), author-uploaded full text: discrete-time 100-patch simulations and a large-patch viability criterion; not the exact three-patch CTMC optimization.",
+        "Ross and Pollett 2010 (DOI:10.1016/j.ecolmodel.2010.02.016), abstract: stochastic Levins management rules; the full article could not be inspected."
+      ],
+      "reasoning": "Compared the actual expected absorption time of a seven-transient-state CTMC and its weighted-edge budget maximizers with generic persistence optimization, symmetry/asymmetry comparisons, and mean-field population-count approximations. No inspected source states the same exact transition or an equivalent symmetry-reduced theorem. Inaccessible source risk is explicit.",
+      "searches": [
+        "three-vertex contact process expected extinction time edge weights fixed sum critical split optimum",
+        "three-patch metapopulation optimal investment connectivity symmetric dispersal central patch persistence",
+        "10.1086/321986; 10.1016/j.ecolmodel.2010.02.016; 10.1098/rspb.2006.3469"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary 2006 simulation source and 2010 Levins management record report no exact three-vertex rational budget table.",
+        "The current result supplies its own bivariate determinant identity and analytic classification, not a lookup or reconstruction of an established numerical table."
+      ],
+      "reasoning": "The theorem ranges over a continuum of positive extinction rates and budgets, not a chosen finite graph census or a table row. No matching published exact optimizer table was found in the searches, but unsuccessful searches are not treated as proof of novelty.",
+      "searches": [
+        "three patch metapopulation fixed budget colonization equal split versus concentrated threshold",
+        "C^2(C-1) 2C+3 extinction colonization",
+        "three-patch contact process exact expected extinction time allocation table"
+      ]
+    },
+    "rationale": "The new claim is a sharp exact budget-dependent topology switch, with all three maximizers at the critical ratio, in a three-patch spatially resolved stochastic colonization model. Full relevant primary text for Vuilleumier and Possingham 2006 was inspected; older budget studies were checked via abstracts and attempted lawful full-text access but remain unresolved scientific coverage risks. Similar models and general Markov-chain solvers do not by themselves imply the fixed-budget classification.",
+    "residual_risks": [
+      "Complete Etienne-Heesterbeek 2001 text inaccessible; possible unobserved exact spatial formulation or relevant corollary.",
+      "Complete Ross-Pollett 2010 text inaccessible; may contain more spatial detail than its accessible description.",
+      "2024 three-lattice paper available only via sections/abstract; possible related optimization in remaining content, although reported model differs.",
+      "No bibliographic search can exclude all unindexed or differently named weighted-contact-process optimization statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different model and objective; no fixed-budget exact three-vertex extinction-time transition in inspected text.",
+        "evidence": [
+          "100 habitat patches, discrete time, all patches initially occupied, viability evaluated at 1000 steps; mean-field viability condition and simulation outcomes. Published online 2006-03-29."
+        ],
+        "identifier_or_url": "10.1098/rspb.2006.3469",
+        "material_read": "Author-uploaded article text, including Introduction, simulation model, mean-field formulas, viability criterion and results.",
+        "method": "Read primary author-uploaded public full-text sections at https://www.researchgate.net/publication/7013220_Does_colonization_symmetry_mater_in_metapopulations (full text begins around article text; methods and results analyzed).",
+        "title": "Does colonization asymmetry matter in metapopulations?",
+        "trigger": "Earliest verified dated motivation and direct colonization-asymmetry comparison"
+      },
+      {
+        "assessment": "Relevant general management heuristics; no exact three-patch threshold visible in accessible material, but full-text comparison unresolved.",
+        "evidence": [
+          "American Naturalist 158 (2001), pp. 389-407, objective includes extinction time, compares colonization investment and local-extinction reductions."
+        ],
+        "identifier_or_url": "10.1086/321986",
+        "material_read": "Bibliographic record and full abstract; complete primary text unavailable.",
+        "method": "Checked publication/author repository, arXiv/OA search, and authorized institutional access attempt.",
+        "title": "Rules of Thumb for Conservation of Metapopulations Based on a Stochastic Winking-Patch Model",
+        "trigger": "Closest older stochastic management objective"
+      },
+      {
+        "assessment": "Stochastic Levins population-count management differs from spatially resolved seven-state fixed-edge-rate optimization; comprehensive comparison pending.",
+        "evidence": [
+          "Ecological Modelling 221 (2010), 2515-2520; explicitly describes stochastic Levins model and management budget rule."
+        ],
+        "identifier_or_url": "10.1016/j.ecolmodel.2010.02.016",
+        "material_read": "University repository entry, publisher/aggregator abstract and methods summary; complete paper unavailable.",
+        "method": "Checked Adelaide repository, arXiv/OA search and authorized institutional-access attempt.",
+        "title": "Simple rules for ranking and optimally managing metapopulations",
+        "trigger": "Closest budget-constrained colonization optimization"
+      },
+      {
+        "assessment": "Heterogeneous disturbance, individual random movement and density/stationary outcomes, not symmetric extinction and exact mean-absorption optimization; additional text access would reduce residual risk.",
+        "evidence": [
+          "Ecological Complexity 59 (2024), 101090: degradation of one patch, two lattice/reaction-migration models; no fixed total colonization-rate budget in accessible descriptions."
+        ],
+        "identifier_or_url": "10.1016/j.ecocom.2024.101090",
+        "material_read": "Public abstract, introduction and publisher section snippets (model, results, discussion, conclusion); not full article.",
+        "method": "Searched publisher page and author-copy sources; compared the accessible model assumptions and reported outputs.",
+        "title": "Three-lattice metapopulation model: Connecting corridor between patches may be harmful due to hub effect",
+        "trigger": "Direct three-patch corridor design and apparent analogous adverse-corridor phenomenon"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "84b4b100-f549-436e-8c56-b50ebc3610e9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete structural design rule for the smallest habitat graph with a meaningful choice between two independently fundable corridors. The exact switch at total colonization intensity equal to local extinction intensity demonstrates a nontrivial connectivity-versus-concentration tradeoff; below it, deleting one corridor is optimal, above it balancing is uniquely optimal. All equality cases and exact persistence differences are supplied. The fact is motivated by species-reintroduction corridor budgeting rather than an arbitrary finite slice, but remains model-specific and not field validated.",
+    "status": "PASS"
+  }
+}
