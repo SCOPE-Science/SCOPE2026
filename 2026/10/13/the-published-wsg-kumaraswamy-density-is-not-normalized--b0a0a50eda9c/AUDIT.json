@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Direct differentiation of the published CDF yields the sine-factor density. A change of variables proves that this corrected density has unit mass. The published cosine-factor kernel has parameter-independent mass \\(I\\); the bound \\(I\\le e(1-\\pi/4)<1\\) proves analytically that it is not normalized. The displayed moment and likelihood formulas visibly inherit the same cosine factor, so they are not formulas for the displayed CDF.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Heydari et al. 2024 give the general new weighted sine-G PDF with factor \\(\\cos(\\pi G/2)\\).",
+        "For the Kumaraswamy baseline \\(G=1-(1-y^\\delta)^\\alpha\\), that factor equals \\(\\sin[(\\pi/2)(1-y^\\delta)^\\alpha]\\), not the cosine printed by the 2026 specialization.",
+        "The 2024 source does not identify the later 2026 specialization error."
+      ],
+      "reasoning": "The broader generator supplies the correct derivative structure and therefore independently certifies the repair. It does not cover the new claim that the 2026 published specialization is unnormalized and propagates into its moment and likelihood formulas.",
+      "searches": [
+        "doi:10.1155/2024/9593193 new weighted sine-G CDF PDF",
+        "weighted sine-G Kumaraswamy sine cosine density",
+        "new weighted sine-G quantile density transform"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math14030510",
+      "doi:10.1155/2024/9593193"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The target CDF is \\(\\cos\\theta e^{1-\\cos\\theta}\\); differentiating it necessarily introduces \\(\\sin\\theta\\).",
+        "The target Eq. (4), raw-moment integrand, and likelihood instead use \\(\\cos\\theta\\).",
+        "The cited 2024 general derivative formula transforms to the sine-factor correction under the Kumaraswamy baseline."
+      ],
+      "reasoning": "The prior generator implies the corrected special-case formula, whereas the 2026 article asserts the incompatible cosine specialization. The accepted claim is the diagnosis, normalization proof, and propagation of that error through the 2026 model formulas.",
+      "searches": [
+        "doi:10.3390/math14030510 Eq. 3 Eq. 4",
+        "doi:10.3390/math14030510 Eq. 7 Eq. 16",
+        "doi:10.1155/2024/9593193 Eq. 5 Eq. 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target Eq. (3) and Eq. (4) differ by the derivative-required sine versus printed cosine factor.",
+        "No focused published-finding corpus hit concerns DOI 10.3390/math14030510 or a WSG-Kumaraswamy density correction.",
+        "Exact web searches located the original article and the 2024 generator, but no corrigendum or erratum."
+      ],
+      "reasoning": "Searches covered exact DOI, model acronym/name, normalization, CDF derivative, sine/cosine substitution, likelihood, and Eq. (4) correction terminology. No equivalent source-specific correction was located.",
+      "searches": [
+        "10.3390/math14030510 density normalization cosine sine error",
+        "WSG-Kumaraswamy pdf CDF derivative normalization",
+        "weighted sine generalized Kumaraswamy likelihood correction",
+        "weighted sine-G Kumaraswamy sine cosine density",
+        "math14030510 Eq 4 pdf correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher record identifies the article as published 31 January 2026 with MSC 60E05, 62F10, 62N05.",
+        "The public full text prints the cosine-factor Eq. (4), reuses that kernel in the moment formula, and includes \\(\\log\\cos\\theta_i\\) in Eq. (16).",
+        "No publisher correction was located."
+      ],
+      "reasoning": "This is not a database-table discrepancy: it is an internal analytic inconsistency visible across the primary article's formulas.",
+      "searches": [
+        "10.3390/math14030510 corrigendum",
+        "10.3390/math14030510 erratum",
+        "10.3390/math14030510 Eq 4 PDF likelihood"
+      ]
+    },
+    "rationale": "The 2026 source labels its cosine-factor expression as the PDF corresponding to its CDF, while its cited 2024 generator gives the general derivative formula that becomes a sine factor after Kumaraswamy substitution. Five focused published-finding corpus searches and exact-source correction searches found no published WSG-Kumaraswamy erratum or equivalent correction. The claim is a source-specific repair, not a claim that the chain rule or the 2024 generator is new.",
+    "residual_risks": [
+      "A very recent unindexed author correction could exist outside the publisher and indexed records examined.",
+      "The numerical implementation used for the 2026 tables may differ from the printed Eq. (4) and Eq. (16); this finding does not infer implementation details not publicly verified.",
+      "Some empirical conclusions could survive re-estimation under the corrected density, but that has not been tested here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY INCONSISTENT. The specialized PDF uses cosine where the displayed CDF derivative and cited generator require sine; downstream displayed moment and likelihood formulas inherit the same factor.",
+        "evidence": "Eq. (3), Eq. (4), the survival/hazard formulas, Eq. (7)-(8), Eq. (16), and reference [14].",
+        "identifier_or_url": "doi:10.3390/math14030510",
+        "material_read": "Public full text covering Section 2 equations for CDF/PDF/survival/hazard; Section 3 quantile and moment formulas; Section 4 likelihood; conclusions; reference [14].",
+        "method": "Direct public full-text inspection.",
+        "title": "A New Trigonometric-Inspired Probability Distribution: The Weighted Sine Generalized Kumaraswamy Model with Simulation and Applications in Epidemiology and Reliability Engineering",
+        "trigger": "Primary 2026 source defining the WSG-Kumaraswamy CDF, PDF, moments, hazard, and likelihood."
+      },
+      {
+        "assessment": "BROADER STRUCTURAL SUPPORT. Its general PDF is correct and transforms to the sine-factor density under the Kumaraswamy baseline; it does not identify the later 2026 error.",
+        "evidence": "General NWS-G CDF/PDF Eqs. (5)-(6) and quantile Eq. (10).",
+        "identifier_or_url": "doi:10.1155/2024/9593193",
+        "material_read": "Open full-text passages containing Definition 1, CDF Eq. (5), PDF Eq. (6), survival/hazard formulas, and quantile discussion.",
+        "method": "Open full-text inspection.",
+        "title": "A New Sine-Based Probabilistic Approach: Theory and Monte Carlo Simulation with Reliability Application",
+        "trigger": "Generator paper cited by the 2026 source as the new weighted sine-G construction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b0a0a50e-da9c-4e6e-a3a0-54afb61b99eb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The defect is foundational: the printed PDF has only about one third of unit mass and is not the derivative of the stated CDF. It propagates into the displayed moments, hazard numerator, and likelihood, which are central to the paper's distributional theory and inference. The correction is a single exact factor and cleanly separates CDF-based results such as quantiles from density-based results that require reassessment.",
+    "status": "PASS"
+  }
+}
