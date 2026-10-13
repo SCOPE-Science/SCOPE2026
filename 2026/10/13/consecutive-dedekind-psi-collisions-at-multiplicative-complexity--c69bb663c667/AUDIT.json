@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "All integers with Omega at most two are 1, a prime, a prime square, or a product of two distinct primes. The proof treats every ordered combination compatible with consecutiveness. Prime-square/semiprime cases contradict AM-GM, and the squarefree-semiprime parity split yields either (q-2)(s-2)=3 or the impossible equation (p-2)(r-2)=-3. Only (4,5) and (14,15) survive, and both are directly verified. A fresh exact checker corroborates the classification below 100000.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Solé--Planat define the same psi function, prove extremal results, and list MSC 11N56, 11A25, 11M06.",
+        "The full five-page preprint contains no occurrence of “consecutive”, “equal”, or “collision”.",
+        "A291043 is specialized to consecutive equality but is a data sequence rather than a low-factorization theorem."
+      ],
+      "reasoning": "The broad primary paper does not imply the collision classification. The exact database covers arbitrary-factorization examples computationally, but its finite table does not imply that no further Omega<=2 examples exist.",
+      "searches": [
+        "\"Extreme values of the Dedekind Psi function\"",
+        "Dedekind psi function equal values collisions",
+        "Dedekind psi arithmetic multiplicative function consecutive"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1011.1825",
+      "OEIS:A291043",
+      "OEIS:A001615"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "On squarefree integers psi equals sigma, so the known squarefree collision 14,15 is compatible with divisor-sum theory.",
+        "That squarefree identity does not cover the non-squarefree pair 4,5 and does not exclude mixed prime-square/semiprime cases.",
+        "The direct low-Omega proof is required to combine all multiplicity patterns and establish the exact two-pair list."
+      ],
+      "reasoning": "The sigma collision result can imply the squarefree-semiprime subcase but not the full Dedekind-psi theorem because psi and sigma differ on prime powers. The genuinely psi-specific branch is necessary for completeness.",
+      "searches": [
+        "Dedekind psi squarefree equals sigma consecutive 14 15",
+        "unique two-almost-prime solution equal sigma 14 15",
+        "Dedekind psi prime square collision 4 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The semantic research-record search returned no Dedekind-psi collision theorem; the closest hit was the analogous sigma collision classification.",
+        "Direct web searches located A291043 and general Dedekind-psi sources, but no proof classifying the Omega<=2 layer.",
+        "A291043 gives 4, 8, 14, 15, ... and explicitly identifies 14 only as the smallest collision with both members products of two distinct primes."
+      ],
+      "reasoning": "The claim can be phrased as a two-almost-prime collision classification, a semiprime/prime-square case split, or a low-Omega slice of A291043. All formulations were searched. The exact database supplies examples but not the asserted global exclusion within the low-complexity domain.",
+      "searches": [
+        "Dedekind psi consecutive equal values Omega at most two 14 15 4 5",
+        "consecutive integers equal Dedekind psi function",
+        "Dedekind psi n equals psi n+1 semiprime classification",
+        "Dedekind psi collisions consecutive almost primes",
+        "\"psi(n)=psi(n+1)\" Dedekind",
+        "\"Dedekind psi\" semiprime 14 15"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A291043 defines precisely the sequence of n with psi(n)=psi(n+1) and begins 4,8,14,15,32,... .",
+        "A291043 notes that 14 is the smallest term whose two consecutive members are both products of two distinct primes.",
+        "A001615 supplies exact psi values, including psi(4)=psi(5)=6 and psi(14)=psi(15)=24."
+      ],
+      "reasoning": "These exact databases verify the two surviving examples and place them in the global collision sequence. They do not state or certify the complete multiplicity-count boundary proved here.",
+      "searches": [
+        "OEIS A291043 Dedekind psi consecutive",
+        "OEIS A001615 Dedekind psi"
+      ]
+    },
+    "rationale": "A291043 is an exact database of consecutive Dedekind-psi collisions, but it does not state the complete Omega<=2 classification. The inspected primary Dedekind-psi paper treats extremal values rather than collision equations. Semantic research-record searches and direct literature searches did not locate an equivalent theorem.",
+    "residual_risks": [
+      "An equivalent low-Omega classification may exist in unindexed notes or recreational computations.",
+      "A291043 postdates the archival primary source and is used as supporting exact data, not to set the archival date.",
+      "The theorem does not address collisions once either member has Omega at least three."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BROADER_CONTEXT_NOT_COVERING. It studies extremal values and Riemann-hypothesis criteria, not consecutive collisions.",
+        "evidence": "The paper defines psi(n)=n product_{p|n}(1+1/p), lists MSC 11N56, 11A25, 11M06, and its full text contains no occurrence of the collision terminology searched.",
+        "identifier_or_url": "arXiv:1011.1825",
+        "material_read": "Complete five-page preprint, including definition, introduction, primorial reduction, extremal propositions, lower-bound section, conclusion, references, and targeted full-text searches for consecutive/equal/collision terminology; the title page image was also inspected.",
+        "method": "Direct arXiv PDF text inspection plus page-image inspection.",
+        "title": "Extreme values of the Dedekind Psi function",
+        "trigger": "Primary archival source for the same arithmetic function and verified subject classification."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE. It tabulates collisions and notes a smallest squarefree-semiprime example, but does not state the Omega<=2 classification.",
+        "evidence": "The entry begins 4,8,14,15,... and notes 14 as the smallest term with both members products of two distinct primes.",
+        "identifier_or_url": "OEIS:A291043",
+        "material_read": "Definition, initial terms, comments, example, programs, cross-references, and author/date metadata.",
+        "method": "Direct database-page inspection.",
+        "title": "A291043: Numbers n such that psi(n)=psi(n+1)",
+        "trigger": "Exact database for the same consecutive-collision equation."
+      },
+      {
+        "assessment": "BACKGROUND. It supplies exact function values but no low-complexity collision theorem.",
+        "evidence": "The listed values include psi(4)=psi(5)=6 and psi(14)=psi(15)=24.",
+        "identifier_or_url": "OEIS:A001615",
+        "material_read": "Definition, initial values, formulas, comments, and cross-references.",
+        "method": "Direct database-page inspection.",
+        "title": "A001615: Dedekind psi function",
+        "trigger": "Exact reference table for psi values and algebraic normalization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c69bb663-c667-4711-a748-f45646c23ab7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Consecutive Dedekind-psi collisions are explicitly tracked by A291043, so the collision equation is a natural studied object. The Omega<=2 restriction is the complete first multiplicative-complexity boundary for a multiplicative function, not a numerical cutoff. The result explains exactly why the first two low-complexity collisions split into one squarefree sigma-inherited pair and one genuinely Dedekind-psi prime-square pair.",
+    "status": "PASS"
+  }
+}
