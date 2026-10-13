@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "A direct score-difference argument proves that a different unique PAV/CC committee choice requires at least five voters and forces the complete boundary profile at equality. The packaged verifier independently enumerates all labeled profiles and all anonymous count vectors through five voters with exact arithmetic; the two counts agree, and candidate relabeling gives one six-element orbit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1801.01527 studies quantitative guarantees and tradeoffs among approval-based multiwinner rules and uses approval CC as a representation benchmark.",
+        "arXiv:1407.8269 places PAV and approval CC in the same weighted-PAV framework and studies representation axioms and complexity.",
+        "DOI 10.3233/FAIA251005 gives a concrete three-candidate, two-seat approval-CC example but does not compare it with PAV or state a minimal conflict boundary."
+      ],
+      "reasoning": "These sources provide broader structural and computational comparisons, but they do not imply the universal lower bound through four voters or the complete equality-case classification at five voters.",
+      "searches": [
+        "PAV Chamberlin Courant comparison approval ballots example three candidates",
+        "A Quantitative Analysis of Multi-Winner Rules PAV CC",
+        "Utilitarian welfare and representation guarantees PAV Chamberlin Courant"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1309.4405",
+      "arXiv:1407.8269",
+      "arXiv:1801.01527",
+      "doi:10.3233/FAIA251005"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1309.4405 identifies approval CC with minimizing uncovered voters, equivalently MaxCover.",
+        "arXiv:1407.8269 defines PAV by harmonic utilities and approval CC as weighted PAV with vector (1,0,...).",
+        "General tradeoff or approximation results do not determine the smallest electorate where the exact argmax sets are distinct singletons."
+      ],
+      "reasoning": "The accepted theorem is an exact finite argmax boundary with a forced equality case. Neither the definitions nor general complexity, proportionality, or approximation guarantees imply that boundary.",
+      "searches": [
+        "Thiele weight 1 1/2 versus 1 0 three candidates two seats five voters",
+        "coverage PAV minimal electorate disagreement multiwinner approval",
+        "Proportional Approval Voting Chamberlin Courant weighted PAV 1 0",
+        "approval Chamberlin Courant maximum coverage PAV harmonic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches used both PAV and CCAV/Chamberlin–Courant terminology, explicit candidate/committee sizes, and the canonical approval pattern.",
+        "arXiv:1407.8269 formally defines PAV and states that approval CC is the weighted-PAV rule with vector (1,0,...), so the weighted-Thiele alias was explicitly checked.",
+        "No retrieved result matched the sharp five-voter unique-winning-committee statement."
+      ],
+      "reasoning": "The main aliases reduce the comparison to weighted Thiele objectives (1,1/2,...) and (1,0,...). Searching both names and weights guards against a purely terminological miss.",
+      "searches": [
+        "proportional approval voting approval Chamberlin Courant three candidates two seats five voters different unique winning committees",
+        "PAV CCAV smallest profile unique winner disagreement approval multiwinner",
+        "proportional approval voting chamberlin courat five voters three candidates exact classification",
+        "3 AB one A one C PAV Chamberlin Courant",
+        "multiwinner approval PAV versus CC exact small profile census"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches for the exact fractions 15/4096 and the exact count 120 returned no matching PAV/CC small-profile census.",
+        "The exact six anonymous profiles and 120 labeled realizations are derived from the proved canonical orbit and independently replayed by exhaustive enumeration.",
+        "No inspected paper or software-facing search result supplied the denominator 11970 or conditional incidence 4/399."
+      ],
+      "reasoning": "Exact-number searches target direct prior tabulation of the same finite result rather than relying on title similarity.",
+      "searches": [
+        "15/4096 PAV Chamberlin Courant approval",
+        "120 PAV Chamberlin Courant five voters approval",
+        "Proportional Approval Voting Chamberlin Courant unique winning committee five voters"
+      ]
+    },
+    "rationale": "PAV and approval CC themselves, their harmonic and coverage objectives, and their broader tradeoffs are established prior work. The inspected sources and targeted searches do not state the exact five-voter unique-winner boundary, its rigid canonical profile, or the six-anonymous/120-labeled census.",
+    "residual_risks": [
+      "A poorly indexed historical example, exercise, or software test library could contain the same five-voter profile even though exact-count and alias searches did not locate it.",
+      "The result fixes exactly three candidates and committee size two; larger approval elections may have qualitatively different minimal obstructions.",
+      "The conditional denominator 11970 is an exhaustive computational count rather than a separate closed-form derivation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the CC objective used here and its coverage equivalence; it does not compare exact PAV winners or give the small-profile boundary.",
+        "evidence": "arXiv:1309.4405v1 is dated 17 September 2013; the full text defines approval CC and identifies the MaxCover equivalence.",
+        "identifier_or_url": "arXiv:1309.4405",
+        "material_read": "Open full text, especially the motivation section defining approval ballots, committee misrepresentation as the number of voters approving no committee member, and the equivalence with MaxCover.",
+        "method": "Open arXiv full-text inspection.",
+        "title": "Approximating the MaxCover Problem with Bounded Frequencies in FPT Time",
+        "trigger": "Primary source explicitly formulating the approval variant of Chamberlin–Courant as coverage/MinNonCovered and providing the earliest verified archive date among the checked sources."
+      },
+      {
+        "assessment": "The closest structural source: PAV is harmonic weighted PAV, while approval CC is explicitly the (1,0,...) weighted-PAV endpoint. No five-voter unique-committee classification was found in the inspected material.",
+        "evidence": "arXiv:1407.8269v1 is dated 31 July 2014; the full text gives the exact score formulations used in the proof.",
+        "identifier_or_url": "arXiv:1407.8269",
+        "material_read": "Open full text covering the approval-based committee setup, the harmonic PAV definition, and the Chamberlin–Courant approval specialization.",
+        "method": "Open arXiv full-text inspection.",
+        "title": "Justified Representation in Approval-Based Committee Voting",
+        "trigger": "Primary full text jointly defining PAV and approval CC in the same approval-based committee framework."
+      },
+      {
+        "assessment": "Shows that the tension between coverage and other multiwinner objectives is established and substantively studied, but does not state the exact small-electorate argmax boundary.",
+        "evidence": "arXiv:1801.01527, first submitted 4 January 2018.",
+        "identifier_or_url": "arXiv:1801.01527",
+        "material_read": "Abstract and accessible result summaries describing CC as a representation/diversity benchmark and quantitative comparisons of multiwinner rules.",
+        "method": "Public arXiv/search record inspection.",
+        "title": "Utilitarian Welfare and Representation Guarantees of Approval-Based Multiwinner Rules",
+        "trigger": "Broad quantitative comparison of approval multiwinner objectives, including PAV performance against CC-style representation."
+      },
+      {
+        "assessment": "Uses the same candidate and committee sizes and defines CC by maximum voter coverage, but its example concerns CC alone and has six voters; it does not state the PAV-versus-CC five-voter boundary.",
+        "evidence": "Definition 2 maximizes the number of voters hit by the committee; Example 3 uses three candidates and committee size two.",
+        "identifier_or_url": "doi:10.3233/FAIA251005",
+        "material_read": "Open full text through the approval-based committee preliminaries and Example 3 with candidates {a,b,c}, committee size two, and six approval ballots.",
+        "method": "Open publisher full-text inspection.",
+        "title": "On the Parallelizability of Approval-Based Committee Rules",
+        "trigger": "Very recent source with an explicit three-candidate, two-seat approval-CC example, making it a plausible exact-geometry comparison source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c1e4df76-f6b4-4c50-ad01-23e99d9ca427",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PAV and approval CC are canonical approval-based committee objectives with a clear substantive tension: repeated representation under harmonic diminishing returns versus maximizing the number of represented voters. The smallest electorate where they make different unambiguous choices is a natural structural invariant, and the forced one-orbit boundary explains the exact mechanism rather than supplying an arbitrary counterexample.",
+    "status": "PASS"
+  }
+}
