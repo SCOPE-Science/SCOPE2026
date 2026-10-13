@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Direct solution of the printed disease-free \\(S,Q\\) balance gives \\(Q_*>0\\) for \\(p>0\\), while substitution into the printed scaled equations gives \\(\\widetilde Q'=\\widetilde p\\) at the source's claimed point. Linearizing the genuinely infected states \\(E,I,A\\) at the true disease-free equilibrium yields a nonnegative rank-one next-generation matrix and the displayed \\(\\mathcal R_0\\). Direct determinant algebra gives the factor \\(1-\\mathcal R_0\\), and exact rational replay verifies the numerical values.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Van den Driessche and Watmough define \\(F_i\\) as appearance of new infections in infected compartments and prove the derivative matrix \\(F\\) is nonnegative.",
+        "Their theorem identifies \\(\rho(FV^{-1})\\) as the local invasion threshold.",
+        "That general theorem does not contain the source-specific SQEIAR equilibrium or formula."
+      ],
+      "reasoning": "Broader literature supplies the method but does not subsume the concrete correction.",
+      "searches": [
+        "\"Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission\" new infections nonnegative F",
+        "next generation matrix quarantine susceptible infected compartments epidemic reproduction number",
+        "standard next generation matrix quarantined susceptible not infected reproduction number"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2021712",
+      "doi:10.1016/S0025-5564(02)00108-6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No located correction states the true disease-free quarantine balance or the three-state threshold formula.",
+        "The closest indexed reproduction-number result concerns a different two-patch SEIR model.",
+        "The earlier same-source optimal-control correction concerns Hamiltonian costates, not the uncontrolled disease-free equilibrium or reproduction number."
+      ],
+      "reasoning": "Neither generic next-generation theory nor the earlier control correction implies this source-specific formula without reconstructing the printed SQEIAR equations.",
+      "searches": [
+        "10.3934/math.2021712 corrected reproduction threshold beta 0.228121 1.647541",
+        "negative entries next generation matrix quarantine susceptible epidemic reproduction number 10.3934/math.2021712",
+        "10.3934/math.2021712 erratum correction reproduction number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source's scaled disease-free point has nonzero \\(\\widetilde Q'\\) when \\(\\widetilde p>0\\).",
+        "The source's matrix called nonnegative \\(F\\) has displayed first row \\((-\\widetilde p,-\\widetilde p,-\\widetilde p,-\\widetilde p)\\).",
+        "No searched source supplied the corrected disease-free state or three-state threshold formula."
+      ],
+      "reasoning": "The defect was searched as a disease-free-equilibrium error, quarantine-as-infection error, negative new-infection matrix, and corrected reproduction-number problem.",
+      "searches": [
+        "\"Analysis of an SQEIAR epidemic model with media coverage and asymptomatic infection\" reproduction number correction",
+        "10.3934/math.2021712 basic reproduction number next generation quarantine susceptible",
+        "SQEIAR media asymptomatic quarantine correct R0 Shi Gao Zhou Li",
+        "Shi Gao Zhou Li SQEIAR correct reproduction number infected compartments E I A negative next-generation F matrix quarantine"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary full text was inspected at model (2.1), scaled system (2.2), Section 3.1, the displayed \\(F,V,FV^{-1}\\) matrices, Theorem 3.1, Table 2, and the reported values \\(0.3438\\) and \\(2.4833\\).",
+        "The publisher record gives publication on 26 August 2021 and Primary MSC 92D30.",
+        "The full next-generation-method paper was inspected at its definitions and threshold theorem."
+      ],
+      "reasoning": "The comparison uses the exact equations and exact parameter table, not title-level inference.",
+      "searches": [
+        "doi:10.3934/math.2021712 Section 3 disease-free equilibrium next generation matrix",
+        "doi:10.3934/math.2021712 Table 2 beta 0.09 0.65 reproduction number",
+        "doi:10.1016/S0025-5564(02)00108-6 new infection matrix nonnegative"
+      ]
+    },
+    "rationale": "The general next-generation framework is prior art and is not claimed as new. The source-specific correction is not stated in the primary article, which prints a different disease-free point and a four-state matrix with negative entries. Exact-source, alias, correction, and implication searches found no published repair. Earlier work on the same article concerns optimal-control adjoints and is scientifically disjoint.",
+    "residual_risks": [
+      "An unindexed author note or unpublished code could contain an independent correction.",
+      "The source implementation is unavailable, so this result does not determine which threshold formula any code used.",
+      "The finding does not reassess every downstream nonlinear theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRINTED_DISEASE_FREE_STATE_AND_REPRODUCTION_NUMBER_DO_NOT_MATCH_THE_PRINTED_MODEL",
+        "evidence": "The claimed zero-quarantine disease-free point has nonzero \\(\\widetilde Q'\\), and the displayed matrix called nonnegative \\(F\\) has negative entries.",
+        "identifier_or_url": "doi:10.3934/math.2021712",
+        "material_read": "Full text at model (2.1), scaled model (2.2), scaled parameter definitions, Section 3.1, Theorem 3.1, Table 2, and the numerical reproduction-number discussion.",
+        "method": "Solved the disease-free \\(S,Q\\) balance, reconstructed the infected linearization, and evaluated the resulting threshold at Table 2.",
+        "title": "Analysis of an SQEIAR epidemic model with media coverage and asymptomatic infection",
+        "trigger": "Primary source defining the equations, disease-free state, reproduction number, and numerical threshold values."
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_SUPPORTS_THE_THREE_STATE_RECONSTRUCTION",
+        "evidence": "The framework requires new-infection rates in infected compartments and proves the derivative matrix \\(F\\) is nonnegative.",
+        "identifier_or_url": "doi:10.1016/S0025-5564(02)00108-6",
+        "material_read": "Full text at the disease-free-state definition, separation of new infections from other transfers, matrix-sign lemma, definition of \\(\\mathcal R_0\\), and threshold theorem.",
+        "method": "Compared the required infected/uninfected partition and matrix signs with the SQEIAR construction.",
+        "title": "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission",
+        "trigger": "Methodological source cited by the primary article."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d2e302f6-38fe-46d5-ae71-5865be913255",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The reproduction number organizes the source's extinction, persistence, parameter-threshold, sensitivity, and numerical interpretation. The defect is structural rather than cosmetic: the printed disease-free point fails the equations and the new-infection matrix violates the cited framework. The corrected scalar materially changes the quantitative threshold values and provides the proper benchmark for future analysis.",
+    "status": "PASS"
+  }
+}
