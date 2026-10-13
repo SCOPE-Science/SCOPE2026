@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For a triangular matrix with \\(k\\) zero diagonal entries, group invertibility is equivalent to semisimplicity of the zero primary component, hence to rank \\(n-k\\). The fixed-diagonal count follows from two exhaustive last-coordinate recurrences: a nonzero last diagonal allows every \\(q^{n-1}\\) final column, while a zero last diagonal requires the final column to lie in an image space of dimension \\(n-k\\). Both recurrences give \\(q^{\\binom n2-\\binom k2}\\). Choosing the nonzero diagonal positions and values yields the stated rank enumerator. A standalone exhaustive verifier agrees for \\(q\\in\\{2,3,5\\}\\) and for \\(\\mathbb F_4\\), but those finite checks are not used as the all-dimension proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mary Lemma 3.14 says an upper-triangular group-invertible matrix over a Dedekind-finite ring has an upper-triangular group inverse.",
+        "Hartwig--Shoaf supplies necessary and sufficient conditions for special triangular families and notes that over a field equivalence of A and A squared is sufficient for group invertibility.",
+        "Meyer--Rose gives index bounds and a block-triangular Drazin inverse formula."
+      ],
+      "reasoning": "These broader structural theorems justify terminology and criteria but do not give a count over all of the triangular algebra. A general similarity-class enumeration of all matrices would also not immediately imply the result because upper-triangular membership is not conjugacy invariant.",
+      "searches": [
+        "Mary 2015 full text: upper triangular group inverse Dedekind-finite",
+        "Hartwig--Shoaf 1977 full text: group and Drazin inverses triangular Toeplitz matrices",
+        "Meyer--Rose 1977 abstract: index and Drazin inverse block triangular matrices"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1080/00927872.2014.900562",
+      "doi:10.1017/S1446788700020036",
+      "doi:10.1137/0133001"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current ledger has no prior group-inverse/Drazin enumeration claim.",
+        "The prior-week ledger search returned unrelated upper-triangular zero-divisor material rather than a group-inverse claim.",
+        "Mary and Hartwig--Shoaf imply criteria useful in the proof but do not state the fixed-diagonal or rank-stratified counts."
+      ],
+      "reasoning": "The new statement is not a corollary of a stored own finding. The closest published criteria still require a new pattern-independent triangular rank enumeration, which is supplied by the two recurrences in the proof.",
+      "searches": [
+        "Own current ledger through 2026-10_week1 generation 58: titles/claims searched for group inverse, Drazin, triangular generalized inverse",
+        "Own prior ledger 2026-09_week4 generation 52: semantic search for “group inverse”, “Drazin” and “group invertible”",
+        "published-finding corpus targeted queries listed above"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved published-finding corpus record states a finite-field enumeration of group-invertible upper-triangular matrices.",
+        "Mary defines group invertibility/completely regular elements and Drazin index one, but the paper addresses reverse-order laws rather than counting.",
+        "Hartwig--Shoaf gives structural existence criteria and explicitly discusses triangular matrices, but its main named family is bidiagonal/triangular Toeplitz and no finite-field census was located."
+      ],
+      "reasoning": "The searches covered the standard aliases group inverse, Drazin index one, completely regular/group element, finite field, rank-square criterion, and triangular matrices. The retrieved statements are structural, not equivalent enumerations.",
+      "searches": [
+        "published-finding corpus: finite field exact count group invertible matrices index one matrices Drazin group inverse",
+        "published-finding corpus: number of matrices over finite field with group inverse rank A equals rank A squared",
+        "published-finding corpus: group inverse matrix finite field enumeration",
+        "Web/source inspection: group inverse / completely regular / Drazin index one aliases in Mary (2015) and Hartwig--Shoaf (1977)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding corpus hits concerned t-fine decompositions, zero-insertive rank loci, and triangular commuting graphs, not group-inverse enumeration.",
+        "No exact database/table entry containing the exponent \\(\binom n2-\binom k2\\) or the rank-stratum formula was retrieved.",
+        "The final formula-oriented published-finding corpus query returned unrelated coding, graph, free-algebra, and rank-distribution records; no group-invertible triangular enumeration appeared among the leading matches."
+      ],
+      "reasoning": "The numerical form, object name, rank characterization, and triangular-ring aliases were all searched directly; no exact table or formula was found.",
+      "searches": [
+        "published-finding corpus: upper triangular matrices finite field group inverse exact count group invertible rank diagonal",
+        "published-finding corpus: triangular matrix ring group invertible elements enumeration finite field",
+        "published-finding corpus: number of group invertible elements T_n(F_q) triangular matrices",
+        "published-finding corpus: rank equals number nonzero diagonal upper triangular matrix group inverse count",
+        "published-finding corpus: upper triangular group invertible fixed diagonal q binomial n 2 minus binomial k 2 rank enumerator finite field"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus searches, the current and prior own ledgers, and direct inspection of the closest generalized-inverse literature did not locate the fixed-diagonal completion formula or the rank-stratified finite-field count. The closest triangular papers provide existence criteria or inverse formulas for special or block-triangular families, not this enumeration.",
+    "residual_risks": [
+      "An older finite-semigroup enumeration may use terminology such as “group elements”, “completely regular elements”, or “index-one elements” without mentioning generalized inverses in its title.",
+      "The Meyer--Rose source was compared at abstract level only; its abstract gives structural block formulas rather than an enumeration, so it is not a decisive unresolved coverage concern."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Confirms primary MSC 15A09/20M17, online date 2015-04-17, group-inverse definitions, and closure of triangular shape for the group inverse. It does not enumerate finite-field triangular matrices.",
+        "evidence": "Publisher metadata lists published online 2015-04-17 and primary MSC 15A09, 20M17; author PDF states Lemma 3.14 for upper/lower triangular matrices over Dedekind-finite rings.",
+        "identifier_or_url": "doi:10.1080/00927872.2014.900562",
+        "material_read": "Publisher metadata plus author-hosted full text: abstract, definitions of group inverse/completely regular element, Drazin-index discussion, and Lemma 3.14 on triangular group inverses over Dedekind-finite rings.",
+        "method": "Publisher page and lawful author-hosted PDF; PDF first page visually inspected.",
+        "title": "Reverse Order Law for the Group Inverse in Semigroups and Rings",
+        "trigger": "Archive-cohort anchor and direct structural source for group inverses in triangular rings."
+      },
+      {
+        "assessment": "Gives existence conditions for bidiagonal and triangular Toeplitz matrices over arbitrary rings and records the field equivalence criterion, but does not give the all-upper-triangular finite-field rank enumerator.",
+        "evidence": "The abstract limits the named family to bidiagonal and triangular Toeplitz matrices; the preliminary discussion states that, for matrices over a field, equivalence of A and A squared is sufficient for the group inverse.",
+        "identifier_or_url": "doi:10.1017/S1446788700020036",
+        "material_read": "Cambridge full-text PDF: abstract, introduction, preliminary Lemma 2, and beginning of the triangular-matrix section.",
+        "method": "Publisher full-text PDF; first page visually inspected.",
+        "title": "Group inverses and Drazin inverses of bidiagonal and triangular Toeplitz matrices",
+        "trigger": "Closest older source whose title directly combines group inverses and triangular matrices."
+      },
+      {
+        "assessment": "Provides bounds for the index and an explicit block-triangular Drazin inverse formula, but the available material does not state a finite-field count.",
+        "evidence": "Abstract states index bounds and a Drazin inverse formula for block triangular matrices.",
+        "identifier_or_url": "doi:10.1137/0133001",
+        "material_read": "Publisher abstract and bibliographic record only.",
+        "method": "Publisher web abstract; full text was not required for the proof and was not accessible in the retrieved result.",
+        "title": "The Index and the Drazin Inverse of Block Triangular Matrices",
+        "trigger": "Potential broader source that could dominate a triangular-matrix index-one statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "539498db-6951-4b61-8231-b23eded057b0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Group inversion is a standard generalized-inverse notion, and prior triangular literature is structural rather than enumerative. The new pattern-independence lemma is a natural exact invariant for the full finite triangular algebra, valid in all dimensions and finite fields; it refines the total census by rank and fixed diagonal rather than providing an arbitrary small computation.",
+    "status": "PASS"
+  }
+}
