@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Conditional-on-subtree-size identity E[R_n|S_v=k]=H_{n-k-1}+1/(v-1) follows from uniform external attachments, and exact beta-binomial probabilities sum to n/[k(k+1)] and 1/k. Taking covariance gives the harmonic formula. Strict monotonicity follows by comparison of harmonic tails; uniform expansion for k=O(sqrt n) yields nCov->c^{-2}-1/2 and crossing kappa_n/sqrt n->sqrt2. Finite checks include all 46,233 recursive trees n<=9 and 376,239 rational sign comparisons. No step relies on extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1.13–1.15 concerns covariances between numbers of two fringe subtree patterns; Section 8.1 uses counts of every vertex of a given outdegree.",
+        "The 2008 article concerns F_{n,k} marginal phase behavior; only abstract-level content was available."
+      ],
+      "reasoning": "Knowing all marginal F_{n,k} laws and count-count covariance coefficients does not specify their joint distribution with the distinguished root degree. No verified primary full-text result dominates this exact mixed regression; residual inaccessible-article uncertainty is reported.",
+      "searches": [
+        "Holmgren Janson 2014 1406.6883 root degree subtree size count covariance",
+        "Feng Mahmoud Panholzer 2008 recursive tree fringe root-degree joint moments",
+        "arXiv:1406.6883v1 Theorems 1.13–1.15 and §8.1",
+        "doi:10.1137/060653950 publisher abstract and metadata"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1406.6883v1 full arXiv HTML, Theorems 1.4, 1.13–1.15, and §8.1",
+      "arXiv:1310.0665v1 full arXiv HTML and recursive-tree section",
+      "DOI:10.1137/060653950 publisher abstract and history; full text inaccessible",
+      "Published research-record semantic searches on root degree, fringe size and source aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior fringe-count covariances couple F_{n,k} with F_{n,m}, whereas this result couples F_{n,k} to R_n.",
+        "The known k=1 leaf covariance is a single slice, which cannot determine all k>=2 covariances or the sqrt(2n) crossing."
+      ],
+      "reasoning": "Neither a marginal Poisson/normal transition at k~sqrt(n) nor the leaf-only covariance implies the new exact harmonic-tail sign profile. The threshold constant is not the marginal Poisson scale itself but follows from the new mixed covariance formula.",
+      "searches": [
+        "arXiv:1406.6883v1 §1 and §8.1",
+        "arXiv:1310.0665v1 full HTML",
+        "Joint correlation of root degree or root children and fringe subtree size profile in recursive trees, normal Poisson change sign"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Holmgren–Janson 2014 Theorem 1.4 is a marginal law, not a mixed root-degree statistic.",
+        "The already established root-degree/leaf covariance is exactly the k=1 boundary special case."
+      ],
+      "reasoning": "A leaf count is F_{n,1}, and its known covariance is subsumed as a boundary check; it is not an equivalent formulation of the new k>=2 sign-switch theorem. Distinct root-level and whole-tree degree-count variables must not be conflated.",
+      "searches": [
+        "Uniform random recursive trees exact covariance root outdegree and number of fringe subtrees of size k, harmonic formula n/(k(k+1)) and square-root threshold sqrt(2n)",
+        "Joint correlation of root degree or root children and fringe subtree size profile in recursive trees, normal Poisson change sign",
+        "web: random recursive tree root degree fringe subtree size covariance joint",
+        "web: random recursive trees root outdegree count subtrees of size k covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact marginal fringe count n/[k(k+1)] appears in the literature; no direct published mixed-moment identity or exact table surfaced in these actual searches.",
+        "All finite checker tables were independently produced for testing, not claimed as public prior databases."
+      ],
+      "reasoning": "The result is a theorem valid for arbitrary n and k, not an unlisted cell from a finite database. Search failure is not used as proof of novelty.",
+      "searches": [
+        "web: \"root degree\" \"fringe subtrees\" \"random recursive trees\" covariance",
+        "web: \"root degree\" \"subtree size profile\" \"random recursive\" cross moments",
+        "Uniform random recursive trees exact covariance root outdegree and number of fringe subtrees of size k, harmonic formula n/(k(k+1)) and square-root threshold sqrt(2n)"
+      ]
+    },
+    "rationale": "The new result determines a distinguished-root-versus-fringe-size cross covariance for all k>=2 and a sharp sign-crossover constant. The checked primary statements give marginal size laws and covariances of two fringe counts or all-vertex degree counts, none equivalent to the root-level mixed moment; the known k=1 covariance is not claimed new. The inaccessible potentially relevant generating-function article and other undiscovered equivalences remain expressly acknowledged.",
+    "residual_risks": [
+      "Feng–Mahmoud–Panholzer 2008 full article was inaccessible despite open-source and authorized academic-access attempts; an earlier mixed generating function could imply this identity.",
+      "Indexed semantic searches do not establish absolute bibliographic uniqueness; unpublished independent work is not visible.",
+      "Known k=1 covariance is not itself novel and is used only as a boundary comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers marginal fringe-size means, covariances among aggregate fringe counts and all-vertex degree totals, not the distinguished root-degree/fringe-size mixed covariance.",
+        "evidence": [
+          "Theorem 1.4 Eq. (1.2): E F_{n,k}=n/[k(k+1)].",
+          "Theorems 1.13–1.15: covariance of two fringe-count functionals.",
+          "§8.1: number of vertices with a specified outdegree, not the outdegree of the distinguished root."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1406.6883v1",
+        "material_read": "Full HTML: introduction; Theorems 1.4 and 1.13–1.15; representation, recursive-tree moments, §8.1 outdegrees, references and associated explanations.",
+        "method": "Inspected mathematical statements, definitions and their dependent object classes in primary full text.",
+        "title": "Limit Laws for Functions of Fringe trees for Binary Search Trees and Recursive Trees",
+        "trigger": "Same recursive-tree model; exact fringe-size counts, covariance theorems and degree-related applications."
+      },
+      {
+        "assessment": "Counts protected nodes and fringe properties; no exact covariance of distinguished-root degree and size-k fringe counts found in inspected material.",
+        "evidence": [
+          "The paper studies protected nodes as fringe-tree events, not coupling a distinguished root outdegree to a fringe-size profile."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1310.0665v1",
+        "material_read": "Full short HTML; introduction, model, results on protected nodes and the recursive-tree section.",
+        "method": "Read accessible complete HTML and compared statistic definitions with exact mixed moment sought.",
+        "title": "Protected nodes and fringe subtrees in some random trees",
+        "trigger": "Same recursive-tree model, general fringe distributions, and node degree properties."
+      },
+      {
+        "assessment": "Abstract establishes marginal count transition only; cannot exclude a mixed root-degree expression in inaccessible full text.",
+        "evidence": [
+          "Publisher abstract describes laws of size-k fringe counts across Gaussian/Poisson regimes.",
+          "Publisher history lists 15 February 2008 online publication.",
+          "Complete text not read, expressly listed as a residual originality risk."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/060653950",
+        "material_read": "Publisher abstract, online-publication metadata, MSC classifications and reference list; complete article text unavailable.",
+        "method": "Checked publisher abstract and attempted openly accessible author-hosted full text; complete publisher text remained inaccessible.",
+        "title": "Phase Changes in Subtree Varieties in Random Recursive and Binary Search Trees",
+        "trigger": "Same F_{n,k} statistic and square-root phase change; plausible source of stronger hidden moments."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "56994101-da8d-45fa-aa06-a483d64dff23",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact mixed dependence of a distinguished root branching statistic and natural fringe subtree-size profile is structural information not supplied by marginal fringe-size laws. The sign flips sharply at sqrt(2n), within the established square-root Poisson regime, and the new limiting covariance profile pinpoints positive/negative associations. The k=1 previously known leaf case is excluded from novelty.",
+    "status": "PASS"
+  }
+}

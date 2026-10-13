@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The tree's independent-parent law gives an exact two-color Pólya urn for a specified fringe subtree. Conditioning on its size and separating its inside and outside arrivals yields the mixed conditional root-degree identity; binomial-hockey-stick sums reconstruct the covariance for every specified integer. The strict threshold and square-root limit follow from the explicitly increasing harmonic-tail ratio and a uniform expansion. Exact enumeration through nine vertices and rational checks across 498 further sizes support the steps without replacing the proof.
+
+**Originality — PASS, with acknowledged risk.** Holmgren and Janson (arXiv:1406.6883v1), Theorems 1.4 and 1.13–1.15 and §8.1, develop marginal size counts, mixed counts of two fringe types, and whole-tree degree frequencies, not root-degree versus fringe-size covariances. Devroye and Janson (arXiv:1310.0665v1) treat protected nodes and fringe distributions; Feng, Mahmoud and Panholzer (DOI:10.1137/060653950) establish the marginal square-root transition. The previously known \(k=1\) root/leaf covariance is expressly excluded as a novelty assertion. Older generating-function literature could imply the new mixed covariance without directly displaying it; the Feng et al. article was verified from its publisher abstract and metadata, but complete inspection remained unavailable because of access limitations.
+
+**Value — PASS.** The root's degree is the simplest global-root branching feature and fringe-size counts summarize descendant mass over the tree. The exact sign transition at \(\sqrt{2n}\), lying at a natural marginal normal-to-Poisson crossover, identifies a nontrivial point where root branching switches from positive to negative association with subtree counts. The precise crossover and limiting signed covariance offer information unavailable from marginal count laws or the single leaf-count special case.
+
+Independent validation has not been undertaken, and bibliographic uniqueness is not established. The statement concerns uniform recursive trees only, not other attachment rules or joint limit distributions.
+
+Self-review: passed. Independent audit: not yet performed.
