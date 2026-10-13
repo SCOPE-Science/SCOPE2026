@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The rarefaction identities are exact consequences of without-replacement sampling. The lower cutoff and first collision are proved by complete finite enumeration of every positive integer abundance multiset for every richness at totals through nine, with two independently implemented generators and exact rational evaluation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Simpson's 1949 paper introduces a concentration measure for classified populations.",
+        "Hurlbert's full text gives the finite-population probability of interspecific encounter and the hypergeometric expected-species formula used for rarefaction.",
+        "Hurlbert explicitly notes that collections can share a conventional diversity-index value while yielding different species-richness curves.",
+        "Olszewski's published abstract states that Hurlbert's probability of interspecific encounter equals the slope of the steepest rising part of a rarefaction curve."
+      ],
+      "reasoning": "This literature establishes the quantities and generic information loss, so those are prior. It does not by itself identify the smallest positive integer community, under fixed richness and total abundance, where that loss first occurs.",
+      "searches": [
+        "Simpson Measurement of Diversity 1949 concentration",
+        "Hurlbert Nonconcept Species Diversity PIE expected species rarefaction",
+        "Olszewski unified mathematical framework richness evenness rarefaction PIE"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1038/163688a0",
+      "doi:10.2307/1934145",
+      "doi:10.1111/j.0030-1299.2004.12519.x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hurlbert's general nonuniqueness statement permits different richness curves at a common diversity-index value but supplies no minimum total abundance or fixed-richness classification.",
+        "Olszewski's rarefaction–PIE relationship identifies a mathematical link between the pairwise statistic and the initial rarefaction curve but does not imply injectivity of the pairwise statistic on small integer abundance profiles.",
+        "The exact cutoff requires checking every positive partition in the finite domain and isolating the unique first equal-second-factorial-moment pair."
+      ],
+      "reasoning": "The accepted claim is strictly narrower than generic diversity-index nonuniqueness: it gives the exact boundary under fixed richness and total abundance, plus uniqueness and the next-depth rarefaction gap. Those conclusions do not follow from the cited qualitative relationship alone.",
+      "searches": [
+        "Hurlbert identical diversity indices different species richness curves",
+        "probability interspecific encounter rarefaction curve relationship",
+        "Simpson concentration species abundance distribution uniqueness"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked published result stated that fixed-richness positive abundance profiles are identified by Simpson concentration through total abundance eight and first collide at nine.",
+        "Exact-profile searches did not locate the pair \\((1,4,4)\\) versus \\((2,2,5)\\) as a sharp Simpson–rarefaction boundary.",
+        "Searches covered the equivalent languages of Simpson collision probability, Hurlbert probability of interspecific encounter, rarefaction, factorial moments, fixed richness, and integer abundance profiles."
+      ],
+      "reasoning": "The result can be formulated as a smallest Simpson collision at fixed richness, a first failure of pairwise-moment identifiability, or the first point at which two-draw rarefaction fails to determine three-draw rarefaction. All of these formulations were searched.",
+      "searches": [
+        "Simpson diversity rarefaction expected species sample size two three factorial moments abundance profile",
+        "smallest community same Simpson concentration different rarefied richness three individuals",
+        "Hurlbert expected species Simpson concentration collision probability rarefaction",
+        "same Simpson rarefaction expected species abundance profile",
+        "Simpson rarefaction sample size 3 species",
+        "1 4 4 2 2 5 ecology Simpson rarefaction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked source tabulated the exact first collision or the \\(1/42\\) three-draw gap.",
+        "No checked source gave a complete fixed-\\((N,S)\\) Simpson-collision table through nine individuals.",
+        "The packaged verifier derives the collision table directly from all positive integer abundance multisets rather than importing a published table."
+      ],
+      "reasoning": "Exact-vector, exact-value, and finite-table searches directly test whether the proposed sharp boundary appears as a worked ecological example, software fixture, or published classification.",
+      "searches": [
+        "\"1,4,4\" \"2,2,5\" ecology Simpson rarefaction",
+        "\"44/21\" rarefaction species",
+        "\"89/42\" rarefaction species",
+        "\"nine individuals\" Simpson rarefaction",
+        "\"fixed richness\" Simpson rarefaction abundance"
+      ]
+    },
+    "rationale": "Prior work establishes Simpson concentration, Hurlbert rarefaction, and the general fact that a single diversity index need not determine a richness curve. The checked primary literature and targeted searches did not contain the fixed-richness minimal total, the unique first abundance collision, or its exact three-draw rarefaction gap.",
+    "residual_risks": [
+      "An unindexed teaching note, worked example, or software regression test could contain the same nine-individual pair.",
+      "Only the published abstract of Olszewski 2004 was inspected; no whole-document noncoverage claim is made for that paper.",
+      "Allowing richness to vary gives earlier Simpson collisions and is outside the claimed domain."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly covers the underlying measures and generic nonidentification. It does not state the fixed-richness \\(N=9\\) minimality, uniqueness, or exact three-draw gap.",
+        "evidence": "The article gives both the pairwise encounter expression and \\(E(S_n)=\\sum_i[1-\binom{N-N_i}{n}/\binom{N}{n}]\\), and separately discusses equal-index collections with different richness curves.",
+        "identifier_or_url": "doi:10.2307/1934145",
+        "material_read": "Full article, including the pages defining probability of interspecific encounter, its relation to Simpson concentration, the hypergeometric expected-species formula, and the discussion that equal conventional diversity-index values can coexist with different species-richness curves.",
+        "method": "Lawfully available full-PDF inspection, including rendered-page checks of the displayed formulas.",
+        "title": "The Nonconcept of Species Diversity: A Critique and Alternative Parameters",
+        "trigger": "Primary source defining the ecological pairwise encounter quantity and the finite-population expected-species rarefaction formula."
+      },
+      {
+        "assessment": "Establishes the original concentration-measure context and publication date. The finite without-replacement normalization used in the theorem is taken from Hurlbert's ecological formulation.",
+        "evidence": "Nature 163, 688; published 30 April 1949; DOI 10.1038/163688a0.",
+        "identifier_or_url": "doi:10.1038/163688a0",
+        "material_read": "Publisher abstract, bibliographic record, publication date, and DOI.",
+        "method": "Publisher-page inspection.",
+        "title": "Measurement of Diversity",
+        "trigger": "Foundational source for Simpson concentration and the archival date anchor."
+      },
+      {
+        "assessment": "Supports the established mathematical connection between rarefaction and PIE. No whole-document noncoverage claim is made because only the abstract was inspected.",
+        "evidence": "The abstract states that Hurlbert's probability of interspecific encounter equals the slope of the steepest part of the rising rarefaction curve.",
+        "identifier_or_url": "doi:10.1111/j.0030-1299.2004.12519.x",
+        "material_read": "Published abstract and bibliographic record.",
+        "method": "Publisher abstract inspection.",
+        "title": "A unified mathematical framework for the measurement of richness and evenness within and among multiple communities",
+        "trigger": "Closest located later literature explicitly connecting Hurlbert PIE and rarefaction geometry."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "41bc9e96-a9b3-44bc-a92c-9906ec3570e9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Rarefaction is a standard way to compare richness at controlled sample size, while Simpson/PIE captures pairwise abundance concentration. The smallest fixed-richness integer community where the pairwise summary no longer identifies the abundance profile is a natural structural boundary. Its unique first obstruction and exact separation at the immediately following rarefaction depth make the result interpretable and reusable as a benchmark.",
+    "status": "PASS"
+  }
+}
