@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For all a>b>0 and even B>=2, direct Lanczos orthogonality makes two nodes exact and the one-node estimator equal to ||g||^4/(g^T A g). Independent chi-square radial moments E R²=2 and E R⁴=8 and exact angular integrals 1/sqrt(ab), (a+b)/(2(ab)^(3/2)) determine its bias and variance. Deep Gaussian quadratic-form variance is 2 tr(A^-2). Symbolic simplification gives the displayed MSEs and difference. The B-star derivative is strictly negative for every u>1 because 3u²-4u+3>0, with limits infinity and four, proving the iff classification. The embedded verifier replayed these symbolic identities, three rational Krylov certificates and numerical diagnostics. Experiments are supplemental and no repeated-eigenvalue or floating-point claim is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Trogdon–Ubaru 2022 gives uniform bounds and exactness for finite-support quadrature after enough nodes; Ubaru–Chen–Saad 2017 proves general SLQ error bounds.",
+        "Li–Huang–Zhu 2023 optimizes logdet error budget rather than exact inverse-trace Gaussian mean squared risk."
+      ],
+      "reasoning": "A stronger theorem could dominate this result if it determined exact MSEs for both depth/probe choices or gave exact sign for any f and spectrum. The inspected high-probability inequalities do not do that: bounds on distinct errors cannot settle their exact ordering. The related resource-allocation principle is not a stronger special-case formula because it uses a different loss (logdet), bound optimization and sometimes different probe normalization.",
+      "searches": [
+        "Lanczos quadrature more starting vectors rather than deeper quadrature fixed two matrix vector products",
+        "stochastic Lanczos quadrature inverse trace 2 by 2 Gaussian 1 step 2 steps mean squared error optimal probe allocation fixed matrix vector budget spectrum condition number",
+        "arxiv:2204.01941v1",
+        "doi:10.1137/16M1104974"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2005.10009v1 (initial public 2020-05-20); read complete current arXiv manuscript relevant Gaussian and Lanczos parts",
+      "doi:10.1137/16M1104974; read Cornell-hosted original SLQ article relevant sections",
+      "arxiv:2204.01941v1; read lawful arXiv full manuscript for broader quadrature coverage",
+      "arxiv:2307.00847v1; read lawful arXiv full manuscript for optimized allocation",
+      "2026/9/17/SCOPE-critical-tolerance-fluctuations-cg-haar-power-law-spectra--ef42dbde8c03",
+      "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+      "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest generic SLQ theory fixes the quadrature construction but gives worst-case/global errors, not exact opposing MSEs.",
+        "Closest depth-versus-probe source concerns logdet estimates at a target tolerance, so it neither implies nor conflicts with a Gaussian inverse-trace risk crossover.",
+        "Antithetic logdet results compare dependence between shallow probes, not the depth allocations."
+      ],
+      "reasoning": "The previous formulas imply the deep estimator is unbiased on a 2x2 distinct-spectrum matrix and that any one-node approximation has deterministic quadrature bias per probe, but they do not logically specify the sign of total MSE when sample count halves. The exact angular second moment and subtraction yield the missing spectral equation. The result does not claim a general matrix-free algorithmic optimum, avoiding conflict with exact deterministic two-query recovery.",
+      "searches": [
+        "Gaussian stochastic Lanczos quadrature 2x2 SPD inverse trace two one-step probes versus one two-step probe exact mean squared error bias variance dominance",
+        "stochastic Lanczos quadrature inverse trace 2 by 2 Gaussian 1 step 2 steps mean squared error optimal probe allocation fixed matrix vector budget spectrum condition number",
+        "arxiv:2307.00847v1",
+        "arxiv:2204.01941v1",
+        "doi:10.1137/16M1104974"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Two-node Gaussian Lanczos on a two-atom spectrum is exactly the Gaussian trace estimate of A inverse; the one-node formula is a random Rayleigh reciprocal times probe norm.",
+        "The inspected SLQ papers establish those generic ingredients but not the exact equality condition for their averaged MSEs at fixed B."
+      ],
+      "reasoning": "Equivalent labels include stochastic Gauss quadrature, single-node reciprocal Rayleigh trace estimates, Gaussian Hutchinson with exact two-node Lanczos, and quadratic-form Monte Carlo. The proposed statement compares biased one-node MSE with unbiased two-node MSE, including equality, signs and unique crossover. None of the inspected equivalent frameworks states this comparison; a generic moment identity for Gaussian quadratic forms alone cannot supply the biased Rayleigh-reciprocal moments without the angular integration.",
+      "searches": [
+        "Gaussian stochastic Lanczos quadrature 2x2 SPD inverse trace two one-step probes versus one two-step probe exact mean squared error bias variance dominance",
+        "inverse trace 2 dimensional stochastic Lanczos Rayleigh quotient Gaussian angular integrals exact risk",
+        "arxiv:2307.00847v1",
+        "arxiv:2005.10009v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical finding records returned nearby Gaussian/Lanczos numerical results but no 2x2 inverse-trace SLQ MSE threshold table.",
+        "The threshold u=5.10696460773475 for B=8 is a computed consequence of the new explicit B-star formula, not taken from a preexisting numerical table."
+      ],
+      "reasoning": "The result is a function-valued exact theorem for all even budgets and distinct two-dimensional SPD spectra, not a finite table entry. Searched formulas, numerical crossover aliases, and published near-matches did not reveal a database containing the equation. Search absence is not proof of uniqueness.",
+      "searches": [
+        "inverse trace 2 dimensional stochastic Lanczos Rayleigh quotient Gaussian angular integrals exact risk",
+        "stochastic Lanczos quadrature inverse trace 2 by 2 Gaussian 1 step 2 steps mean squared error optimal probe allocation fixed matrix vector budget spectrum condition number",
+        "2026/9/17/SCOPE-critical-tolerance-fluctuations-cg-haar-power-law-spectra--ef42dbde8c03"
+      ]
+    },
+    "rationale": "Exact statement-to-statement comparisons against SLQ inverse-trace construction (2017), Gaussian concentration and Lanczos (2020), uniform quadrature bounds (2022), and depth/probe optimized logdet bounds (2023) showed none of the inspected materials states or implies the exact two-dimensional Gaussian inverse-trace MSE sign crossover. Related antithetic logdet coupling and Hutch++ results use different estimators or targets. Lack of matching search results does not prove global novelty; unindexed specialized derivations remain a priority risk.",
+    "residual_risks": [
+      "The mathematical priority of this exact two-dimensional special case is not independently certified; equivalent unindexed or unpublished calculations could exist.",
+      "Latest arXiv versions for the 2022 and 2023 articles contain revisions after initial submission; inspected statements and comparisons refer to actual accessible full text, not fabricated v1 full text.",
+      "The theorem does not compare optimal deterministic matrix-vector algorithms or all SLQ allocations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the method and generic accuracy bounds. No statement found equating shallow and deep exact MSE at a condition-number threshold for two spectral atoms.",
+        "evidence": "The article uses the sample/depth SLQ method for inverse traces and develops additive/multiplicative error bounds; its Section 3 displays the Lanczos bilinear form and Monte Carlo average.",
+        "identifier_or_url": "doi:10.1137/16M1104974; https://www.cs.cornell.edu/courses/cs6241/2020sp/readings/Ubaru-2017-fast.pdf",
+        "material_read": "Full article introduction and prior work, Section 3 Gaussian quadrature/Lanczos algorithm and estimator, Section 4 bounds and numerical comparisons, including formulas for matrix inverse.",
+        "method": "Read lawful public university-hosted full PDF; compared algorithm definitions, budget and stated theorems to the exact Gaussian two-dimensional claim.",
+        "title": "Fast estimation of tr(f(A)) via stochastic Lanczos quadrature",
+        "trigger": "Defines the exact named estimator and explicitly discusses inverse traces; plausible direct source for the comparison."
+      },
+      {
+        "assessment": "Gives general concentration and approximation guarantees for Gaussian and Rademacher probing; focuses on logarithms and determinant error bounds, not the exact two-dimensional inverse-trace MSE allocation boundary.",
+        "evidence": "Intro states the combination of Gaussian random vectors with Lanczos, emphasizing logdet; arXiv abstract lists 65C05 as primary MSC, with 2020-05-20 v1.",
+        "identifier_or_url": "arxiv:2005.10009v1; https://arxiv.org/pdf/2005.10009",
+        "material_read": "Original public-submission record and full-text introduction, Gaussian trace estimator Section 2, Lanczos approximation analysis and conclusions.",
+        "method": "Inspected original arXiv metadata with verified 2020-05-20 v1 timestamp, and the lawful complete arXiv PDF.",
+        "title": "On randomized trace estimates for indefinite matrices with an application to determinants",
+        "trigger": "Primary MSC 65C05 and independent Gaussian trace-estimation and Lanczos error theory."
+      },
+      {
+        "assessment": "General high-probability uniform spectral-sum accuracy does not itself imply the sign of the exact difference between two Gaussian MSE formulas; no matching special-case crossover located in inspected material.",
+        "evidence": "The work explicitly formulates randomized matrix-free quadrature and concentration/uniform-error theory, not this pairwise inverse-trace budget optimization.",
+        "identifier_or_url": "arxiv:2204.01941v1; https://arxiv.org/pdf/2204.01941",
+        "material_read": "Full-text introduction, randomized spectral-measure construction, quadrature algorithm, Section 3 uniform bounds and examples, and discussion of finitely supported measures.",
+        "method": "Inspected lawful arXiv full PDF and compared generic uniform bounds and exact quadrature conditions with MSE differences at fixed product budget.",
+        "title": "Randomized matrix-free quadrature: unified and uniform bounds for stochastic Lanczos quadrature and the kernel polynomial method",
+        "trigger": "Possible broader quadrature theorem covering all functions and spectral atom configurations."
+      },
+      {
+        "assessment": "Optimizes a bound-based depth/probe choice for logdet and describes a depth-favoring heuristic; it does not state the exact Gaussian inverse-trace MSE crossover in a 2x2 spectrum and therefore does not logically determine this result.",
+        "evidence": "Abstract and introduction say the optimized error allocation is for log-determinant estimation, minimizing total matrix–vector multiplications under a target error tolerance; not two-point inverse-trace exact risk.",
+        "identifier_or_url": "arxiv:2307.00847v1; https://arxiv.org/pdf/2307.00847",
+        "material_read": "Full-text introduction including Section 1 motivation, Sections 2-3 Lanczos and error allocation framework, Section 4 related demonstrations; checked theorem hypotheses and optimization goal.",
+        "method": "Inspected lawful full arXiv manuscript; distinguished original 2023 public date from later 2026 PDF revision.",
+        "title": "An analysis on stochastic Lanczos quadrature with asymmetric quadrature nodes",
+        "trigger": "Most directly relevant published comparison of number of stochastic probes versus Lanczos depth."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "be90586e-bb29-4464-91d7-86665ea3dde2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The tension between number of independent Monte Carlo probes and Lanczos quadrature depth is a specific recognized design choice in stochastic trace approximation; it is explicitly discussed in the 2023 depth/sample literature. The exact two-dimensional inverse-trace calculation discovers a parameterized reversal under equal matrix-vector cost, rather than merely refining a known table or restating unbiasedness. It provides an analyzable benchmark of when systematic one-node quadrature bias is worth the increase in sample count. The result expressly disclaims global black-box optimality and high-dimensional complexity, so its meaning is not inflated.",
+    "status": "PASS"
+  }
+}
