@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For n>=4, the known full toric semigroup lattice and 2n+1 truncated-cube facets give primitive rays (0,e_i),(1,-e_i),(-2,1,...,1). Their standard principal-divisor relations yield generators A_i,B and the single primitive relation sum A_i=2B, hence Cl at the Segre point is free of rank n. At each weight-two toric vertex the n incident coordinate normals give an integral basis of the saturated rank-n kernel a+c_i+c_j=0; the extra normal produces a free rank-one class group at the corresponding singular stratum. Other cones are smooth by the cited primary paper. The generator restrictions are A_k↦1_{k=i or j} and B↦1. The four-cycle equations are necessary and sufficient over integers by the t_i parity reconstruction in RESULT.md; the kernel is exactly the single stated relation. The coker is an image of the quadrilateral matrix and so free of rank binom(n,2)-n. A Python-standard-library checker in the package successfully enumerates finite examples 4<=n<=8 and tests matrix ranks, all facets, orbit rays and integer recovery; the proof is general and no finite sample is presented as exhaustive.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Michałek–Oeding–Zwiernik arXiv:1212.1515, Corollary 5.7 proves the stronger-than-smoothness Q-factorial failure but no complete integral classes.",
+        "Michałek et al. arXiv:1612.01144, Theorem 2.20 generalizes toric covering to Segre–Veronese secants, without integer restriction maps."
+      ],
+      "reasoning": "Known generic results cover the existence of nonsimplicial cones and the singular component arrangement. They do not directly provide the new exact integral subgroup of all component class groups, or prove that its quotient is torsion-free. The full published ray description is acknowledged as prior essential input.",
+      "searches": [
+        "\"secant of Segre\" \"class group\" local singular",
+        "\"secant cumulants and toric geometry\" class group divisor",
+        "binary tensor border rank two secant singular locus incidence matrix Weil Cartier obstructions complete graph edge balancing relation"
+      ]
+    },
+    "checked_sources": [
+      "Michałek–Oeding–Zwiernik, Secant cumulants and toric geometry, arXiv:1212.1515v1 (2012-12-07), relevant Sections 4–5 and 7.",
+      "Michałek et al., Flexible affine cones and flexible coverings, arXiv:1612.01144v1 (2016-12-04), relevant Section 2 and Cox section.",
+      "Cox–Little–Schenck, Toric Varieties (2011), Theorem 4.1.3 as recorded in Macaulay2 normal toric varieties documentation.",
+      "Public semantic research records on local toric class groups and Segre geometry, compared by object and implication; specific nearest IDs retained in private finding checks."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Michałek–Oeding–Zwiernik, Lemma 5.1 and Definition 5.3 provide the polyhedral data; Corollaries 5.6–5.7 provide singular strata and non-Q-factoriality.",
+        "Cox–Little–Schenck, Toric Varieties (2011), Theorem 4.1.3 gives the standard toric divisor exact sequence.",
+        "The present integer proof constructs an explicit restriction matrix and proves the parity condition makes all quadrilateral-balanced labels realizable integrally, ruling out hidden finite obstructions."
+      ],
+      "reasoning": "A standard application of the cited general class-group theorem to the known fan would yield abstract class-group presentations, so those inputs alone are not novel. However the prior texts do not state the complete three-stratum integral calculation plus the simultaneous localization homomorphism, its four-cycle description, and its torsion-free cokernel. That compatibility assertion is a further specific arithmetic calculation rather than a published theorem specialized by parameter substitution. Remaining risk is an unindexed equivalent postprocessing of the same toric data.",
+      "searches": [
+        "\"secant\" \"Segre\" \"local class group\" rank singular locus",
+        "\"T_{2,n}\" \"class group\" \"secant\"",
+        "\"secant cumulants and toric geometry\" class group divisor"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Michałek–Oeding–Zwiernik arXiv:1212.1515, Sections 4–5 describes the same variety under secant cumulants and T_{2,n}.",
+        "The four-cycle image is equivalently the saturated integer column lattice of the complete graph vertex-edge incidence matrix with an all-ones column."
+      ],
+      "reasoning": "The same variety has multiple descriptions: tensor border rank at most two, secant of binary Segre, and cumulant toric T_{2,n}. Searches and inspection used those aliases. The paper identifies its fan and non-Q-factoriality, but not the simultaneous integer local-class restriction image; the new proof supplies the parity reconstruction.",
+      "searches": [
+        "\"secant cumulants\" \"divisor class group\" local",
+        "\"T_{2,n}\" \"class group\" \"secant\"",
+        "secant of Segre (P1)^n local divisor class group restriction to generic singular strata four-cycle balancing edge labels"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published semantic records concern unrelated toric Fano singularity groups or unrelated local singular models; none gives a binary Segre secant restriction matrix.",
+        "The 2012 primary paper contains polytope facet/ray formulas but no table of these local integral divisor groups or their compatibility lattice."
+      ],
+      "reasoning": "The object is a natural infinite family rather than a selected numerical entry. Both explicit formula searches and table/equivalence searches were checked. Search nonappearance alone is not treated as proof of novelty.",
+      "searches": [
+        "normal toric cone of truncated n cube at weight two class groups Pic Weil restrictions to singular faces",
+        "toric variety T_{2,n} Weil class group Z^n and codimension n singular orbit Z",
+        "local Weil divisor class groups secant Segre products of projective lines at Segre points rank n generic singular rank one"
+      ]
+    },
+    "rationale": "The exact same-object primary paper of 2012 already determines the toric chart, facets, non-simplicial singular cones, singular components, and failure of Q-factoriality; all are treated as prior work. Standard toric class-group theory supplies the generic exact sequence. The new, narrower claim determines integral local class groups in all strata and, crucially, the localization image from their common Segre intersection as the saturated lattice of complete-graph quadrilateral-balanced labels. Source inspection and alias/equivalence searches did not identify that explicit compatibility result. This is an integral compatibility statement, not merely the old non-Q-factoriality result. There is residual risk of a classical unindexed toric computation and of considering the derivation routine from the already-known fan.",
+    "residual_risks": [
+      "An unindexed source might have already carried out the same complete-graph restriction-lattice calculation on the 2012 secant fan.",
+      "The original 2012 paper supplies complete facet/ray data, so the new integral refinement is structurally dependent on it and may be judged an elementary consequence in a broader historical comparison.",
+      "No claim is made about class groups of completions, global Weil class groups, or characteristic other than zero."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes normality, toric chart, facet rays, singular support and Q-factoriality failures. Does not state local integral class groups at all three strata, simultaneous generic restriction map, quadrilateral image or its saturated cokernel. The new theorem uses its facets as an input rather than claiming them.",
+        "evidence": [
+          "Definition 4.1 and Theorem 4.5: semigroup and affine-bundle chart.",
+          "Lemma 5.1: 2n+1 facets for n>=4.",
+          "Definition 5.3, Lemma 5.4: singular cone rays.",
+          "Corollaries 5.6–5.7: singular components and Q-factoriality conclusions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1212.1515",
+        "material_read": "Preprint abstract and full-text HTML: Introduction; Definition 4.1; Theorem 4.5; Lemma 5.1; Proposition 5.2; Definition 5.3; Lemma 5.4; Proposition 5.5; Corollaries 5.6 and 5.7; Section 7 overview and the general singular-locus result.",
+        "method": "Primary paper on arXiv and full-text ar5iv HTML, with direct examination of displayed polytope inequalities, facet normals and proofs.",
+        "title": "Secant cumulants and toric geometry",
+        "trigger": "Exact binary Segre secant and its normal toric charts; the strongest direct coverage candidate."
+      },
+      {
+        "assessment": "Establishes additional toric covering/flexibility results, not local divisor-class restriction lattices. First public source date is after the archive cutoff; used solely for novelty comparison.",
+        "evidence": [
+          "Theorem 2.20: normal toric affine covers.",
+          "Section 5 treats Cox rings abstractly rather than the integer class-group restriction map."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1612.01144",
+        "material_read": "Full-text HTML Section 2, especially Theorem 2.20 and its proof, and definition of Cox rings in Section 5.",
+        "method": "ArXiv primary full-text HTML; inspected relevant toric covering and class-group passages.",
+        "title": "Flexible affine cones and flexible coverings",
+        "trigger": "Later toric generalization of the exact Secant-of-Segre affine covering."
+      },
+      {
+        "assessment": "Provides the general exact sequence, not the specialized integer edge compatibility calculation.",
+        "evidence": [
+          "The map from torus characters to invariant Weil divisors is defined by pairing with the primitive ray generators."
+        ],
+        "identifier_or_url": "https://www.macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/NormalToricVarieties/html/_class__Group_lp__Normal__Toric__Variety_rp.html",
+        "material_read": "The documented presentation of the toric divisor class group by primitive rays and character lattice, citing Cox–Little–Schenck Theorem 4.1.3.",
+        "method": "Public mathematical documentation page, not a claim of reading the entire cited textbook.",
+        "title": "Toric divisor-class group exact sequence (documented in Macaulay2)",
+        "trigger": "Needed established toric input and comparison with standard formulas."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8862f73e-4a59-47a9-9882-2ed551750af1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The generic singular components of the binary Segre secant have independently rank-one Weil-divisor obstructions, yet at their common Segre locus those obstructions cannot vary freely. The theorem solves the natural compatibility/gluing problem exactly: the realizable integer defects are the complete-graph four-cycle-balanced labels; the map has rank n and saturated image of codimension binom(n,2)-n. The absence of torsion is a substantive integral statement invisible to Q-factoriality or to the mere count of singular components. It gives a complete local divisor-theoretic classification for every point of an infinite geometrically natural family, not an arbitrary small test or unsupported downstream application.",
+    "status": "PASS"
+  }
+}
