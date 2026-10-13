@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "For every positive integer \\(n\\) and every unordered pair of letters, sufficiently long adjacent constant runs realize all \\(n+1\\) two-letter Parikh edge points. Their union has exactly \\(3n\\) elements. With ordered distinct integer weights and \\(g=\\gcd(\\alpha,\\beta)\\), taking \\(j=t\\beta/g\\) and \\(i=t\\alpha/g\\) for \\(1\\le t\\le\\lfloor ng/\\beta\\rfloor\\) yields two distinct occurring Parikh vectors of equal weight, for each \\(t\\); the collision sums are pairwise distinct. Hence the point-to-sum map loses at least \\(\\lfloor ng/\\beta\\rfloor\\) classes. Repeated weights fail at \\(n=1\\). Each ordinary factor either starts before \\(2^K<2n\\) or contains at most one run boundary, giving \\(P(n)\\le5n+2\\). Reading the bit length modulo three yields a four-state DFAO. Across the zero/one and one/two boundaries the natural weights realize every sum from \\(0\\) through \\(2n\\). The finite checker confirms 48 lengths and 343 valuations, but the infinite claims follow from the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Popoli--Shallit--Stipulanti, Additive word complexity and Walnut, arXiv:2410.02409v1, Sections 3--5, Question 31, Theorems 32--33",
+        "Shallit, Abelian Complexity and Synchronization, arXiv:2011.00453v3, Section 2, Theorem 1",
+        "Theorem 33 guarantees a preserving valuation under C-balance, whereas this word has constant runs of all lengths and is not C-balanced."
+      ],
+      "reasoning": "Positive preservation for uniformly bounded balance cannot cover an example with arbitrarily long three-symbol runs. General additive complexity inequalities and automaticity results do not imply every integral projection has forced collisions of linearly growing cardinality.",
+      "searches": [
+        "arxiv:2410.02409v1 Theorem 33 C-balanced words all valuations",
+        "arxiv:2011.00453v3 automatic abelian complexity synchronized prefix counts",
+        "\"automatic sequences\" \"additive complexity\" \"valuation\" no preserving"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2410.02409",
+      "https://arxiv.org/abs/2011.00453",
+      "public record searches using exact title, valuation, digit-length automaticity, Parikh triangle edge, additive and abelian complexity equivalences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Popoli--Shallit--Stipulanti, Additive word complexity and Walnut, arXiv:2410.02409v1, Sections 3--5, Question 31, Theorems 32--33",
+        "Shallit, Abelian Complexity and Synchronization, arXiv:2011.00453v3, Section 2, Theorem 1",
+        "Every integral projection collapses at least \\(\\lfloor ng/\\beta\\rfloor\\) distinct Parikh classes via explicit two-edge collisions.",
+        "A four-state binary-input DFAO computes the sequence and \\(P(n)\\le5n+2\\), so a superlinear full-language pigeonhole bound does not imply this statement."
+      ],
+      "reasoning": "A positive implication of Theorem 33 applies only if the word is C-balanced, which the unbounded blocks violate. Theorem 32 concerns a different morphic fixed point with a specially chosen preserving valuation. Theorem 1 in the synchronization paper computes bounded abelian complexity and gives no universal valuation obstruction. No inspected primary statement contains or dominates the quantified linear-loss formula.",
+      "searches": [
+        "arxiv:2410.02409v1 Question 31 Theorem 32 Theorem 33",
+        "arxiv:2011.00453v3 Theorem 1 bounded abelian complexity",
+        "Popoli Shallit Stipulanti Question 31 counterexample no integer valuation equality abelian additive complexity automatic word"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Popoli--Shallit--Stipulanti, Additive word complexity and Walnut, arXiv:2410.02409v1, Sections 3--5, Question 31, Theorems 32--33",
+        "The new statement requires for each fixed injective valuation and every \\(n\\) a collision deficit at least \\(\\lfloor ng/\\beta\\rfloor\\), not merely one numerical inequality for a particular valuation."
+      ],
+      "reasoning": "Checked equivalent language of additive vs abelian equivalence, injective reweighting, Parikh-vector sum projections, and automatic ternary length-dependent blocks. A trivial infinite-word counterexample with superlinear abelian complexity is not equivalent to the constructed binary-automatic word with linear ordinary complexity, and the cited positive results need bounded balance.",
+      "searches": [
+        "Popoli Shallit Stipulanti Question 31 counterexample no integer valuation equality abelian additive complexity automatic word",
+        "ternary 2-automatic logarithmic block word additive complexity 2n+1 abelian complexity at least 3n",
+        "\"additive complexity\" \"abelian complexity\" \"counterexample\" valuation",
+        "arxiv:2410.02409v1 Section 5 Question 31"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searched publication records contain an Abelian pattern-Sturmian logarithmic support bound and an automatic-language commutative complexity theorem, neither computing the valuation spectrum of this ternary 2-automatic sequence.",
+        "No pre-existing exact Parikh/vector table for this bit-length-modulo-three sequence was identified in the inspected sources."
+      ],
+      "reasoning": "The statement is a theorem for every positive \\(n\\), not a known enumerative table entry. The finite checker confirms only \\(n\\le48\\); the proof establishes three full Parikh-lattice edges for every length. Unsuccessful indexed searches are not treated as a proof of global priority.",
+      "searches": [
+        "ternary 2-automatic logarithmic block word additive complexity 2n+1 abelian complexity at least 3n",
+        "ternary automatic word length-of-binary-expansion modulo three runs 0^1 1^2 2^4 0^8 Parikh complexity additive",
+        "\"abelian complexity\" \"valuation\" no valuation possible ternary automatic sequence"
+      ]
+    },
+    "rationale": "Popoli--Shallit--Stipulanti explicitly pose the valuation-existence question in 2024. Their positive bounded-balance and particular-morphism results do not imply a universal negative result for this \\(2\\)-automatic word of linear ordinary factor complexity. Shallit (2020) studies bounded automatic abelian complexity, not integral-projection obstructions. Comparisons against indexed scientific statements and published primary results disclosed no covering implication; an unindexed or unpublished equivalent remains a genuine priority risk.",
+    "residual_risks": [
+      "Equivalent counterexamples in an unindexed publication or unpublished manuscript cannot be excluded.",
+      "The 2024 question permits natural-number valuations; the theorem handles the stronger integer-valued class, but makes no claim for irrational weights.",
+      "The literature comparison examines materially relevant sections and linked results, not a formal global novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Question 31 and positive balance-dependent sufficient conditions do not cover this unbalanced automatic universal counterexample",
+        "evidence": "Section 5, Question 31, Theorems 32--33; section 4 includes examples of ordinary additive-versus-abelian inequalities.",
+        "identifier_or_url": "https://arxiv.org/abs/2410.02409",
+        "material_read": "Author OA full-text material in Sections 3, 4, 5, including the discussion leading to Question 31, the full statements and proofs of Theorems 32 and 33, with introduction/abstract and appendices checked for scope.",
+        "method": "OA arXiv version 1 and author article full-text inspection, not title-only search",
+        "title": "Additive word complexity and Walnut",
+        "trigger": "Directly states the valuation-existence question and the closest positive theorems"
+      },
+      {
+        "assessment": "No direct implication to the necessity of integer-valuation collision deficits in this unbalanced, unbounded-complexity word",
+        "evidence": "Section 2, Theorem 1; boundedness and synchronization hypotheses.",
+        "identifier_or_url": "https://arxiv.org/abs/2011.00453",
+        "material_read": "Abstract, definitions and Section 2 Theorem 1 on bounded abelian complexity and synchronized Parikh counts, together with surrounding argument.",
+        "method": "Public arXiv full-text inspection of pertinent result and hypotheses",
+        "title": "Abelian Complexity and Synchronization",
+        "trigger": "Automatic-sequence abelian complexity could be broader prior coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "86c5ed9b-69cb-4468-817e-ee84409094db",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The published question asks whether some reweighting can preserve every abelian class count. Here the answer is negative within an explicit aperiodic ternary \\(2\\)-automatic word of linear ordinary factor complexity, with a quantified linear deficit for every injective integer valuation. Unlike a cheap superlinear-count pigeonhole argument, the obstruction is supplied by three structural Parikh-lattice edges. It identifies three as the least alphabet size and computes the exact natural additive complexity \\(2n+1\\), complementing the positive balanced-word theorem.",
+    "status": "PASS"
+  }
+}
