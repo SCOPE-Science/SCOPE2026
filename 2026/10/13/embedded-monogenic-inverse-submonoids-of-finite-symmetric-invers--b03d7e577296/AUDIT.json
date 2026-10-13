@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Every partial bijection decomposes uniquely into disjoint directed chains and cycles. A word of net exponent t acts as a partial shift on a chain (rank <= max(chain vertices - |t|,0)) and as a full power on every cycle. Mutual generation implies rank equality. For a nontrivial chain this excludes |t|>=2, and t=0 is idempotent, so only t=+1/-1 remains, and rank equality forces precisely alpha or its inverse. For cycle-only supports, the generating fiber is phi(k). Labeled species give exp(sum z^j) for paths and exp(sum_{j|d} z^j/j) for cycles, Möbius inversion isolates exact order k, and the generator-fiber divisors yield E_n(a,k). The total formula and asymptotic are derived independently. A standard-library exhaustive checker directly constructs all generated sets and verifies all parameter cells n<=6. No unproved computational extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 10 in arXiv:2303.12387 gives classification of S_(n,k) isomorphism types, not the number of embedded representatives or equivalence classes of generators in I_n.",
+        "Preston 1986 classifies inverse semigroup representations but the inspected representation section does not state the complete joint labeled component EGF."
+      ],
+      "reasoning": "A stronger structural theorem about existence or isomorphism is not a literal embedded count without an additional fiber argument. The paper itself labels its functions non-isomorphic; its result does not determine n-dependent embedding multiplicities. Unknown equivalent work under representation-theoretic language remains a residual risk.",
+      "searches": [
+        "monogenic inverse submonoids symmetric inverse monoid embedded counting",
+        "counts distinct inverse submonoids of symmetric inverse monoids supported on chains permutation cycles",
+        "generator cardinality monogenic inverse submonoids partial bijections inverse semigroup two generators inverse",
+        "Elliott Levine Mitchell 2023 Theorem 10 isomorphism classes versus embedded inverse submonoids",
+        "Preston 1986 representations of monogenic inverse semigroups"
+      ]
+    },
+    "checked_sources": [
+      "Elliott, Levine, Mitchell, arXiv:2303.12387, entire paper",
+      "Preston, J. Austral. Math. Soc. Ser. A 40 (1986) 321–342, public full text",
+      "Targeted published-finding corpus semantic searches for labeled monogenic inverse-submonoid enumeration and generator fibers",
+      "Published search for exact sequence 2,6,24,126,838,6841 and cyclic inverse-submonoid counts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior result i(n)=sum_{j=0}^n s(j) counts realizable abstract types and ignores multiplicity of labeled actual generated subsets.",
+        "The present equality-of-generated-subsets lemma proves exactly 2 generators for chain-bearing H_alpha, and phi(k) in the cycle-only case, then combines that with the labeled path/cycle exponential formula."
+      ],
+      "reasoning": "The type theorem does not imply the embedded formula without an additional nontrivial generator-rigidity result and labeled cycle-count analysis. The current claim is not just a numeric special case or algebraic reformulation of the type count.",
+      "searches": [
+        "number of distinct embedded one-generator inverse submonoids of symmetric inverse monoid labelled partial permutations generating pairs inverse rank cardinality",
+        "enumeration monogenic inverse subsemigroups by generator maximum chain length permutation cycle order Euler totient Möbius",
+        "generator cardinality monogenic inverse submonoids partial bijections inverse semigroup two generators inverse",
+        "arXiv:2303.12387 Theorem 1 proof of inverse submonoid count",
+        "doi:10.1017/S1446788700027543 representation and isomorphism classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Elliott–Levine–Mitchell arXiv:2303.12387, pp.1-2, explicitly defines i(n) as non-isomorphic monogenic inverse submonoids; its Theorem 1 counts isomorphism types.",
+        "Elliott–Levine–Mitchell, Lemmas 8-10 and proof of Theorem 1, pp.6-8, reduce structure to maximal chain and cyclic order up to isomorphism.",
+        "Preston 1986, abstract and §§1,4, classifies realizations/representations up to isomorphism, without a labeled-profile enumerator."
+      ],
+      "reasoning": "Abstract type counts are not counts of distinct subsets of I_n. Here for n=4 there are 126 embedded monogenic inverse submonoids, versus 11 isomorphism types in the 2023 paper; the refinement is determined by a separately proved exact generating-fiber quotient. A match in max chain/order parameters alone does not imply enumeration of labeled embeddings.",
+      "searches": [
+        "embedded monogenic inverse submonoids symmetric inverse monoid exact number labelled partial bijections generating inverse submonoid",
+        "monogenic inverse submonoids symmetric inverse monoid embedded counting",
+        "number of distinct embedded one-generator inverse submonoids of symmetric inverse monoid labelled partial permutations generating pairs inverse rank cardinality",
+        "enumeration monogenic inverse subsemigroups by generator maximum chain length permutation cycle order Euler totient Möbius",
+        "arXiv:2303.12387 Theorem 1 Lemmas 8-10; search terms monogenic inverse submonoid labelled embedded",
+        "doi:10.1017/S1446788700027543 monogenic inverse semigroups representation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 Table 1 lists i(4)=11 abstract isomorphism classes, while independently enumerated embedded counts give M(4)=126.",
+        "Searching the exact initial embedded sequence and terminology did not identify a published database entry providing these exact values together with the general refined formula."
+      ],
+      "reasoning": "Known type-count tables and the embedded profile are different functions. No exact table covering the new invariant was located; failed indexing alone is not proof of novelty.",
+      "searches": [
+        "\"2 6 24 126 838 6841\" inverse monoids",
+        "OEIS monogenic inverse submonoids number distinct embedded labelled 2 6 24 126 838 6841",
+        "Elliott Levine Mitchell 2023 Table 1"
+      ]
+    },
+    "rationale": "The closest 2023 full text counts isomorphism types i(n), while the claim here is every distinct literal embedded inverse submonoid H_alpha subset I_n and its exact (largest chain, cycle order) multiplicity. Equality of generated subsets and generator-fiber size are proved separately; the 1986 representation classification does not give the embedded enumerator. Targeted published and published-finding corpus searches did not return an equivalent formula. This supports originality but not categorical exhaustiveness.",
+    "residual_risks": [
+      "An earlier enumeration of embedded monogenic inverse submonoids may appear under a different terminology (cyclic inverse transformation submonoids, partial permutations, generating-fiber orbits).",
+      "Conway–Duncan–Paterson (1984) concerns monogenic inverse semigroups and C*-algebras; accessible abstract was considered, but a direct full-text comparison was not established.",
+      "Search coverage and database indexing are incomplete; no independent bibliographic audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counts non-isomorphic types, not literal embedded submonoids or refined labeled cycle/chain multiplicities",
+        "evidence": [
+          "PDF p.2 defines i(n) as the number of non-isomorphic monogenic inverse submonoids and lists type counts (i(4)=11).",
+          "PDF pp.6–8 Lemmas 8–10 and proof of Theorem 1 classify representative (chain length, order) and sum abstract types."
+        ],
+        "identifier_or_url": "arXiv:2303.12387 / https://arxiv.org/pdf/2303.12387",
+        "material_read": "Complete nine-page preprint, including Introduction, definitions of s,t,i, Theorem 1, §§3–4, Lemmas 8–10, table, proof of main theorem and references",
+        "method": "Read full open-access PDF/HTML text and inspected relevant page image",
+        "title": "Counting monogenic monoids and inverse monoids",
+        "trigger": "Directly studies monogenic inverse submonoids of I_n and reports a counting theorem"
+      },
+      {
+        "assessment": "Supplies structural representation and isomorphism background; the inspected sections do not present the finite labelled embedded submonoid bivariate counts",
+        "evidence": [
+          "Abstract states representations by bijections and classification into isomorphism types.",
+          "§1 discusses words in generator and inverse, and §4 studies partial-bijection realizations without an n-indexed embedded count."
+        ],
+        "identifier_or_url": "doi:10.1017/S1446788700027543 / https://www.cambridge.org/core/services/aop-cambridge-core/content/view/67252CDAB0C85CDB2041F16001483C74/S1446788700027543a.pdf/monogenic_inverse_semigroups.pdf",
+        "material_read": "Open-access 22-page PDF, abstract, introductory Gluskin normal forms, representation/isomorphism sections and conclusions",
+        "method": "Read PDF text and inspected selected pages",
+        "title": "Monogenic inverse semigroups",
+        "trigger": "Classical primary structural result on partial-bijection representations potentially stronger than the direct 2023 source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b03d7e57-7296-4296-ae7b-1afc7cb7425b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Counting actual distinct submonoids embedded in a fixed finite symmetric inverse monoid answers a natural and different invariant from classifying which abstract types occur. The exact two-parameter profile, uniform inverse-only generator rigidity, closed sum over cyclic subgroups, and asymptotic abundance of chain-bearing embeddings are structural and enumerative results for every n, rather than routine fixed-parameter tabulation. They provide test cases for algorithmic inverse semigroup enumeration. The claims are not presented as independent certification or as a major general theorem beyond this concrete setting.",
+    "status": "PASS"
+  }
+}
