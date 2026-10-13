@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For every n>=4, 2<=d<=floor(n/2), t>0, the objective K=n Tr(L^+) is strictly convex on connected feasible weighted graphs because distinct edge weights map injectively to the Laplacian and trace-inverse is strictly convex on the positive cone of 1-perp. Uniqueness and attainment follow from coercivity near disconnection. The uniform chordless ring is the unique optimum of its face. An explicit tent Poisson potential gives D_n(d)=d(n-d)[d(n-d)+2]/(12n), including D_n(1)=(n²-1)/(12n). Correctly scaling L^+=n L0^+ gives directional gradient n³ z[t D_n(1)-D_n(d)]. Supporting hyperplanes prove the full iff classification, equality and uniqueness; a feasible negative direction proves chord usage below threshold. Exact checker covers 460 Poisson/threshold pairs and 32 actual-Kirchhoff-index side comparisons, supplementary to the all-parameter proof. No claim of the positive-chord optimal weight is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh--Boyd--Saberi prove general strict convexity, gradient KKT and edge-transitive uniformity; section 5 treats trees, wheels and barbell graphs rather than an optional priced chord in a cycle.",
+        "Bhoite et al. explicitly hold original base-edge weights fixed, optimize new edge weights and selection, and do not give a two-price ring reweighting formula.",
+        "Their more general algorithmic formulations do not present the explicit sharp ring-distance threshold and its quadratic scaling."
+      ],
+      "reasoning": "General semidefinite programming characterizations and fixed-base augmentation optimization do cover methods used in this proof, but they do not state the exact closed-form all-n, all-d price classification. The claimed addition is the specialized complete phase decision, not convexity or generic KKT.",
+      "searches": [
+        "fully reallocatable ring edge conductance budget priced shortcut chord optimal omission critical price",
+        "priced chord optional edge cycle ring Kirchhoff index optimization reweight all existing conductances cost threshold",
+        "doi:10.1137/050645452, sections 2.7, 2.9, 4.2, 5",
+        "arxiv:2609.29790, sections I-II and Table I"
+      ]
+    },
+    "checked_sources": [
+      "Ghosh--Boyd--Saberi, SIAM Review 50 (2008), DOI:10.1137/050645452, primary PDF.",
+      "Deng--Chang--Yang, arXiv:2605.24479v1, primary full-text PDF.",
+      "Bhoite et al., arXiv:2609.29790v1, primary full-text PDF.",
+      "Exact phrase and semantic searches on cycle chord costs, reweighting, Kirchhoff index, and the rational n,d formula."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2008 work implies any feasible weighted-edge optimum can be tested by a gradient condition but does not evaluate this particular cycle kernel or give the price sign boundary.",
+        "The 2026 fixed-cycle theorem optimizes which chord to add and its weight when native edge weights are not changed; its conclusion that more fixed-budget chord weight lowers K differs from optional buying under shared cost.",
+        "The second 2026 cost-aware paper likewise has a fixed base graph; the present budget transfers money out of those edges."
+      ],
+      "reasoning": "No inspected single prior statement implies the exact all-distance two-phase conclusion without additional nontrivial specialization and the discrete Poisson norm identity. Generic underlying principles and the rank-one update are prior art, not new claims.",
+      "searches": [
+        "cycle graph with a chord optimal conductance allocation minimize Kirchhoff index new edge cost marginal",
+        "ring augmented by one chord under total cost optimized original conductances exact KKT boundary",
+        "arxiv:2605.24479, sections 2-3 and appendix B",
+        "doi:10.1137/050645452, sections 4-5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact chord-induced index change in Deng--Chang--Yang is evaluated at a fixed base cycle and does not subtract conductance from native edges.",
+        "The gradient test here is a comparison of b^T(L^+)²b per unit price for both old and candidate edges.",
+        "Targeted meaning and algebraic-formula searches returned no explicit n,d break-even cost identity."
+      ],
+      "reasoning": "The fixed-base edge-addition rank-one update is not equivalent to an optimal budget transfer that can shrink each native cycle edge. A change in one unconstrained chord conductance is always helpful, whereas the shared-budget optimum may assign it zero. The exact threshold follows only after finding the reference optimum and computing the full cycle Poisson-squared distance kernel.",
+      "searches": [
+        "Kirchhoff index optimized conductances on a cycle with one candidate chord and heterogeneous installation cost: exact price threshold d(n-d)(d(n-d)+2)/(n^2-1)",
+        "biharmonic distance cycle graph chord vs existing edge marginal Kirchhoff index derivative threshold",
+        "weighted circular graph distance d chord threshold d(n-d)(d(n-d)+2)/(n²-1)",
+        "arxiv:2605.24479, equations (3.7)--(3.8) and Remark 3.6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published semantic search hits nearest in wording concerned unrelated cyclic graph invariants and did not include a cost threshold table.",
+        "Formula and title searches found no table or exact listed threshold for reoptimized-cycle chord prices."
+      ],
+      "reasoning": "This is a symbolic all-size statement, not a finite classification copied from a benchmark table. Unsuccessful searches alone cannot prove global novelty; their limited role is to locate plausible primary sources and reduce known-result overlap.",
+      "searches": [
+        "Kirchhoff index optimized conductances on a cycle with one candidate chord and heterogeneous installation cost: exact price threshold d(n-d)(d(n-d)+2)/(n^2-1)",
+        "weighted circular graph distance d chord threshold d(n-d)(d(n-d)+2)/(n²-1)",
+        "\"d(n-d)\" \"d(n-d)+2\" \"n^2-1\" chord graph",
+        "\"cycle\" \"chord\" \"Kirchhoff\" \"optimal conductance\" budget"
+      ]
+    },
+    "rationale": "A narrowly delimited exact theorem: the chord-buying threshold d(n-d)[d(n-d)+2]/(n²-1) for simultaneously reweighted cycle edges under one linear price budget, with strict equality classification and distance scaling. Ghosh--Boyd--Saberi (2008) supply the general strictly convex conductance-design optimality framework, but do not state the explicit cycle-plus-priced-chord threshold. Deng--Chang--Yang (2026) give the rank-one improvement law for a fixed-weight cycle, without common-budget reallocation. Bhoite et al. (2026) use heterogeneous candidate costs but keep all base-edge weights fixed. No equivalent found among inspected primary statements or the published search results. This is not a guarantee against less-discoverable earlier specialized results.",
+    "residual_risks": [
+      "A historical cycle-network design paper may independently derive this break-even ratio without using the same terminology.",
+      "Combining established generic gradient/KKT results and fixed-cycle chord improvements may make some derivations short; priority for the explicit closed decision boundary is not independently certified.",
+      "An earlier July 2006 conference version of the 2008 methodological paper is known, but its exact first-public day was not verified; date metadata uses the verified February 1, 2008 electronic publication day of the inspected full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers generic strict convexity, derivatives and symmetry; no stated cycle with optional one-chord shared price threshold.",
+        "evidence": "Strict convexity pp.44-45; optimality conditions p.51; analytical examples trees/wheels/barbell pp.57-61.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Abstract and §§2.7,2.9,4.2,5.1-5.2, pages 1, 8-10, 15-16, 21-24; first page also inspected as image.",
+        "method": "Direct reading of primary PDF text and first-page image.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Foundational optimal allocation; potential stronger coverage by its general KKT and symmetry examples."
+      },
+      {
+        "assessment": "Base cycle weights fixed, optional chord has independent budget, so no joint reweighting price phase.",
+        "evidence": "Equations (3.7)-(3.8) and Remark 3.6 describe fixed-base chord improvement monotone in chord weight.",
+        "identifier_or_url": "https://arxiv.org/pdf/2605.24479",
+        "material_read": "Sections 2-3 including equations (3.7)-(3.8), Remark 3.6; §5 budget definition; relevant Appendix B derivations.",
+        "method": "Direct reading of primary arXiv PDF text, including mathematical formulas and problem constraints.",
+        "title": "Single-Chord Augmentation of Weighted Cycles for Algebraic Connectivity and Network Coherence",
+        "trigger": "Same cyclic base and Kirchhoff index under one new chord."
+      },
+      {
+        "assessment": "All existing base weights are kept fixed; its optimization variables are newly installed links, so does not solve the reweighted ring threshold.",
+        "evidence": "Introduction states base edge strengths remain fixed; Section II has L(w)=Lb+La(w) with constant Lb.",
+        "identifier_or_url": "https://arxiv.org/pdf/2609.29790",
+        "material_read": "Abstract; Introduction and related work/Table I; Section II problem formulation; reference list.",
+        "method": "Direct reading of primary arXiv PDF text and model equations.",
+        "title": "Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization",
+        "trigger": "Heterogeneous edge prices, optimal added-edge weights, potential domination by general optimization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c4dfbb4b-1e56-461a-ac73-2b387192028e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural question is whether a costly optional cross-ring connection can reduce aggregate network resistance when all existing edge strengths must share its budget. The theorem classifies the unique global optimal decision, not merely a local improvement example, for every ring size, chord length and positive linear price. Its explicit critical price changes scale from d² for local links to Θ(n²) for macroscopically distant links, an interpretable design boundary. It avoids solving a general SDP for this discrete purchase decision. Claims do not extend to multiple chords or to computing the weights after purchase.",
+    "status": "PASS"
+  }
+}
