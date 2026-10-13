@@ -1,0 +1,11 @@
+# Scientific review: quantifier-rigid morphisms
+
+**Correctness — PASS.** The proof starts with the elementary but decisive coordinate-idempotent factorization of bounded lattice homomorphisms into a chain. Preservation of either global quantifier forces equality of the coordinatewise chain maps and surjectivity of the index function. The classification of chain homomorphisms is proved from the implication table, not assumed, and each counting and idempotence formula is derived from the unique parameterization. Direct exhaustive finite tests compare all operations and verify the count and image-rank identities. The assertions concern only finite full functional powers with named bounds and quantifiers.
+
+**Originality — PASS, subject to identified antecedent risk.** The monadic Gödel duality in Castaño et al. (arXiv:2006.10180) supplies a general category-level framework, while Cintula–Metcalfe–Tokuda (arXiv:2310.15806) justify the functional quantifier construction. Neither inspected treatment gives the specialized all-parameter morphism normal form, quantifier redundancy, exact Stirling-binomial census, or image-rank/idempotent formulas. Aguzzoli–Mordonini (DOI:10.1007/978-3-031-74000-8_30) explicitly counts morphisms in the Gödel-algebra reduct; a full text of that related paper was not retrieved. This leaves an antecedent risk but not observed identical coverage.
+
+**Mathematical value — PASS.** The classification is a natural full-category and complete numerical invariant for the finite full functional powers used in one-variable Gödel semantics, not a selected tiny parameter case. It exposes a sharp structural obstruction to downward changes in the number of worlds, the surprising redundancy of one global quantifier for these morphisms, and a rigid idempotent spectrum. It reduces otherwise large finite operation-table searches to finite-surjection and chain-map data.
+
+**Scope and limitations.** No result is claimed for arbitrary finite monadic Gödel algebras, heterogeneous fibers, or infinite powers. A general categorical duality may imply the specialized theorem indirectly; a full historical search and independent proof audit are outstanding. Computation checks finite cases only.
+
+Self-review: passed. Independent audit: not yet performed.
