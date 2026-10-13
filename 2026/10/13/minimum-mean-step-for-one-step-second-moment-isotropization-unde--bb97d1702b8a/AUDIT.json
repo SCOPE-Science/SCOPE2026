@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The normalized midpoint matrix is an exactly orthogonal Cayley rotation with angle 2 arctan t. Its second complex harmonic Z(t)=((1+it)/(1-it))^2 exactly multiplies the traceless second moment, so E Z=0 iff universal one-step isotropy; the trace is fixed by energy conservation. The exact identity t-(1-Re Z-Im Z)/2=t(t-1)^2(t^2+2t+3)/(1+t^2)^2 >= 0 proves E t >= 1/2 over all nonnegative integrable laws. Equality forces t in {0,1}, and E Z=0 fixes weights 1/2 each. The constructed quarter-turn pair solves every strictly supercritical prescribed mean. Semicircle separation proves both support caps. Actual packaged verify.py was executed successfully with SymPy, checking the rational identities, the update orthogonality, the two-point law and second-moment formulas. Finite checks do not substitute for the analytic universal inequality. Limits: fixed-frequency planar oscillator, exact arithmetic and uncentered second moments (centered covariance only for initially zero-mean ensembles).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abdulle--Garegnani prove invariant preservation for random-step Runge--Kutta in Section 6, a valid superset of the underlying per-step energy-preservation lemma, but no general invariant theorem implies a distribution-dependent lower bound on time-step mean.",
+        "Published harmonic Langevin equilibrium-covariance analysis derives stationary biases under stochastic forcing and friction; its full RESULT was read and concerns a dissipative affine random chain rather than exactly orthogonal Cayley updates.",
+        "Christiansen--Errica--Alesiani discuss Hamiltonian oscillator integration and jittering, but the algorithm and performance criterion differ from universal one-step second-moment isotropy."
+      ],
+      "reasoning": "The common structural lemmas (midpoint quadratic-invariant preservation, harmonic oscillator rotation and Fourier moments) are covered background and explicitly acknowledged. Existing broader algorithmic guarantees concern preservation, approximations, autocorrelation or stochastic invariant measures; none of the inspected hypotheses/results logically dominates an exact mean/support frontier for all laws satisfying E Z=0.",
+      "searches": [
+        "random time stepping Runge Kutta Abdulle Garegnani energy preserving oscillator distribution phase isotropy",
+        "randomized geometric numerical integration time steps phase distribution harmonic oscillator 2020",
+        "randomized implicit midpoint harmonic oscillator phase mixing angular Fourier second moment distribution energy conservation",
+        "2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b",
+        "2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1801.01340, full public PDF",
+      "arXiv:2309.13593, full public HTML",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b",
+      "Published search-result summaries for 2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest previously published random-step symplectic Euler result analyzes random-step mean-square instability of a different, generally non-energy-preserving integrator; energy preservation and the optimal second-angular-harmonic law here neither follow nor contradict that result.",
+        "The related published randomized RK2 A-stability calculation treats the scalar linear Dahlquist test equation, not harmonic phase isotropization under orthogonal midpoint updates.",
+        "The random-time Runge--Kutta source, arXiv:1801.01340, guarantees geometric invariants, which does not entail E Z=0 or the exact minimal E H; the new dual polynomial certificate is needed for the latter."
+      ],
+      "reasoning": "Comparison is by logical implication: preservation of quadratic energy controls the trace of S but leaves traceless anisotropy arbitrary; stability of another integrator cannot imply the Cayley-phase minimization; stationary covariance under noisy Langevin dynamics is a different invariant problem. The claim is deliberately restricted to the new exact optimality and feasibility results.",
+      "searches": [
+        "random time step implicit midpoint harmonic oscillator exact covariance isotropization step mean threshold 1/omega second Fourier moment",
+        "randomized symplectic implicit midpoint oscillator exact one-step isotropic second moment distribution equal energy angular phase mixing",
+        "Cayley transform random step 2D harmonic oscillator vanishing second Fourier coefficient minimum expected time one-step covariance isotropy",
+        "random time stepping Runge Kutta Abdulle Garegnani energy preserving oscillator distribution phase isotropy",
+        "randomized symplectic implicit midpoint oscillator exact one-step isotropic second moment distribution equal energy angular phase mixing",
+        "2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An independent Cayley midpoint step has second-harmonic multiplier Z(t)=((1+it)/(1-it))^2; universal second-moment isotropization is equivalent to E Z=0.",
+        "The prior random-time-step paper arXiv:1801.01340, Sections 2 and 6, develops random-step integrators and preservation of quadratic invariants, but the inspected statement does not optimize timestep laws subject to a zero complex Fourier moment.",
+        "The harmonic-oscillator HMC jitter discussion in arXiv:2309.13593, Sections III.3 and IV.1, uses velocity Verlet, autocorrelation and acceptance; it is not an equivalent Cayley-midpoint moment optimization."
+      ],
+      "reasoning": "We checked aliases such as quadrupole/second-harmonic cancellation, isotropic second moment, Cayley random rotation, and random-time implicit midpoint. None of the specifically inspected arguments establishes the sharp global E H >= 1/omega optimization and its equality classification. Elementary Fourier representation and rotation reduction themselves are background tools, not claimed as original.",
+      "searches": [
+        "random time step implicit midpoint harmonic oscillator exact covariance isotropization step mean threshold 1/omega second Fourier moment",
+        "randomized symplectic implicit midpoint oscillator exact one-step isotropic second moment distribution equal energy angular phase mixing",
+        "Cayley transform random step 2D harmonic oscillator vanishing second Fourier coefficient minimum expected time one-step covariance isotropy",
+        "phase quadrupole cancellation implicit midpoint nonnegative timestep minimum mean 1 / frequency",
+        "\"implicit midpoint\" \"harmonic oscillator\" \"random time steps\" \"covariance\" isotropy",
+        "\"harmonic oscillator\" \"phase randomization\" \"midpoint\" mean timestep"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A check of indexed published results brought up harmonic-covariance numerical analysis, harmonic sampling integrators and finite-grid Fourier moment papers, but no indexed exact law/table for the minimizer H in {0,2/omega} or cap threshold 2/omega.",
+        "Both thresholds are derived analytically from the nonnegative rational polynomial identity and a unit-circle semicircle separation, rather than extrapolated from tabular values."
+      ],
+      "reasoning": "The invariant is a continuous-law optimal expected duration with a unique extremizing measure and an independently sharp maximum-step cap; it is not a recomputation of a known parameter table or a fixed finite-sample enumeration. Search incompleteness remains a priority risk rather than a proof of novelty.",
+      "searches": [
+        "Cayley transform random step 2D harmonic oscillator vanishing second Fourier coefficient minimum expected time one-step covariance isotropy",
+        "random-step implicit midpoint oscillator sharp positive-duration mean lower bound two-point quadrature",
+        "energy-preserving randomized midpoint one-step quadrupole isotropy random rotations",
+        "\"random step\" oscillator \"isotropization\" \"energy\" numerical",
+        "\"implicit midpoint\" \"randomized\" \"harmonic oscillator\" distribution moments"
+      ]
+    },
+    "rationale": "The exact jointly sharp mean-duration, equality-law and hard-cap frontier for universal one-step harmonic second-moment isotropization was not implied by the full-text passages inspected in the motivating random-step ODE paper or related HMC jittering paper. The strongest directly indexed harmonic second-moment source studies stochastic-forcing stationary bias, not the phase-cancellation criterion. Established midpoint energy preservation and elementary Fourier/rotation relations are not new; the contribution is the global moment-law extremal characterization. Equivalence with unindexed optimal phase-randomization remains a genuine priority risk.",
+    "residual_risks": [
+      "Potential equivalent optimal quadrupole/second-harmonic cancellation inequality in unpublished or unindexed literature was not ruled out; originality is a bounded self-review, not certification.",
+      "The method is a coarse random-time benchmark. Canceling second moments is not full phase uniformity or control of numerical trajectory accuracy."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper covers per-step geometric preservation but not the independent sharp harmonic second-moment law or minimal mean/maximum-support characterizations.",
+        "evidence": [
+          "arXiv:1801.01340, PDF p.1 AMS 65C30; Section 6 first-integral preservation for random time-step RK; Section 9.5 Kepler geometric experiment."
+        ],
+        "identifier_or_url": "arXiv:1801.01340",
+        "material_read": "Public full-text PDF, including Abstract, AMS classification and Sections 2, 5, 6, 7 and 9.5.",
+        "method": "Compared definition of randomized steps, geometric conservation theorem, moment/error claims and numerical geometric examples with the new exact E Z=0 condition and its sharp duration optimization.",
+        "title": "Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration",
+        "trigger": "Foundational source of the random-step implicit midpoint method and the matching 65C30 numerical-probabilistic scope."
+      },
+      {
+        "assessment": "It does not state the new law-dependent exact one-step covariance-isotropy moment inequality or its equality case.",
+        "evidence": [
+          "arXiv:2309.13593, Sections III.3 and IV.1, HMC harmonic timestep jitter and autocorrelation."
+        ],
+        "identifier_or_url": "arXiv:2309.13593",
+        "material_read": "Public full-article HTML; harmonic oscillator and jitter discussions including Sections III.3 and IV.1.",
+        "method": "Compared actual integrator (velocity Verlet), acceptance/autocorrelation metrics and jittering laws to the orthogonal Cayley midpoint second-harmonic annihilation and sharp cost bound.",
+        "title": "Self-Tuning Hamiltonian Monte Carlo for Accelerated Sampling",
+        "trigger": "A plausible harmonic-oscillator timestep-jitter and phase-decorrelation analysis."
+      },
+      {
+        "assessment": "Different mathematical objects and quantifiers: noisy stationary covariance bias does not imply the stated deterministic-energy random-step phase extremal theorem.",
+        "evidence": [
+          "Published RESULT.md gives stationary moments of stochastic underdamped Langevin and an impossibility for one-gradient predictors; it does not optimize E H under E Z=0."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b",
+        "material_read": "Complete publicly published RESULT.md for the recorded theorem and its originality boundary.",
+        "method": "Compared stochastic underdamped Langevin predictor family, stationary covariance expansion and stochastic forcing with random-duration conservative midpoint rotation and one-step covariance annihilation.",
+        "title": "Harmonic equilibrium bias and a one-gradient covariance obstruction for randomized ULMC",
+        "trigger": "Closest indexed published harmonic covariance result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bb97d170-2b8a-406d-9070-8a60a5845314",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An isotropic second-moment benchmark measures elimination of orientation bias in ensemble harmonic dynamics while exactly preserving energy; unlike arbitrary finite tabulations, it is a natural invariant-based distributional design objective. The theorem proves the sharp minimum mean physical timestep, uniqueness of the optimizer, attainment for all larger strictly positive mean durations and a distinct sharp maximum-permitted-duration feasibility frontier. These give exact limitations on random-time geometric integration and phase mixing despite the source method permitting arbitrary distributions. Scope is explicitly not optimization of trajectory error or numerical work.",
+    "status": "PASS"
+  }
+}
