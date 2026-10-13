@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The row-generator convention and Richardson map are explicit. Nilpotent-shift functional calculus yields exact coefficient functions; sign changes are exhausted analytically through the upper diagonal threshold. The five-state lower threshold is the unique positive root of a one-sign-change polynomial and is isolated by exact rational evaluations. Exact-rational replay verifies the stated witness and stochasticity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonaventura-Della Rocca (2015) reviews positivity through absolute monotonicity and records implicit Euler as unconditionally monotone, but its analyzed method is TR-BDF2 and its hybrids.",
+        "Published published-finding corpus hit 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac concerns a different filtered Crank-Nicolson composition on lattices."
+      ],
+      "reasoning": "General SSP/absolute-monotonicity theory provides context and sufficient/necessary monotonicity frameworks but, in the inspected material, does not dominate the exact finite-chain re-entrant interval or its five-state onset within the stated hierarchy.",
+      "searches": [
+        "extrapolated implicit Euler complete monotonicity rational stability function",
+        "Richardson extrapolation backward Euler absolute monotonicity",
+        "second-order backward Euler Richardson extrapolation Markov stochastic positivity small step"
+      ]
+    },
+    "checked_sources": [
+      "Fornberg-Zuev-Lee preprint dated 2005-11-21, primary 1991 MSC 65L06",
+      "Constantinescu-Sandu ANL/MCS-TM-306 (April 2009)",
+      "Bonaventura-Della Rocca arXiv:1510.04303 (2015-10-14)",
+      "Published published-finding corpus: 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "Published published-finding corpus: 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "Own prior ledger claim on RK4 positivity for homogeneous pure-birth chains"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior pure-birth RK4 claim concerns the fourth-degree Taylor polynomial and a different positivity range; it neither contains nor is contained in the present Richardson-backward-Euler theorem.",
+        "The [2/2] Padé publication uses a fourth-order diagonal Padé rational map and an eight-state barrier; its statement does not imply the second-order extrapolated-backward-Euler coefficient identities or five-state threshold."
+      ],
+      "reasoning": "Comparison was performed at the level of matrix functions, state families, and exact positivity sets rather than by title or shared parameters.",
+      "searches": [
+        "second order Richardson extrapolated backward Euler pure birth Markov positivity five states",
+        "five-state pure-birth Richardson-extrapolated backward Euler positivity",
+        "own-ledger comparison: homogeneous pure-birth RK4 positivity threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fornberg-Zuev-Lee (2005 preprint) treats Richardson time extrapolation and preservation of stability, not entrywise Markov positivity for this rational map.",
+        "Constantinescu-Sandu (ANL/MCS-TM-306, 2009) gives the extrapolation tableau and Euler/linearly implicit Euler bases, but the inspected sections do not state the five-state positivity set.",
+        "Published published-finding corpus hit 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab studies a different [2/2] Padé map."
+      ],
+      "reasoning": "The candidate was compared after rewriting it as a rational matrix function and as a derivative-coefficient condition on the nilpotent pure-birth shift. No inspected source produced an equivalent statement for the same rational function, generator family, and step interval.",
+      "searches": [
+        "second order Richardson extrapolated backward Euler pure birth Markov positivity five states",
+        "2*(I-hQ/2)^(-2)-(I-hQ)^(-1) positivity Markov chain",
+        "Euler extrapolation Markov generator stochastic matrix positivity",
+        "homogeneous pure birth Richardson extrapolated backward Euler re-entrant positivity window"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-formula searches did not return a published record for 2(I-hQ/2)^(-2)-(I-hQ)^(-1) on homogeneous pure-birth generators.",
+        "The closest indexed Markov positivity record was the eight-state [2/2] Padé result, whose stability function and dimension threshold differ."
+      ],
+      "reasoning": "No matching database table, exact threshold polynomial, or identical rational map was found. Failed search is not treated as proof of novelty; it is combined with full-text source inspection and implication comparison.",
+      "searches": [
+        "2*(I-hQ/2)^(-2)-(I-hQ)^(-1) positivity Markov chain",
+        "small step positivity failure extrapolation CTMC five state",
+        "2(I-hQ/2)^-2 - (I-hQ)^-1 pure birth"
+      ]
+    },
+    "rationale": "Full-text extrapolation and positivity sources plus targeted published semantic searches were compared by rational map and implication. The closest records concern different methods ([2/2] Padé and filtered Crank-Nicolson), and the own prior pure-birth result concerns RK4. No inspected source implies the exact five-state Richardson-backward-Euler window.",
+    "residual_risks": [
+      "Older SSP or extrapolation literature may encode an equivalent derivative or absolute-monotonicity calculation under terminology not recovered by the searches.",
+      "The claim is intentionally not generalized to arbitrary CTMC generators or nonuniform pure-birth rates; no novelty assertion is made outside the stated homogeneous hierarchy."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source studies stability of time extrapolation, especially ADI-FDTD, and does not state Markov entrywise positivity for Richardson-extrapolated backward Euler.",
+        "identifier_or_url": "https://www.colorado.edu/amath/sites/default/files/attached-files/extrap03.pdf",
+        "material_read": "Title/abstract/classification/date page and introduction passages describing Richardson extrapolation and scalar-ODE reduction.",
+        "method": "Full-text PDF text plus page-image inspection.",
+        "title": "Stability and accuracy of time-extrapolated ADI-FDTD methods for solving wave equations",
+        "trigger": "Early primary source on Richardson time extrapolation and stability; also supplies the verified archive date and primary MSC ownership."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The report develops Euler-based extrapolation and linear stability/error analysis but the inspected material does not classify entrywise positivity of the five-state pure-birth transition matrix.",
+        "identifier_or_url": "https://www.mcs.anl.gov/uploads/cels/papers/TM-306.pdf",
+        "material_read": "Introduction, extrapolation construction, base-method section, and implicit-Euler transfer-function material.",
+        "method": "Full-text PDF text plus page-image inspection.",
+        "title": "Achieving Very High Order for Implicit Explicit Time Stepping: Extrapolation Methods",
+        "trigger": "Direct source for extrapolation from repeated fractional steps and Euler/linearly implicit Euler base methods."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper analyzes TR-BDF2 and SSP hybrids, not the Richardson combination of one full backward-Euler step with two half steps on pure-birth generators.",
+        "identifier_or_url": "https://arxiv.org/abs/1510.04303",
+        "material_read": "Full-text title/abstract/introduction, definitions of positivity and monotonicity, and discussion of implicit Euler as unconditionally monotone.",
+        "method": "Lawful open full-text PDF and page-image inspection.",
+        "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+        "trigger": "Highly relevant positivity/absolute-monotonicity literature for implicit time integrators."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c08f9b38-b493-4eeb-8877-935d36754331",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result identifies a natural and counterintuitive structural boundary: a standard second-order accuracy upgrade assembled entirely from positivity-preserving backward-Euler solves loses positivity for every sufficiently small positive step on a canonical five-state Markov chain, then regains it at an exact algebraic threshold. The complete N=2 through N=5 hierarchy and exact re-entry window make the fact reusable for method selection and monotonicity analysis.",
+    "status": "PASS"
+  }
+}
