@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Two exhaustive engines independently give exactly 342 ternary square-free words of length 13. Direct deletion tests leave exactly 30 irreducibly square-free words. Two least-square-period scans agree after every one of the 330 interior deletions. The radius histogram is exactly 18 at 3 and 12 at 6. Symmetry recomputation gives three orbits of sizes 12, 6, and 12, and the radius-6 orbit has exactly one deletion per word whose least square period is 6.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Harju's Table 1 gives three length-13 classes up to permutation and reversal, while Theorem 5 gives the existence spectrum.",
+        "Przybocki explicitly cites Harju's spectrum and develops other irreducible/delicate length results without a deletion-square-period refinement."
+      ],
+      "reasoning": "The strongest directly relevant sources classify existence and symmetry-class counts, not the scale of the square certificate after deletion. Those statements do not imply which classes require a global period-6 witness.",
+      "searches": [
+        "arXiv:1911.09973 full text Section 2 Table 1 Table 2",
+        "DOI:10.37236/10669 full text irreducible squarefree Harju",
+        "later irreducible squarefree ternary words deletion period"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1911.09973v1 full text",
+      "DOI:10.1016/j.tcs.2020.07.030 bibliographic record",
+      "DOI:10.37236/10669 full text",
+      "exact-string searches for all three canonical representatives",
+      "searches for deletion-square period, least-period, and fragility-profile formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knowing there are three classes at length 13 does not determine the least square period after each deletion.",
+        "The existence theorem does not distinguish local deletion witnesses from a deletion whose only shortest square spans all 12 remaining letters."
+      ],
+      "reasoning": "The new implication is strictly orthogonal to the prior count: it refines the three known classes by a certificate-scale invariant and identifies a unique global class.",
+      "searches": [
+        "Harju Table 1 length 13 card 3",
+        "Harju Theorem irreducibly square-free all lengths except 4 5 7 12",
+        "Przybocki Harju irreducible squarefree length spectrum",
+        "period of square after deletion irreducible word"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Harju defines irreducibility through deletion-created squares but does not attach a period statistic to those squares.",
+        "No retrieved source states the 18-versus-12 split or a radius-6 boundary class."
+      ],
+      "reasoning": "The searches cover the new radius terminology as well as definition-level paraphrases using least period, deletion, and square witnesses.",
+      "searches": [
+        "irreducibly square-free ternary words length 13 deletion square periods",
+        "fragility profile irreducibly square-free words period of square after deletion",
+        "deletion witness radius square-free ternary word",
+        "least period square created after deleting letter irreducibly squarefree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Harju prints 0102012101202 as a small length-13 example.",
+        "Exact searches for the other two canonical representatives did not locate a published period-profile table.",
+        "The computation regenerates all 30 labeled words rather than assuming the source table contains their deletion data."
+      ],
+      "reasoning": "The source table fixes the prior three-class count; the new certificate independently determines orbit sizes and the radius attached to each orbit.",
+      "searches": [
+        "0102012101202 square-free irreducible",
+        "0102012102010 square-free",
+        "0102120102012 square-free",
+        "010212010212 period 6 irreducibly square-free"
+      ]
+    },
+    "rationale": "Harju's source reports the exact length spectrum and three symmetry classes at length 13, but does not define or tabulate the least period of the square witnessing each deletion. The later Przybocki paper restates the length spectrum but likewise does not compare deletion-certificate periods. Exact representative, period-6, and fragility-profile searches found no covering statement.",
+    "residual_risks": [
+      "Unpublished output from Harju's systematic search may contain the same period profiles.",
+      "An unindexed computational note could contain the global-versus-local distinction.",
+      "The result is finite and specific to the first post-gap length 13."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the three-class count and length spectrum but not deletion-square periods or a global-versus-local class distinction.",
+        "evidence": "Table 1 gives card 3 at length 13; Table 2 gives 0102012101202; no period statistic for deletion-created squares is stated.",
+        "identifier_or_url": "arXiv:1911.09973v1 / DOI:10.1016/j.tcs.2020.07.030",
+        "material_read": "Definitions; Section 2; Table 1 with class counts through length 30; Table 2 with small examples; Theorem 5 and its proof; Section 3 discussion of longer disposable factors.",
+        "method": "Full-text statement and implication comparison.",
+        "title": "Disposability in Square-Free Words",
+        "trigger": "Primary source introducing irreducibly square-free ternary words and the exact boundary at length 13."
+      },
+      {
+        "assessment": "Restates the exact spectrum and treats analogous classes, but does not report deletion-square-period profiles.",
+        "evidence": "The introduction states Harju's spectrum and then moves to irreducible overlap-free/cubefree and delicate words; no least-period refinement is present.",
+        "identifier_or_url": "DOI:10.37236/10669",
+        "material_read": "Introduction and irreducibility definitions; statement citing Harju's ternary squarefree spectrum; Section 2 on irreducible words; references.",
+        "method": "Full-text PDF statement and implication comparison.",
+        "title": "Lengths of Irreducible and Delicate Words",
+        "trigger": "Later paper directly revisiting Harju's irreducibility notion and exact length spectrum."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4884ed82-2a73-4e8d-b191-c6dc1ae8f6ce",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Length 13 is the first length after the final forbidden length 12 in Harju's exact spectrum, and the source already isolates only three symmetry classes there. The least period of the deletion-created square directly measures how irreducibility is certified. The exact split shows that two classes are locally fragile while one class has a deletion whose certificate is necessarily the entire post-deletion word, a structural distinction not visible from the known class count alone.",
+    "status": "PASS"
+  }
+}
