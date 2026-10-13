@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the exact two-stage Radau IIA stability function and rational poles, the Maclaurin recurrence through c5=-1/108, graph-distance leading terms and their n=10 factor two, the nonreal conjugate-resolvent decomposition and decaying characteristic root |q|<1, periodic/dense cosine rotation for infinitely many negative entries at every h>0, convergence of periodization on large cycles, and the fixed finite-cycle h→∞ spectral projector. The packaged Fraction-based checker passes 2020 exact rational matrix-entry tests for n=3..14 and auxiliary floating kernel checks; finite runs are supplementary to the analytic proof. No claims made about full finite-step windows.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth (1998, 2005) develops positivity/absolute-monotonicity radii for broad problem classes; a vanishing radius is a general obstruction but supplies no necessary and sufficient cycle-size dichotomy.",
+        "Zappavigna et al. study Padé discretizations and positive-system counterexamples with different matrices and rational function.",
+        "General rational root properties support our proof but do not imply specific all-step oscillation signs without the nonreal-root calculation."
+      ],
+      "reasoning": "Checked whether the new result is a corollary of stronger universal positivity/negativity theorems. Universal failure for some generator does not entail failure on symmetric nearest-neighbor heat cycles at precisely n=10 or for every h on an infinite grid. Conversely the eventual-positive fixed-finite-grid statement uses L-stability and cannot be obtained from the prior Gauss–Legendre rational which is not L-stable.",
+      "searches": [
+        "published-finding corpus: Radau order three first negative Taylor coefficient fifth order positive Markov generator",
+        "published-finding corpus: third-order L-stable Runge Kutta positivity on periodic lattice discrete heat",
+        "Full text: Horváth 1998 DOI 10.1016/S0168-9274(98)00050-6, Theorems 2 and 6",
+        "Full text: Horváth 2005 DOI 10.1016/j.apnum.2004.08.026, Theorem 8",
+        "Full text: Zappavigna et al. 2012 DOI 10.1016/j.laa.2011.12.021"
+      ]
+    },
+    "checked_sources": [
+      "Horváth 1998 DOI 10.1016/S0168-9274(98)00050-6",
+      "Horváth 2005 DOI 10.1016/j.apnum.2004.08.026",
+      "Zappavigna et al 2012 DOI 10.1016/j.laa.2011.12.021",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Horváth (2005) reports Dirichlet heat positivity loss and spectral cones, but does not establish finite periodic cycle size ten or complex-q infinite-kernel sign oscillations.",
+        "Published backward-Euler-filtered Crank–Nicolson kernel is positive for all h, whereas this unfiltered Radau IIA kernel is signed at infinitely many positions for every h.",
+        "The published [2/2] Padé Gauss result has a minimal eight-state *directed* CTMC small-step obstruction but not this symmetric heat-cycle result."
+      ],
+      "reasoning": "Implication tested under exact object (Radau IIA versus Gauss or filtered CN), graph geometry (symmetric periodic nearest-neighbor cycle versus Dirichlet path, pure birth, or unrestricted Metzler matrix), quantification (all h versus sufficiently small h), and dimension (first failure at ten). Each apparent overlap either covers a different map/model or establishes only broader nonconstructive failure, leaving the entire assessed claim undominated.",
+      "searches": [
+        "published-finding corpus: Radau IIA periodic one-dimensional lattice Fourier resolvent kernel infinitely many negative coefficients",
+        "published-finding corpus: two-stage Radau IIA step matrix positivity cycle heat equation sign-changing tails complex poles",
+        "published-finding corpus: third-order L-stable Runge Kutta positivity on periodic lattice discrete heat",
+        "Source comparison: Horváth 2005 DOI 10.1016/j.apnum.2004.08.026, pp. 351–354",
+        "Source comparison: public lattice-positivity result 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Horváth (2005) p.351/Table 1 observes zero unrestricted Radau IIA positivity threshold on finite-Dirichlet heat grids; no finite periodic cycle cutoff or nonreal Green-kernel oscillation follows from the table.",
+        "The published [2/2] Padé map has order four and rational denominator 12-6z+z², while Radau IIA here has order three and denominator 6-4z+z².",
+        "The exact new kernel equals 2 Re(C q^{|m|}) with q nonreal for all h>0; this structural all-step conclusion has no equivalent statement in the inspected references."
+      ],
+      "reasoning": "Equivalent finite-grid positivity formulations include Markov row stochasticity plus entrywise nonnegativity, order-preservation of the linear end-step, and nonnegative circulant kernel. The new claim uses the same objects but is not implied by the general absolute-monotonicity radius zero: that guarantees a counterexample somewhere in a broad class, not the exact smallest periodic grid C_10 or sign changes at infinitely many lattice distances at each fixed timestep.",
+      "searches": [
+        "published-finding corpus: Radau IIA two-stage third order stability function discrete heat cycle graph C_n sharp nonnegative step matrix minimal ten vertices",
+        "published-finding corpus: Radau IIA periodic one-dimensional lattice Fourier resolvent kernel infinitely many negative coefficients",
+        "published-finding corpus: positivity Runge Kutta Horvath 2005 complete graph cycles periodic Laplacian",
+        "Full text: Horváth 2005, DOI 10.1016/j.apnum.2004.08.026, Table 1 and Theorem 8",
+        "published-finding corpus closest: 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Horváth Table 1 concerns Radau IIA on 99- and 999-node Dirichlet heat test grids and smooth/non-smooth initial vectors; it gives no cyclic size-by-size exact positivity table.",
+        "published-finding corpus result 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab gives an eight-state directed Padé [2/2] barrier, distinct from the ten-vertex undirected Radau result."
+      ],
+      "reasoning": "Neither a known tabulation of positive Radau-on-cycle timesteps nor an exact table whose entries imply the all-n cutoff was found in targeted published searches. The absence of a search hit alone is not sufficient evidence of originality; primary-text and implication comparisons are used as well.",
+      "searches": [
+        "published-finding corpus: Radau IIA two-stage third order stability function discrete heat cycle graph C_n sharp nonnegative step matrix minimal ten vertices",
+        "published-finding corpus: positivity Runge Kutta Horvath 2005 complete graph cycles periodic Laplacian",
+        "published-finding corpus: Radau IIA method six-state pure-birth chain fifth coefficient negative positivity barrier",
+        "Horváth 2005 Table 1 p.351",
+        "published-finding corpus published index semantic queries across stability function, Markov positivity, discrete heat"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus and primary-literature searches, including full reading of Horváth 1998 and 2005 and the two closest published mathematical records, show no source whose statement implies the combined exact ten-cycle small-step cutoff, all-step infinite-grid kernel oscillations and eventual finite-cycle positivity. Horváth 2005 zero general Radau absolute-monotonicity radius does not imply the graph-specific classifications. The distinct Gauss/filtered-CN results have incompatible stability maps. Historical equivalent specializations may nevertheless exist; this is a self-review, not historical certification.",
+    "residual_risks": [
+      "An equivalent specialized Radau IIA positivity theorem for periodic discrete heat grids may exist in other historical RK/PDE literature outside the inspected set.",
+      "The general absolute-monotonicity theory implies broad counterexamples but not the identified sharp periodic-grid threshold; absence of searchable exact words is not novelty proof.",
+      "Independent historical-priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_NOT_COVERING_SPECIFIC_CLAIM: zero universal threshold and Dirichlet heat experiments do not imply the periodic ten-cycle dichotomy or all-step negative complex-root kernel",
+        "evidence": "Table 1, p.351 explicitly names two-stage Radau IIA and diffusion, with universal threshold zero; Sections 3–4 concern broader positivity radii and invariant cones rather than exact periodic-cycle entries.",
+        "identifier_or_url": "doi:10.1016/j.apnum.2004.08.026",
+        "material_read": "Original full text, pp.341–356, including first-online date, Table 1 p.351, Theorem 8 pp.347–349 and Remark 18 pp.353–354",
+        "method": "Full-text page-by-page scientific reading",
+        "title": "On the positivity step size threshold of Runge–Kutta methods",
+        "trigger": "Same two-stage Radau IIA method on a heat equation and classical positivity radius theory"
+      },
+      {
+        "assessment": "GENERAL_NOT_COVERING_SPECIFIC_CLAIM: positivity-radius framework does not classify the symmetric periodic-grid cutoff or complex-resolvent kernel signs",
+        "evidence": "Theorems and examples concern generic positive/dissipative IVPs and Runge–Kutta/DSRK radii, with no theorem characterizing negative kernels on all one-dimensional heat lattice timesteps.",
+        "identifier_or_url": "doi:10.1016/S0168-9274(98)00050-6",
+        "material_read": "Full 18-page text, Sections 2–5 including Theorems 2 and 6 and examples",
+        "method": "Full-text page-by-page scientific reading",
+        "title": "Positivity of Runge–Kutta and diagonally split Runge–Kutta methods",
+        "trigger": "Foundational broad implicit RK positivity theorem could dominate a specialized cycle result"
+      },
+      {
+        "assessment": "NOT_COVERING_SPECIFIC_CLAIM: related phenomenon for other Padé rational maps and Metzler matrices; no sharp Radau-C_n size cutoff or complex heat resolvent",
+        "evidence": "The Padé [2/2] examples are different rational approximants and system classes; general negative-step implications do not fix ten as the first symmetric cyclic size.",
+        "identifier_or_url": "doi:10.1016/j.laa.2011.12.021",
+        "material_read": "Author-hosted full text discussing negative Padé coefficients and explicit positive-system counterexamples; visually inspected relevant opening and example material",
+        "method": "Author-hosted open-access PDF scientific reading",
+        "title": "Essentially negative news about positive systems",
+        "trigger": "Padé rational maps can lose cone positivity on Metzler generators"
+      },
+      {
+        "assessment": "NOT_COVERING: order-four Gauss rational function and directed birth chain, not order-three Radau on undirected cycles",
+        "evidence": "Rational function (12+6z+z²)/(12-6z+z²); eight-state absorbing pure-birth certificate and small-step sign loss.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "material_read": "Entire published RESULT.md theorem, rational function, proof, context and references",
+        "method": "Public primary scientific full-text reading",
+        "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+        "trigger": "Closest public result of a small-step Markov positivity barrier"
+      },
+      {
+        "assessment": "NOT_COVERING: a different rational composite with everywhere positive kernel, not unfiltered Radau IIA negative oscillatory kernel",
+        "evidence": "The published composite kernel k_j=q^{|j|}(1-q)^2/(1+q)^3(2|j|(1+q)+1-q)>0 for all j.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "material_read": "Entire published RESULT.md theorem, exact convolution kernel, proof and limitations",
+        "method": "Public primary scientific full-text reading",
+        "title": "Unconditional lattice positivity from backward-Euler-filtered Crank–Nicolson",
+        "trigger": "Nearest-neighbor periodic and infinite-lattice exact positivity kernel"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cf8fc188-8ee6-47cc-b154-ff4472bc42da",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharp minimal periodic-grid size n=10 for loss of small-step cone positivity and the stronger every-timestep infinite-grid oscillatory obstruction answer a naturally motivated numerical heat-flow question. The finite/infinite discrepancy is nontrivial: arbitrarily small steps can fail on large periodic grids while each fixed finite grid becomes positive at sufficiently large steps. The complex-root kernel and mesh-size-uniform impossibility provide structural understanding beyond a one-off finite matrix or Taylor-coefficient sign.",
+    "status": "PASS"
+  }
+}
