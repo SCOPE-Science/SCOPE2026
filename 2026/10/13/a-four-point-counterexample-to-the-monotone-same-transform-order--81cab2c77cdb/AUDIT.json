@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Exact counting gives the joint mass matrix of the minimum and maximum for three iid uniform draws on four points. For the strictly increasing family \\(g_a=(0,a,1-a,1)\\), exact moment algebra gives \\(\\operatorname{Corr}=(-7a^2+4a+4)/(95a^2-68a+28)\\). Subtraction of the raw value \\(41/143\\) factors as \\(-96(3a-1)(17a-6)/(143(95a^2-68a+28))\\); the denominator is positive because its discriminant is negative. Thus strict improvement holds exactly for \\(1/3<a<6/17\\). Differentiation gives the unique within-family optimizer \\(a=6-4\\sqrt2\\). The packaged verifier independently checks the finite counting and polynomial identities with exact rational arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1007/s00180-021-01103-5 studies unrestricted maximal correlation for discrete order statistics and explicitly describes numerical optimization when \\(N>2\\); it does not assert the same-transform monotone equality.",
+        "Searches for later corrections or papers matching the source title surfaced the 2023 journal version but no correction or theorem covering this counterexample."
+      ],
+      "reasoning": "A theorem determining the unrestricted maximal correlation \\(R_N\\) would not imply equality for \\(R_N^{\\prime\\prime}\\), and the direct source itself distinguishes these quantities. No stronger later statement located in the searches forces the proposed equality at \\(N=4\\).",
+      "searches": [
+        "three iid discrete uniform {1,2,3,4} minimum maximum transformed correlation",
+        "A discrete analogue of Terrell characterization correction",
+        "Papadatos monotone order statistics 2023 2024 2025 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2205.14360v1",
+      "DOI:10.3103/S1066530723020035",
+      "DOI:10.1007/s00180-021-01103-5",
+      "published-finding corpus:92f0f4188ee4",
+      "published-finding corpus:096d7231c1a9",
+      "published:d9edd870-e112-47de-8c4b-6e858e920183",
+      "published:2b3cbd4b-f89e-46ff-94e6-064a9576a170",
+      "published:72e2dab2-ac87-4645-84ca-634c563f09b4",
+      "published:200fa86d-60cb-400c-bc1e-3394f53e0612"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published finding 72e2dab2-ac87-4645-84ca-634c563f09b4 varies symmetric parent probabilities on a three-point support for three draws; it does not apply a common transform to a fixed uniform parent.",
+        "Published finding 200fa86d-60cb-400c-bc1e-3394f53e0612 extends that parent-probability failure over sample sizes but again does not address \\(R_N^{\\prime\\prime}\\) or \\(R_N^{\\prime}\\).",
+        "The current-week Terrell-type quartic finding concerns Remark 3.3 of the same source and is mathematically disjoint from the order-statistic transform relation in the concluding correlation questions."
+      ],
+      "reasoning": "Neither varying the parent law nor solving the quartic minimization implies that a common monotone transform raises \\(\\operatorname{Corr}(L,U)\\) under the fixed uniform parent. The new claim attacks a separate conjectural equality from the same paper.",
+      "searches": [
+        "published-finding overlap search: discrete order statistic correlation Papadatos probability vector",
+        "published-finding source search: arXiv:2205.14360",
+        "same transform monotone correlation uniform four point min max"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2205.14360v1, pp. 11-12: definitions of \\(R_N^{\\prime}\\) and \\(R_N^{\\prime\\prime}\\) and the proposed equality \\(\\rho_N=R_N^{\\prime\\prime}=R_N^{\\prime}\\).",
+        "No indexed finding located states the four-point same-transform counterexample; the closest public record is index:92f0f4188ee4, which varies parent probabilities in the distinct \\(N=3,n=2\\) problem."
+      ],
+      "reasoning": "The same-transform problem is not equivalent to unrestricted maximal correlation, which allows different functions on the two order statistics. It is also not equivalent to optimizing the parent probability vector: here the parent remains fixed and uniform while only a common monotone transform changes.",
+      "searches": [
+        "Papadatos order statistics uniform population monotone same transform correlation minimum maximum three sample N=4",
+        "R double prime 4 order statistics min max discrete uniform same increasing function correlation",
+        "Papadatos conjecture rho_N equals R_N double prime R_N prime 1 3 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "index:92f0f4188ee4 concerns sharp min-max correlation over three-point probability weights for two iid draws, not a common transform of a fixed four-point uniform parent.",
+        "index:096d7231c1a9 concerns identification from heterogeneous order-statistic marginals, not correlation optimization.",
+        "The 2021 computational paper concerns the full maximal-correlation optimization and does not tabulate the same-transform monotone counterexample."
+      ],
+      "reasoning": "The nearest database records differ in the optimized object, support size, or dependence functional; none contains the statement or an implication that yields it.",
+      "searches": [
+        "index:92f0f4188ee4",
+        "index:096d7231c1a9",
+        "DOI:10.1007/s00180-021-01103-5"
+      ]
+    },
+    "rationale": "The direct 2022 source proposes the equality \\(\\rho_N=R_N^{\\prime\\prime}=R_N^{\\prime}\\) and records the three-sample extreme-pair formula as checked for small \\(N\\). The new four-point monotone witness strictly exceeds that value. Candidate-specific semantic-index searches and web searches for the exact notation, four-point model, same-transform monotone correlation, and corrections found no covering published result.",
+    "residual_risks": [
+      "A differently phrased short correction or note may be poorly indexed and could have observed the same four-point counterexample.",
+      "The claim does not identify the global optimizer for \\(R_4^{\\prime\\prime}\\) or \\(R_4^{\\prime}\\); novelty is assessed only for the explicit counterexample and exact one-parameter interval."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_GAP: the paper states preliminary calculations indicating \\(\\rho_N=R_N^{\\prime\\prime}=R_N^{\\prime}\\) and gives the claimed three-sample extreme formula, but does not prove it.",
+        "evidence": "The concluding remarks define \\(R_N^{\\prime}\\) and \\(R_N^{\\prime\\prime}\\), state the proposed equality, and give \\(R_N^{\\prime}(1,3:3)=(3-7N^{-2})/(9-N^{-2})\\) as checked for small \\(N\\).",
+        "identifier_or_url": "arXiv:2205.14360v1",
+        "material_read": "Full arXiv text around the concluding remarks, especially pp. 10-12, plus the first page for date and MSC.",
+        "method": "Read the rendered full text and the page image for the concluding correlation questions.",
+        "title": "A discrete analogue of Terrell’s characterization of rectangular distributions",
+        "trigger": "Direct source of the proposed equality and the specific \\((1,3:3)\\) formula."
+      },
+      {
+        "assessment": "NOT_COVERING: it studies unrestricted maximal correlation with two transforms and numerical optimization, not the same-transform monotone quantity \\(R_N^{\\prime\\prime}\\).",
+        "evidence": "The abstract defines maximal correlation over independently chosen functions and states that, except \\(N=2\\), closed forms are generally unavailable.",
+        "identifier_or_url": "DOI:10.1007/s00180-021-01103-5",
+        "material_read": "Abstract and opening definitions available from the accessible article copy/index record.",
+        "method": "Compared the optimization variables and stated scope with the new claim.",
+        "title": "Automatic differentiation and maximal correlation of order statistics from discrete parents",
+        "trigger": "Closest pre-existing paper devoted specifically to maximal correlation for discrete-parent order statistics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "81cab2c7-7cdb-4c83-ad7d-6537810e3eda",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finding overturns a stated general same-transform correlation relation in the first four-point, three-sample extreme-order case. The failure is robust on the full interval \\(1/3<a<6/17\\) rather than being a numerical point anomaly, and the family has an exact internal optimizer. This directly changes the qualitative picture of the source question and is mathematically informative even without a global formula for \\(R_4^{\\prime\\prime}\\).",
+    "status": "PASS"
+  }
+}
