@@ -1,0 +1,81 @@
+{
+  "correctness": {
+    "rationale": "With \\(B=I-A/L\\), Stieltjes signs and the spectral endpoint imply \\(B\\ge0\\) entrywise and \\(B\\succeq0\\). The exact polynomial recurrence gives nonnegative coefficients through degree three, and the only potentially negative coefficient for the fifth iterate is \\((1+\\beta)^2(1-2\\beta)\\). This is nonnegative exactly for \\(\\kappa\\le9\\). For every \\(\\kappa>9\\), the explicit weak-coupling construction has exact spectral endpoints and makes the distance-three entry of the fifth-iterate polynomial negative. The packaged rational witness independently replays all arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Closest IDs included 2026/9/20/SCOPE-nesterov-three-dimensional-objective-spike-barrier--6979da6f15ad and 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705."
+      ],
+      "reasoning": "Objective-spike and stagewise Euclidean-nonexpansion theorems control different observables. Neither implies entrywise positivity of Nesterov iterates on the Stieltjes cone or the quantified fifth-iterate threshold.",
+      "searches": [
+        "accelerated gradient cone preservation M-matrix positivity",
+        "Nesterov accelerated gradient condition nine positivity fifth iterate Stieltjes"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1412.7457 (full text and relevant page image inspected)",
+      "Published finding 2026/9/20/SCOPE-nesterov-three-dimensional-objective-spike-barrier--6979da6f15ad (statement compared)",
+      "Published finding 2026/9/20/SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158 (statement compared)",
+      "Own current and immediately prior ledgers (titles/claims checked for overlap; historical records used only for deduplication)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghadimi–Feyzmahdavian–Johansson, arXiv:1412.7457, eq. (4), gives the constant-step Nesterov scheme and the strongly convex parameter; its statements inspected concern convergence rates. A prior heavy-ball positivity finding has threshold nine but a different recurrence."
+      ],
+      "reasoning": "The source method theorem does not state componentwise positivity. Heavy-ball’s threshold cannot be transferred: its update uses momentum on the iterates with a gradient at the current point, whereas the present Nesterov recurrence evaluates the gradient after extrapolation; the resulting finite-iterate polynomials differ. Thus neither prior statement implies the accepted claim.",
+      "searches": [
+        "Nesterov accelerated gradient Stieltjes M-matrix componentwise positivity nonnegative iterates positive cone",
+        "Nesterov accelerated gradient condition nine positivity fifth iterate Stieltjes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-finding-index searches under “Stieltjes”, “M-matrix”, “nonnegative iterates”, “positive cone”, “fifth iterate”, and “condition nine” returned the Nesterov objective-spike item as the closest Nesterov-specific match."
+      ],
+      "reasoning": "The aliases cover cone invariance, componentwise positivity, inverse-positive quadratic systems, and the exact iteration/condition threshold. The closest Nesterov item concerns objective values rather than coordinate signs, so it is not an equivalent formulation.",
+      "searches": [
+        "Nesterov accelerated gradient Stieltjes M-matrix componentwise positivity nonnegative iterates positive cone",
+        "Nesterov momentum positive systems invariant nonnegative orthant quadratic",
+        "Nesterov fifth iterate positivity condition number 9 Stieltjes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No implication-equivalent exact table or database entry was returned; the closest Nesterov-specific result was the objective-spike finding."
+      ],
+      "reasoning": "This absence is not by itself a novelty proof; it is combined with full-text inspection of the method source and direct implication comparisons against the closest indexed results.",
+      "searches": [
+        "first four Nesterov iterates nonnegative Stieltjes fifth sign loss"
+      ]
+    },
+    "rationale": "Statement-level searches found Nesterov convergence and objective-spike results, but no source implying the exact componentwise theorem that the first four iterates are universally nonnegative and the fifth is universally nonnegative iff \\(\\kappa\\le9\\). The same numerical threshold in a heavy-ball positivity result is non-implicative because the recurrence and iterate polynomials differ.",
+    "residual_risks": [
+      "Older monotone-iteration, positive-systems, or inertial-optimization literature may encode finite-iterate cone invariance under terminology not recovered by the searches.",
+      "The result does not claim a minimal counterexample dimension, so literature on dimension-minimality would require a separate comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_METHOD_NOT_CLAIM",
+        "evidence": "Equation (4) gives Nesterov constant-step updates and the text immediately below gives \\(\\beta=(\\sqrt L-\\sqrt\\mu)/(\\sqrt L+\\sqrt\\mu)\\) for strongly convex objectives. The paper lists MSC 90C26 first and does not state the componentwise fifth-iterate frontier.",
+        "identifier_or_url": "arXiv:1412.7457",
+        "material_read": "Title/abstract/classification page; introduction; the page containing equation (4); and the surrounding strongly convex parameter statement.",
+        "method": "Full-text PDF text plus direct page-image inspection.",
+        "title": "Global convergence of the Heavy-ball method for convex optimization",
+        "trigger": "Primary archive source explicitly comparing heavy-ball and Nesterov and stating the constant-parameter accelerated scheme used here."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a7c57a92-257a-4ddc-aa1d-0443534184b8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives a natural and sharp boundary between spectral acceleration and coordinatewise order preservation on a canonical inverse-positive class. It is stronger than a single counterexample: four iterations are proved universally safe, the fifth has an exact condition-number iff threshold, and every larger condition number is covered by one explicit family. This is directly relevant when nonnegative coordinates represent physically meaningful states or feasibility.",
+    "status": "PASS"
+  }
+}
