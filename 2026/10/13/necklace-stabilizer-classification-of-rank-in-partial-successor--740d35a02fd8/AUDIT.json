@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For every finite cyclic state group and arbitrary active subset, H-equivariance forces each word image to contain a whole H-coset, giving rank at least |H|. The induced quotient mask has trivial stabilizer. Given an oriented pair gap d, a rotating placement at an active u with u+d inactive followed by b reduces d to d-1; repeated reductions merge all quotient states. Lifting gives rank <=|H|, exact. Primitive-root counting by Möbius inversion proves both unweighted and fixed-weight formulas including zero/full masks. Replayed standalone checker: exhaustive exact subset-BFS of 1020 automata n=2..9, 65532 masks n=2..15, 449 weighted formula cases, 1320 constructive replays, 394 stride masks. Checks do not substitute for the induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kari–Ryzhikov–Varonka, author manuscript, Theorem 3: an upper bound on shortest minimum-rank words *conditional on the rank*, not a method to identify the rank for arbitrary active subsets.",
+        "Volkov, arXiv:2306.13317, Theorem 1: primitivity plus a unimodal letter implies synchronization; the present maps need not be unimodal and periodic ones have nontrivial congruences.",
+        "Rystsov–Szykuła, arXiv:2307.01302, Theorem 25: semiconstant maps are idempotent single-target contractions, while general partial-successor maps are not of that type.",
+        "Hoffmann, arXiv:2011.14404, Theorem 8: sufficient distance conditions for a rank-(n-1) letter and distinguishability; the present rank may be any divisor of n."
+      ],
+      "reasoning": "A general bound phrased in terms of an already known rank cannot imply an exact rank classifier without further structure. The cited primitive and semiconstant criteria cover some special cases, not the arbitrary-mask rank spectrum, and Hoffmann studies a different invariant.",
+      "searches": [
+        "Kari Ryzhikov Varonka Words of Minimum Rank in Deterministic Finite Automata pdf 2019",
+        "https://arxiv.org/pdf/2306.13317",
+        "https://arxiv.org/pdf/2307.01302",
+        "https://arxiv.org/pdf/2011.14404"
+      ]
+    },
+    "checked_sources": [
+      "Volkov arXiv:2306.13317, first posted 2023-06-23, Theorem 1 and Corollaries 3–5",
+      "Rystsov–Szykuła arXiv:2307.01302, first posted 2023-07-03, Section 4 and Theorem 25",
+      "Kari–Ryzhikov–Varonka DLT 2019, DOI:10.1007/978-3-030-24886-4_5, complete author open final draft, Sections 3.2 and 4.2",
+      "Hoffmann arXiv:2011.14404, Sections 3–5 and Theorem 8",
+      "Targeted keyword and equivalence searches for partial-successor cyclic automata, translation stabilizers, necklace periods and minimum rank"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kari–Ryzhikov–Varonka, Proposition 4 constructs a binary circular rank-r automaton; Theorem 3 upper-bounds a shortest minimum-rank word, leaving our arbitrary-mask rank equation undetermined.",
+        "A previously studied Černý-type letter increments one selected state; masks with many simultaneous increments have distinct transformation semigroups and rank obstructions.",
+        "Rystsov–Szykuła Section 4 and Volkov Section 2 establish synchronization conditions without a complete rank enumerator."
+      ],
+      "reasoning": "The formula \\(r(n,A)=|H(A)|\\) implies exactly which of \\(2^n\\) masks synchronize and identifies all nonsynchronizing ranks. The cited general bounds, special constructions, and sufficient conditions neither state nor logically yield this classification as an immediate corollary without the new equivariant quotient and pair-merging argument.",
+      "searches": [
+        "circular automaton permutation cyclic plus transformation i i+1 if subset A synchronizing primitive necklace minimum rank",
+        "Kari Ryzhikov Varonka Words of Minimum Rank in Deterministic Finite Automata pdf 2019",
+        "Kari Ryzhikov Varonka Words of Minimum Rank in Deterministic Finite Automata pdf 2019",
+        "Synchronizing automaton circular cycle a and nonidempotent successor chain letter b reset thresholds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full author final draft of Kari–Ryzhikov–Varonka, DOI:10.1007/978-3-030-24886-4_5, Sections 3.2 and 4.2, constructs prescribed-rank examples and proves a general word-length bound rather than classifying partial-successor masks.",
+        "Rystsov–Szykuła, arXiv:2307.01302, Section 4 and Theorem 25, treats semiconstant transformations; arbitrary masks can create several nonconstant components or successor chains.",
+        "Volkov, arXiv:2306.13317, Theorem 1 and Corollaries 3–5, provides primitive-automaton sufficient conditions, not this exact rank formula."
+      ],
+      "reasoning": "The possible aliases are minimal image size, degree of a minimum-rank word, period/rotational stabilizer of a binary necklace, and circular automaton with a partial-successor letter. Full-text comparisons identify no theorem for the entire 2^n-mask family. Prime-length and one-active-position cases may be implied by earlier results and are not individually asserted as new.",
+      "searches": [
+        "Binary circular automata with letters a(i)=i+1 modulo n and b(i)=i+1 for i in A otherwise i: minimum rank equals number of cyclic shifts fixing A, synchronized precisely when A is aperiodic",
+        "Partial successor circular automata necklace period rank Möbius exact counts of synchronizing binary automata",
+        "Stabilizer of active positions of successor letter controls transition monoid rank in cyclic deterministic automata",
+        "cyclic automata letters rotation and subset successor map synchronizing translational stabilizer minimal rank",
+        "binary automata partial successor map a cycle b subset identity successor synchronization criterion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public search of exact formula and cyclic-mask aliases returned results about individual circular examples, generic rank bounds, and necklace combinatorics but no formula assigning the minimum rank of every active mask.",
+        "The exact mask census and weighted counts were generated independently for all sizes through 15 with 65,532 masks; they are checks of a symbolic formula, not inferred novel entries into an established database."
+      ],
+      "reasoning": "The counting formulas coincide with classical primitive binary word counts after the new structural reduction. Novelty is not claimed for the Möbius inversion identity on its own; the structural identification with automaton rank is the issue.",
+      "searches": [
+        "Binary circular automata with letters a(i)=i+1 modulo n and b(i)=i+1 for i in A otherwise i: minimum rank equals number of cyclic shifts fixing A, synchronized precisely when A is aperiodic",
+        "Partial successor circular automata necklace period rank Möbius exact counts of synchronizing binary automata",
+        "Stabilizer of active positions of successor letter controls transition monoid rank in cyclic deterministic automata",
+        "cyclic automata letters rotation and subset successor map synchronizing translational stabilizer minimal rank"
+      ]
+    },
+    "rationale": "Full primary manuscript of Kari–Ryzhikov–Varonka, DOI:10.1007/978-3-030-24886-4_5, studies word-length bounds and prescribed-rank circular examples, not the exact rank for arbitrary partial-successor masks. Full papers of Volkov, Rystsov–Szykuła, and Hoffmann have sufficient synchronization or complete-reachability results but lack this stabilizer-specific full-mask classifier. Exact-result and alias queries did not identify stronger covering statements; search absence alone is not claimed as proof of novelty. Standard prime/one-active cases and necklace counting as such are not claimed new.",
+    "residual_risks": [
+      "An unindexed earlier formulation using different semigroup or cyclic-pattern terminology could imply the result; no complete novelty guarantee is available.",
+      "General primitive/circular synchronization theory does cover certain masks as special cases; originality rests on arbitrary-mask exact ranks and weighted enumeration, not those special cases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the arbitrary active-mask rank classifier: main contribution concerns minimum-rank word lengths and examples with prescribed rank; no per-mask stabilizer theorem in inspected text.",
+        "evidence": "Section 3.2 Corollary 1 and Proposition 4 construct examples; Section 4.2 Theorem 3 presupposes rank r and bounds word length.",
+        "identifier_or_url": "https://www.utupub.fi/bitstreams/df55c125-3bb6-4f4f-b3ef-3799b3cff98c/download",
+        "material_read": "Full 14-page open final draft, including abstract, Section 3 binary circular rank-r constructions and Section 4.2 Theorem 3, with visual inspection of pp. 7 and 10.",
+        "method": "Primary author-deposited full PDF: text of the propositions, proofs, and theorem with page checks.",
+        "title": "Words of Minimum Rank in Deterministic Finite Automata",
+        "trigger": "Direct match of minimum-rank and circular-automaton subject; plausible stronger coverage."
+      },
+      {
+        "assessment": "PARTIAL_OVERLAP only: gives sufficient sync criteria for primitive automata, not rank classification for arbitrary masks; general masks are not necessarily unimodal.",
+        "evidence": "Theorem 1 and Corollary 5 establish primitivity-based synchronization for unimodal/semiconstant letters.",
+        "identifier_or_url": "https://arxiv.org/pdf/2306.13317",
+        "material_read": "Open complete 8-page primary preprint; introduction, Theorem 1, Corollaries 3–5 and their hypotheses read closely with page checks.",
+        "method": "arXiv full PDF text and page images; checked earliest v1 public record dated 2023-06-23.",
+        "title": "Synchronization of primitive automata",
+        "trigger": "Qualifying 2023 primary work on cyclic/permutation plus singular letters."
+      },
+      {
+        "assessment": "PARTIAL_OVERLAP only: semiconstant maps are idempotent and collapse an active subset to a single target; arbitrary partial-successor maps often have chains/multiple targets.",
+        "evidence": "Section 4 defines semiconstant as a single-target map fixing every other point; Theorem 25 treats primitive PSc automata.",
+        "identifier_or_url": "https://arxiv.org/pdf/2307.01302",
+        "material_read": "Open complete 13-page preprint, with Section 4 definitions, Lemma 24, and Theorem 25 read closely.",
+        "method": "arXiv primary full PDF text, definitions and implication comparison.",
+        "title": "Primitive Automata that are Synchronizing",
+        "trigger": "Semiconstant-letter theorem might cover concurrent successor contractions."
+      },
+      {
+        "assessment": "NOT_COVERING: rank-(n-1) sufficient conditions for state complexity and complete reachability do not give minimum rank for every mask.",
+        "evidence": "Section 4 Theorem 8 assumes a rank-(n-1) letter or equivalent word and concludes distinguishability, a different invariant.",
+        "identifier_or_url": "https://arxiv.org/pdf/2011.14404",
+        "material_read": "Open complete 20-page preprint, with Sections 3–5 and Theorem 8 / Corollary 9 read closely.",
+        "method": "arXiv full PDF text, exact theorem hypothesis comparison and page inspection.",
+        "title": "State Complexity of the Set of Synchronizing Words for Circular Automata and Automata over Binary Alphabets",
+        "trigger": "Circular automata and rank-related reachability may dominate exact minimum-rank statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "740d35a0-2fd8-4b3c-ad4b-71154449e7a2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a complete natural classification over all \\(2^n\\) binary active masks, a direct finite symmetry invariant computing the smallest achievable state uncertainty, a synchronizability criterion without subset search, and exact counts by rank and active-set size. Unlike generic estimates of the length of minimum-rank words, it answers which ranks occur and exactly how often, distinguishing primitive underlying digraphs with periodic-mask obstructions. The exact invariant is motivated by state compression in circular automata; this is not a selected small-n table or an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
