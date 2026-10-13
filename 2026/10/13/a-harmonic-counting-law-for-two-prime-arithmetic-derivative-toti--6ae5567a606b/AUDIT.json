@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For fixed odd p, an exact cancellation gives p(b+1)=(p-a-1)q+1; b>=1 forces a in 1..p-2; modular inversion gives one coprime residue per a and uniquely determines b. The logarithm of the corresponding integer is ((p-a-1)/p) q log q+O_p(log q); monotone inversion yields cutoff (p/(p-a-1)) log X/loglog X. The fixed-modulus PNT in arithmetic progressions then yields p/((p-1)(p-a-1)) log X/(loglog X)^2 per class. Finite disjoint summation gives p H_(p-2)/(p-1). Exact regression factors and checks all n<=500000, and rational constants for 19 odd primes. The asymptotic itself is proved by PNT, not a finite experiment.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published fixed-multiplier study counts D(n)=kn for positive integer k and an associated different asymptotic.",
+        "Ufnarovski–Åhlander gives the general derivative identity."
+      ],
+      "reasoning": "In the present slice D(n)/n=phi(n)/n=(1-1/p)(1-1/q) is noninteger and q-dependent, so it lies outside the fixed integer k statement. The 2003 derivative identity alone does not include prime-cutoff inversion or PNT-in-progressions counting.",
+      "searches": [
+        "For fixed smallest odd prime p, count n=p^a q^b with q>p prime and arithmetic derivative D(n)=Euler totient phi(n). Asymptotic (p/(p-1))*H_(p-2)*log x/(log log x)^2.",
+        "arithmetic derivative totient coincidences count asymptotic for fixed p exponent a two prime support"
+      ]
+    },
+    "checked_sources": [
+      "OEIS A166374 (2009), full entry including 2014 comment",
+      "Ufnarovski–Åhlander (2003), JIS 6, Article 03.3.4, Theorem 1 and introduction",
+      "Published scientific record (2026), Fixed-multiplier level sets of the arithmetic derivative, title/summary only",
+      "Published scientific record (2026), Prime-pair densities for arithmetic numbers with two prime-power blocks, title/summary only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "OEIS A166374, Robert Israel 2014: solvability of a two-prime linear equation and existence.",
+        "JIS 2003, Theorem 1: exact factorization formula.",
+        "Published fixed-multiplier result: different target D(n)=kn."
+      ],
+      "reasoning": "The older existence statement has no ordering or asymptotic prime count. Recovering the exact fixed-p law requires a distinct forced-exponent size analysis and prime equidistribution. Neither the 2014 comment nor the other identified statements logically asserts the harmonic constant. Unindexed older coverage remains possible.",
+      "searches": [
+        "Asymptotic number of arithmetic derivative equal Euler totient solutions p^a q^b for fixed least prime p: harmonic coefficient p H_{p-2}/(p-1) times log X/(loglog X)^2 and prime residue classes",
+        "arithmetic derivative equals Euler totient D(n)=phi(n) two distinct prime factors p^a q^b complete parameterization infinite family Dirichlet prime progressions",
+        "arithmetic derivative totient coincidences count asymptotic for fixed p exponent a two prime support"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact identity is p(b+1)=(p-a-1)q+1, equivalent to (a+1)q=1 (mod p).",
+        "OEIS A166374 2014 comment already gives a related Diophantine existence criterion."
+      ],
+      "reasoning": "Two-prime existence and the linear equation are acknowledged as already known. The new assertion counts the solutions by magnitude for each fixed least prime and produces a harmonic leading coefficient; no prior equivalent asymptotic was identified.",
+      "searches": [
+        "arithmetic derivative equals Euler totient D(n)=phi(n) two distinct prime factors p^a q^b complete parameterization infinite family Dirichlet prime progressions",
+        "Asymptotic number of arithmetic derivative equal Euler totient solutions p^a q^b for fixed least prime p: harmonic coefficient p H_{p-2}/(p-1) times log X/(loglog X)^2 and prime residue classes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A166374 lists examples including 15, 1225, 3993 and the defining equality; the site reports dated sequence extensions."
+      ],
+      "reasoning": "Tables certify initial values only and do not imply the asymptotic leading constant. The theorem recovers the known initial solutions but adds an infinite count.",
+      "searches": [
+        "arithmetic derivative equals Euler totient D(n)=phi(n) two distinct prime factors p^a q^b complete parameterization infinite family Dirichlet prime progressions",
+        "Asymptotic number of arithmetic derivative equal Euler totient solutions p^a q^b for fixed least prime p: harmonic coefficient p H_{p-2}/(p-1) times log X/(loglog X)^2 and prime residue classes"
+      ]
+    },
+    "rationale": "Published OEIS A166374 includes the exact equation and Israel’s 2014 two-prime existence argument; these are acknowledged as prior. The new statement is a fixed-smallest-prime counting asymptotic with explicit harmonic coefficient, which those results do not state and which does not follow from the different fixed-multiplier D(n)=kn theorem. Search and source inspection did not identify a covering prior count; an unindexed earlier calculation remains a real residual risk.",
+    "residual_risks": [
+      "An unindexed paper or computation may have already derived the harmonic coefficient.",
+      "The two highly similar published 2026 records were compared using public summaries; their full texts were not available for inspection. Their displayed claims concern different equations.",
+      "PNT in arithmetic progressions is taken as established external mathematics, not independently re-proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The 2014 existence mechanism is prior; no theorem there counts this fixed least-prime slice or gives the harmonic constant.",
+        "evidence": [
+          "OEIS A166374, comments dated 2010-11-27 and 2014-08-21; 2009-10-13 entry origin"
+        ],
+        "identifier_or_url": "https://oeis.org/A166374",
+        "material_read": "Full visible OEIS entry, including definition, terms, dated comments by Johnston and Israel, sample programs, references, and authorship dates",
+        "method": "Read the complete published entry and compared its two-prime existence claim to the precise fixed-prime asymptotic",
+        "title": "OEIS A166374: Numbers whose arithmetic derivative equals Euler totient",
+        "trigger": "Exact same Diophantine equation and listed two-prime examples"
+      },
+      {
+        "assessment": "Theorem 1 provides D(n)=n sum v_p(n)/p. The examined material and term searches did not identify the totient counting law.",
+        "evidence": [
+          "Ufnarovski and Åhlander, Journal of Integer Sequences 6 (2003), Article 03.3.4, Theorem 1"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.pdf",
+        "material_read": "Abstract and introduction pages 1–2, including Theorem 1 and its proof; text-wide searches for totient/Euler",
+        "method": "Read published PDF text and visually inspected the second page formula",
+        "title": "How to Differentiate a Number",
+        "trigger": "Foundational original formula for the arithmetic derivative on prime factorizations"
+      },
+      {
+        "assessment": "Published statement does not cover the current slice; remaining risk of other results in unavailable full text is noted.",
+        "evidence": [
+          "Published record describes asymptotics for fixed integer k, with different exponent support."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-fixed-multiplier-level-sets-of-the-arithmetic-derivative--c31759e42cf2",
+        "material_read": "Published title and abstract summary only; complete article not retrieved",
+        "method": "Statement-level implication comparison: D(n)=kn for integer k versus D(n)=phi(n) where phi(n)/n lies strictly between zero and one",
+        "title": "Fixed-multiplier level sets of the arithmetic derivative",
+        "trigger": "Close title and an arithmetic-derivative counting asymptotic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6ae5567a-606b-4508-8c80-da4a551d4ce5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sequence D(n)=phi(n) is naturally defined and previously tabulated; two-prime existence was known but its frequency on fixed-smallest-prime strata was not quantified. The theorem establishes a precise uncommon log X/(loglog X)^2 growth scale and a nonconstant explicit harmonic leading coefficient, reflecting nontrivial weighted prime residue strata. This counts a substantive, mathematically motivated infinite family rather than merely identifying small examples or substituting parameters.",
+    "status": "PASS"
+  }
+}
