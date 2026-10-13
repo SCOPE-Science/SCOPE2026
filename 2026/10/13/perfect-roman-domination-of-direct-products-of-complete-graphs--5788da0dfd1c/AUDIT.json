@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The canonical fixed-support formula \\(w(A)=mn+|A|-q(A)\\) is exact. The direct two-support census covers same-row, same-column, and distinct-row-column cases, each with strictly positive excess. With \\(|A|\\ge3\\), the row/column counts prove both inequalities in RESULT.md, forcing equality only when \\(m=n=3\\) and \\(|A|=3\\); then every row and column must contain precisely one selected cell. There are six such supports, alongside the \\(mn\\) one-cell supports. The executable checks independently reconstruct adjacency and verify 1,188,352 complete small-board support cases and 551,124 full ternary labelings. Computational tests are finite corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1155/2022/1957027; a full treatment of perfect Roman domination of Cartesian products of paths/cycles, for which adjacency in a product changes one coordinate, not both.",
+        "DOI:10.2298/AADM1801143H; regular-graph bounds from 2018, not an exact parameter classification for complement-of-rook-graph families in the material examined.",
+        "DOI:10.1016/j.tcs.2019.08.017 treats complexity and algorithms for perfect Roman domination in selected graph classes; no identified theorem specifies this product family."
+      ],
+      "reasoning": "Regular-graph bounds and general algorithms do not yield the exact \\(m+n\\) value or its minimum-function census, and Cartesian/lexicographic formulas do not apply to the tensor adjacency. No found stronger theorem subsumes both the number and classification.",
+      "searches": [
+        "\"perfect Roman domination\" \"direct product\" graph K",
+        "perfect Roman domination of graphs strong Cartesian direct product K_m K_n minimum m+n",
+        "\"perfect Roman\" \"categorical product\" K"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2105.10006v1, Proposition 2.1 (full relevant section)",
+      "DOI:10.1155/2022/1957027 (full HTML)",
+      "DOI:10.2298/AADM1801143H (abstract/bounds only)",
+      "arXiv:2005.13608 (abstract only)",
+      "DOI:10.1016/j.tcs.2019.08.017 (abstract/overview only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2105.10006v1; Proposition 2.1: ordinary Roman domination of the same products is 5 when the smaller factor has order 3 and 6 when both factor orders are at least 4; the zero constraint there is at least one, not exactly one defender.",
+        "DOI:10.1155/2022/1957027; a full treatment of perfect Roman domination of Cartesian products of paths/cycles, for which adjacency in a product changes one coordinate, not both.",
+        "The ordinary Roman condition asks for at least one adjacent label-two vertex, while the present perfect Roman condition asks for exactly one."
+      ],
+      "reasoning": "The 2021 ordinary value \\(\\gamma_R=5\\) or \\(6\\) supplies only a lower bound for \\(\\gamma_{\\mathrm{pR}}\\), and cannot imply \\(m+n\\) or count all optimal functions. A Cartesian product of paths or cycles has different edges from this tensor product; its perfect Roman bounds do not yield the present formula.",
+      "searches": [
+        "perfect Roman domination direct products of complete graphs number of minimum functions",
+        "perfect Roman domination of K_m × K_n product complete graphs exact formula",
+        "\"The Perfect Roman Domination Number of the Cartesian Product of Some Graphs\" full text 2022 hindawi"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct product of complete graphs is the complement of the rook graph: adjacent pairs differ in both coordinates; the Cartesian product is the rook graph itself.",
+        "DOI:10.1155/2022/1957027; a full treatment of perfect Roman domination of Cartesian products of paths/cycles, for which adjacency in a product changes one coordinate, not both."
+      ],
+      "reasoning": "Searching tensor, categorical, Kronecker, direct, complement-of-rook and permutation-grid formulations revealed no exact covered parameter. The Cartesian result uses one-coordinate adjacency and therefore cannot be substituted.",
+      "searches": [
+        "\"perfect Roman domination\" \"tensor\" \"K_m\"",
+        "perfect Roman domination categorical tensor product of complete graphs m plus n optimum 3x3 permutations",
+        "\"perfect Roman domination\" \"complement of rook\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic searches of publicly indexed mathematical result records returned primarily ordinary/total/strong/restrained Roman formulas for complete multipartite graphs, not perfect Roman domination on tensor products.",
+        "Complete multipartite domination results do not transfer directly: the complement of a tensor product of two complete graphs is a rook graph containing induced three-vertex paths, hence not a disjoint union of cliques."
+      ],
+      "reasoning": "The nearest complete-multipartite families are not the tensor products \\(K_m\\times K_n\\) for \\(m,n\\ge3\\). Lack of a table result is only a bounded negative search, not a global uniqueness guarantee.",
+      "searches": [
+        "minimum perfect Roman domination on Kronecker product of complete graphs all optimal labelings",
+        "perfect Roman dominating function complement of rook graph exact two-neighbor count",
+        "perfect Roman domination tensor complete graphs grid complement rook graph"
+      ]
+    },
+    "rationale": "The strongest identified same-object primary theorem fixes the ordinary Roman parameter, not the perfect one; closest perfect Roman product theorem uses Cartesian adjacency, not direct adjacency. Detailed comparisons of exact statements and the classification of all minimizers did not find coverage. Priority is not independently certified and unindexed synonymous literature is a genuine residual risk.",
+    "residual_risks": [
+      "Unindexed earlier work might phrase the theorem as perfect Roman domination of complements of rectangular rook graphs or unique-neighbor grid guard functions.",
+      "The 2018 regular-graph article and some older primary sources were not inspected in full; generic bounds were distinguished, but all possible hidden specialization arguments were not excluded.",
+      "Semantic database retrieval is not an exhaustive proof of priority; independent literature audit is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: ordinary at-least-one-neighbor Roman domination is strictly weaker than perfect unique-neighbor domination.",
+        "evidence": [
+          "arXiv:2105.10006v1; Proposition 2.1: ordinary Roman domination of the same products is 5 when the smaller factor has order 3 and 6 when both factor orders are at least 4; the zero constraint there is at least one, not exactly one defender."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2105.10006v1",
+        "material_read": "Complete Introduction and Section 2, notably Proposition 2.1 with proof and subsequent bounds; references and Section 3 headings.",
+        "method": "Read publicly available arXiv HTML full text, compared definitions, quantified conclusions and proof assumptions.",
+        "title": "Roman domination in direct product graphs and rooted product graphs",
+        "trigger": "Same graph class, exact Roman domination theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: studies \\(P_r\\square P_s\\), \\(P_r\\square C_s\\) and \\(C_r\\square C_s\\), not \\(K_m\\times K_n\\).",
+        "evidence": [
+          "DOI:10.1155/2022/1957027; a full treatment of perfect Roman domination of Cartesian products of paths/cycles, for which adjacency in a product changes one coordinate, not both."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2022/1957027",
+        "material_read": "Complete published HTML: Introduction and Preliminaries, Discussion including Theorem 1 and its cases, Conclusion and References.",
+        "method": "Read openly available full-text HTML and inspect factor types and Cartesian edge rule.",
+        "title": "The Perfect Roman Domination Number of the Cartesian Product of Some Graphs",
+        "trigger": "Same perfect Roman invariant and graph products"
+      },
+      {
+        "assessment": "No confirmed exact-value or minimizer-count theorem for this class; potential broader-coverage residual risk explicitly retained.",
+        "evidence": [
+          "DOI:10.2298/AADM1801143H; regular-graph bounds from 2018, not an exact parameter classification for complement-of-rook-graph families in the material examined."
+        ],
+        "identifier_or_url": "https://doi.org/10.2298/AADM1801143H",
+        "material_read": "Article bibliographic abstract and available statements of generic regular-graph bounds; not the full proof document.",
+        "method": "Inspect indexed abstract and check nature of bounds; full-text comparison remained incomplete.",
+        "title": "Perfect Roman domination in regular graphs",
+        "trigger": "The tensor product is a regular graph, so generic theorem could be broader"
+      },
+      {
+        "assessment": "Different total Roman property; abstract alone cannot certify absence of all relevant statements.",
+        "evidence": [
+          "arXiv:2005.13608 states total Roman domination adds a non-isolated positive-support condition rather than an exact-singleton two-neighbor condition."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2005.13608",
+        "material_read": "Original arXiv abstract, definitions and stated class of results, not full document.",
+        "method": "Compare abstracted total Roman constraints with the exact-one-neighbor condition.",
+        "title": "Dominating the direct product of two graphs through total Roman strategies",
+        "trigger": "Same product operation and a closely related Roman-variant function"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5788da0d-fd1c-4493-82bd-664b00d1dac4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The classification settles a natural graph invariant on every two-factor direct product of complete graphs, not merely individual orders. It gives all optimal functions and a sharp exceptional permutation configuration at \\(K_3\\times K_3\\). Compared with the established ordinary Roman number \\(6\\) when both factors have order at least four, the perfect number \\(m+n\\) yields an unbounded additive separation, a structurally motivated effect of the unique-defender constraint.",
+    "status": "PASS"
+  }
+}
