@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Partition all \\(0<p\\le t\\le1\\) into the five threshold strips. For the first strip, any successful outcome requires at least one success. In the next two strips, count winning singleton stakes and bound conditional success by binomial tail counts; subtracting the proposed optimum gives \\((3-s)p(1-p)^3\\), \\(p(1-p)^2(1-2p)\\), or \\(p(1-p)^2(2-3p)\\), all nonnegative in the stipulated ranges. For thresholds above 1/2, winning pairs form an intersecting graph on four vertices, hence a star or triangle; star/triangle bounds give \\(\\max\\{p,3p^2-2p^3\\}\\). Above 2/3, a winning triangle is impossible and any winning pair forces every successful set to contain one fixed endpoint; without winning pairs, the three-versus-four winning triple possibilities are bounded respectively by \\(3p^3(1-p)+p^4\\le p\\) and \\(4p^3-3p^4\\le p\\) with the latter requiring \\(p\\le3/4\\). One-, two-, three-, or four-equal-stake vectors attain each upper bound, proving the exact maximum including all boundary thresholds. An exact-rational finite-grid verifier agrees but is not used as a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The motivating paper proves the unrestricted conjecture for high thresholds with p<=1/2 (Corollary 5.2), exactly t=1/2 with p<=1/2 (Corollary 5.4), and low probabilities p<1/(2k+1) for t>1/(k+1) (Theorem 6.1).",
+        "The same paper proves in Corollary 5.3 that one-stake bold play is not optimal for 1/2<p<=t<=2/3; it does not provide the four-position maximum in that entire region.",
+        "The Fishburn-et-al. intersecting-family theorem, quoted and used in the motivating paper, handles high-threshold p-biased intersecting systems, not all low-threshold four-coordinate winning families."
+      ],
+      "reasoning": "Some individual parameter regimes of the new formula are pre-covered, and the result does not claim novelty for those alone. However, no checked theorem applies to every 0<p<=t<=1 with at most four unequal stakes, e.g. p=3/10,t=31/100 lies outside the low-probability sufficient region and t=1/3 special case. A theorem for unrestricted stakes covering that example would dominate this result, but the source explicitly leaves an unshaded gap.",
+      "searches": [
+        "arXiv:2002.06804 Fokkink Meester Pelekis Theorem 4.4 5.1 5.2 5.3 5.4 6.1",
+        "\"Optimizing stakes in simultaneous bets\" 2023 four stakes",
+        "\"Probabilities for Intersecting Systems and Random Subsets of Finite Sets\" weighted p optimal intersecting"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2002.06804v1",
+      "DOI:10.30757/ALEA.v20-07",
+      "https://alea.impa.br/articles/v20/20-07.pdf",
+      "DOI:10.1137/0607009 (theorem statement quoted within published primary source; no original full-text NOT_COVERING assertion)",
+      "https://mathdb.com/p/345537/csoka-s-averaging-conjecture-for-convex-combinations-of-bern",
+      "Scholarly record searches for Csóka, four stakes, weighted Bernoulli, threshold graph, and phase-diagram aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fokkink–Meester–Pelekis Theorem 6.1 assumes p<1/(2k+1) for t>1/(k+1), so at t=31/100 and k=3 the hypothesis p<1/7 fails for p=3/10; their Proposition 6.2 treats exactly t=1/3, not this t.",
+        "Earlier exact equal-stake binomial tail comparisons at t=1/3 concern prescribed equal stakes rather than arbitrary heterogeneous four-coordinate weights and do not imply the optimum at t=31/100.",
+        "The Fishburn theorem optimizes intersecting families; winning subsets need not form an intersecting family when t<=1/2."
+      ],
+      "reasoning": "Unlike estimates for specified equal-stake averages, the theorem universally quantifies over all w in the continuous four-dimensional simplex. Its low-threshold statements do not follow from high-threshold intersecting-family coverage, while the four-vertex graph argument supplies additional exact optimization across the full domain.",
+      "searches": [
+        "arXiv:2002.06804 Conjecture 1.1 Theorem 6.1 Proposition 6.2",
+        "three equal stakes Bernoulli versus four unequal stakes upper tail p 0.3 t 0.31",
+        "Csoka weighted Bernoulli four stakes phase diagram threshold 1/3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct 2023 paper states Conjecture 1.1 using \\(\\pi(p,t)=\\sup_{\\gamma}\\Pr(S_\\gamma\\ge t)\\) and equal-stake Bernoulli averages; the four-position restriction here fixes four coefficients but permits zeros.",
+        "Exact phrase and parameter searches did not find a stated complete four-position formula or the five threshold pieces."
+      ],
+      "reasoning": "The claim was checked both as restricted-stake Csóka averaging, weighted four-coin upper-tail optimization, and an explicit 1/4–1/3–1/2–2/3 phase diagram. These are equivalent presentations of the finite-dimensional result, while a general solution of the unrestricted conjecture would strictly cover it.",
+      "searches": [
+        "Csoka conjecture finite number three four bets equal stakes convex combination Bernoulli probability threshold",
+        "optimizing stakes simultaneous bets four stakes complete exact solution",
+        "Csóka optimizing stakes four Bernoulli n=4 exact phase 1/4 1/3 1/2 2/3",
+        "four weighted iid Bernoulli sum threshold equal stake optimal Csoka",
+        "\"four stakes\" \"Csóka\" conjecture Bernoulli",
+        "\"four weights\" \"Csóka\" \"Bernoulli\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The MathDB problem entry restates the unrestricted averaging conjecture and lists no posted resolution; this is only a bibliographic index, not affirmative proof of originality.",
+        "No indexed exact four-stake transition formula was located by these searches."
+      ],
+      "reasoning": "The claimed result is an exact finite-dimensional phase diagram rather than a numerical data table. Searching under the explicit conjecture and the weighted-four-coin formulation found no existing table asserting its full value.",
+      "searches": [
+        "Csóka averaging conjecture convex combinations of Bernoulli variables MathDB",
+        "\"four bets\" \"optimizing stakes\" \"Bernoulli\"",
+        "\"four stakes\" \"Csóka\" conjecture Bernoulli"
+      ]
+    },
+    "rationale": "The closest primary full text states Csóka’s conjecture in unrestricted dimension and solves only portions of the (p,t) region; no theorem in its inspected statements determines all unequal four-stake strategies throughout the parameter triangle. Its general high-threshold results subsume some pieces, a limitation disclosed explicitly. The low-threshold unshaded gap remains; source- and formula-specific online scholarly-index searches and prior-claim implication comparisons revealed no theorem dominating the exact four-stake classification. Residual risk is an equivalent small-dimension weighted-threshold classification in older combinatorics or gambling literature.",
+    "residual_risks": [
+      "A small-n weighted Boolean threshold-family theorem or elementary gambling optimization published under unrelated terminology may already imply the four-stake formula.",
+      "Only the original paper’s discussion of the 1986 Fishburn intersecting-family theorem was inspected in full text; an independent original-paper full-text comparison was not obtained, though that theorem concerns the high-threshold portion.",
+      "No result is claimed for five or more positive stakes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_PARAMETER_COVERAGE_NOT_COMPLETE_FOUR_STAKE_PHASE_DIAGRAM",
+        "evidence": "The paper covers unrestricted numbers of stakes on selected (p,t) regions and displays an explicit unshaded region. It does not contain a full four-stake optimizing formula, nor a four-weight proof for t=31/100,p=3/10.",
+        "identifier_or_url": "arXiv:2002.06804v1; DOI:10.30757/ALEA.v20-07; https://alea.impa.br/articles/v20/20-07.pdf",
+        "material_read": "Full accessible published 13-page PDF: definition and Conjecture 1.1, parameter diagram, Sections 4–6 and proofs, Theorem 4.4, Propositions 4.5–4.6, Theorem 5.1 and Corollaries 5.2–5.4, Theorem 6.1 and Proposition 6.2, references; key diagrams checked as PDF page images.",
+        "method": "Lawful openly accessible full publisher PDF text and visual page inspection.",
+        "title": "Optimizing stakes in simultaneous bets",
+        "trigger": "Direct primary paper defining and partly solving the general equal-stake optimization conjecture."
+      },
+      {
+        "assessment": "FIRST_PUBLIC_DATE_VERIFIED_SAME_PAPER",
+        "evidence": "Record lists submission Monday 17 February 2020; the open publisher PDF lists probability MSC 60G50 first (followed by 05D05).",
+        "identifier_or_url": "https://arxiv.org/abs/2002.06804",
+        "material_read": "ArXiv landing record, abstract, first-submission timestamp 17 February 2020.",
+        "method": "Primary preprint metadata inspection; the publisher open full text of the same paper was inspected separately.",
+        "title": "Optimizing stakes in simultaneous bets (initial preprint record)",
+        "trigger": "Verify earliest public date of the motivating scientific direction without substituting journal acceptance date."
+      },
+      {
+        "assessment": "INDEX_CONFIRMS_GENERAL_PROBLEM_NOT_EXACT_FOUR_STAKE_COVERAGE",
+        "evidence": "The entry describes the general equal-stake conjecture and records no posted solution, which is not regarded as novelty certification.",
+        "identifier_or_url": "https://mathdb.com/p/345537/csoka-s-averaging-conjecture-for-convex-combinations-of-bern",
+        "material_read": "Public index problem statement, provenance link to arXiv:2002.06804, and published progress summary; not a primary proof.",
+        "method": "Bibliographic index page inspection.",
+        "title": "Csóka’s averaging conjecture for convex combinations of Bernoulli variables",
+        "trigger": "Check recognized alternate names and indexed statement of the global conjecture."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9051b3e3-ae8c-44f1-83ee-d315b0df95e9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the first nontrivial full finite-dimensional phase diagram of a published open Bernoulli stake-optimization question with four potentially unequal positions. It gives sharp probabilities for every threshold and bias with p<=t, exhibits the three-bet majority transition at p=1/2, and separates all low-threshold and high-threshold support geometries by a small winning-pair graph. The classification covers parameter values in the published unsolved gap for general stake counts, yet modestly restricts to four stakes without asserting the infinite-dimensional conjecture.",
+    "status": "PASS"
+  }
+}
