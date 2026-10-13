@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Source Algorithm 1 and Gaussian construction (7) give the exact scalar recurrence with chi-square-r Hessian denominator. Normalizing the initial sketched numerator yields an independent standard Gaussian Z, while each strictly oversized Gaussian gradient sketch contributes a positive chi-square c_j. The Z coefficient follows a degree-t polynomial whose leading coefficient is the nonzero product (-1)^t times all q_j c_j, and the extra-response remainder has degree at most t. Independent conditioning and a positive-probability bounded coefficient event prove both moment directions without cancellation, using exact chi-square inverse-moment integrability r>p(2t+1). The one-update formula is calculated from exact chi-square inverse moments. An independent standalone Python program replays the source recurrence and leading coefficients from real package paths.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lacotte and Pilanci analyze fixed-Hessian preconditioning and exact refreshed independent-sketch IHS moment rates, not this nested-Gaussian double sketch with correlated source initialization.",
+        "The original IHS analysis provides subspace-embedding events rather than this unconditional moment frontier."
+      ],
+      "reasoning": "A high-probability embedding guarantee does not bound all unconditional moments because its complement contains arbitrarily small Gaussian singular values. A refreshed independent-sketch formula cannot directly dominate the strongly correlated numerator/inverse recursion studied here.",
+      "searches": [
+        "arXiv:1911.02675v1 fixed vs refreshed sketches, inverse-moment expected rates",
+        "arXiv:1411.0347v1, IHS high-probability embedding guarantee",
+        "arXiv:2002.00864v1, randomized Hadamard sketch moments",
+        "sketched least squares Gaussian source initialization chi squared denominator inverse powers risk infinite iteration depth",
+        "fixed randomized preconditioner rare small eigenvalues instability infinite mean square risk after finite iterations"
+      ]
+    },
+    "checked_sources": [
+      "PMLR:v162/wang22t",
+      "arXiv:1911.02675v1",
+      "arXiv:1411.0347v1",
+      "arXiv:2002.00864v1",
+      "https://proceedings.mlr.press/v162/wang22t/wang22t.pdf",
+      "https://proceedings.mlr.press/v162/wang22t.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "IDS Theorem 3.1 takes a high-dimensional asymptotic regime and analyzes conditional rather than unconditional risk.",
+        "IDS Theorem 3.3 gives an in-probability rate for an efficient sketch construction, not a finite-r Gaussian moment statement.",
+        "The source initialization uses the same first r Gaussian rows as the fixed inverse, generating an additional inverse-square-root factor in every moment."
+      ],
+      "reasoning": "Neither published convergence guarantee excludes rare small-chi-square denominators. In the exact source Gaussian recurrence each additional gradient step raises the leading inverse-square degree by one, yielding the strict moment boundary. This new conclusion is not an immediate corollary of the referenced high-probability or refreshed-gradient results.",
+      "searches": [
+        "PMLR:v162/wang22t, equations (6) and (7), Theorems 3.1–3.3 and appendix",
+        "arXiv:1911.02675v1, fixed/refreshed IHS theorems",
+        "nested Gaussian sketch iterative Hessian fixed sketch moment explosion degrees of freedom r > 4t+2",
+        "randomized preconditioned least squares infinite second moment fixed Gaussian step size iteration horizon"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source equation (7) uses a single Gaussian matrix whose first r rows form the fixed inverse Hessian and whose first m_j rows form the gradient sketch.",
+        "The inspected defining paper computes asymptotic conditional prediction error with growing dimensions; no finite-dimensional unconditional all-moment threshold is stated."
+      ],
+      "reasoning": "An equivalent law would require the exact source-initialized residual coupling and the nonzero degree-t inverse-square polynomial. The source conditional limiting formulas do not imply unconditional integrability at fixed width.",
+      "searches": [
+        "PMLR:v162/wang22t, Algorithm 1, equation (7), Theorem 3.1, appendix",
+        "iterative double sketching gaussian fixed Hessian sketch finite-time infinite expected squared least-squares error moment integrability threshold",
+        "iterative double sketching exact finite r oversampling r/4 iteration moment divergence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A close indexed claim studies CG with Haar power-law eigenvalues, not Gaussian IDS.",
+        "A close indexed claim studies sparse stochastic subspace descent under Haar moments, not fixed Gaussian Hessian inverses.",
+        "A close indexed claim studies deterministic Gauss–Newton frame conditioning."
+      ],
+      "reasoning": "No checked indexed record or numerical table states the r>p(2t+1) law, but search absence is not proof of novelty; this evidence is combined with direct full-source implication comparisons.",
+      "searches": [
+        "iterative double sketching gaussian fixed Hessian sketch finite-time infinite expected squared least-squares error moment integrability threshold",
+        "sketched least squares Gaussian source initialization chi squared denominator inverse powers risk infinite iteration depth",
+        "nested Gaussian sketch iterative Hessian fixed sketch moment explosion degrees of freedom r > 4t+2",
+        "fixed randomized preconditioner rare small eigenvalues instability infinite mean square risk after finite iterations",
+        "Iterative Double Sketching for Faster Least-Squares Optimization Rui Wang Yanyan Ouyang Wangli Xu",
+        "iterative double sketching exact finite r oversampling r/4 iteration moment divergence",
+        "Gaussian nested sketch least squares source initialized initial estimator positive probability inverse chi-square high moments",
+        "randomized preconditioned least squares infinite second moment fixed Gaussian step size iteration horizon"
+      ]
+    },
+    "rationale": "The source IDS paper supplies the exact source initialization and nested Gaussian construction, and analyzes conditional asymptotic or high-probability behavior, but its inspected algorithm, theorem statements, and appendix do not give an unconditional finite-width, all-positive-moment integrability frontier for its source-initialized iterates. The closest fixed/refreshed IHS paper computes inverse sketch moments under different gradient and initialization laws. Independent direct proof accounts for the same-sketch correlations, and focused indexed searches found no implication-equivalent theorem.",
+    "residual_risks": [
+      "An unindexed appendix or technical note might state an equivalent chi-square moment recursion.",
+      "The theorem applies to one deliberately chosen one-column inconsistent least-squares input and does not yield a uniform converse over all data.",
+      "Source practical structured sketches, safeguards, and the full-gradient replacement at m=N are outside the Gaussian finite-prefix claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_RECURRENCE_AND_LIMITING_CONDITIONAL_THEORY; NO_IDENTICAL_FINITE_WIDTH_UNCONDITIONAL_MOMENT_CLOCK",
+        "evidence": "Algorithm 1 initializes with its own sketched least-squares solution, reuses the fixed inverse Hessian, and updates with sketched gradients; equation (7) nests prefixes of one Gaussian matrix; the limiting results condition on the sketch and scale dimensions.",
+        "identifier_or_url": "PMLR 162:22935–22963 (2022); https://proceedings.mlr.press/v162/wang22t/wang22t.pdf",
+        "material_read": "Full 29-page open conference manuscript, including Algorithm 1, equations (6) and (7), Theorems 3.1–3.3, their assumptions and proofs/appendix, and structured-sketch section.",
+        "method": "Public open-access PDF text and rendered mathematical page inspection.",
+        "title": "Iterative Double Sketching for Faster Least-Squares Optimization",
+        "trigger": "Exact defining source algorithm, nested Gaussian law, and nearest candidate for domination."
+      },
+      {
+        "assessment": "DIFFERENT_SKETCH_GRADIENT_AND_INITIALIZATION_MODEL_NOT_DOMINATING_NESTED_IDS",
+        "evidence": "Refreshed sketch analysis derives exact expected optimization error from inverse moments for independent Hessian draws, while fixed-sketch analysis uses conditional spectral embedding; neither includes source-initialized double sketching with nested residual sketches.",
+        "identifier_or_url": "arXiv:1911.02675v1; https://arxiv.org/abs/1911.02675",
+        "material_read": "Open primary-paper full mathematical development of fixed and refreshed IHS, inverse-moment formulas, and their initialization/gradient assumptions.",
+        "method": "Public arXiv PDF/full-text and theorem comparison.",
+        "title": "Faster Least Squares Optimization",
+        "trigger": "Closest inverse-Wishart expectation theory for fixed or refreshed Hessian sketches."
+      },
+      {
+        "assessment": "HIGH_PROBABILITY_EMBEDDING_RESULT_NOT_FINITE_GAUSSIAN_NESTED_MOMENT_CRITERION",
+        "evidence": "IHS approximates Hessians while using the full gradient and bounds solution approximation on good sketching events.",
+        "identifier_or_url": "arXiv:1411.0347v1; https://arxiv.org/abs/1411.0347",
+        "material_read": "Open primary-paper statement of IHS update, main high-probability convergence results and scope.",
+        "method": "Public author preprint inspection.",
+        "title": "Iterative Hessian Sketch: Fast and Accurate Solution Approximation for Constrained Least-Squares",
+        "trigger": "Origin of the iterative Hessian-sketch convergence guarantees."
+      },
+      {
+        "assessment": "NON_GAUSSIAN_OR_ASYMPTOTIC_SKETCH_THEORY_NOT_DOMINATING_EXACT_GAUSSIAN_IDS",
+        "evidence": "The paper emphasizes subsampled randomized Hadamard transformations and optimal iterative sketching, rather than the source Gaussian prefix-sketch initialization/reuse configuration.",
+        "identifier_or_url": "arXiv:2002.00864v1; https://arxiv.org/abs/2002.00864",
+        "material_read": "Source abstract and method/theorem scope for structured sketching and asymptotic inverse moments.",
+        "method": "Public primary-paper source record and theorem-context inspection.",
+        "title": "Optimal Iterative Sketching with the Subsampled Randomized Hadamard Transform",
+        "trigger": "Possible stronger moment analysis for random preconditioned solvers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d232d3f-b3a8-4339-ab92-4adaeec317d2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "IDS is specifically designed to trade gradient-sketch cost against accuracy while reusing a fixed Hessian sketch; unconditional robustness of its iterates is therefore a natural algorithm-design quantity. The exact all-p, all-finite-t threshold reveals a four-Hessian-row cost per optimization step for finite mean-square risk, even on a perfectly conditioned strong-convexity input. It explains a sharp discrepancy between existence of the sketched inverse, high-probability estimates, and unconditional moments, and identifies why increasing finite gradient sketch sizes cannot eliminate this heavy-tail phenomenon. The claim is a structural integrability boundary, not an arbitrary finite parameter slice.",
+    "status": "PASS"
+  }
+}
