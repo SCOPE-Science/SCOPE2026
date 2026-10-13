@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For q=2^f, the twisted dual-number ring with Frobenius twist has unit group K^+ semidirect K^×, with conjugation by a acting as multiplication by a^{-1}; inversion of the cyclic complement identifies this with AGL_1(K). For odd q>3, trivial center forces any finite realizing ring to have characteristic two. Its Jacobson subgroup 1+J is a normal 2-subgroup, while AGL_1(q) has none because any such subgroup centralizes the odd translation kernel and the latter is self-centralizing. Thus the ring is semisimple. Trivial center forces every nontrivial Artin--Wedderburn field factor to be F_2. Direct indecomposability leaves one GL_n(F_2), and simplicity for n>=3 reduces to GL_2(F_2)=S_3, forcing q=3. The packaged checker verifies the complete explicit positive construction for q=2,4,8,16.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 primary paper explicitly restricts its affine section to AGL_1(Z_n)=Hol(Z_n) and gives the finite-ring classification in that cyclic-additive setting.",
+        "The twisted-dual-number source proves R^*=K^* semidirect (1+K epsilon) and gives the multiplication law, but its purpose is finite geometry rather than unit-group realizability.",
+        "Davis--Occhipinti establish realizability of A_4, covering q=4 only."
+      ],
+      "reasoning": "The positive construction is built from known ring structure, but none of the inspected broader sources supplies the odd-field obstruction or the resulting if-and-only-if classification.",
+      "searches": [
+        "arXiv:2401.11583 Fuchs problem affine linear groups Section 3",
+        "DOI:10.1007/s10623-007-9043-z twisted dual numbers unit group semidirect",
+        "DOI:10.1142/S0219498813501144 A4 unit group"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.11583v1",
+      "DOI:10.1080/00927872.2024.2310166",
+      "DOI:10.1007/s10623-007-9043-z",
+      "DOI:10.1142/S0219498813501144"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lockridge--Terkel explicitly distinguish AGL_1(F_4) from Hol((F_4,+)) but then specialize Section 3 to Z_n.",
+        "The 2008 twisted-dual-number unit-group lemma yields the even-field realization after choosing the square Frobenius, but does not exclude odd fields.",
+        "The negative direction requires combining the center, Jacobson radical, minimal translation kernel, Artin--Wedderburn decomposition, direct indecomposability, and simplicity of GL_n(F_2)."
+      ],
+      "reasoning": "The accepted theorem is not merely the observation that one skew ring realizes even q. Its substantive classification step proves that no odd q>3 can occur, while q=3 survives through GL_2(F_2).",
+      "searches": [
+        "Lockridge Terkel AGL_1(F_4) Hol(F_4) Fuchs problem",
+        "twisted dual numbers units semidirect K star U",
+        "finite semisimple ring unit group trivial center GL_n(F_2)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No semantic-database result stated an AGL_1(F_q) finite-ring realizability classification.",
+        "Exact web searches returned the 2024 cyclic-additive-group paper and unrelated AGL applications, not the all-finite-field dichotomy.",
+        "Searches for the twisted-dual-number construction located the older geometry paper, whose unit-group lemma is compatible with the positive half but does not state the Fuchs classification."
+      ],
+      "reasoning": "The result has natural equivalent descriptions as realizability of the ratio-one affine Frobenius group, as a unit group of twisted dual numbers in characteristic two, and as a Fuchs-problem classification. Each formulation was searched separately.",
+      "searches": [
+        "AGL(1,q) realizable unit group finite ring q power of 2 or 3",
+        "affine general linear group degree one finite field Fuchs problem q=2^f",
+        "skew dual numbers AGL(1,q) unit group Frobenius finite field",
+        "unit group skew dual numbers finite field Frobenius automorphism affine group",
+        "web search: AGL(1,q) group of units ring",
+        "web search: affine general linear groups realizable ring finite field"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched table lists q for which AGL_1(F_q) is a finite-ring unit group.",
+        "No searched source identified the infinite even-field sequence together with q=3 as the complete list.",
+        "The primary paper's table concerns Hol(Z_n), not AGL_1(F_q) for nonprime finite fields."
+      ],
+      "reasoning": "A table of realizable affine field groups would subsume the theorem even without a proof, so exact small-q and all-q searches were included.",
+      "searches": [
+        "web search: AGL_1(F_q) ring units",
+        "web search: AGL(1,8) unit group ring",
+        "web search: AGL(1,16) unit group ring",
+        "semantic query: affine general linear group degree one finite field Fuchs problem"
+      ]
+    },
+    "rationale": "Lockridge--Terkel's 2024 paper studies degree-one affine groups only over Z/nZ, where the additive group is cyclic; its full text merely notes AGL_1(F_4)=A_4 as an example showing the finite-field situation differs from the holomorph case. The older twisted-dual-number paper gives the semidirect-product unit group that supplies the even-field construction but does not formulate a Fuchs realizability classification. Davis--Occhipinti cover A_4 as an isolated alternating-group case. Targeted semantic and web searches found no classification of AGL_1(F_q) as finite-ring unit groups for arbitrary q.",
+    "residual_risks": [
+      "The positive even-field construction is implicit in the known unit group of twisted dual numbers.",
+      "An equivalent complete classification may exist in older unit-group literature under the description of sharply 2-transitive or Frobenius groups rather than AGL_1(F_q).",
+      "The proof uses standard finite-ring and finite-simple-group structure, so novelty lies in the complete classification and its uniform construction rather than in the individual ingredients.",
+      "Failed searches do not prove novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CYCLIC_ADDITIVE_AFFINE_CLASSIFICATION_NOT_FINITE_FIELD_CLASSIFICATION",
+        "evidence": "The affine section explicitly sets R=Z_n. The finite-field example F_4 appears only to show that AGL_1(F_4) is smaller than the full holomorph of its additive group.",
+        "identifier_or_url": "arXiv:2401.11583v1 / DOI:10.1080/00927872.2024.2310166",
+        "material_read": "Public full text: introduction defining AGL_n(R) and noting AGL_1(F_4)=A_4; Section 3 opening restricting to AGL_1(Z_n)=Hol(Z_n); Proposition 3.1 and the finite-ring realizability arguments.",
+        "method": "Full-text scope, hypothesis, and implication comparison.",
+        "title": "Fuchs' problem for linear groups",
+        "trigger": "Primary middle-cohort source studying realizability of special and affine linear groups."
+      },
+      {
+        "assessment": "SUPPLIES_POSITIVE_RING_CONSTRUCTION_NOT_FUCHS_CLASSIFICATION",
+        "evidence": "The source determines the unit-group semidirect structure for geometric purposes. Specializing sigma to square Frobenius over F_{2^f} yields the positive half of the accepted theorem, but no realizability dichotomy is stated.",
+        "identifier_or_url": "DOI:10.1007/s10623-007-9043-z",
+        "material_read": "Public full text, Section 2: definition and multiplication of K(epsilon;sigma), inverse formula, and Lemma 2.1 stating that the unit group is the semidirect product of K^* and 1+K epsilon.",
+        "method": "Full-text algebraic statement and implication comparison.",
+        "title": "Divisible designs from twisted dual numbers",
+        "trigger": "Closest source for the explicit local rings used in the positive construction."
+      },
+      {
+        "assessment": "COVERS_Q_EQUALS_4_ONLY",
+        "evidence": "The source proves A_4 realizable as part of the alternating-group classification, but does not treat AGL_1(F_q) as a finite-field family.",
+        "identifier_or_url": "DOI:10.1142/S0219498813501144",
+        "material_read": "Public abstract and full-text section establishing rings with unit group A_4.",
+        "method": "Special-case implication comparison.",
+        "title": "Which alternating and symmetric groups are unit groups?",
+        "trigger": "Known realizability source for the special case AGL_1(F_4)=A_4."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f9159576-06ff-44de-873c-957d2d2e9543",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary 2024 paper makes affine linear groups a central test family for Fuchs' problem but classifies degree one only when the additive group is cyclic. Finite fields are the most natural omitted coefficient rings, and the answer exhibits a sharp structural dichotomy: every even field works through one uniform local construction, whereas all odd fields except F_3 are obstructed. This simultaneously explains the known A_4 example, produces infinite new realizable affine groups such as AGL_1(F_8), and closes the degree-one finite-field case.",
+    "status": "PASS"
+  }
+}
