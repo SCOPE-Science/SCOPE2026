@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The rooted-plane-tree DFS encoding gives P=L and D=2(H-n) pointwise. Slot counting establishes all conditional means and E[L H] including the leaf-depth auxiliary W. Induction proves E[L]=(2n+1)/3 and E[W]=(2/3)E[H]+(n+2)/9; subtraction yields c_1=0, c_{n+1}=(2n+2)/(2n+1)c_n-2/9. The rational closed solution and sign follow by substitution and induction; the limit follows from the central-binomial estimate. An exact independent tree decoder checks 146599 words; 1069 conditional insertion cases are exhaustively checked for sizes through five. No finite check substitutes for the induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:0805.4084, pages 4–8, 12–19: bijections and joint local ascent/plateau law plus block-count urns, not the global nesting-span/plateau mixed moment.",
+        "Lundblad–Wagner 2026, pages 1–7 and 12–14: Theorem 6 relates averages of root-to-leaf vs root-to-vertex depth; equation (13) gives a general mixed generating-function PDE for leaf counts and path lengths, not the explicit finite covariance or strict sign."
+      ],
+      "reasoning": "The 2026 generating-function PDE is a broad implicit encoding of joint leaf-count and total-depth statistics and could be differentiated to recover the new covariance. Its stated Theorem 6 and Corollary 7 are normalized average-depth asymptotics, which do not determine the finite covariance or prove its strict sign. The new computation solves a nontrivial mixed moment, but implicit priority risk remains.",
+      "searches": [
+        "published-finding corpus: random plane-oriented recursive trees exact covariance leaves internal path length total depth negative 4^n binomial central coefficient",
+        "DOI:10.4230/LIPIcs.AofA.2026.2, eq. (13), Theorem 6",
+        "arXiv:0805.4084, joint statistics"
+      ]
+    },
+    "checked_sources": [
+      "1. https://arxiv.org/pdf/0803.1129",
+      "2. https://arxiv.org/pdf/0805.4084",
+      "3. https://www.dmg.tuwien.ac.at/kuba/preprintStirblock.pdf",
+      "4. https://drops.dagstuhl.de/storage/00lipics/lipics-vol381-aofa2026/LIPIcs.AofA.2026.2/LIPIcs.AofA.2026.2.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:0803.1129v1, pages 1–5: insertion bijection, plateau/leaf equation (1.2), Example 1.5 individual-label spacing, Theorem 2.5 covariances among ascents/descents/plateaux only.",
+        "Kuba–Panholzer author preprint (2010), pages 2–3, 19, 22–25: individual-label spacing and block-size statistics; theorem on mixed moments of counts of selected block sizes, no mixing with total path length.",
+        "Lundblad–Wagner 2026, pages 1–7 and 12–14: Theorem 6 relates averages of root-to-leaf vs root-to-vertex depth; equation (13) gives a general mixed generating-function PDE for leaf counts and path lengths, not the explicit finite covariance or strict sign."
+      ],
+      "reasoning": "Marginal leaf count/individual interval-width distributions do not determine their mixed covariance. Janson’s exact covariance of ascent, descent and plateau counts involves distinct purely local statistics. The 2026 normalized comparison is not an exact all-order mixed covariance or strict sign, though its joint PDE determines coefficient data in principle. This result makes the finite evaluation and its strict sign explicit; no claim of conceptual independence from the general PDE is made.",
+      "searches": [
+        "arXiv:0803.1129v1, Sections 1–2",
+        "Kuba–Panholzer 2010 preprint, Sections 5–6",
+        "Lundblad–Wagner 2026, Theorem 6 and eq. (13)",
+        "published-finding corpus: random plane-oriented recursive trees exact covariance leaves internal path length total depth negative 4^n binomial central coefficient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:0803.1129v1, pages 1–5: insertion bijection, plateau/leaf equation (1.2), Example 1.5 individual-label spacing, Theorem 2.5 covariances among ascents/descents/plateaux only.",
+        "In the DFS contour, total interval nesting equals twice total nonroot depth after subtracting twice the vertex count. The local plateau count equals tree leaves."
+      ],
+      "reasoning": "The tree reformulation is exact and must be compared, not declared separate novelty. The inspected Janson theorem concerns leaf marginals, and its spacing example is for a fixed label; neither states or solves the sum-over-labels covariance.",
+      "searches": [
+        "published-finding corpus: uniform Stirling permutation covariance number of plateaux with total nesting span sum distances between double occurrences; plane-oriented recursive tree leaf count covariance with total internal path length",
+        "published-finding corpus: Stirling permutations sum of nesting intervals plateau count bivariate generating function correlation leaf depth",
+        "arXiv:0803.1129v1 (tree bijection, Example 1.5)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kuba–Panholzer author preprint (2010), pages 2–3, 19, 22–25: individual-label spacing and block-size statistics; theorem on mixed moments of counts of selected block sizes, no mixing with total path length.",
+        "Theorem 11 is about joint counts of blocks of *fixed sizes*; these block sizes are not all doubled-label nesting widths, and summing them does not supply the joint leaf/count moments in this result."
+      ],
+      "reasoning": "No inspected explicit finite table or exact covariance formula covers the new expression. A failed keyword/database search is not a mathematical proof of historical novelty. The direct broad parameter generating-function framework is separately addressed as an implicit-coverage risk.",
+      "searches": [
+        "published-finding corpus: uniform Stirling permutation covariance number of plateaux with total nesting span sum distances between double occurrences; plane-oriented recursive tree leaf count covariance with total internal path length",
+        "published-finding corpus: Stirling permutations sum of nesting intervals plateau count bivariate generating function correlation leaf depth",
+        "Web: Stirling permutations total nesting span plateau exact covariance",
+        "Kuba–Panholzer (2010), Theorem 11 block-size mixed moments"
+      ]
+    },
+    "rationale": "The new exact mixed covariance of local plateau count and global summed nesting span has a recurrence and strict all-order sign not stated in inspected prior papers. Janson gives the contour correspondence and plateau marginals, Kuba–Panholzer gives individual label-spacing laws, and Lundblad–Wagner gives a broad PDE encoding leaf-count/path-length moments but proves different normalized path-length comparisons. That PDE implicitly contains mixed moments and is the principal residual priority risk; its presence is fully acknowledged, not treated as a failed search.",
+    "residual_risks": [
+      "The 2026 multivariate generating-function equation encodes joint leaf/path-length moments and could yield this mixed covariance after unreported differentiation and coefficient extraction; exact historical priority requires specialist comparison of possible hidden derivations.",
+      "General statistics of increasing trees in older monographs and unpublished earlier preprints may have an equivalent explicit formula under different variables.",
+      "The claim is an exact finite mixed moment and sign theorem, not a general result for all preferential-attachment parameters."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers tree correspondence, leaf mean/variance, single-label span, and local covariances, not total nesting-span/plateau covariance",
+        "evidence": [
+          "arXiv:0803.1129v1, pages 1–5: insertion bijection, plateau/leaf equation (1.2), Example 1.5 individual-label spacing, Theorem 2.5 covariances among ascents/descents/plateaux only."
+        ],
+        "identifier_or_url": "arXiv:0803.1129v1",
+        "material_read": "full PDF: introduction pp.1–5, results/remarks pp.5–8",
+        "method": "primary full text read with page-image inspection",
+        "title": "Plane recursive trees, Stirling permutations and an urn model",
+        "trigger": "exact object bijection and pre-existing plateau statistics"
+      },
+      {
+        "assessment": "Joint local statistics do not specialize to a sum of repeated-label spacings with plateaux",
+        "evidence": [
+          "arXiv:0805.4084, pages 4–8, 12–19: bijections and joint local ascent/plateau law plus block-count urns, not the global nesting-span/plateau mixed moment."
+        ],
+        "identifier_or_url": "arXiv:0805.4084",
+        "material_read": "PDF full text, sections on bijections and joint ascent/plateau statistics, plus blocks and conclusions",
+        "method": "full-text topical section reading and page-image inspection",
+        "title": "Generalized Stirling permutations, families of increasing trees and urn models",
+        "trigger": "nearby mixed statistics and generalized tree equivalences"
+      },
+      {
+        "assessment": "Studies individual-label distances and joint block-size counts, not the proposed global pair covariance",
+        "evidence": [
+          "Kuba–Panholzer author preprint (2010), pages 2–3, 19, 22–25: individual-label spacing and block-size statistics; theorem on mixed moments of counts of selected block sizes, no mixing with total path length."
+        ],
+        "identifier_or_url": "https://www.dmg.tuwien.ac.at/kuba/preprintStirblock.pdf",
+        "material_read": "28-page OA author preprint, pp.1–5 and sections 5 and 6 pp.18–25; scanned other sections for covariance and joint results",
+        "method": "primary full text search, contiguous material and page images",
+        "title": "Analysis of Statistics for Generalized Stirling Permutations",
+        "trigger": "direct published distance-between-occurrences framework"
+      },
+      {
+        "assessment": "Provides a full multivariate mixed generating-function PDE and normalized depth-difference asymptotics. It does not state the exact covariance or strict sign; implicit mathematical derivability is a serious residual risk.",
+        "evidence": [
+          "Lundblad–Wagner 2026, pages 1–7 and 12–14: Theorem 6 relates averages of root-to-leaf vs root-to-vertex depth; equation (13) gives a general mixed generating-function PDE for leaf counts and path lengths, not the explicit finite covariance or strict sign."
+        ],
+        "identifier_or_url": "DOI:10.4230/LIPIcs.AofA.2026.2",
+        "material_read": "full 20-page open-access PDF, especially pp.1–7, 12–15, and appendix on leaf concentration",
+        "method": "full text read, explicit equation/theorem comparison, and page-image inspection",
+        "title": "Path Length and External Path Length in Random Trees",
+        "trigger": "close modern generality: leaf count, leaf-depth sum, total path length"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "47f97925-284b-4d90-b63b-4cb471ee17c1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Leaf/plateau abundance is a natural local terminal statistic; the total nesting span is the natural sum of all internal interval widths, equivalently the total path length of the associated increasing tree. Their exact mixed covariance links two separately studied observables, yields strict negative dependence for every nontrivial order, and has the precise linear-scale coefficient -8/9. Neither marginal distribution alone supplies the result; it is not an arbitrary small finite table.",
+    "status": "PASS"
+  }
+}
