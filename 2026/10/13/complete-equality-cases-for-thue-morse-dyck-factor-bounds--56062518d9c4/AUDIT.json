@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The published recurrences are exact for every recurrence parameter at least 3. The finite range below 29 is computed from the published rank-7 representation. For the upper bound, every sufficiently large odd recurrence branch is strict, while the even recurrence preserves equality exactly; the base therefore leaves only the 3*2^j family plus isolated 1 and 2. For the global lower bound, odd indices cannot equal n/2 and doubling preserves equality exactly, leaving precisely powers of two from 4 onward. For the stronger odd lower bound, the 4m+3 branch would require a global lower extremizer m with q(m)=1, but the q-DFA gives q(2^a)=2; the 8m+1 branch is uniformly stronger, and the 8m+5 branch would require consecutive powers of two. The verifier reproduces all premises and regression checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper proves the inequalities and supplies infinite attaining families.",
+        "The paper's induction already shows strictness for several odd residue classes but stops after proving the bounds and does not extract the global converse classification."
+      ],
+      "reasoning": "The closest broader result is exactly the source theorem. Its statements of tightness are existential. The new result requires tracing equality through all recurrence branches and the finite base.",
+      "searches": [
+        "Dyck Words Pattern Avoidance Automatic Sequences Theorem 5.2 5.3 equality",
+        "Thue-Morse Dyck factors tight upper lower bounds equality only",
+        "A345199 extremal values Thue-Morse Dyck"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2301.06145v1 first-public record dated 2023-01-15",
+      "open journal PDF DOI 10.46298/cm.12695, Sections 4-5 and Figure 2",
+      "OEIS A345199 current entry",
+      "focused semantic searches for d(n)=n, d(n)=n/2, extremizers, equality-only formulations, and A345199",
+      "current and prior own research ledgers checked for Thue-Morse Dyck-factor and A345199 overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source says the upper bound is tight because equality holds on n=3*2^i, and the lower bound is attained infinitely often on n=2^i.",
+        "It separately proves d(n)>=(n+3)/2 for odd n, but gives no equality classification for that stronger bound.",
+        "No inspected source states that these are the only equality indices."
+      ],
+      "reasoning": "The source premises imply the new classification only after an additional equality-case induction. A family witnessing sharpness does not imply uniqueness of extremizers.",
+      "searches": [
+        "arXiv:2301.06145 Theorem 5.2 Theorem 5.3 Lemma 5.1",
+        "DOI:10.46298/cm.12695 d(n) upper lower bound",
+        "OEIS:A345199 recurrences"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct paper states attainment families for the upper and global lower bounds, but not converse classifications.",
+        "OEIS A345199 records values and recurrences but no if-and-only-if equality sets.",
+        "Focused searches for equality/extremizer formulations returned the direct paper, OEIS, or unrelated Dyck material rather than a covering theorem."
+      ],
+      "reasoning": "The searches cover the exact sequence notation, both equality equations, the natural word 'extremizers', and the OEIS identifier. The new statement is not a renaming of tightness: it proves that no additional indices attain any of the three bounds.",
+      "searches": [
+        "Thue-Morse Dyck factors d(n)=n equality cases d(n)=n/2",
+        "Dyck factors Thue-Morse exact extremizers d(n) upper lower bound",
+        "A345199 d(n)=n 3*2^i d(n)=n/2 powers of two",
+        "\"d(n) = n\" \"Dyck factors\" Thue-Morse",
+        "\"d(n)=n/2\" \"Dyck\" Thue-Morse"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked OEIS entry lists the initial sequence and a family of 2-regular recurrences.",
+        "The entry cites the Mol-Rampersad-Shallit paper but does not state the three equality classifications."
+      ],
+      "reasoning": "The database supplies an exact sequence and recurrence cross-check, so matching finitely many values cannot establish originality. The novelty is the all-index converse theorem.",
+      "searches": [
+        "OEIS A345199",
+        "A345199 Thue-Morse Dyck d(n)",
+        "A345199 equality n powers two"
+      ]
+    },
+    "rationale": "The direct paper proves tight bounds and exhibits attaining families but does not state their uniqueness. OEIS A345199 gives the sequence and recurrences without an if-and-only-if extremizer theorem. Focused literature and database searches found no covering equality classification.",
+    "residual_risks": [
+      "A short equality-case observation may exist in an unindexed note or informal discussion.",
+      "The result is a sharp structural corollary of the published recurrences rather than a new recurrence or closed form.",
+      "The current OEIS entry can change over time; the inspected record did not contain the classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source proves d(n)<=n and d(n)>=n/2, exhibits n=3*2^i and n=2^i as infinite attaining families, and proves the stronger odd lower bound. It does not state that these are the only equality cases.",
+        "identifier_or_url": "arXiv:2301.06145v1 / DOI:10.46298/cm.12695",
+        "material_read": "Full open PDF, especially the definition and linear representation in Section 4, Figure 2 for q(n), Lemma 5.1, Theorem 5.2, and Theorem 5.3.",
+        "method": "Primary full-text inspection, including page-image inspection of the recurrence DFA and the theorem pages.",
+        "title": "Dyck Words, Pattern Avoidance, and Automatic Sequences",
+        "trigger": "Direct primary source defining d(n), its rank-7 representation, Lemma 5.1 recurrences, and the sharp bounds."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The entry records the sequence and recurrences and cites the primary paper, but does not give the complete equality sets.",
+        "identifier_or_url": "OEIS:A345199",
+        "material_read": "Definition, initial terms, comments, and listed 2-regular recurrences.",
+        "method": "Database record inspection.",
+        "title": "OEIS A345199",
+        "trigger": "Exact database entry for the same sequence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "56062518-d9c4-4665-9024-6f998523dfd3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source presents the upper and lower estimates as tight but gives only example families attaining them. Determining all extremizers is the natural completion of a sharp-bound theorem. The classification is infinite, exact, and structurally explains why the upper extremizers live on the 3-dyadic ray, the global lower extremizers on the 1-dyadic ray from 4 onward, and the stronger odd bound has only two sporadic equality cases.",
+    "status": "PASS"
+  }
+}
