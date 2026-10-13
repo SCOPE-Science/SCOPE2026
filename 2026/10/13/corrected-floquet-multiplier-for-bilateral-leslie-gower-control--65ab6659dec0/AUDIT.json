@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the hybrid Poincaré derivative from the stated vector field and reset maps. For \\(R(x,y)=(cx,y+d)\\) across \\(x=h\\), the saltation determinant is exactly \\(P^+/P^-\\); Liouville's formula supplies the continuous factor. The source's own reset identity forces \\(y_{A_4}=y_{D_4}-\\tau_1\\). An independent finite-difference return-map calculation at Example 4.3 matches the saltation/divergence multiplier to better than \\(10^{-7}\\). The generic theorem does not depend on that finite computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI 10.1155/2020/9453941 gives a general Floquet criterion for unilateral and bilateral state-feedback resource control.",
+        "DOI 10.3934/era.2024297 studies order-2 periodic solutions for a different Allee-effect fishery model."
+      ],
+      "reasoning": "The broader literature supplies the general stability machinery but has different vector fields, thresholds, and resets. It does not contain a published source-specific correction of the 2026 lower post-jump coordinate.",
+      "searches": [
+        "state-dependent impulsive predator prey bilateral control order-2 periodic solution Floquet successor function",
+        "hybrid periodic orbit saltation determinant vertical switching surface predator prey pulse control",
+        "\"Dynamics of Unilateral and Bilateral Control Systems with State Feedback for Renewable Resource Management\""
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026726",
+      "doi:10.1155/2020/9453941",
+      "doi:10.3934/era.2024297",
+      "doi:10.1007/s11071-021-07128-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source's abstract definition \\(\\Delta_2=P(A_4)/P(D_4)\\) is consistent with the corrected multiplier, but its subsequent explicit expansion of \\(P(A_4)\\) is not.",
+        "The 2020 and 2024 papers establish general or model-specific stability criteria for different systems and do not evaluate the 2026 post-jump point."
+      ],
+      "reasoning": "A general saltation theorem does not dominate the source-specific correction without applying the 2026 reset map and comparing it to the printed expansion. The final claim is precisely that comparison plus the corrected Example 4.3 value.",
+      "searches": [
+        "doi:10.3934/math.2026726 Theorem 3.5 order-2 stability",
+        "doi:10.1155/2020/9453941 order-2 periodic solution Floquet",
+        "doi:10.3934/era.2024297 bilateral intervention order-2 periodic solution stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.3934/math.2026726 defines the lower reset with predator decrement \\(\\tau_1\\) and later expands the lower post-jump prey velocity using \\(\\tau_2\\).",
+        "No matching correction was located in the semantic searches; returned Floquet findings concerned different dynamical systems."
+      ],
+      "reasoning": "Equivalent wording was searched using the exact source identifier, title, order of the cycle, Floquet terminology, and the mismatched post-jump symbols. The motivating source itself does not reconcile the two expressions.",
+      "searches": [
+        "10.3934/math.2026726 order-2 periodic solution Floquet multiplier bilateral impulsive Leslie-Gower correction",
+        "\"Dynamics of a modified Leslie-Gower model with dual Allee effects under unilateral and bilateral control\" stability multiplier",
+        "\"y D 4\" \"τ 2\" \"P+\" \"2026726\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No database-style entry or published numerical table located in the searches reports either corrected Example 4.3 multiplier.",
+        "The motivating paper presents trajectories and bifurcation diagrams but does not tabulate the corrected return derivative."
+      ],
+      "reasoning": "The claimed object is a model-specific analytic multiplier and its numerical reconstruction, not a standard tabulated invariant. Exact-value and source-identifier searches found no pre-existing table entry.",
+      "searches": [
+        "10.3934/math.2026726 Floquet multiplier Example 4.3",
+        "\"modified Leslie-Gower\" \"0.192333\"",
+        "\"modified Leslie-Gower\" \"0.403518\""
+      ]
+    },
+    "rationale": "The source-specific correction was compared against the full motivating theorem/proof, related bilateral state-feedback literature, and semantic research-index searches. General Floquet formulas are broader methods but do not state which post-jump coordinate the 2026 Leslie–Gower model must use, nor do they report the corrected Example 4.3 multiplier.",
+    "residual_risks": [
+      "An unindexed erratum, author note, or unpublished correction could exist.",
+      "The full text of the 2022 guanaco–sheep bilateral-control predecessor was not obtained during this review; its different model means it cannot directly settle the 2026 source-specific substitution, but it may contain a closely analogous derivation.",
+      "The numerical Example 4.3 multiplier is not interval certified, although two independent numerical evaluations agree closely."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the corrected claim: the source defines \\(A_4\\) with predator coordinate \\(y_{D_4}-\\tau_1\\) but prints \\(\\tau_2\\) in the explicit lower post-jump prey velocity.",
+        "evidence": "Theorem 3.5 states \\(\\Delta_2=P(A_4)/P(D_4)\\); the displayed expansion of \\(P^+(A_4)\\) uses terms with \\(y_{D_4}-\\tau_2\\), while the earlier cycle definition gives \\(y_{A_4}=y_{D_4}-\\tau_1\\).",
+        "identifier_or_url": "doi:10.3934/math.2026726",
+        "material_read": "Full-text sections defining the bilateral impulses and labeled cycle points, the complete Theorem 3.5 stability formula and proof, and the Example 4.3 parameter set and order-2 simulation.",
+        "method": "Statement-level comparison of the point definitions, saltation factors, explicit vector-field substitution, and numerical parameter values.",
+        "title": "Dynamics of a modified Leslie–Gower model with dual Allee effects under unilateral and bilateral control",
+        "trigger": "Motivating source containing the bilateral reset definitions, Theorem 3.5, and Example 4.3."
+      },
+      {
+        "assessment": "NOT_COVERING the final claim: it supplies general Floquet machinery for a different resource model but does not contain the 2026 Leslie–Gower post-jump coordinates or corrected multiplier.",
+        "evidence": "Its order-2 analysis is formulated for a different bilateral resource-control system and predates the 2026 model.",
+        "identifier_or_url": "doi:10.1155/2020/9453941",
+        "material_read": "Full-text abstract, definitions, general Floquet lemma, and order-2 bilateral-control stability discussion.",
+        "method": "Compared its generic multiplier framework and model structure with the 2026 Leslie–Gower reset problem.",
+        "title": "Dynamics of Unilateral and Bilateral Control Systems with State Feedback for Renewable Resource Management",
+        "trigger": "Closest full-text general bilateral state-feedback treatment located in the literature search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "65ab6659-dec0-45f2-8a57-531d35d08fb1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The correction changes the quantitative Floquet stability margin for the source's flagship bilateral-control cycle. At the published Example 4.3 parameters, the corrected return derivative is about \\(0.19233\\), whereas the printed lower post-jump substitution gives about \\(0.40352\\) after the same other factors. Because the multiplier controls orbital stability and parameter stability boundaries, this is a mathematically and ecologically motivated correction rather than a cosmetic index change.",
+    "status": "PASS"
+  }
+}
