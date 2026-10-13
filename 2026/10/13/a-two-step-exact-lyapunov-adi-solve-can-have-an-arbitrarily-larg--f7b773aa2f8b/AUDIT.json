@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The low-rank ADI residual factor after one real shift is the Cayley action (A+sigma I)(A-sigma I)^{-1}B. For the displayed Jordan family at sigma=1 this Cayley matrix is exactly [[0,-M/2],[0,0]], so its square vanishes while its norm is M/2. The rank-one residual norms therefore grow by M^2/4 and then become exactly zero. Direct solution of the Lyapunov equation and exact construction of the first two ADI columns prove P1<=P2=P in Loewner order. The scalar Cayley factor has modulus below one, proving dimension two is minimal. The packaged checker replays the identities exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Druskin-Knizhnerman-Simoncini provide broad convergence theory and ADI/RKSM relations under primary MSC 65F10, but the accessible publisher material does not resolve the stepwise residual claim.",
+        "Halikias gives necessary and sufficient strong-stability conditions and shows that Cayley transforms preserve the relevant no-overshoot notion; this covers the general possibility of Cayley overshoot but not the stated ADI residual/termination construction.",
+        "Baker-Embree-Sabino study nonnormality versus singular-value decay of the exact Lyapunov solution, a different observable from stepwise ADI residual norm."
+      ],
+      "reasoning": "The strongest nearby general theorem is the Cayley strong-stability equivalence. It explains why norm overshoot is possible but neither quantifies the unbounded rank-one Lyapunov residual spike at fixed spectrum nor yields the paired exact-termination and Loewner-progress statement without the additional construction.",
+      "searches": [
+        "Analysis of the rational Krylov subspace and ADI methods for solving the Lyapunov equation residual nonnormal",
+        "Strong stability and the Cayley transform overshoot",
+        "Fast Singular Value Decay Lyapunov Solutions Nonnormal Coefficients"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/100813257",
+      "arxiv:1309.3985",
+      "doi:10.1002/mma.2976",
+      "arxiv:1410.8741",
+      "2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0",
+      "2026/9/9/SCOPE008"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wolf-Panzer Theorem 3.4 supplies R=B_perp B_perp^T and their corollary supplies the residual-factor iteration; these are ingredients, not the stated counterexample or its sharp unboundedness.",
+        "Halikias proves that continuous dissipativity corresponds to norm-contractivity of the Cayley transform. That theorem can diagnose whether an individual Cayley step is nonexpansive, but it does not assert arbitrary residual amplification followed by nilpotent exact termination for Lyapunov ADI.",
+        "General rational ADI convergence theory concerns asymptotic or approximation behavior and does not by itself make residual norms monotone for nonnormal coefficients."
+      ],
+      "reasoning": "The final claim deliberately separates known structural ingredients from the new combined implication. The exact Jordan choice converts the residual-factor recurrence into a nilpotent but arbitrarily large-norm map; the approximate-Gramian calculation then establishes a metric mismatch not supplied by the cited general results.",
+      "searches": [
+        "Wolf Panzer ADI residual factor convergence criterion",
+        "Halikias Cayley transform strong stability norm overshoot",
+        "Druskin Knizhnerman Simoncini ADI rational convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-result searches returned general nonnormal transient-growth and spectral-filter records, but no Lyapunov-ADI result with arbitrary first-step residual growth followed by exact second-step termination.",
+        "The full Wolf-Panzer text gives the residual factorization and recurrence but full-text searches found no statements framed as monotonicity, residual increase, or a nonnormal Jordan counterexample.",
+        "Exact searches coupling Lyapunov ADI, residual growth, Jordan blocks, and Cayley factors did not return the displayed construction."
+      ],
+      "reasoning": "An implication-equivalent statement must concern the Lyapunov residual of the actual low-rank ADI iterates, not merely transient growth of a generic stable discrete system. It must also account for the nilpotent repeated-shift termination and the simultaneous positive-semidefinite progress of the approximate solution.",
+      "searches": [
+        "Lyapunov ADI residual norm spike nonnormal Jordan shift residual factor",
+        "low-rank ADI nonmonotone residual nonnormal Lyapunov",
+        "ADI Lyapunov residual can increase one step Jordan block",
+        "Lyapunov ADI residual factor nonnormal Cayley transform",
+        "low-rank ADI residual monotonicity nonnormal Lyapunov Jordan block",
+        "ADI Lyapunov residual nonmonotone",
+        "Cayley transform ADI Lyapunov residual factor"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact formula match for the factor M^2/4 or the two-step nilpotent construction was located.",
+        "The amplification law follows from an exact 2x2 Cayley multiplication rather than a numerical table or benchmark."
+      ],
+      "reasoning": "The result is an analytic family and exact phase behavior, not a recomputation of tabulated convergence data.",
+      "searches": [
+        "Lyapunov ADI Jordan block residual M squared over four",
+        "ADI residual nilpotent Cayley two steps exact Lyapunov",
+        "Lyapunov ADI arbitrary residual amplification exact termination"
+      ]
+    },
+    "rationale": "General ADI rational convergence, the low-rank residual-factor formula, nonnormal Lyapunov phenomena, and general Cayley-transform overshoot are prior work and are explicitly excluded from the novelty claim. The searched sources did not state the combined Lyapunov-ADI theorem: a fixed-spectrum two-dimensional family with arbitrary first residual amplification, exact termination on the immediately following identical shift, monotone Loewner improvement of the approximants, and dimension-two minimality.",
+    "residual_risks": [
+      "The full body of Druskin-Knizhnerman-Simoncini was not accessible through the inspected route, so a differently phrased special example there cannot be excluded.",
+      "General strong-stability theory already characterizes norm-contractivity of Cayley transforms; an older control or ADI source may have combined that fact with a nilpotent Jordan example.",
+      "The construction is intentionally minimal and exact; its practical finite-precision severity for large M is not quantified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_PARTIAL_COVERAGE: supplies the exact residual identities used here but does not state the displayed unbounded-spike/two-step-termination theorem.",
+        "evidence": "The paper states R=B_perp B_perp^T and gives an inexpensive residual-factor recurrence; it also says the residual norm is often used as a convergence criterion. Full-text searches found no matching monotonicity, residual-increase, or nonnormal-Jordan result.",
+        "identifier_or_url": "arxiv:1309.3985",
+        "material_read": "The complete 15-page preprint was available. The ADI basis construction, repeated-shift discussion, Section 3.4 residual definition, Theorem 3.4 residual factorization, residual-factor recurrence, and convergence-criterion discussion were inspected, with rendered-page verification of the residual section.",
+        "method": "Lawful open full-text PDF inspection with rendered pages and targeted full-text searches.",
+        "title": "The ADI iteration for Lyapunov equations implicitly performs H2 pseudo-optimal model order reduction",
+        "trigger": "Closest full primary source for the exact low-rank ADI residual and repeated-shift recurrence used in the proof."
+      },
+      {
+        "assessment": "BROADER_INGREDIENT_NOT_CLAIM: establishes generic Cayley no-overshoot/overshoot theory, so generic Cayley transient growth is treated as prior work. It does not formulate the Lyapunov-ADI residual family, exact next-step termination, or monotone Gramian approximation.",
+        "evidence": "The paper gives discrete strong stability iff the Cayley-side matrix has spectral norm at most one and continuous strong stability iff A+A^T is negative semidefinite.",
+        "identifier_or_url": "doi:10.1002/mma.2976",
+        "material_read": "The complete accepted manuscript was inspected, including the strong-stability definitions, spectral-norm no-overshoot criterion, continuous dissipativity criterion, and Cayley equivalence theorem; a rendered PDF page was also checked.",
+        "method": "Lawful repository full-text PDF inspection.",
+        "title": "Strong stability and the Cayley transform",
+        "trigger": "Potential stronger prior coverage because the ADI residual factor is a Cayley transform applied to a vector."
+      },
+      {
+        "assessment": "INCOMPLETE_COMPARISON_RISK_RETAINED: its broad ADI convergence scope is relevant, but inaccessible body text is not used as evidence of noncoverage.",
+        "evidence": "The publisher lists primary MSC 65F10, ADI and Lyapunov-equation keywords, and an online publication date of 2011-09-20.",
+        "identifier_or_url": "doi:10.1137/100813257",
+        "material_read": "Publisher abstract, online-publication history, keywords, MSC classification, and extensive reference list were accessible; the full body was not accessible through the inspected route.",
+        "method": "Publisher-record inspection.",
+        "title": "Analysis of the Rational Krylov Subspace and ADI Methods for Solving the Lyapunov Equation",
+        "trigger": "Broad primary ADI convergence analysis and earliest precisely dated public source used for the archive classification."
+      },
+      {
+        "assessment": "DIFFERENT_OBSERVABLE: studies singular-value decay and compressibility of the exact solution rather than ADI residual monotonicity.",
+        "evidence": "The abstract explicitly focuses on departure from normality and singular-value decay of Lyapunov solutions.",
+        "identifier_or_url": "arxiv:1410.8741",
+        "material_read": "ArXiv abstract and publisher abstract, keywords, history, and MSC metadata were inspected.",
+        "method": "Open abstract and publisher-record inspection.",
+        "title": "Fast Singular Value Decay for Lyapunov Solutions with Nonnormal Coefficients",
+        "trigger": "Directly relevant literature on nonnormality in Lyapunov equations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f7b773aa-2f8b-42fd-97df-cfac3bbaa74f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The low-rank ADI residual norm is explicitly used as a convergence criterion in the primary literature. The theorem shows that this standard diagnostic can become arbitrarily worse after an eigenvalue-matched shift even though the approximation improves in positive-semidefinite order and the method terminates exactly one step later. Fixed eigenvalues and dimension two isolate nonnormality as the mechanism, while the one-dimensional calculation proves minimality. This is a motivated structural warning about stopping diagnostics, not an arbitrary matrix example.",
+    "status": "PASS"
+  }
+}
