@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For every CPTP qubit channel, exact SDP duality maps four equal-prior outputs with Bloch coordinates x_j=t+TRv_j to a smallest enclosing ball of radius r; P_guess=(1+r)/4. Tight-frame second moments give r² ≥ tr(T^TT)/3 for all R. A proper eigenframe rotation equalizes all four radii, attaining equality, while a manifest rank-one four-outcome POVM meets the dual. The equality case forces the minimal center to equal t and via independent tetrahedral Walsh sign equations makes R^TT^TTR diagonal. Handles rank loss, zero T, repeated eigenvalues and all CPTP translations. Actual NumPy verifier reproduces geometric radii for eight channels and 288 orientation tests; no finite checks are used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General minimum-error qubit discrimination results of Bae/Hwang (2012) and Rouhbakhsh N/Ghoreishi (2023) solve fixed ensembles, a distinct input quantifier.",
+        "Clarke et al. (2001) address ideal tetrahedral states and measurements."
+      ],
+      "reasoning": "A theorem already evaluating arbitrary four-output sets is broader at fixed ensembles, but inferring the minimum over the one-parameter family of channel-transformed tetrahedra requires a separate tight-frame argument and orientation equality analysis. No broader channel/rotation theorem with an explicit implication was identified.",
+      "searches": [
+        "Exact tetrahedral SIC quantum state discrimination optimal input rotation for arbitrary qubit channel, trace norm Bloch matrix",
+        "Optimal four outcome qubit POVM for regular tetrahedron with anisotropic contraction using tight frame identity",
+        "tetrahedral qubit states optimal discrimination arbitrary noise affine channel orientation Frobenius norm tetrahedral"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1204.2313",
+      "doi:10.1007/s11128-023-04080-4",
+      "doi:10.1103/PhysRevA.64.012303",
+      "Additional published comparisons: a tetrahedral tangent-cone result for an orthostochastic variety and an equiangular real frame duality result; neither concerns qubit channel orientation discrimination."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bae/Hwang (2012): minimum-enclosing-ball optimization for a given family of qubit outputs.",
+        "Rouhbakhsh N/Ghoreishi (2023), Sec. 4.3: specified regular tetrahedral mixed-state example, fixed Bloch points.",
+        "Clarke et al. (2001): optimal ideal tetrahedral measurement, no nonunital affine channel variation."
+      ],
+      "reasoning": "Bae/Hwang immediately implies the dual geometric starting point, and their ideal tetrahedron example is the T=I special case. They do not logically provide a numerical value for min_R of the enclosing radius for arbitrary T or that all equality rotations diagonalize T^TT; this requires the tight-frame lower bound and a simultaneous 4-radius equalization proof. Fixed isotropic examples are subsumed special cases and are not claimed independently.",
+      "searches": [
+        "tetrahedral SIC four equi-probable qubit states under arbitrary affine Bloch quantum channels minimum error orientation Frobenius singular values",
+        "Optimal four outcome qubit POVM for regular tetrahedron with anisotropic contraction using tight frame identity",
+        "qubit tetrahedron ensemble noise singular value minimum guessing probability aligned principal axes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bae and Hwang arXiv:1204.2313 characterizes fixed-ensemble discrimination via minimum balls.",
+        "Rouhbakhsh N and Ghoreishi (2023) give four-state mixed qubit geometric solutions, without an outer channel-orientation minimization."
+      ],
+      "reasoning": "The Bloch/Pauli/Helstrom, SIC, spherical-tetrahedral, and smallest-enclosing-ball formulations were compared. The new expression is a uniform minimax over SO(3) for arbitrary singular axes; previous fixed-output formulas can be used to solve individual rotations but do not already state the extremal Frobenius invariant or its equality characterization.",
+      "searches": [
+        "tetrahedral SIC four equi-probable qubit states under arbitrary affine Bloch quantum channels minimum error orientation Frobenius singular values",
+        "Minimum guessing probability of four tetrahedral quantum states after a single-qubit channel, with adversarial encoding rotation equal Frobenius norm of channel Bloch matrix",
+        "four equally likely tetrahedral qubit states anisotropic Bloch contraction optimal discrimination axis alignment"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The problem concerns a continuous nine-parameter real channel Bloch matrix and SO(3) rotations, not an enumerated discrete object.",
+        "Primary qubit discrimination literature presents formulas rather than a complete parameterized channel-rotation table."
+      ],
+      "reasoning": "An exact table of finitely listed tetrahedral states cannot subsume a universal quantified statement for all quantum channels; searches were directed at exact Frobenius and singular-value formulas as well as tetrahedral examples.",
+      "searches": [
+        "four pure qubit states regular tetrahedron noise relative orientation minimal enclosing sphere Hilbert Schmidt norm",
+        "minimum enclosing ball images of regular tetrahedron ellipsoid minimum circumradius principal axes"
+      ]
+    },
+    "rationale": "Closest primary literature supplies optimal discrimination of any specified qubit ensemble, tetrahedron examples and the enclosing-ball tool. The asserted new statement optimizes one and the same tetrahedral input ensemble over every input rotation under every anisotropic nonunital Bloch channel, giving a sharp invariant and complete optimal-orientation classification. The checked papers do not explicitly state this outer minimax law; a potential equivalent geometric corollary in other literature remains a risk. Matching a known fixed-ensemble theorem alone is not asserted to establish priority.",
+    "residual_risks": [
+      "A known mathematical statement on minimum enclosing balls of affine images of regular simplices might imply the exact Frobenius optimization in a different field.",
+      "Full universal literature coverage and independent priority certification are not available; absence of search results is not proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "It proves the minimum-enclosing-ball reduction used in the new proof but does not give the universal worst-orientation Frobenius formula or the complete alignment equality conditions. Its fixed-ensemble theorem is broader in output configurations, not in the claimed outer optimization.",
+        "evidence": "arXiv:1204.2313, Eq. (6), equal-prior geometry and examples; arXiv record first posted 2012-04-11.",
+        "identifier_or_url": "arXiv:1204.2313",
+        "material_read": "Five-page accessible full-text treatment, especially dual Bloch geometry, equal-prior formula, fixed-state examples and concluding characterization.",
+        "method": "Read the open-access primary paper and compare the quantifiers: fixed output states versus minimization over input rotations before an anisotropic affine channel.",
+        "title": "Optimal Discrimination of Qubit States - Methods, Solutions, and Properties",
+        "trigger": "General fixed-ensemble qubit minimum-error theorem could subsume the proposed oriented channel problem."
+      },
+      {
+        "assessment": "The section solves discrimination for a specified four-state ensemble, including a symmetric mixed tetrahedron and biased priors; it does not formulate the worst-orientation problem through arbitrary anisotropic channels or the Frobenius lower envelope.",
+        "evidence": "Rouhbakhsh N and Ghoreishi, Quantum Information Processing 22, 323 (2023), sections 4.3 and Appendix B, DOI as above.",
+        "identifier_or_url": "doi:10.1007/s11128-023-04080-4",
+        "material_read": "Accessible full article sections 1 and 3-4, particularly four-state subsection 4.3, regular tetrahedral example and Appendix B.",
+        "method": "Compare exact four-output-state calculations and regular-tetrahedron examples against the independent minimization over all common prechannel input rotations, arbitrary Bloch matrix, and rigidity conclusion.",
+        "title": "Geometric bloch vector solution to minimum-error discriminations of mixed qubit states",
+        "trigger": "The 2023 full article handles four arbitrary mixed qubit states, explicit tetrahedra, and their measurements."
+      },
+      {
+        "assessment": "Establishes symmetric tetrahedral/tetrad measurement design but not the anisotropic nonunital quantum-channel minimax classification.",
+        "evidence": "Clarke, Kendon, Chefles, Barnett, Riis and Sasaki, Phys. Rev. A 64, 012303 (2001).",
+        "identifier_or_url": "doi:10.1103/PhysRevA.64.012303",
+        "material_read": "Accessible full published paper, sections on tetrad signal and detection implementation; figures and ideal detection discussions.",
+        "method": "Compare ideal symmetric polarization states and optimal detection with channel-induced anisotropy and prechannel orientation optimization.",
+        "title": "Experimental realization of optimal detection strategies for overcomplete states",
+        "trigger": "Earliest direct experimental tetrahedral ensemble source and ideal optimal POVM."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8f27cbc9-2592-4087-a71e-06a1b11ba5eb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For tetrahedral qubit encodings, the worst attainable receiver success after a specified noisy channel is a natural operational robustness invariant. An otherwise nine-parameter anisotropic affine map collapses exactly to the Frobenius norm, with explicit worst orientations, deterministic decoder, and sharp rigidity across full-rank, degenerate, rank-deficient and nonunital channels. This classifies an entire physically meaningful continuous family rather than a contrived numerical example. The special case of isotropic channels alone is elementary and not independently presented as valuable.",
+    "status": "PASS"
+  }
+}
