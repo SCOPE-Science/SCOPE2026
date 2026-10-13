@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers are \\(b\\ge2,\\ m\\ge1,\\ L\\ge2\\) for injectively labeled residue clocks. The m-state residue DFAO is accessible, internal, and minimal by distinct current outputs. Incoming labels at matching residue prefixes differ exactly when their positive integer difference is divisible by m but not b. Any such difference along a length-L path is at most \\(b^L-b\\). Conversely, for b not dividing m, the identity \\(m=c(b^{L-1}-1)+t\\) with \\(0\\le c<b\\) and \\(0\\le t\\le b^{L-1}-1\\) produces a length-L conflicting arrival. The cited shortest-path theorem then gives normalized \\(2^{2-L}\\); b dividing m makes all arrivals decode their digit as state mod b. Counting nonmultiples of b in the exact L-interval yields \\((b-1)^2b^{L-2}\\). Executed independent brute-path and witness checks cover 400 (b,m) pairs, finite level spectra, and thousands of constructed words. Finite tests corroborate only; infinite proof is by integer inequalities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 2 in the inspected 2024 full text is the general automaton-opacity formula in terms of a shortest conflicting path.",
+        "The 2026 publisher preview identifies the same article and a new figure called Periodic 3-Automaton; it does not expose the revised sections."
+      ],
+      "reasoning": "Generic finite-automaton opacity is a stronger framework but is not an explicit result for all residue-clock periods: determining the depth and exact spectrum requires the all-parameter integer bound and constructive attainment. A revised-text theorem may cover more; the inaccessible complete version remains a disclosed unresolved priority risk, not evidence of noncoverage.",
+      "searches": [
+        "arXiv:2404.13601v1, Theorem 2",
+        "doi:10.1007/s00236-026-00521-6, publisher abstract/preview",
+        "\"opacity complexity\" \"periodic\" \"modulo\" automatic sequence"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2404.13601v1 (relevant full text)",
+      "doi:10.1007/s00236-026-00521-6 (abstract, preview, figure captions only)",
+      "Related published automata findings and targeted opacity research-index search results; no direct theorem match"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known: normalized opacity equals \\(2^{2-\\ell}\\) when ell is shortest inhomogeneous path; period-two transparency is an explicitly worked case.",
+        "New sharp arithmetic lemma: any repeated-residue distinct-digit event needs \\(m\\le b^L-b\\) and a word with first digit c and numeric tail t attains every admissible nonmultiple m.",
+        "The multiplicity of each positive opacity level is exactly \\((b-1)^2 b^{L-2}\\)."
+      ],
+      "reasoning": "The 2024 theorem implies the claimed answer only after proving a nontrivial specialized sharp path-length minimization. Isolated earlier period-two (and plausible later period-three) cases are subsumed by the present all-parameter result and are not counted as independent new outputs. No inspected source states a dominating closed formula or multiplicity law.",
+      "searches": [
+        "arXiv:2404.13601v1, Theorems 1–2 and Example 4",
+        "doi:10.1007/s00236-026-00521-6, publisher figure captions",
+        "\"Opacity complexity\" \"periodic\" \"radix\" \"formula\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2404.13601v1 pp. 5–8 characterizes opacity using shortest inhomogeneous paths; Example 4 only evaluates period 2.",
+        "The present proof identifies identical arrival residue states with distinct incoming base-b digits, and optimizes the earliest collision for all b,m."
+      ],
+      "reasoning": "The path-collision graph formulation is equivalent to the original prefix-opacity invariant, not a separate renamed measure. The previously known generic algorithm does not itself supply the exact modular optimization \\(L=\\min\\{h\\ge2:b^h-b\\ge m\\}\\) and period multiplicities.",
+      "searches": [
+        "opacity complexity periodic automatic sequences modular residue word u(n)=n mod m parity even odd Mersenne shortest inhomogeneous paths",
+        "Yao Allouche opacity complexity m-periodic sequences base 2 congruence classes mod m exact dyadic formula",
+        "automata opacity shortest nonhomogeneous path residue automata parity modular digit length m",
+        "arXiv:2404.13601v1, Theorems 1–2, Example 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-research semantic searches returned unrelated periodic dynamics and automata results, not opacity tables for these residue clocks.",
+        "The source preprint only states period-two transparency and no table over b,m in its worked examples."
+      ],
+      "reasoning": "No indexed exact table or formula was located; this is negative search evidence only and does not establish uniqueness. The proof supplies a formula for infinitely many natural periods rather than recomputing a finite published table.",
+      "searches": [
+        "Exact opacity complexity of periodic residue clocks u(n)=n modulo m in base b: transparent iff b divides m, otherwise dyadic formula from shortest inhomogeneous path b^L-b>=m",
+        "Allouche Yao opacity complexity of automatic sequences least inhomogeneous path exact values for periodic sequences periods m in radix b",
+        "transparent automatic sequence iff radix divides period, opacity complexity Mersenne periods",
+        "\"opacity complexity\" \"residue\" automatic sequence",
+        "\"opacity complexity\" \"periodic sequence\" \"modulus\" \"binary\""
+      ]
+    },
+    "rationale": "The 2024 original Allouche–Yao full preprint gives the generic reduction to shortest inhomogeneous paths and the period-two example (Theorems 1–2 and Example 4), not the uniform exact depth optimization across all integer b,m nor the infinite opacity-level multiplicities. The publisher preview for a 2026 revision shows a period-three automaton but does not disclose its full later text. Both small-period examples and the generic theorem are treated as prior, not novel. Published index and own-history searches yielded no statement that entails the simultaneous exact all-parameter formula; residual risks are explicitly recorded.",
+    "residual_risks": [
+      "The full 2026 journal revision could contain additional modular-period opacity results not visible in the publicly accessible preview.",
+      "Earlier opaque-automata literature referenced by the main paper (including Chen–Yao, 2002) was not comprehensively inspected for the specialized modular family.",
+      "Semantic research-index coverage is incomplete; the absence of a search hit does not prove priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorems 1–2 cover generic automata; the explicit periodic example is only the 2-periodic case. No all-b,m residue-clock formula or level multiplicity count was found in v1.",
+        "evidence": [
+          "arXiv:2404.13601v1, Definition 3, Theorem 1 (p. 6), Theorem 2 (pp. 6–7), Example 4 (p. 8)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2404.13601",
+        "material_read": "Full-text relevant sections on automata and opacity, pp. 2–8, plus worked-examples section, pp. 8–11, including Theorems 1–2 and Example 4.",
+        "method": "Read the lawful original 12-page arXiv preprint PDF, including theorem statements, proof, example and paper scope.",
+        "title": "Opacity complexity of automatic sequences. The general case",
+        "trigger": "Exact same invariant and general definition; strongest plausible source of prior coverage."
+      },
+      {
+        "assessment": "Publisher preview is inconclusive for all-period formula; new Periodic 3-Automaton figure makes small-period overlap plausible. Do not infer noncoverage from a snippet.",
+        "evidence": [
+          "Acta Informatica 63:7 (2026), publisher preview at DOI, figure caption Periodic 3-Automaton."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00236-026-00521-6",
+        "material_read": "Publisher abstract, introductory preview page, journal metadata, and published figure captions; complete revised article not available from the preview.",
+        "method": "Inspected the publisher preview and figure descriptions, after reading the 2024 arXiv full text.",
+        "title": "Opacity complexity of automatic sequences: the general case",
+        "trigger": "Later journal version of the same source, plausibly with added periodic examples or new theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "85eda8f4-468b-4480-9297-fb2780f7f72f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The residue clock is the canonical maximally distinguished m-letter periodic sequence and a natural first family after the source preprint’s period-two example. The theorem classifies every base and period at once; unlike ordinary factor complexity of a periodic word, opacity exhibits exact divisibility-driven transparency and infinitely many dyadic collision-depth transitions. An exact multiplicity law \\((b-1)^2b^{L-2}\\) gives the size of every positive level set, so the arithmetic result is not an isolated or arbitrary small-\\(n\\) test. It is not claimed to prove a general result for every periodic coding, and no broader paper-sized contribution is assumed.",
+    "status": "PASS"
+  }
+}
