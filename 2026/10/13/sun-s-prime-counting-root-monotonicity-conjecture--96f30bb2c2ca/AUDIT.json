@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Writing \\(A=\\pi(kn)\\), \\(B=\\pi((k+1)n)\\), and \\(d=B-A\\) gives \\(d\\le\\lceil n/2\\rceil\\) because the interval lies above \\(2\\). For \\(x=kn\\ge17\\), Rosser--Schoenfeld gives \\(A>x/\\log x\\). The elementary inequality \\(\\log x<x^{2/5}\\) for \\(x\\ge17\\) implies \\((x/\\log x)\\log(x/\\log x)>3x/5\\), hence \\(A\\log A>3kn/5\\ge k\\lceil n/2\\rceil\\ge kd\\). Thus \\(k\\log(B/A)<kd/A<\\log A\\), so \\(B^k<A^{k+1}\\). The seventeen pairs with \\(kn<17\\) are checked exactly. The packaged verifier reconstructs all small cases and stress-tests the argument over \\(n\\le2000\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2016 revision of Sun's paper still presents part (i) as Conjecture 2.7.",
+        "Rosser--Schoenfeld supplies the prime-counting lower bound used in the proof but does not state the two-parameter root monotonicity theorem.",
+        "No broader prime-counting monotonicity theorem located in the targeted searches was found to imply Sun's exact finite-parameter assertion."
+      ],
+      "reasoning": "Potential domination was checked at the implication level. The classical \\(\\pi(x)\\) bound is an ingredient rather than coverage; the new step couples it to \\(d\\le\\lceil n/2\\rceil\\) and \\(x=kn\\) with \\(k\\le n\\).",
+      "searches": [
+        "\"Problems on combinatorial properties of primes\" \"Conjecture 2.7\" solution",
+        "Problems on combinatorial properties of primes Conjecture 2.7 monotonicity",
+        "\"pi(x) > x/log x\" 17 Rosser Schoenfeld"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1402.6641, full text and version history",
+      "DOI:10.1215/ijm/1255631807",
+      "NNTDM 17 (2011), no. 3, 1-9",
+      "OEIS:A238277",
+      "targeted exact-formula web searches",
+      "targeted indexed research-record searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun's paper supplies the conjecture but no proof.",
+        "The Rosser--Schoenfeld bound controls \\(\\pi(kn)\\) from below but alone says nothing about \\(\\pi((k+1)n)-\\pi(kn)\\).",
+        "The missing implication is provided by the elementary parity bound on that increment, yielding kd<A log A."
+      ],
+      "reasoning": "Neither the conjecture source nor the general explicit prime-counting inequality implies the result in isolation. The proof's novelty lies in combining them with the interval parity bound and the uniform \\(3/5\\) margin.",
+      "searches": [
+        "Rosser Schoenfeld pi x x log x Sun Conjecture 2.7",
+        "prime counting interval parity root monotonicity pi kn",
+        "Problems on combinatorial properties of primes root monotonicity proof"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper states the inequality in exactly the root-monotonic form proved here.",
+        "Exact-phrase and formula searches surfaced the primary paper and unrelated monotonicity results but no proof of this assertion.",
+        "Indexed research-record searches likewise returned no equivalent statement or implication."
+      ],
+      "reasoning": "The claim was searched both in Sun's numbering and in algebraically equivalent root and power forms. No located source supplied \\(B^k<A^{k+1}\\) for \\(A=\\pi(kn)\\), \\(B=\\pi((k+1)n)\\) over the full stated domain.",
+      "searches": [
+        "\"Conjecture 2.7\" \"pi(kn)\" Sun primes",
+        "\"π(kn)\" \"π((k + 1)n)\" Sun conjecture",
+        "\"pi(kn)^{1/k}\" primes conjecture proof",
+        "Sun Conjecture 2.7 pi(kn)^(1/k) monotonic",
+        "for n>4 pi(kn) 1/k greater pi((k+1)n) 1/(k+1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A238277 counts intervals whose prime count is a square and explicitly corresponds to Conjecture 2.7(ii).",
+        "A238277 gives finite data for the square-count assertion but contains no root-monotonicity table or theorem for part (i)."
+      ],
+      "reasoning": "The exact database item cited in Sun's Remark 2.7 is scientifically inapplicable to the accepted claim because it tracks part (ii), whereas the present theorem proves part (i).",
+      "searches": [
+        "OEIS A238277 Sun pi kn prime counting monotonicity",
+        "A238277 Conjecture 2.7 Sun"
+      ]
+    },
+    "rationale": "Sun's full primary paper states the exact assertion as Conjecture 2.7(i), and its 25 February 2016 revision still labels it a conjecture. Targeted exact-formula web searches and indexed research-record searches found no later proof. The related OEIS entry A238277 concerns part (ii), not part (i).",
+    "residual_risks": [
+      "An equivalent proof may exist in unindexed notes or a source not surfaced by the targeted searches.",
+      "The theorem resolves only Conjecture 2.7(i), not the independent part (ii).",
+      "The proof cites a classical explicit prime-counting inequality rather than reproving Rosser--Schoenfeld."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "OPEN_PROBLEM_SOURCE. It states exactly the accepted inequality as Conjecture 2.7(i); the final inspected pre-archive revision still labels it conjectural.",
+        "evidence": "Conjecture 2.7(i) states that for \\(n>4\\) and \\(k=1,\\ldots,n\\), \\(\\pi(kn)^{1/k}>\\pi((k+1)n)^{1/(k+1)}\\). The document's primary MSC includes 11A41.",
+        "identifier_or_url": "arXiv:1402.6641",
+        "material_read": "The full 19-page open-access PDF was inspected, including the title and classification page, the introduction explaining the sixty conjectures, Section 2, Conjecture 2.7(i), its neighboring part (ii), and Remark 2.7. The page containing Conjecture 2.7 was also inspected as a rendered page image. The arXiv submission history was checked to establish first public availability on 25 February 2014 and the final inspected revision on 25 February 2016.",
+        "method": "Direct arXiv full-text and page-image inspection plus arXiv version-history inspection.",
+        "title": "Problems on combinatorial properties of primes",
+        "trigger": "Primary archival source stating the exact conjecture."
+      },
+      {
+        "assessment": "SUPPORTING_BOUND_NOT_COVERING. The result supplies a proof ingredient but not Sun's two-parameter theorem.",
+        "evidence": "Rosser--Schoenfeld Corollary 1 gives \\(\\pi(x)>x/\\log x\\) for \\(x\\ge17\\).",
+        "identifier_or_url": "DOI:10.1215/ijm/1255631807",
+        "material_read": "Bibliographic metadata and the standard Corollary 1 inequality \\(\\pi(x)>x/\\log x\\) for \\(x\\ge17\\) were cross-checked against accessible later mathematical sources quoting the result.",
+        "method": "Publisher metadata plus independent published-source cross-check of the quoted bound.",
+        "title": "Approximate formulas for some functions of prime numbers",
+        "trigger": "Classical explicit prime-counting inequality used as the sole non-elementary bound in the proof."
+      },
+      {
+        "assessment": "SUPPORTING_BOUND_NOT_COVERING. It corroborates the analytic ingredient and does not address Sun's conjecture.",
+        "evidence": "The paper explicitly records \\(\\pi(x)>x/(\\log x-1)\\) for \\(x\\ge5393\\).",
+        "identifier_or_url": "NNTDM:17(3):1-9",
+        "material_read": "The full PDF introduction and displayed explicit prime-counting bounds were inspected, including the stronger lower bound \\(\\pi(x)>x/(\\log x-1)\\) for \\(x\\ge5393\\).",
+        "method": "Direct open-access PDF text and rendered-page inspection.",
+        "title": "The relation between \\(\\pi(x)\\) and certain arithmetic functions",
+        "trigger": "Independent archival full-text cross-check of explicit lower bounds for \\(\\pi(x)\\)."
+      },
+      {
+        "assessment": "INAPPLICABLE_TO_PART_I. It concerns the square-valued interval-count assertion in Conjecture 2.7(ii).",
+        "evidence": "A238277 counts \\(k\\) for which \\(\\pi((k+1)n)-\\pi(kn)\\) is a square.",
+        "identifier_or_url": "OEIS:A238277",
+        "material_read": "Definition, comments, finite verification statement, formula, and links.",
+        "method": "Direct OEIS entry inspection.",
+        "title": "A238277",
+        "trigger": "Database entry cited in Sun's Remark 2.7."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "96f30bb2-c2ca-4af7-82b1-34ef27905521",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result proves an explicit conjecture in a paper devoted to sixty open problems on combinatorial properties of primes. It is global in both \\(n\\) and \\(k\\) and replaces numerical evidence with a short structural argument using parity and a standard explicit \\(\\pi(x)\\) lower bound. This is a complete conjecture resolution, not a finite extension or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
