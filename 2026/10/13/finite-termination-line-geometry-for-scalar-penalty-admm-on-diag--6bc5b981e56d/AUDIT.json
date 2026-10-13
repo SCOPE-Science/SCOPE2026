@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Each diagonal mode has a rank-one two-state error matrix with determinant zero and trace zeta = 1 - alpha*rho*(a+b)/((rho+a)*(rho+b)). Cayley--Hamilton gives M^2=zeta*M, so finite termination for every initial state is equivalent to zeta=0 in every mode. Solving those equalities yields the common-line condition and standard-relaxation slope restriction. The exact rational witness is replayed by the embedded verifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghadimi et al. treat the isotropic second quadratic with Hessian delta I and obtain zero factor at rho=delta, alpha=2.",
+        "Their general-Hessian normalization uses a change of variables that corresponds to a changed augmented metric in original coordinates.",
+        "Giselsson--Boyd develop metric selection and tight rate bounds rather than a scalar-Euclidean finite-time curvature-line classification."
+      ],
+      "reasoning": "Broader metric frameworks may choose a matrix metric, but that freedom does not imply when one scalar rho and one scalar alpha suffice in the original Euclidean coordinates.",
+      "searches": [
+        "\"optimal parameter selection\" ADMM \"two quadratic\" Hessian matrices commuting",
+        "\"Linear convergence and metric selection\" ADMM quadratic diagonal finite convergence",
+        "\"finite convergence\" \"ADMM\" quadratic \"over-relaxation\""
+      ]
+    },
+    "checked_sources": [
+      "optimization-online:3917",
+      "arXiv:1306.2454",
+      "arXiv:1410.8479",
+      "doi:10.1137/14095697X"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2013 source states the delta-I modal factor and its zero-factor choice but not the heterogeneous scalar-penalty line condition.",
+        "The 2014 metric-selection source explicitly permits changing the metric, so it does not imply scalar-Euclidean annihilation.",
+        "Targeted literature searches did not locate a stronger statement with the same scalar-Euclidean hypotheses."
+      ],
+      "reasoning": "The new statement is two-sided and fixes the Euclidean scalar penalty. Neither the isotropic theorem nor a framework that changes the metric implies the necessity-and-sufficiency line geometry.",
+      "searches": [
+        "Ghadimi et al. 2013, Section III, Theorem 2, Remark 2, Appendix C",
+        "Giselsson--Boyd arXiv:1410.8479, ADMM and metric-selection sections",
+        "finite termination over-relaxed ADMM diagonal quadratic scalar penalty"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned semantic-database record stated the curvature-line iff condition for scalar-Euclidean over-relaxed ADMM.",
+        "The closest returned optimization records concern other stationary iterations or different operator-splitting questions."
+      ],
+      "reasoning": "No equivalent wording or reduction was recovered. This is supporting evidence only; the primary-source implication comparison carries the substantive originality argument.",
+      "searches": [
+        "over-relaxed ADMM diagonal quadratic consensus finite termination scalar penalty sum product collinearity",
+        "ADMM scalar Euclidean penalty two diagonal Hessians zero convergence factor finite time",
+        "ADMM finite termination diagonal quadratic curvature pairs relaxation penalty"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched database record tabulated scalar penalties and relaxations for heterogeneous diagonal curvature pairs with a finite-termination iff condition.",
+        "The result is a symbolic continuous classification rather than a table recomputation."
+      ],
+      "reasoning": "No exact database/table entry dominates the claim.",
+      "searches": [
+        "\"rho+a\" \"rho+b\" ADMM quadratic relaxation",
+        "\"zero convergence factor\" ADMM diagonal quadratic relaxation",
+        "\"finite time\" ADMM quadratic over-relaxed"
+      ]
+    },
+    "rationale": "The nearest direct source proves the isotropic delta-I zero-factor case and notes a variable change for a general second quadratic, but that change corresponds to a matrix-scaled augmented metric in original coordinates. The new theorem fixes a scalar Euclidean penalty and gives a necessary-and-sufficient heterogeneous finite-termination geometry. Targeted statement-level literature searches found no implication-equivalent statement.",
+    "residual_risks": [
+      "Older Douglas--Rachford, Peaceman--Rachford, or quadratic-splitting literature may encode the same scalar-penalty condition after simultaneous diagonalization under terminology not recovered by the searches.",
+      "Because the modal factor is elementary once both quadratic proximal maps are written down, an unlocated general spectral formula could make the line condition a previously implicit corollary; no inspected source stated that implication in the scalar-Euclidean setting."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_NOT_CLAIM: proves the isotropic second-Hessian zero-factor result and gives the same modal formula with b=delta, but does not classify heterogeneous diagonal pairs under a scalar Euclidean penalty.",
+        "evidence": "Theorem 2 gives rho*=delta, alpha*=2, zeta_R*=0. Appendix C gives the modal factor. Remark 2 normalizes a general second quadratic by a change of variables.",
+        "identifier_or_url": "optimization-online:3917 / arXiv:1306.2454",
+        "material_read": "Full text: Section III, Remark 2, Theorem 2, and Appendix C; the rendered pages containing equations (16), (17), and the general-Hessian remark were inspected.",
+        "method": "Full-text PDF inspection, including rendered page images.",
+        "title": "Optimal parameter selection for the alternating direction method of multipliers (ADMM): quadratic problems",
+        "trigger": "Closest direct source on over-relaxed quadratic ADMM and zero convergence factors."
+      },
+      {
+        "assessment": "BROADER_METRIC_FRAMEWORK_NOT_COVERING: gives tight rate bounds and metric-selection principles but no scalar-Euclidean heterogeneous finite-time line criterion.",
+        "evidence": "The text optimizes rate bounds and later selects a metric K=E^T E, explicitly treating metric selection as preconditioning.",
+        "identifier_or_url": "arXiv:1410.8479",
+        "material_read": "ArXiv full-text HTML around the tightness, ADMM, and metric-selection sections, including the quadratic/preconditioning discussion.",
+        "method": "Full-text HTML inspection.",
+        "title": "Linear Convergence and Metric Selection for Douglas-Rachford Splitting and ADMM",
+        "trigger": "Potential broader coverage through Douglas--Rachford equivalence and metric selection."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6bc5b981-e56d-45b7-bf9a-0084291aa8bf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Finite termination is a natural extreme of parameter tuning. The theorem gives a complete iff classification for when one scalar penalty and one standard relaxation can annihilate every mode of a heterogeneous separable quadratic consensus problem, separating that possibility from matrix-metric normalization. The line geometry is directly checkable and the two-mode witness shows the phenomenon is not confined to an isotropic block.",
+    "status": "PASS"
+  }
+}
