@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Schur/inverse-diagonal formulas for the two exact SPD matrices give a rank-one discrepancy operator with norm D. Differentiating D yields a strictly decreasing numerator in t and unique positive quadratic root in t squared; substitution establishes the sharp one-half asymptotic constant. Direct derivatives of two exact squared LOOCV losses give the strict t>sqrt(lambda) sign reversal, including the inverse-multiquadric shape map. The standalone verification code passed 2,800 exact fraction inverse comparisons, 2,340 rational derivative-sign tests and 50,000 numerical peak comparisons. The continuous theorem is algebraic, not inferred from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2602.10248v1 Secs. 2–3, 5; full text read",
+        "arXiv:2511.15583v2 Secs. 1–3; full text read",
+        "Quinonero-Candela and Rasmussen unifying sparse GP view: already-known diagonal correction (search passage), distinct target"
+      ],
+      "reasoning": "The motivating paper gives a general algorithm and experiments but no theorem implying these exact two-site rates or derivative signs; its regularization does not itself recover the missed diagonal. Nyström numerical stability theory bounds a different error mechanism and does not imply the sharp exact-arithmetic CV landscape. Existing FITC diagonal completion actually removes the two-site defect but does not supply a broader law for the deliberately uncorrected surrogate.",
+      "searches": [
+        "arXiv:2602.10248v1",
+        "arXiv:2511.15583v2",
+        "Fully Independent Training Conditional FITC Nyström correction diagonal exact conditional covariance Snelson Ghahramani 2006"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.10248v1",
+      "arXiv:2511.15583v2",
+      "DOI:10.1023/A:1018975909870 (identity via later primary full text; original not independently read)",
+      "Published result: Deflation-history contamination can make weighted-mass ACA arbitrarily suboptimal (non-implicative pivot result)",
+      "Published result: Unit-normalized weak Gauss–Newton can amplify energy error without bound (distinct matrix perturbation problem)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source formula C W^-1 C^T + lambda I and inverse-diagonal objective are known",
+        "Bucci core condition/pseudoinverse stabilization, no LOOCV theorem",
+        "The new mathematical statement determines sharp operator norm, global maximum and t>sqrt(lambda) gradient reversal by further specialization and exact optimization"
+      ],
+      "reasoning": "Rippa plus standard 2-by-2 inversion makes exact formulas derivable, but the primary sources do not state the maximizer, asymptotic constant, or gradient-phase and these are not asserted as consequences of a proven dominating statement. The claim is a narrow, method-motivated exact boundary, not a claim to invent LOOCV, Nyström or diagonal correction.",
+      "searches": [
+        "arXiv:2602.10248v1",
+        "arXiv:2511.15583v2",
+        "DOI:10.1023/A:1018975909870"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2602.10248v1 Sec. 2.1 inverse and Sec. 3 derivative; arXiv:2511.15583v2 Secs. 1–3",
+        "A related published finding on deflation-history contamination in adaptive cross approximation concerns pivot selection rather than inverse-diagonal Rippa residuals",
+        "Exact claim equivalent to a Schur ratio b/d where the omitted diagonal is 1-t^2, not merely Nyström matrix approximation error."
+      ],
+      "reasoning": "Targeted equivalence searches for normalized kernel regression, inverse-diagonal LOOCV and square-root ridge scale did not reveal the exact maximizing correlation or sign-reversal phase. Classical 2x2 Schur algebra provides the proof ingredients and is expressly credited, but generic Schur-complement identities do not state this complete optimizing family.",
+      "searches": [
+        "Nyström leave one out cross validation rank one inverse multiquadric kernel ridge singular leverage amplification 1/sqrt lambda",
+        "Woodbury Nyström surrogate leave-one-out error small regularization artificial 1/sqrt ridge blowup",
+        "Nyström Rippa two-site LOOCV maximum regularization correlation square root gradient sign reversal",
+        "Nyström kernel leave-one-out error t/(t squared plus lambda) exact shape parameter sensitivity",
+        "kernel leave-one-out cross validation Nyström ridge false stationary point spurious maximum when correlation equals square root regularizer",
+        "Fully Independent Training Conditional FITC Nyström correction diagonal exact conditional covariance Snelson Ghahramani 2006"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted public mathematical-record searches returned mainly unrelated optimization and low-rank matrix results",
+        "Neither retrieved public source gives a two-site numerical LOOCV parameter table"
+      ],
+      "reasoning": "No exact parameter table or previously published two-site LOOCV boundary was identified. A failed search does not prove that none exists; the source presents the original method without a corresponding exact table.",
+      "searches": [
+        "Nyström Rippa two-site LOOCV maximum regularization correlation square root gradient sign reversal",
+        "Nyström kernel leave-one-out error t/(t squared plus lambda) exact shape parameter sensitivity"
+      ]
+    },
+    "rationale": "Primary source Lyu–Veiga arXiv:2602.10248v1 Secs 2–3, 5 defines the Nyström ridge and Rippa LOOCV landscape but does not quantify the exact two-site operator-norm amplification, maximizing correlation, or inverse-gradient interval. Bucci–Nakatsukasa–Park arXiv:2511.15583v2 treats pseudoinversion and floating-point stability, whereas here the scalar core is 1 and the error is exact arithmetic. Rippa original inverse formula is credited. Searches of the public mathematical literature did not identify equivalent statements; originality is not certified exhaustively.",
+    "residual_risks": [
+      "An equivalent 2x2 CV phase may occur in older Gaussian-process LOOCV or kernel diagonal approximation literature under different nomenclature.",
+      "The primary article already observes empirical instability and uses the same ingredients; assessing conceptual novelty of this exact sharp specialization requires human judgment.",
+      "The original Rippa 1999 full text was not independently available in this run; the Rippa identity is explicitly acknowledged, not claimed as novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest primary, FOUND_METHOD_NOT_FORMULA",
+        "evidence": "Secs 2.1 and 3 give ridge surrogate and LOOCV shape objective; Sec 5 describes empirical landscape sensitivity but not exact two-site sharp phase.",
+        "identifier_or_url": "https://arxiv.org/html/2602.10248v1",
+        "material_read": "Abstract, introduction, Sec. 2 low-rank approximation and Sec. 2.1 Woodbury, Sec. 3 gradient and Sec. 3.1, Sec. 4 experiment setup and Sec. 5 conclusion, with exact formulas and limiting discussion",
+        "method": "Public HTML full text opened and materially inspected",
+        "title": "Low-rank approximation of Rippa method for RBF interpolation",
+        "trigger": "same Nyström-Rippa surrogate, landmark kernel, ridge and shape-gradient optimization"
+      },
+      {
+        "assessment": "DIFFERENT_ERROR_MECHANISM",
+        "evidence": "Studies ill-conditioned core pseudoinverse and finite precision; the candidate core equals 1, exact-arithmetic missing diagonal distorts inverse-diagonal LOOCV.",
+        "identifier_or_url": "https://arxiv.org/html/2511.15583v2",
+        "material_read": "Abstract; Sec. 1 including worked instability example and 1.2 contributions; Sec. 2 Nyström kernel model; Sec. 3 overview; search in full text for LOOCV yielded none",
+        "method": "Public HTML full text materially inspected",
+        "title": "Numerical Stability of the Nyström Method",
+        "trigger": "plausible stronger or adjacent Nyström instability theory"
+      },
+      {
+        "assessment": "FOUNDATIONAL_IDENTITY_ONLY__RESIDUAL_RISK",
+        "evidence": "Provides inverse-diagonal LOOCV formula, which the proof credits; could not exclude every alternative formulation in original text.",
+        "identifier_or_url": "DOI:10.1023/A:1018975909870",
+        "material_read": "Original formula as explicitly quoted and used in Lyu–Veiga Sec.1; independent original full text not accessed",
+        "method": "Indirect primary reference via read full text of Lyu–Veiga; no independent full-text inspection",
+        "title": "An algorithm for selecting a good value for parameter c in radial basis function interpolation",
+        "trigger": "foundational Rippa identity, possible implicit equivalence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "84266561-24d9-43e7-8623-2997b81909b6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quantifies a genuine method-specific optimization risk noted but not classified in the motivating numerical paper. The theorem gives the complete t/regularization region in which a low-rank LOOCV surrogate points in the wrong direction; an attained operator norm gap with sharp 1/2 prefactor; and an explicit construction with full kernel tending to identity, ruling out poor original conditioning as an explanation. This is a motivated complete two-site phase diagram, not just an arbitrary sampled numerical counterexample. The two-site case does not imply prevalence in the original multi-landmark experiments, and poor spectral accuracy of the low-rank approximation is disclosed.",
+    "status": "PASS"
+  }
+}
