@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The directional recurrences are reconstructed from the classical Saul'yev coefficients. For nonnegative beta and gamma, each recurrence preserves the nonnegative orthant, proving sufficiency. For r greater than one, the exact first column of the left sweep is beta^{j-1} gamma, and the bottom row of the right sweep uses only the last two left-sweep values, giving the closed negative corner beta^{n-1} gamma(1+gamma) for every n at least two. The n=1 product is gamma squared. The packaged exact-rational checker independently replays these identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chin proves and explains unconditional stability of the one-sided schemes and discusses accuracy and convergence, but stability does not imply entrywise positivity.",
+        "Campbell and Yin's accessible abstract studies stability characteristics of alternating-direction explicit advection-diffusion schemes.",
+        "The historical references emphasize stable explicit diffusion approximations; no retrieved statement dominates the completed-pair orthant classification."
+      ],
+      "reasoning": "Fourier stability and convergence are norm or mode properties and do not imply preservation of the coordinatewise nonnegative cone. A theorem about a modified Saul'yev or advection-diffusion scheme would also not automatically cover the exact classical pair defined here.",
+      "searches": [
+        "Saulyev type unconditionally stable schemes exponential splitting diffusion",
+        "stability alternating direction explicit methods advection diffusion",
+        "classical modified Saulyev finite difference numerical stability",
+        "stable explicit difference approximations diffusion Larkin Saulyev"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1206.1743",
+      "doi:10.1002/num.21885",
+      "doi:10.1002/num.20233",
+      "doi:10.1007/s10492-013-0022-6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The inspected full text explicitly says the original gamma can become negative while unconditional stability persists.",
+        "It also records that Saul'yev alternated the left-to-right and right-to-left algorithms to reduce error.",
+        "Neither fact determines whether the product matrix is entrywise nonnegative, because negative factors can in principle cancel; the n=1 exception demonstrates that cancellation genuinely occurs."
+      ],
+      "reasoning": "The new implication is not a restatement of coefficient negativity. It classifies the product of the two directional maps, proves exact cancellation in dimension one, and proves a surviving negative corner in every higher grid.",
+      "searches": [
+        "Saulyev unconditional stability gamma negative",
+        "alternating direction explicit diffusion stability left right sweeps",
+        "Saulyev alternating application error reduced"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-record searches returned nearby heat-equation positivity findings for different methods, especially filtered Crank-Nicolson, but no Saul'yev alternating-pair positivity classification.",
+        "Literature searches recovered the classical Saul'yev stability lineage and later alternating-direction explicit analyses without an exact entrywise threshold statement.",
+        "The full Chin paper contains no occurrence of nonnegative, monotone, or maximum principle in the searched text; its occurrence of positive is unrelated to a diffusion cone-invariance theorem."
+      ],
+      "reasoning": "The search aliases cover the method name with and without the apostrophe, alternating use, nonnegativity, monotonicity, maximum-principle language, and the negative-coefficient mechanism.",
+      "searches": [
+        "Saulyev alternating pair positivity heat equation nonnegative finite difference",
+        "Saulyev two sweeps positivity heat equation",
+        "Saulyev maximum principle alternating direction explicit heat",
+        "Saulyev beta gamma negative coefficient pointwise positivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table, formula, or database entry for the corner 2 r to the n minus 1 times 1 minus r over 1 plus r to the n plus 1 was located.",
+        "The threshold follows directly from the sign of the analytically derived corner and is not read from a numerical table."
+      ],
+      "reasoning": "The claimed constant and minimal grid size arise from the matrix structure of the pair rather than a tabulated experiment.",
+      "searches": [
+        "Saulyev positivity threshold one",
+        "Saulyev negative corner two interior nodes",
+        "Saulyev alternating pair discrete maximum principle"
+      ]
+    },
+    "rationale": "The inspected full-text modern treatment explicitly provides the Saul'yev coefficients, unconditional stability, and the historical alternation of opposite sweeps, including the fact that gamma becomes negative. It does not state the completed-pair entrywise positivity threshold or the one-node versus two-node dichotomy. Targeted published-record and literature searches under positivity, monotonicity, maximum-principle, alternating-pair, and coefficient-sign terminology found no implication-equivalent theorem.",
+    "residual_risks": [
+      "The original 1957 Russian article was not available as inspectable full text, so an equivalent pointwise statement there cannot be excluded.",
+      "The complete 2007 Campbell-Yin article was not available through the inspected route; only its abstract was used.",
+      "Older literature may use discrete maximum principle or monotonicity terminology rather than positivity-preserving language."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_PARTIAL_COVERAGE: defines the exact ingredients and proves stability, but no implication-equivalent pointwise positivity theorem was located.",
+        "evidence": "The paper gives gamma=(1-r)/(1+r) and beta=r/(1+r), states the left-to-right and right-to-left algorithms are unconditionally stable, says Saul'yev applied them alternately to reduce error, and later notes that unconditional stability persists even when the original gamma becomes negative.",
+        "identifier_or_url": "doi:10.1002/num.21885",
+        "material_read": "The full 23-page article was available. The introduction containing equations (1.7)-(1.9), the diffusion splitting section, the unconditional-stability discussion, convergence discussion, and references were inspected. Full-text searches were also made for positive, nonnegative, monotone, and maximum principle.",
+        "method": "Full-text PDF inspection with rendered-page verification of the classical formulas and alternation paragraph.",
+        "title": "Understanding Saul'yev-type unconditionally stable schemes from exponential splitting",
+        "trigger": "Closest full-text modern analysis of the exact classical diffusion coefficients and alternating use."
+      },
+      {
+        "assessment": "EARLY_PUBLIC_VERSION: establishes the archive-eligible public date and the unconditional-stability framing, without a located alternating-pair positivity frontier.",
+        "evidence": "The preprint record gives submission date 2012-06-08 and describes Saul'yev-type explicit diffusion schemes as unconditionally stable.",
+        "identifier_or_url": "arxiv:1206.1743",
+        "material_read": "Abstract, submission record, and the diffusion-method formulation were inspected; the later journal version was used for detailed full-text comparison.",
+        "method": "Public preprint record plus comparison with the corresponding full journal article.",
+        "title": "Symplectic finite-difference methods for solving partial differential equations",
+        "trigger": "Earliest exactly dated public version found for the modern exponential-splitting treatment."
+      },
+      {
+        "assessment": "INCOMPLETE_COMPARISON_RISK_RETAINED: the abstract addresses stability of alternating-direction explicit methods but cannot be used to assert whole-paper noncoverage.",
+        "evidence": "The abstract describes two approximations evaluated in opposite directions and analyzes stability conditions for advection-diffusion equations.",
+        "identifier_or_url": "doi:10.1002/num.20233",
+        "material_read": "The publisher-level abstract and bibliographic record were inspected; a complete full text was not available through the inspected route.",
+        "method": "Abstract and bibliographic inspection with bounded full-text search.",
+        "title": "On the stability of alternating-direction explicit methods for advection-diffusion equations",
+        "trigger": "Plausible primary source devoted specifically to alternating-direction explicit stability."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY: confirms primary numerical-PDE classification 65M06 for an alternating-direction explicit Saul'yev method; it is not used to establish novelty.",
+        "evidence": "The entry lists MSC 60H15, 65M06, 65M75 and includes Saul'yev method among the keywords.",
+        "identifier_or_url": "doi:10.1007/s10492-013-0022-6",
+        "material_read": "The Czech Digital Mathematics Library entry, abstract, keywords, and MSC classification were inspected.",
+        "method": "Bibliographic database entry inspection.",
+        "title": "Approximation of stochastic advection diffusion equations with stochastic alternating direction explicit methods",
+        "trigger": "Subject-classification cross-check for Saul'yev/ADE finite-difference methods."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "541ef955-f230-4bdc-8c56-3d70d70c9ab5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The heat equation preserves nonnegative data, while Saul'yev schemes are historically attractive precisely because they remove the explicit Euler stability restriction. The finding gives a complete sharp distinction between unconditional Fourier stability and pointwise physical admissibility for the standard alternating use: a single scalar threshold, an exact negative matrix entry beyond it, and the minimal interior-grid size for failure. The n=1 cancellation also shows that simply observing a negative one-sweep coefficient is insufficient.",
+    "status": "PASS"
+  }
+}
