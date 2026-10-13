@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "All four update matrices are exact consequences of the stated scalar proximals and probability-weighted extrapolation. P has explicitly positive principal minors and H(0)=I. The exact positive principal minors of H(1/100) and affine dependence on q prove uniform geometric mean-square decay for 0<=q<=1/100. The full-batch reduction has annihilating polynomial B(B+2I)(B-15I/22)=0, and the admitted start has a nonzero (-2)^k component in its primal coordinate. Its event probability q^k proves the claimed bound at every k>=1, including q=1/4. The actual packaged verifier was executed with exact fractions, but the analytic identities, not a finite simulation, establish arbitrary horizons.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 arbitrary-sampling theorem requires ESO parameters v_i<p_i; the 2022 analysis uses standard sufficient step sizes p_i^{-1}tau sigma_i||A_i||^2<1.",
+        "The 2025 arbitrary-sampling convergence theorem requires ||D||<1. Under the proposed scalar data tau sigma_i||A_i||^2=1 and p_i=1/2, so the cited sufficient regimes do not apply.",
+        "The full-batch event lower bound establishes actual divergence rather than just violation of a sufficient bound."
+      ],
+      "reasoning": "A general convergence theorem would dominate the finding only if it covered the specific step sizes and both selection laws. All inspected published convergence statements use sufficient bounds that fail for these parameters, and no inspected theorem states the opposite real outcomes. The new counterexample does not challenge those source theorems.",
+      "searches": [
+        "Web: 2019 stochastic PDHG arbitrary sampling quadratic exact linear convergence stability Bernoulli 2 blocks",
+        "Web: 2019 randomized primal dual hybrid gradient algorithm step size sampling probability optimization methods SPDHG",
+        "2018 SIAM PDF Theorem 4.3 and Theorem 6.1 (DOI:10.1137/17M1134834)",
+        "2022 arXiv PDF Algorithm 1, equation (3.1), convergence sections (arXiv:1911.00799)",
+        "2025 full-text sections 2--3 (DOI:10.1007/s10851-025-01231-3)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1706.04957",
+      "https://epubs.siam.org/doi/pdf/10.1137/17M1134834",
+      "https://arxiv.org/pdf/1911.00799",
+      "https://arxiv.org/abs/2207.12291",
+      "https://link.springer.com/article/10.1007/s10851-025-01231-3",
+      "published-finding corpus published records: 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995; 2026/9/18/SCOPE-rounded-cluster-allocation-variance-reversal--3aa05569afb8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source ESO condition depends on subset geometry and gives sufficient stability, not necessity or the particular bad-event exponent.",
+        "Theorem here has an explicit interval of strict Lyapunov stability and a large-discrepancy lower bound on q>=1/4 for one admissible initial state.",
+        "The current ledger has related randomized solver and packet-correlation results but no SPDHG dual-extrapolation theorem; same conclusion theme for other algorithms does not mathematically imply this claim."
+      ],
+      "reasoning": "One must compare the update maps and the probability weights, not merely named algorithms. A result for memory-based packet gossip, Markov delays, primal-only gradient methods or deterministic PDHG has different state transitions; it cannot yield the stated rational full-batch eigenvalue or the specific serial Lyapunov certificate by parameter substitution.",
+      "searches": [
+        "published-finding corpus: primal-dual stochastic coordinate sampling fixed marginal probability covariance mean square second moment quadratic",
+        "Web: stochastic PDHG correlation sampling full batch mean square instability",
+        "2018 SIAM PDF general case and strongly convex conditions; 2022 arXiv PDF step-size theorem; 2025 full text theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Original Algorithm 1 (SIAM 2018, p.2787) uses Q=diag(1/p_i), arbitrary selected subsets, and dual extrapolation after selected prox updates.",
+        "A query for exact correlated two-block SPDHG did not return the same event-based second-moment separation; related public published-finding corpus records address deterministic primal-dual steps, coordinate selection or other stochastic methods."
+      ],
+      "reasoning": "The nearest equivalence would describe the same four original-SPDHG proximal maps, the same equal marginal inclusion probabilities, and simultaneous serial stability/full-batch second-moment failure. None of the inspected statements contains or implies this combination; missing index hits do not prove absolute priority.",
+      "searches": [
+        "published-finding corpus: stochastic primal dual hybrid gradient SPDHG sampling joint correlation serial Bernoulli all-or-none batches mean-square divergence quadratic",
+        "published-finding corpus: SPDHG stochastic primal-dual hybrid gradient sampling positive negative correlation exact stability threshold linear quadratic",
+        "Web: SPDHG divergence correlated sampling both none Bernoulli same marginals step size",
+        "arXiv:1706.04957 and DOI:10.1137/17M1134834"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected SIAM sampling examples optimize sufficient rates for serial/importance/mini-batch sampling; they contain no exact rational certificate or table for this fixed-marginal pair.",
+        "Public published-finding corpus nearest entries include 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 and 2026/9/18/SCOPE-rounded-cluster-allocation-variance-reversal--3aa05569afb8; both concern different estimator/update dynamics."
+      ],
+      "reasoning": "Neither a numerical rate table nor a public indexed claim supplies the four specific SPDHG matrices, the matching positive-definite Lyapunov slack, and the all-batch path lower bound. Separate systems with similar block-sampling language do not entail this result.",
+      "searches": [
+        "published-finding corpus: two dual coordinate primal dual hybrid gradient block sampling dependence stability spectral radius",
+        "published-finding corpus: PDHG primal dual hybrid random subset steps tau sigma one serial sampling convergence but joint batch divergence",
+        "2018 SIAM PDF Examples 3--5 (serial sampling) and Remark 8 (minibatches)",
+        "2025 full-text sampling examples and numerical comparisons"
+      ]
+    },
+    "rationale": "The original 2018 full text and 2022/2025 convergence analyses were inspected for identical sampling/update and possible stronger implications. All three supply the algorithm and sufficient step-size regimes but not the opposed fixed-marginal mean-square behaviors at the displayed over-threshold steps. Public-index semantic searches for method aliases, sampling correlation, all-or-none batches, spectral stability and numerical tables found no equivalence. Originality remains subject to unindexed-priority risk.",
+    "residual_risks": [
+      "A mathematically equivalent fixed-marginal SPDHG counterexample may appear in unindexed papers, theses, appendices or unpublished work; database partition is not proof of uniqueness.",
+      "The exact transition within 1/100<q<1/4 is unknown here, so no global sharp threshold is claimed.",
+      "The method is tested outside general sufficient step-size conditions; this is not a counterexample to published convergence theorems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_METHOD_NOT_COVERING_CLAIM",
+        "evidence": [
+          "Original dual extrapolation includes Q=diag(1/p_i); Theorem 4.3 assumes v_i<p_i.",
+          "Source examples tune sufficient serial-rate bounds, not the fixed-marginal stable/unstable pair at tau=sigma_i=1."
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/pdf/10.1137/17M1134834",
+        "material_read": "Original full-text PDF, Algorithm 1 on p. 2787, sampling assumptions pp. 2786--2787, ESO and Theorem 4.3, Theorem 6.1 and examples 3--5 on sampling. Targeted full-text searches for correlation/divergence.",
+        "method": "PDF text inspection and rendered algorithm page",
+        "title": "Stochastic Primal-Dual Hybrid Gradient Algorithm with Arbitrary Sampling and Imaging Applications",
+        "trigger": "Defining algorithm and strongest directly relevant arbitrary-subset theorem"
+      },
+      {
+        "assessment": "SUFFICIENT_REGIME_NOT_COVERING",
+        "evidence": [
+          "Its standard rule is p_i^{-1} tau sigma_i ||A_i||^2 <= gamma^2<1, violated by the stated steps.",
+          "The text principally treats serial sampling and does not supply the batch-instability event calculation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1911.00799",
+        "material_read": "Full-text PDF Algorithm 1 and Remark 3.1 (p.4), standard steps equation (3.1), introduction and convergence-result overview; targeted theorem/stepsize references and summary tables.",
+        "method": "PDF text inspection and rendered algorithm page",
+        "title": "On the convergence of stochastic primal-dual hybrid gradient",
+        "trigger": "Possible broader linear-convergence theorem for the same update and quadratic problems"
+      },
+      {
+        "assessment": "SUFFICIENT_CONDITION_NOT_COVERING",
+        "evidence": [
+          "Theorem 1 requires ||D||<1, while the proposed two-block, unit-step example lies outside that condition.",
+          "It studies sampling-dependent rates but does not state the repeated-full-batch exact lower bound."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10851-025-01231-3",
+        "material_read": "Open-access full-text HTML Sections 2--3 (algorithm, selected dual updates, operator D and Theorem 1), introduction and sampling comparison passages.",
+        "method": "Scientific equations and theorem read in publisher HTML",
+        "title": "Randomized Primal-Dual Algorithm with Arbitrary Sampling: Convergence Theory and Applications to Parallel MRI",
+        "trigger": "Potentially dominating arbitrary-sampling convergence result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6e85a2a7-fd68-4d1e-8726-1b8ab6542a42",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result isolates an objective-motivated failure mode for a published primal-dual method: the same marginal block inclusion rate and expected computational work can give geometric mean-square convergence or even exponential divergence solely through batch coupling. Unlike a minor normalization check, it supplies a robust stable region, an explicit lower bound under independent and coordinated subsets, and rational certificates that are test cases for step-size rules accounting for joint sampling.",
+    "status": "PASS"
+  }
+}
