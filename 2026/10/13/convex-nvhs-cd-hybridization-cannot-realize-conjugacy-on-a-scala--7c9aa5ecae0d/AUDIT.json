@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Direct substitution into the published first-step formulas gives the exact strong-Wolfe interval, the conjugacy target \\(\\beta_{\\rm conj}=-r\\), the CD endpoint \\(r^2\\), and the piecewise NVHS* endpoint. For \\(r>0\\) the target is negative while both endpoints are nonnegative; for \\(r<0\\), writing \\(s=-r\\in(0,1)\\) gives \\(s^2<2s^2/(1+s)<s\\). Solving the interpolation gives \\(\\theta_{\\rm raw}=-1/|r|\\). All denominators are nonzero in the nonterminal case, and the infinite parameter statement is analytic rather than experimental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.2298/FIL1706813D, Sections 2-3",
+        "DOI:10.31926/BUT.MIF.2025.5.67.2.14, Section 1.1",
+        "DOI:10.1007/s10957-017-1172-6, abstract and bibliographic record"
+      ],
+      "reasoning": "Older convex-combination methods and correction notes concern different endpoint formulas or proof assumptions. The LS-CD predecessor does not dominate the new claim: on scalar oversteps its LS and CD endpoints straddle the conjugacy target, whereas the 2026 NVHS*-CD pair misses it on both sides. The 2025 NPRP-DY source explicitly clips out-of-range weights but does not imply the new endpoint-order identity.",
+      "searches": [
+        "nonlinear conjugate gradient convex combination exact conjugacy scalar quadratic line search",
+        "convex combination conjugate gradient conjugacy condition clipping theta counterexample",
+        "Comments on hybrid conjugate gradient algorithm for unconstrained optimization"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.4064/am2559-2-2026",
+      "DOI:10.2298/FIL1706813D",
+      "DOI:10.31926/BUT.MIF.2025.5.67.2.14",
+      "DOI:10.1007/s10957-017-1172-6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full-text formula inspection of DOI:10.4064/am2559-2-2026",
+        "Full-text formula inspection of DOI:10.2298/FIL1706813D",
+        "Full-text formula inspection of DOI:10.31926/BUT.MIF.2025.5.67.2.14"
+      ],
+      "reasoning": "The new claim depends on the exact ordering of the 2026 NVHS* and CD coefficients relative to the conjugacy target. Neither predecessor has those two endpoints, and the 2017 LS-CD method has a different scalar ordering. Consequently the new statement is not a special case or corollary of the inspected predecessors.",
+      "searches": [
+        "NVHS* CD convex combination conjugacy condition scalar quadratic strong Wolfe",
+        "LS CD convex combination conjugacy scalar quadratic",
+        "NPRP DY convex combination theta outside interval clipping conjugacy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.4064/am2559-2-2026, equations (1.6), (2.1)-(2.3), Algorithm Steps 3-6",
+        "No searched published record stated the scalar identity \\(\\theta_{\\rm raw}=-1/|1-a\\alpha|\\) or the resulting all-nonexact-step endpoint collapse."
+      ],
+      "reasoning": "The equivalent statement is that the Hestenes-Stiefel conjugacy target lies outside the interval spanned by the source's NVHS* and CD coefficients. Searches under both the source terminology and this coefficient-order formulation found the primary article and general hybrid-CG literature, but no implication-equivalent result.",
+      "searches": [
+        "NVHS* CD convex combination conjugacy condition scalar quadratic strong Wolfe inexact step failure",
+        "hybrid conjugate gradient clipped theta conjugacy condition convex combination cannot satisfy",
+        "10.4064/am2559-2-2026 conjugacy condition counterexample",
+        "NVHS CD conjugacy condition quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Publisher record for DOI:10.4064/am2559-2-2026 gives online publication 26 September 2026 and primary MSC 90C30.",
+        "The primary numerical section reports benchmark profiles rather than an exact scalar coefficient table."
+      ],
+      "reasoning": "The finding is an analytic coefficient-order statement, not a recomputation of a database or numerical table. Exact-title and DOI searches found no earlier public version with a different public date.",
+      "searches": [
+        "Another hybrid conjugate gradient method NVHS CD Mehamdia Chaib",
+        "am2559-2-2026 preprint",
+        "NVHS beta CD beta convex combination"
+      ]
+    },
+    "rationale": "The primary paper supplies the NVHS*-CD convex-combination and clipping formulas but does not identify the scalar endpoint-order obstruction or the exact law \\(\\theta_{\\rm raw}=-1/|r|\\). The closest full-text convex-combination predecessors use different endpoints. The 2017 LS-CD construction can bracket the scalar conjugacy target on oversteps, so it does not imply the all-nonexact-step collapse proved here; the 2025 NPRP-DY paper acknowledges clipping but does not analyze the NVHS*-CD ordering.",
+    "residual_risks": [
+      "A mathematically equivalent critique could exist in nonindexed notes or literature using different names for the NVHS* coefficient.",
+      "The claim is intentionally narrow: it establishes the first-step scalar obstruction and does not classify later multidimensional behavior."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source defines the two endpoint coefficients and clips the raw interpolation weight to the convex interval, but does not state the scalar convex-hull obstruction or the exact raw-weight law.",
+        "evidence": "Equations (2.1)-(2.3) and Algorithm Steps 3-6; strong Wolfe condition (1.6); publisher metadata gives primary MSC 90C30 and online date 26 September 2026.",
+        "identifier_or_url": "DOI:10.4064/am2559-2-2026",
+        "material_read": "Full 12-page open PDF; focused inspection of equations (1.3)-(1.8), Section 2 equations (2.1)-(2.3), Algorithm Steps 1-7, descent proof, convergence section, conclusion, and references.",
+        "method": "Formula-level full-text inspection with page image confirmation of the convex-combination derivation.",
+        "title": "Another hybrid conjugate gradient method as a convex combination of NVHS* and CD methods",
+        "trigger": "Primary source defining the algorithm and the claim that the hybrid weight is determined to satisfy conjugacy."
+      },
+      {
+        "assessment": "It uses LS and CD endpoints and clips an out-of-range raw weight. Its scalar overstep case can bracket the conjugacy target, so it does not cover the 2026 all-nonexact-step NVHS*-CD collapse.",
+        "evidence": "Equations (2.1), (2.7)-(2.9) and Algorithm LSCDCC.",
+        "identifier_or_url": "DOI:10.2298/FIL1706813D",
+        "material_read": "Full open PDF with focused inspection of Section 2, clipping rule (2.9), Algorithm LSCDCC, and sufficient-descent setup.",
+        "method": "Formula-level full-text comparison on the same scalar quadratic.",
+        "title": "New hybrid conjugate gradient method as a convex combination of LS and CD methods",
+        "trigger": "Closest earlier convex-combination/conjugacy construction explicitly cited by the primary source."
+      },
+      {
+        "assessment": "The source explicitly acknowledges and clips an out-of-range raw weight for an NPRP-DY pair, but it neither uses NVHS*-CD nor proves the scalar coefficient ordering in the present claim.",
+        "evidence": "Section 1.1, especially the paragraph after equation (2.3) and Algorithm Steps 4-6.",
+        "identifier_or_url": "DOI:10.31926/BUT.MIF.2025.5.67.2.14",
+        "material_read": "Full open PDF with focused inspection of the strong Wolfe conditions, Section 1.1 equations (2.1)-(2.3), the explicit note that the raw weight can leave \\([0,1]\\), and Algorithm Steps 3-6.",
+        "method": "Formula-level full-text comparison.",
+        "title": "A new hybrid conjugate gradient method as a convex combination methods",
+        "trigger": "Recent same-author convex-combination paper with the same conjugacy-then-clipping design pattern."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7c9aa5ec-ae0d-4307-bec9-69e908fc425e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The conjugacy condition is the stated mechanism used to determine the hybrid weight in the new method. Showing that this mechanism is intrinsically infeasible for every nonexact strong-Wolfe step on the best-conditioned one-dimensional quadratic is a structural boundary, not a benchmark recomputation or arbitrary slice. The exact law also distinguishes the new NVHS*-CD pair from the closest LS-CD predecessor and identifies why clipping disables hybridization. This is directly useful for interpreting the method and for any repair that would need extrapolation or a different endpoint coefficient.",
+    "status": "PASS"
+  }
+}
