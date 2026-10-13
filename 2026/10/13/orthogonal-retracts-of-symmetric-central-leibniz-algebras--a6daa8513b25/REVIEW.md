@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Every endomorphism preserves the one-dimensional derived ideal, reducing bracket preservation exactly to a bilinear similitude equation. Idempotence forces either identity or a projection onto a totally isotropic subspace with one freely chosen functional on the image. Complement counting establishes the map/image fiber distinction, while a double count of nested isotropic subspaces, together with elementary finite quadratic-form zero counts, proves the numerical formulas. The supplied checker directly enumerates small finite-field matrices and isotropic subspaces; its evidence supports but does not replace the general proof. The nondegeneracy, characteristic, and labeled-count assumptions are explicit.
+
+**Originality — PASS, with residual uncertainty.** The complete primary text of Kurdachenko–Pypka–Subbotin, arXiv:2211.01074v1, concerns internal three-dimensional structure, rather than idempotent endomorphism ranks. The closely relevant full primary text of Kurdachenko–Pypka–Semko, arXiv:2310.11180v1, treats automorphism groups of the same kind of symmetric central family, not its singular retracts. Published mathematical-record searches involving bilinear-form Leibniz algebras, orthogonal projections, endomorphism idempotents, and retract counting yielded nearby work on automorphisms, ordinary matrices, and orthogonal Grassmannians but no established implication of these complete formulas. This does not exclude older unindexed results under alternative terminology; the residual risk is disclosed.
+
+**Value — PASS.** A full classification of retractions on a canonical family of two-step Leibniz algebras answers a natural structural question left aside by automorphism-group calculations. It identifies exactly when proper nonzero retracts exist, distinguishes maps from embedded images, and determines an all-rank enumerator uniformly in the odd field size, Witt type, and dimension. This is a natural complete classification, not a selected small-instance computation.
+
+All mathematical formulas concern nondegenerate symmetric forms in characteristic different from two; no scheme-level or conjugacy classification is claimed. The quadratic-space counts are classical ingredients and are acknowledged.
+
+Self-review: passed. Independent audit: not yet performed.
