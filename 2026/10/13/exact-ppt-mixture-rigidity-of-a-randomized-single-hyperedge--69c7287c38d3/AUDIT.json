@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For a full spanning edge, the successful pure state is \\(|a\\rangle+\\kappa|v\\rangle\\), where \\(\\kappa=(e^{i\\theta}-1)2^{-n/2}\\). On every bipartition of sizes \\(k\\) and \\(n-k\\), the two local product rays are independent and the orthonormalized \\(2\\otimes2\\) coefficient matrix has \\(\\det H=H_{11}=\\kappa\\sqrt{1-2^{-k}}\\sqrt{1-2^{-(n-k)}}\\). The partial-transpose determinant is \\(\\det[(\\rho^{T_B})_{4\\times4}]=-p^3|\\kappa|^4(1-2^{-k})^2(1-2^{-(n-k)})^2\\); the formula follows by a rank-one determinant expansion and the pure-state partial-transpose cofactor. For the PPT-mixture statement, a positive-operator decomposition must preserve the rank-two support. The only product rays in that support on every cut are \\(|a\\rangle\\) and \\(|v\\rangle\\). The two-qubit PPT equivalence forces any putative PPT mixture to be diagonal in their two projectors, contradicting nonzero \\(p\\kappa\\) coherence. The boundary cases \\(p=1\\), \\(p=0\\), trivial phase and nonspanning edge are proved separately. Finite numerical checks corroborate but do not prove the all-size result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen--Đoković, arXiv:1301.2372v1, Section III Lemma 11 proves that every multipartite rank-two state PPT across every individual party is fully separable; Lemma 12 proves NPT for a product projector plus an entangled projector.",
+        "The Peres--Horodecki criterion supplies the known equivalence of PPT and separability on an effective two-qubit system.",
+        "Jungnitsch--Moroder--Gühne, DOI 10.1103/PhysRevLett.106.190502, supplies the general PPT-mixture test rather than the architecture-specific all-size boundary."
+      ],
+      "reasoning": "The general rank-two literature already implies qualitative NPT across every cut after showing the successful spanning-edge pure state is entangled. That qualitative consequence is not claimed new. The exact cut determinant and exclusion of convex mixtures of cut-dependent PPT states require additional source-specific structure; a PPT state relative one cut is not the same as a state PPT on all single-party cuts.",
+      "searches": [
+        "\"Separability problem for multipartite states of rank at most four\" theorem rank two PPT states",
+        "rank two multipartite states spanning two product vectors separable coherence criterion",
+        "mixed state span two product vectors genuinely multipartite entanglement any coherence theorem",
+        "PPT mixture range criterion support dimension two fully product vectors criterion",
+        "2x2 PPT iff separable Horodecki 1996 positive partial transpose"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2506.20075v2 full text, first public v1 2025-06-25",
+      "arXiv:2310.20418v2 full text",
+      "arXiv:1301.2372v1 Section III full text and PDF pages",
+      "DOI:10.1103/PhysRevLett.106.190502 abstract and public summary",
+      "DOI:10.1016/S0375-9601(96)00706-2 theorem used as standard prior"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2506.20075v2 Sections II-III define the gate mixture and full four-body pure state; Sections V-VI analyze limited-size negativity/PPT-mixture quantities; Section VIII gives clover/flower overlap, not the theorem.",
+        "arXiv:2310.20418v2 Sections III-V discuss hypergraphs containing competing edges and finite numerical sudden-death effects; no all-n single-edge phase classification.",
+        "arXiv:1301.2372v1 Lemma 12 directly dominates the qualitative NPT part, but not the determinant coefficient, global convex-hull PPT-mixture obstruction, or the if-and-only-if single-edge boundary.",
+        "The PPT-mixture definition in Jungnitsch et al. is stronger to exclude than mere NPT in each cut, because mixtures may use different cuts."
+      ],
+      "reasoning": "The exact statement is neither a paraphrase of the anchor numerical plots nor identical to Chen--Đoković’s known rank-two NPT result. It is an architecture-specific classification of a cut-varying convex relaxation plus an exact spectral invariant. Generic product-range facts are used as lemmas and explicitly credited where relevant.",
+      "searches": [
+        "arXiv 2506.20075 randomized hypergraph states one spanning hyperedge threshold genuine multipartite negativity ppt mixer",
+        "random hypergraph controlled Z one hyperedge rank two product span partial transpose determinant all bipartitions",
+        "finite dimensional rank two mixed states supported span two fully separable vectors PPT mixture only incoherent diagonal convex hull",
+        "arXiv:2506.20075v2 sections III, V, VI, VII VIII; single spanning 4-edge H17",
+        "arXiv:2310.20418v2 sections III, IV, V numerical NPT and GME",
+        "arXiv:1301.2372v1 Lemmas 11 and 12 rank-two NPT",
+        "DOI:10.1103/PhysRevLett.106.190502 PPT mixture SDP"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The claim-specific semantic searches returned hypergraph-combinatorics and unrelated low-rank tensor records; no published item describes single randomized spanning controlled-phase hyperedges and the exact PPT-mixture boundary.",
+        "Exact-phrase public searches located the Salem--Silva--Andrade papers but no all-size mixed single-hyperedge PPT-mixture theorem."
+      ],
+      "reasoning": "Aliases searched included randomized hypergraph, single hyperedge, spanning edge, controlled-Z, weighted hypergraph, rank-two support, PPT mixture, and NPT across every cut. A search miss is not proof of novelty; comparisons to primary texts and general rank-two results are decisive.",
+      "searches": [
+        "randomized hypergraph state single n-body hyperedge mixed successful gate probability p positive genuinely multipartite entangled all p",
+        "single hyperedge randomization p phase gate positive partial transpose every cut determinant",
+        "rank two mixture |+> tensor n and n controlled Z hypergraph state genuine multipartite entanglement threshold",
+        "nonorthogonal product vectors rank two span unique biseparable decomposition projector mixture hypergraph",
+        "\"randomized hypergraph states\" \"single hyperedge\" \"PPT\" entanglement",
+        "\"one hyperedge\" \"randomized hypergraph\" genuinely multipartite entangled"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2025/2026 anchor displays numerical negativity and PPT-mixture analysis for small hypergraphs and provides overlap polynomials for clover/flower configurations, but no all-n one-edge PPT-mixture table or analytic determinant.",
+        "The 2024 predecessor tabulates finite randomization thresholds for nonuniform three- and four-qubit hypergraphs, not the single-edge all-n classification."
+      ],
+      "reasoning": "The claim gives a uniform theorem for every n, arbitrary p and continuous phase, with a closed determinant on every bipartition, not an extrapolation or recomputation of the finite tables.",
+      "searches": [
+        "arXiv 2506.20075 randomized hypergraph states one spanning hyperedge threshold genuine multipartite negativity ppt mixer",
+        "\"randomized hypergraph states\" \"single hyperedge\" \"PPT\" entanglement",
+        "\"single hyperedge\" PPT mixture GME random"
+      ]
+    },
+    "rationale": "The source introduces perfect-or-absent hyperedge randomization and uses finite-size negativity and PPT-mixer numerics, but no exact single-edge all-n classification. The older Chen--Đoković Lemma 12 directly covers qualitative bipartite NPT, which is not claimed as a novel theorem. The accepted novel content is the exact cut determinant for continuous phases and the global PPT-mixture if-and-only-if boundary. The inspected primary sources contain no stronger covering theorem, while generic rank-two consequences are explicitly distinguished.",
+    "residual_risks": [
+      "A differently indexed result could specialize generic low-rank PPT-mixture geometry to this exact randomized hyperedge; no such explicit implication was located.",
+      "The qualitative assertion that all splits are NPT already follows from arXiv:1301.2372v1 Lemma 12, so originality must rest on PPT-mixture exclusion and the determinant identity.",
+      "The ideal-or-absent single-gate model is narrower than physically realistic circuit noise; no broader robustness is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the model and motivation but does not state the claimed all-size single-edge PPT-mixture classification or exact split determinant.",
+        "evidence": "Section II defines the full-size controlled-phase hyperedge and phase-weighted version; Section III defines randomized-state mixture; Section VI uses numerical PPT-mixer tests up to four qubits; Section VIII handles overlap polynomials of other families.",
+        "identifier_or_url": "arXiv:2506.20075v2 (earliest v1 first public 2025-06-25)",
+        "material_read": "Full arXiv HTML article, including Sections II-IX, definition of randomized states, Figure 1 example H17, negativity and PPT-mixture results, and clover/flower appendage.",
+        "method": "Direct inspection of source full-text HTML at arxiv.org/html/2506.20075v2.",
+        "title": "Randomized hypergraph states and their entanglement properties",
+        "trigger": "Direct anchor: perfect-or-absent hyperedge gates, PPT-mixture numerics, and the full four-qubit single-edge example."
+      },
+      {
+        "assessment": "Contains numerical and qualitative sudden death/birth for competing edge orders; no implication-equivalent all-size single-edge result.",
+        "evidence": "The abstract and numerical Section IV/V focus nonuniform multi-edge cases; Table 1 gives finite p thresholds rather than the claimed exact single-edge boundary.",
+        "identifier_or_url": "arXiv:2310.20418v2",
+        "material_read": "Full public arXiv HTML text, including randomized-gate definition, bipartite entanglement figures, GME section, and threshold table for three- and four-qubit configurations.",
+        "method": "Direct full-text HTML inspection at arxiv.org/html/2310.20418v2.",
+        "title": "Multipartite entanglement sudden death and birth in randomized hypergraph states",
+        "trigger": "Earlier work by the same authors on randomized hypergraphs and possible all-size noise thresholds."
+      },
+      {
+        "assessment": "Lemma 12 already implies qualitative NPT for this mixture across each cut and is credited; it does not determine the explicit determinant or the exact nonmembership in the convex hull of cut-dependent PPT states.",
+        "evidence": "Lemma 11 states multipartite PPT rank-two states are separable; Lemma 12 states that a rank-two mixture of a product vector and an entangled vector is NPT. The present exclusion of PPT mixtures uses extra identification of the only product rays in the source-specific support.",
+        "identifier_or_url": "arXiv:1301.2372v1",
+        "material_read": "Public PDF, introduction, complete Section III Lemmas 11 and 12 with proofs, plus surrounding definitions and related material.",
+        "method": "Direct PDF text and page-image inspection of arXiv public preprint.",
+        "title": "Separability problem for multipartite states of rank at most four",
+        "trigger": "Strongest plausible rank-two theorem that could cover NPT and product-range implications."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "69c7287c-38d3-4889-ac75-742ba8c6ce03",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source relies on finite-size PPT-mixture SDPs to characterize noisy hypergraph-state generation. For the natural one-edge baseline, this theorem settles that relaxed multipartite-entanglement decision for every n, all gate-success probabilities, and any phase, and supplies an explicit bipartition spectral certificate. The zero-success-threshold classification is a meaningful boundary separating topology-driven entanglement from the sudden-death behavior of more elaborate randomized hypergraphs. A completely equivalent finite table would not supply the all-size condition; no claim is made about arbitrary multi-edge architectures or experimental noise.",
+    "status": "PASS"
+  }
+}
