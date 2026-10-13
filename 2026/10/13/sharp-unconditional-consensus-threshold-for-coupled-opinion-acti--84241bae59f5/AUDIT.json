@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The one-step P(t) is row stochastic with nonzero weights at least eta; each two-step action row has every entry >=eta^2. If the limiting full diameter remained positive, actions are uniformly interior, so maximal and minimal persistent opinions must eventually be constant isolated leaders. Their excluded cross-action distances sum to (1+phi)D_infty, strictly exceeding 2 epsilon, contradicting 2 epsilon >=(1+phi)D0. After diameter falls below epsilon the complete-neighborhood P_* has P_*^2 positive, giving geometric convergence. A stationary two-agent witness for every smaller radius proves sharpness. The bundled exact-rational verifier reconstructs finite matrix identities, not the infinity proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Source [1] Proposition 2 guarantees consensus under eventual strong connectivity, and Theorem 3 assumes graph-component stabilization; neither supplies the model-specific numerical threshold or proves the stabilization assumption.",
+        "Source [3] (Blondel–Hendrickx–Tsitsiklis 2009), cited by [1], treats the classical opinion-only HK update, not the mixed opinion/action states."
+      ],
+      "reasoning": "The new theorem implies eventual complete connectivity for any data satisfying a stated radius, then exponential consensus. A general theorem could imply qualitative consensus under other assumptions, but the inspected stronger-looking published statements do not imply the quantified sharp threshold for this different nonlinear switching rule.",
+      "searches": [
+        "published-finding corpus: opinion action public behavior private opinion conditional threshold spontaneous full consensus eventual complete neighbor graph no stabilization",
+        "web: opinion-action coevolution unconditional convergence graph 2026",
+        "web: \"opinion–action coevolution\" \"critical threshold\" consensus 2026 Song"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.06140v1, full accessible HTML model, lemmas, Theorem 3, Remarks 4–5, conclusion",
+      "Song–Cvetkovic–Su, doi:10.1109/TCSS.2025.3598697, abstract and accessible preview only",
+      "Blondel–Hendrickx–Tsitsiklis (2009) classical HK result cited and distinguished in motivating source",
+      "published-finding corpus semantic searches as recorded above; publication-scope keyword searches as recorded above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source [1] Theorem 3 is conditional on finite stabilization and Remark 4 says that requirement is unproved; its conclusion asks to determine parameter thresholds.",
+        "Source [2] numerical sensitivity results involve particular initial setups, not all initial configurations or arbitrary finite population sizes.",
+        "Classical [3] averages opinions of neighboring agents, while [1] averages public actions generated with common social norms; these are different transition operators."
+      ],
+      "reasoning": "A conditional statement cannot yield an unconditional radius guarantee without an extra graph argument. Simulated broad consensus is not a universal theorem, and the old HK result lacks the action mixing responsible for the numerical (1+phi)/2 margin. The new sharpness direction shows failure for every smaller uniform radius.",
+      "searches": [
+        "web: \"Why Do Opinions and Actions Diverge\" \"epsilon\" \"phi\" consensus sensitivity threshold",
+        "web: \"opinion action\" \"sharp\" \"confidence\" \"consensus\" 2026",
+        "web: \"opinion-action\" \"unconditional consensus\" \"half\" confidence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source [1] arXiv:2604.06140v1 equations (3)-(5), Theorem 3 and Remark 4: condition is finite component stabilization, not explicit confidence radius; conclusion asks for threshold.",
+        "Source [2] DOI 10.1109/TCSS.2025.3598697 studies the same underlying update model by simulation."
+      ],
+      "reasoning": "Checked the same-model terminology, bounded-confidence aliases and complete-action opinion update against the explicit claim, not merely titles. No inspected text contains the condition 2 epsilon >= (1+phi) D0 together with all-start convergence and a two-agent sharp witness.",
+      "searches": [
+        "published-finding corpus: sharp consensus threshold (1+phi)/2 for opinion-action coevolution bounded confidence finite networks Song Fontan",
+        "web: \"opinion-action coevolution\" \"consensus\" \"threshold\" phi epsilon",
+        "web: \"Song\" \"Fontan\" \"Hendrickx\" \"confidence\" \"consensus\" threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus ranked hits for exact model/threshold and broad aliases had no directly relevant matching proposition among the returned candidates.",
+        "The claim is an infinite-family theorem, not a tabulated finite invariant; the two-agent example is an algebraic obstruction, not a database recomputation."
+      ],
+      "reasoning": "published-finding corpus and public source searches are evidence of checked overlap, not proof of worldwide novelty. No exact-database-or-table source appeared to control the theorem.",
+      "searches": [
+        "published-finding corpus: Song Fontan Hendrickx Johansson opinion-action coevolution bounded confidence convergence without stabilization finite confidence neighbor graph action update",
+        "published-finding corpus: opinion action public behavior private opinion conditional threshold spontaneous full consensus eventual complete neighbor graph no stabilization",
+        "web: site:github.com/published-finding corpus \"bounded confidence\" \"action\" \"threshold\""
+      ]
+    },
+    "rationale": "Exact motivating model source arXiv:2604.06140v1 Theorem 3 and Remark 4 assumes graph stabilization and leaves the parameter threshold open. The new result supplies an unconditional and uniformly sharp threshold, with an explicit impossibility example below it. Earlier numerical/model and opinion-only general results do not state or evidently imply the quantified claim. Unindexed stronger coverage remains a residual risk.",
+    "residual_risks": [
+      "The earlier 2025 model paper was not exhaustively read in full; no whole-paper noncoverage conclusion is based on its preview.",
+      "General unindexed variable-topology averaging or consensus theorems could subsume qualitative portions, but were not demonstrated to imply this sharp model-specific boundary.",
+      "Ranked semantic retrieval and public searches do not prove no unpublished or unindexed overlap exists."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for unconditional sharp threshold; existing convergence relies on eventually stabilized graph and numerical experiments, and identifies threshold as future work.",
+        "evidence": [
+          "https://arxiv.org/html/2604.06140v1#S3.SS1",
+          "https://arxiv.org/html/2604.06140v1#S4.SS2",
+          "arXiv:2604.06140v1, Theorem 3, Remark 4, conclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.06140v1",
+        "material_read": "Full HTML sections I–VI, especially equations (3)–(9), Theorem 2, Propositions 2–3, Theorem 3, Remarks 4–5, conclusion and references; web lines 32–375",
+        "method": "Direct primary HTML text examination of governing equations, hypotheses, theorem and limitations",
+        "title": "On the Convergence of an Opinion–Action Coevolution Model with Bounded Confidence",
+        "trigger": "Exact nonlinear update model and closest existing convergence result"
+      },
+      {
+        "assessment": "Earlier framework and numerical regime exploration; possible uninspected analytical material remains a documented risk.",
+        "evidence": [
+          "https://www.researchgate.net/publication/395362057_Why_Do_Opinions_and_Actions_Diverge_A_Dynamic_Framework_to_Explore_the_Impact_of_Subjective_Norms",
+          "https://www.themoonlight.io/fr/review/why-do-opinions-and-actions-diverge-a-dynamic-framework-to-explore-the-impact-of-subjective-norms"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TCSS.2025.3598697",
+        "material_read": "Accessible abstract, model-equation account and descriptive sensitivity discussion; primary full article not obtained",
+        "method": "Abstract/accessible preview and secondary discussion; no full-text exclusion asserted",
+        "title": "Why Do Opinions and Actions Diverge? A Dynamic Framework to Explore the Impact of Subjective Norms",
+        "trigger": "Earlier original introduction of the same update equations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "84241bae-59f5-40eb-9a32-77ad9793296d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This resolves a specifically motivated universal form of the original source’s open parameter-threshold question and removes its graph-stabilization assumption in an explicit parameter region. The exact endpoint and sharp two-agent lower construction distinguish guaranteed consensus from possible stable polarization; the conclusion holds across arbitrary finite agent counts and initial configurations.",
+    "status": "PASS"
+  }
+}
