@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For full-column-rank real matrices, both polar directions have orthonormal columns and hence identical quadratic-score denominators tr(B). Variational uniqueness proves the upper inequality and commuting equality. The positive-semidefinite polynomial (B−μI)(LI−B) yields the sharp scalar bound vᵀBv/||Bv||≥2√(μL)/(μ+L); nuclear-norm decomposition of GB^-1 and triangle inequality lift it to polar alignment. A 2×2 invertible ε-family gives exactly the limiting squared factor, κ=1 gives equality, and all quantifiers/rank assumptions are explicit. Embedded verify.py independently checks 70 exact rational identities, 2160 random full-rank matrices and true line-search decreases, and five sharpness sequences; computations corroborate but do not prove universal claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The classical positive-operator Kantorovich angular inequality yields a vector factor but does not itself formulate a Newton–Muon versus Muon quadratic-score guarantee or the full-rank sharpness family.",
+        "The polar variational principle gives the unpreconditioned upper bound, but no lower bound on the preconditioned score without the additional spectral/angular argument."
+      ],
+      "reasoning": "Standard nuclear duality and Kantorovich each supply strict ingredients; their combination in the right-preconditioned polar model, and the sharp two-dimensional full-rank boundary, must be additionally derived. No directly dominating published theorem was identified, but an older operator inequality could imply it.",
+      "searches": [
+        "\"matrix sign\" \"positive definite\" \"cosine\" \"Kantorovich\" polarization",
+        "\"matrix gradient isotropic output curvature preconditioned polar one-step score dominance\"",
+        "\"preconditioned polar gradient nuclear norm inner product condition number sharp\""
+      ]
+    },
+    "checked_sources": [
+      "Du--Su, The Newton–Muon Optimizer, arxiv:2604.01472v1, Theorem 1, Proposition 2, Section 4, Appendix E",
+      "Lau--Long--Su, PolarGrad, arxiv:2505.21799, Sections 3–4 and matrix-quadratic Example 4.1",
+      "Classical positive-operator Kantorovich angular inequality (proved directly in the result)",
+      "Classical polar/nuclear-norm variational principle (proved/reduced in the result)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2604.01472v1 Proposition 2 guarantees nonnegative gradient alignment, not a condition-number sharp ratio to the standard polar step.",
+        "arxiv:2604.01472v1 Equation (19) provides the definition of the score but not the sharp comparison; Appendix E explicitly defers Newton–Muon score analysis to numerical study.",
+        "arxiv:2505.21799 explains nuclear-norm polar steepest directions and discusses matrix quadratics, but the inspected results do not bound the loss incurred by separately right-preconditioning before taking the polar factor."
+      ],
+      "reasoning": "The new ratio strengthens nonnegative alignment to a uniform relative one-step decrease bound only in the identified output-isotropic specialization. It is not implied by an empirical improvement claim on anisotropic models; those settings have different denominators.",
+      "searches": [
+        "\"The Newton–Muon Optimizer\" Proposition 2 Appendix E theoretical score",
+        "\"PolarGrad\" preconditioning nuclear norm matrix quadratic Example 4.1",
+        "\"Kantorovich\" Cauchy trust region optimal decrease factor 4kappa/(kappa+1)^2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2604.01472v1, Section 4.1 defines precisely the quadratic one-step score; Appendix E, lines describing the Newton–Muon direction, says its score is evaluated numerically instead of theoretically.",
+        "arxiv:2505.21799, Sections 3–4 analyzes polar-gradient directions but does not state the sharp right-preconditioned score ratio."
+      ],
+      "reasoning": "Aliases include matrix-sign/polar direction, right preconditioning, gradient covariance, and nuclear-norm alignment. Neither inspected source asserts the two-sided sharp ratio for output-isotropic quadratic curvature; matching use of a polar factor is not equivalent to proving the ratio.",
+      "searches": [
+        "\"Newton-Muon\" \"quadratic score\" polar preconditioned",
+        "\"polar(G B inverse) alignment loss sharp condition number trace nuclear norm\"",
+        "\"sharp polar alignment nuclear norm 4kappa over kappa plus 1 squared noncommuting\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The search returned related results on sharp quadratic Cauchy-point contraction and general matrix preconditioning, not an exact score ratio table or bound for these two polar matrices.",
+        "The source article [1] explicitly does not analyze its Newton–Muon score theoretically in Appendix E."
+      ],
+      "reasoning": "The repeated scalar factor 4κ/(κ+1)² in unrelated Cauchy/Kantorovich settings is not an exact database listing of the present matrix polar comparison. No prior exact entry with the same domain and directions was found.",
+      "searches": [
+        "\"Newton Muon preconditioned polar versus Muon score H identity input covariance sharp ratio 4 kappa/(kappa+1)^2\"",
+        "\"one-step exact line search Muon Newton Muon quadratic input covariance\""
+      ]
+    },
+    "rationale": "The specific quantitative ratio, full-rank sharpness and commuting equality were not identified in the source paper or the inspected PolarGrad analysis; the source only establishes positivity of alignment and defines/evaluates the score. Scalar Kantorovich and nuclear variational principles are credited as classical ingredients; a possible older matrix inequality implying the combination remains an explicit residual risk.",
+    "residual_risks": [
+      "An older published matrix Kantorovich, polar-angle, or nuclear-norm inequality might already dominate this result under an unsearched title; targeted searches do not establish absolute novelty.",
+      "The bound is sharp only as an infimum approached near rank deficiency and does not imply a sharp lower bound for uniformly well-conditioned gradients.",
+      "A different output-curvature model changes the score denominator and invalidates the universal direction ranking."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the sharp full-rank score-ratio bound, commutation equality or infimum family; it gives the direction and score definition and positive alignment.",
+        "evidence": [
+          "arxiv:2604.01472v1 pp. 6–7, Theorem 1/Proposition 2",
+          "arxiv:2604.01472v1 pp. 11–12, Equation (19)",
+          "arxiv:2604.01472v1 p. 31, Appendix E explicitly says the Newton–Muon score is not analyzed theoretically there"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2604.01472",
+        "material_read": "First-page version/date, Sections 2.2–2.3 including Theorem 1 and Proposition 2, Section 4.1–4.2 including Equation (19) and study conditions, and Appendix E score-formula passage including its caveat for Newton–Muon.",
+        "method": "Author preprint full-text inspection with page-specific theorem and appendix comparison.",
+        "title": "The Newton–Muon Optimizer",
+        "trigger": "Defines the exact right-preconditioned polar update and its quadratic-score comparison."
+      },
+      {
+        "assessment": "NOT_COVERING the sharp two-sided one-step score ratio for standard versus right-preconditioned polar updates on output-isotropic quadratic curvature.",
+        "evidence": [
+          "arxiv:2505.21799, Sections 3–4 and Example 4.1",
+          "arxiv:2505.21799, Section 6.1 treats matrix quadratics numerically"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2505.21799",
+        "material_read": "Original full-text portions around Sections 3–4, Example 4.1 (matrix quadratic regression), and analysis/theorem references concerning polar optimizers; searched document for Kantorovich-type bounds.",
+        "method": "Author preprint full-text inspection of relevant analysis and comparison passages.",
+        "title": "PolarGrad: A Class of Matrix-Gradient Optimizers from a Unifying Preconditioning Perspective",
+        "trigger": "Potentially dominating preconditioned polar-gradient framework and matrix-quadratic example."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "692da9e4-b25c-4a2c-945d-a6e8830ebef5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating algorithm uses polar(G B^-1) and compares its one-step quadratic improvement with polar(G); the source verifies descent but lacks a worst-case score guarantee. The finding establishes an exact condition-number degradation frontier and a commuting/no-loss classification for a natural entire family of strongly convex matrix quadratics. The 2×2 near-rank-one construction shows that anisotropic input curvature alone can destroy a large fraction of the score even under exact line search, while the quantified lower bound forbids worse losses at fixed condition number. This informs when input preconditioning is or is not advantageous without asserting a multi-step or general-curvature conclusion.",
+    "status": "PASS"
+  }
+}
