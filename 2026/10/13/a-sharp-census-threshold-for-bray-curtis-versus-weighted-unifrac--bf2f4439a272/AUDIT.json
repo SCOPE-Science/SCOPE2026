@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "On an equal-height rooted tree the normalization is precisely 2H. With delta=x-y, exact edge summation reduces both metrics to the integer pair k,c with 0<=c<=k<=N-3, because every species is present in both communities. Any reversed strictly ordered comparisons force 1<=k-l<t(c-d)<=t(N-3). The explicit x=(N-2,1,1), y=(1,N-2,1), z=(2,1,N-3) realizes reversal whenever t(N-3)>1, including all endpoint strictness. The closed-integer N_min is algebraically correct. Independently implemented raw edge sums agreed with exact reduction in 10,584 ordered pairs and 218,484 common-reference candidates for N=3..9 and seven rational t values; finite checks only corroborate the all-N proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schmidt et al. DOI:10.1038/ismej.2016.139 full text, Table 1 and Methods, compare Bray–Curtis and weighted UniFrac among 11 indices while developing network-informed alternatives; no theorem quantifies all three-tip integer-census rank reversals.",
+        "Pendleton and Schmidt DOI:10.1093/ismeco/ycaf250 full text, Introduction and four-taxon, 81-sample simulation, demonstrate how phylogeny changes metric outputs but do not optimize over all integer census profiles or give a sharp threshold."
+      ],
+      "reasoning": "Neither a more general empirical four-taxon comparison nor general metric normalization is logically a rank-order guarantee at every N and t. The inspected broader papers study metric responses and ecological applications, not a dominating universal discrete threshold theorem. General tree transport identities do cover the algebraic metric formula but not the exact all-profile order classification.",
+      "searches": [
+        "Phylogenetic beta diversity tree transportation, weighted UniFrac and Bray Curtis exact comparison ecological dissimilarity",
+        "\"Bray-Curtis\" \"UniFrac\" \"ranking\" \"sample\"",
+        "doi:10.1038/ismej.2016.139",
+        "doi:10.1093/ismeco/ycaf250"
+      ]
+    },
+    "checked_sources": [
+      "Bray and Curtis 1957 (DOI:10.2307/1942268), source similarity definition and date.",
+      "Lozupone et al. 2007 (DOI:10.1128/AEM.01996-06), raw and normalized weighted UniFrac formulas.",
+      "Evans and Matsen 2010 preprint arXiv:1005.1699v1, later DOI:10.1111/j.1467-9868.2011.01018.x, tree KR metric identity.",
+      "Schmidt et al. 2016/2017 (DOI:10.1038/ismej.2016.139), multimetric beta-diversity table.",
+      "Roldán Ahumada and Avendaño Garrido 2019 (DOI:10.1177/1176934319843515), small-sample UniFrac metric properties.",
+      "Pendleton and Schmidt 2026 (DOI:10.1093/ismeco/ycaf250), simulations comparing Bray–Curtis and UniFrac."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bray–Curtis from Bray and Curtis (1957), DOI:10.2307/1942268, determines the taxon total-variation metric but has no phylogenetic stem parameter.",
+        "Weighted UniFrac from Lozupone et al. (2007) and tree transport from Evans–Matsen (2010/2012) determine U exactly for specified data; no prior statement establishes universal ordering over all integer three-species profiles or the sharp cutoff.",
+        "Roldán Ahumada–Avendaño Garrido (2019) concerns small-sample metric and pseudosemimetric properties of UniFrac, a logically distinct predicate from cross-metric order reversal."
+      ],
+      "reasoning": "A general distance formula entails computability of each comparison but does not, by itself, assert the extremal inequality t(N-3)<=1 or construct a shared-reference reversal for all t(N-3)>1. The latter two quantitative implications are the final claim. Previously reported empirical disagreements demonstrate possibility in some settings but neither the universal prohibition nor exact minimal census.",
+      "searches": [
+        "doi:10.1128/AEM.01996-06 weighted UniFrac normalization denominator",
+        "arxiv:1005.1699v1 integral formula earth mover tree",
+        "doi:10.1177/1176934319843515 UniFrac small samples metric",
+        "\"Bray-Curtis\" \"weighted UniFrac\" \"order\" reversal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Evans and Matsen arXiv:1005.1699v1 and DOI:10.1111/j.1467-9868.2011.01018.x give the general tree integral / earth mover identity, which yields the pairwise branch formula, but do not compare strict distance ranks on an integral equal-census lattice.",
+        "Lozupone et al. DOI:10.1128/AEM.01996-06, Methods, supply raw and normalized branch formulas, with no census-ordering cutoff."
+      ],
+      "reasoning": "Earth mover or Kantorovich–Rubinstein terminology is an exactly equivalent formulation for the individual weighted UniFrac metric, not a prior theorem saying when its ordering must agree with total variation/Bray–Curtis on all positive three-taxon empirical distributions. The finite lattice constraint k<=N-3 plus the one-unit strict rank gap is the additional statement, proved here, and the new witness makes it sharp.",
+      "searches": [
+        "Three taxa weighted unifrac tree metric branch cancellation formula bounds rank reversals",
+        "Sharp finite integer census threshold rank disagreement Bray Curtis total variation and normalized weighted UniFrac tree earth mover three taxa rooted binary phylogeny",
+        "\"Bray-Curtis\" \"weighted UniFrac\" \"order\" reversal",
+        "arxiv:1005.1699v1 tree KR metric weighted UniFrac"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 Pendleton–Schmidt four-taxon simulation uses 81 samples/3,240 comparisons, not a complete integer census table over arbitrary N on three-tip ultrametric trees.",
+        "Source DOI:10.1177/1176934319843515 examines low-sample-size UniFrac metric phenomena, but the inspected main results do not tabulate strict Bray–Curtis versus weighted UniFrac ordering reversals."
+      ],
+      "reasoning": "No inspected exact table or dataset gives the theorem or a complete census-by-stem-ratio classification. The present exact argument is analytic and unbounded in N rather than a reported finite census.",
+      "searches": [
+        "Exact Bray Curtis versus weighted UniFrac rankings on three tip rooted ultrametric tree, minimum census, tight distortion, reversals",
+        "Ultrametric rooted three species transport metric weighted UniFrac relative abundance Bray Curtis nearest neighbor ranking census size exact branch depth threshold",
+        "\"Bray-Curtis\" \"UniFrac\" \"three\" \"tips\" threshold"
+      ]
+    },
+    "rationale": "The metric formulas and transport equivalence are previously known, but the exact global all-integer-census cutoff for strict order reversal, including its sharp common-reference witness and equality phase boundary, is not implied by any inspected published statement without an additional extremal integer-gap argument. See the four implication comparisons and full-text section readings. Residual unindexed theorem risk is acknowledged.",
+    "residual_risks": [
+      "An unindexed more general rank-concordance theorem for integral empirical probability measures under two tree metrics could imply this restricted exact boundary despite not mentioning the two ecological names.",
+      "The threshold is purely combinatorial for a three-tip ultrametric tree; it is not a claim about statistical confidence of inferred ecological rankings or arbitrary phylogenetic shapes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces quantitative abundance-overlap coefficient, with no phylogenetic weighted UniFrac metric or three-tip cutoff.",
+        "evidence": "Original article page 329 exhibits quantitative common-abundance similarity and equal-total specialization; published 1957-10-01 per Wiley first-public record.",
+        "identifier_or_url": "doi:10.2307/1942268; https://www.geobotany.org/library/pubs/BrayJR1957_ecomon_325-349.pdf",
+        "material_read": "Facsimile original pages 328–329, specifically the section Index of Similarity; publisher article metadata first-public date 1957-10-01.",
+        "method": "Full-page PDF image inspection and publisher metadata; source material, not title-only.",
+        "title": "An Ordination of the Upland Forest Communities of Southern Wisconsin",
+        "trigger": "Original ecological dissimilarity and earliest archive anchor"
+      },
+      {
+        "assessment": "The normalizer is the root-distance weighted sum; with ultrametric tip length H it equals 2H. The paper reports broad methodological and experimental contrasts, but not integer rank reversal threshold.",
+        "evidence": "Methods raw sum and normalization equations 2007, published 2007-03-01.",
+        "identifier_or_url": "doi:10.1128/AEM.01996-06; https://journals.asm.org/doi/full/10.1128/aem.01996-06",
+        "material_read": "Full HTML introduction; Materials and Methods, Weighted UniFrac equations for raw u and denominator D; experimental methods/results, discussion.",
+        "method": "Full HTML article section-by-section reading, particularly Methods around original equations.",
+        "title": "Quantitative and Qualitative β Diversity Measures Lead to Different Insights into Factors That Structure Microbial Communities",
+        "trigger": "Defines the specific normalized weighted UniFrac used by the theorem"
+      },
+      {
+        "assessment": "Establishes general transport/tree integral formula; direct algebraic pairwise reduction is already contained in this framework. Does not assert an all-integer census strict rank-order threshold against Bray–Curtis.",
+        "evidence": "Equation (1) on PDF p. 570 gives raw weighted UniFrac sum; general KR statement in abstract and mathematical analysis. arXiv first public 2010-05-11.",
+        "identifier_or_url": "arxiv:1005.1699v1; doi:10.1111/j.1467-9868.2011.01018.x; https://matsen.fredhutch.org/papers/evans2012phylogenetic.pdf",
+        "material_read": "Open 24-page primary PDF, including first pages with UniFrac tree-sum formulas and discussion of transport, mathematical identity, applications and concluding comparisons.",
+        "method": "Open PDF full text; inspect rendered page 570 and searchable mathematical sections including comparison of phylogenetic and nonphylogenetic metrics.",
+        "title": "The phylogenetic Kantorovich–Rubinstein metric for environmental sequence samples",
+        "trigger": "Potential stronger coverage by generic tree transport identity"
+      },
+      {
+        "assessment": "Compares existing indices and proposes TINA/PINA; no all-integer three-tip necessary-and-sufficient ranking bound. Earliest public 2016-12-09, after current archive cut, used only as supplemental comparison.",
+        "evidence": "Table 1 lists Bray–Curtis and weighted UniFrac separately and introduces interaction-adjusted measures.",
+        "identifier_or_url": "doi:10.1038/ismej.2016.139; https://academic.oup.com/ismej/article/11/3/791/7537961",
+        "material_read": "Open-access full article, abstract, introduction, Materials and methods, Table 1 of 11 indices, and comparisons.",
+        "method": "Read full article HTML relevant comparisons and index definitions.",
+        "title": "A family of interaction-adjusted indices of community similarity",
+        "trigger": "Direct comparison of Bray–Curtis and weighted UniFrac among ecological indices"
+      },
+      {
+        "assessment": "Discusses metric properties of UniFrac for small samples but not opposite strict orderings with Bray–Curtis or an N-versus-h/H cutoff.",
+        "evidence": "Article goal concerns whether UniFrac versions are metrics, distinct from cross-metric distance-ranking order; published 2019-04-23.",
+        "identifier_or_url": "doi:10.1177/1176934319843515; https://journals.sagepub.com/doi/10.1177/1176934319843515",
+        "material_read": "Open-access article abstract, introduction, formal definitions, theorems on metric properties, and Earth Mover UniFrac discussion.",
+        "method": "Read full HTML original article and searched for Bray–Curtis comparison.",
+        "title": "A Commentary on Diversity Measures UniFrac in Very Small Sample Size",
+        "trigger": "Potential small-sample result subsuming finite census threshold"
+      },
+      {
+        "assessment": "Defines same normalization and compares index behavior in 81 four-taxon samples but does not establish the global three-taxon integer cutoff or common-reference sharpness.",
+        "evidence": "2026 main-text U^R numerator/denominator formula and 81 sample/3,240 comparison experiment.",
+        "identifier_or_url": "doi:10.1093/ismeco/ycaf250; https://academic.oup.com/ismecommun/article/6/1/ycaf250/8415533",
+        "material_read": "Open-access full text, sections Defining Absolute UniFrac, four-taxon simulations, figures/case studies and article main claims.",
+        "method": "Read HTML lines defining normalized relative weighted UniFrac and the four-taxon enumeration.",
+        "title": "Interpreting UniFrac with absolute abundance: a conceptual and practical guide",
+        "trigger": "Especially relevant recent direct Bray–Curtis / relative weighted UniFrac comparisons"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bf2f4439-a272-49f7-bf0e-a167e6a5ac40",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Bray–Curtis and normalized weighted UniFrac are central alternative phylogenetic/nonphylogenetic beta-diversity metrics. The exact all-N phase diagram, including a universal no-reversal guarantee, the sharp integer census staircase and a matching shared-reference witness, explains when phylogeny can change the ordering of dissimilarities on the smallest nontrivial rooted species tree. This is a natural structural boundary, not an arbitrary numerical slice or a mere normalization identity; value is limited to this controlled finite-census setting.",
+    "status": "PASS"
+  }
+}
