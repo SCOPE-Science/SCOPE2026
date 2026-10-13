@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Exact signed Hessian multipliers yield a fair log-magnitude random walk. Ballot/Catalan counts prove a.s. first hit and the heavy tail, while countably many disjoint expansion-then-contraction paths yield squared stopped outputs at least 4^h x0² with probability 2^{-(2h+1)}. Summation proves infinite square expectation and the finite-cap lower bound. All quantifiers and the cap/output indexing match Algorithm 2; 201 exact finite checks replay from package. The finite checks are not a proof of infinity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "SARAH last-iterate analyses and modified probabilistic SARAH papers use safe step choices and/or full-gradient refresh and do not cover this uncapped ratio-threshold output at eta=1/2.",
+        "Indexed OSGM stochastic curvature result analyzes one-step SGD targets, not this biased recursive estimator with adaptive stop."
+      ],
+      "reasoning": "Proved general guarantees for a safe learning-rate region cannot imply or preclude the exhibited stopped square moment in an excluded region. A stopping-time result with an arbitrary cap would only dominate if it established the same SARAH+ output and samples, which no inspected source does.",
+      "searches": [
+        "PAGE probabilistic gradient estimator scalar quadratic Bernoulli refresh exact mean square stability phase transition",
+        "SARAH single-epoch full-gradient initialization produces unbiased but infinite-variance terminal iterate on two positive-curvature quadratics even though iterates converge almost surely and in L1",
+        "stochastic recursive gradient algorithm curvature product mean square instability almost sure finite first moment",
+        "recursive gradient norm stopping critical random walk capped iteration mean squared risk grows linearly",
+        "arXiv:1906.02351 Sections 2–4",
+        "arXiv:2401.15890 introduction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1703.00102 complete accessible HTML original with Algorithm 2 and Section 4",
+      "arXiv:1906.02351 complete accessible HTML convergence and refresh model",
+      "arXiv:2401.15890 accessible introduction and method",
+      "Published indexed scientific records: 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6, 2026/9/17/SCOPE-finite-time-osgm-sgd-persistent-noise-quadratics--00bfbf6b7815, 2026/9/20/SCOPE-linear-wise-independent-rademacher-bounded-stopping-bias--ffc9773418a4, 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac, 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "SARAH+ source includes an explicit finite m cap for robustness, but the paper does not give the sharp first-hit distribution, expected uncapped work, or capped-output lower bound.",
+        "Loopless SARAH resets estimators probabilistically under other conditions; Rademacher stopping bias does not furnish the signed accumulated-gradient trajectory."
+      ],
+      "reasoning": "Original Algorithm 2 defines the process and its cap but does not imply the unbounded-time limit; the new calculation makes the cap-dependent phenomenon quantitative. Standard gambler’s ruin gives T but not x_{T+1}. Neither the original convergence theorem (inapplicable eta) nor later safe-step theorems dominate the claimed counterexample.",
+      "searches": [
+        "SARAH stochastic recursive gradient scalar quadratic exact convergence distribution with random stopping and refresh",
+        "SARAH+ adaptive relative gradient norm stop first passage Catalan infinite expected inner iterations finite sum quadratics",
+        "stochastic recursive gradient SARAH stopping time stopped output infinite expected square error despite finite stopping almost surely",
+        "arXiv:1703.00102 Algorithm 2 / Section 4",
+        "arXiv:1906.02351 Section 3",
+        "2026/9/20/SCOPE-linear-wise-independent-rademacher-bounded-stopping-bias--ffc9773418a4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The first-passage law is a classical Catalan identity, not claimed as novel. The original SARAH+ Section 4 specifies an additional cap and does not state this stopped-output divergence.",
+        "The indexed bounded stopping-bias record concerns limited-wise-independent Rademacher partial sums, not multiplicative gradient-estimator stopping and objective error."
+      ],
+      "reasoning": "Translate the threshold into a fair random-walk first hit and the final iterate into an alternating-signed exponentially weighted stopped sum. Neither Catalan first passage alone nor a generic random-walk stopping-bias bound entails the exponentially large signed iterate on the specific SARAH+ paths. The novelty claim is restricted to the coupling and its capped/uncapped consequences.",
+      "searches": [
+        "SARAH stochastic recursive gradient scalar quadratic exact convergence distribution with random stopping and refresh",
+        "SARAH+ adaptive relative gradient norm stop first passage Catalan infinite expected inner iterations finite sum quadratics",
+        "stochastic recursive gradient SARAH stopping time stopped output infinite expected square error despite finite stopping almost surely",
+        "SARAH two components curvatures 1 and 6 step 1/2 multiplier negative 2 positive 1/2 random walk hitting time",
+        "arXiv:1703.00102 Section 4",
+        "2026/9/20/SCOPE-linear-wise-independent-rademacher-bounded-stopping-bias--ffc9773418a4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected indexed results concern gradient curvature feedback and stochastic-noise absorption; their summaries contain no SARAH+ first-passage data or capped risk tables."
+      ],
+      "reasoning": "No numerical database or precomputed table containing the relevant output risk was identified. The finding is an analytic infinite-family result, not a new entry in a known numerical table. Lack of search hits alone is not a novelty proof.",
+      "searches": [
+        "SARAH+ adaptive relative gradient norm stop first passage Catalan infinite expected inner iterations finite sum quadratics",
+        "stochastic recursive gradient SARAH stopping time stopped output infinite expected square error despite finite stopping almost surely",
+        "SARAH two components curvatures 1 and 6 step 1/2 multiplier negative 2 positive 1/2 random walk hitting time",
+        "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+        "2026/9/17/SCOPE-finite-time-osgm-sgd-persistent-noise-quadratics--00bfbf6b7815"
+      ]
+    },
+    "rationale": "The inspected source defines SARAH+ with a finite cap and the ratio test, but does not imply this critical uncapped stopping-time distribution and divergent stopped objective or the exact capped-risk bound. Related SARAH and stochastic-gradient papers use different steps, resets, or questions; the Catalan identity itself is acknowledged as classical. Priority risk remains for unindexed work.",
+    "residual_risks": [
+      "An equivalent scalar SARAH+ stopping-risk analysis might exist in unindexed specialized or informal sources.",
+      "The strongest divergence claims require cap removal, and the example step size is beyond sufficient bounds; readers must not infer a failure of proven safe-step/capped guarantees."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines both the signed recursion and squared-norm test, but caps the inner pass and establishes only sufficient convergence guarantees in smaller-step regimes; no displayed critical first-passage law or stopped-output risk statement.",
+        "evidence": [
+          "Algorithm 2 https://arxiv.org/html/1703.00102v2 Section 4: while ||v_(t-1)||²>gamma||v_0||² and t<m; output w_t.",
+          "Section 3.2.2 convergence assumes an appropriate small learning rate; the example eta=1/2 and component L=6 is beyond that guarantee."
+        ],
+        "identifier_or_url": "arXiv:1703.00102; https://arxiv.org/html/1703.00102v2",
+        "material_read": "Full accessible HTML sections 2, 3, 4 (Algorithm 2 at section 4), and comparison against the stated convergence regime; checked algorithm pseudocode and maximal inner-loop cap.",
+        "method": "Read open-access original full HTML, including update order and Section 4 algorithm and robustness discussion.",
+        "title": "SARAH: A Novel Method for Machine Learning Problems Using Stochastic Recursive Gradient",
+        "trigger": "Identical recursive estimator and SARAH+ norm-threshold rule; potentially decisive same method"
+      },
+      {
+        "assessment": "Works with bounded/safe learning rates and probabilistic full-gradient refresh; no first-hit norm threshold for a signed reciprocal-multiplier walk or linearly growing capped returned-square lower bound.",
+        "evidence": [
+          "https://arxiv.org/html/1906.02351v2 Sections 2, 3 and 4; contributions and theorem assumptions."
+        ],
+        "identifier_or_url": "arXiv:1906.02351; https://arxiv.org/html/1906.02351v2",
+        "material_read": "Full accessible HTML abstract, Sections 1-4, SARAH recap, loopless refresh and last-iterate guarantees, plus relevant theorem statements.",
+        "method": "Read author preprint full HTML, examining algorithm assumptions and stopping mechanism.",
+        "title": "On the Convergence of SARAH and Beyond",
+        "trigger": "Sharper last-iterate and loopless SARAH convergence results might cover the claimed risk"
+      },
+      {
+        "assessment": "Proves high-probability estimates for a modified probabilistic SARAH procedure rather than unbounded SARAH+ norm-threshold stopping in the specified high-step scalar example; no direct implication established.",
+        "evidence": [
+          "https://arxiv.org/abs/2401.15890; original paper introduction and method."
+        ],
+        "identifier_or_url": "arXiv:2401.15890; https://arxiv.org/abs/2401.15890",
+        "material_read": "Open-access arXiv PDF introduction and algorithm formulation, including probabilistic guarantee statement (pages 1–2).",
+        "method": "Read relevant accessible original PDF introductory and method material.",
+        "title": "Probabilistic Guarantees of Stochastic Recursive Gradient in Non-Convex Finite Sum Problems",
+        "trigger": "High-probability recursive-gradient results could imply stopping-time estimates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9639e97e-e7ba-4835-a355-de997600a74a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The counterexample turns the source’s practical cap-for-robustness choice into an exact mathematical boundary: without it, a.s. stopping coexists with both infinite mean sampling cost and infinite expected objective on a strongly convex example; a cap produces a quantified growing risk lower bound. Stable full-gradient descent at the same step rules out a merely ill-posed objective. Restricted step size and single-epoch regime are explicit.",
+    "status": "PASS"
+  }
+}
