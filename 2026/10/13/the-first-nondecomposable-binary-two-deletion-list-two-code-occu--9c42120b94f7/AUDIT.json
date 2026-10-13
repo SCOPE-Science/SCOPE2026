@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Every binary word and all two-position deletion shadows are enumerated in standalone verify.py. Its integer dual certificates yield upper bounds 340/59<6 and 666/59<12 for n=7; explicit codebooks attain 5 and 11. All shorter lengths are also certified (n=6 dual 20/5 and 36/5; n=3–5 integer certificates; n=2 trivial). Verified output VERIFY_OK, no solver reliance.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lin Theorem 1.1 proves asymptotic lower bounds of order 2^n t log^(1/t)(n)/n^(k+k/t).",
+        "Kiah–Wei–Zeng Theorem 23 is an alphabet-dependent general run-counting upper bound; it does not give a matching 11-word construction and is not stated as a full finite classification.",
+        "Guruswami–Håstad Theorem 1.2 is an explicit asymptotic list-two, two-deletion construction of size Omega(2^n/n^(3+o(1)))."
+      ],
+      "reasoning": "None of the inspected general asymptotic bounds implies the sharp combination of a 11-word construction, a <12 fractional dual upper certificate, and first-occurrence comparison. General upper-bound machinery might in principle specialize sharply, but the exact optimum would still require an attaining construction.",
+      "searches": [
+        "published-finding corpus: list-decodable deletion codes two deletions exact finite length enumeration 2026",
+        "Web: two deletions length 7 list binary code 11",
+        "Primary: arxiv:2609.26650 Theorem 1.1",
+        "Primary: arxiv:2609.21395 Theorem 23",
+        "Primary: arxiv:2007.10592 Theorem 1.2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.26650v1",
+      "arxiv:2007.10592v1",
+      "arxiv:2609.21395v1",
+      "OEIS:A057591",
+      "Houghten binary edit-metric code table",
+      "published published-finding corpus semantic records queried"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A previously established single-deletion capacity classification concerns a different channel and does not establish this two-deletion result.",
+        "Guruswami–Håstad and Lin address the exact same two-deletion channel but only larger-block asymptotic constructions and bounds.",
+        "Neither OEIS A057591 nor its reference list includes list size two as its parameter."
+      ],
+      "reasoning": "Neither a one-deletion exact capacity nor a two-deletion uniquely decodable capacity controls the two-deletion list-two optimum tightly: the inequality 11>10 is an independent finite capacity fact. The dual certificate and explicit size-11 code demonstrate the additional information.",
+      "searches": [
+        "Prior exact single-deletion capacity classification (different deletion radius)",
+        "published-finding corpus: binary 7 bit two deletion two-list code 11 words exact dual certificate length 7",
+        "published-finding corpus: multiple deletion list-decoding finite parameter tables length 6 length 7 two deletions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lin arXiv:2609.26650 Definition 2.1 and Definition 2.2 identify list decodability with an independence condition in a deletion hypergraph.",
+        "No matching exact cardinality 11 or first length 7 in the inspected texts.",
+        "published-finding corpus closest generic entries include 2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c and 2026/9/18/SCOPE-fixed-qary-deletion-codes-2t-minus-1--0b8ba422fcea; those state asymptotic redundancy rather than this finite optimum."
+      ],
+      "reasoning": "The incidence formulation Ax<=2 on binary 7-words is exactly 2-list decodability after deleting two positions, including hypergraph independence. Searches for the synonym codewords sharing a length-five subsequence and nondecomposability do not uncover an already-exact value. Absence from search results alone is not a proof of novelty.",
+      "searches": [
+        "published-finding corpus: two deletions binary length seven maximum 2 list decodable code size 11, M(7,2,2), 7-bit code 2-deletion list size 2",
+        "published-finding corpus: two deletion list decoding smallest length where two-list optimum exceeds twice unique deletion code packing, nondecomposable code",
+        "Web: 2-list 2-deletion length 7 binary 11",
+        "Web: finite block 2-list 2-deletion length seven 11 hypergraph independent set"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A057591 explicitly lists n=7 binary two-deletion unique decoding optimum as 5.",
+        "Houghten–Ashlock–Lenarz table reports fixed-length unique edit-metric code bounds, not list-two deletion incidence maxima.",
+        "No exact list-two table matching 11 was found in inspected indexed material."
+      ],
+      "reasoning": "The known unique case M_2(7,1)=5 is credited as prior work and is only a baseline. The new list-two value is 11 and cannot be inferred merely from the unique number: the naive union of two unique codes has at most ten words.",
+      "searches": [
+        "Web: binary deletion correction n 7 t 2 maximal code 5",
+        "OEIS A057591 exact binary two-deletion code sizes",
+        "Web: list decodable deletion codes small length seven two deletions maximum 11",
+        "Web: finite block 2-list 2-deletion length seven 11 hypergraph independent set",
+        "Houghten binary edit-metric optimal code table"
+      ]
+    },
+    "rationale": "The exact 11-word list-two optimum and first-length separation are not established by the inspected 2020 or 2026 primary papers or the exact unique-code table. The prior same-radius unique value five is explicitly credited, and the analogous single-deletion classification addresses a different channel. Residual unindexed finite-table overlap is possible.",
+    "residual_risks": [
+      "Unindexed historical finite two-deletion list-size-two tables could contain the exact 11 value.",
+      "Only relevant sections, not all appendices, of the 46-page Kiah–Wei–Zeng paper were materially read; no matching exact statement was found by textual search.",
+      "published-finding corpus indexes published research and cannot establish global uniqueness or access unpublished results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers asymptotic sizes and general combinatorial inequalities, not exact seven-bit list-two optimum.",
+        "evidence": [
+          "Definition 2.1 pp3, Theorem 1.1 pp2, upper-count proof pp4-8; first public arXiv v1 on 2026-09-22."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.26650",
+        "material_read": "PDF introduction and definitions (pp1–3), main hypergraph argument (pp4–6), and selected later proof portions (pp7–8)",
+        "method": "ArXiv PDF parsed text, page screenshots, and sections inspected",
+        "title": "Lower Bounds for all List-Decodable Deletion Codes",
+        "trigger": "Same binary k-deletion t-list definition, main recent starting point"
+      },
+      {
+        "assessment": "Theorems 1.1–1.2 concern efficient asymptotic constructions and do not state finite optimum for n=7.",
+        "evidence": [
+          "Theorem 1.2 has redundancy 3 log n+O(log log n), not exact small-block counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2007.10592",
+        "material_read": "PDF introduction, theorem statements, list-two construction sections and later unique-decoding proof overview",
+        "method": "ArXiv PDF parsed text and title-page screenshot",
+        "title": "Explicit two-deletion codes with redundancy matching the existential bound",
+        "trigger": "Prior two-deletion size-two-list construction"
+      },
+      {
+        "assessment": "General upper bounds do not give the explicit attaining eleven-word code; uninspected appendices remain a residual risk.",
+        "evidence": [
+          "Theorem 23 around printed p25 is the finite-length Levenshtein-type bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.21395",
+        "material_read": "PDF title, abstract, introduction, error-budget reduction and finite-length Theorem 23; full-text search for n=7",
+        "method": "ArXiv PDF parsed text, first-page screenshot, theorem inspection and text search",
+        "title": "Constant-List Insertion–Deletion Codes: New Bounds and an Improvement of Levenshtein’s Lower Bound",
+        "trigger": "Potential broad upper bound dominating the finite result"
+      },
+      {
+        "assessment": "Records unique capacity M_2(7,1)=5, not list-two capacity; source of credited comparison only.",
+        "evidence": [
+          "The entry lists values 1,1,2,2,2,4,5,... for unique two-deletion codes."
+        ],
+        "identifier_or_url": "https://oeis.org/A057591",
+        "material_read": "Entire indexed entry and references, n=1 through n=11 entries",
+        "method": "Public HTML table inspection",
+        "title": "OEIS A057591: Maximal size of binary code of length n that corrects 2 deletions",
+        "trigger": "Exact known unique-decoding small-length table"
+      },
+      {
+        "assessment": "Only pairwise minimum edit-distance unique-code capacities, not list-two hypergraph capacity.",
+        "evidence": [
+          "Table defines E_2(n,d) via minimum edit distance, not list multiplicity."
+        ],
+        "identifier_or_url": "https://cosc.brocku.ca/~shoughten/binaryedit.html",
+        "material_read": "Entire fixed-length edit-metric bound table and definitions",
+        "method": "Public HTML table inspection",
+        "title": "Optimal Binary Edit-Metric Codes",
+        "trigger": "Potential exact finite tables that could subsume the result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9c42120b-94f7-47f2-823f-0fd99c671bde",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact 11-word optimum is the first two-deletion list-size-two finite length where the maximum code cannot be formed as a union of two uniquely decodable codes, a motivated structural synchronization-coding threshold. It extends beyond merely recomputing the previously tabulated unique value five or repeating the one-deletion phenomenon; no all-length conclusion is asserted.",
+    "status": "PASS"
+  }
+}
