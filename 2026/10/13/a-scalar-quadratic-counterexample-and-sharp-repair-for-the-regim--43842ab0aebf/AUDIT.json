@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "For \\(f(x)=2x^2\\), \\(x=1\\), and \\(\\Delta\\tau=1/2\\), Definition 2.1 gives \\(x_{\\rm new}=-1\\), zero function-value difference, and exactly \\(\\mathcal K_0=1/(2\\sqrt3)\\). Assumption 4.1 admits \\(\\Lambda_1=4\\), \\(\\xi=4\\), and every positive Hessian-Lipschitz constant, including \\(L=1/100\\). The claimed bound is \\(5/\\sqrt{78}\\), strictly larger than the exact step. The repair follows by the correct estimate \\(\\|G(x_{\\rm new})-G(x)\\|_2\\le B\\Delta\\tau\\|G(x)\\|_2\\), which contributes \\(B^2\\) after squaring. The scalar formula \\(\\mathcal K_0=\\sqrt{(z-2)^2+4}/(\\lambda\\sqrt3)\\) proves sharpness of the squared scale.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source discusses KGD/BB equivalence for Regime 1 on quadratics, but that equivalence does not imply the Regime-0 lower bound.",
+        "Nearby indexed adaptive-gradient and BB stability results address different step rules and do not dominate the lemma-specific counterexample or repair."
+      ],
+      "reasoning": "A general convergence theorem or a Regime-1 BB equivalence cannot imply a false Regime-0 lower bound. The repaired bound is tied to the exact squared gradient-difference term in the source proof.",
+      "searches": [
+        "Kahan automatic step-size lower bound Regime 0 Hessian norm",
+        "adaptive gradient step lower bound Hessian Lipschitz Kahan KGD",
+        "scalar quadratic Kahan automatic step-size"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2508.06002v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Assumption 4.1 introduces a one-sided Hessian Rayleigh upper bound \\(\\Lambda_1\\) and a Hessian Lipschitz constant.",
+        "Lemma 4.2 states a lower bound with curvature term \\(3\\Lambda_1\\), while its proof needs control of the squared norm \\(\\|G(x_{\\rm new})-G(x)\\|_2^2\\).",
+        "The displayed proof of Theorem 4.1 uses Lemma 4.1 for finite line-search termination; therefore the present finding is deliberately limited to Lemma 4.2 rather than asserting downstream theorem failure."
+      ],
+      "reasoning": "The new claim contradicts, rather than follows from, the source lower bound. The repaired statement replaces the insufficient one-sided scale by the operator-norm quantity actually required by the proof.",
+      "searches": [
+        "Primary full text: Definition 2.1, Assumption 4.1, Lemma 4.1, Lemma 4.2, Algorithm 1, Theorem 4.1",
+        "arXiv:2508.06002v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned published record matched arXiv:2508.06002 with a Lemma 4.2 correction, scalar quadratic counterexample, or Hessian-square repair.",
+        "The primary source's Definition 2.1 and Lemma 4.2 were compared directly with the reconstructed scalar formula."
+      ],
+      "reasoning": "The searches used the source identifier, exact lemma number, method aliases, the disputed lower-bound structure, and the operator-norm-square mechanism. The claim is not merely a differently worded convergence statement: it is an explicit violation of a quantitative inequality and a corrected inequality with a different curvature scale.",
+      "searches": [
+        "2508.06002 Lemma 4.2 Kahan lower bound counterexample scalar quadratic",
+        "Kahan Regime 0 lower bound scalar quadratic lambda squared Hessian",
+        "automatic step-size K0 lower bound 2 sqrt 12 xi L 3 Lambda counterexample",
+        "Kahan KGD Lemma 4.2 correction Hessian norm squared"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary arXiv record remains version 1 in the inspected public record.",
+        "No published correction, erratum, or table containing the scalar witness was located."
+      ],
+      "reasoning": "The finding is an analytic counterexample and repaired inequality, not a recomputation of a numerical table. Exact source-identifier searches were used to check for later corrections.",
+      "searches": [
+        "arXiv:2508.06002 Lemma 4.2",
+        "2508.06002 12 xi L Lambda_1",
+        "Kahan KGD Regime 0 lower bound"
+      ]
+    },
+    "rationale": "The primary full text states the false bound and does not provide the scalar counterexample or the operator-norm-square repair. Identifier-, lemma-, formula-, and alias-directed published searches did not locate a correction or equivalent result. The closest indexed optimization findings concern unrelated stability thresholds, BB/Polyak behavior, and other adaptive-step mechanisms rather than this KGD lemma.",
+    "residual_risks": [
+      "A correction may exist outside the indexed public sources searched.",
+      "The source may have intended \\(\\Lambda_1\\) to be a stronger norm-based constant than the one explicitly defined in Assumption 4.1, but the published statement uses the displayed Rayleigh-bound definition.",
+      "The repaired global form needs Hessian operator-norm control on the actual trial segment; the original sublevel-set assumptions alone may not guarantee this for arbitrary rejected trial points outside that set."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source states the lower bound with \\(3\\Lambda_1\\) and its proof bounds a squared gradient difference with a term linear in \\(\\Lambda_1\\). It does not state the scalar counterexample or the \\(3B^2\\) repair.",
+        "evidence": "Definition 2.1 gives the exact \\(\\mathcal K_0\\) formula; Assumption 4.1 defines \\(\\Lambda_1\\) through a Hessian Rayleigh upper bound; Lemma 4.2 states the disputed lower bound.",
+        "identifier_or_url": "arXiv:2508.06002v1",
+        "material_read": "Public arXiv full-text sections containing Definition 2.1, the quadratic discussion, Assumption 4.1, Lemmas 4.1 and 4.2 with proofs, Algorithm 1, and the displayed proof of Theorem 4.1.",
+        "method": "Public arXiv HTML full-text inspection.",
+        "title": "Kahan's Automatic Step-Size Control for Unconstrained Optimization",
+        "trigger": "Primary source defining the disputed Regime-0 step and lower bound."
+      },
+      {
+        "assessment": "The inspected public record identifies version 1, first public 8 August 2025, with AMS classifications beginning 65L20.",
+        "evidence": "The public record lists arXiv:2508.06002v1 and AMS 65L20, 65B99, 90C25.",
+        "identifier_or_url": "arXiv:2508.06002",
+        "material_read": "Public arXiv abstract metadata showing first-public date and AMS classifications.",
+        "method": "Public arXiv metadata inspection.",
+        "title": "Kahan's Automatic Step-Size Control for Unconstrained Optimization",
+        "trigger": "Version/date and classification verification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "43842ab0-aebf-4ecc-b991-f134789f5fe8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The disputed bound is presented as a structural property of the Regime-0 KGD safeguard used in the adaptive framework. A one-dimensional quadratic exposes the incorrect curvature scaling exactly, while the repair identifies the missing operator-norm square and is sharp on the simplest quadratic subclass. This is a substantive proof-level correction with a reusable diagnostic formula, not a numerical discrepancy or arbitrary special case.",
+    "status": "PASS"
+  }
+}
