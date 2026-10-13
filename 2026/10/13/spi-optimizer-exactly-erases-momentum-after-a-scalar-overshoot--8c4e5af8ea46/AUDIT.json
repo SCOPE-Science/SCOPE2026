@@ -1,0 +1,91 @@
+{
+  "correctness": {
+    "rationale": "For \\(s=r\\lambda>1\\), the zero-momentum first step necessarily crosses the optimum and makes the current iterate and stored momentum have opposite signs. The source gate then removes momentum. The explicit induction shows the sign mismatch persists forever, so the recurrence is exactly gradient descent. The comparison interval for ordinary momentum follows from the complete quadratic Jury criterion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Restart and conditional-integration ideas broadly remove stale momentum after reversals.",
+        "The SPI source itself derives this rule from classical conditional integration.",
+        "Generic restart intuition does not imply that the source gate remains permanently off after one scalar overshoot."
+      ],
+      "reasoning": "The accepted result is not the generic idea of momentum restart; it is the exact invariant branch sequence induced by SPI's sign rule and its sharp stability consequence.",
+      "searches": [
+        "conditional integration momentum overshoot gradient sign reset optimizer",
+        "momentum restart sign change scalar quadratic",
+        "gradient descent momentum restart stability quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1812.11305v1",
+      "DOI:10.1109/ICIP.2019.8803138"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source main text defines the coordinatewise sign-consistency gate and says the state delay becomes the gradient-descent delay when oscillation is detected.",
+        "The supplement rewrites the method as gradient descent plus a diagonal gated momentum term and derives a conservative sufficient convergence condition.",
+        "The source experiments report robustness at larger learning rates but no exact scalar branch law."
+      ],
+      "reasoning": "The source mechanism does not itself state whether the gate reactivates after a crossing. The accepted proof shows that for a scalar quadratic with \\(s>1\\), it cannot reactivate, and this yields the exact stability ceiling.",
+      "searches": [
+        "arXiv:1812.11305 equation 5 sign consistency SPI",
+        "arXiv:1812.11305 supplement equation 10 convergence proof",
+        "SPI optimizer large learning rate robust momentum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source states that momentum is separated when the gradient and stored momentum directions are inconsistent.",
+        "The source identifies the post-crossing interval as the mechanism behind momentum lag and overshoot.",
+        "No inspected source states that one scalar overshoot forces all future gates off."
+      ],
+      "reasoning": "Equivalent coverage would state the closed form \\(\theta_t=(1-s)^t\theta_0\\) after overshoot, permanent gate deactivation, or the exact \\(s=2\\) boundary. None was located.",
+      "searches": [
+        "SPI-Optimizer scalar quadratic exact reset to gradient descent overshoot",
+        "integral-Separated PI optimizer momentum erasure scalar quadratic learning rate",
+        "SPI optimizer sign consistency momentum gate exact dynamics quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed records concern Polyak objective monotonicity, stochastic feedback stability, and heavy-ball spectral barriers.",
+        "No returned indexed finding names SPI-Optimizer or gives the permanent momentum-erasure phase law."
+      ],
+      "reasoning": "The closest results use ungated momentum or different reset mechanisms and do not imply the source SPI branch invariance.",
+      "searches": [
+        "SPI-Optimizer scalar quadratic exact reset to gradient descent overshoot",
+        "integral-Separated PI optimizer momentum erasure scalar quadratic learning rate",
+        "SPI optimizer sign consistency momentum gate exact dynamics quadratic"
+      ]
+    },
+    "rationale": "The source explains qualitatively that SPI discards stale momentum after a sign reversal and supplies a conservative convergence bound, but it does not state the exact permanent-reset law or the sharp scalar stability comparison. Focused published-record and owned-ledger searches found no implication-equivalent SPI result.",
+    "residual_risks": [
+      "Equivalent scalar restart calculations may exist in older conditional-integration or momentum-restart literature under different terminology.",
+      "The result is restricted to the overshoot regime and standard zero-momentum initialization.",
+      "Multidimensional coordinates can have different gate states and are not covered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_GATE_AND_CONSERVATIVE_CONVERGENCE_BOUND; EXACT_OVERSHOOT_BRANCH_LAW_NOT_STATED.",
+        "evidence": "The source explicitly says the momentum term is discarded when gradient and momentum directions are inconsistent and rewrites the method with a diagonal gate, but does not state permanent gate deactivation after one scalar overshoot or the resulting exact stability comparison.",
+        "identifier_or_url": "arXiv:1812.11305v1/v2; DOI:10.1109/ICIP.2019.8803138",
+        "material_read": "Full open PDF including the momentum pre-analysis, Section 3.2 integral-separated PI controller, Equations 4 through 6, the large-learning-rate experiments, and the supplementary convergence proof with Equations 10 and 11.",
+        "method": "Full-text PDF inspection plus page-image inspection of the sign-gate equation.",
+        "title": "SPI-Optimizer: an integral-Separated PI Controller for Stochastic Optimization",
+        "trigger": "Defining source for the sign-consistency gate, overshoot motivation, and convergence analysis."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c4e5af8-ea46-4932-9f2c-d256a89caf25",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "SPI-Optimizer is explicitly designed to suppress momentum lag after crossing an optimum, and the source highlights robustness to large learning rates as an empirical advantage. The theorem gives the exact deterministic boundary of that mechanism: once a scalar overshoot occurs, SPI discards momentum forever, so its stability ceiling becomes exactly gradient descent's, while ordinary momentum retains a strictly larger stable interval when \\(\u0007lpha>0\\). This is a structural tradeoff in the defining gate rather than a routine numerical example.",
+    "status": "PASS"
+  }
+}
