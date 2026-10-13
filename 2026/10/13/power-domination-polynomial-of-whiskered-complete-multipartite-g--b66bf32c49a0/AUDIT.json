@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "All successful initial sets are partitioned exhaustively by the number of core-bearing parts (0, 1 or at least 2). The first-forcing obstructions give necessary and sufficient vacancy conditions; algebraic weight enumeration over the four core--leaf states produces the formula with no overcount. Boundary assumptions r>=2 and n_i>=2 are used in the two-vacancy different-part case. An independently coded brute-force propagation and coefficient checker produced zero mismatches over 156,928 subsets in seven independent multipartite profiles, while the general combinatorial proof handles arbitrary admissible sizes. The 2-sensor count follows from an exhaustive classification of weight-two feasible sets; no claim that experiments prove the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bjorkman et al. arXiv:2312.12259v1 Section 5.3 treats expected observation for complete multipartite bases without private leaves.",
+        "Brimkov et al. arXiv:1805.10984v1 Proposition 20(4) requires attached K_k with k>1.",
+        "Published finding 2026/10/4/SCOPE-all-minimum-power-dominating-sets-of-connected-threshold-graphs--215b394cb6b1 only characterizes minimum power-dominating singleton sets in connected threshold graphs."
+      ],
+      "reasoning": "A generic reliable-sensor probability transform does not supply input coefficients; its complete-multipartite calculation omits the corona attachment. Threshold bases are not the specified private-leaf graphs, and minimum-only results do not determine all coefficients. No inspected stronger formula subsumes the new family.",
+      "searches": [
+        "fragile power domination probability of success generalized corona G with k pendant leaves each vertex",
+        "Every power dominating set of whiskered complete multipartite graphs K_{n1,...,nr} circle K1 has precise strong-part and vacant-vertex conditions, with exact generating polynomial",
+        "whiskered complete multipartite graph power domination corona pendant private leaf all cardinalities",
+        "2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4",
+        "2026/10/4/SCOPE-all-minimum-power-dominating-sets-of-connected-threshold-graphs--215b394cb6b1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1805.10984v1 full HTML: Theorem 19, Proposition 20, Question 3",
+      "arxiv:2312.12259v1 full HTML: Observation 4.2, Section 5.3",
+      "2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4 published summary",
+      "2026/10/4/SCOPE-all-minimum-power-dominating-sets-of-connected-threshold-graphs--215b394cb6b1 published summary",
+      "2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba published summary"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brimkov et al. arXiv:1805.10984v1 Section 7 Question 3 explicitly identifies the K1 case as not following from Theorem 19.",
+        "Bjorkman et al. arXiv:2312.12259v1 Observation 4.2 establishes universal conversion of polynomial to full-observation reliability, rather than a polynomial for the corona.",
+        "published-finding corpus 2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4 optimizes failure reliability for complete multipartite base graphs, without privately attached leaves."
+      ],
+      "reasoning": "The earlier corona K_k formula does not specialize to K1; substitution k=1 in a theorem requiring k>1 is invalid. Generic sensor reliability follows once the polynomial is known, not conversely from an unrelated base-family expected-value formula. The two results intersect in concepts but do not cover the particular full polynomial.",
+      "searches": [
+        "power domination polynomials of corona products of complete graphs or complete bipartite graphs",
+        "2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4",
+        "2026/10/4/SCOPE-all-minimum-power-dominating-sets-of-connected-threshold-graphs--215b394cb6b1",
+        "power domination polynomial corona K1 complete multipartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brimkov et al. arXiv:1805.10984v1, Question 3, asks to compute the power-domination polynomial of H circle K1; Theorem 19 and Proposition 20(4) cover K_k attached with k>1.",
+        "The private-leaf corona has one path edge attached per original vertex; its counting problem is not the ordinary domination polynomial nor the minimum-only power domination number."
+      ],
+      "reasoning": "Equivalent terminology includes whiskered, pendant-leaf corona and corona by an isolated vertex. The search found the open question itself but not a statement equivalent to the strong-part/vacancy classification. This is evidence of a specific gap rather than a proof of exhaustive novelty.",
+      "searches": [
+        "power domination polynomial of leaf corona of complete bipartite graph K_{m,n} with private pendant leaves, count all power dominating subsets",
+        "power dominating set enumeration of whiskered complete bipartite graphs K_{m,n} circ K_1, 4 status per matched core leaf pair",
+        "power domination polynomial ℘(K_{n_1,...,n_r} ∘ K_1;x) complete count",
+        "Brimkov Patel power domination polynomial leaf corona question solved later",
+        "power domination polynomial leaf corona graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published semantic search returned nearby domination polynomials for non-power-domination invariants (2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba), not a table of power domination coefficients on these coronas.",
+        "Brimkov et al. arXiv:1805.10984v1 mention a small-graph brute-force polynomial database; no all-size multipartite-leaf-corona table or general formula is asserted there."
+      ],
+      "reasoning": "A finite list of small polynomials, even if it includes the four-vertex base example, does not imply an all-profile formula with exact characterization. No matching exact database/table was located among checked published sources; this is not an exhaustive database search.",
+      "searches": [
+        "power domination polynomial of leaf corona of complete bipartite graph K_{m,n} with private pendant leaves, count all power dominating subsets",
+        "power dominating set enumeration of whiskered complete bipartite graphs K_{m,n} circ K_1, 4 status per matched core leaf pair",
+        "power domination polynomial ℘(K_{n_1,...,n_r} ∘ K_1;x) complete count",
+        "whiskered complete multipartite graph power domination corona pendant private leaf all cardinalities"
+      ]
+    },
+    "rationale": "The primary initiating source explicitly left the leaf-corona polynomial for arbitrary bases open (Question 3); its own formula addresses clique attachment size strictly greater than one. The new iff profile and closed polynomial settle the question on multipartite bases having at least two vertices in every part. The 2023 reliability transform changes variables but does not produce this base-family polynomial. Semantic searches in published records did not return a covering theorem. Residual unindexed equivalences remain possible.",
+    "residual_risks": [
+      "An independently published, unpublished or unindexed equivalent all-subset corona enumeration could evade the sources searched.",
+      "Published summaries of nearby results were not a substitute for reading their entire manuscripts; they appear conceptually distinct on the record, but implicit reductions could remain.",
+      "The theorem excludes singleton parts and arbitrary base graphs, and thus is a restricted answer to the original general question."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The K1 pendant-leaf case is explicitly not covered by Theorem 19; Question 3 requests an efficient method for general leaf-coronas, while the presented result gives an exact infinite-family answer.",
+        "evidence": [
+          "Proposition 20(4): corona with K_k only k>1",
+          "Question 3: efficient computation of power domination polynomial on arbitrary H circle K1",
+          "arXiv first public version 2018-05-28, primary MSC 05C31"
+        ],
+        "identifier_or_url": "arxiv:1805.10984v1 | https://arxiv.org/html/1805.10984v1",
+        "material_read": "Sections 3, 4 and 7, especially Theorem 19, Proposition 20 and Question 3; relevant hypotheses and statements",
+        "method": "Primary full-text arXiv HTML, inspected the original theorem hypotheses and question text",
+        "title": "Power domination polynomials of graphs",
+        "trigger": "Definition, directly plausible universal corona formula and explicit open Question 3"
+      },
+      {
+        "assessment": "Establishes general variable-change connection to full-observation probability and expected-value polynomials on unwhiskered multipartite graphs, not all coefficients for their private-leaf coronas.",
+        "evidence": [
+          "Observation 4.2 is a universal sum over existing power-domination polynomial coefficients",
+          "Section 5.3 computes expected-value polynomials on complete multipartite graphs without corona leaves",
+          "arXiv version 2023-12-19"
+        ],
+        "identifier_or_url": "arxiv:2312.12259v1 | https://arxiv.org/html/2312.12259v1",
+        "material_read": "Power-domination definitions, Observation 4.2 and Section 5.3 on complete multipartite base graphs",
+        "method": "Primary full-text arXiv HTML, comparison of underlying graph and computed quantity",
+        "title": "Power domination with random sensor failure",
+        "trigger": "Possible broader probabilistic enumeration on complete multipartite graphs"
+      },
+      {
+        "assessment": "Confined to minimum singleton placements of connected threshold graphs, not a leaf-corona all-set polynomial.",
+        "evidence": [
+          "published-finding corpus 2026/10/4/SCOPE-all-minimum-power-dominating-sets-of-connected-threshold-graphs--215b394cb6b1: every minimum power-dominating set is singleton for specified connected threshold graphs."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-all-minimum-power-dominating-sets-of-connected-threshold-graphs--215b394cb6b1",
+        "material_read": "Published published-finding corpus summary stating the base family and minimum-singleton classification",
+        "method": "Published result record summary, no claim of reading full primary file",
+        "title": "All minimum power-dominating sets of connected threshold graphs",
+        "trigger": "Nearest semantic result with same power-domination invariant"
+      },
+      {
+        "assessment": "Complete multipartite graphs without private corona leaves; optimizes budgets rather than enumerating all power-dominating subsets of the whiskered graphs.",
+        "evidence": [
+          "published-finding corpus 2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4: partwise penalties and optimal greedy PMU placement on complete multipartite graphs."
+        ],
+        "identifier_or_url": "2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4",
+        "material_read": "Published published-finding corpus summary of class and sensor-failure optimization",
+        "method": "Published result record summary, no claim of full manuscript inspection",
+        "title": "Exact full-observation reliability and optimal fragile-PMU placement on complete multipartite graphs",
+        "trigger": "Potential covering complete multipartite sensor-reliability formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b66bf32c-49a0-4aa2-8aee-ddbe4c92e88c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original 2018 power-domination polynomial paper explicitly isolates the corona by a single leaf as an unresolved computational graph-family operation. A closed all-cardinality formula for an infinite, natural complete multipartite subclass goes materially beyond a minimum-value substitution: it identifies every admissible sensor subset and counts all initial placement sizes, which in turn gives exact full-observation failure reliability and precise multiplicity of optimal two-sensor placements. The exact number depends nontrivially on multipartite part sizes and includes forced-versus-deadlocked cases absent from a routine count.",
+    "status": "PASS"
+  }
+}
