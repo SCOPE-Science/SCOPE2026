@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "For every n≥3 and all 2^n subsets, graph-state cut entropy equals the GF(2) cut-adjacency rank. Any cut having a noncrossing edge decomposes uniquely into path runs, whose independent binary matrix ranks equal ceil(L/2). The written four-state transition gives exactly one closed path per such cut. At even n=2m the two fully alternating cuts have rank(I+P)=m−1, while the cyclic phase-tracking trace counts each twice at rank m; the explicit correction replaces precisely these terms. At odd n none exists. The eigenvalue reduction at z=1, derivative identities and analytic dominant eigenvalue prove first moment, variance asymptotic and CLT for all n, not just enumerated n. A standalone independent GF(2) elimination check agrees with every transfer coefficient for all n=3..15 and with the n=12,k=6 exact table. Finite checks corroborate and are not used as an all-n proof. Limits and boundaries are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1906.02895v1 proves structural results and bounds for average cut rank of general graphs, but does not tabulate the joint rank/cardinality law of all cycles.",
+        "arXiv:2605.11076v1 studies local and contiguous cuts and entanglement propagation of graph-state circuit blocks, not all size-k subsets.",
+        "Graphical-group cycle result 2026/10/4/SCOPE-cycle-graphical-groups-have-an-explicit-character-degree-enumera--a874723da77e: counts ranks of a generic n-by-n skew-weighted matrix over arbitrary F_q across all weights; no subset-size variable or selected-vs-unselected rows."
+      ],
+      "reasoning": "Broader graph-state results give the mapping from cut rank to entropy, not its cycle-specific distribution; general graphical-group character/rank formulas concern different sample spaces and matrices. The reviewed broad results thus do not imply the exact claimed conditional distribution. General transfer-matrix frameworks are acknowledged as a source of residual implicit-coverage risk.",
+      "searches": [
+        "published-finding corpus: rank generating polynomial of cycle vertex bipartition cut adjacency over F2",
+        "published-finding corpus: graph-state graph cut rank generating function cycle monomer matching fluctuations entropy",
+        "Web: graph polynomial sum over subsets x power size y rank adjacency bipartite cut graph",
+        "Web: random vertex subsets cycle graph cut rank rank-width partition generating function",
+        "Web: graph-state Schmidt rank cycle graph all bipartitions generating function"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.6084/m9.figshare.30740282",
+      "arXiv:2605.11076v1",
+      "arXiv:1906.02895v1",
+      "arXiv:quant-ph/0307130",
+      "published-finding corpus:2026/10/4/SCOPE-cycle-graphical-groups-have-an-explicit-character-degree-enumera--a874723da77e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sakib 2025 states an all-graph definition and explicit small-n counts, not a cycle transfer law beyond those sizes.",
+        "Hein–Eisert–Briegel arXiv:quant-ph/0307130 provides graph-state entanglement/cut-rank methods; those do not enumerate the cycle cut-ranks.",
+        "Nguyen–Oum 2019 supplies average-rank theory, which follows as one weighted derivative from the new generating polynomial but not conversely.",
+        "Public cycle graphical-groups result supplies a different all-weight rank-enumerator: for even n its Pfaffian terms are weight-product cancellations, whereas present exceptional correction follows from a fixed binary alternating-cut cycle with I+P rank m−1."
+      ],
+      "reasoning": "The proposed full bivariate law implies all fixed-k histograms and the mean but is not implied by the known finite histogram, generic entanglement=rank correspondence, graph cut-rank mean, or alternate matrix rank distribution. A direct structural comparison of exceptional configurations and sample-space quantifiers separates the closest cycle rank result. A hidden equivalent graph-polynomial specialization is an unresolved priority risk, not a falsification.",
+      "searches": [
+        "published-finding corpus: entanglement rank entropy cycles fixed k bivariate generating function transfer matrix all n",
+        "published-finding corpus: cycle graph state cut-rank bivariate generating polynomial Schmidt entropy uniformly random k-subset",
+        "published-finding corpus: cycle graph cut-rank distribution polynomial trace two by two transfer matrix alternating cut correction",
+        "Web: entanglement rank entropy graph cycle generating all n recurrence exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2025-11-28 DOI:10.6084/m9.figshare.30740282, accessible public manuscript §§3–4, Figures 6/11: explicitly defines N(n,k,h) via fixed-k cut-rank and computes cycles numerically for n≤12; no closed all-n generating polynomial in inspected mathematical results.",
+        "Nguyen–Oum arXiv:1906.02895v1: average cut-rank is a scalar expectation, not the conditional full law.",
+        "published-finding corpus search closest 2026/10/4/SCOPE-cycle-graphical-groups-have-an-explicit-character-degree-enumera--a874723da77e concerns weighted antisymmetric full adjacency rather than binary cut adjacency."
+      ],
+      "reasoning": "The conditional distribution at every subset size requires a joint z-cardinality and t-rank enumerator. A mean, a maximum, or a weighted full-adjacency rank histogram does not determine the conditional law. No searched equivalent formulation explicitly supplied the displayed four-state transfer plus even-cycle correction.",
+      "searches": [
+        "published-finding corpus: cycle graph state all vertex bipartitions exact Schmidt rank distribution generating polynomial cut rank C_n",
+        "published-finding corpus: ring cluster graph state bipartition Schmidt ranks fixed subsystem size exact distribution",
+        "Web: interlace polynomial cycle cut rank distribution subset size bivariate",
+        "Web: graph state entropy enumerator cut rank polynomial cycle graph bipartition size transfer matrix",
+        "Web: cut-rank generating polynomial graph cycle subset cardinality q-polynomial entropy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sakib 2025 text §§4.1–4.5 describes complete enumeration of n≤12 and displays the C12 balanced histogram and C10 fixed-size Shannon profile. The source quotes C12 balanced entropy approximately 1.86 bits.",
+        "Direct arithmetic for n=12,k=6 in the new theorem produces counts h=2..6: 12,96,306,386,124 (total 924), with Shannon entropy 1.8637129063345772 bits.",
+        "No all-n table or equivalent formula surfaced in the checked public literature and published-finding corpus search results."
+      ],
+      "reasoning": "The finite n=12 slice is already covered numerically by the motivating source and is not claimed as the new discovery. The finding is the uniform exact bivariate identity for every n,k, plus quantitative all-size consequences; the published table cannot imply the formula in an unbounded range.",
+      "searches": [
+        "Web: Sakib Entanglement Rank Entropy cycle n=12 k=6 histogram figures full text",
+        "Web: cycle graph cut rank distribution fixed k n=10 n=12 formula",
+        "published-finding corpus: Sakib entanglement heterogeneity invariant cycle graph C_n exact cut-rank histogram"
+      ]
+    },
+    "rationale": "The recent 2025 source introduces and numerically studies exactly the fixed-cardinality cut-rank distribution for cycles up to n=12 but not an all-n formula. The nearest published cycle rank polynomial concerns antisymmetric full adjacency matrices with arbitrary finite-field weights and yields graphical group character counts rather than selected-subset cut rank, so cannot be substituted without new mathematics. The 2019 mean-cut-rank theory and graph-state rank identification do not determine the joint law. Targeted aliases, possible reductions, broad dominance, and finite tabulations were compared with actual published-finding corpus and open literature searches. An unindexed transfer recurrence or an implicit derivation under other graph-polynomial terminology remains possible.",
+    "residual_risks": [
+      "A published equivalent bivariate cut-rank polynomial or transfer-matrix specialization may be indexed under interlace, isotropic, or other graph-polynomial terminology not recovered in targeted searches.",
+      "The motivating 2025 manuscript is a preprint; its numerical C12 benchmark is corroborated independently, not taken as a mathematical proof.",
+      "No external independent priority examination has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Numerical examples through n=12, including C12 balanced histogram; no general cycle generating identity found in inspected results.",
+        "evidence": [
+          "Source explicitly reports n≤12 cut-rank distributions and n=10 variable-k profile; C12 balanced entropy ~1.86 bits."
+        ],
+        "identifier_or_url": "DOI:10.6084/m9.figshare.30740282; https://www.researchgate.net/publication/398089419_S_M_Nazmuz_Sakib_Entanglement_Rank_Entropy_A_Graph-Theoretic_Invariant_of_Bipartite_Entanglement_Heterogeneity",
+        "material_read": "Public full-text transcription: definitions in §§1–3, method and family evaluation in §4, captions and cut-rank plots Figures 6/11, conclusions on scope; dated original upload Nov 28, 2025.",
+        "method": "Read available primary full-text content and search for all-size recurrences and cycle theorems.",
+        "title": "Entanglement Rank Entropy: A Graph-Theoretic Invariant of Bipartite Entanglement Heterogeneity",
+        "trigger": "Exact same cut-rank fixed-cardinality statistic and cycle examples"
+      },
+      {
+        "assessment": "General graph average/structural results do not supply the bivariate fixed-cardinality cycle rank enumerator.",
+        "evidence": [
+          "The abstract and theorems emphasize expected cut rank and bounded average-cut-rank classes, not fixed-k distributions."
+        ],
+        "identifier_or_url": "arXiv:1906.02895v1; https://arxiv.org/abs/1906.02895",
+        "material_read": "Primary 22-page text, definitions, main statements, cut-rank structural results and formulas.",
+        "method": "Compared objects and implications of expectation versus complete conditional histogram.",
+        "title": "The average cut-rank of graphs",
+        "trigger": "Dominating possibility that a general average-cut-rank theorem already enumerates cycles"
+      },
+      {
+        "assessment": "Distinct sampling domain; no complete size-k cycle graph-state histogram.",
+        "evidence": [
+          "Contiguous/block entanglement examples do not sum over all labelled subsets conditional on cardinality."
+        ],
+        "identifier_or_url": "arXiv:2605.11076v1; https://arxiv.org/abs/2605.11076",
+        "material_read": "The full 18-page primary PDF text, including model and graph-block entanglement examples in Section V, and page-5 graphical illustration.",
+        "method": "Compared entanglement under specific contiguous circuit cuts with all k-vertex partitions of a graph state.",
+        "title": "Graph-State Circuit Blocks control Entanglement and Scrambling Velocities",
+        "trigger": "Recent quantum circuit paper on graph-state ring/block entanglement"
+      },
+      {
+        "assessment": "Weighted antisymmetric adjacency rank over all edge assignments for group character counts is inequivalent to binary bipartite-cut adjacency rank over selected vertex subsets. Neither distribution determines the other.",
+        "evidence": [
+          "Published formula R_n(q;u) counts q^n edge weights; proposed E_n(z,t) counts 2^n vertex subsets with z recording their cardinality."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-cycle-graphical-groups-have-an-explicit-character-degree-enumera--a874723da77e; https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-cycle-graphical-groups-have-an-explicit-character-degree-enumera--a874723da77e",
+        "material_read": "Complete public RESULT.md, including full theorem and proof, fetched from repository.",
+        "method": "Compared the matrix dimensions, finite-field weights, rank type, vertex-cardinality variable, and exceptional even-cycle mechanism.",
+        "title": "Cycle graphical groups have an explicit character-degree enumerator",
+        "trigger": "Closest published-finding corpus semantic hit: ranks on all cycles and transfer matrices"
+      },
+      {
+        "assessment": "Provides the graph-state entropy/rank connection, not the bivariate cycle enumerator.",
+        "evidence": [
+          "Rank identity is independently reproved directly from the graph-state quadratic phase in RESULT.md."
+        ],
+        "identifier_or_url": "arXiv:quant-ph/0307130; https://arxiv.org/abs/quant-ph/0307130",
+        "material_read": "Public title, abstract, graph-state Schmidt-rank relationship and cited structural statements.",
+        "method": "Credited as known standard input rather than original step.",
+        "title": "Multi-party entanglement in graph states",
+        "trigger": "Canonical prior source for graph-state Schmidt-rank versus binary cut-rank"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "74c2406c-8d60-4fec-828a-31f482fdca75",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact fixed-k entanglement distribution is the entire input to a recent natural graph-state entanglement-heterogeneity invariant. Previously supplied cycle examples were restricted to small n; the new identity computes the full histogram at every n and k via one fixed-size transfer matrix and a nontrivial even-cycle rank defect, recovering balanced distributions exactly. It also yields the unrestricted-cut Gaussian variance constant and exact finite-size mean. This is an all-parameter natural classification with meaningful structural content, not an arbitrary slice, a textbook rank identity, or mere recomputation of a known table. No device advantage or unproved computational-complexity implication is claimed.",
+    "status": "PASS"
+  }
+}
