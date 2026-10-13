@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Ten degree-two sign characters are orthogonal with nonzero norm 32 modulo 3, so exactly 3^10 coefficient words are distinct. The structural splitting lemma f=g+tL classifies every nowhere-zero word for s<=5 by the 0/1/2/3/4 incident-edge cases; K5 regularity and negative-four-cycle sign products prove 172=20+120+32 without experiment. Exact exhaustive enumeration by independent direct-evaluation and fiber-zero-count methods proves the remaining spectrum; generator orbit BFS and independent signed-cycle Burnside count both give 62. Standalone verify.py was run successfully and returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carvalho–Patanker 2025/2026, Introduction and §§2–3: full-text focus on minimal/next-minimal codewords, assumptions q>=4,d>=3 for main theorem.",
+        "Patanker–Singh 2020/2023 source description: generalized Hamming weights of subcodes, a different invariant.",
+        "published-finding corpus 2026/9/18/SCOPE-packing-covering-redundancy-fifteen--96101bcc4ffa is about generalized packing-covering at small redundancy, not weight multiplicities of this toric code."
+      ],
+      "reasoning": "Distance and generalized-weight bounds constrain minima of support sizes, whereas a complete ordinary weight spectrum and symmetry orbit classification require counting every coefficient vector; no retrieved stronger theorem implies those counts. The most plausible older generalized-weight paper was not completely accessible and is listed as a risk.",
+      "searches": [
+        "https://link.springer.com/article/10.1007/s10623-026-01811-3",
+        "https://www.aimsciences.org/article/doi/10.3934/amc.2021013",
+        "2026 coding theory new codes exact generalized weights automorphism erasure matroid class"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2502.18084 (first public 2025-02-25)",
+      "DOI:10.1007/s10623-026-01811-3 (complete open-access HTML)",
+      "arxiv:2502.07718",
+      "arxiv:2002.10920 (abstract)",
+      "DOI:10.3934/amc.2021013 (journal abstract)",
+      "DOI:10.1007/s10623-020-00818-8 (institutional abstract)",
+      "Published-record semantic searches with closest IDs 2026/9/18/SCOPE-qary-long-gap-mirror-band--69c27f4f7824, 2026/9/8/SCOPE080, 2026/9/18/SCOPE-packing-covering-redundancy-fifteen--96101bcc4ffa"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carvalho–Patanker full HTML §1: the minimum-distance formula predicts distance 8 here, and §2 gives minimum-weight counts only in the principal q>=4,d>=3 regime; §3 concerns next-minimum classes, not all weights.",
+        "Jaramillo–Vaz Pinto–Villarreal: basic parameters/minimum-distance; Patanker–Singh: generalized Hamming weights; neither source statement contains the nonminimal weight multiplicities or all full-support switching orbits."
+      ],
+      "reasoning": "The overlap at weight 8 is not claimed as new. In particular A_8=120 is compatible with known low-weight formulas, while A_14=2240, A_22=12384, A_32=172 and the 20/120/32 zero-free classification are not consequences of their reported distance/next-distance statements. Older equivalent forms remain possible and are disclosed.",
+      "searches": [
+        "arxiv:2502.18084",
+        "arxiv:2502.07718",
+        "arxiv:2002.10920",
+        "https://researchportal.ulisboa.pt/en/publications/evaluation-codes-and-their-basic-parameters/"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The coefficient model is a signed K5 quadratic over the 32-point sign cube; quotient by global sign yields an affine 4-dimensional sign-cube evaluation with 10 linear/quadratic characters.",
+        "Published-record nearest broad coding hits 2026/9/18/SCOPE-qary-long-gap-mirror-band--69c27f4f7824 and 2026/9/8/SCOPE080 concern q-ary weight-gap theorems and binary cyclic symbol-pair codes, not this quadratic toric code."
+      ],
+      "reasoning": "Explicitly checked the equivalent signed-graph, Boolean-sign-cube, and code-parameter formulations. The retrieved findings do not give either this enumerator or the three zero-free graph classes. Equivalence to an unindexed classical code remains a residual risk.",
+      "searches": [
+        "complete weight enumerator ternary toric hypersimplex q=3 s=5 d=2 signed graph quadratic forms [32,10,8]",
+        "signed graph support size weight distribution quadratic homogeneous forms on {+1,-1}^5 ternary",
+        "\"nowhere vanishing\" quadratic forms \"F_3\" \"hypercube\" graph",
+        "\"toric codes\" \"weight enumerator\" \"hypersimplex\" 2025"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct exact-bin queries returned no matching full 13-coefficient enumerator, named [32,10,8] ternary table, or table of three full-support sign-switching classes.",
+        "Generic Magma Handbook weight-enumerator documentation is a computational operation, not a tabulation of this code."
+      ],
+      "reasoning": "No matching exact database entry was located; this is an evidence-limited absence, not a proof no unindexed table exists.",
+      "searches": [
+        "\"172\" \"120\" \"720\" \"2240\" ternary code weight",
+        "ternary [32,10,8] weight enumerator 120 720",
+        "ternary [32,10,8] toric code weight distribution 120 720 2240",
+        "hypersimplex toric code q=3 d=2 s=5 Hamming weight enumerator"
+      ]
+    },
+    "rationale": "The 2025-02-25 primary source addresses minima and next-minima for hypersimplex codes (main structural hypotheses q>=4,d>=3); its conclusions do not imply the complete weight distribution or zero-free signed K5 orbit classification at q=3,s=5,d=2. Published generalized-weight and minimum-parameter results likewise do not provide complete per-weight multiplicities. Targeted exact numerical, equivalent-formulation, published-finding corpus and published-source searches found no dominating claim; risk of an unindexed equivalent code table is expressly retained.",
+    "residual_risks": [
+      "A code equivalent to this small ternary sign-evaluation construction might occur with its weight table in an unindexed database or older paper.",
+      "Complete primary text of the older generalized-Hamming-weight paper was not accessible; incidental numerical tables were not excluded by a full-document comparison.",
+      "No assertion of novelty follows solely from search failure."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT COVERING this full enumerator/full-support orbit result: authors assume q>=4,d>=3 for their main classification and analyze only first few weight counts",
+        "evidence": [
+          "Definition 1.1 exactly gives homogeneous square-free torus evaluation codes; Introduction states minimum weight/next minimum scope; §3 starts with q>=4 and Theorem 3.3 for next-minimum, not the complete spectrum."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10623-026-01811-3",
+        "material_read": "Full HTML: abstract, Introduction and Definition 1.1, all major §2 weight and count claims, §3 theorem/assumptions and discussion, references and MSC",
+        "method": "Opened published lawful open-access complete HTML; compared theorem quantifiers with q=3,s=5,d=2",
+        "title": "On the number of minimal and next-to-minimal weight codewords of toric codes over hypersimplices",
+        "trigger": "Same hypersimplex toric family and weight enumerator coefficients"
+      },
+      {
+        "assessment": "The 2025-02-25 first-public date is the appropriate anchor; later journal date is not substituted",
+        "evidence": [
+          "arXiv metadata: Tue Feb 25 10:53:36 2025; journal HTML lists Published 17 March 2026 and primary 94B05."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2502.18084",
+        "material_read": "arXiv title, author, initial submission timestamp 2025-02-25, abstract",
+        "method": "Read public arXiv metadata and cross-checked against open-access 2026 journal HTML",
+        "title": "On the number of minimal and next-to-minimal weight codewords of toric codes over hypersimplices (first public version)",
+        "trigger": "Verify earliest public date and version equivalence for the main source"
+      },
+      {
+        "assessment": "It addresses q>=4,d>=3 next-to-minimum weights, and does not state this entire q=3,d=2 spectrum",
+        "evidence": [
+          "Abstract describes next-to-minimal weights for d>=3; later article explicitly relies on its low-weight theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2502.07718",
+        "material_read": "Title, date, abstract and stated parameter restrictions",
+        "method": "Public metadata and cross-reference to theorem dependence in the fully inspected later paper",
+        "title": "Next-to-minimal weight of toric codes defined over hypersimplices",
+        "trigger": "Earlier same-authors second-weight theorem could indirectly dominate"
+      },
+      {
+        "assessment": "Generalized Hamming-weight extrema cannot alone determine complete ordinary weight enumerator or signed-graph orbit multiplicities. Unread full text creates a residual risk of incidental tables.",
+        "evidence": [
+          "The abstract specifies common-zero upper bounds and generalized-weight minima; attempted primary Full Text(HTML) returned access restricted."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2002.10920",
+        "material_read": "ArXiv abstract; journal abstract, bibliography and page title. Full journal article not accessible through the primary publisher route",
+        "method": "Read public arXiv abstract, AIMS journal metadata and attempted the HTML full-text link (paywall)",
+        "title": "Generalized Hamming weights of toric codes over hypersimplices and squarefree affine evaluation codes",
+        "trigger": "Earlier study of exact same toric object under a stronger-sounding generalized invariant"
+      },
+      {
+        "assessment": "The minimum-distance formula supplies 8 but does not specify the full distribution or three full-support orbits; remaining full-text comparison risk disclosed",
+        "evidence": [
+          "The institutional abstract reports determination of the minimum distance of toric codes over hypersimplices."
+        ],
+        "identifier_or_url": "https://researchportal.ulisboa.pt/en/publications/evaluation-codes-and-their-basic-parameters/",
+        "material_read": "Publication metadata and abstract describing evaluation-code parameters",
+        "method": "Read institutional abstract and the detailed citation and use in the inspected 2026 source",
+        "title": "Evaluation codes and their basic parameters",
+        "trigger": "Known minimum-distance formula and potentially stronger prior results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5297f4a8-37b3-4b63-a3ad-d4fafa149217",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the complete first nontrivial five-vertex signed-graph quadratic hypersimplex code over the smallest evaluation field, not an arbitrary subproblem. Exact support multiplicities for all 13 weights refine minimum-distance and second-weight facts and give the complete weight enumerator relevant to error detection. The independent structural classification of every nowhere-zero quadratic torus evaluation is a natural algebraic boundary problem and yields three surprising and invariant signed-graph types, with a complete 62-orbit symmetry census. The result is valuable within the stated finite domain, with no unsupported assertion of family-wide impact.",
+    "status": "PASS"
+  }
+}
