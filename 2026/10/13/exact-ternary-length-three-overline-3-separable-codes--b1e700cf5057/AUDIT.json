@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The bundled verifier exhaustively enumerates every valid code by an exact incremental descendant-signature test, finds maximum size 6 and exactly 135 maxima, independently tests all one-word extensions of all maxima to exclude size 7, directly rechecks every maximum, and exhausts all 1296 natural isometries to obtain the two orbit sizes, stabilizers, representatives, and multiplicity profiles. The finite domain is fully exhausted; no inference from sampling or timeout is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1507.00954v1 states the binary optimum 3, the older q-squared upper bound for q greater than 2, and Theorem 3.1 only for q at least 4.",
+        "The same paper gives a forbidden-configuration characterization but no q=3 optimum or extremizer census.",
+        "arXiv:1611.04349v1 establishes SC/SSC equivalence for q at least 3 rather than an exact q=3 maximum."
+      ],
+      "reasoning": "The general theorems cover definitions, structural necessary-and-sufficient conditions, and larger-alphabet bounds, but the published sharper upper-bound proof explicitly uses q at least 4. None of the inspected broader results implies the ternary exact maximum or its equality classification.",
+      "searches": [
+        "full text arXiv:1507.00954v1, Sections 1-4",
+        "full text arXiv:1611.04349v1, length-three upper-bound and equivalence sections",
+        "\"Bounds and Constructions for overline 3-Separable Codes with Length 3\" q=3 exact"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1507.00954v1",
+      "arXiv:1611.04349v1",
+      "mardi:Q1699269"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 theorem gives floor(3q-squared/4) only for q at least 4, because its proof uses the inequality 2(q-1) at most choose(q,2), which fails at q=3.",
+        "The 2016 theorem identifies SC with SSC for the q=3 domain but does not provide a size bound sharp enough to imply 6, nor an equality census."
+      ],
+      "reasoning": "The new statement is not a corollary or special case of the sharper published bound because q=3 is expressly outside its hypothesis. The later equivalence changes terminology, not the extremal value. The enumeration and orbit classification therefore require additional finite proof.",
+      "searches": [
+        "arXiv:1507.00954v1 Theorem 3.1 and surrounding proof",
+        "arXiv:1611.04349v1 Theorem 2.10 and surrounding proof",
+        "\"3-SC(3,6,3)\" separable"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1611.04349v1 proves that, for length three and q at least 3, overline-3 SC and overline-3 SSC are equivalent.",
+        "Searches using separable, strongly separable, descendant-code, and fingerprinting terminology did not surface an exact ternary equality classification."
+      ],
+      "reasoning": "The strong-separability formulation is implication-equivalent at this parameter, so it was searched explicitly. The inspected equivalence theorem transfers the property but supplies neither the exact value 6 nor the census/orbit classification.",
+      "searches": [
+        "\"M(overline 3,3,3)\" separable code",
+        "\"q=3\" \"overline{3}-separable\" length 3",
+        "\"overline{3}-SC(3,6,3)\"",
+        "\"strongly separable\" code q=3 length 3 maximum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-parameter table or database result located in the searches stated the value 6 together with an equality classification.",
+        "The principal 2015 exact-topic paper explicitly discusses q=2 and q greater than 2 but reserves its improved theorem for q at least 4."
+      ],
+      "reasoning": "A table containing only a generic bound would not imply the claim; the searches targeted the exact symbol count, notation, and candidate maximum and found no covering entry.",
+      "searches": [
+        "\"M(\\overline{3},3,3)\" \"6\"",
+        "\"M(overline{3},3,3)\" \"6\"",
+        "\"ternary\" \"overline{3}\" separable codes",
+        "exact ternary length-three overline-3 separable code census"
+      ]
+    },
+    "rationale": "The exact-parameter literature inspected in full treats the same length-three overline-3 separability problem but leaves the ternary boundary outside its sharper q-at-least-4 theorem. A later full-text source proves equivalence with strong separability for q at least 3 but does not give the exact ternary optimum or equality census. Alias and exact-claim searches found no source implying the 135 maxima or their two natural-equivalence classes.",
+    "residual_risks": [
+      "An obscure or unindexed finite enumeration of the q=3 equality cases could exist outside the searched literature. No inaccessible source with a title or abstract specifically suggesting this ternary classification was identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_TERNARY_EXACT_CLASSIFICATION",
+        "evidence": "The paper states the q=2 optimum and q-squared bound for q>2; Theorem 3.1 is explicitly restricted to q at least 4. No exact q=3 value or equality census is stated in the inspected full text.",
+        "identifier_or_url": "arXiv:1507.00954v1",
+        "material_read": "Full HTML: definitions, introduction, forbidden configurations, upper-bound section, Theorem 3.1, and construction discussion.",
+        "method": "Lawfully accessible arXiv full text.",
+        "title": "Bounds and Constructions for 3-bar-Separable Codes with Length 3",
+        "trigger": "Exact same object, length, coalition size, and alphabet-size boundary."
+      },
+      {
+        "assessment": "EQUIVALENCE_ONLY_NOT_CLASSIFICATION",
+        "evidence": "Theorem 2.10 proves SC and SSC equivalence for length three and q at least 3. The inspected material does not state the exact q=3 maximum or classify equality cases.",
+        "identifier_or_url": "arXiv:1611.04349v1",
+        "material_read": "Full HTML: definitions, SC/SSC relationship section including Theorem 2.10, and upper-bound discussion.",
+        "method": "Lawfully accessible arXiv full text.",
+        "title": "Bounds and Constructions for 3-bar-Strongly Separable Codes with Length 3",
+        "trigger": "Potential alias-equivalent stronger formulation for the exact same length and coalition size."
+      },
+      {
+        "assessment": "MSC_OWNERSHIP_SUPPORT",
+        "evidence": "The record lists Combinatorial codes (94B25), within the permitted information/coding slot.",
+        "identifier_or_url": "mardi:Q1699269",
+        "material_read": "Public bibliographic metadata and classification.",
+        "method": "Public metadata record.",
+        "title": "zbMATH-derived record for the 3-bar strongly separable length-three paper",
+        "trigger": "Primary MSC ownership check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1e700cf-5057-4ff2-b7e9-39a273834543",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The ternary case is a mathematically natural missing boundary: the foundational length-three paper settles q=2 and proves its sharper general upper bound only from q at least 4. Determining q=3 exactly therefore closes the unique small gap left between those regimes. The complete equality census and two natural-equivalence types add structural information beyond a one-number computation.",
+    "status": "PASS"
+  }
+}
