@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "The residual-polynomial identity yields the approximate-inverse polynomial acting on the right-hand side. Exact reduction shows degree one is a positive scalar and degree two is a positive multiple of the matrix formed by subtracting the Stieltjes matrix from a larger diagonal matrix, hence entrywise nonnegative. In dimension two, exact endpoint eigenvalues force an affine functional calculus whose off-diagonal coefficient has the required sign and whose diagonal entries are positive. The rational three-dimensional witness has the stated three eigenvalues; exact arithmetic gives the negative third coordinate and a strictly positive exact solution. The checker replays the finite rational algebra, while the universal statements are proved symbolically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The Richardson frontier controls Euclidean nonexpansion of first-order factors; the weighted-Jacobi frontier controls Euclidean damping. Neither property implies entrywise nonnegativity of the degree-three Chebyshev approximate inverse on Stieltjes matrices."
+      ],
+      "reasoning": "Norm contraction and coordinatewise order preservation are distinct. The present proof uses the exact low-degree polynomial forms, two-point functional calculus in dimension two, and a three-eigenvalue sign reversal, none supplied by those norm results.",
+      "searches": [
+        "published-finding corpus: stagewise safe Richardson Chebyshev positivity",
+        "published-finding corpus ID 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+        "published-finding corpus ID 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f"
+      ]
+    },
+    "checked_sources": [
+      "ETH Zürich Research Report 2000-16, The Chebyshev iteration revisited",
+      "arXiv:1109.5981v1, LSRN",
+      "published-finding corpus 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "published-finding corpus 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+      "Available current-week and preceding-week research ledgers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gutknecht–Röllin gives the scaled Chebyshev residual polynomial, SPD interval assumptions, and minimax residual optimality, but not entrywise positivity. LSRN uses Chebyshev semi-iteration for predictable, communication-efficient solution after preconditioning, but does not imply the Stieltjes sign boundary."
+      ],
+      "reasoning": "The accepted claim adds an order-theoretic classification that is not a corollary of residual minimaxity or communication-efficient implementation; it requires signs of matrix-function entries rather than only spectral or norm information.",
+      "searches": [
+        "Gutknecht and Röllin, The Chebyshev iteration revisited, ETH Research Report 2000-16, full text",
+        "Meng Saunders Mahoney, LSRN, arXiv:1109.5981v1",
+        "Web: Chebyshev acceleration M-matrix positivity iteration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit states the same degree-three/dimension-three entrywise sign boundary. Gutknecht–Röllin defines the same scaled Chebyshev residual polynomial, while full-text searches found no Stieltjes or nonnegative-iterate theorem."
+      ],
+      "reasoning": "Equivalent terminology would include positivity preservation, nonnegative iterates, monotone matrix iteration, or sign preservation of the Chebyshev polynomial approximate inverse. The inspected sources address residual convergence, recurrence stability, or parallelism instead.",
+      "searches": [
+        "published-finding corpus: Chebyshev semi-iteration coordinatewise positivity M-matrix Stieltjes nonnegative iterates",
+        "published-finding corpus: Chebyshev acceleration monotone iteration M-matrix positivity",
+        "published-finding corpus: Chebyshev iteration positive systems nonnegative solution overshoot",
+        "published-finding corpus: degree three dimension three Chebyshev semi-iteration positivity Stieltjes exact spectral bounds",
+        "Web: Chebyshev semi-iterative M-matrix positivity Stieltjes matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The available current and immediately preceding research ledgers contain related positivity results for CG, steepest descent, MINRES, SOR, GMRES, and Newton–Schulz, but no Chebyshev semi-iteration claim."
+      ],
+      "reasoning": "The neighboring ledger results concern different iteration polynomials or adaptive recurrences and do not imply the Chebyshev degree-three classification.",
+      "searches": [
+        "Own ledgers: Chebyshev, semi-iteration, Stieltjes, M-matrix, positivity, polynomial iteration, dimension three",
+        "Files semantic search: Chebyshev semi-iteration positivity Stieltjes M-matrix coordinatewise nonnegative iterates",
+        "Files semantic search: third Chebyshev iterate positivity loss exact spectral bounds dimension three"
+      ]
+    },
+    "rationale": "The claim is an entrywise order statement with an exact joint boundary in polynomial degree and matrix dimension, not the classical minimax convergence theorem. Semantic-database, ledger, and literature searches did not locate an implication-equivalent result. The closest full text defines the same residual polynomials and studies residual optimality and roundoff rather than Stieltjes-coordinate positivity. Residual risk remains from older monotone-iteration literature using different vocabulary.",
+    "residual_risks": [
+      "An older monotone-iteration or matrix-polynomial paper may state an equivalent sign theorem under terminology not retrieved by the searches.",
+      "The counterexample is reducible; irreducible minimality is not claimed.",
+      "The two-dimensional safety statement depends on using the exact spectral endpoints, not a loose enclosing interval."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the classical method, primary MSC 65F10, and residual/norm properties but does not state or imply the joint entrywise positivity boundary.",
+        "evidence": "The report defines the translated/scaled residual polynomial and the residual relation for the iterates; its SPD discussion states minimax residual optimality. Full-text search has no Stieltjes occurrence and no nonnegative-iterate theorem.",
+        "identifier_or_url": "ETH Zürich Research Report 2000-16 / DOI:10.1016/S0167-8191(01)00139-9",
+        "material_read": "Full 22-page open research report; introduction, residual-polynomial definition, SPD interval optimality, recurrence algorithms, and full-text searches for positive, nonnegative, monotone, and Stieltjes.",
+        "method": "Open full text and page inspection; statement-level comparison.",
+        "title": "The Chebyshev iteration revisited",
+        "trigger": "Closest primary full text for the classical Chebyshev residual polynomial and SPD interval formulation."
+      },
+      {
+        "assessment": "Motivates Chebyshev semi-iteration but does not address Stieltjes coordinatewise positivity.",
+        "evidence": "First public submission is 2011-09-27; the abstract explicitly names the Chebyshev semi-iterative method and its high-communication-cost advantage.",
+        "identifier_or_url": "arXiv:1109.5981v1",
+        "material_read": "ArXiv abstract and public metadata, including the first-submission timestamp and the statement that Chebyshev semi-iteration is used because iteration counts are predictable and communication costs are favorable.",
+        "method": "Open public arXiv record and statement-level comparison.",
+        "title": "LSRN: A Parallel Iterative Solver for Strongly Over- or Under-Determined Systems",
+        "trigger": "Dated archive source showing a concrete classical use of Chebyshev semi-iteration and its computational motivation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c09454b4-6e0a-491c-ba7d-45ecd8fc03ed",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Chebyshev semi-iteration is a standard acceleration method valued for spectral minimax convergence without inner products. On inverse-positive Stieltjes systems, coordinatewise nonnegativity is a separate structural property. Locating the first possible loss simultaneously in iteration degree and matrix dimension gives a sharp boundary rather than an isolated example: degree two is universally safe, dimension two remains safe at degree three, and a three-dimensional exact witness fails.",
+    "status": "PASS"
+  }
+}
