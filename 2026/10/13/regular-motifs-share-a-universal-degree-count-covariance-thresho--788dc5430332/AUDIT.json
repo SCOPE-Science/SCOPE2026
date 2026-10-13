@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Expanding the degree count and motif count into indicators leaves covariance only when the selected host vertex belongs to the selected motif copy. Conditioning on a copy forces exactly d_a incident edges for motif role a, so the remaining degree contribution is Binomial(n-1-d_a,p). Dividing its mass by the unconditional Binomial(n-1,p) mass yields (k)_{d_a}/((n-1)_{d_a}p^{d_a}). Summation proves the exact formula. For regular motifs the falling factorial is strictly increasing on the relevant real interval, and direct expansion gives the asymptotic root location.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goldstein gives a Berry–Esseen theorem for the number of vertices of a prescribed degree in G(n,p).",
+        "Gilmer--Kopparty give a local central limit theorem for the triangle count in G(n,p).",
+        "Janson gives broad functional-limit theory for fixed subgraph counts and other random graph statistics."
+      ],
+      "reasoning": "These sources are broader in marginal approximation or asymptotic framework, but the two fully inspected papers do not couple the degree-class count with a motif count. Janson is treated as unresolved for implicit coverage because only publisher-level material was accessible.",
+      "searches": [
+        "arXiv:1005.4390",
+        "DOI:10.1002/rsa.20604",
+        "DOI:10.1002/rsa.3240010103"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1005.4390",
+      "DOI:10.1214/12-AAP848",
+      "DOI:10.1002/rsa.20604",
+      "DOI:10.1002/rsa.3240010103"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published triangle-indicator covariance results concern dependence among triangle indicators themselves rather than degree-class counts.",
+        "Component-versus-triangle covariance results in bond percolation use different observables and a different connectivity mechanism.",
+        "Goldstein provides the marginal degree-count theory but no motif count.",
+        "Gilmer--Kopparty provide triangle-count distribution theory but no degree-class count."
+      ],
+      "reasoning": "Neither marginal result determines the cross-covariance. The identity requires conditioning the degree of a host vertex on the presence of a specific motif copy and summing over motif roles. Triangle-indicator covariance matrices likewise do not imply the degree-count formula.",
+      "searches": [
+        "triangle indicator covariance precision Erdős Rényi",
+        "component triangle covariance bond percolation",
+        "Goldstein vertex degree counts G(n,p)",
+        "Gilmer Kopparty triangle count G(n,p)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic database searches did not return a finite covariance between a degree-class count and a motif count; the closest records concerned unrelated deterministic clique partitions or other graph statistics.",
+        "Targeted web searches returned degree-count theory, triangle/subgraph-count theory, and clustering-coefficient work, but no statement of the displayed covariance identity or universal regular-motif sign threshold."
+      ],
+      "reasoning": "The searches covered covariance, joint distribution, degree-k vertex counts, triangles, cliques, general subgraphs, and sign thresholds. Search failure is not used as novelty proof; the source inspections below supply the statement-level comparison.",
+      "searches": [
+        "Erdos Renyi degree count clique count covariance exact sign threshold",
+        "random graph number of vertices degree k triangle count covariance",
+        "random graph degree counts subgraph counts covariance clique",
+        "G(n,p) degree-k vertices triangle covariance",
+        "web: degree count triangle covariance Erdős Rényi random graph",
+        "web: number of vertices of degree k number of triangles random graph covariance",
+        "web: degree counts subgraph counts covariance random graphs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database record matching the factor (k)_d/((n-1)_d p^d)-1 or the triangle specialization was located."
+      ],
+      "reasoning": "The accepted result is an all-n symbolic identity for arbitrary fixed motifs, not a finite table. The checker is supplementary and does not establish originality.",
+      "searches": [
+        "random graph number of vertices degree k triangle count covariance",
+        "web: Cov(N_k,T) Erdős Rényi",
+        "web: degree-k triangle count G(n,p)",
+        "web: joint asymptotic degree counts subgraph counts Erdős Rényi"
+      ]
+    },
+    "rationale": "The two closest fully inspected primary sources treat degree counts and triangle counts separately. Candidate-specific semantic and web searches did not locate the exact degree-class/motif covariance or its regular-motif sign universality. A broad 1990 random-graph functional-limit paper was only abstract-accessible and is retained as a residual risk rather than being declared non-covering.",
+    "residual_risks": [
+      "Janson's broad 1990 random-graph-statistic paper was not available in full text in the inspected source and may contain an orthogonal-decomposition route implying the covariance identity.",
+      "A textbook treatment of random graph statistics may present the same covariance as an exercise or an immediate consequence of a general Hoeffding decomposition.",
+      "The originality claim is the exact finite formula together with regular-motif sign universality and threshold location, not the marginal distribution theory for degree counts or subgraph counts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEGREE_COUNT_MARGINAL_THEORY_NOT_MOTIF_CROSS_COVARIANCE",
+        "evidence": "The paper applies Stein and size-bias methods to the number of vertices of a prescribed degree in the classical Erdős–Rényi graph. Its listed primary classifications include 60C05. The inspected full text does not introduce a triangle count or general fixed-subgraph count as a joint statistic.",
+        "identifier_or_url": "arXiv:1005.4390 / DOI:10.1214/12-AAP848",
+        "material_read": "Full public arXiv HTML including abstract, introduction, model definition, degree-count application, and subject classification; full-text searches for triangle and subgraph terminology were also performed.",
+        "method": "Compared the random variable counted, whether fixed motifs enter jointly, and whether an exact cross-covariance or sign threshold is stated.",
+        "title": "A Berry-Esseen bound with applications to vertex degree counts in the Erdős-Rényi random graph",
+        "trigger": "Closest primary probability source on the exact degree-count statistic."
+      },
+      {
+        "assessment": "TRIANGLE_COUNT_LIMIT_THEORY_NOT_DEGREE_CLASS_COVARIANCE",
+        "evidence": "The paper proves a local limit theorem for the total triangle count in G(n,p). The inspected material does not define N_k or state a covariance between triangle abundance and degree-class counts.",
+        "identifier_or_url": "DOI:10.1002/rsa.20604",
+        "material_read": "Full public manuscript/PDF, including model setup, triangle-count definition, characteristic-function argument, and surrounding prior-work discussion; text searches for vertex degree terminology were performed.",
+        "method": "Checked whether the triangle statistic is paired with degree-class counts or whether a mixed covariance is computed.",
+        "title": "A local central limit theorem for triangles in a random graph",
+        "trigger": "Closest primary source on the complementary triangle-count statistic in the same random graph model."
+      },
+      {
+        "assessment": "ABSTRACT_ONLY_BROAD_RANDOM_GRAPH_STATISTICS_SOURCE_UNRESOLVED_FOR_IMPLICIT_COVERAGE",
+        "evidence": "The abstract states functional limit theorems for a class of evolving random-graph statistics and asymptotic distributions of fixed subgraph counts. It does not mention degree-class counts in the accessible material, but full-document noncoverage is not asserted.",
+        "identifier_or_url": "DOI:10.1002/rsa.3240010103",
+        "material_read": "Publisher bibliographic record and abstract only; the hosted full text was unavailable in the inspected source.",
+        "method": "Compared the accessible stated scope and retained inability to inspect the complete theorem set as a residual originality risk.",
+        "title": "A functional limit theorem for random graphs with applications to subgraph count statistics",
+        "trigger": "Plausible broad classical source on joint random-graph statistics and fixed-subgraph counts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "788dc543-0332-4d48-97a8-8049d66dd250",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Degree-class frequencies and motif counts are canonical network statistics. The result gives a single finite formula for their dependence and identifies a non-obvious universality: all d-regular motifs have the same normalized covariance sign profile, with a threshold near the mean degree and an explicit constant correction. This structural relation is more informative than a one-off covariance calculation.",
+    "status": "PASS"
+  }
+}
