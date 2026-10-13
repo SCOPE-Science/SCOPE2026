@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The published XLindley density separates exactly into positive Gamma(1,rate theta) and Gamma(2,rate theta) components with weights summing to one. Convolution of two such independent latent mixtures gives Gamma shapes 2, 3, and 4 with binomial weights. Direct Poisson-gamma integration gives the stated negative-binomial PMFs. Conditional Poisson additivity proves the two-fold PXL convolution identity. The symbolic checker independently expands the resulting PMF and PGF and matches the 2026 source formulas exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The original XLindley source describes the model as a finite mixture of exponential and Lindley distributions.",
+        "The 2022 PXL paper compounds Poisson with XLindley and derives a PGF, but does not identify PTS-XL or a three-negative-binomial representation.",
+        "Classical common-rate gamma convolution and Poisson-gamma mixing are general ingredients rather than prior model-specific PTS-XL statements."
+      ],
+      "reasoning": "General mixture theory supplies the ingredients, but applying them to the newly proposed two-sum XLindley mixer yields the explicit three-component law and exact PXL convolution relation. No inspected broader source already states that model-specific synthesis.",
+      "searches": [
+        "Poisson XLindley negative binomial mixture gamma representation",
+        "two-sum XLindley gamma mixture Poisson mixed distribution",
+        "Poisson XLindley distribution PGF"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20261122",
+      "doi:10.1155/2022/6503670",
+      "doi:10.2991/jsta.d.210607.001"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source states that the mixing variable is the sum of two independent XLindley variables.",
+        "The earlier PXL source states that PXL is obtained by mixing Poisson with a single XLindley variable.",
+        "Conditional additivity of independent Poisson variables and the common-rate gamma decomposition together imply the accepted convolution and finite-mixture formulas."
+      ],
+      "reasoning": "The prior sources provide separate constructions but do not state their exact distributional identification. The accepted claim makes that implication explicit and checks it against the target's independently derived PGF.",
+      "searches": [
+        "XLindley distribution exponential Lindley finite mixture",
+        "Poisson XLindley distribution compound Poisson XL",
+        "PTS-XL probability generating function square"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 article gives PTS-XL as Poisson mixing by the continuous sum of two XLindley variables, not as a finite negative-binomial mixture.",
+        "The target PGF is a perfect square, but the inspected proof obtains it by summing the PMF rather than identifying it as a PXL convolution square.",
+        "The closest published-result searches concern unrelated Poisson, gamma, or mixture questions and do not name or imply the PTS-XL decomposition."
+      ],
+      "reasoning": "The accepted statement was searched both as a latent finite-mixture identity and as a discrete convolution identity. No equivalent PTS-XL formulation was found.",
+      "searches": [
+        "PTS-XL negative binomial mixture Poisson two-sum XLindley",
+        "Poisson two-sum XLindley convolution of two Poisson XLindley distributions",
+        "10.3934/math.20261122 negative binomial mixture"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The target PDF provides Eq. (2.1) for the XLindley density, Eq. (2.9) for the PTS-XL PMF, and Proposition 2 for the PGF.",
+        "Exact source searches did not locate a correction, appendix, or table identifying the three negative-binomial components.",
+        "Current and prior owned records contain no occurrence of the target DOI or model name."
+      ],
+      "reasoning": "The decomposition is not a table lookup; it is an exact latent representation whose expanded formulas reproduce the source's PMF and PGF.",
+      "searches": [
+        "10.3934/math.20261122 negative binomial mixture",
+        "10.3934/math.20261122 PXL convolution",
+        "10.3934/math.20261122 gamma mixture"
+      ]
+    },
+    "rationale": "The 2026 primary source was inspected in full at the construction, PMF, and generating-function sections. It defines the continuous two-sum convolution and the mixed-Poisson law, but does not state the three-gamma latent representation, the resulting three-negative-binomial mixture, or the equality in distribution with a sum of two PXL counts. The 2022 PXL full text likewise does not state the later convolution identity. Five focused semantic searches using model names, exact DOI, gamma-mixture, negative-binomial-mixture, and convolution aliases found no covering model-specific statement.",
+    "residual_risks": [
+      "The gamma-convolution and Poisson-gamma identities are classical, so a general mixed-Poisson reference may make the model-specific decomposition an immediate corollary without naming PTS-XL.",
+      "An unindexed note may already have observed that the 2026 PGF is the square of the PXL PGF.",
+      "The structural representation is elementary once the latent gamma decomposition is recognized; its originality is model-specific rather than a new general theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY COVERING INGREDIENTS ONLY. The exact input formulas are present, but the three-gamma, three-negative-binomial, and two-fold PXL representations are not stated.",
+        "evidence": "Eq. (2.1), Eqs. (2.3)-(2.9), and Proposition 2 / Eq. (3.15).",
+        "identifier_or_url": "doi:10.3934/math.20261122",
+        "material_read": "Open-access full PDF, including the introduction, Eq. (2.1) defining the XLindley density, the two-sum convolution in Eqs. (2.3)-(2.7), the PTS-XL PMF in Eq. (2.9), and Proposition 2 / Eq. (3.15) giving the PGF.",
+        "method": "Direct full-text and rendered-page inspection.",
+        "title": "The Poisson two-sum XLindley distribution: Statistical properties, estimation, regression modeling, and applications",
+        "trigger": "Primary 2026 source defining PTS-XL."
+      },
+      {
+        "assessment": "NOT_COVERING. It defines and studies the one-factor PXL distribution but does not identify the later PTS-XL law as its convolution square.",
+        "evidence": "Section 2 synthesis and Section 3.3 probability generating function.",
+        "identifier_or_url": "doi:10.1155/2022/6503670",
+        "material_read": "Full accessible article text covering the model synthesis, PMF, factorial moments, probability generating function, moment generating function, simulation, and conclusion.",
+        "method": "Direct full-text HTML inspection.",
+        "title": "Poisson XLindley Distribution for Count Data: Statistical and Reliability Properties with Estimation Techniques and Inference",
+        "trigger": "Closest earlier count model: Poisson mixed by a single XLindley variable."
+      },
+      {
+        "assessment": "INGREDIENT ONLY. It motivates XLindley through a finite mixture but does not discuss PTS-XL, PXL convolution squares, or negative-binomial count mixtures.",
+        "evidence": "The article describes XLindley as a special mixture of exponential and Lindley distributions.",
+        "identifier_or_url": "doi:10.2991/jsta.d.210607.001",
+        "material_read": "Open article record and model description, including the finite-mixture origin of XLindley.",
+        "method": "Primary-source HTML inspection.",
+        "title": "The XLindley Distribution: Properties and Application",
+        "trigger": "Original continuous XLindley source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "73fde537-e34f-4f80-b5e9-e1d8de030da7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finding converts a polynomial-exponential continuous mixer and a high-degree count PMF into a three-state latent negative-binomial model. It gives an exact sampler, a direct probabilistic interpretation of the squared PGF, and a precise bridge to the already studied PXL distribution. Because the new source motivates PTS-XL through a convolution-based construction, identifying the exact discrete convolution and finite latent mixture is a natural structural property, not an arbitrary reparameterization.",
+    "status": "PASS"
+  }
+}
