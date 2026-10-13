@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "On a nonrepeat scalar quadratic step, direct substitution into the source Bregman-ratio estimator gives exactly \\(L_{k+1}=\\lambda\\). The normalized step therefore satisfies a scalar capped-growth recursion. The source recurrence gives \\(A_k-1=(1-m)/(t_{k+1}-1)\\) with \\(t_k=O(k)\\), so the product of growth factors diverges; \\(B_k>1\\) uniformly and \\(C_k\\to C_\\infty\\). A standard capped-product argument then forces convergence to the cap. Reparameterizing \\(x=\\beta\\gamma\\), \\(y=(1+\\beta)\\gamma\\) reduces the sharp envelope to minimizing \\(y+1/x\\) over \\(0<x<y\\le2q\\), yielding the stated piecewise formula and \\(6/13\\) specialization.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Malitsky--Mishchenko use a different two-way adaptive-gradient rule motivated by local curvature.",
+        "Suh--Ma introduce AdaNAG, the accelerated predecessor named by the source, but its update is different.",
+        "The primary source explicitly derives \\(A_k,B_k,C_k\\) from its Lyapunov discriminant and discusses only lower bounds and growth possibilities."
+      ],
+      "reasoning": "General local-curvature adaptivity does not imply the exact asymptotic cap of this new three-way recursion, nor the optimization of that cap subject to the source-specific admissibility condition.",
+      "searches": [
+        "arXiv:1910.09529 adaptive gradient descent local curvature step cap",
+        "arXiv:2505.11670 adaptive parameter-free Nesterov accelerated gradient",
+        "Primary full text: Sections 2.1--2.3 and Remark 3.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2512.20478v1",
+      "DOI:10.1007/s10957-026-03086-z",
+      "arXiv:1910.09529",
+      "arXiv:2505.11670v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source proves \\(s_k\\ge M/L\\) under an initialization condition and emphasizes that safeguards permit increases, but neither statement determines the scalar limit.",
+        "The exact limit requires combining the source recurrence with \\(L_k=\\lambda\\), divergence of the multiplicative growth budget, and a new optimization over admissible parameters."
+      ],
+      "reasoning": "Neither the source lower bound nor its generic convergence theorem implies the sharp upper envelope. The final claim is a structural specialization of the step-size mechanism, not a restatement of the convergence rate.",
+      "searches": [
+        "Primary full text: local estimator definition; Remarks 2.1--2.2; Hypothesis 2.1; Proposition 2.2; Remark 3.2",
+        "arXiv:1910.09529 abstract and method description",
+        "arXiv:2505.11670 abstract and method description"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-result hit matched the Wang--Peypouquet source with a scalar-quadratic asymptotic step limit or the transformed parameter envelope.",
+        "The primary paper states a lower bound on step sizes and notes possible growth, but no limiting value is given."
+      ],
+      "reasoning": "Queries covered the source title and authors, scalar quadratic, exact local curvature, asymptotic step size, safeguard cap, and reciprocal-curvature ceiling.",
+      "searches": [
+        "Adaptive Accelerated Gradient Method smooth convex Wang Peypouquet step size scalar quadratic exact local smoothness cap",
+        "adaptive accelerated gradient A_k B_k C_k step size local smoothness scalar quadratic limit",
+        "line-search-free accelerated gradient local Lipschitz estimate scalar quadratic asymptotic step size half reciprocal curvature",
+        "adaptive Nesterov scalar quadratic step size exact curvature estimate safeguard ceiling"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed findings concern Polyak, AdOGD, Nesterov transient spikes, CG_AOS, and Barzilai--Borwein; none contains the source rule or the constants in the final claim."
+      ],
+      "reasoning": "The result is an analytic asymptotic law and sharp parameter envelope, not a recomputation of a published numerical table.",
+      "searches": [
+        "Adaptive Accelerated Gradient Method smooth convex Wang Peypouquet step size scalar quadratic exact local smoothness cap",
+        "adaptive accelerated gradient A_k B_k C_k step size local smoothness scalar quadratic limit",
+        "line-search-free accelerated gradient local Lipschitz estimate scalar quadratic asymptotic step size half reciprocal curvature"
+      ]
+    },
+    "rationale": "The primary full text was inspected at the local smoothness estimator, the derivation of the three safeguards, the exact step-size rule, the positive lower-bound proposition, and the discussion of parameter tradeoffs. It does not state an asymptotic scalar-quadratic step limit or optimize that limit over admissible parameters. Source-specific database searches returned only different adaptive or spectral stability results. The two closest adaptive-gradient predecessors use different updates and do not imply the three-safeguard limit.",
+    "residual_risks": [
+      "An equivalent scalar capped-growth lemma could appear in generic adaptive-stepsize literature under different notation.",
+      "The source-specific limit excludes tails with exact consecutive iterate repeats, where the paper intentionally sets the local estimate to zero.",
+      "The result does not compare full accelerated rates and therefore should not be interpreted as proving inefficiency of the algorithm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the exact formulas and admissibility conditions but does not state the scalar asymptotic limit or its sharp parameter envelope.",
+        "evidence": "The paper defines \\(s_{k+1}=\\min\\{A_ks_k,B_ks_k,C_k/L_{k+1}\\}\\), proves only a positive lower bound for \\(s_k\\), and notes a qualitative tradeoff between \\(m\\) and possible step growth.",
+        "identifier_or_url": "arXiv:2512.20478v1 / DOI:10.1007/s10957-026-03086-z",
+        "material_read": "Open full text covering the local smoothness estimator, inertial recurrence, safeguards A_k and B_k, discriminant-derived C_k, Hypothesis 2.1, Proposition 2.2, rate discussion, and Remark 3.2.",
+        "method": "Open publisher HTML and arXiv metadata inspection.",
+        "title": "Adaptive Accelerated Gradient Method for Smooth Convex Optimization",
+        "trigger": "Primary recent source defining the three-way adaptive accelerated step-size rule."
+      },
+      {
+        "assessment": "Different nonaccelerated update; does not contain the source-specific three-safeguard limit.",
+        "evidence": "Its two principles are limiting growth and avoiding local-curvature overstepping, with no \\(A_k,B_k,C_k\\) inertial construction.",
+        "identifier_or_url": "arXiv:1910.09529",
+        "material_read": "Public abstract and method description emphasizing growth control and local-curvature control.",
+        "method": "PMLR and arXiv abstract inspection.",
+        "title": "Adaptive Gradient Descent without Descent",
+        "trigger": "Foundational local-curvature adaptive-gradient predecessor cited by the primary source."
+      },
+      {
+        "assessment": "Establishes adaptive accelerated rates for a different parameter-free rule and does not state the Wang--Peypouquet scalar ceiling.",
+        "evidence": "The abstract states accelerated objective and gradient rates and a generalized AdaNAG family, not the primary source's Lyapunov safeguard constants.",
+        "identifier_or_url": "arXiv:2505.11670v1",
+        "material_read": "Public abstract and method summary.",
+        "method": "arXiv and Optimization Online abstract inspection.",
+        "title": "An Adaptive and Parameter-Free Nesterov's Accelerated Gradient Method for Convex Optimization",
+        "trigger": "Accelerated adaptive predecessor on which the primary source says its method is based."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "668b8793-7960-4742-af58-bf6808d7c248",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The paper motivates its rule by exact local smoothness information, possible step growth, and a parameter tradeoff, while the most transparent constant-curvature test should be the setting where that information is maximally useful. The exact limit shows that the combined safeguards impose a strict, sharp curvature-use ceiling even there, and quantifies the additional restriction caused by the convenient initialization \\(t_0=1\\). This is a natural diagnostic of the method's parameter geometry rather than an arbitrary scalar exercise.",
+    "status": "PASS"
+  }
+}
