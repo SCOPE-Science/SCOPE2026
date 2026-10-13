@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces the simple continuous null to iid uniforms, represents Cramér–von Mises and Watson as two quadratic forms of the same empirical-process sum, and applies an exact iid fourth-moment identity. Direct integration of the bridge kernel gives tr(Sigma^2)=1/90, tr(Sigma P Sigma)=1/360, and tr(Sigma P Sigma P)=1/720. For one uniform observation the projected quadratic form is identically 1/12, eliminating the non-Gaussian correction for Watson and the cross term. An independent exact-rational order-statistic integration verifies the resulting finite formulas through n=8.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pearson and Stephens (1962) explicitly define both statistics and study their small-sample marginal distributions; the inspected six-page full text contains no joint covariance or correlation.",
+        "Hwang and Kuriki (2024) call Cramér–von Mises and Watson classical quadratic EDF statistics and give explicit marginal limiting eigenstructures and MGFs; their full public text contains no correlation statement.",
+        "Watson (1961) is the original centered-statistic source; bibliographic metadata and later primary literature verify the definition and historical role."
+      ],
+      "reasoning": "Marginal distributions, cumulants, or eigenstructures do not determine the finite joint mixed moment. The accepted result requires a shared-sample quadratic-form calculation absent from the inspected broader treatments.",
+      "searches": [
+        "Pearson Stephens 1962 goodness-of-fit tests W_N U_N",
+        "Watson 1961 Goodness-of-fit tests on a circle",
+        "Hwang Kuriki integrated empirical measures Cramer von Mises Watson",
+        "Stephens EDF statistics goodness of fit Watson Cramer von Mises"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1093/biomet/48.1-2.109",
+      "DOI:10.1093/biomet/49.3-4.397",
+      "arXiv:2404.06040",
+      "DOI:10.1111/j.2517-6161.1970.tb00821.x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current and prior own ledgers contain no recoverable claim mentioning Cramér–von Mises, Watson, empirical-distribution goodness-of-fit, or Brownian bridge in this role.",
+        "Pearson--Stephens's marginal cumulant relation for the asymptotic laws does not determine their joint covariance.",
+        "The identity U_n^2=W_n^2 minus a centering square alone also does not determine the covariance until the mixed moment with that centering square is evaluated."
+      ],
+      "reasoning": "Neither separate marginal information nor the deterministic algebraic relation between the statistics implies the accepted correlation without the new cross-moment computation. No own claim subsumes this object.",
+      "searches": [
+        "own ledger Cramer Watson goodness of fit covariance",
+        "own ledger empirical distribution Watson Cramer-von Mises",
+        "Pearson Stephens W_N U_N covariance",
+        "Hwang Kuriki Cramer Watson covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches covered Cramér–von Mises/Cramer-von Mises, Watson U-squared, W_N squared, U_N squared, empirical bridge, finite-sample covariance, exact correlation, and Brownian-bridge formulations.",
+        "semantic index returned only unrelated covariance/correlation records; none involved these two goodness-of-fit statistics.",
+        "General web searches for the exact rational denominators and correlation expression did not surface a matching published formula."
+      ],
+      "reasoning": "The claim was searched both in statistic names and in the equivalent quadratic-Brownian-bridge language. Exact formula searches reduce the risk that the result is present under a different verbal description.",
+      "searches": [
+        "Cramer von Mises Watson statistic covariance correlation Brownian bridge",
+        "Cramér-von Mises Watson U squared correlation exact",
+        "Brownian bridge integral square centered integral covariance Watson",
+        "joint asymptotic distribution Cramer von Mises Watson statistics",
+        "Watson U2 Cramer von Mises dependence",
+        "finite sample covariance Cramer von Mises W_N squared Watson U_N squared",
+        "exact correlation Cramer von Mises Watson goodness of fit statistics",
+        "Pearson Stephens W_N U_N covariance",
+        "Watson statistic finite sample variance Cramer von Mises covariance",
+        "\"Cramer von Mises\" Watson covariance correlation \"4n-3\"",
+        "\"Watson\" \"Cramer-von Mises\" covariance correlation",
+        "\"sqrt(2(n-1)/(4n-3))\" Watson"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 1962 Pearson--Stephens paper tabulates or approximates separate distributional information but does not provide a joint covariance table.",
+        "No exact formula collection located the finite covariance (n-1)/(180n) or the exact correlation."
+      ],
+      "reasoning": "The new statement is an exact symbolic joint identity for every n, not a numerical reconstruction from significance-point tables or Monte Carlo output.",
+      "searches": [
+        "\"variance\" \"Watson statistic\" U^2 finite sample",
+        "\"U_N^2\" variance Watson finite sample",
+        "\"1/180\" Watson \"Cramer-von Mises\"",
+        "\"4n-3\" \"Cramer-von Mises\" variance"
+      ]
+    },
+    "rationale": "The closest full classical paper jointly devoted to the two statistics, Pearson--Stephens (1962), gives finite Cramér–von Mises moments, Monte Carlo Watson distributions, and marginal asymptotic cumulant relations but no finite joint covariance or correlation. A modern full treatment of both marginal limiting families likewise contains no correlation statement. Targeted semantic and web searches found no formula matching the finite-sample covariance or correlation.",
+    "residual_risks": [
+      "Watson's 1961 article was not available in full during this run, so an explicit early joint moment there cannot be ruled out directly.",
+      "Older goodness-of-fit literature is extensive, and the same formula could have been recorded in a table or under alternate notation.",
+      "The result applies only to fully specified continuous nulls; fitted-parameter versions can have different covariance structure."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MARGINAL_FINITE_AND_ASYMPTOTIC_RESULTS_WITHOUT_ACCEPTED_JOINT_MOMENT",
+        "evidence": "The article gives finite W_N^2 moments, simulation results for U_N^2, and a relation between the cumulants of the two limiting marginal laws. No finite covariance, joint characteristic function, or correlation between W_N^2 and U_N^2 is stated.",
+        "identifier_or_url": "DOI:10.1093/biomet/49.3-4.397",
+        "material_read": "Full six-page article, including definitions, finite moments of W_N^2, Monte Carlo results for both statistics, and the final section on characteristic functions and asymptotic cumulants.",
+        "method": "Compared all stated moment and cumulant formulas against the accepted finite covariance/correlation, with particular attention to the characteristic-function section.",
+        "title": "The goodness-of-fit tests based on W_N^2 and U_N^2",
+        "trigger": "Closest classical primary source because it is devoted jointly to the same two statistics and explicitly discusses small-sample distributions."
+      },
+      {
+        "assessment": "SEPARATE_MARGINAL_EIGENSTRUCTURES_WITHOUT_ACCEPTED_CROSS_STATISTIC_CORRELATION",
+        "evidence": "The manuscript gives explicit eigenvalues and MGFs for the Cramér–von Mises and Watson marginal limit laws and lists primary MSC 62G10 and 62E20. No correlation occurrence or joint mixed-moment statement was found.",
+        "identifier_or_url": "arXiv:2404.06040",
+        "material_read": "Full public HTML manuscript sections covering the classical statistics, limiting Gaussian processes, eigenvalues, MGFs, and targeted searches for covariance and correlation.",
+        "method": "Checked whether the separate classical/generalized eigenstructure results imply or state a joint covariance between Cramér–von Mises and Watson statistics.",
+        "title": "Integrated empirical measures and generalizations of classical goodness-of-fit statistics",
+        "trigger": "Modern full treatment of both classical statistics and their explicit limiting Gaussian eigenstructures; also verifies primary MSC 62G10."
+      },
+      {
+        "assessment": "PLAUSIBLE_ORIGINAL_SOURCE_INACCESSIBLE_IN_FULL_RESIDUAL_HISTORICAL_RISK",
+        "evidence": "Oxford metadata gives publication date 1961-06-01. A mathematical bibliography maps the work to nonparametric hypothesis testing MSC 62G10, and Pearson--Stephens (1962) explicitly attributes U_N^2 to Watson (1961, 1962).",
+        "identifier_or_url": "DOI:10.1093/biomet/48.1-2.109",
+        "material_read": "Publisher bibliographic record and first-page metadata; full text was not obtainable after open-access searches and a bounded institutional retrieval attempt.",
+        "method": "Verified exact publication date, title, authorship, DOI, and its later primary-literature role as the source of the Watson centered statistic.",
+        "title": "Goodness-of-fit tests on a circle",
+        "trigger": "Original Watson-statistic source and earliest literature anchor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5b761aa7-91ae-4ed1-9826-f2a72f268b44",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cramér–von Mises and Watson are standard companion quadratic goodness-of-fit statistics. Exact finite-sample dependence is directly relevant to joint simulation, combined testing, benchmarking, and understanding redundancy. The closed correlation sqrt(2(n-1)/(4n-3)) and persistent 1/sqrt(2) limit are structurally informative and not recoverable from the well-known marginal distributions alone.",
+    "status": "PASS"
+  }
+}
