@@ -1,0 +1,93 @@
+{
+  "correctness": {
+    "rationale": "Each source projection is a scalar multiple of the opposite current vector, so the signed angle is invariant. Taking norms gives the exact finite-regularizer recurrences. Dropping the projection regularizer makes both norms acquire the same factor \\(c\\) at every depth, and the preserved signed angle then gives the exact discrepancy multiplier \\(c^K\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical Euclidean projection identities explain single-projection cosine factors.",
+        "Aida alternates two source-specific reciprocal projections and then squares their discrepancy for an adaptive second moment.",
+        "The source itself uses this construction to make projection depth a practical optimizer hyperparameter."
+      ],
+      "reasoning": "Generic projection geometry supplies ingredients but not the optimizer-specific conclusion that Aida's second-moment innovation has the exact \\(c^{2K}\\) depth law and the sharp orthogonal-versus-collinear endpoints.",
+      "searches": [
+        "alternating orthogonal projections cosine angle contraction",
+        "mutual vector projections cosine contraction residual",
+        "projection geometry repeated reciprocal projections"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2203.13273v1",
+      "TMLR2023:Aida"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equations 10 and 11 give the exact reciprocal projection maps.",
+        "Equations 13 and 14 state only nonincrease of norms and discrepancy.",
+        "The text says larger \\(K\\) makes adaptive stepsizes more compact and uses \\(K=2\\) in experiments."
+      ],
+      "reasoning": "The prior statements leave the depth dependence quantitative gap open. Solving the norm recursion and using signed-angle invariance yields the exact cosine exponent and sharp endpoint behavior.",
+      "searches": [
+        "arXiv:2203.13273 equations 10 11 mutual vector projections",
+        "arXiv:2203.13273 equations 13 14 discrepancy nonincreasing",
+        "arXiv:2203.13273 K controls range adaptive stepsizes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source gives the mutual projection equations and states angle invariance.",
+        "It proves only nonincrease of projected-vector lengths and discrepancy.",
+        "No inspected source states that the zero-regularizer layerwise discrepancy energy is multiplied exactly by a cosine power."
+      ],
+      "reasoning": "Equivalent coverage would give the exact \\(K\\)-dependence of the projected discrepancy or the same angle-selective energy law. The source's monotonicity inequality and qualitative convergence of coefficients do not imply the displayed sharp factor without solving the recursion.",
+      "searches": [
+        "Aida optimizer mutual vector projections cosine power residual exact",
+        "Aida K projections angle cosine adaptive stepsize exact",
+        "mutual projections m g cos theta K Aida",
+        "A DNN Optimizer Aida projection exact contraction cos angle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed records concern unrelated projection certificates, coherence bounds, optimization stability frontiers, and matrix-valued adaptation.",
+        "No returned indexed finding names Aida or states a mutual-projection cosine-power discrepancy law."
+      ],
+      "reasoning": "The closest records use different projection maps and do not imply the Aida recurrence. Search absence is supporting evidence only.",
+      "searches": [
+        "Aida optimizer mutual vector projections cosine power residual exact",
+        "Aida K projections angle cosine adaptive stepsize exact",
+        "mutual projections m g cos theta K Aida",
+        "A DNN Optimizer Aida projection exact contraction cos angle"
+      ]
+    },
+    "rationale": "The defining Aida source proves only nonincrease of projected norms and discrepancy and gives a qualitative statement that deeper projection makes its scalar coefficients smaller. The inspected source does not state an exact cosine-power decay law or the \\(c^4\\) source-default energy factor. Focused indexed searches found no implication-equivalent Aida result.",
+    "residual_risks": [
+      "The cosine-power identity may be familiar as elementary projection geometry outside adaptive-optimization literature.",
+      "The exact discrepancy factor neglects the source's tiny positive projection regularizer.",
+      "Coordinatewise second-moment effects can differ from the layerwise total-energy law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_PROJECTION_MONOTONICITY_NOT_COVERING_EXACT_COSINE_POWER_DEPTH_LAW.",
+        "evidence": "The source states angle preservation and nonincreasing discrepancy, but no exact cosine-power formula or source-default fourth-power energy factor was found.",
+        "identifier_or_url": "arXiv:2203.13273v1 / TMLR",
+        "material_read": "Open full PDF covering the AdaBelief epsilon analysis, Section III motivation, equations 10 through 14, Algorithm 1, the qualitative discussion of increasing projection depth, convergence section, and experimental use of \\(K=1,2\\); the algorithm and projection page was visually inspected.",
+        "method": "Full-text PDF inspection plus page-image inspection.",
+        "title": "A DNN Optimizer that Improves over AdaBelief by Suppression of the Adaptive Stepsize Range",
+        "trigger": "Defining source for Aida's mutual layerwise projections, projection depth, and second-moment innovation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b003b412-9b8a-4cdc-9bcb-5f83a9ebbe73",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Projection depth is Aida's defining extra hyperparameter and the source uses it specifically to control adaptive-step compactness. The exact angle law quantifies what that hyperparameter actually filters: for \\(K=2\\), total innovation energy is weighted by a fourth power of alignment. The sharp orthogonal and collinear endpoints show a structural limitation that is invisible in the source's monotonicity inequality—suppression is highly angle selective rather than uniform.",
+    "status": "PASS"
+  }
+}
