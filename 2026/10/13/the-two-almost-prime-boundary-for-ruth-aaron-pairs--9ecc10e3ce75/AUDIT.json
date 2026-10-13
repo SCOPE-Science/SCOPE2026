@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The proof exhausts prime/semiprime possibilities for both consecutive integers. Prime-semiprime cases reduce to exact factor equations. In the semiprime-semiprime case, equal prime-factor sums and consecutive products give \\(t(b-a-t)=1\\), whose two integer factorizations both contradict primality/order. Prime squares are included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pomerance proves global sparsity bounds for ordinary Ruth–Aaron numbers and discusses their infinitude, but the inspected abstract and introduction do not formulate a low-prime-factor classification.",
+        "Iannucci–Mintos Theorem 1 classifies the distinct-prime-divisor variant when the two numbers have one and two distinct prime factors.",
+        "The Iannucci–Mintos parity observation rules out squarefree pairs with two distinct prime factors on both sides in their variant, but it does not handle ordinary multiplicity prime-square cases."
+      ],
+      "reasoning": "Global density results do not imply the exact first-layer classification. The distinct-prime theorem is inapplicable to repeated-prime semiprimes, which are explicitly part of \\(\\Omega=2\\).",
+      "searches": [
+        "Ruth-Aaron numbers revisited Pomerance pdf",
+        "Generalizing Ruth-Aaron Numbers",
+        "On consecutive integer pairs with the same sum of distinct prime divisors"
+      ]
+    },
+    "checked_sources": [
+      "INTEGERS:5:A12",
+      "Pomerance:Ruth-Aaron-numbers-revisited:2002",
+      "OEIS:A039752"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior prime-containing result determines only the branch where one member has \\(\\Omega=1\\).",
+        "Iannucci–Mintos work with distinct-prime counts \\(\\omega\\) and their different function \\(P\\), so their Theorem 1 does not imply the ordinary multiplicity prime-square branches.",
+        "The new proof independently excludes the remaining semiprime-semiprime branch, including \\(p^2\\) versus \\(qr\\) and \\(p^2\\) versus \\(q^2\\)."
+      ],
+      "reasoning": "The final claim is strictly broader than the prime-containing classification and is not a corollary of the distinct-prime variant because \\(S(p^2)=2p\\) whereas \\(P(p^2)=p\\).",
+      "searches": [
+        "Ruth-Aaron prime semiprime classification",
+        "Ruth-Aaron pairs both semiprime impossible",
+        "INTEGERS 5 A12 omega Ruth-Aaron distinct prime divisors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest indexed result is the separate claim that the only ordinary multiplicity Ruth–Aaron pair containing a prime is \\((5,6)\\).",
+        "Iannucci–Mintos study \\(P(n)\\), the sum of distinct prime divisors, rather than the multiplicity function \\(S(n)\\) used in the final claim.",
+        "No located indexed result states that \\((5,6)\\) is the unique ordinary Ruth–Aaron pair with both \\(\\Omega\\)-values at most two."
+      ],
+      "reasoning": "Searches targeted semiprime, two-almost-prime, \\(\\Omega\\)-bounded, and prime-semiprime formulations. The located statements either concern a different arithmetic function or only the prime-containing branch.",
+      "searches": [
+        "Ruth-Aaron consecutive semiprimes both Omega 2",
+        "Ruth-Aaron semiprime pairs two prime factors",
+        "Ruth Aaron pair pq rs equal prime factor sums",
+        "Ruth-Aaron both semiprime classification",
+        "Ruth-Aaron pair Omega(n)=Omega(n+1)=2",
+        "Ruth-Aaron Omega at most 2 classification",
+        "Ruth-Aaron two-almost-prime classification",
+        "Ruth-Aaron pairs both semiprime impossible",
+        "Ruth-Aaron max Omega <=2 5 6",
+        "Ruth-Aaron prime semiprime classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A039752 lists ordinary multiplicity Ruth–Aaron numbers beginning \\(5,8,15,77,125,714,\\ldots\\).",
+        "The entry cites Pomerance for a global counting bound and contains no \\(\\Omega\\le2\\) theorem."
+      ],
+      "reasoning": "A finite value table is consistent with the theorem but cannot exclude an arbitrarily large semiprime-semiprime pair.",
+      "searches": [
+        "OEIS A039752 Ruth-Aaron numbers",
+        "A039752 semiprime Ruth Aaron"
+      ]
+    },
+    "rationale": "The closest published full text treats the distinct-prime-divisor Ruth–Aaron variant and covers only a squarefree subcase of the present semiprime branch. The ordinary multiplicity literature located here gives global density results and tables, not the complete \\(\\Omega\\le2\\) classification.",
+    "residual_risks": [
+      "The 1974 introductory paper was not independently inspected in full during this run.",
+      "Recreational-number literature is not uniformly indexed or searchable.",
+      "The Iannucci–Mintos distinct-prime theorem already covers the squarefree-squarefree subcase, so originality rests on closing the complete ordinary multiplicity layer, including prime squares."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the final ordinary multiplicity claim. It studies the distinct-prime-divisor function P after contrasting it with S; its low-factor theorem is stated in terms of omega and a different equality.",
+        "evidence": "The paper defines ordinary Ruth–Aaron pairs by S but then states that its subject is P(n)=P(n+1). Theorem 1 concerns {omega(n),omega(n+1)}={1,2}; its squarefree observation covers only a subcase of the final theorem.",
+        "identifier_or_url": "INTEGERS:5:A12",
+        "material_read": "Complete nine-page PDF: abstract and introduction; definitions of P, S, omega; Sections 3–5; Theorem 1; the parity observation for RAP2s; Pell-family construction; concluding remarks and references.",
+        "method": "Full-text PDF inspection with page-image checks and targeted term searches.",
+        "title": "On consecutive integer pairs with the same sum of distinct prime divisors",
+        "trigger": "Closest full primary paper treating low-prime-factor consecutive equal-prime-sum pairs."
+      },
+      {
+        "assessment": "CONTEXT_ONLY. The inspected material establishes the ordinary multiplicity convention and global sparsity, but no whole-document noncoverage claim is made because the machine text is partially corrupted.",
+        "evidence": "The abstract defines S using prime factors with multiplicity and discusses the global counting bound for Ruth–Aaron numbers.",
+        "identifier_or_url": "Pomerance:Ruth-Aaron-numbers-revisited:2002",
+        "material_read": "Page-image inspection of the title, abstract and introduction; targeted full-document searches for semiprime, two-prime and Omega terminology; bibliographic context for the ordinary definition and density theorem.",
+        "method": "Full-PDF page-image inspection plus targeted exact-term search; machine text was partially corrupted.",
+        "title": "Ruth–Aaron numbers revisited",
+        "trigger": "Primary full paper for the ordinary multiplicity convention and its global distribution."
+      },
+      {
+        "assessment": "NOT_COVERING. It records values and a global counting bound but no low-\\(\\Omega\\) classification.",
+        "evidence": "The entry defines equality of prime-factor sums with multiplicity and begins 5, 8, 15, 77, 125, 714.",
+        "identifier_or_url": "OEIS:A039752",
+        "material_read": "Definition, initial terms, comments, references, links, example and formulas.",
+        "method": "Direct database-page inspection.",
+        "title": "OEIS A039752: Ruth–Aaron numbers (2)",
+        "trigger": "Exact database for the ordinary multiplicity sequence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9ecc10e3-ce75-4b9e-bf58-09e03d0c8f9e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result closes the complete first two total-prime-factor layers of a classical consecutive-integer equation and identifies the sharp transition to depth three via \\((8,9)\\). It is an unrestricted structural classification, not a finite census or a renamed known statement.",
+    "status": "PASS"
+  }
+}
