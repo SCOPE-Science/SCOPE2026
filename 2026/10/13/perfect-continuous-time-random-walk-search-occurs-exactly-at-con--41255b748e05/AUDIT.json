@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "For unit vectors the probability-one condition forces a unitary eigenmoment identity. Exact first moments uniquely imply gamma=1-pi; exact second moments imply (1/d_w)sum_neighbors(1/d_v)=d_w/(2m-d_w). Cauchy–Schwarz and positivity of degrees yield equality iff w universal and neighbor degrees identical. A cone over k-regular base has a rigorously invariant orthonormal two-state subspace, whose reduced H squares to I/(k+2); analytic exponentiation gives the exact full success law, gamma uniqueness and complete time set for every k>=0, N>=2. Standard-library verifier checks all 27475 connected labeled graphs up to order six with exact fractions and 13 cone blocks; finite tests are supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Razzoli et al., arXiv:2202.13824v2 §5.1, Hamiltonian H=gamma(D-A)-|w><w|, prove perfect search for any universal w with ordinary uniform initial state.",
+        "Coutinho–Baptista, arXiv:2209.04668v1, Hamiltonian is the UNPERTURBED normalized Laplacian and initial/target are both vertex states.",
+        "Alvir et al., arXiv:1409.5840v1, investigate unperturbed vertex-to-vertex perfect state transfer."
+      ],
+      "reasoning": "The superficially stronger all-cones theorem for the combinatorial Laplacian does not cover normalized random-walk search, since degree normalization changes the dynamics on irregular graphs; its cone-over-a-three-vertex-path example satisfies the published combinatorial result but fails the new normalized criterion. Normalized-Laplacian transfer theorems without an oracle are a different problem.",
+      "searches": [
+        "web: \"continuous-time quantum walk\" \"perfect\" \"search\" \"universal vertex\" \"random walk Laplacian\"",
+        "web: \"perfect state transfer\" \"normalized laplacian\" \"search Hamiltonian\" \"oracle\"",
+        "arxiv:2202.13824v2 Sections 2,4,5",
+        "arxiv:2209.04668v1 Sections 1,3,4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2207.01686v1: full primary HTML",
+      "doi:10.1007/s11128-023-04212-w: full OA journal HTML",
+      "arxiv:2202.13824v2: full related primary HTML",
+      "arxiv:2209.04668v1: full related primary HTML",
+      "arxiv:1409.5840v1: abstract only",
+      "Public record 2026/9/8/SCOPE031: 6-regular circulants, unrelated",
+      "Public record 2026/9/20/SCOPE-quantitative-path-stability-graph-indexed-ranges--fc2d9220df63: path random-walk ranges, unrelated"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2207.01686v1 Theorem 2.3 bounds eigenvalue deviations from overlap estimates, and §2 gives p(t) only for a complete graph. No necessity or general graph equality criterion is asserted.",
+        "Razzoli arXiv:2202.13824v2 proves universal-vertex sufficiency for L=D-A, not the normalized random-walk protocol; it has no requirement that the remaining graph is regular.",
+        "Coutinho–Baptista arXiv:2209.04668v1 Theorem 5 concerns spectral ratio conditions for exact vertex-to-vertex transport without an oracle."
+      ],
+      "reasoning": "The new theorem implies exact characterization including uniqueness of gamma and all perfect times; the published complete graph is its k=N-2 special case, not the reverse implication. Combinatorial-Laplacian and no-oracle PST statements do not imply it, as their Hamiltonians and/or boundary states differ. The two-moment equality and Cauchy–Schwarz rigidity are the new critical logical steps.",
+      "searches": [
+        "arxiv:2207.01686v1 Theorem 2.3 and complete-graph example",
+        "doi:10.1007/s11128-023-04212-w sections 2–3",
+        "arxiv:2202.13824v2 Section 5.1",
+        "arxiv:2209.04668v1 Section 3",
+        "Published-record search: Grover search probabilistic graph Laplacian perfect search exactly iff target universal vertex and its deletion is regular; first two Hamiltonian moments Cauchy Schwarz"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mograby et al. arXiv:2207.01686v1 §§1–3 formulates the same reversible probabilistic Laplacian and one-oracle search, but only computes the exact complete-graph probability and a hypercube numerical model.",
+        "The indexed related arXiv:2209.04668v1 studies normalized-Laplacian perfect transfer between two vertices without the marked oracle; no search classification occurs."
+      ],
+      "reasoning": "An equivalent claim would characterize probability-one transfer of the stationary degree-weighted state under gamma(I-D^-1 A)-|w><w|. Neither the primary source nor targeted exact/alias searches gave that criterion; no novelty inference is made solely from failed search.",
+      "searches": [
+        "Published-record search: Perfect continuous-time quantum search normalized random-walk Laplacian from stationary state iff marked vertex is universal and other vertices have equal degree cone regular graph",
+        "Published-record search: quantum search probability exactly one random walk normalized Laplacian conical regular graphs marked apex",
+        "Published-record search: Grover search probabilistic graph Laplacian perfect search exactly iff target universal vertex and its deletion is regular; first two Hamiltonian moments Cauchy Schwarz",
+        "Published-record search: simple graphs random-walk Laplacian Grover search moment inequality sum inverse neighbor degrees equality universal regular",
+        "web: \"normalized Laplacian\" \"perfect\" \"quantum search\" marked vertex graph universal degree",
+        "web: \"random-walk Laplacian\" \"perfect\" \"spatial search\" \"cone\"",
+        "arxiv:2207.01686v1 Section 1 and Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mograby et al. present a complete-graph exact probability formula and hypercube numerical parameter tables, not an enumeration or database classifying all simple graphs.",
+        "A closely indexed generic circulant spectral database 2026/9/8/SCOPE031 concerns 6-regular circulants and not stationary-state oracle transfer."
+      ],
+      "reasoning": "A universal all-order iff with exact parameter and all perfect times cannot be read from the published one-family probabilities or finite tables; no matching closed-form lookup/table was located. The proof independently covers every finite connected simple graph.",
+      "searches": [
+        "Published-record search: quantum random walk search graph normalized Laplacian cone over k regular graph perfect search gamma (k+1)/(k+2) t pi sqrt(k+2)/2",
+        "Published-record search: Mograby Balu Okoudjou Teplyaev arxiv 2207.01686 perfect success random walk Laplacian target vertex graph cone",
+        "web: \"Quantum walks in the normalized Laplacian\" \"Coutinho\" \"Baptista\" arxiv",
+        "arxiv:2207.01686v1 complete-graph formula and §3 numerical tables"
+      ]
+    },
+    "rationale": "Full primary 2022 arXiv and 2024 open-access journal versions discuss the same probability model, spectral approximation and the complete-graph special case without the all-graphs cone-regular iff. The strongest near-match (Razzoli et al. 2022) works with the combinatorial Laplacian D-A, for which universal marks over nonregular bases still yield exact success, hence it cannot imply the normalized result. Coutinho–Baptista (2022) concerns unperturbed vertex-to-vertex normalized-Laplacian transfer, not this oracle stationary-to-target question. Specific mathematical-record and literature searches found no covering statement; residual indexing risk remains.",
+    "residual_risks": [
+      "A mathematically equivalent classification could exist in poorly indexed quantum-walk literature under a different normalization or deterministic-search term.",
+      "The 2014 state-transfer paper was assessed at abstract level only; its unperturbed matrix-entry objective differs from this problem.",
+      "This is a self-review, not an independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source defines the model, proves approximation bounds and complete-graph equality; does not state all-graph iff criterion.",
+        "evidence": [
+          "Section 1 model (1.2)–(1.6); Theorem 2.3; (1.10); Section 3 numerical studies."
+        ],
+        "identifier_or_url": "arxiv:2207.01686v1 / https://arxiv.org/html/2207.01686v1",
+        "material_read": "Full arXiv HTML (Sections 1–4, including model (1.2)–(1.6), Theorem 2.3, complete-graph formula, hypercube results, conclusions)",
+        "method": "Read open full text and compare theorems and worked graph families",
+        "title": "Quantitative approach to Grover's quantum walk on graphs",
+        "trigger": "Exact same probabilistic-Laplacian oracle Hamiltonian and stationary start"
+      },
+      {
+        "assessment": "Confirms closest exact statement remains complete graph; no all-graph normalized search classification.",
+        "evidence": [
+          "2024 journal text Section 2, equations (10) and (11), Theorem 2.3; Section 3."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11128-023-04212-w",
+        "material_read": "Full open-access journal HTML, including introduction, Section 2 Theorem 2.3, Section 3 hypercube studies and conclusions",
+        "method": "Read open journal full text, compare statements to the preprint",
+        "title": "Quantitative approach to Grover's quantum walk on graphs — version of record",
+        "trigger": "Publisher-final version of exact same primary work"
+      },
+      {
+        "assessment": "Hamiltonian gamma(D-A)-|w><w|, not gamma(I-D^-1 A)-oracle. Sufficiency on all cones is not normalized-operator coverage.",
+        "evidence": [
+          "Eq. (42), §5.1, perfect-search equation; §2 normalization discussion."
+        ],
+        "identifier_or_url": "arxiv:2202.13824v2 / https://arxiv.org/html/2202.13824v2",
+        "material_read": "Full arXiv HTML Sections 2–7, particularly §5.1 and Eq. (42); discussion of normalization at §2",
+        "method": "Read primary HTML, identify operator matrix and compare implication for irregular cone",
+        "title": "Universality of the fully connected vertex in Laplacian continuous-time quantum walk problems",
+        "trigger": "Strongest plausible general universal-marked-vertex spatial-search theorem"
+      },
+      {
+        "assessment": "Unperturbed normalized-Laplacian vertex-to-vertex PST; lacks stationary-state oracle and does not imply current theorem.",
+        "evidence": [
+          "Intro & Section 3 U(t)=exp(it L_norm), vertex-to-vertex definition; no oracle in text."
+        ],
+        "identifier_or_url": "arxiv:2209.04668v1 / https://arxiv.org/html/2209.04668v1",
+        "material_read": "Full arXiv HTML Sections 1–5 including equations (1)–(2), normalized Laplacian definition, Theorems 2–7, tree cases",
+        "method": "Read primary full text with searches for oracle/search and compare source/target states",
+        "title": "Quantum Walks in the Normalized Laplacian",
+        "trigger": "Possible broader exact normalized-Laplacian transfer classification"
+      },
+      {
+        "assessment": "Abstract concerns vertex-to-vertex transfer without oracle; not a decisive unresolved comparison, but full paper not evaluated.",
+        "evidence": [
+          "ArXiv abstract defines perfect state transfer via a matrix entry U(t)_{u,v}."
+        ],
+        "identifier_or_url": "arxiv:1409.5840v1 / https://arxiv.org/abs/1409.5840",
+        "material_read": "ArXiv abstract and source metadata, plus its stated main theorems in abstract; full paper not inspected",
+        "method": "Read arXiv abstract and scope; treat as a peripheral source, not evidence of whole-document absence",
+        "title": "Perfect State Transfer in Laplacian Quantum Walk",
+        "trigger": "Earlier no-oracle perfect transfer result potentially confused with search"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "41255b74-8e05-44e2-b565-e78d6a20beee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gives a natural complete necessary-and-sufficient classification of deterministic finite-time search for the canonical reversible random-walk Laplacian on all connected simple graphs, including unique hopping coefficient and every perfect time. Unlike routine special-case calculation, the sharp degree-moment obstruction shows precisely when degree normalization destroys universal-vertex search (e.g. a cone over P3). It establishes that among connected regular graphs only complete graphs admit exact success with this protocol, a physically meaningful boundary not settled by the source’s complete-graph and numerical hypercube analysis.",
+    "status": "PASS"
+  }
+}
