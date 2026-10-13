@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The two graph measures are reconstructed from exact pair-distance histograms. The witness values \\(L(A)=15/7\\), \\(E(A)=25/42\\), \\(L(B)=46/21\\), and \\(E(B)=188/315\\) follow by exact summation. The packaged standard-library verifier exhausts every connected labeled simple graph through six vertices and finds no strict reversal within any common \\((n,m)\\) class.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Watts and Strogatz define characteristic path length as the average shortest-path distance over vertex pairs.",
+        "Latora and Marchiori define global efficiency as the average reciprocal shortest-path distance and state that \\(1/L\\) can significantly depart from global efficiency.",
+        "These sources establish the measures and qualitative non-equivalence but do not supply the sharp finite fixed-density boundary."
+      ],
+      "reasoning": "A general statement that the metrics differ does not imply that strict rankings agree through six vertices at fixed edge count, nor does it identify the first equal-degree-sequence reversal.",
+      "searches": [
+        "Efficient Behavior of Small-World Networks Latora Marchiori 2001 global efficiency characteristic path length",
+        "Collective dynamics of small-world networks characteristic path length Watts Strogatz 1998",
+        "global efficiency characteristic path length same number of edges network"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1038/30918",
+      "arxiv:cond-mat/0101396",
+      "doi:10.1103/PhysRevLett.87.198701",
+      "MSC2020:91D30"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Latora and Marchiori explicitly say that \\(1/L\\) can significantly depart from global efficiency, so the final claim does not present non-equivalence itself as new.",
+        "Their argument does not prove an ordinal rank reversal at any finite order, much less minimality under fixed size and edge count.",
+        "The accepted lower bound requires an exhaustive statement over every connected graph through six vertices, which is independent of the qualitative prior comparison."
+      ],
+      "reasoning": "The prior literature permits divergence in magnitude. The new statement is an ordinal extremal theorem: strict ranking reversal is impossible under the stated controls below seven vertices and possible at seven.",
+      "searches": [
+        "Latora Marchiori 1/L approximation global efficiency significantly depart",
+        "global efficiency characteristic path length network comparison same density",
+        "average shortest path length global efficiency same degree sequence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Latora and Marchiori define global efficiency as the average of \\(1/d(i,j)\\) and characteristic path length as the average of \\(d(i,j)\\), and explicitly discuss \\(1/L\\) as only an approximation to global efficiency.",
+        "No checked published-result hit stated a smallest connected graph for an ordinal reversal between these two measures.",
+        "Searches included the aliases characteristic path length, average shortest-path length, global efficiency, inverse distance, fixed density, and ranking reversal."
+      ],
+      "reasoning": "The claim can appear either as a comparison of arithmetic and reciprocal distance averages or under network-science terminology. The searches covered both formulations and the same-density qualifier.",
+      "searches": [
+        "global efficiency average path length network fixed edge count smallest graph ranking reversal",
+        "Latora Marchiori efficiency characteristic path length opposite ranking small graph",
+        "network efficiency inverse distance average shortest path exact finite graph reversal",
+        "seven vertices seven edges global efficiency characteristic path length",
+        "global efficiency characteristic path length ranking graph",
+        "global efficiency average shortest path reversal network"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked source tabulated the exact rational quadruple in the accepted witness.",
+        "No checked source identified the common degree multiset \\((1,1,2,2,2,3,3)\\) as a path-length/global-efficiency reversal.",
+        "The verifier derives all lower-order metric pairs directly from graph enumeration rather than importing a graph table."
+      ],
+      "reasoning": "Exact-value and degree-sequence searches test whether the small witness is already present as a benchmark, catalog entry, or worked example.",
+      "searches": [
+        "15/7 25/42 graph efficiency",
+        "188/315 global efficiency graph",
+        "degree sequence 1 1 2 2 2 3 3 global efficiency path length",
+        "seven vertex seven edge global efficiency average path length"
+      ]
+    },
+    "rationale": "Prior work establishes both measures and their general non-equivalence. The checked literature and published-result searches did not state the sharp fixed-density seven-vertex boundary or the displayed equal-degree-sequence witness.",
+    "residual_risks": [
+      "An unindexed worked example, teaching note, or software test could contain the same seven-vertex pair.",
+      "The checked literature establishes general non-equivalence, so originality is restricted to the sharp fixed-density boundary and exact witness.",
+      "The result does not classify every reversing pair at seven or more vertices."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly supports the characteristic-path-length definition and its network-science motivation. It does not discuss global efficiency, introduced later.",
+        "evidence": "The Figure 2 legend defines \\(L\\) as the number of edges in a shortest path averaged over all vertex pairs; the article is dated 4 June 1998.",
+        "identifier_or_url": "doi:10.1038/30918",
+        "material_read": "Author-hosted full PDF, including the first two article pages and the Figure 2 legend defining characteristic path length as average shortest-path distance and clustering as a separate local measure.",
+        "method": "Full-text PDF inspection, including rendered page images.",
+        "title": "Collective dynamics of ‘small-world’ networks",
+        "trigger": "Foundational primary source for characteristic path length in network comparison."
+      },
+      {
+        "assessment": "This is the closest prior work. It establishes general non-equivalence and says \\(1/L\\) may significantly depart from global efficiency, but it does not state the sharp seven-vertex fixed-density reversal boundary.",
+        "evidence": "The paper defines \\(E(G)\\) as the average of \\(1/d_{ij}\\), describes \\(1/L\\) as an approximation, and notes that the two can differ substantially when distances are heterogeneous.",
+        "identifier_or_url": "arxiv:cond-mat/0101396",
+        "material_read": "Full open text covering the definitions of characteristic path length and global efficiency and the discussion comparing \\(1/L\\) with global efficiency.",
+        "method": "Open full-text arXiv inspection.",
+        "title": "Efficient Behavior of Small-World Networks",
+        "trigger": "Primary source introducing global efficiency and directly comparing it with characteristic path length."
+      },
+      {
+        "assessment": "The result concerns standard structural measures used for social-network integration and belongs naturally to social-network analysis.",
+        "evidence": "MSC2020 lists 91D30 as Social networks; opinion dynamics.",
+        "identifier_or_url": "MSC2020:91D30",
+        "material_read": "MSC2020 hierarchy entry for 91D30.",
+        "method": "Public classification-page inspection.",
+        "title": "MSC2020 database: 91D30 Social networks; opinion dynamics",
+        "trigger": "Verification of primary subject ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "702f7e74-2709-4059-bf87-22f5288a57bc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Characteristic path length and global efficiency are standard global integration measures with different averaging of the same shortest-path data. The sharp boundary shows the first order at which they can make opposite decisions even after controlling vertex count, edge count, and—in the witness—degree multiset. That isolates distance-distribution shape as the cause and provides a compact reproducibility benchmark for network analysis.",
+    "status": "PASS"
+  }
+}
