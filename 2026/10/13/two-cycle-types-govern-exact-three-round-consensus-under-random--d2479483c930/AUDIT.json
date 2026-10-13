@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The support bound proves three rounds necessary for all initial vectors. Full support after three rounds is equivalent to an all-ones unnormalized product: each of eight initial entries appears exactly once with coefficient 1/8. Edge overlap gives a size-two intermediate support and excludes completion. Contracting the four first-matching edges yields exactly the two loopless degree-two multigraph types. Inclusion-exclusion counts 60 edge-disjoint matchings, 12 of two-cycle type and 48 of single-cycle type. Complements of four-element supports give respectively 24 and 4 possible completing third matchings. Hence 480/105^2=32/735. Exact integer matrix replay checks the entire conditional sample space and an independently chosen first matching. The proof is universal over every real initial vector; no finite experiment is used as a proof beyond the eight-vertex finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1112.1336: Theorem 5 gives almost-sure finite-time consensus existence and upper bounds, not a minimal-time exact probability for iid perfect matchings.",
+        "CaltechTHESIS:5763 Theorem 4.5 states dyadic necessity and optimal hypercube edge count in a deterministic scheduling framework.",
+        "DOI:10.1109/TIT.2006.874516 discusses synchronous gossip with independently initiating neighbor contacts; not the uniform random perfect-matching law."
+      ],
+      "reasoning": "The general finite-time existence or epsilon-averaging theorems do not imply the exact integer numerator 480 nor the 12/48 second-round classification. Earlier graph-process sampling and the present uniform disjoint pairing distribution are distinct. No inspected broader theorem included the target finite-time distribution as an explicit or immediate corollary.",
+      "searches": [
+        "finite-time average consensus factorization random matchings hypercube minimum three rounds probability",
+        "random matching gossip finite time operator factorization rank one exact 3 rounds 8 vertices",
+        "arXiv:1112.1336 Theorem 5 and Appendix C",
+        "CaltechTHESIS:5763 Theorem 4.5",
+        "DOI:10.1109/TIT.2006.874516"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1905.08645 (verified v1 public date 2019-05-20)",
+      "https://arxiv.org/html/1905.08645v2 (full text)",
+      "https://thesis.caltech.edu/5763/01/consensus.pdf (full thesis)",
+      "https://arxiv.org/html/1112.1336v5 (full text)",
+      "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf (full text)",
+      "targeted indexed mathematical-result searches on exact count, cycle classification, rank-one factorization and hypercube scheduling"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The rank-one projection product criterion specializes the literature’s finite-time consensus notion.",
+        "The 2019 block-gossip paper covers the mechanism and expected contraction, not a three-step distribution.",
+        "The 2010 thesis shows a three-round construction on the hypercube, and the 2011 theorem shows almost-sure finite time with positive-probability patterns, neither fixes the 480/11025 probability."
+      ],
+      "reasoning": "The present claim implies the existence of some optimal three-round schedule (already known), plus an exact enumeration under a specified sampling law (not implied by existence or spectral-rate bounds). Its new content is the complete probability and two distinct second-round completion counts, not the fact that finite-time consensus is possible.",
+      "searches": [
+        "finite-time average consensus factorization random matchings hypercube minimum three rounds probability",
+        "random matching gossip finite time operator factorization rank one exact 3 rounds 8 vertices",
+        "Boolean hypercube randomized gossip matching finite time perfect matching counting schedules",
+        "arXiv:1905.08645 §3.4",
+        "arXiv:1112.1336 Theorem 5",
+        "CaltechTHESIS:5763 Chapter 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1905.08645 §3.4: the block method averages connected components of sampled edge sets, but analyses expected contraction.",
+        "CaltechTHESIS:5763 Chapter 4: hypercube edge-scheduling yields optimal finite-time feasibility but supplies no iid uniform matching count."
+      ],
+      "reasoning": "The update can be expressed either as three perfect-matching projections, a depth-three pairwise averaging tree, or an optimal finite-time gossip schedule; these formulations were explicitly compared. The existence of a hypercube schedule does not determine the fraction of uniformly random ordered triples. The 480-schedule count is not a restatement of the constructive hypercube schedule.",
+      "searches": [
+        "eight-node synchronous randomized gossip independent uniform perfect matchings probability exact average consensus in three rounds 32/735",
+        "parallel pairwise averaging eight agents three random perfect matchings exact finite-time consensus enumeration 480 schedule types 4-cycle 8-cycle",
+        "synchronous pairwise averaging perfect matchings eight nodes exact three round consensus probability 32 over 735 alternate 4-cycles 8-cycles",
+        "web: three rounds eight agents perfect matching averaging exact consensus probability",
+        "arXiv:1905.08645 §3.4",
+        "CaltechTHESIS:5763 Chapter 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic-index hits were on unrelated perfect-matching extremal graphs, random walks, or generic stochastic convergence; none listed an eight-agent three-round consensus schedule table.",
+        "None of the four relevant full texts supplies a schedule-count table for the stated distribution."
+      ],
+      "reasoning": "Both the exact value 32/735 and the equivalent 480 conditional completions were searched, along with verbal matching-cycle descriptions. No known database entry or published table was located; the lack of a hit does not rule out an unindexed computation.",
+      "searches": [
+        "eight-node synchronous randomized gossip independent uniform perfect matchings probability exact average consensus in three rounds 32/735",
+        "parallel pairwise averaging eight agents three random perfect matchings exact finite-time consensus enumeration 480 schedule types 4-cycle 8-cycle",
+        "synchronous pairwise averaging perfect matchings eight nodes exact three round consensus probability 32 over 735 alternate 4-cycles 8-cycles",
+        "web: 480 perfect matchings consensus eight three rounds",
+        "web: 32/735 gossip consensus matching"
+      ]
+    },
+    "rationale": "Inspected the defining 2019 block-gossip full text, the 2010 deterministic finite-time-consensus thesis, the full 2011 finite-time stochastic-graph analysis, and the 2006 gossip paper. Each treats the averaging primitive, existence, or convergence estimates but none of their inspected theorems determines the exact probability 32/735 and conditional 24-versus-4 completion law for three iid uniform perfect matchings of eight labeled agents. Targeted semantic-index and web searches on aliases and matching-cycle classes found no same or stronger covering claim. Index coverage is incomplete and a specialized earlier enumeration remains a genuine priority risk.",
+    "residual_risks": [
+      "An equivalent enumerative identity could exist in unindexed combinatorial literature or a scheduling appendix not surfaced by the search.",
+      "The result is limited to a single first nontrivial network size; the count must not be represented as a general network theorem.",
+      "The sources establish related algorithmic mechanisms, so originality rests on the exact random-matching probability and structural completion classification, not on finite-time consensus feasibility."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its connected-component averaging mechanism includes the disjoint-edge special case but does not assert an exact three-round uniform perfect-matching probability or cycle-completion count.",
+        "evidence": "§3.4 identifies block Kaczmarz gossip with averaging nodes in connected components of randomly selected edges; the displayed guarantee bounds expected squared disagreement geometrically.",
+        "identifier_or_url": "https://arxiv.org/html/1905.08645v2",
+        "material_read": "Full accessible HTML, particularly definitions, §3.4 block-gossip update and parallel edge averaging, rate theorem, and references/appendix headings.",
+        "method": "Read the primary open full text and compared the sampled-edge set averaging operator and theorems.",
+        "title": "Revisiting Randomized Gossip Algorithms: General Framework, Convergence Rates and Novel Block and Accelerated Protocols",
+        "trigger": "Motivating complete-graph block-gossip update; possible exact probability coverage."
+      },
+      {
+        "assessment": "Establishes known hypercube feasibility and lower bounds; no iid uniform random perfect-matching three-round fraction or four-cycle/eight-cycle table was identified.",
+        "evidence": "Chapter 4, Theorem 4.5 and Algorithm 4.1 construct an optimal deterministic schedule using bitwise XOR pairings.",
+        "identifier_or_url": "https://thesis.caltech.edu/5763/01/consensus.pdf",
+        "material_read": "Full 72-page PDF accessible; inspected Chapter 4 §§4.1–4.3, entropy-based lower bound, hypercube scheduling construction, Theorem 4.5, and Chapter 5 transition.",
+        "method": "Read the thesis PDF text and relevant page images, compared exact operator factorization and optimization objective.",
+        "title": "On Matrix Factorization and Scheduling for Finite-Time Average-Consensus",
+        "trigger": "Potential pre-existing deterministic minimum-depth classification and counting."
+      },
+      {
+        "assessment": "Theorem 5 establishes almost-sure finite-time convergence and coarse expected-time upper bounds but not the three-round count for iid uniform perfect matchings.",
+        "evidence": "Theorem 5 establishes dyadic finite-time a.s. consensus, with a bound based on the probability of one positive-probability finite sequence.",
+        "identifier_or_url": "https://arxiv.org/html/1112.1336v5",
+        "material_read": "Full accessible HTML, focusing on §4.3.2, Theorem 5, Appendix C, the finite-time definition, and proof by fixed successful edge sequences and Borel–Cantelli.",
+        "method": "Read full-text theorem, the appendix proof and checked its random graph process model.",
+        "title": "Consensus over Random Graph Processes: Network Borel-Cantelli Lemmas for Almost Sure Convergence",
+        "trigger": "Explicit literature on almost-sure finite-time random gossip might dominate probabilistic claim."
+      },
+      {
+        "assessment": "Focuses on epsilon-averaging time, node-contact sampling and spectral optimization; does not present the uniform-perfect-matching exact three-round enumeration.",
+        "evidence": "Introduction defines synchronous node-initiated neighbor contacts and epsilon-averaging time, distinct from sampling a uniformly random perfect matching.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+        "material_read": "Complete primary PDF accessible; inspected introductory sampling models, averaging-time definitions, synchronous update section, and paper-search for perfect matchings.",
+        "method": "Read text and page image of synchronous/asynchronous model; compared sampling law and performance endpoint.",
+        "title": "Randomized Gossip Algorithms",
+        "trigger": "Classical synchronous randomized gossip could contain an earlier uniform pairing count."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d2479483-c930-447a-afcd-dfa46d9ad9c0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Eight nodes form the first power-of-two synchronous binary-averaging instance whose edge-disjoint second matching can have two different alternating-cycle topologies. The exact probability of minimum-round universal consensus is a natural reliability invariant for random parallel gossip. The two structural cases yield a sharp sixfold difference in their final-round completion chance, a nontrivial scheduling insight distinct from approximate consensus rates or mere deterministic reachability. Exact full classification is useful without claiming a higher-dimensional algorithm or runtime improvement.",
+    "status": "PASS"
+  }
+}
