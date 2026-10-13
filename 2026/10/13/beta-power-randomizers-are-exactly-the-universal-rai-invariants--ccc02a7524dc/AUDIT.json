@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The random-quantile cdf is exactly \\(G(F_X(t))\\); differentiating gives the exact multiplier \\(u\\log u\\,g(u)/(G(u)\\log G(u))\\) between transformed and parent RAI functions. Power cdfs \\(G(u)=u^a\\) make this multiplier identically one. Conversely, applying universal invariance to a rate-one exponential parent makes \\(u\\) range over \\((0,1)\\), forces \\(G'(u)/(G(u)\\log G(u))=1/(u\\log u)\\), and integration gives \\(G(u)=u^a\\) with \\(a>0\\). The order and monotonic-class corollaries are immediate pointwise consequences of equality of the RAI functions. No finite experiment is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The direct source explicitly identifies \\(Q_X(Z_1)\\), \\(Q_Y(Z_2)\\) preservation as future work and Example 5.2 only treats a common \\(\\operatorname{Beta}(n,1)\\) randomizer with an extra stochastic-order assumption.",
+        "The 2021 source studies generalized RAI and connects an n-generalized RAI quantity to the hazard rate of a largest order statistic; it does not cover ordinary RAI invariance of the maximum or classify randomizers.",
+        "The 2024 improvements paper studies generalized-RAI constructions; its searchable full text has no random-quantile formulation."
+      ],
+      "reasoning": "A broader theorem would dominate the new claim only if it implied exact ordinary-RAI invariance for every cdf power and the converse characterization of all universal randomizers. No inspected source supplies both, and the direct source states a weaker result in precisely the relevant maximum example.",
+      "searches": [
+        "DOI:10.1186/s13660-024-03198-y full text Sections 4, 5, 7 and 9",
+        "DOI:10.1007/s11587-021-00560-w full text characterization and order-statistic sections",
+        "DOI:10.1007/s11587-024-00862-9 full text search for random quantile"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1186/s13660-024-03198-y",
+      "DOI:10.1007/s11587-021-00560-w",
+      "DOI:10.1007/s11587-024-00862-9",
+      "semantic published-record searches for RAI, power cdfs, Beta random quantiles and maximum order statistics",
+      "closest prior mathematical claims identified during overlap screening"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Example 5.2 of the direct source concludes \\(X_{n:n}\\le_{RAI}Y_{n:n}\\) only from \\(X\\le_{RAI}Y\\) together with a usual-stochastic-order comparison; it does not identify the ordinary RAI of \\(X_{n:n}\\) with that of \\(X\\).",
+        "The direct source explicitly postpones different-randomizer preservation involving \\(Q_X(Z_1)\\) and \\(Q_Y(Z_2)\\) to future work.",
+        "The generalized-RAI source relates an n-generalized RAI of X to the hazard of X_{n:n}, which is a different functional statement and does not imply the ordinary-RAI randomizer classification as stated."
+      ],
+      "reasoning": "The new theorem removes a substantive side assumption in the direct source, allows different sample sizes or Beta parameters, and adds a converse uniqueness theorem. These conclusions are not corollaries of the direct source's stated theorem without the new multiplier identity and ODE argument.",
+      "searches": [
+        "Kayid Alshehri Example 5.2 Beta(n,1) RAI maximum",
+        "Kayid Alshehri conclusion Q_X(Z1) Q_Y(Z2)",
+        "Buono Longobardi Szymkowiak largest order statistic generalized RAI"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2024 random-quantile paper gives \\(F_{Q_X(Z)}=F_Z\\circ F_X\\) and a weaker sufficient preservation theorem, but not exact invariance or a converse randomizer classification.",
+        "The 2021 generalized-RAI paper has no occurrence of the phrase random quantile and does not state the Beta-power universal-invariance theorem.",
+        "Targeted semantic published-record searches for the power-cdf, maximum, and random-quantile formulations returned no covering statement."
+      ],
+      "reasoning": "The same claim could be phrased as invariance under cdf powers, arbitrary-size iid maxima, or \\(\\operatorname{Beta}(a,1)\\) random quantiles. Each formulation was compared. The located literature discusses neighboring generalized-RAI or order-statistic quantities but does not state the exact ordinary-RAI invariance plus uniqueness.",
+      "searches": [
+        "\"reversed aging intensity\" \"proportional reversed hazard\"",
+        "\"reversed aging intensity\" \"maximum order statistic\"",
+        "Beta(a,1) random quantile RAI invariant characterization",
+        "power cdf transform reversed aging intensity invariant characterization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact theorem, table, or database entry was located that identifies \\(\\operatorname{Beta}(a,1)\\) as the unique universal RAI-invariant randomizer.",
+        "The result is symbolic and contains no database-derived numerical constant."
+      ],
+      "reasoning": "The claimed object is a complete functional classification rather than a tabulated invariant; exact-phrase and alias searches did not expose a pre-existing classification.",
+      "searches": [
+        "\"Beta(a,1)\" \"reversed aging intensity\"",
+        "\"RAI\" \"parallel system\" maximum exact invariance",
+        "\"random quantile\" \"RAI\" Beta power"
+      ]
+    },
+    "rationale": "The direct 2024 source treats the same random-quantile model, but its main preservation theorem uses a common randomizer plus a usual-stochastic-order side condition. Its \\(\\operatorname{Beta}(n,1)\\) maximum example retains that side condition, and its conclusion explicitly leaves different randomizers \\(Z_1\\) and \\(Z_2\\) for future work. The present theorem both permits different \\(\\operatorname{Beta}(a,1)\\) and \\(\\operatorname{Beta}(b,1)\\) randomizers without that side condition and characterizes the Beta-power family as the unique absolutely continuous universal RAI-invariant randomizers. Targeted semantic searches and two related generalized-RAI full texts did not reveal this randomizer classification.",
+    "residual_risks": [
+      "The identity is elementary once the RAI multiplier is written explicitly, so an equivalent observation may exist in older reliability literature under proportional-reversed-hazard or elasticity terminology not retrieved by the targeted searches.",
+      "The uniqueness theorem is limited to absolutely continuous strictly increasing randomizers; singular randomizers could require a different formulation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING.",
+        "evidence": "The source proves sufficient preservation for a common randomizer with an additional stochastic-order condition, and explicitly leaves different randomizers for future work. It does not state exact RAI invariance for Beta powers or the converse uniqueness classification.",
+        "identifier_or_url": "DOI:10.1186/s13660-024-03198-y",
+        "material_read": "Open-access full text: RAI definition, random-quantile composition formula, Theorem 5.1 and proof framework, Example 5.2, monotonic-class theorem, conclusion and future-work paragraph.",
+        "method": "Lawful open-access publisher full-text inspection.",
+        "title": "Stochastic aspects of reversed aging intensity function of random quantiles",
+        "trigger": "Direct source defining the random-quantile RAI preservation problem and containing the Beta(n,1) maximum example."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING.",
+        "evidence": "The paper develops generalized RAI functions and relates generalized RAI quantities to largest-order-statistic hazards, but contains no random-quantile formulation and does not state the universal Beta-power ordinary-RAI invariance theorem.",
+        "identifier_or_url": "DOI:10.1007/s11587-021-00560-w",
+        "material_read": "Open-access full text: ordinary and generalized RAI definitions, characterization section, generalized-order section, and largest-order-statistic remarks; full-text searches for random quantile, Beta and order statistic.",
+        "method": "Lawful open-access publisher full-text inspection.",
+        "title": "On generalized reversed aging intensity functions",
+        "trigger": "Most plausible earlier source on RAI characterization and largest order statistics that could dominate a power-cdf invariance statement."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING.",
+        "evidence": "The paper studies generalized-RAI constructions and relations among their generating cdfs; no random-quantile statement or Beta-power universal-invariance theorem was located.",
+        "identifier_or_url": "DOI:10.1007/s11587-024-00862-9",
+        "material_read": "Open-access publisher text and searchable sections concerning generalized RAI relations; full-text search for random quantile.",
+        "method": "Lawful open-access publisher full-text inspection.",
+        "title": "Some improvements on generalized reversed aging intensity functions",
+        "trigger": "Later generalized-RAI paper that studies relations between distribution functions and could plausibly contain an equivalent functional classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ccc02a75-24dc-469d-a85f-403f62979189",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The direct source singles out preservation under different randomizers as future work and, even for iid maxima, obtains only a one-way result with a usual-stochastic-order side condition. The theorem identifies a complete natural randomizer class for which the future two-randomizer problem becomes exact, removes the side condition, permits different maximum sample sizes, and proves uniqueness of that universal invariance mechanism. The result is structural rather than a numerical or parameter-slice recomputation.",
+    "status": "PASS"
+  }
+}
