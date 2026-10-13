@@ -1,0 +1,84 @@
+{
+  "correctness": {
+    "rationale": "For every binary two-space \\(D=\\langle u,v\\rangle\\), each active coordinate occurs in exactly two of \\(u,v,u+v\\), so \\(2|\\operatorname{Supp}(D)|=\\operatorname{wt}(u)+\\operatorname{wt}(v)+\\operatorname{wt}(u+v)\\ge216\\). The published construction was independently reconstructed from its polynomial and tail data, giving rank \\(21\\), minimum distance \\(72\\), and \\(9{,}826\\) minimum words over all \\(2^{21}\\) messages. Messages \\(0x63,0x318,0x37b\\) form an additive triple of weight-\\(72\\) words with union support \\(108\\). Exhaustive checking of all \\(48{,}270{,}225\\) unordered minimum-shell pairs finds \\(1{,}748{,}433\\) additive pairs, hence exactly \\(582{,}811\\) minimizing two-spaces after division by the three pairs in each binary two-space.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The elementary binary identity gives the broad lower bound \\(d_2\\ge\\lceil3d_1/2\\rceil\\).",
+        "For this code the lower bound alone yields only \\(d_2\\ge108\\), not equality or the exact multiplicity."
+      ],
+      "reasoning": "General support inequalities cover the lower-bound half of the argument, but they do not supply an equality witness or count the equality cases. Those are code-specific new computations.",
+      "searches": [
+        "second generalized Hamming weight lower bound three halves minimum distance binary",
+        "minimum shell additive triples binary linear code generalized Hamming weight"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.37056v1",
+      "V. K. Wei, Generalized Hamming Weights for Linear Codes, IEEE Trans. Inf. Theory 37 (1991), 1412--1418"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior calculations on the same explicit code concern Euclidean hulls and coordinate incidence of minimum words.",
+        "Neither hull dimension nor one-coordinate minimum-shell incidence determines \\(d_2\\) or the number of additive minimum-shell triples."
+      ],
+      "reasoning": "The new claim depends on pairwise addition inside the full minimum shell. Previously compared invariants are one-code or one-coordinate statistics and do not imply this pair-incidence count.",
+      "searches": [
+        "LinCodeEvolve generalized Hamming weight d2 184 21 72",
+        "binary [184,21,72] second generalized Hamming weight"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.37056v1, full manuscript and appendix inspected; no second generalized Hamming-weight statement was located.",
+        "The finalized claim is equivalent to saying the minimum union support of two independent codewords is \\(108\\), with \\(582{,}811\\) minimizing two-spaces."
+      ],
+      "reasoning": "Searches used both the standard invariant name and its minimum-union-support formulation. No located result states this value or multiplicity for the explicit code.",
+      "searches": [
+        "binary [184,21,72] second generalized Hamming weight",
+        "184 21 72 generalized Hamming weights quasi-cyclic code",
+        "arXiv 2609.37056 second generalized Hamming weight"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 3 of arXiv:2609.37056v1 reports \\(A_{72}=9826\\) for the code.",
+        "The source tables report ordinary code parameters and minimum-shell size, not the second generalized Hamming weight or additive-triple count."
+      ],
+      "reasoning": "The exact source table was compared against the new invariant. Matching the minimum-shell cardinality does not determine its additive incidence structure.",
+      "searches": [
+        "582811 binary code generalized Hamming weight 184 21 72",
+        "9826 minimum weight words additive triples 184 21 72"
+      ]
+    },
+    "rationale": "The inspected source gives the code construction, \\(d_1=72\\), and \\(A_{72}=9826\\), but not \\(d_2\\) or the additive-triple multiplicity. Targeted searches for the exact code, generalized Hamming weights, and minimum-shell additive triples did not locate a statement implying the claim. The ordinary weight-shell count and previously recorded hull or coordinate-incidence invariants do not determine which pairs of minimum words sum to another minimum word.",
+    "residual_risks": [
+      "The source refers to accompanying computational files; an unindexed supplementary analysis could independently contain higher generalized-weight or minimum-shell addition data.",
+      "Search failure is not a proof of novelty, although no decisive overlapping statement was found in the inspected source or targeted index/literature searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The manuscript gives \\(d_1=72\\), \\(A_{72}=9826\\), and the reconstruction data, but no \\(d_2\\) value or additive-triple enumeration was located.",
+        "identifier_or_url": "arXiv:2609.37056v1",
+        "material_read": "Abstract, parameter tables, construction section, and appendix entry specifying the code; full-text term searches for generalized Hamming weight and d_2.",
+        "method": "Full manuscript text and rendered appendix page inspection.",
+        "title": "Evolving Towards Better Codes: LLM-Guided Search for High-Distance Binary Linear Codes",
+        "trigger": "Exact same published \\([184,21,72]\\) code and construction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a4979c3e-ad8b-4649-89c6-78e724a68f7b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The second generalized Hamming weight is the first higher support invariant beyond minimum distance. For a newly reported record code, the exact equality \\(d_2=108\\) shows that the large minimum distance coexists with optimally small two-dimensional support, while the exact \\(582{,}811\\) multiplicity reveals a substantial additive geometry inside the minimum shell that is invisible from \\(d_1\\) and \\(A_{72}\\) alone. This is a natural structural datum for equivalence, support-growth, and higher-weight comparisons, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
