@@ -1,0 +1,116 @@
+{
+  "claim": "For every \\(m,n\\ge1\\) and \\(r\\ge0\\), let \\(A_{m,n}=\\mathbf L_m^n\\), where \\(\\mathbf L_m=\\{0,1/m,\\ldots,1\\}\\) is the finite Łukasiewicz MV-chain, equipped with coordinatewise MV operations and global constant minimum/maximum quantifiers. An ordered \\(r\\)-tuple \\(g_1,\\ldots,g_r\\) generates \\(A_{m,n}\\) exactly when the \\(n\\) coordinate words \\((m g_1(i),\\ldots,m g_r(i))\\in\\{0,\\ldots,m\\}^r\\) are pairwise distinct and \\(\\gcd(m,\\{m g_j(i)\\})=1\\), with the empty gcd interpreted as \\(m\\). The number of ordered generating tuples is \\(N_{m,n,r}=\\sum_{d\\mid m}\\mu(d)\\big((m/d+1)^r\\big)_{\\underline n}\\), where the subscript denotes a falling factorial. The minimum generator rank equals \\(\\lceil\\log_2 n\\rceil\\) for \\(m=1\\) and \\(\\max\\{1,\\lceil\\log_{m+1}n\\rceil\\}\\) for \\(m\\ge2\\). For fixed \\(m\\ge2\\), independently uniform generator entries and \\(Q=(m+1)^r\\), \\(\\Pr(\\langle\\mathbf g\\rangle=A_{m,n})\\to e^{-\\lambda^2/2}\\) whenever \\(n,r\\to\\infty\\) and \\(n/\\sqrt Q\\to\\lambda\\in[0,\\infty)\\), and the probability tends to zero if \\(n/\\sqrt Q\\to\\infty\\).",
+  "correctness": {
+    "rationale": "The necessity invariants hold by induction on all signature operations: equal coordinate words remain equal, and values lying in the multiples-of-d subchain remain there even under global extrema. The functions h_a(x)=max(0,1-m|x-a/m|) are continuous integer-affine pieces and hence standard McNaughton unary term functions; they construct crisp coordinate selectors. Extracting generator entries with global maximum, applying Euclidean truncated subtraction to numerators, and masking constant truth levels reconstructs every vector exactly when the gcd is one. Möbius inversion counts injections with gcd one; a word containing numerator 1 proves the exact rank; an explicit prime-divisor union bound and birthday expansion prove the random threshold. All parameter boundaries including m=n=1 and r=0 were checked. The actual verifier completed 5968 direct tuple closures, 53 independent signature counts and 14 peak-term searches; finite tests support but do not replace the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Castaño–Díaz Varela–Savoy 2024, Example 2.1 defines the same finite functional powers; Theorem 2.9 generates a quasivariety by a family of these algebras, and Theorem 2.16 treats bounded width. Neither is a prescribed-tuple full-generation theorem.",
+        "Mundici 2006 reviews term interpolation, used here as a lemma, but neither that abstract nor the source-paper proofs provide the arithmetic/content sieve or a random generator threshold.",
+        "The 2014 monadic subvariety classification abstract is broader categorical background; its full content was unavailable and remains a bounded historical risk."
+      ],
+      "reasoning": "Known representation and free-algebra theorems provide the ambient structure and the interpolation ingredient. They do not by themselves supply both necessary invariants, the tuple census and the sharp random threshold; no stronger covering statement was found.",
+      "searches": [
+        "Strong standard completeness theorems for S5-modal Lukasiewicz logics arxiv 2408.04757v1 Example 2.1 Theorems 2.9 2.16 full HTML",
+        "Monadic MV-algebras I a study of subvarieties finite MV powers generating tuples",
+        "A Characterization of the free n-generated MV-algebra Mundici McNaughton term functions"
+      ]
+    },
+    "checked_sources": [
+      "Castaño, Díaz Varela, Savoy, arXiv:2408.04757v1 (2024), inspected full relevant sections",
+      "Mundici, A Characterization of the free n-generated MV-algebra, DOI 10.1007/s00153-004-0273-8, institutional abstract",
+      "Cimadamore and Díaz Varela, Monadic MV-algebras I, DOI 10.1007/s00012-014-0266-3, abstract only",
+      "Targeted indexed mathematical-literature searches and research-record queries",
+      "Previously recorded findings on finite logical algebras and monadic generators"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 paper proves a family of finite powers generates the class of monadic MV-algebras; it does not assert that a given r-tuple generates any one of those powers.",
+        "The earlier Gödel criterion requires distinct binary positivity words and coverage of every intermediate value; in the MV case different full-value words and gcd-one arithmetic suffice, allowing one generator to produce all truth levels by truncation and global extraction.",
+        "McNaughton interpolation proves a necessary term-separation tool but contains no monadic global-extraction or occupancy enumeration theorem."
+      ],
+      "reasoning": "A direct logical implication from known quasivariety generation, Gödel generation or unary interpolation to the exact MV census requires additional new fixed-algebra arguments. The present proof supplies those arguments; it is not a mere rephrasing of a cited result.",
+      "searches": [
+        "arXiv:2408.04757v1 §§2.1–2.3 finite functional powers and quasi-variety generation",
+        "Cimadamore Díaz Varela 2014 monadic MV subvariety classification abstract",
+        "monadic Gödel powers positivity signature generator census, earlier mathematical claim",
+        "McNaughton integer piecewise linear unary term theorem Mundici 2006"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The indexed results identify S5-modal Łukasiewicz completeness, finite MV-chain duality and general MV generator theory, not a generator-tuple criterion for a specified finite functional power.",
+        "The source paper distinguishes algebra-family quasivariety generation from individual algebra generation; these are different mathematical relations."
+      ],
+      "reasoning": "The searched aliases cover r-generated functional powers, minimal valuations, term-definability and McNaughton interpolation. None of the inspected equivalent-language hits states the full gcd and pairwise-word equivalence.",
+      "searches": [
+        "monadic MV algebra finite products generators minimum rank Łukasiewicz chain functions global existential max 2024",
+        "finite monadic MV algebras generators exact count full Łukasiewicz power algebra",
+        "Finite algebra Łukasiewicz chain powers global min max monadic MV generators arithmetical gcd and distinct coordinate signatures",
+        "Finite S5 Lukasiewicz truth-functional powers minimum number propositional generators grows logarithmically with number of worlds McNaughton interpolation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No mathematical-record hit listed a matching fixed-power generator-tuple enumeration; high-ranking hits concerned unrelated number-theoretic and general generator topics.",
+        "Previously recorded mathematical claims were checked for overlap; the closest related statement concerns finite monadic Gödel powers with a different signature and obstruction."
+      ],
+      "reasoning": "The precise parameterized Möbius falling-factorial count and the birthday threshold were absent from the searched exact-result records and the recorded comparison claims. This is not a proof of global novelty.",
+      "searches": [
+        "Exact generators and number of generating r-tuples for finite monadic MV algebra Łukasiewicz L_m^n with global supremum infimum quantifiers Möbius number theory divisor count",
+        "Finite S5 Lukasiewicz truth-functional powers minimum number propositional generators McNaughton",
+        "Exact number generating tuples Łukasiewicz MV algebra finite product Möbius inclusion exclusion falling factorial",
+        "previously recorded mathematical claims for MV, monadic, McNaughton, Łukasiewicz, generator rank"
+      ]
+    },
+    "rationale": "The primary 2024 source treats precisely the functional finite monadic MV powers but studies completeness and quasivariety generation, not generators of a specified algebra. A full word-separation plus arithmetic-primitive criterion, Möbius count, exact rank and random threshold were not found in inspected relevant statements. The classical term interpolation theorem, subchain arithmetic and birthday principle are acknowledged inputs. Related prior work on finite monadic Gödel powers uses different operations and its zero-code/value-coverage answer neither implies nor contains this truth-word/gcd result. Exact priority remains open to an older implicit antecedent.",
+    "residual_risks": [
+      "The older 2014 monadic MV subvariety article was not inspected in full; an unstated corollary or related older literature might imply the tuple criterion.",
+      "An older publication may present the exact count using duality, automaton coding, or enumerative algebra language not found by targeted searches.",
+      "The birthday asymptotic uses standard occupancy theory; any novelty is in the complete algebraic classification and its combination with the arithmetic sieve, not in the occupancy estimate alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_NOT_COVERING",
+        "evidence": "Example 2.1 defines L_m^n with global extrema; Theorem 2.9 states generation of MMV as a quasivariety by the family of finite powers; Theorem 2.16 gives a bounded-width variant. Neither counts generating tuples within a specified power.",
+        "identifier_or_url": "arXiv:2408.04757v1; https://arxiv.org/html/2408.04757v1",
+        "material_read": "Introduction; definitions and Example 2.1; finite-embeddability Lemma 2.7; quasivariety-generation Theorems 2.9 and 2.16 and their proofs; principal completeness statements; references and indexed searches for individual generating tuples.",
+        "method": "Authorized open-access full HTML, sections and theorem paragraphs inspected.",
+        "title": "Strong standard completeness theorems for S5-modal Łukasiewicz logics",
+        "trigger": "Exact signature and finite functional MV powers appear in the paper, so it is the most direct possible antecedent."
+      },
+      {
+        "assessment": "FOUNDATIONAL_INPUT_ONLY",
+        "evidence": "The representation theorem permits the peaked unary MV terms, with no stated global extrema or fixed-power generator census.",
+        "identifier_or_url": "DOI:10.1007/s00153-004-0273-8; university repository abstract",
+        "material_read": "Institutional repository abstract outlining integer-piecewise-affine term functions and the converse theorem.",
+        "method": "University repository bibliographic record and extended abstract; not a full-text inspection.",
+        "title": "A Characterization of the free n-generated MV-algebra",
+        "trigger": "Provides the exact classical McNaughton theorem used to obtain crisp finite-chain peaks."
+      },
+      {
+        "assessment": "BACKGROUND_PLAUSIBLE_UNRESOLVED",
+        "evidence": "The abstract specifies subvariety classification, not the ordered generator-tuple count, and full-text exclusion is not claimed.",
+        "identifier_or_url": "DOI:10.1007/s00012-014-0266-3",
+        "material_read": "Indexed abstract describing classification of subvarieties and finite-width algebraic invariants.",
+        "method": "Indexed publication abstract; the primary full article was not inspected.",
+        "title": "Monadic MV-algebras I: A study of subvarieties",
+        "trigger": "Early investigation of the exact monadic variety may contain implicit generator information."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "671e5538-eaea-4eac-82d3-d65b7f2e19c2",
+  "self_review_status": "passed",
+  "title": "Arithmetic generator census and birthday threshold for finite monadic MV powers",
+  "value": {
+    "rationale": "The specified finite functional monadic MV powers are central finite witnesses in the cited 2024 S5-modal Łukasiewicz completeness framework. Asking for complete expressivity from a prescribed number of propositions is a natural sharp generator problem, not an arbitrarily sliced example. The theorem identifies separate coordinate-separation and primitive-arithmetic obstructions, supplies the closed Möbius census and minimum rank for all parameters, and proves a sharp two-to-one logarithmic separation between extremal and typical random generator thresholds. The many-valued MV arithmetic criterion is substantively different from the prior Gödel zero-pattern/coverage criterion.",
+    "status": "PASS"
+  }
+}
