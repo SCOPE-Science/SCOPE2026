@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The pooled spacing statistic is independent Gamma with shape k(n-1). On the one-versus-rest ray, selection reduces to one exponential variable competing with the maximum of k-1 iid exponentials. The resulting excess expectation has the finite expansion H_{k-1}(t). Substitution into the exact quadratic risk for Z-cS gives the stated difference. H_{k-1}(t)=E[D 1{D>t}] has derivative -t f_D(t)<0, so the threshold is unique. The packaged verifier independently checks the excess expectation by quadrature and replays the risk algebra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Vellaisamy (2003) studies k populations with unequal locations and common unknown scale and selects by the largest sample minimum.",
+        "The accessible abstract states that natural estimators and inadmissibility conditions are studied but does not expose the one-versus-rest identity.",
+        "Masihuddin and Misra still identify extension of their own affine/permutation-equivariant results to k populations as future work."
+      ],
+      "reasoning": "Vellaisamy is the strongest plausible prior. Because full text was unavailable, noncoverage is not asserted; the unresolved risk is recorded explicitly.",
+      "searches": [
+        "Quantile estimation of the selected exponential population natural estimators risk b=0",
+        "Vellaisamy 2003 natural estimators selected exponential common unknown scale risk",
+        "k populations selected exponential common unknown scale mean squared error natural estimator"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2110.13842v1",
+      "DOI:10.1007/s00362-023-01460-x",
+      "DOI:10.1016/S0378-3758(02)00156-8",
+      "semantic published-record searches over k-population, one-versus-rest, selected-location, natural-estimator, and risk-threshold formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The direct paper risk calculation is for two populations and does not determine the maximum-of-(k-1)-exponentials selection bias for k>2.",
+        "The new proof requires the k-population maximum tail and inclusion-exclusion expansion.",
+        "The direct paper explicitly states k-population extension as further research."
+      ],
+      "reasoning": "For k>2 a new selection-bias distribution enters; the result is not an algebraic special case of the two-population theorem.",
+      "searches": [
+        "Equivariant estimation selected location parameter k populations extension",
+        "Quantile estimation selected exponential population k common unknown scale",
+        "Masihuddin Misra closing remarks k populations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2021 source defines the two-population analogues and explicitly names k-population extension as future work.",
+        "Targeted published-record searches did not return H_{k-1}, the one-versus-rest threshold equation, or an equivalent risk partition."
+      ],
+      "reasoning": "Searches covered selected guarantee time, selected location, sample-minimum selection, natural affine estimators, one-versus-rest geometry, and UMVUE/BAEE-analogue terminology.",
+      "searches": [
+        "selected exponential populations common unknown scale k populations analogue UMVUE BAEE one best tied rest risk",
+        "selected location exponential k populations common scale max sample minimum affine estimator",
+        "one best k-1 tied exponential guarantee time risk threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-formula or threshold search returned the displayed finite exponential sum or the k=3 threshold sequence.",
+        "Numerical thresholds are recomputed from the proved scalar equation."
+      ],
+      "reasoning": "The object is a parameter-ray risk crossover, not a standard tabulated quantity.",
+      "searches": [
+        "one best k-1 tied exponential guarantee time risk threshold",
+        "selected exponential H_{k-1} risk threshold",
+        "selected exponential populations natural estimator crossover"
+      ]
+    },
+    "rationale": "The direct 2021 source treats two populations and explicitly lists extension of its decision-theoretic results to k populations as future work. The new statement treats every k>=2 on a canonical symmetric ray. Candidate-specific semantic searches found no covering published record. Vellaisamy (2003) is a highly relevant broader k-population source; inaccessible full text remains a material residual risk.",
+    "residual_risks": [
+      "Full text of Vellaisamy (2003) was unavailable and is close enough in model that an equivalent calculation could appear there.",
+      "The theorem covers only the symmetric one-best versus tied-rest ray."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_TWO_POPULATION_SOURCE_NOT_COVERING_K_POPULATION_PHASE_DIAGRAM.",
+        "evidence": "The paper treats two populations and explicitly identifies extension to k populations as further research.",
+        "identifier_or_url": "arXiv:2110.13842v1",
+        "material_read": "Open full text: preliminaries; Section 4 risk/natural estimators; Section 6 simulations; closing remarks.",
+        "method": "Lawful open-access full-text inspection.",
+        "title": "Equivariant Estimation of the Selected Guarantee Time",
+        "trigger": "Direct source for model, spacing decomposition, natural estimators, simulations, and stated k-population extension."
+      },
+      {
+        "assessment": "PLAUSIBLE_BROADER_PRIOR_UNRESOLVED.",
+        "evidence": "Accessible material confirms the broad model and natural-estimator theme but not the displayed one-versus-rest phase formula.",
+        "identifier_or_url": "DOI:10.1016/S0378-3758(02)00156-8",
+        "material_read": "Accessible abstract plus detailed citation-context discussion in the 2021 paper; full text unavailable.",
+        "method": "Abstract/citation-context inspection and bounded lawful full-text attempt.",
+        "title": "Quantile estimation of the selected exponential population",
+        "trigger": "Earlier source on the same broad k-population/common-scale selection model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "836f2e31-e5b6-4a81-be06-6b1a56bd4d48",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The direct paper explicitly identifies extension from two to k populations as an important further direction. The finding gives a complete exact comparison for every k and n on the most symmetric nontrivial k-population ray, with a unique phase boundary and explicit finite exponential sum. This is a natural structural subproblem rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
