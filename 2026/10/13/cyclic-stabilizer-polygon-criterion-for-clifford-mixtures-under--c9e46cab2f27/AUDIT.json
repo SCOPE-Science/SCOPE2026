@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Bloch matrix composition and invariant pure direction are derived exactly. Unit vectors averaging to a unit vector must all coincide, forcing the Clifford support into one coset. Proper signed-permutation point stabilizers are precisely cyclic orders 1,2,3,4. In a transverse right-handed orthonormal frame the map becomes multiplication by the complex number z; the allowed coset is a regular h-gon and yields both directions with explicit barycentric mixtures. Axis-orbit azimuths prove the phase-gate corollary; body-diagonal p=3/4 boundary comes from triangle real slice. Endpoints included. Independent finite LP comparisons of all 24 Clifford vertices agree in 88 cases; no finite test is treated as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Virmani et al. Lemmas 1-2 handle the diagonal-gate/aligned-dephasing cross-section.",
+        "Buhrman et al. use the Clifford polytope primarily for depolarizing-noise thresholds, not the purity-preserving arbitrary-axis slice.",
+        "The anchor paper treats tilted axes numerically and declares the general cost optimization unsolved in closed form."
+      ],
+      "reasoning": "The underlying full 24-vertex polytope and unrestricted finite membership test are known, but neither inspected text supplies an all-axis analytic classification by stabilizer order. The aligned square case is explicitly not claimed new.",
+      "searches": [
+        "\"Exact characterization of random single-qubit Clifford mixtures for rotated axis dephasing channel via stabilizer subgroup triangle segment square point convex polygon\"",
+        "\"Rotated qubit phase gate dephasing arbitrary tilted Bloch axis zero Clifford trajectory cost and no-go positive interior probability\"",
+        "arXiv:quant-ph/0408076 Section IV",
+        "Buhrman et al. FOCS 2006 Section 3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.16160v1 Section IV C and Appendix C",
+      "arXiv:quant-ph/0408076 Section IV",
+      "Buhrman et al. FOCS 2006 Sections 2-3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fioroni et al. Lemma 7 already implies every unitary Kraus rotation preserves the pure-axis image; their Lemma 8 fixes its first angular moment.",
+        "An explicit finite orbit / cyclic stabilizer description is required to pass from the continuous moment condition to exact Clifford-only convex weights.",
+        "For a non-Clifford axial phase gate, the derived square criterion recovers previously known aligned thresholds; the new content is tilted-axis exclusion and all-R classification."
+      ],
+      "reasoning": "The prior lemmas provide critical ingredients but do not state, without additional nontrivial Clifford group intersection analysis, the precise special-axis classification and iff criterion. Exact overlap is credited and the additional implication proved.",
+      "searches": [
+        "\"Exact characterization of random single-qubit Clifford mixtures for rotated axis dephasing channel via stabilizer subgroup triangle segment square point convex polygon\"",
+        "\"Rotated qubit phase gate dephasing arbitrary tilted Bloch axis zero Clifford trajectory cost and no-go positive interior probability\"",
+        "arXiv:2609.16160v1 Sections IV C and Appendix C",
+        "arXiv:quant-ph/0408076 Lemmas 1-2",
+        "Buhrman et al. FOCS 2006 Sections 2-3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fioroni et al. Eq. (C5) gives the continuous circle moment; it does not enumerate the Clifford-only points of that circle for every Bloch axis.",
+        "The new criterion intersects that circle with Clifford group orbits and resolves it into four finite regular polygons."
+      ],
+      "reasoning": "A general optimal-unraveling cost or moment constraint does not specify which atoms must be Clifford; the explicit coset and regular-polygon membership is the additional equivalence.",
+      "searches": [
+        "\"qubit Clifford polytope dephasing tilted axis random Clifford unitary channels face intersection exact zero cost 2025 2026\"",
+        "\"Clifford polytope qubit random unitary channel fixes pure state octahedral subgroup convex hull\"",
+        "arXiv:2609.16160v1 Appendix C, Lemmas 7-9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The only identified previously tabulated thresholds concern phase-aligned gates.",
+        "No inspected primary table contains the point/segment/triangle/square decision rule or the body-diagonal boundary."
+      ],
+      "reasoning": "The statement is a continuum-wide geometric criterion rather than a previously enumerated finite database or a single table lookup; this is bounded negative evidence, not a proof of uniqueness.",
+      "searches": [
+        "\"Qubit Clifford convex hull face maps a pure Bloch state to pure state octahedral stabilizer subgroup and regular polygon classification\"",
+        "\"tilted dephasing\" \"Clifford polytope\""
+      ]
+    },
+    "rationale": "Source Section IV C and Appendix C prove the one-axis rigidity and circle moment as prior; Virmani et al. prove aligned-axis noise thresholds, and Buhrman et al. develop the 24-vertex Clifford polytope. No inspected source states the exact full-axis and arbitrary-rotation finite subgroup polygon criterion, or the strict interior rotated-phase-gate exclusion. Targeted searches did not identify implication-equivalent coverage; an unindexed specialized face theorem remains possible.",
+    "residual_risks": [
+      "There may exist an unindexed convex-geometry Clifford polytope face/coset specialization that directly implies the full criterion.",
+      "The proof classifies unitary Clifford mixtures only, not nonunitary Clifford instruments or the complete nonzero-cost optimization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers pure-axis rigidity and circle-moment prior inputs; reports numeric tilted-axis optimization rather than the full exact Clifford stabilizer polygon theorem.",
+        "evidence": [
+          "Section IV C states no closed analytical solution of Eq. (31).",
+          "Figure 7 reports numerical cost with the aligned-axis region only.",
+          "Appendix C Lemmas 7-8 prove rigidity and the moment constraint used here."
+        ],
+        "identifier_or_url": "arXiv:2609.16160v1; https://pdfs.assets.alphaxiv.org/2609.16160v1.pdf",
+        "material_read": "Full 28-page primary PDF; particularly Sec. IV A-C pages 5-10 and Appendix C pages 19-21, Lemmas 7-9, equations (28)-(31), (C1)-(C8), figures 6-7.",
+        "method": "Opened primary full-text PDF, read the governing formulas and assertions with page-image confirmation.",
+        "title": "Noise-induced classical phases in optimally-unraveled random quantum circuits",
+        "trigger": "Same tilted dephasing channel and zero-cost Clifford-only trajectories"
+      },
+      {
+        "assessment": "Exact aligned dephasing and phase-gate thresholds are prior; no arbitrary tilted-axis stabilizer/coset theorem found in inspected portion.",
+        "evidence": [
+          "Section IV Lemma 2 gives aligned diagonal gate dephasing threshold via stabilizer octahedron.",
+          "The text notes this method targets restricted gate sets."
+        ],
+        "identifier_or_url": "arXiv:quant-ph/0408076; https://arxiv.org/pdf/quant-ph/0408076",
+        "material_read": "12-page primary PDF; introduction and Section IV with noise threshold Lemmas 1-2 and concluding limitations, page 9 confirmed visually.",
+        "method": "Opened the full primary arXiv PDF; followed exact aligned-gate and dephasing statements.",
+        "title": "Classical simulability, entanglement breaking, and quantum computation thresholds",
+        "trigger": "Potential exact prior Clifford-mixture dephasing threshold for non-Clifford single-qubit gates"
+      },
+      {
+        "assessment": "Establishes 24 proper signed-permutation Clifford matrices and convex polytope for noisy-gate thresholds but not the rigid pure-direction face classification presented here.",
+        "evidence": [
+          "Section 2.3 identifies Clifford rotations as determinant-one signed permutations.",
+          "Section 3 frames polytope membership for depolarizing-noise thresholds."
+        ],
+        "identifier_or_url": "Buhrman et al., FOCS 2006; https://ir.cwi.nl/pub/12635/12635D.pdf",
+        "material_read": "9-page primary conference PDF; introduction, definitions in Sec. 2.3, convex Clifford polytope approach in Sec. 3, numerical bounds.",
+        "method": "Opened full source and inspected actual Clifford rotation definition and depolarizing threshold argument; page image confirmed.",
+        "title": "New Limits on Fault-Tolerant Quantum Computation",
+        "trigger": "Full qubit Clifford rotation polytope might subsume the specific criterion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c9e46cab-2f27-4ef7-8f35-34ea55317c83",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The prior tilted-dephasing work motivates identifying noise strengths and axes where arbitrary-depth Clifford-only unitary unravelings exist. The theorem gives a complete exact group-geometric classification of continuous axes, rotations, and noise probabilities with a sharp tilted-axis impossibility and a genuinely threefold symmetry transition. It is a structurally motivated classification, not a numerical recomputation or a generic textbook deduction. Applications must not be generalized to nonunitary Kraus instruments, full nonzero-cost optimization, or quantum fault-tolerance thresholds.",
+    "status": "PASS"
+  }
+}
