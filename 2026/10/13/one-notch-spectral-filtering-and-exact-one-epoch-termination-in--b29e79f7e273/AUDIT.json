@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The published iteration reduces exactly to an affine matrix recurrence on the stated deterministic quadratic. Summing the recurrence proves the transfer polynomial. The admissible zero and tuning threshold follow from an exact scalar equation, and the no-zero case follows from a secant-slope monotonicity argument. No finite experiment is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.3934/math.2026194 proves a general sublinear stationarity bound under a sufficient parameter condition, which does not identify a necessary-and-sufficient quadratic tuning law.",
+        "JMLR 18(221) proves accelerated convex finite-sum convergence for Katyusha, a broader goal but a different update map.",
+        "DOI:10.1007/s10107-020-01566-2 develops a universal acceleration framework and discusses negative momentum at the convergence-framework level."
+      ],
+      "reasoning": "General convergence-rate theorems do not imply the exact one-epoch polynomial or the movable zero for this published recurrence; conversely, the present narrow exact result does not supersede their stochastic guarantees.",
+      "searches": [
+        "mini-batch negative momentum proximal stochastic variance reduction quadratic spectral polynomial",
+        "negative momentum SVRG scalar quadratic finite termination snapshot interpolation",
+        "snapshot interpolation variance reduction scalar isotropic quadratic exact annihilation",
+        "MNMPSVRG theta exact parameter tuning quadratic"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.3934/math.2026194",
+      "JMLR:18(221):1-51:2018",
+      "DOI:10.1007/s10957-022-02157-1",
+      "DOI:10.1007/s10107-020-01566-2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source states Algorithm 1 with \\(\\theta\\in(0,1)\\) and \\(0<\\eta<1/(2L)\\), then proves a sufficient stationarity bound with a more conservative derived condition.",
+        "The source experiments vary \\(\\theta\\) and its conclusion names adaptive parameter tuning as future work.",
+        "The NMSVRG preview states linear convergence under strong convexity but exposes no exact finite-epoch cancellation theorem."
+      ],
+      "reasoning": "A sufficient asymptotic convergence rate does not determine whether a fixed finite epoch is exactly zero, nor the number of spectral modes one scalar interpolation parameter can cancel. The present claim therefore is not a special case of the inspected convergence statements.",
+      "searches": [
+        "DOI:10.3934/math.2026194",
+        "DOI:10.1007/s10957-022-02157-1",
+        "JMLR:18(221):1-51:2018"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.3934/math.2026194, Algorithm 1: snapshot interpolation followed by a variance-reduced gradient and proximal step.",
+        "JMLR 18(221), Katyusha: negative momentum is explicitly described as attraction toward the snapshot, but the algorithm uses a different multi-sequence coupling.",
+        "DOI:10.1007/s10957-022-02157-1 publisher preview: NMSVRG is a one-parameter Katyusha-like SVRG method; accessible material states linear convergence rather than an exact epoch-transfer formula."
+      ],
+      "reasoning": "The final statement concerns the exact deterministic epoch map and its spectral zero. The inspected related formulations share the negative-momentum idea but no inspected theorem or formula is algebraically equivalent to this transfer law.",
+      "searches": [
+        "MNMPSVRG scalar quadratic exact epoch multiplier finite termination negative momentum",
+        "mini-batch negative momentum proximal stochastic variance reduction quadratic spectral polynomial",
+        "negative momentum SVRG scalar quadratic finite termination snapshot interpolation",
+        "Katyusha interpolation scalar quadratic epoch polynomial exact zero"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper tables compare empirical learning rates, mini-batch settings, and parameter sensitivity; no table gives the derived quadratic spectral multiplier.",
+        "Targeted mathematical-result searches returned nearby exact stability results for different algorithms, not MNMPSVRG or its transfer polynomial."
+      ],
+      "reasoning": "The reported formula is derived from the iteration and is not a recomputation of a published numerical table or database entry.",
+      "searches": [
+        "MNMPSVRG one epoch multiplier ((1-theta eta lambda)^m-(1-theta))/theta",
+        "negative momentum SVRG one epoch finite termination m eta lambda greater than 1",
+        "MNMPSVRG theta exact parameter tuning quadratic"
+      ]
+    },
+    "rationale": "The primary 2026 paper and the full Katyusha negative-momentum discussion were inspected, and the direct NMSVRG predecessor was checked through its accessible publisher preview and abstract. Targeted claim, alias, parameter, and spectral-filter searches did not locate a statement implying the exact epoch polynomial or one-epoch tuning classification. The inaccessible NMSVRG full text is retained as a material residual risk.",
+    "residual_risks": [
+      "The full NMSVRG predecessor was access-restricted, so an equivalent scalar calculation in that article cannot be ruled out from the accessible preview alone.",
+      "An equivalent one-epoch polynomial analysis may exist under generic stationary-iteration terminology not retrieved by the targeted searches.",
+      "The exact cancellation result is narrow and should not be generalized to stochastic mini-batches or nonsmooth proximal terms without a new proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact deterministic quadratic epoch polynomial, its admissible spectral zero, or the finite-termination classification.",
+        "evidence": "Algorithm 1 gives the snapshot interpolation, estimator, and proximal update used in the derivation; later sections give stationarity rates and empirical theta sensitivity rather than exact quadratic spectral dynamics.",
+        "identifier_or_url": "DOI:10.3934/math.2026194",
+        "material_read": "Full open-access paper: problem setup, Algorithm 1, Theorem 4.1 and its stepsize condition, parameter-sensitivity discussion, and conclusion.",
+        "method": "Direct full-text inspection of the lawful open-access article, including rendered pages for the algorithm.",
+        "title": "A new mini-batch negative momentum proximal stochastic variance reduction method for nonconvex optimization",
+        "trigger": "Primary recent source defining MNMPSVRG."
+      },
+      {
+        "assessment": "NOT_COVERING because Katyusha uses a different multi-sequence iteration and does not state the MNMPSVRG epoch transfer or one-notch law.",
+        "evidence": "The paper explicitly interprets negative momentum as attraction to a snapshot and analyzes accelerated rates; no matching polynomial or one-epoch cancellation statement was found in the inspected material.",
+        "identifier_or_url": "JMLR:18(221):1-51:2018",
+        "material_read": "Full open-access paper around the negative-momentum interpretation, algorithmic coupling, and main convergence statement.",
+        "method": "Direct full-text inspection of the JMLR article, including a rendered page of the negative-momentum discussion.",
+        "title": "Katyusha: The First Direct Acceleration of Stochastic Gradient Methods",
+        "trigger": "Foundational primary source for the negative-momentum mechanism."
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT_RISK but no accessible statement covers the exact filter or finite-termination classification.",
+        "evidence": "Accessible material states construction of NMSVRG and linear convergence under strong convexity, without an exact scalar/quadratic epoch formula.",
+        "identifier_or_url": "DOI:10.1007/s10957-022-02157-1",
+        "material_read": "Publisher abstract and preview describing the one-parameter negative-momentum SVRG framework and its convex convergence claim.",
+        "method": "Inspection of accessible publisher-preview material; full article text was access-restricted.",
+        "title": "Accelerated Stochastic Variance Reduction for a Class of Convex Optimization Problems",
+        "trigger": "Direct NMSVRG predecessor cited by the primary source."
+      },
+      {
+        "assessment": "NOT_COVERING because it compares acceleration frameworks and rates rather than the exact finite-epoch dynamics of MNMPSVRG.",
+        "evidence": "The article describes negative momentum as attraction toward a safe snapshot and argues it is algorithm-specific; it does not supply the transfer polynomial claimed here.",
+        "identifier_or_url": "DOI:10.1007/s10107-020-01566-2",
+        "material_read": "Open article introduction and negative-momentum discussion, including the snapshot-attraction formulation and motivation for an alternative acceleration framework.",
+        "method": "Direct web full-text inspection of relevant sections.",
+        "title": "Accelerating Variance-Reduced Stochastic Gradient Methods",
+        "trigger": "Broad comparison source explicitly discussing negative momentum in variance-reduced methods."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b29e79f7-e273-46d7-99ce-bb1355bfbd81",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source itself reports sensitivity to the negative-momentum coefficient and identifies adaptive tuning as future work. The exact filter exposes a sharp structural capability and limitation of that coefficient on the canonical local quadratic model: one movable notch, exact one-epoch solution precisely when \\(m\\eta\\lambda>1\\) on the isotropic case, and inability to cancel two distinct admissible curvatures at once. This is a motivated parameter-calibration fact rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
