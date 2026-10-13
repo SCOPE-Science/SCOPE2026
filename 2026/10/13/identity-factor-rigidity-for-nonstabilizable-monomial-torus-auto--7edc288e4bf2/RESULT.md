@@ -1,0 +1,80 @@
+# Identity-factor rigidity for nonstabilizable monomial torus automorphisms
+
+## Finding
+Let \(A\in\mathrm{SL}_3(\mathbb Z)\) have irreducible characteristic polynomial over \(\mathbb Q\), with roots \(\alpha,\overline\alpha,\beta\), where \(\alpha\notin\mathbb R\) and \(0<\beta<1<|\alpha|\). Write \(f_A\) for the monomial automorphism of \(\mathbb G_m^3\) whose pullback on its character lattice is \(A\). For **every** integer \(r\geq1\), the regular automorphism
+\[
+F_r=f_A\times\operatorname{id}_{\mathbb G_m^r}\colon\mathbb G_m^{3+r}\longrightarrow\mathbb G_m^{3+r}
+\]
+admits **no** algebraically stable model on **any** smooth projective complex variety birational to \(\mathbb G_m^{3+r}\).
+
+An explicit instance is
+\[
+A=\begin{pmatrix}0&-1&1\\1&0&0\\0&1&0\end{pmatrix},\qquad
+f_A(x_1,x_2,x_3)=(x_2,x_3/x_1,x_1).
+\]
+Its characteristic polynomial is \(t^3+t-1\). The conclusion holds even though the added coordinates are fixed pointwise, rather than acted upon by generic translations.
+
+## Assumptions and scope
+All varieties and divisor groups are over \(\mathbb C\). An algebraically stable model means a smooth projective variety \(X\), a birational map \(\phi:\mathbb G_m^{3+r}\dashrightarrow X\), and the induced birational self-map \(g=\phi F_r\phi^{-1}\) satisfying \((g^n)^*=(g^*)^n\) on \(\operatorname{NS}(X)\) for all integers \(n\geq1\). No equivariance or toric structure is imposed on \(X\). The theorem does not assert that every product with an identity factor preserves failure of algebraic stability: it treats the stated monomial family.
+
+## Proof
+**1. Classification of periodic divisors.** Put \(T=\mathbb G_m^3\times\mathbb G_m^r\), with coordinates \(x=(x_1,x_2,x_3)\) and \(y=(y_1,\ldots,y_r)\). Every irreducible divisor of \(T\) is cut out by an irreducible Laurent polynomial \(P(x,y)\). If the divisor is periodic, then for some positive integer \(n\), a nonzero scalar \(c\), and Laurent monomial \(x^u y^v\),
+\[
+P(f_A^n(x),y)=c\,x^u y^vP(x,y).
+\]
+Let \(S\) be the finite set of \(x\)-exponents of nonzero monomials of \(P\). Consequently the affine transformation \(I\mapsto A^nI-u\) permutes \(S\). Choose an integer \(m\geq1\) for which this permutation has trivial \(m\)-th power. For any \(I,J\in S\),
+\[
+(A^{nm}-I_3)(I-J)=0.
+\]
+Since the eigenvalues of \(A\) have moduli different from one, the matrix \(A^{nm}-I_3\) is invertible. Therefore \(S\) has one member, and \(P=x^I Q(y)\). Irreducibility gives an irreducible Laurent polynomial \(Q(y)\). Conversely, every vertical divisor \(V(Q(y))\) is fixed by \(F_r\). Thus **the periodic prime divisors of \(T\) are exactly the vertical prime divisors**.
+
+**2. Removal of only invariant exceptional divisors.** Suppose, to obtain a contradiction, that \(g\) on a smooth projective \(X\) is algebraically stable. We claim that every irreducible divisor of \(T\) contracted by \(\phi\) is periodic. If \(E\) has an infinite two-sided orbit, only finitely many orbit members can be contracted by \(\phi\), because the exceptional locus of a fixed birational map has finitely many divisorial components. Hence one can choose orbit members on both sides of \(E\) mapped birationally to divisors of \(X\). A forward iterate of \(g\) then contracts a divisor to a locus in the indeterminacy set of another positive iterate of \(g\). This contradicts the divisor-indeterminacy criterion for algebraic stability (Kuznetsova, Lemma 2.2 and proof of Corollary 5.5; the argument requires only the infinite orbit). The claim follows.
+
+Write the finitely many contracted prime divisors as \(V(Q_1(y)),\ldots,V(Q_s(y))\), with pairwise nonassociate irreducible Laurent polynomials \(Q_j\); allow \(s=0\). Delete them:
+\[
+U=T\setminus\bigcup_{j=1}^sV(Q_j(y)),\qquad
+\mathbb C[U]=\mathbb C[x_1^{\pm1},\ldots,x_3^{\pm1},y_1^{\pm1},\ldots,y_r^{\pm1},Q_1^{-1},\ldots,Q_s^{-1}].
+\]
+The open set \(U\) is \(F_r\)-invariant, smooth, affine, and factorial; \(F_r\) acts on it by an automorphism. By construction \(\phi|_U\) contracts no prime divisor.
+
+**3. Boundary-divisor sequence.** Let \(B_1,\ldots,B_k\) be the prime divisors in \(X\) exceptional for the rational inverse \(\phi^{-1}\); take \(B=\bigcup_i B_i\). The birational identification \(U\dashrightarrow X\setminus B\) is an isomorphism in codimension one. As \(U\) is factorial, \(\operatorname{Cl}(X\setminus B)=0\), and the divisor localization sequence gives
+\[
+0\longrightarrow\mathbb C[U]^*/\mathbb C^*\ \xrightarrow{\operatorname{div}_X}\ \bigoplus_{i=1}^k\mathbb Z B_i\ \xrightarrow{[\cdot]}\ \operatorname{Pic}(X)\longrightarrow0.
+\]
+Here \(X\) is smooth, so Cartier and Weil divisor classes coincide. It is rational, hence \(\operatorname{Pic}^0(X)=0\) and \(\operatorname{Pic}(X)=\operatorname{NS}(X)\) (up to canonical identification). Factoriality of the displayed localization identifies its unit group precisely as
+\[
+\mathbb C[U]^*/\mathbb C^*\cong\mathbb Z^{3+r+s},
+\]
+freely generated by the \(x_i\), the \(y_j\), and the \(Q_l(y)\). The pullback action of \(F_r\) on this lattice is
+\[
+A\oplus I_{r+s}.
+\]
+Indeed, all \(y_j\) and \(Q_l(y)\) are fixed. The possible extra boundary components therefore contribute only eigenvalue \(1\) to this kernel, not new expanding directions.
+
+**4. Nonnegative boundary pullback and spectral obstruction.** Set \(L=\bigoplus_i\mathbb R B_i\). As in the effective boundary-pullback construction of Kuznetsova, Lemma 5.8, resolve the indeterminacies of \(g\), pull back each effective Cartier divisor \(B_i\), then push forward to \(X\). Since \(g\) is a pseudo-automorphism over \(X\setminus B\), all surviving codimension-one terms remain supported in \(B\). This defines \(g^\#\colon L\to L\) with **nonnegative integral matrix** in the basis \(B_i\). It commutes with the surjection \(L\to\operatorname{NS}(X)_{\mathbb R}\); its restriction to the kernel is the action \(A\oplus I_{r+s}\) from Step 3, by the principal-divisor identity \(g^\#\operatorname{div}_X(h)=\operatorname{div}_X(F_r^*h)\).
+
+The first dynamical degree of a monomial map is the spectral radius of its exponent matrix, and taking a product with the identity does not change this degree (see Lin--Wulcan, Section 2 and the dynamical-degree formula in its introduction). Therefore
+\[
+\lambda_1(F_r)=\rho(A)=|\alpha|>1.
+\]
+Algebraic stability implies that the spectral radius of \(g^*\) on \(\operatorname{NS}(X)_{\mathbb R}\) equals \(|\alpha|\). By the exact invariant-subspace sequence, the multiset of eigenvalues of \(g^\#\) is the union, with multiplicities, of the eigenvalues on the unit lattice and on \(\operatorname{NS}(X)_{\mathbb R}\). Thus \(\rho(g^\#)=|\alpha|\), while \(\alpha\) itself is a peripheral eigenvalue of the **nonnegative** matrix \(g^\#\). Perron--Frobenius theory forces \(\alpha/|\alpha|\) to be a root of unity.
+
+For completeness, that last condition is impossible: if \(\alpha/|\alpha|\) were a root of unity, then for some \(m\geq1\), \(\alpha^m=\overline\alpha^{\,m}\), so the monic integral cubic characteristic polynomial of \(A^m\) would have a repeated root. A repeated root of a cubic over \(\mathbb Q\) has degree one over \(\mathbb Q\); hence its other root \(\beta^m\) is a rational algebraic integer, and therefore an integer. But \(0<\beta^m<1\), contradiction. This concludes the proof for every \(r\geq1\).
+
+**5. Explicit instance.** The displayed matrix has determinant \(1\), irreducible characteristic polynomial \(t^3+t-1\), and discriminant \(-31\). Its unique real root lies in \((0,1)\); the other two roots form a nonreal conjugate pair with absolute value greater than one. It satisfies the hypotheses of the general theorem.
+
+## Verification
+The standalone `verify_matrix.py` uses exact integer arithmetic to check the determinant, characteristic polynomial, discriminant, and irreducibility of the explicit matrix. These finite algebraic checks support only the example's input hypotheses. Steps 1--4 are mathematical arguments for all \(r\) and all matrices satisfying the stated assumptions; the finite checker is neither a proof of their universal validity nor an exhaustive search over birational models.
+
+## Relationship to prior work
+Kuznetsova, *Regularization and algebraic stability of birational automorphisms* (arXiv:2610.02536v1, October 1, 2026), proves the case \(r=0\) (Theorem 5.1) and a product with independent non-torsion coordinate translations (Corollary 5.9). The identity action is excluded by the latter's independence hypothesis: it has infinitely many invariant vertical divisors. The present argument handles precisely that obstruction by deleting only the finitely many vertical divisors that a hypothetical model contracts; this produces the extra fixed-unit summand in the boundary sequence. In particular this gives an explicit case of the identity-product question raised as Question 1.5 in the source, without settling that question in general.
+
+Jonsson--Wulcan, *Stabilization of monomial maps* (arXiv:1001.3938v2), and Lin--Wulcan, *Stabilization of monomial maps in higher codimension* (arXiv:1206.4925v2), treat stability and obstructions on toric models. Their toric nonstabilization assertions do not imply the present exclusion of **every** smooth projective birational model after stabilization by identity factors. The present proof draws on the stronger non-toric boundary-divisor method introduced by Kuznetsova.
+
+## Limitations
+The theorem concerns characteristic zero over \(\mathbb C\), the specified rank-three spectral hypothesis, and identity factors that are algebraic tori. It does not decide whether the failure of algebraic stability survives arbitrary products \(f\times\operatorname{id}_Y\) for an arbitrary birational map \(f\) and arbitrary \(Y\). It does not claim uniqueness or an independent external audit. A full historical classification of all possible equivalent formulations was not established; an unlocated implicit precedent in broader birational-dynamics literature remains a residual bibliographic risk.
+
+## References
+1. A. Kuznetsova, *Regularization and algebraic stability of birational automorphisms*, arXiv:2610.02536v1 (2026), especially Question 1.5; Lemmas 2.2, 5.3--5.8; Theorem 5.1; Corollary 5.9. https://arxiv.org/html/2610.02536v1
+2. J.-L. Lin and E. Wulcan, *Stabilization of monomial maps in higher codimension*, *Annales de l'Institut Fourier* 64 (2014), 2127--2146, arXiv:1206.4925v2. https://arxiv.org/html/1206.4925v2
+3. M. Jonsson and E. Wulcan, *Stabilization of monomial maps*, *Michigan Mathematical Journal* 60 (2011), 629--660, arXiv:1001.3938v2. https://arxiv.org/html/1001.3938v2
