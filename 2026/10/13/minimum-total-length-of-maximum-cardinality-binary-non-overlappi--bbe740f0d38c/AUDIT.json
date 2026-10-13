@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The k=1 overlap forces all binary codewords to have a common first symbol and opposite common last symbol. Complementation normalizes to 0...1. Every code is exactly a clique of fully enumerated unbordered words, with substring and pair-overlap constraints explicitly checked. Correct greedy-color independent classes bound clique size and sorted cheapest available lengths bound all completions; the ordered recursion exhausts all cliques. A Python stdlib checker reproducibly returns all nine (maximum-cardinality, minimum-total-length) pairs and verifies witnesses. Independent 0–1 MILP for n=10 returns 227 with zero gap. This is a complete finite proof and not an extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang–Wang 2024 proves the cardinality transfer bound and a generic lower bound on mean length; neither is sharp for the exact total 227 at cardinality 24.",
+        "Qin–Luo 2025 publisher abstract concerns constructions and larger codes; full theorem statements unavailable."
+      ],
+      "reasoning": "A result determining all optimal length profiles at each maximal cardinality could dominate this claim, but no inspected accessible primary theorem does so; the inaccessible 2025 paper is a named residual risk.",
+      "searches": [
+        "published-finding corpus: maximum variable length cross bifix free codes all optimal fixed length",
+        "arXiv:2108.06934 full primary text",
+        "arXiv:2402.18896 full primary text",
+        "Web: A generalized construction of variable-length non-overlapping codes Qin Luo 2025"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2402.18896 full HTML",
+      "arXiv:2108.06934 full HTML",
+      "arXiv:2307.12593 accessible primary text",
+      "published-finding corpus 2026/9/17/SCOPE-stationary-occupancy-variable-length-nonoverlap--effa1409f1ac",
+      "published-finding corpus 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original bound for 24 binary words gives an average at least five (or the coarser asymptotic lower bound), whereas the exact minimum is 227/24.",
+        "Weighted occupancy is necessary, but is not an exact clique-compatibility bound, and does not imply the displayed minimum."
+      ],
+      "reasoning": "Neither an entropy lower bound nor an occupancy inequality determines minimum total length over maximum-cardinality binary sets. Fixed-length maximum-size results likewise do not settle variable-length cost.",
+      "searches": [
+        "Wang–Wang 2024 Section 4 Theorem 3 Corollary 1 exact statements",
+        "published-finding corpus: A stationary occupancy inequality for variable-length non-overlapping codes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang–Wang (2024) explicitly asks the minimum mean length at fixed cardinality but gives only broad bounds, not integer optimal totals.",
+        "published-finding corpus closest 2026/9/17/SCOPE-stationary-occupancy-variable-length-nonoverlap--effa1409f1ac is an occupancy bound and no exact table."
+      ],
+      "reasoning": "The alternative formulation as shortest-total-length maximum cliques of a word-compatibility graph is equivalent to the new computation, but the cited literature does not provide its evaluated optimal values.",
+      "searches": [
+        "published-finding corpus: variable-length non-overlapping codes minimum average length cardinality exact small q",
+        "Web: binary cross bifix free minimum total length optimum mean 24 codewords n=10",
+        "arXiv:2402.18896 Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a determines only fixed-length cardinalities, and not total bit costs of variable-length maxima.",
+        "Stanovnik–Moškon–Mraz 2023 determines or bounds fixed-length code sizes; not the mixed-length cost optimum."
+      ],
+      "reasoning": "Knowing the maximum sizes for binary order limits does not imply the cheapest realization of these maxima, and there is no identified exact table containing 227 or the length-saving sequence.",
+      "searches": [
+        "published-finding corpus: exact minimum mean length variable length non overlapping binary codes size 24 maximum word length 10 total length 227",
+        "published-finding corpus: nonoverlapping codes length cost tradeoff optimal cardinality 14 24 binary prefix suffix",
+        "arXiv:2307.12593 fixed-length maximum code sizes"
+      ]
+    },
+    "rationale": "This is an exact finite cardinality-and-total-length tradeoff table, not the maximum-cardinality table already known. The motivating 2024 paper poses minimum average length as an optimization but proves a coarse general bound, and neither the 2021 construction nor fixed-length maxima entails the nine optimal total lengths. Same-object 2025 construction paper full text unavailable; no positive coverage located but residual priority risk acknowledged.",
+    "residual_risks": [
+      "An equivalent finite exact enumeration may be unindexed or unpublished.",
+      "Full 2025 Qin–Luo article could not be inspected through lawful available channels; its theorem statements remain a priority uncertainty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Asks for minimum average length with fixed cardinality and gives bounds; does not compute table of minimum total lengths up to ten",
+        "evidence": [
+          "Section 1 defines binary/variable code length at least 2; Section 4 asks exact minimum average and gives entropy lower bound."
+        ],
+        "identifier_or_url": "arXiv:2402.18896 / https://arxiv.org/html/2402.18896v1",
+        "material_read": "Full accessible HTML Sections 1–5, including Definitions, Theorem 2, Section 4 and references",
+        "method": "Read arXiv full-text HTML",
+        "title": "On the maximum size of variable-length non-overlapping codes",
+        "trigger": "Direct exact optimization question in Section 4, matching alphabet and code definition"
+      },
+      {
+        "assessment": "Size-oriented and generating-function constructions rather than minimal sum of lengths at a maximum size",
+        "evidence": [
+          "Their results construct codes and bound cardinalities; no minimum bit-cost classification for these orders is present in inspected statements."
+        ],
+        "identifier_or_url": "arXiv:2108.06934 / https://arxiv.org/abs/2108.06934",
+        "material_read": "Full accessible arXiv HTML, central construction and results",
+        "method": "Read open preprint full-text HTML",
+        "title": "Q-ary non-overlapping codes: a generating function approach",
+        "trigger": "Earlier construction of variable-length non-overlapping codes for same objects"
+      },
+      {
+        "assessment": "Fixed-length maximum cardinality is not the same as optimizing total length among all variable-length realizations",
+        "evidence": [
+          "Bounds and cardinalities for fixed-length code construction, not exact length-sum results."
+        ],
+        "identifier_or_url": "arXiv:2307.12593 / https://arxiv.org/abs/2307.12593",
+        "material_read": "Accessible primary full HTML, methods and numerical cardinality statements",
+        "method": "Read lawfully available primary manuscript",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Potential exact maximum-code table and equivalence with variable-length codes"
+      },
+      {
+        "assessment": "Its available description concerns constructions; coverage cannot be excluded without the actual full theorem statements",
+        "evidence": [
+          "No accessible full theorem text to compare, so priority remains a specific residual risk."
+        ],
+        "identifier_or_url": "DOI:10.1007/s10623-025-01585-0",
+        "material_read": "Abstract/publisher preview only; full text unavailable after open/preprint attempts; institutional request returned VPN disconnected",
+        "method": "Publisher metadata and abstract inspection; attempted authorized access without bypassing restrictions",
+        "title": "A generalized construction of variable-length non-overlapping codes",
+        "trigger": "Plausible later result on exactly the same class of codes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bbe740f0-d38c-415c-b260-2f31b7d583d8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A 2024 publication directly asks to minimize average length at prescribed non-overlap code cardinality. The complete maximum-cardinality binary finite spectrum for n=2..10 is a natural self-contained cutoff: n=10 has 295 allowable vertices and 20,758 incompatible pairs, and the exact sharp optimum saves 13 bits versus 24 ten-bit codewords. This is a meaningful discrete compression/synchronization invariant beyond mere correctness or a small arbitrary subcase.",
+    "status": "PASS"
+  }
+}
