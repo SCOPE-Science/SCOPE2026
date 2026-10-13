@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For two normalized independent planar rows, conjugation symmetry forces the averaged error Gram to be bisector-diagonal. Exact multiplication gives its sum and difference as the two displayed polynomials. Positive derivative of the first diagonal and the unique critical point of the second, followed by the monotone cubic crossover calculation, prove the full real-parameter unique minimax. The conditional recursion bound requires fresh independent epoch permutations only. The verifier reproduces symbolic identities and exact finite Gram calculations; proof provides all infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Marshall–Mickelin (2022) optimizes scheduled step sizes for independent noisy row sampling, not epoch-wise reshuffling of two fixed rows.",
+        "Oswald–Zhou (2015) considers randomized SOR order in general; the abstract establishes bounds but not the specific one-epoch exact mean-square tuning theorem."
+      ],
+      "reasoning": "Neither inspected claim implies the closed-form correlation threshold or gives the exact maximal conditional expected-square factor for the two-permutation relaxed projector product. The older SOR paper was not fully inspected; priority uncertainty remains.",
+      "searches": [
+        "arxiv:2202.12224 Marshall Mickelin optimal scheduled learning rate randomized Kaczmarz",
+        "arxiv:1510.04727 Oswald Zhou random reordered SOR Kaczmarz",
+        "two-row randomized reshuffling relaxed Kaczmarz optimal overrelaxation minimax one-epoch expected squared error principal angles bisector critical threshold"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2410.01140 sections 2, 3.1, 3.2, 3.3, full HTML",
+      "arxiv:2202.12224 abstract and SIAM abstract",
+      "arxiv:1510.04727 abstract",
+      "published Kaczmarz order-averaging, Gauss–Seidel and coherence result IDs in O comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Han–Xie Theorem 3.2 gives a contraction for unrelaxed orthogonal projector epochs and Corollary 3.3 a worst-permutation bound, not the relaxation-sensitive average-of-two-Grams minimax.",
+        "The present minimax factor has a kink at the balance point for small row correlation, and a smooth cubic-root optimum at larger correlation."
+      ],
+      "reasoning": "Setting the relaxation to one in the new formula recovers an ordinary-projector special case; conversely, the source results at relaxation one cannot imply the strict overrelaxation improvement or the balance/stationary phase boundary.",
+      "searches": [
+        "arxiv:2410.01140 theorem 3.2 and corollary 3.3 full text",
+        "two-row randomized reshuffling relaxed Kaczmarz optimal overrelaxation minimax one-epoch expected squared error principal angles bisector critical threshold",
+        "two hyperplane alternating Kaczmarz random epoch order relaxation omega near 1 optimum worst case spectral norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The epoch with random order can be written as average of the Gram matrices of two products of relaxed rank-one complementary projectors.",
+        "Han and Xie (2024) fix the Kaczmarz scaling to 1 / row norm squared and compare their epoch-operator bounds."
+      ],
+      "reasoning": "The symmetrized error Gram diagonalizes in bisector coordinates. No retrieved statement solves its maximum-eigenvalue minimization over the common relaxation.",
+      "searches": [
+        "two-row randomized reshuffling relaxed Kaczmarz optimal overrelaxation minimax one-epoch expected squared error principal angles bisector critical threshold",
+        "two hyperplane alternating Kaczmarz random epoch order relaxation omega near 1 optimum worst case spectral norm",
+        "random reshuffling Kaczmarz exact contraction relaxation two rows epoch spectral radius",
+        "arxiv:2410.01140 sections 2-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The targeted published-record searches returned bounds on greedy Kaczmarz coherence, Gauss–Seidel ordering, and delayed updates, without an exact two-row reshuffled relaxation minimax table."
+      ],
+      "reasoning": "An exact parametric numerical threshold would be covered even under different notation, but the closest retrieved published records address different operators or criteria. Search nonappearance is not itself a priority proof.",
+      "searches": [
+        "two-row randomized reshuffling relaxed Kaczmarz optimal overrelaxation minimax one-epoch expected squared error principal angles bisector critical threshold",
+        "random reshuffling Kaczmarz exact contraction relaxation two rows epoch spectral radius",
+        "published Kaczmarz coherence and two-coordinate Gauss–Seidel results"
+      ]
+    },
+    "rationale": "Compared the same reshuffled Kaczmarz epoch matrices to the full 2024 Han–Xie source and their worst-permutation unrelaxed bounds, plus independently sampled noisy step-size scheduling, general reordered SOR, and published related records. None of the inspected statements covers a sharp overrelaxed one-epoch conditional expected-square minimax with a correlation-dependent two-regime optimizer. Full older SOR texts were not available, so residual priority uncertainty is expressly retained.",
+    "residual_risks": [
+      "Detailed full-text comparison with the 2015 randomized SOR paper has not been completed.",
+      "The explicit phase boundary could have been derived independently in an unindexed note or numerical-linear-algebra specialist source.",
+      "Minimizing the exact asymptotic mean-square rate is a different problem and is not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different claim: unrelaxed projections, a deterministic worst-permutation bound, no common-relaxation optimum or bisector phase.",
+        "evidence": [
+          "Eq. (3) sets step size exactly 1 / squared row norm; Algorithm 1 repeats that scaling; Theorem 3.2 bounds the norm of fixed projection-epoch matrices; Section 3.3 compares ordering algorithms."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2410.01140",
+        "material_read": "HTML full research article sections 2 and 3.1–3.3, Theorem 3.2, Corollary 3.3, Example 3.8, conclusions",
+        "method": "Read lawful complete HTML sections, checking epoch matrix definition and step-size hypothesis",
+        "title": "A simple linear convergence analysis of the randomized reshuffling Kaczmarz method",
+        "trigger": "Same algorithm, same epoch-length random reshuffling, and a potentially stronger published contraction result"
+      },
+      {
+        "assessment": "Concerned with independent noisy row sampling and a scheduled step-size bound, not the full two-order conditional minimax; remaining risk flagged.",
+        "evidence": [
+          "Abstract specifies a noisy consistent system with independent mean-zero additive row noise and an optimal step-size schedule."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.12224",
+        "material_read": "Primary arXiv abstract and SIAM abstract; not full text",
+        "method": "Read source abstracts and distinct noise/model hypotheses",
+        "title": "An optimal scheduled learning rate for a randomized Kaczmarz algorithm",
+        "trigger": "Closest title suggesting optimal Kaczmarz relaxation"
+      },
+      {
+        "assessment": "General SOR convergence bounds do not explicitly present this exact two-row sharp relaxation phase; not excluded by full-text examination, residual risk noted.",
+        "evidence": [
+          "Abstract describes upper bounds for shuffled and preshuffled SOR improving prior asymptotic error bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1510.04727",
+        "material_read": "Primary arXiv abstract; full text not available during comparison",
+        "method": "Inspect title, abstract, and published theorem focus as described in abstract",
+        "title": "Random Reordering in SOR-Type Methods",
+        "trigger": "Randomly reordered SOR and Kaczmarz could contain a more general implication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9e0cabf8-4ca3-43b8-965b-96f7fbefa961",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gives the complete optimal common relaxation as a function of the natural row coherence for a uniformly reshuffled two-equation projection solver, with a nontrivial phase transition between equalizing directional risk and stationarity of its dominant direction. Strict optimal overrelaxation holds throughout the nonorthogonal planar regime, supplying a precise tuning benchmark; avoids claims about practical runtime or asymptotic rate.",
+    "status": "PASS"
+  }
+}
