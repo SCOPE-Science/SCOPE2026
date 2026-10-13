@@ -1,0 +1,15 @@
+# Scientific review: sharp covariance-sign transition
+
+## Correctness — PASS
+The claim is stated for an explicit model with independent Bernoulli trial streams, independent orientation, and strict interior parameters. For every two ordered times, direct event enumeration gives the diagonal and off-diagonal joint masses. They factor into an independent geometric first-failure time and an independent zero-inflated inter-failure delay. The covariance reduction follows exactly from the orientation indicator, and strict monotonicity of the tie-mass quadratic yields all signs, endpoint cases, and uniqueness of the transition. These arguments prove the infinite-support claim without numerical extrapolation. An independent finite-sum checker passed six covariance parameter tests and multiple transition checks; the finite sums are not offered as a proof of completeness.
+
+## Originality — PASS, with residual priority risk
+The 2026 Lee–Cha article, inspected in its open full HTML (Sections 3–5, especially the defining Bernoulli experiment and Theorem 3), proves conditional positive quadrant dependence but not unconditional covariance or a sharp tie-mass sign boundary. Huber–Marić's full 2014 geometric-coupling comparison concerns different objects and all couplings with geometric margins. Closely related 2017 and 2024 papers use different classes of bivariate laws, according to accessible abstracts; their inaccessible complete text is an explicitly retained priority risk. Searches for this formula, equivalent random-orientation representations, shock-model covariance signs, and published mathematical findings revealed no dominating theorem. Absence from search results alone is not regarded as a proof of priority.
+
+## Value — PASS
+A reliability model can have opposite dependence conclusions depending on whether the identity of the first sequentially failed component is conditioned on or averaged away. The exact transition \(r>1-\theta(1-\theta)\) and a single explicit critical tied-failure probability provide a calibrated structural answer across the entire natural homogeneous parameter domain. The result is distinct from a demonstration at a few numerical parameters, while making no unsupported general assertion about quadrant dependence. This is a motivated boundary of a recently studied shock model, not a generic covariance identity presented without an application.
+
+## Scope and limitations
+All parameters are strictly between zero and one. The exact result concerns covariance of component lifetimes in the homogeneous, independent-shock model, not rank correlations, all dependence orders, time-varying intensities, or reliability fit quality. A related 2017 model permits both signs of dependence but could be accessed only at abstract/reference level. A source index suggests there may be earlier preprint circulation without a verified day; the exact day-level public date is 25 April 2026. Scientific priority remains open to independent confirmation.
+
+Self-review: passed. Independent audit: not yet performed.
