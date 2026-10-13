@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The specified ordinal patterns form an exhaustive partition of the \(n-2\) interior triples; the six covariance formulas sum to zero, as required. Record indicators are independent of a triple's relative order except when the record time lies inside the triple. The three conditional cases follow from beta-uniform integration and exchangeable ranking. Their local rational covariances telescope exactly to the six finite-sample formulas. Direct exhaustive permutation enumeration verifies every formula through \(n=8\), and all \(108\) local joint probabilities through \(i=7\). The proof, not the experiments, covers every \(n\ge3\). Assumptions exclude ties and dependence.
+
+## Originality — PASS, with residual historical risk
+The complete **six-coordinate covariance vector with upper-record count**, rather than the already studied unmarked pattern counts or a coarsened peak statistic, is the asserted contribution. Chen–Cheng's ten-page original article was materially inspected, including definitions, generating-function results, recurrences and references; it treats the joint law of peak/double-rise/trough/double-fall counts without upper records. Gnedin's record-statistics source treats initial ranks and upper/lower record counts without these mixed triple-pattern moments in the inspected material. Warren–Seneta's source covers marginal peak distributions according to its primary publisher abstract, but its full text was inaccessible. Related record/BST and cycle/pattern covariance formulas do not imply the six record/pattern covariances without further information, and the aggregate peak identity is explicitly not claimed as new. Unidentified or inaccessible multivariate permutation generating functions remain a genuine historical priority risk; a null search alone is not proof of priority.
+
+## Value — PASS
+There are exactly six natural consecutive length-three ordinal types. Jointly classifying their dependence on cumulative upper extremes distinguishes two peak orientations having different finite-sample signs and identifies a unique critical sample size. Such direction-resolved dependence is relevant to rank-based randomness diagnostics: record counts detect extremes, whereas local ordinal patterns detect sequential ordering. The exact vector is a motivated complete classification, not an arbitrary parameter slice or mere table recomputation. Its distribution-free scope, finite-sample critical sign, and explicit limit offer useful reference benchmarks.
+
+## Limitations and integrity
+Only uniform permutation ranks of iid atomless observations are covered; no full joint law, tied-sample extension, or non-iid theorem is claimed. The published prior literature supplies much of the local-pattern and record-statistic context. The present checking is same-model only; independent audit has not been performed. A potentially relevant earlier article remained inaccessible in full text.
+
+Self-review: passed. Independent audit: not yet performed.

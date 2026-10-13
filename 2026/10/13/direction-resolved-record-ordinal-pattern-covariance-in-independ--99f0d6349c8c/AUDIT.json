@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For each interior triple, every record indicator outside its three positions is independent of that triple's relative order. Conditional on a record at the first, middle or last position, the six pattern probabilities follow respectively from a beta-uniform integral, a beta-i conditional splitting, or equiprobability of the other two ranks. The local covariance vector has numerators (3i+1,7-3i,3i-5,3i-5,1-3i,1-3i) over 6i(i-1)(i+1); summing i=2..n-1 gives the exact six formulas. Independent exact rational direct permutation enumeration confirms 36 finite-n covariances and 108 local joint probabilities, and symbolic telescoping confirms all six; these computations corroborate rather than replace the infinite analytic argument. Claims are confined to iid atomless data, n>=3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen and Cheng, Ars Combinatoria 54 (2000), 139–148, full ten-page PDF: https://combinatorialpress.com/article/ars/Volume%20054/volume-54-paper-11.pdf",
+        "Warren and Seneta, J. Appl. Probab. 33 (1996), publisher abstract: https://doi.org/10.2307/3215267",
+        "Gnedin, DMTCS AH (2007), initial-rank and record law: https://dmtcs.episciences.org/en/articles/3551/download"
+      ],
+      "reasoning": "Chen–Cheng gives the joint distribution of unoriented local pattern classes, not their covariance with upper records. Gnedin provides record statistics but the inspected initial-rank and distribution results do not include local triple counts. Warren–Seneta describes the marginal peak distribution (abstract only); the full body could conceivably contain a related mixed moment and remains a residual risk.",
+      "searches": [
+        "\"number of records\" \"peak\" \"joint\" permutation",
+        "record counts versus peaks troughs double rises double falls in random permutations joint mixed moments",
+        "\"left to right maxima\" \"peaks\" \"covariance\" permutations"
+      ]
+    },
+    "checked_sources": [
+      "Chen and Cheng (2000), Ars Combinatoria 54, 139–148, https://combinatorialpress.com/article/ars/Volume%20054/volume-54-paper-11.pdf",
+      "Gnedin (2007), DMTCS AH, 157–170, https://dmtcs.episciences.org/en/articles/3551/download",
+      "Warren and Seneta (1996), J. Appl. Probab. 33, 101–114, https://doi.org/10.2307/3215267",
+      "Fu et al (2020), European J. Combinatorics 85, 103060, https://doi.org/10.1016/j.ejc.2019.103060"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen–Cheng joint unoriented pattern law does not determine covariances with an external record statistic.",
+        "Gnedin record marginals do not determine cross-covariances with triple patterns.",
+        "A separate recorded coarsening gives Cov(records, number of peaks)=(n-2)(n+1)/(12n(n-1)); this follows from summing the two reported peak coordinates, but not conversely.",
+        "A cycle-count versus triple-pattern covariance concerns number of disjoint cycles, a different statistic from positional upper records."
+      ],
+      "reasoning": "The six-vector implies the coarse peak covariance, not vice versa: fixing the sum of 132 and 231 covariances leaves their difference undetermined. Cycle count is equidistributed with record count but their joint laws with consecutive patterns need not be equal. Thus coarser coverage is acknowledged and separated, while historical broader generating functions remain a risk.",
+      "searches": [
+        "record counts versus peaks troughs double rises double falls in random permutations joint mixed moments",
+        "random permutations number cycles and peaks covariance distribution",
+        "\"records\" \"consecutive patterns\" \"covariance\" permutations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gnedin (2007) describes upper record counts through independent initial ranks: https://dmtcs.episciences.org/en/articles/3551/download",
+        "Chen and Cheng (2000) encode peaks and double rises, troughs and double falls without the record count: https://combinatorialpress.com/article/ars/Volume%20054/volume-54-paper-11.pdf"
+      ],
+      "reasoning": "An upper record is the maximum of the observed prefix; an ordinal triple records only local ranks. Their covariance could be expressed as a mixed derivative of a hypothetical joint generating polynomial, but neither materially inspected source provides such a mixed polynomial. Peak count alone is a two-coordinate sum and cannot recover its two orientations.",
+      "searches": [
+        "\"left to right maxima\" \"peaks\" \"covariance\" permutations",
+        "\"records\" \"consecutive patterns\" \"covariance\" permutations",
+        "permutation left-to-right maxima peaks joint distribution record peak statistic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The complete six-way coefficients have a single n-dependent sign boundary at 132 and sum identically to zero; publication and open-record searches returned peak-only and record-only results, not a six-coordinate table.",
+        "Finite direct permutation counts n=3 through 8 are independently reproduced by verify.py and are not offered as novelty evidence."
+      ],
+      "reasoning": "No retrieved exact table supplies this joint vector. Six independent pattern types form a canonical full partition; this is not a selected special value or an arbitrary parameter grid. Absence from searched tables is limited evidence, not a proof of priority.",
+      "searches": [
+        "ordinal triples records random permutation joint pattern covariance orientation",
+        "uniform random permutation number of peaks and left-to-right maxima records covariance exact 1/12 dependence",
+        "random sequence peak count record count joint asymptotic covariance"
+      ]
+    },
+    "rationale": "The complete six-coordinate covariance with the number of upper records is not entailed by the inspected joint distribution of the four unoriented local classifications or by record marginal laws. Full ten-page Chen–Cheng source inspected. An identified earlier result gives the same covariance only for the sum of the two peak orientations (also matched by a record/BST statistic), and this coarsening is excluded from the originality claim. The six-way orientation split and the n=5 sign boundary for 132 remain distinct, with plausible but unexcluded historical implicit derivations.",
+    "residual_risks": [
+      "An older multivariate record/permutation generating function might implicitly produce all six mixed covariances without listing these coefficients.",
+      "The full Warren–Seneta (1996) text was not accessible; comparison is limited to its primary publisher abstract. The inaccessible text was not judged non-covering.",
+      "The Fu et al. (2020) comparison is abstract-level; its full results have not been excluded as a source of indirect formulas.",
+      "The known coarser upper-record/peak covariance agrees with the sum of 132 and 231 coordinates; that coarsening is not asserted as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "It considers the peak/double-rise/trough/double-fall vector but no count of strict upper records in its displayed variables or results.",
+        "evidence": "Publisher abstract states those four counts; article pp.139 and 143 define the variables and develop joint distributions. https://combinatorialpress.com/ars-articles/volume-054-ars-articles/a-note-on-joint-distributions-of-some-random-vectors-defined-on-permutations/",
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20054/volume-54-paper-11.pdf",
+        "material_read": "The original ten-page article including the introductory definitions, joint generating functions, recurrence section and references.",
+        "method": "Publisher open-access PDF, pages 139–148; inspection of text/figures and theorem statements.",
+        "title": "A Note on Joint Distributions of Some Random Vectors Defined on Permutations",
+        "trigger": "Exact joint local peak, rise, trough and fall count distributions may dominate a covariance claim."
+      },
+      {
+        "assessment": "It supplies the independent-initial-rank formulation and marginal record framework; the inspected portions do not supply the six record/pattern mixed covariances.",
+        "evidence": "At printed p.160, initial ranks are independent uniformly distributed; opening abstract concerns lower and upper record counts. https://dmtcs.episciences.org/en/articles/3551/download",
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/3551/download",
+        "material_read": "Title/abstract, introductory and initial-rank sections, record family definition, and the end/reference material; searchable paper text for peak/ordinal pattern terminology.",
+        "method": "Lawful open PDF, 2007 volume pp.157–170; inspected actual pages and text search for peak.",
+        "title": "Coherent random permutations with record statistics",
+        "trigger": "Could encode the new statistic through record-rank factorization."
+      },
+      {
+        "assessment": "The abstract addresses marginal peak distribution and Eulerian ascents, not explicitly joint moments with records, but noncoverage of the full article is not asserted.",
+        "evidence": "J. Applied Probability 33(1), 101–114 (1996), primary MSC 60G10, publisher abstract: https://doi.org/10.2307/3215267",
+        "identifier_or_url": "https://doi.org/10.2307/3215267",
+        "material_read": "Primary publisher abstract, classification, keywords and bibliographic metadata only; full article inaccessible.",
+        "method": "Cambridge Core publisher entry; same-paper arXiv/preprint and open-access searches did not obtain full text; institutional PDF route unavailable.",
+        "title": "Peaks and Eulerian numbers in a random sequence",
+        "trigger": "Directly relevant older work on peak count of iid rank sequences."
+      },
+      {
+        "assessment": "Refines permutation local statistics but no verified complete joint generating function with upper-record count. The uninspected body is a residual risk.",
+        "evidence": "European J. Combinatorics 85 (2020), 103060, DOI https://doi.org/10.1016/j.ejc.2019.103060",
+        "identifier_or_url": "https://doi.org/10.1016/j.ejc.2019.103060",
+        "material_read": "Searchable publisher metadata and abstract-level description only; not the complete article.",
+        "method": "Bibliographic and abstract-level comparison of variables counted.",
+        "title": "Joint distributions of permutation statistics and the parabolic cylinder functions",
+        "trigger": "Later generating-function methods might subsume orientation-refined consecutive pattern counts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "99f0d634-9c8c-48e9-80ab-7beaf81877db",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The six length-three ordinal patterns form the smallest full family distinguishing local order orientations, a natural ingredient of nonparametric serial randomness tests. Total upper records measure global sequential extremes. Their complete direction-resolved cross-covariance reveals that the two peak orientations behave differently, with the 132 term crossing precisely at n=5 even though the aggregated peak covariance is always positive. This is a motivated natural classification with a finite-sample sign boundary and distribution-free limiting reference vector, not a renamed marginal or a recomputation of a known coarse statistic.",
+    "status": "PASS"
+  }
+}
