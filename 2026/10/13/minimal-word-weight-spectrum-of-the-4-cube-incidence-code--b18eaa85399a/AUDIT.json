@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The proof identifies each row sum with a vertex set and its edge boundary, giving the exact weight formula. The complete finite domain of 65535 nonzero words was checked twice: induced connectivity and direct support-containment minimality agree exactly, and all spectrum coefficients are asserted by an executable checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2311.00075 studies numbers of connected sets in regular graphs",
+        "OEIS:A290758 records the total number of connected induced subgraphs of Q_n"
+      ],
+      "reasoning": "Broader connected-set results and databases cover totals or extremal counting questions. A total count does not determine the distribution of edge boundaries and therefore does not imply the Hamming-weight spectrum.",
+      "searches": [
+        "hypercube connected induced subgraphs boundary size enumeration Q4",
+        "connected subsets Q4 edge-boundary enumerator",
+        "connected induced subgraphs hypercube Q4 enumeration",
+        "connected sets regular graphs hypercube boundary"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/s40314-025-03580-6",
+      "OEIS:A290758",
+      "arXiv:2311.00075",
+      "arXiv:2006.02975",
+      "Focused semantic searches for hypercube incidence-code spectra and boundary enumerators"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kim 2026: minimal words correspond to connected induced subsets and selected graph families are counted",
+        "OEIS:A290758: coefficient sum only",
+        "Kurz 2020: different adjacency-matrix code"
+      ],
+      "reasoning": "Kim plus the known total determines how many minimal words exist but not how those words distribute by Hamming weight. The new table needs the edge-boundary/internal-edge distribution of connected subsets, which is additional information.",
+      "searches": [
+        "4-dimensional hypercube incidence code minimal codewords weight enumerator connected vertex subsets cut size",
+        "Q4 hypercube binary code generator [I|B] incidence matrix minimal codeword spectrum",
+        "37293 hypercube minimal codewords incidence code",
+        "binary [48,16] code hypercube incidence minimal words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.1007/s40314-025-03580-6: full article inspected; no hypercube weight enumerator",
+        "arXiv:2006.02975: identity-plus-adjacency construction, not identity-plus-incidence"
+      ],
+      "reasoning": "The equivalent graph formulation is enumeration of connected vertex subsets by the statistic |T|+|delta(T)|. The primary incidence-code article proves connectedness equivalence but does not enumerate this statistic for the hypercube; adjacency-matrix graph codes are not equivalent to the incidence code.",
+      "searches": [
+        "4-dimensional hypercube incidence code minimal codewords weight enumerator connected vertex subsets cut size",
+        "Q4 hypercube binary code generator [I|B] incidence matrix minimal codeword spectrum",
+        "graph incidence code minimal codewords hypercube secret sharing",
+        "minimal-word weight enumerator Q4 [48,16] incidence graph code"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A290758 gives 37293 for Q_4 but no minimal-codeword Hamming-weight coefficient table",
+        "Targeted exact-number searches did not return the displayed 22-level spectrum"
+      ],
+      "reasoning": "The exact total is known and not claimed. No inspected database/table supplied the refinement by |T|+|delta(T)|.",
+      "searches": [
+        "37293 hypercube minimal codewords incidence code",
+        "minimal-word weight enumerator Q4 [48,16] incidence graph code",
+        "connected subsets Q4 edge-boundary enumerator",
+        "binary [48,16] code hypercube incidence minimal words"
+      ]
+    },
+    "rationale": "The total connected-subset count for the four-cube is known and is explicitly excluded from the novelty claim. The inspected incidence-code source gives the structural correspondence but not the hypercube weight spectrum; the connected-set database gives only totals; the adjacency-code source concerns a different matrix construction. Focused searches found no source implying the weight-resolved table.",
+    "residual_risks": [
+      "An unindexed older enumeration of connected Q_4 vertex sets by edge-boundary size could encode the same numerical spectrum even if it was not phrased as a coding-theory result. No such source was found in the inspected literature and database searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the incidence-code setup, connected-set characterization, and exact counts for paths, cycles, complete multipartite graphs, and ladders; no hypercube minimal-word weight spectrum appears.",
+        "evidence": "Theorems 9 and 12, Corollary 14, Proposition 17, Proposition 18, Corollary 19, and Theorem 23 were inspected.",
+        "identifier_or_url": "DOI:10.1007/s40314-025-03580-6",
+        "material_read": "Full article, pages 1-17.",
+        "method": "Full-text article inspection.",
+        "title": "Minimal binary codewords derived from the incidence-matrix approach",
+        "trigger": "Primary source for the graph-incidence code and minimal-codeword characterization."
+      },
+      {
+        "assessment": "Covers the total 37293, so that total is prior art; it does not provide the codeword-weight refinement asserted here.",
+        "evidence": "The n=4 term is 37293.",
+        "identifier_or_url": "OEIS:A290758",
+        "material_read": "Sequence entry and description.",
+        "method": "Database entry inspection.",
+        "title": "A290758: Number of (non-null) connected induced subgraphs in n-hypercube Q_n",
+        "trigger": "Exact known total for connected subsets of Q_4."
+      },
+      {
+        "assessment": "Studies connected-set counts in regular graphs; no implication of the Q_4 incidence-code Hamming-weight spectrum was found.",
+        "evidence": "Its object is the number of connected sets, rather than the boundary-refined enumerator used here.",
+        "identifier_or_url": "arXiv:2311.00075",
+        "material_read": "Abstract and bibliographic scope.",
+        "method": "Primary preprint inspection.",
+        "title": "The maximum number of connected sets in regular graphs",
+        "trigger": "Potential broader coverage of hypercube connected-set enumeration."
+      },
+      {
+        "assessment": "Uses an identity-plus-adjacency generator, which defines a different code from identity-plus-incidence.",
+        "evidence": "The matrix construction in the title/abstract is adjacency-based rather than vertex-edge incidence-based.",
+        "identifier_or_url": "arXiv:2006.02975",
+        "material_read": "Abstract and construction description.",
+        "method": "Primary preprint inspection.",
+        "title": "On the number of minimal codewords in codes generated by the adjacency matrix of a graph",
+        "trigger": "Potential equivalent graph-code formulation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b18eaa85-399a-4dd2-97dd-edf1ecf04b6f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete minimal-word weight spectrum is a natural code invariant and a strict refinement of the known connected-subset total. It resolves the support-size distribution for a canonical highly symmetric [48,16,5] incidence code, giving exact finite data relevant to minimal-word/access-structure geometry and a reproducible benchmark for higher-dimensional study.",
+    "status": "PASS"
+  }
+}
