@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Every six-state weakly acyclic automaton has a topological relabeling. In a fixed topological order there are exactly 720 possible maps per letter, hence 518400 ordered binary automata. Exhaustive reverse subset-graph BFS over every automaton and all twenty three-subsets gives maximum distance 7. All four topological-order equality presentations are independently replayed by forward BFS, canonicalize to one class, and the representative has a 1440-element orbit under state relabeling and letter exchange.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ryzhikov proves the universal k(2n-k-1)/2 upper bound and gives a binary lower construction of length (k-1)(n-k).",
+        "The monotonic paper gives asymptotic extremal bounds for a different structural subclass.",
+        "The 2021 weakly acyclic paper studies constrained and subset-mapping decision problems rather than exact six-state shortest-word thresholds."
+      ],
+      "reasoning": "None of the stronger or later inspected statements implies the exact binary weakly acyclic n=6,k=3 maximum or its equality class.",
+      "searches": [
+        "arXiv:1702.08144v1 Section 2 bounds on shortest synchronizing words",
+        "arXiv:1703.06356 subset synchronization in monotonic automata",
+        "arXiv:2108.06984 constrained synchronization and subset synchronization problems for weakly acyclic automata"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1702.08144v1 / Theoretical Computer Science 787 (2019) full-text HTML",
+      "arXiv:1703.06356v1 / Fundamenta Informaticae 162 (2018)",
+      "arXiv:2108.06984v1 abstract and problem summary",
+      "targeted semantic searches for six-state, three-set, weakly acyclic/partially ordered aliases and equality cases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At n=6,k=3, the published universal upper bound is 12.",
+        "The published binary construction gives length 6.",
+        "The nearest finite synchronization censuses concern other automaton classes or other invariants."
+      ],
+      "reasoning": "Bounds 6<=L<=12 do not imply L=7, and neither bound determines uniqueness or the labeled equality count.",
+      "searches": [
+        "Ryzhikov Proposition 2 weakly acyclic subset synchronization bound",
+        "Ryzhikov binary lower-bound construction for synchronizable k-set",
+        "small automata synchronization census equality cases"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct source identifies weakly acyclic automata with automata admitting a topological order and notes the alternative “partially ordered” terminology.",
+        "No retrieved result states the value 7 for six states and three distinguished states."
+      ],
+      "reasoning": "The searches cover the primary name, its standard alias, the fixed parameter pair, the shortest-word invariant, and equality classification.",
+      "searches": [
+        "binary weakly acyclic automata six states three-state subset synchronization threshold 7",
+        "weakly acyclic automata shortest word synchronizing 3-set n=6 exact",
+        "partially ordered automata subset synchronization six states binary",
+        "acyclic automata subset synchronization equality cases 6 states"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected published table or indexed result gives a six-state binary three-set threshold census.",
+        "The exact count 1440 and unique class are regenerated from the transition definitions and symmetry action."
+      ],
+      "reasoning": "The finite values are computation outputs certified by the embedded verifier, not copied from a known table.",
+      "searches": [
+        "six-state binary weakly acyclic subset synchronization 7",
+        "three-state subset weakly acyclic automaton 1440 equality cases",
+        "weakly acyclic automata small state census subset synchronization"
+      ]
+    },
+    "rationale": "The direct source gives only a general upper bound and a binary lower construction; at n=6,k=3 these give 6 and 12 rather than the exact value 7. Searches under weakly acyclic, partially ordered, binary, three-set, six-state, threshold, and equality-case formulations found no exact small census. Later related papers study monotonic, constrained, or subset-mapping problems without reporting this value or equality class.",
+    "residual_risks": [
+      "An unpublished or unindexed finite census may contain the same six-state value.",
+      "The exact threshold for larger state counts remains open here.",
+      "The classification quotients by exchange of the two input letters as well as state relabeling."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant but not covering: it leaves the six-state binary three-set value between its lower and upper bounds.",
+        "evidence": "Proposition 2 gives k(2n-k-1)/2; the binary example gives (k-1)(n-k).",
+        "identifier_or_url": "arXiv:1702.08144v1 / DOI:10.1016/j.tcs.2018.12.026",
+        "material_read": "Full-text HTML covering the definitions, Section 2, Proposition 2 and its proof, the binary lower-bound construction, and the later subset-synchronization section.",
+        "method": "Statement and implication comparison against the new finite threshold and equality classification.",
+        "title": "Synchronization Problems in Automata without Non-trivial Cycles",
+        "trigger": "Direct source for weakly acyclic subset-synchronization length bounds."
+      },
+      {
+        "assessment": "Not covering the exact six-state binary weakly acyclic three-set census.",
+        "evidence": "The paper treats monotonic automata and asymptotic bounds; no fixed n=6,k=3 equality classification is stated.",
+        "identifier_or_url": "arXiv:1703.06356v1 / DOI:10.3233/FI-2018-1721",
+        "material_read": "Abstract, published summary, and theorem-level descriptions of its asymptotically tight monotonic bounds and weakly acyclic monotonic complexity results.",
+        "method": "Class and implication comparison.",
+        "title": "Subset Synchronization in Monotonic Automata",
+        "trigger": "Closest extremal subset-synchronization work in a related structured automaton class."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "556a63fc-d2e4-496b-8c42-17aa5be2b30f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The direct literature gives a broad gap for binary weakly acyclic subset synchronization; the smallest fixed parameter n=6,k=3 is a natural test of that gap. Closing it exactly at 7 and finding a unique equality class quantifies the extremal behavior of the binary restriction rather than merely providing another witness. The complete finite classification is self-contained and reusable as a benchmark for conjectures about the general extremal function.",
+    "status": "PASS"
+  }
+}
