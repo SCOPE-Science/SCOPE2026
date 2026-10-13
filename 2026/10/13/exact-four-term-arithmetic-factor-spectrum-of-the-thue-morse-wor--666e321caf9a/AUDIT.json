@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The base automaton tracks the three binary carries for n+d, n+2d and n+3d and the XOR of their digit sums with n; its 2*3*4*8=192 states are exhaustive because each carry c_j remains at most j. Reverse reachability through high zero digits of d accounts for every remaining digit of n and every final carry. The generated determinized 195-state reachability graph is exhaustively traversed, and the exact three terminal masks 0x6e (5 states), 0xf7 (6), and 0xff (184) are checked at every reachable state. Exhaustive transition closure proves their exact occurrence at odd differences 1,3,and >=5. Complement symmetry gives twice the relative-mask population, and binary scaling removes powers of two. The verifier independently constructs witnesses and checks actual digit sums; no infinite conclusion is based solely on a finite prefix.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2003 Avgustinovich–Fon-Der-Flaass–Frid arithmetical-complexity result gives occurrence along some arithmetic progression, not at every d.",
+        "Aedo et al. analyze the maximum monochromatic length A(d); Joshi–Rust sharpen A(d) and starting positions, which are different invariants.",
+        "The all-n,d finite-state quotient distinguishes d odd part 3 from odd part >=5 through nonmonochromatic masks, a distinction not entailed by A(d)."
+      ],
+      "reasoning": "Neither maximizing monochromatic run length nor taking a union over all differences controls the nonmonochromatic four-term pattern set at an arbitrary fixed difference.",
+      "searches": [
+        "\"Arithmetical complexity of infinite words\" Thue Morse arbitrary arithmetic progression difference fixed 4-letter",
+        "\"Thue-Morse\" \"arithmetical complexity\" \"difference\" \"four\"",
+        "Monochromatic arithmetic progressions Thue-Morse fixed difference all patterns",
+        "arithmetic complexity Thue Morse arithmetical factors any progression all words proof"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2101.02056v2 primary full HTML; first-public v1 arXiv metadata",
+      "DOI:10.1016/j.tcs.2022.08.013 open journal version abstract and results",
+      "arXiv:2501.05830v2 primary full HTML Section 3.2; DOI:10.1016/j.tcs.2025.115391",
+      "DOI:10.1142/9789812704979_0004 bibliographic record, author publication page, later source quotation (full body not accessed)",
+      "actual targeted literature-index and web queries for fixed-step four-pattern arithmetic complexity, equivalences, and exact odd-part-three exclusions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aedo et al. Section 2 defines A(d) as a maximum monochromatic progression length and proves the power-of-two dichotomy at length three.",
+        "Joshi–Rust Section 3.2 proves existence of a monochromatic four-term progression for every non-power-of-two difference; the new finding incorporates this covered fact rather than asserting it as new.",
+        "Only the relative mask 0 corresponds to monochromatic four-term factors, whereas the new theorem classifies all 8 relative masks and singles out mask 3 at odd part 3.",
+        "The 2003 statement that any binary word appears for some difference has the quantifier order reversed and cannot force a fixed-difference universal result."
+      ],
+      "reasoning": "Published coverage of mask 0 is accepted. It implies no status for masks 1,...,7. The new 195-state exact quotient establishes the independent nonmonochromatic classification and the sharp exceptional odd-part 3 regime.",
+      "searches": [
+        "arXiv:2101.02056v2 Section 2 Thue Morse monochromatic arithmetic progressions",
+        "arXiv:2501.05830v2 Section 3.2 Thue Morse A(d) four-term existence",
+        "DOI:10.1016/j.tcs.2022.08.013 arithmetic progression binary words",
+        "DOI:10.1142/9789812704979_0004 arithmetical complexity Thue Morse"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Four focused semantic literature-index queries returned no theorem classifying all sixteen length-four patterns by the odd part of a prescribed difference.",
+        "The direct Aedo et al. paper deals with lengths of monochromatic progressions; it also notes that every binary word occurs at some arithmetic progression without fixing the difference.",
+        "The 2025 Joshi–Rust paper gives fixed-difference results for monochromatic patterns, not arbitrary patterns."
+      ],
+      "reasoning": "The requested quantifier is for every prescribed d, determining which of all sixteen words have a witness n. The older full arithmetical complexity allows d to vary with the word, and the newer fixed-difference monochromatic criterion tests only one complementary pair.",
+      "searches": [
+        "Thue Morse word every binary 4-block occurs in every arithmetic subsequence difference except 1 and 3",
+        "Thue Morse arithmetic factor complexity length four fixed difference power of two triple power of two 10 14 16 patterns",
+        "Thue Morse step 3 arithmetic factors 14 patterns 4-term 0110 1001",
+        "fixed step arithmetic subword factor complexity of Thue Morse at length 4 all binary patterns",
+        "\"Thue Morse\" fixed difference \"every binary word\" arithmetic progression"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked search returned a table of fixed-difference four-symbol factor sets or the 10/14/16 split.",
+        "The published tables located in Joshi–Rust concern A(d), the longest monochromatic progression, not the sixteen-pattern incidence set."
+      ],
+      "reasoning": "Even an exact table for the lengths of monochromatic progressions does not supply the nonmonochromatic patterns. The present incidence masks are computed by an exact all-difference finite-state certificate, not extrapolated from small tables.",
+      "searches": [
+        "\"Thue-Morse\" \"difference 3\" 4 patterns 14",
+        "\"4\" \"arithmetic complexity\" \"Thue-Morse\" \"fixed difference\"",
+        "\"Thue Morse\" \"arithmetic subword\" complexity fixed difference four",
+        "Thue Morse 0110 1001 arithmetic difference 3"
+      ]
+    },
+    "rationale": "The 2021 source addresses maximum monochromatic progression length and mentions only all-difference arithmetical universality. The 2025 source already proves four-term monochromatic existence for all non-powers of two; that known mask-0 implication is explicitly credited. Neither inspected full text covers the complete fixed-difference incidence set or its 14-pattern odd-part-three exception. Actual semantic searches for fixed differences, 0110/1001, and the 10/14/16 spectrum found no covering theorem. The foundational 2003 paper was accessible via bibliographic and secondary statements but not full body, retained as a risk.",
+    "residual_risks": [
+      "An unindexed note or automata appendix may have computed the exact fixed-difference 4-pattern table.",
+      "The complete body of the 2003 foundational paper was not inspected; its accessible summaries describe a weaker quantifier, but unreported fixed-step tables cannot be categorically excluded.",
+      "The result is specific to length four; higher lengths may have substantially more exceptional odd parts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_MONOCHROMATIC_ONLY",
+        "evidence": "Theorem statements optimize monochromatic progression lengths and do not enumerate all binary 4-patterns for every fixed difference; introduction contrasts all-difference arithmetical complexity.",
+        "identifier_or_url": "arXiv:2101.02056v2; anchor arXiv:2101.02056v1",
+        "material_read": "Open full HTML paper, especially introduction, definitions and Section 2 on A(d), proof of power-of-two dichotomy, concluding remarks, and references.",
+        "method": "Primary open arXiv full-text inspection.",
+        "title": "On long arithmetic progressions in binary Morse-like words",
+        "trigger": "Direct Thue–Morse fixed-difference arithmetic-progression source."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE_MONOCHROMATIC_ONLY",
+        "evidence": "The paper establishes that four-term monochromatic factors exist for d not a power of two. It does not decide whether nonmonochromatic 0110/1001 occur at odd part three, nor list all four-term patterns.",
+        "identifier_or_url": "arXiv:2501.05830v2; DOI:10.1016/j.tcs.2025.115391",
+        "material_read": "Open full HTML text, introduction and Section 3.2 including fixed-difference four-term monochromatic results, automaton and A(d) definitions, and section structure.",
+        "method": "Primary arXiv full-text inspection and exact textual search for arithmetic complexity.",
+        "title": "Monochromatic arithmetic progressions in the Fibonacci, Thue–Morse, and Rudin–Shapiro words",
+        "trigger": "Later automatic-method result that could dominate the length-four monochromatic part."
+      },
+      {
+        "assessment": "ACCESS_LIMITED_BUT_KNOWN_QUANTIFIER_WEAKER",
+        "evidence": "Accessible descriptions assert all-pattern arithmetical complexity when difference is allowed to vary. That does not imply all sixteen patterns at a prescribed difference.",
+        "identifier_or_url": "DOI:10.1142/9789812704979_0004",
+        "material_read": "Bibliographic abstract, author publication page summary, and statement quoted in the 2021 primary paper; full text not recovered.",
+        "method": "Author bibliography and published abstract plus a later open article citing the precise result.",
+        "title": "Arithmetical complexity of infinite words",
+        "trigger": "Foundational source said to prove that every binary word appears as an arithmetic progression in Thue–Morse."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "666e321c-af9a-4eea-801c-7436df6954e0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determining which words occur along a prescribed arithmetic step refines the natural arithmetical-complexity invariant and the extensively studied fixed-step monochromatic Thue–Morse problem. The result is a complete all-difference structural classification rather than a finite slice: it identifies exactly the unique nontrivial odd part 3 obstruction and gives all 16 patterns for every other odd part >=5. Its proof uses a rigorously closed finite-state quotient and provides reproducible exact certificates.",
+    "status": "PASS"
+  }
+}
