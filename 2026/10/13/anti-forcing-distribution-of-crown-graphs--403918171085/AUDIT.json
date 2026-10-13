@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The contracted-digraph derivation is complete: there are \\(n(n-2)\\) arcs, every acyclic subgraph fits a topological order, and the deleted permutation-cycle cover contributes at least and exactly one forward missing arc per cycle. This proves \\(af(\\operatorname{Cr}_n,M_\\pi)=n(n-3)/2+c(\\pi)\\). The recurrence and extremal counts are independently derived from cycle decompositions. The embedded verifier confirms the formula by two separate exact finite methods on all tested matchings.",
+    "risks": [
+      "The finite verifier is not an infinite proof; universality rests on the analytic order argument."
+    ],
+    "sources": [
+      "arXiv:1406.3796v1",
+      "verify_anti_forcing_crown.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1406.3796v1 proves the general alternating-cycle and feedback-set correspondence but does not solve the crown contracted digraph.",
+        "arXiv:1607.05392v1 gives general extremal theory and spectra for even polygonal chains, not matching-deleted complete bipartite graphs.",
+        "DOI:10.23638/DMTCS-19-3-9 gives sharp maximum anti-forcing theory and examples for complete bipartite graphs, but not the crown distribution."
+      ],
+      "reasoning": "The general reduction supplies a method, not the crown-specific optimum. Bounds or results for \\(K_{n,n}\\) do not imply values for \\(K_{n,n}\\) after deleting a fixed 1-factor, because the contracted digraph loses a permutation cycle cover and the optimum depends on its cycle structure.",
+      "searches": [
+        "Anti-forcing numbers of perfect matchings of graphs feedback set contraction",
+        "Extremal anti-forcing numbers of perfect matchings of graphs spectrum",
+        "Tight upper bound maximum anti-forcing complete bipartite graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1406.3796v1",
+      "arXiv:1607.05392v1",
+      "DOI:10.23638/DMTCS-19-3-9",
+      "MaRDI record for DOI:10.1016/j.dam.2017.02.024 confirming MSC 05C70"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 feedback-set theorem reduces the problem but leaves a minimum feedback arc set to compute.",
+        "General maximum anti-forcing bounds do not fix each matching-specific value.",
+        "Forcing-number results concern subsets of matching edges, whereas anti-forcing uses deleted nonmatching edges; known inequalities are insufficient to recover the claimed distribution."
+      ],
+      "reasoning": "The retained theorem is not a corollary of a scalar bound or the complete-bipartite case. Its essential new step is the exact feedback-arc computation for a complete bidirected graph with one directed cycle cover removed, followed by the derangement-cycle enumeration.",
+      "searches": [
+        "anti-forcing feedback set directed graph perfect matching",
+        "maximum anti-forcing complete bipartite nice perfect matching",
+        "forcing number crown graph perfect matching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1406.3796v1: searchable full text has no occurrence of crown, complete bipartite, or derangement.",
+        "arXiv:1607.05392v1: searchable full text has no occurrence of crown or complete bipartite.",
+        "The closest indexed crown results found concern unrelated domination, metric, coloring, or zero-forcing invariants."
+      ],
+      "reasoning": "The same graph was searched under its standard aliases and the same invariant was searched under distribution, spectrum, and feedback-set language. No retrieved statement equates anti-forcing number with the cycle count of the corresponding derangement.",
+      "searches": [
+        "anti-forcing number crown graph perfect matching K_{n,n} minus perfect matching cycle decomposition derangement",
+        "anti-forcing polynomial crown graph derangement cycles",
+        "anti-forcing crown graph K_n,n minus perfect matching",
+        "anti-forcing complete bipartite graph minus 1-factor",
+        "anti-forcing bipartite Kneser H(n,1)",
+        "anti-forcing derangement cycle perfect matching crown"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2014 source records example spectra for other graphs but not crowns.",
+        "The 2016 spectrum source treats even polygonal chains and contains no crown occurrence.",
+        "Alias searches returned no exact crown anti-forcing table or formula."
+      ],
+      "reasoning": "No exact database-style entry or published coefficient table located in the searched sources covers the sequence of anti-forcing values over all crown perfect matchings.",
+      "searches": [
+        "anti-forcing spectrum complete bipartite minus perfect matching",
+        "anti-forcing spectrum K_{n,n}",
+        "anti-forcing complete bipartite graph minus a perfect matching"
+      ]
+    },
+    "rationale": "The inspected foundational and spectrum papers supply definitions and general reductions but do not state the crown specialization or derangement-cycle distribution. Scientific alias searches found no equivalent statement. A residual risk of an unindexed equivalent result remains and is disclosed.",
+    "residual_risks": [
+      "An unindexed equivalent result may use the alias complete bipartite graph minus a 1-factor, bipartite Kneser graph \\(H(n,1)\\), or a directed feedback-set formulation.",
+      "Negative search results are not treated as a proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the general reduction but not the crown theorem.",
+        "evidence": "The source states that anti-forcing sets hit every alternating cycle and correspond to feedback sets after contraction; exact-term searches found no crown, complete-bipartite, or derangement occurrence.",
+        "identifier_or_url": "arXiv:1406.3796v1",
+        "material_read": "Introduction and Section 2 through the alternating-cycle criterion, anti-forcing spectrum examples, and the orientation/contraction proof of the feedback-set correspondence.",
+        "method": "Searchable full-text inspection plus exact-term searches for crown, complete bipartite, and derangement.",
+        "title": "Anti-forcing numbers of perfect matchings of graphs",
+        "trigger": "Foundational source defining matching-specific anti-forcing and the feedback-set reduction used by the proof."
+      },
+      {
+        "assessment": "Does not cover crown graphs or the claimed distribution.",
+        "evidence": "The paper develops extremal bounds and even-polygonal-chain spectra; exact-term searches found no crown or complete-bipartite occurrence.",
+        "identifier_or_url": "arXiv:1607.05392v1",
+        "material_read": "Introduction, definitions, cited foundational theorem, and scope statements for extremal theory and even polygonal chains.",
+        "method": "Searchable full-text inspection plus exact-term searches for crown and complete bipartite.",
+        "title": "Extremal anti-forcing numbers of perfect matchings of graphs",
+        "trigger": "Closest archive-era paper centered on anti-forcing spectra and extremal values."
+      },
+      {
+        "assessment": "Relevant to maximum anti-forcing but does not state the crown all-matching distribution.",
+        "evidence": "The abstract names \\(K_{n,n}\\), complete graphs, and hypercubes as examples of extremal behavior; it does not identify \\(K_{n,n}-M\\) or a derangement-cycle formula.",
+        "identifier_or_url": "DOI:10.23638/DMTCS-19-3-9",
+        "material_read": "Public abstract and publication metadata describing the bound, extremal graphs, nice perfect matchings, and the \\(K_{n,n}\\) example.",
+        "method": "Public article-page inspection.",
+        "title": "Tight upper bound on the maximum anti-forcing numbers of graphs",
+        "trigger": "Plausible broader result because its examples include complete bipartite graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "40391817-1085-4ac2-9f17-655ee7cc8ab1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural complete classification on the canonical crown family. It turns a generally difficult matching-specific anti-forcing problem into an exact cycle statistic, determines every coefficient of the distribution, proves a gapless spectrum, and counts both extremal layers. The dense feedback-digraph lemma is structurally reusable rather than a one-off numerical computation.",
+    "risks": [
+      "The result is family-specific and does not by itself solve anti-forcing on general matching-deleted bipartite graphs."
+    ],
+    "sources": [
+      "arXiv:1406.3796v1",
+      "arXiv:1607.05392v1"
+    ],
+    "status": "PASS"
+  }
+}
