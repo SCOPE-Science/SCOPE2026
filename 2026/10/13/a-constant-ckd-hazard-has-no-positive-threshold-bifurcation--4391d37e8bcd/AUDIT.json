@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The proof starts from the printed three-equation CKD-only subsystem. The determinant \\(D=\\phi_k\\psi-\\gamma_h\\zeta_k\\) expands into a sum of nonnegative terms with strictly positive \\(\\mu\\)-contributions. Solving the equilibrium equations gives a unique equilibrium for every \\(\\lambda_k\\ge0\\). The exact characteristic polynomial is \\((r+\\lambda_k+\\mu)[r^2+(\\phi_k+\\psi)r+D]\\), whose roots all have negative real parts, so affine-linearity gives global exponential convergence. At the source's positive \\(C_k=1\\) parameter the actual \\(I_k^*\\) is positive and the characteristic polynomial has nonzero constant term, excluding the claimed zero eigenvalue. Symbolic replay from the packaged checker returned VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1038/s41598-024-56399-2",
+        "doi:10.1038/s41598-025-05755-x"
+      ],
+      "reasoning": "The inspected broader co-infection models contain nonlinear prevalence-dependent kidney-disease acquisition and therefore can possess genuine disease thresholds. They do not dominate the exact statement for the constant-hazard affine subsystem.",
+      "searches": [
+        "constant noncommunicable hazard affine CKD model no transcritical bifurcation unique equilibrium",
+        "noncommunicable transcritical bifurcation chronic disease model",
+        "COVID-19 kidney disease mathematical model threshold equilibrium"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026707",
+      "doi:10.1038/s41598-024-56399-2",
+      "doi:10.1038/s41598-025-05755-x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "doi:10.3934/math.2026707",
+        "doi:10.1038/s41598-024-56399-2",
+        "doi:10.1038/s41598-025-05755-x"
+      ],
+      "reasoning": "The source claims the opposite implication at \\(C_k=1\\); the two earlier comparison papers use contact-generated kidney-disease incidence. Neither their results nor the source's valid affine formulas imply a positive-hazard transcritical threshold.",
+      "searches": [
+        "constant per-capita CKD hazard equilibrium transcritical bifurcation",
+        "lambda_k S gamma_h H zeta_k I_k chronic kidney disease equilibrium",
+        "COVID kidney disease force of infection threshold model"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.3934/math.2026707, Section 3.2 and Appendix B",
+        "doi:10.1038/s41598-024-56399-2"
+      ],
+      "reasoning": "The motivating paper's formulation is the exact object checked. The 2024 comparison paper treats kidney disease through a prevalence-dependent force of infection, so its reproduction-number threshold is not algebraically equivalent to the source's affine constant-hazard subsystem.",
+      "searches": [
+        "Mathematical modeling of COVID-19 and chronic kidney disease co-infection CKD-only submodel lambda_k C_k transcritical bifurcation endemic equilibrium",
+        "CKD invasion index lambda_k S gamma_h H phi_k I_k zeta_k I_k psi H",
+        "doi:10.3934/math.2026707 CKD-only C_k transcritical"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "doi:10.3934/math.2026707, printed equations (3.2), equation (3.3), Theorems 3.7--3.8, Appendix B2--B4"
+      ],
+      "reasoning": "The exact equations, threshold expression, equilibrium formula, and bifurcation proof were read in the primary full text. No separate exact database or table supplies the correction; targeted exact-form searches located no published correction. Search absence is supporting evidence only.",
+      "searches": [
+        "I_k equilibrium lambda_k Lambda psi over lambda_k plus mu determinant",
+        "CKD invasion index C_k constant per-capita hazard",
+        "Mathematical modeling COVID-19 chronic kidney disease correction corrigendum comment"
+      ]
+    },
+    "rationale": "The source itself states the constant-hazard CKD equations and acknowledges that its CKD-free reference configuration is not an equilibrium for positive \\(\\lambda_k\\), but then claims a \\(C_k=1\\) threshold and transcritical bifurcation. Exact solution of those same equations gives the opposite structural conclusion. Targeted searches of the published-results database and open literature found no prior statement of this correction, and the closest COVID-19--kidney papers use prevalence-dependent kidney-disease incidence rather than the constant-hazard subsystem.",
+    "residual_risks": [
+      "An unindexed comment, correspondence, or later correction could independently note the same algebraic inconsistency.",
+      "The finding does not imply that the full seven-compartment model lacks bifurcations; it concerns only the printed CKD-only affine subsystem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONTRADICTED_BY_NEW_ANALYSIS: the printed affine equations have a unique globally exponentially stable equilibrium for every nonnegative hazard and no zero eigenvalue at the stated positive threshold.",
+        "evidence": "Equations (3.2) give an affine triangular system; Appendix B states the CKD-free reference state is not a true equilibrium for positive hazard, while Appendix B4 nevertheless asserts a zero eigenvalue and transcritical bifurcation at C_k=1.",
+        "identifier_or_url": "doi:10.3934/math.2026707",
+        "material_read": "Full open-access PDF, including the publication/MSC page, Section 3.2 equations and equilibrium discussion, equation (3.3), Theorems 3.6--3.8, and Appendix B2--B4.",
+        "method": "Direct equation reconstruction, implication comparison, and symbolic replay.",
+        "title": "Mathematical modeling of COVID-19 and chronic kidney disease co-infection with vaccination and optimal control: a bifurcation and sensitivity analysis approach",
+        "trigger": "Primary source containing the CKD-only constant-hazard subsystem and the claimed threshold."
+      },
+      {
+        "assessment": "NOT_COVERING: kidney disease is acquired through a prevalence-dependent force of infection, not a constant exogenous hazard.",
+        "evidence": "The model defines a kidney-disease force of infection from kidney-disease and co-infected compartments and analyzes an associated reproduction threshold.",
+        "identifier_or_url": "doi:10.1038/s41598-024-56399-2",
+        "material_read": "Open-access HTML model formulation and kidney-disease-only threshold discussion.",
+        "method": "Object and implication comparison.",
+        "title": "A mathematical model for the transmission of co-infection with COVID-19 and kidney disease",
+        "trigger": "Closest earlier open-access COVID-19--kidney co-infection model."
+      },
+      {
+        "assessment": "NOT_COVERING: the model retains prevalence-dependent kidney-disease acquisition and does not state the constant-hazard affine correction.",
+        "evidence": "The paper defines kidney-disease acquisition through a force of infection and uses controls acting on that nonlinear model.",
+        "identifier_or_url": "doi:10.1038/s41598-025-05755-x",
+        "material_read": "Open-access HTML model description and intervention formulation.",
+        "method": "Mechanism and implication comparison.",
+        "title": "Optimal control analysis to reduce the health complexity of co-infection with COVID-19 and kidney disease",
+        "trigger": "Recent follow-up in the same application area."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4391d37e-8bcd-4829-8697-f061efb661f0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is not a cosmetic algebra correction: it removes the source's positive CKD onset threshold and its claimed transcritical bifurcation from the CKD-only submodel. Because \\(\\lambda_k\\) is explicitly described as a noncommunicable exogenous hazard, the corrected structure changes how the model should be interpreted: CKD burden is forced for every positive hazard and rises smoothly and monotonically. The exact global stability and monotonicity formulas provide a complete replacement for the false threshold picture and are directly useful when interpreting or calibrating the CKD component of the coupled model.",
+    "status": "PASS"
+  }
+}
