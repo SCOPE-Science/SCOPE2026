@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The transformed hazard factors exactly as \\(h_S=h_0\\Phi(S)\\). Writing \\(y=\\pi S/4\\) gives \\(\\Phi=2y\\cot y\\), whose derivative is negative because \\(\\sin(2y)<2y\\). Thus the multiplier increases along any strictly decreasing survival trajectory, proving strict IFR preservation when the baseline hazard is positive and nondecreasing. The New X–Lindley hazard is \\(\\xi(1+t)/(2+t)\\) with positive derivative. The endpoint bounds follow from \\(\\Phi(1)=\\pi/2\\) and \\(\\Phi(0+)=2\\). The expansion \\(2-\\Phi(s)=\\pi^2s^2/24+O(s^4)\\) and \\(s=e^{-t}(1+t/2)\\) gives the exact terminal-gap limit. A standalone checker replays the identities numerically without substituting finite computation for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Souza et al. (2019) give the exact Sin-G hazard and a general derivative formula, plus \\(h_S\\sim2h_0\\) in the right tail.",
+        "Muse et al. (2025) survey several Sine-G baseline hazards and emphasize shape flexibility, including nonmonotone cases.",
+        "The target SNXL paper supplies the exact hazard, its left endpoint, and the survival tail, while Remark 2.4 says monotonicity must be established separately."
+      ],
+      "reasoning": "The 2019 asymptotic dominates any novelty claim for the mere limit \\(2\\xi\\), so the accepted statement explicitly excludes that as novel. Its new content is global IFR preservation and the first-order terminal-gap constant.",
+      "searches": [
+        "sine generated distribution IFR hazard rate cotangent survival",
+        "sine-F generator increasing failure rate preservation",
+        "Sine-G family hazard rate monotonic theorem"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026489",
+      "doi:10.22124/jmm.2019.13502.1278",
+      "doi:10.1371/journal.pone.0307410"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Souza et al. (2019) imply only the zeroth-order SNXL terminal level through \\(h_S\\sim2h_0\\); that covered consequence is explicitly carved out of the novelty claim.",
+        "The 2019 derivative formula does not state a sign theorem and the full text has no IFR/monotonicity statement.",
+        "Nedjar et al. (2026) explicitly leave monotonicity to separate proof and give no first-order hazard-gap constant."
+      ],
+      "reasoning": "The final statement was narrowed after implication comparison: the already-covered asymptotic level is retained only as context, while acceptance rests on strict global monotonicity/IFR preservation and the sharper \\(2/z\\) gap.",
+      "searches": [
+        "Sine New X-Lindley hazard asymptote 2 xi tail gap z(2xi-h)=2",
+        "On the Sin-G class hazard asymptotic 2 g/(1-G)",
+        "Sine New X-Lindley Remark 2.4 hazard behavior"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A published-record search returned no Sine-G/IFR-preservation statement; the nearest hazard-related scientific hit concerned heterogeneous proportional hazards and does not imply a generator-preservation theorem.",
+        "The 2019 primary Sin-G full text contains no match for “IFR”, “increasing failure”, or “monotonic”; it studies critical points and asymptotics instead.",
+        "The 2025 PLOS full text describes increasing, decreasing, and bathtub examples but states no universal IFR-preservation result."
+      ],
+      "reasoning": "The claim was searched under reliability-class terminology, monotone-hazard language, and the equivalent cotangent-multiplier factorization. The inspected primary sources provide ingredients but not the final monotonicity theorem.",
+      "searches": [
+        "sine-G hazard increasing failure rate preservation IFR transformation",
+        "Sine-G transformation preserves IFR increasing failure rate hazard multiplier baseline survival",
+        "sine-F hazard ratio baseline hazard pi survival cotangent"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact DOI searches located the original 2026 article and mirrors but no corrigendum or published monotonicity result.",
+        "No duplicate scientific statement was found in the checked published-source corpus."
+      ],
+      "reasoning": "No exact correction record or prior stored finding covers the accepted theorem.",
+      "searches": [
+        "10.3934/math.2026489 hazard monotonic asymptote",
+        "10.3934/math.2026489 corrigendum erratum",
+        "SNXL hazard strictly increasing from pi xi/4 to 2 xi"
+      ]
+    },
+    "rationale": "The 2019 Sin-G paper is acknowledged as prior coverage of the general hazard formula, its critical-point derivative expression, and the zeroth-order tail relation \\(h_S\\sim2h_0\\). The 2026 SNXL source explicitly says monotonicity and a finite positive horizontal asymptote require separate establishment. Neither inspected full text states the IFR-preservation theorem or the sharp SNXL first-order terminal gap. Focused published-record and literature searches found no equivalent statement or correction.",
+    "residual_risks": [
+      "An unindexed reliability-theory note may contain the same IFR-preservation observation under different terminology.",
+      "The IFR-preservation proof is elementary once the hazard is factored; its value rests on resolving the explicit recent-model gap and on the sharp terminal-gap refinement.",
+      "No claim is made that the terminal level \\(2\\xi\\) itself is original, because it follows from the 2019 Sin-G asymptotic."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper gives the exact SNXL hazard and left endpoint, and explicitly says monotonicity and a finite positive horizontal asymptote must be established separately. It proves a survival-tail asymptotic but not the hazard monotonicity or first-order hazard gap.",
+        "evidence": "Publisher PDF pages 11929–11930, including Remark 2.4 and Theorem 2.5.",
+        "identifier_or_url": "doi:10.3934/math.2026489",
+        "material_read": "Open-access publisher PDF, especially the model definition, equations (2.4)–(2.9), Figure 1, Remark 2.4, and Theorem 2.5.",
+        "method": "Direct full-text and page-image inspection.",
+        "title": "Statistical properties of the Sine New X–Lindley distribution: fuzzy reliability analysis and applications",
+        "trigger": "Target recent model and explicit hazard-behavior gap."
+      },
+      {
+        "assessment": "The source gives the general hazard and proves \\(R_G\\sim2g/(1-G)\\) as \\(G\\to1\\), so the SNXL terminal level is prior-implied. It does not state IFR preservation or a universal monotonicity theorem.",
+        "evidence": "Journal PDF pages 359–360; exact-term searches returned no IFR/monotonicity match.",
+        "identifier_or_url": "doi:10.22124/jmm.2019.13502.1278",
+        "material_read": "Open full PDF, especially Section 2.1 and Section 2.2, including the hazard formula, derivative expression, and right-tail asymptotic.",
+        "method": "Direct full-text and page-image inspection plus exact-term searches for IFR, increasing failure, monotonic, and increasing.",
+        "title": "On the Sin-G class of distributions: theory, model and application",
+        "trigger": "Foundational primary source for the exact generator, hazard formula, critical points, and tail asymptotics."
+      },
+      {
+        "assessment": "The paper gives the general hazard construction and exhibits varied hazard shapes graphically; it does not state a general IFR-preservation theorem.",
+        "evidence": "Full-text lines defining the Sine-G functions and the six illustrated hazard patterns.",
+        "identifier_or_url": "doi:10.1371/journal.pone.0307410",
+        "material_read": "Open-access full HTML, Section 2.1 and the hazard-shape discussion in Section 2.7.",
+        "method": "Direct full-text inspection.",
+        "title": "Sine-G family of distributions in Bayesian survival modeling: A baseline hazard approach for proportional hazard regression with application to right-censored oncology datasets using R and STAN",
+        "trigger": "Closest recent full-text study of Sine-G hazard shapes and survival-model use."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b60fbb51-a869-45b3-98d8-3164ca19599b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 source explicitly identifies hazard monotonicity and a horizontal asymptote as properties requiring separate proof, while hazard shape is central to lifetime/reliability interpretation. The result supplies a global all-parameter answer, not a plot or parameter slice, and does so through a reusable preservation theorem for the whole Sin-G generator. The sharp \\(2/z\\) terminal gap adds information beyond the already-known zeroth-order Sin-G tail equivalence. This is mathematically motivated by the model’s stated reliability use and is not a table recomputation.",
+    "status": "PASS"
+  }
+}
