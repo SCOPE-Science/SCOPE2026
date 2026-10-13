@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The RKHS squared error is minimized exactly over the one-node weight, yielding g^T R_j g with PSD R_j. For arbitrary p, the spectral masses v_i are nonnegative and sum to one; eigenvector Rayleigh quotients imply the unique water-filling lower bound t. Pairwise simplex mass gives t>=lambda_i lambda_j/(lambda_i+lambda_j), and the source RP expected-residual formula then gives W_RP<=(r-1)t. At rank two both nonzero RP eigenvalues coincide with t, closing the lower bound for every eigenbasis. For a positive diagonal kernel the water-filled probabilities attain t, and explicit diagonal-M witnesses approach r-1. Rational exact checker independently reconstructs the mean residual and witness identities; no finite experiment is used to prove the universal theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The full published multistage adaptive randomized pivoting study obtains sharp Frobenius column-projection losses under conditional projection-DPP sampling.",
+        "The 2023 RPCholesky quadrature paper develops general sample-size-dependent spectral error rates, not a competing pivot-distribution minimax ratio for one node."
+      ],
+      "reasoning": "Frobenius CSS error and projection-DPP sampling do not dominate spectral expected residual for the diagonal-proportional RP law. Multi-pivot near-optimal rates cannot entail the sharp one-node minimax claim, and vice versa.",
+      "searches": [
+        "diagonal matrix Cholesky sampling trace pivot leverage random quadrature minmax worst-case factor",
+        "randomized single column Nystrom spectral norm minimax rank two diagonal probability sampling",
+        "sharp rank r minus one approximation factor randomly pivoted Cholesky one step spectral error",
+        "arXiv:2609.20556",
+        "arXiv:2306.03955v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2207.06503v1",
+      "arXiv:2306.03955v1",
+      "arXiv:2609.20556",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The formula E[R]=A-A^2/tr A is explicitly a prior result from the 2022 RPCholesky paper.",
+        "The 2023 RKHS quadrature theorem uses fixed g and many samples; neither it nor the RP kernel approximation guarantee minimizes over all pivot distributions.",
+        "The full MSARP result proves multiplicative Frobenius factors, and its projection DPP is not the RPCholesky diagonal-pivot law."
+      ],
+      "reasoning": "The new claim uses prior one-pivot expectation and RKHS optimal-weight identities as lemmas, and adds a nontrivial minimax optimization/comparison. Its rank-two optimality holds for arbitrary eigenvectors and cannot be obtained from the diagonal example alone; the sharp rank-r factor requires a separate universal comparison and witness.",
+      "searches": [
+        "arXiv:2207.06503v1 Section 5 expected residual mapping",
+        "arXiv:2306.03955v1 Algorithm 1 optimal weights quadrature risk",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+        "sharp rank r minus one approximation factor randomly pivoted Cholesky one step spectral error"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary 2022 paper has the exact one-step mean residual, but lacks a min-over-node-distributions versus sup-over-targets minimax comparison.",
+        "The full kernel quadrature paper studies target-optimal weights and multistep error rates, but not the one-step universal minimax pivot law."
+      ],
+      "reasoning": "The known expectation formula, viewed alone, computes only the performance of a fixed distribution, not its ratio to the optimal distribution. The new eigenbasis lower bound, all-rank competitive bound, rank-two equality, and diagonal sharpness do not follow as stated from those primary claims.",
+      "searches": [
+        "randomized pivoted Cholesky factorization low rank kernel matrix diagonal trace residual exact distribution sampling",
+        "optimal randomized one point kernel quadrature node distribution diagonal kernel water filling minimax spectral error",
+        "RPCholesky rank-2 exact optimal expected operator residual A minus A squared trace",
+        "arXiv:2207.06503v1",
+        "arXiv:2306.03955v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed findings concern multistage ARP Frobenius amplification, inverse-positive optimal coordinate sampling, deflation-history adaptive cross approximation, and complete-pivot ACA Frobenius growth.",
+        "No checked indexed table reports the sharp one-step RPCholesky factor or arbitrary-eigenbasis rank-two minimaxity."
+      ],
+      "reasoning": "A failed database search is not itself proof of originality. Here the mathematical objects and implications of the closest indexed statements were compared with their actual source claims, including reading the complete closest published RESULT.md.",
+      "searches": [
+        "randomly pivoted Cholesky kernel quadrature diagonal finite support minimax sampling worst-case g expected squared error dimension n-1 sharp",
+        "randomly pivoted Cholesky rank two minimax spectral operator norm one pivot expected error optimal sampling",
+        "RPCholesky rank-2 exact optimal expected operator residual A minus A squared trace",
+        "sharp rank r minus one approximation factor randomly pivoted Cholesky one step spectral error"
+      ]
+    },
+    "rationale": "The first-pivot diagonal law, Schur residual, expected-residual map and optimal one-node quadrature weight are all prior and are acknowledged. Primary full-text comparison finds no target-oblivious minmax distribution theorem, rank-two arbitrary-eigenbasis optimality, or r-1 competitive comparison. The closest indexed pivoting theorem is for a different distribution and Frobenius CSS loss. Residual unindexed-literature risk remains.",
+    "residual_risks": [
+      "An unindexed note on one-step randomized PSD pivot sampling could independently obtain the same sharp minimax comparison.",
+      "A later 2026 RPCholesky spectral analysis, arXiv:2608.20633, was identified from metadata but the full source was not materially inspected; its public abstract describes multi-step high-probability bounds, not this one-node competitor-distribution minimax objective.",
+      "Water filling is only a lower bound for arbitrary nondiagonal kernels at rank three and higher, not an asserted exact optimal probability law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines sampling law and exact E[R] as prior; no direct minimax competitor-distribution comparison or rank-two optimality claim.",
+        "evidence": "Section 5 expected-residual mapping A -> A-A²/tr(A); RP pivot mass proportional to diagonal; analysis focuses on trace/spectral convergence rather than minmax single-node RKHS risk.",
+        "identifier_or_url": "arXiv:2207.06503v1; https://arxiv.org/abs/2207.06503",
+        "material_read": "Public full HTML paper: pivot-proportional-to-diagonal algorithm, Section 5.1 exact expected residual mapping, spectral reduction and trace-error analysis, stated guarantees and discussion.",
+        "method": "Full-text browser inspection of author-posted accessible HTML and arXiv version history.",
+        "title": "Randomly Pivoted Cholesky: Practical Approximation of a Kernel Matrix with Few Entry Evaluations",
+        "trigger": "Defining algorithm and prior exact one-step mean-residual formula."
+      },
+      {
+        "assessment": "Supports RKHS error identity and source motivation but does not cover the rank-two all-eigenbasis minimax or the sharp one-pivot rank-dependent competitive ratio.",
+        "evidence": "The paper optimizes quadrature weights conditional on sampled nodes and derives n-node quadrature error rates; its RP distribution remains diag-proportional.",
+        "identifier_or_url": "arXiv:2306.03955v1; https://ar5iv.labs.arxiv.org/html/2306.03955",
+        "material_read": "Full accessible HTML main paper Sections 1–7 including Algorithm 1, optimal quadrature weight/error identities, main multistep theorem, related-work comparison, conclusions.",
+        "method": "Full-text accessible manuscript inspection with formulas and scope comparisons.",
+        "title": "Kernel Quadrature with Randomly Pivoted Cholesky",
+        "trigger": "Connects RP pivots with optimal RKHS quadrature weights, exactly matching the application."
+      },
+      {
+        "assessment": "NOT_COVERING: conditional projection-DPP Frobenius CSS loss, not one-step RPCholesky spectral residual minimax distribution.",
+        "evidence": "Its factor is product_i(k_i+1) for multistage Frobenius column-subset projection, whereas this result compares infimum over all one-node pivot distributions on RKHS expected squared spectral target risk.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+        "material_read": "Complete public RESULT.md including setup, conditional projection-DPP law, all proofs, actual orthogonal CSS errors, multistage sharpness and limitations.",
+        "method": "Full direct public GitHub file inspection and statement/implication comparison.",
+        "title": "Worst-case sharpness of multistage adaptive randomized pivoting",
+        "trigger": "Highest-ranked mathematical-pivoting overlap with universal sharp-factor statements."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7ea9510f-a33d-42bf-83fd-2944eff4dd57",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The one-pivot node law is a natural primitive of numerical kernel compression and Mercer-free RKHS quadrature. The result supplies an exact positive rank-two universality guarantee, a sharp negative rank-dependent failure mode, and an actionable diagonal-kernel optimal alternative; the distinction matters because the source RP rule is tuned to trace-based quality, while a target-oblivious integrator may want a uniform mean-squared accuracy guarantee. The gap grows unboundedly with rank, is not a tiny or arbitrary finite slice, and directly explains the tradeoff between the commonly used sampling rule and an independently natural minimax performance criterion.",
+    "status": "PASS"
+  }
+}
