@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For fixed \\(p<p_{\\rm RG}\\), the source bound is uniformly of the form \\(CTn\\exp(-cm^\\alpha)\\) with \\(C,c>0\\) depending only on the fixed noise point and uniformly bounded QLDPC degrees. Taking \\(T\\le n^s\\) and \\(m=\\lceil K(\\log n)^{1/\\alpha}\\rceil\\) with \\(cK^\\alpha>s+r+1\\) gives an exponent strictly below \\(-r\\), so the constant prefactor is absorbed eventually. The logical-dimension, rate, and decoder-time laws then follow from \\(N=nm\\), \\(k=\\Theta(n)\\), and \\(\\log N=\\log n+O(\\log\\log n)\\). No experiment is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1805.09271v6 proves a universal single-shot statement with measurement checks that may become nonlocal and high weight.",
+        "arXiv:2610.02137v1 explicitly distinguishes Campbell's adversarial guarantee from its stochastic threshold and cites quantum Tanner codes as asymptotically good single-shot examples.",
+        "arXiv:2605.10943v1 concerns a passive three-dimensional self-correcting memory."
+      ],
+      "reasoning": "These works provide broader or adjacent notions of single-shot protection but do not dominate the claim, whose content is the rate-reliability scaling of Yuan's bounded-degree universal active conversion.",
+      "searches": [
+        "Earl Campbell arbitrary code single-shot adversarial noise nonlocal checks",
+        "single-shot quantum Tanner codes asymptotically good parameters",
+        "passive self-correcting quantum memory recursive code blow-up"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.02137v1",
+      "arXiv:1805.09271v6",
+      "arXiv:2605.10943v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest semantic results returned for the claim-form searches concern unrelated CSS repair obstructions, classical coding, and non-quantum reliability problems; none states an implication-equivalent rate-reliability theorem.",
+        "Yuan's Eq. (1) gives the needed failure estimate but does not choose \\(m\\) as a function of seed length or rewrite the result in total output length \\(N\\)."
+      ],
+      "reasoning": "The accepted claim is not a new decoder theorem; it is an unstated family-level operating regime obtained by coupling the source reliability exponent to the preserved logical dimension. No inspected prior statement directly gives this simultaneous conclusion.",
+      "searches": [
+        "arXiv 2610.02137 One-Shot any Code single-shot self-correction quantum code",
+        "single-shot implies self-correction quantum codes one-shot any code",
+        "arXiv 2610.02137 output rate k over nm overhead m failure O(T n) exp minus m alpha",
+        "one-shot any code polylogarithmic overhead vanishing failure rate tradeoff QLDPC",
+        "single-shot QLDPC universal construction rate overhead reliability tradeoff",
+        "single-shot quantum error correction polylog overhead logical failure polynomial lifetime",
+        "renormalization group decoder one-shot any code output rate vanishing logical error"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.02137v1 states the \\([[n,k]]\\) to \\([[nm,k]]\\) map, the stochastic failure bound, and \\(O(\\log m)\\) decoder time.",
+        "The primary full text has no occurrence of the phrase \"output rate\" or \"polylogarithmic\"; its encoding-rate discussion concerns the existence of constant-rate seed QLDPC codes."
+      ],
+      "reasoning": "The source contains all premises separately but does not state the derived total-length law or the simultaneous polynomial-round/polynomial-reliability specialization.",
+      "searches": [
+        "arXiv:2610.02137v1: searched for output rate, encoding rate, polylogarithmic, and polynomial",
+        "single-shot QLDPC polylogarithmic overhead polynomial lifetime",
+        "universal single-shot QLDPC near-linear logical dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-value database or tabulation is implicated; the statement is a uniform asymptotic implication of a theorem."
+      ],
+      "reasoning": "The claim is not a numerical invariant that could be silently covered by a standard table. The relevant comparison is theorem implication rather than data lookup.",
+      "searches": [
+        "universal single-shot QLDPC rate overhead table",
+        "QLDPC output logical dimension polylog overhead"
+      ]
+    },
+    "rationale": "The primary source proves the universal conversion and finite-parameter failure law but does not state the near-linear logical-dimension family obtained by a polylogarithmic overhead choice, nor its resulting polynomial-round reliability and doubly logarithmic decoder time. Earlier universal single-shot work changes the measurement locality/noise setting and does not imply this source-specific scaling statement.",
+    "residual_risks": [
+      "The anchor is only a few days old, so an unindexed contemporaneous note could independently spell out the same asymptotic corollary.",
+      "The novelty is a mathematically nontrivial operating-regime corollary of Yuan's theorem, not a new single-shot construction or a converse."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies every premise used in the proof and explicitly contrasts earlier universal adversarial single-shot work. The inspected text does not state the total-output-length rate law or the chosen polylogarithmic overhead regime.",
+        "evidence": "The source maps \\([[n,k]]\\) to \\([[nm,k]]\\), preserves bounded QLDPC degrees, gives failure \\(O(Tn)(p/p_{\\rm RG})^{\\Omega(m^\\alpha)}\\), and decoder time \\(O(\\log m)\\).",
+        "identifier_or_url": "arXiv:2610.02137v1",
+        "material_read": "Abstract; Introduction and Main Result; Literature Comparison; theorem organization and the displayed overhead form of Theorem 81.",
+        "method": "Primary arXiv full-text PDF inspection, including rendered-page inspection of the main-result page.",
+        "title": "One-Shot any Code",
+        "trigger": "Primary source of the universal CSS QLDPC conversion and stochastic failure estimate."
+      },
+      {
+        "assessment": "Does not cover the present statement: its universal arbitrary-code route may use nonlocal high-weight checks and is framed in adversarial-noise soundness rather than Yuan's bounded-degree stochastic threshold with tunable overhead.",
+        "evidence": "The paper explicitly says the arbitrary-code measurement checks may be nonlocal and act on many qubits, while the LDPC construction requires a separate careful construction.",
+        "identifier_or_url": "arXiv:1805.09271v6",
+        "material_read": "Abstract and introductory discussion of arbitrary-code soundness, loss of LDPC locality under universal measurement-check replacement, and the double homological-product construction.",
+        "method": "Primary arXiv full-text PDF inspection, including rendered-page inspection.",
+        "title": "A theory of single-shot error correction for adversarial noise",
+        "trigger": "Closest earlier universal claim that every code can be made single-shot."
+      },
+      {
+        "assessment": "Relevant precursor but not decisive noncoverage evidence for the active single-shot rate-reliability claim.",
+        "evidence": "The abstract constructs a passive three-dimensional stabilizer Hamiltonian with exponential memory time, whereas Yuan treats active noisy syndrome correction for arbitrary CSS QLDPC input codes.",
+        "identifier_or_url": "arXiv:2605.10943v1",
+        "material_read": "Primary arXiv abstract and the comparison of this work in arXiv:2610.02137v1.",
+        "method": "Primary abstract inspection plus statement-by-statement comparison in the main source.",
+        "title": "A passive self-correcting quantum memory in three dimensions",
+        "trigger": "Recent recursive-code precursor identified by the primary source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "479f4725-7532-43df-be57-390cbf47d801",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source emphasizes universality over the seed code but leaves the resulting family-level spatial tradeoff implicit. The derived regime shows that arbitrary positive-rate seed structure can be retained with only a polylogarithmic loss in rate while achieving polynomially small logical failure for polynomially many rounds, and it simultaneously turns the \\(O(\\log m)\\) decoder into \\(O(\\log\\log N)\\) parallel time. This is an operationally meaningful scaling boundary, not an arbitrary substitution or finite numerical slice.",
+    "status": "PASS"
+  }
+}
