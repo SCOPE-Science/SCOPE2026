@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The conditional-truncation formulas are exact for continuous iid triples. Symmetry fixes the affine intercept, the resulting integral equation differentiates to a solvable first-order quantile ODE, and monotonicity plus first-moment integrability yield the sharp slope range. Direct substitution proves the converse.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Akhundov--Balakrishnan--Nevzorov characterize weighted neighboring extremes conditional on the median under the identity regression and generalize to odd sample sizes.",
+        "Balakrishnan--Akhundov treat a related sample-mean regression characterization.",
+        "Yanev--Ahsanullah revisit Student-t2 order-statistic regressions and related average formulations."
+      ],
+      "reasoning": "These papers are broader in some order-statistic directions, but the inspected theorem statements fix the relevant regression at slope one or use different functionals; they do not imply the all-slope symmetric family.",
+      "searches": [
+        "DOI:10.1081/STA-200039063",
+        "DOI:10.1016/S0167-7152(03)00123-8",
+        "arXiv:1010.4355"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1081/STA-200039063",
+      "DOI:10.1016/S0167-7152(03)00123-8",
+      "arXiv:1010.4355"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full 2004 midrange article states its theorem for identity regression and remarks that replacing it by ax+b is an interesting characterization problem.",
+        "The full 2003 sample-mean paper's displayed characterization uses the identity regression in the relevant theorem.",
+        "The full arXiv:1010.4355 text treats the Student-t2 identity-regression case and related formulations, not a free affine slope.",
+        "The closest own findings concern a two-observation midpoint conditioned on separation and a finite-population minimum-total regression; neither implies the present continuous three-order-statistic theorem."
+      ],
+      "reasoning": "The earlier lambda-family varies the weights while retaining slope one. The accepted theorem fixes equal weights and varies the regression slope, and the resulting tail exponent changes with that slope. It is therefore not a corollary obtained by substituting a lambda value into the prior theorem.",
+      "searches": [
+        "New Characterizations by Properties of Midrange and Related Statistics affine ax+b",
+        "Balakrishnan Akhundov regression order statistics sample mean",
+        "Yanev Ahsanullah Student t2 regression order statistics",
+        "own ledger midrange regression symmetry order statistics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches returned general order-statistic identification and median/quantile work but no statement matching the affine midrange-median equivalence.",
+        "The accepted formula was also searched through its quantile structure and the uniform/Student-t2 endpoint terminology."
+      ],
+      "reasoning": "The searches cover the regression, order-statistic, symmetry, median, midrange, quantile, and endpoint-distribution aliases; absence alone was not used as novelty proof.",
+      "searches": [
+        "midrange regression symmetric distribution order statistics affine characterization",
+        "conditional expectation sample midrange given median symmetric distribution",
+        "linear regression sample midrange on sample median characterization",
+        "conditional midrange given median slope uniform Student t2 family",
+        "quantile (2p-1) p(1-p) power distribution characterization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database entry or theorem statement matching the slope-indexed quantile family or the sharp a=1/2 boundary was located."
+      ],
+      "reasoning": "The claim is a symbolic all-parameter classification, not a finite table or recomputation of a known named-law entry.",
+      "searches": [
+        "\"midrange\" regression characterization ax+b order statistics",
+        "\"conditional midrange\" affine regression Student t2",
+        "\"symmetric\" midrange median regression characterization"
+      ]
+    },
+    "rationale": "The closest full midrange paper proves the identity-regression family and explicitly identifies an affine ax+b extension as an interesting unresolved direction for its method. The accepted result solves the centrally symmetric equal-weight three-sample case and produces a slope-indexed family distinct from varying the earlier weight parameter.",
+    "residual_risks": [
+      "Later or older characterization literature may contain the symmetric affine subproblem under different notation.",
+      "The power-quantile family may coincide with a named family under reparameterization; the originality claim is about the regression equivalence and sharp slope/tail consequences.",
+      "The theorem deliberately does not solve the full nonsymmetric affine problem raised by the earlier literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "IDENTITY_REGRESSION_FAMILY_WITH_EXPLICIT_AFFINE_EXTENSION_GAP",
+        "evidence": "Theorem 2.1 uses j_lambda(x)=x; lambda=1/2 gives Student t2. Remark 2.1 identifies a similar characterization for j_lambda(x)=ax+b as an interesting problem and notes that the paper's simplification does not carry over.",
+        "identifier_or_url": "DOI:10.1081/STA-200039063",
+        "material_read": "Full 13-page publisher PDF through the theorem, proof, generalization, remarks, and references.",
+        "method": "Compared the precise regression equation, quantile family, symmetric special case, and the remark about replacing the identity regression by ax+b.",
+        "title": "New Characterizations by Properties of Midrange and Related Statistics",
+        "trigger": "Closest source: same three-sample conditional midrange object and the source that explicitly discusses the affine extension."
+      },
+      {
+        "assessment": "RELATED_SAMPLE_MEAN_IDENTITY_REGRESSION_NOT_FREE_AFFINE_MIDRANGE",
+        "evidence": "The inspected theorem uses the identity conditional regression in the characterized family; its symmetric case recovers Student t2 rather than an all-slope power-quantile continuum.",
+        "identifier_or_url": "DOI:10.1016/S0167-7152(03)00123-8",
+        "material_read": "Full public six-page article, including introduction, theorem, proof, and symmetric special case.",
+        "method": "Checked whether the displayed theorem actually permits an arbitrary affine slope or implies the accepted midrange result.",
+        "title": "A characterization by linearity of the regression function based on order statistics",
+        "trigger": "Closest earlier source whose title suggests general linear regression."
+      },
+      {
+        "assessment": "STUDENT_T2_IDENTITY_REGRESSION_NOT_SLOPE_INDEXED_FAMILY",
+        "evidence": "The manuscript recovers and generalizes identity-regression characterizations of Student t2 and does not state the accepted affine slope classification.",
+        "identifier_or_url": "arXiv:1010.4355",
+        "material_read": "Full arXiv manuscript, including introduction, main theorem statements, and targeted searches for affine, ax+b, and symmetric formulations.",
+        "method": "Compared the regression slope, conditioning statistic, and quantile consequences.",
+        "title": "Characterizations of Student's t-distribution via regressions of order statistics",
+        "trigger": "Later full-text treatment of the same Student-t2/order-statistic characterization lineage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9b4b27eb-4fcc-4ac2-9f1a-d45c118b5f74",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem resolves a natural affine direction explicitly highlighted in the closest foundational paper, under a standard symmetry hypothesis. It yields a complete one-parameter classification with a sharp admissible-slope boundary and converts an observable regression slope into a tail index, joining the uniform and Student-t2 models in one structural family.",
+    "status": "PASS"
+  }
+}
