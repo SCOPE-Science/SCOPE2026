@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Expanding the exact published penalty with \\(\\varepsilon=e^{-\\lambda d}\\) gives \\(g(\\bar n/\\varepsilon)=[\\ln(\\bar n/\\varepsilon)+1+O(\\varepsilon)]/\\ln2\\) and \\(h_2(\\varepsilon)=[\\varepsilon\\ln(1/\\varepsilon)+\\varepsilon+O(\\varepsilon^2)]/\\ln2\\). Substitution yields the stated coefficient. Logarithmic inversion gives the continuous cutoff law; integer rounding contributes only \\(O(1)\\), and the prime number theorem preserves the leading prime-cutoff scale. The complexity corollary is direct substitution into the source's \\(O(d^2m\\log m)\\) bound. The claim explicitly limits itself to the published certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Winter proves a general energy-constrained entropy continuity inequality.",
+        "Shirokov proves uniform finite-dimensional approximation of energy-constrained capacities in a broad setting."
+      ],
+      "reasoning": "Those general results justify or contextualize finite-dimensional approximation, but they do not state the channel-specific thermal-tail expansion or combine it with the new decoder's \\(d^2\\) complexity dependence.",
+      "searches": [
+        "energy-constrained quantum capacity truncation dimension logarithmic accuracy polar code bosonic",
+        "bosonic pure-loss finite-dimensional truncation capacity gap d exp(-lambda d)",
+        "arXiv:1507.07775v6, Lemma 15 and bounded-energy section",
+        "arXiv:1707.05641v2, abstract and finite-dimensional-approximation statement"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.03674v1",
+      "arXiv:1507.07775v6",
+      "arXiv:1707.05641v2",
+      "published-finding corpus searches listed in prior_checks",
+      "current-week own ledger g000031",
+      "prior-week own ledger g000052"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The own ledgers contain no finding using arXiv:2610.03674v1 and no recovered claim about the \\(B_{\\bar n}(d)\\) certificate.",
+        "The anchor's operation count is \\(O(d^2m\\log m)\\), so the new complexity corollary follows only after the new cutoff inversion."
+      ],
+      "reasoning": "Neither the own historical claims nor the inspected primary literature implies the final statement as a stated corollary; the contribution is the explicit asymptotic extraction and target-accuracy resource law.",
+      "searches": [
+        "pure-loss Bosonic truncation cutoff coherent information target accuracy r^{d/2} g(nbar/r^{d/2})",
+        "prime truncation dimension pure-loss bosonic channel coherent information",
+        "decoder complexity log^2(1/delta) pure-loss bosonic capacity polar codes",
+        "Current and immediately prior own ledgers searched for pure-loss, Bosonic, truncation, coherent information, capacity gap, and target accuracy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The anchor states the exact certificate and calls the decay exponential, but does not invert it for a target gap or give the coefficient of the polynomial prefactor."
+      ],
+      "reasoning": "Searches included the exact penalty structure, the equivalent \\(d e^{-\\lambda d}\\) form, and the target-gap inverse. No implication-equivalent published finding was located.",
+      "searches": [
+        "pure-loss Bosonic truncation cutoff coherent information target accuracy r^{d/2} g(nbar/r^{d/2})",
+        "pure-loss bosonic truncation penalty 6 epsilon log(1/epsilon) coherent information",
+        "d e^{-lambda d} coherent information truncation pure loss",
+        "arXiv:2610.03674v1, full text, Sections 2.5 and 5.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Focused published-finding corpus searches returned no bosonic-capacity entry matching the exact source identifier, coefficient, inverse law, or decoder-accuracy scaling."
+      ],
+      "reasoning": "No published table or database result found in the searched corpus states the same asymptotic certificate or a stronger formula that would subsume it.",
+      "searches": [
+        "arXiv 2610.03674 truncation cutoff accuracy",
+        "capacity gap truncation dimension log log target accuracy bosonic polar BPQM",
+        "decoder complexity log^2(1/delta) pure-loss bosonic capacity polar codes"
+      ]
+    },
+    "rationale": "The anchor provides the exact truncation inequality and complexity estimate but not the target-accuracy inversion. Focused semantic searches, own-ledger checks, and comparison with the general Winter and Shirokov approximation literature found no statement that implies the same channel-specific coefficient, logarithmic inverse correction, and decoder-accuracy law.",
+    "residual_risks": [
+      "A differently phrased older specialization of general bosonic finite-dimensional approximation could contain a related cutoff asymptotic even though focused searches did not locate one.",
+      "The Shirokov source was inspected at abstract level rather than full text because its HTML rendering was unavailable in the inspected interface; this residual comparison risk is limited because the final claim is tied to the 2026 paper's exact certificate and decoder complexity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE, NOT_COVERING the target-gap inversion: it gives the exact bound and says it decays exponentially, but does not state the \\(d e^{-\\lambda d}\\) coefficient, logarithmic inverse correction, or accuracy-dependent decoder scaling.",
+        "evidence": "Lemma 3 gives \\(4r^{d/2}g(\\bar n/r^{d/2})+2h_2(r^{d/2})\\); Section 5.4 gives \\(O(d^2m\\log m)\\).",
+        "identifier_or_url": "arXiv:2610.03674v1",
+        "material_read": "Full HTML text; in particular the pure-loss definition and truncation lemma, capacity-achieving argument, and decoder implementation/complexity section.",
+        "method": "Direct full-text inspection and formula comparison.",
+        "title": "Efficient capacity-achieving entanglement generation with application to pure-loss Bosonic channels",
+        "trigger": "Exact source of the truncation certificate and decoder complexity."
+      },
+      {
+        "assessment": "BROADER BACKGROUND, NOT_COVERING the final claim: it supplies the general entropy continuity tool but not the thermal-tail specialization or cutoff inversion for this channel.",
+        "evidence": "Lemma 15 bounds entropy difference by an energy-constrained Gibbs-entropy term plus binary entropy.",
+        "identifier_or_url": "arXiv:1507.07775v6",
+        "material_read": "Full HTML around Lemma 15 and the bounded-energy continuity argument.",
+        "method": "Direct theorem and proof inspection.",
+        "title": "Tight uniform continuity bounds for quantum entropies: conditional entropy, relative entropy distance and energy constraints",
+        "trigger": "The anchor explicitly invokes Winter's Lemma 15 for its entropy bound."
+      },
+      {
+        "assessment": "BROAD GENERAL APPROXIMATION; no inspected evidence of the specific pure-loss certificate asymptotic or the new decoder-complexity coupling.",
+        "evidence": "The abstract establishes uniform finite-dimensional approximation with a dimension depending on accuracy, but does not state the present channel-specific law.",
+        "identifier_or_url": "arXiv:1707.05641v2",
+        "material_read": "Abstract and bibliographic statement; HTML full text was unavailable in the inspected interface.",
+        "method": "Primary arXiv metadata/abstract inspection plus targeted web search.",
+        "title": "Uniform finite-dimensional approximation of basic capacities of energy-constrained channels",
+        "trigger": "Plausible broader coverage of finite-dimensional capacity approximation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c91034aa-1911-4812-a38e-8c2afe6482ad",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The new pure-loss construction is capacity-achieving only after sending its finite-dimensional cutoff to infinity. Quantifying that limit turns a qualitative 'exponential' statement into an explicit rate-versus-dimension and rate-versus-decoder-cost law. The \\(\\ln\\ln(1/\\delta)\\) correction identifies the polynomial entropy-continuity prefactor, while the leading prime-cutoff and \\(\\log^2(1/\\delta)\\) decoder factor give a usable accuracy budget. This is a natural resource question tied directly to the new coding construction, not an arbitrary reparameterization.",
+    "status": "PASS"
+  }
+}
