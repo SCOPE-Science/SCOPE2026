@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness — PASS.** The four-state coding is checked against the Rudin–Shapiro recurrence, and an induction on two substitution levels proves uniform positive-prefix bounds and the exact base-four level sets. A suffix-prefix difference computation treats all eight adjacent state pairs and yields an iff classification for every starting position. Substitution frequencies prove the exact natural density; direct finite enumeration independently corroborates each step. The finite check alone would not prove the statement.
+
+**Originality — PASS.** The 2023 Dyck-word primary text (arXiv:2301.06145, especially the Rudin–Shapiro section) treats Dyck-factor existence and nesting rather than balanced-start densities. The distinct 2023 Rudin–Shapiro sums paper (arXiv:2302.00405, Sections 3–9) treats global summatory functions, extremal ranges and level counts but not fixed-window zero-increment start densities. Research index searches under balanced/abelian, zero-sum, discrepancy, summatory-increment, offset and base-four terminology found no statement with this implication; its nearest hits concern Rudin–Shapiro string attractors, which do not determine these frequencies. Risk: an equivalent theorem could be deducible or hidden in older Rudin–Shapiro sums literature.
+
+**Value — PASS.** The result is a complete exact classification of zero-discrepancy windows at the natural self-similar length scales in a canonical automatic sequence, not a finite computation or arbitrary parameter slice. Its explicit address-language and exact square-root density describe a substantial structural frequency phenomenon relevant to automatic words, equal-Parikh factors and constrained parenthesis walks. No claim is made about Dyck nonnegative-prefix factors.
+
+Self-review: passed. Independent audit: not yet performed.
