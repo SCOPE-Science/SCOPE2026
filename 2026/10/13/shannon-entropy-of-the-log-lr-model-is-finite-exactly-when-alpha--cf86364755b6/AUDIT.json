@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The transform \\(T=-\\log F_R(X)\\) has exact Lomax survival \\([\\beta/(\\beta+t)]^\\alpha\\). The inverse-map Jacobian is exact and has \\(\\log J(t)=-t/2+O(1)\\) at infinity and only logarithmic growth near zero. Since the Lomax density is bounded at zero, the positive log-Jacobian part is integrable; the negative tail is integrable exactly when \\(\\mathbb E T<\\infty\\), i.e. \\(\\alpha>1\\). This proves finite entropy exactly above the threshold and \\(-\\infty\\) below it. The checker independently reproduces the transformation, tail ratio, and explicit expectations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 Lomax-G paper gives the generator \\(G(x)=\\beta^\\alpha[\\beta-\\log B(x)]^{-\\alpha}\\) and studies an inverse-exponential-power member.",
+        "The general generator supplies the transformed Lomax law, but the inspected paper does not state the Log-LR Shannon-entropy existence boundary or its consequence for the 2026 entropy formula."
+      ],
+      "reasoning": "A broad generator formula is an ingredient, not the accepted model-specific conclusion. The key additional step is the Rayleigh inverse Jacobian, whose exponential decay creates the threshold at the Lomax mean boundary \\(\\alpha=1\\).",
+      "searches": [
+        "New Lomax-G family 10.1063/5.0171949 entropy transformation",
+        "Lomax-G transformation -log baseline CDF Lomax variable",
+        "Lomax differential entropy moment alpha greater than one"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026796",
+      "doi:10.1063/5.0171949"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The target entropy section writes a finite-looking sum of expectations and says they are evaluated numerically, without a parameter restriction.",
+        "The target CDF and the 2023 general generator imply the exact transformed Lomax law.",
+        "Neither inspected source carries that transform through the Rayleigh Jacobian to classify Shannon-entropy finiteness."
+      ],
+      "reasoning": "The prior generator implies the transformed-variable distribution but not the accepted entropy statement by itself. The implication requires analyzing the inverse Rayleigh Jacobian and its linear log-tail, which is the critical proof step.",
+      "searches": [
+        "target section 2.8.1 Shannon entropy expectations numerical",
+        "target equations 2.1 2.5 Log-LR CDF",
+        "Sapkota Lomax-G CDF beta alpha beta minus log B"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target full text says the expectations in the Shannon-entropy expression are evaluated numerically and states no finiteness condition.",
+        "Focused semantic searches returned unrelated entropy results rather than a Log-LR entropy threshold."
+      ],
+      "reasoning": "The final claim was searched both as a differential-entropy existence theorem and via its equivalent transformed-Lomax moment condition. No equivalent Log-LR statement was located.",
+      "searches": [
+        "logarithmic Lomax Rayleigh Shannon entropy finite alpha greater than 1",
+        "Log-LR entropy negative infinity alpha less than one",
+        "10.3934/math.2026796 Shannon entropy integrability",
+        "Log-LR differential entropy threshold alpha=1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact DOI and correction searches located the original paper but no corrigendum or erratum addressing Shannon entropy.",
+        "Focused searches of available published-result records found no Log-LR, logarithmic-Lomax–Rayleigh, or equivalent entropy-threshold statement."
+      ],
+      "reasoning": "No exact correction record, database entry, or published same-statement result was found.",
+      "searches": [
+        "10.3934/math.2026796 corrigendum erratum entropy",
+        "10.3934/math.2026796 alpha entropy",
+        "logarithmic Lomax-Rayleigh correction Shannon entropy"
+      ]
+    },
+    "rationale": "The 2026 target states the entropy as numerical expectations without an existence restriction. The 2023 Lomax-G generator provides the general CDF but the inspected specialization does not state the Log-LR entropy boundary. Exact DOI, model-name, entropy-integrability, transformed-variable, and threshold searches found no correction or covering model-specific theorem.",
+    "residual_risks": [
+      "An unindexed note may have observed the same entropy boundary through the general Lomax-G transform.",
+      "The general generator makes the transformed Lomax law short to derive, so equivalent unpublished or poorly indexed observations are plausible.",
+      "No claim of absolute bibliographic uniqueness is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact CDF/PDF and states that the entropy expectations are evaluated numerically, but gives no condition ensuring the entropy is finite.",
+        "evidence": "Section 2.8.1 states the entropy decomposition and that the expectations do not admit tractable closed forms and are evaluated numerically; the article lists MSC 62E10 and publication date 3 July 2026.",
+        "identifier_or_url": "doi:10.3934/math.2026796",
+        "material_read": "Publicly available full text, including Sections 2.1, 2.3, 2.4, 2.8.1, likelihood section, conclusion, and bibliographic metadata.",
+        "method": "Direct full-text inspection together with publisher metadata.",
+        "title": "A new logarithmic Lomax–Rayleigh distribution: properties, simulation, and applications",
+        "trigger": "Primary 2026 source defining the Log-LR model and its Shannon-entropy formula."
+      },
+      {
+        "assessment": "Provides the general CDF \\(\\beta^\\alpha[\\beta-\\log B(x)]^{-\\alpha}\\) but studies a different baseline and does not state the Log-LR Shannon-entropy phase boundary.",
+        "evidence": "Section II gives the generator formula from which the transformed Lomax variable follows.",
+        "identifier_or_url": "doi:10.1063/5.0171949",
+        "material_read": "Publicly available full text, especially Section II equations (4)–(5) and the specialized model sections.",
+        "method": "Direct full-text inspection.",
+        "title": "New Lomax-G family of distributions: Statistical properties and applications",
+        "trigger": "Primary precursor for the exact Lomax-G generator used by the target."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cf863647-55b6-44d4-b71f-2318fcb1a6d6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Shannon entropy is presented as a fundamental property of the new model. The result identifies the exact parameter region where that property is a finite number, shows that the entropy is actually \\(-\\infty\\) on the entire \\(0<\\alpha\\le1\\) region, and evaluates two expectations the source leaves numerical. This prevents invalid numerical interpretation of divergent terms and gives a reusable transformed-variable representation of the model.",
+    "status": "PASS"
+  }
+}
