@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Contracting the prescribed matching is a bijection of tree completions with spanning trees of the resulting multigraph, even for permutation cycles of length \\(2\\). Its Laplacian is \\(L=2(n-1)I-2J+P_\\sigma+P_\\sigma^{\\mathsf T}\\), where \\(P_\\sigma\\) is the permutation matrix. Fourier decomposition on permutation cycles yields one zero eigenvalue, \\(c-1\\) eigenvalues \\(2n\\), and internal eigenvalues \\(2(n-1)+2\\cos(2\\pi h/\\ell)\\). Kirchhoff’s identity and the Chebyshev characteristic polynomial give the claimed product for every \\(n\\ge3\\). The original crown Laplacian independently yields \\(\\tau(\\operatorname{Cr}_n)=(n-1)n^{n-2}(n-2)^{n-1}\\). The checker compares exact determinants for all 2174 derangements with \\(3\\le n\\le7\\), and exhaustive original-graph spanning-tree extensions for all 55 derangements with \\(3\\le n\\le5\\). These finite tests corroborate rather than prove the formula for unbounded orders.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2103.05294 counts prescribed spanning forests in the intact complete bipartite graph (Theorems 2 and 4).",
+        "https://doi.org/10.1002/jgt.22954 concerns intact complete multipartite graphs with a fixed spanning forest.",
+        "https://doi.org/10.1002/(SICI)1097-0037(199708)30:1%3C23::AID-NET3%3E3.0.CO;2-N studies simple complements of disjoint unions of paths and cycles (publisher abstract only)."
+      ],
+      "reasoning": "Complete-bipartite fixed-forest theorems do not automatically count trees avoiding an entirely different forbidden perfect matching; the required inclusion-exclusion couples permutation cycles. The 1997 simple complement family also differs from the contracted graph with parallel edges. General-weight extensions remain a residual coverage risk.",
+      "searches": [
+        "spanning trees that contain a perfect matching of crown graph, contracted permutation graphs cycle decomposition",
+        "Spanning tree count after contracting an arbitrary perfect matching in a crown graph, quotient is 2 K_n minus permutation cycle graph"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1904.07766 (full PDF, source comparisons)",
+      "https://arxiv.org/abs/2103.05294 (full-text HTML)",
+      "https://doi.org/10.1186/1029-242X-2013-395 (open-access full HTML)",
+      "https://doi.org/10.1002/jgt.22954 (abstract)",
+      "https://doi.org/10.1002/(SICI)1097-0037(199708)30:1%3C23::AID-NET3%3E3.0.CO;2-N (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/1904.07766 (complete K_mn fixed matching count and K_mn minus pK2 unconditional total).",
+        "https://arxiv.org/abs/2103.05294 (fixed forest in complete K_mn).",
+        "The new theorem gives 32 vs 36 for two cycle types of n=4, whereas complete K_nn is symmetric among its perfect matchings."
+      ],
+      "reasoning": "The known unconditional total for Cr_n is a sum over all trees, not a specification of their conditional counts for different prescribed matchings. The complete-bipartite fixed-matching formula is cycle-type invariant and cannot specialize by replacing the complete ambient graph with a matching-deleted ambient graph. The existing statements are therefore neither equal to nor directly stronger than the current conditional refinement.",
+      "searches": [
+        "spanning trees that contain a perfect matching of crown graph, contracted permutation graphs cycle decomposition",
+        "Crown graph K_n,n minus perfect matching spanning-tree extensions of a prescribed derangement matching depend on permutation cycle type and Chebyshev polynomials"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The matching-contraction equivalence yields a weighted quotient, not an ordinary simple complement of a cycle family: off-diagonal multiplicity is 2 minus the two incident permutation indicators.",
+        "https://arxiv.org/abs/1904.07766 (Theorems 1.3, 1.5; Section 5.2)"
+      ],
+      "reasoning": "Identifying the quotient as 2K_n minus directed permutation arcs exposes the exact aliases: prescribed-edge inclusion, contracted-forest tree number, a determinant cofactor, and a Chebyshev cycle product. Searched by those formulations. Closest published text gives fixed-edge trees in intact K_mn and unconditioned trees in deleted K_mn, rather than the simultaneous matching condition.",
+      "searches": [
+        "Number of spanning trees containing a perfect matching in complement of matching balanced bipartite graph",
+        "Crown graph K_n,n minus perfect matching spanning-tree extensions of a prescribed derangement matching depend on permutation cycle type and Chebyshev polynomials",
+        "Chebyshev formula for spanning trees containing a perfect matching in a near-complete bipartite graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Explicit small-order completion counts 32 and 36 are calculated independently via exact cofactors, and matched to the symbolic product by the accompanying verifier; no exact published table covering all cycle types was located in the inspected relevant sources.",
+        "https://arxiv.org/abs/1904.07766 lists all two-point effective resistances, but these do not themselves tabulate simultaneous inclusion of n fixed edges."
+      ],
+      "reasoning": "A table of unconditional tree totals or one-edge inclusion probabilities does not imply all high-order joint events. The searches did not identify a database with the new exact family; absence of a hit alone is not claimed to establish originality.",
+      "searches": [
+        "perfect matching inclusion probabilities uniform random spanning tree complete bipartite minus perfect matching cycle type",
+        "crown graph spanning trees containing perfect matching derangement permutation cycle number"
+      ]
+    },
+    "rationale": "An explicit completion count conditional on a specific perfect matching of the matching-deleted complete bipartite graph is not asserted in the closest inspected full-text work. General matrix-tree/contraction methods and the preexisting unconditional tree count are expressly excluded from the originality claim. The formula distinguishes matching cycle types; the nearest complete-bipartite fixed-matching theorem cannot yield a cycle-dependent value merely by substitution. A 1997 simple almost-complete-graph source may contain additional spectral techniques and was not fully accessible; residual risk is recorded, not treated as a proof of novelty.",
+    "residual_risks": [
+      "The 1997 Gilbert–Myrvold full text was not obtained; its abstract studies simple almost-complete graph families with path/cycle deleted patterns, and unpublished explicit multigraph extensions cannot be excluded.",
+      "A general multivariate spanning-tree generating function or unindexed crown specialization might algebraically imply the same cycle-type expression, even without matching keywords.",
+      "No independent audit has been performed; same-model screening cannot certify priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives complete-graph prescribed matching, near-complete graph unconditioned tree count and resistance distance, not full fixed-matching conditional count in Cr_n.",
+        "evidence": [
+          "Theorem 1.3 fixed matching in K_mn; Theorem 1.5 and Section 5.2 K_mn minus a matching."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.07766",
+        "material_read": "Full 21-page PDF, including introductory results, Theorems 1.3 and 1.5 and Section 5.2 (pages 1, 2, 14, 15 materially inspected with PDF page views).",
+        "method": "Open-access arXiv PDF text and page-image inspection",
+        "title": "Spanning trees in complete bipartite graphs and resistance distance in nearly complete bipartite graphs",
+        "trigger": "Closest graph family and fixed-matching edge inclusion"
+      },
+      {
+        "assessment": "Fixed forest in complete K_mn, not fixed forest in the crown obtained by deleting a separate matching.",
+        "evidence": [
+          "Statement explicitly fixes complete K_mn as ambient graph."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.05294",
+        "material_read": "Open arXiv full-text HTML: introduction, Theorems 2 and 4, and graph definitions.",
+        "method": "Open-access full-text HTML inspection",
+        "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+        "trigger": "General stronger fixed-forest inclusion theorem"
+      },
+      {
+        "assessment": "General eigenvalue/degree bounds, not conditioned perfect-matching enumerator.",
+        "evidence": [
+          "Publisher exact online-public date 2013-08-20; bounds concern total spanning-tree numbers."
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/1029-242X-2013-395",
+        "material_read": "Publisher open-access article HTML: introduction, theorem statements and general graph bounds.",
+        "method": "Lawful publisher open-access full-text inspection",
+        "title": "The number of spanning trees of a graph",
+        "trigger": "Archival graph-tree method and verified public date"
+      },
+      {
+        "assessment": "Intact complete multipartite ambient graph; cannot assert anything about uninspected appendices.",
+        "evidence": [
+          "Complete multipartite graph is stated as the ambient class; crown graph is not complete multipartite."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.22954",
+        "material_read": "Publisher abstract and displayed result descriptions; not full publisher text.",
+        "method": "Publisher abstract and metadata inspection",
+        "title": "Enumeration of spanning trees of complete multipartite graphs containing a fixed spanning forest",
+        "trigger": "Plausible general ambient-graph coverage"
+      },
+      {
+        "assessment": "Published object class is simple K_n minus union of paths/cycles, while the current matching-contracted graph has pair multiplicities zero, one, and two. May supply related methods; full-text overlap not resolved.",
+        "evidence": [
+          "Abstract identifies simple complements of path/cycle unions and extremal tree counts.",
+          "Publisher exact first-online-publication date 1998-12-07 for a 1997 journal volume."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/(SICI)1097-0037(199708)30:1%3C23::AID-NET3%3E3.0.CO;2-N",
+        "material_read": "Publisher abstract, bibliographic metadata, and adjacent article descriptions only; no full text.",
+        "method": "ArXiv and open-access searches did not locate the full text; institutional retrieval required interactive authorization and was not pursued past that boundary.",
+        "title": "Maximizing spanning trees in almost complete graphs",
+        "trigger": "Complement of disjoint cycles and candidate more-general spectral result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8eb3b163-e125-461e-ab27-ad67c12da539",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A specified perfect matching is a natural spanning forest, and counting all its extensions to a spanning tree is a high-order edge-reliability statistic not encoded by total tree counts or individual effective resistances. A deleted matching breaks the symmetry of \\(K_{n,n}\\), producing distinct \\(32\\) and \\(36\\) extension counts for matchings of the same \\(\\operatorname{Cr}_4\\). The cycle-type formula is uniform over every derangement and every \\(n\\ge3\\) and explains those differences using a meaningful quotient multigraph and spectral decomposition, rather than a small isolated enumeration. No extremal ordering or arbitrary-forest generalization is claimed.",
+    "status": "PASS"
+  }
+}
