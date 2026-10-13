@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The source gain reduces exactly to \\(r_S=(\\mu^2+v)/(\\mu^2+v/S)\\) because both expectation terms share the state factor. The batch-average curvature has moments \\(\\mu\\) and \\(\\mu^2+v/S\\), so conditioning gives the stated scalar second-moment multiplier. Its sign relative to one factors into a positive scale term times \\(\\alpha^2(\\mu^2+v)-2\\alpha\\mu\\), proving the if-and-only-if frontier, equality boundary, supercritical growth, and scale-independent optimizer.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mean-square stability of discrete-time multiplicative-noise linear systems is a broader established control topic.",
+        "Closest stochastic-optimization records analyze OSGM, PAGE, Loopless SVRG, MARINA, and other recurrences rather than AdaScale."
+      ],
+      "reasoning": "General multiplicative-noise stability theory can analyze a fixed random linear map, but it does not supply AdaScale’s source-specific gain or the cancellation between that gain and the second moment of an averaged stochastic gradient. The accepted claim is therefore not a renaming of a generic stability criterion.",
+      "searches": [
+        "multiplicative noise SGD quadratic mean-square stability",
+        "random curvature stochastic gradient quadratic stability",
+        "mean-square stability stochastic gradient multiplicative noise learning rate"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.05105v1",
+      "PMLR:119:4911-4920",
+      "DOI:10.1002/rnc.6161"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 2 and Equation 3 define the exact population gain used in the proof.",
+        "Theorem 2 provides a scale-robust sufficient convergence bound under a global bounded-variance assumption.",
+        "Theorem 3 gives a separate sufficient bound for fixed linear scaling.",
+        "The random-curvature model has variance \\(v x^2\\), so for \\(v>0\\) it is not globally covered by the source bounded-variance assumption."
+      ],
+      "reasoning": "The source results motivate scale robustness but do not imply the exact multiplier or sharp frontier on this state-dependent multiplicative-noise model. The accepted theorem is derived directly from the source algorithm rather than from its sufficient convergence theorem.",
+      "searches": [
+        "arXiv:2007.05105 Algorithm 2 gain ratio",
+        "arXiv:2007.05105 Equation 3 AdaScale gain",
+        "arXiv:2007.05105 Theorem 2 AdaScale bound",
+        "arXiv:2007.05105 Theorem 3 linear scaling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source gives the population gain as a ratio involving gradient variance and squared mean gradient.",
+        "The source does not state a random-curvature scalar multiplier or a mean-square if-and-only-if base-rate boundary.",
+        "Focused indexed searches returned no AdaScale-specific record with the same scale-independent sharp frontier."
+      ],
+      "reasoning": "An equivalent formulation would need to imply that AdaScale exactly preserves the single-batch mean-square stability ceiling for every scale while changing the optimal contraction factor. The inspected source bounds and search results do not imply that exact statement.",
+      "searches": [
+        "AdaScale multiplicative curvature mean-square stability batch scale",
+        "AdaScale random quadratic exact stability scale invariant",
+        "AdaScale gain ratio mean square random curvature",
+        "AdaScale batch averaging stochastic quadratic exact contraction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed published record studies stochastic feedback targets and raw-proposal stability thresholds for a different method.",
+        "No indexed AdaScale result was returned by the exact algorithm-name plus stability, curvature, or batch-averaging searches."
+      ],
+      "reasoning": "The closest indexed findings use different adaptive feedback or variance-reduction recurrences and do not imply the AdaScale gain identity. Search absence is supporting evidence rather than a uniqueness proof.",
+      "searches": [
+        "AdaScale SGD exact gain noise scale batch size quadratic",
+        "AdaScale distributed training optimizer convergence exact scaling factor",
+        "AdaScale SGD scalar quadratic stability stochastic",
+        "AdaScale gradient variance gain factor exact",
+        "AdaScale multiplicative curvature mean-square stability batch scale",
+        "AdaScale random quadratic exact stability scale invariant",
+        "AdaScale gain ratio mean square random curvature",
+        "AdaScale batch averaging stochastic quadratic exact contraction"
+      ]
+    },
+    "rationale": "The defining AdaScale paper states the gain, its interpolation between identity and linear scaling, and sufficient convergence bounds, but not the exact multiplicative-curvature mean-square law. The primary paper was inspected at the algorithm, gain equation, and three scaling theorems. Focused published-record and owned-ledger searches found no implication-equivalent AdaScale stability result.",
+    "residual_risks": [
+      "A generic multiplicative-noise linear-systems source may contain the fixed-map second-moment calculation, although not the AdaScale gain cancellation.",
+      "The practical online gain estimator can fluctuate and is outside the exact population-gain theorem.",
+      "Noncommuting multidimensional random Hessians can destroy the scalar cancellation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_GAIN_AND_SCALE_ROBUSTNESS_NOT_COVERING_EXACT_MULTIPLICATIVE_CURVATURE_MEAN_SQUARE_FRONTIER.",
+        "evidence": "The source explicitly defines the gain and gives sufficient bounds, but no exact scalar random-curvature second-moment multiplier, scale-invariant if-and-only-if frontier, or optimal factor was found.",
+        "identifier_or_url": "arXiv:2007.05105v1 / PMLR 119:4911-4920",
+        "material_read": "Open-access full paper covering the scaled-SGD formulation, Algorithm 2, Equation 3, Theorems 1 through 3, practical gain estimation, and the discussion of linear-scaling degradation; the algorithm and theorem pages were visually inspected.",
+        "method": "Full-text open-access paper inspection with visual inspection of the relevant pages.",
+        "title": "AdaScale SGD: A User-Friendly Algorithm for Distributed Training",
+        "trigger": "Defining source for the population gain, scaled-gradient averaging, identity and linear scaling comparators, and convergence theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a2a83df2-d386-4638-b9f3-724d716e6b5a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "AdaScale was designed specifically to adapt learning rates to variance reduction from larger parallel batches while avoiding the failures of fixed linear scaling. The exact random-curvature law shows that its defining gain accomplishes a sharp and interpretable task: it preserves the entire single-batch mean-square stability interval at every scale, while the optimally tuned expected-objective contraction improves strictly with scale. The linear-scaling comparator proves that this invariance is not automatic under batch averaging.",
+    "status": "PASS"
+  }
+}
