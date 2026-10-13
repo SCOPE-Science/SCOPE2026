@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Reconstruction uses the exact color count for a blade vertex of color gamma: a_beta + 1[beta=center] - 1[beta=gamma]. With m=2 its two neighbors must differ and the center alone imposes each leaf-color total <=n. With m>=3 a monochromatic blade fails, so the exact local occupancy caps are center<=floor(m/2)-1 and other<=floor(m/2). These caps force the center automatically because n floor(m/2)<=floor(nm/2). The q-palette count is a product of independent blade multinomial sums and the center-color choice; m=2 instead has an exact capacitated multinomial sum. The explicit optimal constructions prove 3 colors except the m=3 capacity obstruction requiring 4. An independent adjacency-based checker corroborates the criterion and all labeled-map counts in 35 finite parameter-palette cases and 1,560 wider constructions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 primary strong-majority paper proves complete-graph and cycle cases and general bounds; it does not state generalized-windmill blade factorization.",
+        "The majority C paper has a Dutch-windmill result, but its per-vertex *own*-color-majority maximization differs from the every-color-neighborhood upper bound here.",
+        "The game paper addresses majority-coloring games and cycle/complexity statements, not all static colorings of clique bouquets."
+      ],
+      "reasoning": "The complete-graph observation covers one blade but does not imply multiple disjoint blades sharing a center, where the center couples classes in a different way; the center redundancy for m≥3 and global balancing for m=2 are additional structural statements.",
+      "searches": [
+        "Full source: arXiv:2605.23828v1, Definition in Section 2, complete-graph Observation 6, Theorems 7–10 and remaining paper sections; PDF full-text windmill/friendship searches",
+        "Full source: arXiv:2604.20752v1, distinct majority C definition and Dutch windmill section",
+        "arXiv:2609.37796v1 abstract and announced result scope"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.23828v1",
+      "arXiv:2604.20752v1",
+      "arXiv:2609.37796v1",
+      "Strong majority colorings of graphs, bibliographic classification record 05C15 then 05C70",
+      "Indexed general-position polynomial of generalized windmills",
+      "Indexed strong-majority edge-coloring bipartite threshold"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For one blade the graph is a complete graph and the founding paper already gives its scalar value; this boundary is not claimed new.",
+        "Majority C on windmills forces same-color neighborhood *lower* bounds, whereas the accepted strong-majority condition requires *upper* bounds on every color; the models are not reducible by relabeling.",
+        "Game chromatic numbers quantify adversarial play, not existence and counts of arbitrary static colorings."
+      ],
+      "reasoning": "The m=2 global balancing rule and the m≥3 independent blade palette factorization determine arbitrary-coloring multiplicities and an exceptional m=3 threshold, none of which follows from the compared scalar or distinct-invariant results.",
+      "searches": [
+        "arXiv:2605.23828v1 complete-graph Observation 6 and definition",
+        "arXiv:2604.20752v1 Dutch windmill majority C-coloring formula",
+        "arXiv:2609.37796v1 majority coloring game abstract",
+        "published general-position polynomial of generalized windmills"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The indexed primary paper arXiv:2605.23828v1 defines strong-majority vertex coloring but contains no windmill, friendship, or split-term instance of this result.",
+        "The closest indexed same-family result concerns general-position polynomial on windmills, not strong majority coloring."
+      ],
+      "reasoning": "Queries checked windmill, Dutch windmill, friendship, clique bouquet, and explicit join-of-cliques aliases. Neither a structurally equivalent local criterion nor a complete palette count appeared.",
+      "searches": [
+        "strong majority vertex coloring generalized windmill K_1 join n K_m exact 3 4",
+        "strong majority number friendship graphs Dutch windmills block cliques",
+        "strong majority coloring clique bouquet graph all n m",
+        "strong majority vertex color K1 join disjoint cliques windmill",
+        "\"strong majority\" \"windmill graph\"",
+        "\"strong majority\" \"friendship graph\" vertex coloring"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest same-family indexed record: “Unimodality of general-position polynomials for generalized windmill graphs”; that polynomial counts general-position vertex sets.",
+        "Nearest same-terminology record: “Exact bipartite threshold for generalized strong-majority edge colouring”; that colors edges, not vertices."
+      ],
+      "reasoning": "The compared objects have incompatible feasibility predicates. Neither dominates the vertex-color count or the local-global splitting law.",
+      "searches": [
+        "strong majority vertex coloring generalized windmill K_1 join n K_m exact 3 4",
+        "strong majority coloring clique bouquet graph all n m",
+        "strong majority number friendship graphs Dutch windmills block cliques",
+        "general position polynomial of windmills strong majority number"
+      ]
+    },
+    "rationale": "The founding primary source treats strong-majority vertex coloring and complete graphs but does not include the generalized windmill or the structural counting formula in its inspected full text. Searches for friendship, windmill, bouquet and join-of-cliques formulations found only different-invariant graph results or strong-majority edge coloring. A published majority C friendship result concerns the opposite per-vertex inequality and maximum rather than minimum number of colors, hence does not imply the new statement. The complete-graph one-blade scalar case is credited as prior and excluded from the new domain.",
+    "residual_risks": [
+      "Alternative descriptions such as clique bouquet and block clique graph may hide unpublished or poorly indexed equivalent results despite searched aliases.",
+      "The later 2026 game paper was inspectable only at abstract level; its full text might mention additional examples, although the announced scope differs.",
+      "The one-blade complete-graph scalar formula is explicitly prior and is not claimed as a new case; absolute global novelty is not proven by a search."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the complete-graph n=1 boundary and broad degree bounds but does not present W_{n,m} structure or enumerations.",
+        "evidence": "PDF v1 dated May 22, 2026; exact strong-majority definition Section 2; Observation 6 gives Maj(K_t)=3 except K_4=4.",
+        "identifier_or_url": "arXiv:2605.23828v1",
+        "material_read": "PDF abstract, introduction, Section 2 static vertex-color definition, Observations 5–6, Theorems 7–10, Sections 3–4 theorem statements and references; targeted full-document searches for friendship, windmill, multipartite, and split; PDF page 4 visually inspected.",
+        "method": "Direct primary PDF text/statement inspection, targeted full-text searches, and page-image inspection.",
+        "title": "Strong majority colorings of graphs",
+        "trigger": "Introduces the identical static strong-majority vertex invariant and provides the closest complete-graph boundary case."
+      },
+      {
+        "assessment": "A genuinely different coloring condition that maximizes same-color-majority colors; it does not subsume static strong-majority minima or counts.",
+        "evidence": "Abstract and Section 1 specify at least half of neighbors share the vertex’s own color, whereas the primary strong-majority paper caps every color at half.",
+        "identifier_or_url": "arXiv:2604.20752v1",
+        "material_read": "Primary PDF abstract, introduction, definitions and the Section 2.2 Dutch-windmill paragraph; indexed full-text context around the cited scalar example.",
+        "method": "Primary PDF definition and implication comparison.",
+        "title": "Majority C-coloring of graphs",
+        "trigger": "Known Dutch-windmill family result that might look equivalent by terminology."
+      },
+      {
+        "assessment": "Studies adversarial game thresholds and cycle cases, not static generalized-windmill enumeration; uninspected full text is residual risk.",
+        "evidence": "First public September 29, 2026; abstract states game, complexity, forest, and cycle results.",
+        "identifier_or_url": "arXiv:2609.37796v1",
+        "material_read": "Primary arXiv metadata and complete available abstract; direct full-PDF request was unavailable.",
+        "method": "Abstract-level scope comparison with explicit material limit.",
+        "title": "Structural and computational aspects of majority coloring games",
+        "trigger": "Later work with the same static definition in a game setting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "add390ea-6cc4-4a84-ba97-38c10baed034",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result is an all-parameter exact classification of a canonical block graph family for a newly introduced invariant. It exhibits a nonobvious threshold unique to 3-clique blades and proves an exact local-global decoupling for every larger blade, while 2-clique blades retain a global balancing coupling at the center. The factorization gives all palette-map counts as a power of a truncated exponential coefficient and yields explicit infinite optimal-color enumerations, rather than a routine small graph or a scalar bound.",
+    "status": "PASS"
+  }
+}
