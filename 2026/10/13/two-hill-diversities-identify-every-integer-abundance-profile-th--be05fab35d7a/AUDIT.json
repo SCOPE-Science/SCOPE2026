@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For fixed \\(N\\), equality of Shannon entropy is equivalent to equality of \\(Q=\\prod_i n_i^{n_i}\\), while equality of Simpson concentration is equivalent to equality of \\(\\sum_i n_i^2\\). Every positive-integer partition through \\(N=30\\) is exhaustively checked, and the independently computed partition counts match. The first pair and triple collisions are therefore complete finite classifications.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hill explicitly identifies species richness, exponential Shannon entropy, and inverse Simpson concentration as diversity orders 0, 1, and 2.",
+        "Hill emphasizes that diversity orders differ in their weighting of common and rare species.",
+        "Later diversity-profile literature treats the continuum of Hill orders as a richer description of the species-abundance distribution."
+      ],
+      "reasoning": "The broader framework explains why finitely many orders need not capture the full profile, but it does not provide the first integer census total at which the familiar orders cease to identify composition.",
+      "searches": [
+        "Hill 1973 diversity evenness unifying notation Shannon Simpson Hill numbers",
+        "Hill diversity profile characterizes species abundance distribution complete information",
+        "Quantifying sample completeness comparing diversities assemblages Hill numbers profile"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.2307/1934352",
+      "doi:10.1111/1440-1703.12102",
+      "MSC2020:92D40"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hill's statement that different indices weight rare and common species differently does not establish injectivity or its failure at a finite census total.",
+        "A full diversity profile contains more information than orders 0, 1, and 2 alone and therefore does not cover the finite-order inverse theorem.",
+        "Earlier same-index or ranking comparisons do not imply equality-collision cutoffs."
+      ],
+      "reasoning": "The new claim is an exact inverse problem with universal noncollision below the thresholds and complete classification at the thresholds, not a generic statement that diversity indices lose information.",
+      "searches": [
+        "Hill 1973 Shannon entropy conveys little extra information Simpson species richness",
+        "full diversity profile characterize species abundance distribution Hill numbers",
+        "Shannon Simpson same values different abundance distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "At fixed total, the inverse problem is equivalently whether the pair of integer invariants product n_i^{n_i} and sum n_i^2 determines the integer partition.",
+        "Searches covered Shannon/Simpson language, Hill orders 1 and 2, joint identifiability, and abundance-distribution collisions.",
+        "No checked source stated the totals 24 or 30 as sharp first failures."
+      ],
+      "reasoning": "The same result can appear as ecological diversity identifiability, a Hill-number collision, or an integer-partition collision under two power-like invariants. The searches covered these formulations.",
+      "searches": [
+        "Shannon Simpson diversity ranking reversal abundance profiles fixed species richness total abundance",
+        "diversity indices Shannon Simpson opposite ranking integer species abundance",
+        "Hill numbers order 1 order 2 ranking disagreement community composition",
+        "Shannon Simpson richness jointly identify species abundance distribution finite sample",
+        "same Shannon and Simpson diversity different species richness abundance profile"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-vector search located either 24-individual collision or the 30-individual richness-preserving collision.",
+        "The packaged verifier generates all profiles from integer partitions and imports no external table."
+      ],
+      "reasoning": "Exact-vector searches test whether the claimed first collisions are already present as worked examples, tables, or software benchmarks.",
+      "searches": [
+        "\"2,2,3,3,3,3,8\" diversity",
+        "\"1,1,1,1,4,4,6,6\" Shannon Simpson",
+        "\"same Shannon entropy\" \"same Simpson index\" ecology abundance",
+        "\"1,4,4,4,4,4,9\" diversity Shannon Simpson"
+      ]
+    },
+    "rationale": "Prior work unifies richness, Shannon, and Simpson as Hill diversities and explains that different orders summarize different abundance features. The checked literature and exact-vector searches did not state the sharp integer identifiability cutoffs or the complete first collision classes.",
+    "residual_risks": [
+      "An unindexed worked example, teaching note, or software test could contain one of the exact collision pairs.",
+      "The result is confined to exact integer census profiles and does not address statistical estimation error.",
+      "A complete continuum of Hill orders can encode more information than the finite set considered here, so the theorem is not a statement about full-profile identifiability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly supplies the mathematical ecological framework and motivation. It does not state the finite integer identifiability thresholds or displayed collision profiles.",
+        "evidence": "The paper defines Simpson concentration from squared proportional abundances, gives order-1 diversity as exp(H), and summarizes orders 0, 1, and 2 as richness, exponential Shannon entropy, and inverse Simpson.",
+        "identifier_or_url": "doi:10.2307/1934352",
+        "material_read": "Full lawful-access text covering the proportional-abundance setup, Simpson concentration, the generalized diversity numbers, the limit yielding exponential Shannon entropy, and the summary identifying richness, Shannon, and inverse Simpson.",
+        "method": "Full-text PDF inspection with page-image verification.",
+        "title": "Diversity and Evenness: A Unifying Notation and Its Consequences",
+        "trigger": "Foundational source defining the order-0, order-1, and order-2 diversity-number relationship used in the inverse problem."
+      },
+      {
+        "assessment": "Confirms contemporary use and interpretation of the same three summaries. No finite exact abundance-collision cutoff was located.",
+        "evidence": "The article explicitly identifies orders 0, 1, and 2 with richness, Shannon diversity, and Simpson diversity in the modern Hill-number framework.",
+        "identifier_or_url": "doi:10.1111/1440-1703.12102",
+        "material_read": "Open article section describing Hill-number profiles, species richness at order 0, exponential Shannon entropy at order 1, and inverse Simpson concentration at order 2.",
+        "method": "Open full-text HTML inspection.",
+        "title": "Quantifying sample completeness and comparing diversities among assemblages",
+        "trigger": "Modern full-text treatment of Hill-number diversity profiles and the standard interpretations of orders 0, 1, and 2."
+      },
+      {
+        "assessment": "The theorem is directly about ecological species-abundance diversity measures.",
+        "evidence": "MSC2020 lists 92D40 as Ecology.",
+        "identifier_or_url": "MSC2020:92D40",
+        "material_read": "MSC2020 hierarchy entry for 92D40.",
+        "method": "Public classification-page inspection.",
+        "title": "MSC2020 database: 92D40 Ecology",
+        "trigger": "Primary classification ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "be05fab3-5d7a-4b26-9622-17487e7ef2a5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Richness, Shannon diversity, and Simpson diversity are the canonical orders 0, 1, and 2 in the Hill framework. Determining when these summaries cease to recover the underlying integer abundance composition is a natural inverse problem. The sharp finite cutoffs and complete first collision layers give a useful exact benchmark for information loss in standard biodiversity summaries.",
+    "status": "PASS"
+  }
+}
