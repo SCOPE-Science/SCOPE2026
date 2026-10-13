@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The proof separates domination from complement connectivity. Domination is exhaustive by the two bipartition occupancies. Every nonempty induced complement is either one-sided or is a complete bipartite graph with a matching deleted; the only disconnected mixed cases are a matched singleton side and the two-by-two full matching deletion. Inclusion-exclusion over those obstruction classes gives the displayed polynomial. The minimum transition follows because deleting a matched pair leaves the crown graph of one smaller index. The packaged exhaustive checker independently matches every coefficient for n from three through eight.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1112.0846",
+        "DOI:10.7155/jgaa.00334"
+      ],
+      "reasoning": "The primary polynomial paper covers the minimum parameter on complete multipartite graphs and coefficient formulas for several other families; the algorithmic paper gives a chain-graph algorithm. Crown graphs with n at least three are neither complete multipartite nor chain graphs, so neither broader statement specializes to this family.",
+      "searches": [
+        "outer-connected domination polynomial complete multipartite graphs",
+        "outer-connected dominating set bipartite chain graph algorithm",
+        "outer-connected domination crown graph complete bipartite minus matching"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1112.0846",
+      "https://utilitasmathematica.com/index.php/Index/article/view/715",
+      "DOI:10.7155/jgaa.00334",
+      "Australasian Journal of Combinatorics 38 (2007), 35-46"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1112.0846"
+      ],
+      "reasoning": "The known complete-multipartite value gives only a lower bound through spanning-subgraph monotonicity. It does not force equality after deleting a perfect matching: at n equals three the crown value rises from two to four. Thus even the minimum transition is not a corollary of the complete-bipartite value, and the coefficientwise polynomial is strictly stronger information.",
+      "searches": [
+        "arXiv:1112.0846 Theorem 4 complete multipartite outer-connected domination number",
+        "arXiv:1112.0846 spanning subgraph monotonicity outer-connected domination",
+        "outer-connected domination crown graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1112.0846",
+        "https://utilitasmathematica.com/index.php/Index/article/view/715"
+      ],
+      "reasoning": "Crown graph, K_{n,n} minus a perfect matching, deleted-perfect-matching bipartite graph, and ocd-polynomial terminology were all compared. The inspected primary full text had no crown or matching occurrence and no equivalent coefficient formula.",
+      "searches": [
+        "outer-connected domination polynomial crown graph",
+        "outer connected domination polynomial K_n,n minus perfect matching",
+        "ocd polynomial crown graph deleted perfect matching",
+        "arXiv:1112.0846 full-text searches: crown; matching; complete bipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record comparison: Outer-connected domination polynomial of complete multipartite graphs; closest crown records concern restrained, paired, Roman, power, and other domination variants rather than outer-connected domination."
+      ],
+      "reasoning": "Semantic database searches returned no record whose statement counts outer-connected dominating sets of crown graphs. The closest same-parameter record is for complete multipartite graphs, and the closest same-object records use different domination notions.",
+      "searches": [
+        "outer-connected domination polynomial crown graph",
+        "outer connected domination polynomial K_n,n minus perfect matching",
+        "ocd polynomial crown graph deleted perfect matching"
+      ]
+    },
+    "rationale": "The closest primary polynomial paper defines the same polynomial but its inspected full text treats paths, cycles, stars, joins and wheels, and recalls only the minimum parameter for complete multipartite graphs. It contains no crown or matching occurrence. The closest database result gives the outer-connected domination polynomial for complete multipartite graphs, a class that does not contain crown graphs. The present coefficientwise formula and the n equals three transition are therefore not implied by those statements.",
+    "residual_risks": [
+      "The 2007 introductory paper was identified from journal and bibliographic records, but a fully readable copy was not available through the inspected route in this review. Its title and abstract concern the minimum parameter rather than the later polynomial, so this is a bounded residual risk rather than a decisive unresolved comparison.",
+      "Search failure is not treated as a proof of novelty; originality rests additionally on full-text comparison with the primary polynomial paper and implication analysis against its complete-multipartite theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper defines the polynomial, gives paths, cycles, stars, joins and wheels, and recalls only the minimum outer-connected domination number for complete multipartite graphs. No crown or matching occurrence was found.",
+        "identifier_or_url": "arXiv:1112.0846",
+        "material_read": "Full nine-page arXiv text, including the definition, general properties, Section 3 family formulas, join theorem, and references.",
+        "method": "Full-text inspection plus exact-term searches for crown, matching, K_{n,n}, and complete bipartite.",
+        "title": "On the number of outer connected dominating sets of graphs",
+        "trigger": "Primary paper defining the outer-connected domination polynomial and the most plausible direct source of a family formula."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY",
+        "evidence": "The abstract concerns large outer-connected domination number and Nordhaus-Gaddum bounds, not coefficient enumeration on crown graphs.",
+        "identifier_or_url": "https://utilitasmathematica.com/index.php/Index/article/view/715",
+        "material_read": "Publisher abstract and bibliographic record.",
+        "method": "Publisher-page inspection.",
+        "title": "Outer-connected domination in graphs",
+        "trigger": "Archival same-parameter source with exact day-level public date evidence."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The positive exact algorithm is for chain graphs. Crown graphs with n at least three are not chain graphs because their neighborhoods on either side form an antichain rather than a nested family.",
+        "identifier_or_url": "DOI:10.7155/jgaa.00334",
+        "material_read": "Journal abstract and stated positive result.",
+        "method": "Journal-page inspection.",
+        "title": "Algorithm and Hardness Results for Outer-connected Dominating Set in Graphs",
+        "trigger": "Broad bipartite-graph outer-connected domination source that could potentially dominate the crown case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f81ee2f5-684f-46e0-8e8e-c96fe5ebba26",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The crown graph is a standard near-complete bipartite family, and outer-connected domination is sensitive to the connectivity of the omitted set rather than only to domination. The result classifies every feasible set, gives the full polynomial and total count, and exposes a genuine edge-deletion threshold: the natural two-vertex dominating pairs fail exactly at the first connected crown. This is a structural enumeration rather than a single routine parameter evaluation.",
+    "status": "PASS"
+  }
+}
