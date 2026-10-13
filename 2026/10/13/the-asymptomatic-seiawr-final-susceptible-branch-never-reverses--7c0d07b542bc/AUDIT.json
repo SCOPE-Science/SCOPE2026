@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The source final-size identity reduces to log(s0/x)=R0(1-x). Strict convexity plus the sign at x=s0 gives a unique physical seeded root, and a contradiction argument gives R0*x<1. The source derivative formula therefore has a strictly negative denominator on the physical branch. The zero-seed normalization has two algebraic roots for R0>1, but the exact disease-free initial condition dynamically selects x=1; high-precision replay reproduces the paper's lower root 0.7001358120.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arino et al. derive final-size relations for a broad epidemic class.",
+        "Hsu and Roeger explicitly state that final susceptible population decreases with their acting reproduction number in a different SARS model.",
+        "These sources make the generic monotonicity mechanism prior art but do not identify or correct the target paper's branch and parameter-sensitivity conclusions."
+      ],
+      "reasoning": "Because broader monotonicity is known, originality is limited to the exact target-source contradiction and branch correction, not a new general theorem.",
+      "searches": [
+        "A final size relation for epidemic models Arino Brauer van den Driessche Watmough Wu",
+        "The final size of a SARS epidemic model without quarantine decreasing acting reproduction number",
+        "classical epidemic final susceptible monotonic reproduction number"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/mbe.2021005",
+      "doi:10.3934/mbe.2007.4.159",
+      "doi:10.1016/j.jmaa.2006.11.026"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed erratum or source-specific correction was located.",
+        "Classical final-size monotonicity supports the sign diagnosis but does not itself document the target paper's incorrect reversal or zero-seed branch selection.",
+        "Owned current and prior ledgers contain no target DOI, exact title, or equivalent correction."
+      ],
+      "reasoning": "The accepted claim is framed as a correction of a named source and its downstream parameter conclusions, while acknowledging that its mathematical engine is classical.",
+      "searches": [
+        "10.3934/mbe.2021005 correction erratum final size",
+        "Asymptomatic transmission shifts epidemic dynamics final size correction",
+        "0.700135 asymptomatic transmission final size",
+        "SEIAWR critical k final size monotonic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target paper states that final susceptible size eventually increases with R0 and infers a corresponding reversal in k.",
+        "Its own final-size equation and derivative formula imply strict decrease once the physical root inequality R0*x<1 is established.",
+        "Its quoted S(infinity)=0.700135 is the lower root at R0=1.188808, while x=1 is also a root under s0=1."
+      ],
+      "reasoning": "Searches covered final-size reversal, susceptibility monotonicity, critical-k language, branch selection, and the reported numerical root rather than relying on title matching.",
+      "searches": [
+        "10.3934/mbe.2021005 final size monotonic reproduction number",
+        "Asymptomatic transmission shifts epidemic dynamics final susceptible critical value k",
+        "short-term SEIAWR final size monotonic R0 asymptomatic",
+        "final susceptible strictly decreasing R0 asymptomatic waterborne"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary PDF was inspected at model (3.1) and its initial-condition identity.",
+        "The final-size pages print the logarithmic relation, derivative, claimed high-R0 reversal, claimed k reversal, and three-critical-k inference.",
+        "The numerical page reports R0=1.188808 and S(infinity)=0.700135.",
+        "Publisher metadata verifies publication on 19 November 2020; bibliographic classification records identify MSC 92D30."
+      ],
+      "reasoning": "The accepted correction is anchored to the exact printed short-term equations and numerical value.",
+      "searches": [
+        "doi:10.3934/mbe.2021005 model 3.1",
+        "doi:10.3934/mbe.2021005 final size equation 3.9",
+        "doi:10.3934/mbe.2021005 S infinity 0.700135",
+        "doi:10.3934/mbe.2021005 Remark 3"
+      ]
+    },
+    "rationale": "Generic monotonic final-size theory is prior art and is explicitly not claimed as new. The original source-specific content is identifying that this paper applies its own derivative formula to an impossible sign regime, propagates the resulting reversal into k and p claims, and numerically selects the lower implicit branch while simultaneously invoking an unseeded normalization. No published correction of this source-specific combination was located.",
+    "residual_risks": [
+      "A non-indexed comment or correction may have noted the same target-paper sign error.",
+      "Generic final-size theory substantially overlaps the mathematical mechanism, so originality is intentionally limited to the source-specific contradiction and branch interpretation.",
+      "The small-positive-seed limit can make the lower root epidemiologically relevant even though exactly zero deterministic seeding selects the disease-free branch."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "HIGH_R0_FINAL_SIZE_REVERSAL_AND_ZERO_SEED_BRANCH_SELECTION_ARE_INCONSISTENT",
+        "evidence": "The physical seeded root always has negative derivative with respect to R0; at R0=1.188808 the source numerical value is the lower algebraic root while x=1 is the exact unseeded trajectory.",
+        "identifier_or_url": "doi:10.3934/mbe.2021005",
+        "material_read": "Full publisher PDF at model (3.1), initial conditions, final-size derivation (3.3)–(3.9), the simplified implicit equation, derivative and Remark 3, plus Table 1 and the reported R0 and S(infinity). Relevant pages were visually inspected.",
+        "method": "Normalized the implicit relation by N, proved the physical root lies below 1/R0, differentiated it, and separated the exact zero-seed branch from the positive-seed limit.",
+        "title": "Asymptomatic transmission shifts epidemic dynamics",
+        "trigger": "Primary source containing the target short-term model and final-size claims."
+      },
+      {
+        "assessment": "GENERAL_FINAL_SIZE_PRIOR_ART",
+        "evidence": "General final-size relations predate the target paper.",
+        "identifier_or_url": "doi:10.3934/mbe.2007.4.159",
+        "material_read": "Publisher abstract and model-class description stating a general final-size relation for epidemic systems.",
+        "method": "Used to delimit novelty away from generic final-size methodology.",
+        "title": "A final size relation for epidemic models",
+        "trigger": "General primary final-size literature relevant to implication coverage."
+      },
+      {
+        "assessment": "MONOTONE_FINAL_SUSCEPTIBLE_PRIOR_ART_DIFFERENT_MODEL",
+        "evidence": "The paper proves a decreasing final susceptible state with transmission strength in a different SARS system.",
+        "identifier_or_url": "doi:10.1016/j.jmaa.2006.11.026",
+        "material_read": "Open full-text/abstract material stating that final susceptible population decreases with the acting reproduction number.",
+        "method": "Used as a stronger prior comparison for the generic monotonicity principle.",
+        "title": "The final size of a SARS epidemic model without quarantine",
+        "trigger": "Primary prior literature explicitly discussing monotonicity of final susceptible population with a reproduction parameter."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7c0d07b5-42bc-4009-b99d-9f38d2bd5b36",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source uses the asserted final-size reversal to infer how asymptomatic infectiousness k and asymptomatic fraction p change epidemic final size. The correction removes that qualitative reversal, reduces the p-dependence to the single threshold already present in R0, and clarifies that the reported numerical final size corresponds to a seeded branch rather than an exactly disease-free initial state. These changes directly alter the paper's public-health interpretation of asymptomatic transmission.",
+    "status": "PASS"
+  }
+}
