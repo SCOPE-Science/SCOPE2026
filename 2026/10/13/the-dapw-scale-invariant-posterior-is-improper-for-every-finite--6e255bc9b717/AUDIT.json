@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Directly transform the target CDF with A=log(alpha), ell=log(A), theta_j=e^{-s_j}/A, beta_j=c_j/ell. Uniform elementary Taylor expansion on compact rectangles yields the nondegenerate discrete Fréchet CDF exp(-e^{-s_j}(x+1)^{-c_j}). Every observed finite PMF, survivor and upper-record transition remains bounded away from zero. The exact reciprocal-prior Jacobian is 1/(c1 c2); restricting to compact s,c yields an infinite dA integral. The packaged actual-path numerical checks verify the CDF and both likelihood limits and a symbolic Jacobian determinant. No finite experiment substitutes for the analytical divergence proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ramos and Ramos (2020), Theorem 2.1 and Proposition 3.2, develop posterior-propriety criteria for a continuous Weibull, not a discrete alpha-power shared-parameter construction.",
+        "The original DAPW 2022 study derives mass functions, moments, and likelihood estimation, without analyzing a joint scale-invariant posterior.",
+        "General cautions about improper priors do not establish that every finite DAPW sample fails to normalize the stated Bayesian posterior."
+      ],
+      "reasoning": "Existing propriety theory supplies general background but not the model-specific nondegenerate three-boundary limit or exact five-dimensional prior Jacobian; even informative rich data cannot cure this escape.",
+      "searches": [
+        "Weibull power prior posterior propriety censored data 1/alpha 1/theta 1/beta",
+        "arxiv:2005.08195",
+        "doi:10.22075/ijnaa.2022.6301"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026263",
+      "doi:10.22075/ijnaa.2022.6301",
+      "arxiv:2005.08195"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing model-specific prior-ledger claims on the same DOI concern reliability-series truncation bounds and the strict lower-record likelihood; neither treats posterior normalization.",
+        "The nearest published-result search hits about power-log scaling or Weibull-related asymptotics do not treat the DAPW likelihood or its joint reciprocal prior.",
+        "The continuous Weibull theorem allows propriety with adequate data and cannot dominate the divergent DAPW parameter ridge."
+      ],
+      "reasoning": "Neither source overlap nor generic posterior-propriety principles imply this exact universal impropriety; the proof needs a distinct discrete Fréchet escape with a nonzero joint likelihood and infinite prior volume.",
+      "searches": [
+        "discrete alpha power Weibull joint posterior improper scale invariant priors 1/alpha 1/theta 1/beta exact Fréchet boundary",
+        "10.3934/math.2026263 posterior nonnormalizable priors Jeffreys type-II censored records",
+        "alpha-power Weibull discrete nonidentifiability scaling shape beta tends 0 simultaneous log alpha tends infinity",
+        "arxiv:2005.08195"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The DAPW CDF converges along alpha=e^A, theta_j=e^{-s_j}/A, beta_j=c_j/log A to H(x)=exp(-e^{-s_j}(x+1)^{-c_j}).",
+        "Source prior is a product of reciprocal powers; a complete Jacobian turns it into dA ds1 ds2 dc1/c1 dc2/c2.",
+        "No located result describes this coordinated parameter ridge, posterior normalization divergence, or discrete Fréchet boundary for DAPW."
+      ],
+      "reasoning": "Impropriety, infinite marginal-likelihood evidence, nonnormalizable posterior, and an escaping positive-likelihood prior-volume ridge are equivalent here. Searching these formulations did not find stronger covering claims.",
+      "searches": [
+        "discrete alpha power Weibull joint posterior improper scale invariant priors 1/alpha 1/theta 1/beta exact Fréchet boundary",
+        "DAPW alpha power Weibull coordinated parameter boundary alpha infinity theta zero beta zero discrete Frechet",
+        "alpha-power Weibull discrete nonidentifiability scaling shape beta tends 0 simultaneous log alpha tends infinity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Target source Eqs. (17)–(20) multiply reciprocal alpha, theta_j and beta_j priors on unbounded shape domains.",
+        "Target Eqs. (21) and (24) use these priors for Type-II and upper-record posteriors; Section 6 instead fixes alpha.",
+        "The source explicitly acknowledges that improper priors need proper posteriors and asserts that sufficiently informative data normally supply this."
+      ],
+      "reasoning": "The theorem addresses those exact specified posteriors, not a similar model or a numerical scheme. The divergence follows for the full printed parameter space irrespective of finite observed data.",
+      "searches": [
+        "10.3934/math.2026263 posterior nonnormalizable priors Jeffreys type-II censored records",
+        "10.3934/math.2026263 posterior nonnormalizable priors Jeffreys type-II censored records"
+      ]
+    },
+    "rationale": "No checked published result covers the five-parameter DAPW-specific boundary or the resulting universal posterior impropriety. The 2026 primary article supplies the PMF and improper joint prior but asserts informative data usually make such posteriors proper; its earlier DAPW distribution paper has no matching prior-normalization analysis. The rigorously closest continuous Weibull propriety theorem instead has a different likelihood geometry and cannot imply this boundary. Targeted published-result and external literature searches covered the exact DOI, the prior, proper-posterior aliases, discrete Fréchet limit, and joint-parameter escape.",
+    "residual_risks": [
+      "A recently posted or unindexed analysis of the same joint DAPW prior may exist.",
+      "The paper might have used unstated finite parameter bounds or a proper substitute in computations; no claim is made about its unobserved implementation.",
+      "The mixed-record fixed-alpha posterior requires a separate propriety analysis and is excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly contradicted for Type-II and upper-record Bayesian inference: the stated improper joint prior has an unbounded positive-likelihood escape and never yields a finite normalizing constant. Mixed-record fixed-alpha case excluded.",
+        "evidence": "Equations (1)–(2), (6)–(9), (17)–(25), (27) and explicit passage acknowledging improper priors in Section 4.",
+        "identifier_or_url": "doi:10.3934/math.2026263",
+        "material_read": "Open publisher PDF: Section 2 DAPW PMF/CDF (equations 1–2); Section 3 Type-II and upper-record likelihoods (equations 6–9); Sections 4–5 prior specifications, posterior equations and numerical-integration claims (equations 17–25); Section 6 mixed-record fixed-alpha specification; simulation methods.",
+        "method": "Publisher full PDF text and rendered-page inspection.",
+        "title": "Classical and Bayesian estimation of stress–strength reliability under the discrete Alpha-power Weibull distribution with incomplete and record data: Application to high-voltage capacitors",
+        "trigger": "Original DAPW likelihood, full unbounded prior and posterior claims."
+      },
+      {
+        "assessment": "Defines the same three-parameter DAPW distribution but does not state or analyze the five-parameter joint prior or its boundary escape.",
+        "evidence": "Equations (2.2)–(2.5); Section 3 distributional properties and model scope.",
+        "identifier_or_url": "doi:10.22075/ijnaa.2022.6301",
+        "material_read": "Public full-text rendering at Section 2, DAPW PMF, CDF, survivor, parameter support, quantile and estimation overview; conclusion.",
+        "method": "Author-provided readable full-text rendering.",
+        "title": "Discrete alpha-power Weibull distribution: Properties and application",
+        "trigger": "Original paper defining the DAPW law and its parameterization."
+      },
+      {
+        "assessment": "NOT COVERING: treats a continuous two-parameter Weibull family and in fact finds proper posteriors for 1/(eta beta) with sufficient noncensored distinct observations, unlike the DAPW five-parameter coordinated boundary.",
+        "evidence": "Theorem 2.1 and Proposition 3.2; no discrete alpha-power transformation or common-alpha escape.",
+        "identifier_or_url": "arxiv:2005.08195",
+        "material_read": "Full arXiv HTML: model/prior setup; Theorem 2.1, Corollary 2.2, Section 3 Jeffreys first-rule analysis, and alternative parameterization.",
+        "method": "Open arXiv full-text HTML inspection.",
+        "title": "Posterior properties of the Weibull distribution for censored data",
+        "trigger": "Closest rigorously developed improper-prior propriety criterion for a Weibull-type model under censoring."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6e255bc9-b717-4666-8285-196def9ceef1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source treats Bayesian posterior means, credible intervals, and a claimed empirical advantage of Bayes estimates as central outcomes under two data regimes. Its stated joint improper prior has no finite posterior normalizer for ANY finite valid data, even abundant diverse records, because an escaping nondegenerate family preserves likelihood. This structural obstruction cannot be cured by more finite observations or ordinary numeric integration; a changed prior/domain is required. The finding distinguishes the excluded fixed-alpha mixed-record design and makes no unsupported code-level assertion.",
+    "status": "PASS"
+  }
+}
