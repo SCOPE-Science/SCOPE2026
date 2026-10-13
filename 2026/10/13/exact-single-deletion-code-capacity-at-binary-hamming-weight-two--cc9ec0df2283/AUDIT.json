@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For every integer n at least 3, the disjoint families of adjacent pairs at even starts and separated pairs at positions (4j+1,4j+4) have floor(n/2)+floor((n-1)/4) words. Direct enumeration of the at most three weight-two outputs and one/two weight-one outputs establishes distinctness across families and between blocks. Independently, all n-1 weight-one deletion outputs plus ceil((n-1)/2) adjacent-weight-two outputs induced by an edge cover of the path on adjacent input-pair labels hit every possible weight-two input deletion ball at least twice. Disjointness forces twice the code size to be no greater than this output count; integer rounding gives exactly floor((3n-2)/4). Actual standalone paths verify.py and verify.cpp checked the claimed construction, dual covering and small exact clique maxima. No computation is used to extrapolate to arbitrary n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kulkarni–Kiyavash arXiv:1211.3128 develops general fractional deletion-output transversal upper bounds and specializes constrained sources to run-length-limited strings. Cullina–Kulkarni–Kiyavash arXiv:1211.4056 proves optimal colorings; neither inspected result supplies the weight-two maximum independent-set formula."
+      ],
+      "reasoning": "Broader unrestricted single-deletion bounds are not sharp on the fixed-weight-two layer. A general matching/packing framework alone does not fix the optimum without the specific matching primal construction and two-hit dual output bound.",
+      "searches": [
+        "single deletion correcting binary constant weight two codes all lengths exact maximum size",
+        "arXiv:1211.3128 Section V and Theorem 5.1 constrained source",
+        "arXiv:1211.4056 Sections III–V"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1211.3128 (full primary PDF, relevant results)",
+      "arXiv:1211.4056 (full primary PDF, relevant results)",
+      "DOI:10.1109/ISIT.2012.6284242 (open manuscript and corresponding expanded preprint)",
+      "Published finding \"Exact quinary length-four single-deletion code size\" (different alphabet and fixed length)",
+      "Published finding \"The 2t-1 deletion-code redundancy coefficient extends to q-ary alphabets\" (multiple-deletion asymptotic construction)",
+      "Published finding \"Fixed-alphabet q-ary deletion codes attain the 2t-1 coefficient\" (multiple-deletion bound)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5 of arXiv:1211.4056 states \\(\\chi(L_{1,n,k})=\\max(k,n-k)+1\\); for weight two it provides a coloring with \\(n-1\\) classes for \\(n\\geq4\\), but a largest class of an optimal coloring need not be a maximum independent set. At \\(n=9\\), the elementary color-class guarantee is five, whereas the demonstrated optimum is six. The general hypergraph bounds of arXiv:1211.3128 do not furnish the present exact equality."
+      ],
+      "reasoning": "The conclusions of the primary cited theorems do not logically dominate the new statement. The new all-length exact value is not a corollary of their coloring or general upper-bound statements; it needs the explicit spaced-pair construction and integral two-hit cover.",
+      "searches": [
+        "arXiv:1211.4056 Theorem 5 and Lemma 8",
+        "arXiv:1211.3128 general and constrained hypergraph matching bounds",
+        "The largest binary one-deletion-correcting code of length n and Hamming weight two has floor((3n-2)/4) codewords, proved by adjacent pairs and spaced pairs construction and a matching two-output deletion transversal."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cullina–Kulkarni–Kiyavash, arXiv:1211.4056, Definitions 1–5 and Theorem 5: exact equivalence between deletion-correcting codes and independent sets, and a separate optimal-chromatic-number theorem."
+      ],
+      "reasoning": "The new maximum code size is precisely the independence number of the weight-two deletion confusability graph. The inspected Theorem 5 computes the chromatic number, not the independence number; a coloring does not generally imply a largest color class is maximum.",
+      "searches": [
+        "\"L_{1,n,2}\" independence number single deletion",
+        "Independence number of the single-deletion confusability graph L_{1,n,2} is floor((3n-2)/4), all n at least 3.",
+        "arXiv:1211.4056 Section IV Theorem 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest 2012 conference and preprint sources present constant-weight coloring formulas, not an exact table of all weight-two single-deletion maximum cardinalities. Indexed published mathematical results consulted concerned quinary length-four one-deletion coding and other distinct coding invariants."
+      ],
+      "reasoning": "No covering exact table was located in inspected material; this is evidence of the checked scope, not a proof that no prior table exists.",
+      "searches": [
+        "\"constant weight 2\" \"deletion-correcting\" code optimal",
+        "\"single deletion\" \"two ones\" \"codes\"",
+        "\"floor((3n-2)/4)\" \"deletion\"",
+        "single deletion fixed weight two binary sparse codes adjacency output matching",
+        "published mathematical finding search: deletion code constant Hamming weight two exact maximum"
+      ]
+    },
+    "rationale": "An exact maximum independent set for the entire binary weight-two one-deletion graph is not implied by an optimal coloring of that graph, and the published 2012 general deletion transversals examined do not specialize to this matching optimum. Search covered statement, equivalent graph wording, finite tabulations, general stronger results, published mathematical findings and the closest original papers. A finite indexed literature search is not definitive; residual unindexed-specialist risk is recorded.",
+    "residual_risks": [
+      "An older exact weight-two computation or equivalent formula may be unindexed or couched in different graph terminology.",
+      "The older literature may contain an exact special-case consequence not immediately identified by the reviewed statements.",
+      "No independent external mathematical audit or verification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly the associated graph and proves optimal colorings, not the weight-two independence-number equality.",
+        "evidence": [
+          "Section II Definition 5 and induced fixed-weight layer",
+          "Section IV Lemma 8 and Theorem 5",
+          "Section II-C explicit distinction between optimal coloring and maximum independent set"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1211.4056",
+        "material_read": "Full open-access PDF available; examined introduction, graph definitions and independent-set discussion, Sections III and IV including Lemma 8 and Theorem 5, Section V, relevant conclusions and references.",
+        "method": "Read PDF text and inspected rendered page for Section IV",
+        "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+        "trigger": "Same constant-weight one-deletion confusability graph, plausible stronger optimum"
+      },
+      {
+        "assessment": "Establishes general upper bounds and illustrates constrained-source method for run-length limited words, without the exact weight-two optimum.",
+        "evidence": [
+          "Introduction and general upper-bound statement",
+          "Section V Theorem 5.1 and subsection A run-length limited sources"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+        "material_read": "Full open-access PDF available; examined general matching/dual formulation, constrained-source Theorem 5.1 and run-length-limited application, introduction, conclusion and references.",
+        "method": "Read PDF text and inspected rendered constrained-source page",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "General deletion-output hypergraph and dual bounds could dominate proposed exact bound"
+      },
+      {
+        "assessment": "Optimal coloring is documented, while the exact all-length weight-two independent-set maximum is not established in the inspected material.",
+        "evidence": [
+          "ISIT conference manuscript, coloring statements and comparisons to codebook sizes"
+        ],
+        "identifier_or_url": "https://www.sc.iitb.ac.in/~ankur/docs/isit-weight-final.pdf",
+        "material_read": "Examined accessible PDF material on constant-weight coding and coloring; corresponding expanded 2012 arXiv preprint was also inspected.",
+        "method": "Open-access full-text reading",
+        "title": "A Coloring Approach to Constructing Deletion Correcting Codes from Constant Weight Subgraphs",
+        "trigger": "Earlier conference version of exactly relevant weight-partition coloring result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cc9ec0df-2283-4507-b81f-005971de2c4c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The weight-two class is a canonical first nontrivial sparse input-composition layer in deletion coding, and constant-weight layering is an explicit research strategy in the inspected 2012 primary source. The exact all-length maximum is not already determined by prior graph colorings, requires a nontrivial block-separated construction and a tight deletion-output obstruction, and can guide exact sparse deletion code design. It resolves a natural unknown graph independence invariant for every length, not an arbitrary finite slice or routine table extension. It does not claim practical rate for unrestricted codes or any unsupplied downstream theorem.",
+    "status": "PASS"
+  }
+}
