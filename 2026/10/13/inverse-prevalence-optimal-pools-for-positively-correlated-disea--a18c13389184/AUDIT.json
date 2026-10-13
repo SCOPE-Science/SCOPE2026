@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The negative-pool probability follows from a beta integral: \\(Q_k=(\\tau-a)_k/(\\tau)_k\\). The adjacent difference is \\(C_{k+1}-C_k=(R_k-1)/[k(k+1)]\\), with \\(R_{k+1}/R_k=1+[(1-a)k+2(\\tau-a)]/[k(\\tau+k+1)]>1\\) for \\(0<a<\\min\\{1,\\tau\\}\\). Gamma-ratio asymptotics imply \\(R_k\\to\\infty\\), proving at most one sign crossing and at most one adjacent minimum tie. At \\(a=\\tau p\\downarrow0\\), a uniformly bounded second-order error in the logarithm of the beta product and comparison at \\(k=\\lfloor c/a\\rfloor\\) prove \\(R_k\\to c\\) and hence \\(a k_*\\to1\\). Digamma harmonic sums yield the exact minimum \\(a[\\log(1/a)+1-\\psi(\\tau)]+o(a)\\). The independent benchmark follows from \\(k=\\Theta(p^{-1/2})\\) and the limiting convex cost. The bundled checker verified 168 exact rational adjacent identities and rational optima at \\(p=1/20,1/100,1/1000\\); finite checking is not the asymptotic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Landolfi and Lall (2023/2024), arxiv:2308.11050, sections 2-4, 6.3, 7",
+        "Landolfi and Lall provide a general expected-test finite-optimization framework. NBER section 4 gives finite optimal sizes at \\(p=0.01\\), for multiple correlations.",
+        "Landolfi-Lall, Lemma 4.6, Corollary 4.7, section 4.4 provide general finite-collection expected-test optimization. NBER section 4 computes optima at p=.01 and various correlations."
+      ],
+      "reasoning": "The general optimization theorem dominates the objective representation and ability to compute optima, so neither is claimed original. It does not by itself exhibit the beta-family rare-prevalence scaling or the analytic constant. The NBER comparative statics are qualitatively stronger across correlation choices but do not give the beta fixed-concentration p-down-zero asymptotics. These are compared by implication, not wording.",
+      "searches": [
+        "\"correlated\" group testing \"1/p\" optimal group size",
+        "Dorfman group testing beta binomial random effects fixed intraclass correlation prevalence tends to zero optimal pool size asymptotic inverse prevalence",
+        "exchangeable infection correlated samples rare disease optimum tests cost p log 1/p and pool size 1/p",
+        "Landolfi Lall symmetric exchangeable distribution optimal Dorfman integer partition group costs",
+        "Augenblick Kolstad Obermeyer Wang correlated infection optimal group size 385 0.8"
+      ]
+    },
+    "checked_sources": [
+      "Lendle, Hudgens and Qaqish (2010 report; Biometrics 2012), doi:10.1111/j.1541-0420.2011.01674.x",
+      "Augenblick et al. (2020), NBER w27457, doi:10.3386/w27457, section 4 pp. 10-11",
+      "Landolfi and Lall (2023/2024), arxiv:2308.11050, sections 2-4, 6.3, 7",
+      "Montesinos-Lopez et al. (2014), doi:10.4172/2155-6180.1000185",
+      "Literature queries for beta-binomial pooling, exchangeable negative-pool probabilities, rare-prevalence asymptotics, and correlation-dependent optimal group sizes; no novelty claim based on search failure alone."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lendle, Hudgens and Qaqish (2010 report; Biometrics 2012), doi:10.1111/j.1541-0420.2011.01674.x",
+        "Augenblick et al. (2020), NBER w27457, doi:10.3386/w27457, section 4 pp. 10-11",
+        "Landolfi and Lall (2023/2024), arxiv:2308.11050, sections 2-4, 6.3, 7",
+        "Montesinos-Lopez et al. (2014), doi:10.4172/2155-6180.1000185"
+      ],
+      "reasoning": "Known beta-binomial mixing laws imply the finite cost formula by integration; that is not claimed as new. Finite exchangeable-pool optimization algorithms provide computations, not by themselves the stated analytic rare-prevalence coefficient and the fixed-correlation-versus-independence scaling change. The 2014 paper treats prevalence estimation rather than case identification. The full Lendle manuscript remained inaccessible; an unknown stronger theorem there is a genuine residual historical-coverage risk.",
+      "searches": [
+        "\"Group Testing for Case Identification with Correlated Responses\" pdf Lendle Hudgens Qaqish",
+        "\"Lendle\" \"Hudgens\" \"Qaqish\" \"optimal\" \"pool size\" model correlated",
+        "\"Group Testing for Case Identification with Correlated Responses\" \"optimal\" \"beta\"",
+        "\"optimal\" \"Dorfman\" \"beta-binomial\" \"rare\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lendle, Hudgens and Qaqish (2010 report; Biometrics 2012), doi:10.1111/j.1541-0420.2011.01674.x",
+        "Landolfi and Lall (2023/2024), arxiv:2308.11050, sections 2-4, 6.3, 7",
+        "The beta-mixture model is infinitely exchangeable, with negative-pool probability \\(q(k)=(\\tau-a)_k/(\\tau)_k\\). The general framework of Landolfi and Lall uses the same probability law and a finite-partition objective."
+      ],
+      "reasoning": "Beta-binomial pooling, exchangeable de Finetti mixtures and general q(k)-cost optimization are exactly equivalent descriptions of this model, not distinct discoveries. The analyzed contrast is between those known finite objectives and the claimed all-integer one-crossing plus exact p-to-zero optimizer and cost constants. Those limit statements were not located in the accessible primary full texts; the missing Lendle appendix limits the strength of historical exclusion.",
+      "searches": [
+        "\"Dorfman\" \"beta-binomial\" \"optimal pool\" asymptotic",
+        "\"Dorfman\" \"beta binomial\" \"optimal group size\" asymptotic 1/p",
+        "Dorfman beta mixture negative pool probability rising factorial digamma asymptotic expected tests per individual optimal integer pool size",
+        "beta-binomial two-stage retesting negative pool probability factorial rising beta ratio digamma optimal size",
+        "doi:10.1111/j.1541-0420.2011.01674.x"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Augenblick et al. (2020), NBER w27457, doi:10.3386/w27457, section 4 pp. 10-11",
+        "NBER section 4 gives group sizes 11, 22, 44, 107, and 385 at prevalence \\(p=0.01\\) for increasing intrapool correlation; these are finite examples, not a formula as \\(p\\downarrow0\\).",
+        "Lendle preprint and a related screening software manual numerically enumerate finite pool sizes, not a provided asymptotic table."
+      ],
+      "reasoning": "The theorem is not an isolated recomputation of a known numerical table: its conclusions hold for arbitrary fixed tau and all sufficiently small p, and its limiting coefficient is exact. Existing numeric examples are recognized as already known; no priority is claimed for their qualitative trend.",
+      "searches": [
+        "\"Dorfman\" \"beta binomial\" \"optimal group size\" asymptotic 1/p",
+        "\"Lendle\" \"Hudgens\" \"Qaqish\" \"Beta\" \"group testing\"",
+        "\"correlated\" group testing \"1/p\" optimal group size",
+        "Dorfman optimal group size pairwise correlation numerical table NBER working paper 27457"
+      ]
+    },
+    "rationale": "The probability model and expected-test objective are already covered by Lendle et al.; the general exchangeable optimization framework is covered by Landolfi and Lall, and the qualitative larger-optimal-pool finding is covered by Augenblick et al. The assessed new mathematical claim is only the explicit full-integer one-crossing condition under beta correlation and the sharp fixed-correlation rare-prevalence limit with leading constant. The full NBER and Landolfi primary texts materially inspected supply correlated-pooling formulas, computational optima and general finite partition machinery, but not this analytic asymptotic. A highly relevant 2010 Lendle full manuscript could not be retrieved; an unseen analytic implication remains a disclosed risk, and failed discovery alone is not treated as novelty proof.",
+    "residual_risks": [
+      "The uninspected complete Lendle et al. technical report or appendix might already contain the claimed asymptotic or an equivalent monotone-threshold lemma.",
+      "A theorem on optimizing ratios of rising factorials, not indexed under group testing terminology, could imply the same analytical limit.",
+      "Preprint release month is reported as October 2010 but an exact public day is not verified; September 27, 2011 is used as an exact day-resolved online journal anchor, without inventing a preprint day."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST INACCESSIBLE MATERIAL; existing model and efficiencies covered; exact p-to-zero limit might have prior coverage and cannot be excluded by abstract.",
+        "evidence": [
+          "UNC research archive describes October 2010 technical report and correlated case-identification efficiency.",
+          "Indexed full-article text explicitly states beta-binomial mixing with mean p and variance sigma*p*(1-p).",
+          "First journal online date September 27, 2011 is independently verifiable."
+        ],
+        "identifier_or_url": "doi:10.1111/j.1541-0420.2011.01674.x; https://biostats.bepress.com/uncbiostat/art16/",
+        "material_read": "Public journal abstract, bibliographic and preprint pages, indexed statement of the three correlated distributions including beta-binomial; full technical report/journal body and appendix unavailable.",
+        "method": "Primary abstract and indexed scientific passages; attempted lawful open-access versions without full-text success.",
+        "title": "Group Testing for Case Identification with Correlated Responses",
+        "trigger": "Same beta-binomial correlation model and related expected-test objective."
+      },
+      {
+        "assessment": "COVERS the cost representation and qualitative correlation benefit; DOES NOT STATE the fixed-tau p-to-zero limit or the new digamma constant in inspected portions.",
+        "evidence": [
+          "Section 4 p.10-11: expected tests n(1/g+q) and optimal sizes 11,22,44,107,385 for increasing correlations at p=.01.",
+          "Section 4 explains why correlation reduces the marginal cost of increasing group size."
+        ],
+        "identifier_or_url": "https://www.nber.org/papers/w27457; doi:10.3386/w27457",
+        "material_read": "Original 20-page PDF: abstract, introductory theory, section 2 objective, section 4 correlated-infection analysis and pool-size numerical comparisons, discussion.",
+        "method": "Direct original PDF full-text sections and mathematical comparison.",
+        "title": "Group Testing in a Pandemic: The Role of Frequent Testing, Correlated Risk, and Machine Learning",
+        "trigger": "Two-stage pooled testing with correlated within-group infection risk and optimal sizes."
+      },
+      {
+        "assessment": "GENERAL COVERAGE of finite expected-cost reduction to q(k) and partition algorithms, not the explicit beta shape p-to-zero limit or one-crossing formula in inspected theorem statements.",
+        "evidence": [
+          "Section 4.3 Lemma 4.6: E[T_H]=1+|H|(1-q(|H|)) for non-singleton pools.",
+          "Section 6.3 attributes earlier beta-type correlated work to Lendle et al.; Section 7 asks how savings vary among exchangeable models."
+        ],
+        "identifier_or_url": "arxiv:2308.11050",
+        "material_read": "Original 30-page PDF: abstract/introduction, sections 2-4 (including negative-pool representation and Lemma 4.6), section 6.3 literature comparison, section 7 conclusions and future directions.",
+        "method": "Primary full-text theorem/objective/coverage comparison.",
+        "title": "Optimal Dorfman Group Testing for Symmetric Distributions",
+        "trigger": "Broad exchangeable-binary-test optimization potentially subsuming special beta mixtures."
+      },
+      {
+        "assessment": "Focuses on estimating the population positive proportion, not the number of assays required for per-person case identification; does not settle this optimum in assessed material.",
+        "evidence": [
+          "The estimation objective is distinguished from case identification and from Dorfman second-stage individual re-testing."
+        ],
+        "identifier_or_url": "doi:10.4172/2155-6180.1000185",
+        "material_read": "Accessible reproduced methods on the 2014 paper, including beta-binomial parameterization and citations; original PDF retrieval unsuccessful.",
+        "method": "Available scientific text and bibliographic comparison.",
+        "title": "Estimating a Proportion Based on Group Testing for Correlated Binary Response",
+        "trigger": "Identical family of correlated binary responses in pooled disease screening."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a18c1338-9184-40cd-850e-51359acdc0e6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For disease screening with fixed positive within-pool correlation, \\(k_*\\sim1/(\\tau p)\\), whereas independent screening has \\(k_*\\sim p^{-1/2}\\). The minimal assay costs scale respectively like \\(\\tau p\\log(1/p)\\) and \\(2\\sqrt p\\), with an explicitly proved second-order term \\(\\tau p[1-\\log\\tau-\\psi(\\tau)]\\). These are qualitatively different asymptotic regimes with identifiable assumptions and constants, not a small numeric improvement or arbitrary slice. The monotone adjacent ratio yields an exact integer design threshold. Unlimited pools may be impractical because of dilution, clustered population sizes, and variable assay costs.",
+    "status": "PASS"
+  }
+}
