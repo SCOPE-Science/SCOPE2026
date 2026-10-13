@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "On \\(\\Omega\\le2\\), divisor counts are exactly \\(2,3,4\\). Ordering a collision leaves only \\((3,2),(4,2),(4,3)\\); these give respectively \\((4,5)\\), the stated odd-semiprime/prime family, and an impossibility because \\(8\\mid p^2-1\\) for odd \\(p\\) while a squarefree semiprime has \\(\\nu_2\\le1\\). The bundled scan through \\(10^6\\) reproduces every restricted fiber and finds no mismatch; it is not used for exhaustiveness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gabdullin--Iudelevich--Luca Theorem 1.2 gives \\(x\\ll N^+_{\\tau}(x)\\le0.94x\\), and Section 3.1 estimates additive energy on a dense odd-squarefree family.",
+        "Pollack--Troupe Section 4.2 applies an Erdős--Kac theorem to \\(f(n)=n+\\tau(n)\\)."
+      ],
+      "reasoning": "These are broader statistical/value-distribution theorems, but neither determines individual fibers on the \\(\\Omega\\le2\\) domain, so they do not imply the exact classification.",
+      "searches": [
+        "arXiv:2306.16035 full text Theorem 1.2 Section 3.1",
+        "arXiv:2106.10756 Section 4.2 shifted divisor function"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2106.10756v1",
+      "arXiv:2306.16035v1",
+      "OEIS:A062249"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full-text search of arXiv:2306.16035v1 has no occurrence of 'semiprime' or 'prime square'.",
+        "Its collision count is an asymptotic estimate on a selected dense subset rather than a pointwise classification.",
+        "The exact statement search returned only scientifically different near matches."
+      ],
+      "reasoning": "A bound on total additive energy or image density cannot exclude or classify specific low-complexity fibers. The present implication is therefore not contained in the strongest directly relevant source inspected.",
+      "searches": [
+        "arXiv:2306.16035 semiprime",
+        "arXiv:2306.16035 prime square",
+        "For 2<=m<n Omega(m),Omega(n)<=2 m+tau(m)=n+tau(n) iff 4,5 or m=qr n=qr+2 prime"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches covered the aliases divisor function, \\(\\tau\\), \\(d(n)\\), shifted divisor function, equal values, fibers, collisions, semiprime, and \\(2\\)-almost-prime.",
+        "Closest indexed hits concern different \\(\\tau\\)-equations, multiplicative maps \\(n\\tau(n)\\), Jordan-totient collisions, or other semiprime problems."
+      ],
+      "reasoning": "No equivalent reformulation was found. In particular, multiplicative collision results for \\(n\\tau(n)\\) do not imply additive collisions for \\(n+\\tau(n)\\).",
+      "searches": [
+        "n plus tau n collision semiprime prime divisor function",
+        "n+tau(n) equal values Omega at most 2",
+        "shifted divisor function injectivity semiprime n tau(n)",
+        "equal fibers shifted divisor function n+d(n) two-almost-primes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A062249 defines \\(a(n)=n+d(n)\\), and its current comments and formulas do not state a collision or semiprime-fiber theorem.",
+        "Direct exact-claim semantic searches returned no record asserting the stated \\(\\Omega\\le2\\) classification."
+      ],
+      "reasoning": "The exact database contains examples such as the repeated value \\(7\\), but a table of values neither states nor implies the universal characterization of every low-almost-prime collision.",
+      "searches": [
+        "n plus tau n collision semiprime prime divisor function",
+        "n+tau(n) equal values Omega at most 2",
+        "shifted divisor function injectivity semiprime n tau(n)",
+        "divisor function collision p q plus 2 prime",
+        "A062249 n+d(n) Omega at most 2 collision 4 5 15 17",
+        "Numbers of the form k+f(k) n+tau(k) semiprime collision classification",
+        "For 2<=m<n Omega(m),Omega(n)<=2 m+tau(m)=n+tau(n) iff 4,5 or m=qr n=qr+2 prime",
+        "OEIS A062249 current entry"
+      ]
+    },
+    "rationale": "The two strongest full-text sources on the same map provide distribution/image-density and additive-energy results but not the exact low-almost-prime fibers. The exact OEIS entry tabulates values without the classification. Exact and alias searches found no implication-equivalent published result.",
+    "residual_risks": [
+      "An older elementary note may record the same three-case classification using \\(d(n)\\) rather than \\(\\tau(n)\\); targeted exact, alias, database, and semantic searches did not reveal one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: Section 4.2 proves the Erdős--Kac conclusion for the number of prime factors of \\(n+\\tau(n)\\), not equal-value fiber structure.",
+        "evidence": "Section 4.2 defines \\(f(n)=n+\\tau(n)\\), writes \\(f(mP)=Pm+2\\tau(m)\\), verifies the hypotheses of its general proposition, and concludes an Erdős--Kac law. It states no low-\\(\\Omega\\) collision classification.",
+        "identifier_or_url": "arXiv:2106.10756v1",
+        "material_read": "ArXiv abstract, MSC metadata, and full HTML Section 4.2.",
+        "method": "Direct full-text inspection.",
+        "title": "Sums of proper divisors follow the Erdős--Kac law",
+        "trigger": "Earliest eligible primary source explicitly treating the same shifted divisor function."
+      },
+      {
+        "assessment": "NOT_COVERING: it proves positive-density image bounds and \\(O(x)\\) additive energy on a selected dense family, not the complete \\(\\Omega\\le2\\) fibers.",
+        "evidence": "The introduction explicitly frames additive energy \\(\\#\\{(k,l):k+f(k)=l+f(l)\\}\\); Theorem 1.2 gives \\(x\\ll N^+_{\\tau}(x)\\le0.94x\\); Section 3.1 estimates collisions for \\(n=lp\\) with \\(l\\) odd and squarefree. No semiprime or prime-square classification is stated.",
+        "identifier_or_url": "arXiv:2306.16035v1",
+        "material_read": "Full HTML introduction, Theorem 1.2, and Section 3.1 collision-energy argument; full-text searches for 'semiprime' and 'prime square'.",
+        "method": "Direct full-text inspection and targeted in-document searches.",
+        "title": "Numbers of the form \\(k+f(k)\\)",
+        "trigger": "Strongest later primary source on the image and collisions of exactly \\(k\\mapsto k+\\tau(k)\\)."
+      },
+      {
+        "assessment": "NOT_COVERING: it tabulates \\(n+\\tau(n)\\) and related interpretations but gives no collision theorem or two-almost-prime classification.",
+        "evidence": "The entry defines \\(a(n)=n+d(n)\\), lists terms including repeated values, and has no occurrence of the terms 'collision', 'semiprime', or 'prime'.",
+        "identifier_or_url": "OEIS:A062249",
+        "material_read": "Current entry including terms, comments, formulas, links, and cross-references.",
+        "method": "Direct database-entry inspection.",
+        "title": "OEIS A062249",
+        "trigger": "Exact sequence database for \\(n+\\tau(n)\\)."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "93d9722d-eee8-4c06-90a3-83c2c012e58e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source literature explicitly studies collisions through additive energy for \\(k+\\tau(k)\\). Determining the complete first almost-prime layer is therefore a motivated structural boundary: it isolates the exceptional square-prime bridge, identifies the full semiprime-prime collision mechanism, and proves the sharp restricted fiber bound \\(2\\).",
+    "status": "PASS"
+  }
+}
