@@ -1,0 +1,14 @@
+# Review
+
+## Correctness
+PASS. The time-dependent expectation is reconstructed directly in the one-particle energy basis. Relative-gap rational independence gives Haar equidistribution of the relative vertex phases. Signed-edge expansion shows that Haar-surviving monomials are exactly zero-incidence signed edge multisets. At orders three and four, the only connected simple supports are respectively triangles and four-cycles, with the stated coefficients after accounting for orientations and permutations; repeated-edge terms give the single-cosine fourth cumulant. For forests, the edge-incidence coordinates are unimodular after roots are added, so all active edge phases are independent uniform variables. The Berry–Esseen coefficient follows from \(\operatorname{Var}(2r\cos\Theta)=2r^2\) and \(\mathbb E|2r\cos\Theta|^3=32r^3/(3\pi)\). The packaged checker independently reproduces the nontrivial finite identities.
+
+## Originality
+PASS. The closest source, Campos Venuti–Zanardi, supplies the essential prior mapping from quasifree temporal statistics to a generalized infinite-temperature classical \(XY\) model and proves a factorized independent-sum CLT for a specific quantum-\(XY\) magnetization. Its inspected full text does not state the active-support graph cumulant formulas, the if-and-only-if forest criterion for edge-phase independence, or a finite-system Berry–Esseen bound for all forest supports. Searches for equivalent formulations using Gaussian equilibration, quasifree fermions, graph cycles, skewness/kurtosis, forest phase differences, and Berry–Esseen terminology found no covering result. Brandão–Cramer's quantum Berry–Esseen argument concerns energy measurement distributions in short-range lattice states and does not imply the temporal graph theorem. A residual risk is that classical linked-cluster literature for the \(XY\) model may encode equivalent low-order cycle coefficients under different language.
+
+## Value
+PASS. The motivating work leaves broad Gaussian equilibration as a conjectural structural phenomenon outside special examples. The result identifies a natural object—the active coherence graph—that controls finite temporal statistics. It makes triangle and four-cycle effects explicit at the first two non-Gaussian cumulant orders and gives a complete, topology-based class in which the whole temporal law factorizes, together with a quantitative finite-size Gaussian error bound. This is more than a numerical check or an arbitrary parameter slice: it supplies a reusable structural criterion and a diagnostic for when model-specific factorization occurs.
+
+The main limitations are the strong nonresonance assumption, the restriction of the Berry–Esseen theorem to forests, and the exclusion of pairing Hamiltonians. Cyclic graphs are not claimed to be non-Gaussian in the thermodynamic limit.
+
+Self-review: passed. Independent audit: not yet performed.
