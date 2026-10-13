@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For each triangular block, one selected vertex is necessary to dominate its private vertex and at most one is possible because the block is a clique. Selected interior cut vertices correspond bijectively to disjoint dimers of the triangle-index path; all remaining triangles are monomers, with exactly two choices for an unmatched first/last endpoint and one internally. This directly proves the endpoint-weighted matching polynomial. Expanding endpoint factors gives p_n=f_n+2f_(n-1)+f_(n-2), and path matching recurrence gives p_2=4+t,p_3=4+4t,p_n=p_(n-1)+t p_(n-2) for n>=4. After z^n/4 transformation this equals characteristic polynomial of the Jacobi path with squared edge weights 1/4,3/4,1,...; symmetric irreducible tridiagonal theory proves simple real paired eigenvalues of magnitude <2 and the factorization. Independent exact graph brute force compared all 699048 candidate subsets on n=1..9; tiling vs generating-function vs determinant coefficients were checked for n=2..80. Infinite proof does not rest on enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dod, arXiv:1602.08250, defines the polynomial and studies general properties, with no located triangular-chain Jacobi representation.",
+        "arXiv:2202.11294 includes other polygonal families but its results concern generating functions and total-count asymptotics, not all-n root spectra.",
+        "Classical real-rootedness of matching and Jacobi characteristic polynomials applies only after an object-specific representation is proved."
+      ],
+      "reasoning": "General matching-polynomial theorems do not give this cactus result without the boundary-weighted matching bijection. The prior 2022 complete generating function is a dominating enumerative source, but no broader prior published theorem explicitly guarantees this spectral/root statement was found.",
+      "searches": [
+        "polygonal cactus chain independent domination real rooted log concave coefficient polynomial",
+        "\"independent domination\" polynomial \"all real\" triangles cacti",
+        "\"independent domination polynomial\" \"real roots\" cactus chain triangles",
+        "arXiv:1602.08250 foundational independent domination polynomial"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1910.05272 (2019), full-text Section 2",
+      "arXiv:2202.11294 (2022), Theorem 1, relevant proof and table",
+      "arXiv:1602.08250 (2016), foundational metadata",
+      "Published semantic research record searches on triangular cactus chain Jacobi roots and equivalent matching-polynomial language"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "From the 2022 identity sum_n I_n(x)u^n=(1+ux)^2/(1-ux-u^2x), the polynomial recurrence follows; thus the polynomial coefficients are **not new**.",
+        "The new proof derives the stricter identity det(zI-J_n)=(z^n/4)p_n(-z^{-2}) for a specified Jacobi matrix, then simple negative roots by spectral symmetry and positivity."
+      ],
+      "reasoning": "The complete older enumerator logically implies the new spectral identity after a separate transformation and proof. This does not justify treating the enumerator as novel; only the extra structural bijection/spectral interpretation and uniform root theorem are considered. A newly stated corollary without substantial proof would fail the originality bar, so the full object-specific bijection and Jacobi construction are essential.",
+      "searches": [
+        "arXiv:2202.11294 Theorem 1 complete generating function",
+        "arXiv:1910.05272 Section 2 Fibonacci total-count recurrence",
+        "triangle cactus independent domination polynomial matching polynomial of path spectral factorization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2202.11294 Theorem 1 supplies the complete size generating function, but the inspected proof at the triangular-cactus section uses vertex case splitting rather than a path-matching bijection or Jacobi factorization.",
+        "arXiv:1910.05272 Theorem 2.1 and Corollary 2.2 count total maximal independent sets, without cardinality-root geometry.",
+        "Nearest published indexed records concern graph classes such as chain graphs, rather than triangular cactus matching or spectral roots."
+      ],
+      "reasoning": "Matching-, tiling-, Fibonacci-, tridiagonal-characteristic-, and orthogonal-polynomial descriptions were compared. A strong coefficient-equivalent form is present in 2022, but the root-location statement, precise Jacobi spectral factorization, and direct set-to-tiling correspondence were not present in the inspected relevant parts. The overlap risk of an unindexed equivalence is recorded.",
+      "searches": [
+        "triangular cactus chain maximal independent sets endpoint-weighted monomer dimer tilings and weighted path Jacobi characteristic polynomial, simple negative roots",
+        "triangle cactus independent domination polynomial matching polynomial of path spectral factorization",
+        "\"independent domination polynomial\" \"triangular cactus\" \"real rooted\"",
+        "arXiv:2202.11294 original Section 2.1 and proof of Theorem 1",
+        "arXiv:1910.05272 Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2202.11294 Table 1 reproduces the complete rational generating function, which is a coefficient database for this graph family.",
+        "Relevant indexed matching-polynomial records address other mathematical objects; none of the closest returned summaries asserts this exact triangular-cactus root distribution."
+      ],
+      "reasoning": "The known generating-function table already subsumes all individual coefficient computations; these are excluded from claimed novelty. An all-n simple-root and Jacobi-weight factorization is a different mathematical invariant statement and was not found as a table/result.",
+      "searches": [
+        "triangular cactus chain maximal independent sets endpoint-weighted monomer dimer tilings and weighted path Jacobi characteristic polynomial, simple negative roots",
+        "polygonal cactus chain independent domination real rooted log concave coefficient polynomial",
+        "triangle cactus independent domination polynomial matching polynomial of path spectral factorization",
+        "arXiv:2202.11294 Table 1 and Theorem 1",
+        "published research record search for triangular cactus independent domination roots"
+      ]
+    },
+    "rationale": "The inspected 2022 source already determines every coefficient of the triangular-chain enumerator, so enumeration or minimum cardinality is not presented as new. The submitted uniform endpoint-weighted matching bijection, particular Jacobi path with edge-square weights (1/4,3/4,1,...), and theorem that all nonzero roots for every n>=2 are simple and in (-4,0), together with log-concavity, were not identified in the closely read 2019 and 2022 originals or focused indexed searches. The uniform root conclusion needs a nontrivial structural step beyond reading off any fixed coefficient. Originality is a qualified self-review, not certification; the strong prior generating function is explicitly acknowledged.",
+    "residual_risks": [
+      "The exact prior bivariate generating function already determines all coefficients and can be transformed into the Jacobi identity; the added uniform spectral proof, rather than the enumerator, is the novelty claim.",
+      "A differently titled or unindexed matching/orthogonal-polynomial derivation may exist; semantic and title searches cannot rule this out.",
+      "The 2016 foundational article was not read in full, so no whole-document noncoverage claim is made.",
+      "No independent expert has assessed novelty or mathematical correctness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS all coefficients but no object-specific matching bijection, Jacobi matrix, or real-negative-root theorem identified.",
+        "evidence": [
+          "Theorem 1 gives (1+2uy+u^2 y^2)/(1-uy-u^2y).",
+          "Proof uses two cases for maximal independent sets and a separate auxiliary cactus.",
+          "Text searches for spectral, log-concave and Chebyshev show no occurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.11294v2",
+        "material_read": "Section 2.1, Theorems 1-5 and Table 1; Section 3 proof of Theorem 1, recurrence equations and their generating-function conclusion; searched for matching, real, spectral, log-concave, Chebyshev.",
+        "method": "Original full-text HTML, reading mathematical equations and proof cases.",
+        "title": "Maximal Independent Sets in Polygonal Cacti",
+        "trigger": "Exact same graph family and complete cardinality enumerator; strongest potential overlap."
+      },
+      {
+        "assessment": "COVERS total number and minimum cardinality only, not the all-n root theorem or explicit weighted matching polynomial.",
+        "evidence": [
+          "Theorem 2.1 gives scalar T(u)=(u+u^2)/(1-u-u^2); Corollary 2.2 Fibonacci recurrence.",
+          "Section 2 does not provide a Jacobi path or root factorization."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1910.05272v1",
+        "material_read": "Complete Section 2 and inspected remaining section titles/references, plus searched for roots, real and unimodality.",
+        "method": "Original full-text HTML, reading recurrence proof.",
+        "title": "Counting independent dominating sets in linear polymers",
+        "trigger": "Earlier scalar counting and recurrence on precisely the triangular cactus chain."
+      },
+      {
+        "assessment": "The foundational polynomial predates the eligible window; inspected metadata supports terminology only and cannot establish whole-document noncoverage.",
+        "evidence": [
+          "ArXiv first public 2016-02-26; abstract defines independent domination polynomial."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1602.08250",
+        "material_read": "Abstract, MSC, submission metadata and bibliographic context; no assertions based on uninspected sections.",
+        "method": "Original arXiv abstract metadata, not full-text proof.",
+        "title": "The Independent Domination Polynomial",
+        "trigger": "Foundational definition and general graph polynomial equivalences."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "97bbbc95-22da-44c2-ab1e-aaaa8b1d5294",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural graph-counting polynomial family previously had complete coefficient formulas but not a proved simple-negative-root theorem; the new matching bijection explains its generating function and places every zero in a strict universal interval through explicit weighted-path Jacobi matrices. This yields Newton log-concavity and unimodality for all chain lengths, meaningful information about distribution shape and spectral structure not supplied by the earlier counting table. The case is not an arbitrary small graph or mere recomputation of known coefficients; root geometry is uniform in n.",
+    "status": "PASS"
+  }
+}
