@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For every fixed-\\(p\\) LEFT step, the previous-gradient Rayleigh quotient lies in \\([\\mu,L]\\), hence the actual step length \\(h=p/r\\) puts every modal product \\(h\\lambda\\) in \\([p/\\kappa,p\\kappa]\\). For \\(p\\ge1\\), the largest absolute modal multiplier is at most \\(p\\kappa-1\\), which yields the squared-gradient and objective-gap bounds. The explicit two-dimensional warm-up gives \\(g_1\\) with squared endpoint-component ratio \\(1/\\varepsilon\\) and \\(h_1\\to p/\\mu\\), so both ratios tend to \\((p\\kappa-1)^2\\). Thus the factor and the frontier \\(p\\kappa\\le2\\) are exact.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 BB Lyapunov paper explicitly treats ordinary BB dynamics where objective values and gradient norms need not be monotone, but its stated family is BB1, BB2, and fixed positive weighted delayed Rayleigh rules.",
+        "The closed-cone paper proves convergence and spectral conjugacy for the same in-spectrum weighted Rayleigh family.",
+        "The closest indexed sharp objective result gives the \\((\\kappa-1)^2\\) envelope only for selectors between BB2 and BB1."
+      ],
+      "reasoning": "A positive weighted Rayleigh quotient stays in \\([\\mu,L]\\), whereas fixed-\\(p\\) LEFT uses \\(\\alpha^L=\\alpha^{BB1}/p\\) and can fall below \\(\\mu\\). Therefore the broader BB results do not imply the extended factor or its contracted frontier.",
+      "searches": [
+        "arXiv:2609.12084v1 quadratic Barzilai--Borwein Lyapunov nonmonotone objective gradient",
+        "arXiv:2609.12100v1 weighted delayed Rayleigh Barzilai--Borwein convergence",
+        "Published-result search: Barzilai Borwein longer step p times BB1 exact line search worst case objective factor"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2506.12731v1",
+      "arXiv:2506.12731v2",
+      "arXiv:2609.12084v1",
+      "arXiv:2609.12100v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source's fixed-p theory is asymptotic and local-equilibrium oriented; it does not bound the largest compatible finite-step spike.",
+        "The source itself notes that extending scalars outside the Hessian spectrum can degrade convergence and proposes truncation, but does not identify the exact transient safety boundary.",
+        "The later BB papers do not cover scalar extensions beyond the Rayleigh interval."
+      ],
+      "reasoning": "The new claim sharpens a different implication: it converts the fixed-p scalar range into an exact worst-case finite-step law and then proves attainability under a genuine warm-up. Neither local equilibrium stability nor R-linear convergence controls that transient supremum.",
+      "searches": [
+        "Primary full text: equations (10), (19), (21), LEFT recurrence (22), Theorems 2--3, Section 4 truncation, and conclusion",
+        "arXiv:2609.12084v1 abstract and stated Lyapunov scope",
+        "arXiv:2609.12100v1 abstract and stated weighted-Rayleigh scope"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source defines the fixed-\\(p\\) LEFT scalar as a factor \\(1/p\\) times the BB1 Rayleigh scalar and analyzes its convergence and local equilibrium stability.",
+        "No inspected source states the sharp factor \\((p\\kappa-1)^2\\) or the frontier \\(p\\kappa=2\\) for LEFT."
+      ],
+      "reasoning": "Searches covered the source notation and equivalent formulations involving longer-than-BB1 steps, reciprocal step lengths, one-step spectral amplification, gradient monotonicity, objective monotonicity, and exact-line-search compatible states.",
+      "searches": [
+        "Published-result search: 2506.12731 LEFT fixed p Barzilai Borwein objective monotonicity condition number 2/p",
+        "Published-result search: extended LEFT BB step sharp transient amplification p kappa exact line search",
+        "Public literature search: 2506.12731 objective monotonicity LEFT step condition number",
+        "Public literature search: longer than BB1 step one-step gradient norm objective amplification p kappa"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed record is the BB-interval objective-monotonicity frontier, whose hypothesis restricts the step to the ordinary BB interval.",
+        "The finding is an analytic sharp bound and compatible-state construction, not a recomputation of a numerical experiment."
+      ],
+      "reasoning": "No exact indexed result was found for the source identifier or for the outside-BB1 factor \\(p\\kappa-1\\). The nearest result supplies a useful comparison at \\(p=1\\) but does not dominate the \\(p>1\\) statement.",
+      "searches": [
+        "Published-result search: fixed p LEFT Barzilai Borwein p kappa transient monotonicity",
+        "Published-result search: extended BB LEFT objective amplification exact line search warm-up"
+      ]
+    },
+    "rationale": "The primary full text states the extended LEFT scalar, fixed-p recurrence, local equilibrium analysis, R-linear convergence, and spectral truncation, but it does not give a sharp global one-step amplification envelope or a condition-number monotonicity frontier. The closest indexed sharp BB result covers steps inside the BB1--BB2 interval and therefore does not cover LEFT, which deliberately goes beyond BB1. Recent quadratic BB Lyapunov and homogeneous-dynamics results cover BB1, BB2, and fixed positive spectral-weight Rayleigh rules, whose scalars remain inside the spectral interval.",
+    "residual_risks": [
+      "A mathematically equivalent outside-Rayleigh transient bound may exist in older spectral-gradient literature under different terminology; no source-specific or dominating statement was located.",
+      "Only abstract-level material was accessible for the two September 2026 companion BB papers, although their stated scopes already exclude the scalar LEFT extension.",
+      "The result does not analyze the original angle-dependent \\(p_k\\) rule."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper gives convergence and local equilibrium stability but no sharp compatible-state transient amplification factor or condition-number monotonicity frontier.",
+        "evidence": "The source defines \\(\\alpha_k^L=(1/p)g_{k-1}^{\\mathsf T}Ag_{k-1}/(g_{k-1}^{\\mathsf T}g_{k-1})\\), uses exact steepest-descent initialization in its quadratic experiment, and notes that LEFT scalars can leave the Hessian spectral range.",
+        "identifier_or_url": "arXiv:2506.12731v2",
+        "material_read": "Full public HTML covering the BB definitions, equations (10), (19), and (21), the fixed-p LEFT gradient recurrence, Theorems 2 and 3, the stability discussion, Section 4 spectral truncation, numerical initialization, and the conclusion.",
+        "method": "Public arXiv full-text HTML inspection.",
+        "title": "On Convergence and Stability of Two Extended BB-like Step Sizes",
+        "trigger": "Primary recent source introducing LEFT and the fixed-p stability model."
+      },
+      {
+        "assessment": "Covers BB1, BB2, and fixed positive weighted delayed Rayleigh rules and explicitly notes nonmonotonic objective and gradient behavior, but does not state the outside-BB1 LEFT frontier.",
+        "evidence": "Its stated scope is in-spectrum BB and spectral-weight Rayleigh dynamics rather than a scalar \\(1/p\\) extension below the BB1 scalar.",
+        "identifier_or_url": "arXiv:2609.12084v1",
+        "material_read": "Public abstract and theorem-level summary; the public experimental HTML full text was unavailable during inspection.",
+        "method": "Public arXiv and bibliographic inspection.",
+        "title": "Lyapunov Functions and R-Linear Convergence for Quadratic Barzilai--Borwein Dynamics",
+        "trigger": "Closest recent primary literature on nonmonotone quadratic BB transients and Lyapunov structure."
+      },
+      {
+        "assessment": "Establishes convergence and conjugacy for BB1, BB2, and fixed positive spectral-weight rules; it does not cover the LEFT scaling beyond the Rayleigh spectral interval.",
+        "evidence": "The abstract identifies the covered class as fixed positive spectral-weight variants conjugate to BB1.",
+        "identifier_or_url": "arXiv:2609.12100v1",
+        "material_read": "Public abstract and theorem-level summary.",
+        "method": "Public arXiv and bibliographic inspection.",
+        "title": "R-Linear Convergence of Barzilai--Borwein Methods on Strictly Convex Quadratics via Closed-Cone Homogeneous Dynamics",
+        "trigger": "Recent general convergence framework for compatible quadratic BB states."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9b463f3f-5b09-4850-a808-c9c4f6df2d05",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source promotes a longer-than-BB1 step and interprets \\(p\\in[1.5,2)\\) as a stable regime, while also observing that larger \\(p\\) slows asymptotic convergence and motivating spectral truncation. The sharp law \\((p\\kappa-1)^2\\) exposes the complementary finite-horizon cost: increasing \\(p\\) contracts the exact universal monotonicity window from \\(\\kappa\\le2\\) at BB1 to \\(\\kappa\\le2/p\\). This is a natural parameter-safety boundary for the method, not an arbitrary scalar exercise, and it explains why local asymptotic stability can coexist with very large early spikes.",
+    "status": "PASS"
+  }
+}
