@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The source rule gives \\(\\Delta_1=s(x-b)\\), \\(\\Delta_2=s(x+b)\\), and \\(\\bar\\Delta=sx\\), hence the displayed exact scalar map. The fixed-point derivative is \\(1-s/(2r)\\) on the extrapolation branch, giving the sharp boundary \\(r=s/4\\). Solving \\(T(x)=-x\\) gives \\(x_c^2=b^2(s-4r)/(4-s)\\), and differentiating there gives the stated multiplier whose unit-modulus crossings are exactly the two claimed endpoints. The witness values are checked exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Later work on extrapolated FedProx develops constant and adaptive server-extrapolation theory for smooth convex or strongly convex interpolation problems.",
+        "The later paper identifies FedExP as a prior adaptive extrapolation method but its main framework assumes a common interpolation solution.",
+        "Generic over-relaxation and fixed-point acceleration results use different maps and do not determine the state-dependent FedExP denominator."
+      ],
+      "reasoning": "The present client pair has disjoint local minimizers and exact update cancellation at the global optimum, which is outside the interpolation setting of the closest broader extrapolation theory.",
+      "searches": [
+        "adaptive federated extrapolation cancellation stable two-cycle",
+        "federated extrapolation scalar quadratic exact convergence",
+        "FedExP two client quadratic extrapolation factor exact"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2301.09604v1",
+      "DOI:10.48550/arXiv.2301.09604",
+      "arXiv:2405.13766v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 1 of the defining source gives exactly the server rule specialized in the proof.",
+        "The source's oscillation section uses exact projections onto intersecting solution sets and reports monotone decrease in distance to the common optimum.",
+        "The source's general convex theorem is an averaged-iterate error bound with heterogeneity terms and a conservative local-step condition, not a last-iterate stability theorem.",
+        "The 2024 extrapolation paper focuses its FedExProx theory on interpolation problems."
+      ],
+      "reasoning": "Neither prior result implies a repelling global optimum or an attracting nonzero cycle for the published FedExP rule on disjoint local minimizers. The accepted statement is therefore not a corollary of the reported oscillation or convergence-bound statements.",
+      "searches": [
+        "arXiv:2301.09604 FedExP epsilon denominator oscillations last two iterates",
+        "arXiv:2301.09604 underparameterized convex theorem client step",
+        "arXiv:2405.13766 FedExP extrapolation interpolation gradient diversity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source discusses oscillating loss and last-two-iterate averaging but its worked oscillation example has intersecting solution sets and monotonically decreasing distance to a common optimum.",
+        "The defining source states that the positive denominator constant prevents step-size blow-up and that overly small values need not be beneficial, but gives no exact stability threshold.",
+        "No focused indexed result returned an exact FedExP two-cycle or period-doubling classification."
+      ],
+      "reasoning": "Qualitative oscillation is not implication-equivalent to an attracting nonzero periodic orbit. The accepted statement determines the exact local stability switch and cycle multiplier for the published positive-regularizer rule.",
+      "searches": [
+        "FedExP epsilon stability two client symmetric quadratic period doubling",
+        "FedExP exact two-cycle client update cancellation",
+        "FedExP server epsilon repelling optimum quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed optimization findings concern degree-two extragradient minimax tuning, Aitken-Steffensen contraction robustness, and unrelated extrapolation formulas.",
+        "No indexed FedExP-specific record stated the threshold \\(\\epsilon=s^3b^2/4\\), the cycle formula, or the exact-local-solve witness."
+      ],
+      "reasoning": "The closest indexed recurrences are mathematically different and do not imply the state-dependent federated map. Search absence is supporting evidence only, not a uniqueness proof.",
+      "searches": [
+        "FedExP epsilon stability two client symmetric quadratic period doubling",
+        "FedExP exact two-cycle client update cancellation",
+        "adaptive federated extrapolation cancellation stable two-cycle"
+      ]
+    },
+    "rationale": "The defining FedExP paper already reports oscillating loss, last-two-iterate averaging, blow-up risk when client updates cancel, and empirical sensitivity to the denominator regularizer. The accepted claim does not treat those qualitative observations as novel. Its contribution is the exact underparameterized stability boundary, the attracting nonzero two-cycle, and the exact-local-solve separation from FedAvg. A later extrapolation paper studies FedExProx mainly in the interpolation regime and does not imply this cancellation-driven phase diagram.",
+    "residual_risks": [
+      "A specialized later note on FedExP dynamical systems could contain an equivalent scalar bifurcation calculation under different terminology.",
+      "The source itself already establishes qualitative oscillations, so originality rests on the exact stability threshold and persistent attracting two-cycle rather than on oscillation per se.",
+      "The complete global basin structure of the piecewise rational map is not classified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RULE_AND_QUALITATIVE_OSCILLATION_PRIOR_NOT_COVERING_EXACT_UNDERPARAMETERIZED_PERIOD_DOUBLING.",
+        "evidence": "The paper explicitly warns that cancellation can make the adaptive step large and introduces epsilon for stability, and it documents oscillating loss. Its oscillation example retains monotone distance convergence to a common optimum and does not state the accepted threshold or stable cycle.",
+        "identifier_or_url": "arXiv:2301.09604v2",
+        "material_read": "Full HTML sections containing the generalized FedAvg update, Algorithm 1, the denominator-regularizer discussion, the convex convergence theorem and discussion, the two-client oscillation example, last-two-iterate averaging, and epsilon sensitivity experiments.",
+        "method": "Open-access full-text inspection.",
+        "title": "FedExP: Speeding Up Federated Averaging via Extrapolation",
+        "trigger": "Defining algorithm and closest prior discussion of cancellation, epsilon stabilization, and oscillating iterates."
+      },
+      {
+        "assessment": "BROADER_EXTRAPOLATION_THEORY_IN_INTERPOLATION_REGIME_NOT_COVERING_THE_CANCELLATION_CYCLE.",
+        "evidence": "The paper explicitly focuses on smooth convex or strongly convex interpolation problems; the accepted construction has disjoint client minimizers and a cancellation-induced repelling optimum.",
+        "identifier_or_url": "arXiv:2405.13766v1",
+        "material_read": "Full accessible text covering the abstract, introduction, FedExP comparison, interpolation assumptions, and contributions on constant and adaptive FedExProx extrapolation.",
+        "method": "Open-access full-text inspection.",
+        "title": "The Power of Extrapolation in Federated Learning",
+        "trigger": "Closest later primary work developing broader server-extrapolation theory and directly comparing with FedExP."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6f2b9f5b-731a-4496-accf-71b5bc0143b0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The denominator regularizer is a central practical safeguard in FedExP, and the defining paper already treats its tuning as important. The exact boundary shows what the safeguard must overcome in the simplest cancellation geometry: below a computable scale, the true optimum loses stability and a stable periodic orbit appears. The exact-local-solve witness is especially diagnostic because vanilla FedAvg solves the global problem in one round while the adaptive extrapolation creates persistent oscillation. This supplies a concrete mechanism for regularizer tuning and separates transient source-reported oscillation from genuine last-iterate nonconvergence.",
+    "status": "PASS"
+  }
+}
