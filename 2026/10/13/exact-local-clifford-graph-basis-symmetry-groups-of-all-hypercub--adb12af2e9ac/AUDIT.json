@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Full proof for all d>=1: the graph-state Pauli subspace has pairs (x,Ax). Graph-basis preservation iff diag(c)+diag(e)A+A diag(a)+A diag(b)A=0 and each local determinant ae+bc=1. Hypercube adjacency has 0/2 common neighbors off diagonal, so adjacent edges force a/e parity constants and distance-two pairs force b parity constants, while diagonal entries determine c. The determinant reduces to rw+(d mod2)st=1, exactly 4 or 6 possibilities. Explicit group multiplication and label action follow from the same normalizer. The proof includes boundary d=1 and all binary assignments. Independent exact GF2 verifier reconstructs the 4N-variable system for d=1..5 and checks each full solution; a separate complex statevector script checks all 1624 graph-basis transitions for d=1,2,3. These are corroborations, not finite-to-infinite inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Claudet, arXiv:2511.22271, PDF p33 Eq ΓBΓ’+ΓA+DΓ’+C=0 and AD+BC=I, applies in principle to arbitrary graph pairs.",
+        "Galgano–Holweck, DOI:10.1007/s10231-023-01361-8, Section 3 develops SL(2,F2)^n local-symplectic action; Section 6 studies graph-state orbits.",
+        "published-finding corpus closest published finding about three-ququart stabilizer AME states is a local-Clifford equivalence theorem for 3 ququarts, a different graph-state system and no explicit hypercube classification."
+      ],
+      "reasoning": "The general binary equations are a broader decision criterion and are used in the proof, but substituting a hypercube does not immediately return the evaluated exact group or affine representation. The new contribution solves the entire 4N-variable equation by a distance-two connectivity argument and imposes the nonlinear local determinant constraints, producing a closed parity-dependent classification. The earlier general methods imply the feasibility test and enable a computation in principle, but do not directly assert the exact parameterization and counts. Other broader code-theoretic characterizations could be equivalent; this remains a priority risk.",
+      "searches": [
+        "published-finding corpus: Hypergraph quantum Q_d adjacency square modulo two Clifford self-equivalences canonical graph basis automorphisms",
+        "Web: \"qubit graph state\" \"local Clifford stabilizer\" \"automorphism group\"",
+        "Web: \"local symmetries\" \"graph states\" \"Clifford\" \"hypercube\"",
+        "Claudet arXiv:2511.22271 Section 2.5.3 and 2.5.4, symplectic equation and local complementations",
+        "Galgano and Holweck DOI:10.1007/s10231-023-01361-8 Sections 3 and 6, symplectic local Clifford orbits"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.23809v1",
+      "arXiv:2511.22271v1",
+      "doi:10.1007/s10231-023-01361-8",
+      "arXiv:2605.30428v1",
+      "published-finding corpus nearest published finding about three-ququart stabilizer AME states (three-ququart AME local-Clifford equivalence)",
+      "published-finding corpus nearest published finding about hypercube Vietoris-Rips complexes (Vietoris–Rips cube complexes)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang et al. 2026 derive six homogeneous H gates for bipartite graph-state purification in a two-copy setting and mention additional Q3 symmetries; this does not give the one-copy all-hypercube stabilizer group.",
+        "Claudet 2025 gives an applicable general solvability equation, not the solved 4-dimensional linear solution space or determinant-one count for every Q_d.",
+        "Galgano–Holweck 2023 supplies the general finite group action but not the exact stabilizer subgroup and label representation for Q_d.",
+        "Nation et al. 2026 identify Hamiltonian-Liouvillian Clifford symmetries, not fixed graph-basis one-copy automorphisms."
+      ],
+      "reasoning": "Known statements establish the symplectic framework and the existence of some special graph-state symmetries. A generic existence/equivalence algorithm is not an explicit evaluated all-d classification: the decisive new graph-theoretic calculation uses the Q_d two-common-neighbor property to force just four binary parameters and the determinant to leave 6 or 4 patterns. This precise implication comparison, rather than matching titles or numerical counts, supports the assessed originality while leaving the possibility of hidden equivalent code-theoretic results.",
+      "searches": [
+        "Full text comparison arXiv:2606.23809v1 Sec III C, graph-preserving H/B operations and cube exception",
+        "Full text comparison arXiv:2511.22271v1 Sec 2.5.3–2.5.4, binary symplectic criterion",
+        "Full text comparison DOI:10.1007/s10231-023-01361-8 Sections 3 and 6, local group actions",
+        "Full text comparison arXiv:2605.30428v1 Sec I–II, Hamiltonian Pauli symmetries",
+        "published-finding corpus: Quantum hypercube graph state exceptional local Clifford transversal symmetries S3 Klein four group bipartition arbitrary local gates"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest among retrieved: published finding about three-ququart stabilizer AME states treats three-ququart stabilizer AME states, not hypercube graph-basis automorphisms.",
+        "Wang et al., arXiv:2606.23809v1, Sec III C pp10-11, describes an exceptional cube symmetry but no six-versus-four all-dimension one-copy classification.",
+        "Claudet, arXiv:2511.22271, Sec 2.5.3-2.5.4 pp33-36, gives the general binary equation rather than an explicit hypercube group calculation."
+      ],
+      "reasoning": "The equivalences searched include Pauli-corrected local Clifford symmetries, binary symplectic automorphisms, graph-basis label permutations, hypercube graph states, and transversal gates. The general symplectic necessary-and-sufficient constraint is already known and explicitly acknowledged. Neither the inspected sources nor the retrieved abstract-level findings state the finite-field all-hypercube group isomorphic to S3 for odd d or V4 for even d together with its label action. Search incompleteness is an explicit residual risk.",
+      "searches": [
+        "published-finding corpus: Complete local Clifford graph-basis automorphism group of hypercube graph states Q_d, parity depending on d, six or four projective local Clifford symplectic patterns",
+        "published-finding corpus: Quantum hypercube graph state exceptional local Clifford transversal symmetries S3 Klein four group bipartition arbitrary local gates",
+        "Web: \"hypercube graph state\" \"Clifford\" \"symmetry\" Pauli",
+        "Web: \"graph states\" \"local Clifford\" \"self-equivalence\" \"hypercube\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wang et al., arXiv:2606.23809v1, Sec III C p11 explicitly discusses cube Q3 as an exceptional symmetry example but provides no table of all single-copy local-Clifford patterns.",
+        "published-finding corpus nearest published finding about hypercube Vietoris-Rips complexes studies Vietoris–Rips cube complexes, not graph-basis Clifford symmetries.",
+        "Earlier tables of graph-state local Clifford orbits (Galgano–Holweck) are orbit-level objects rather than complete automorphism groups of every labelled hypercube."
+      ],
+      "reasoning": "The requested exact object is a dimension-indexed family of local Clifford stabilizer groups, not the ordinary graph automorphism group or a finite list of small graph-state LC orbit representatives. Neither the checked tables nor retrieved mathematical findings provide the 6/4 phase law. An unavailable or unindexed table remains possible, so absence in the searches is not treated as a novelty proof.",
+      "searches": [
+        "published-finding corpus: Complete local Clifford graph-basis automorphism group of hypercube graph states Q_d, parity depending on d, six or four projective local Clifford symplectic patterns",
+        "published-finding corpus: Uniform Clifford on bipartite hypercube graph basis Hadamard HSH involution order-three symmetry",
+        "Web: \"cube graph state\" \"local Clifford\" \"all\" \"symmetry\"",
+        "Web: \"Q_3\" \"graph state\" \"symmetry\" \"S3\" Clifford"
+      ]
+    },
+    "rationale": "The 2026 motivating source isolates exceptional Q3 graph-state Clifford symmetries but does not classify the full one-copy, all-d hypercube graph-basis local Clifford stabilizer. General prior binary-symplectic solvability equations (Claudet; Galgano–Holweck) are credited; solving their hypercube specialization uses the nontrivial common-neighbor and bipartite connectivity structure to derive a four-parameter exact space, an odd-even S3/V4 dichotomy, and faithful affine label action. Targeted published-finding corpus and primary literature searches did not identify equivalent closed coverage. Risk: an unindexed code-theoretic classification may already imply this exact evaluated result; novelty is not claimed as a proven global negative.",
+    "residual_risks": [
+      "The exact hypercube specialization may exist in unpublished, unindexed, or non-English code-theoretic literature.",
+      "A general earlier graph-state orbit algorithm can in principle evaluate the same invariants for fixed d, although it does not explicitly report the all-dimensional formula.",
+      "published-finding corpus semantic retrieval is not exhaustive and does not expose private or unpublished research."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines a tractable H/B two-copy family, not a full one-copy graph-basis Clifford automorphism group; names Q3 special cases and an open systematic classification problem.",
+        "evidence": [
+          "arXiv:2606.23809v1 pp2,5,10–11,14,17–19; p11 Q3 exception, p14 future-work classification"
+        ],
+        "identifier_or_url": "arXiv:2606.23809v1; https://arxiv.org/pdf/2606.23809",
+        "material_read": "Abstract; Sections II–IV including pp2–11 and the example on p11; conclusions p14; the relevant graph-preserving proof and tables in Appendix C pp17–19",
+        "method": "Full open-access PDF text and relevant rendered pages",
+        "title": "Efficient Graph State Purification with Factorized Graph-Preserving Operations across Local Clifford Orbits",
+        "trigger": "Direct 2026 source addressing graph-preserving Clifford operations and explicitly exceptional cube symmetries"
+      },
+      {
+        "assessment": "Proves a broad graph-state equivalence criterion used as a premise here; does not evaluate the hypercube stabilizer subgroup or its parity law.",
+        "evidence": [
+          "arXiv:2511.22271 p33 Eq ΓBΓ’+ΓA+DΓ’+C=0 and AD+BC=I; pp35–36 Clifford interpretation"
+        ],
+        "identifier_or_url": "arXiv:2511.22271; https://arxiv.org/pdf/2511.22271",
+        "material_read": "Full text of the relevant Section 2.5, pp32–36, in a 116-page thesis; inspected the equations and Clifford lifting correspondence; also read abstract and contributions",
+        "method": "Open-access PDF text and rendered p33",
+        "title": "Local Equivalences of Graph States",
+        "trigger": "Generic necessary-and-sufficient binary equations could dominate the entire symmetry claim"
+      },
+      {
+        "assessment": "Establishes local SL(2,F2)^N group actions and graph-state orbit theory, without the evaluated Q_d subgroup size and label action.",
+        "evidence": [
+          "DOI:10.1007/s10231-023-01361-8 Sections 3,6; no hypercube-specific theorem located"
+        ],
+        "identifier_or_url": "DOI:10.1007/s10231-023-01361-8; https://link.springer.com/article/10.1007/s10231-023-01361-8",
+        "material_read": "Open-access HTML abstract, main results, Sections 3 and 6 describing local-Clifford orbit actions; searched within full HTML text for hypercube and automorphism",
+        "method": "Publisher full-text HTML, targeted text search and comparison",
+        "title": "Graph states and the variety of principal minors",
+        "trigger": "Potentially broader classification of graph-state local symplectic stabilizers"
+      },
+      {
+        "assessment": "Concerns Clifford symmetries of Pauli Hamiltonians and open-system Liouvillians, where graph vertices represent Hamiltonian terms. It is not a classification of Q_d graph-basis local tensor automorphisms.",
+        "evidence": [
+          "arXiv:2605.30428v1 abstract and Sections I–II"
+        ],
+        "identifier_or_url": "arXiv:2605.30428v1; https://arxiv.org/pdf/2605.30428",
+        "material_read": "Open-access PDF abstract and introduction pp1–2, symplectic representation in Section II, overview of Hamiltonian and Liouvillian symmetry algorithm",
+        "method": "PDF text plus rendered title page",
+        "title": "Graph automorphisms to obtain Clifford symmetries in open and closed qudit models",
+        "trigger": "Title contains Clifford symmetries and graph automorphisms; a potentially covering general method"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "adb12af2-e9ac-418f-b52f-60e84e976e2c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact classification determines a naturally motivated symmetry resource for all hypercube graph states, including a parity-dependent nonabelian-to-abelian transition and a complete affine action on graph-basis labels. It advances an exceptional-Q3 example highlighted in recent purification literature to all hypercube dimensions and excludes every other possible one-qubit Clifford pattern. It gives a closed constant-size symmetry search and is meaningful independently of any unproved distillation advantage; no arbitrary parameter slice or routine table recomputation is required.",
+    "status": "PASS"
+  }
+}
