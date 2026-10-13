@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary \\(r\\ge3\\) and a nonsingleton part, rotating at x gives xUxV and forces the two outside sequences to preserve relative order across parts but reverse it within parts. Interleaving a same-part pair with another part is contradictory, so every part is one block. Remaining same-part letters in U/V must bracket all outside letters and nest, giving a block-normal rotation. The converse follows by checking two-letter projections. All normal words are primitive because an N-period word would represent only a clique, and precisely 2r block-boundary cuts form normal starts; this yields both factorial counts. Actual verify.py enumerates all canonical words for n=2..7 and eight exact labeled profiles, but finite tests are supporting evidence only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mozhui–Krishna 2023 Theorem 2.1 characterizes the class of graphs admitting representations by two permutations, an existence claim not a count of all 2-uniform words.",
+        "Fleischmann–Haschke–Löck–Nowotka 2024 analyze rotations and locally constrained words, not this graph-family-specific cyclic normal form.",
+        "The 2021 Mozhui–Krishna bipartite construction concerns two-part graphs, so has no three-part implication without a new compatibility argument."
+      ],
+      "reasoning": "A generic existence or rotation-invariance theorem neither forces all representing words into a global block normal form nor counts labeled words. The broader family r≥3 is not covered by the two-part special case; the proof independently establishes the crucial interpart compatibility.",
+      "searches": [
+        "arXiv:2307.00301 full HTML section 2 and all sections",
+        "arXiv:2109.03458 full HTML methods and complete bipartite example",
+        "DOI:10.1007/s00236-024-00462-y full OA article (word rotations, local words)",
+        "\"complete multipartite\" \"circle graphs\" \"chord\" \"representations\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2307.00301v2 primary full HTML",
+      "arXiv:2109.03458v1 primary full HTML",
+      "DOI:10.1007/s00236-024-00462-y primary full OA HTML",
+      "arXiv:2402.14426v1 abstract",
+      "DOI:10.1016/j.disc.2018.02.015 abstract",
+      "Own historical labeled Kmn theorem 4913b04e-21bb-4c30-8e70-2e3cf9f3ddf3",
+      "Semantic comparison of published complete-multipartite graph invariants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own earlier theorem 4913b04e-21bb-4c30-8e70-2e3cf9f3ddf3 says every two-part Kmn representation is ABA^RB^R and counts (m+n)m!n!; this is intentionally not reprised as new.",
+        "Nakamigawa–Sakuma 2018 abstract defines chord expansion number as a multiset count of expansion histories ending at nonintersecting diagrams, related to a Tutte polynomial evaluation. The target count is the cardinality of distinct chord diagrams with a specified crossing graph, not expansion histories of one diagram."
+      ],
+      "reasoning": "Specializing the current normal form to two parts implies the older Kmn result, but the converse does not force compatibility between three or more parts or the r-dependent cyclic symmetry count. The Tutte expansion number is a different quantity and does not imply this count from its stated abstract. An inaccessible full text may still contain a related lemma; priority risk is acknowledged.",
+      "searches": [
+        "own ledger claims keyword multipartite complete bipartite 2-uniform chord diagram",
+        "complete bipartite graph 2 uniform word representation ABA reversed B reversed cyclic uniqueness",
+        "Nakamigawa Sakuma expansion chord diagrams Tutte polynomial complete multipartite number representations circle graph 2018"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Complete multipartite alternation is equivalent to a double-occurrence chord diagram whose crossing graph is a complete multipartite graph; primary arXiv:2307.00301 establishes the circle-graph viewpoint, not a cyclic form census.",
+        "Closest own earlier comparison: 4913b04e-21bb-4c30-8e70-2e3cf9f3ddf3 proves only the two-part case."
+      ],
+      "reasoning": "The chord-diagram and 2-uniform word languages are equivalent for this question; searching either formulation did not identify the all-partite classification. A two-part cyclic normal form does not imply that pairwise choices across three or more parts agree with one common cyclic part order. No proof of absolute priority is claimed.",
+      "searches": [
+        "Every 2-uniform word realizing a complete tripartite or multipartite alternation graph has cyclic block-reversal normal form and number of representations N (r-1)! product part-factorials",
+        "\"complete multipartite\" \"circle graphs\" \"chord\" \"representations\"",
+        "\"complete multipartite\" \"double occurrence\" reversal normal form"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic-index records concerned unrelated complete-multipartite domination or general-position invariants, not enumeration of representing words.",
+        "The recorded bipartite theorem gives r=2 counts but not a table of the r≥3 values.",
+        "Published chord-diagram enumerations without loops or parallel chords count structural restrictions, not the fixed graph-intersection fiber addressed here."
+      ],
+      "reasoning": "No exact value table, sequence, or database hit located for the formula under the fixed-partite crossing-graph condition. This is limited negative evidence, not a uniqueness certificate.",
+      "searches": [
+        "Complete multipartite graph K n1 n2 nr every 2-uniform representing word up to cyclic rotation group permutations and reversal normal form A1 A2 ... Ar A1^R A2^R ... Ar^R, exact count of cyclic words",
+        "circle graph double occurrence words complete multipartite canonical normal forms enumeration cyclic representations",
+        "\"complete multipartite\" \"double occurrence words\" enumerated"
+      ]
+    },
+    "rationale": "The inspected published source statements concern existence of two-permutation representations, bipartite constructions, general word rotations, or chord-expansion histories. An earlier recorded theorem covers only K_{m,n}; the new r>=3 block compatibility, universal normal form and factorial labeled/cyclic enumeration are not its corollaries. Comparisons with prior statements and primary literature revealed no stronger covering result. Potential unindexed equivalent work and unavailable Nakamigawa–Sakuma full text remain residual risks.",
+    "residual_risks": [
+      "The Nakamigawa–Sakuma chord-expansion article has an inaccessible relevant full text; its abstract concerns a different invariant but a related lemma might occur inside.",
+      "Equivalent cyclic-form theorems could be present in an unindexed circle-graph/double-occurrence classification or unpublished research.",
+      "Negative literature searches and one previously known two-part case do not prove absolute originality or independence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: equivalence of graph families admitting two-permutation words does not classify or count all two-uniform representations for the complete multipartite family.",
+        "evidence": [
+          "arXiv:2307.00301 HTML section 2, Theorem 2.1",
+          "Sections 3–7 address trees, even cycles, and book graphs."
+        ],
+        "identifier_or_url": "arXiv:2307.00301v2 / https://arxiv.org/html/2307.00301v2",
+        "material_read": "Full accessible HTML introduction, two-permutation characterization, subsequent family results, conclusions, appendices and references",
+        "method": "Read primary full HTML and checked the exact implication of Theorem 2.1, not just the abstract",
+        "title": "Words for the Graphs with Permutation-Representation Number at most Three",
+        "trigger": "Same definitions; permutation-word characterization could subsume normal form"
+      },
+      {
+        "assessment": "NOT_COVERING: construction/bounds for bipartite graphs cannot assert a universal r>=3 cyclic block classification.",
+        "evidence": [
+          "Bipartite graph permutation construction, arXiv:2109.03458."
+        ],
+        "identifier_or_url": "arXiv:2109.03458v1 / https://arxiv.org/abs/2109.03458",
+        "material_read": "Full accessible arXiv HTML, including complete bipartite constructions, algorithmic statements and references",
+        "method": "Inspected motivating construction and compared two-part implications",
+        "title": "On the Representation Number of Bipartite Graphs",
+        "trigger": "Bipartite case is the exact earlier boundary"
+      },
+      {
+        "assessment": "NOT_COVERING: rotation and word-family results do not state this per-graph cyclic enumeration.",
+        "evidence": [
+          "Fleischmann et al. 2024 sections on conjugates/rotations; no fixed complete multipartite normal form."
+        ],
+        "identifier_or_url": "DOI:10.1007/s00236-024-00462-y / Acta Informatica 61 (2024)",
+        "material_read": "Full OA HTML article, including rotation analysis and the treatment of local words",
+        "method": "Compared specified represented graphs and rotation statements, searched multipartite and bipartite text",
+        "title": "Word-representable graphs from a word’s perspective",
+        "trigger": "Studies rotation of words and structure of represented graphs"
+      },
+      {
+        "assessment": "NONDECISIVE_DIFFERENT_DOMAIN: complete-graph word counts and square-freeness do not directly imply this cyclic multipartite normal form.",
+        "evidence": [
+          "arXiv:2402.14426 abstract explicitly identifies complete-graph counting rather than complete multipartite enumeration."
+        ],
+        "identifier_or_url": "arXiv:2402.14426v1 / https://arxiv.org/abs/2402.14426",
+        "material_read": "Primary abstract, author/date and result overview; full text not required for noncomplete multipartite comparison",
+        "method": "Compared its enumerand of square-free complete-graph words with the fixed noncomplete multipartite target",
+        "title": "Square-free Word-representation of Word-representable Graphs",
+        "trigger": "Counts representations of complete graphs, an extreme parameter boundary"
+      },
+      {
+        "assessment": "DISTINCT_STATED_OBJECTIVE_WITH_UNRESOLVED_FULL_TEXT: abstract describes Tutte-polynomial chord-expansion number, not a fixed graph realization count. Full text could contain related structural results and cannot be certified noncovering.",
+        "evidence": [
+          "Abstract defines f(E) as the cardinality of the multiset of resulting nonintersecting diagrams under expansions, and mentions complete multipartite chord diagrams."
+        ],
+        "identifier_or_url": "DOI:10.1016/j.disc.2018.02.015",
+        "material_read": "Accessible abstract and bibliographic material only; complete article unavailable",
+        "method": "Compared stated expansion-history invariant with enumeration of all diagrams realizing a fixed intersection graph",
+        "title": "The expansion of a chord diagram and the Tutte polynomial",
+        "trigger": "Title and indexing mention complete multipartite chord diagrams, a potentially equivalent geometric formulation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "827b2c31-84a2-47f1-8f5d-4f3f86e89b9d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a natural standard graph-word object, the theorem fully determines the entire fiber of all twice-uniform representations of every noncomplete complete multipartite labeled graph with at least three parts, as well as its exact cyclic orbit cardinality. Compatibility of every two-part projection with a single common cyclic part order is a genuine global structural constraint not implied by the previously known bipartite case. The all-parameter classification and exact labeled counts are directly useful as reference cases for recognition/enumeration and circular-chord representation analyses; no unsupported broader application is claimed.",
+    "status": "PASS"
+  }
+}
