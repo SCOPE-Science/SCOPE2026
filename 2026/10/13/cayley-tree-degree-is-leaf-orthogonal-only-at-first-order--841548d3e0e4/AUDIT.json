@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The Prüfer code converts the model exactly to n-2 iid uniform allocations over n labels. A fixed degree minus one is the occupancy of its label and the total leaf count is the number of empty labels. Separating the distinguished empty-label term from the other n-1 terms yields the mixed pgf, and ordered marked-position counting yields the factorial covariance formula. The sign and asymptotic claims follow by elementary exact inequalities and expansions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aldous studies leaves and vertex degrees of uniform spanning trees and specializes degree asymptotics to uniform labeled trees.",
+        "Steele studies the total leaf count in a uniform random tree and proves a central limit theorem.",
+        "Addario-Berry--Broutin--Holmgren use the uniform rooted labeled tree as an exact finite probabilistic object.",
+        "Wagner develops broad limit theorems for random tree parameters and is classified primarily under 60C05."
+      ],
+      "reasoning": "These works provide broader marginal and asymptotic random-tree theory. The accepted claim is a finite joint identity for one fixed degree and total leaf count; the inspected statements do not imply its exact first-order cancellation without an additional joint Prüfer calculation.",
+      "searches": [
+        "DOI:10.1137/0403039",
+        "DOI:10.1017/S0269964800000279",
+        "arXiv:1110.6455",
+        "DOI:10.1017/S0963548314000443"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1137/0403039",
+      "DOI:10.1017/S0269964800000279",
+      "arXiv:1110.6455",
+      "DOI:10.1017/S0963548314000443",
+      "own:d9ddfb06-a9ae-475b-b82b-91fd6636a31c",
+      "own:93dddb2b-e813-462d-92a4-c37eb46618e6",
+      "own:728baaf3-901d-4295-ab09-45de24220a79"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior own uniform-labeled-tree result d9ddfb06-a9ae-475b-b82b-91fd6636a31c concerns distance between two fixed vertices jointly with one degree, not total leaves.",
+        "The prior own occupancy result 93dddb2b-e813-462d-92a4-c37eb46618e6 concerns total occupied-box count jointly with counts of boxes of occupancy r, not a fixed box's factorial occupancy.",
+        "The current-week recursive-tree result 728baaf3-901d-4295-ab09-45de24220a79 concerns a different growth model and an age-dependent degree/leaf phase transition."
+      ],
+      "reasoning": "Although Prüfer coding makes the new proof an occupancy calculation, the own aggregate occupancy theorem does not directly state the local factorial covariance. The accepted tree claim also contains the nonmonotone conditional leaf profile and exact first-order cancellation, which are absent from the checked own claims.",
+      "searches": [
+        "own ledger uniform labeled tree degree leaves",
+        "own occupancy K K_r covariance",
+        "own uniform Cayley tree distance degree",
+        "own recursive tree leaf degree covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic searches returned random-tree degree/leaf marginal work and general occupancy results, but no record stating the fixed-vertex degree versus total-leaf covariance hierarchy.",
+        "Targeted web searches located classical Prüfer facts and leaf-count literature but not the exact zero first covariance plus positive higher factorial covariances."
+      ],
+      "reasoning": "Queries covered Cayley/uniform-labeled-tree terminology, Prüfer/occupancy aliases, fixed degree, total leaves, covariance, and factorial moments. Search failure is not treated as a novelty proof; the decision rests mainly on statement-level comparison with the closest full text and own ledgers.",
+      "searches": [
+        "uniform Cayley tree degree leaf count covariance Prufer",
+        "random labelled tree degree leaves covariance",
+        "Prufer sequence occupancy empty boxes degree leaf covariance",
+        "uniform random tree factorial degree moments leaves",
+        "uniform labelled tree number of leaves degree covariance Prüfer",
+        "random labeled tree leaves degree covariance Prufer sequence",
+        "Cayley tree leaves degree covariance random",
+        "random tree Prüfer sequence leaves degree moments covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact literature record matching Cov(D_v,L)=0 together with the displayed all-order factorial covariance formula was located."
+      ],
+      "reasoning": "The theorem is symbolic for every n and every factorial order r in range; the finite enumeration is only a replay check and not a table-derived result.",
+      "searches": [
+        "\"degree\" \"number of leaves\" random labelled tree covariance",
+        "\"Cov\" degree leaves Cayley tree",
+        "\"Prüfer\" leaves degree covariance",
+        "\"factorial\" degree leaves random tree covariance"
+      ]
+    },
+    "rationale": "The closest inspected full random-tree source treats leaf probabilities and degree distributions separately. The closest own occupancy result concerns aggregate occupied-box and occupancy-class counts rather than one fixed occupancy against empty-box count. No inspected source states the exact degree-leaf orthogonality together with the positive all-higher-factorial hierarchy.",
+    "residual_risks": [
+      "Classical balls-in-boxes literature may contain the fixed-box/empty-box factorial covariance in an equivalent occupancy notation.",
+      "Older labeled-tree enumeration work may encode the mixed moment through a multivariate degree-and-leaf generating function.",
+      "The novelty claim is the explicit tree-level orthogonality/nonindependence contrast and the all-order factorial hierarchy, not the Prüfer degree rule or the marginal leaf asymptotics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "LEAF_AND_DEGREE_MARGINALS_NOT_FIXED_DEGREE_TOTAL_LEAF_MIXED_LAW",
+        "evidence": "The source explicitly studies leaf probabilities and degree distributions, and notes that for complete graphs the specified-vertex degree has the exact binomial law. The inspected text does not state the accepted mixed covariance or factorial hierarchy.",
+        "identifier_or_url": "DOI:10.1137/0403039",
+        "material_read": "Full public PDF: abstract and introduction; Section 3 on leaves; Sections 4--5 on degrees; Proposition 10 and the complete-graph comment.",
+        "method": "Compared whether the source forms a joint statistic between one specified vertex degree and the total number of leaves, or only studies the two marginals separately.",
+        "title": "The Random Walk Construction of Uniform Spanning Trees and Uniform Labelled Trees",
+        "trigger": "Closest classical source simultaneously discussing leaves and degrees for uniform spanning trees and the uniform labeled-tree specialization."
+      },
+      {
+        "assessment": "TOTAL_LEAF_DISTRIBUTION_CONTEXT_NOT_FIXED_VERTEX_JOINT_LAW",
+        "evidence": "The abstract states an exponential-family embedding of the uniform model and a central limit theorem for the number of leaves. No distinguished vertex degree appears in the accessible stated result.",
+        "identifier_or_url": "DOI:10.1017/S0269964800000279",
+        "material_read": "Accessible abstract, bibliographic information, and references.",
+        "method": "Compared the stated leaf-count result with the distinguished-vertex degree/leaf mixed law.",
+        "title": "Gibbs' Measures on Combinatorial Objects and the Central Limit Theorem for an Exponential Family of Random Trees",
+        "trigger": "Classical source centered on the total number of leaves in the uniform random-tree model."
+      },
+      {
+        "assessment": "UNIFORM_LABELED_TREE_OBJECT_DIFFERENT_OBSERVABLE",
+        "evidence": "The source explicitly uses uniformly random rooted labeled trees, equivalently conditioned Poisson Galton--Watson trees, but studies random cutting statistics rather than leaf-degree covariance.",
+        "identifier_or_url": "arXiv:1110.6455",
+        "material_read": "ArXiv abstract and bibliographic metadata.",
+        "method": "Used to anchor the archive-era random labeled-tree probability literature and compared its cutting observable with the accepted degree/leaf observable.",
+        "title": "Cutting down trees with a Markov chainsaw",
+        "trigger": "Archive-era public probability source using uniformly random rooted labeled trees as an exact finite model."
+      },
+      {
+        "assessment": "PRIMARY_60C05_RANDOM_TREE_CONTEXT_NOT_ACCEPTED_FINITE_IDENTITY",
+        "evidence": "The publisher lists Primary 60C05 and treats general random-tree parameters across several tree models. Its stated scope does not give the fixed-vertex degree versus total-leaf covariance formula.",
+        "identifier_or_url": "DOI:10.1017/S0963548314000443",
+        "material_read": "Publisher abstract, classification, scope statement, and reference list.",
+        "method": "Used to verify probability-slot ownership and compare broad random-tree parameter limit theory with the finite exact Prüfer identity.",
+        "title": "Central Limit Theorems for Additive Tree Parameters with Small Toll Functions",
+        "trigger": "Archive-era random-tree probability source with verified primary MSC 60C05."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "841548d3-e0e4-45ea-952e-f8eacd8b612d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A fixed vertex degree and the total leaf count are canonical local and global observables of a uniform labeled tree. The exact zero linear covariance is structurally surprising because the conditional mean is visibly nonconstant; the factorial hierarchy shows precisely how dependence survives beyond first order. The limiting constants give a compact quantitative signature rather than a routine marginal recomputation.",
+    "status": "PASS"
+  }
+}
