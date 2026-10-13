@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The source's defining set and Gray-coordinate formula reconstruct two \\(48\\)-column blocks \\(V\\setminus S_1\\) and \\(V\\setminus S_2\\) in \\(V=\\mathbb F_2^6\\), with \\(\\dim S_1=\\dim S_2=4\\) and \\(\\dim(S_1\\cap S_2)=3\\). For an \\(r\\)-subcode with annihilator \\(W\\), zero positions are exactly the columns in \\(W\\), giving support \\(96-2^{7-r}+2^{\\dim(W\\cap S_1)}+2^{\\dim(W\\cap S_2)}\\). Grassmann lower bounds plus explicit simultaneous witnesses prove the hierarchy. Exhaustive RREF enumeration of all \\(2824\\) positive-dimensional message subspaces gives the full spectra, and direct generator supports agree with the structural formula in every case. The \\(r=1\\) spectrum reproduces the source enumerator exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pan--Chen--Liu--Liu Theorem 3.3 uses a chain U_1 subset U_2 subset ... with strictly increasing dimensions and constructs generator blocks by deleting those nested projective subspaces from simplex copies.",
+        "The present generator requires two distinct deleted 4-spaces with 3-dimensional intersection; neither contains the other.",
+        "The public abstract of Xie--Chen--Ding--Li concerns projective antiGriesmer bounds, simplex complementary codes, and several optimal families; no exact [96,6,48] match was found."
+      ],
+      "reasoning": "The strongest directly inspectable SSWD theorem is structurally inapplicable. The abstract-only 2026 comparison is retained as a residual risk rather than being treated as proof of noncoverage.",
+      "searches": [
+        "Optimal Few-GHW Linear Codes and Their Subcode Support Weight Distributions nested subspaces",
+        "modified Solomon-Stiffler subcode support weight distributions two deleted subspaces",
+        "AntiGriesmer Bounds Optimal Codes subcode support weight distributions 96 6 48",
+        "simplex complementary code subcode support distribution [96,6,48]"
+      ]
+    },
+    "checked_sources": [
+      "Yadav--Tiwari--Sarma, arXiv:2609.11783v1",
+      "Pan--Chen--Liu--Liu, arXiv:2408.10005 and DOI 10.1109/TIT.2024.3519672",
+      "Xie--Chen--Ding--Li, DOI 10.1109/TIT.2026.3665706",
+      "Public binary optimal-code table for length 96, dimension 6",
+      "Research-record searches for [96,6,48], exact hierarchy, Gray-image aliases, generalized Hamming weights, and subcode-support distributions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's ordinary enumerator determines only the one-dimensional subcode distribution.",
+        "Higher-dimensional subcode supports depend on intersections of annihilators with both deleted 4-spaces and are not implied by the ordinary weight enumerator.",
+        "The Pan et al. theorem assumes strict nesting of the deleted subspaces; two equal-dimensional distinct 4-spaces cannot satisfy that hypothesis."
+      ],
+      "reasoning": "The higher spectra require new incidence information. They are neither a wording variant of the source ordinary enumerator nor a special case of the inspected nested-subspace SSWD theorem.",
+      "searches": [
+        "arXiv 2609.11783 Example 4.4 weight enumerator 58 4 1",
+        "Pan Chen Liu Liu Theorem 3.3 simplex deleted nested subspaces",
+        "96 6 48 near-Griesmer code subcode support weight distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source identifies Example 4.4 as a [96,6,48] binary Gray-image code and gives only its ordinary three-weight enumerator.",
+        "No inspected exact-parameter, exact-hierarchy, or construction-alias search returned the higher-dimensional spectra."
+      ],
+      "reasoning": "The queries cover the source identifier, exact parameters, exact hierarchy, Gray-image origin, and the equivalent two-deleted-subspace geometry.",
+      "searches": [
+        "arXiv 2609.11783 Example 4.4 generalized Hamming weights",
+        "[96,6,48] binary code generalized Hamming weights",
+        "Gray image simplicial complex A={1,2} B={1,3} subcode support weight distribution",
+        "two deleted 4-subspaces binary simplex support distribution",
+        "48 72 84 90 94 96 generalized Hamming hierarchy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The public optimal-code table confirms distance 48 is optimal for binary length 96 and dimension 6 but supplies no generalized-weight hierarchy or subcode-support multiplicities.",
+        "No exact table or indexed record located the spectra (72:504,76:112,80:33,88:2) or the higher-dimensional analogues."
+      ],
+      "reasoning": "Distance-optimality tables cannot determine incidence among codeword supports, so they do not imply the new higher-support data.",
+      "searches": [
+        "binary [96,6,48] code table generalized Hamming weights",
+        "[96,6,48] subcode support weight distribution",
+        "minimum support subcodes [96,6,48] code"
+      ]
+    },
+    "rationale": "The primary article gives only ordinary weights for Example 4.4 and has no generalized-Hamming-weight or subcode-support discussion. The most relevant full-text SSWD construction found in prior literature requires deletion of a strictly nested chain of projective subspaces with strictly increasing dimensions; the present two deleted 4-spaces are distinct, non-nested, and intersect in dimension 3. Exact searches by source identifier, [96,6,48] parameters, hierarchy, Gray-image aliases, and support-distribution language found no same-object statement. A 2026 antiGriesmer paper remains a named residual risk because only its public abstract was available, but exact-parameter searches did not identify this code and its advertised framework centers on projective/simplex-complementary constructions whereas this generator is nonprojective.",
+    "residual_risks": [
+      "The full text of the 2026 antiGriesmer paper was not available in the inspected public sources, so a hidden equivalent specialization there cannot be ruled out solely from its abstract.",
+      "An unindexed computation could contain the same finite higher-support census.",
+      "No general theorem for all source-family parameters is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ORDINARY_WEIGHT_COVERAGE_ONLY",
+        "evidence": "Example 4.4 gives [96,6,48], the ordinary enumerator 1+58 z^48+4 z^56+z^64, and distance optimality; the full text contains no generalized-Hamming or subcode-support statement.",
+        "identifier_or_url": "arXiv:2609.11783v1",
+        "material_read": "First page and MSC metadata; CD construction and Gray coordinate weight formula in Section 2.4; Theorem 3.3 defining D as the complement of Delta_A+u Delta_B; Theorem 4.3; full Example 4.4; full-text searches for generalized Hamming and subcode support.",
+        "method": "public full PDF with relevant pages visually inspected",
+        "title": "Linear Codes over F_q+uF_q associated with Simplicial Complexes, Their Gray Images, and Subfield Codes",
+        "trigger": "Primary source defining the exact [96,6,48] code."
+      },
+      {
+        "assessment": "NOT_COVERING_DIFFERENT_SUBSPACE_GEOMETRY",
+        "evidence": "Theorem 3.3 requires U_1 subset ... subset U_s with 0<u_1<...<u_s<k, and deletes each U_i from a simplex copy. The [96,6,48] Gray generator has two deleted dimension-4 spaces meeting in dimension 3, so the required strict nesting is impossible.",
+        "identifier_or_url": "DOI:10.1109/TIT.2024.3519672; arXiv:2408.10005",
+        "material_read": "Public full text: preliminaries on subspace intersection counts; Theorem 3.3 construction and proof; Example 3.6; conclusion summary of parameter families.",
+        "method": "public full-text copy",
+        "title": "Optimal Few-SSW Linear Codes and Their Subcode Support Weight Distributions",
+        "trigger": "Closest full-text prior work explicitly determining SSWDs for distance-optimal few-weight codes built from simplex deletions."
+      },
+      {
+        "assessment": "UNRESOLVED_LOW_RESIDUAL_RISK",
+        "evidence": "The abstract advertises projective antiGriesmer bounds and simplex complementary SSWDs. The present generator is nonprojective, with 40 duplicated nonzero columns and 16 single columns, and no [96,6,48] match was located. Full theorem-level exclusion was not possible.",
+        "identifier_or_url": "DOI:10.1109/TIT.2026.3665706",
+        "material_read": "Public abstract, bibliographic metadata, and exact-parameter searches.",
+        "method": "publisher/repository abstract and indexed search; full text was not publicly available in the inspected sources",
+        "title": "AntiGriesmer Bounds, Optimal Codes, and Their Subcode Support Weight Distributions",
+        "trigger": "Recent broad SSWD paper on optimal and simplex-complementary codes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5fd52623-8f8a-4def-9e9a-77f685a1963f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source presents Example 4.4 as a new distance-optimal near-Griesmer Gray image and records its complete ordinary weight enumerator. Generalized Hamming weights are the canonical higher-dimensional refinement of minimum distance, and the complete SSWD records substantially more support-incidence information than the one-dimensional enumerator. The exact six-level hierarchy and every subcode multiplicity expose the geometry created by two overlapping deleted 4-spaces, including new odd support layers in dimensions four and five. This is a natural complete invariant of a highlighted optimal example rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
