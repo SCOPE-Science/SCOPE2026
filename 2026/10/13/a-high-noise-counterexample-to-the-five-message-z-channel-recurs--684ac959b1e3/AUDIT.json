@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Both five-row eight-bit codebooks reconstruct exactly from the published five-column vectors. For an output support Y, maximum likelihood over each code equals the likelihood of the least-weight word containing Y for all 0<p<1. A complete support-based partition yields the two exact polynomials and the identity difference p^2(1-p)^2(1+p)(2p^3+p-1). The strictly increasing cubic has exactly one positive root in (0,1), proving strict improvement for every p between that root and 1; at p=9/10, the exact positive average-success gap is 1044981/250000000. A separate exhaustive 256-output integer-polynomial verifier and independent rational-ML evaluation reproduce all stated values. No unsupported universal optimality is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2011 primary theorem covers globally optimal codebooks for up to four messages; its next section labels the five-message code a conjecture, not a theorem.",
+        "The 2013 full article again treats its length-eight five-message construction as conjectural.",
+        "Later Z-channel work on noiseless feedback considers interactive or adversarial/asymptotic models, not this five-message finite-blocklength ML decision."
+      ],
+      "reasoning": "Existing broader coding results do not establish optimality for the 2011 five-message base codebook. A theorem under another decoder or different channel cannot dominate the exact ML probability comparison at the same code length.",
+      "searches": [
+        "\"Optimal Ultrasmall Block-Codes for Binary Discrete Memoryless Channels\" 2013 five codeword Z-channel",
+        "optimal Z channel 5 messages 8 blocklength maximum likelihood 2014 2020",
+        "Coding with Noiseless Feedback over the Z-channel"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1109/ITW.2011.6089371",
+      "DOI:10.1109/TIT.2013.2276893",
+      "https://moser-isi.ethz.ch/docs/papers/chen-lin-smos-2011-5.pdf",
+      "https://moser-isi.ethz.ch/docs/papers/chen-lin-smos-2013-1.pdf",
+      "https://scholar.nycu.edu.tw/en/publications/ultra-small-block-codes-for-binary-discrete-memoryless-channels"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original conjecture requires its given n=8 base codebook to have minimum average error for every allowed p; the primary channel definition permits 0<p<1.",
+        "At p=9/10 the competing codebook has ML success larger by exactly 1044981/250000000, contradicting that universal claim.",
+        "Both success polynomials are exact on 0<p<1, and their difference is positive precisely above the unique root of 2p^3+p-1."
+      ],
+      "reasoning": "A conjecture is not prior proof and can be directly refuted. The novel assertion is the exact inequality and algebraic threshold, not the known channel model or source codebook. Nothing in the printed conjecture implies or anticipates this strict reverse inequality.",
+      "searches": [
+        "Chen Lin Moser ultra-small block codes n=8 five codeword Z channel conjecture recursive",
+        "Optimal Ultrasmall Block-Codes 2013 equation 89 five codewords",
+        "Chen Lin Moser five codeword Z-channel weak flip n=8 conjecture counterexample crossover epsilon near 0.9 polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen--Lin--Moser (2011), Section IV-B, equation (26) gives the conjectured n=8 column sequence; the 2013 article Section IV-E, equation (89) repeats it.",
+        "The published Z-channel convention is deterministic 0-to-0 and stochastic 1-to-0 with flip probability p<1, the identical convention used in the exact likelihood computation.",
+        "The competing five-word code is built from published weak-flip columns c3 twice, c2 three times, and c1 three times."
+      ],
+      "reasoning": "The new comparison is not a change of metric, error probability, message count, output alphabet, decoder, or code family. It is directly equivalent to showing a negative difference in average ML error on the same channel; no equivalent statement was found in inspected material.",
+      "searches": [
+        "\"Ultra-Small Block-Codes\" \"Z-channel\" \"M=5\" \"counterexample\"",
+        "\"Chen\" \"Lin\" \"Moser\" \"Z-channel\" \"conjecture\" disproved 5 codewords",
+        "\"five codewords\" \"Z-channel\" \"conjecture\" optimal noise crossover"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The historical code is printed in equation (26) of the workshop paper and equation (89) of the journal paper; neither inspected source tabulates the competing code or its success polynomial.",
+        "Exact-formula, eight-bit-word, and parameter-name searches did not identify a matching published numerical table, counterexample, or algebraic threshold."
+      ],
+      "reasoning": "A negative database search alone cannot certify novelty. The decisive scientific comparison is with the original fully read published conjecture and the explicitly constructed strictly better code.",
+      "searches": [
+        "\"C(5,8)\" \"Z-channel\" codewords optimal",
+        "\"2p^3+p-1\" \"Z-channel\"",
+        "\"00000011\" \"00011100\" \"11100000\" \"Z-channel\"",
+        "five codewords eight bits Z channel error probability exact optimum"
+      ]
+    },
+    "rationale": "The closest primary sources (2011 workshop and 2013 full article) print the exact codebook and explicitly classify its five-message Z-channel optimality as conjectural. The explicit competing codebook and its exact open-noise interval strictly contradict that conjecture. Published optimality theorems for two through four messages do not apply to the five-message claim. Targeted searches across channel, parameter, and algebraic variants revealed no previously published identical counterexample; obscurity/nonindexing remains a genuine originality risk.",
+    "residual_risks": [
+      "An obscure or unindexed earlier counterexample to the same five-message Z-channel conjecture may exist, despite checked primary sources and targeted query variants.",
+      "This result does not identify any globally optimal five-word length-eight codebook, or address larger lengths and other decoder/channel conventions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONJECTURED_CODEBOOK_MATCHES_BUT_ITS_GLOBAL_OPTIMALITY_IS_NOT_PROVED",
+        "evidence": "Section IV-B expressly introduces a conjectured optimal five-codeword Z-channel recursion. Equation (25) lists c1 to c5; equation (26) uses (c1,c2,c3,c1,c2,c3,c4,c5). The paper assumes 0-to-0 deterministic, 1-to-0 noise p<1, uniform messages and ML decoding.",
+        "identifier_or_url": "https://moser-isi.ethz.ch/docs/papers/chen-lin-smos-2011-5.pdf",
+        "material_read": "Full five-page original author-hosted paper, including Section II channel definitions and ML objective, Section III weak-flip columns, and Section IV-B on the five-message conjecture, especially equations (25) and (26).",
+        "method": "Full-text PDF inspection and visual verification of the defining column vectors and prescribed n=8 base matrix.",
+        "title": "Ultra-Small Block-Codes for Binary Discrete Memoryless Channels",
+        "trigger": "The exact proposed codebook and earliest verified source for the five-message Z-channel conjecture."
+      },
+      {
+        "assessment": "REPEATS_EXACT_N8_CONJECTURED_BASE_CODE_WITHOUT_THE_HIGH_NOISE_OBSTRUCTION",
+        "evidence": "Section IV-E states that a construction is conjectured for five codewords and gives precisely the same column vectors and n=8 sequence in equations (88)--(89). The broader journal text keeps the five-message statement conjectural.",
+        "identifier_or_url": "https://moser-isi.ethz.ch/docs/papers/chen-lin-smos-2013-1.pdf",
+        "material_read": "Full author-hosted 33-page journal paper, concentrating on introductory channel/optimality statements and Section IV-E, pages 12--13, including equations (88)--(92).",
+        "method": "Full-text PDF inspection with statement-level comparison of its five-message Z-channel construction and optimality status.",
+        "title": "Optimal Ultrasmall Block-Codes for Binary Discrete Memoryless Channels",
+        "trigger": "Expanded successor with plausible stronger coverage or revisions to the conjecture."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "684ac959-b1e3-451b-8671-ec2099731269",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result directly refutes a specifically published all-noise five-message Z-channel code-design conjecture at the n=8 base of its even-length recursive family. The improvement exists throughout an exact nondegenerate open interval, not at an isolated floating-point setting, and arises inside the conjecture authors' own weak-flip column family. It isolates a concrete design flaw in column multiplicities and motivates re-examination of the recursion. Global-optimum identification is not needed for the value of a rigorous counterexample.",
+    "status": "PASS"
+  }
+}
