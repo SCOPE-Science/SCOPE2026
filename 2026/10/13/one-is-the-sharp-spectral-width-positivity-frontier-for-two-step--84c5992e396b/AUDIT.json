@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For two Lanczos steps the approximation lies in span{b,Ab}, hence equals p(A)b for a linear polynomial p. Functional calculus on the symmetric projected 2-by-2 matrix shows that p interpolates the exponential at the two Ritz values. Compression puts those Ritz values in [mu,L]. A mean-value representation of the secant slope gives p(lambda) >= exp(-t theta_1)[1-t(lambda-theta_1)] to the right of the larger Ritz value, proving nonnegativity when t(L-mu)<=1. For t(L-mu)>1, a three-point diagonal spectrum with its middle point approaching mu makes the limiting extrapolated value at L negative; continuity under a positive third starting component converts this into an actual sign failure. Dimension at most two is exact by the minimal-polynomial property. The packaged checker independently verifies the explicit witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 1990 full report gives the projected exponential formula and exactness at the minimal-polynomial degree but studies approximation and stability rather than entrywise positivity.",
+        "The 1992 Saad paper studies polynomial/Ritz interpolation and error estimates.",
+        "Later Lanczos papers retrieved in the search study convergence and conditioning of the approximation, not componentwise cone invariance."
+      ],
+      "reasoning": "Norm-error or spectral-convergence bounds do not imply componentwise positivity. The present theorem is a sharp cone-invariance statement and is not dominated by the cited convergence theory.",
+      "searches": [
+        "Saad 1992 Krylov matrix exponential Ritz interpolation",
+        "Gallopoulos Saad parabolic Krylov exponential 1990",
+        "Error Bounds Lanczos matrix exponentials positive semidefinite",
+        "positivity preserving Krylov matrix exponential parabolic"
+      ]
+    },
+    "checked_sources": [
+      "NASA:RIACS-TR-90-14",
+      "doi:10.1137/0729014",
+      "doi:10.1137/040605461",
+      "doi:10.1137/11085935X"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Exactness for Krylov dimension equal to the active minimal-polynomial degree explains why dimensions one and two are safe, but does not imply what happens in dimension three.",
+        "Interpolation at Ritz values supplies a representation, but no inspected source derives the sign of the linear extrapolant on the full spectral interval.",
+        "Error bounds can be small while a small component changes sign, so they do not imply the positivity frontier."
+      ],
+      "reasoning": "The new implication requires combining the degree-one interpolation formula with a sharp mean-value inequality and a perturbative three-point construction; these steps are not consequences of the cited error estimates alone.",
+      "searches": [
+        "Gallopoulos Saad equation 7 Krylov exponential exact minimal polynomial",
+        "Saad matrix exponential interpolation Ritz values",
+        "Lanczos exponential error bounds positive semidefinite matrix"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Database searches returned a Lanczos-based proximal-convexification result, Padé positivity results, and unrelated matrix-function findings, but no two-step exponential positivity frontier.",
+        "Web searches returned classical Lanczos exponential error and preconditioning papers, not a componentwise nonnegativity classification.",
+        "No retrieved source stated the constant t(L-mu)=1 or a minimal three-dimensional sign-loss construction."
+      ],
+      "reasoning": "The searches cover the standard algorithm names, the matrix-exponential action, positivity/nonnegativity language, the two-step specialization, Ritz interpolation, and dimension-three failure terminology.",
+      "searches": [
+        "Lanczos exponential Krylov positivity nonnegative matrix exponential negative component",
+        "two-step Lanczos exp(A)b positivity dimension three sign loss",
+        "Krylov approximation matrix exponential positivity preserving",
+        "\"two-step Lanczos\" positivity exponential matrix",
+        "\"Lanczos approximation\" positivity matrix exponential nonnegative"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or database entry containing the sharp constant one or an equivalent formula was located.",
+        "The threshold is derived analytically from the secant extrapolation of the exponential."
+      ],
+      "reasoning": "The finding is not a recomputation of a tabulated invariant.",
+      "searches": [
+        "\"t(L-mu)\" Lanczos exponential positivity",
+        "\"spectral width\" Lanczos positivity matrix exponential",
+        "\"dimension three\" Lanczos exponential negativity"
+      ]
+    },
+    "rationale": "The foundational Gallopoulos-Saad report defines the projected exponential approximation, its parabolic motivation, the Lanczos specialization for symmetric matrices, and exactness at the minimal-polynomial dimension. Saad's later analysis supplies the interpolation viewpoint, while later Lanczos papers emphasize convergence and error. Targeted searches did not locate a componentwise positivity theorem with the sharp spectral-width constant one or the dimension-three sharpness mechanism.",
+    "residual_risks": [
+      "Older polynomial-approximation literature may contain an equivalent secant-extrapolation positivity statement without Krylov terminology.",
+      "The full body of Saad's 1992 SIAM article was not directly retrievable through the inspected viewer, although its interpolation characterization was available in accessible text and the 1990 full report supplies the exact projected method.",
+      "The theorem is deliberately restricted to diagonal SPD matrices; positivity behavior for non-diagonal Stieltjes matrices may be qualitatively different."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: defines the method and its exactness mechanism, but does not state a componentwise positivity frontier.",
+        "evidence": "The report is dated March 1990, lists AMS 65M20, 65F10, 65W05, gives e^{-A}v approximately as beta V_m e^{-H_m}e_1, notes Lanczos for symmetric A, and states exactness once m reaches the relevant minimal-polynomial degree.",
+        "identifier_or_url": "NASA:RIACS-TR-90-14",
+        "material_read": "Full 32-page NASA-hosted PDF was accessible. Focused inspection covered the abstract and classifications, the parabolic semidiscrete formulation, Section 2 polynomial approximation, Section 2.1 Arnoldi/Lanczos construction, equation (7), and the minimal-polynomial exactness statement.",
+        "method": "Full-text PDF inspection with rendered-page verification of the polynomial Krylov setup and projected exponential formula.",
+        "title": "Efficient Solution of Parabolic Equations by Krylov Approximation Methods",
+        "trigger": "Foundational full-text source for Krylov exponential propagation in parabolic problems and for the exact projected formula used in the proof."
+      },
+      {
+        "assessment": "CLOSEST_THEORETICAL_INGREDIENT: provides interpolation/error theory but no located componentwise positivity threshold.",
+        "evidence": "The paper is in SIAM Journal on Numerical Analysis 29 (1992), MSC 65F10, and its accessible description states that Krylov methods are equivalent to interpolating the exponential on associated Ritz values.",
+        "identifier_or_url": "doi:10.1137/0729014",
+        "material_read": "Publisher abstract, metadata, MSC code, and an accessible extended text extract describing equivalence with interpolation of the exponential at associated Ritz values.",
+        "method": "Publisher and lawful web-text inspection; direct full PDF retrieval through one viewer was inaccessible.",
+        "title": "Analysis of Some Krylov Subspace Approximations to the Matrix Exponential Operator",
+        "trigger": "Primary analysis source for the polynomial and Ritz-interpolation interpretation of the matrix-exponential Krylov approximation."
+      },
+      {
+        "assessment": "NOT_COVERING_BY_STATEMENT: concerns convergence deterioration and preconditioned transformations, not componentwise sign preservation.",
+        "evidence": "The abstract explicitly considers exp(-tau A)v for symmetric A in parabolic problems and develops convergence bounds.",
+        "identifier_or_url": "doi:10.1137/040605461",
+        "material_read": "Publisher abstract and bibliographic material.",
+        "method": "Publisher-page inspection.",
+        "title": "Preconditioning Lanczos Approximations to the Matrix Exponential",
+        "trigger": "Highly relevant later Lanczos exponential paper on parabolic applications."
+      },
+      {
+        "assessment": "NOT_COVERING_BY_STATEMENT: gives error bounds and conditioning-dependent convergence, not componentwise positivity.",
+        "evidence": "The abstract treats e^{-tau A}v for positive semidefinite A and emphasizes error bounds and convergence.",
+        "identifier_or_url": "doi:10.1137/11085935X",
+        "material_read": "Publisher abstract, keywords, MSC codes, and references.",
+        "method": "Publisher-page inspection.",
+        "title": "Error Bounds for the Lanczos Methods for Approximating Matrix Exponentials",
+        "trigger": "Later sharp error-analysis literature for symmetric positive semidefinite matrix exponentials."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "84c5992e-396b-49c8-a892-f322e5c5c18b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Matrix-exponential Krylov propagation is a classical tool for parabolic evolution problems, where nonnegative states such as temperatures or concentrations are natural. The theorem gives a complete, dimension-free positivity guarantee for the first nontrivial Lanczos truncation and proves the constant one sharp. It also identifies a minimal three-mode mechanism showing that excellent spectral conditioning alone does not protect componentwise sign once the time-spectral-width product exceeds one. This is structurally distinct from ordinary norm-error analysis and directly informs the use of very small Krylov dimensions.",
+    "status": "PASS"
+  }
+}
