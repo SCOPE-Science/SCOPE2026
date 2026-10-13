@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Puncturing is an isomorphism between two \\(k\\)-dimensional codes. The source characterization forces projection rank \\(\\ell\\), hence kernel dimension \\(k-\\ell\\). For an \\(r\\)-subcode \\(U\\), \\(t=\\dim Q(U)\\) satisfies the stated rank range; old support is bounded by both \\(d_r(C)\\) and \\(d_{r-t}(K)\\), while new support is at least \\(t\\). This proves the lower bound. Lifting a source minimizer proves the upper bound, and full projection gives terminal equality. Exhaustive small-code replay independently checks all finite ingredients.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General GHW and RGHW literature provides definitions, algorithms, and broad bounds.",
+        "The 2025 GHWs paper computes generalized and relative generalized weights but does not specialize to shortest LCD embeddings.",
+        "The primary source contributes the extra rank-ell projection structure used in the new lower bound."
+      ],
+      "reasoning": "Generic puncturing does not by itself encode the exact rank of the newly added coordinates or the induced kernel subcode, which are the ingredients of the stronger lower bound.",
+      "searches": [
+        "generalized Hamming weights puncturing code inequality d_r punctured",
+        "relative generalized Hamming weight bounds nested codes",
+        "An Algorithm for Computing Generalized Hamming Weights Sage package GHWs"
+      ]
+    },
+    "checked_sources": [
+      "An--Hong--Kim--Lim, arXiv:2601.20600v1 and DOI 10.3934/amc.2026048",
+      "San-José, DOI 10.1145/3773284",
+      "Published-research searches for shortest LCD embeddings, hull dimension, projection rank, puncturing, and generalized weights",
+      "Public exact searches for generalized-Hamming-weight puncturing and shortest-LCD formulations",
+      "Owned current and completed-prior ledgers for overlap with universal shortest-embedding generalized-weight claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proves shortest length \\(n+\\ell\\) and rank \\(\\ell\\) of the appended structure.",
+        "Those source theorems contain no support statement for higher-dimensional subcodes.",
+        "The accepted proof combines the source rank structure with \\(\\dim(U\\cap\\ker Q)\\) and generalized weights of the intrinsic kernel subcode."
+      ],
+      "reasoning": "The accepted claim ranges over every subcode dimension and is not a restatement of shortest length or ordinary minimum distance.",
+      "searches": [
+        "DOI 10.3934/amc.2026048 Theorem 3.1 Theorem 3.5 Proposition 3.6",
+        "generalized Hamming weights puncturing extension rank",
+        "relative generalized Hamming weights kernel projection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source characterizes shortest embeddings by an appended block of rank equal to the hull dimension.",
+        "No searched research record states the lower term max(0,r-k+ell) or the kernel-sensitive refinement.",
+        "Searches under both generalized-Hamming-weight and weight-hierarchy terminology returned unrelated code families."
+      ],
+      "reasoning": "The searches cover the construction name, hull dimension, appended-coordinate projection, puncturing, and higher-support aliases.",
+      "searches": [
+        "shortest LCD embedding generalized Hamming weights hull dimension",
+        "LCD embedding generalized weight hierarchy appended columns",
+        "generalized Hamming weights puncturing extension rank appended coordinates",
+        "An Hong Kim Lim generalized Hamming weights shortest LCD embedding"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher table records new [n,k,d] LCD examples and hull dimensions but no generalized-weight hierarchies.",
+        "The primary full text contains shortest-embedding structure and minimum-distance applications, not the accepted theorem.",
+        "Owned records from the same source concern finite invariants of particular examples, not a universal shortest-embedding inequality."
+      ],
+      "reasoning": "Finite example data cannot imply the all-code, all-r statement. No exact table or source statement of the universal inequality was found.",
+      "searches": [
+        "arXiv 2601.20600 generalized Hamming weights",
+        "10.3934/amc.2026048 generalized Hamming weight",
+        "shortest LCD embedding weight hierarchy"
+      ]
+    },
+    "rationale": "The 2026 primary source proves shortest length and characterizes every shortest LCD embedding but does not discuss generalized Hamming weights. Broad GHW literature supplies definitions, algorithms, and general bounds rather than this hull-rank or kernel-sensitive shortest-embedding law. Published-research and public searches under embedding, puncturing, projection-rank, hull, and generalized-weight aliases found no covering result. The coarse coordinate-addition upper estimate is explicitly excluded from the originality claim.",
+    "residual_risks": [
+      "A general matroid or relative-generalized-weight theorem under different terminology could subsume part of the argument.",
+      "The coarse upper bound is standard and is included only as context.",
+      "The kernel subcode can vary between shortest embeddings, so the theorem does not determine a unique hierarchy from \\(C\\) and \\(\\ell\\) alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STRUCTURAL_PREMISES_ONLY",
+        "evidence": "The source proves shortest length and characterizes the appended matrices but contains no generalized-Hamming-weight theorem.",
+        "identifier_or_url": "arXiv:2601.20600v1; DOI:10.3934/amc.2026048",
+        "material_read": "Abstract; hull conventions; Definition 3.1; Theorem 3.1; Lemma 3.3; Theorem 3.5; Proposition 3.6; new-code table; conclusion.",
+        "method": "public arXiv full text and publisher HTML",
+        "title": "Shortest LCD embeddings of binary, ternary and quaternary linear codes",
+        "trigger": "Primary source of the shortest-embedding length and normal-form rank facts."
+      },
+      {
+        "assessment": "GENERAL_GHW_COMPUTATION_NOT_LCD_BOUND",
+        "evidence": "The work gives GHW and RGHW algorithms, not a shortest-LCD-embedding hull-rank inequality.",
+        "identifier_or_url": "DOI:10.1145/3773284",
+        "material_read": "Public abstract and scope describing algorithms for generalized and relative generalized Hamming weights.",
+        "method": "open publisher/indexed material",
+        "title": "An Algorithm for Computing Generalized Hamming Weights and the Sage Package GHWs",
+        "trigger": "Recent broad GHW work potentially covering a general computational or puncturing relation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8df295f-5752-430e-89a8-f45082a33105",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source introduces shortest LCD embeddings to improve code quality while adding the minimum number of coordinates. Generalized Hamming weights are the canonical higher-dimensional support refinement of minimum distance. The theorem shows that hull dimension imposes unavoidable support growth across the upper hierarchy and identifies a kernel invariant that can sharpen it. The self-orthogonal specialization gives the reusable all-r law \\(d_r(\\widetilde C)\\ge d_r(C)+r\\).",
+    "status": "PASS"
+  }
+}
