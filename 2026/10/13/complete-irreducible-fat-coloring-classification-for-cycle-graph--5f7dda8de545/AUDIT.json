@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For every nontrivial FAT coloring of a cycle, degree two forces alpha to be 1/2 or 1. The normalization identity then leaves only three parameter cases: proper two-coloring, half-half two-coloring, and proper three-coloring. Their cyclic closure conditions are respectively 2|n, 4|n, and 3|n, with uniqueness counts 1, 2, and 1 as unlabeled partitions. A direct refinement comparison shows all nontrivial classified colorings are maximal, while the trivial coloring is maximal exactly when it is the only one. Exact enumeration through n=12 independently matches the classification and count.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Beers--Mulas classify cycle FAT chromatic numbers and state an irreducible-cycle conclusion in Example 5.12, but that conclusion omits the half-half two-colorings.",
+        "Shaebani gives a complete C6 analysis and correctly proves that the half-half case fails for C6.",
+        "The spectral follow-up discusses graph operations and a disconnected C4 example, not the corrected all-cycle irreducible classification."
+      ],
+      "reasoning": "The only broader same-invariant sources either contain the erroneous cycle statement or treat a special cycle whose order is not divisible by four. Thus they do not imply the corrected theorem.",
+      "searches": [
+        "Fair and Tolerant FAT Graph Colorings cycle Example 5.12",
+        "Spectral Perspectives on FAT Graph Colorings cycle",
+        "On The Number of Irreducible FAT Colorings C6 alpha beta one half"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2510.18494v2",
+      "arXiv:2606.22374v1",
+      "arXiv:2604.21665v1",
+      "database hit 2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+      "database hit 2026/9/17/SCOPE-prescribed-colorings-max-degree-two--9aaf81e2ad5d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Beers--Mulas Example 5.12 explicitly says two irreducible colorings when n is divisible by six and exactly one otherwise.",
+        "Shaebani explicitly analyzes the third parameter possibility alpha=beta=1/2 for C6 and rules it out because the induced monochromatic matching would have to cover an odd three-vertex color class."
+      ],
+      "reasoning": "The new theorem strictly changes the prior implication: every order divisible by four contributes two additional nonproper irreducible colorings. It agrees with the prior C6 special case because 4 does not divide 6.",
+      "searches": [
+        "Beers Mulas Example 5.12 cycle irreducible FAT coloring",
+        "On The Number of Irreducible FAT Colorings C6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No close database hit concerned FAT colorings; top cycle-coloring hits involved unrelated forced, prescribed, or distance colorings.",
+        "Direct web searches for C4/C8 paired FAT colorings and alpha=beta=1/2 returned the Beers--Mulas and Shaebani FAT papers but no source stating the new cycle classification."
+      ],
+      "reasoning": "The distinctive equivalent formulations are the alternating monochromatic/bichromatic edge condition, the cyclic 0011 pattern, and the divisibility condition 4|n. None appeared in the searched indexed results as a cycle FAT theorem.",
+      "searches": [
+        "irreducible FAT colorings cycle graph C_n multiples of four paired two coloring",
+        "Fair And Tolerant coloring cycles irreducible C4 C8 C12",
+        "FAT cycle coloring alpha beta one half runs of length two",
+        "cycle graph irreducible FAT coloring count one plus two indicator 4 divides n plus indicator 6 divides n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database record for irreducible FAT colorings of cycles was returned.",
+        "Closest returned records concerned other coloring invariants on cycles and do not constrain FAT partitions."
+      ],
+      "reasoning": "No indexed exact table or theorem located in the searched database contains the paired FAT partitions or the corrected irreducible counts.",
+      "searches": [
+        "cycle graph irreducible FAT coloring count one plus two indicator 4 divides n plus indicator 6 divides n",
+        "Fair And Tolerant coloring cycles irreducible C4 C8 C12"
+      ]
+    },
+    "rationale": "The closest source is not merely silent: Beers--Mulas Example 5.12 gives a different irreducible-count classification for cycles, claiming exactly one outside multiples of six. The explicit C4 half-half partitions falsify that statement. Shaebani later exhaustively treats C6 and rules out the half-half case there, which is consistent with the new iff condition 4|n. Targeted database and web searches found no source giving the corrected divisibility-by-four family or the formula I(C_n)=1+2 1_{4|n}+1_{6|n}.",
+    "residual_risks": [
+      "A concurrent or poorly indexed source could independently contain the same correction.",
+      "The original 2025 paper was inspected in its current v2 form; a future revision could repair Example 5.12 after this assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; Example 5.12 is contradicted by valid half-half FAT colorings on every 4-divisible cycle.",
+        "evidence": "The source states that cycles have two irreducible FAT colorings for orders divisible by six and exactly one otherwise; C4 already has three.",
+        "identifier_or_url": "arXiv:2510.18494v2",
+        "material_read": "Cycle chromatic-number discussion in Example 2.17, the irreducibility definition and Proposition 5.6, and Example 5.12 on cycle graphs.",
+        "method": "Full-text statement and implication comparison.",
+        "title": "Fair and Tolerant (FAT) Graph Colorings",
+        "trigger": "Same invariant and exact same graph family; Example 5.12 directly asserts the irreducible cycle classification."
+      },
+      {
+        "assessment": "CONSISTENT_SPECIAL_CASE; it exhaustively finds only the trivial, proper two-color, and proper three-color partitions of C6.",
+        "evidence": "The paper explicitly considers alpha=beta=1/2 and rules it out for C6 via an odd-cardinality matching obstruction.",
+        "identifier_or_url": "arXiv:2606.22374v1",
+        "material_read": "Definition/MSC material and the full C6 case analysis in the proof of the main theorem.",
+        "method": "Full-text proof comparison.",
+        "title": "On The Number of Irreducible FAT Colorings",
+        "trigger": "Later paper centered on irreducible FAT colorings and using C6 as the exactly-two example."
+      },
+      {
+        "assessment": "NOT_COVERING; the cycle occurrence concerns disjoint copies of C4 in a complement example, not irreducible cycle colorings.",
+        "evidence": "No all-cycle irreducibility correction was located in the inspected text.",
+        "identifier_or_url": "arXiv:2604.21665v1",
+        "material_read": "Search and surrounding full text for cycle/C4 occurrences and the complement section.",
+        "method": "Full-text targeted inspection.",
+        "title": "Spectral Perspectives on FAT Graph Colorings",
+        "trigger": "Later same-authors follow-up that could have superseded or corrected the original cycle statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5f7dda8d-e545-4e9a-9881-5d469bc2b6a8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural complete classification on the canonical cycle family for a newly introduced coloring invariant. It identifies an infinite family of omitted irreducible colorings, gives the exact divisibility boundary and count, and corrects an explicit published-preprint family statement rather than adding a routine numerical example. The result also reconciles the later C6 exhaustive analysis with the corrected general picture.",
+    "status": "PASS"
+  }
+}
