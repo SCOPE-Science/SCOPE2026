@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For every realization, the Rogers dual certificate at \\(\\eta=1/t\\) equals \\(|B|+(s-S_B)/t\\). Rewriting \\(N\\) as \\(S_A/t+\\sum_{i\\in A}(1-X_i/t)\\) and subtracting yields exactly the unused-budget term plus the two one-sided threshold-disagreement sums, which combine to \\(\\sum_{i\\in A\triangle B}|X_i-t|\\). Both are nonnegative. The BRS threshold equation makes \\(\\mathbb ES_B=s\\), and absolute continuity gives \\(\\mathbb E|B|=\\sum_iF_i(t)\\), proving the expected identity. Equality of expectations forces the nonnegative pointwise defect to vanish almost surely, equivalently \\(S_B=s\\) almost surely. The exact-rational verifier independently replays the pathwise algebra over a large finite grid.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bruss Theorem 3 gives \\(\\mathbb EN\\le\\sum_iF_i(t)-(s-\\mathbb ES_A)/t\\), which follows immediately from the new identity after discarding the mismatch penalty.",
+        "Rogers proves a pathwise dual upper bound for every \\(\\eta>0\\), then optimizes its expectation; this is broader as a family of certificates but does not imply the exact slack without the additional packing-set comparison."
+      ],
+      "reasoning": "A broader prior statement would cover the claim only if it identified all slack in the optimized threshold certificate or gave an equivalent if-and-only-if equality condition. The published residual correction is strictly weaker whenever the optimal and threshold sets disagree.",
+      "searches": [
+        "BRS inequality strengthening residual budget threshold set",
+        "Bruss Robertson inequality equality characterization dependence",
+        "fractional knapsack random variables BRS complementary slackness equality"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1017/jpr.2022.122",
+      "arXiv:2007.05358v1",
+      "arXiv:1510.00843",
+      "candidate-specific published-finding corpus searches for BRS equality/defect/threshold-mismatch aliases",
+      "exact-expression literature searches for the symmetric-difference penalty and constant-sum condition"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rogers shows \\(N\\le\\Phi_t\\) pathwise and \\(\\mathbb E\\Phi_t=\\sum_iF_i(t)\\); these two inequalities do not state the exact random gap \\(\\Phi_t-N\\).",
+        "Bruss derives a residual-budget correction but leaves a nonnegative threshold-set discrepancy unquantified in the final bound."
+      ],
+      "reasoning": "The new statement is not a corollary of merely knowing the two endpoint inequalities. It requires comparing the primal optimal set and the threshold set index by index. That comparison yields a strictly more informative decomposition and the equality classification.",
+      "searches": [
+        "DOI 10.1017/jpr.2022.122 dual BRS equality slack",
+        "arXiv 2007.05358 Theorem 3 BRS refinement",
+        "arXiv 1510.00843 Bruss Robertson inequality extensions equality"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rogers, DOI:10.1017/jpr.2022.122, inspected full article: the dual objective is derived and optimized, but no symmetric-difference or exact-defect formula is stated.",
+        "Bruss, arXiv:2007.05358v1, inspected survey sections on the BRS proof and Theorem 3: the refinement subtracts only the expected unused-budget term.",
+        "Candidate-specific published-finding corpus searches returned no BRS-specific finding that states an exact decomposition or equality criterion."
+      ],
+      "reasoning": "The same result could plausibly be phrased as complementary slackness for the fractional knapsack relaxation, as an exact duality gap, or as a complete-mixability condition for truncated variables. Searches covered those aliases. The inspected nearest sources do not contain a statement equivalent to the displayed identity or its almost-sure equality criterion.",
+      "searches": [
+        "Bruss Robertson Steele inequality equality cases residual threshold complete mixability",
+        "Bruss Robertson Steele exact deficit decomposition threshold mismatch knapsack",
+        "BRS inequality strictness equality dependent random variables truncated sum constant",
+        "Bruss Robertson inequality complete mixability truncated variables",
+        "\"Bruss Robertson\" \"symmetric difference\" threshold t residual",
+        "\"BRS inequality\" \"complete mixability\"",
+        "\"Bruss-Robertson-Steele\" exact deficit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-expression search located the symmetric-difference penalty or the equality condition \\(S_B=s\\) almost surely.",
+        "The finding is an analytic identity rather than a numerical table recomputation."
+      ],
+      "reasoning": "Exact-expression searching was used to detect a formula hidden under nearby terminology. No checked record contained the same decomposition.",
+      "searches": [
+        "\"s-S_A\" \"A triangle B\" Bruss Robertson",
+        "\"A symmetric difference B\" Bruss Robertson Steele",
+        "\"threshold mismatch\" \"Bruss\" Robertson inequality"
+      ]
+    },
+    "rationale": "The closest source, Rogers 2023, supplies the threshold dual certificate and the BRS upper bound but not a slack decomposition or equality characterization. Bruss 2020/2021 supplies a residual-budget refinement but not the threshold-mismatch term; the new identity recovers that refinement by dropping an explicit additional nonnegative term. Candidate-specific published-finding corpus and literature searches using equality, defect, threshold-mismatch, knapsack, and complete-mixability aliases found no covering statement. The remaining risk is an older equivalent complementary-slackness identity under optimization terminology.",
+    "residual_risks": [
+      "An older optimization or stochastic-knapsack source may contain the same identity as an unstated complementary-slackness calculation under different notation.",
+      "The exact coupling classification implicit in \\(S_B=s\\) almost surely is not developed here; complete-mixability literature may contain related existence criteria without stating this BRS defect formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "The article derives \\(\\Phi(\\eta)=\\sum_j(1-\\eta Z_j)_++\\eta s\\) and optimizes it, but does not decompose \\(\\Phi_t-N\\), add a threshold-mismatch correction, or classify equality.",
+        "identifier_or_url": "DOI:10.1017/jpr.2022.122",
+        "material_read": "Complete three-page article, including the primal and dual programs, the threshold dual objective, the optimization equation, and the concluding BRS inequality.",
+        "method": "Full-text inspection of the complete article.",
+        "title": "The Bruss–Robertson–Steele inequality",
+        "trigger": "Direct primary source for the pathwise linear-programming certificate from which the candidate defect identity is derived."
+      },
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "Theorem 3 subtracts the expected unused budget divided by \\(t\\), but the inspected text does not state the additional symmetric-difference penalty or the iff equality criterion.",
+        "identifier_or_url": "arXiv:2007.05358v1",
+        "material_read": "The setup, the threshold-set proof, the refined Theorem 3, and the discussion of further refinements.",
+        "method": "Public full-text inspection.",
+        "title": "The BRS-inequality and its Applications A Survey",
+        "trigger": "Closest published refinement of the basic BRS inequality and a natural place for an equality or slack analysis."
+      },
+      {
+        "assessment": "NO_COVERING_STATEMENT_LOCATED",
+        "evidence": "No retrieved statement gives the exact optimized-dual defect or the threshold constant-sum equality characterization.",
+        "identifier_or_url": "arXiv:1510.00843",
+        "material_read": "Indexed abstract/metadata and relevant searchable text located through the literature search.",
+        "method": "Public preprint search and targeted text inspection.",
+        "title": "The Bruss–Robertson inequality: Elaborations, extensions, and applications",
+        "trigger": "Earlier extension cited by Rogers and Bruss and therefore a plausible source for stronger forms."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b0a9c475-01e0-46e5-871a-aea139f4805f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The BRS inequality is a standard dependence-free packing bound, and the closest survey explicitly develops refinements. The new identity resolves all slack in the canonical optimized threshold certificate into two mathematically interpretable parts: unused budget and threshold-set mismatch. It strictly refines the published residual correction whenever those sets disagree, gives a clean iff equality criterion, and immediately proves strictness for independent nondegenerate truncated coordinates. This is a structural statement about the inequality rather than a numerical example or parameter substitution.",
+    "status": "PASS"
+  }
+}
