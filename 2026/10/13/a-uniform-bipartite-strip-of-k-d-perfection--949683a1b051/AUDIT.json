@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "For every induced bipartite subgraph, each bounded geodesic alternates sides. The condition \\(d\\le2k-3\\) limits either side to at most \\(k-1\\) vertices on such a geodesic, giving a two-color upper bound. If a geodesic hyperedge exists, it supplies a \\(k\\)-clique while pigeonhole plus alternation rules out \\(2k-1\\)-cliques, forcing the normalized clique lower bound to equal two; if no hyperedge exists, both normalized clique bound and chromatic number equal one. Boundary cases, disconnected graphs, and hereditary induced subgraphs are covered. A direct finite reconstruction of the definitions independently stress-tests the argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Proposition 3.6 proves every finite tree is \\(3,2\\)-perfect.",
+        "The paper states that all cycles are \\(3,2\\)-perfect but does not give a bipartite-class theorem."
+      ],
+      "reasoning": "Trees are a strict subclass of bipartite graphs and cover only one parameter pair. The new statement strictly broadens that coverage to all finite bipartite graphs and an infinite parameter strip.",
+      "searches": [
+        "bipartite graphs k,d-perfect d <= 2k-3 metric general position",
+        "k,d-perfect bipartite graph shortest path coloring",
+        "Cody–Detore arXiv:2601.04351 Proposition 3.6 and Questions 6.6–6.8"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.04351",
+      "arXiv:2408.13494",
+      "semantic searches for bipartite \\(k,d\\)-perfection and \\(3,2\\)-perfection"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source proves finite trees are \\(3,2\\)-perfect and separately handles cycles.",
+        "The 2024 source studies general-position colorings at \\(k=3\\) with cutoff equal to graph diameter, rather than the two-parameter hereditary perfection condition."
+      ],
+      "reasoning": "Neither statement implies perfection of arbitrary bipartite graphs for \\(k-1\\le d\\le2k-3\\). The proof here uses bipartition alternation plus a normalized clique bound, a different implication route.",
+      "searches": [
+        "arXiv:2601.04351 full text, Proposition 3.6",
+        "arXiv:2408.13494 general-position coloring bipartite/complete multipartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cody–Detore, arXiv:2601.04351, Definition 1.1 and Definition 3.1 define the invariants and perfection; full-text search returns no “bipartite” occurrence.",
+        "Cody–Detore, Question 6.6 asks which graphs are \\(3,2\\)-perfect."
+      ],
+      "reasoning": "Queries covered the exact notation, the \\(3,2\\) specialization, and geodesic-hypergraph language. No equivalent bipartite theorem was located.",
+      "searches": [
+        "bipartite graphs k,d-perfect d <= 2k-3 metric general position",
+        "every bipartite graph k d perfect geodesic hypergraph",
+        "bipartite 3,2-perfect 3,3-perfect graphs",
+        "arXiv:2601.04351 full text: find “bipartite”"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic searches returned nearby results on other bipartite invariants, but no record with a \\(k,d\\)-perfection statement for bipartite graphs."
+      ],
+      "reasoning": "No exact-value table or database record located in the searched sources contains this hereditary equality or dominates it.",
+      "searches": [
+        "bipartite graphs k,d-perfect d <= 2k-3 metric general position",
+        "every bipartite graph k d perfect geodesic hypergraph",
+        "bipartite 3,2-perfect 3,3-perfect graphs",
+        "k,d-perfect bipartite graph shortest path coloring",
+        "metric general position invariants bipartite perfection"
+      ]
+    },
+    "rationale": "The initiating 2026 paper proves only the tree subclass for \\(3,2\\), classifies paths and cycles, and explicitly poses the \\(3,2\\)-perfection problem. Its full text contains no occurrence of “bipartite.” Searches for the exact bipartite and two-parameter formulations found no statement implying the theorem. The result is not a corollary of the older general-position-coloring formulas, which concern a different fixed distance regime and not hereditary clique equality.",
+    "residual_risks": [
+      "The terminology is very recent, so an uncatalogued manuscript or differently worded observation may exist.",
+      "No claim is made that the parameter strip is maximal for all bipartite graphs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: proves trees are \\(3,2\\)-perfect and asks which graphs are \\(3,2\\)-perfect; no bipartite theorem was found.",
+        "evidence": "arXiv:2601.04351v2, pp. 1–4, 10, 21.",
+        "identifier_or_url": "arXiv:2601.04351",
+        "material_read": "Definitions 1.1 and 3.1; Proposition 2.3; Proposition 3.6; discussion and Questions 6.6–6.8; full-text search for “bipartite”.",
+        "method": "Lawful arXiv full text.",
+        "title": "Metric general position extensions of classical graph invariants and perfection",
+        "trigger": "Primary source introducing \\(k,d\\)-perfection and posing the closest open classification problem."
+      },
+      {
+        "assessment": "RELATED_NOT_IMPLYING: concerns the \\(k=3\\), diameter-cutoff coloring invariant rather than \\(k,d\\)-perfection for all induced subgraphs.",
+        "evidence": "arXiv:2408.13494.",
+        "identifier_or_url": "arXiv:2408.13494",
+        "material_read": "Abstract and the scope of the general-position chromatic invariant, including its complete-multipartite coverage.",
+        "method": "Lawful arXiv metadata/full-text indexing.",
+        "title": "Colouring a graph with position sets",
+        "trigger": "Closest predecessor for coloring by general-position sets, identified by the 2026 source itself."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "949683a1-b051-488f-8eff-0a6617ccefce",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives an infinite hereditary class theorem for a newly introduced perfection notion, not a finite or parameter-by-parameter computation. It answers a substantial class of the explicit \\(3,2\\)-perfection problem, strictly contains the previously proved tree case, adds all bipartite graphs at \\(3,3\\), and identifies a simple structural mechanism valid on an infinite two-parameter strip.",
+    "status": "PASS"
+  }
+}
