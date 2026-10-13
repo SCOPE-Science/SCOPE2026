@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The scalar covariance map is Möbius with one positive and one negative fixed point. Conjugation by t(P)=(P-p)/(P-m) gives exact multiplication by rho=F'(p). Direct algebra shows three-point Aitken on the Möbius orbit maps t to (rho t)^2. For |a|<=1, P1>=q>(p+m)/2 forces -1<t(P1)<0, so every squared projective error lies in (0,1), yielding strict upper bounds decreasing to p while the raw sequence increases below p. For every |a|>1, h=r=1 and 0<q<a^2-1 give the exact negative extrapolate -q(q+1)/(a^2-1-q). The packaged verifier checks the symbolic identity and rational witnesses.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carli--Sepulchre explicitly place Riccati convergence in projective/contraction geometry and recall monotone covariance convergence from a zero start.",
+        "Their full text gives the matrix Kalman covariance recursion and cites contraction analyses, but a full-text search finds no Aitken occurrence.",
+        "Xie--Ma--Li study Aitken acceleration for a distinct nonsymmetric algebraic Riccati equation from transport theory and report that Aitken can improve or sometimes slow their simple iteration."
+      ],
+      "reasoning": "General projective contraction theory does not imply the exact scalar Aitken squaring law or the stable/unstable bracketing phase boundary. The transport-Riccati Aitken paper uses a different algebraic Riccati class and does not dominate the Kalman scalar statement in the material available.",
+      "searches": [
+        "On the Projective Geometry of Kalman Filter arXiv:1503.09113 full text",
+        "Kalman Filtering with Random Coefficients and Contractions Riccati map",
+        "Aitken method nonsymmetric algebraic Riccati equation 2026"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1017/S1446181110000076",
+      "arXiv:1503.09113",
+      "doi:10.3934/math.2026971"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carli--Sepulchre state monotone covariance convergence and projective contraction ideas but do not transform three consecutive Riccati iterates with Aitken.",
+        "Han--Zhang establish Riccati difference equations in filtering and primary MSC 93E11, but their delayed Markov-jump filter problem does not imply this scalar extrapolation theorem.",
+        "The 2026 Aitken--Riccati article is about nonsymmetric transport equations, with accessible material describing acceleration/slowdown rather than conservative Kalman covariance bounds.",
+        "The black-box Aitken contraction result permits amplification under weak assumptions and therefore does not imply the much stronger positive bracket enabled by the Möbius Riccati structure."
+      ],
+      "reasoning": "The new claim couples two structures that the prior sources treat separately: projective Riccati dynamics and three-point Aitken acceleration. The exact squaring identity plus the sharp |a|=1 universal boundary is not a corollary of the inspected statements.",
+      "searches": [
+        "arXiv:1503.09113 Sections I and III Riccati convergence/projective geometry",
+        "doi:10.1017/S1446181110000076 Riccati difference equations primary 93E11",
+        "doi:10.3934/math.2026971 Aitken Riccati abstract and references",
+        "published Aitken Steffensen contraction stability frontier"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No semantic-database hit stated projective-error squaring or a certified scalar Kalman steady-covariance bracket.",
+        "Direct web searches for Aitken with Kalman/Riccati covariance returned a 2026 nonsymmetric transport-Riccati paper rather than a Kalman covariance theorem.",
+        "Cross-ratio searches recovered generic projective invariance but not the displayed Aitken/Riccati identity."
+      ],
+      "reasoning": "The searches cover Aitken/Delta-squared, scalar Riccati, Kalman covariance, cross-ratio/Möbius, and upper-bracket terminology. The closest retrieved statements do not have the same object and conclusion.",
+      "searches": [
+        "Aitken acceleration scalar Riccati Kalman covariance upper bound steady state",
+        "Kalman covariance Riccati Möbius Aitken extrapolation bracket",
+        "scalar discrete Riccati cross ratio Aitken upper bound",
+        "Aitken Kalman covariance Riccati",
+        "Delta squared Riccati Kalman"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched database result tabulated or stated the stable-side Aitken bracket or the negative unstable witness.",
+        "The finding is a symbolic continuous theorem with an exact phase boundary, not a recomputation of tabulated filter data."
+      ],
+      "reasoning": "No exact database or table coverage was located.",
+      "searches": [
+        "scalar Kalman Riccati Aitken bracket",
+        "steady-state covariance Aitken extrapolation",
+        "Riccati Möbius projective error squaring"
+      ]
+    },
+    "rationale": "The inspected Kalman projective-geometry full text discusses Riccati convergence, monotonicity from zero, and projective contraction, but contains no Aitken discussion. The current Aitken--Riccati paper concerns a nonsymmetric transport-theory equation and its accessible material does not state a scalar Kalman covariance bracket. Targeted semantic and web searches for Kalman/Riccati/Aitken, scalar Möbius cross-ratio, steady-state covariance brackets, and projective acceleration found no implication-equivalent statement. The closest semantic result is a black-box scalar Aitken robustness theorem under general contraction assumptions, which does not exploit Riccati Möbius structure.",
+    "residual_risks": [
+      "Older scalar Riccati, continued-fraction, or fractional-linear iteration literature may encode the projective squaring identity without Kalman or Aitken terminology.",
+      "The 2026 Aitken--Riccati transport paper was not available as readable whole-document body text in the retrieval used here; it remains an explicit access risk.",
+      "The cross-ratio conjugacy of a scalar Möbius iteration is classical, so originality rests on the Aitken squaring/bracketing consequence and the sharp stable/unstable Kalman boundary, not on Möbius conjugacy alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_NOT_CLAIM: establishes projective/contraction context and recalls monotone covariance convergence, but does not state Aitken acceleration, projective-error squaring, or scalar two-sided brackets.",
+        "evidence": "The introduction states that zero-initialized covariance is monotone increasing and recalls geometric Riccati contraction; Section III gives the discrete covariance Riccati operator. No Aitken occurrence was found in the full text.",
+        "identifier_or_url": "arXiv:1503.09113",
+        "material_read": "Full arXiv HTML, especially the introduction and Section III defining the Kalman covariance recursion and discussing Riccati contraction; full-text searches for Aitken and scalar formulations were also run.",
+        "method": "Full-text HTML inspection.",
+        "title": "On the Projective Geometry of Kalman Filter",
+        "trigger": "Closest full-text source on projective geometry and contraction of the Kalman Riccati map."
+      },
+      {
+        "assessment": "FIELD_AND_OBJECT_ANCHOR: verifies primary filtering classification and Riccati-difference-equation context; it is not used as whole-document evidence about Aitken.",
+        "evidence": "The PDF explicitly says '2000 Mathematics subject classification: primary 93E11' and that the solution is given in terms of Riccati difference equations.",
+        "identifier_or_url": "doi:10.1017/S1446181110000076",
+        "material_read": "The first pages of the full PDF, including abstract, primary MSC 93E11, introduction, and statement that the filter is expressed through Riccati difference equations; the title page was visually inspected.",
+        "method": "Full-text PDF text extraction plus page-image inspection.",
+        "title": "Optimal Filtering in Discrete-Time Systems with Time Delays and Markovian Jump Parameters",
+        "trigger": "Primary-MSC ownership and archive-era filtering/Riccati source."
+      },
+      {
+        "assessment": "ACCESS_LIMITED_DISTINCT_OBJECT: the accessible material concerns nonsymmetric transport-theory Riccati equations, not scalar Kalman covariance. Whole-document noncoverage is not claimed.",
+        "evidence": "The abstract says Aitken is applied to a special nonsymmetric algebraic Riccati equation from transport theory and may improve or slow its simple iteration.",
+        "identifier_or_url": "doi:10.3934/math.2026971",
+        "material_read": "Article metadata, abstract, references, and the site's full-text entry were inspected; the body text was not exposed by the retrieval interface.",
+        "method": "Publisher HTML/abstract inspection.",
+        "title": "An Aitken method for accelerating the solution of the non-symmetric algebraic Riccati equation in transport theory",
+        "trigger": "Most plausible direct overlap because it combines Aitken acceleration with a Riccati equation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ce4fa67e-ac12-4f33-a907-250a98119d59",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Steady-state covariance is a central numerical quantity in Kalman filtering, and conservative covariance bounds are operationally meaningful. The theorem turns three ordinary scalar Riccati iterates into a certified lower/upper bracket without solving the algebraic Riccati equation, explains the acceleration by exact projective squaring, and identifies a sharp structural boundary where the same extrapolation can become an invalid negative covariance. This is a natural reusable fact rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
