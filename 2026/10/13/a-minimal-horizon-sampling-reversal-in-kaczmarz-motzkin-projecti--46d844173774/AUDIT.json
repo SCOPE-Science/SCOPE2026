@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Unit row norms and determinant 70 checked exactly; 9, 9 and 1 independent two-subset paths give the claimed polynomial risks. Every chosen maximal residual is strictly maximal across t in [1/2,3/2]; the 22 quadratic margins are proven positive by exact vertex tests. The two polynomial risk gaps have explicitly positive numerators over the full interval. One-step minimality is from a nested uniform-permutation coupling and the orthogonal projection identity, not a finite experiment.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The first source bounds error from above by products of conditional factors, without comparing true risks under different initial trajectories.",
+        "The UAI work bounds greedy rates through graph quantities; the earlier SKM work optimizes per-cost measures and inequality feasibility."
+      ],
+      "reasoning": "Their all-iteration upper bounds cover the setting formally, but a common upper bound does not imply pointwise monotonicity, nor does it forbid this exactly computed reversal. No identified stronger theorem entails the claim.",
+      "searches": [
+        "arXiv:1912.03544, Theorem/Corollary bounds for all beta and k",
+        "UAI2016:77, Section 9 multi-step maximum-residual bound",
+        "arXiv:1605.01418, Section 4 choice of beta"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1912.03544 (primary full text, version/date inspected)",
+      "UAI2016:77 (full relevant text)",
+      "arXiv:1605.01418 (full relevant text)",
+      "arXiv:2510.19941 (related later abstract only; no priority conclusion from it)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact one-step greedy benefit follows from the standard projection identity in Nutini et al.; the two-step reversal relies on the changed distribution of subsequent states.",
+        "Haddock–Ma discuss convergence estimates rather than exact finite-horizon expected risk rankings."
+      ],
+      "reasoning": "The new assertion is compatible with published one-step descent and rate upper bounds. The original SKM method and all-horizon convergence estimates do not assert a pathwise/expectational ordering between beta variants at a fixed finite iteration. No checked prior implication subsumes the explicit reversal.",
+      "searches": [
+        "arXiv:1912.03544 lines 199–286, 355–413",
+        "UAI2016:77 Sections 4, 9",
+        "arXiv:1605.01418 Section 4 parameter beta"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Haddock–Ma define sampling uniformly among subsets of cardinality beta and select the maximum absolute residual; beta=1 and beta=m are endpoints.",
+        "Nutini et al. use residual progress identities and multistep orthogonality graph bounds, not full finite-step beta ordering."
+      ],
+      "reasoning": "Equivalent descriptions include Motzkin maximal residual, sampled greedy row-action projection and uniform randomized Kaczmarz. They share the basic projections, but neither finite-step upper convergence bounds nor graph structural estimates imply an exact ordering of fixed-instance expectations after two iterations.",
+      "searches": [
+        "arXiv:1912.03544; Section 2 sampling Kaczmarz Motzkin, exact sampling size comparison",
+        "UAI2016:77; Sections 4 and 9 maximum-residual, maximum-distance, multistep bound",
+        "Kaczmarz Motzkin larger sample size two steps worse than smaller sample size counterexample"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The three named primary papers contain convergence bounds and experiments rather than this exact 3 by 3 rational projector table."
+      ],
+      "reasoning": "A 3 by 3 rational matrix, a continuum of initial vectors, and exact two-step expected-error quadratics are not an established table entry in the inspected primary sources. Absence from search results is only limited supporting evidence.",
+      "searches": [
+        "Kaczmarz Motzkin larger sample size two steps worse than smaller sample size counterexample",
+        "sampling Kaczmarz Motzkin sample size nonmonotonic convergence error two iterations",
+        "greedy Kaczmarz worse than random finite horizon counterexample"
+      ]
+    },
+    "rationale": "The exact fixed-instance two-step reversal is not implied by the size-dependent upper bounds in Haddock–Ma (arXiv:1912.03544, algorithm/Corollary 1), the orthogonality-graph multi-step greedy bounds of Nutini et al. (UAI 2016 Section 9), or the feasibility/cost tradeoffs of De Loera–Haddock–Needell (arXiv:1605.01418 Section 4). Closest related published-index entries about Kaczmarz concern different one-step residual bounds, cyclic underrelaxation, or asynchronous Gauss–Seidel. An unindexed equivalent counterexample remains plausible.",
+    "residual_risks": [
+      "An unindexed or inaccessible analysis may independently establish an equivalent finite-step counterexample.",
+      "The 2025 greedy-task-ordering paper was available by abstract only; no claim of complete noncoverage is made.",
+      "The example proves no general large-step runtime or asymptotic rate advantage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the identical solver and gives accelerated bounds; does not state the exact fixed-matrix two-step beta reversal",
+        "evidence": "Section 2 describes uniform beta-subsets and maximum absolute residual; table of RK, SKM, MM; rate estimates in Section 3.",
+        "identifier_or_url": "arXiv:1912.03544; https://arxiv.org/pdf/1912.03544",
+        "material_read": "Algorithm 1, Section 2 definitions and rate table; Corollary 1 and its dynamic-range discussion",
+        "method": "Full-text PDF section examination and definition/hypothesis comparison",
+        "title": "Greed Works: An Improved Analysis of Sampling Kaczmarz-Motzkin",
+        "trigger": "Same equation problem and identical beta-subset selection rule"
+      },
+      {
+        "assessment": "One-step identities and orthogonality-graph multistep upper bounds do not entail an exact sample-size reversal",
+        "evidence": "Section 4 projection error identity; Section 9 star-graph rate bound and selectable-row policy.",
+        "identifier_or_url": "UAI2016:77; https://www.auai.org/uai2016/proceedings/papers/77.pdf",
+        "material_read": "Sections 3–4 on greedy selection, Section 9 on graph-dependent multi-step rates, abstract and conclusions",
+        "method": "Full-text PDF sections and explicit analysis of hypotheses and whether bounds imply exact expected risks",
+        "title": "Convergence Rates for Greedy Kaczmarz Algorithms, and Faster Randomized Kaczmarz Rules Using the Orthogonality Graph",
+        "trigger": "Potentially dominating multi-step greedy theorem"
+      },
+      {
+        "assessment": "Studies feasibility of inequalities and rate/cost tradeoffs, not the exact two-step expectation for consistent equality projections",
+        "evidence": "Section 4.1 advocates beta=m for the displayed theoretical bound, then optimizes a cost-aware heuristic; no fixed-instance beta risk ordering is stated.",
+        "identifier_or_url": "arXiv:1605.01418; https://arxiv.org/pdf/1605.01418",
+        "material_read": "Intro, main theorem and proof, experimental Section 3 and parameter-choice Section 4.1",
+        "method": "Full-text PDF with direct examination of sample-size tradeoff and precise target metric",
+        "title": "A Sampling Kaczmarz-Motzkin Algorithm for Linear Feasibility",
+        "trigger": "Original sampling method and prior sample-size discussion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "46d84417-3774-4ffd-82e7-4a2f0047bd21",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The example isolates the earliest possible nonmonotonicity of expected squared solution error under increasing sampled greediness. It works with an invertible, equal-normalized-row 3 by 3 system on a continuum of initial vectors and strict, tie-free selection, so the reversal is not caused by scale bias, degeneracy, or arbitrary tie-breaking. It distinguishes a natural finite-horizon solver design question from established conditional stepwise progress and rate upper bounds.",
+    "status": "PASS"
+  }
+}
