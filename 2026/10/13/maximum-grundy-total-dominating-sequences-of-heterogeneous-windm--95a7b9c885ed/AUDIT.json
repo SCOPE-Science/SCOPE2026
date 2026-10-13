@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For each peripheral clique, the union of the open neighborhoods of any two distinct blade vertices is exactly that blade together with the center, so a third blade vertex cannot be legal. If the center is chosen after any peripheral vertex, all vertices are then totally dominated, forcing the center to be terminal in any maximum sequence that contains it. These bounds force exactly the two stated maximum-set profiles, and direct footprint arguments show every claimed ordering is legal. The resulting product-sum counts are exact. The included subset-DP verifier independently confirms the classification and counts on 33 heterogeneous profiles through order 13; the general theorem rests on the proof, not on the finite replay.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Propositions 4.1 and 4.2 of arXiv:1608.06804 imply the scalar maximum length for this cograph family via disjoint union and join.",
+        "The 2021 total-uniform work studies equality of minimum and maximum sequence lengths, not enumeration of maximum sequences for clique bouquets."
+      ],
+      "reasoning": "The strongest broader prior result found is deliberately acknowledged: it dominates the scalar part of the calculation. Its recurrence does not specify all maximum vertex sets or count the legal orderings that realize them, so it does not imply the accepted classification-and-enumeration claim.",
+      "searches": [
+        "arXiv:1608.06804 Proposition 4.1 Proposition 4.2 join disjoint union Grundy total domination",
+        "\\(P_4\\)-tidy cograph Grundy total domination modular decomposition",
+        "DOI:10.1016/j.disc.2021.112492 total uniform chordal graphs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1601.07525",
+      "DOI:10.1016/j.disc.2016.01.017",
+      "arXiv:1608.06804",
+      "DOI:10.1016/j.disc.2021.112492"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The modular recurrence gives only the extremal length \\(2r\\) for the graph considered here.",
+        "The new formulas separate center-free and center-terminal maximum sets and multiply each set by its exact number of legal orderings."
+      ],
+      "reasoning": "Knowing only the maximum length, or having one recursively constructed maximum sequence, does not determine which vertex sets support maximum sequences or how many legal permutations each supports. The accepted theorem supplies precisely that missing information while excluding the prior-covered scalar from its novelty claim.",
+      "searches": [
+        "arXiv:1608.06804 full text, Section 4 modular decomposition",
+        "arXiv:1601.07525 full text, definition and complete-multipartite extremal discussion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1601.07525 defines Grundy total dominating sequences and gives general/extremal theory, but the inspected text has no windmill or friendship occurrence.",
+        "arXiv:1608.06804 gives modular-decomposition rules and the join/disjoint-union recurrences; full-text searches found no windmill or friendship occurrence."
+      ],
+      "reasoning": "Windmill, friendship graph, generalized windmill, and clique bouquet are the natural aliases for the object. The relevant invariant aliases were searched together with sequence-count and maximum-set terminology. No equivalent all-extremizer statement was located.",
+      "searches": [
+        "\"Grundy total domination\" windmill friendship graph",
+        "\"total dominating sequences\" windmill friendship exact count",
+        "\"Grundy total dominating sequences\" clique bouquet",
+        "arXiv:1601.07525 full text: windmill; friendship",
+        "arXiv:1608.06804 full text: windmill; friendship"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No located indexed record supplied a windmill/clique-bouquet table of maximum sets or ordered maximum sequences.",
+        "The closest indexed records concern the scalar invariant, modular algorithms, ordinary Grundy domination, or uniformity of sequence lengths."
+      ],
+      "reasoning": "The claim is an exact infinite-family census, so a same-object database table or sequence-count paper would cover it even without matching terminology. The searches did not locate such coverage.",
+      "searches": [
+        "maximum Grundy total dominating sequences windmill graph clique bouquet",
+        "Grundy total domination generalized windmill friendship graph",
+        "Grundy total dominating sequences block graph bouquet cliques",
+        "number of Grundy total dominating sequences"
+      ]
+    },
+    "rationale": "The scalar value \\(2r\\) is explicitly treated as prior-implied by the published join/disjoint-union recurrence. The surviving claim is the complete classification of maximum sets and maximum ordered sequences. The inspected foundational and modular-decomposition papers do not state that classification or its counts, and focused same-object/alias searches did not locate an equivalent enumeration.",
+    "residual_risks": [
+      "An equivalent extremizer enumeration could exist under poorly indexed bouquet, block-graph, or friendship terminology.",
+      "The scalar value is not novel and is excluded from the accepted novelty claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_ENUMERATION",
+        "evidence": "The paper defines the invariant and develops general/extremal theory. The inspected text does not state the two-type clique-bouquet extremizer classification or the formulas for maximum-set and sequence multiplicity.",
+        "identifier_or_url": "arXiv:1601.07525; DOI:10.1016/j.disc.2016.01.017",
+        "material_read": "Abstract, introduction, definition of legal open-neighborhood sequences, preliminary bounds, and the paper's stated extremal scope in the accessible full text.",
+        "method": "Full-text reading and targeted term searches for windmill and friendship terminology.",
+        "title": "Total Dominating Sequences in Graphs",
+        "trigger": "Foundational source for the invariant and its primary classification."
+      },
+      {
+        "assessment": "SCALAR_COVERING_BUT_ENUMERATION_NOT_COVERED",
+        "evidence": "The join/disjoint-union formulas imply the scalar value \\(2r\\) and are therefore acknowledged as prior coverage. They do not classify all maximum sets or count all maximum orderings; no windmill/friendship occurrence was found.",
+        "identifier_or_url": "arXiv:1608.06804",
+        "material_read": "Full PDF through the modular-decomposition section, especially Propositions 4.1 and 4.2 and their proofs; title/abstract/MSC and introductory discussion were also inspected.",
+        "method": "Full-text PDF reading, visual inspection of the opening pages, and targeted full-text searches for windmill and friendship terminology.",
+        "title": "Total dominating sequences in trees, split graphs, and under modular decomposition",
+        "trigger": "Strongest broader result because heterogeneous windmills are cographs expressible by joins and disjoint unions."
+      },
+      {
+        "assessment": "DIFFERENT_QUESTION",
+        "evidence": "It studies total k-uniform graphs, where minimum and maximum total dominating sequence lengths coincide, rather than maximum-sequence enumeration on windmills.",
+        "identifier_or_url": "DOI:10.1016/j.disc.2021.112492",
+        "material_read": "Publisher abstract and visible introductory definition and problem statement.",
+        "method": "Publisher-page inspection and targeted search.",
+        "title": "On graphs all of whose total dominating sequences have the same length",
+        "trigger": "Later paper with a title suggesting possible global control of total dominating sequences."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "95a7b9c8-85ed-48de-8281-fa1d2a866bcb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem upgrades a scalar obtainable from modular decomposition to complete extremizer structure on a natural heterogeneous clique-bouquet family. It identifies two distinct maximum mechanisms, gives exact maximum-set multiplicities, and counts every ordered greedy realization. The factorial ordering counts record information discarded by the scalar recurrence and are directly relevant to multiplicity/uniqueness questions for greedy domination sequences.",
+    "status": "PASS"
+  }
+}
