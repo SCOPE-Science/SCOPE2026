@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The two-dimensional proof reconstructs every iterate from exact-line residual orthogonality. The reciprocal first two step lengths sum to tr(A) in the orthonormal residual basis, giving x_2=alpha_0 alpha_1((tr A)I-A)b >= 0 for a 2 by 2 Stieltjes matrix. Cayley-Hamilton reduces the two-step residual polynomial to rho I with rho=t^2/(sq) in [0,1), which yields r_{2m}=rho^m b and explicit nonnegative formulas for every later iterate. The three-dimensional witness has positive Sylvester minors, nonpositive off-diagonals, a strictly positive exact solution, and exact second iterate third coordinate -4/419. The standalone exact-rational checker replays all witness calculations; its finite two-dimensional examples are explicitly supplementary rather than proof of the universal claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Faber-Liesen-Tichy, DOI:10.1007/s10543-023-00991-x, proves exact and asymptotic recurrence results for optimum-gradient iterations; the grade-two recurrence is structurally close to the two-dimensional cycle used here.",
+        "The Faber-Liesen-Tichy result is spectral/Krylov in nature and has no Stieltjes sign hypothesis or coordinatewise conclusion.",
+        "Knyazev-Lashuk supplies broader convergence geometry for SPD steepest descent, but its statements concern energy/convergence behavior rather than an order cone."
+      ],
+      "reasoning": "The closest broader theorems explain the residual recurrence and convergence geometry but do not dominate the accepted claim: a periodic residual direction can have either coordinate sign after rotation, so no cone-preservation theorem follows without the Stieltjes entrywise structure.",
+      "searches": [
+        "steepest descent exact line search two dimensional recurrence Forsythe optimum gradient",
+        "On the Forsythe conjecture optimum gradient grade two",
+        "steepest descent exact line search variable preconditioning Knyazev Lashuk"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0605767",
+      "DOI:10.1137/060675290",
+      "https://optimization-online.org/2015/06/4964/",
+      "DOI:10.1007/s10543-023-00991-x",
+      "Published finding-index records for Richardson, weighted Jacobi, Gauss-Seidel, Polyak, BB, CG_AOS, Nesterov, and related SPD transient results",
+      "Prior published finding: A three-mode perturbation threshold for two-step Euclidean steepest descent"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knyazev-Lashuk gives the classical SPD steepest-descent framework and convergence bound; neither is an entrywise-order statement.",
+        "Gonzaga-Schneider records g_k^T g_{k+1}=0 and asymptotic extreme-eigenspace behavior, inputs compatible with the proof but not sufficient for positivity.",
+        "Faber-Liesen-Tichy establishes exact grade-two recurrence of normalized even subsequences, but no Stieltjes inverse-positivity or coordinatewise nonnegativity consequence.",
+        "The prior published three-mode perturbation finding studies two-step Euclidean error contraction on diagonal quadratics; Euclidean-error sensitivity neither implies nor is implied by the current cone-invariance/minimal-counterexample theorem."
+      ],
+      "reasoning": "The new implication chain requires combining exact-line orthogonality with the 2 by 2 trace identity, the entrywise form of (tr A)I-A, Cayley-Hamilton, and inverse positivity. The inspected prior statements omit the entrywise step and therefore do not imply the final claim. The three-dimensional witness additionally rules out any extension based only on SPD plus Stieltjes structure.",
+      "searches": [
+        "arXiv:math/0605767 steepest descent exact line search SPD",
+        "Optimization Online 2015 4964 Cauchy algorithm orthogonality",
+        "DOI:10.1007/s10543-023-00991-x grade two steepest descent recurrence",
+        "three-mode perturbation threshold two-step Euclidean steepest descent"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Knyazev-Lashuk arXiv:math/0605767 treats SPD steepest descent and the classical convergence-rate geometry, not positivity of primal iterates.",
+        "Gonzaga-Schneider Optimization Online 2015/06/4964 gives the exact Cauchy step and residual orthogonality and studies zigzagging/asymptotics; no Stieltjes cone-preservation statement was located in the inspected full text.",
+        "Published finding-index searches under exact-line, Cauchy, Stieltjes, M-matrix, positive-cone, and nonnegative-iterate aliases returned neighboring Richardson, Jacobi, Gauss-Seidel, Polyak, and CG-type results rather than the same steepest-descent statement."
+      ],
+      "reasoning": "Equivalent formulations searched included positivity preservation of the primal Cauchy iterates, invariance of the nonnegative cone from the zero start, and first occurrence of a negative coordinate. Spectral norm or objective monotonicity results are not equivalent because they do not control coordinate signs.",
+      "searches": [
+        "steepest descent SPD linear system componentwise positivity Stieltjes matrix nonnegative iterates",
+        "steepest descent M-matrix positive cone iterate sign",
+        "exact line search steepest descent inverse positive matrix second iterate positivity",
+        "steepest descent two dimensional SPD Stieltjes iteration nonnegative",
+        "gradient method linear system M-matrix monotone iteration",
+        "steepest descent exact line search Stieltjes M-matrix componentwise nonnegative iterates two dimensions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected published source or indexed finding supplied a table or database entry containing the exact three-dimensional witness or a dimension-by-iteration positivity classification.",
+        "The relevant sources are theorem and algorithm papers rather than catalogues of componentwise sign examples."
+      ],
+      "reasoning": "The accepted contribution is a universal low-dimensional theorem plus a jointly minimal exact counterexample, not an isolated numerical constant that could be subsumed by an existing table.",
+      "searches": [
+        "steepest descent Stieltjes positive iterates counterexample table",
+        "M-matrix steepest descent nonnegative iterate example",
+        "Cauchy method componentwise positivity matrix example"
+      ]
+    },
+    "rationale": "The closest inspected steepest-descent literature covers Cauchy steps, residual orthogonality, spectral zigzagging, convergence factors, variable preconditioning, and exact grade-two residual recurrence. Those results do not state or imply componentwise cone preservation for Stieltjes systems, and they do not contain the sharp three-dimensional second-iterate obstruction. Semantic published-finding searches also returned only results for different algorithms or different observables. A previously published exact-steepest-descent finding concerns Euclidean error sensitivity on diagonal quadratics, not componentwise positivity. The principal residual risk is older monotone-matrix literature using different terminology.",
+    "residual_risks": [
+      "Older M-matrix, monotone-iteration, or optimum-gradient literature may phrase coordinatewise order preservation differently and was not exhaustively searchable.",
+      "The exact grade-two recurrence is prior structure; novelty is not claimed for that recurrence itself, only for its Stieltjes positivity consequence together with the sharp three-dimensional second-step obstruction.",
+      "No claim is made for preconditioned, nonsymmetric, or inexact-line-search variants."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS classical SPD steepest-descent convergence geometry and variable preconditioning. It does not state the componentwise Stieltjes positivity boundary.",
+        "evidence": "The arXiv record is dated 30 May 2006. The SIAM record lists MSC 65F10 and identifies steepest descent, iterative methods, and linear systems.",
+        "identifier_or_url": "arXiv:math/0605767; DOI:10.1137/060675290",
+        "material_read": "Public arXiv abstract and SIAM article metadata/abstract, including the SPD linear-system setting, steepest-descent convergence discussion, publication history, and MSC listing.",
+        "method": "Public preprint and publisher metadata inspection.",
+        "title": "Steepest Descent and Conjugate Gradient Methods with Variable Preconditioning",
+        "trigger": "Primary archive source for the SPD steepest-descent framework and verified MSC ownership."
+      },
+      {
+        "assessment": "COVERS classical exact-line steepest-descent identities used as background. No componentwise Stieltjes positivity theorem or sharp dimension-two/dimension-three boundary was located.",
+        "evidence": "The paper explicitly defines the Cauchy step as the exact minimizer along the negative gradient and records orthogonality of consecutive gradients.",
+        "identifier_or_url": "https://optimization-online.org/2015/06/4964/",
+        "material_read": "Optimization Online full PDF introduction and Cauchy-algorithm section, including the exact step formula, consecutive-gradient orthogonality, and stated asymptotic extreme-eigenspace behavior.",
+        "method": "Lawful open full-text PDF inspection.",
+        "title": "On the steepest descent algorithm for quadratic functions",
+        "trigger": "Close full-text source for exact Cauchy steps, orthogonality, and two-mode zigzagging."
+      },
+      {
+        "assessment": "COVERS spectral recurrence that is compatible with the two-dimensional cycle. It does not state a Stieltjes cone-invariance result or the three-dimensional sign-loss witness.",
+        "evidence": "The article identifies the optimum-gradient case with steepest descent and treats exact grade-two recurrence; its metadata lists MSC 65F10.",
+        "identifier_or_url": "DOI:10.1007/s10543-023-00991-x",
+        "material_read": "Open-access article text covering the optimum-gradient iteration and the theorem on exact repetition of normalized even subsequences when the Krylov grade is two.",
+        "method": "Lawful open-access full-text inspection.",
+        "title": "On the Forsythe conjecture",
+        "trigger": "Closest structural source for exact two-step/grade-two recurrence in optimum-gradient iterations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7a3a23ce-52a2-46e4-96a5-0a232461d34e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For SPD Stieltjes systems, nonnegative data imply a nonnegative exact solution, so whether an unconstrained iterative solver temporarily exits the nonnegative cone is a meaningful structural question. The result completely classifies the protected dimensions for exact-line steepest descent, identifies the first possible iteration of failure, and supplies a small irreducible exact witness. This gives a precise diagnostic for applications where intermediate negativity is unacceptable and separates energy-optimal line search from order preservation.",
+    "status": "PASS"
+  }
+}
