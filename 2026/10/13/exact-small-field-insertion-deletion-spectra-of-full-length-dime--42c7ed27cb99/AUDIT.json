@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The code/normalization bijection is proved by equality of generator-row spans; the pairwise edit-distance/LCS reduction includes constant/nonconstant pairs and every nonidentity affine symbol transform. LCS for two permutations equals strict LIS of the induced positional permutation. Exhausting all (q-2)! suffix permutations and all q(q-1)-1 nonidentity affine transforms therefore exhausts the exact claim. Two separately implemented C++17 verifiers, bit-parallel LCS and strict-LIS, agree on all eight field sizes, with ordinary O(q^2) LCS cross-check for every transformation at q<=7. For q=11 they independently give (L6,L7,L8,L9,L10)=(128045,213170,20942,714,9), totaling 362880 orders; all rows sum to (q-2)! and verify nonzero multipliers bijective. At q=13 a separate ordinary-LCS check agrees with LIS for all 155 transforms of the stated vector; their length histogram (3:6,4:37,5:73,6:39) proves exact radius six. The result is finite and does not infer infinite behavior from samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Beelen–Con–Gruica–Montanucci–Yaakobi, arXiv:2501.11371 (2025), §3.1 Lemma 3, Proposition 1, Table 1, and §5",
+        "Beelen et al., IEEE Transactions on Information Theory 72(2) (2026), DOI:10.1109/TIT.2025.3647216",
+        "Con–Shpilka–Tamo, arXiv:2311.02771, Theorem 1.5 and §2 (2023/2024)",
+        "Zhang–Sun–Zhang–Ge, arXiv:2606.22344 (2026)"
+      ],
+      "reasoning": "General construction/existence statements and asymptotic near-full correction do not imply exact finite field distributions. The 2024 construction needs a field size cubic in length for the maximum correction distance and works in a very different n versus field-size regime; its Theorem 1.5 and constructions were read. The 2025 original is stronger than our theorem on classifying all zero-radius orderings, so that stratum is expressly credited as covered. Its remaining results and the related 2026 asymptotic results do not entail the other seven exact normalized-code histograms or the displayed q=13 evaluation ordering.",
+      "searches": [
+        "Web: \"full length\" \"Reed Solomon\" \"GF(8)\" \"GF(9)\" \"edit distance\" enumeration",
+        "Web: \"Reed-Solomon\" \"maximum insdel distance\" \"q=11\" dimension 2",
+        "Web: \"full-length\" \"Reed-Solomon\" \"insdel\" \"q=11\" exact number",
+        "Indexed-science query: 2026 coding theory exact bounds erasure list recovery synchronization code recent open problems",
+        "Indexed-science query: short full-length Reed-Solomon insdel code evaluation permutation exact 2025 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2501.11371v1 §3.1 Lemma 3, Proposition 1, Table 1, §5 (full preprint)",
+      "DOI:10.1109/TIT.2025.3647216 (2026 journal indexed abstract, full text not available)",
+      "arXiv:2311.02771v2 Theorem 1.5, §2 and construction hypotheses (full preprint)",
+      "arXiv:2606.22344 main results and discussion (public full HTML)",
+      "Published mathematical results on full-field generalized Roth–Lempel Galois hulls, exact short deletion codes, and asymptotic q-ary deletion redundancy"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Beelen–Con–Gruica–Montanucci–Yaakobi, arXiv:2501.11371 (2025), §3.1 Lemma 3, Proposition 1, Table 1, and §5 proves t=0 characterization; it does not assert counts of t>=2, and §5 explicitly leaves specific performant orderings undetermined",
+        "Con–Shpilka–Tamo, arXiv:2311.02771, Theorem 1.5 and §2 (2023/2024) proves cubic-order field-size construction for maximal deletion correction, no full-length finite census",
+        "Beelen et al., IEEE Transactions on Information Theory 72(2) (2026), DOI:10.1109/TIT.2025.3647216 abstract gives an asymptotic prevalence theorem, not this exact finite distribution"
+      ],
+      "reasoning": "Let P be the new claim of every t-bin for every field up to size eleven plus an explicit q13 ordering. The prior Lemma 3 implies the t=0 entries but does not imply P: knowing which codes fail even one error does not distinguish one-, two-, three-, and four-error correction. General upper/lower and large-field existence theorems likewise do not determine P. The prior authors state empirical existence of q13 improvements; our proof of existence by the specified 155-affine certificate is a concrete addition, though the broad existence itself is not claimed novel. The new finding is the combined exact distribution and minimal-field explicit instantiation.",
+      "searches": [
+        "Web: \"full-length\" \"Reed-Solomon\" \"insdel\" \"q=11\" exact number",
+        "Web: \"Reed-Solomon\" \"insertion deletion\" \"evaluation orderings\" \"table\" \"q=11\"",
+        "Indexed-science query: full-length 2 dimensional Reed Solomon LCS 362880 128045 correction spectrum",
+        "Source inspection: arxiv:2501.11371 Lemma 3, Proposition 1, Table 1 and Discussion",
+        "Source inspection: arxiv:2311.02771 Theorem 1.5 and Section 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Beelen–Con–Gruica–Montanucci–Yaakobi, arXiv:2501.11371 (2025), §3.1 Lemma 3, Proposition 1, Table 1, and §5",
+        "Beelen et al., IEEE Transactions on Information Theory 72(2) (2026), DOI:10.1109/TIT.2025.3647216",
+        "Con–Shpilka–Tamo, arXiv:2311.02771, Theorem 1.5 and §2 (2023/2024)",
+        "Published mathematical results on generalized Roth–Lempel Galois hulls, short quinary deletion codes, and asymptotic q-ary deletion redundancy"
+      ],
+      "reasoning": "Equivalent formulations include the minimum edit distance, maximum pairwise LCS, strict LIS of an induced affine permutation, distribution of normalized evaluation orders, and counts of coordinate-fixed dimension-two RS subspaces. Beelen et al. Lemma 3 gives the t=0 cases through affine/primitive orderings, but does not determine t=1,...,4. The other retrieved coding records concern Galois hulls, generic deletion codes, or different metrics, not the exact LCS/LIS spectrum. An unindexed equivalent enumeration remains a genuine risk.",
+      "searches": [
+        "Indexed-science query: Exact insertion/deletion radius spectrum of full-length 2-dimensional Reed Solomon codes over F_11: among 362880 normalized evaluation permutations 128045 have radius 4, 213170 radius 3, 20942 radius 2, 714 radius 1, 9 radius 0",
+        "Indexed-science query: Lexicographic affine-orbit-normalized full-length RS 2 insdel correction q 4 5 7 8 9 11 13 first improves over Hamming substitution radius",
+        "Web: \"full-length\" \"Reed-Solomon\" \"insdel\" \"spectrum\" \"q=11\"",
+        "Web: \"LCS\" \"Reed-Solomon\" \"362880\" \"128045\"",
+        "Web: \"Reed-Solomon\" \"insertion deletion\" \"evaluation orderings\" \"table\" \"q=11\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Beelen–Con–Gruica–Montanucci–Yaakobi, arXiv:2501.11371 (2025), §3.1 Lemma 3, Proposition 1, Table 1, and §5 (the sole Table 1 reports one-error lower proportions, not all radii)",
+        "Beelen et al., IEEE Transactions on Information Theory 72(2) (2026), DOI:10.1109/TIT.2025.3647216",
+        "The closest indexed generalized Roth–Lempel Galois-hull result concerns Galois hulls, not LCS spectra"
+      ],
+      "reasoning": "The core primary preprint was read through its theorem, Lemma 3, Table 1, proof and concluding experimental observation. Its one-error table and known t=0 classifications cannot supply all intermediate bins, particularly 128045 codes at radius four over F11. No retrieved exact database or finite table enumerates the stated values. The full journal version could still contain supplementary numerical data not exposed by its abstract; this risk is retained.",
+      "searches": [
+        "Web: \"Reed-Solomon Codes Against Insertions and Deletions\" \"Table 2\" q",
+        "Web: \"Reed-Solomon Codes Against Insertions and Deletions: Full-Length and Rate-1/2 Codes\" \"q=11\"",
+        "Web: \"q=9\" \"1142\" \"Reed-Solomon\" insdel",
+        "Web: \"q=13\" \"Reed-Solomon\" \"substitutions\" \"insdel\" explicit ordering",
+        "Indexed-science query: q13 full-length two dimensional Reed Solomon explicit evaluation ordering 0 1 5 6 12 7 11 9 8 3 4 10 2 LCS6 correcting 6 synchronization errors"
+      ]
+    },
+    "rationale": "A direct claim-versus-prior comparison gives partial coverage only for the zero-radius stratum: arXiv:2501.11371 Lemma 3. Its one-error proportions, existing extreme-distance constructions, and modern asymptotic random-code theorems do not entail the complete radius distributions, especially all 362880 field-eleven normalized codes, or the explicit field-thirteen witness. published mathematical-index semantic searches for exact parameters and equivalent LCS/LIS formulations found no matching published record. The inaccessible full journal version and possible unpublished or unindexed small-field tables are explicitly retained as risks; failed retrieval alone is not treated as proof of novelty.",
+    "residual_risks": [
+      "The 2026 peer-reviewed journal full text could contain an exact finite table or appendix not present in the fully inspected January 2025 preprint; only its abstract was available.",
+      "The exact finite spectra could have been computed in an unpublished or poorly indexed report or database, despite negative searches of equivalent formulations.",
+      "The broad observation of improvement from field size 13 is already explicitly reported as computational evidence in the originating paper; only an exact explicit witness and complete smaller-field distribution are being evaluated as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Partially covers: already characterizes noncorrecting orders, but not higher-radius spectra or the given explicit q13 witness",
+        "evidence": "arXiv:2501.11371v1 dated 2025-01-20; Lemma 3 enumerates primitive/geometric/arithmetic noncorrecting orders; Table 1 gives one-error percentages; §5 mentions Magma experiments for q>=13 without specific orders.",
+        "identifier_or_url": "https://arxiv.org/abs/2501.11371",
+        "material_read": "Full publicly available arXiv v1 text, including §3.1 complete Lemma 3 proof, Proposition 1 and Table 1, §3.2 and concluding §5",
+        "method": "Read publicly hosted lawful full preprint text, tracking exact q/n/k and claims",
+        "title": "Reed–Solomon Codes Against Insertions and Deletions: Full-Length and Rate-1/2 Codes (arXiv preprint)",
+        "trigger": "Same code family and same evaluation-ordering question; primary most plausible coverage"
+      },
+      {
+        "assessment": "Abstract gives stronger asymptotic almost-all result, not an exact small-field table; full journal remains a material access risk, and no NOT_COVERING conclusion is assigned to its unread body",
+        "evidence": "IEEE Trans. Information Theory 72(2) (2026), 1149-1160, DOI 10.1109/TIT.2025.3647216, institutionally indexed abstract.",
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2025.3647216",
+        "material_read": "2026 journal bibliographic record and abstract only; the full 2026 journal text was not accessed",
+        "method": "Read Technion and Israeli Research Community publication records; compare explicit abstract claims against the preprint",
+        "title": "Reed–Solomon Codes Against Insertions and Deletions: Full-Length and Rate-1/2 Codes (journal version)",
+        "trigger": "Same primary work in later, possibly expanded peer-reviewed version"
+      },
+      {
+        "assessment": "Constructs maximally correcting RS codes over cubic-sized extension fields; no small full-length LCS counts or q13 evaluation ordering",
+        "evidence": "arXiv:2311.02771v2, Theorem 1.5 q=O(n^3), Remark 1.6 and Propositions 2.1/2.3 with evaluation points in cubic extensions.",
+        "identifier_or_url": "https://arxiv.org/pdf/2311.02771",
+        "material_read": "ArXiv preprint v2: abstract, introduction including Theorem 1.5, Section 2 construction hypotheses and selected proof passages; no claim of line-by-line reading of every page",
+        "method": "Read the arXiv PDF text at pages 1–7 and visually inspected the title page and theorem/construction page; compared field-size regime to the complete full-length census",
+        "title": "Optimal Two-Dimensional Reed–Solomon Codes Correcting Insertions and Deletions",
+        "trigger": "Highly relevant matching two-dimensional RS code setting"
+      },
+      {
+        "assessment": "Provides asymptotic/random-code guarantees in a different channel; not a finite exact spectrum",
+        "evidence": "arXiv:2606.22344, 2026; results focus on polynomial-size alphabets and probabilistic constructions.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.22344",
+        "material_read": "Public article HTML: abstract, introduction, main results and related references; focus on relevant sections",
+        "method": "Read publicly available article HTML text; compare asymptotic alphabet/noise regime with fixed small full-length ordered fields",
+        "title": "Random Reed–Solomon Codes Correcting Permutations, Insertions, and Deletions over Polynomial-Size Alphabets",
+        "trigger": "Recent related RS synchronization resilience under an additional permutation channel"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": null,
+  "scope_run_id": "42c7ed27-cb99-4880-81bf-eb399617c24b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A recent, explicitly stated research question asks which full-length Reed–Solomon evaluation orders achieve strong synchronization-error correction. The full finite distributions answer this natural structural question for every prime-power field size through eleven, not just an arbitrary unmotivated statistic. In particular field eleven divides all 362880 distinct codes into five exact robustness classes, including 128045 achieving its Hamming correction radius; field eight has a strict performance deficit. The verified field-thirteen witness and exhaustive exclusion of smaller field sizes establish the first transition to better-than-Hamming synchronization correction. These facts are not mere restatements of the already-known zero-radius characterization or a tiny bound improvement; the finite classification and sharp field threshold have a concrete code-design interpretation.",
+    "status": "PASS"
+  }
+}
