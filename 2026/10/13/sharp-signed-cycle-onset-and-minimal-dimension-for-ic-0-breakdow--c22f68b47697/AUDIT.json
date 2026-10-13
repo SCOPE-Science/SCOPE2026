@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For n<=3, the only natural-order IC(0) case in which complete Cholesky would create a dropped fill before the final pivot reduces to a23=0 with a12 and a13 retained; the IC final pivot is then a33-a13^2/a11, positive by the SPD principal submatrix on indices {1,3}. Other zero patterns are exact or delete additional square terms. For the signed four-cycle, B^2=2I gives the exact SPD interval, and direct IC(0) recurrences yield q4=(1-t^2)(1-3t^2)/(1-2t^2), proving the phase boundary t=1/sqrt(3). The condition-number identity follows from the two repeated eigenvalues. The packaged checker independently replays the rational pivot sequences and radical identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eijkhout's full survey states that incomplete factorizations may have zero or negative pivots even for SPD matrices and reproduces Kershaw's 4x4 example.",
+        "Scott and Tuma's full 2025 article gives larger SPD IC(0) breakdown examples and discusses breakdown detection and shifting, but not the minimal order or this one-parameter four-cycle boundary.",
+        "Lin and More's paper establishes incomplete Cholesky as a 65F10/65F50 numerical-linear-algebra topic and proposes a limited-memory variant rather than a minimal breakdown classification."
+      ],
+      "reasoning": "General statements that IC can break down on SPD matrices, and isolated examples of that fact, do not imply the universal n<=3 safety theorem or the exact signed-cycle phase diagram. Conversely, the new claim does not reassert robustness results for modified or shifted schemes.",
+      "searches": [
+        "On the existence problem of incomplete factorisation methods Eijkhout",
+        "Developing robust incomplete Cholesky factorizations breakdown SPD",
+        "Incomplete Cholesky Factorizations with Limited Memory MSC 65F10",
+        "robust incomplete factorization preconditioner positive definite matrices"
+      ]
+    },
+    "checked_sources": [
+      "UCRL-81103",
+      "doi:10.1016/0021-9991(78)90098-0",
+      "UT-CS-99-435",
+      "doi:10.1137/S1064827597327334",
+      "doi:10.1007/s11075-025-02015-x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kershaw's fixed matrix is exactly the t=2/3 point of the new family, so prior work covers one interior failure point but not the onset or safe interval.",
+        "Eijkhout explicitly says the Kershaw matrix is SPD and has a negative fourth ILU(0) pivot; this establishes existence in dimension four but says nothing about whether dimensions one through three are always safe.",
+        "M-matrix breakdown-free theorems apply to a sign-restricted class and do not imply the all-SPD n<=3 theorem."
+      ],
+      "reasoning": "The new statement strictly separates prior coverage from the added implications: prior work supplies a four-dimensional counterexample, while the new proof supplies minimality and a complete scalar phase diagram containing that example.",
+      "searches": [
+        "Kershaw incomplete Cholesky 4x4 negative fourth pivot",
+        "Eijkhout incomplete factorization Kershaw example",
+        "IC(0) SPD M-matrix breakdown free"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-record searches returned no incomplete-Cholesky finding with a minimal-dimension theorem or signed-cycle phase boundary; the closest numerical-linear-algebra record concerned an additive bidirectional Gauss-Seidel inverse and is not an IC(0) factorization.",
+        "Literature searches recovered Eijkhout's survey and Kershaw's fixed 4x4 witness, but no source stating the parametric threshold t=1/sqrt(3) or condition number 5+2sqrt(6).",
+        "Exact-constant searches for 5+2sqrt(6) together with incomplete Cholesky returned no relevant match."
+      ],
+      "reasoning": "The searches covered algorithm names IC(0)/incomplete Cholesky/ILU(0), the Kershaw witness, minimal dimension, signed-cycle and Jacobi-scaled formulations, fourth-pivot language, and the exact constant.",
+      "searches": [
+        "four dimensions minimal incomplete Cholesky IC(0) breakdown SPD",
+        "Kershaw 4x4 incomplete Cholesky negative fourth pivot parametric family",
+        "signed four-cycle incomplete Cholesky condition number 5 plus 2 sqrt 6",
+        "Jacobi scaled IC(0) breakdown four-cycle condition number",
+        "incomplete Cholesky dimension four breakdown",
+        "negative fourth pivot incomplete Cholesky condition number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or database entry for the constant 5+2sqrt(6) or the t=1/sqrt(3) boundary was located.",
+        "The threshold is derived from the exact fourth-pivot factor 1-3t^2, not read from numerical data."
+      ],
+      "reasoning": "The reported invariant is an analytic phase boundary for a canonical historical family, not a recomputation of a known table.",
+      "searches": [
+        "5+2 sqrt(6) incomplete Cholesky",
+        "1/sqrt(3) incomplete Cholesky breakdown",
+        "Kershaw incomplete Cholesky signed cycle"
+      ]
+    },
+    "rationale": "The core fact that general SPD matrices can suffer incomplete-factorization breakdown is classical, and Eijkhout's full 1999 survey explicitly reproduces Kershaw's 4x4 SPD matrix with a negative fourth ILU(0) pivot. That witness is therefore excluded from the novelty claim. Targeted published-record and literature searches did not locate the all-n<=3 breakdown-free statement, the embedding of the Kershaw matrix into the displayed Jacobi-scaled signed-cycle family, or the exact threshold t=1/sqrt(3), equivalently kappa=5+2sqrt(6), separating positive IC(0) pivots from negative fourth pivots within the SPD interval.",
+    "residual_risks": [
+      "The complete body of Kershaw's 1978 Journal of Computational Physics article was not accessible through the inspected route; it may contain a broader parametric discussion of the displayed matrix than the later survey reproduces.",
+      "Older graph-theoretic or incomplete-factorization literature may encode the n<=3 minimality observation or the same four-cycle threshold without the exact terminology used in the searches.",
+      "The constant 5+2sqrt(6) is only a family threshold; a different four-dimensional SPD sparsity pattern may break down at a smaller condition number."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVE_PARTIAL_COVERAGE: it establishes the classical 4x4 counterexample and the general possibility of SPD breakdown, so those facts are not claimed as new. It does not state the n<=3 safety theorem or the signed-cycle phase threshold.",
+        "evidence": "The report states that incomplete factorizations can have zero or negative pivots even for SPD matrices and reproduces Kershaw's matrix [[3,-2,0,2],[-2,3,-2,0],[0,-2,3,-2],[2,0,-2,3]], saying it has a negative fourth pivot in ILU(0).",
+        "identifier_or_url": "UT-CS-99-435",
+        "material_read": "Full 15-page PDF was inspected; the abstract, introduction, pivot-repair subsection, Kershaw example, ILU(0) definition, and ordering discussion were read, and the page containing the 4x4 Kershaw matrix was visually checked.",
+        "method": "Full-text PDF and rendered-page inspection.",
+        "title": "On the existence problem of incomplete factorisation methods",
+        "trigger": "Highly relevant full survey explicitly addressing existence and breakdown of incomplete factorizations."
+      },
+      {
+        "assessment": "FOUNDATIONAL_CONTEXT: confirms that unstable pivots and repair strategies were an explicit research problem by 1978; the inspected metadata does not supply the new phase diagram.",
+        "evidence": "The repository description states that incomplete LU and incomplete-Cholesky conjugate-gradient methods can encounter very small or zero pivots and that the report analyzes when and how to repair them.",
+        "identifier_or_url": "UCRL-81103",
+        "material_read": "Repository metadata and detailed abstract/description were inspected. The archive records creation on 1978-06-19 and describes explicit treatment of small or zero pivots and repair values.",
+        "method": "Government-report repository record inspection.",
+        "title": "Problem of unstable pivots in the incomplete LU-conjugate gradient method",
+        "trigger": "Early primary source focused directly on unstable pivots in incomplete LU and incomplete Cholesky methods."
+      },
+      {
+        "assessment": "BROADER_NOT_COVERING: gives larger explicit breakdown examples and practical safeguards, but not minimal dimension four or the signed-cycle threshold.",
+        "evidence": "The article defines IC(0) as using the sparsity pattern of A, states that general SPD IC may break down, and gives an SPD example with a later negative pivot caused by dropped fill.",
+        "identifier_or_url": "doi:10.1007/s11075-025-02015-x",
+        "material_read": "Full publisher HTML sections on possible breakdowns were inspected, including the IC(0) definition, the statement that general SPD matrices can break down, and the displayed five-dimensional exact-arithmetic example.",
+        "method": "Full-text publisher HTML inspection.",
+        "title": "Developing robust incomplete Cholesky factorizations in half precision arithmetic",
+        "trigger": "Current full-text primary source giving explicit general-SPD IC breakdown examples and modern robustness context."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING: proposes a limited-memory factorization rather than a minimal-dimension or signed-cycle breakdown theorem.",
+        "evidence": "The publisher lists MSC 65F10 and 65F50 and identifies preconditioners, conjugate gradients, sparsity, and trust-region applications.",
+        "identifier_or_url": "doi:10.1137/S1064827597327334",
+        "material_read": "Publisher abstract, MSC codes, keywords, bibliographic information, and references were inspected.",
+        "method": "Publisher-page inspection.",
+        "title": "Incomplete Cholesky Factorizations with Limited Memory",
+        "trigger": "Primary numerical-linear-algebra reference used to verify subject ownership and compare against robust incomplete-Cholesky variants."
+      },
+      {
+        "assessment": "INCOMPLETE_COMPARISON_RISK_RETAINED: the article is a plausible place for additional discussion of the example, so inaccessible body text is not used as evidence of noncoverage.",
+        "evidence": "The abstract describes generalization of incomplete Cholesky-conjugate-gradient methods from symmetric M-matrices to general SPD matrices.",
+        "identifier_or_url": "doi:10.1016/0021-9991(78)90098-0",
+        "material_read": "Publisher abstract and bibliographic metadata were available; the complete article body was not accessible through the inspected route.",
+        "method": "Publisher abstract inspection plus comparison through Eijkhout's full survey, which explicitly attributes the fixed 4x4 example to Kershaw.",
+        "title": "The incomplete Cholesky—conjugate gradient method for the iterative solution of systems of linear equations",
+        "trigger": "Original Kershaw journal article cited by Eijkhout for the classical four-dimensional example."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c22f68b4-7697-4b53-8924-f1110e6e83e8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Incomplete Cholesky breakdown remains a practical reason for shifts, repairs, and alternative preconditioners. The classical literature gives isolated counterexamples but not, in the inspected sources, the smallest possible dimension or a quantified robustness margin around the canonical Kershaw matrix. The result identifies the first dimension in which dropped fill can feed back into a later retained edge, gives an exact safe-to-breakdown transition within the Jacobi-scaled historical family, and shows that the classical example lies well beyond the onset. This is a natural finite classification tied directly to a foundational preconditioning failure mode.",
+    "status": "PASS"
+  }
+}
