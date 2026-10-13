@@ -1,0 +1,193 @@
+# Complete higher-support profile of the \([37,7,16]_2\) subfield code
+## Finding
+
+For the binary code \(C_f^{(2)}\) in Liu, Liu, and Yu's Example 3.11 with
+\[
+m=3,\qquad f(x,y)=\operatorname{Tr}_{8/2}(xy),
+\]
+the published parameters are
+\[
+[37,7,16]_2
+\]
+and the published ordinary weight enumerator is
+\[
+1+31z^{16}+32z^{17}+31z^{20}+32z^{21}+z^{36}.
+\]
+
+Its complete generalized Hamming-weight hierarchy is
+\[
+(d_1,d_2,d_3,d_4,d_5,d_6,d_7)
+=
+(16,24,28,32,34,36,37).
+\]
+
+More strongly, the complete support-size distributions of subcodes are as follows. The notation \(w:N\) means that exactly \(N\) subcodes of the indicated dimension have support size \(w\).
+
+For one-dimensional subcodes,
+\[
+16:31,\quad17:32,\quad20:31,\quad21:32,\quad36:1.
+\]
+
+For two-dimensional subcodes,
+\[
+\begin{aligned}
+24&:75,\quad25:240,\quad26:240,\quad27:768,\quad28:225,\\
+29&:720,\quad30:80,\quad31:256,\quad36:31,\quad37:32.
+\end{aligned}
+\]
+
+For three-dimensional subcodes,
+\[
+\begin{aligned}
+28&:15,\quad29:120,\quad30:420,\quad31:3360,\quad32:665,\\
+33&:5320,\quad34:140,\quad35:1120,\quad36:155,\quad37:496.
+\end{aligned}
+\]
+
+For four-dimensional subcodes,
+\[
+32:45,\quad33:1060,\quad34:3380,\quad35:3696,\quad36:2090,\quad37:1540.
+\]
+
+For five-dimensional subcodes,
+\[
+34:10,\quad35:636,\quad36:1029,\quad37:992.
+\]
+
+For six-dimensional subcodes,
+\[
+36:37,\qquad37:90.
+\]
+
+For the unique seven-dimensional subcode,
+\[
+37:1.
+\]
+
+Consequently, the generalized-weight minima are attained by exactly
+\[
+31,\ 75,\ 15,\ 45,\ 10,\ 37,\ 1
+\]
+subcodes in dimensions \(1,\ldots,7\), respectively.
+
+## Assumptions and scope
+
+Choose the verification model
+\[
+\mathbb F_8=\mathbb F_2[\alpha]/(\alpha^3+\alpha+1)
+\]
+and let
+\[
+\operatorname{Tr}(u)=u+u^2+u^4.
+\]
+The source's construction uses
+\[
+S=\{(x,y)\in\mathbb F_8^2:\operatorname{Tr}(xy)=0\}.
+\]
+For
+\[
+a\in\mathbb F_2,\qquad b,c\in\mathbb F_8,
+\]
+the binary codeword is
+\[
+c_{a,b,c}
+=
+\left(
+\operatorname{Tr}(b),\
+\bigl(a+\operatorname{Tr}(bx+cy)\bigr)_{(x,y)\in S}
+\right).
+\]
+
+There are \(36\) pairs in \(S\), so the code length is \(37\). The claim concerns exactly the \(m=3\) code in Example 3.11. It does not assert a formula for arbitrary \(m\) or for the punctured companion code.
+
+## Proof
+
+Use the seven message-basis elements
+\[
+(1,0,0),
+\quad
+(0,1,0),(0,\alpha,0),(0,\alpha^2,0),
+\quad
+(0,0,1),(0,0,\alpha),(0,0,\alpha^2).
+\]
+Their evaluations form a binary \(7\times37\) generator matrix of rank \(7\). Hence the message-to-code map is an isomorphism of seven-dimensional binary vector spaces.
+
+Before computing any higher-dimensional invariant, enumerate all \(2^7\) messages. The resulting weight distribution is exactly
+\[
+A_0=1,\quad A_{16}=31,\quad A_{17}=32,\quad
+A_{20}=31,\quad A_{21}=32,\quad A_{36}=1,
+\]
+which reproduces the source's Example 3.11 and anchors the finite-field convention and coordinate construction.
+
+Every \(r\)-dimensional code subcode therefore corresponds uniquely to an \(r\)-dimensional message subspace. Every message subspace has a unique reduced-row-echelon basis. The numbers of such subspaces in dimensions \(1,\ldots,7\) are
+\[
+127,\ 2667,\ 11811,\ 11811,\ 2667,\ 127,\ 1,
+\]
+respectively, totaling
+\[
+29211.
+\]
+
+If
+\[
+u_1,\ldots,u_r
+\]
+is a basis of a message subspace, then the support of the corresponding code subcode is
+\[
+\operatorname{Supp}(c(u_1))\cup\cdots\cup\operatorname{Supp}(c(u_r)).
+\]
+Indeed, a coordinate vanishes on the entire generated subcode if and only if it vanishes on every basis word.
+
+Exact enumeration of all \(29211\) positive-dimensional message subspaces therefore exhausts every code subcode. The support histograms obtained by these unions are precisely those stated in the Finding. Taking the minimum support in each dimension yields
+\[
+(16,24,28,32,34,36,37).
+\]
+
+This is an exhaustive finite proof for the stated code. No sampling or partial enumeration is used.
+
+## Verification
+
+`artifacts/verify.py` uses only the Python standard library.
+
+It implements \(\mathbb F_8\) with modulus
+\[
+X^3+X+1,
+\]
+checks the trace map, constructs the \(36\)-point trace-zero set \(S\), and reconstructs the \(37\)-coordinate code directly from the source formula.
+
+The script verifies generator rank \(7\) and exactly reproduces the published ordinary weight enumerator
+\[
+1+31z^{16}+32z^{17}+31z^{20}+32z^{21}+z^{36}.
+\]
+
+It then enumerates every binary subspace of the seven-dimensional message space once in reduced-row-echelon form. In every dimension it checks the census size against the Gaussian binomial coefficient, computes each support union, and compares the complete histogram with `artifacts/certificate.json`.
+
+Successful replay prints `VERIFY_OK`.
+
+## Relationship to prior work
+
+Liu, Liu, and Yu determine the ordinary weight distributions of several subfield-code families and their punctured companions. Their Theorem 3.9 gives the general parameters and ordinary weight distribution for the family generated by
+\[
+f(x,y)=\operatorname{Tr}_{2^m/2}(xy),
+\]
+and Example 3.11 highlights the \(m=3\) member with parameters \([37,7,16]_2\). The article contains no generalized-Hamming-weight or subcode-support analysis.
+
+Pan, Chen, Liu, and Liu develop complete subcode-support distributions for several distance-optimal few-weight families. Their constructions are based on repeated simplex matrices, deletions of prescribed projective subspaces, modified Solomon--Stiffler codes, and simplex-complement codes. Their public full text has no binary \([37,7,16]\) example; the length-\(37\) example displayed there is instead a ternary \([37,4,24]_3\) code. No specialization of their parameter formulas to the present trace-defined code was found.
+
+Exact searches using the parameter triple, the ordinary enumerator, the trace-zero defining equation, and the resulting hierarchy found no prior higher-support profile for this exact code.
+
+## Limitations
+
+The result is a complete finite census for one highlighted \(m=3\) member, not a closed formula for every \(m\) in Theorem 3.9.
+
+The census classifies subcodes by support size, not by automorphism-group orbit.
+
+The ordinary weight enumerator is prior work. Only the higher-dimensional support spectra, their minima, and their multiplicities are claimed as new.
+
+A differently presented equivalent code could occur in unindexed literature; no such coverage was found in the inspected sources.
+
+## References
+
+1. Shanshan Liu, Yan Liu, and Xiaoyu Yu, *Weight distributions of subfield codes from special functions*, AIMS Mathematics 11 (2026), 2797--2815, DOI 10.3934/math.2026112.
+2. Xu Pan, Hao Chen, Hongwei Liu, and Shengwei Liu, *Optimal Few-SSW Linear Codes and Their Subcode Support Weight Distributions*, IEEE Transactions on Information Theory 71 (2025), 1028--1042, DOI 10.1109/TIT.2024.3519672; arXiv:2408.10005.
+3. V. K. Wei, *Generalized Hamming weights for linear codes*, IEEE Transactions on Information Theory 37 (1991), 1412--1418.
