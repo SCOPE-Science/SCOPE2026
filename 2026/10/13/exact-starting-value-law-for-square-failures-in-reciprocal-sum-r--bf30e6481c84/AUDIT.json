@@ -1,0 +1,103 @@
+{
+  "claim": "Fix \\(h\\in\\mathbb N\\), set \\(k=h^2\\), and for a positive integer starting value \\(x_0\\) let \\(x_{n+1}=h^2/(x_0+\\cdots+x_n)\\), with \\(x_n=a_n/b_n\\) in lowest terms. Let \\(F_h(x_0)\\) be the number of indices \\(n\\ge2\\) for which \\((2/h)a_n+b_n\\) is not a perfect square. Put \\(P(h)=\\{p\\mid h: p=2\\text{ or }p\\equiv1\\pmod4\\}\\), \\(\\alpha_p=v_p(h)\\), and \\(M_h=\\prod_{p\\in P(h)}p^{\\alpha_p+1}\\). For each \\(p\\in P(h)\\), let \\(T_p(t)=t+t^{-1}\\) on \\(\\mathbb P^1(\\mathbb F_p)\\), with \\(T_p(0)=T_p(\\infty)=\\infty\\), and define \\(B_{p,r}=\\{t\\in\\mathbb F_p^*:T_p^r(t)=0\\}\\) and \\(c_{p,r}=|B_{p,r}|\\). Then the failed term indices are exactly \\(\\{r+1:\\tau_p(x_0)=r<\\infty\\text{ for some }p\\in P(h)\\}\\), where \\(\\tau_p(x_0)=r\\) exactly when \\(x_0\\equiv p^{\\alpha_p}(h/p^{\\alpha_p})t\\pmod{p^{\\alpha_p+1}}\\) for some \\(t\\in B_{p,r}\\). Consequently \\(F_h\\) is exactly periodic modulo \\(M_h\\). If \\(w_{p,r}=c_{p,r}\\) and \\(w_{p,\\infty}=p^{\\alpha_p+1}-\\sum_r c_{p,r}\\), then the natural density of starts with exactly \\(j\\) failed terms is the exact rational number \\(\\delta_j(h)=M_h^{-1}\\sum_{\\tau:\\,|\\{\\tau_p<\\infty\\}|_{\\mathrm{distinct}}=j}\\prod_{p\\in P(h)}w_{p,\\tau_p}\\), where the cardinality counts distinct finite hit times, so simultaneous obstructions from several primes contribute one failed term. For \\(h=65\\), the exact period is \\(4225\\) and the counts for \\(j=0,1,2\\) are \\(3507,714,4\\), respectively.",
+  "correctness": {
+    "rationale": "The proof separates the three p-adic starting regimes v_p(x_0)<v_p(h), =v_p(h), and >v_p(h). Only equality can produce a later divisor p|u_r. In that regime the reduced ratio modulo p evolves by t -> t+t^{-1}, and each finite first-hit t gives exactly one class modulo p^(v_p(h)+1). Pairwise coprimality of the relevant prime powers makes the local states independent by CRT; grouping by distinct hit times correctly handles simultaneous prime obstructions. The included verifier independently agrees with the theorem for all h<=60 over complete predicted periods and exhausts h=65.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The published-finding corpus hit on cyclotomic Hensel roots concerns a 2-adic prime-support isometry for cyclotomic equations, not the recurrence or its square failures.",
+        "The CRT density-profile hit concerns oscillating sumsets and does not contain the local first-hit classification used here."
+      ],
+      "reasoning": "No inspected broader published-finding corpus result dominates this theorem by covering reciprocal-sum failures or the same local finite-field first-hit states. General CRT counting results alone do not imply the recurrence-specific local classification.",
+      "searches": [
+        "finite-field backward orbit of 0 under x + 1/x CRT density",
+        "CRT distribution first-hit times rational recurrence",
+        "2026/9/19/SCOPE-cyclotomic-hensel-prime-support-isometry--dbd36dfa6809",
+        "2026/9/18/SCOPE-refined-oscillating-sumset-density-profile--31c4ab3783d9"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.00765v1",
+      "arXiv:1101.4339",
+      "DOI:10.4171/CMH/316",
+      "2026/9/19/SCOPE-cyclotomic-hensel-prime-support-isometry--dbd36dfa6809",
+      "2026/9/18/SCOPE-coprime-index-permutation-binomial-collisions--249fad2fb294",
+      "2026/9/18/SCOPE-refined-oscillating-sumset-density-profile--31c4ab3783d9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem B of arXiv:2610.00765v1 bounds the number of failures by the number of problematic prime divisors and shows attainability, but does not determine the distribution across starting values.",
+        "Jones-Manes gives Galois-theoretic information about preimage trees, not the p-adic valuation trichotomy for x_0, exact p^(alpha+1) congruence classes, or CRT collision count."
+      ],
+      "reasoning": "The cited results provide essential ingredients but do not logically imply the fixed-h periodic law without the new local valuation analysis. Conversely, the new theorem does not claim a closed description of the global arboreal preimage tree.",
+      "searches": [
+        "rational recurrence x_{n+1}=h^2/(x_0+...+x_n) starting values failures square",
+        "arXiv:2610.00765v1 Theorem B and Proposition 4.1",
+        "DOI:10.4171/CMH/316"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.00765v1 derives the recurrence t -> t + 1/t and the square criterion, then frames the starting-value proportion problem in terms of finite-field preimages of 0.",
+        "arXiv:1101.4339 treats arboreal Galois actions on preimage trees of quadratic rational maps rather than residue-class distributions of integer starts."
+      ],
+      "reasoning": "The closest equivalent language is first hitting of 0 under t -> t + 1/t. The new statement is not merely that language: it identifies exactly which p^(alpha+1) residue classes realize each first-hit time and gives the collision-aware CRT distribution for every fixed h.",
+      "searches": [
+        "reciprocal-sum sequences t -> t + 1/t starting values failure density finite-field preimages zero",
+        "perfect squares reciprocal-sum sequences proportion starting values exactly j failures",
+        "arXiv:2610.00765v1 Sections 2, 4, 7",
+        "arXiv:1101.4339"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating paper asks for starting-value proportions and does not tabulate a complete fixed-h distribution.",
+        "No inspected result supplies the h=65 period-4225 histogram or an equivalent table from which it follows."
+      ],
+      "reasoning": "The h=65 values are derived by the theorem and independently exhausted by the included verifier; they are not a recomputation of a located published table.",
+      "searches": [
+        "proportion starting values reciprocal-sum recurrence perfect square failures finite field",
+        "x plus 1/x finite field preimage tree zero density starting values",
+        "arXiv:2610.00765v1 finite-field preimage discussion"
+      ]
+    },
+    "rationale": "The motivating 2026 paper explicitly supplies the recurrence and square criterion and poses the starting-value proportion problem; the inspected source does not give the prime-power periodic classification or exact CRT distribution. The closest published-finding corpus hits and the Jones-Manes arboreal paper concern different objects or broader preimage-tree Galois structure and do not imply the claim.",
+    "residual_risks": [
+      "A finite-field dynamics paper using different terminology could contain closed descriptions of some first-hit sets B_{p,r}; no inspected source supplied the full fixed-h starting-value law.",
+      "The theorem leaves uniform asymptotics in p or growing h open and does not claim novelty for isolated local counts c_{p,r}."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: it proves the structural recurrence and at-most-one-spoilage-per-prime facts but does not give the fixed-h prime-power periodic law or collision-aware density formula.",
+        "evidence": "The paper identifies t -> t+1/t as the relevant map, connects failure to primes dividing u_n, and asks how many starts produce prescribed failure counts.",
+        "identifier_or_url": "arXiv:2610.00765v1",
+        "material_read": "Abstract; introduction; Section 2 recurrence and Proposition 2.3; individual-sequence square criterion and finite-field discussion; concluding questions on proportions of starts.",
+        "method": "Primary arXiv HTML full-text inspection.",
+        "title": "Perfect squares in reciprocal-sum sequences and primes that are inert in quadratic fields",
+        "trigger": "Direct motivating source with the same recurrence and an explicit question about proportions of starting values."
+      },
+      {
+        "assessment": "NOT_COVERING: it studies arboreal Galois representations and critical orbits, not exact residue classes of integer starts or fixed-h square-failure densities.",
+        "evidence": "Its stated results concern finite-index/maximality properties of Galois actions on preimage trees rather than CRT counting of starting values.",
+        "identifier_or_url": "arXiv:1101.4339; DOI:10.4171/CMH/316",
+        "material_read": "Abstract, introduction, and theorem-level discussion of Galois actions on infinite preimage trees and the symmetric quadratic-rational family.",
+        "method": "Primary arXiv/authoritative journal text inspection.",
+        "title": "Galois theory of quadratic rational functions",
+        "trigger": "The motivating source cites this work for arithmetic dynamics of the same quadratic-rational-map family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bf30e648-1c84-416e-9a4d-f0a00a21b0ee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result answers a natural explicit question from a recent number-theory paper for every fixed h, strengthens an at-most-omega_1(h) existence bound to an exact periodic distribution, and exposes a nontrivial collision phenomenon when several primes hit at the same time. The formula is finite and computable and yields exact densities rather than experimental frequencies.",
+    "status": "PASS"
+  }
+}
