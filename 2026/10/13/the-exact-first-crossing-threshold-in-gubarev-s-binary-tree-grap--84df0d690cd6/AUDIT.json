@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "Lemma 5.2 of arXiv:2610.05384v1 proves that a crossing-free path has at most \\(2L_{2n-2}\\) edges. A height-\\(2n\\) subtree attains this by traversing both root children while replacing every bottom cutoff vertex by its \\(a\\)-jump; the path has \\(2L_{2n-2}\\) edges and visits only one interior grid height. Hence the exact threshold is \\(2L_{2n-2}+1=6\\cdot4^{n-1}-3\\). Section 6 then runs unchanged with this threshold. Finite dynamic-programming checks reproduce equality for \\(1\\le n\\le6\\) at height \\(2n\\) and for \\(1\\le n\\le4\\) at height \\(3n\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 6.2 of the 2026 source uses exponent \\(2^{2n+1}\\), and Section 8 sets \\(q_j=2^{2n_j+1}\\).",
+        "The source's Section 5 proof supplies a non-sharp numerical upper estimate but no lower path family.",
+        "The 2002 paper is an earlier existence construction; the 2026 paper introduces the present binary-tree crossing mechanism."
+      ],
+      "reasoning": "The 2026 source is the strongest directly relevant prior work. It covers the needed upper bound but not equality. Historical simple-nil-ring existence results do not dominate the graph-specific exact-threshold statement.",
+      "searches": [
+        "arXiv 2610.05384 simple nil ring construction nilpotent generators simple nil algebra",
+        "2610.05384 sharp nilpotency exponent first crossing 6*4^{n-1}-3",
+        "arXiv:2610.05384v1 sections 4-8",
+        "Smoktunowicz 2002 cited construction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.05384v1 full text and metadata",
+      "Targeted semantic searches for the exact crossing threshold, crossing-free maximum, and sharpened exponent",
+      "Smoktunowicz 2002 bibliographic context as cited by the 2026 source"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lemma 5.2's proof implies that the stated exponent can be lowered to \\(2L_{2n-2}+1\\) for the first-crossing argument.",
+        "Nothing in the inspected source proves that a crossing-free path of length \\(2L_{2n-2}\\) exists for every admissible large height."
+      ],
+      "reasoning": "The improved nilpotency bound by itself is an implication of the source's stronger intermediate inequality and is not the originality basis. The final claim adds the converse construction, turning the bound into an exact combinatorial invariant; this converse is not implied by the prior upper bound.",
+      "searches": [
+        "arXiv:2610.05384v1 Lemma 5.2, Theorem 6.2, and Section 8",
+        "2610.05384 sharp nilpotency exponent first crossing 6*4^{n-1}-3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source defines crossings and states Lemma 5.2 with threshold \\(2^{2n+1}\\); its proof bounds crossing-free paths by \\(2L_{2n-2}\\).",
+        "Full-text searches of arXiv:2610.05384v1 found no statement labeled sharp or optimal for this threshold."
+      ],
+      "reasoning": "The exact-threshold formulation is equivalent to saying that the maximum crossing-free length is \\(2L_{2n-2}\\). The source proves only the upper half of that equality; the attaining construction is additional.",
+      "searches": [
+        "Gubarev simple nil ring exact crossing threshold 6 4^(n-1) - 3 sharp Lemma 5.2",
+        "simple nil ring crossing-free path exact threshold Gamma_N 2 L_(2n-2)",
+        "arXiv:2610.05384v1 sections 5-6; full-text searches for 'sharp' and 'optimal'"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No relevant database or published table of crossing-free path maxima was located.",
+        "The exact value is established symbolically by an upper bound plus an explicit attaining family; the bundled finite census is only a check."
+      ],
+      "reasoning": "This claim is not a lookup of a classified finite table. The database/table check is therefore inapplicable beyond confirming that no known tabulation was being recomputed.",
+      "searches": [
+        "Gubarev simple nil ring exact crossing threshold 6 4^(n-1) - 3 sharp Lemma 5.2",
+        "simple nil ring crossing-free path exact threshold Gamma_N 2 L_(2n-2)"
+      ]
+    },
+    "rationale": "The source contains the upper estimate but states only the coarser crossing threshold and does not prove attainment. The assessed new content is the matching infinite family of crossing-free paths and the resulting exact threshold. The smaller nilpotency exponent is recorded as a consequence, not treated as independently original.",
+    "residual_risks": [
+      "A later revision of arXiv:2610.05384 or a very recent independent note could record the same exact sharpening after version 1.",
+      "The improved matrix nilpotency exponent may fail to be optimal for particular polynomials or chains; only the crossing threshold is proved sharp."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_PRIOR_NOT_COVERING_EXACTNESS",
+        "evidence": "The proof gives the upper bound \\(2L_{2n-2}\\), while the stated lemma and theorem use \\(2^{2n+1}\\); no attaining path family or exactness statement appears in the inspected text.",
+        "identifier_or_url": "arXiv:2610.05384v1",
+        "material_read": "Abstract and metadata; Sections 1, 4, 5, 6, 7, and 8, including Lemma 5.2, Lemma 5.3, Theorem 6.2, and the final choice of exponents; PDF pages corresponding to the graph construction and later compression/construction argument.",
+        "method": "Lawful arXiv HTML and PDF inspection with statement-level comparison.",
+        "title": "A simple construction of a simple nil ring",
+        "trigger": "Direct source defining \\(\\Gamma_N\\), crossings, the first-crossing lemma, and the nilpotency theorem."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY",
+        "evidence": "The exact object under study is the binary-tree crossing graph introduced in the 2026 construction, so the historical source is not used as evidence for novelty beyond establishing chronology.",
+        "identifier_or_url": "Smoktunowicz, Communications in Algebra 30 (2002), 27-59",
+        "material_read": "Bibliographic and theorem context as given in the 2026 source; the full 2002 paper was not used to support a NOT_COVERING conclusion.",
+        "method": "Contextual literature comparison only.",
+        "title": "A simple nil ring exists",
+        "trigger": "Historical predecessor named by the 2026 source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "84df0d69-0cd6-400f-9d0c-77fdd413a55a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first-crossing threshold controls the central nilpotency step of the new simple-nil-ring construction. Determining its exact value is a natural structural boundary, and it lowers the uniform exponent used in that step from \\(2\\cdot4^n\\) to \\(\\tfrac32\\cdot4^n-3\\), an asymptotic factor \\(3/4\\). The result pinpoints exactly where slack remains and where it does not, without claiming an improvement to the separate compression bound.",
+    "status": "PASS"
+  }
+}
