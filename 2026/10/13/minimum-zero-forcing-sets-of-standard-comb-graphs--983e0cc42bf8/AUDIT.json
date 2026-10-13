@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Forcing chains convert every minimum zero forcing set into a minimum path cover with one initial endpoint per chain. The pendant-leaf count gives the sharp lower bound and forces the even/odd leaf-deficit structure. The odd all-leaf overlap recurrence is proved by the first two selection bits. A standalone exhaustive checker independently confirms the exact classified family for every 2 <= n <= 11; this finite computation is only a stress test, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The foundational paper gives Z(T)=P(T) for every tree, but does not give a formula for the number of minimum zero forcing sets of each tree.",
+        "The q-analogue paper proves structural statements for Z_1 on the broader comb class, not an ordinary-basis enumeration.",
+        "Becker et al. study minimal forts; the comb occurrence is in a fort/maximal-failed-set example rather than a minimum zero forcing basis theorem."
+      ],
+      "reasoning": "None of these broader results dominates the new statement: the generic tree theorem lacks the overlap enumeration, while the two same-object literatures change the invariant.",
+      "searches": [
+        "tree zero forcing minimum path cover endpoints all minimum sets",
+        "comb graph q analogue zero forcing initial vertices",
+        "minimal forts comb graph zero forcing"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.laa.2007.10.009",
+      "arxiv:1809.07640",
+      "arxiv:2404.05963",
+      "Current-week private ledger through generation g000026",
+      "Prior-week private ledger latest available generation g000063"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 4.2 guarantees that endpoint choices from a minimum path cover are zero forcing, but does not count distinct choices across multiple covers.",
+        "arXiv:1809.07640 lines around Definition 2/Lemma 2 identify comb graphs in the Z_1-game and characterize two-token starts for that game.",
+        "arXiv:2404.05963 states its target is minimal-fort enumeration; its search-visible comb example is a minimal fort/maximal failed zero-forcing set."
+      ],
+      "reasoning": "The new theorem adds a complete converse classification for the fixed corona P_n corona K_1 and resolves duplicate endpoint selections in the odd case. This information is not a corollary of the cited scalar or variant results without the new combinatorial analysis.",
+      "searches": [
+        "Proposition 4.2 zero forcing tree minimum path cover endpoint",
+        "Properties of a q-Analogue of Zero Forcing comb graph",
+        "On the Number of Minimal Forts of a Graph comb"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "AIM Minimum Rank – Special Graphs Work Group (2008), Proposition 4.2: for a tree, a zero forcing set can be obtained by selecting one endpoint of each path in a minimum path cover.",
+        "Butler et al., arXiv:1809.07640, Definition 2 and Lemma 2: comb graphs are treated for the Z_1-game and pairs of initial vertices, a different parameter.",
+        "No exact search result returned a standard-comb minimum ordinary zero-forcing-basis count."
+      ],
+      "reasoning": "The path-cover theorem implies feasibility of endpoint selections but does not identify all distinct minimum endpoint transversals when different minimum path covers overlap. The Z_1 result is not equivalent to ordinary zero forcing.",
+      "searches": [
+        "minimum zero forcing sets comb graph P_n corona K1 count",
+        "zero forcing bases comb graph",
+        "minimum path covers comb graph zero forcing",
+        "zero forcing P_n corona K_1",
+        "zero forcing polynomial comb graph",
+        "doi:10.1016/j.laa.2007.10.009",
+        "arxiv:1809.07640"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed research records concerned generic zero forcing polynomials, complete multipartite forcing, or other graph families rather than comb minimum bases.",
+        "Current and prior project ledgers contained no standard-comb minimum ordinary zero-forcing classification or count."
+      ],
+      "reasoning": "Database absence is not treated as proof of novelty; it is supporting evidence combined with statement-level comparison against the full texts most likely to subsume the claim.",
+      "searches": [
+        "minimum zero forcing sets comb graph P_n corona K1 count",
+        "zero forcing bases comb graph",
+        "minimum path covers comb graph zero forcing",
+        "zero forcing P_n corona K_1",
+        "zero forcing polynomial comb graph",
+        "comb graph zero forcing number",
+        "comb graph minimum zero forcing set",
+        "comb graph zero forcing sets",
+        "path corona zero forcing number K1"
+      ]
+    },
+    "rationale": "The closest general tree result supplies the path-cover equality and one endpoint construction but not the complete standard-comb basis census. Full-text inspection of the closest same-object comb paper shows that its theorem concerns the distinct Z_1 oracle game. The minimal-fort paper concerns fort enumeration/maximal failed sets. No searched record states or implies the even count \\(2^m\\), the odd canonical family union, or the odd count \\((3m+4)2^{m-1}\\).",
+    "residual_risks": [
+      "Comb terminology is not uniform; an older source could call P_n corona K_1 a sun, corona, or pendant path rather than a comb.",
+      "An obscure or non-indexed paper may contain an equivalent minimum-basis enumeration.",
+      "The novelty claim therefore excludes the scalar zero forcing number and is restricted to the exact minimum-set classification/count."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE: supplies the scalar tree equality and endpoint construction, but not the all-minimum-set comb classification or count.",
+        "evidence": "Front matter states available online 26 November 2007 and AMS 05C50; Proposition 4.2 states M^F(T)=Z(T) and constructs a zero forcing set from endpoints of a minimum path cover.",
+        "identifier_or_url": "doi:10.1016/j.laa.2007.10.009",
+        "material_read": "Published PDF front matter, zero-forcing definition, corona definition, Example 4.1, and Proposition 4.2 with its path-cover proof on the page beginning 1644.",
+        "method": "Lawful public PDF full-text extraction plus page-image inspection.",
+        "title": "Zero forcing sets and the minimum rank of graphs",
+        "trigger": "Foundational source and strongest general tree theorem plausibly implying the candidate."
+      },
+      {
+        "assessment": "NOT_COVERING: studies the Z_1 oracle game; its comb theorem concerns two-token initial vertices in that different game.",
+        "evidence": "Definition 2 defines comb graphs; Lemma 2 and the following proof discuss trees with Z_1(G)=2 and pairs of initial vertices.",
+        "identifier_or_url": "arxiv:1809.07640",
+        "material_read": "Preprint PDF introduction through the comb definition and Lemma 2, including the proof around Figure 3.",
+        "method": "arXiv PDF full-text extraction plus page-image inspection.",
+        "title": "Properties of a q-analogue of zero forcing",
+        "trigger": "Same comb terminology and zero-forcing context."
+      },
+      {
+        "assessment": "NOT_COVERING: the paper enumerates minimal forts and uses combs for fort/maximal-failed-set structure, not minimum ordinary zero forcing bases.",
+        "evidence": "The paper explicitly frames zero forcing via forts and states its enumerative results for minimal forts; no comb minimum-basis statement was found in the text search.",
+        "identifier_or_url": "arxiv:2404.05963",
+        "material_read": "arXiv abstract/introduction and searchable full-text sections describing the paper scope, plus the indexed 4-comb figure context.",
+        "method": "arXiv HTML full text and indexed figure context.",
+        "title": "On the Number of Minimal Forts of a Graph",
+        "trigger": "A search result displays a 4-comb in a zero-forcing-related fort context."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "983e0cc4-2bf8-41a3-bd95-6cbb46385894",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The standard comb is a natural path-corona tree used explicitly in zero-forcing literature. The new statement upgrades a known scalar path-cover equality to a complete census of optimal placements. In odd order, distinct minimum path covers overlap on the same leaf sets, so the exact factor \\((3m+4)2^{m-1}\\) requires a genuine overlap analysis rather than a routine independent-choice product.",
+    "status": "PASS"
+  }
+}
