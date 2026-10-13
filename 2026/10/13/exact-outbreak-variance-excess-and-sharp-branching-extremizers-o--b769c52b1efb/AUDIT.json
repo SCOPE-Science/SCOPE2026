@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "For every finite rooted tree, infection indicators are products over unique root paths. A single path uses independent parental Q values, giving E I_u=q^{d(u)}. Pair paths for incomparable u,w share precisely a single duplicated parent variable at their LCA; joint probability is E Q² times q to the number of other distinct edges, while comparable pairs match percolation exactly. Variance expansion gives 2v times the nonnegative LCA-weighted pair polynomial. The combinatorial star upper bound and terminal broom lower bound and equality conditions are valid for every n>=3 and q in (0,1); v=0 is treated separately. Rational standalone checks exhaust all increasing-parent encodings through seven vertices and verify the Poisson contact exponential recovery formula. These finite checks are only supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ramírez-Ramírez--Thompson 2013/2014 PDF equations (8)–(11) gives variance in random-network degree-distribution branching approximation, including common recovery effects",
+        "Kenah--Robins 2007 establishes fully general epidemic percolation representation but does not state fixed-rooted-tree polynomial or shape extrema",
+        "Hiraoka--Saramäki 2026 Figure 6 empirically reports increased giant out-component size variance"
+      ],
+      "reasoning": "General representation logically permits computing finite moments by exhaustive graph states but does not by itself state a universal closed LCA expression with sharp extremizing rooted shapes. The earlier random-network branching recursions assume degree distributions and branch-type averaging; fixed arbitrary tree geometry and root location are not parameters of that formula. Prior claims about variance increase are acknowledged and not asserted new.",
+      "searches": [
+        "Mixed binomial transmission star tree epidemic cluster size second moment variance excess recovery time heterogeneity",
+        "Ramirez Ramirez Thompson outbreak size variance transmissibility second moment static rooted tree shape extremizers",
+        "SIR epidemic outbreak size variance infection period heterogeneity tree graph random transmissibility variance percolation exact",
+        "\"SIR\" \"rooted tree\" \"variance\" \"bond percolation\" correlated transmissions",
+        "Applications of the Variance of Final Outbreak Size for Disease Spreading in Networks"
+      ]
+    },
+    "checked_sources": [
+      "Hiraoka--Saramäki 2026 arXiv:2610.03573v1 Sec. IV.3, Sec. VI, App. A",
+      "Kenah--Robins 2007 doi:10.1103/PhysRevE.76.036113 full text",
+      "Ramírez-Ramírez--Thompson 2013/2014 doi:10.1007/s11009-013-9325-z full 24-page PDF Secs. 3.1–3.2",
+      "Wilkinson--Sharkey 2018 doi:10.1103/PhysRevE.97.052403 full article",
+      "Sharkey--Kiss--Wilkinson--Simon doi:10.1007/s11538-013-9923-5 article text/abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 paper Section IV.3 derives ℙ(I_u=1)=q^{d(u)} on trees, not a joint pair-moment identity",
+        "Its Appendix A identifies pairwise outgoing transmission covariance but does not propagate it through every pair of root paths",
+        "2013/2014 paper uses π_2=E(Q^2) in random-network size variance expressions, which is compatible with but does not state the LCA polynomial and sharp fixed-size shape optimizers"
+      ],
+      "reasoning": "Existing infection marginal equality cannot imply variance equality; pair indicators require an additional dependence calculation. Earlier acknowledgement that transmission-variance increases size-variance is weaker than an exact fixed-tree coefficient and a unique extremizing shape theorem. The explicit LCA computation and combinatorial optimization are supplied here.",
+      "searches": [
+        "Hiraoka Saramäki Disentangling epidemics and percolation 2610.03573 correlated outward contacts covariance final size variance exact finite tree",
+        "SIR epidemic fixed rooted tree source total infections variance correlated sibling transmission maximized root-centered star minimized terminal cherry broom",
+        "correlated transmissibility epidemic percolation expected outbreak size same variance larger tree",
+        "epidemic percolation tree distribution variance offspring correlation recovery time",
+        "arXiv:2610.03573v1 Section IV.3 Appendix A",
+        "doi:10.1007/s11009-013-9325-z Section 3.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.03573v1 Section IV.3: equality of tree node marginal probabilities; Appendix A: sibling-edge covariance",
+        "doi:10.1103/PhysRevE.76.036113: exact finite epidemic percolation representation, not an independent bond-percolation distribution identity",
+        "Search results on two-patch SEIR reproduction numbers are inapplicable to rooted contact-tree outbreak-size variance"
+      ],
+      "reasoning": "The equivalent count \\(Z_T=\\sum I_u\\) may be computed by epidemic percolation, but the needed covariance of each pair is concentrated at the LCA only if pairs are incomparable; the resulting exact weighted polynomial is a strictly more specific explicit statement than marginal equality or isomorphism. The closest surfaced item concerns a different spectral threshold.",
+      "searches": [
+        "Exact outbreak size variance rooted tree SIR random infectious periods correlated outgoing transmissions bond percolation variance excess pairwise covariance least common ancestor",
+        "epidemic percolation rooted tree SIR epidemic variance difference Bernoulli percolation mean identical",
+        "Epidemic rooted tree final outbreak size variance excess relative to Bernoulli bond percolation exact lowest common ancestor weighted incomparable vertex pairs and sharp star broom extrema",
+        "Hiraoka Saramäki Disentangling epidemics and percolation 2610.03573 correlated outward contacts covariance final size variance exact finite tree",
+        "random infectious period outbreak size variance arbitrary tree covariance joint probability SIR",
+        "\"outbreak size\" \"variance\" \"LCA\" tree percolation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ramírez-Ramírez--Thompson PDF Sec. 3.2 includes simulated random-network variance tables, not enumeration of rooted trees",
+        "Search results on graph-indexed random-walk ranges treat a different stochastic observable"
+      ],
+      "reasoning": "No exact finite-rooted-tree table or computational database in inspected sources supplies the polynomial or rooted star/broom equality statements. The new checker is for reproducibility only and does not constitute a proof of originality.",
+      "searches": [
+        "Epidemic rooted tree final outbreak size variance excess relative to Bernoulli bond percolation exact lowest common ancestor weighted incomparable vertex pairs and sharp star broom extrema",
+        "Ramirez Ramirez Thompson outbreak size variance transmissibility second moment static rooted tree shape extremizers",
+        "\"Applications of the Variance of Final Outbreak Size for Disease Spreading in Networks\" full text",
+        "\"rooted tree\" \"epidemic\" \"variance\" \"star\" \"path\""
+      ]
+    },
+    "rationale": "The closest 2026 source proves equality of tree infection marginals and notes outgoing edge correlations, while its simulation section treats variance of large random-network component sizes. Kenah and Robins (2007) establish exact epidemic percolation but not the finite-tree explicit shape optimum. Ramírez-Ramírez and Thompson (2013/2014) derive mean/variance formulas using random-network degree-law branching approximations and second transmissibility moments but do not encode arbitrary fixed rooted tree LCA positions. The new content is the exact polynomial of incomparable vertex pairs and a complete sharp extremal classification at each finite order, with an exact continuous-time example. Multiple semantic literature searches did not surface a matching same-claim item; this does not prove literature completeness.",
+    "residual_risks": [
+      "An unindexed fixed-tree epidemic second-moment theorem might subsume the polynomial or extremizers; semantic search nonappearance is not proof of absence.",
+      "The general exact epidemic-percolation representation in Kenah--Robins theoretically permits deriving any finite-tree moment, so the originality claim is restricted to the explicit closed coefficient and shape extremizers, not computability of outbreak variance.",
+      "The Springer exact-tree article was inspected via its accessible article text, not a separate full PDF reproduction of all formulas."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Marginal equality and positive outgoing covariance are prior. No exact finite rooted-tree outbreak-size variance discrepancy polynomial or rooted-shape extremal theorem appears in inspected material.",
+        "evidence": [
+          "Sec. IV.3 eqs. 10–14; Sec. VI Fig. 6; Appendix A eqs. 31–34"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.03573v1",
+        "material_read": "Full accessible HTML text, especially Sections III, IV.3, VI, VII and Appendix A",
+        "method": "Read mathematical equations for tree message passing, appendix covariance and Figure 6 variance observations",
+        "title": "Disentangling epidemics and percolation",
+        "trigger": "Direct motivating source with tree marginal equivalence and correlated transmissions"
+      },
+      {
+        "assessment": "Covers generic exact representation, not asserted new; no listed fixed tree LCA excess polynomial or shape optimization.",
+        "evidence": [
+          "Abstract; Section 2.2; Section 3.1 and appendix"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2215389/",
+        "material_read": "Full accessible PMC article text including abstract, epidemic-percolation components and analytic formulation",
+        "method": "Compared finite epidemic-percolation representation with claimed comparison against independent bonds",
+        "title": "Second look at the spread of epidemics on networks",
+        "trigger": "Foundational general epidemic-percolation exact construction and distribution discrepancy"
+      },
+      {
+        "assessment": "Closest prior, treats degree-distribution-random-network outbreak moment approximations; no arbitrary fixed rooted-tree LCA-weight sum, star-versus-terminal-broom finite extremizers. Antecedent dependence on second transmissibility moments explicitly credited.",
+        "evidence": [
+          "p. 7 and Sec. 3.2, formulas (8)–(11); p. 9 statements on degree-law dependence"
+        ],
+        "identifier_or_url": "https://smm.org.mx/eventos/covid19/files/pdfs/019_ApplicationsoftheVarianceofFinal.pdf",
+        "material_read": "Accessible 24-page paper, especially pages 1, 7–10 and variance formulas, inspected both extracted text and page rendering",
+        "method": "Read exact formulas (8)–(11) for offspring/degree-law branching variance and compare statistical objects and implications",
+        "title": "Applications of the Variance of Final Outbreak Size for Disease Spreading in Networks",
+        "trigger": "Highly relevant earlier work explicitly calculating outbreak variance with shared infectious periods"
+      },
+      {
+        "assessment": "Gives reachability ordering and random infectious-period effects, not the target variance formula or extremizers.",
+        "evidence": [
+          "Abstract; Section IV; Bethe-lattice application"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7217532/",
+        "material_read": "Full article accessible PMC text, abstract, Sections III–IV and tree application",
+        "method": "Compared event probability stochastic-order results with fixed-root count variance excess",
+        "title": "Impact of the infectious period on epidemics",
+        "trigger": "Prior comparisons of variability of transmissibility at fixed mean and reachability"
+      },
+      {
+        "assessment": "The text states exact first-moment time-series closure on trees; no identified theorem computing the root-outbreak-size variance excess or optimizing shapes. Residual limited-source risk remains.",
+        "evidence": [
+          "Abstract and introduction on exact expected infected time series"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11538-013-9923-5",
+        "material_read": "Accessible article page including abstract and introduction and visible article text; full formula-by-formula PDF was not used",
+        "method": "Compared its exact pair-based expected infectious-time-series scope with final outbreak-size variance objective",
+        "title": "Exact Equations for SIR Epidemics on Tree Graphs",
+        "trigger": "Plausible exact finite-tree epidemic formula in earlier literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b769c52b-1efb-443e-a6fa-05cc01fa7254",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a known finite contact tree, matched independent bond percolation predicts identical expected epidemic burden while potentially underestimating its variance. The closed pair/branch polynomial separates marginal transmissibility variability from the known rooted contact structure. Sharp extrema distinguish zero error (seeded chain), the smallest nonzero error (single distal split), and the maximal error (rooted star), providing quantitative variability diagnostics and precise network-placement limits. This is not a claim that generic variance effects are new.",
+    "status": "PASS"
+  }
+}
