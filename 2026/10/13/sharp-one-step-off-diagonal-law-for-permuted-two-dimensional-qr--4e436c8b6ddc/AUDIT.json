@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For A=[[a,b],[b,d]]>0, the positive-diagonal QR factor has Q=(1/sqrt(a^2+b^2))*[[a,-b],[b,a]], so direct multiplication gives b^+=b det(A)/(a^2+b^2). Swapping coordinates replaces the denominator by d^2+b^2, proving that the larger column norm is exactly the best permutation. Since the two squared column norms sum to mu^2+L^2 and det(A)=mu L, the best-permutation factor is at most 2muL/(mu^2+L^2)=2kappa/(kappa^2+1), with equality at equal column norms. Spectral-angle parametrization gives the exact fixed-order growth criterion sin^2(theta)<1/(kappa+1) and supremum kappa. Rational examples and the equality case are replayed by the packaged checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Watkins identifies QR as a core eigenvalue method and the publisher metadata lists primary MSC 65F15.",
+        "Krishnamoorthy defines symmetric QR with permutations, proposes descending-diagonal and descending-column-norm orderings, and reports improved average convergence for SPD matrices.",
+        "The permutation paper's performance analysis uses diagonal eigenvalue-estimation error and simulation; it does not provide the exact off-diagonal contraction law proved here."
+      ],
+      "reasoning": "The new theorem gives a sharp analytical guarantee for a heuristic already proposed in broader literature, rather than claiming to invent QR permutations.",
+      "searches": [
+        "The QR Algorithm Revisited Watkins",
+        "Symmetric QR Algorithm with Permutations",
+        "QR algorithm permutations column ordering symmetric positive definite"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1402.5086v1",
+      "doi:10.1137/060659454",
+      "2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+      "2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659",
+      "2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Krishnamoorthy's column ordering sorts diag(A^2), exactly the squared column norms, but its stated result is an empirical convergence-speed improvement rather than a universal one-step off-diagonal contraction theorem.",
+        "Its best-instantaneous-convergence criterion optimizes a diagonal eigenvalue-estimation error requiring spectral information, not the off-diagonal magnitude.",
+        "Classical convergence of QR does not imply stepwise monotonicity; the explicit condition-four witness has one-step off-diagonal growth 169/136."
+      ],
+      "reasoning": "The prior permutation heuristic suggests the object to analyze but does not imply the exact local metric, the condition-number envelope, or the fixed-order transient. Those require the explicit 2x2 QR calculation.",
+      "searches": [
+        "Symmetric QR Algorithm with Permutations column ordering diagonal ordering",
+        "best instantaneous convergence QR permutations",
+        "QR algorithm symmetric off diagonal convergence one step"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published semantic searches returned Gauss-Seidel, weighted-Jacobi, ACA, and other transient-growth results but no QR theorem with the displayed formula.",
+        "General literature searches for 2x2 QR off-diagonal growth and column-ordering contraction returned standard QR descriptions and the 2014 permutation paper, not the sharp identity.",
+        "No exact match for the condition-number factor 2kappa/(kappa^2+1) tied to QR permutation was located."
+      ],
+      "reasoning": "Equivalent coverage must concern one unshifted symmetric QR step, the unique off-diagonal magnitude in dimension two, the two coordinate permutations, and a condition-number sharp bound. General QR convergence, shift theory, and permutation heuristics do not imply this statement.",
+      "searches": [
+        "unshifted QR iteration 2x2 symmetric offdiagonal amplification condition number ordering",
+        "QR algorithm off diagonal norm increase one step SPD two by two",
+        "QR iteration permutation ordering offdiagonal contraction two dimensional",
+        "symmetric QR iteration transient offdiagonal growth condition number",
+        "QR algorithm 2 kappa over kappa squared plus one offdiagonal",
+        "symmetric QR column ordering exact contraction 2kappa/(kappa^2+1)",
+        "QR permutation larger column norm one-step offdiagonal contraction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact constant or tabulated 2x2 law matching the claim was located.",
+        "The factor follows from an exact trace(A^2) argument and is attained by the 45-degree eigenbasis orientation."
+      ],
+      "reasoning": "The finding is a closed-form extremal theorem, not a numerical benchmark or recomputation.",
+      "searches": [
+        "\"2kappa/(kappa^2+1)\" QR",
+        "\"QR algorithm\" \"column ordering\" 2x2 convergence exact",
+        "\"QR iteration\" offdiagonal amplification condition number symmetric positive definite"
+      ]
+    },
+    "rationale": "Classical QR iteration and convergence are prior work. Krishnamoorthy's full paper explicitly proposes descending diagonal and column-norm permutations and reports improved average convergence, so the existence and motivation of those heuristics are also prior work. The inspected source does not state the 2x2 off-diagonal identity, exact best-permutation theorem, sharp 2kappa/(kappa^2+1) contraction law, or the nearly-kappa fixed-order transient. Targeted semantic and web searches found no implication-equivalent statement.",
+    "residual_risks": [
+      "The exact 2x2 QR identity is elementary enough that it may appear as an exercise or local calculation in older QR literature under different terminology.",
+      "The theorem analyzes the off-diagonal metric, whereas the permutation paper measures sorted diagonal eigenvalue-estimation error.",
+      "Higher-dimensional column ordering can have qualitatively different behavior, so the two-dimensional safeguard should not be extrapolated without proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_PARTIAL_COVERAGE: proposes the same ordering heuristic and reports improved convergence, but no located exact 2x2 off-diagonal identity, sharp contraction factor, or fixed-order amplification law.",
+        "evidence": "Section III-B orders diag(A^2) in descending order and explicitly identifies this with ordering columns of A by norm. Sections V-VI report improved average convergence, while no theorem matching the displayed off-diagonal formulas appears in the inspected text.",
+        "identifier_or_url": "arxiv:1402.5086v1",
+        "material_read": "The complete accessible arXiv HTML was inspected through the QR definition, Cholesky relation, permutation iteration, best-instantaneous-convergence criterion, diagonal ordering, column ordering, simulation results, and conclusion.",
+        "method": "Lawful open full-text arXiv HTML inspection with targeted comparison to the theorem's metric and formulas.",
+        "title": "Symmetric QR Algorithm with Permutations",
+        "trigger": "Closest primary full source on QR permutations, including the exact column-ordering heuristic analyzed by the finding."
+      },
+      {
+        "assessment": "CLASSIFICATION_AND_BACKGROUND: confirms the QR topic and primary MSC 65F15 but is not used to make a whole-document noncoverage claim.",
+        "evidence": "The publisher record gives primary MSC 65F15 and online publication date 2008-02-01; the abstract describes QR as a principal eigenvalue/eigenvector method.",
+        "identifier_or_url": "doi:10.1137/060659454",
+        "material_read": "Publisher abstract, bibliographic history, MSC classification, keywords, and references were inspected. The article body was access restricted through the inspected route.",
+        "method": "Publisher-record inspection.",
+        "title": "The QR Algorithm Revisited",
+        "trigger": "Authoritative archive-era source for QR background and verified primary MSC ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4e436c8b-6ddc-4876-930e-0d0f2c34f704",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "QR permutations have been proposed specifically to accelerate symmetric eigenvalue computation, but the cited work supports them mainly through heuristic reasoning and simulation. The theorem supplies an exact local guarantee in the smallest nontrivial dimension, proves the proposed column ordering is genuinely optimal for off-diagonal deflation there, quantifies the conditioning-dependent contraction, and shows what the ordering prevents: a fixed-order transient approaching a factor kappa. This directly connects a practical permutation heuristic to a sharp mathematical safeguard.",
+    "status": "PASS"
+  }
+}
