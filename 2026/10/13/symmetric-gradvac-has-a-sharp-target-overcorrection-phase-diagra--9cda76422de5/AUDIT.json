@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "In angle coordinates, the source one-sided update sends \\(g_1\\) to direction \\(\\theta-\\gamma\\), while the reverse ordered update sends \\(g_2\\) to direction \\(\\gamma\\). The final angle is therefore exactly \\(|\\theta-2\\gamma|\\). The bisector, target-equality, monotonicity, and limiting statements follow directly. Randomized replay across norm ratios confirms that the final cosine is norm-independent and matches the closed formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "TorchJD documentation states that each task is corrected against original partner gradients and the modified rows are aggregated.",
+        "Survey and reuse sources restate the one-sided law-of-sines correction and EMA target mechanism.",
+        "The defining source convergence theorem analyzes a combined two-task update without deriving the final mutual similarity of the two altered task gradients."
+      ],
+      "reasoning": "General convergence or restatements of the one-sided pairwise rule do not imply the exact two-sided angular composition. The new claim is a closed geometric property of composing both ordered corrections.",
+      "searches": [
+        "GradVac implementation g_i g_j random order",
+        "GradVac survey multi objective gradient cosine target",
+        "Gradient Vaccine two task convergence target cosine"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2010.05874v1",
+      "ICLR:2021:Gradient-Vaccine",
+      "TorchJD:GradVac",
+      "arXiv:2501.10945"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation 2 gives a one-sided correction that attains the target relative to the other original gradient.",
+        "Appendix E derives the same geometry and notes that the gradient magnitude could optionally be rescaled.",
+        "The source two-task theorem writes the altered aggregate using corrections to both task gradients.",
+        "TorchJD documents ordered-pair correction against original partner gradients followed by aggregation."
+      ],
+      "reasoning": "The prior statements specify each component of the composition but do not simplify the angle between the two outputs. The final claim requires composing the two rotations and analyzing the resulting absolute angle over the whole target range.",
+      "searches": [
+        "arXiv:2010.05874 law of sines target cosine Eq. 2",
+        "arXiv:2010.05874 Appendix E two task GradVac both gradients",
+        "TorchJD GradVac original partner gradient aggregation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source states that each one-sided correction reaches a target cosine relative to the other original gradient.",
+        "The source two-task analysis alters both task gradients but does not state the resulting mutual cosine.",
+        "No returned published record states the half-angle target, one-third-angle target-satisfaction point, or nonmonotone final similarity."
+      ],
+      "reasoning": "Equivalent formulations would compute the similarity of the two gradients after both ordered corrections, identify overcorrection/crossing, or show that extreme targets return the final pair toward the original mutual angle. None was located.",
+      "searches": [
+        "GradVac symmetric two task both gradients modified final cosine target overcorrection bisector",
+        "Gradient Vaccine final mutual cosine after both task gradients vaccinated target similarity law of sines",
+        "GradVac target cosine overshoot crossing modified gradients two tasks"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record database records concerned unrelated feedback stability, extragradient minimax polynomials, transient amplification, and projection phenomena.",
+        "No returned published-record database record named GradVac or stated a symmetric-target overcorrection law."
+      ],
+      "reasoning": "The indexed closest results use different algorithms and implication targets. Database nonappearance is supporting evidence only and is combined with direct source inspection.",
+      "searches": [
+        "GradVac symmetric two task both gradients modified final cosine target overcorrection bisector",
+        "Gradient Vaccine final mutual cosine after both task gradients vaccinated target similarity law of sines",
+        "GradVac target cosine overshoot crossing modified gradients two tasks",
+        "GradVac gradient vaccine two task cosine target exact update norm phase"
+      ]
+    },
+    "rationale": "The defining paper derives the one-sided target-matching correction and gives a two-task convergence argument, but does not compute the cosine between both simultaneously modified task gradients. Focused published-record database and literature searches found no implication-equivalent two-sided phase diagram. A contemporary GradVac implementation confirms the ordered-pair semantics and aggregation behavior but does not state the bisector maximum or extreme-target return.",
+    "residual_risks": [
+      "An equivalent planar-geometry observation may exist in unindexed implementation discussions or code comments.",
+      "Multi-task implementations with asymmetric task subsets do not apply both ordered corrections and therefore do not exhibit this exact two-sided law.",
+      "For more than two tasks, repeated sequential corrections introduce order-dependent geometry beyond this theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_ONE_SIDED_RULE_AND_TWO_TASK_COMPOSITION; FINAL_MODIFIED_PAIR_COSINE_NOT_STATED.",
+        "evidence": "The paper guarantees the requested cosine for one modified gradient against the other original gradient and separately analyzes the combined two-task update. It does not state the exact mutual cosine of the two modified gradients.",
+        "identifier_or_url": "arXiv:2010.05874v1",
+        "material_read": "Open full text covering Section 3.2, Equation 2, Appendix E.1 derivation, Appendix E.2 algorithm discussion, and Appendix E.3 two-task theoretical property.",
+        "method": "Full-text open-access HTML inspection with targeted searches for law of sines, target cosine, and the two-task theorem.",
+        "title": "Gradient Vaccine: Investigating and Improving Multi-task Optimization in Massively Multilingual Models",
+        "trigger": "Defining source for target cosine, law-of-sines correction, EMA target, two-task update, and convergence analysis."
+      },
+      {
+        "assessment": "IMPLEMENTATION_SEMANTICS_CONFIRM_THE_TWO_TASK_COMPOSITION; PHASE_DIAGRAM_NOT_STATED.",
+        "evidence": "The documentation confirms the two-task semantics used in the proof: each task is corrected against the original partner gradient and the modified task gradients are then aggregated.",
+        "identifier_or_url": "TorchJD:GradVac",
+        "material_read": "GradVac class documentation describing random ordered-pair traversal, cosine computation between a possibly modified source row and the original partner row, closed-form correction, EMA update, and aggregation of modified rows.",
+        "method": "Direct documentation inspection.",
+        "title": "GradVac — TorchJD documentation",
+        "trigger": "Contemporary implementation documentation clarifying whether ordered corrections use original or already modified partner gradients."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9cda7642-2de5-4da4-b62e-3d67aa89b4c2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Adaptive target similarity is GradVac's defining control signal. The theorem shows that when both tasks are corrected, increasing that target does not monotonically increase the similarity of the two gradients actually produced and aggregated. It identifies the exact target that maximizes final mutual alignment, the unique nontrivial target that makes final and requested similarities agree, and the extreme-target direction-swap limit. These are sharp tuning and interpretation boundaries for the method's central geometric mechanism.",
+    "status": "PASS"
+  }
+}
