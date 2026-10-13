@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For any finite field, every nonscalar 2-by-2 matrix is cyclic and its centralizer consists uniquely of uI+vA. Hence all commuting nonscalar family members are affine functions with v!=0. Fixed trace/determinant characterize the nonscalar similarity orbit. A conjugate C=[[a,b],[c,t-a]] meets all entries of all components iff a avoids the forbidden diagonal set E and the roots Z of X²-tX+d and bc=a(t-a)-d is nonzero; exactly q-1 nonzero pairs (b,c) exist for each allowed a. Thus the exact orbit count and basis multiplicity follow. The bound |E|<=2k and |Z|<=2 proves q>2k+2 suffices. Translation pair partitions in F_{2^m} give sharp equality counterexamples for m>=3; an explicit F5 pair has E∪Z=F5 but each individual count eight. Python verification independently enumerates all trace/determinant strata over q=2,3,4,5,7,8,9,11; all scalar-shift pairs for q<=5, triples q<=4, explicit F5 and F8 obstructions; VERIFY_OK. The unrestricted proof does not rely on the finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 3.2 of Marcoux et al. explicitly assumes quaternionic Hilbert-space matrices and unitary conjugation, not matrices over finite fields.",
+        "Sharma 2016, Sections 1–3, classifies the action and its orbit counts but not geometric intersections with the full-support locus."
+      ],
+      "reasoning": "A simultaneous result over the infinite quaternionic setting does not imply the claimed finite-field conclusion; indeed the characteristic-two and five-element examples preclude a universal existence theorem over all finite fields. The broader simultaneous orbit classification does not contain an entry-support counting result, so its hypotheses and conclusions do not dominate the present theorem.",
+      "searches": [
+        "exact number of simultaneous fully nonzero conjugates of commuting 2 by 2 matrices over finite fields; forbidden diagonal scalars roots characteristic polynomial; common basis",
+        "pairwise commuting matrices all entries nonzero simultaneously under similarity finite field q 2k+2 obstruction",
+        "fully nonzero matrices common basis finite fields all entries nonzero Marcoux Radjavi Yahaghi Zhang",
+        "commuting matrices simultaneously all entries nonzero under one similarity finite field distribution"
+      ]
+    },
+    "checked_sources": [
+      "Marcoux–Radjavi–Yahaghi–Zhang arXiv:2608.21154v1, pages 1 and 5–7, original text and visual checks",
+      "Sharma arXiv:1409.2698 / LAA 501 (2016) Section 1–3 original accessible publisher text",
+      "Bodine–McDonald DOI:10.1080/03081087.2011.591395 publicly accessible article abstract",
+      "Published mathematical-record hits for exact t-fine 2-by-2 decomposition counts, nilpotent-free matrix spaces, diagonal-core sets, and simultaneous exponential bases: titles and summaries checked for stronger coverage only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bodine–McDonald single-matrix existence over fields of order at least five is compatible with the q=5 pair, but does not force common simultaneous support.",
+        "Marcoux et al. q>=5 individual threshold is strictly weaker than the joint finite-field q>2k+2 guarantee, and their quaternionic theorem operates over a different field and similarity notion.",
+        "Sharma Lemma 3.3 implies the centralizer reduction used in Step 1 of the proof but not the diagonal/characteristic-root exclusion or count."
+      ],
+      "reasoning": "Known single-matrix conclusions are satisfied by each individual member of the counterexample yet the joint conclusion fails. The common centralizer parameterization is a classical ingredient; the new result adds an exact intersection count and sharp simultaneous obstruction, which cannot be extracted from numerical counts of similarity orbits alone.",
+      "searches": [
+        "exact number of simultaneous fully nonzero conjugates of commuting 2 by 2 matrices over finite fields; forbidden diagonal scalars roots characteristic polynomial; common basis",
+        "pairwise commuting matrices all entries nonzero simultaneously under similarity finite field q 2k+2 obstruction",
+        "simultaneous similarity classes of commuting matrices over a finite field full nonzero entry pattern exact counts",
+        "Spectrally arbitrary patterns over finite fields Bodine McDonald full two by two full pattern nonzero"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Marcoux et al., arXiv:2608.21154v1, Theorem 3.1 and the remark following it treat a single nonscalar matrix over general fields; Theorem 3.2 treats quaternionic simultaneous matrices.",
+        "Sharma, arXiv:1409.2698 / LAA 501 (2016), Lemma 3.3, gives regular commuting-tuple centralizer structure but no prescribed entrywise nonzero simultaneous representative."
+      ],
+      "reasoning": "The new requirement concerns one conjugating basis satisfying k simultaneous coordinate nonvanishing conditions. Individual full-pattern realizability and counts of isomorphism/similarity classes do not determine how many members of each class simultaneously meet the same fixed entry pattern. The finite-field obstructions demonstrate that pointwise existence is strictly weaker.",
+      "searches": [
+        "exact number of simultaneous fully nonzero conjugates of commuting 2 by 2 matrices over finite fields; forbidden diagonal scalars roots characteristic polynomial; common basis",
+        "pairwise commuting matrices all entries nonzero simultaneously under similarity finite field q 2k+2 obstruction",
+        "fully nonzero common conjugating basis scalar shifts of nonscalar 2x2 finite field exact count",
+        "simultaneous similarity classes of commuting matrices over a finite field full nonzero entry pattern exact counts",
+        "\"simultaneous\" \"all entries nonzero\" \"commuting matrices\" fields"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bodine–McDonald, DOI:10.1080/03081087.2011.591395, publicly accessible abstract establishes existence of a fully-nonzero 2-by-2 matrix with every characteristic polynomial for fields with at least five elements, not joint counts.",
+        "Published indexed findings on two-by-two finite-field matrix decompositions and nilpotent-free subspaces have different underlying predicates and do not give tuple-wise exact fully-nonzero orbit intersections."
+      ],
+      "reasoning": "The formula counts a specific finite set in each simultaneous similarity orbit for every commuting tuple and gives failures of simultaneous existence, not the known one-matrix exact/full-pattern population. Available tables and search hits did not supply this invariant or its q=5/q=8 sharp obstructions.",
+      "searches": [
+        "exact number of simultaneous fully nonzero conjugates of commuting 2 by 2 matrices over finite fields; forbidden diagonal scalars roots characteristic polynomial; common basis",
+        "fully nonzero common conjugating basis scalar shifts of nonscalar 2x2 finite field exact count",
+        "2 by 2 finite-field matrices similar to matrices with no zero entries; small-field exceptions F2 F3 F4 F5",
+        "finite field matrix algebra 2026 new classification combinatorial nilpotent rank idempotent extension"
+      ]
+    },
+    "rationale": "The 2026 motivating preprint addresses fully-nonzero conjugation for a single finite-field matrix; its simultaneous-conjugacy theorem is quaternionic, so it does not imply the finite-field count or characteristic-two obstructions. Sharma (2016) counts commuting simultaneous similarity classes without entrywise nonvanishing. Bodine–McDonald (2012) studies existence of one fully-nonzero characteristic-polynomial realization. Thus no inspected statement implies the exact tuple-dependent forbidden-set formula or its sharp joint obstructions. Targeted public and mathematical-record searches did not return a matching stronger statement, but absence from search is not proof and unread older full text remains a residual risk.",
+    "residual_risks": [
+      "The full text of Bodine–McDonald was not accessible from consulted public sources and might contain an equivalent simultaneous statement not present in its abstract.",
+      "An equivalent simultaneous prescribed-pattern theorem might be buried in older zero-nonzero matrix pattern literature; targeted searches cannot exclude all historical statements.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Single finite-field conjugation theorem and quaternionic simultaneous theorem do not give the exact finite-field joint orbit count",
+        "evidence": "Theorem 3.1(ii) and next remark provide one-matrix existence; Theorem 3.2 deals with quaternionic unitary changes of basis.",
+        "identifier_or_url": "arXiv:2608.21154v1; https://pdfs.assets.alphaxiv.org/2608.21154v1.pdf",
+        "material_read": "Full public v1 preprint accessible; title, abstract, primary classification and pages 5–7 inspected, including original Theorem 3.1, remark and Theorem 3.2",
+        "method": "public v1 PDF, extracted text and visual page inspection",
+        "title": "Fully non-zero matrices and generators of full algebras of operators",
+        "trigger": "same full-support similarity problem; motivating recent primary literature"
+      },
+      {
+        "assessment": "Relevant centralizer and orbit structure; no full-support entry predicate in inspected material",
+        "evidence": "Lemma 3.3 gives the regular two-by-two centralizer as all scalars plus multiples of the matrix and counts regular-type branches.",
+        "identifier_or_url": "arXiv:1409.2698; DOI:10.1016/j.laa.2016.03.015",
+        "material_read": "Publisher-rendered original Introduction, Definitions 1.1–1.4, and Section 3 through Lemmas 3.2–3.3 and its explicit degree-two branching calculation",
+        "method": "public publisher text plus arXiv metadata and abstract",
+        "title": "Simultaneous Similarity Classes of Commuting matrices over a finite field",
+        "trigger": "same commuting tuple objects and simultaneous conjugation action"
+      },
+      {
+        "assessment": "Abstract covers full-pattern spectral existence threshold q>=5; it cannot establish noncoverage of unread full paper; risk explicitly retained",
+        "evidence": "Abstract states full 2-by-2 zero-nonzero pattern is spectrally arbitrary over a field exactly when it has at least five elements.",
+        "identifier_or_url": "DOI:10.1080/03081087.2011.591395",
+        "material_read": "Public article abstract; complete article text not available from consulted public source",
+        "method": "publisher metadata and public abstract",
+        "title": "Spectrally arbitrary patterns over finite fields",
+        "trigger": "full two-by-two entry pattern over finite fields, possible direct one-matrix covering source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "79290beb-6b02-4649-85b9-20964d3898aa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact count solves the natural joint coordinate-support problem for all commuting nonscalar matrix tuples in the first nontrivial dimension. It provides an explicit existence decision, number of admissible bases, success probability and a universal q-versus-k threshold with infinitely many equality obstructions. The F5 pair shows genuine failure of the inference from individual to simultaneous full support even in a field where every nonscalar two-by-two matrix has a full-support conjugate. These are structural consequences, not an arbitrary table or routine extension of a single-matrix statement.",
+    "status": "PASS"
+  }
+}
