@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Both statistics are normalized order-two U-statistics. Exact integration gives all same-pair and one-overlap moments; pair-overlap counting then yields the covariance and variances for every n. The conditional kernel means differ by an exact factor two after centering, proving degeneracy of the normalized contrast. Its same-pair variance is 1/180 and its one-overlap covariance is zero, giving the stated n^{-2} variance. An independent exact-rational checker reconstructs these moments and formulas through n=10000.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gerstenberger–Vogel report equal asymptotic efficiency of Gini's mean difference and standard deviation under the uniform distribution, but do not supply a joint covariance.",
+        "Čiginas–Pumputis explicitly present GMD and empirical variance as alternative degree-two U-statistics and derive separate variance components.",
+        "The older GMD literature cited by those papers is described as supplying variance formulas for GMD rather than cross-covariances with sample variance."
+      ],
+      "reasoning": "Equal asymptotic efficiencies are marginal statements and do not by themselves imply correlation one or identify a finite degenerate contrast. The new projection equality supplies the missing joint mechanism and the exact finite correction.",
+      "searches": [
+        "Gerstenberger Vogel On the efficiency of Gini's mean difference uniform",
+        "Ciginas Pumputis Gini mean difference variance finite populations",
+        "Lomnicki Gini mean difference variance U-statistic"
+      ]
+    },
+    "checked_sources": [
+      "Gerstenberger and Vogel, arXiv:1405.5027, complete preprint.",
+      "Čiginas and Pumputis, arXiv:1406.2275, complete preprint.",
+      "Published-record searches for uniform GMD/sample-variance covariance, joint moments, and exact coefficients.",
+      "Previously checked scientific records on exponential GMD/variance coupling and uniform range/variance coupling."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A previously checked exponential-sample result gives a different Gini/variance covariance whose coefficients depend on exponential mixed kernel moments.",
+        "Previously checked uniform-sample results condition sample variance on the sample range and contain no Gini mean difference.",
+        "The distribution-specific U-statistic overlap moments show that neither prior result implies the uniform mixed covariance."
+      ],
+      "reasoning": "The exponential and uniform parent laws have different conditional kernel projections; the exact uniform factor-two projection identity is absent in the exponential case. Range-conditioned variance formulas concern a different statistic and do not determine Gini/variance cross-moments.",
+      "searches": [
+        "uniform Gini mean difference sample variance exact covariance",
+        "exponential Gini mean difference sample variance covariance",
+        "uniform sample variance range Gini mean difference"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gerstenberger–Vogel's complete preprint defines the same sample Gini statistic and variance-based scale estimator and gives their separate finite or asymptotic variances.",
+        "Within-document searches of that preprint found no occurrences of covariance, joint, or correlation terminology.",
+        "Čiginas–Pumputis treat both statistics as degree-two U-statistics with separate Hoeffding decompositions; within-document searches found no covariance or joint statement."
+      ],
+      "reasoning": "The searches covered Gini mean difference/GMD, empirical or sample variance, covariance/correlation, joint moments, uniform sampling, and U-statistic terminology. The accepted result is a mixed-moment identity and degenerate contrast, not a restatement of either marginal variance formula.",
+      "searches": [
+        "\"Gini mean difference\" \"sample variance\" covariance uniform",
+        "\"Gini's mean difference\" \"sample variance\" \"uniform distribution\"",
+        "\"Gini mean difference\" \"sample variance\" joint asymptotic",
+        "\"Gini mean difference\" \"sample variance\" covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-factor searches did not return the coefficient (n+2)/(90 n(n-1)) or the displayed correlation formula.",
+        "Gerstenberger–Vogel's uniform tables report separate asymptotic variances and efficiency, not a covariance table.",
+        "The exact checker values are generated from rational integration and overlap counting rather than from a published table."
+      ],
+      "reasoning": "The result is a symbolic identity for every sample size and every affine uniform interval. The finite formulas are not recovered by reading a table of marginal efficiencies.",
+      "searches": [
+        "\"n+2\" \"Gini mean difference\" covariance variance",
+        "\"Gini mean difference\" \"sample variance\" correlation uniform sample",
+        "\"Gini mean difference\" \"asymptotic covariance\" variance"
+      ]
+    },
+    "rationale": "Two complete primary preprints that directly compare Gini's mean difference with variance-based scale measures were inspected. They give marginal variance or efficiency results but do not state the mixed finite covariance, the exact correlation, or the degenerate contrast. Exact-formula and semantic searches using covariance, joint, uniform, and U-statistic formulations did not locate an equivalent statement.",
+    "residual_risks": [
+      "The mixed identity is a short specialization of standard order-two U-statistic covariance algebra, so an equivalent formula may exist in older unindexed literature.",
+      "The inspected primary papers cite older GMD variance work by Lomnicki, Nair, and Glasser; those sources are known for marginal GMD variance formulas, but an exhaustive historical search of every cited paper was not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MARGINAL_EFFICIENCY_WITHOUT_MIXED_FINITE_IDENTITY",
+        "evidence": "The paper gives the exact finite variance of empirical variance, a general finite variance formula for sample Gini mean difference, and equal asymptotic efficiency under the uniform law. No finite Gini/variance cross-covariance, joint correlation, or degenerate contrast was found.",
+        "identifier_or_url": "arXiv:1405.5027",
+        "material_read": "Complete 18-page preprint with focused inspection of the estimator definitions, exact finite variance formulas, uniform-distribution tables, influence-function discussion, and full-text searches for covariance, joint, and correlation.",
+        "method": "Public arXiv full-text PDF inspection.",
+        "title": "On the efficiency of Gini's mean difference",
+        "trigger": "Direct primary comparison of Gini's mean difference with standard-deviation and variance-based scale estimation, including the uniform distribution."
+      },
+      {
+        "assessment": "SEPARATE_HOEFFDING_DECOMPOSITIONS_WITHOUT_CROSS_COVARIANCE",
+        "evidence": "The paper defines both statistics using the same pairwise kernels and derives their marginal Hoeffding variance components separately. No mixed covariance or joint law was located.",
+        "identifier_or_url": "arXiv:1406.2275",
+        "material_read": "Complete 20-page preprint, with focused inspection of Section 3.1, the two Hoeffding decompositions, marginal variance formulas, and full-text searches for covariance, uniform, and joint terminology.",
+        "method": "Public arXiv full-text PDF inspection.",
+        "title": "Gini's mean difference and variance as measures of finite populations scales",
+        "trigger": "Primary article explicitly comparing Gini's mean difference and empirical variance as degree-two U-statistics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d786554-70ed-4d80-8e0b-3a774801efc3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gini mean difference and variance are canonical competing dispersion measures, and the inspected literature explicitly compares their statistical efficiency. Under the uniform benchmark the literature reports equal asymptotic efficiency; the new joint identity explains why by proving exact proportionality of the first-order projections. The residual discrepancy is a degenerate U-statistic with exact O(n^{-2}) variance, while the exact correlation deficit quantifies finite-sample redundancy. This is a structural coupling between two motivated estimators rather than an arbitrary moment calculation.",
+    "status": "PASS"
+  }
+}
