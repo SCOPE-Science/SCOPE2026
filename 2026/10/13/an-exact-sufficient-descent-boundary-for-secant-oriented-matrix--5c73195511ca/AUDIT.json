@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Starting from the source equations for P, T, and the secant system, the proof reduces the symmetric part of P to an explicit two-by-two matrix on span{s,y}; Sylvester's criterion gives the stated necessary-and-sufficient determinant inequality. The angle-only impossibility follows from its exact leading term and the t=1 specialization. The explicit quadratic is source-valid at k=0 because d0=-g0; its Hessian is positive definite, alpha0=64 satisfies both strong-Wolfe inequalities for c1=1e-4 and c2=0.9, and exact arithmetic gives g1^T P g1=-5/32. The standalone verifier reproduces these identities without floating-point decisions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1080/10556780701223293",
+        "DOI:10.1007/s10957-011-9960-x",
+        "DOI:10.1080/10556788.2017.1338288"
+      ],
+      "reasoning": "Zhang--Zhou--Li and later three-term methods give line-search-independent or specially constructed sufficient-descent directions, and the 2017 paper notes qualitatively that secant-based methods need not be descent. These are different direction formulas and do not dominate the claim about the exact MatDL secant parameter boundary.",
+      "searches": [
+        "secant conditions sufficient descent three-term conjugate gradient",
+        "Dai--Liao sufficient descent three-term"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.17337v1",
+      "DOI:10.1007/s002450010019",
+      "DOI:10.1080/10556780701223293",
+      "DOI:10.1007/s10957-011-9960-x",
+      "DOI:10.1080/10556788.2017.1338288"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DOI:10.1007/s002450010019",
+        "DOI:10.1080/10556788.2017.1338288",
+        "arXiv:2607.17337v1"
+      ],
+      "reasoning": "The 2001 Dai--Liao work predates the matrix parameterization. The 2017 predecessor's qualitative non-descent observation does not determine which 2026 MatDL secant settings fail, nor the exact scale-angle boundary. The 2026 source's general symmetrized positivity formula is an input to the present derivation, not a statement of the final theorem or witness.",
+      "searches": [
+        "Dai Liao matrix parameter secant descent",
+        "secant CG methods do not always generate a descent search direction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.17337v1",
+        "DOI:10.1080/10556788.2017.1338288",
+        "DOI:10.1007/s10957-011-9960-x"
+      ],
+      "reasoning": "Searches covered Matrix Dai--Liao, secant-system, sufficient-descent, ascent, strong-Wolfe, and convex-quadratic aliases. No located source states an equivalent exact determinant boundary for the 2026 MatDL secant system.",
+      "searches": [
+        "\"From a Scalar to a Matrix Setting for the Dai--Liao Parameter\" sufficient descent secant",
+        "MatDL secant system sufficient descent exact condition ascent counterexample",
+        "matrix Dai-Liao secant positive definite T descent direction counterexample",
+        "Dai-Liao secant strong Wolfe convex quadratic ascent"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2607.17337v1"
+      ],
+      "reasoning": "The primary full text was checked through the secant-oriented equations (3.10)--(3.11), descent discussion, numerical-comparison description, and conclusions. It reports the eta/rho variants but no exact ascent witness or table giving the claimed boundary.",
+      "searches": [
+        "2607.17337 MatDL eta rho ascent",
+        "MatDL-eta-1",
+        "MatDL-rho-1"
+      ]
+    },
+    "rationale": "The primary 2026 paper supplies the MatDL equations and distinguishes descent-oriented from secant-oriented parameterizations, but it does not state the exact (m,z,t) sufficient-descent boundary, the impossibility of angle-only secant rules, or the explicit strong-Wolfe quadratic ascent witness for its rho/eta variants. Earlier secant-based three-term CG papers establish qualitative sufficient-descent constructions or warnings for different formulas and therefore do not imply the source-specific exact boundary.",
+    "residual_risks": [
+      "The closest 2017 secant/descent predecessor was inspected at abstract level because a lawful open full text was not located in the bounded search; a hidden theorem in that paper could reduce novelty, although its stated algorithmic construction predates and differs from the 2026 Matrix Dai--Liao framework.",
+      "The primary source itself contains a general symmetrized-matrix positivity formula, so the novelty claim is deliberately limited to the exact specialization under the secant system, the angle-only impossibility, and the explicit source-parameter strong-Wolfe witness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact source formulas used, but does not state the new exact secant/SDC boundary or the explicit counterexample.",
+        "evidence": "arXiv:2607.17337v1; DOI:10.48550/arXiv.2607.17337",
+        "identifier_or_url": "arXiv:2607.17337v1",
+        "material_read": "Full text sections containing equations (3.1)--(3.11), the descent and secant discussions, numerical-comparison description, conclusion, first-public arXiv date, and subject classification.",
+        "method": "Lawful open preprint/full-text inspection.",
+        "title": "From a Scalar to a Matrix Setting for the Dai--Liao Parameter",
+        "trigger": "Primary source defining the MatDL matrix, descent analysis, secant system, and eta/rho settings."
+      },
+      {
+        "assessment": "Predates Matrix Dai--Liao and cannot state the matrix secant boundary.",
+        "evidence": "DOI:10.1007/s002450010019",
+        "identifier_or_url": "DOI:10.1007/s002450010019",
+        "material_read": "Openly available article front matter, abstract, and introductory formulation of the conjugacy framework.",
+        "method": "Open full-text inspection of the available paper copy.",
+        "title": "New Conjugacy Conditions and Related Nonlinear Conjugate Gradient Methods",
+        "trigger": "Original Dai--Liao conjugacy framework and inexact-line-search motivation."
+      },
+      {
+        "assessment": "States line-search-independent sufficient descent for its own three-term method; it does not cover the eta/rho secant variants or the exact boundary here.",
+        "evidence": "DOI:10.1080/10556780701223293",
+        "identifier_or_url": "DOI:10.1080/10556780701223293",
+        "material_read": "Published abstract and bibliographic record.",
+        "method": "Publisher abstract inspection.",
+        "title": "Some descent three-term conjugate gradient methods and their global convergence",
+        "trigger": "The 2026 source identifies ZZL as a MatDL-recoverable sufficient-descent configuration."
+      },
+      {
+        "assessment": "Its abstract gives the qualitative warning that secant-based methods do not always generate descent and proposes different descent three-term constructions; it does not imply the source-specific MatDL determinant boundary.",
+        "evidence": "DOI:10.1080/10556788.2017.1338288",
+        "identifier_or_url": "DOI:10.1080/10556788.2017.1338288",
+        "material_read": "Publisher abstract and institutional bibliographic record; full article text was not openly available in the checked sources.",
+        "method": "Publisher and institutional abstract inspection after open-copy search.",
+        "title": "Descent three-term conjugate gradient methods based on secant conditions for unconstrained optimization",
+        "trigger": "Closest predecessor explicitly combining secant conditions and sufficient descent."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5c731955-11ca-423d-95ee-7d826076db3a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result separates the source's secant/conjugacy motivation from sufficient descent with an exact scale-angle boundary, rather than a numerical anecdote. It explains why angle-only eta/rho rules cannot be uniformly safe, supplies a two-dimensional strongly convex strong-Wolfe witness for two published benchmark variants, and gives a direct implementable safeguard: check Delta>0 or use a separately descent-certified configuration. This is a motivated structural boundary for an emerging 2026 method, not a cosmetic parameter substitution.",
+    "status": "PASS"
+  }
+}
