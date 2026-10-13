@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The source's PMF telescopes exactly: with \\(p_w=S_c(w)-S_c(w+1)\\), inclusive survival is \\(S_c(w)\\) and strict survival is \\(S_c(w+1)\\). Therefore the paper's Eq. (4) denominator is one lattice step too far. Algebra gives the exact relation \\(\\psi_{\\rm pub}=h/(1-h)\\), and the source quantity exceeds one at \\(w=0,\\kappa=3\\). The standard PGF tail-sum identity uses inclusive survival, so substituting the shifted sequence changes the PGF and lowers every finite source mean by \\(S_c(1)\\). The packaged checker independently reproduces the PMF, PGF, hazard, and mean comparisons.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The continuous PITL paper supplies the parent survival but has no discrete lattice index.",
+        "The earlier discrete inverted Topp-Leone paper uses survival discretization for a related one-parameter model.",
+        "General discrete probability identities imply that inclusive survival, not strict survival, is the denominator for the conditional cell hazard and the sequence entering the PGF tail sum."
+      ],
+      "reasoning": "These broader sources establish context and standard identities, but they do not dominate the accepted claim because the new statement identifies the exact 2026 DPITL indexing failure and quantifies its hazard and mean consequences.",
+      "searches": [
+        "discrete survival discretization hazard inclusive survival PGF identity",
+        "discrete inverted Topp-Leone survival discretization 2021",
+        "power inverted Topp-Leone continuous survival 2021"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026049",
+      "doi:10.32604/cmc.2021.014620",
+      "doi:10.28924/2291-8639-19-2021-695"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An owned same-source result establishes regular variation and moment-existence thresholds from the correctly defined PMF.",
+        "That tail statement does not specify the source's hazard denominator, the strict-versus-inclusive survival event, or the PGF one-step shift.",
+        "The immediately prior weekly ledger contains no target DOI or DPITL result."
+      ],
+      "reasoning": "Tail asymptotics of the PMF and an off-by-one identity in downstream survival formulas are logically independent. The current finding therefore neither repeats nor specializes the owned tail result.",
+      "searches": [
+        "10.3934/math.2026049 current ledger tail moment thresholds",
+        "DPITL tail moments survival indexing hazard",
+        "DPITL PGF strict inclusive survival"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned published-result record identifies the target DOI or states the one-step DPITL survival correction.",
+        "Exact correction and erratum searches located the original article and mirrors but no corrigendum.",
+        "The primary source's consecutive Eqs. (2)-(4) directly expose the mismatch between inclusive and strict survival."
+      ],
+      "reasoning": "Searches covered the exact source and the most natural equivalent formulations: off-by-one survival, strict-versus-inclusive survival, hazard denominator, and shifted PGF. No model-specific equivalent correction was located.",
+      "searches": [
+        "10.3934/math.2026049 discrete power inverted Topp-Leone survival hazard correction",
+        "DPITL survival function off by one hazard rate",
+        "discrete survival discretization PGF mean shift S(w+1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Eq. (2) defines the PMF as the difference of consecutive continuous survival values.",
+        "Eq. (3) gives the CDF as one minus the survival at the next lattice point.",
+        "Eq. (4) labels that strict-survival value as inclusive survival and divides the PMF by it.",
+        "Eq. (6) substitutes the same shifted sequence into the PGF identity, and Eq. (9) sums it for the mean."
+      ],
+      "reasoning": "The decisive comparison is internal to the primary source: its PMF and CDF imply one lattice indexing, while its survival/hazard and PGF use another.",
+      "searches": [
+        "10.3934/math.2026049 Eq 4 survival hazard",
+        "10.3934/math.2026049 Eq 6 probability generating function",
+        "10.3934/math.2026049 Eq 9 mean"
+      ]
+    },
+    "rationale": "The primary article prints the shifted survival and builds its hazard and PGF formulas from it. Five focused published-result searches using the exact DOI, model name, survival/hazard aliases, PGF language, and lattice-shift terminology found no source-specific correction. The current owned ledger contains a same-source tail/moment-existence result, but that result neither states nor implies the one-step survival/PGF indexing correction; the prior weekly ledger contains no DPITL finding.",
+    "residual_risks": [
+      "A very recent unindexed author correction may exist outside the records examined.",
+      "Unpublished numerical code may have used the correct inclusive survival even though the printed formulas do not.",
+      "Only the first-moment downstream correction is quantified explicitly in this finding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY INCONSISTENT. Eqs. (2)-(3) imply \\(\\Pr(W\\ge w)=S_c(w)\\), while Eq. (4) assigns that event to \\(S_c(w+1)\\); the same shifted sequence is then used in Eq. (6).",
+        "evidence": "Eqs. (2), (3), (4), (6), and (9).",
+        "identifier_or_url": "doi:10.3934/math.2026049",
+        "material_read": "Open full PDF at the continuous PITL survival, survival-discretized PMF Eq. (2), CDF Eq. (3), survival/hazard Eq. (4), hazard discussion, PGF Eq. (6), mean and noncentral moments Eqs. (9)-(10), and publication/MSC metadata.",
+        "method": "Direct parsed-text and rendered-page inspection of the publisher PDF.",
+        "title": "An innovative discrete distribution for modeling genotoxicity data: Applications in pharmacology and environmental health",
+        "trigger": "Primary 2026 source defining the DPITL PMF, survival, hazard, PGF, and moments."
+      },
+      {
+        "assessment": "BACKGROUND ONLY; it contains no discrete lattice survival correction.",
+        "evidence": "The paper introduces the continuous PITL model later discretized by the 2026 source.",
+        "identifier_or_url": "doi:10.32604/cmc.2021.014620",
+        "material_read": "Open publisher abstract and model description identifying the continuous PITL family and its reliability context.",
+        "method": "Direct publisher web inspection.",
+        "title": "Power Inverted Topp–Leone Distribution in Acceptance Sampling Plans",
+        "trigger": "Continuous parent distribution used by the DPITL discretization."
+      },
+      {
+        "assessment": "RELATED BACKGROUND; no 2026 DPITL correction was located.",
+        "evidence": "The article predates the DPITL model and concerns the one-parameter discrete inverted Topp-Leone analogue.",
+        "identifier_or_url": "doi:10.28924/2291-8639-19-2021-695",
+        "material_read": "Open article abstract and bibliographic first page identifying survival discretization and discrete inverted Topp-Leone construction.",
+        "method": "Direct open PDF/search-result inspection.",
+        "title": "A discrete analog of inverted Topp-Leone distribution: properties, estimation and applications",
+        "trigger": "Closest earlier discrete Topp-Leone survival-discretization paper cited by the target source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5162b6c4-fabc-43f1-8ad3-7babb0da115f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Hazard shape, PGF, moments, and moment-based inference are presented as core mathematical and reliability properties of the new count model. The indexing error changes a purported conditional probability into odds, allowing values above one, and shifts the printed mean by a fixed parameter-dependent amount. This is a structural correction that affects the interpretation of the hazard plots and any use of the displayed PGF-derived moment formulas.",
+    "status": "PASS"
+  }
+}
