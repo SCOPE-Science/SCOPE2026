@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The proof is an exact partition by the center label. For a center not labeled 2, the only forbidden labelings of one blade are {0,1}-labelings containing a zero, so the blade enumerator is \\(Q_m(x)=(1+x+x^2)^m-(1+x)^m+x^m\\). The center-zero case has one additional forbidden global labeling, namely all peripheral vertices labeled 1. These disjoint cases yield the polynomial for every \\(n,m\\) in scope. The standalone checker independently tests the graph definition, Roman condition, coefficient vector, minimum, and total count on representative small pairs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A published complete-multipartite Roman-polynomial result gives an all-weight formula for complete multipartite graphs.",
+        "arXiv:2208.05261, Sections 2-3, explicitly concerns minimal Roman dominating functions and gives enumeration algorithms for split and cobipartite graphs."
+      ],
+      "reasoning": "For \\(n,m\\ge2\\), \\(W_{n,m}\\) is not complete multipartite: vertices in one blade are adjacent while vertices in different blades are nonadjacent, which violates the complete-multipartite adjacency pattern. The minimal-RDF enumeration algorithms solve a different counting object and do not imply the polynomial over all RDFs.",
+      "searches": [
+        "Roman domination polynomial complete multipartite graphs",
+        "Roman domination split graphs enumeration",
+        "Roman Census split cobipartite minimal Roman dominating functions"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.disc.2003.06.004",
+      "doi:10.1137/070699688",
+      "doi:10.1142/S1793557123501231",
+      "arXiv:2208.05261"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "doi:10.1016/j.disc.2003.06.004 establishes the Roman domination framework and scalar optimization problem.",
+        "doi:10.1142/S1793557123501231 studies two different domination parameters on windmills.",
+        "arXiv:2208.05261 distinguishes minimal Roman dominating functions from arbitrary Roman dominating functions and develops algorithms for the former."
+      ],
+      "reasoning": "Knowing a scalar Roman domination number, a different domination parameter, or an algorithm for enumerating minimal RDFs does not determine the number of all RDFs at each weight. The accepted formula is therefore not a corollary of the inspected statements.",
+      "searches": [
+        "Roman domination in graphs windmill",
+        "total paired domination windmill graphs",
+        "minimal Roman dominating functions split graphs windmill"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.1016/j.disc.2003.06.004 defines the Roman dominating function used here but does not provide this windmill weight enumerator.",
+        "doi:10.1142/S1793557123501231 treats the same windmill family for total and paired domination, not Roman domination.",
+        "arXiv:2208.05261 studies enumeration of pointwise-minimal Roman dominating functions and does not state an all-function windmill weight polynomial."
+      ],
+      "reasoning": "The same graphs are also called generalized windmills; the case \\(m=2\\) is the friendship-graph family; and the join notation is \\(K_1\\vee nK_m\\). Searches used all of these aliases. None of the inspected statements yields the three center-label cases or the displayed polynomial.",
+      "searches": [
+        "Roman domination polynomial generalized windmill K1 join disjoint cliques exact weight enumerator",
+        "Roman dominating functions windmill graph friendship graph exact enumeration",
+        "Roman domination friendship graph Dutch windmill generalized windmill",
+        "\"Roman domination\" windmill graph friendship graph",
+        "\"Roman dominating function\" friendship graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-results searches returned Roman-polynomial results for other graph classes and a generalized-windmill result for the general-position polynomial, but no Roman windmill coefficient table or formula.",
+        "The same-object windmill domination source located by web search reports total and paired domination numbers rather than Roman-function counts."
+      ],
+      "reasoning": "No checked database or table supplies coefficients of the proposed Roman polynomial or the total \\(3^{nm}+2(3^m-2^m+1)^n-1\\). A failed search is not treated as a proof of novelty; it is combined with statement-level comparison of the closest sources.",
+      "searches": [
+        "Roman domination polynomial windmill graph",
+        "Roman domination friendship graph exact count",
+        "Roman dominating functions K1 join nKm polynomial"
+      ]
+    },
+    "rationale": "No checked source states or implies the all-weight Roman domination polynomial for generalized windmills in the range \\(n,m\\ge2\\). Same-object windmill literature located here concerns different domination variants, while broader Roman enumeration work treats pointwise-minimal functions rather than all functions. The closest complete-multipartite Roman polynomial applies to a different graph class and does not specialize to generalized windmills with nontrivial clique blades.",
+    "residual_risks": [
+      "An unindexed paper, thesis, or small-family table could contain an equivalent all-weight identity for friendship or generalized windmill graphs.",
+      "The search evidence establishes noncoverage of the inspected sources, not global uniqueness of the result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the invariant definition and scalar Roman domination framework; DOES NOT COVER the generalized-windmill all-weight enumerator.",
+        "evidence": "The paper defines an RDF as a {0,1,2}-labeling in which every 0-vertex has a 2-neighbor and defines its weight and minimum weight.",
+        "identifier_or_url": "doi:10.1016/j.disc.2003.06.004",
+        "material_read": "Bibliographic record and accessible published-paper text including abstract and definition.",
+        "method": "Public bibliographic and full-text inspection.",
+        "title": "Roman domination in graphs",
+        "trigger": "Foundational source for the exact Roman dominating-function definition and archive-era anchor."
+      },
+      {
+        "assessment": "Studies enumeration of pointwise-minimal RDFs on graph classes; it does not provide the all-RDF generalized-windmill weight enumerator.",
+        "evidence": "Its definition section separates RDFs from minimal RDFs, and Section 3 enumerates minimal RDFs in split and cobipartite graphs.",
+        "identifier_or_url": "arXiv:2208.05261",
+        "material_read": "Full public text through the introduction, definitions, and split/cobipartite enumeration section.",
+        "method": "Public full-text inspection and term/statement comparison.",
+        "title": "Roman Census: Enumerating and Counting Roman Dominating Functions on Graph Classes",
+        "trigger": "Closest broad enumeration literature for Roman dominating functions."
+      },
+      {
+        "assessment": "Same-object but different-invariant source; it treats total and paired domination numbers, not Roman domination or an RDF polynomial.",
+        "evidence": "The abstract defines total and paired domination and states that the paper determines those parameters for windmill graphs.",
+        "identifier_or_url": "doi:10.1142/S1793557123501231",
+        "material_read": "Published bibliographic record and abstract.",
+        "method": "Public abstract inspection.",
+        "title": "Total and paired domination numbers of windmill graphs",
+        "trigger": "Same named graph family with domination terminology."
+      },
+      {
+        "assessment": "Confirms Roman domination as primary MSC 05C69; does not cover the windmill weight enumerator.",
+        "evidence": "The journal page lists MSC 05C69 first and studies extremal bounds for the Roman domination number.",
+        "identifier_or_url": "doi:10.1137/070699688",
+        "material_read": "Published abstract, metadata, and MSC listing.",
+        "method": "Public journal-page inspection.",
+        "title": "Extremal Problems for Roman Domination",
+        "trigger": "Primary-MSC verification for Roman domination."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "60695442-a75b-4daa-986b-9b750fb0607c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The generalized windmill is a standard infinite two-parameter block-graph family, and the full Roman weight enumerator is a natural invariant that strictly refines the minimum weight. The formula gives every coefficient, the exact total number of feasible functions, and uniqueness of the optimum, while the proof identifies a reusable blade factorization induced by conditioning on the universal center. This is a complete structural enumeration, not an arbitrary finite cutoff or a routine restatement of the scalar domination number.",
+    "status": "PASS"
+  }
+}
