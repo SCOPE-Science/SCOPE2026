@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact outcome enumeration establishes E L=a+dt, E U=1-b+dt, E L^2=a+dt^2, E U^2=1-b+dt^2, E(LU)=a(1+t^2)+t(b-2a), hence Cov=ab+(d^2-a)t(1-t). Reflection symmetry gives the exact quadratic product of the two variances in z=t(1-t), so the derivative sign of the squared correlation is the affine H(z). At zero H=2ab(1-b)(h+ab)>0. At z=1/4 H=r x^5 B, with x=d=(2^n-1)/3^n<1/3, r=3^n/(2^n-1)^2<3/5. The explicit B lower estimate B>=1/10+(33/100)x>0 holds uniformly for every integer n>=4. Thus the correlation is strictly increasing in z and maximized only at t=1/2. Exact substitution produces R_n, and a/b^2=(3/4)^n tends to zero, yielding asymptotic R_n~(2/3)^n. SymPy reconstructed seven polynomial identities from the actual verify.py; 272 exact checks corroborate finite cases but are not the proof of all n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Papadatos (2022), eq. (1.1): universal Corr(min,max)<=1/n for n iid observations.",
+        "Nickos Papadatos, arXiv:2205.14360v1 (2022-05-28), Theorem 1.2 (n=2), Theorem 2.1 (n=2), Section 3 closing question, PDF pp. 1-13, https://arxiv.org/pdf/2205.14360",
+        "Fernando López-Blázquez and Begoña Salamanca-Miño (2021), Automatic differentiation and maximal correlation of order statistics from discrete parents, doi:10.1007/s00180-021-01103-5, publisher first-page preview and abstract only"
+      ],
+      "reasoning": "A universal bound 1/n does not imply the strictly smaller sharp n-dependent number R_n, the unique optimizer, or exponential decay. The 2021 algorithmic maximal-correlation article concerns a more general object but the accessible primary material provides no theorem implying this exact geometry classification; lack of entire text remains a risk rather than a NOT_COVERING claim.",
+      "searches": [
+        "Székely Móri 1985 bound min max correlation quoted in arxiv:2205.14360v1 equation (1.1)",
+        "sharp min max sample correlation discrete uniform three points sample size four all n",
+        "Papadatos 2024 order statistics discrete uniform increasing transformation correlation min max sample size 4 3 point",
+        "published-finding corpus: Székely Móri maximal correlation bound order statistics i n n for arbitrary parent distribution sharp discrete correction"
+      ]
+    },
+    "checked_sources": [
+      "Nickos Papadatos, arXiv:2205.14360v1 (2022-05-28), Theorem 1.2 (n=2), Theorem 2.1 (n=2), Section 3 closing question, PDF pp. 1-13, https://arxiv.org/pdf/2205.14360",
+      "Published research note (2026), Sharp min-max correlation over three-point probability weights, https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-uniform-maximizes-three-point-minmax-correlation--92f0f4188ee4/RESULT.md",
+      "Fernando López-Blázquez and Begoña Salamanca-Miño (2021), Automatic differentiation and maximal correlation of order statistics from discrete parents, doi:10.1007/s00180-021-01103-5, publisher first-page preview and abstract only",
+      "Székely and Móri (1985), general order-statistic correlation theorem, considered via explicit equation (1.1) in the inspected Papadatos 2022 paper.",
+      "Targeted public literature queries for Papadatos all-n N=3 monotone lattice-optimality, support geometry, and exact bound coefficient.",
+      "Public published-finding corpus semantic search by theorem and equivalence descriptions."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nickos Papadatos, arXiv:2205.14360v1 (2022-05-28), Theorem 1.2 (n=2), Theorem 2.1 (n=2), Section 3 closing question, PDF pp. 1-13, https://arxiv.org/pdf/2205.14360",
+        "Published research note (2026), Sharp min-max correlation over three-point probability weights, https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-uniform-maximizes-three-point-minmax-correlation--92f0f4188ee4/RESULT.md",
+        "Fernando López-Blázquez and Begoña Salamanca-Miño (2021), Automatic differentiation and maximal correlation of order statistics from discrete parents, doi:10.1007/s00180-021-01103-5, publisher first-page preview and abstract only",
+        "Prior distinct three-draw midpoint case does not constrain integer n>=4, because the joint order-statistic law changes with sample size."
+      ],
+      "reasoning": "Papadatos n=2 all support sizes is not a theorem for n>=4. The public 2026 N=3 result optimizes probability weights but fixes support spacing and two draws, which does not bound changes in spacing at higher n. The 2021 computational method does not, on the inspected material, supply a stated exact lattice optimizer for all n; its complete article is unresolved access risk. The older three-draw case n=3 cannot be extended to every larger n without the new uniform positivity proof.",
+      "searches": [
+        "Papadatos conjecture discrete Terrell n samples three-point uniform support extremal Pearson min max correlation equal spacings",
+        "sharp min max sample correlation discrete uniform three points sample size four all n",
+        "For n>=4 iid sample uniform on 3 arbitrary ordered real support points, maximum Pearson correlation of sample minimum and maximum is achieved uniquely at equally spaced atoms with coefficient ((3^-n+(2/3)^n)^2-3^-n)/(3*3^-n+(2/3)^n-(3^-n+(2/3)^n)^2); lattice optimality for N=3 all sample sizes Papadatos",
+        "Published source 2026/9/20/SCOPE-uniform-maximizes-three-point-minmax-correlation--92f0f4188ee4",
+        "2021 source Fernando López-Blázquez and Begoña Salamanca-Miño (2021), Automatic differentiation and maximal correlation of order statistics from discrete parents, doi:10.1007/s00180-021-01103-5, publisher first-page preview and abstract only"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nickos Papadatos, arXiv:2205.14360v1 (2022-05-28), Theorem 1.2 (n=2), Theorem 2.1 (n=2), Section 3 closing question, PDF pp. 1-13, https://arxiv.org/pdf/2205.14360",
+        "Published research note (2026), Sharp min-max correlation over three-point probability weights, https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-uniform-maximizes-three-point-minmax-correlation--92f0f4188ee4/RESULT.md",
+        "Algebraic equivalent: all strictly increasing maps of the uniform 3-point lattice normalized as {0,t,1}, with unique optimal t=1/2 and n>=4."
+      ],
+      "reasoning": "The equality of correlations under positive affine normalization converts arbitrary ordered triple geometry into a one-parameter common monotone transform; this is precisely the three-point R_N double-prime question in the 2022 source. That source proves only n=2, while the inspected 2026 result changes probabilities with n=2. Alias and formula searches did not reveal an equivalent all-n>=4 statement.",
+      "searches": [
+        "Papadatos conjecture discrete Terrell n samples three-point uniform support extremal Pearson min max correlation equal spacings",
+        "sharp correlation minimum maximum of n independent discrete uniform three-atom observations with arbitrary support spacings",
+        "three-point equiprobable ordered sample n min max Pearson correlation optimized over gap",
+        "published-finding corpus semantic search: For n>=4 iid sample uniform on 3 arbitrary ordered real support points, maximum Pearson correlation of sample minimum and maximum is achieved uniquely at equally spaced atoms with coefficient ((3^-n+(2/3)^n)^2-3^-n)/(3*3^-n+(2/3)^n-(3^-n+(2/3)^n)^2); lattice optimality for N=3 all sample sizes Papadatos",
+        "arXiv full-text arxiv:2205.14360v1 Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research note (2026), Sharp min-max correlation over three-point probability weights, https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-uniform-maximizes-three-point-minmax-correlation--92f0f4188ee4/RESULT.md",
+        "Nickos Papadatos, arXiv:2205.14360v1 (2022-05-28), Theorem 1.2 (n=2), Theorem 2.1 (n=2), Section 3 closing question, PDF pp. 1-13, https://arxiv.org/pdf/2205.14360",
+        "The new theorem covers infinitely many n and is not a finite numerical table; exact R4=104/625 follows analytically."
+      ],
+      "reasoning": "Targeted searches found no exact table or database entry containing the all-integer-n>=4 optimum; that absence is not itself a novelty proof. Existing n=3 and n=2 cases are not an exhaustive all-order table. Exact code checks in this package do not stand in for prior-art evidence.",
+      "searches": [
+        "For n>=4 iid sample uniform on 3 arbitrary ordered real support points, maximum Pearson correlation of sample minimum and maximum is achieved uniquely at equally spaced atoms with coefficient ((3^-n+(2/3)^n)^2-3^-n)/(3*3^-n+(2/3)^n-(3^-n+(2/3)^n)^2); lattice optimality for N=3 all sample sizes Papadatos",
+        "sharp min max sample correlation discrete uniform three points sample size four all n",
+        "published-finding corpus exact coefficient (3^-n, (2/3)^n) lattice-optimal sample extrema",
+        "2021 original automatic differentiation discrete parents figure n=4 and N=3"
+      ]
+    },
+    "rationale": "The complete 2022 Papadatos article treats sample size two, while its concluding discussion formulates the later-sample-size monotone lattice question. The sharp bound proved here holds for every n>=4 on exactly three equally weighted atoms. General order-statistic correlation bounds give 1/n, which does not imply the sharp exponentially smaller coefficient. The inspected 2026 published note proves a different two-draw probability-vector optimization. The 2021 discrete-parent automatic-differentiation article is a credible nearby source, but its complete text was unavailable; the accessible first-page preview and abstract do not settle this sharp all-n support-geometry statement. Residual priority risk persists, as recorded, but no inspected logically covering theorem was found.",
+    "residual_risks": [
+      "The complete 2021 López-Blázquez--Salamanca-Miño paper was unavailable for substantive full-text comparison; it may contain further examples, calculations, or a hidden equivalent statement.",
+      "Earlier studies of three-state order-statistic dependence might use unindexed language or separate mathematical transformations and independently imply the result.",
+      "Published-database search and own-ledger deduplication do not establish publication priority or independence from other unpublished work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves n=2 result and explicitly proposes extension to arbitrary sample sizes; does not state the new all-n>=4 three-atom bound.",
+        "evidence": [
+          "PDF pp. 1-3: theorem n=2, primary MSC 60E15; pp. 11-12: R_N and R_N double-prime formulations, no general proof, particularly for nondecreasing transforms."
+        ],
+        "identifier_or_url": "arxiv:2205.14360v1; https://arxiv.org/pdf/2205.14360",
+        "material_read": "13-page publicly available PDF, introduction and primary theorem, mathematical development, proof including Hahn representation, concluding discussion pp. 11-12, and final references. Specifically Theorem 1.2, Theorem 2.1, equation (1.1), last-section n-sample formulation.",
+        "method": "Inspected extracted full-text PDF pages and rendered conclusion page.",
+        "title": "A discrete analogue of Terrell's characterization of rectangular distributions",
+        "trigger": "Exact discrete uniform-support extremal order-statistic correlation question; main primary source and date/classification anchor."
+      },
+      {
+        "assessment": "Sharp 8/19 result has sample size two, equally spaced support, and varying probability weights; it is not the n>=4 fixed-equal-mass support-geometry classification.",
+        "evidence": [
+          "Theorem explicitly fixes X_1,X_2 iid on {1,2,3}, optimizes p_1,p_2,p_3 and explicitly excludes other sample sizes and arbitrary support locations."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-uniform-maximizes-three-point-minmax-correlation--92f0f4188ee4/RESULT.md",
+        "material_read": "Full public RESULT.md statement, proof, limitations, and references.",
+        "method": "Semantic research-record search followed by read-only repository file retrieval.",
+        "title": "Sharp min-max correlation over three-point probability weights",
+        "trigger": "Closest published indexed result on three-point min-max order-statistic correlation."
+      },
+      {
+        "assessment": "Describes computational automatic differentiation for discrete-parent order statistics, including n=2 examples. An all-n>=4 analytic global geometry result was not visible in the inspected material. No assertion is made about unseen later pages.",
+        "evidence": [
+          "Publisher first-page abstract describes gradient-based numerical optimization and states no general closed form outside N=2.",
+          "Source title/DOI and 2021 publication date matched."
+        ],
+        "identifier_or_url": "doi:10.1007/s00180-021-01103-5; https://grupo.us.es/fqm331/wp-content/uploads/2021/07/justopuerto.pdf",
+        "material_read": "Publisher first-page preview including title, abstract and introduction; publication metadata and figures/captions from lawful preview. Complete 27-page full text could not be retrieved despite an open-access URL.",
+        "method": "Public metadata and first-page publisher preview; sought lawful full-text academic PDF, retrieval failed due document transport.",
+        "title": "Automatic differentiation and maximal correlation of order statistics from discrete parents",
+        "trigger": "Earlier closely themed 2021 discrete-order-statistic maximization article; cited in closest 2026 published note."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a2172e3-8f19-4039-9272-f583dff72c0d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Papadatos 2022 formulates a natural lattice-optimality problem for correlations of order statistics from finite uniform populations beyond sample size two. The result rigorously resolves its entire three-support-point extreme-rank slice for every integer sample size n>=4, determines the unique extremizing support geometry and sharp constant, and proves exponential improvement over the universal 1/n bound. Covering an unbounded family, rather than incrementing a known n=3 instance to a single n, provides substantive structural value without claiming extension to arbitrary supports or weights.",
+    "status": "PASS"
+  }
+}
