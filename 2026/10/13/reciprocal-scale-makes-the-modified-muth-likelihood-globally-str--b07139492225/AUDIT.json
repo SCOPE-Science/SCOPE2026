@@ -1,0 +1,108 @@
+{
+  "claim_to_evidence": {
+    "computations": "No finite computation is used as proof. Symbolic differentiation was independently reconstructed and the sign is immediate from the closed form.",
+    "critical_proof_steps": [
+      "Substitute \\(\\eta=1/\\theta\\) into the published likelihood.",
+      "Differentiate twice to obtain a sum of strictly negative terms for every \\(\\eta>0\\).",
+      "Use the small-\\(\\eta\\) expansion \\(e^{\\eta x}-1\\sim\\eta x\\) to obtain divergence to \\(-\\infty\\).",
+      "Use exponential domination at large \\(\\eta\\) to obtain the second boundary divergence.",
+      "Conclude existence and uniqueness from continuity plus strict concavity, then transfer the maximizer through the bijection \\(\\theta=1/\\eta\\).",
+      "Expand the original-scale likelihood for large \\(\\theta\\) to show eventual positive curvature."
+    ],
+    "exact_domain": "Every finite sample \\(x_1,\\ldots,x_n>0\\) with \\(n\\ge1\\) under the one-parameter modified Muth scale likelihood.",
+    "unproved_limits": "No claim is made about uniqueness of the source's other estimation criteria or global convergence of a particular numerical algorithm."
+  },
+  "correctness": {
+    "rationale": "The transformed log-likelihood follows algebraically from the published likelihood. Its exact second derivative is strictly negative for every positive reciprocal scale and every positive observation. The log-likelihood tends to minus infinity at both reciprocal-scale boundaries, so a unique global maximizer exists. The original-scale large-parameter expansion gives eventual positive curvature, correctly separating uniqueness from coordinate-dependent concavity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jodrá, Jiménez-Gamero, and Alba-Fernández (2015), DOI 10.3846/13926292.2015.1048540, treats maximum likelihood for the classical Muth distribution numerically rather than proving this modified-model theorem.",
+        "The 2026 target is a different modified Muth density and explicitly identifies a formal uniqueness proof as absent."
+      ],
+      "reasoning": "Classical-Muth estimation does not dominate the claim because the likelihood is different. Generic one-dimensional likelihood folklore also does not imply strict concavity of this concrete transformed objective; the displayed second derivative is the model-specific certificate.",
+      "searches": [
+        "Muth distribution maximum likelihood global uniqueness concavity",
+        "scale family inverse scale strict concavity likelihood Muth",
+        "modified Muth likelihood unimodal unique estimator"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026259",
+      "doi:10.3846/13926292.2015.1048540"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classical 2015 Muth paper numerically solves a score equation and checks a local second derivative; this does not imply global strict concavity for the 2026 modified density.",
+        "The target 2026 paper gives local/asymptotic regularity and numerical evidence, not a deterministic all-sample uniqueness theorem."
+      ],
+      "reasoning": "Local concavity near the true parameter and empirical single maxima are strictly weaker than global strict concavity after a bijective reparameterization. Neither prior statement proves existence and uniqueness for every positive sample.",
+      "searches": [
+        "On the Muth Distribution Jodra likelihood second derivative maximum likelihood",
+        "modified Muth scale family unique MLE theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No matching database result stated strict concavity of the modified-Muth likelihood in reciprocal scale or monotonicity of its reciprocal-scale score.",
+        "The target article, DOI 10.3934/math.2026259, reports numerical single-maximizer behavior and says formal proofs are future work."
+      ],
+      "reasoning": "The theorem was searched as concavity, unimodality, monotone-score, inverse-scale, and unique-root formulations. The returned nearest records concern unrelated probability, special-function, or optimization problems and do not imply the claim.",
+      "searches": [
+        "modified Muth distribution likelihood strict concavity reciprocal scale unique maximum likelihood estimator",
+        "Muth scale family unique MLE concavity inverse scale parameter log likelihood",
+        "modified Muth reciprocal scale score monotone unique root"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-DOI searches located the original 2026 article but no corrigendum or correction covering maximum-likelihood uniqueness.",
+        "The article itself states that formal proofs of the observed unimodality and unique solutions are beyond its scope."
+      ],
+      "reasoning": "The exact source and correction channels inspected contain no published repair or theorem superseding the new result.",
+      "searches": [
+        "10.3934/math.2026259 maximum likelihood uniqueness modified Muth",
+        "10.3934/math.2026259 corrigendum correction erratum",
+        "modified Muth distribution Barakat concavity likelihood"
+      ]
+    },
+    "rationale": "The target article explicitly leaves a formal proof of likelihood unimodality and uniqueness for future work. Direct comparison with the classical Muth maximum-likelihood treatment and focused semantic searches found no theorem giving samplewise global strict concavity after reciprocal-scale reparameterization or the accompanying eventual-convexity obstruction in the original scale.",
+    "residual_risks": [
+      "An unindexed note or thesis could contain the same reparameterization argument.",
+      "A general theorem for a wider class of transformed scale likelihoods could imply this result without naming the modified Muth model; focused searches did not locate one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source supplies the exact likelihood but only local/asymptotic and numerical uniqueness evidence; it does not prove global samplewise uniqueness. Its numerical suggestion of concavity is stated in the original scale coordinate.",
+        "evidence": "DOI 10.3934/math.2026259, equations in Section 3.1 and the uniqueness discussion immediately before Section 4.",
+        "identifier_or_url": "doi:10.3934/math.2026259",
+        "material_read": "Open-access full text: model definition, Section 3.1 likelihood and score, asymptotic discussion, numerical-concavity paragraph, uniqueness remarks, and statement identifying formal proofs as future work.",
+        "method": "Direct full-text inspection of the publisher PDF.",
+        "title": "The modified Muth distribution: Statistical properties, entropy measures, and parameter estimation",
+        "trigger": "Exact source of the modified-Muth likelihood and the stated open theoretical uniqueness question."
+      },
+      {
+        "assessment": "The predecessor treats a different classical Muth model, solves its likelihood equation numerically, and does not state the present reciprocal-scale strict-concavity theorem.",
+        "evidence": "DOI 10.3846/13926292.2015.1048540, maximum-likelihood section.",
+        "identifier_or_url": "doi:10.3846/13926292.2015.1048540",
+        "material_read": "Full-text maximum-likelihood section and concluding estimation discussion.",
+        "method": "Direct primary-source inspection.",
+        "title": "On the Muth Distribution",
+        "trigger": "Primary predecessor for Muth maximum-likelihood estimation cited by the target article."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b0713949-2225-4f10-9041-297b6fefe5c6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The target article makes maximum likelihood central to estimation, reports only numerical evidence of a unique global maximum, and explicitly calls formal proofs future work. The theorem closes that exact gap for every sample and supplies a practically useful monotone score for bracketing. Showing that the original scale is eventually convex also prevents the empirical concavity observation from being overgeneralized.",
+    "status": "PASS"
+  }
+}
