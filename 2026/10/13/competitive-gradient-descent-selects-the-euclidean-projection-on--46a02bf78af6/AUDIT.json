@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The source update is substituted exactly. Orthogonal singular coordinates reduce every positive singular value to the matrix \\((1+q^2)^{-1}\\begin{bmatrix}1&-q\\\\q&1\\end{bmatrix}\\), whose squared norm factor is exactly \\((1+q^2)^{-1}\\). Nullspace projections are invariant because the coupling lies in the corresponding ranges. These facts prove the limit and exact distance formula for all iterations, not merely experimentally.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining paper proves local convergence under broader smooth zero-sum assumptions and states that stronger interactions improve convergence.",
+        "The later frequency-domain framework treats OGDA and finite-memory historical algorithms and gives convergence to the Nash set for that separate class.",
+        "Neither inspected theory gives the inverse-CGD equilibrium-selection map on a rank-deficient bilinear game."
+      ],
+      "reasoning": "Broader nonlinear or historical-method convergence theorems do not determine which point of a non-singleton bilinear Nash set exact CGD selects. The accepted claim adds a global selection law plus a sharp modal rate on the defining linear family.",
+      "searches": [
+        "competitive gradient descent Schaefer Anandkumar bilinear convergence exact rate",
+        "A Robust Framework gradient based dynamics bilinear games Nash equilibria singular case",
+        "Competitive Gradient Descent implicit bias bilinear Nash equilibrium"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1905.12103v1",
+      "NeurIPS2019:Schaefer-Anandkumar-CGD",
+      "arXiv:2010.03211v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 1 of the defining source supplies exactly the two inverse formulas specialized in the proof.",
+        "The defining source reports exponential convergence on scalar bilinear games and states that stronger interactions improve CGD convergence.",
+        "The 2020 framework gives tight OGDA and finite-memory results, describes convergence to the Nash-equilibrium space, and identifies square nonsingularity as a simplifying assumption for its main analysis."
+      ],
+      "reasoning": "Those results establish motivation and nearby convergence facts but do not imply invariance of the CGD Nash-nullspace components. The projection-selection conclusion requires the explicit SVD reduction of the CGD inverse update.",
+      "searches": [
+        "arXiv:1905.12103 Algorithm 1 Competitive Gradient Descent inverse bilinear zero sum",
+        "arXiv:1905.12103 bilinear alpha xy stronger interactions convergence",
+        "arXiv:2010.03211 bilinear Nash equilibria historical methods nonsingular"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining CGD algorithm is an inverse-preconditioned simultaneous update obtained from a regularized bilinear local Nash problem.",
+        "Its bilinear numerical example uses a scalar interaction and therefore has a unique Nash equilibrium.",
+        "Focused literature searches did not locate a CGD statement identifying the limit as an orthogonal projection for rank-deficient games."
+      ],
+      "reasoning": "Equivalent coverage would need to identify the same invariant nullspaces and selected Nash point, or imply the full exact singular-mode distance formula. Stability or convergence-to-some-Nash statements are strictly weaker.",
+      "searches": [
+        "Competitive Gradient Descent rank deficient bilinear game projection Nash set",
+        "CGD bilinear nullspace projection equilibrium set exact",
+        "competitive gradient descent singular mode contraction rank deficient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed mathematical findings concern reflected-gradient, extragradient, adaptive-step, and skew-rotation recurrences rather than the inverse-preconditioned CGD map.",
+        "No returned indexed finding states a CGD nullspace projection law or its exact singular-mode contraction."
+      ],
+      "reasoning": "The nearby indexed results have different characteristic maps and do not imply the CGD inverse block. Search absence is supporting evidence only, not a proof of uniqueness.",
+      "searches": [
+        "Competitive Gradient Descent CGD bilinear game exact stability singular values",
+        "competitive gradient descent Schaefer Anandkumar bilinear convergence exact rate",
+        "competitive gradient optimization bilinear game implicit update stability",
+        "Competitive Gradient Descent rank deficient bilinear game projection Nash set",
+        "CGD bilinear nullspace projection equilibrium set exact",
+        "competitive gradient descent singular mode contraction rank deficient"
+      ]
+    },
+    "rationale": "The defining CGD paper gives the inverse-preconditioned update, local exponential theory, and a scalar bilinear experiment showing robustness to strong interactions. The later bilinear-games framework gives tight results for OGDA and finite-memory historical methods but does not cover CGD. No inspected source states that arbitrary-rank CGD selects the Euclidean projection of its initialization onto the non-singleton Nash set, nor the exact rank-deficient distance decomposition.",
+    "residual_risks": [
+      "The SVD calculation is elementary enough that the projection-selection fact could appear in unindexed notes or software documentation under different terminology.",
+      "The defining paper already contains all algebraic ingredients of the result, although it does not state the rank-deficient selection law found here.",
+      "Approximate inner solves used in practice can perturb the exact invariant subspaces."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_UPDATE_AND_BILINEAR_ROBUSTNESS_NOT_COVERING_ARBITRARY_RANK_PROJECTION_SELECTION.",
+        "evidence": "The source gives the inverse-preconditioned update and scalar bilinear robustness but does not state an arbitrary-rank Euclidean projection limit or exact singular-mode distance identity.",
+        "identifier_or_url": "arXiv:1905.12103v1; NeurIPS 2019",
+        "material_read": "Open full text covering Algorithm 1, Theorem 2.1, the compact inverse form, convergence/local-stability results, the comparison section, the scalar bilinear experiment, and implementation discussion.",
+        "method": "Full-text open-access HTML inspection.",
+        "title": "Competitive Gradient Descent",
+        "trigger": "Defining source for the exact CGD update and strongest plausible same-method coverage."
+      },
+      {
+        "assessment": "BROAD_BILINEAR_STABILITY_FRAMEWORK_FOR_OTHER_RECURRENCES_NOT_COVERING_CGD_SELECTION.",
+        "evidence": "The paper analyzes OGDA and bounded-memory historical gradient methods rather than the inverse-preconditioned CGD map, and no CGD projection-selection statement was found.",
+        "identifier_or_url": "arXiv:2010.03211v1",
+        "material_read": "Open full text covering the bilinear setup, related work, exact OGDA analysis, historical-method framework, Nash-set convergence discussion, and the stated square-nonsingular simplifying assumption.",
+        "method": "Full-text open-access HTML inspection.",
+        "title": "A Robust Framework for Analyzing Gradient-Based Dynamics in Bilinear Games",
+        "trigger": "Highly relevant later exact-stability literature on unconstrained bilinear games."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "46a02bf7-8af6-47b6-ae7c-402c5c8ffda2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Bilinear games are the canonical stability test for competitive optimization, and nonunique Nash sets occur naturally when the interaction is rectangular or rank deficient. The result identifies CGD's implicit equilibrium selection exactly: the algorithm removes only active singular components and preserves strategically neutral components. It also quantifies the source claim that stronger interactions help, while showing that the step controls speed and rotation but not the selected equilibrium.",
+    "status": "PASS"
+  }
+}
