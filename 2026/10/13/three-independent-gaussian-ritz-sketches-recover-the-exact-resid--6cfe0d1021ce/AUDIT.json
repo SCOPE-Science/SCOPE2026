@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Hermitian invariant spectators give orthogonal Gaussian columns, hence the random determinant factors and the non-spectator root has the exact shifted-scaled ratio law for independent standard circular complex normals. The complex-Cauchy law has infinite second moment, whereas the real median-of-three density integrates to variance one-half per coordinate, yielding exactly the squared eigen-residual as the repaired mean-square error. Binomial sample-median tails establish the if-and-only-if sharp odd-sample moment classification. All dimension, normalization, and nonzero-residual boundary hypotheses were checked analytically; the 585 finite numerical pencil tests corroborate but do not prove the result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nakatsukasa–Tropp (2024) §6 uses embedding size near four times trial dimension, with a pseudoinverse, rather than the square Gaussian pencil.",
+        "Shao (2026) §5.3 tests rectangular oversampling solved by a total-least-squares/SVD approach; it is not the repetition-and-median estimator."
+      ],
+      "reasoning": "Rectangular embedding stability and high-probability bounds are not exact moment formulas for the independent square-pencil branch. The source high-probability bound is consistent with, but does not imply, either infinite MSE or the exact repaired MSE. The latter is not subsumed by the compared broader convergence guarantees.",
+      "searches": [
+        "\"Gaussian sketch\" Ritz value \"median\" eigenvalue",
+        "\"Petrov-Galerkin\" \"median\" eigenvalues Gaussian sketches",
+        "DOI 10.1137/23M1565413, Section 6",
+        "arXiv:2604.01037v3, Section 5.3"
+      ]
+    },
+    "checked_sources": [
+      "Nian Shao, arXiv:2604.01037v3, Algorithm 1, Theorem 2 and Sections 4.2-4.4,5.3; source initially posted 2026-04-01.",
+      "Nakatsukasa and Tropp, DOI 10.1137/23M1565413, Section 6: rectangular sRR embedding and pseudoinverse.",
+      "Dazhen Gu, DOI 10.6028/jres.125.030, Sections 1-2: known complex Gaussian quotient distributions/moments."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shao Theorem 2 bounds unrefined eigenvalue error with inverse square-root confidence dependence and §4.4 analyzes a different refined Rayleigh quotient.",
+        "Nakatsukasa–Tropp §6.3 analyzes matrix pseudoinverse for oversampled subspace embeddings.",
+        "Gu treats scalar ratios in a signal-processing setting without an eigenvalue-pencil reduction or replication estimator."
+      ],
+      "reasoning": "A high-probability bound with inverse square-root confidence dependence can coexist with finite or infinite second moment and supplies no exact variance after coordinatewise sample median. Scalar quotient distribution plus standard median formulas supplies necessary tools but not the invariant-spectator matrix factorization; that step and its resulting exact eigen-residual identity distinguish this mathematical claim. No asserted independent novelty of the probability lemmas.",
+      "searches": [
+        "arXiv:2604.01037v3 Theorem 2 Section 4.4",
+        "DOI 10.1137/23M1565413 Section 6.3",
+        "DOI 10.6028/jres.125.030 Sections 1-2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2604.01037v3 Algorithm 1: square Gaussian Petrov-Galerkin; Theorem 2: high-probability eigenvalue guarantee; no displayed exact median risk.",
+        "DOI 10.6028/jres.125.030 reviews quotient laws as known probability results; Sections 1-2 do not discuss randomized Ritz eigenvalue branches."
+      ],
+      "reasoning": "The complex-Cauchy ratio and median order-statistic identities are standard and should not be counted separately as new. The equivalence question is whether any prior source has identified the non-spectator Ritz branch, integrated its unconditional risk, and proved the three-sketch exact eigen-residual MSE for invariant spectators. The inspected named sources do not do so.",
+      "searches": [
+        "\"Ritz values\" \"complex Cauchy\" Gaussian",
+        "\"randomized Rayleigh Ritz\" repeated median robust",
+        "\"randomized Ritz\" \"infinite\" \"moment\" inverse Gaussian",
+        "arXiv:2604.01037, Algorithm 1 and Section 4.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim is an exact identity over infinitely many Hermitian matrices and dimensions, not a numerical constant in a finite database.",
+        "Gu (2020) catalogs complex Gaussian ratio moments; its accessible full paper does not tabulate the generalized Ritz median identity."
+      ],
+      "reasoning": "No exact database or finite table covers the analytic matrix identity; matching numerical constants in a Cauchy order-statistic table, if any, would cover only the known probability component, not by itself the spectral reduction.",
+      "searches": [
+        "\"randomized eigenvalue\" \"sample median\" Rayleigh Ritz",
+        "\"three\" \"median\" \"Cauchy\" \"variance\" complex",
+        "\"randomized Rayleigh-Ritz\" median sketches eigenvalue variance"
+      ]
+    },
+    "rationale": "The novel claim is a spectral-pencil-specific law plus a sharp three-independent-sketch residual-MSE identity and odd-replication moment cutoff. The quotient distribution and sample-median calculus are established probabilistic tools and not claimed independently new. The closest 2026 randomized Ritz paper gives high-probability bounds/refined outputs, whereas a prior sketched Ritz method uses a rectangular pseudoinverse. The checked primary results do not imply the exact unrefined spectral risk and median identity. Full equivalence risk remains for unindexed studies.",
+    "residual_risks": [
+      "An unindexed equivalent result for the independent-square-sketch non-spectator root could exist under other eigenvalue-sketching terminology.",
+      "The scalar complex-Cauchy density and real order-statistic mathematics are long known; priority is claimed only for their exact invariant-spectator Ritz application and risk identity.",
+      "The exact result does not cover arbitrary Ritz-root selection or nonlinear/non-Hermitian pencils."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers high-probability bounds and refined Ritz values, but not this invariant-spectator exact complex-Cauchy law or independent-three-sketch MSE identity. Rectangular oversampling is a different procedure.",
+        "evidence": [
+          "Algorithm 1: square n by m complex Gaussian pencil; Theorem 2: confidence-dependent error bounds; Section 5.3: rectangular oversampling test."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.01037v3",
+        "material_read": "Algorithm 1, Sections 1,4.2-4.4 and 5.3; searched primary full text for median, Cauchy and moment",
+        "method": "Read full-text HTML sections and their formulas; checked exact hypotheses and outputs",
+        "title": "Stabilizing the Rayleigh--Ritz procedure by randomization",
+        "trigger": "same square Gaussian Petrov-Galerkin generalized eigenvalue method"
+      },
+      {
+        "assessment": "Uses larger subspace embedding and a pseudoinverse in the sketched problem; no covering exact square-ratio and median mean-square claim identified.",
+        "evidence": [
+          "Section 6.3 sketched projection and Section 6.4 embedding size four times subspace dimension."
+        ],
+        "identifier_or_url": "https://www.tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf",
+        "material_read": "PDF Sections 1.3 and 6.1-6.8, including square-vs-rectangular construction and eigenvalue extraction",
+        "method": "Read primary PDF mathematical definition and algorithm, with page image spot-check",
+        "title": "Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "earlier randomized/sketched Rayleigh–Ritz eigenvalue procedure"
+      },
+      {
+        "assessment": "Complex Gaussian quotient distributions and moments are already known. The paper does not treat generalized Ritz roots or the three-sketch spectral residual identity.",
+        "evidence": [
+          "Section 1 Table 1 lists earlier central/central complex Gaussian quotient work; Section 2 sets up independent Gaussian quotient with nonzero denominator mean."
+        ],
+        "identifier_or_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=929225",
+        "material_read": "Primary PDF abstract and Sections 1-2, including the prior-work table; searched full text for median and eigen",
+        "method": "Read accessible primary PDF mathematical setup and literature comparison",
+        "title": "On The Quotient of a Centralized and a Non-centralized Complex Gaussian Random Variable",
+        "trigger": "direct strong probability predecessor for quotient distribution and its moments"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6cfe0d10-21ce-40f8-a5ff-07667f579233",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Unconditional mean-square accuracy is a natural complement to the new high-probability convergence theory for unrefined randomized Ritz values. The exact invariant-spectator model shows infinite raw MSE for arbitrarily small residual, gives an exact constructive repair with only three independent original square sketches, and determines an iff moment budget for every odd replication count. The MSE equals the meaningful deterministic eigen-residual squared, dimension-free, for arbitrary Hermitian matrices under a natural deflation structure. This does not purport to outperform deterministic Hermitian Rayleigh-quotient refinement.",
+    "status": "PASS"
+  }
+}
