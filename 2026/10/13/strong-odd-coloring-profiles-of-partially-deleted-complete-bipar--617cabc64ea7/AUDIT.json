@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Both bipartition sides contain vertices adjacent to the entire opposite side; hence each within-side color class has odd size. If a class contains marked a_i and another A-vertex, then it has size at least three odd, while b_i sees size minus one, a positive even count, contradiction. The symmetric argument makes all marked B-endpoints singleton. Properness permits cross-side sharing only on one deleted matched pair; these conditions are also sufficient because the only missing neighbor in a matched vertex neighborhood is its paired singleton. The count is a unique decomposition into odd set partitions, chosen shared pairs, and distinct palette color names. Minimization and minimum-coloring counts follow from smallest odd-block partition counts. The even-crown edge insertion comparison is a direct two-color construction and the new formula. The actual standalone checker exhaustively checked 87,448 unlabeled partitions in 16 parameter triples and 13,795 explicit constructions, plus palette brute force.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kwon and Park (arXiv:2401.11653v1, sections 1–2) introduce the predicate and prove sparse-graph bounds rather than an exact near-biclique formula.",
+        "Caro et al. (arXiv:2410.02336v1, Theorem 4.4) obtain exact values for complete Cartesian and direct products; the proof restricts repeated colors in an entire product row under odd row sizes but does not treat partial matching deletion.",
+        "The partial deletion graph is irregular whenever 1<=t<min(m,n), unlike K_p times K_q, so the general product theorem has no specialization that gives the claim.",
+        "No returned 2025 or 2026 same-invariant item provides a stronger uniform partial-deletion result."
+      ],
+      "reasoning": "Theorem 4.4 is decisive coverage of the FULL crown comparator, and that value is explicitly acknowledged as previously known. It cannot imply the irregular partial-deletion polynomial because the additional universal unmatched vertices fundamentally change each side-color multiplicity rule. Other general bound results are not equality and enumeration theorems for this graph class.",
+      "searches": [
+        "strong odd colorings graph K_{n,n} missing all but one matching edge single edge restored crown graph jump",
+        "strong odd coloring partial matching deletion bipartite odd partitions 2025 2026",
+        "strong odd chromatic number graph edge addition nonmonotone arbitrarily difference matching",
+        "arXiv:2410.02336v1 Theorem 4.4 and proof (v)",
+        "arXiv:2401.11653v1 introduction; preliminaries; main results"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.11653v1",
+      "arXiv:2410.02336v1",
+      "doi:10.1016/j.disc.2025.114601 (published version of direct-product paper)",
+      "Exact odd chromatic number and optimal-coloring count for complete multipartite graphs (public research record, 2026-09-30)",
+      "Exact proper conflict-free chromatic number of crown graphs (public research record, 2026-09-30)",
+      "targeted published literature searches for strong odd coloring of K_m,n with matching deletions and palette polynomials"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Caro et al. Theorem 4.4(iv) gives chi_so(K_2 times K_n)=2 when n even, which is precisely the crown endpoint value and is not claimed new.",
+        "The theorem under review gives chi_so(H_{n,n,n-1})=n+1 on the crown with one of its deleted edges restored, outside the full product theorem domain.",
+        "The 2024 proof clause (v) restricts repeated colors in odd-length rows and columns of an unaltered direct product. It does not evaluate parity constraints created by one or more universal unmatched vertices or count color profiles.",
+        "Kwon and Park define the invariant but their main theorems bound sparse-graph classes by maximum degree; they do not imply an exact formula for dense irregular near-bicliques."
+      ],
+      "reasoning": "The new result is not the known crown scalar value but an all-colorings classification, exact palette polynomial, and an exact chromatic number for partial matching deletions. The cited direct-product theorem is not applicable to H_{m,n,t} for t<min(m,n), and its proof gives no all-palette enumeration on that graph. The unbounded one-edge jump is obtained only by combining this new value with the already-known crown endpoint.",
+      "searches": [
+        "arXiv:2410.02336v1 Theorem 4.4 parts (ii)–(iv), proof clause (v)",
+        "arXiv:2401.11653v1 Definition strong odd coloring and subcubic graph results",
+        "strong odd colorings graph K_{n,n} missing all but one matching edge single edge restored crown graph jump",
+        "strong odd chromatic number complete bipartite deleted matching near complete bipartite graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The alternative wording of the objects is a near-complete bipartite graph, a biclique minus a partial matching, or a complete bipartite graph with disjoint edges removed.",
+        "Caro et al. (arXiv:2410.02336v1) define the identical open-neighborhood odd-multiplicity predicate, but the product family in their exact theorem is regular and corresponds to the FULL deletion endpoint when one factor is K_2.",
+        "Targeted published-web searches returned ordinary chromatic uniqueness papers about K_{p,q}-e and unrelated strong edge chromatic index results, not the same predicate and claim."
+      ],
+      "reasoning": "The exact graph is H_{m,n,t}=K_{m,n} minus t independent edges, 1<=t<min(m,n). For such t the opposite side contains a universal-to-this-side vertex and every removed-edge endpoint has degree one lower than an unmatched vertex, so the graph is nonregular. In contrast, K_p times K_q is regular and Caro et al. treat its strong odd chromatic NUMBER. The equality of names “strong odd” is verified; the underlying graph objects and quantified claims differ.",
+      "searches": [
+        "strong odd chromatic number complete bipartite graph with partial matching deleted K_m,n minus t disjoint edges odd Bell partition counting",
+        "strong odd coloring polynomial bipartite graph missing matching t odd Stirling numbers optimal colorings",
+        "strong odd chromatic number complete bipartite deleted matching near complete bipartite graph",
+        "strong odd coloring K(m,n)-M matching removed nonregular graph",
+        "\"strong odd chromatic number\" K_{m,n} minus matching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The public 2026 record “Exact odd chromatic number and optimal-coloring count for complete multipartite graphs” addresses a weaker odd-coloring invariant on complete multipartite graphs, not the universal odd-multiplicity strong condition.",
+        "The public 2026 record “Exact proper conflict-free chromatic number of crown graphs” concerns existence of a unique neighborhood color, a different predicate, on the fully deleted-matching crown.",
+        "No retrieved exact polynomial or table covers the strong odd class-count profile of near-bicliques with 1<=t<min(m,n)."
+      ],
+      "reasoning": "The searched coefficient-level problem is stronger than an isolated chromatic number. Indexed scientific sources returned similar graph objects but different invariants, with no identified exact table or formula for the same strong odd colorings. Negative search is supporting evidence only.",
+      "searches": [
+        "strong odd chromatic number complete bipartite graph with partial matching deleted K_m,n minus t disjoint edges odd Bell partition counting",
+        "strong odd coloring polynomial bipartite graph missing matching t odd Stirling numbers optimal colorings",
+        "strong odd chromatic number K_{m,n} minus matching",
+        "strong odd chromatic polynomial complete bipartite tensor product K_n x K_2 crown graph coloring enumerator",
+        "\"strong odd\" \"chromatic polynomial\" colorings"
+      ]
+    },
+    "rationale": "The closest actual same-invariant source is Caro et al., arXiv:2410.02336v1, Theorem 4.4. It establishes the chromatic number of K_p times K_q, including the fully deleted-matching crown K_2 times K_n. Our positive-unmatched-vertex regime t<min(m,n) is irregular and not a complete direct product, and the source does not state its chromatic number, color-class classification, all-palette polynomial, or edge-insertion jump. Targeted literature and scientific-record searches, plus own current and previous ledgers, found no equivalent or dominating statement. This is a bounded novelty assessment, not proof of uniqueness.",
+    "residual_risks": [
+      "An unpublished or non-indexed exact strong odd coloring enumeration of partial matching-deleted bicliques could exist.",
+      "The two endpoint cases t=0 and t=min(m,n) have different class structures and are not claimed to satisfy this polynomial.",
+      "The repeated-color lemma in the 2024 direct-product proof is related, but that paper neither covers the irregular graph family nor its all-colorings profile."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Matches the exact all-neighborhood-colors-odd feasibility predicate; main quantitative results are upper bounds for sparse/planar graph classes, not partial matching-deleted bicliques.",
+        "evidence": [
+          "arXiv v1 header gives 22 Jan 2024 first public date.",
+          "Definition at introduction: a proper coloring with every appearing neighborhood color appearing odd times.",
+          "Theorems 1.2–1.4 concern graph maximum average degree and girth rather than complete-bipartite minus a matching."
+        ],
+        "identifier_or_url": "arXiv:2401.11653v1; https://arxiv.org/html/2401.11653v1",
+        "material_read": "Public v1 HTML: abstract and introduction through definitions and main theorems; preliminary observations and graph-class scope.",
+        "method": "Direct full-text HTML inspection with definition/quantifier and theorem-domain comparison.",
+        "title": "Strong odd coloring of sparse graphs",
+        "trigger": "Original defining work; earliest verifiable public posting and possible general theorem covering the invariant."
+      },
+      {
+        "assessment": "Covers scalar chi_so of fully deleted-matching crowns, not partially deleted bicliques. Does not state an all-palette polynomial or the edge insertion jump; full text had no chromatic polynomial occurrence.",
+        "evidence": [
+          "Theorem 4.4(iii),(iv) gives direct product scalar values based on parity.",
+          "Proof (v) derives row/column restrictions for K_p times K_q.",
+          "The graphs in the new domain have t<min(m,n), hence unmatched universal vertices and unequal degrees, unlike products K_p times K_q.",
+          "Original public v1 posted 3 October 2024; journal publication followed in 2025."
+        ],
+        "identifier_or_url": "arXiv:2410.02336v1; https://arxiv.org/html/2410.02336v1",
+        "material_read": "Original public full-text HTML: section 4 graph products, Theorem 4.4 parts (i)–(iv), entire proof including clause (v), related later discussion; searched full text for polynomial and crown.",
+        "method": "Same-graph equivalence via K_2 times K_n; statement-by-statement implication check between the irregular partial deletion graph and regular direct products.",
+        "title": "On strong odd colorings of graphs",
+        "trigger": "Highest-risk same-invariant product paper containing the entire crown family as a product K_2 times K_n."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "617cabc6-4ea7-4b3f-904a-364b62c9df74",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The family naturally interpolates between a complete biclique and a crown graph via deleting only a nonempty proper subset of matching edges. The result supplies the full strong odd coloring polynomial in terms of odd-block set partitions, not merely a numerical chromatic bound. The positive unmatched vertices force a structural regime qualitatively absent from fully deleted-matching direct products. For every even n the insertion of one missing crown matching edge raises chi_so from 2 to n+1, demonstrating unbounded one-edge instability; this sharp motivated boundary is the substantive consequence of the general classification.",
+    "status": "PASS"
+  }
+}
