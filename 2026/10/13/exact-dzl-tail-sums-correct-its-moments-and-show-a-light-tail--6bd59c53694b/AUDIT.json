@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The source PMF is a telescoping survival discretization, so \\(\\Pr(Y\\ge k)=\\Lambda_\\mu(k)\\) exactly. The integer tail-sum identity then gives every raw moment. Closed-form geometric-series evaluation yields the stated mean and second moment, and direct PMF summation agrees with them. The PGF follows from the same tail identity and has its nearest pole at \\(s=e^\\mu\\), so the MGF exists exactly for \\(t<\\mu\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Standard discrete tail-sum identities imply the corrected moment representation once the DZL survival is fixed.",
+        "Published heavy-tail references define heavy-tailed nonnegative laws through divergence of every positive exponential moment.",
+        "These general facts do not identify the source's wrong displayed moments or its internal Table 1 inconsistency."
+      ],
+      "reasoning": "General theory supplies the tools, but the accepted result is model-specific because it identifies exactly where the 2026 DZL formulas depart from the PMF and determines the model's exact transform boundary.",
+      "searches": [
+        "survival discretization discrete raw moments tail sum",
+        "heavy tailed distribution moment generating function finite positive argument",
+        "discrete exponential tail pgf radius moment generating function"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math14030397",
+      "doi:10.1029/2021WR030506"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source defines \\(p_y=\\Lambda_\\mu(y)-\\Lambda_\\mu(y+1)\\) with \\(\\Lambda_\\mu(y)=(1+\\mu y/[2(1+\\mu)])e^{-\\mu y}\\).",
+        "The abstract explicitly advertises heavy-tailed behavior.",
+        "The same source prints an Eq. (18) mean with a shifted \\(\\phi^2\\) factor and altered coefficient."
+      ],
+      "reasoning": "The PMF implies the corrected moments and exponential-moment boundary, while the source explicitly states incompatible formulas and tail language. The final claim therefore repairs prior work rather than repackaging an unstated corollary.",
+      "searches": [
+        "10.3390/math14030397 PMF Lambda y Lambda y+1",
+        "10.3390/math14030397 heavy-tailed behavior",
+        "10.3390/math14030397 phi moment Eq 18"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit names the DZL source or states its moment correction.",
+        "Exact DOI searches returned the original paper but no corrigendum.",
+        "The source's Eq. (18) conflicts numerically with direct summation of its own PMF."
+      ],
+      "reasoning": "The searches covered the exact model, DOI, displayed equation numbers, and mean/variance correction aliases. No equivalent source-specific correction was located.",
+      "searches": [
+        "discrete ZLindley DZL moment formula correction mean variance 2026",
+        "10.3390/math14030397 mean variance moments correction",
+        "A New Discrete Model of Lindley Families Eq 18 Eq 21 moment"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 1 reports mean 0.8121 and variance 1.3658 at \\(\\mu=1\\).",
+        "Direct PMF summation and the corrected formulas give 0.8121451054... and 1.3657697943....",
+        "Eq. (18) gives 0.4904943422... at \\(\\mu=1\\), so the printed table and printed formula cannot both arise from the same displayed equation."
+      ],
+      "reasoning": "The table comparison is a direct source-internal check that distinguishes a harmless alternative algebraic form from an actual formula error.",
+      "searches": [
+        "10.3390/math14030397 Table 1 0.8121 1.3658",
+        "10.3390/math14030397 Eq 18 mean",
+        "10.3390/math14030397 Eq 21 variance"
+      ]
+    },
+    "rationale": "The target paper itself contains an analytic-versus-numerical inconsistency: Eqs. (18), (21), and (22) do not match the PMF, while several Table 1 entries do match the corrected formulas. It also advertises heavy-tailed behavior despite an exponentially decaying survival. Five focused published-finding corpus searches and exact-source correction searches found no published correction covering these points.",
+    "residual_risks": [
+      "A very recent unindexed author correction may exist outside the publisher record.",
+      "The paper's numerical table may have been produced from correct code despite the wrong displayed formulas.",
+      "Some applied authors use 'heavy-tailed' informally for high kurtosis; the exact MGF boundary removes that ambiguity under the standard asymptotic definition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY INCONSISTENT on moments and tail classification. The PMF implies different moment formulas and an exponential-moment interval.",
+        "evidence": "Eq. (3) and the definition of \\(\\Lambda\\); Eqs. (18)-(22); Table 1; abstract and descriptive tail discussion.",
+        "identifier_or_url": "doi:10.3390/math14030397",
+        "material_read": "Publisher full text covering the abstract; Section 2 PMF, CDF, survival, and hazard; Section 3 moment formulas Eqs. (18)-(22); Table 1; and the discussion interpreting kurtosis and heavy-tailed behavior.",
+        "method": "Direct inspection of the publisher-indexed full text and open full-paper rendering.",
+        "title": "A New Discrete Model of Lindley Families: Theory, Inference, and Real-World Reliability Analysis",
+        "trigger": "Primary 2026 source defining the DZL PMF and making the disputed moment and tail statements."
+      },
+      {
+        "assessment": "DEFINITIONAL SUPPORT ONLY. It does not discuss the DZL model.",
+        "evidence": "A law is heavy-tailed under the cited standard criterion when its MGF is infinite for every positive argument.",
+        "identifier_or_url": "doi:10.1029/2021WR030506",
+        "material_read": "Section defining heavy-tailed distributions through nonexistence of positive exponential moments.",
+        "method": "Direct publisher text inspection.",
+        "title": "Understanding Heavy Tails of Flood Peak Distributions",
+        "trigger": "Definition-level comparison for the standard asymptotic heavy-tail terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6bd59c53-694b-4411-9a98-a0ad27d3219b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Moments, dispersion, skewness, kurtosis, and tail flexibility are central advertised properties of the new count distribution. The correction supplies exact closed forms consistent with the PMF and the paper's own numerical table, while the transform boundary changes the model's asymptotic tail classification. These are core distributional properties used for interpretation and reliability modeling, not cosmetic algebra.",
+    "status": "PASS"
+  }
+}
