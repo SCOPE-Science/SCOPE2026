@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For nu>p-1, determinant-power weighting is valid on an open interval around zero and exactly sends W_p(nu,Sigma) to W_p(nu+2s,Sigma). Differentiating the tilted mean gives Cov(W,log det W)=2 Sigma entrywise. Whitening gives Q with chi-square(nu p) Laplace transform, while Bartlett decomposition gives Var(log det W) as the stated trigamma sum. Trigamma asymptotics are uniform for fixed proportional aspect ratio; the p/nu->0 and p/nu->1 endpoint arguments use respectively the same expansion and the lower bound psi_1(x)>1/x. The deterministic joint-transform checker numerically differentiates an independent closed-form transform over a parameter grid and confirms all finite formulas and asymptotic regimes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cai--Liang--Zhou give the exact Bartlett representation and trigamma variance for logdet and high-dimensional logdet CLTs.",
+        "Letac--Massam compute all invariant polynomial moments of a Wishart matrix, including powers of W and W^{-1}.",
+        "Bai--Silverstein establish a broad CLT for linear spectral statistics of high-dimensional sample covariance matrices."
+      ],
+      "reasoning": "Cai--Liang--Zhou is marginal logdet theory and has no trace occurrence in the full public manuscript. Letac--Massam is polynomial-moment theory, whereas logdet is nonpolynomial. Bai--Silverstein can plausibly cover the proportional interior asymptotic covariance as a special LSS calculation, so that portion is flagged as a residual risk; it does not replace the exact finite covariance identity valid for all admissible degrees of freedom and scales.",
+      "searches": [
+        "arXiv:1309.0482",
+        "DOI:10.1111/j.1467-9469.2004.01-043.x",
+        "DOI:10.1214/AOP/1078415845"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1309.0482",
+      "DOI:10.1016/j.jmva.2015.02.003",
+      "DOI:10.1111/j.1467-9469.2004.01-043.x",
+      "DOI:10.1214/AOP/1078415845"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No current-week or immediately prior-week own finding contains Wishart, logdet, log determinant, generalized variance, or sample covariance matrix in its recoverable title/claim.",
+        "The full Cai--Liang--Zhou manuscript returns no trace occurrence while explicitly deriving the logdet marginal law.",
+        "Letac--Massam state polynomial invariant moment coverage, which does not directly include logdet.",
+        "Bai--Silverstein is stronger asymptotically for generic LSS but does not furnish the exact finite matrix covariance from its asymptotic statement alone."
+      ],
+      "reasoning": "The new claim is not implied by any own-ledger result. The closest primary literature either treats one marginal, polynomial Wishart moments, or asymptotic LSS; only the interior asymptotic correlation has a credible broader-theorem coverage risk, which is explicitly retained.",
+      "searches": [
+        "current ledger: Wishart log determinant trace covariance",
+        "prior ledger: Wishart log determinant trace covariance",
+        "Cai Liang Zhou arXiv:1309.0482 trace",
+        "Letac Massam invariant moments logarithm determinant",
+        "Bai Silverstein linear spectral statistics trace log determinant"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No ranked database record stated the exact finite covariance, the arbitrary linear-functional form, or the aspect-ratio correlation formula.",
+        "Targeted web searches under trace/total scatter and logdet/log generalized variance aliases produced no source stating Cov(Q,L)=2p."
+      ],
+      "reasoning": "The aliases cover the standard names for both scalar summaries and the matrix-level covariance formulation. Failed searches are not treated as novelty proof; they are combined with source-level comparisons below.",
+      "searches": [
+        "Wishart log determinant covariance matrix exact Cov(W, log det W)",
+        "Wishart trace log determinant covariance 2p",
+        "sample covariance generalized variance total variance covariance log determinant",
+        "Wishart log generalized variance trace correlation",
+        "Covariance of log determinant and trace of Wishart matrix",
+        "Wishart determinant power tilt degrees of freedom",
+        "Wishart trace log determinant aspect ratio correlation sqrt r log",
+        "sample covariance trace and log determinant joint correlation",
+        "Wishart exponential family log determinant trace mixed covariance",
+        "generalized variance total variance Wishart covariance",
+        "\"trace\" \"log determinant\" Wishart covariance",
+        "\"Cov(W, log det W)\" Wishart",
+        "\"log generalized variance\" trace Wishart correlation",
+        "\"total scatter\" \"log determinant\" sample covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-form database or table entry matching the finite covariance \\(2p\\), matrix covariance \\(2\\Sigma\\), or the displayed aspect-ratio correlation was located."
+      ],
+      "reasoning": "The claim is an all-parameter symbolic identity and asymptotic law, not a finite table or numerical census.",
+      "searches": [
+        "Wishart trace log determinant covariance 2p",
+        "\"Cov(W, log det W)\" Wishart",
+        "Wishart trace log determinant aspect ratio correlation sqrt r log",
+        "\"sqrt(r/-log(1-r))\" Wishart"
+      ]
+    },
+    "rationale": "The closest full same-model source, Cai--Liang--Zhou (arXiv:1309.0482), was read through its model, main logdet CLTs, Bartlett lemma, and variance proof; it contains no trace occurrence and no inspected mixed trace/logdet statement. Letac--Massam covers invariant polynomial Wishart moments but not logarithmic mixed moments in its stated scope. Bai--Silverstein is a genuine broader asymptotic coverage risk for the proportional interior limit, but an asymptotic LSS theorem does not subsume the exact finite matrix identity Cov(W,log det W)=2 Sigma. Ten semantic database searches and alias web searches found no exact finite match, and current/prior own ledgers contain no Wishart/logdet finding.",
+    "residual_risks": [
+      "A standard exponential-family or matrix-variate textbook may contain the derivative identity Cov(W,log det W)=2 Sigma without using the search phrasing above.",
+      "The proportional interior correlation limit may be obtainable directly as a corollary of Bai--Silverstein or related joint LSS central limit theory.",
+      "The individual marginal facts used in the proof are classical; originality is claimed only for the exact mixed covariance formulation and its unified aspect-ratio interpretation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "LOGDET_MARGINAL_THEORY_WITHOUT_TRACE_LOGDET_MIXED_STATEMENT",
+        "evidence": "The manuscript states Primary 62H12 and 62H10, was first submitted 2013-09-02, derives the logdet Bartlett decomposition and trigamma variance, and contains no full-text occurrence of “trace”.",
+        "identifier_or_url": "arXiv:1309.0482",
+        "material_read": "Full public arXiv HTML: abstract and introduction; sample-covariance model; Theorem 1 and proportional/boundary corollaries; Lemma 1 whitening; Lemma 2 Bartlett decomposition; proof of the trigamma variance bound.",
+        "method": "Compared theorem statements and proof ingredients against the finite trace/logdet covariance; ran targeted full-text searches for trace and covariance.",
+        "title": "Law of Log Determinant of Sample Covariance Matrix and Optimal Estimation of Differential Entropy for High-Dimensional Gaussian Distributions",
+        "trigger": "Closest same-model archive source for logdet of a Gaussian sample covariance matrix and the source of the archive date and verified primary MSC."
+      },
+      {
+        "assessment": "POLYNOMIAL_INVARIANT_MOMENTS_DO_NOT_STATE_LOGDET_MIXED_LAW",
+        "evidence": "The abstract specifies E(Q(U)) for invariant polynomial Q and powers of U or U^{-1}; it does not state logarithmic determinant mixed moments.",
+        "identifier_or_url": "DOI:10.1111/j.1467-9469.2004.01-043.x",
+        "material_read": "Publisher full/abstract page including scope statement, publication date, and reference list.",
+        "method": "Compared the stated invariant-polynomial moment class with a mixed moment involving log determinant.",
+        "title": "All Invariant Moments of the Wishart Distribution",
+        "trigger": "Broad exact Wishart-moment source that could dominate a narrow mixed-moment claim."
+      },
+      {
+        "assessment": "BROADER_ASYMPTOTIC_COVERAGE_RISK_FOR_INTERIOR_LIMIT_ONLY",
+        "evidence": "The general LSS CLT is broad enough that choosing x and log x can plausibly reproduce the proportional interior covariance after evaluating its covariance functional, but it is asymptotic rather than an exact finite Wishart matrix identity.",
+        "identifier_or_url": "DOI:10.1214/AOP/1078415845",
+        "material_read": "Bibliographic record and abstract describing the Gaussian limits for linear spectral statistics of large-dimensional sample covariance matrices.",
+        "method": "Compared theorem scope by implication rather than wording; did not use the abstract to assert whole-document noncoverage.",
+        "title": "CLT for Linear Spectral Statistics of Large-Dimensional Sample Covariance Matrices",
+        "trigger": "Strong broader asymptotic theorem potentially covering trace and logdet jointly in the proportional regime."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4eddd39f-24be-4472-a6a3-a26af6286bc0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Trace and determinant are canonical additive and multiplicative summaries of multivariate scatter, and logdet is directly tied to Gaussian entropy and generalized variance. The result identifies their exact finite dependence, not merely their marginal laws. The aspect-ratio law shows a structural transition from near-perfect standardized alignment when dimension is thin relative to degrees of freedom, through an explicit nontrivial proportional limit, to decorrelation at the square hard edge. This is a natural dependence question with direct interpretation in high-dimensional covariance geometry; the contribution is not a parameter renaming or a finite numerical improvement.",
+    "status": "PASS"
+  }
+}
