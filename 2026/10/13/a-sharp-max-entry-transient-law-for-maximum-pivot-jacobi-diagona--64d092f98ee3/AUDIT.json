@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For each nonpivot index k, the Jacobi rotation acts orthogonally on the pair (a_pk,a_qk), so each new component is at most the Euclidean norm of two entries whose magnitudes are at most the pre-step second-largest value s. This gives m_plus<=sqrt(2)s. The three-dimensional family B_tau has a unique pivot 1 and two entries of magnitude tau; its equal pivot diagonals force a 45-degree rotation that combines those entries into sqrt(2)tau exactly. Its spectrum is explicit, and adding cI with c=(1-kappa*beta_minus)/(kappa-1) gives an SPD matrix of condition number exactly kappa without changing the rotation. The transformed matrix has a single off-diagonal pair, so the next Jacobi step diagonalizes it. Dimension two is exact in one rotation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hari proves global convergence of a broad Jacobi method for symmetric matrices and lists primary MSC 65F15.",
+        "Matejaš proves sharp perturbation bounds coming from a single Jacobi step, but the accessible abstract addresses eigenvalue accuracy rather than largest-entry monotonicity.",
+        "A modern full-text description identifies annihilation of the largest remaining off-diagonal element as Jacobi's original strategy and treats aggregate off-diagonal decrease as the convergence mechanism."
+      ],
+      "reasoning": "These broader results establish the algorithm, its convergence, and important one-step accuracy properties. They do not dominate the new claim because a decreasing aggregate off-diagonal measure permits an individual off-diagonal entry to grow.",
+      "searches": [
+        "Convergence of a Block-Oriented Quasi-Cyclic Jacobi Method",
+        "Accuracy of the Jacobi Method on Scaled Diagonally Dominant Symmetric Matrices",
+        "largest off-diagonal Jacobi method pivot strategy Hermitian"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/05064552X",
+      "doi:10.1137/070685993",
+      "doi:10.3390/sym16121617",
+      "2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+      "2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659",
+      "2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+      "2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classical identity for total off-diagonal energy proves descent of a sum of squares, not of its largest coordinate.",
+        "Single-step eigenvalue perturbation bounds concern spectral accuracy, not the maximum off-diagonal entry after the rotation.",
+        "Global convergence of maximum-element or quasi-cyclic Jacobi strategies does not prohibit finite max-entry transients."
+      ],
+      "reasoning": "The implication gap is real: an orthogonal rotation preserves the two-entry Euclidean norm while redistributing it, allowing two entries each near s to combine into one entry near sqrt(2)s even as the pivot is eliminated and global off-diagonal energy decreases.",
+      "searches": [
+        "Jacobi method largest element strategy off diagonal convergence",
+        "single Jacobi step sharp perturbation symmetric matrix",
+        "Jacobi annihilation rotation max entry growth"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-record searches returned stationary Jacobi linear-system results, complete-pivot approximation results, and generic transient-growth results, but no maximum-element Jacobi eigendiagonalization theorem with the displayed gap threshold.",
+        "Exact web searches combining Jacobi, largest off-diagonal, max-entry growth, and sqrt(2) did not expose an implication-equivalent scientific source."
+      ],
+      "reasoning": "Equivalent coverage must control the largest individual off-diagonal magnitude after a maximum-element Jacobi eigensolver rotation as a function of the pre-step second-largest entry. Aggregate Frobenius descent or global convergence does not imply stepwise max-entry descent.",
+      "searches": [
+        "Jacobi eigenvalue method maximum off diagonal element can increase sqrt two",
+        "Jacobi rotation largest pivot max offdiagonal transient",
+        "symmetric Jacobi eigenvalue method off diagonal infinity norm increase",
+        "maximum-pivot Jacobi eigenvalue largest off-diagonal can increase second-largest ratio"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact threshold 1/sqrt(2) or amplification law sqrt(2) times the second-largest-to-pivot ratio was located.",
+        "The constant follows analytically from a two-component orthogonal transformation and is attained by an explicit family; it is not a numerical-table observation."
+      ],
+      "reasoning": "The claimed constants and equality family are exact structural statements rather than recomputed convergence data.",
+      "searches": [
+        "\"Jacobi\" \"largest off-diagonal\" \"sqrt(2)\" eigenvalue",
+        "\"Jacobi method\" \"maximum element\" off-diagonal norm",
+        "Jacobi eigenvalue maximum element strategy max off-diagonal norm one step sqrt two"
+      ]
+    },
+    "rationale": "The maximum-element pivot rule, the orthogonal pair update, aggregate off-diagonal energy descent, and global Jacobi convergence are classical and treated as prior work. The inspected literature does not state the sharp largest-entry gap threshold, the equality law, or the arbitrary-condition-number three-dimensional spike followed by exact next-step termination. Searches across aliases and nearby published records found no implication-equivalent theorem. The main residual risk is older Jacobi literature using a max-norm or elementwise convergence formulation not exposed by the inspected sources.",
+    "residual_risks": [
+      "Older Jacobi convergence literature is extensive, and the same elementary max-entry inequality may have appeared under max-norm or elementwise terminology.",
+      "The body of the 2007 Hari paper and the complete body of the 2009 Matejaš paper were not available through the inspected publisher route.",
+      "The theorem is one-step and elementwise; it does not classify max-entry behavior across an arbitrary full sweep."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_PARTIAL_COVERAGE: confirms the exact pivot rule and classical convergence context, but no located max-entry transient threshold or equality family.",
+        "evidence": "The article explicitly identifies the largest-remaining-off-diagonal strategy as Jacobi's original strategy and describes the corresponding Jacobi rotations.",
+        "identifier_or_url": "doi:10.3390/sym16121617",
+        "material_read": "The open article text was inspected around the algorithm description and pivot-strategy discussion, including the statement that Jacobi's original strategy annihilates the largest remaining off-diagonal element at each rotation.",
+        "method": "Open full-text HTML inspection and targeted text search.",
+        "title": "The Case for Adopting the Sequential Jacobi’s Diagonalization Algorithm in Neutrino Oscillation Physics",
+        "trigger": "Open full-text modern description of the exact maximum-element Jacobi strategy and its convergence mechanism."
+      },
+      {
+        "assessment": "BROADER_ACCESS_LIMITED: establishes global convergence context and primary MSC 65F15 but is not used to assert whole-document noncoverage.",
+        "evidence": "The record states global convergence for a block-oriented quasi-cyclic Jacobi method for symmetric matrices, lists 65F15 as its MSC code, and records online publication on 2007-03-19.",
+        "identifier_or_url": "doi:10.1137/05064552X",
+        "material_read": "Publisher abstract, bibliographic history, MSC classification, and references were inspected. The full article body was not available through the inspected route.",
+        "method": "Publisher-record inspection.",
+        "title": "Convergence of a Block-Oriented Quasi-Cyclic Jacobi Method",
+        "trigger": "Archive-era primary Jacobi convergence source and MSC ownership evidence."
+      },
+      {
+        "assessment": "PLAUSIBLE_SINGLE_STEP_SOURCE_ACCESS_LIMITED: its accessible statements concern sharp eigenvalue perturbation bounds and relative accuracy, not largest off-diagonal max-entry transients; the inaccessible body remains an originality risk.",
+        "evidence": "The abstract explicitly says it proves sharp eigenvalue perturbation bounds from a single Jacobi step and from a whole serial sweep, with primary MSC 65F15.",
+        "identifier_or_url": "doi:10.1137/070685993",
+        "material_read": "Publisher abstract, publication history, MSC classification, references, and the publicly exposed introductory preview were inspected. Full article access was restricted through the inspected route.",
+        "method": "Publisher-record and preview inspection.",
+        "title": "Accuracy of the Jacobi Method on Scaled Diagonally Dominant Symmetric Matrices",
+        "trigger": "Plausibly closest archive-era source because it proves sharp bounds from a single Jacobi step."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "64d092f9-8ee3-410d-be54-8163f7910f0b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The largest-element pivot rule is a classical Jacobi strategy, and the largest remaining off-diagonal entry is both the quantity searched to select the next pivot and a natural stopping diagnostic. The theorem identifies exactly when this diagnostic is guaranteed to improve, shows that aggregate off-diagonal descent does not protect it above the sharp gap threshold, and proves that condition number cannot rule out the transient. The equality family then resolves the behavior completely in the minimal dimension by showing exact diagonalization on the next step.",
+    "status": "PASS"
+  }
+}
