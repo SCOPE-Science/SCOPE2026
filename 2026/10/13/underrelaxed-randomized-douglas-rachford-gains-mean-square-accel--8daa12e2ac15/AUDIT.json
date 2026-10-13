@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "On \\(A=I_2\\) with two independent uniform reflections, the product is exactly \\(\\pm I_2\\) with equal probabilities. Conditional expectation of the exact fixed-momentum recurrence yields the displayed three-state moment matrix with no approximation. At zero momentum its simple eigenvalue is \\(s\\); the left/right eigenvector derivative gives \\(2\\alpha(1-\\alpha)(2\\alpha-1)/s\\). The source initial moment vector excites this branch. At \\(\\alpha=1/2\\) the cubic gives the positive second-order coefficient. The rational witness is verified by three disjoint exact sign-change intervals for its degree-three characteristic polynomial and the exact source bound constants.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 continuation replaces the original with-replacement row choices or adjusts momentum adaptively.",
+        "The minibatch-HBM theorem requires a batch-size condition and controls expected norm under different gradient sampling.",
+        "The pseudoinverse-free framework proves broad linear convergence and mean-iterate acceleration but not the present fixed two-reflection exact second-moment law."
+      ],
+      "reasoning": "These sources provide broader methodological context but do not dominate the explicit Bernoulli identity-versus-contraction recurrence, its exact three-dimensional moment spectrum, or the local momentum transition in the original algorithm.",
+      "searches": [
+        "arXiv:2506.10261v1 adaptive momentum randomized DR without replacement",
+        "arXiv:2206.07553v5 minibatch heavy ball quadratics accelerated expected norm",
+        "arXiv:2208.05437v3 pseudoinverse-free randomized momentum convergence"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2207.04291v1 (submission date evidence)",
+      "arXiv:2207.04291v4 (full mathematical algorithm and theorem comparison)",
+      "arXiv:2506.10261v1 (full primary follow-up)",
+      "arXiv:2206.07553v5 (broader stochastic heavy-ball comparison)",
+      "arXiv:2208.05437v3 (broader pseudoinverse-free theory)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.1 yields \\(\\gamma_1=87/100\\), \\(\\gamma_2=19/200\\), and a valid but pessimistic factor \\(q\u0007pprox0.9681\\) on the rational witness.",
+        "Theorem 4.2 only accelerates \\(\\|\\mathbb E x^k\\|^2\\).",
+        "The exact second-moment characteristic polynomial on the same witness has all three roots below \\(3/5\\), whereas the zero-momentum rate is \\(5/8\\)."
+      ],
+      "reasoning": "Since \\(\\mathbb E\\|x\\|^2=\\|\\mathbb E x\\|^2+\\operatorname{tr}\\operatorname{Cov}(x)\\), controlling the norm of the mean cannot dominate the actual mean-square comparison. An upper bound larger than the baseline likewise cannot preclude a smaller actual rate. The exact recurrence resolves the otherwise missing implication.",
+      "searches": [
+        "arXiv:2207.04291v4 Theorem 4.1 gamma1 gamma2 q beta",
+        "arXiv:2207.04291v4 Theorem 4.2 norm expected iterates",
+        "arXiv:2506.10261v1 Section 4 adaptive momentum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining Algorithm 2 is the exact with-replacement two-reflection plus heavy-ball recurrence.",
+        "Its Theorem 4.1 controls expected squared error by an upper bound, while Theorem 4.2 accelerates the different norm-of-mean metric.",
+        "The present claim computes the actual mean-square operator and strict rate inequality within the source theorem’s own sufficient regime."
+      ],
+      "reasoning": "A statement about norm of expected iterates does not imply an inequality for expected squared norm. The published mean-square upper bound does not imply the exact eigenvalue sign or the rational witness; comparing upper bounds is insufficient to order actual rates.",
+      "searches": [
+        "randomized Douglas Rachford linear systems heavy-ball momentum exact mean-square acceleration orthogonal rows two reflections",
+        "RrDR randomized two sets Douglas Rachford momentum second moment spectral radius A identity underrelaxation",
+        "arXiv:2207.04291v4 Algorithm 2 Theorem 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed records about stochastic Kaczmarz, Gauss-Seidel delay laws and general spectral acceleration study different random maps or metrics.",
+        "No checked indexed record states the three-state moment matrix or the rational source-theorem-compatible accelerated instance."
+      ],
+      "reasoning": "Failed indexed retrieval is not evidence of absolute novelty; the decisive comparisons are theorem statements and implications from the directly inspected primary full texts.",
+      "searches": [
+        "mRrDR randomized two reflection method mean-square acceleration underrelaxation orthogonal rows",
+        "randomized Douglas Rachford momentum beta alpha rate improvement actual second moment",
+        "stochastic heavy ball Bernoulli random skip mean-square spectral operator"
+      ]
+    },
+    "rationale": "The defining RrDR source proves a mean-square upper bound and explicitly observes that its certified factor worsens with momentum, but separately proves acceleration only for the norm of expected iterates. Direct full-text comparison found no evaluation of the actual two-reflection Bernoulli second-moment operator. The same authors’ later improved-sampling and adaptive-momentum paper changes the sampling distribution or update; broad minibatch heavy-ball theory also does not imply this exact fixed-momentum mean-square phase transition. The novelty is the exact underrelaxation sign boundary and certified in-regime strict mean-square acceleration, not the generic possibility of heavy-ball acceleration.",
+    "residual_risks": [
+      "The moment matrix also describes a simple Bernoulli-stepsize heavy-ball model; an unindexed generic stochastic-recurrence note might state an equivalent local derivative under different terminology.",
+      "The acceleration is an asymptotic mean-square statement on the smallest full-rank orthonormal system; it does not claim practical dominance over alternative sampling policies or optimally tuned relaxation.",
+      "The defining paper’s upper-bound deterioration was never a claim that actual mean-square acceleration was impossible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_UPDATE_AND_LOOSE_SECOND_MOMENT_BOUND_NOT_COVERING_ACTUAL_MOMENT_EIGENVALUE.",
+        "evidence": "Algorithm 2 uses independent with-replacement row reflections plus fixed heavy-ball momentum. Theorem 4.1 bounds expected squared error and compares its upper-bound factor unfavorably against zero momentum; Theorem 4.2 instead accelerates norm of expected error. Neither gives the exact three-state operator or the underrelaxation derivative.",
+        "identifier_or_url": "arXiv:2207.04291v4; https://arxiv.org/html/2207.04291v4",
+        "material_read": "Full-text Algorithm 1 and Algorithm 2, Sections 3.1 and 4.1–4.2, Theorems 3.1, 4.1, 4.2, related-work section, and appendix moment-bound derivations and tightness remark.",
+        "method": "Open-access full-text HTML, equations and theorem/appendix comparison.",
+        "title": "Randomized Douglas–Rachford methods for linear systems: Improved accuracy and efficiency",
+        "trigger": "Defining method and closest potentially covering mean-square theorem."
+      },
+      {
+        "assessment": "CHANGES_SAMPLING_OR_USES_ADAPTIVE_MOMENTUM_NOT_COVERING_FIXED_WITH_REPLACEMENT_BERNOULLI_LAW.",
+        "evidence": "The follow-up contrasts independent with-replacement sampling against without-replacement and volume sampling, then optimizes adaptive momentum; it does not give the fixed-momentum small-beta mean-square derivative for original two-row RrDR.",
+        "identifier_or_url": "arXiv:2506.10261v1; https://arxiv.org/html/2506.10261v1",
+        "material_read": "Full-text introduction and methods, Section 3 sampling strategies and convergence comparisons, Section 4 original mRDR equation, adaptive momentum parameters and convergence discussion.",
+        "method": "Open-access full-text HTML inspection.",
+        "title": "Enhanced randomized Douglas-Rachford method: Improved probabilities and adaptive momentum",
+        "trigger": "Same authors’ follow-up explicitly aimed at momentum and sampling limitations."
+      },
+      {
+        "assessment": "GENERAL_MINIBATCH_RATE_THEORY_NOT_EXACT_TWO_REFLECTION_MEAN_SQUARE_OPERATOR.",
+        "evidence": "The theorem requires a sufficient minibatch size and compares expected-norm rates using quadratic stochastic gradients; it does not state the orthonormal fixed-two-reflection moment characteristic polynomial or the sharp local alpha transition.",
+        "identifier_or_url": "arXiv:2206.07553v5; https://arxiv.org/html/2206.07553v5",
+        "material_read": "Open-access full-text introduction, minibatch-HBM update, assumptions, main theorem statement, and comparison of expected-norm convergence to deterministic heavy ball.",
+        "method": "Open-access primary-paper HTML inspection.",
+        "title": "On the fast convergence of minibatch heavy ball momentum",
+        "trigger": "Broader strongly-convex quadratic acceleration with stochastic momentum that could dominate a specific example."
+      },
+      {
+        "assessment": "GENERAL_MOMENTUM_CONVERGENCE_THEORY_WITHOUT_THIS_EXACT_RRDR_BERNOULLI_COMPOSITION.",
+        "evidence": "The paper studies pseudoinverse-free randomized matrix products and mean-iterate acceleration. The exact independent two-reflection identity-versus-contraction distribution and its momentum second-moment derivative are not stated in the inspected material.",
+        "identifier_or_url": "arXiv:2208.05437v3; https://arxiv.org/html/2208.05437v3",
+        "material_read": "Open-access full text covering the stochastic update framework, momentum term, stated contribution on mean-square convergence and norm-of-mean acceleration, method variants and related work.",
+        "method": "Open-access primary-paper HTML inspection.",
+        "title": "On pseudoinverse-free randomized methods for linear systems: Unified framework and acceleration",
+        "trigger": "Strong generic randomized-linear-system momentum theory by an overlapping author group."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8daa12e2-ac15-4666-b577-21d4dcb1ab2d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The defining algorithm’s main analysis explicitly separates mean-square guarantees from norm-of-mean acceleration and its own mean-square certificate suggests no momentum gain. The exact same source method, within the source theorem’s certified stability region, nevertheless improves the actual expected-squared-error rate under underrelaxation. The sharp transition at alpha one-half and rational parameter witness explain a mathematically meaningful gap between conservative guarantees and actual stochastic momentum dynamics; both compared runs use identical reflection budgets.",
+    "status": "PASS"
+  }
+}
