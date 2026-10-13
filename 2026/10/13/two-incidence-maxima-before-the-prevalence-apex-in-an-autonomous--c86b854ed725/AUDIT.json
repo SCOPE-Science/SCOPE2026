@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "Exact two-atom SIR initial data sum to one and all rates positive. Pressure transform gives I=1-S-gamma x and incidence derivative dC/dt=I[H(H-gamma)-IK]. A standalone exact Fraction interval certificate proves Q signs (+,-,+,-) at x=0,1/50,1/20,1/5 and H(1/5)>4/5. Since H is decreasing, I grows throughout this pressure interval, remains positive, and visits all sign points in finite time. Analytic sign changes force at least two strict local incidence maxima separated by a strict minimum. All strict inequalities persist on an open parameter neighborhood. Finite computation supplies only exact pointwise signs; the analytic proof supplies all quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bootsma–Chan–Diekmann–Inaba 2024 §10.1 illustrates double incidence peaks from differing latent-period laws and different contact groups; those models have extra time-scale/community ingredients.",
+        "Siegenfeld et al. (2022) Figure 5 explicitly demonstrates multiple epidemic peaks in strongly clustered five-group populations with joint heterogeneous traits, whereas §3.2.1 treats susceptibility-only effects separately: https://doi.org/10.1155/2022/3007864",
+        "Zheng et al. (2017) multi-layer network peaks require layer-specific propagation delays/weak coupling: https://arxiv.org/abs/1706.05780"
+      ],
+      "reasoning": "Multiple epidemic peaks as a broad phenomenon are established and conceded. Their constructions do not imply that two *fixed susceptibility* types, common exponential recovery and a single infectious pool yield at least two incidence peaks specifically before the apex of infectious prevalence. Existing general heterogeneous SIR equations provide a route to construct this example but not the sign-pattern theorem automatically.",
+      "searches": [
+        "\"multiple peaks\" \"heterogeneity\" \"incidence\" \"SIR\"",
+        "\"Modelling Complex Systems\" Siegenfeld Figure 5 multiple peaks",
+        "\"The Effect of Host Population Heterogeneity on Epidemic Outbreaks\" section 10.1",
+        "\"multiple peaks patterns\" multilayer network epidemic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.22122v1 primary full HTML",
+      "Bootsma–Chan–Diekmann–Inaba 2024 full PDF §10.1, Fig p20",
+      "Siegenfeld et al. (2022) full publisher HTML §3.2 and Fig 5",
+      "Berestycki et al. (2023) full article HTML",
+      "Zheng et al. (2017) abstract/model overview",
+      "Mukherjee et al. (2021) abstract/preview only",
+      "published indexed published-finding corpus entries 2026/9/14/SCOPE021, 2026/9/18/SCOPE-two-stage-kernels-close-age-structured-threshold-dynamics--361cf4b95c9f and 2026/9/17/SCOPE-crossing-only-dengue-switching--e6abca835bbf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source supplies \\(s_j=s_j(0)e^{-\\lambda_j x}\\) but does not establish signed changes of \\(H(H-\\gamma)-IK\\) or the increasing-prevalence condition.",
+        "Siegenfeld et al. discuss weaker generic heterogeneous epidemic trajectory effects and a multi-group connectivity construction, not the zero-connectivity-heterogeneity specialization: https://doi.org/10.1155/2022/3007864",
+        "Bootsma et al. §10.1 double-peaked curves rely on differing latent periods; their displayed result does not specialize by deleting that ingredient."
+      ],
+      "reasoning": "Neither the 2026 source equations alone nor generic demonstrations involving additional mixing or latency mechanisms logically imply existence within the more restrictive two-susceptibility, one-pool SIR model. Conversely, the present example does not supersede heterogeneous multiwave theory: it certifies a narrow, motivated incidence-vs-prevalence boundary.",
+      "searches": [
+        "arXiv:2608.22122v1 cumulative infection pressure finite discrete SIR",
+        "Bootsma et al. heterogeneous latent periods double peaked incidence",
+        "Siegenfeld et al. section 3.2.1 susceptibility vs section 3.2.2 connectivity",
+        "\"heterogeneous susceptibility\" \"multiple peaks\" incidence homogeneous infectivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Izyumtseva et al. §3.1 derives fixed discrete susceptibility SIR dynamics and §4.4 treats arbitrary multimodality of *trait laws*: https://arxiv.org/html/2608.22122v1",
+        "Siegenfeld et al. §3.2.1 includes susceptibility-only heterogeneity but its Figure 5 multi-peak illustration is based on strongly separated group connectivity, not a fully pooled two-class system: https://doi.org/10.1155/2022/3007864"
+      ],
+      "reasoning": "The precise equivalent statement is existence of two strict incidence maxima while one shared infectious prevalence is strictly increasing in a fixed two-atom susceptibility-only Markov SIR model. Sources containing generic multi-peak descriptions were checked for this stronger conjunction; no directly equivalent theorem/example was located in inspected full text. Non-detection is not itself proof of novelty.",
+      "searches": [
+        "\"two susceptibility classes SIR model constant transmission double peaked incidence two epidemic waves despite unimodal infectious prevalence heterogeneous susceptibility\"",
+        "\"unimodality incidence heterogeneous SIR susceptibility distribution counterexample\"",
+        "\"two-atom susceptibility distribution autonomous SIR incidence nonunimodal double hump cumulative force of infection exact rational certificate\"",
+        "arXiv:2608.22122v1 sections 3.1 and 4.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary preprint develops arbitrary fixed distributions and final-size equations but publishes no matching four-pressure sign table: https://arxiv.org/html/2608.22122v1",
+        "Related indexed record 2026/9/14/SCOPE021 concerns an SEIR spatial R0 bracketing counterexample rather than incidence extrema."
+      ],
+      "reasoning": "The exact rational choices (49/50,1/50; susceptibilities 1,100; recovery 4/5; seed 1/100000) and strict four-pressure sign certificate were not found in accessible relevant tables or indexed findings. This is not proof that no obscure computation exists.",
+      "searches": [
+        "\"two-atom susceptibility\" \"incidence\" \"multiple peaks\"",
+        "\"multiwave\" \"bimodal susceptibility\" SIR",
+        "published-finding corpus semantic search: fixed heterogeneity of susceptibility alone two subgroups yields two incidence local peaks during strictly increasing total infectious prevalence SIR without interventions"
+      ]
+    },
+    "rationale": "Previously reported multiple waves are explicitly credited. The 2026 source supplies the SIR equations without describing aggregate incidence bimodality. Bootsma et al. 2024 exhibits double incidence peaks via heterogeneous latent periods or community interaction, Siegenfeld et al. 2022 with substantial connectivity separation, and Zheng et al. 2017 using multilayer delays. Directly examined material does not establish two fixed susceptibility classes with homogeneous infectiousness and pooled infectives producing multiple incidence peaks during strictly increasing prevalence. The exact constructive combination is not a special case of those stated results. Residual coverage by unindexed general multi-type theorems is expressly acknowledged; neither partitioning nor failed searches prove originality.",
+    "residual_risks": [
+      "The multiwave phenomenon broadly predates this example. A general result not indexed under incidence or susceptible-class terminology might imply the restricted construction.",
+      "Mukherjee–Mondal–Bagchi (2021) primary full article was not materially accessible; only abstract and publisher preview could be compared.",
+      "The demonstrated incidence trough is shallow, so an epidemiological second-wave interpretation is not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL MODEL NOT KNOWN COVERAGE of double incidence maxima before I apex",
+        "evidence": [
+          "Public v1 date 2026-08-22; MSC 92D30; finite discrete susceptibility and cumulative pressure framework",
+          "Section 4.4 concerns distributional multimodality, not aggregate incidence time-series modality"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.22122v1",
+        "material_read": "Full accessible HTML primary manuscript; sections 3.1 (finite discrete model), 4.4 (arbitrary multimodality of susceptibility), and references",
+        "method": "Read mathematical model, assumptions and meaning of multimodality; directly compare to incidence sign formula",
+        "title": "From Individual-Based Stochastic Epidemics to Heterogeneous SIR Equations",
+        "trigger": "The exact same two-atom heterogeneous SIR population law and relevant first-public source"
+      },
+      {
+        "assessment": "ALREADY SHOWS general double incidence peaks; its illustrative mechanisms rely on heterogeneous latent time-scales or weak coupling, not the restricted claim",
+        "evidence": [
+          "Section 10.1 explicitly gives double-peaked incidence for two groups with different gamma latent periods and otherwise uniform mixing",
+          "The same section also discusses weakly coupled subpopulations"
+        ],
+        "identifier_or_url": "https://arxiv.org/search/?query=The+Effect+of+Host+Population+Heterogeneity+on+Epidemic+Outbreaks&searchtype=all",
+        "material_read": "Full accessible 35-page primary PDF including section 10.1 and page 20 figure (visual inspection)",
+        "method": "Compared mechanisms that make incidence double-peaked to susceptibility-only common-I Markov model",
+        "title": "The Effect of Host Population Heterogeneity on Epidemic Outbreaks",
+        "trigger": "Strongest nearby published double-peaked-incidence literature"
+      },
+      {
+        "assessment": "Already covers generic multiple peaks in clustered multitype epidemiology; no direct coverage of strict two-class susceptibility-only increasing-I example",
+        "evidence": [
+          "Figure 5 states number of groups = 5 and c=0.75, with separated groups and heterogeneous transmission traits",
+          "Susceptibility-only homogeneous connectivity is a separate §3.2.1 case without a corresponding two-peak proof"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2022/3007864",
+        "material_read": "Full accessible publisher HTML, sections 3.2.1 and 3.2.2, Figure 5 caption and methods in Appendix C",
+        "method": "Checked whether multi-peak figure has pooled infectious population and only two fixed susceptibility groups",
+        "title": "Modeling Complex Systems: A Case Study of Compartmental Models in Epidemiology",
+        "trigger": "Explicit earlier discussion and illustration of multipeak epidemic trajectories caused by heterogeneity"
+      },
+      {
+        "assessment": "Not same fixed-trait model; no direct implication",
+        "evidence": [
+          "Trait distribution evolves under Fokker–Planck/social diffusion coupled to SIR"
+        ],
+        "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/?term=Epidemic+modeling+with+heterogeneity+and+social+diffusion",
+        "material_read": "Accessible full HTML article and its model description",
+        "method": "Compared autonomous static susceptibility law to evolving risk distributions under social diffusion",
+        "title": "Epidemic modeling with heterogeneity and social diffusion",
+        "trigger": "Potentially similar susceptibility heterogeneity creating complex wave shapes"
+      },
+      {
+        "assessment": "Plausible but incompletely inspected; model appears spatial stochastic with external infectivity, not pooled deterministic two-atom model",
+        "evidence": [
+          "Abstract/preview discusses spatial stochastic process with migration and infection-threshold effects; full implications unverified"
+        ],
+        "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/?term=Stochastic+formulation+of+multiwave+pandemic",
+        "material_read": "Abstract and publisher preview only; primary full text was not reliably accessible",
+        "method": "Inspected stated cellular-automaton/space and mixing mechanisms from available preview",
+        "title": "Stochastic formulation of multiwave pandemic: decomposition of growth into inherent susceptibility and external infectivity distributions",
+        "trigger": "Multiwave pandemic with susceptibility named in title"
+      },
+      {
+        "assessment": "Not direct coverage of the constrained claim",
+        "evidence": [
+          "Mechanism described as weakly connected layers with distinct epidemic propagation timing"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.05780",
+        "material_read": "Open abstract and model overview",
+        "method": "Compared layered transmission-delay/weak-coupling mechanism to two susceptibility types with pooled infectives",
+        "title": "Multiple peaks patterns of epidemic spreading in multi-layer networks",
+        "trigger": "Earlier double-peak epidemics in networks"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c86b854e-d725-44d4-9c8e-22667ecf43f5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A widely motivated mathematical distinction is whether more than one incidence peak needs interventions, delayed transmission, weakly coupled communities or a second prevalence rise. This robust exact-rational example proves that even only fixed two-atom susceptibility, homogeneous infectiousness and one well-mixed infectious pool suffice for two incidence peaks before its unique prevalence apex. The open-neighborhood and pressure ordering make the claim structural; a threshold/counterexample value need not yield a full peak-count census. The result is mathematically informative but not necessarily clinically large due to shallow trough.",
+    "status": "PASS"
+  }
+}
