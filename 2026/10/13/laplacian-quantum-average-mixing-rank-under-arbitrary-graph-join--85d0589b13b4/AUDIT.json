@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The proof fixes the mean-zero spectral projections even for disconnected factors. Orthogonal Laplacian join decomposition yields the exact PSD identity, including cross-factor collisions and the only top-frequency resonance. A complement-graph component calculation shows Q_G strictly positive on the component-constant subspace for every order at least three; hence adding F_s cannot change rank, while direct K2 calculation gives exactly one added rank. Singleton cases and equality of reduced/full ranks for connected factors are checked. Exact rational verifier reconstructs 100 graph pairs and 3,800 matrix entries; unrestricted proof does not depend on enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kirkland--Monterde 2023 establishes periodicity, cospectrality and state transfer on weighted join graphs, and an explicit transition formula, but the inspected text contains no average-mixing-rank theorem.",
+        "Coutinho et al. 2018 covers arbitrary real symmetric Hamiltonians via their commutants but does not specialize to Laplacian joins."
+      ],
+      "reasoning": "The general projector identity formally covers computing the matrix of any graph; its application to joins does not by itself state or classify the all-graph rank. The quantitative-positive complement-component restriction is an additional theorem. One could still have a published stronger rank theorem based on association schemes or commutants.",
+      "searches": [
+        "Exact Laplacian continuous-time quantum walk average mixing matrix on graph join spectral projector resonance eigenvalue order complement disconnected Schur",
+        "Quantum average mixing rank under graph joins complement connectivity Laplacian top eigenvalue correction",
+        "quantum walk Laplacian average mixing of graph join spectral projectors",
+        "average mixing matrix joins Laplacian graphs rank quantum",
+        "arXiv:2312.06906 scan Sections 3 and 10-12",
+        "arXiv:1709.03591 commutant-algebra rank"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.08971v1, verified first public 2022-08-18, MSC 81P68",
+      "arXiv:2312.06906v1, original 2023-12-12, Laplacian joins",
+      "arXiv:1709.03591v1, general average mixing",
+      "arXiv:quant-ph/0509059v1, adjacency circulant join mixing",
+      "2026 published dihedral noncyclic graph Laplacian-spectrum result, published specific Laplacian join graph spectral claim"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2312.06906v1 Lemma 1 gives fixed-time Laplacian join entries for every simple graph.",
+        "arXiv:1709.03591 supplies the projector formula for infinite-time averaging.",
+        "A 2026 published dihedral noncyclic graph Laplacian-spectrum result classifies a particular graph Laplacian spectrum, but gives no average-mixing rank for a general join."
+      ],
+      "reasoning": "The 2023 transition formula combined with 2018 averaging yields a calculation route and the new block identity is close to known tools; it does not render the all-graph kernel decomposition and proof of top-resonance redundancy a mere parameter substitution. The factor-rank theorem requires proving that the complement-component constants form a positive subspace, with unique K2 failure. Direct rank coverage was not located; risk acknowledged.",
+      "searches": [
+        "Exact Laplacian continuous-time quantum walk average mixing matrix on graph join spectral projector resonance eigenvalue order complement disconnected Schur",
+        "Quantum average mixing rank under graph joins complement connectivity Laplacian top eigenvalue correction",
+        "Laplacian average mixing",
+        "Laplacian quantum walk joins rank",
+        "averaging quantum walks join graphs",
+        "Laplacian average mixing matrix join graphs rank theorem",
+        "quantum walk Laplacian average mixing of graph join spectral projectors",
+        "average mixing matrix joins Laplacian graphs rank quantum",
+        "arXiv:2312.06906 Section 3 Lemma 1",
+        "arXiv:1709.03591 page 3 spectral average"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kirkland--Monterde arXiv:2312.06906v1, page 4 Eq. (4), decomposes Laplacian join evolution into constituent dynamics plus uniform offsets.",
+        "Coutinho--Godsil--Guo--Zhan arXiv:1709.03591, page 3, derives Schur-square projector Cesàro formula."
+      ],
+      "reasoning": "The pair of prior generic identities suffices to set up average mixing on a join but neither examined primary document states a rank-preserving/reviving classification. Deriving the rank equality additionally requires identifying top-eigenvalue resonance and proving a complement-component positivity lemma; no directly equivalent rank law found. There remains an implicit-corollary risk.",
+      "searches": [
+        "Exact Laplacian continuous-time quantum walk average mixing matrix on graph join spectral projector resonance eigenvalue order complement disconnected Schur",
+        "Quantum average mixing rank under graph joins complement connectivity Laplacian top eigenvalue correction",
+        "Laplacian average mixing",
+        "Laplacian quantum walk joins rank",
+        "arXiv:2312.06906 formula (4) Laplacian join transition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Lo et al. arXiv:quant-ph/0509059v1 Section 4 analyzes adjacency circulant join probability distributions and approximate uniformity, not ordinary Laplacian rank for arbitrary graphs.",
+        "No consulted exact graph table supplies the universal connected-factor formula with both K2 exceptions."
+      ],
+      "reasoning": "This is a graph-independent identity and rank theorem, not an exact finite census. Existing sample ranks and tables cannot by themselves imply all-order additivity. Tests in the package are not offered as originality evidence.",
+      "searches": [
+        "Laplacian average mixing",
+        "Laplacian quantum walk joins rank",
+        "averaging quantum walks join graphs",
+        "arXiv:quant-ph/0509059 section 4 join-bunkbeds",
+        "arXiv:2312.06906 within-document search: average mixing"
+      ]
+    },
+    "rationale": "The precise Laplacian join rank-additivity law for all connected factors of order at least three, with the unique K2 rank revival and all-disconnected generalization, was not located in published sources reviewed. The 2018 Schur-square formula and 2023 join evolution formula are genuinely close and substantially enable the deduction, but do not themselves state the necessary complement-component kernel inclusion. A stronger unlocated theorem remains possible; searching does not prove universal novelty.",
+    "residual_risks": [
+      "Any prior general Laplacian-join spectral projector identity plus a known strictly-positive-complement-block lemma could imply this rank theorem without using the same wording.",
+      "No universal claim of absence in all literature or private work; no independent source audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not a direct coverage of the Laplacian average-mixing rank law, although Eq. (4) is a strong starting point and could make the new matrix calculation fairly short.",
+        "evidence": [
+          "Eq. (4) describes Laplacian transition amplitudes; enumerated theorems concern periodicity, cospectrality, PST and amplitude bounds; no average-mixing rank conclusion in inspected sections."
+        ],
+        "identifier_or_url": "arXiv:2312.06906v1; https://arxiv.org/pdf/2312.06906",
+        "material_read": "Abstract and introduction pp.1-2; Laplacian join transition formula Eq. (4) and eigenvalue support p.4; selected late-section theorem and upper-bound discussions pp.23, 26-27; within-document searches for average/average mixing across 29-page text.",
+        "method": "Primary PDF page text and rendered page 1 and 4, scientific statement/implication comparison",
+        "title": "Quantum walks on join graphs",
+        "trigger": "Direct same-operator same-construction primary source: Laplacian continuous-time quantum walks on graph joins"
+      },
+      {
+        "assessment": "Supplies the universal tool but not the Laplacian join block matrix or rank classification.",
+        "evidence": [
+          "Page 3 displays the spectral-projector Schur-square formula for an adjacency Hamiltonian; no Laplacian/join specialization in the inspected document."
+        ],
+        "identifier_or_url": "arXiv:1709.03591v1; https://arxiv.org/pdf/1709.03591",
+        "material_read": "Introduction, explicit Schur-square formula and commutant projection derivation pp.1-5; within-document searches for Laplacian and join across 14 pages.",
+        "method": "Primary full-text PDF extraction and rendered formula page",
+        "title": "A New Perspective on the Average Mixing Matrix",
+        "trigger": "General spectral Schur-square method and commutant description of rank"
+      },
+      {
+        "assessment": "Exact arithmetic averaging method; not a Laplacian join rank theorem.",
+        "evidence": [
+          "arXiv first submission 2022-08-18, MSC first code 81P68; Section 2 Theorem 3 gives exact entries of average mixing matrix for integral Hamiltonians."
+        ],
+        "identifier_or_url": "arXiv:2208.08971v1; https://arxiv.org/pdf/2208.08971",
+        "material_read": "Abstract and introduction pp.1-2, exact average-mixing methods Section 2 pp.3-5, document-wide join search.",
+        "method": "arXiv first-submission metadata and primary PDF text",
+        "title": "Irrational quantum walks",
+        "trigger": "Qualifying 2022 primary mathematical-physics source for exact quantum averaging"
+      },
+      {
+        "assessment": "Restricts join mixing to adjacency-based circulant families and average uniformity, without a general Laplacian join rank identity.",
+        "evidence": [
+          "Section 4 constructs adjacency eigenmodes for joins of circulants and discusses average uniformity rather than rank of Laplacian Cesàro mixing."
+        ],
+        "identifier_or_url": "arXiv:quant-ph/0509059v1; https://arxiv.org/pdf/quant-ph/0509059",
+        "material_read": "Introduction pp.1-2 and Section 4 join-bunkbed theorem text pp.5-7; document-wide search for Laplacian.",
+        "method": "Primary PDF text and rendered title page; compare Hamiltonian and conclusion",
+        "title": "Mixing of Quantum Walk on Circulant Bunkbeds",
+        "trigger": "Closest older graph-join and long-time mixing literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "85d0589b-13b4-44bc-9c74-548b23e35728",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Classifies an all-graph operation: connected-factor Laplacian average-mixing rank is additive except exactly the K2 factors; disconnected cases have a complete reduced-rank formula. It explains why all other top-frequency coincidences fail to change rank, and separates structural nullity from graph-specific computations. This is a natural transport invariant and an exact, unrestricted classification, rather than a finite small-graph increment.",
+    "status": "PASS"
+  }
+}
