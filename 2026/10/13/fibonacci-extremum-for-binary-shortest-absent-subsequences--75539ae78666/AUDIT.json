@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Kosche et al. Proposition 3.21, inspected in full text, proves that the alternating-arch word A_k maximizes the number of SAS at fixed universality index k. Their adjacent-inequality characterization specializes over {0,1} to the two updates (p,q)->(p+q,q) and (p,q)->(p,p+q). Alternating updates produce consecutive Fibonacci numbers and total F_{k+3}. For minimum length 2k, every arch is 01 or 10; sorting the two counts gives the inductive envelope (F_{i+1},F_{i+2}), and equality forces updating the smaller coordinate at each step, hence alternating blocks. The packaged verifier independently reconstructs SAS sets by direct subsequence testing for all binary words through length 12.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kosche et al. Proposition 3.21 proves A_k is globally maximal at fixed universality index, but Proposition 3.15 only proves exponential growth and says its quantitative estimate is not tight.",
+        "Adamson et al. Theorem 4.16 generalizes the extremal alternating-arch construction to absent factors of prescribed length.",
+        "Adamson et al. Section 4.1 says whether a closed form for the relevant extremal scattered-factor counts exists remains open in general."
+      ],
+      "reasoning": "The stronger later extremal theorem determines which word to count but does not supply the candidate's binary shortest-length closed form. Thus it supports the global maximizer premise without implying F_{k+3}.",
+      "searches": [
+        "arXiv 2108.13968 Proposition 3.21 shortest absent subsequences A_k",
+        "arXiv 2407.18599 maximum absent scattered factors binary",
+        "Tight Bounds for the Number of Absent Subsequences upper bound closed form"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.13968 full text",
+      "DOI:10.46298/fi.9221 bibliographic record",
+      "arXiv:2407.18599 full text",
+      "arXiv:2504.21471 abstract",
+      "targeted indexed searches under Fibonacci, SAS, universality-index, A_k, and binary formulations",
+      "exact web searches for Fibonacci absent-subsequence formulas"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 source characterizes A_k SAS by alternating weak inequalities but stops at a non-tight exponential estimate.",
+        "The 2024 source proves extremality for prescribed absent-factor lengths but delegates exact counting to algorithms and leaves a general closed form open.",
+        "Neither theorem classifies equality among the 2^k minimum-length binary arch orientations."
+      ],
+      "reasoning": "The Fibonacci identity requires solving the binary two-state alternating-inequality recurrence. The equality statement additionally needs a sharp induction over all minimum-length orientation patterns. These conclusions are not stated consequences in the inspected papers.",
+      "searches": [
+        "Absent Subsequences in Words SAS A_k alternating inequalities",
+        "Tight Bounds absent subsequences Theorem 4.16 counting enumeration",
+        "shortest absent subsequences binary equality cases minimum length"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct source uses both 'shortest absent subsequences' and the equivalent 'scattered factor' terminology and defines SAS length as universality index plus one.",
+        "Exact searches combining Fibonacci, binary universality, A_k, and shortest absent subsequences did not locate a published F_{k+3} formula.",
+        "The later tight-bounds paper treats absent scattered factors and explicitly contains the binary alphabet as a special case, so its terminology was included in the comparison."
+      ],
+      "reasoning": "The searches cover the exact invariant, the binary specialization, the extremal-family notation, and the scattered-factor alias. The candidate is not being distinguished merely by wording.",
+      "searches": [
+        "Fibonacci shortest absent subsequences binary universality index",
+        "binary words maximal number shortest absent subsequences Fibonacci",
+        "shortest absent subsequences A_k binary alternating 01 10",
+        "universality index binary shortest absent subsequences F_{k+3}",
+        "Fibonacci absent subsequences universality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked indexed result or web result reports the count sequence 3,5,8,13,... for binary A_k.",
+        "No checked source gives an exact binary SAS table or a Fibonacci generating recurrence."
+      ],
+      "reasoning": "An exact table or recurrence for A_k would directly cover the central new fact, so exact formula, initial-sequence, and source-identifier searches were included.",
+      "searches": [
+        "F_{k+3} shortest absent subsequences",
+        "3 5 8 13 shortest absent subsequences binary",
+        "A_k SAS Fibonacci",
+        "2108.13968 binary Fibonacci SAS"
+      ]
+    },
+    "rationale": "The 2021/2023 primary source proves extremality of A_k but gives only a non-tight exponential count estimate under a large-even-alphabet assumption, explicitly noting that the estimate is not tight. The 2024 follow-up extends the extremal construction to arbitrary absent-subsequence lengths and states that a closed form for the extremal construction's scattered-factor counts remains open in general. Neither inspected source nor targeted indexed and web searches states the binary exact value F_{k+3} or the minimum-length equality classification.",
+    "residual_risks": [
+      "The binary Fibonacci specialization may have appeared in an unindexed note, talk, thesis, or unpublished calculation.",
+      "The recurrence is elementary once the published alternating-inequality characterization is specialized to two letters, so independent rediscovery is plausible.",
+      "No equality classification is claimed for longer-than-minimum k-universal binary words."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source proves A_k is a maximizer and gives alternating inequality conditions, but its count result is only a non-tight exponential estimate and does not state the binary Fibonacci specialization.",
+        "identifier_or_url": "arXiv:2108.13968v6 / DOI:10.46298/fi.9221",
+        "material_read": "Definitions of universality and arch factorization; A_k definition; Proposition 3.15 and its quantitative proof; Lemma 3.20; Proposition 3.21 and its proof.",
+        "method": "Full-text arXiv HTML statement and implication comparison.",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Direct primary source defining SAS, A_k, and the extremal fixed-universality problem."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 4.16 again identifies alternating reversed arches as extremal, while Section 4.1 says a closed form for the construction's scattered-factor counts remains open in general and supplies algorithms rather than F_{k+3}.",
+        "identifier_or_url": "arXiv:2407.18599v1",
+        "material_read": "Introduction and contribution statement; binary discussion; Section 4 upper-bound construction; Theorem 4.16; Section 4.1 counting and enumeration.",
+        "method": "Full-text arXiv HTML statement and implication comparison.",
+        "title": "Tight Bounds for the Number of Absent Subsequences",
+        "trigger": "Later paper claiming tight upper bounds for absent subsequences at fixed universality, potentially stronger than the candidate."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper advertises optimal enumeration algorithms and longest-MAS computation, not an extremal count formula for binary words at fixed universality.",
+        "identifier_or_url": "arXiv:2504.21471",
+        "material_read": "Abstract and contribution summary.",
+        "method": "Abstract-level comparison because the contribution is algorithmic enumeration rather than extremal counting.",
+        "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+        "trigger": "Later work devoted specifically to SAS enumeration algorithms."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "75539ae7-8666-49d1-a6d6-5cc8a1cf3d55",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary paper highlights exponentially large SAS sets because their output size motivates compact representations and extremal analysis, but leaves its quantitative A_k count deliberately non-tight. The later tight-bounds paper still uses algorithms rather than a general closed form. The binary case is the fundamental smallest alphabet: replacing a qualitative exponential statement by the exact Fibonacci extremum supplies a sharp output-size law, and the minimum-length equality classification identifies precisely when that extremum occurs in the smallest representatives.",
+    "status": "PASS"
+  }
+}
