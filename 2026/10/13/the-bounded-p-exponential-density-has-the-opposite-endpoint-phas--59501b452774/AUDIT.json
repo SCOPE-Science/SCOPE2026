@@ -1,0 +1,89 @@
+{
+  "correctness": {
+    "rationale": "The published density is exactly a positive constant times \\(p+1-x\\) raised to \\(p-1\\). Its derivative has sign opposite to \\(p-1\\), and the endpoint limit is determined by the exponent \\(p-1\\). The log-density second derivative gives log-convexity below one and log-concavity above one. The hazard calculation is separate and remains increasing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source's own scaled-Beta representation identifies the model as \\((p+1)\\mathrm{Beta}(1,p)\\).",
+        "Standard Beta(1,p) calculus implies the same increasing/constant/decreasing trichotomy."
+      ],
+      "reasoning": "General Beta-distribution theory subsumes the calculus, but it does not cover the source-specific correction because the 2026 article explicitly states the wrong phase in prose. The retained contribution is the identification and exact repair of that contradiction.",
+      "searches": [
+        "p-exponential Beta(1,p) density shape log-convex log-concave endpoint",
+        "bounded p-exponential mode endpoint asymptotic correction"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math14061076"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eq. (4) states \\(f_p(x)=p(p+1)^{-1}(1-x/(p+1))^{p-1}\\).",
+        "Section 2.3 correctly prints \\(d\\log f_p/dx=-(p-1)/(p+1-x)\\) but then says the density decreases for \\(0<p\\le1\\).",
+        "The same article states \\(X=(p+1)Y\\) with \\(Y\\sim\\mathrm{Beta}(1,p)\\)."
+      ],
+      "reasoning": "The source's formulas logically imply the corrected phase diagram but its stated qualitative conclusions contradict that implication. Accordingly the final claim is a correction of published assertions rather than a merely unstated corollary.",
+      "searches": [
+        "doi:10.3390/math14061076 Eq. (4) density",
+        "doi:10.3390/math14061076 Section 2.3",
+        "doi:10.3390/math14061076 Beta(1,p) representation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no hit concerning DOI 10.3390/math14061076 or the bounded p-exponential density correction.",
+        "Exact DOI searches returned the original article and institutional metadata, not a corrigendum.",
+        "The public full text itself contains the conflicting prose and derivative formulas."
+      ],
+      "reasoning": "The correction was searched under the model name, exact DOI, monotonicity reversal, endpoint blow-up, and Figure 1 terminology. No equivalent model-specific correction was located.",
+      "searches": [
+        "bounded p-exponential density monotonicity endpoint phase p less than 1 p greater than 1",
+        "10.3390/math14061076 density decreasing increasing correction",
+        "one-parameter bounded p-exponential Figure 1 density shape"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Publisher metadata gives publication on 22 March 2026 and MSC 60E05, 62E15, 62F10.",
+        "No corrigendum or erratum was returned by exact-source searches.",
+        "The Figure 1 discussion states endpoint blow-up for all parameter values, while Eq. (4) has endpoint power \\(p-1\\)."
+      ],
+      "reasoning": "The decisive comparison is internal to the primary article; no external numerical database is required.",
+      "searches": [
+        "10.3390/math14061076 corrigendum",
+        "10.3390/math14061076 erratum",
+        "10.3390/math14061076 Figure 1 density"
+      ]
+    },
+    "rationale": "The source contains the correct density formula and Beta representation but explicitly states the opposite subunit monotonicity and an all-parameter endpoint blow-up. The accepted claim is a source-specific correction and exact phase diagram, not a claim that elementary Beta-density calculus is new. Five focused published-finding corpus searches and exact web searches found no published correction.",
+    "residual_risks": [
+      "A very recent unindexed author correction may exist outside the publisher and indexed records examined.",
+      "The plotted Figure 1 curves may visually reflect the correct formula even though the accompanying prose is wrong.",
+      "The correction is elementary once Eq. (4) is differentiated; its value is source repair rather than a new general probability theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY INCONSISTENT on density geometry. Eq. (4), the Beta representation, and the printed log-density derivative all imply that the density increases for 0<p<1 and decreases for p>1, while the prose states the opposite subunit monotonicity and universal endpoint blow-up.",
+        "evidence": "Eq. (4); Figure 1 discussion; Corollary 1; Section 2.3 derivative formulas and concluding sentence.",
+        "identifier_or_url": "doi:10.3390/math14061076",
+        "material_read": "Public full text covering the defining CDF and PDF, hazard formula, Figure 1 discussion, scaled Beta(1,p)/Kumaraswamy representation, Section 2.3 shape derivatives, and publication/MSC metadata.",
+        "method": "Direct inspection of the publisher-provided public full-text copy and publisher metadata.",
+        "title": "The One-Parameter Bounded p-Exponential Distribution: Properties, Inference, and Applications",
+        "trigger": "Primary 2026 source defining the bounded p-exponential family and making the disputed density-shape statements."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "59501b45-2774-4d2e-8c86-f8ddb0f3395b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Density shape is a core advertised property of the new bounded lifetime family and is used to interpret how the parameter changes concentration near the support boundary. The published description reverses the entire subunit regime and claims an endpoint singularity where the density actually vanishes for p>1. Correcting the phase diagram changes the mode and boundary interpretation across the whole parameter space while preserving the valid IFR result.",
+    "status": "PASS"
+  }
+}
