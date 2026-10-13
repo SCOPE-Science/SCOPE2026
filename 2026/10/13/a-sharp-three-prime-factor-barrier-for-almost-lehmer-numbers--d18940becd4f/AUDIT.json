@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The universal proof is symbolic and bound-free. Coprimality forces odd squarefreeness; the normalized semiprime case yields ab|h and h|sK while gcd(ab,sK)=1, forcing ab=1 and p=q. The exact witness 1729 proves sharpness. The packaged computation is supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "OEIS:A238575 lists k-Lehmer numbers with two prime factors, including semiprimes such as 15 and 51.",
+        "JIS:21.5.5 imposes the stronger requirement that the multiplier be a squarefree divisor of n-1."
+      ],
+      "reasoning": "The broader k-Lehmer condition does not dominate the claim: it permits support-two examples. The proof specifically uses both squarefreeness of the multiplier and its divisibility into n-1.",
+      "searches": [
+        "2-Lehmer semiprime two prime factors phi(n) divides (n-1)^2",
+        "k-Lehmer semiprime pq no solutions",
+        "Grau Oller-Marcen k-Lehmer two prime factors"
+      ]
+    },
+    "checked_sources": [
+      "JIS:21.5.5",
+      "OEIS:A337316",
+      "OEIS:A338998",
+      "OEIS:A238575",
+      "2026/10/4/SCOPE-a-semiprime-barrier-for-quasi-amicable-pairs--60285e65fda6",
+      "2026/10/4/SCOPE-a-semiprime-sieve-for-the-iterated-divisor-sum-mersenne-equation--7f22f0d3984d",
+      "2026/10/4/SCOPE-the-unique-semiprime-in-t-th-s-auxiliary-set-is-15--c2d75774e384",
+      "2026/10/4/SCOPE-unique-two-almost-prime-solution-of-the-erd-s-sierpi-ski-equatio--1ea62e4a9301"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026/10/4/SCOPE-a-semiprime-barrier-for-quasi-amicable-pairs--60285e65fda6",
+        "2026/10/4/SCOPE-a-semiprime-sieve-for-the-iterated-divisor-sum-mersenne-equation--7f22f0d3984d",
+        "2026/10/4/SCOPE-the-unique-semiprime-in-t-th-s-auxiliary-set-is-15--c2d75774e384",
+        "2026/10/4/SCOPE-unique-two-almost-prime-solution-of-the-erd-s-sierpi-ski-equatio--1ea62e4a9301"
+      ],
+      "reasoning": "The closest returned records concern quasi-amicable pairs, an iterated divisor-sum equation, Toth's auxiliary set, and the Erdos-Sierpinski equation. Their hypotheses and conclusions are on different arithmetic objects and do not imply the almost Lehmer support bound. The defining paper proves asymptotic counts rather than this structural minimum.",
+      "searches": [
+        "almost Lehmer two prime factors semiprime no solutions",
+        "\"almost Lehmer\" semiprime squarefree two primes",
+        "Yamada almost Lehmer omega 2 three prime factors 1729",
+        "2-Lehmer semiprime two prime factors phi(n) divides (n-1)^2",
+        "k-Lehmer semiprime pq no solutions",
+        "\"phi(n) divides (n-1)^2\" semiprime",
+        "Grau Oller-Marcen k-Lehmer two prime factors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "JIS:21.5.5 defines almost Lehmer numbers via phi(n)|ell(n-1) with squarefree ell|n-1.",
+        "OEIS:A337316 gives the same defining condition and first terms beginning 1729."
+      ],
+      "reasoning": "Searches covered the class name, semiprime/two-prime aliases, the first sharp witness, and the exact totient divisibility. No returned statement was equivalent to excluding all support-two cases.",
+      "searches": [
+        "almost Lehmer two prime factors semiprime no solutions",
+        "\"almost Lehmer\" semiprime squarefree two primes",
+        "Yamada almost Lehmer omega 2 three prime factors 1729",
+        "\"phi(n) divides (n-1)^2\" semiprime"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A337316 begins 1729, 12801, ... and records the denominator/divisibility criterion.",
+        "A338998 records phi(1729)=1296 dividing 3*1728.",
+        "A238575 contains support-two examples only for the broader k-Lehmer notion."
+      ],
+      "reasoning": "The exact tables corroborate the sharp example and terminology but contain no complete semiprime exclusion for the almost Lehmer class.",
+      "searches": [
+        "OEIS:A337316 exact almost Lehmer sequence",
+        "OEIS:A338998 1-nearly Lehmer 1729 multiplier 3",
+        "OEIS:A238575 k-Lehmer two prime factors"
+      ]
+    },
+    "rationale": "Statement-level comparison against the defining paper, exact sequence tables, broader k-Lehmer data, targeted semantic searches, and the current/prior owned ledgers found no theorem implying the sharp support-three barrier.",
+    "residual_risks": [
+      "An older equivalent semiprime exclusion could exist under substantially different terminology outside the inspected primary source, exact databases, and targeted semantic searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact class and proves asymptotic results; notes odd squarefreeness but does not state or prove the support-two exclusion.",
+        "evidence": [
+          "Published April 25, 2021; primary MSC 11A25.",
+          "First examples begin with 1729."
+        ],
+        "identifier_or_url": "JIS:21.5.5",
+        "material_read": "Full article, including definition, examples, structural remarks, theorem statements, and references.",
+        "method": "Full-text inspection.",
+        "title": "On Almost Lehmer Numbers",
+        "trigger": "Defining primary source for the class."
+      },
+      {
+        "assessment": "Records the class and begins at 1729; no support-minimum theorem is given.",
+        "evidence": [
+          "Entry dated September 28, 2020.",
+          "Initial term 1729."
+        ],
+        "identifier_or_url": "OEIS:A337316",
+        "material_read": "Definition, initial terms, comments/formula, and author/date line.",
+        "method": "Direct table inspection.",
+        "title": "OEIS A337316",
+        "trigger": "Exact database for almost Lehmer numbers and earliest verified public evidence."
+      },
+      {
+        "assessment": "Explicitly supplies the multiplier 3 for 1729, proving sharpness of the support bound.",
+        "evidence": [
+          "phi(1729)=1296 divides 3*1728."
+        ],
+        "identifier_or_url": "OEIS:A338998",
+        "material_read": "Definition, terms, and comments around 1729.",
+        "method": "Direct table inspection.",
+        "title": "OEIS A338998",
+        "trigger": "Exact database for the sharp 1-nearly witness."
+      },
+      {
+        "assessment": "Not covering: its weaker multiplier condition admits semiprimes, so it cannot imply the almost Lehmer barrier.",
+        "evidence": [
+          "The sequence begins with support-two examples such as 15, 51, 85, and 91."
+        ],
+        "identifier_or_url": "OEIS:A238575",
+        "material_read": "Definition and initial support-two terms.",
+        "method": "Direct table inspection.",
+        "title": "OEIS A238575",
+        "trigger": "Potential broader two-prime coverage under k-Lehmer terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d18940be-cd4f-4bd0-8103-9cafa58a6327",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The minimum number of distinct prime factors is a natural structural invariant of the almost Lehmer class. Excluding the entire two-prime layer is bound-free and sharp at the first known example, and the failure of the analogous statement for broader k-Lehmer numbers shows that the result captures genuine structure of the defining multiplier condition.",
+    "status": "PASS"
+  }
+}
