@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The source's general-\\(n\\) implicit gadget measures \\(L\\) and \\(LS_j\\). A premeasurement \\(X\\)-pattern flips exactly the adjacent \\(Z_jZ_{j+1}\\) stabilizer signs, while leaving \\(L\\) unchanged, so equality of reported root/check signs is exactly \\(e_j\\oplus e_0=x_j\\oplus x_{j+1}\\). Pure-fault distances, the mixed distance-two witness, and the wrong-sign distance follow from this linear kernel. The lower bound \\(d_{\\mathrm{sign}}\\ge\\lfloor n/2\\rfloor+1\\) uses \\(T(x)\\le2|x|\\) and \\(T(x)\\le n-1\\), and the alternating pattern attains it. The stochastic formulas follow by summing over the domain-wall count with an exact two-state transfer matrix.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bombín's single-shot framework explains that noisy check measurements can compromise ordinary low-dimensional repetition-style error correction and motivates redundant constraints.",
+        "Kuo--Lai formulate generalized data-syndrome codes for simultaneous data and syndrome errors, but do not treat the anchor's logical-\\(X\\) plus \\(LS_j\\) measurement map or its exact distances.",
+        "Repetition-code experiments and phenomenological-noise papers generally use repeated syndrome rounds or decoders rather than this postselected implicit-check kernel."
+      ],
+      "reasoning": "The broader literature supplies general mechanisms for data-plus-measurement noise. No inspected theorem specializes to the source's redundant logical-\\(X\\) observables in a way that directly yields the exact accepted kernel, the \\(\\lfloor n/2\rfloor+1\\) wrong-sign distance, and the stochastic transfer matrix.",
+      "searches": [
+        "\"data and measurement errors\" repetition code syndrome distance",
+        "\"phenomenological noise\" repetition code measurement errors single round",
+        "\"Single-Shot Fault-Tolerant Quantum Error Correction\" repetition code measurement",
+        "\"Generalized quantum data-syndrome codes\" measurement errors"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.08925v1",
+      "DOI:10.1103/PhysRevX.5.031043",
+      "arXiv:2310.12682",
+      "public technical review record for arXiv:2609.08925",
+      "claim-specific semantic-index searches listed above",
+      "current and immediately prior cumulative research files"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.08925v1 states that implicit checks detect collapse readout errors through order \\(n-1\\), and Figure 1 plus Section II A show \\(L\\) and \\(LS_j\\) observables; it does not classify simultaneous state/readout masking.",
+        "The anchor's hardware sweep observes diminishing benefit beyond \\(n=2\\), but gives no analytic mixed-fault distance or exact independent-noise formula.",
+        "The public technical review of the anchor flags the lack of a general-\\(n\\) proof for the readout coverage, but likewise does not contain the mixed-fault theorem.",
+        "General single-shot literature establishes qualitative limitations of noisy syndrome measurements, not the source-specific implication proved here."
+      ],
+      "reasoning": "The source's pure-readout statement is treated as prior and is not claimed as the original contribution. The accepted result starts where that statement stops: it allows simultaneous \\(X\\)-pattern and readout faults, solves the acceptance kernel, computes two distinct operational distances, and derives the exact stochastic law.",
+      "searches": [
+        "2609.08925 implicit checks simultaneous bit flip readout errors masking fault distance",
+        "collapse(n) joint data measurement faults repetition code syndrome masking dynamic circuits",
+        "implicit checks error detection combined gate readout faults distance floor n/2",
+        "GHZ repetition patch logical X stabilizer checks readout error masking exact acceptance transfer matrix",
+        "\"2609.08925\" \"(n-1)th order\" postselection",
+        "\"2609.08925\" implicit checks measurement outcomes internally inconsistent",
+        "\"repetition code\" noisy syndrome single shot data measurement errors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The claim-specific semantic searches returned no record about arXiv:2609.08925 or an equivalent implicit-check mixed-fault kernel.",
+        "Exact-title and alias web searches recovered the anchor and general syndrome-noise literature, but no theorem with the distance-two joint detector, the wrong-sign distance, or the displayed transfer-matrix law."
+      ],
+      "reasoning": "Searches covered the source identifier, collapse(n), implicit checks, repetition-code aliases, simultaneous data/readout faults, syndrome masking, logical-sign failure, and the transfer-matrix formulation.",
+      "searches": [
+        "2609.08925 implicit checks simultaneous bit flip readout errors masking fault distance",
+        "collapse(n) joint data measurement faults repetition code syndrome masking dynamic circuits",
+        "implicit checks error detection combined gate readout faults distance floor n/2",
+        "GHZ repetition patch logical X stabilizer checks readout error masking exact acceptance transfer matrix",
+        "\"Resilience Beyond the Light Cone\" implicit checks collapse(n) readout errors repetition code general n",
+        "\"implicit checks\" GHZ repetition code readout error all outcomes agree quantum dynamic circuits",
+        "\"single round\" repetition code measurement errors data errors logical failure order"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No semantic-index result supplied a table, code-distance entry, or exact probability formula for the candidate architecture.",
+        "The anchor reports experimental code-size sweeps and acceptance rates, but does not tabulate an idealized joint-fault distance or closed-form noise law."
+      ],
+      "reasoning": "The result is an analytic classification for all patch sizes and continuous noise parameters, not a recomputation of a reported numerical table.",
+      "searches": [
+        "2609.08925 implicit checks simultaneous bit flip readout errors masking fault distance",
+        "GHZ repetition patch logical X stabilizer checks readout error masking exact acceptance transfer matrix"
+      ]
+    },
+    "rationale": "The anchor states and illustrates the pure-readout detection mechanism but does not analyze simultaneous patch bit flips and readout flips. The accepted claim's main content is the exact mixed-fault kernel, distance-two masking boundary, wrong-sign distance, and transfer-matrix law. Generic single-shot and data-syndrome-code literature explains the broader noisy-syndrome problem but does not cover these source-specific observables or formulas. Claim-specific semantic and web searches found no equivalent statement.",
+    "residual_risks": [
+      "An equivalent source-specific mixed-fault calculation may exist in an unindexed note or implementation supplement under different notation.",
+      "Generic coding theory already supplies broad noisy-syndrome principles; originality here is limited to the exact implicit-check architecture and formulas.",
+      "The effective premeasurement fault model does not establish a full circuit-level distance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPLIES the observables \\(L\\) and \\(LS_j\\), the stabilizers \\(Z_jZ_{j+1}\\), and the pure-readout claim, but DOES_NOT_COVER the simultaneous patch-\\(X\\)/readout kernel, mixed distances, or transfer-matrix law.",
+        "evidence": "Section II A states that the root encodes the logical \\(X\\) and check qubits encode products of that logical operator with stabilizers; it says implicit checks flag internally inconsistent outcomes and illustrates this explicitly only for \\(n=2\\).",
+        "identifier_or_url": "arXiv:2609.08925v1",
+        "material_read": "Full public PDF with direct inspection of Figure 1 and Section II A, especially the repetition-code interpretation, explicit checks, implicit checks, the \\(n=2\\) example, and the experimental code-size sweep.",
+        "method": "Direct full-text and page-image inspection of the public preprint.",
+        "title": "Resilience Beyond the Light Cone: Error-Detected Primitives for Practical Dynamic Circuits",
+        "trigger": "Primary source defining the implicit-check patch and claiming order-\\(n-1\\) readout-error detection."
+      },
+      {
+        "assessment": "SUPPLIES the broader single-shot context but DOES_NOT_COVER the anchor's implicit logical-\\(X\\) measurements or the exact source-specific formulas.",
+        "evidence": "The article explains why ordinary one-dimensional repetition-code check syndromes do not possess the confinement needed for generic single-shot correction.",
+        "identifier_or_url": "DOI:10.1103/PhysRevX.5.031043",
+        "material_read": "Article text and discussion of the one-dimensional repetition-code limitation and the role of noisy check measurements.",
+        "method": "Direct journal web-text inspection.",
+        "title": "Single-Shot Fault-Tolerant Quantum Error Correction",
+        "trigger": "Closest foundational literature on simultaneous data and measurement errors in one-shot syndrome information."
+      },
+      {
+        "assessment": "SUPPLIES a general simultaneous-error framework but DOES_NOT_COVER the implicit-check patch or imply its exact mixed-fault distances.",
+        "evidence": "The work treats general sparse-code decoding and redundant stabilizer checks, rather than the anchor's redundant logical-\\(X\\) extraction.",
+        "identifier_or_url": "arXiv:2310.12682",
+        "material_read": "Public abstract and source description of generalized data-syndrome codes integrating data and measurement errors.",
+        "method": "Direct public arXiv metadata/abstract inspection.",
+        "title": "Generalized quantum data-syndrome codes and belief propagation decoding for phenomenological noise",
+        "trigger": "Broader coding framework for simultaneous data and syndrome-measurement faults."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "440fa4a5-69e6-4e22-b721-e3b83a1503cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The anchor's main practical mechanism trades infidelity for postselection and experimentally varies the patch size \\(n\\), finding diminishing returns beyond \\(n=2\\). The theorem identifies a concrete structural reason that is invisible in the pure-readout order claim: once patch bit flips and readout flips coexist, the detector itself has distance two and the accepted wrong-sign exponent drops from \\(n\\) to \\(\\lfloor n/2\rfloor+1\\). The exact transfer matrix then turns that boundary into acceptance and residual-sign probabilities usable for idealized patch-size and noise-budget analysis.",
+    "status": "PASS"
+  }
+}
