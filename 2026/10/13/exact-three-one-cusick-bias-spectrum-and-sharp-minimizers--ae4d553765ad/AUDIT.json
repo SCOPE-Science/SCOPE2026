@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Kummer/Legendre digit identity gives the exact carry budget 3. All accepted histories terminate by the third zero column above the highest set bit; hence exact density equals an integer-state count over a finite residue modulus. Three intervening zero columns similarly eliminate carry across any longer gap; thus clipping gaps to four is proved for all positive gaps, not inferred from experiments. Sixteen rational state counts reproduced by independent stopped-measure recurrence and by direct residue enumeration, plus 256 diagnostic larger-gap comparisons. The finite table exhausts all shifts by proof, yielding sharp and unique gap minimizers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cheng (August 2026) establishes \\(F(k)\\sim(\\log_2 k/k)^{3/2}/(2\\sqrt\\pi)\\) as \\(k\\to\\infty\\); Cheng (June 2026) establishes \\(c_t\\ge\\tfrac12+2^{-2s_2(t)-1}\\) for every positive shift."
+      ],
+      "reasoning": "Neither a large-weight asymptotic nor a strict lower bound valid at every weight determines the exact \\(k=3\\) minimum, its equality cases, or its complete five-value spectrum.",
+      "searches": [
+        "fixed Hamming weight three Cusick exact minimum 19/32 attained 11 13 binary shift",
+        "general result \\(c_t\\) for 2^a+2^b+1 three ones exact digital sum",
+        "arXiv:2608.25899v1 Theorem 1.1; arXiv:2606.23398v1 Theorem 1.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.25899v1",
+      "arXiv:2606.23398v1",
+      "arXiv:2005.07167v3",
+      "arXiv:1509.08623v2",
+      "Semantic searches for Cusick three-one exact values, shifts 11/13, fixed-weight extremal \\(F(3)\\), carry-budget equivalent formulations, and covered small-shift tables"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier correlation recurrences compute \\(c_t\\) for each fixed shift but do not compare all unbounded-gap three-one shifts. The 2026 fixed-weight theorem is asymptotic as \\(k\\to\\infty\\), whereas this result fixes \\(k=3\\). The 2026 universal lower bound at \\(k=3\\) is \\(\\tfrac12+\\tfrac1{128}\\), strictly less than the exact \\(19/32\\)."
+      ],
+      "reasoning": "No inspected prior theorem implies the exact five-value, all-gap classification without further structural and exhaustive finite work. The result is derivable using standard correlation tools, but derivability from known tools is not itself coverage by a previously published statement. Unindexed previous classifications remain a risk.",
+      "searches": [
+        "arXiv:2005.07167v3 sections 1–2",
+        "arXiv:1509.08623v2 sections 1–2",
+        "arXiv:2606.23398v1 sections 1–3 and Example 3.4",
+        "arXiv:2608.25899v1 sections 1–3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Legendre–Kummer equates the defining event to \\(\\nu_2(\\binom{n+t}{t})\\le3\\); the 2015 article also supplies equivalent hyperbinary and polynomial-congruence formulations. None of the inspected formulations states an exact all-gap weight-three classification."
+      ],
+      "reasoning": "The finite spectrum claim remains the same under carry, binomial-valuation, or deconvolved-correlation reformulations. Checking those known reductions detects related but not covering general statements; the reductions themselves are not claimed as new.",
+      "searches": [
+        "Cusick \\(c_t\\) three one bits exact five-value spectrum 19/32 5/8 41/64 21/32 43/64",
+        "Cusick’s sum-of-digits conjecture exact fixed Hamming weight three value \\(F(3)\\) 3/32 19/32",
+        "arXiv:2606.23398v1 §1; arXiv:1509.08623v2 pp.1–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2015 paper tabulates densities for small individual t and reports bounded numerical checks; Cheng June 2026 Example 3.4 explicitly gives \\(P_{11}\\). Neither inspected table or example has an all-gap spectrum/equality classification."
+      ],
+      "reasoning": "The values at odd shifts 11 and 13 are computable from known recurrences and are not novel as isolated values. A finite small-t table does not establish the lower bound or uniqueness among shifts with arbitrarily large internal gaps; the carry-budget clipping proof supplies that missing exhaustive implication.",
+      "searches": [
+        "arXiv:1509.08623v2 Table 1 and pp.1–4",
+        "arXiv:2606.23398v1 Example 3.4",
+        "Cusick c_11 c_13 19/32"
+      ]
+    },
+    "rationale": "Full-text inspection of the 2026 fixed-weight and first-exit articles and the principal 2015/2020 correlation articles revealed no global all-gap Hamming-weight-three spectrum or proof of \\(F(3)\\). Some individual small-shift values are already in the 2015 table or follow immediately from the explicit \\(P_{11}\\) example in 2026; the claim does not present those values alone as original. Exact finite-table and gap-clipping comparison is not dominated by the cited general positivity or large-weight asymptotics. An implicit or unindexed previous global classification remains a risk.",
+    "residual_risks": [
+      "A previous unindexed or implicit finite-weight classification may exist. The individual density at shift 11 and the computational recurrence are explicitly known from earlier work; only the all-gap complete spectrum and sharp global k=3 classification are claimed. Published asymptotic paper has separate technical subtleties unrelated to this finite exact proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Asymptotic the increasing-weight limit, no stated exact k=3 result",
+        "evidence": [
+          "Theorem 1.1 \\(F(k)\\) asymptotic, §1 definition of \\(F(k)\\); no \\(F(3)\\) or 19/32 match in full PDF search."
+        ],
+        "identifier_or_url": "arXiv:2608.25899v1 / https://arxiv.org/pdf/2608.25899v1",
+        "material_read": "Full-text pp.1–3, proof-result sections on asymptotic extremizers, and full-text searches for \\(F(3)\\), 19/32, weight 3, Table",
+        "method": "Readable original arXiv PDF and full-text term checks",
+        "title": "Sharp extremal asymptotics for Cusick’s sum-of-digits bias at fixed Hamming weight",
+        "trigger": "Direct formulation of \\(F(k)\\) and near-extremizers"
+      },
+      {
+        "assessment": "Provides proof tools and individual \\(P_{11}\\), not exact minimum among all three-one t",
+        "evidence": [
+          "Theorem 1.1 \\(c_t\\)>=1/2+2^(-2\\(s_2(t)\\)-1); (3.3)-(3.5) P_t recurrence, Example 3.4 \\(P_{11}\\) explicit."
+        ],
+        "identifier_or_url": "arXiv:2606.23398v1 / https://arxiv.org/pdf/2606.23398v1",
+        "material_read": "Original PDF pp.1–6 including Theorem 1.1, recurrence (3.5), Example 3.4 and stopping law",
+        "method": "Readable original arXiv PDF, equations and Example 3.4 inspected",
+        "title": "A first-exit proof of Cusick’s sum-of-digits conjecture",
+        "trigger": "All-t lower bound, deconvolution and explicit t=11 example"
+      },
+      {
+        "assessment": "Many-block asymptotic, not finite-spectrum all-gap theorem",
+        "evidence": [
+          "Theorem 1.1 many-block lower bound; (1.4)-(1.5) distribution recurrence; numerical check for t up to 2^30."
+        ],
+        "identifier_or_url": "arXiv:2005.07167v3 / https://arxiv.org/pdf/2005.07167",
+        "material_read": "Original PDF pp.1–4 and theorem/recurrence statements with page screenshot inspected",
+        "method": "Readable original arXiv PDF",
+        "title": "The binary digits of n+t",
+        "trigger": "Prior carry/digit correlation methods and bounded numerical evidence"
+      },
+      {
+        "assessment": "Gives recurrence and individual small values, no all-gap k=3 equality classification",
+        "evidence": [
+          "Theorem 1.1 density-one \\(c_t\\)>1/2; Lemma 2.1 recurrence; Table 1 small-shift values."
+        ],
+        "identifier_or_url": "arXiv:1509.08623v2 / https://arxiv.org/pdf/1509.08623",
+        "material_read": "Original PDF pp.1–5 including Theorems 1.1–1.2, Lemma 2.1 and Table 1",
+        "method": "Readable original arXiv PDF, equations and table inspected",
+        "title": "On a Conjecture of Cusick Concerning the Sum of Digits of n and n+t",
+        "trigger": "Early foundational paper with small-shift table and equivalent formulations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ae4d5537-65ad-4e63-8737-c44429938767",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cheng’s 2026 fixed-Hamming-weight program defines the natural extremal invariant \\(F(k)\\) but reports its asymptotic behavior at large weight. This theorem determines \\(F(3)=3/32\\), every attainable density at weight three, and precisely the two odd minimizers up to powers of two. The carry-budget gap barrier reduces unbounded gap families to finitely many certifiable cases. It is a complete motivated natural stratum rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
