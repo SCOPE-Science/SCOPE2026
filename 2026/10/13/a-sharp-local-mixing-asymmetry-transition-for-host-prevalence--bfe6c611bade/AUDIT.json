@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The normalized Example 5.3 equilibrium equations were reconstructed directly. At balanced mixing the positive equilibrium is \\(I_1=I_2=(V-1)/(2(V+1))\\); the Jacobian eigenvalues are \\(-(V-1)(V+1)/(2V)\\) and that quantity minus \\(q\\), so the local branch is analytic. Exact coefficient matching yields the displayed \\(A\\) and \\(B\\), and therefore \\(\\mathcal P''(0)\\). Substitution into the source vector-prevalence formula yields \\(\\mathscr P''(0)=16Vq/(V^2+2Vq-1)^2\\). The host numerator becomes \\(y^3+2(1+q)y^2-4q\\), whose derivative is positive for \\(y>0\\), giving the unique transition. The bundled checker verifies the exact coefficient identities and curvature identities symbolically and uses no finite enumeration as a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1016/j.mbs.2025.109521 proves prevalence reduction for SIS models with distinct susceptible/infected movement patterns, not the Ross-Macdonald host/vector equilibrium considered here.",
+        "DOI:10.1007/s00285-019-01428-2 proves a basic-reproduction-number inequality for fragmented Ross-Macdonald environments, not endemic prevalence curvature.",
+        "DOI:10.1007/s00285-025-02254-5 states that host and vector prevalences can respond differently and leaves vector-prevalence dependence on host movement as a future mathematical direction."
+      ],
+      "reasoning": "The broader theorems concern either persistence (R0) or a different SIS movement architecture. Neither dominates the two explicit prevalence-curvature identities, because R0 ordering does not determine endemic host/vector prevalence ordering and the SIS theorem has different state coupling.",
+      "searches": [
+        "nonhomogeneous mixing reduces disease prevalence Gao Li 2025 SIS homogeneous environment",
+        "Habitat fragmentation promotes malaria persistence Gao van den Driessche Cosner 2019 homogeneous patches reproduction number",
+        "uneven host vector distribution homogeneous environment lower host prevalence higher vector prevalence threshold connectivity"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/s00285-025-02254-5",
+      "PMID:40911201",
+      "PMCID:PMC12413432",
+      "DOI:10.1007/s00285-019-01428-2",
+      "DOI:10.1016/j.mbs.2025.109521"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating paper proves R0 is minimized at proportional host/vector distributions and numerically reports prevalence behavior; it does not derive prevalence curvature from that R0 result.",
+        "Its discussion explicitly distinguishes disease persistence from host prevalence and notes that vector prevalence under host movement warrants further mathematical study.",
+        "The 2019 paper establishes the persistence inequality but its abstract/result scope does not imply the endemic prevalence phase boundary."
+      ],
+      "reasoning": "A minimum of R0 at balanced mixing does not force either host or vector endemic prevalence to have the same local extremum; the new formulas in fact show the host extremum can switch sign while the vector extremum does not. Thus the claim is not a corollary of the persistence result.",
+      "searches": [
+        "Effect of host movement on the prevalence of vector-borne diseases full text Example 5.3 discussion",
+        "Gao Lou host movement vector prevalence future study local global vector disease prevalence",
+        "Habitat fragmentation promotes malaria persistence risk minimized distribution mosquitoes proportional humans"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.1007/s00285-025-02254-5, Example 5.3 and discussion: numerical contour comparisons at V0=1.2 and V0=2, without an explicit asymmetry curvature or transition polynomial.",
+        "Published result index searches returned no statement equivalent to the fixed-total-connectivity second-derivative formulas."
+      ],
+      "reasoning": "Patch exchange makes total prevalence even in the directional-asymmetry parameter, so an equivalent prior result would need to determine the leading even response or an implication strong enough to fix its sign. The inspected source and search results do not provide such a formula or implication.",
+      "searches": [
+        "two-patch vector-borne homogeneous environment nonhomogeneous mixing fixed total movement asymmetric connectivity host prevalence curvature vector prevalence",
+        "Ross-Macdonald two patch asymmetric host movement host prevalence local expansion symmetric mixing",
+        "Gao Lou Effect of host movement prevalence vector-borne disease nonhomogeneous mixing analytic threshold host vector prevalence",
+        "host prevalence local minimum vector prevalence movement mixing vector-borne"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "DOI:10.1007/s00285-025-02254-5, Example 5.3, Eq. (5.1), Fig. 4 and surrounding text provide the exact normalized model and only numerical contour evidence for the asymmetric-connectivity comparison.",
+        "No tabulated or closed-form critical abundance/connectivity curve was found in the inspected full article."
+      ],
+      "reasoning": "The new result is not a recomputation of a published table: it derives a symbolic local boundary from the equilibrium equations and explains two plotted regimes.",
+      "searches": [
+        "V0=1.2 V0=2 host prevalence L12 L21 vector prevalence",
+        "Effect of host movement Example 5.3 Fig. 4 nonhomogeneous mixing"
+      ]
+    },
+    "rationale": "The source gives numerical contour evidence and qualitative language for the asymmetric-connectivity effect but no local curvature formula or exact transition. Related Ross-Macdonald work covers R0 rather than endemic prevalence, and related SIS work uses a different movement architecture. The result therefore supplies a new sharp local boundary rather than restating a known persistence or prevalence theorem.",
+    "residual_risks": [
+      "The search cannot prove absolute literature uniqueness; a differently phrased local perturbation calculation could exist outside the indexed sources inspected.",
+      "The Gao–Li comparison was available through its primary/indexed abstract rather than a fully inspected article, but its stated SIS model architecture is already sufficient to show it does not imply the Ross–Macdonald curvature formulas."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_OF_GAP: provides the equations and numerical regimes but not the local asymmetry curvature or transition curve.",
+        "evidence": "Equations (2.1), (3.2), vector-prevalence definition, Example 5.3 equations and Eq. (5.1), plus the text comparing V0=1.2 with V0=2.",
+        "identifier_or_url": "DOI:10.1007/s00285-025-02254-5",
+        "material_read": "Open-access full article: model definition, connectivity convention, reduced endemic equations, vector prevalence definition, Example 5.3, Fig. 4 discussion, and final discussion.",
+        "method": "Full-text inspection of the lawful open-access HTML/PMC article.",
+        "title": "Effect of host movement on the prevalence of vector-borne diseases",
+        "trigger": "Exact same model and numerical phenomenon."
+      },
+      {
+        "assessment": "NOT_COVERING: its principal inequality concerns the basic reproduction number and does not determine host/vector endemic-prevalence curvature.",
+        "evidence": "The paper proves the multipatch R0 is at least the single-patch R0 and that proportional distributions minimize infection risk.",
+        "identifier_or_url": "DOI:10.1007/s00285-019-01428-2",
+        "material_read": "Abstract and author-hosted manuscript landing/full-text material sufficient to identify the theorem scope as reproduction-number/persistence comparison.",
+        "method": "Lawful public manuscript and bibliographic record inspection.",
+        "title": "Habitat fragmentation promotes malaria persistence",
+        "trigger": "Closest same-family theorem on nonhomogeneous host/vector distributions in homogeneous Ross-Macdonald environments."
+      },
+      {
+        "assessment": "NOT_COVERING: treats SIS patch/nonlocal models with distinct susceptible/infected movement patterns rather than host/vector Ross-Macdonald coupling.",
+        "evidence": "Its theorem says nonhomogeneous susceptible/infected mixing reduces SIS prevalence in homogeneous environments.",
+        "identifier_or_url": "DOI:10.1016/j.mbs.2025.109521",
+        "material_read": "Primary bibliographic abstract and detailed indexed abstract.",
+        "method": "Publisher/indexed primary bibliographic record and abstract inspection.",
+        "title": "Nonhomogeneous mixing reduces disease prevalence",
+        "trigger": "Closest title-level theorem on prevalence under nonhomogeneous movement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bfe6c611-bade-4e71-a97f-15f8e1fe7329",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source identifies habitat connectivity and nonhomogeneous mixing as a difficult modeling question and relies on contour plots to describe the host/vector split. The exact second derivatives turn that observation into a sharp, interpretable local theorem: vector prevalence always rises to second order under imbalance, while host prevalence switches at a single explicit abundance–connectivity threshold. This directly explains why the source sees opposite host behavior at small versus large vector abundance and gives a reusable diagnostic for connectivity perturbations.",
+    "status": "PASS"
+  }
+}
