@@ -1,0 +1,9 @@
+# Scientific review: crown-graph fixed-point singularities
+
+**Correctness — PASS.** The chart semigroup is constructed from the actual projective edge-monomial ratios. The displayed cone inequalities give an integral decomposition of every lattice point, proving normality without a finite-enumeration extrapolation. Each of the \(2n\) facet inequalities has a full-dimensional tight face. The toric divisor sequence has a rank-\((2n-2)\) identity submatrix, and the canonical class is \((n-3,n-3)\) in the resulting torsion-free \(\mathbb Z^2\). The stated ring is local at the unique closed torus orbit. The bounded exact checker confirms the facet ranks and relevant monoid decomposition but cannot prove the result for arbitrary \(n\).
+
+**Originality — PASS, subject to residual literature risk.** Ohsugi–Hibi's 2008 simple/smooth edge-polytope classification is not a classification of fixed-point local class groups. Their 2011 graph toric-ideal results give equations for a different question. Higashitani–Matsushita's global affine edge-ring divisor-class calculations do not directly supply the local canonical class of the projective crown graph chart. Published work on graph Gorenstein polytopes is compared as broader context but does not itself imply the asserted explicit cone and local \(\mathbb Q\)-Cartier obstruction. An unindexed equivalent specialization cannot be excluded.
+
+**Value — PASS.** The result concerns a natural infinite graph family and identifies the precise local failure of \(\mathbb Q\)-Gorensteinness despite an unchanged rank-two class group. The six-cycle boundary \(n=3\) is already covered by classical cycle-toric calculations; the new assertion starts at \(n=4\). The theorem makes no claim about the entire singular locus or other non-fixed torus orbits.
+
+Self-review: passed. Independent audit: not yet performed.
