@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For every \\(k\\ge1\\) and \\(\\ell\\ge k+1\\), the first \\(k\\) complete columns force the next column one rail at a time, giving \\(Z\\le2k\\). An explicit integer matrix \\(X\\) with \\(2(\\ell-k)\\) rows and \\(2\\ell\\) columns has exact Gram support on the \\(k\\)-th ladder power. Same-rail endpoint and interior dot products agree with every required edge/nonedge; for cross-rail pairs the two zero extremal products occur only at the forbidden column gap \\(k\\). At smaller gaps each possible negative term (\\(-4\\) within the second rail or \\(-2\\) across a particular rail orientation) occurs at most once and cannot cancel its positive counterparts (\\(7,58\\) and \\(10,24\\), respectively). The boundary case \\(k=1\\) has no interior offsets and is covered directly. A block-triangular minor has repeated diagonal blocks \\(\\left(\\begin{smallmatrix}1&1\\\\0&-1\\end{smallmatrix}\\right)\\) of determinant \\(-1\\), so \\(A=X^{\\mathsf T}X\\) is positive semidefinite of rank \\(2(\\ell-k)\\) and nullity \\(2k\\). The universal inequalities \\(M_+\\le Z_+\\le Z\\) and \\(M\\le Z\\) prove the four equalities. The standalone verifier constructs graph powers independently by BFS, checks all Gram nonzeros, full-rank minors and forcing sequences in 130 profiles, and brute-forces smaller forcing seeds in 12 profiles; the infinite conclusion comes from the proof, not those samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DeAlba et al., 2012, DOI:10.13001/1081-3810.1511, establishes results for powers of trees and strict distance-two powers, not ordinary powers of non-tree Cartesian ladders.",
+        "Duong et al., arXiv:1906.03079, concerns circulant and torus-product families; finite ladders are nonregular for sufficiently long length and their higher powers are not generally circulants.",
+        "Barioli et al., arXiv:1003.2028 establishes the general PSD zero forcing/nullity inequality, not exact values for ladder graph powers.",
+        "arXiv:2610.03892v1, Proposition 11, gives only the upper bound \\(2k\\) when the grid width is two, and explicitly leaves equality within Conjecture 12."
+      ],
+      "reasoning": "Known general inequalities bound the possible nullity from above but cannot imply attainment. Results about trees, general zero-forcing comparison, circulants, and graph products do not give a universal exact PSD Gram realization for every non-tree ladder power. The present theorem provides that missing lower bound.",
+      "searches": [
+        "minimum positive semidefinite rank powers of ladder graphs 2(l-k) graph maximum nullity",
+        "\"minimum rank\" \"powers of ladder graphs\" zero forcing",
+        "\"Maximum nullity and zero forcing of circulant graphs\" pdf Duong Kroschel",
+        "\"zero forcing number\" \"power of ladder\" \"2k\" graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.03892v1, full accessible HTML, especially Proposition 11 and Conjecture 12",
+      "DOI:10.13001/1081-3810.1511, OA full text of minimum rank of powers of trees",
+      "arXiv:1906.03079, published abstract of circulant nullity results",
+      "arXiv:1003.2028, classical PSD nullity comparison",
+      "published-finding corpus 2026/9/17/SCOPE002 — tree zero-forcing polynomial, not grid power",
+      "published-finding corpus 2026/10/4/SCOPE-the-4-times4-grid-refutes-all-k-cut-complex-shellability--2bb3bc2c65c6 — a different grid invariant",
+      "Relevant publicly indexed zero forcing and matrix-rank families, including finite-field graphs and proper power graphs, compared by graph definition and implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.03892v1, Proposition 11, proves only \\(Z((P_b\\square P_\\ell)^k)\\le bk\\); Conjecture 12 asks whether equality holds.",
+        "Earlier exact tree, path, and spider graph-power results require a tree base graph; a two-row grid with at least two columns has a cycle.",
+        "published-finding corpus 2026/9/17/SCOPE002 addresses zero forcing polynomials of trees, not ordinary ladder powers.",
+        "published-finding corpus 2026/10/4/SCOPE-the-4-times4-grid-refutes-all-k-cut-complex-shellability--2bb3bc2c65c6 concerns shellability of cut complexes rather than zero forcing or matrix nullity."
+      ],
+      "reasoning": "The prior upper bound and checked finite instances do not logically imply a universal lower bound. The matrix pattern condition at every edge is proved separately and turns an upper-only conjecture into equality for the first nonpath grid family. The parameter coincidences with tree-power and spider claims provide no implication because the graph families and Gram structures differ.",
+      "searches": [
+        "zero forcing powers of ladder P2 Cartesian Pn kth powers maximum nullity rank 2k grid graph conjecture 12",
+        "zero forcing square of ladder graph all k exact Z(P2 square Pn)^k=2k",
+        "zeroforcing grid Conjecture 12 two-row complete 2026",
+        "S_m(ell) spider k-th power zero-forcing minimum rank conjecture Abiad Ghasemi Nezhad 2610.03892"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.03892v1 §3: ordinary graph powers are distance-at-most-k graphs, and P_2 Cartesian P_l is the two-row grid.",
+        "The equation \\(Z=2k\\) can be equivalent to a minimum-rank value \\(2(\\ell-k)\\) only when a matrix attains the nullity bound; the explicit Gram matrix supplies it."
+      ],
+      "reasoning": "Searches covered ordinary graph powers, two-row grids, ladder graph names, zero forcing, maximum nullity and positive semidefinite minimum rank. The initiating source does not prove the equivalent statement. A direct determinant of a Gram factor here bridges the matrix and forcing formulations, rather than relying on titles or identical parameters.",
+      "searches": [
+        "zero forcing powers of ladder P2 Cartesian Pn kth powers maximum nullity rank 2k grid graph conjecture 12",
+        "zero forcing square of ladder graph all k exact Z(P2 square Pn)^k=2k",
+        "ladder grid graph powers exact Z_+ M_+ 2k P_2 box P_l all k"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2610.03892v1 §3: computations cover only widths at most 3, powers at most 3 and lengths at most 10.",
+        "No exact all-parameter ladder-power rank table or theorem appeared in the directly inspected initiating article or relevant indexed research-record matches."
+      ],
+      "reasoning": "Finite checks in the originating paper cannot imply a formula for arbitrary positive k and ell. The new analytic proof resolves infinitely many graph orders and powers, so even identical entries within small tables are not covering statements.",
+      "searches": [
+        "2 by n grid powers exact zero forcing polynomial Gram rank source arxiv 2610.03892",
+        "zeroforcing grid Conjecture 12 two-row complete 2026",
+        "Conjecture 12 grid power b=2 ladder positive semidefinite minimum rank",
+        "\"P_2\" \"square\" \"P_n\" graph powers zero forcing"
+      ]
+    },
+    "rationale": "Abiad–Flagg–Ghasemi Nezhad–Zeijlemaker (arXiv:2610.03892v1, §3, Proposition 11 and Conjecture 12) explicitly give only an upper bound and a conjecture for grid powers. They report a finite experimental range, not an all-length, all-power result for the two-row grid and not an exact positive semidefinite minimum-rank formula. The present explicit 2-dimensional sliding-window Gram representation proves the full two-row special case and its PSD strengthening. Tree powers, ordinary path powers, circulants and torus products do not imply the finite Cartesian ladder-power statement. Searches under the exact formula, equivalent graph descriptions, rank variants, and related database results found no covering published theorem, subject to residual indexing limitations.",
+    "residual_risks": [
+      "An unindexed or incompletely described article might independently establish the same two-row grid-power formula.",
+      "The full text of the older circulant-and-torus-product manuscript was not retrieved in this comparison; its abstract suggests a different regular graph family but complete exclusion from the full manuscript is not claimed.",
+      "No independent external scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: Proposition 11 provides only the upper bound and explicit small computational range; Conjecture 12 formulates the missing equality. No unrestricted two-row result or PSD Gram representation is presented.",
+        "evidence": [
+          "arXiv:2610.03892v1 §§2–3, especially lines defining M<=Z, Proposition 11, and Conjecture 12."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.03892v1",
+        "material_read": "Full accessible HTML introduction, preliminary definitions, Section 3 including Propositions 6–11 and Conjectures 10 and 12, and methodological statement of Section 4.",
+        "method": "Direct HTML full-text inspection with graph-power and grid-parameter comparisons.",
+        "title": "The Zero Forcing Number of Graph Powers",
+        "trigger": "Exact motivating zero-forcing question for powers of Cartesian grids; potentially contains the full theorem."
+      },
+      {
+        "assessment": "NOT_COVERING: a two-row ladder contains cycles, so a theorem for powers of a tree cannot cover general finite Cartesian ladder powers; strict graph power also differs from distance-at-most-k power.",
+        "evidence": [
+          "DeAlba et al. 2012, DOI:10.13001/1081-3810.1511, path-power theorem and strict distance-two tree-power discussion."
+        ],
+        "identifier_or_url": "https://doi.org/10.13001/1081-3810.1511",
+        "material_read": "Open full 2012 Electronic Journal of Linear Algebra article; results on path powers and strict distance-two tree powers, including relevant original theorems.",
+        "method": "Open-access primary article and theorem-level comparison of underlying graph and power definitions.",
+        "title": "Minimum rank of powers of trees",
+        "trigger": "Strongly related inverse eigenvalue and minimum-rank methods for ordinary graph powers."
+      },
+      {
+        "assessment": "RESIDUAL_RISK: stated families are circulant, cubic and torus-product graphs, whereas general finite ladder powers are nonregular with ends. No direct implication identified from inspected material; full-text noncoverage is not certified.",
+        "evidence": [
+          "Duong et al., arXiv:1906.03079, Special Matrices 8 (2020), 221–234, abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1906.03079",
+        "material_read": "ArXiv abstract, public institutional abstract and bibliographic description; full manuscript not successfully retrieved.",
+        "method": "Published abstract comparison of graph families and invariants.",
+        "title": "Maximum nullity and zero forcing of circulant graphs",
+        "trigger": "Nearby matrix-nullity equality theorems involving Möbius ladders and products."
+      },
+      {
+        "assessment": "SUPPORTING: introduces PSD zero forcing and general nullity bound; does not itself give the new special-family construction.",
+        "evidence": [
+          "Barioli et al., Linear Algebra and Its Applications 433 (2010), 401–411; arXiv:1003.2028."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1003.2028",
+        "material_read": "ArXiv abstract and bibliographic record.",
+        "method": "Theorem-context comparison for classical parameter inequalities.",
+        "title": "Zero forcing parameters and minimum rank problems",
+        "trigger": "Validity and provenance of the positive semidefinite nullity/forcing inequality."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "887ec38c-30c6-4327-9ade-c7dbf5fb39c9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This result resolves the all-length, all-exponent two-row case of an explicit recent grid-power zero-forcing conjecture and strengthens it to equal ordinary and PSD zero forcing and minimum ranks. The two-row strip is the first genuinely cyclic/nonpath Cartesian grid, and the explicit low-rank sliding-window Gram realization addresses the essential missing universal lower bound rather than restating the already-known forcing upper bound or a small experimental table. The result is a natural infinite-family theorem with reusable linear algebraic structure; no claim is made to resolve the full higher-width conjecture.",
+    "status": "PASS"
+  }
+}
