@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For every finite nonempty simple base G and every choice (R,L), initially unobserved roots U retain white private leaves, preventing those roots or other non-agent roots from forcing additional original vertices. Exactly \\(A=L\\setminus R\\) can each force at most one member of U. A successful force order gives an upper-triangular matched-agent/target adjacency matrix, so a uniquely restricted target-saturating matching exists; its acyclic alternating-dependency digraph conversely supplies legal sink-first forces. Every remaining private leaf is then forced. On a forest base, the relevant bipartite graph is a forest and any matching is uniquely restricted. The 128-state tree recursion accurately records child-root selected flags, parent-selected contexts and Boolean feasibility of zero or one crossing matching edge; a target requires precisely one incident matched edge and an agent at most one. Each selected subset has a unique deterministic state and contributes its weight once, independent of the number of matchings. Direct exhaustive verification over 208 graph representatives up to order six and 676900 initial subsets agreed with an independent uniquely restricted matching search, and all 42 forest representatives agreed coefficientwise with the recursion. These tests corroborate, not prove, infinite-order conclusions; no nonstandard external lemma is assumed without proof beyond Hall's theorem and elementary matching-cycle facts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brimkov et al. 2018, Proposition 20(4), applies to \\(H\\circ K_s\\) only when \\(s>1\\), and Question 3 specifically requests the \\(s=1\\) calculation.",
+        "Whitlatch et al. 2022/2023, Theorem 1, is a recurrence for complete m-ary rooted trees T_{m,h} with \\(m\\geq2\\), \\(h\\geq2\\), and Section 3 gives its exponential-in-k complexity; it does not enumerate coronas of arbitrary base forests.",
+        "The present all-coefficient forest recurrence applies to any base forest, including arbitrary branching and disconnected components. It makes no general-graph polynomial-time assertion."
+      ],
+      "reasoning": "Neither a prior clique-corona formula with larger attachments nor a count for complete regular rooted trees covers the stated arbitrary-forest leaf-corona operation. Generic bounded-treewidth methods could separately imply tractability; the newness here is the explicit matching classification and concrete bounded-state expression rather than abstract polynomial-time solvability.",
+      "searches": [
+        "power domination polynomial corona graphs pendant leaf graph polynomial",
+        "power domination leaf corona arbitrary base graph forest Hall matching condition observed leaves",
+        "power domination corona K1 graph restricted matchings saturating unobserved roots rooted forest dynamic programming",
+        "power domination polynomial of leaf corona for any forest, polynomial-time finite-state algorithm via unique matching",
+        "arXiv:2201.09111 Theorem 1 and Section 3",
+        "arXiv:1805.10984 Question 3"
+      ]
+    },
+    "checked_sources": [
+      "Brimkov et al., arXiv:1805.10984, first public 2018-05-28, full PDF Sections 1, 3, 4, 6; Proposition 20 and Question 3.",
+      "Whitlatch et al., arXiv:2201.09111, first public 2022-01-22, full arXiv HTML Theorem 1 and Sections 1-3.",
+      "Golumbic, Hirst, Lewenstein, DOI 10.1007/s00453-001-0004-z, institutional abstract and bibliography.",
+      "Published record 2026/10/4/SCOPE-all-minimum-power-dominating-sets-of-connected-threshold-graphs--215b394cb6b1",
+      "Published record 2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4",
+      "Published record 2026/9/17/SCOPE002",
+      "Published record 2026/10/4/SCOPE-paired-domination-polynomial-of-chain-graphs--38091feaa528",
+      "Published record 2026/10/4/SCOPE-power-series-unit-graphs-convert-total-domination-into-ordinary--812c4d715dfc"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2018 paper explicitly distinguishes \\(s=1\\) from its solved \\(s>1\\) corona case.",
+        "The 2022/2023 m-ary tree work uses Type I/Type II root-stem state recurrences and has complete m-ary trees as its exact domain, not this leaf-corona family.",
+        "Uniquely restricted matchings were defined independently for matrix-pattern matching questions in 2001, without the described sensor/leaf-corona all-set transformation in the inspected publication information.",
+        "Published record 2026/10/4/SCOPE-all-minimum-power-dominating-sets-of-connected-threshold-graphs--215b394cb6b1 concerns all minimum sets in connected threshold graphs; minimum-set knowledge on those graphs neither counts all sizes nor covers arbitrary leaf-corona forests."
+      ],
+      "reasoning": "The claimed implications are: full arbitrary-base matching equivalence; Hall simplification without even cycles; and a polynomial-time all-size counting recursion on forest bases. The closest primary work does not include these three combined conclusions. This is not a claim that source methods could not be extended, and it is not a claim of a complete efficient solution to the original arbitrary-base question.",
+      "searches": [
+        "power domination corona K1 graph restricted matchings saturating unobserved roots rooted forest dynamic programming",
+        "power domination polynomial of leaf corona for any forest, polynomial-time finite-state algorithm via unique matching",
+        "power domination color change on pendant graphs uniquely restricted matching matching saturation no even cycle",
+        "arXiv:1805.10984 Proposition 20(4), Question 3",
+        "arXiv:2201.09111 Theorem 1",
+        "doi:10.1007/s00453-001-0004-z"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brimkov et al. 2018, Theorem 5, gives a general power-domination/zero-forcing equivalence, but the private-leaf corona is expressly not handled by their Proposition 20; their Question 3 asks for its efficient polynomial.",
+        "Golumbic et al. 2001 define uniquely restricted matchings as matchings unique on their saturated vertices; that definition predates this theorem and is fully credited.",
+        "For an initial set with selected originals R and private leaves L, the only vertices that can force initially unobserved originals are L\\R; every such agent acts at most once. This additional structural fact identifies a specialized matching object beyond the general zero-forcing criterion."
+      ],
+      "reasoning": "The general zero-forcing characterization underlies the proof but is not the same statement as the explicit uniquely restricted matching criterion and constant-width forest coefficient algorithm. The matching notion is prior, but its exact equivalence to successful power domination of these coronas and the induced deterministic counting recursion are not supplied by the inspected comparator.",
+      "searches": [
+        "power domination polynomial of leaf corona graph H circ K1 with uniquely restricted bipartite matching all power dominating sets",
+        "power domination polynomial corona path tree graph constrained matching",
+        "uniquely restricted matching zero forcing bipartite graph correspondence adjacency matching forcing sequence",
+        "full power dominating set enumerator H circle K1 2018 Brimkov Question 3 forest case",
+        "arXiv:1805.10984 Theorem 5 and Proposition 20",
+        "doi:10.1007/s00453-001-0004-z uniquely restricted matching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Brimkov et al. 2018, Section 4, states numerical computation of power-domination polynomials of graphs with fewer than ten vertices; that contains some isolated small leaf-corona instances.",
+        "The closest indexed published record on power domination concerns minimum sets of connected threshold graphs, not the all-set polynomial on leaf coronas of arbitrary forests.",
+        "Other nearest published records concern complete-multipartite reliability or ordinary zero forcing polynomials, not this coefficient family."
+      ],
+      "reasoning": "A finite database can tabulate some of the values tested here but cannot entail the universal forcing/matching theorem or polynomial-time evaluator for all forest sizes. No indexed exact table or general recursion with the same structural domain was identified; database incompleteness remains a risk.",
+      "searches": [
+        "power domination polynomial of leaf corona graph H circ K1 with uniquely restricted bipartite matching all power dominating sets",
+        "power domination polynomial of leaf corona for any forest, polynomial-time finite-state algorithm via unique matching",
+        "arXiv:1805.10984 Section 4 numerical census",
+        "published research record IDs 2026/10/4/SCOPE-all-minimum-power-dominating-sets-of-connected-threshold-graphs--215b394cb6b1, 2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4, 2026/9/17/SCOPE002"
+      ]
+    },
+    "rationale": "The seminal arXiv:1805.10984 introduced the polynomial and general zero-forcing criterion but explicitly left the one-leaf corona as Question 3, while treating only larger clique coronas in Proposition 20. The most closely related later fully inspected arXiv:2201.09111 counts complete m-ary rooted trees, not leaf coronas of arbitrary forests, and does not imply the exact unique-matching characterization or constant-width coefficient recurrence. The 2001 uniquely restricted matching definition is credited as prior. Searches for aliases, stronger coverage, tables and equivalent implications in published research records and primary sources found only adjacent-domain results; finite tables and minimum-set enumerators do not subsume the new result. Residual unindexed/generic-framework priority risk remains.",
+    "residual_risks": [
+      "An unindexed or differently named prior transformation from propagation to uniquely restricted matchings on private-leaf expansions might be equivalent.",
+      "General bounded-treewidth counting algorithms could independently imply polynomial-time computability for a broader family; no novelty claim rests exclusively on complexity membership.",
+      "The entire text of the 2001 matching paper was not obtained; its public abstract does not indicate a power-domination application, but implicit overlap is possible.",
+      "Published research search indexing may omit mathematically equivalent findings or delayed literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_THE_NEW_THEOREM: treats clique attachments of size greater than one; explicitly asks about efficient evaluation for one private leaf. A general zero-forcing criterion is credited, not represented as a new principle.",
+        "evidence": [
+          "PDF p. 10 Proposition 20(4), H circ K_k for k>1; p. 19 Question 3 requests efficient P(H circ K_1;x); pp. 3-4 Theorem 5 general zero-forcing formulation."
+        ],
+        "identifier_or_url": "arXiv:1805.10984 | https://arxiv.org/pdf/1805.10984",
+        "material_read": "Open-access full PDF: title/submission date and initial definitions; Theorem 5 in Section 3; Section 4 introductory computer-census claim; Proposition 20(4), its proof, and the adjacency condition in Theorem 19; Section 6 conclusion and Question 3, including page images of the proposition and question.",
+        "method": "Full primary PDF text with direct page-image inspection of the two decisive claims.",
+        "title": "Power domination polynomials of graphs",
+        "trigger": "Same polynomial and exactly the corona operation, including a named open question for the K_1 case."
+      },
+      {
+        "assessment": "DIFFERENT_DOMAIN_AND_RECURSION: Theorem 1 counts complete m-ary rooted trees rather than leaf coronas of arbitrary forests; no all-base matching equivalence or bounded-width forest-corona polynomial is stated in inspected sections.",
+        "evidence": [
+          "arXiv HTML lines 37-44 give complete m-ary tree domain; lines 270-280 Theorem 1; lines 319-337 show exponential time and open question about polynomial-time coefficients."
+        ],
+        "identifier_or_url": "arXiv:2201.09111 | https://arxiv.org/html/2201.09111v1 | DOI 10.20429/tag.2023.100104",
+        "material_read": "Open-access full arXiv HTML: definitions of complete rooted m-ary and extended trees; types I/II; construction and proof of Theorem 1 in Section 2; Section 3 exponential-time bound and future questions.",
+        "method": "Primary open-access HTML full-text navigation to mathematical definitions, theorem, proof and complexity discussion.",
+        "title": "Counting Power Domination Sets in Complete m-ary Trees",
+        "trigger": "Closest power-domination counting algorithm on a tree family, plausibly related to the forest specialization."
+      },
+      {
+        "assessment": "MATCHING_DEFINITION_IS_PRIOR: No novelty claim about uniquely restricted matchings themselves; a remaining possibility of implicit links in the unread full article is recorded.",
+        "evidence": [
+          "The 2001 paper defines uniquely restricted matching by a unique perfect matching on saturated vertices and studies algorithms; it is not the all-set leaf-corona theorem on its face."
+        ],
+        "identifier_or_url": "doi:10.1007/s00453-001-0004-z | https://research.ibm.com/publications/uniquely-restricted-matchings",
+        "material_read": "Publisher/institutional bibliographic record and full abstract identifying the exact saturated-vertex uniqueness definition, algorithms, and prior complexity results; complete article not read.",
+        "method": "Original-author institutional publication record, including abstract and bibliographic cross-check.",
+        "title": "Uniquely restricted matchings",
+        "trigger": "Definitions and known algorithms for the matching object used in the new proof."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4258c0d0-00ee-4352-8a6e-5ea41663f256",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Brimkov et al. explicitly posed computation of the power-domination polynomial for the private-leaf corona as an open direction. The theorem answers a natural substantial subclass, every forest base without degree bounds, and determines all cardinalities rather than a minimum parameter. The witness distinction between Hall matchability and unique restriction is structural and necessary, as shown by the alternating four-cycle obstruction; the no-even-cycle subclass admits a sharp Hall criterion. The deterministic fixed-size interface transforms a global iterative propagation property into a reproducible polynomial-time exact enumerator. The class includes arbitrary branching, isolates, and disconnected components; no arbitrary slicing, table recomputation, or unsupported downstream significance is used.",
+    "status": "PASS"
+  }
+}
