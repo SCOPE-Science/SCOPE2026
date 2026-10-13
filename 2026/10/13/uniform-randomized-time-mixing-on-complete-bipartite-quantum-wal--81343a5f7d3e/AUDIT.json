@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The exact adjacency identity A^3=mn A gives U(t)=I+(cos(sqrt(mn)t)-1)A^2/(mn)+i sin(sqrt(mn)t)A/sqrt(mn). Hence every cross entry is (1-X^2)/(mn), and within-part off diagonals are (1-X)^2 divided by the part size squared. For m,n>=2 the necessary mn<=m+n forces m=n=2. For a star K_{1,n}, the hub diagonal and distinct leaf off-diagonal force E[X^2]=1/(n+1), E[X]=-(n-2)/2. n>=5 violates X>=-1; n=4 forces X=-1 almost surely, contradicting its second moment. Explicit probability laws realize each of four remaining types. For K_{1,4}, combining hub/leaf error inequalities with E[(1+X)^2]>=0 gives max entrywise error >=2/45. The proof covers arbitrary Borel sampling measures. Exact stdlib checks confirm 225 matrix families, four witnesses and 1445 sampled rational two-point laws. Finite checks are only corroboration; the algebra is unrestricted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2308.16378v1 Proposition 9 proves only the implication (m+n>7) => nonexistence, not the excluded orders at or below seven.",
+        "arXiv:quant-ph/0608044v1 Theorem 2 and Theorem 4 require allowing edge weights to vary to realize universal mixing."
+      ],
+      "reasoning": "The source trace inequality is too weak to exclude low-order cases such as K_{1,4} and K_{2,3}. A wider statement about variable-weight existence is inapplicable to fixed unit weights, and the older work does not establish all-start common-law uniformity.",
+      "searches": [
+        "Unexpected Averages of Mixing Matrices Baptista Coutinho Marques complete bipartite graphs remaining cases uniform averaging",
+        "quantum walk adjacency complete bipartite K1,n K2,3 mixed sampling times uniform matrix",
+        "all complete bipartite graphs admit uniform mixing under some time distribution exactly K11 K12 K13 K22"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2308.16378v1, complete relevant portions Sections 1--3.2 and 7",
+      "DOI:10.1007/s11128-024-04480-0, publisher bibliographic page/abstract and references",
+      "arXiv:quant-ph/0608044v1, full relevant portions Sections 2--4",
+      "MaRDI publication record for DOI:10.1007/s11128-024-04480-0 and MSC 81P68",
+      "Published mathematical-record semantic searches concerning randomized-time quantum mixing, biclique stars and convex-hull formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2308.16378v1 Section 3.1 Proposition 9: m+n>7 is excluded; K_{1,1}, K_{1,2}, K_{1,3}, K_{2,2} are already affirmative.",
+        "arXiv:quant-ph/0608044v1 Sections 2--4: existence of weights separately selectable for each initial vertex and a chosen target distribution."
+      ],
+      "reasoning": "The present sufficient direction is not new, and is explicitly credited. The novel necessary direction excludes all m+n<=7 remaining cases, which neither Proposition 9 nor earlier weighted single-start theorems imply. The K1,4 quantitative bound follows from new moment constraints and a nonnegative square. Published-record semantic matches with KLX or graph heights cannot imply the dynamic assertion.",
+      "searches": [
+        "Unexpected Averages of Mixing Matrices Baptista Coutinho Marques complete bipartite graphs remaining cases uniform averaging",
+        "all complete bipartite graphs admit uniform mixing under some time distribution exactly K11 K12 K13 K22",
+        "uniform average mixing arbitrary distribution star graph K1,4 K1,5 moment obstruction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2308.16378v1 Section 2 defines arbitrary-distribution full-matrix average and Section 3.1 states only a size-seven cutoff.",
+        "arXiv:quant-ph/0608044v1 Definition 1 allows varying weighted Hamiltonians and treats each chosen start state, not a common-law matrix equality."
+      ],
+      "reasoning": "The condition that J/(m+n) lies in the convex hull of the time-dependent entire mixing matrices is equivalent to a probability measure achieving the theorem. The earlier instantaneous weighted and single-initial-state formulations do not imply this fixed-graph simultaneous condition. No semantically equivalent complete biclique classification was found; failure to find one is not proof of novelty.",
+      "searches": [
+        "complete bipartite K_mn arbitrary randomized observation time law uniform average mixing all pairs characteristic function classification K1,4 K2,3 2023",
+        "quantum walk mixing matrix convex hull of time-evolved matrices complete bipartite classification K2,3",
+        "Complete classification of complete bipartite graphs with uniform randomized-time average quantum walk mixing Kmn K14 K23"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2308.16378v1 Section 3.1 lists affirmative instances but supplies no exhaustive low-order no-go table.",
+        "Publisher article DOI:10.1007/s11128-024-04480-0 exposes title, abstract, and bibliography, not a covering classification in accessible full text."
+      ],
+      "reasoning": "The concrete object is an infinite family, not a finite named lookup entry; its residual low-order cases are expressly left undecided in the inspected full preprint. Search matches on other biclique invariants such as height functions or KLX values do not tabulate this quantum-mixing property.",
+      "searches": [
+        "Complete classification of complete bipartite graphs with uniform randomized-time average quantum walk mixing Kmn K14 K23",
+        "arXiv 2308.16378 Proposition 9 remaining complete bipartite exceptions classification 81P68",
+        "quantum walk adjacency complete bipartite K1,n K2,3 mixed sampling times uniform matrix"
+      ]
+    },
+    "rationale": "Baptista--Coutinho--Marques, arXiv:2308.16378v1 Section 3.1 Proposition 9, eliminates only m+n>7 and states four affirmative examples, leaving the other low-order bicliques unclassified. The new argument eliminates all missing cases for any common probability law and gives an explicit K_{1,4} distance bound. Carlson et al., arXiv:quant-ph/0608044v1, analyze weight-varying and fixed-start instantaneous/long-time mixing rather than one fixed unweighted full mixing matrix averaged over an arbitrary common law. No dominating theorem was identified from the actual public-record and mathematically-focused searches, although literature indexing and publisher text access leave a residual risk.",
+    "residual_risks": [
+      "Publisher version-of-record full text was inaccessible at the journal page; a new classification absent from the sole publicly posted arXiv version could in principle appear there.",
+      "A later or differently titled equivalent result may be poorly indexed; negative searches cannot prove absolute originality.",
+      "No independent external scientific audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proposition 9 uses a trace cutoff m+n>7 and does not decide remaining negative biclique cases; positive instances are prior results.",
+        "evidence": [
+          "arXiv:2308.16378v1, Sections 2.1, 3.1 and 3.2, Proposition 9 and Corollary 10."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2308.16378v1",
+        "material_read": "Introduction and definitions in Sections 1--2; Proposition 9 and its proof plus listed biclique cases in Section 3.1; the P3 construction in Section 3.2; open questions in Section 7 and references.",
+        "method": "Direct full-preprint HTML, mathematical statements and displayed proofs compared.",
+        "title": "Unexpected Averages of Mixing Matrices",
+        "trigger": "Same quantum Hamiltonian, same full-matrix arbitrary-time sampling definition, explicit biclique proposition."
+      },
+      {
+        "assessment": "Different quantifiers and operator parameters: edge weights are variable and a start state is selected; it does not solve the fixed unweighted all-entry randomized-time problem.",
+        "evidence": [
+          "arXiv:quant-ph/0608044v1, Definition 1, Theorems 2--4, Corollary 5."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/quant-ph/0608044v1",
+        "material_read": "Definitions in Section 2; Theorems 2--4 in Section 3; Corollary 5 and related instantaneous mixing claims in Section 4; abstract and introduction.",
+        "method": "Direct full-preprint HTML, proof and quantifier comparison.",
+        "title": "Universal Mixing of Quantum Walk on Graphs",
+        "trigger": "Plausible earlier broad coverage of weighted complete bipartite and star quantum mixing."
+      },
+      {
+        "assessment": "Same work and mathematical subject; abstract does not claim a complete biclique classification, but publisher full text could not be inspected. The complete arXiv preprint was read instead.",
+        "evidence": [
+          "DOI:10.1007/s11128-024-04480-0 publisher page, abstract and references."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11128-024-04480-0",
+        "material_read": "Publisher landing-page abstract, bibliographic citation, dates and reference list; full published article text unavailable there.",
+        "method": "Publisher HTML, bibliographic/abstract-level comparison only.",
+        "title": "Unexpected averages of mixing matrices (version of record)",
+        "trigger": "Check whether journal version of directly inspected preprint supplies stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "81343a5f-7d3e-4228-b4d7-7fa627c9108e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source investigates arbitrary-time sampling and explicitly stops at a coarse cutoff for complete bipartite graphs while listing positive low-order cases. The finding completes that natural structural classification at all graph sizes and for every time distribution, with a transparent exact reason why averaging cannot repair K1,4, K2,3 and other failures. Its sharp domain and simultaneous all-start quantifier matter for quantum-walk mixing protocols; the quantitative 2/45 gap further proves a robust boundary. Positive examples are credited, the K1,4 error bound is not claimed optimal, and the contribution is limited to bicliques.",
+    "status": "PASS"
+  }
+}
