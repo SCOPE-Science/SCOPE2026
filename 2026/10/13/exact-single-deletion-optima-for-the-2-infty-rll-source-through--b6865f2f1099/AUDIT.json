@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The claim is a finite extremal statement on source sets of at most \\(19\\) words. Direct deletion-shadow compatibility and an independent LCS dynamic program agree on every pair. Exhaustive subset enumeration proves the complete optimum sequence through \\(n=11\\), including absence of every five-word code at \\(n=11\\), and exactly three four-word maximizers. The packaged verifier also recomputes the published \\((n,d)=(11,2)\\) bound as \\(823/105\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kulkarni--Kiyavash explicitly distinguish older restricted error patterns and cite Cheng et al. and Paluncic et al. as full deletion-channel constructions.",
+        "The inspected Paluncic et al. text develops an asymptotically optimal construction and decoding algorithm rather than a finite extremal classification."
+      ],
+      "reasoning": "General constructions and asymptotic rate results do not dominate an exact maximum/equality census for the stricter finite source convention at \\(n=11\\).",
+      "searches": [
+        "run-length limited insertion deletion correcting codes Bours 1994",
+        "Moment Balancing Templates (d,k) constrained codes run-length limited sequences",
+        "A Multiple Insertion/Deletion Correcting Code for Run-Length Limited Sequences"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1211.3128v1",
+      "DOI:10.1109/TIT.2011.2172725",
+      "DOI:10.1109/TIT.2011.2178089",
+      "DOI:10.1109/18.340459"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Substitution into Theorem V.2 gives \\(823/105\\), so the published integer upper bound is \\(7\\) and does not imply the exact value \\(4\\).",
+        "The primary source states that exact calculation of the RLL bounds is beyond its scope."
+      ],
+      "reasoning": "The closest theorem leaves a strict numerical gap at the claimed parameter; the construction literature provides feasible families/rates rather than a matching upper bound or all-equality-case classification.",
+      "searches": [
+        "Kulkarni Kiyavash Theorem V.2 n=11 d=2",
+        "Paluncic run-length limited single deletion optimal finite length"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1211.3128v1, Definition V.1 and Section V-A define constrained-source single-deletion codes and \\(S_n(d,\\infty)\\).",
+        "For equal-length words, one-deletion compatibility is equivalently longest-common-subsequence length at most \\(n-2\\); this equivalence is independently checked in the verifier."
+      ],
+      "reasoning": "The search included the published source notation and the equivalent single-deletion/LCS formulation; no exact \\((n,d)=(11,2)\\) equality census was found.",
+      "searches": [
+        "single deletion correcting code S_11(2,infinity) run-length limited exact maximum",
+        "binary (2,infinity)-RLL length 11 deletion correcting code maximum",
+        "arXiv:1211.3128 Section V-A S_n(d,infinity)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The targeted published-finding searches returned deletion-code results for different alphabets or unconstrained/asymptotic settings, not this RLL parameter.",
+        "The available current and prior ledgers contain no recoverable run-length-limited/RLL finding."
+      ],
+      "reasoning": "No table or database entry inspected supplied the exact value four together with the three labeled maximizers.",
+      "searches": [
+        "run-length limited constrained source length 11 single deletion exact codebook",
+        "Kulkarni Kiyavash S_n(d,infinity) exact n=11 d=2",
+        "S_n(2,infinity) exact code size table deletion"
+      ]
+    },
+    "rationale": "The exact same constrained-source model is defined in Kulkarni--Kiyavash, but that paper supplies only a general upper bound and does not state the \\((n,d)=(11,2)\\) optimum or equality census. Construction papers inspected or compared do not imply this finite classification. Targeted exact-parameter and alias searches and the available own ledgers found no implication-equivalent result.",
+    "residual_risks": [
+      "An obscure or unindexed historical finite enumeration of this exact endpoint convention and parameter could exist.",
+      "The Cheng--Ferreira--Broere and Bours comparisons relied on public abstract/metadata rather than a line-by-line inspection of their entire papers; neither is the decisive same-object source, which was inspected in full."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact object and gives a non-asymptotic upper bound, but not the \\((n,d)=(11,2)\\) optimum or equality census.",
+        "evidence": "Section V-A defines the endpoint convention; Theorem V.2 gives equation (27); the text immediately afterward says exact calculation of these bounds is beyond scope.",
+        "identifier_or_url": "arXiv:1211.3128v1",
+        "material_read": "Abstract, definitions, related-work discussion, Section V, Section V-A, Lemma V.1, Theorem V.2 and its proof/concluding scope statement.",
+        "method": "Full public arXiv HTML text inspected.",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Exact same constrained-source model and notation \\(S_n(d,\\infty)\\)."
+      },
+      {
+        "assessment": "Construction/decoding and asymptotic optimality; no exact finite length-\\(11\\) equality classification located.",
+        "evidence": "Conclusion states an asymptotically optimal construction and decoder; a targeted length-\\(11\\) search returned no occurrence.",
+        "identifier_or_url": "DOI:10.1109/TIT.2011.2172725",
+        "material_read": "Publicly available article text covering definitions, construction, asymptotic-rate discussion and conclusion; targeted searches for optimality, maximum size, and length \\(11\\).",
+        "method": "Public author-uploaded full-text rendering inspected.",
+        "title": "A Multiple Insertion/Deletion Correcting Code for Run-Length Limited Sequences",
+        "trigger": "Kulkarni--Kiyavash identify it as a recent full deletion-channel RLL construction."
+      },
+      {
+        "assessment": "Moment-balancing construction preserving constraints, not an exact finite optimum census.",
+        "evidence": "Abstract describes an encoding template and asymptotic redundancy, not fixed length-\\(11\\) extrema.",
+        "identifier_or_url": "DOI:10.1109/TIT.2011.2178089",
+        "material_read": "Public abstract and bibliographic description.",
+        "method": "Public full-text landing-page abstract inspected; whole document was not required for a decisive comparison because the exact same model is already covered by Kulkarni--Kiyavash.",
+        "title": "Moment Balancing Templates for (d,k)-Constrained Codes and Run-Length Limited Sequences",
+        "trigger": "Same broad RLL single insertion/deletion application."
+      },
+      {
+        "assessment": "Lee-metric-based construction with a different error-size setup; not implication-equivalent to the full single-deletion constrained-source extremum.",
+        "evidence": "Abstract states a construction based on q-ary Lee metric codes and bounded error size.",
+        "identifier_or_url": "DOI:10.1109/18.340459",
+        "material_read": "Public abstract and metadata.",
+        "method": "University repository metadata/abstract inspected.",
+        "title": "Construction of fixed-length insertion/deletion correcting runlength-limited codes",
+        "trigger": "Earlier RLL insertion/deletion literature named by Kulkarni--Kiyavash."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b6865f2f-1099-4760-b6ed-583930a80676",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The parameter is naturally selected by the source theory: \\(d=2\\) is the first nontrivial regime of Theorem V.2, and \\(n=11\\) is the first length at which the exact optimum reaches \\(4\\). The published upper bound rounds down only to \\(7\\), so the exact value and equality census close a genuine finite extremal gap and provide a compact benchmark rather than an arbitrary slice.",
+    "status": "PASS"
+  }
+}
