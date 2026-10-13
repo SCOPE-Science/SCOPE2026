@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the exact local selected-neighbor test including twisted seam, the weight-preserving 16-state trace, and the commuting flip decomposition into dimensions 10 and 6. An executable exact symbolic determinant calculation validates Qplus and Qminus in the actual submitted checker. Formal Newton trace identities prove every coefficient; filtering by top z-degree proves degree at most n, and positive Lucas-form coefficients prove degree exactly n for all n>=3. Exhaustive brute force at 3..10 rungs, a separate sparse DP at 3..32, and Lucas check at 3..100 support but do not replace the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tu–Xiao–Lang (2023), DOI 10.3934/math.2023507, Theorem 1.1 and Corollary 1.1: cubic-graph occupancy/dissociation-polynomial upper bound.",
+        "Zhou–Chen–Deng–Tu (2024), DOI 10.3934/math.2024721, Theorem 1.1: transfer matrices for rectangular path-by-path grids.",
+        "Tian–Tu (2024), DOI 10.1016/j.amc.2024.128711, abstract explicitly counts inclusion-maximal sets in grid variants."
+      ],
+      "reasoning": "A universal upper bound on polynomial evaluations does not imply individual Möbius coefficients. Rectangular path boundary vectors are not the Möbius signed seam, and counts of inclusion-maximal subsets are not the complete all-subsets polynomial.",
+      "searches": [
+        "\"Counting the number of dissociation sets in cubic graphs\"",
+        "\"Enumeration of dissociation sets in grid graphs\"",
+        "\"Enumerating maximal dissociation sets in three classes of grid graphs\""
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1016/j.dam.2011.04.023",
+      "https://doi.org/10.3934/math.2023507",
+      "https://doi.org/10.3934/math.2024721",
+      "https://doi.org/10.1016/j.amc.2024.128711",
+      "https://doi.org/10.1016/j.tcs.2011.09.009"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Orlovich et al. (2011) Theorem 7 concerns dissociation on line graphs of graphs with Hamilton paths, not the Möbius ladder.",
+        "Tu–Xiao–Lang (2023) prove a general cubic-graph inequality and identify K4-union equality, not the equality polynomial for a particular Möbius family.",
+        "Zhou et al. (2024) define G_{m x n}=P_m square P_n with open boundaries, not the twisted graph."
+      ],
+      "reasoning": "A familiar transfer matrix for the untwisted ladder can have determinants Qplus and Qminus in a product, but the Möbius result requires proving which factor lives in each swap eigenspace and subtracting signed contributions. Neither the product of determinants nor any cited theorem alone implies the signed ratio or periodic optimum count.",
+      "searches": [
+        "\"one dependent\" Möbius ladders vertex sets",
+        "\"Minimum 3-path vertex cover in Möbius ladders, exact 1-dependence and number of optimum solutions\"",
+        "\"Cyclic ladder dissociation sets Möbius twist full polynomial and Lucas numbers\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Orlovich et al. (2011), DOI 10.1016/j.dam.2011.04.023, use dissociation and 1-dependence terminology; Kardoš et al. (2011), DOI 10.1016/j.tcs.2011.09.009, identify minimum 3-path vertex covers as complements of maximum dissociation sets."
+      ],
+      "reasoning": "The three descriptions are mathematically equivalent by complementing selected vertices, so all were considered. Inspected statements report general algorithms/complexity rather than the all-weight Möbius enumerator. Search absence alone is not a proof of novelty.",
+      "searches": [
+        "\"dissociation\" \"Möbius ladder\" generating",
+        "\"dissociation\" \"Mobius ladders\" polynomial number",
+        "\"3-path\" \"Möbius ladder\" vertex cover",
+        "\"Möbius ladder\" \"dissociation number\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2023 and 2024 primary full texts present bounds and rectangular-grid matrices, not a coefficient table for the Möbius ladder. Direct exact enumeration through 10 rungs provides a computational cross-check, not a literature-database novelty certificate."
+      ],
+      "reasoning": "No table directly covering the signed Möbius coefficient sequence was located. No reliance is placed on a negative database search as definitive proof; exact mathematical implication comparisons are primary.",
+      "searches": [
+        "\"Möbius ladder\" \"dissociation\" polynomial",
+        "\"Möbius ladder\" \"dissociation number\"",
+        "\"dissociation\" \"Mobius ladders\" polynomial number"
+      ]
+    },
+    "rationale": "The finite signed-trace identity enumerates all dissociation sets of every size for the nonorientable Möbius ladder, whereas the closest inspected primary results concern complexity, upper bounds for all cubic graphs, open rectangular grids, and inclusion-maximal dissociation sets. An untwisted cycle-prism result does not determine the required signed trace without the flip action. Searches of one-dependence and 3-path-cover aliases found no stronger covering theorem; residual earlier-equivalence risk is expressly retained.",
+    "residual_risks": [
+      "An equivalent Möbius-ladder one-dependence or induced-degree-one enumerator might be buried under alternate notation in earlier graph-enumeration work.",
+      "Full text of Tian–Tu (2024) and Kardoš–Katrenič–Schiermeyer (2011) was not inspected; the available primary/abstract statement differences are strong but do not prove absence of ancillary Möbius calculations.",
+      "The nearby untwisted prism dissociation enumerator uses related determinant factors, making careful novelty framing necessary: only the new signed seam and its distribution are asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines/compares dissociation and algorithms; no same Möbius polynomial or all-order count located in inspected theorem/sections",
+        "evidence": "2011 article introduction distinguishes maximum from inclusion-minimal dissociation sets; Theorem 7 is about line graphs and Hamiltonian paths.",
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2011.04.023",
+        "material_read": "HTML article introduction, comparison table, Theorem 7 and conclusion",
+        "method": "lawfully available full article HTML indexed by publisher",
+        "title": "The complexity of dissociation set problems in graphs",
+        "trigger": "Foundational use of dissociation and one-dependent terminology, plausible general characterization"
+      },
+      {
+        "assessment": "A sharp global bound, not full coefficients for the Möbius ladder",
+        "evidence": "Theorem 1.1 bounds cubic-graph occupancy; Corollary 1.1 bounds normalized log of dissociation polynomial; equality only K4-unions.",
+        "identifier_or_url": "https://doi.org/10.3934/math.2023507",
+        "material_read": "Full OA PDF: title, abstract, definitions, Theorem 1.1, Corollary 1.1, proof method and appendix context",
+        "method": "primary open-access PDF, text and rendered page inspection",
+        "title": "Counting the number of dissociation sets in cubic graphs",
+        "trigger": "Direct polynomial problem for all cubic graphs could dominate family answer"
+      },
+      {
+        "assessment": "G_{m x n} is a rectangular Cartesian product of paths; Theorem 1.1 does not address signed twisted seam",
+        "evidence": "Pages 2–3 define path-by-path grid G_{m x n} and theorem P_{m x n}=L_m(V_m+W_m)^n R_m^t.",
+        "identifier_or_url": "https://doi.org/10.3934/math.2024721",
+        "material_read": "Full OA PDF: graph definition in introduction; formula and matrix recurrences of Theorem 1.1; rendered pages",
+        "method": "primary open-access PDF, text and rendered page inspection",
+        "title": "Enumeration of dissociation sets in grid graphs",
+        "trigger": "Potential width-two exact transfer enumeration"
+      },
+      {
+        "assessment": "Counts inclusion-maximal sets rather than all dissociation sets; exact family/appendix overlap not fully excluded",
+        "evidence": "Abstract says “maximal dissociation sets” in grid, cyclical grid and cylindrical grid graphs; cannot justify a whole-paper no-coverage claim.",
+        "identifier_or_url": "https://doi.org/10.1016/j.amc.2024.128711",
+        "material_read": "Publisher/RePEc abstract and bibliographic record only; full text unavailable",
+        "method": "publisher-indexed abstract, no full-text claim",
+        "title": "Enumerating maximal dissociation sets in three classes of grid graphs",
+        "trigger": "Very similar object family and transfer matrices; possibly dominating enumeration"
+      },
+      {
+        "assessment": "Discusses general exact algorithms and approximations; exact Möbius enumeration cannot be ruled out from abstract alone",
+        "evidence": "Abstract explicitly identifies 3-path cover as the dual of maximum dissociation set and presents generic exponential-time algorithm.",
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2011.09.009",
+        "material_read": "Abstract from bibliographic record only; full text unavailable",
+        "method": "bibliographic abstract",
+        "title": "On computing the minimum 3-path vertex cover and dissociation number of graphs",
+        "trigger": "Equivalent complement invariant might contain stronger result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "95b85b64-7057-4be9-803c-34c507d6e7cc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A nontrivial signed boundary classification supplies all graded dissociation counts for every Möbius ladder and the exact Lucas-plus-divisibility multiplicity of optimum P3-covers. This is a natural constrained-induced-subgraph problem on a classic cubic family; the Möbius flip changes full graded counts rather than only a cosmetic graph label or an arbitrary finite order, and the result cannot be obtained from global cubic bounds or untwisted determinant products without a new swap-eigenspace calculation.",
+    "status": "PASS"
+  }
+}
