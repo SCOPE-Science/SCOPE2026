@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Theorem 1.7 of arXiv:2604.02092 excludes every fixed finite number of RT^2_2 applications for BRT^3_{2,4}. A valid BRT^2_2 instance is uniformly an RT^2_2 instance whose infinite homogeneous solutions must be color 0, because the instance promise forbids even a finite color-1 homogeneous set of the supplied bound. Replacing each hypothetical bounded-pairs call by this one-call simulation contradicts Theorem 1.7.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source defines BRT^n_{2,l} by forbidding a color-1 homogeneous l-set.",
+        "Theorem 1.7 gives BRT^3_{2,4} not <=^k_omega RT^2_2 for every finite k.",
+        "The source identifies BRT^2_2 as the lower level of the bounded hierarchy and as computably true."
+      ],
+      "reasoning": "The stronger benchmark theorem against RT^2_2 dominates the needed lower bound once the one-call simulation BRT^2_2 <= RT^2_2 is made explicit.",
+      "searches": [
+        "arXiv:2604.02092 definition of BRT^n_{2,l}",
+        "arXiv:2604.02092 Theorem 1.7",
+        "arXiv:2604.02092 Section 4 preserving multiple hyperimmunities",
+        "arXiv:2509.03688 bounded Ramsey pairs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.02092",
+      "arXiv:2509.03688",
+      "Frankfurt UAS HDS bibliographic record listing MSC codes 03B30, 03D80, 05D10 for arXiv:2604.02092"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The identity-on-colorings simulation preserves every valid bounded-pair instance and converts every RT^2_2 solution into a bounded-pair solution.",
+        "Theorem 1.7 excludes every finite number of RT^2_2 calls.",
+        "Neither arXiv:2604.02092 nor the accepted claim appeared in the checked cumulative ledgers."
+      ],
+      "reasoning": "If a finite bounded-pairs reduction existed, call-by-call substitution would yield a finite RT^2_2 reduction, directly contradicting the source theorem.",
+      "searches": [
+        "primary-source implication: BRT^2_2 instance as RT^2_2 instance",
+        "primary-source implication: Theorem 1.7 finite RT^2_2 uses",
+        "current and preceding cumulative ledger source-id/title comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches recovered the Patey--Shafer separation from RT^2_2, but no source stating the bounded-pairs finite-use corollary.",
+        "The primary paper explicitly phrases Theorem 1.7 with RT^2_2 as the comparison principle."
+      ],
+      "reasoning": "The accepted formulation is equivalent to ruling out all bounded finite-use reductions through the lower-arity bounded problem; this is not the wording of the source theorem and follows through a separate simulation lemma.",
+      "searches": [
+        "bounded Ramsey triples finite applications bounded Ramsey pairs",
+        "BRT^3_2 BRT^2_2 finite parallelization computable reducibility",
+        "bounded Ramsey hierarchy triples pairs finite reductions",
+        "2604.02092 BRT2 pairs corollary",
+        "\"BRT^3_{2,4}\" \"BRT^2_2\"",
+        "\"bounded Ramsey\" triples pairs \"finite number\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked result record gave the exact bounded-pairs versus bounded-triples finite-use statement.",
+        "The closest records returned unrelated Ramsey/computability results or summaries of the RT^2_2 benchmark theorem."
+      ],
+      "reasoning": "The exact comparison target is a reducibility relation between two members of the bounded Ramsey hierarchy, not merely the source's comparison with ordinary Ramsey's theorem.",
+      "searches": [
+        "BRT^3_{2,4} BRT^2_2 finite use",
+        "bounded Ramsey finite iteration arity gap",
+        "bounded Ramsey triples pairs reduction game"
+      ]
+    },
+    "rationale": "The source states the finite-use separation against full Ramsey's theorem for pairs. The checked source and targeted literature searches did not state the resulting finite-iteration separation specifically inside the bounded Ramsey hierarchy.",
+    "residual_risks": [
+      "The result is a short corollary of a stronger benchmark theorem, so specialists may regard it as immediate once the hierarchy comparison is noticed.",
+      "The paper leaves unrestricted omega-reducibility to RT^2_2 open; the accepted claim deliberately concerns only a fixed finite number of calls.",
+      "The bibliographic record for the preprint lists 03B30, 03D80, and 05D10; the accepted primary code follows the leading logic/reverse-mathematics classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVE_SOURCE_THEOREM_WITH_UNSTATED_BOUNDED-HIERARCHY_COROLLARY.",
+        "evidence": "Theorem 1.7 states BRT^3_{2,4} is not <=^k_omega RT^2_2 for every finite k; the bounded-pair-to-RT^2_2 simulation is immediate from the source definition.",
+        "identifier_or_url": "arXiv:2604.02092",
+        "material_read": "Abstract and introduction; definition of BRT^n_{2,l}; the reduction-game definition; Theorem 1.7 in the introduction; Section 4 statement and proof of Theorem 1.7. The title page and theorem pages were visually inspected.",
+        "method": "Statement reconstruction and implication composition.",
+        "title": "Bounded Ramsey's theorem for triples in computability theory",
+        "trigger": "Primary recent source for the finite-use lower bound and definitions."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING_THE_FINITE-USE_TRIPLES_SEPARATION.",
+        "evidence": "The paper studies the pairs-level bounded principle but does not supply the triples finite-use lower bound.",
+        "identifier_or_url": "arXiv:2509.03688",
+        "material_read": "Abstract and bibliographic classification.",
+        "method": "Hierarchy-context comparison.",
+        "title": "The reverse mathematics of bounded Ramsey's theorem for pairs",
+        "trigger": "Closest pairs-level source and terminology check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7e4b1795-f722-4bb2-bee5-fa3f20e50066",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The bounded Ramsey hierarchy is a central object of the source, and the pairs/triples transition is its first computability-theoretically nontrivial arity jump. Showing that no bounded finite iteration of the lower-arity bounded principle reaches BRT^3_{2,4} isolates that jump internally to the hierarchy, rather than only relative to the stronger ambient RT^2_2 benchmark.",
+    "status": "PASS"
+  }
+}
