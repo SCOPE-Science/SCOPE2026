@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The target is a finite 243-by-81 exact incidence-cover instance. The 31 base-three indices form a covering code by direct enumeration of all 243 targets and each distinct one-deletion outcome. The unrelaxed 0-1 covering model has completed optimal integer objective 31 and a matching global solver lower bound, gap 0; the equivalent complementary 0-1 omission model has integer maximum 50 and matching global solver bound, gap 0. The supplied executable recomputes incidences by deletion, validates the complete witness and independently constructs both integer formulations; original replays examined 355 and 180 MILP nodes. Confidence requires trusting the correctly completed SciPy/HiGHS mixed-integer branch search, because its internal proof trace is not independently certified. No infinite-family extrapolation is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2606.15379v1 Theorem IV.1 provides general lower bound I(q,n,R)>=q^n/(binomial(n+R,R)-1); no matching finite exact result.",
+        "arXiv:2409.06425v1 Theorem 3 treats asymptotic densities for fixed length; Example 2 proves S(3,4,3)=12, not length-four result.",
+        "Lenz et al. 2021 provide finite-dimensional constructions and general covering estimates."
+      ],
+      "reasoning": "Specialized the general published inequalities to q=3,n=4,R=1; none implies the integer 31. The earlier exact Grozea instance has one shorter codeword and target length. The complementary optimization is only a rephrasing of the present new invariant.",
+      "searches": [
+        "Xie Sun Ge 2026 new bounds covering codes under insertions deletions 2606.15379",
+        "generalized covering single-insertion codes Grozea 2025 Pikhurko Verbitsky Zhukovskii 2026 Xie Sun Ge",
+        "arxiv:2606.15379v1",
+        "arxiv:2409.06425v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.15379v1 (full text)",
+      "arxiv:2409.06425v1 (public full text)",
+      "Lenz et al. IEEE TIT 67 (2021) 3376-3388",
+      "Grozea finite data and Example 2 as cited in arXiv:2409.06425v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General insertion sphere volume is 11 at q=3,n=4, giving only ceil(243/11)=23.",
+        "arXiv:2606.15379v1 lower bound 3^4/4 is weaker than 31; the stronger exact total requires the combinatorial integer obstruction.",
+        "arXiv:2409.06425v1 discusses the preceding q=3,n=3 value 12 and asymptotic parameters, neither implying 31."
+      ],
+      "reasoning": "Compared implications numerically and by quantifiers: inequalities for all alphabets/lengths give weaker specialized bounds; an exact q=3 length-three table cannot by itself determine length-four. Distinct deletion-correcting and fix-free codes do not cover this subsequence-hitting invariant.",
+      "searches": [
+        "single insertion covering I(3,4,1) 31 exact set cover",
+        "q-ary short blocklength insertion covering codes exact optimum 3 4 ternary",
+        "\"S(3,5,4)\" covering deletion subsequences",
+        "\"I(3,4,1)\" covering codes",
+        "arxiv:2606.15379v1",
+        "arxiv:2409.06425v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2409.06425v1 §1 defines S(n,k,r) as subsequence covering; for q=3, k=5, r=4 this is precisely I(3,4,1) in arXiv:2606.15379v1 §1.",
+        "The equivalent omitted-word formulation maximizes 50 under a row-wise residual-degree cap, and gives the same new value."
+      ],
+      "reasoning": "Matched the set-cover, length-five subsequence-hitting, supersequence-ball, and complementary maximum-omission statements, not merely names. No located result states or implies the finite optimum 31.",
+      "searches": [
+        "\"S(3,5,4)\" covering deletion subsequences",
+        "\"I(3,4,1)\" covering codes",
+        "\"insertion covering\" \"ternary\" \"31\"",
+        "\"covering single-insertion\" \"length 4\" \"ternary\"",
+        "ternary insertion covering code length four exactly 31 codewords cover 243 words of length five, S(3,5,4)",
+        "exact minimum length four ternary single insertion covering code I(3,4,1) equals 31",
+        "subsequence hitting 5-tuples over 3 symbols by 4-tuples covering array 31"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2409.06425v1 §1, pp.1–2 explicitly states earlier exact values S(n,4,3) for alphabet n<=5, which involve length-three codewords.",
+        "Grozea finite data page covers those earlier smaller word lengths, not the exact (3,5,4) entry."
+      ],
+      "reasoning": "Checked both exact notations and the earliest cited explicit finite-code datasets. No exact ternary length-four insertion-covering table entry was located; index absence alone is not a novelty proof.",
+      "searches": [
+        "\"S(3,5,4)\" covering deletion subsequences",
+        "\"I(3,4,1)\" covering codes",
+        "\"Grozea 2000 combinatorial covering insertions length four ternary code 31\"",
+        "\"S(3,5,4)\" sequences cover",
+        "arxiv:2409.06425v1",
+        "arxiv:2606.15379v1"
+      ]
+    },
+    "rationale": "The complete primary 2026 source treats insertion/deletion covering generally without a ternary length-four exact value. The 2024/2025 full-text work explicitly discusses the Grozea S(3,4,3)=12 example (three-symbol codewords), not S(3,5,4); the 2021 primary literature develops general bounds. Searches of exact notation, subsequence hitting, tables, and published related results gave no equivalent or stronger exact claim. An unindexed finite table could still overlap.",
+    "residual_risks": [
+      "An unindexed or privately circulated exact small-code table may already report S(3,5,4)=31.",
+      "No independent low-level certificate of the internal mixed-integer search is supplied; reproducibility depends on correctly completed HiGHS optimization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact finite invariant I(3,4,1), though providing general context and weaker bounds",
+        "evidence": "Page 2 defines I(q,n,R); pp.7–9 derive Theorem IV.1; pp.13–14 discuss other directions, no exact ternary length-four classification.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.15379",
+        "material_read": "All 14 pages, introductory definitions, Theorems III.1–III.2, IV.1, V.1–V.3, VI.1 and VI.4, concluding remarks, and references",
+        "method": "open-access paper text extraction, all 14 pages inspected",
+        "title": "New bounds for covering codes under insertions or deletions",
+        "trigger": "recent originating paper with identical covering definition"
+      },
+      {
+        "assessment": "NOT_COVERING this parameter; only predecessor S(3,4,3)=12 and asymptotic densities",
+        "evidence": "Example 2, p.1 states S(3,4,3)=12; p.2 distinguishes older S(q,4,3) tables from general single-insertion densities.",
+        "identifier_or_url": "https://arxiv.org/abs/2409.06425",
+        "material_read": "Publicly available complete text of 15-page preprint, particularly pp.1–3, theorem statements and Section 6, and exact-text checks of the target expression",
+        "method": "lawfully available full-text HTML rendering",
+        "title": "New bounds for the optimal density of covering single-insertion codes via the Turán density",
+        "trigger": "same invariant under alternate notation and cited earlier finite table"
+      },
+      {
+        "assessment": "NOT_COVERING the exact ternary length-four incidence optimum",
+        "evidence": "General bound/construction statements; no specific S(3,5,4) parameter found.",
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2020.2985691",
+        "material_read": "Available primary full-text sections on definitions, bounds and construction, with the abstract and references",
+        "method": "open-access PDF and rendered text",
+        "title": "Covering codes using insertions or deletions",
+        "trigger": "foundational insertion-covering general results cited by both papers"
+      },
+      {
+        "assessment": "No exact length-four ternary entry located",
+        "evidence": "The cited exact finite examples are S(q,4,3), including S(3,4,3)=12.",
+        "identifier_or_url": "https://www.brainsignals.de/users/cristian.grozea/combinatorial.html",
+        "material_read": "Public data page and its reference as summarized and quoted in Pikhurko et al. Example 2",
+        "method": "textual public data inspection",
+        "title": "Grozea finite combinatorial data",
+        "trigger": "earliest exact finite insertion-covering predecessor cited by Pikhurko et al."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "80c74ba6-d3d4-41e3-b0cc-128f7a464851",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural exact finite invariant for synchronization-error covering, one codeword length beyond the known exact ternary predecessor, is determined in full. The construction and obstruction improve the elementary sphere lower bound 23 to exact 31 and provide an inspectable benchmark. The claim has precise independent motivation as a minimum subsequence-hitting set, without extrapolation to untested parameters or need for a downstream theorem.",
+    "status": "PASS"
+  }
+}
