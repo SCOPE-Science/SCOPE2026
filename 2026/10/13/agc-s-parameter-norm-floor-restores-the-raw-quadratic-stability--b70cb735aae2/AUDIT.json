@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The scalar source rule has exactly three branches with boundaries \\(a=\\lambda\\epsilon/h\\) and \\(\\epsilon\\). When \\(0<\\eta h<2\\), every branch strictly decreases \\(|x|\\), and continuity of the induced magnitude map forces the limit to zero. At and above the boundary, exact period-two points exist through \\(\\eta=2/\\lambda\\), after which the outer linear multiplier has modulus above one. The cycle interval follows from intersecting the two floor-band constraints on the positive and negative phases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General deterministic clipping theory studies fixed clipping radii and suitable step-size conditions.",
+        "The 2023 tight clipping analysis states that deterministic fixed clipping eventually becomes inactive near critical points.",
+        "AGC instead makes the clipping radius proportional to a floored parameter norm, producing a different local map."
+      ],
+      "reasoning": "Fixed-threshold clipping bounds do not imply the parameter-relative three-zone AGC map or the singular difference between zero and positive parameter-norm floors.",
+      "searches": [
+        "Why gradient clipping accelerates training theoretical justification adaptivity",
+        "Revisiting Gradient Clipping stochastic bias tight convergence guarantees",
+        "Adaptive Gradient Clipping stability parameter norm floor"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2102.06171v1",
+      "arXiv:1905.11881v1",
+      "arXiv:2305.01588v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The AGC source defines \\(\\|W_i\\|^\\star=\\max\\{\\|W_i\\|,\\epsilon\\}\\) and clips according to the unit-wise gradient-to-parameter norm ratio.",
+        "The source says the floor prevents zero-initialized parameters from being clipped to zero and motivates AGC by stable relative updates.",
+        "General clipping sources use fixed clipping thresholds and do not imply the source-specific positive-floor singularity."
+      ],
+      "reasoning": "The prior literature supplies the clipping mechanism and broad convergence context. The final claim requires specializing the parameter-relative floor exactly, solving all three scalar branches, and comparing the resulting positive-floor map with the floorless limit.",
+      "searches": [
+        "arXiv:2102.06171 Adaptive Gradient Clipping equation 3 epsilon",
+        "arXiv:1905.11881 clipped gradient descent theory",
+        "arXiv:2305.01588 deterministic gradient clipping threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source gives the norm-ratio test and positive floor but no scalar dynamical classification.",
+        "Searches for period-two, floor-induced instability, and quadratic AGC behavior returned no implication-equivalent published result.",
+        "The defining source contains no quadratic or cycle analysis."
+      ],
+      "reasoning": "Equivalent statements would identify the positive floor as restoring the raw-curvature threshold, or would exhibit the same floor-band two-cycle interval. Neither form was located.",
+      "searches": [
+        "Adaptive Gradient Clipping epsilon floor limit cycle scalar quadratic",
+        "AGC parameter norm floor two cycle gradient clipping",
+        "relative gradient clipping quadratic period two",
+        "unit-wise adaptive gradient clipping near zero oscillation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published records included exact stability frontiers for unrelated feedback, reflected-gradient, Polyak, and clipped-momentum systems.",
+        "No returned record stated an AGC norm-floor quadratic threshold or the claimed cycle band."
+      ],
+      "reasoning": "The nearest records analyze different update maps. Search absence is supporting evidence only and is combined with direct inspection of the defining AGC source and clipping literature.",
+      "searches": [
+        "Adaptive Gradient Clipping AGC quadratic curvature clipping exact condition number",
+        "AGC parameter norm gradient norm quadratic effective curvature",
+        "High-Performance Large-Scale Image Recognition Without Normalization AGC theory quadratic",
+        "Adaptive Gradient Clipping epsilon floor limit cycle scalar quadratic",
+        "AGC parameter norm floor two cycle gradient clipping",
+        "relative gradient clipping quadratic period two",
+        "unit-wise adaptive gradient clipping near zero oscillation"
+      ]
+    },
+    "rationale": "The defining AGC source specifies the floored parameter norm and motivates stability through relative update control but does not state the scalar phase diagram. General clipping theory analyzes fixed clipping radii rather than this parameter-relative threshold. Focused published-record searches did not locate the floor-induced discontinuous stability ceiling or the exact AGC two-cycle interval.",
+    "residual_risks": [
+      "A short equivalent scalar calculation may exist in unindexed implementation notes.",
+      "Fixed-threshold clipped-gradient period-two behavior is mathematically related to the middle AGC band, but does not by itself imply the parameter-relative outer branch or the discontinuous positive-floor stability ceiling.",
+      "The theorem does not address the source's momentum-based neural-network training stack."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RULE_NOT_COVERING_SCALAR_FLOOR_PHASE_DIAGRAM.",
+        "evidence": "The source defines the exact floored norm-ratio rule and reports empirical stability benefits, but no scalar quadratic stability threshold or period-two analysis was found.",
+        "identifier_or_url": "arXiv:2102.06171v1",
+        "material_read": "Open full text covering Section 4, the standard clipping comparison, AGC equations, the unit-wise norm-ratio motivation, the definition and purpose of the positive epsilon floor, clipping-parameter ablations, and the normalized-optimizer comparison.",
+        "method": "Full-text open-access HTML inspection with targeted searches for quadratic, cycle, and stability language.",
+        "title": "High-Performance Large-Scale Image Recognition Without Normalization",
+        "trigger": "Defining source for Adaptive Gradient Clipping and its parameter-norm floor."
+      },
+      {
+        "assessment": "FIXED_THRESHOLD_CLIPPING_THEORY_NOT_COVERING_PARAMETER_RELATIVE_FLOOR.",
+        "evidence": "The method clips to a fixed gradient norm and does not use a parameter-norm floor.",
+        "identifier_or_url": "arXiv:1905.11881v1",
+        "material_read": "Open full text covering the clipped-gradient update and convergence framing under relaxed smoothness.",
+        "method": "Open-access full-text inspection and targeted searches for periodic or cycle behavior.",
+        "title": "Why Gradient Clipping Accelerates Training: A Theoretical Justification for Adaptivity",
+        "trigger": "Foundational deterministic clipping theory cited by the AGC source."
+      },
+      {
+        "assessment": "GENERAL_FIXED_CLIPPING_RESULTS_NOT_COVERING_AGC_FLOOR.",
+        "evidence": "The source notes that deterministic fixed clipping becomes inactive near a critical point; AGC with a positive parameter-norm floor has a different local transition and is not analyzed there.",
+        "identifier_or_url": "arXiv:2305.01588v1",
+        "material_read": "Open full text introduction, clipped-SGD definition, deterministic interpretation, and contribution summary.",
+        "method": "Full-text open-access HTML inspection.",
+        "title": "Revisiting Gradient Clipping: Stochastic bias and tight convergence guarantees",
+        "trigger": "Later tight deterministic and stochastic clipping theory with arbitrary fixed thresholds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b70cb735-aae2-47d3-8b4c-a508f47c2e76",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "AGC is introduced specifically to control relative updates and improve stability at larger learning rates, while the positive norm floor is presented as a safeguard for small or zero parameters. The theorem shows that this apparently numerical safeguard can determine the exact asymptotic stability threshold: any positive floor restores raw curvature near the optimum and creates a full bounded two-cycle band across the nominal gap between raw and clipped curvature ceilings. This is a sharp structural diagnostic of when AGC can control transient relative steps without enlarging universal local stability.",
+    "status": "PASS"
+  }
+}
