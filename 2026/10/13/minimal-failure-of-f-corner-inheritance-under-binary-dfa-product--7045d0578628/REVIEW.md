@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** For the fixed positivity function, the factor distance inequalities follow directly from the displayed transition tables. The product states \((0,0)\) and \((0,2)\) have positive distances exactly three in both directions; all shorter positive words are explicitly exhausted. The two-state classification uses the forced transition \(a(0)=0\) and splits into the only two permitted forms, proving the minimum total size. The reset word \(\mathtt{aba}\) works on every state of both factors. The independent BFS checker reproduces each finite claim. The proof needs no statistical inference.
+
+**Originality — PASS, with residual priority risk.** Bradshaw–Clow–Stacho, *A cornering strategy for synchronizing a DFA*, arXiv:2405.00826v3, §6, immediately before Theorem 6.1, states that whether a pair of individual \(f\)-corners remains an \(f\)-corner is unclear. Its theorem proves target synchronization, a strictly weaker property demonstrated by the present example. Topical research-record and web searches did not identify an equivalent minimal binary counterexample. This negative result does not refute the three-factor synchronization conjecture. The 2026 journal full text was not independently inspected and an unindexed equivalent remains a priority risk.
+
+**Value — PASS.** The exact failure settles a named structural uncertainty in the product-synchronization argument and explains why the product theorem cannot be proved merely by inheriting its premise. Strong connectivity of both factors rules out unreachable-state artifacts, and the sharp five-state minimum makes the obstruction canonical for the fixed, elementary regular positivity language. No claims about other positivity functions are required for its relevance.
+
+Self-review: passed. Independent audit: not yet performed.

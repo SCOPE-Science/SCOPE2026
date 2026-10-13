@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The state tables define total maps. Factor a/b actions give distances (1,2) on A and (1,2),(2,3) on B. For z=(0,0) and q=(0,2), only a, aa, ab can be positive words shorter than three; none moves either state to the other. Words abb and aba establish both exact distances as three, violating strict corner inequality. The word aba resets both factors. A complete symbolic classification of all two-state f-corners (four Type-I and one Type-II) proves all 2x2 pairs retain the corner property; singleton factors are inert. The supplied executable BFS independently checks all 16 two-state automata, 25 qualifying pairs, factor connectivity, and 2x3 metrics. No infinite inference or unverified certificate is needed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2405.00826v3 Theorem 6.1: two f-corner factors have a product synchronizing word reaching their designated pair.",
+        "The same paper immediately before Theorem 6.1 states that it is unclear whether the designated product pair is an f-corner."
+      ],
+      "reasoning": "A target-reset word is weaker than product f-corner dominance: the explicit product has reset word aba and equal positive distances 3 in opposite directions. Thus the source theorem neither implies nor covers the negative statement. The result makes no claim about the paper's conjectured synchronization of three-factor products.",
+      "searches": [
+        "Bradshaw Clow Stacho A cornering strategy for synchronizing a DFA product of f-corners positive distance counterexample",
+        "\"A cornering strategy for synchronizing a DFA\" \"product\" \"f-corner\" 2026",
+        "arXiv:2405.00826v3 Sections 4.1, 6, 7"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2405.00826v3 Sections 4.1, 6, 7 and Figure 6",
+      "arXiv:2405.00826 abstract and submission history (v1: 2024-05-01)",
+      "DOI:10.1016/j.tcs.2026.115864 bibliographic record (metadata only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary theorem conclusion: existence of a word that resets the product to the desired state.",
+        "Present proposition: the desired product state fails the stronger f-corner inequality, while aba resets the entire product.",
+        "Primary discussion explicitly calls corner inheritance unclear."
+      ],
+      "reasoning": "The claims are logically compatible, and neither can be mistaken for the other: a synchronizing word demonstrates reachability, whereas an f-corner requires a strict comparison for every product state. The constructed state (0,2) defeats the strict comparison. The two-state minimality is new within this fixed positivity setting.",
+      "searches": [
+        "Bradshaw Clow Stacho A cornering strategy for synchronizing a DFA product of f-corners positive distance counterexample",
+        "cornering strategy automata synchronizing product f-positive walk corner pair reflection inequality",
+        "arXiv:2405.00826v3 Theorem 6.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2405.00826v3 Section 4.1 defines f-positive directed distances and strict f-corner inequalities.",
+        "The 2x3 transition tables give positive path distances 3 and 3 from/to the designated pair."
+      ],
+      "reasoning": "The equivalent formulation is failure of strict asymmetry of shortest lengths constrained to the regular language consisting of the empty word or words starting with a, under synchronous Cartesian product. The equality at (0,2) directly witnesses the failure; no change of term converts the source synchronization theorem into this strict inequality.",
+      "searches": [
+        "f-positive words beginning with a two three state automata designated pair fails corner metric product",
+        "cornering strategy synchronization f-corner product not f-corner 2x3 automata 2024",
+        "counterexample product of two f-corners not f-corner shortest positive distance automata"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Figure 6 illustrates non-strong-connectedness of a product, not a pair of f-corners whose product is a non-corner.",
+        "A complete mathematical enumeration in RESULT.md identifies the five labeled two-state f-corner automata for this positivity language and checks all pair types symbolically."
+      ],
+      "reasoning": "No matching 2x3 transition table or five-state minimality classification appeared in the scientific sources inspected. Web/research-record search results are not proofs of exhaustive absence; this remains a priority risk.",
+      "searches": [
+        "\"f-corner\" \"product\" automata counterexample",
+        "\"f-corner\" \"not\" \"product\" synchronization",
+        "f-corner product automata pair does not form f-corner Bradshaw Clow Stacho counterexample",
+        "arXiv:2405.00826v3 Figure 6 and Section 6"
+      ]
+    },
+    "rationale": "The inspected primary arXiv full text (version 3, Sections 4.1 and 6) defines f-corners and expressly says it is unclear whether the product of two f-corners is again an f-corner. Its Theorem 6.1 proves simultaneous synchronization, not corner inheritance; the present construction satisfies synchronization but disproves inheritance. The two-state sharpness classification is absent from the inspected source. Topical web and research-record searches located no stronger covering statement; literature completeness cannot be proved from a failed search.",
+    "residual_risks": [
+      "The journal article's complete final text was not directly read; an addition after arXiv v3 could change priority.",
+      "Keyword and semantic record searches do not exclude unindexed or differently termed equivalent counterexamples.",
+      "The minimality theorem is restricted to the fixed first-letter positivity function and binary alphabets."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover the present negative minimal obstruction; proves target synchronization and explicitly leaves product f-corner inheritance unresolved.",
+        "evidence": "Section 6 immediately preceding Theorem 6.1: product synchronization proved but designated pair f-corner status unclear; Sections 4.1 and 7 give relevant definitions and distinct open questions.",
+        "identifier_or_url": "arXiv:2405.00826v3; https://arxiv.org/pdf/2405.00826",
+        "material_read": "Actual full-text PDF sections 4.1 (definition, Theorems 4.1–4.2), 6 (Figure 6, Theorem 6.1 and proof), and 7 (conjectures); relevant PDF pages inspected visually.",
+        "method": "Read source full-text PDF text and rendered relevant pages; compared hypotheses, conclusion, quantifiers and the stated open structural issue.",
+        "title": "A cornering strategy for synchronizing a DFA",
+        "trigger": "Same exact f-corner definition, product operation and expressly stated uncertainty."
+      },
+      {
+        "assessment": "Unresolved version-difference risk, not evidence of covering content.",
+        "evidence": "Journal citation at DOI:10.1016/j.tcs.2026.115864; openly accessible arXiv v3 is the substantive inspected text.",
+        "identifier_or_url": "DOI:10.1016/j.tcs.2026.115864",
+        "material_read": "Bibliographic metadata only: Theoretical Computer Science 1073 (2026), article 115864.",
+        "method": "Looked up official bibliographic identifiers and attempted the publisher DOI page; full text not accessible in this check.",
+        "title": "A cornering strategy for synchronizing a DFA, journal record",
+        "trigger": "The preprint has a later journal publication and may have changed in final publication."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7045d057-8628-4ed3-a0a9-ca56129ebb42",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The closest primary paper explicitly raises product-corner inheritance as an unresolved structural issue while proving only product synchronization. A strongly connected pair with a joint reset but no product corner resolves this issue for a simple, natural regular positivity language, and a sharp minimum five total states prevents the example from being an arbitrary slice. The result locates a genuine limit of the premise-transfer mechanism behind the published theorem, not merely a routine calculation or numerical gain.",
+    "status": "PASS"
+  }
+}
