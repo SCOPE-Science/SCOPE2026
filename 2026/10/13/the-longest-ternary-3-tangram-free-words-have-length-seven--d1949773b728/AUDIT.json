@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The cut-number predicate is reconstructed directly from the published definition. Two independent implementations agree on every ternary word of length at most eight. Full enumeration of all 3^n words and an independent incremental suffix-only enumeration agree exactly at every length one through eight, producing counts 3,6,12,18,30,24,18,0. The complete eighteen-word maximum layer and its three symmetry orbits are regenerated from scratch.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Proposition 1 implies that every ternary word of length eight contains a tangram, but places no bound of three on that tangram's cut number.",
+        "Proposition 2 gives only 4<=t(3)<=5 and argues that sufficiently long ternary words contain a low-cut tangram.",
+        "The closing problem asks to determine t(3), confirming that the infinite-alphabet question remains unresolved."
+      ],
+      "reasoning": "The pure tangram length bound is weaker because a tangram can have cut number above three. The asymptotic/sufficiently-long t(3) argument is broader in length but does not give the exact finite threshold or equality-layer classification.",
+      "searches": [
+        "Words Avoiding Tangrams t(3) 2025 2026",
+        "Words Avoiding Tangrams Proposition 2 ternary sufficiently long",
+        "Words Avoiding Tangrams length 8 ternary"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2407.03819v1 full text",
+      "DOI:10.1007/s00026-024-00736-9 open-access full text",
+      "targeted indexed searches for ternary 3-tangram-free maximum length, exact cutoff, representative words, and equality-layer counts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published length-eight theorem asserts existence of an even-letter-count factor, not existence of one whose cut number is at most three.",
+        "The published k=3 proof establishes an unspecified sufficiently-long threshold rather than eight.",
+        "Finite results about shuffle squares, periods, or squarefree words use different forbidden-factor predicates and do not imply the low-cut tangram census."
+      ],
+      "reasoning": "The new implication requires checking the cut-number condition on every factor of every ternary length-eight word and identifying every maximal avoiding word. Neither the general tangram obstruction nor nearby word invariants supply that implication.",
+      "searches": [
+        "Words Avoiding Tangrams Proposition 1 length 2^q",
+        "Words Avoiding Tangrams Proposition 2 cut number three",
+        "ternary shuffle square dihedral tangram cut number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source defines k-tangram-free words exactly as words with no factor of cut number at most k.",
+        "The source states only a sufficiently-long ternary obstruction at k=3 and no exact maximum finite length.",
+        "No checked indexed result reports the length-eight low-cut cutoff or the eighteen-word equality layer."
+      ],
+      "reasoning": "The searches cover the direct 3-tangram-free terminology, low-cut-factor phrasing, the t(3) notation, and the Zimin-word extremal vocabulary. These are statement-level aliases of the same finite obstruction rather than title-only variants.",
+      "searches": [
+        "longest ternary 3-tangram-free word cut number three",
+        "ternary words avoiding tangrams cut number at most three exact length",
+        "t(3) longest ternary tangram-free finite word",
+        "Zimin word length 7 tangram-free ternary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary publication contains examples and asymptotic bounds but no table of ternary 3-tangram-free counts by length.",
+        "No checked exact search returned the count sequence 3,6,12,18,30,24,18,0 or the maximum count eighteen."
+      ],
+      "reasoning": "A finite table, exhaustive appendix, or extremal-word database could directly dominate the claim, so exact length, representative, and count formulations were checked.",
+      "searches": [
+        "Words Avoiding Tangrams maximum finite ternary length cut number 3",
+        "3-tangram-free ternary length 7",
+        "0102010 tangram cut number",
+        "abacaba 3-tangram-free"
+      ]
+    },
+    "rationale": "The primary paper proves that every ternary length-eight word contains some tangram and separately proves only that sufficiently long ternary words contain a tangram of cut number at most three. It does not state that length eight already suffices for the low-cut condition, nor enumerate the eighteen maximum avoiding words or their three symmetry classes. Targeted searches under direct and equivalent terminology found no covering finite census.",
+    "residual_risks": [
+      "An unindexed computational note or private enumeration could contain the same sharp finite cutoff.",
+      "The source's sufficiently-long proof could potentially be tightened to eight by a short case analysis even though that cutoff is not stated; the complete eighteen-word equality layer remains a separate finite classification.",
+      "The result does not settle whether t(3) equals four or five."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source gives a general length-2^q tangram obstruction and an unspecified sufficiently-long ternary low-cut obstruction, but no sharp low-cut cutoff at eight and no extremal census.",
+        "identifier_or_url": "arXiv:2407.03819v1",
+        "material_read": "Abstract; formal cut-number and k-tangram-free definitions; Zimin-word finite obstruction; Proposition 2 and its complete ternary proof; closing Problem 2.",
+        "method": "Open full-text HTML/PDF statement and implication comparison.",
+        "title": "Words Avoiding Tangrams",
+        "trigger": "Direct source introducing the same cut-number avoidance problem and the first unresolved case k=3."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The journal version likewise states only 4<=t(3)<=5 and the sufficiently-long ternary argument, with no finite length-eight classification.",
+        "identifier_or_url": "DOI:10.1007/s00026-024-00736-9",
+        "material_read": "Definitions, entropy-compression/Zimin discussion, small-k section containing Proposition 2, and closing open problems.",
+        "method": "Open-access journal HTML statement comparison.",
+        "title": "Words Avoiding Tangrams",
+        "trigger": "Published open-access version of the direct source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d1949773-b728-48d2-9090-b89f8b4ac154",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first unresolved case k=3 is explicitly singled out by the source, whose ternary lower-bound proof uses only an unspecified sufficiently-long threshold. Replacing that threshold by the sharp value eight and classifying all eighteen length-seven extremizers gives a natural complete boundary statement for the source's central finite obstruction, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
