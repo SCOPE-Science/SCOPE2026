@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The source minimum is a punctured-code dimension. In the generalized surface-code specialization, puncturing the vertex and face generator matrices to the erased columns gives binary incidence matrices. Their row dependencies are characterized exactly by connected components: an all-ones dependency survives precisely on a component with no omitted vertex row or boundary half-edge. This proves both formulas and the explicit basis construction. The running-time analysis visits only constantly many incidences per erased edge. Exact-arithmetic replay is corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Delfosse and Zémor (2020), DOI:10.1103/PhysRevResearch.2.033042, give a linear-time maximum-likelihood erasure decoder for surface codes.",
+        "Connolly et al. (2024), DOI:10.22331/q-2024-08-27-1450, give fast erasure decoding for hypergraph-product codes.",
+        "The anchor explicitly states that these decoder works do not provide its minimum sufficient local measurement selection."
+      ],
+      "reasoning": "Faster decoding is broader in the correction task but does not dominate the claim: the finding concerns exact minimum selection of original vertex/face stabilizer measurements. The anchor itself distinguishes the measurement-sufficiency/minimality problem from prior decoding algorithms.",
+      "searches": [
+        "arXiv 2510.22890 surface code minimum stabilizer measurements incidence rank spanning forest",
+        "quantum erasure correction surface code minimum vertex face measurements linear time spanning forest",
+        "generalized surface code erasure stabilizer measurement rank restricted incidence matrix",
+        "surface code erasure correction minimal syndrome measurements connected components incidence matrix",
+        "Matsumoto reducing measurements erasure correction faster Gaussian elimination surface code"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2510.22890v1",
+      "DOI:10.1007/s40314-026-03881-4",
+      "DOI:10.1103/PhysRevResearch.2.033042",
+      "DOI:10.22331/q-2024-08-27-1450",
+      "arXiv:2609.23316",
+      "current owned ledger 2026-10_week1 p0001 g000053",
+      "prior owned ledger 2026-09_week4 p0001 g000052",
+      "published-finding corpus published-findings index via the listed semantic queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Matsumoto, DOI:10.1007/s40314-026-03881-4, proves the minimum as a projected-code dimension and uses O(n^3) Gaussian elimination in Section 5.3; the conclusion says a faster alternative is strongly desired.",
+        "Delfosse and Zémor (2020) establish O(n) erasure decoding but not a minimum measurement basis.",
+        "Matsumoto arXiv:2609.23316 describes a general cubic linear-algebraic reduction procedure rather than a surface-code connected-component formula."
+      ],
+      "reasoning": "The anchor supplies the objective and its cubic computation but does not imply the component formulas without recognizing and proving the restricted-incidence rank structure. Decoder speed results do not imply minimality of a measurement subset. The later general reduction remains cubic and does not subsume the surface-specific linear-time result.",
+      "searches": [
+        "arXiv 2510.22890 minimum stabilizer measurements generalized surface code",
+        "surface code erasure syndrome measurement spanning forest linear time",
+        "2609.23316 surface code linear time observable reduction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus searches returned no finding stating the source-specific formulas \\(\\ell_Z=|V_I^\\circ|-c_Z\\) or \\(\\ell_X=|F_I|-c_X\\), nor an equivalent connected-component minimum stabilizer selection for arXiv:2510.22890.",
+        "The anchor Section 5.3 expresses the minimum through Gaussian elimination of restricted generator rows rather than graph components."
+      ],
+      "reasoning": "The candidate is equivalent to computing ranks of two restricted incidence matrices, so searches explicitly included incidence rank, connected components, spanning forests, and minimum measurement terminology. No returned published-finding corpus statement implied the boundary-aware formulas.",
+      "searches": [
+        "arXiv 2510.22890 minimum stabilizer measurements generalized surface code",
+        "surface code erasure minimum vertex measurements incidence rank",
+        "surface code erasure syndrome measurement spanning forest linear time",
+        "restricted incidence matrix rank erasure stabilizer surface code"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches including the 2026 follow-up arXiv:2609.23316 and source-specific connected-component formulations returned unrelated results.",
+        "Own current and prior ledgers were checked for arXiv:2510.22890, surface-code erasure measurement minimization, incidence-rank, connected-component, and spanning-forest aliases; no implication-equivalent prior finding was present."
+      ],
+      "reasoning": "No exact database/table appears to contain these formulas. This check is evidence against obvious duplication, not a proof of global novelty.",
+      "searches": [
+        "2609.23316 surface code linear time observable reduction",
+        "minimum stabilizer measurements generalized surface code connected components rank",
+        "minimum vertex face measurements erasure surface code connected components"
+      ]
+    },
+    "rationale": "The anchor uses cubic Gaussian elimination for the exact minimum local vertex/face sets and explicitly requests a faster alternative. The inspected prior decoder literature solves decoding rather than the minimum-measurement-basis problem. Published published-finding corpus searches for source, incidence-rank, connected-component, spanning-forest, and linear-time aliases returned no implication-equivalent finding. Classical incidence-rank facts are acknowledged rather than claimed as new.",
+    "residual_risks": [
+      "The graph-incidence rank lemma is classical; originality is only in the exact application to this newly posed generalized-surface-code measurement problem.",
+      "A differently phrased or newly indexed contemporaneous observation may exist despite the source-specific and alias searches.",
+      "The arXiv:2609.23316 comparison was limited to its abstract-level public material; its advertised method remains cubic and no inspected text supplied the present surface-specific formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the claimed formulas. The paper computes minimum local vertex/face sets by \\(O(n^3)\\) Gaussian elimination and explicitly requests a faster surface-code-specific alternative.",
+        "evidence": [
+          "Theorem 5 identifies the minimum with dim P_I(C).",
+          "Section 5.3 performs Gaussian elimination to select minimum vertex/face sets.",
+          "Conclusion states the \\(O(n^3)\\) procedure is comparably large and a faster alternative is strongly desired."
+        ],
+        "identifier_or_url": "arXiv:2510.22890v1; DOI:10.1007/s40314-026-03881-4",
+        "material_read": "Open-access full-text HTML: Theorem 5, CSS specialization, generalized surface-code definitions, Corollary 14, Remarks 15-16, Section 5.3, examples, and concluding remarks.",
+        "method": "Direct primary full-text inspection.",
+        "title": "Reducing measurements in quantum erasure correction by quantum local recovery",
+        "trigger": "Exact same-object anchor and source of the minimum-measurement problem."
+      },
+      {
+        "assessment": "NOT_COVERING. It proves linear-time maximum-likelihood erasure decoding, not exact minimum selection of which original vertex/face stabilizers to measure.",
+        "evidence": [
+          "The primary article states the decoding objective and \\(O(n)\\) complexity.",
+          "The anchor Remark 16 states the decoder uses relevant outcomes but did not explicitly state the unnecessary measurements/minimum subset result."
+        ],
+        "identifier_or_url": "DOI:10.1103/PhysRevResearch.2.033042",
+        "material_read": "Primary APS article page including abstract, article structure, and publication text; the anchor's explicit comparison to its Algorithms 1-2 was also inspected.",
+        "method": "Primary publication HTML inspection.",
+        "title": "Linear-time maximum likelihood decoding of surface codes over the quantum erasure channel",
+        "trigger": "Closest prior linear-time surface-code erasure algorithm cited by the anchor."
+      },
+      {
+        "assessment": "NOT_COVERING. The work concerns fast HGP decoding and assumes stabilizer outcomes rather than deriving the generalized-surface-code minimum local measurement set.",
+        "evidence": [
+          "Quantum abstract gives \\(O(N^2)\\) and probabilistic \\(O(N^{1.5})\\) decoding complexities for HGP codes.",
+          "Anchor Remark 16 states the algorithms assume stabilizer measurement outcomes without identifying a sufficient minimum subset."
+        ],
+        "identifier_or_url": "DOI:10.22331/q-2024-08-27-1450",
+        "material_read": "Primary Quantum journal HTML: abstract, scope, complexity, and bibliographic record; anchor Remark 16 comparison inspected.",
+        "method": "Primary publication HTML inspection.",
+        "title": "Fast erasure decoder for hypergraph product codes",
+        "trigger": "Recent erasure-decoder comparison explicitly discussed by the anchor."
+      },
+      {
+        "assessment": "NOT_COVERING based on available inspected material: it advertises a general cubic linear-algebraic procedure, not the surface-code incidence-component formula or linear-time local-stabilizer construction.",
+        "evidence": [
+          "Abstract explicitly gives cubic complexity in repair-group size.",
+          "No source-specific published-finding corpus search returned the claimed surface-code component formula."
+        ],
+        "identifier_or_url": "arXiv:2609.23316",
+        "material_read": "ArXiv abstract and scope description.",
+        "method": "Primary arXiv abstract inspection plus source-specific published-finding corpus search.",
+        "title": "Simultaneous Reduction of Observables and Measured Qudits in Entanglement-Assisted Quantum Local Recovery",
+        "trigger": "Very recent same-author follow-up on observable reduction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cb7414a1-f0d1-4c7b-a1dd-6b8d11edd8d2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finding resolves the anchor's explicit request for a faster alternative to cubic Gaussian elimination in the generalized-surface-code case. It gives exact minimum counts, constructs minimum sets using only original local stabilizers, handles open and boundary effects, and reduces computation to the erasure neighborhood in linear time. This is a structural algorithmic improvement, not a routine recomputation or a tiny constant gain.",
+    "status": "PASS"
+  }
+}
