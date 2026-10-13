@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For a two-dimensional subcode attaining \\(d_2\\), doubly-evenness forces each of the three nonzero binary projective column multiplicities to be even. Splitting each class exactly in half, a hypothetical \\(d_2\\ge2R_2+2\\) makes both pieces in the covering decomposition have support below \\(d_2\\), hence rank one. The resulting rank-one idempotent can make at most half the minimum-support columns vanish, forcing covering distance at least \\(d_2/2\\ge R_2+1\\), a contradiction. Thus \\(d_2\\le2R_2+1\\); parity makes \\(d_2\\) even and gives \\(d_2\\le2R_2\\). The finite verifier checks small cases but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Essayag--Zabokritskiy prove \\(d_t(C)\\le2R_t(C)+1\\) when \\(q\\ge R_t(C)\\); for binary codes this hypothesis only covers \\(R_t(C)\\le2\\).",
+        "Yu--Schwartz prove \\(d_2(C)\\le2R_2(C)+2\\) for all linear codes.",
+        "Alfarano--Marino--Neri--Trombetti prove \\(d_t(C)\\le2R_t(C)+2\\) universally."
+      ],
+      "reasoning": "The universal results have a larger additive constant, while the large-alphabet improvement does not cover arbitrary binary covering radius. Therefore these broader theorems do not dominate the doubly-even binary refinement.",
+      "searches": [
+        "arXiv:2609.19098 Theorem 1.2 q >= R_t d_t <= 2R_t+1",
+        "arXiv:2609.14477 Theorem 5 order t=2",
+        "arXiv:2609.34910 Theorem 1.1 generalized packing-covering"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.19098v1/v2",
+      "arXiv:2609.14477v1",
+      "arXiv:2609.34910v1",
+      "published-finding corpus 2026/9/17/SCOPE014",
+      "published-finding corpus 2026/9/18/SCOPE-packing-covering-redundancy-fifteen--96101bcc4ffa",
+      "Gerald J. Janusz, DOI:10.1137/S0895480198341766"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2609.19098 full text states the \\(+1\\) bound only under \\(q\\ge R_t\\) and the bounded-redundancy \\(+2\\) result; no doubly-even or divisible-code term occurs in the document.",
+        "The 2609.14477 order-two proof uses an approximately balanced projective partition with an unavoidable \\(+1\\) multiplicity allowance; it concludes only \\(d_2\\le2R_2+2\\).",
+        "The 2609.34910 full text proves the universal \\(+2\\) conjecture and contains no occurrence of 'doubly' or 'divisible'."
+      ],
+      "reasoning": "The new implication needs the additional divisibility argument that forces all three binary projective multiplicities even, allowing an exact half split. That premise and conclusion are absent from the inspected general theorems.",
+      "searches": [
+        "arXiv:2609.19098v2 full text: Introduction, Theorems 1.1, 1.2, 3.1",
+        "arXiv:2609.14477v1 full text: Section 3, Lemmas 3, 4, Theorem 5",
+        "arXiv:2609.34910v1 full text: Abstract, Introduction, Theorem 1.1, proof outline, text searches for doubly/divisible"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yu--Schwartz, arXiv:2609.14477v1, Section 3 proves the equivalent order-two matrix/projective formulation with the universal bound \\(d_2\\le2R_2+2\\).",
+        "Focused published-finding corpus searches returned generalized packing--covering records but no doubly-even or 4-divisible specialization.",
+        "Focused web searches under doubly-even, divisible-code, generalized-covering, and second generalized Hamming-weight terminology returned classical covering material or unrelated divisible-code results, not the claimed inequality."
+      ],
+      "reasoning": "The matrix covering formulation, the projective-column formulation, and the packing-radius formulation are equivalent for the claimed order-two statement. None of the located aliases produced a theorem that implies the exact class-wide inequality \\(d_2\\le2R_2\\).",
+      "searches": [
+        "doubly-even binary linear code d_2(C) <= 2 R_2(C) second generalized Hamming weight covering radius strict gap",
+        "binary doubly even generalized packing radius delta_2 <= R_2 - 1 projective column multiplicities even",
+        "web: doubly-even generalized covering radius",
+        "web: 4-divisible code covering radius generalized Hamming"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus record 2026/9/17/SCOPE014 concerns binary generalized packing--covering through bounded redundancy, not doubly-even codes.",
+        "Closest published-finding corpus record 2026/9/18/SCOPE-packing-covering-redundancy-fifteen--96101bcc4ffa proves a redundancy-limited general theorem, not a class-specific strict gap.",
+        "Current and prior owned ledgers were searched by exact claim, doubly-even, generalized-covering, projective-multiplicity, and strict-gap aliases; no overlapping claim was found."
+      ],
+      "reasoning": "The exact inequality and its packing-radius equivalent were queried separately from the class and proof-mechanism aliases. The closest indexed results address different sufficient conditions and do not imply the new statement.",
+      "searches": [
+        "published-finding corpus: doubly-even binary code second generalized covering radius d2 <= 2 R2",
+        "published-finding corpus: doubly even d2 second generalized Hamming weight R2 covering radius",
+        "published-finding corpus: binary doubly even generalized packing radius delta_2 <= R_2 - 1 projective column multiplicities even"
+      ]
+    },
+    "rationale": "The closest recent theorems give the universal \\(+2\\) bound, or a \\(+1\\) bound under the large-alphabet condition \\(q\\ge R_t\\). Focused full-text, published-finding corpus, web, and owned-ledger comparisons found no statement implying the doubly-even binary order-two refinement. Residual risk remains for an older equivalent result under different divisible-code terminology.",
+    "residual_risks": [
+      "An older theorem about Type-II, 4-divisible, or self-orthogonal binary codes may encode the same generalized order-two inequality without using the recent generalized-covering terminology.",
+      "Search-engine and semantic-database absence cannot prove novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "The paper proves \\(d_t\\le2R_t+1\\) only when \\(q\\ge R_t\\), and the \\(+2\\) conjecture for bounded redundancy. Its full text contains no doubly-even or divisible-code specialization.",
+        "identifier_or_url": "arXiv:2609.19098v2",
+        "material_read": "Full PDF abstract and Sections 1--3 through Theorem 3.1 and the proof of Theorem 1.2; definitions, established order-two case, and auxiliary-code criterion. Full-text term searches for doubly and divisible were also checked.",
+        "method": "Statement-and-implication comparison against the finalized doubly-even order-two claim.",
+        "title": "Auxiliary Codes and the Generalized Packing-Covering Conjecture",
+        "trigger": "Primary recent 94B05 source for the generalized packing--covering problem and the strongest nearby analytic bound."
+      },
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "Theorem 5 proves only \\(d_2\\le2R_2+2\\). Its general partition allows a one-column multiplicity slack; the new parity argument removes that slack for doubly-even binary minimum-support subcodes.",
+        "identifier_or_url": "arXiv:2609.14477v1",
+        "material_read": "Full HTML Section 3, including the multiset partition lemma, rank-one idempotent lemma, and Theorem 5 with its complete proof.",
+        "method": "Line-by-line comparison of the partition slack and rank-one decomposition with the exact-half split available for doubly-even binary codes.",
+        "title": "On the Generalized Packing and Covering Radii of Codes",
+        "trigger": "Closest primary source for the exact order-two projective-multiplicity proof pattern."
+      },
+      {
+        "assessment": "BROADER_BUT_WEAKER_FOR_THIS_CLASS",
+        "evidence": "The paper proves \\(d_t\\le2R_t+2\\) for all linear codes. It contains no occurrences of 'doubly' or 'divisible', and no inspected statement yields \\(d_2\\le2R_2\\) for the target class.",
+        "identifier_or_url": "arXiv:2609.34910v1",
+        "material_read": "Full PDF abstract, Introduction, Theorem 1.1 and proof outline; document-wide searches for the terms doubly and divisible.",
+        "method": "Implication comparison of the universal bound and term-level inspection for a divisible-code specialization.",
+        "title": "A proof of the generalized packing-covering conjecture",
+        "trigger": "Latest universal theorem that could potentially dominate a class-specific refinement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "940bc47d-a8e2-4083-bd72-144aacb10b33",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Doubly-even codes form a standard and mathematically motivated binary class. The theorem gives a uniform strict generalized packing--covering gap at order two, rather than a finite parameter computation, and isolates a structural mechanism—divisibility forcing exact parity of projective multiplicities—that can inform further work on divisible-code covering problems.",
+    "status": "PASS"
+  }
+}
