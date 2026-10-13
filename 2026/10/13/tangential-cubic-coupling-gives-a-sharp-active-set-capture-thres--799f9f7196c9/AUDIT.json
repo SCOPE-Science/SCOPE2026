@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For c != 0 and B>3c^2/4 the objective has positive definite Hessian. The cubic Taylor Hessian lower-right diagonal requires t>=3c^2/4. At equality the quadratic form in each normalized direction has minimum (1-q^2)^2(1+2q^2)>=0, proving convexity; the established bivariate quartic convexity/SOS-convexity equivalence proves feasibility. The exact invariant-axis scalar minimizer has derivative lambda-3c^2*x^3 at its boundary. The interior recurrence establishes strict noncapture and cubic limit 3c^2. Symbolic, rational and root checks were executed from the actual embedded verify.py path.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "J. V. Burke and J. J. Moré, doi:10.1137/0725068, general nondegeneracy-based active-set characterization; abstract accessed.",
+        "arXiv:2602.10436v1, Introduction and Section 4.1: primal-dual first-order methods and degenerate identified sets as unions of manifolds.",
+        "arXiv:2609.01001v1, Theorem 5.9 assumes LICQ and strict complementarity."
+      ],
+      "reasoning": "Generic active-constraint theorems are closely related, but their identified algorithms and quantifiers differ. A qualitative possibility of nonidentification does not entail the exact minimal SOS-convexity coefficient, sharp one-step radius, or cubic trajectory. Diaz et al. do not analyze the present higher-order SDP-defined method; at a zero multiplier their generalized identified set does not require the degenerate constraint to bind.",
+      "searches": [
+        "exact radius active-set identification high order Newton convex polynomial constrained strict complementarity",
+        "2026 SOS-convex Taylor method cross-coordinate regularization leakage zero multiplier boundary",
+        "higher-order Newton active set identification strict complementarity quartic",
+        "tangential cubic regularization failure finite active set identification optimization"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.01001v1 (full HTML; Sections 3, 5.1, 6)",
+      "arXiv:2311.06374v2 (full HTML; introductory and algorithm material)",
+      "arXiv:2602.10436v1 (full HTML; introduction and identified sets)",
+      "doi:10.1137/110856010 (publisher abstract; theorem cited in primary source)",
+      "doi:10.1137/0725068 (publisher abstract only)",
+      "Published research-index semantic queries listed in checks",
+      "Public scholarly web queries listed in checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Motivating Theorem 5.9 proves finite identification when the active multiplier is positive; here that branch yields an exact radius while the multiplier-zero branch disproves unconditional finite identification.",
+        "Ahmadi--Chaudhry--Zhang (2024) has no constrained active set.",
+        "Burke--Moré studies identification/nondegeneracy at a general level but no explicit normal/tangential SOS Taylor coefficient was verified."
+      ],
+      "reasoning": "The exact formula requires a bivariate Hessian minimization and the special quartic convexity-to-SOS equivalence, followed by an invariant-axis recurrence. It is not a specialization of the source strict-complementarity conclusion because that theorem has no zero-multiplier branch and no quantified capture threshold. General qualitative necessity is not the exact claimed quantitative result.",
+      "searches": [
+        "higher-order SOS-convex Newton active-set identification strict complementarity necessity tangential cubic coupling regularizer 2026",
+        "exact radius active-set identification high order Newton convex polynomial constrained strict complementarity",
+        "strict complementarity exact one step capture radius high order convexified Taylor method lambda 3 c squared",
+        "Ahmadi Chaudhry Zhang active set SOS convex higher order Newton",
+        "higher-order Newton active set identification strict complementarity quartic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.01001v1 Sections 3 and 5.1: strict-complementarity sufficiency; source uses exactly the cubic Taylor plus minimal SOS-convex quartic model.",
+        "arXiv:2311.06374v2 Sections 3-4: unconstrained formulation, no active constraints."
+      ],
+      "reasoning": "The only near-identical update is the motivating paper, but the target statement is a two-dimensional exact normal/tangential model, with iff multiplier threshold and nonidentification at zero multiplier, neither an alternative notation for its local-rate theorem nor contained in its active-set sufficiency theorem.",
+      "searches": [
+        "higher-order SOS-convex Newton active-set identification strict complementarity necessity tangential cubic coupling regularizer 2026",
+        "quartic regularized cubic Taylor convexification tangent cubic destroys finite active set identification halfspace",
+        "Ahmadi Chaudhry Zhang active set SOS convex higher order Newton",
+        "cubic regularization active set strict complementarity finite identification failure"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-finding index searches returned no relevant identical polynomial boundary or equation; closest examples concerned other quartic families, Lanczos convexification, or general numerical methods.",
+        "arXiv:2609.01001v1 Section 6 contains a univariate quartic performance-estimation table, not a bivariate half-space capture frontier."
+      ],
+      "reasoning": "No exact table or database record with parameters (c,lambda,x), threshold 3c^2*x^3, or the zero-multiplier orbit was found. This negative search is supporting evidence only, not an independent novelty proof.",
+      "searches": [
+        "\"Further analysis and extension of the higher-order Newton method\" degenerate active set explicit quartic example",
+        "third order SOS convex Taylor polynomial regularization tangent variable cubic halfspace identification failure",
+        "strict complementarity exact one step capture radius high order convexified Taylor method lambda 3 c squared"
+      ]
+    },
+    "rationale": "Full HTML of ter Voert--de Klerk (arXiv:2609.01001v1), Sections 3, 5.1 and 6, has the same SOS-convex Taylor rule and an active-set identification theorem assuming strict complementarity; it neither establishes the converse nor this explicit multiplier-dependent threshold and forever-interior cubic orbit. The original unconstrained algorithm (arXiv:2311.06374v2) cannot directly cover a constrained active-set claim. The 2026 degenerate primal--dual paper concerns a different algorithmic class and a weaker generalized identification notion. General Burke--Moré nondegeneracy theory does not explicitly supply this exact polynomial mechanism. Actual searches for aliases and sharp radius in a published research index and public web did not find a dominating statement. Residual risk: an unindexed specialized example or a stronger general theorem under different terminology.",
+    "residual_risks": [
+      "An unindexed exact analysis of minimal-SOS-convex regularization under weak complementarity could imply this example.",
+      "Burke--Moré full text and portions of broader classical nonlinear-programming literature were not inspected; their generic identification results appear methodologically distinct but exact full coverage is not ruled out by access alone.",
+      "The established bivariate quartic convexity/SOS-convexity theorem is used as a citation-dependent lemma, with its applicable class independently checked."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_METHOD_NOT_COVERING_CLAIM",
+        "evidence": "Section 3 defines minimal t; Theorem 5.9 requires strict complementary slackness; the univariate performance estimation is not the two-dimensional zero-multiplier orbit.",
+        "identifier_or_url": "https://arxiv.org/html/2609.01001v1",
+        "material_read": "Introduction; Section 2 SOS-convexity definitions; Section 3 step definition; Section 5.1 active-set identification theorem; Section 6 quartic performance estimation",
+        "method": "Full-text HTML, examined the model formulas, quantified theorem hypotheses, and nearby univariate examples",
+        "title": "Further analysis and extension of the higher-order Newton method of Ahmadi, Chaudhry, and Zhang",
+        "trigger": "Identical constrained SOS-convex Taylor model and claimed active-set result"
+      },
+      {
+        "assessment": "ORIGINAL_UNCONSTRAINED_RULE_NOT_COVERING_CONSTRAINED_CLAIM",
+        "evidence": "The authors analyze the unconstrained scheme and mention possible SOS-convex constraints, but the exact degenerate active-set frontier is not stated.",
+        "identifier_or_url": "https://arxiv.org/html/2311.06374v2",
+        "material_read": "Abstract; Introduction; Sections 3 and 4 described in the accessible text and navigation; scope of constrained extension statement",
+        "method": "Full-text HTML, searched for active-set and constrained statements",
+        "title": "Higher-Order Newton Methods with Polynomial Work per Iteration",
+        "trigger": "Original SOS-convex Taylor rule and possible implicit active-set coverage"
+      },
+      {
+        "assessment": "RELATED_DISTINCT_ALGORITHM_AND_NOTION",
+        "evidence": "Theorem framework treats PDHG/ADMM/PPM/EGM in primal-dual variables; weakly active constraints need not bind in the identified set.",
+        "identifier_or_url": "https://arxiv.org/html/2602.10436v1",
+        "material_read": "Abstract; Introduction; definitions of weakly active constraints and identified set; Section 4.1",
+        "method": "Full-text HTML, inspected the generalized identification notion and algorithm classes",
+        "title": "Active set identification and rapid convergence for degenerate primal-dual problems",
+        "trigger": "Plausibly broader guarantees even without strict complementarity"
+      },
+      {
+        "assessment": "SUPPORTING_KNOWN_LEMMA",
+        "evidence": "The published equivalence identifies the bivariate quartic class as one where ordinary convexity implies SOS-convexity.",
+        "identifier_or_url": "https://doi.org/10.1137/110856010",
+        "material_read": "Public article abstract and classification of convex bivariate quartics",
+        "method": "Publisher abstract plus theorem stated and cited in the source paper Section 2.2",
+        "title": "A Complete Characterization of the Gap between Convexity and SOS-Convexity",
+        "trigger": "Critical algebraic equivalence needed to prove that minimal convex quartic is SOS-convex"
+      },
+      {
+        "assessment": "POTENTIAL_GENERAL_CONTEXT_NOT_DECISIVE_COVERAGE",
+        "evidence": "The abstract addresses general nondegeneracy/strict-complementarity assumptions, not the exact SDP-defined bivariate cubic Taylor update.",
+        "identifier_or_url": "https://doi.org/10.1137/0725068",
+        "material_read": "Public abstract about nondegeneracy equivalence and applicability to projection/SQP methods",
+        "method": "Publisher abstract; complete article not obtained",
+        "title": "On the Identification of Active Constraints",
+        "trigger": "Potential stronger general identification characterization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "799f9f71-96c9-469c-ae73-3d75e2777925",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The key motivated question is whether a zero KKT multiplier permits finite identification under a newly introduced polynomial-time SOS-convexified higher-order Newton update, despite cubic local convergence. The theorem exactly classifies a natural minimal strongly convex, linearly constrained quartic family, quantifies the sharp positive-multiplier identification radius, and isolates tangential-to-normal coupling through an isotropic quartic regularizer. It is not just a general failure of strict complementarity, generic textbook projection fact, or arbitrary numerical slice; it gives an explicit algorithm-defined sharp frontier and asymptotic coefficient.",
+    "status": "PASS"
+  }
+}
