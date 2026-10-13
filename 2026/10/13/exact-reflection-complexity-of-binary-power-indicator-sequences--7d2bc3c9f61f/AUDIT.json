@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "PASS: Distinct adjacent-power gaps identify the first two ones in every multi-one factor, giving exact c_k. Strictly increasing gaps make reversal of any three-one factor absent. Exactly-two-one words have reversal mates iff both left and right zero padding are at most the previous gap minus one, yielding exact B_k and #pairs floor(B_k/2). Geometric-interval summation proves the displayed formula including b=2,n=4 palindrome edge. Uniform scaling and derivative analysis gives both extrema. A separate Python enumerator checks every n up to 140 for bases 2..7; finite checks are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Allouche et al., Theorem 55, asserts computable b-regularity of the output sequence from its automaton, not an explicit numerical expression.",
+        "Dvořáková–Pelantová 2026 characterize special minimum-growth behaviors, not this particular geometric-power sequence."
+      ],
+      "reasoning": "A general algorithm computing a b-regular representation covers decidability/regularity but does not logically imply the explicit claimed piecewise formula and sharp liminf/limsup without a further nontrivial calculation. No stronger published formula or implication was located.",
+      "searches": [
+        "arXiv:2406.09302 Theorem 55 b-automatic reflection b-regular",
+        "'Reflection on the Reflection Complexity' 2026 minimum growth structural characterization",
+        "'reflection complexity' powers-of-two indicator general theorem"
+      ]
+    },
+    "checked_sources": [
+      "Allouche–Campbell–Li–Shallit–Stipulanti, arXiv:2406.09302, primary 2024 definition and regularity theorem",
+      "Krawchuk–Rampersad, Integers 18A (2018), article on cyclic complexity",
+      "Dvořáková–Pelantová, Theory of Computing Systems 70 (2026), article on reflection growth characterization"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The power-indicator word is b-automatic because its base-b support words have the form a leading 1 followed by zero digits.",
+        "The source's computable regularity theorem holds for this word but leaves coefficients and asymptotic oscillations unevaluated.",
+        "The later 2026 paper discusses minimum growth and the reversal analogue of Morse–Hedlund, not these exact values."
+      ],
+      "reasoning": "Prior results permit computation in principle, but do not state or imply the exact arithmetic formula and phase transition without the new distinct-factor and reversal-pair counting argument. The submitted theorem is not a corollary with mere parameter substitution.",
+      "searches": [
+        "Allouche et al. 2024 Theorem 55 reflection regularity",
+        "Dvořáková–Pelantová 2026 eventual periodicity reflection growth",
+        "Krawchuk–Rampersad 2018 cyclic/reversal complexity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Allouche et al. arXiv:2406.09302 §§1,3,8 define equivalence by reversal but compute different automatic examples.",
+        "Krawchuk–Rampersad 2018 study rotation-equivalence and some extended operations, not geometric-power reversal factors."
+      ],
+      "reasoning": "Reflection factor classes can equivalently be counted as raw factor count minus reversible unordered pairs; applying this equivalence to geometric-gap support is the proof here. An ordinary factor-complexity or cyclic-complexity formula alone does not state the reversal pairs, and no checked source supplies the claimed count.",
+      "searches": [
+        "'reflection complexity' 'indicator' 'powers'",
+        "'reflection complexity' 'characteristic sequence' 'powers of 2'",
+        "'reflection complexity' 'sparse' 'automatic sequence' formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The cited paper lists a Thue–Morse reflection sequence and related examples, not the exact power-indicator sequence.",
+        "No matching exact table appeared in targeted searches; search absence is not an exclusivity claim."
+      ],
+      "reasoning": "The theorem supplies infinitely many lengths and every integer base; a finite table for small n would not dominate it. Potential unindexed entries remain a residual priority risk.",
+      "searches": [
+        "'reflection complexity' 'powers of 2'",
+        "'reflection complexity' 'characteristic powers' closed formula",
+        "'reflection complexity' 'lacunary' sequence OEIS"
+      ]
+    },
+    "rationale": "PASS with historical priority uncertainty: The founding 2024 paper provides invariant and general computable regularity (Theorem 55), but not this all-base exact geometric-power formula or its asymptotic slopes. Related 2018 cyclic-complexity and 2026 structural reflection-complexity papers have distinct statements. Targeted alias/equivalence searches and published-record comparison found no dominating result. Priority cannot be certified by absence from searched sources.",
+    "residual_risks": [
+      "An unindexed equivalent formula or unpublished result may exist; semantic matching does not establish uniqueness or priority.",
+      "The general b-regular representation algorithm could produce these values after nontrivial specialization; no explicit covering specialization was found in the inspected source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "INTRODUCES_INVARIANT_NOT_COVERING_EXACT_FORMULA",
+        "evidence": "Theorem 55 gives b-regularity for every b-automatic sequence; applications evaluate Thue-Morse, period-doubling, paperfolding, Golay–Shapiro and Baum–Sweet, not the geometric-power indicator. No formula for its r_b(n) or oscillatory accumulation slopes occurs.",
+        "identifier_or_url": "https://arxiv.org/abs/2406.09302",
+        "material_read": "Open-access HTML full text: introduction, definitions and general reversal-class identity in Section 3, Section 8 automatic sequences and Theorem 55, list of evaluated examples, conclusions; searched for the power-indicator word and sparse geometric support.",
+        "method": "Read primary HTML text and theorem statements; searched for 'powers of', 'power of two', 'sparse', 'characteristic' and automatic example names.",
+        "title": "The reflection complexity of sequences over finite alphabets",
+        "trigger": "Primary definition of reflection complexity and computable regularity theorem for all automatic words"
+      },
+      {
+        "assessment": "DIFFERENT_EQUIVALENCE_AND_OBJECTS",
+        "evidence": "The main results count cyclic conjugacy classes for Fibonacci and Thue–Morse and do not evaluate factors modulo reversal for geometric-power support.",
+        "identifier_or_url": "https://math.colgate.edu/~integers/sjs12/sjs12.pdf",
+        "material_read": "13-page accessible PDF abstract and definitions and theorem statements on Fibonacci and Thue–Morse cyclic complexity, and remarks on generalized classes.",
+        "method": "Read article text and relevant parts of Section 2; checked whether powers-indicator words or reversal factor counts are treated.",
+        "title": "Cyclic Complexity of Some Infinite Words and Generalizations",
+        "trigger": "Earlier rotation/reversal generalizations potentially equivalent to reflection equivalence"
+      },
+      {
+        "assessment": "GENERAL_CHARACTERIZATION_NOT_EXPLICIT_POWER_WORD_EVALUATION",
+        "evidence": "The abstract and introduction concern eventual periodicity and minimal-growth characterization, not the specific power-indicator word or explicit geometric-interval r_b formula.",
+        "identifier_or_url": "https://doi.org/10.1007/s00224-026-10278-7",
+        "material_read": "Full open-access HTML abstract, introduction and preliminary definitions; inspected the stated scope and main-characterization summary; searched HTML for 'power', 'sparse' and 'automatic'.",
+        "method": "Opened publisher open-access article and compared stated objects, theorem scope and terminology.",
+        "title": "Reflection on the Reflection Complexity",
+        "trigger": "Later paper with potentially stronger general results on reflection complexity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d2bc3c9-f61f-4fcb-8442-b7f5477b8e12",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS: A natural sparse b-automatic word with a very simple base-b recognizer receives a complete all-base reflection-complexity evaluation; its normalized count has convergent behavior exactly at b=2 and a new nonconvergent range of sharp slopes for b>=3. This answers a motivated instance of the 2024 paper's explicit-evaluation problem and is not a cosmetic parameter substitution or a finite table.",
+    "status": "PASS"
+  }
+}
