@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The verifier reconstructs all 720 permutations and Ulam distances from longest common subsequences, proves every normalized maximum is a triangle in the 132-vertex compatibility graph, checks all 298 triangles and that none extends to a K4, generates and deduplicates all 53,640 labeled maxima, verifies every six-distance profile is (4,4,4,4,4,4), computes the stated 57 symmetry orbits, and tests subgroup closure for all normalized maxima. A fresh replay returned VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1202.0932 gives general Singleton-type bounds and asymptotic constructions.",
+        "arXiv:1712.03639 gives exact sphere-size formulas and perfect-code nonexistence."
+      ],
+      "reasoning": "These broader theorems constrain code sizes or sphere geometry but do not enumerate maximum (6,4) codes or imply the stated orbit/coset classification.",
+      "searches": [
+        "Ulam metric permutation codes translocation errors exact bounds S6 2012 Farnoud Skachek Milenkovic",
+        "maximum size Ulam permutation code table",
+        "Ulam Sphere Size Analysis permutation code size"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1202.0932",
+      "arXiv:1504.05100",
+      "arXiv:0904.1615",
+      "arXiv:1712.03639"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest parameter source, arXiv:1504.05100, gives A(6,4)=4 but no number of maximizers.",
+        "No inspected primary source states the 53,640 equality-case count, universal equidistance, the 57-orbit decomposition under the declared action, or the no-coset conclusion."
+      ],
+      "reasoning": "Knowing A_U(6,4)=4 does not determine how many four-word codes exist, whether all are equidistant, their symmetry orbits, or whether any are subgroup cosets. The new statement is not a corollary of the published optimum.",
+      "searches": [
+        "53640 Ulam code",
+        "298 normalized Ulam codes identity",
+        "Ulam permutation code orbit classification S6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1202.0932, Proposition 3 identifies translocation distance with Ulam distance n-LCS.",
+        "arXiv:1504.05100, Table I records n=6,d=4 maximum 4."
+      ],
+      "reasoning": "The same object can be phrased as Ulam codes, translocation rank codes, or families of permutations with pairwise LCS at most 2. Searches were run under all three formulations; the located exact source gives only the optimum, not the equality-case census.",
+      "searches": [
+        "A_U(6,4)=4 Ulam distance permutation code",
+        "53640 maximum Ulam codes S6 distance 4",
+        "all maximum translocation rank codes length 6 minimum Ulam distance 4",
+        "four permutations length 6 pairwise longest common subsequence at most 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1504.05100, Table I lists the cell n=6,d=4 as 4 and says the table summarizes computer-search results."
+      ],
+      "reasoning": "The exact published table settles only the maximum cardinality. No equality-case count, distance-profile census, orbit decomposition, or subgroup/coset classification is present in the inspected table or surrounding discussion.",
+      "searches": [
+        "Ulam permutation codes exact values",
+        "A(6,4) Ulam permutation code",
+        "New Bounds for Permutation Codes in Ulam Metric Table I"
+      ]
+    },
+    "rationale": "The 2015 exact-value paper publicly reports A_U(6,4)=4 but not a census or equality-case structure. The 2012 foundational paper gives the metric and general bounds; the 2009 LCS paper is asymptotic/constructive for a different parameter regime; the 2019 sphere paper treats sphere sizes and perfect-code nonexistence. Targeted semantic and web searches found no statement implying the 53,640 count, equidistance, 57-orbit decomposition, or no-coset property.",
+    "residual_risks": [
+      "An obscure, unindexed, or unpublished finite enumeration of (6,4) Ulam-code maximizers could exist.",
+      "The declared 1440-element group is not claimed to be the full isometry group; a full-isometry orbit count could be coarser."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact metric and proves left invariance/general bounds, but does not state the (6,4) equality-case census.",
+        "evidence": "Proposition 3 states d_U=n-LCS; Proposition 8 gives A_U(n,d) <= (n-d+1)!.",
+        "identifier_or_url": "arXiv:1202.0932",
+        "material_read": "Definitions of translocations and Ulam distance; Proposition 3; Section III code-size bounds including Proposition 8.",
+        "method": "Lawful arXiv full text; text and page inspection.",
+        "title": "Error-Correction in Flash Memories via Codes in the Ulam Metric",
+        "trigger": "Foundational definition and general bound source for Ulam/translocation codes."
+      },
+      {
+        "assessment": "COVERS the known optimum A_U(6,4)=4, but NOT the new equality-case census or structure.",
+        "evidence": "Table I explicitly lists n=6,d=4 as 4 and is captioned known maximum sizes of codes in the Ulam metric.",
+        "identifier_or_url": "arXiv:1504.05100",
+        "material_read": "Abstract, Ulam-code definitions, integer-programming discussion, Table I and its surrounding computer-search discussion.",
+        "method": "Lawful arXiv full text; text and page inspection.",
+        "title": "New Bounds for Permutation Codes in Ulam Metric",
+        "trigger": "Exact small-parameter table plausibly covers the same (6,4) problem."
+      },
+      {
+        "assessment": "NOT_COVERING for this finite census; the stated construction theorem assumes n >= k^2 and gives asymptotic-style LCS bounds.",
+        "evidence": "For k=4,n=6 the displayed n >= k^2 hypothesis fails, and no equality-case enumeration is stated.",
+        "identifier_or_url": "arXiv:0904.1615",
+        "material_read": "Abstract and parameter regime of the main constructive bounds.",
+        "method": "Public arXiv record and abstract inspection.",
+        "title": "Longest Common Subsequences in Sets of Permutations",
+        "trigger": "Equivalent pairwise-LCS formulation might dominate the code statement."
+      },
+      {
+        "assessment": "NOT_COVERING; it gives sphere-size formulas and nonexistence of nontrivial perfect permutation codes, not the (6,4) extremizer census.",
+        "evidence": "Table II summarizes perfect-code nonexistence; no (6,4) equality-case count or orbit classification is stated.",
+        "identifier_or_url": "arXiv:1712.03639",
+        "material_read": "Introduction, Tables I-II, permutation definitions and scope of the main results.",
+        "method": "Lawful arXiv full text; text and table inspection.",
+        "title": "Ulam Sphere Size Analysis for Permutation and Multipermutation Codes Correcting Translocation Errors",
+        "trigger": "Later work on theoretical limits might contain a stronger exact classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cdcceb92-349c-4918-a478-bb0988f29e73",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2015 literature identifies the exact (6,4) maximum by computer search but leaves the equality cases structurally opaque. A complete extremizer census at this canonical small Ulam-code parameter, together with universal equidistance, 57 natural symmetry classes, and exclusion of subgroup-coset constructions, gives a reusable benchmark for constructions and symmetry-aware searches rather than a routine recomputation of the known optimum.",
+    "status": "PASS"
+  }
+}
