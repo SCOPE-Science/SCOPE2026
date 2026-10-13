@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Complete analytic eigenbasis rank-one reduction, Cauchy integral, strict positive-definite conditions with almost-sure boundaries, monotone quartic optimum, simple-pole tail and positive-ridge transverse-zero proof. Exact fraction witness for unregularized and regularized cases checked directly by the packaged verifier; finite Monte Carlo corroboration is not offered as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liang–Huang 2026 full text Theorem 2.1/2.2 uses SPD Q; Theorem 3.1 bounds mean error conditional on the good sketch event Ψ.",
+        "Nakatsukasa–Park 2023 introduces stabilized/truncated indefinite variants with spectral/nuclear-norm accuracy claims; the present result is on the unmodified signed core.",
+        "Chen et al. 2026 accessible abstract describes two-sided least-squares core fitting, not the original signed scalar reciprocal; full text unavailable."
+      ],
+      "reasoning": "A conditional expected-error bound cannot imply a universally SPD Q or finite unconditional expectation. Stabilized indefinite Nyström is a different algorithm. An unknown broader treatment of the exact original core remains an originality risk and is not excluded by a missing full text.",
+      "searches": [
+        "randomized inexact double saddle point Liang Huang Schur approximation 2026 indefiniteness positivity",
+        "matrix (E^{-1}-operatorname{diag}(E)^{-1}) indefinite rank-one Nyström preconditioner probabilistic failure",
+        "arxiv:2609.01031v1 §2-3 Algorithm 1 equation (3.3)",
+        "arxiv:2212.01127 §1.1, indefinite Nyström example (1.2)-(1.4)",
+        "arxiv:2608.20531 (abstract only)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.01031v1 (full HTML §§2–3)",
+      "arxiv:2212.01127 (full 24-page PDF, detailed §1.1 and later results)",
+      "arxiv:2608.20531 (abstract only, material limitation)",
+      "Semantic searches of published mathematical records on signed Nyström Gaussian positive-definiteness, ridge inverses and saddle-point Schur approximation",
+      "Own current and prior ledgers (claim/ID overlap only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liang–Huang 2026 (3.3) supplies the algebra and positive-ridge Algorithm 1; its conditional Theorem 3.1 does not provide the distributional law.",
+        "Nakatsukasa–Park 2023 §1.1 provides a deterministic signed-core instability, but no distribution on Gaussian SPD-Schur inputs or ridge failure/infinite mean conclusion.",
+        "Chen et al. 2026 accessible abstract discusses two-sided fitted cores; a decisive full-text equivalence comparison was not possible."
+      ],
+      "reasoning": "The general existence of a bad deterministic sketch does not imply its probability under a prescribed Gaussian law, the sharp probability supremum or a precise 1/z coefficient; deriving these requires the Cauchy reduction and pole analysis. The regularized impossibility is a separate transverse-zero calculation and does not assert impossibility of stable truncation.",
+      "searches": [
+        "Gaussian sketch indefinite Nyström signed rank-one Schur complement positive definiteness failure Cauchy exact probability",
+        "regularized inverse indefinite Gaussian quadratic form denominator shifted epsilon expectation divergent infinite norm",
+        "indefinite Nyström pseudoinverse rank-one Gaussian sketch SPD target loss of positive definiteness probability",
+        "arxiv:2609.01031v1 §2-3 Algorithm 1 equation (3.3)",
+        "arxiv:2212.01127 §1.1, indefinite Nyström example (1.2)-(1.4)",
+        "arxiv:2608.20531 (abstract only)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nakatsukasa–Park 2023 full preprint §1.1: deterministic unbounded error of plain indefinite Nyström, with a 2-by-2 matrix and near-zero signed core.",
+        "Liang–Huang 2026 full text §3 (3.3): the same signed Nyström expression, but only conditional error analysis."
+      ],
+      "reasoning": "The Cauchy integral for Schur-block SPD loss, its global extremum, and the ridge-shift integrability failure are not statements of the classical deterministic norm counterexample. Gaussian sign ratio is the new object. The older 2-by-2 example already implies that unboundedness is possible, so generic instability is explicitly not claimed original.",
+      "searches": [
+        "Gaussian sketch indefinite Nyström signed rank-one Schur complement positive definiteness failure Cauchy exact probability",
+        "regularized inverse indefinite Gaussian quadratic form denominator shifted epsilon expectation divergent infinite norm",
+        "indefinite Nyström pseudoinverse rank-one Gaussian sketch SPD target loss of positive definiteness probability",
+        "arxiv:2212.01127 §1.1, indefinite Nyström example (1.2)-(1.4)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-research searches returned closest studies of additive bidirectional Gauss–Seidel SPD criteria, projected-preconditioner defects and indefinite approximation, but no matching Gaussian 2-by-2 signed Schur risk table.",
+        "The two primary full texts inspected contain no tabulated exact two-dimensional Gaussian Schur positivity probability."
+      ],
+      "reasoning": "The claim is an exact analytic probability and pole constant, not a lookup of an existing eigenvalue or numerical table. A search returning no direct match is not treated as proof that no table exists.",
+      "searches": [
+        "Gaussian sketch indefinite Nyström signed rank-one Schur complement positive definiteness failure Cauchy exact probability",
+        "randomized inexact double saddle point Liang Huang Schur approximation 2026 indefiniteness positivity",
+        "indefinite matrix Nyström Ω (Ω^T Δ Ω)^{-1} Ω^T heavy tails infinite expected norm signed core"
+      ]
+    },
+    "rationale": "Original contribution is the exact Gaussian Schur SPD-loss probability, sharp family-wide supremum, 1/z tail constant, and fixed-positive-ridge failure/infinite mean, NOT the already published qualitative unbounded error of indefinite Nyström. Comparison with full motivating and 2023 primary papers and actual research-literature aliases found no stated or directly dominating claim. Chen et al. newer full text inaccessible and explicitly a residual risk; search non-matches alone are not used as evidence of novelty.",
+    "residual_risks": [
+      "Chen et al. (arXiv:2608.20531) complete original paper could not be read; abstract suggests a different two-sided fitted core but a related implication might be in the full paper.",
+      "Other older results on ratios of indefinite Gaussian quadratic forms could encode the Cauchy integration or 1/z pole as a corollary; standard probability identities are not claimed new.",
+      "The source permits sparse sketches whereas this theorem chooses real Gaussian sampling, so no sparse-sketch claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MOTIVATING: signed correction and positive shift are present; exact law and unconditioned integrability not provided in inspected mathematical results.",
+        "evidence": [
+          "§2 conditions Q SPD for spectral claims",
+          "§3 (3.3) exact signed correction",
+          "Algorithm 1 positive ridge core",
+          "Theorem 3.1 conditions expectation on a good event"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.01031v1",
+        "material_read": "Full HTML introduction, Section 2 SPD hypotheses and Section 3 algorithm, formula (3.3), Lemmas 3.4–3.6 and Theorem 3.1; references and conclusions surveyed.",
+        "method": "Direct reading of open arXiv HTML including formula comparison",
+        "title": "Randomized inexact block triangular preconditioners for double saddle-point systems in PDE-constrained optimization",
+        "trigger": "Identical Schur approximation and Gaussian risk application"
+      },
+      {
+        "assessment": "KNOWN deterministic unboundedness; no exact Gaussian Schur probability or positive-ridge infinite expectation in checked results.",
+        "evidence": [
+          "§1.1 equations (1.2)–(1.4) and Figure 1",
+          "§3 stabilization and robust approximation theory"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2212.01127",
+        "material_read": "Full 24-page preprint primary results and detailed Section 1.1; page 3 PDF image examined for exact 2-by-2 example and statement.",
+        "method": "Open-access PDF text and page-image reading",
+        "title": "Randomized low-rank approximation for symmetric indefinite matrices",
+        "trigger": "Strongest older known unconditional signed Nyström instability"
+      },
+      {
+        "assessment": "UNRESOLVED close-source originality risk; abstract presents two-sided sketched least-squares core instead of the original signed reciprocal; no whole-document NOT_COVERING claim.",
+        "evidence": [
+          "Abstract defines alternative min_M ||X(A-CMC^T)X^T||_F core selection and discusses near-singular original cores"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.20531",
+        "material_read": "Abstract and publicly accessible descriptive record only; full text not available in research access.",
+        "method": "Open public arXiv abstract and paper metadata; full-text attempts unsuccessful",
+        "title": "Nyström method for symmetric indefinite matrices",
+        "trigger": "Close 2026 title dealing with indefinite Nyström core singularity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b0a00278-ba10-4ee1-be6c-0c519fcb54cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating Schur spectral analysis explicitly requires an SPD approximate Schur block. This theorem quantifies the exact positive probability of violating that premise with an SPD input family, a sharp worst family-wide risk and infinite mean amplification even when the implementation adds any fixed positive scalar ridge. These are operationally meaningful reliability boundaries, not merely a cheap counterexample or generic already-known instability.",
+    "status": "PASS"
+  }
+}
