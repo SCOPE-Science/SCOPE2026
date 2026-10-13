@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For every finite field and every distinct evaluation set with the exact triple nonvanishing condition, the two generalized Vandermonde determinants are the ordinary Vandermonde factor times e_1 or e_2, proving the arc/MDS premise. The dimension-three projective conic criterion is proved and properly specialized. The quadratic-monomial exponents are {0,1,2,3,4,6} for r=1 and {0,2,3,4,5,6} for r=2; the six-root polynomial uniquely certifies the e_1/e_5 test, and a degree-six root bound excludes seven or more coordinates. Five arc points lie on a unique smooth conic. For each five-set, the e_1 extension equation has one possible root; the e_5 extension equation has coefficients (e_4,e_5) not both zero since the evaluations are distinct, proving the five-packing. An exact F_19 arc/conic certificate refutes a non-GRS assertion at n=2k=6. The bundled verify.py independently computes modular conic ranks on all relevant small prime-field sets, checks direct conic equations and both deletion regimes, and concludes VERIFY_OK. Finite checks are not claimed as an infinite proof. Boundary n>=5, initial n>=7 for the puncturing distance, and characteristics including two are treated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jin et al., arXiv:2411.14779, Proposition VI.1 explicitly assumes n>2k: it covers all retaining at least seven when k=3 and is credited as prior.",
+        "Abdukhalikov et al., arXiv:2506.04080, Section 3 Theorem 3.2 states 6<=2k<=n implies non-GRS under the triple MDS test; the equality case n=2k=6 is refuted by F_19 T={0,1,3,4,5,6} whose projective columns lie on XY+14XZ+18Y^2+4YZ+Z^2=0.",
+        "Márquez-Corbella--Pellikaan, Appendix D: five arc points determine a conic. This classical five-point fact is credited, not called novel.",
+        "Jin et al., arXiv:2411.14779, Proposition V.1 (page 10) states 3<=k<=n/2 and asserts non-RS for r=1, including n=6,k=3; the witness F19 {0,1,3,4,5,6} disproves that equality case."
+      ],
+      "reasoning": "The prior n>6 theorem dominates the seven-or-more obstruction but not the new six-point iff classification. Both weak-inequality non-RS assertions (Jin Proposition V.1 for r=1 and Abdukhalikov Theorem 3.2 for r=1,2) would cover the six-point case only if true; the explicit MDS and conic witness proves its conclusion fails at equality. The aggregate sharp puncturing-depth and five-packing theorem therefore survives the comparison, while the older portions are not counted as discoveries.",
+      "searches": [
+        "Yu Ning degree deleted cubic evaluation codes six-coordinate puncturing e1 e5 six point conic GRS",
+        "Jin Ma Xing Zhou Proposition VI.1 strict n greater 2k equality GRS six points",
+        "Abdukhalikov Ding Verma Theorem 3.2 six coordinate k3 n=2k counterexample non GRS monomial equivalence",
+        "arXiv:2411.14779 Proposition VI.1; arXiv:2506.04080 Theorem 3.2; arXiv:2507.04689 Sections 2,4,5",
+        "arXiv:2411.14779 Proposition V.1, 3<=k<=n/2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2507.04689, v1 2025-07-07, source GRS_{k,r} definition",
+      "arXiv:2411.14779, Jin et al., Propositions V.1 (weak n>=2k, false equality case) and VI.1 (strict n>2k)",
+      "arXiv:2506.04080, Abdukhalikov et al., Section 3 Theorem 3.2, equality-boundary non-GRS assertion checked against counterexample",
+      "DOI:10.1016/j.ffa.2016.04.004, rational normal conic criterion and Appendix D",
+      "published research record: 2026/10/4/SCOPE-a-transverse-a-1-stratum-on-the-six-point-conic-determinant--aa3ad7d9707b, six-point determinant concerns different general configurations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact six-point witness T={0,1,3,4,5,6} over F_19 satisfies e_1(T)=19=0 modulo 19; each triple sum lies strictly between 0 and 19, so the code is MDS and on a smooth conic, hence GRS.",
+        "Ning supplies the MDS triple condition, Jin supplies the non-GRS result at n>2k, and Márquez-Corbella--Pellikaan supplies the projective-conic test; the present proof supplies the missing-coefficient iff and five-set packing.",
+        "The source Theorem 3.2 weak-inequality non-GRS assertion conflicts with a direct example rather than implying the accepted claim.",
+        "Jin et al. Proposition V.1 also makes the weak n>=2k r=1 assertion, contradicted at equality by precisely the same direct conic witness; its Proposition VI.1 uses the correct strict inequality."
+      ],
+      "reasoning": "Neither a source-title match nor parameter equality is used as evidence of novelty. On statements and logical implications: generic MDS and conic tools are prior, strict longer-length non-GRS is prior, but a full six-point condition for both r=1 and r=2 is not implied by a valid stronger theorem located in the comparisons. The two candidate stronger six-point assertions are explicitly falsified at equality by the checkable conic witness.",
+      "searches": [
+        "pseudoreed solomon codimension-one GRS puncturing conic six coordinates sum zero",
+        "near MDS generalized Reed Solomon puncturing recovery threshold local GRS descendants six point conic Vieta symmetric sum",
+        "web: \"puncturing\" \"non-Reed-Solomon\" \"Schur square\" six",
+        "arXiv:2506.04080 Theorem 3.2; arXiv:2411.14779 Proposition VI.1; arXiv:1508.02187 Appendix D",
+        "arXiv:2411.14779 Proposition V.1 and Proposition VI.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Márquez-Corbella--Pellikaan, arXiv:1508.02187, Section 3 and Appendix D: projective-system characterization of GRS by rational normal curves; for dimension three this is a conic, but no restriction to deleted-row parametrizations.",
+        "Jin--Ma--Xing--Zhou, arXiv:2411.14779, Sections II and III: Schur square detects non-GRS MDS; no six-subset elementary-symmetric iff threshold reported in read sections.",
+        "The closest published six-point-conic-determinant research-record ID concerns singular strata of arbitrary configurations, not code puncturing or parametric arcs.",
+        "Jin--Ma--Xing--Zhou, arXiv:2411.14779, Proposition V.1 asserts non-RS with n>=2k for r=1; its equality case is contradicted by the six-point conic witness."
+      ],
+      "reasoning": "The code family is a special parametrized arc, and the relevant equivalence is conic containment. The new nontrivial specialization identifies exactly when six columns meet a conic by the absent Vieta coefficient. The classical recognition criterion alone gives no list of successful puncturings, no minimal deletion count, and no five-packing. No inspected equivalent claim covers all three.",
+      "searches": [
+        "GRS equivalence puncturing dimension three subcodes missing degree x^2 evaluation monomials 1 x x^3 six points sum zero conic",
+        "GRS monomial subcode 1 t t cubed, degree two missing, six zero-sum evaluation points, puncturing threshold equivalence to Reed Solomon conic Schur square",
+        "Schur square generalized Reed Solomon dimension three five six seven punctured coordinates rank 5 6",
+        "web: \"1,x,x^3\" \"conic\" \"sum\" code",
+        "published record 2026/10/4/SCOPE-a-transverse-a-1-stratum-on-the-six-point-conic-determinant--aa3ad7d9707b"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Code parameter catalogs and generic Reed-Solomon summaries state achievable [n,3,n-2] parameters but do not identify exact monomial-equivalence classes under a given evaluation set or the six-subset incidence pattern.",
+        "The published primary PDFs inspected describe code families and structural bounds rather than any existing all-set e_1/e_5 GRS-puncturing table."
+      ],
+      "reasoning": "The finding is a classification for arbitrary finite-field evaluation sets obeying an exact arc condition, not a numerical code-parameter bound or a finite table entry. Even a table of parameters [7,3,5] would not imply the puncturing/GRS equivalence of specified columns. No exact table with that content was located; this negative search result alone is not treated as novelty proof.",
+      "searches": [
+        "codetables database q 19 [7,3,5] MDS Reed-Solomon GRS equivalence puncturing",
+        "coding theory database non GRS puncturing radius dimension 3 6 points exact",
+        "web: \"GRS_{3,1}\" \"punctur\"",
+        "web: \"GRS_{3,2}\" \"e_5\" \"Schur\""
+      ]
+    },
+    "rationale": "Closest full-text sources were compared by implication. Ning arXiv:2507.04689 defines and analyzes the same missing-monomial evaluation codes but gives self-dual, NMDS and dual descriptions, not the complete punctured GRS profile. Jin et al. arXiv:2411.14779 Proposition VI.1 proves the known strict n>2k non-GRS part; their Proposition V.1 also asserts non-GRS at n=2k=6 for r=1, but the explicit p=19 MDS six-point conic refutes that equality case. Abdukhalikov--Ding--Verma arXiv:2506.04080 Theorem 3.2 asserts non-GRS already at n>=2k; at equality the explicit p=19 six-coordinate MDS arc lying on a smooth conic contradicts that assertion, so this asserted coverage is false at the precise boundary. Classical conic/GRS equivalence by Marquez-Corbella--Pellikaan supplies a method, but no inspected relevant source explicitly implies the e_1/e_5 iff conditions, sharp one-step/two-step puncturing dichotomy and six-set packing for both deleted-degree families. Recent research-record semantic queries gave no overlapping named claim. The conclusion is originality of the complete boundary classification, not of the known general recognition theorem or n>=7 non-GRS fact.",
+    "residual_risks": [
+      "Unindexed, unpublished, or unexamined specialized finite-geometry literature could discuss the same six-point missing-monomial locus.",
+      "The argument assumes exactly the stated MDS triple condition and evaluation at finite-field points, not extensions or more general codes.",
+      "Disagreement with the weak-inequality non-RS statements in Jin et al. Proposition V.1 and Abdukhalikov et al. Theorem 3.2 is strictly at n=2k=6 and does not challenge the valid n>2k result.",
+      "The checker enumerates selected small prime fields, while correctness for all finite fields rests on the written proof; independent verification has not yet occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No explicit six-point GRS recovery classification identified; MDS and row-deletion definitions are directly used",
+        "evidence": [
+          "v1 published 2025-07-07, arXiv abs page; Section 2.2 Eq. (6)--(9) defines degree-deleted codes and e_r triple MDS condition; Section 4 focuses NMDS/dual distances; Section 5 studies dual classes."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2507.04689",
+        "material_read": "Full available 21-page preprint text searched; introduction, Section 2 definitions, Section 4 Theorem 4.2, Section 5 duality claims, conclusion and references read",
+        "method": "Read primary arXiv preprint PDF and inspect relevant statements, not merely abstract",
+        "title": "On subcodes of the generalized Reed-Solomon codes",
+        "trigger": "Exact GRS_{k,r} source family and earliest public date"
+      },
+      {
+        "assessment": "Proposition VI.1 correctly uses n>2k and covers the longer-length obstruction; Proposition V.1 asserts non-RS already at n>=2k for r=1, and its equality case is refuted by explicit F19 smooth-conic MDS witness.",
+        "evidence": [
+          "Proposition VI.1 states n>2k; Schur square of the deleted-row polynomial space has rank at least 2k only when the length is large enough.",
+          "Proposition V.1, page 10: 3<=k<=n/2, r=1 and triple-sum MDS condition are asserted sufficient for non-RS, including n=6; F19 six-point conic defeats that boundary."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2411.14779",
+        "material_read": "Introduction, Sections II and III Schur-square method, Section VI Proposition VI.1, and references; Section V Proposition V.1 inspected after initial comparison",
+        "method": "Read primary full-text theorem hypotheses and proof passages, plus searched puncturing and six-point terms",
+        "title": "New families of non-Reed-Solomon MDS codes",
+        "trigger": "Potential dominating theorem for MDS deleted-row evaluations"
+      },
+      {
+        "assessment": "Its non-GRS conclusion at n=2k=6 is contradicted by a six-point MDS conic, while the MDS characterization remains correct; it does not provide the accepted classification",
+        "evidence": [
+          "Section 3 Theorem 3.2 states 6<=2k<=n and non-GRS for the triple condition; the six-column 19-ary arc {0,1,3,4,5,6} lies on smooth XY+14XZ+18Y^2+4YZ+Z^2=0."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2506.04080",
+        "material_read": "Primary PDF abstract and introduction, Section 2 projective/GRS preliminaries, Section 3 Proposition 3.1 and Theorem 3.2 including stated proof, Sections 4 and 5 primary extension statements, Section 6 o-polynomial descriptions",
+        "method": "Read theorem and compared weak n>=2k restriction with strict inequality in the cited Jin et al. result; direct finite-field proof/example independently checked",
+        "title": "Some constructions of non-generalized Reed-Solomon MDS Codes",
+        "trigger": "Closest competing non-GRS assertion at the six-point boundary"
+      },
+      {
+        "assessment": "Classical conic criterion used as proof ingredient, not a theorem about symmetric-function six-set classifications",
+        "evidence": [
+          "Section 3 and Appendix D: GRS projective columns are rational normal curve points and conversely; general-position r+3 points determine unique curve."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ffa.2016.04.004",
+        "material_read": "Accessible primary article text: Section 3 GRS projective systems and Appendix D rational normal curve converse; introduction contextual claim",
+        "method": "Read open article representation of exact geometric equivalence, not just search snippets",
+        "title": "A characterization of MDS codes that have an error correcting pair",
+        "trigger": "Possible general GRS-via-conic equivalence covering claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a2a23d6d-bfb6-4567-8445-1090e7434b91",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural non-GRS-to-GRS transition under puncturing is a structural coding-theory question motivated by row-deleted GRS constructions and the known longer-length Schur-square obstruction. For both distinct cubic families and every finite field, the theorem gives all successful six-subset descendants, sharp deletion depths n-6 versus n-5, and an exact packing-incidence constraint on the optimal subsets. Both thresholds occur in explicit MDS examples. The equality-boundary MDS-conic witness also distinguishes the correct strict n>2k non-GRS range from published weak-inequality assertions. Thus it resolves a motivated complete boundary classification rather than computing a narrow arbitrary parameter, routine table entry, or unsupported quantitative improvement. No generalization to arbitrary MDS codes is claimed.",
+    "status": "PASS"
+  }
+}
