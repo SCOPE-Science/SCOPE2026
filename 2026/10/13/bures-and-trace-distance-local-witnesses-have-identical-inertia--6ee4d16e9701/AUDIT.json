@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Starting from the source Eq. (23), direct expansion of the rank-one factor \\(R_x=I+xx^{\\mathsf T}/(1-\\|x\\|^2)\\) gives exactly \\(4J_B=R_x(D+D^{\\mathsf T})R_x\\). For \\(\\|x\\|<1\\), \\(R_x\\) is positive definite and invertible, with eigenvalues \\(1,1,(1-\\|x\\|^2)^{-1}\\). Sylvester congruence therefore preserves the complete inertia, so positivity of the Bures/Fisher local growth form is equivalent to the source trace-distance condition. The specialization to the source example follows because every diagonal entry of its finite-time damping matrix is strictly negative.",
+    "risks": [
+      "The theorem is local to the full-rank Bloch ball; no claim is made about finite state separations or integrated witness magnitudes.",
+      "The checker is only a consistency test; the universal result rests on the symbolic proof."
+    ],
+    "sources": [
+      "arXiv:1009.0845, especially Eqs. (17)-(23) and the paragraph after Eq. (23)"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lu--Wang--Sun prove a general QFI-flow decomposition but not the Bloch congruence.",
+        "Liu--Lu--Wang explicitly study the missing non-unital aspect and use Bures distance as a supplement; this does not dominate the unital inertia theorem.",
+        "A recent review lists multiple witnesses and cites the Hall example without supplying the claimed factorization."
+      ],
+      "reasoning": "The plausible broader theories concern QFI flow, divisibility, or non-unital corrections. None inspected source implies that the local Bures and trace-distance witness matrices have identical inertia for every unital qubit dynamics.",
+      "searches": [
+        "quantum Fisher information flow trace distance witness unital qubit",
+        "non-unital non-Markovianity Bures trace distance unital aspect",
+        "Bures distance non-Markovianity trace distance unital qubit"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1009.0845",
+      "DOI:10.1103/PhysRevA.89.042120",
+      "arXiv:0912.0587",
+      "DOI:10.1103/PhysRevA.82.042103",
+      "arXiv:1301.5763",
+      "DOI:10.1103/PhysRevA.87.042103"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hall et al. prove the trace-distance condition and print the Bures matrix but stop at a numerical check for their example.",
+        "Lu et al. decompose QFI flow by dissipative channels, a different statement that does not imply the source Bures matrix is congruent to the trace-distance damping matrix.",
+        "Liu et al. separate non-unital behavior from the trace-distance witness rather than proving an unital Bures/trace equivalence."
+      ],
+      "reasoning": "The new implication requires recognizing the exact rank-one congruence. None of the inspected prior statements, individually or as a cited theorem, states that congruence or its equal-inertia consequence. The result is not a special case of a stronger inspected theorem.",
+      "searches": [
+        "unital qubit Bures Fisher metric trace distance non-Markovianity damping matrix equivalence",
+        "quantum Fisher information flow trace distance witness unital qubit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct Hall--Cresser--Li--Andersson source gives the expanded Bures growth matrix and separately gives the trace-distance criterion, but explicitly reports only a numerical Bures check for its example.",
+        "The exact matrix multiplication shows that the source Bures matrix is a congruence of the trace-distance symmetric damping matrix.",
+        "Targeted semantic searches returned no record stating the same all-unital-qubit congruence or inertia equivalence.",
+        "Searches also covered Fisher-metric language, Bures-distance language, damping-matrix language, and the exact source authors/equation."
+      ],
+      "reasoning": "An equivalent result could be phrased as equality of positive indices, simultaneous existence of local backflow, or a rank-one congruence. Those aliases were searched; no covering statement was found.",
+      "searches": [
+        "unital qubit Bures Fisher metric trace distance non-Markovianity damping matrix equivalence",
+        "Hall Cresser Li Andersson Eq 23 Bures matrix unital qubit negative definite analytic",
+        "Bures infinitesimal metric congruence D plus D transpose unital qubit",
+        "quantum Fisher information flow trace distance witness unital qubit",
+        "Bures distance trace distance non-Markovianity unital qubit",
+        "negative definite J_B non-Markovianity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The direct source relevant object is an analytic matrix formula, not a numerical table or catalogued finite invariant.",
+        "The published-finding index returned no entry containing an equivalent source-specific factorization or inertia statement."
+      ],
+      "reasoning": "There is no external exact table whose entries could already contain this theorem; the novelty question is statement-level coverage of the analytic identity and implication.",
+      "searches": [
+        "Hall Cresser Li Andersson Eq 23 Bures matrix unital qubit negative definite analytic",
+        "Bures infinitesimal metric congruence D plus D transpose unital qubit"
+      ]
+    },
+    "rationale": "The direct source treats the Bures example numerically despite having written the expanded matrix needed for the factorization. Earlier QFI-flow work and later non-unital Bures work address related witnesses but do not state the congruence or the all-unital-qubit inertia equivalence. Claim-form, alias, and implication searches in the published-finding index returned only unrelated results.",
+    "residual_risks": [
+      "A later or poorly indexed paper may have observed the same factorization under different terminology such as monotone Riemannian metrics, statistical speed, or local distinguishability.",
+      "The literature search supports but cannot logically prove uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies exactly the expanded matrix that factorizes here and explicitly says the example was checked numerically; it does not state the congruence factorization or the resulting inertia equivalence.",
+        "evidence": "Eq. (23) is the three-term expansion of the claimed congruence, and the following sentence reports a numerical negative-definiteness check for the example.",
+        "identifier_or_url": "arXiv:1009.0845; DOI:10.1103/PhysRevA.89.042120",
+        "material_read": "Open-access full text, especially the Bloch equation and trace-distance criterion around Eqs. (17)-(19), the Bures metric and growth matrix around Eqs. (21)-(23), and the discussion immediately following Eq. (23).",
+        "method": "Full-text reading with rendered-page inspection of the relevant equations.",
+        "title": "Canonical form of master equations and characterization of non-Markovianity",
+        "trigger": "Direct source of the Bloch trace-distance criterion, the Bures growth matrix, and the numerical negative-definiteness statement."
+      },
+      {
+        "assessment": "It establishes a QFI-flow framework but does not formulate the Hall Bloch Bures matrix, the trace-distance damping criterion, or their congruence/inertia equivalence.",
+        "evidence": "The central proposition writes QFI flow as a sum of channel subflows; searches within the full text found no Bures or trace-distance formulation matching the present claim.",
+        "identifier_or_url": "arXiv:0912.0587; DOI:10.1103/PhysRevA.82.042103",
+        "material_read": "Full arXiv text, including the definition of QFI flow and the proposition decomposing it into dissipative-channel subflows.",
+        "method": "Full-text reading of the arXiv manuscript.",
+        "title": "Quantum Fisher Information Flow in Non-Markovian Processes of Open Systems",
+        "trigger": "Closest earlier primary literature using quantum Fisher information as a non-Markovianity witness."
+      },
+      {
+        "assessment": "It motivates a Bures supplement for non-unital effects and does not give an all-unital-qubit congruence between Bures/Fisher and trace-distance local growth matrices.",
+        "evidence": "Its stated purpose is to supplement the trace-distance measure for non-unital dynamics, rather than identify the two local witnesses in the unital sector.",
+        "identifier_or_url": "arXiv:1301.5763; DOI:10.1103/PhysRevA.87.042103",
+        "material_read": "Abstract plus the accessible primary-text discussion defining a Bures-based non-unital supplement and explaining that trace distance captures the unital aspect.",
+        "method": "Primary-source arXiv/author-text inspection and targeted term search.",
+        "title": "Non-unital non-Markovianity of quantum dynamics",
+        "trigger": "Plausibly broader later work explicitly contrasting trace distance, unital dynamics, and Bures distance."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6ee4d16e-9701-40d4-b849-f664d57cfd20",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result closes an explicit numerical step in a widely cited non-Markovianity analysis and reveals a structural fact stronger than that single example: throughout the unital qubit regime the local Bures/Fisher and trace-distance witness forms have the same complete inertia. This explains exactly why changing between these two local distinguishability geometries cannot recover non-Markovianity missed by the trace-distance criterion in that regime.",
+    "risks": [
+      "The theorem does not improve detection beyond trace distance for unital qubits; its value is the exact equivalence and the resulting no-advantage statement, not a new stronger detector.",
+      "The statement is dimension-specific and does not address non-unital translations."
+    ],
+    "sources": [
+      "arXiv:1009.0845, Eq. (23) and the following numerical-check statement",
+      "arXiv:0912.0587 for the independent importance of QFI/Fisher information flow as a non-Markovianity witness"
+    ],
+    "status": "PASS"
+  }
+}
