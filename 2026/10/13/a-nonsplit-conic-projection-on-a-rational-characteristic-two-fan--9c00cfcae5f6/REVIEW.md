@@ -1,0 +1,15 @@
+# Review of the projection dichotomy
+
+## Correctness — PASS
+The two claims concern distinct projections of exactly the displayed bidegree-\((1,2)\) hypersurface, not arbitrary characteristic-two conic bundles. The three coefficient quadrics have no common zero, so the pulled-back Euler sequence identifies the second projection as a rank-two projective bundle; its degree-four purely inseparable map is calculated from \(P=r^2+w\) and \(Q=w^2\). For the conic projection, the \(a^{-1}\)-adic valuation forces first \(y\), then \(x,z\), into the maximal ideal, contradicting primitive projective coordinates. This proves anisotropy for all algebraically closed base fields of characteristic \(2\), not merely sampled fields. Direct characteristic-two coordinate substitution gives \([ab,b)\) and both displayed quadratic splitting fields. The smoothness and scheme discriminant agree with Tanaka's Example 7.5. Residual scientific limits are those in RESULT.md; a finite identity checker is not treated as an infinite proof.
+
+## Originality — PASS (qualified)
+Tanaka's complete arXiv v1 and v2 discussions of Examples 7.3–7.5 were inspected: they establish smoothness, Fano status, and the discriminant \(s^3\), but do not state the absence of a rational section, the Brauer class, or the opposite projection's precise inseparable pullback-bundle structure. Auel–Bigazzi–Böhning–Graf von Bothmer, arXiv:1806.02668v2, Section 2 and Proposition 3.11, supply general quadratic-form/quaternion theory and a nonsplit **totally singular** example without the \(syz\) term. Their example has a nonsmooth generic fiber, so it does not imply nonsplitting in the generically smooth Tanaka case. published-finding corpus semantic searches of the exact conic, its Brauer class, opposite projection, and aliases returned no matching published claim. This is a statement comparison, not a claim of unique discovery; implicit older calculations remain possible.
+
+## Value — PASS
+For a natural published smooth Fano threefold, the result pinpoints the distinction between **rationality of the total space** and **splitting of a specified conic fibration**. It identifies the exact nonzero two-torsion Brauer obstruction on a base chart with no singular fibers and explicitly exhibits separable and purely inseparable minimal splitting fields. The alternative projective-bundle structure and inseparable degree-four morphism explain rationality despite that obstruction. This is a motivated structural invariant of the named fibration, not an arbitrary finite slice or a re-computation of its known discriminant.
+
+## Closest literature and limitations
+Tanaka (arXiv:2308.08119v1, Examples 7.3 and 7.5) is the lead same-object source. Auel et al. (arXiv:1806.02668v2, Sections 2–3) is the strongest nearby conceptual source. No assertion is made for all \(\varphi\) or for other Fano threefolds. A possible unindexed presentation of the same Brauer class is a residual bibliographic risk. Algebraic calculations and the valuation proof have been checked within this review; no independent audit has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
