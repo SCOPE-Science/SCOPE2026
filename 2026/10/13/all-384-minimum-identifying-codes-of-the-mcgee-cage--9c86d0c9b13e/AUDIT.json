@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "For an ordinary identifying code of size k in a cubic 24-vertex graph, all 24 nonempty closed-neighborhood signatures are distinct; at most k are singletons and the sum of their sizes is \\(4k\\), hence \\(5k\\ge48\\) and \\(k\\ge10\\). Standalone exact C++ exhaustive enumeration covers all 1,961,256 size-ten and 2,496,144 size-eleven subsets, checking both signatures and intersection with the 300 closed-neighborhood/symmetric-difference tests for every candidate. These two checks agree globally: zero size-ten and 384 size-eleven codes. A separately constructed LCF graph and exact enumeration of all 32 automorphisms partitions the 384 into 13 stated orbits. The actual bundled verifier was executed with all assertions passing. Neither finite samples nor log output alone substitute for the complete bounded enumeration implemented and reviewed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Biggs, Constructions for cubic graphs with large girth (1998), DOI 10.37236/1386, primary full text sections 1-2 and table on PDF pp. 1-4 concern order/girth extrema and uniqueness, not identifying-code counts.",
+        "McGee, A Minimal Cubic Graph of Girth Seven (1960), DOI 10.4153/CMB-1960-018-1, establishes the extremal graph rather than identification codes.",
+        "Laihonen, On cages admitting identifying codes (2008), available abstract addresses existence of strong identifying codes, not the exact ordinary code number or classifications."
+      ],
+      "reasoning": "General existence, code bounds, graph girth and graph automorphism group do not imply an exact enumeration of 11-subset identifying codes. The inaccessible 2008 full paper prevents categorical exclusion of unreported tables, but its stated theorem targets a logically different strong-existence question. No known source found with a broader theorem resolving the exact 384/13 figures.",
+      "searches": [
+        "identifying codes cubic graphs girth 7 McGee exact optimum",
+        "On cages admitting identifying codes Laihonen pdf full text",
+        "cubic cage graph identifying code minimum optimal sets",
+        "McGee graph identifying-code number gamma ID 11 384 13 orbits"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.4153/CMB-1960-018-1",
+      "doi:10.37236/1386",
+      "doi:10.1016/j.ejc.2007.02.016",
+      "https://blogs.ams.org/visualinsight/2015/09/15/mcgee-graph/",
+      "https://mathworld.wolfram.com/McGeeGraph.html",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-all-identifying-codes-of-thick-chain-graphs--78225de9eb51",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-all-identifying-codes-of-connected-threshold-graphs--234765ead845"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nearby indexed research All identifying codes of thick chain graphs addresses chain graphs, which are typically bipartite and not the nonbipartite cubic girth-seven McGee graph (2026/10/4, public record).",
+        "Nearby indexed research All identifying codes of connected threshold graphs addresses threshold graphs with twin-class structures, not the girth-seven cubic cage (2026/10/4, public record).",
+        "Biggs 1998 establishes the girth extremum, AMS 2015 establishes graph symmetry, and Laihonen 2008 addresses stronger identification-code existence; none of their inspected statements logically yields the exact 384-code orbit partition."
+      ],
+      "reasoning": "A condition guaranteeing some identifying code is not an implication establishing optimal cardinality and multiplicity. An automorphism group of order 32 constrains orbit sizes to divisors of 32 but does not determine how many optimum code orbits exist. The main code claim combines a quantitative optimum with a complete orbit classification not implied by the closest statements located.",
+      "searches": [
+        "McGee graph identifying code LCF 12 7 -7 exhaustive enumeration vertex orbits",
+        "McGee graph unique 3 7 cubic cage minimum identifying code 11 exactly 384 codes",
+        "On cages admitting identifying codes McGee values",
+        "McGee Graph Visual Insight symmetry 32"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ordinary identifying code is equivalently a transversal of 24 closed neighborhoods and their 276 pairwise symmetric differences; this equivalence is proved directly by matching nonempty signatures and unequal signatures.",
+        "Laihonen, On cages admitting identifying codes (2008), DOI 10.1016/j.ejc.2007.02.016, available abstract describes \\((1,\\le\\ell)\\)-identifying existence on regular graphs; no exact McGee optimum count in the accessible material."
+      ],
+      "reasoning": "The graph is known under McGee graph, the (3,7)-cage, and the 24-vertex cubic girth-seven cage; the code is also a closed-neighborhood separating/covering set or symmetric-difference hitting set. Searches for these formulations produced no exact 384-code enumeration. Strengthened \\((1,\\le3)\\) identifying codes separate subsets of up to three vertices and are strictly more demanding; an existence theorem does not imply the ordinary optimum count or orbit partition.",
+      "searches": [
+        "McGee graph (3,7)-cage identifying code minimum locating dominating sets number",
+        "McGee graph identifying codes identifying number 24 7 cage",
+        "McGee graph identification number code",
+        "McGee graph unique 3 7 cubic cage minimum identifying code 11 exactly 384 codes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld, McGee Graph (https://mathworld.wolfram.com/McGeeGraph.html), gives the LCF representation and 32 automorphisms but no identifying-code table.",
+        "AMS Visual Insight, McGee Graph (2015-09-15), https://blogs.ams.org/visualinsight/2015/09/15/mcgee-graph/, describes its 8+16 vertex orbits without enumerating identifying codes."
+      ],
+      "reasoning": "The graph representation and symmetry are standard database entries, but neither of the inspected graph data references gives the exact optimal identifying-code cardinality distribution or the stated full orbit census. An unindexed computation remains possible.",
+      "searches": [
+        "Web: McGee identifying code 384",
+        "Web: McGee minimum identifying code number",
+        "Web: McGee graph number minimum identifying codes exhaustive",
+        "published-finding corpus: McGee 24 vertex girth seven identifying codes 13 automorphism orbits 32"
+      ]
+    },
+    "rationale": "The known cage construction, girth and 8+16 vertex orbit information do not entail the minimum identifying-code number 11, the exact count 384, or 13 configurations under the automorphism action. The closest identifying-code source treats existence of the stronger \\((1,\\le3)\\) property on high-girth graphs rather than optimal enumeration of ordinary radius-one codes. Searches compared exact numbers, the LCF presentation, test-cover aliases, stronger coverage and nearby publicly indexed research. Unavailable primary full text is explicitly recorded as a priority risk.",
+    "residual_risks": [
+      "The complete Laihonen 2008 primary paper was unavailable in accessible open sources, despite targeted full-text searches; a small-case enumeration could conceivably occur in its uninspected pages.",
+      "An older unindexed code table or enumeration under closed-neighborhood test-cover terminology may exist. Negative database and web searches are not uniqueness proofs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes a cubic graph of girth seven; no identifying-code enumeration in the accessible extract. Full text uninspected.",
+        "evidence": [
+          "Canadian Mathematical Bulletin 3 (1960), 149-152; publisher extract describes a minimal cubic girth-seven graph and defines cubic/girth."
+        ],
+        "identifier_or_url": "https://doi.org/10.4153/CMB-1960-018-1",
+        "material_read": "Cambridge publisher title, publication details, abstract/extract and citations; full historical article not accessible in browser",
+        "method": "Publisher article landing page and Crossref-indexed date",
+        "title": "A Minimal Cubic Graph of Girth Seven",
+        "trigger": "Original definition and extremal status of the McGee graph"
+      },
+      {
+        "assessment": "Concerns cubic graph order, girth and construction. Its inspected context establishes the unique 24-vertex seven-cage but gives no code-enumeration theorem.",
+        "evidence": [
+          "Published 1998-08-31, DOI 10.37236/1386; page 4 lists girth 7 and minimum order 24, introduction states uniqueness for g<=8."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v5i1a1/pdf/",
+        "material_read": "Full 25-page primary PDF obtained; pages 1-4, especially Sections 1-2 and the girth-seven size table, read in extracted text and page images. Remaining sections not exhaustively read.",
+        "method": "Publisher open-access PDF text and visual first/fourth pages",
+        "title": "Constructions for cubic graphs with large girth",
+        "trigger": "Comprehensive primary survey of the McGee cage and uniqueness"
+      },
+      {
+        "assessment": "Abstract focuses on existence of \\((1,\\le\\ell)\\)-identifying codes for regular graphs of high girth, rather than exact minimum ordinary single-vertex identifying codes. Cannot rule out small-graph examples buried in full text.",
+        "evidence": [
+          "European Journal of Combinatorics 29(3) (2008), 737-741, DOI 10.1016/j.ejc.2007.02.016; abstract states girth and existence improvements."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ejc.2007.02.016",
+        "material_read": "Bibliographic record and complete available abstract; full paper not accessible through searched open/preprint alternatives",
+        "method": "Bibliographic search and published abstract comparison",
+        "title": "On cages admitting identifying codes",
+        "trigger": "Most plausible same-topic source: identifying codes and cages"
+      },
+      {
+        "assessment": "Identifies 8+16 vertex orbits and affine-group geometry; does not analyze ordinary identifying codes or their optimum-code orbits.",
+        "evidence": [
+          "September 15, 2015; symmetry group order 32, 8+16 vertex orbits, geometric construction via Z/8."
+        ],
+        "identifier_or_url": "https://blogs.ams.org/visualinsight/2015/09/15/mcgee-graph/",
+        "material_read": "Entire published 2015 graph-geometric article, especially group of order 32 and two vertex orbits",
+        "method": "Full HTML article",
+        "title": "McGee Graph",
+        "trigger": "Known graph symmetry and vertex-orbit structure could dominate orbit contribution"
+      },
+      {
+        "assessment": "Provides canonical graph data but no identifying-code optimum census.",
+        "evidence": [
+          "LCF [-12,7,-7]^8 and order 32 are standard and independently reproduced in the mathematical verifier."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/McGeeGraph.html",
+        "material_read": "Reference entry including 24 vertices, LCF [-12,7,-7]^8, girth 7 and automorphism count 32",
+        "method": "Reference HTML graph entry",
+        "title": "McGee Graph",
+        "trigger": "Check the exact LCF representation and standard invariants"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9c86d0c9-b13e-48b1-b640-3dd5f7146ffa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The McGee graph is a uniquely extremal natural cubic \\((3,7)\\)-cage, with exceptional failure of vertex-transitivity. Determining the exact minimum number of sensors needed to distinguish every vertex and enumerating all 13 geometric symmetry classes is mathematically meaningful: the class multiplicities and intersections with its 8+16 intrinsic vertex partition are not supplied by girth, regularity or graph automorphism order. This is a complete finite classification with explicit reusable certificates; no generalized infinite theorem is claimed or required.",
+    "status": "PASS"
+  }
+}
