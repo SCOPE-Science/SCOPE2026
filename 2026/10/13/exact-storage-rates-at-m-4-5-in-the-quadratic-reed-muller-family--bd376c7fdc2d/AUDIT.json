@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The source identifies the matrix as \\(M_m(S,T)=1\\{\\operatorname{rank}(S+T)\\le1\\}\\). Over \\(\\mathbb F_2\\), every rank-one symmetric matrix is uniquely \\(xx^{\\mathsf T}\\); the diagonal recovers \\(x\\). Thus the verifier generates every row exactly. Complete xor Gaussian elimination over all \\(2^{10}=1024\\) rows at \\(m=4\\) and all \\(2^{15}=32768\\) rows at \\(m=5\\) gives ranks \\(448\\) and \\(13658\\). Kernel dimensions and rates then follow by subtraction. No sampling or nonexhaustive search enters the claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schmidt 2020 computes valencies and complex character-sum eigenvalues and studies d-codes in the symmetric-form association scheme.",
+        "Full-text searches of Schmidt 2020 found no p-rank or binary-rank treatment of the relevant adjacency sum.",
+        "Barg--Zemor 2022 explicitly leaves the Reed--Muller storage rate as an open problem."
+      ],
+      "reasoning": "Complex Bose--Mesner eigenvalues do not determine rank after reduction modulo two, and the inspected broader sources do not state the finite modular ranks.",
+      "searches": [
+        "Quadratic and symmetric bilinear forms association scheme binary modular rank rank-one relation",
+        "Kai-Uwe Schmidt symmetric bilinear forms adjacency binary rank p-rank",
+        "Barg Zemor Reed Muller storage code exact rate"
+      ]
+    },
+    "checked_sources": [
+      "Zabokritskiy, arXiv:2610.01733v1, full public preprint",
+      "Barg--Zemor, arXiv:2110.02378v2, full public preprint",
+      "Schmidt, arXiv:1803.04274 / DOI 10.5802/alco.88, full public preprint",
+      "Exact-value and equivalent-formulation literature searches",
+      "Current and completed-prior owned ledgers for source and claim overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zabokritskiy Proposition 6.1 identifies the graph and matrix, while equation (21) asks for asymptotic binary-rank control and supplies only a general upper bound.",
+        "Barg--Zemor Section 7.2 says finding the actual Reed--Muller storage rate is not straightforward and leaves it open.",
+        "Schmidt develops association-scheme character sums over complex roots of unity, not the rank over \\(\\mathbb F_2\\) of the rank-at-most-one indicator matrix."
+      ],
+      "reasoning": "The prior results define and bound the object but do not imply its exact modular rank at the two stated parameters.",
+      "searches": [
+        "arXiv:2610.01733 Proposition 6.1 equation 21 quadratic Reed Muller",
+        "arXiv:2110.02378 Section 7.2 Reed-Muller open problem",
+        "arXiv:1803.04274 symmetric bilinear forms P-numbers Q-numbers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 source identifies the same matrix as the full-parity matrix of the rank-one Cayley graph on symmetric binary matrices.",
+        "The same source gives the equivalent bicycle-space formula for its binary rank.",
+        "Focused searches using exact ranks, storage rates, rank-one Cayley graph, symmetric-matrix indicator, and bicycle-space language returned no covering record."
+      ],
+      "reasoning": "The searches cover the matrix formulation, storage-code rate, Cayley graph, and cut-cycle/bicycle formulations of the same finite claim.",
+      "searches": [
+        "quadratic Reed Muller storage symmetric binary matrices rank-one graph exact rank m=5 13658",
+        "rank of indicator matrix rank(S+T)<=1 symmetric matrices F2 exact small m",
+        "bicycle dimension rank-one graph symmetric matrices F2 storage code m=5",
+        "full parity storage quadratic Reed Muller exact small rates m=1 m=2 m=3 m=4 m=5",
+        "13658 448 28 symmetric rank one Cayley graph binary rank"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Barg--Zemor numerical table on the same discussion page is for the double-error-correcting BCH family, not the Reed--Muller family.",
+        "The 2026 source contains no finite exact rank table for the quadratic Reed--Muller family.",
+        "Exact-number searches did not locate a database or table assigning 448 and 13658 to these matrices."
+      ],
+      "reasoning": "The accepted numbers are not a recomputation of a source table; the nearby published table concerns a different code family.",
+      "searches": [
+        "\"13658\" \"448\" \"Reed Muller\" storage",
+        "\"13658\" symmetric matrices F2 rank one",
+        "Reed Muller storage rate m=4 m=5"
+      ]
+    },
+    "rationale": "The 2026 primary paper reformulates the Reed--Muller question as this binary rank problem and explicitly leaves the asymptotic question open, but supplies no exact finite rank table. The original Barg--Zemor paper also leaves the Reed--Muller rate undetermined. Full-text inspection of Schmidt 2020 found association-scheme eigenvalues and d-code results rather than modular ranks of this relation. Exact-value, alias, and bicycle-space searches found no prior statement of ranks 448 and 13658 for these two matrices.",
+    "residual_risks": [
+      "A modular-association-scheme paper under different terminology could contain these small ranks without indexing the storage-code formulation.",
+      "The finite table gives evidence and benchmarks but does not resolve the asymptotic open question.",
+      "The computation becomes much larger at the next parameter; no extrapolated formula is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_AND_BOUNDS_BUT_DOES_NOT_TABULATE_FINITE_RANKS",
+        "evidence": "The paper states the asymptotic rank question explicitly and reports a general upper-bound method; no exact finite ranks for the quadratic family are given.",
+        "identifier_or_url": "arXiv:2610.01733v1",
+        "material_read": "Full 11-page preprint: introduction; polynomial-rank theorem; BCH application; Fibonacci-rank section; Proposition 6.1; equation (20); open question (21); bicycle-space reformulation; conclusion. Page images of the first page and open-question page were also inspected.",
+        "method": "public full PDF text and page images",
+        "title": "Asymptotically unit-rate storage codes from binary BCH codes",
+        "trigger": "Primary source introducing the exact symmetric-matrix reformulation and open rank question."
+      },
+      {
+        "assessment": "OPEN_PROBLEM_NOT_FINITE_SOLUTION",
+        "evidence": "Section 7.2 says the actual rate of the Reed--Muller storage code is left open; its displayed numerical table is for BCH codes.",
+        "identifier_or_url": "arXiv:2110.02378v2; DOI:10.1109/TIT.2022.3191309",
+        "material_read": "Full preprint discussion around Section 7.1 numerical experiments and Section 7.2 open problems, including the Reed--Muller construction.",
+        "method": "public full PDF text",
+        "title": "High-rate storage codes on triangle-free graphs",
+        "trigger": "Original source of the quadratic Reed--Muller storage-code open problem."
+      },
+      {
+        "assessment": "ASSOCIATION_SCHEME_EIGENVALUES_NOT_MODULAR_RANK",
+        "evidence": "The paper treats character-sum eigenvalues and d-code distributions. No p-rank or binary-rank result for the rank-one relation was located.",
+        "identifier_or_url": "arXiv:1803.04274; DOI:10.5802/alco.88",
+        "material_read": "Full preprint sections defining the symmetric-form scheme and its adjacency matrices, valencies, P- and Q-number computations, d-code results, and coding applications; full-text searches for p-rank, binary rank, and modulo-two rank.",
+        "method": "public full PDF text",
+        "title": "Quadratic and symmetric bilinear forms over finite fields and their association schemes",
+        "trigger": "Closest structural literature on the same symmetric-form translation association scheme."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bd376c7f-dc2d-4b77-8442-3e4ced2ece37",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recent source ends with an explicit open binary-rank problem for this quadratic Reed--Muller storage family, and the original source leaves the actual rates open from m=4 onward. Exact values at m=4 and m=5 are natural first benchmarks: m=5 already requires an exact 32768-by-32768 modular rank computation. They quantify the gap in the new polynomial upper bound and supply reproducible finite data for testing any proposed recurrence or asymptotic mechanism. The claim is a meaningful finite cutoff rather than a random slice.",
+    "status": "PASS"
+  }
+}
