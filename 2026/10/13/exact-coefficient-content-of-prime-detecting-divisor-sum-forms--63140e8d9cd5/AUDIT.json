@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For any modulus p^e dividing the coefficient gcd, the exact prime-square coefficient forces e≤k. Padding any p-coprime u by p^a with ak≥e removes both n-powers, and c(p^a)=0 forces the two prime-power divisor sums equal. Multiplicativity then shows sigma_k(u)=sigma_ell(u) modulo p^e; Möbius inversion forces all unit power differences to vanish. Multiples of p vanish since e≤k. This is the needed reverse divisibility; the forward divisibility follows from the exact divisor-sum identity. Carmichael exponents determine all valuations including p=2, p odd and k=1 boundaries. Two distinct computational implementations agree for 60 exponent pairs and 10,740 coefficients, but infinite correctness rests on the written argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Allen–Craig arXiv:2609.32053v1, Definition 2.2 and Lemma 2.3 (PDF p.6), Theorems 1.2/1.4, Appendix A (PDF pp.17–18), give coefficients, factor-size bounds and a conditional algorithm, not exact common divisibility.",
+        "Kane–Krishnamoorthy–Lau, DOI:10.1007/s40687-025-00541-7, Theorem 1.1 and Corollary 1.2 give a space classification but not sharp coefficient content."
+      ],
+      "reasoning": "Classification of which forms detect primes is a structural statement about their vanishing and signs; it does not fix the gcd of all positive-index coefficients in each two-parameter family. Factor estimates depend on coefficient sizes but do not imply their exact common divisor.",
+      "searches": [
+        "Quasimodular Forms Partitions and Primes in Intervals full arXiv 2609.32053",
+        "On a conjecture about prime-detecting quasimodular forms Kane Krishnamoorthy Lau 2025 full text",
+        "Craig van Ittersum Ono f_{k,l} Fourier coefficient gcd Eisenstein primitive Ramanujan-type divisibility modulus"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.32053",
+      "https://arxiv.org/pdf/2609.32053",
+      "https://doi.org/10.1073/pnas.2409417121",
+      "https://doi.org/10.1007/s40687-025-00541-7",
+      "2026/10/4/SCOPE-common-prime-divisors-of-all-veronese-coisotropic-degrees--f17b21fe7f4c",
+      "2026/10/4/SCOPE-exact-common-cyclotomic-divisor-for-sigma-2-2-prime-pairs--f65bdfb7afa8",
+      "2026/10/4/SCOPE-no-nontrivial-odd-prime-ramanujan-type-congruences-for-euler-s-t--37d82d4c2a0d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 paper establishes integral coefficients and unit-content for selected H_j, not c_{k,ell}; https://doi.org/10.1073/pnas.2409417121",
+        "The 2026 paper establishes c_{k,ell}(n)≥0 with equality at primes, growth, and prime interval consequences, none of which fix universal congruence exponents; https://arxiv.org/pdf/2609.32053"
+      ],
+      "reasoning": "Divisibility by the polynomial fixed divisor follows immediately from termwise congruence, but the sharp reverse implication is not a corollary of prime-vanishing or positive growth. The new proof shows any modulus of all c_{k,ell} forces equality of all powers by padding n with high prime powers and applying Möbius inversion.",
+      "searches": [
+        "Integer partitions detect the primes Lemma 9 Lemma 12 coefficient integer unit content",
+        "Quasimodular Forms Partitions and Primes in Intervals coefficient f_{k,l} definition",
+        "Allen Craig 2609.32053 coefficient content gcd c_{k,l}(n) exact universal divisibility fixed divisor of m^l minus m^k"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Craig–van Ittersum–Ono, PNAS 2024, Lemma 9 writes the same family as derivatives of Eisenstein series; Lemma 12 gives a unit-content fact for other normalized H_j. https://doi.org/10.1073/pnas.2409417121",
+        "The new exact equality with a polynomial fixed divisor is algebraically equivalent to universal coefficient congruences for all n, not merely zero coefficients at primes."
+      ],
+      "reasoning": "The closest equivalent wording is prime-detecting Fourier coefficient content. The referenced lemmas show zero-sets and a property for a distinct basis, but do not calculate the sharp common divisor of each c_{k,ell}. No inspected primary source states the fixed-divisor equality.",
+      "searches": [
+        "\"f_{k,l}\" \"gcd\" Fourier coefficients primes",
+        "\"prime detecting\" \"content\" \"gcd\" quasimodular",
+        "Allen Craig 2609.32053 coefficient content gcd c_{k,l}(n) exact universal divisibility fixed divisor of m^l minus m^k",
+        "Craig van Ittersum Ono f_{k,l} Fourier coefficient gcd Eisenstein primitive Ramanujan-type divisibility modulus"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Allen–Craig arXiv:2609.32053v1 includes examples of c_{k,ell} values, not a full two-index gcd database. The exact formula gives H_{3,7}=120; independent arithmetic checks verify selected values.",
+        "Carmichael prime-power exponents describe the fixed divisor on the polynomial side; the equality with c_{k,ell} is the needed additional theorem."
+      ],
+      "reasoning": "A list of initial coefficients or a table of fixed divisors is not the equality for every pair of positive indices; the numerical tests in verify.py support but are not the novelty proof. The infinite reverse implication requires the prime-power padding lemma.",
+      "searches": [
+        "gcd n over all composite n of (n^l+1) sigma_k(n) minus (n^k+1) sigma_l(n)",
+        "\"gcd\" \"sigma_k(n)\" \"sigma_l(n)\" \"n^l+1\" primes",
+        "fixed divisor polynomial x^k(x^t-1) Carmichael"
+      ]
+    },
+    "rationale": "The 2024 Craig–van Ittersum–Ono Lemmas 9 and 12 prove prime-detecting and integrality/unit-content claims for different distinguished forms, while the 2025 Kane–Krishnamoorthy–Lau theorem classifies the prime-detecting space by signs. The 2026 Allen–Craig paper analyzes coefficient growth and prime factors; it defines the same two-parameter coefficients but does not give their exact all-index gcd in the inspected text. The new statement is the sharp universal divisibility of this whole two-parameter family, proved via prime-power padding and Möbius inversion. Own historical claim comparison, web query variants, and published findings yield no covering result; unindexed equivalents remain possible.",
+    "residual_risks": [
+      "The fixed-divisor formula itself is classical; novelty is only asserted for its equality with the full Fourier-coefficient content in this family.",
+      "Unindexed or undetected equivalent treatments of this natural congruence question could exist; unsuccessful searches do not establish uniqueness.",
+      "The original paper Lemma 12 has other integral primitive forms, but its statement is not directly a claim about this entire c_{k,ell} family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME object and formulas; does not provide the sharp all-index gcd in inspected text.",
+        "evidence": [
+          "Definition 2.2 and Lemma 2.3 (p.6), Theorems 1.2 and 1.4 (pp.3–4), Appendix A (pp.17–18)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.32053",
+        "material_read": "20-page searchable PDF: statement and coefficient definition on pp.1–6; theorem sections, factorization appendix and cited literature, with page images 6 and 18 inspected.",
+        "method": "Open-access arXiv full PDF, searchable text and page images",
+        "title": "Quasimodular Forms, Partitions, and Primes in Intervals",
+        "trigger": "Direct contemporary same-coefficient paper"
+      },
+      {
+        "assessment": "Lemma 9 identifies the prime detector; Lemma 12 establishes a unit-content statement for distinguished H_j, not universal content of each two-exponent c_{k,ell}.",
+        "evidence": [
+          "Section 2.2 Lemma 9, Section 2.3 Lemma 12 and Theorem 11."
+        ],
+        "identifier_or_url": "https://doi.org/10.1073/pnas.2409417121",
+        "material_read": "Open-access article HTML: abstract, Sections 1–2, Lemma 9, Lemma 12, Theorem 11, references.",
+        "method": "Publisher-hosted lawful open-access full text",
+        "title": "Integer partitions detect the primes",
+        "trigger": "Foundational origin of same quasimodular coefficient family"
+      },
+      {
+        "assessment": "Confirms classification by Fourier-coefficient signs and Eisenstein space, not exact coefficient gcd for two-parameter subfamily.",
+        "evidence": [
+          "Theorem 1.1, Corollary 1.2, Section 4."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s40687-025-00541-7",
+        "material_read": "Open-access publisher HTML: Introduction, Theorem 1.1, Corollary 1.2, Lemma 4.1, proofs in Sections 3–4 and references.",
+        "method": "Publisher-hosted lawful open-access full text",
+        "title": "On a conjecture about prime-detecting quasimodular forms",
+        "trigger": "Plausibly stronger classification of all prime-detecting quasimodular forms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "63140e8d-9cd5-43e4-856c-a23a7e4d122c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recent Allen–Craig work uses the entire two-parameter positive coefficient family as quantitative arithmetic objects, for prime factors, factorization heuristics, and primes in intervals. The maximal all-coefficient congruence modulus is a natural global invariant of these objects: it determines exactly which divisibility constraints are forced independent of input n and canonically produces primitive integral positive-index coefficient sequences. The result supplies a complete prime-power classification with an informative dependence on the exponent difference, not an isolated small numerical normalization. It is sharp across infinitely many pairs, even when k,l are odd so the series have a genuine quasimodular interpretation, and the reverse fixed-divisor equality has a nontrivial structural proof. It does not assert a downstream factorization or prime-gap advance.",
+    "status": "PASS"
+  }
+}
