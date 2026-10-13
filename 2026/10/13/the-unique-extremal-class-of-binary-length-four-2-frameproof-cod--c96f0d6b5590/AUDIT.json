@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Translation to a code containing 0000 converts nonzero supports into a pairwise-intersecting antichain on four points. An elementary size-by-size classification bounds this antichain by four and identifies all equality cases. The five normalized maxima are exactly the five codeword-translates of C_*, giving a free 16-element translation orbit. Hamming and XOR statements follow directly. A separate exhaustive verifier checks every subset of the 16-word space and all claimed counts and orbit data.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general bound quoted by Guo–Stinson–van Trung specializes to at most six codewords at N=4,w=q=2.",
+        "Cheng–Jiang–Wang's length-four improvement is stated for q>48.",
+        "Rochanakul's length-four bound is stated for odd q>10."
+      ],
+      "reasoning": "The known broad bounds do not dominate the binary q=2 case: the classical upper bound leaves a 5-versus-6 gap, and the sharper later length-four bounds exclude q=2 by hypothesis.",
+      "searches": [
+        "arXiv:1406.6920v1 Theorem 1.1 and Section 5",
+        "DOI:10.1137/S0895480101384633",
+        "DOI:10.1007/s10623-018-0490-5",
+        "DOI:10.1155/2020/4879108"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1406.6920v1",
+      "DOI:10.1137/S0895480101384633",
+      "DOI:10.1109/18.915661",
+      "DOI:10.1007/s10623-018-0490-5",
+      "DOI:10.1155/2020/4879108",
+      "published-finding corpus:2026/9/20/SCOPE-window-two-sliding-frameproof-capacity--a9fe0a3dd81c",
+      "published-finding corpus:2026/9/21/SCOPE-exact-length-eight-binary-21-separating-systems--bbbd20b813f0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5.1 constructs the representative C_* for N=4.",
+        "The quoted general upper bound gives six, not five, at these parameters."
+      ],
+      "reasoning": "A size-five construction plus a size-six upper bound does not imply optimality, the five normalized equality types, the count of 16 labeled maxima, or uniqueness under coordinatewise symbol swaps. Those statements require the new intersecting-antichain argument and equality analysis.",
+      "searches": [
+        "five-word binary 2-frameproof code length 4 all translations of unit vectors and all-ones",
+        "arXiv:1406.6920v1 Theorem 5.1",
+        "arXiv:1406.6920v1 Theorem 1.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guo–Stinson–van Trung identify w-frameproof codes with SHF(N;n,q,{1,w}); Section 5 explicitly treats w=2.",
+        "Theorem 5.1 gives an SHF(N;N+1,2,{1,2}) from identity plus all-ones."
+      ],
+      "reasoning": "The separating-hash formulation is exactly equivalent, so it was searched directly. The exact N=4 construction is known, but neither the exact upper bound five nor the equality census follows from that construction.",
+      "searches": [
+        "binary 2-separable code length 4 maximum size classification",
+        "binary 2-frameproof code length 4 maximum equality cases",
+        "binary 2-identifiable parent property code length 4 small exact",
+        "arXiv:1406.6920v1 Sections 1 and 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned no exact-claim record; the closest frameproof record concerns sliding-window dynamic frameproof capacity.",
+        "Web searches surfaced the 2014 binary paper and later large-alphabet length-four bounds, not a q=2 equality table or census."
+      ],
+      "reasoning": "No checked table, database result, or exact-number search stated M_{4,2}(2)=5 together with the 16 labeled maxima or the single translation class.",
+      "searches": [
+        "binary 2-frameproof code length 4 maximum size 5 exactly 16 maximum codes",
+        "M_{4,2}(2)=5 frameproof classification binary length four",
+        "SHF(4;6,2,{1,2})",
+        "binary 2-frameproof length 4 q=2"
+      ]
+    },
+    "rationale": "The closest exact-parameter primary source supplies the same size-five construction but not the matching upper bound or equality classification. Later binary work treats coalition sizes at least three, and later length-four work gives large-alphabet bounds. Exact-parameter, alias, and final-number searches found no implication-equivalent census or uniqueness theorem.",
+    "residual_risks": [
+      "An obscure or unindexed historical small-parameter enumeration could have escaped the checked searches.",
+      "The full Blackburn PDF was access-blocked in this run; the exact small binary comparison instead rests on the later open full-text Guo–Stinson–van Trung paper, which explicitly discusses w=2 and cites the earlier bounds."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_PARAMETERS_CONSTRUCTION_NOT_OPTIMALITY_OR_CENSUS",
+        "evidence": "Section 5 Theorem 5.1 gives identity plus all-ones for every N>=3; the section does not state an N=4 upper bound of five or classify equality cases.",
+        "identifier_or_url": "arXiv:1406.6920v1",
+        "material_read": "Full HTML text with detailed inspection of the definition/equivalence, general bound, Section 5, conclusion, and references.",
+        "method": "Lawful arXiv full-text inspection.",
+        "title": "On tight bounds for binary frameproof codes",
+        "trigger": "Exact binary frameproof model and an explicit w=2 section containing the N=4 size-five construction."
+      },
+      {
+        "assessment": "BACKGROUND_GENERAL_MAXIMUM_PROBLEM",
+        "evidence": "The abstract defines the same descendant condition, asks for largest cardinality, emphasizes large q, and lists MSC 68R05.",
+        "identifier_or_url": "DOI:10.1137/S0895480101384633",
+        "material_read": "Publisher abstract, definition, stated scope, MSC metadata, and bibliographic record; full PDF endpoint was access-blocked.",
+        "method": "Publisher and institutional metadata inspection.",
+        "title": "Frameproof Codes",
+        "trigger": "Foundational combinatorial maximum-cardinality treatment and MSC ownership."
+      },
+      {
+        "assessment": "GENERAL_BOUNDS_AND_RELATIONSHIPS",
+        "evidence": "The abstract describes combinatorial relationships, bounds, and constructions rather than an exact q=2,N=4 equality classification.",
+        "identifier_or_url": "DOI:10.1109/18.915661",
+        "material_read": "Publisher abstract and metadata.",
+        "method": "IEEE metadata inspection.",
+        "title": "Combinatorial properties of frameproof and traceability codes",
+        "trigger": "Earlier primary source for general bounds and equivalent formulations cited by later work."
+      },
+      {
+        "assessment": "INAPPLICABLE_LARGE_ALPHABET_RANGE",
+        "evidence": "The stated improved upper bound applies only for q>48, so it does not resolve q=2.",
+        "identifier_or_url": "DOI:10.1007/s10623-018-0490-5",
+        "material_read": "Publisher-indexed abstract with parameter hypotheses.",
+        "method": "Bibliographic abstract inspection.",
+        "title": "Improved bounds on 2-frameproof codes with length 4",
+        "trigger": "Same length and coalition size; plausible dominating later result."
+      },
+      {
+        "assessment": "INAPPLICABLE_ODD_LARGE_ALPHABET_RANGE",
+        "evidence": "The new bound is stated for odd q>10, excluding q=2.",
+        "identifier_or_url": "DOI:10.1155/2020/4879108",
+        "material_read": "Open abstract and stated theorem range.",
+        "method": "Open bibliographic/full-abstract inspection.",
+        "title": "New Bounds on 2-Frameproof Codes of Length 4",
+        "trigger": "Later same-length bound that could cover the small binary case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c96f0d6b-5590-4280-bc7e-69f9ab83dc0e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result closes the natural first nontrivial binary w=2 length-four gap left by the known identity-plus-all-ones construction and the general upper bound six: it proves the exact optimum five and completely classifies equality. The unique standard equivalence class, exact labeled count, and intrinsic XOR indexing provide structural information useful as a finite benchmark for frameproof/separating-hash theory rather than merely recomputing a known construction.",
+    "status": "PASS"
+  }
+}
