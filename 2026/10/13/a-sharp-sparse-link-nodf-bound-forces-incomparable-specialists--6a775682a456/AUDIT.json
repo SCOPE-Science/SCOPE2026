@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "For binary \\(3\\times n\\) matrices with no isolates and exactly \\(n+2\\) links, column degree excess is two, admitting only one degree-three column or two degree-two columns. Case I contributes \\(n-1\\) from columns and at most \\(5/2\\) from rows; case II with distinct two-column neighborhoods contributes at most \\(2(n-2)\\) from columns and two from rows, attaining equality only when all singleton columns select the common row; identical degree-two neighborhoods yield a strict gap because the third row cannot be isolated. This proves the bound and unique form for every \\(n\\ge4\\), gives 3n(n-1) labeled extrema, and exactly evaluates the Ferrers comparator. Two unrelated exact rational scoring methods agree on each of 63,906 admissible matrices at sizes \\(n=2,\\dots,7\\), with the expected first-layer equality classification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Almeida-Neto et al. (2008) introduce NODF, emphasizing decreasing marginal totals and overlap but not the fixed-link 3-by-n optimum.",
+        "Britton et al. (2015) prove exact characterizations for NODF equal to 0 or 1 and analyze its metric, not this constrained maximum.",
+        "Song et al. (2017) discuss the maximum NODF attainable given dimensions and links and use a greedy link-addition algorithm instead of a sharp analytic formula.",
+        "Hoeppke and Simmons (2021) explicitly say fixed-size/fixed-link NODF maximization is nonconvex and describe greedy, hill-climbing and simulated-annealing algorithms that do not certify global optimum."
+      ],
+      "reasoning": "These sources frame and partially cover the same ecological optimization task, but none provides an exact universal sparse three-row formula or equality classification. A general numerical optimization algorithm cannot logically imply the stated closed-form sharp bound and uniqueness without a proof of global optimality.",
+      "searches": [
+        "Almeida Neto 2008 a consistent metric for nestedness analysis",
+        "Britton Almeida Neto Corso which matrices show perfect nestedness 2015 PDF",
+        "Song Rohr Saavedra 2017 why are some plant pollinator networks more nested than others",
+        "Hoeppke Simmons 2021 maxnodf fixed links",
+        "\"maxnodf\" \"maximum\" \"fixed number of links\"",
+        "\"Which Matrices Show Perfect Nestedness or the Absence of Nestedness\""
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1111/j.0030-1299.2008.16644.x",
+      "doi:10.11145/j.biomath.2015.12.171",
+      "doi:10.1111/1365-2656.12749",
+      "doi:10.1111/2041-210X.13545",
+      "MSC2020:92D40"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A previously recorded unrestricted-link rectangular ceiling with Ferrers equality cases does not preserve the fixed n+2 edge constraint; the old maximizer is not feasible for this fixed-connectance objective.",
+        "The fixed-link optimum is strictly greater than the score of every admissible Ferrers incidence matrix, so it is not a special-case equality of the earlier size-only optimum.",
+        "Song et al. and Hoeppke–Simmons define or algorithmically approach the exact maximum, but their inspected results explicitly rely on heuristic rather than certified exact optimization.",
+        "The closest semantic mathematical database results concern generic bipartite extremal graph invariants (including connected-bipartite dissociation and Dowker complexes), not NODF scoring or equality cases."
+      ],
+      "reasoning": "A universal bound allowing any edge count supplies only an upper bound, not the sharp maximum at prescribed minimal connectance. The new proof exploits the link-excess-two column dichotomy and its forced non-Ferrers equality case, which are absent from the stronger-looking but inapplicable unrestricted objective.",
+      "searches": [
+        "exact maximum NODF nestedness of 3 by n binary incidence matrices with n+2 links and no isolated species",
+        "bipartite tree NODF maximizer three row guild high-degree hub ecological nestedness",
+        "fixed connectance fixed links analytic NODF ceiling sparse bipartite ecological network",
+        "tree bipartite nestedness sparse ecological matrix high overlap strict degree comparisons",
+        "fixed connectance NODF exact maximum 3 row n column n+2 edges bipartite tree",
+        "nestedness NODF extremal sparse bipartite incidence matrix star double leaf construction",
+        "NODF fixed number links minimum connected bipartite no isolated species 3 by n",
+        "NODF Ferrers network not maximal when link count fixed",
+        "unrestricted-link NODF Ferrers rectangular ecological network extremizers",
+        "Song Rohr Saavedra NODF fixed species fixed interactions max greedy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Classical NODF equals the mean within-guild unequal-fill proportional-overlap score; changing its 0-to-1 scale to 0-to-100 changes only the factor 100.",
+        "Exactly n+2 edges on 3+n vertices is the edge count of a connected tree; the hypothesis includes possibly disconnected no-isolate graphs as well.",
+        "Ferrers matrices, perfectly nested bipartite graphs, chain graphs and nested-neighborhood incidence matrices describe the natural stronger structural comparator."
+      ],
+      "reasoning": "Queries cover NODF, overlap/decreasing fill, tree networks, minimum connected edge count, fixed connectance, nested-neighborhood and Ferrers aliases. The claim is specifically about an extremum at fixed link count, not a rephrasing of perfect NODF or overall size-only ceilings.",
+      "searches": [
+        "exact maximum NODF nestedness of 3 by n binary incidence matrices with n+2 links and no isolated species",
+        "bipartite tree NODF maximizer three row guild high-degree hub ecological nestedness",
+        "fixed connectance fixed links analytic NODF ceiling sparse bipartite ecological network",
+        "tree bipartite nestedness sparse ecological matrix high overlap strict degree comparisons",
+        "\"NODF\" \"tree\" \"maximum\" bipartite network three rows",
+        "\"NODF\" \"minimum links\" exact nestedness",
+        "\"NODF\" \"3 x n\" \"tree\" nestedness maximization",
+        "\"nestedness NODF sparse bipartite trees optimal overlap nested fill exact\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact query for the 3-by-n n+2-link NODF limit returned a published finite table or closed-form formula.",
+        "No searched result gave 3n(n-1) labeled maxima or the non-Ferrers universal generalist/two disjoint specialists equality condition.",
+        "The reproducible verifier generates all 63,906 admissible matrices through n=7 rather than importing a pre-existing NODF table."
+      ],
+      "reasoning": "Searching both symbolic dimensions and the extremal graph motif directly tests whether the result is an existing small-case census, a canned extremal table, or a known named construction. Absence of an indexed match is only supporting evidence, not a proof of novelty.",
+      "searches": [
+        "exact maximum NODF nestedness of 3 by n binary incidence matrices with n+2 links and no isolated species",
+        "fixed connectance NODF exact maximum 3 row n column n+2 edges bipartite tree",
+        "nestedness NODF extremal sparse bipartite incidence matrix star double leaf construction",
+        "NODF fixed number links minimum connected bipartite no isolated species 3 by n",
+        "NODF Ferrers network not maximal when link count fixed",
+        "\"NODF\" \"tree\" \"maximum\" bipartite network three rows",
+        "\"NODF\" \"minimum links\" exact nestedness",
+        "\"NODF\" \"3 x n\" \"tree\" nestedness maximization",
+        "\"nestedness NODF sparse bipartite trees optimal overlap nested fill exact\""
+      ]
+    },
+    "rationale": "The definition and perfect-nestedness matrix characterizations are known; recent ecological literature specifically asks for maximum NODF at fixed network size and number of interactions but provides heuristic optimizations. No searched primary source or indexed record states the exact three-row minimal-connected-link extremum, the forced non-Ferrers equality shape, or the universal labeled enumeration. The older unrestricted-link extremum is not stronger in this fixed-link subdomain: it allows its optimum to use additional links and has Ferrers rather than non-Ferrers maximizers.",
+    "residual_risks": [
+      "The original 2008 NODF article was inspected through publisher abstract and metadata rather than its full article body.",
+      "An unindexed numerical table, teaching example, or software fixture could contain the extremal small graph without proving this sharp all-n classification.",
+      "The theorem uses classical equal-degree-zero NODF. Other software conventions and different ecological constraints may differ."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the intended metric and meaning of nestedness, but inspected material does not state an exact minimal-link three-row maximum.",
+        "evidence": "The abstract states NODF incorporates decreasing column/row fills and the overlap of less-filled neighborhoods with those of more-filled neighbors.",
+        "identifier_or_url": "https://doi.org/10.1111/j.0030-1299.2008.16644.x",
+        "material_read": "Publisher article information, full abstract, first-publication date (7 August 2008), and bibliographic references; source article linked full text was not retrieved.",
+        "method": "Publisher-hosted HTML bibliographic and abstract inspection.",
+        "title": "A consistent metric for nestedness analysis in ecological systems: reconciling concept and measurement",
+        "trigger": "Defining original NODF metric, degree-tie normalization, and earliest public date."
+      },
+      {
+        "assessment": "Characterizes extremal normalized values zero and one, but does not give a fixed-link nontrivial maximum or count of tree optimizers.",
+        "evidence": "The analytic cases consider NODF=0 and NODF=1; the latter requires strict inclusion-ordered pair neighborhoods, whereas the present fixed-link optimizer has two incomparable specialist neighborhoods.",
+        "identifier_or_url": "https://doi.org/10.11145/j.biomath.2015.12.171",
+        "material_read": "Open-access nine-page paper, including definitions, normalization, and sections on necessary/sufficient matrices for NODF equal to zero and one; PDF pages and selected page images inspected.",
+        "method": "Open-access full text PDF and rendered-page inspection.",
+        "title": "Which Matrices Show Perfect Nestedness or the Absence of Nestedness? An Analytical Study on the Performance of NODF and WNODF",
+        "trigger": "Closest primary mathematical analysis of exact NODF extremal incidence matrices."
+      },
+      {
+        "assessment": "Motivates the exact constrained maximum but computes approximations using greedy algorithms rather than the sharp sparse three-row formula.",
+        "evidence": "The paper specifies adding edges from a minimum-link configuration by selecting the move yielding the largest NODF increase until the target link count is reached.",
+        "identifier_or_url": "https://doi.org/10.1111/1365-2656.12749",
+        "material_read": "Publisher HTML full-text sections discussing fixed number of species and interactions, greedy addition from a no-isolates seed, and maximum nestedness normalizations.",
+        "method": "Publisher full-text HTML inspection.",
+        "title": "Why are some plant–pollinator networks more nested than others?",
+        "trigger": "Relevant prior ecological work optimizing NODF conditional on interaction count."
+      },
+      {
+        "assessment": "Confirms importance of exact link-normalized maxima and emphasizes heuristic optimization; does not supply a closed-form exact sparse three-row boundary.",
+        "evidence": "The paper explicitly calls fixed-size/fixed-link max(NODF) nonconvex and says heuristic algorithms cannot guarantee the true optimum.",
+        "identifier_or_url": "https://doi.org/10.1111/2041-210X.13545",
+        "material_read": "Publisher HTML full text, introduction on fixed-link maximum, algorithms section describing greedy, hill climbing and annealing, and performance section.",
+        "method": "Publisher full-text HTML inspection.",
+        "title": "maxnodf: An R package for fair and fast comparisons of nestedness between networks",
+        "trigger": "Potentially dominating recent systematic fixed-link NODF optimization source."
+      },
+      {
+        "assessment": "The primary object is the ecological nestedness metric applied to bipartite species-interaction networks.",
+        "evidence": "92D40 is the Ecology subcategory in applied biological mathematics.",
+        "identifier_or_url": "MSC2020:92D40",
+        "material_read": "Official MSC2020 entry identifying 92D40 as Ecology.",
+        "method": "MSC2020 classification inspection.",
+        "title": "Mathematics Subject Classification 2020: 92D40",
+        "trigger": "Scientific ownership of ecological interaction-network nestedness."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a775682-a456-4ff8-bfa8-951d083f6125",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed-size/fixed-link maximum NODF is used to normalize ecological nestedness comparisons, and published heuristics do not furnish a certificate of global optimality. The exact \\((2n-2)/K\\) bound provides a sharp calibration over a natural minimal-connected-link regime at all \\(n\\ge4\\). The complete equality classification reveals a structural paradox: optimization of the conventional nestedness score forces two specialist species to use incomparable partner sets, while the best truly Ferrers matrix loses \\((n-3)/K\\). This gives a meaningful mathematical boundary on the interpretation of NODF, not a routine recomputation of a known nested matrix.",
+    "status": "PASS"
+  }
+}
