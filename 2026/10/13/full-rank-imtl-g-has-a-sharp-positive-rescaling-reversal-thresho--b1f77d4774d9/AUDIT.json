@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The source scaling construction gives the exact multiplier as the reciprocal of the signed coefficient-over-scale sum. A negative coefficient makes that denominator cross zero under a positive one-task rescaling, yielding the claimed three regimes. The explicit three-task gradients are unit and linearly independent, their source closed form has the displayed negative coefficient and positive common projection, and direct reconstruction of the source matrix formula verifies the critical singularity and reversed all-task projections.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Quinton and Rey prove that their generalized IMTL-G is not linear under scaling and expose its scaling normalization denominator.",
+        "They give a negative-weight non-conflict failure on a rank-deficient Jacobian.",
+        "They state that the full-row-rank case appears non-conflicting rather than giving a full-rank counterexample."
+      ],
+      "reasoning": "The later formula makes magnitude non-linearity prior-covered, but it does not dominate the final claim: the new full-rank construction remains inside the original IMTL-G domain and shows a finite singularity followed by an all-task sign reversal. It therefore supplies a boundary case not covered by the later rank-deficient example.",
+      "searches": [
+        "Jacobian Descent IMTL-G non-conflicting scaling",
+        "IMTLG full rank conflict negative weights",
+        "TorchJD IMTL-G scaling weights"
+      ]
+    },
+    "checked_sources": [
+      "OpenReview:IMPnRXEWpvr",
+      "ResearchGate:354436676",
+      "arXiv:2406.16232v1",
+      "TorchJD:IMTLG",
+      "ICLR2021:submission-date-2020-10-02"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source Theorem 2 constructs scaled coefficients by dividing each original coefficient by its task scale and then normalizing their sum.",
+        "The source main text calls the resulting aggregate direction unchanged, while the proof itself establishes only linear correlation.",
+        "The source says its closed-form implementation removes hard positive-coefficient constraints and proves coefficient positivity only under an equal-pairwise-angle condition.",
+        "The later Jacobian-descent paper states non-linearity under scaling and supplies the same normalization structure for a generalized aggregator, but its explicit conflict example is rank deficient."
+      ],
+      "reasoning": "Prior formulas contain the ingredients, but the final implication requires a sign analysis of the normalization denominator plus a realizable full-rank negative-coefficient IMTL-G configuration. The explicit construction shows that full rank does not prevent the singularity or post-threshold all-task conflict.",
+      "searches": [
+        "OpenReview IMPnRXEWpvr Theorem 2 scale invariant IMTL-G",
+        "OpenReview IMPnRXEWpvr alpha positive closed form",
+        "arXiv:2406.16232 IMTL-G scaling Appendix B.6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining theorem gives a reciprocal signed normalization denominator but concludes only that the two aggregates are linearly correlated.",
+        "The defining experiments explicitly allow the closed-form solution without hard positivity constraints and report positivity only as an empirical near-regularity.",
+        "No inspected source states a full-rank positive-rescaling sign reversal or its exact threshold."
+      ],
+      "reasoning": "Equivalent formulations would identify positivity of all source coefficients as the exact all-positive-scale orientation criterion, or would exhibit a linearly independent gradient set with a finite positive scale where the coefficient-sum normalization fails and changes sign. Those statements were not located.",
+      "searches": [
+        "IMTL-G negative weights scale invariance direction reversal",
+        "impartial multi-task learning negative alpha task scaling singularity",
+        "IMTL-G scale invariance counterexample angular bisector"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed records included a matrix-equivariance result, a unit-normalized weak Gauss-Newton obstruction, and a row-coherence normalization obstruction.",
+        "No returned indexed finding named IMTL-G or stated a positive-rescaling singularity or full-rank reversal."
+      ],
+      "reasoning": "The closest records concern different normalization mechanisms and do not imply the source IMTL-G coefficient-over-scale denominator. Database absence is supporting evidence only and is combined with direct primary-source comparison.",
+      "searches": [
+        "IMTL-G negative weights scale invariance direction reversal",
+        "impartial multi-task learning negative alpha task scaling singularity",
+        "IMTL-G scale invariance counterexample angular bisector",
+        "angular bisector multitask negative coefficients positive rescaling"
+      ]
+    },
+    "rationale": "The original paper proves collinearity under positive scaling and states same-direction scale invariance without proving positivity of the multiplier. The 2024 Jacobian-descent analysis already states that generalized IMTL-G is not linear under scaling and gives a rank-deficient negative-weight conflict example, so that broader statement is prior-covered and is not claimed. The inspected literature does not state the exact coefficient-sign criterion, the finite rescaling singularity, or a full-row-rank source-form example whose positive task rescaling reverses the aggregate and conflicts with all tasks.",
+    "residual_risks": [
+      "An equivalent full-rank sign-threshold observation may exist in unindexed implementation discussions.",
+      "The later Jacobian-descent scaling formula makes the denominator structure explicit, so only the sharp sign/singularity/full-rank implication is claimed as new.",
+      "The source paper reports negative closed-form weights as uncommon in its experiments, and no empirical frequency claim is made here.",
+      "The exact first paper-specific public timestamp of the anonymous submission was not exposed by the inspected record; the stored date uses the official full-paper submission date for that ICLR cycle."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_COLLINEARITY_FORMULA_WITHOUT_MULTIPLIER_SIGN_ANALYSIS.",
+        "evidence": "The theorem constructs the scaled solution with denominator sum(alpha_i/k_i) and proves linear correlation; the manuscript separately acknowledges that the closed-form method can operate without hard positive coefficient constraints.",
+        "identifier_or_url": "OpenReview:IMPnRXEWpvr",
+        "material_read": "Public under-review full text: main IMTL-G derivation and Algorithm 1; main-text scale-invariance paragraph; Appendix B.1 Equations 9 through 15 and Theorem 2; experiment discussion of removing alpha-positive constraints; Appendix Lemma 3 proving positivity only for equal pairwise normalized-gradient angles.",
+        "method": "Full-text inspection of the public manuscript.",
+        "title": "Towards Impartial Multi-task Learning",
+        "trigger": "Defining source for the IMTL-G closed form, coefficient-sum normalization, scale-invariance theorem, and positivity discussion."
+      },
+      {
+        "assessment": "BROADER_NONLINEAR_SCALING_PRIOR; FULL_RANK_REVERSAL_NOT_COVERED.",
+        "evidence": "The paper already covers non-linearity under scaling and a rank-deficient conflict example, but does not state the exact sign threshold or a full-row-rank positive-rescaling reversal; it instead notes that full-rank IMTL-G appears non-conflicting.",
+        "identifier_or_url": "arXiv:2406.16232v1",
+        "material_read": "Appendix B.6 IMTL-G, including the full-rank source formulation, Moore-Penrose generalization, negative-weight rank-deficient counterexample, non-conflict discussion, and scaling-normalization formula.",
+        "method": "Open-access full-text inspection.",
+        "title": "Jacobian Descent for Multi-Objective Optimization",
+        "trigger": "Most relevant later primary analysis of IMTL-G aggregation properties, including scaling and conflict."
+      },
+      {
+        "assessment": "DATE_EVIDENCE_ONLY.",
+        "evidence": "The official ICLR 2021 record gives the full-paper submission date as 2020-10-02.",
+        "identifier_or_url": "ICLR2021:submission-date-2020-10-02",
+        "material_read": "Official ICLR 2021 submission schedule identifying 2020-10-02 as the full-paper submission date.",
+        "method": "Official conference record inspection.",
+        "title": "ICLR 2021 Author Guide and Dates",
+        "trigger": "Date evidence for the public under-review conference submission used as the defining source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1f77d47-74d9-4da3-b0be-9f7da5a171bf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Loss-scale invariance is a stated scientific motivation of IMTL-G, and later work uses scaling behavior as a formal aggregator property. The result isolates the exact missing condition behind the source's direction-invariance interpretation: coefficient positivity. The full-rank example shows that violating this condition can cause not only magnitude distortion but a finite normalization singularity and then simultaneous first-order conflict with every task after a positive change of loss units. This is a mathematically sharp boundary for a central claimed robustness property and directly motivates positivity enforcement or a different normalization.",
+    "status": "PASS"
+  }
+}
