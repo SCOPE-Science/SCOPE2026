@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on magnitudes leaves independent Rademacher signs in any sign-blind ordering. Expanding the unbiased sample variance reduces each local run-change covariance to one adjacent sign product, giving exactly the adjacent-magnitude sum. The covariance-of-conditional-means term is zero. Exact enumeration and rational identities reproduce the theorem, the magnitude-only independence boundary, and the uniform specialization.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1401.2377v1 establishes marginal null distribution-freeness and invariance for the univariate McWilliams statistic and then extends runs to bivariate central symmetry.",
+        "The full source does not provide a joint law with sample variance or a theorem for arbitrary sign-blind orderings."
+      ],
+      "reasoning": "Marginal distribution-freeness of the run count is not broader coverage of this mixed moment because the covariance varies with the magnitude ordering and the parent magnitude law while the run marginal stays unchanged.",
+      "searches": [
+        "number of runs sample variance covariance iid symmetric observations",
+        "runs test symmetry centered sample variance dependence",
+        "symmetry runs statistic variance covariance mean absolute adjacent order statistics"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1401.2377v1",
+      "DOI:10.1080/01621459.1990.10474985",
+      "DOI:10.1080/00949655.2011.647026",
+      "Journal of Nonparametric Statistics 3 (1993), 195--199, Henze, consistency of a symmetry runs test (bibliographic comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1401.2377v1 explicitly gives the absolute-value ordering, the sign-run definition, and the generating-group invariance argument.",
+        "The same full text contains no variance or covariance discussion for the univariate statistic.",
+        "The modified-runs literature concerns symmetry-test construction and power rather than coupling to centered sample variance."
+      ],
+      "reasoning": "Prior work supplies the statistic and its marginal null theory. The new statement requires expanding the sample-mean correction and evaluating local quadratic sign covariances; neither the run marginal nor its invariance fixes the resulting adjacent-magnitude expectation.",
+      "searches": [
+        "arXiv:1401.2377v1 McWilliams runs invariance distribution-free",
+        "DOI:10.1080/01621459.1990.10474985 runs symmetry",
+        "DOI:10.1080/00949655.2011.647026 modified runs symmetry"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1401.2377v1, Sections 1--2: defines absolute-value anti-rank ordering and sign runs; full-text searches found no occurrences of \"sample variance\" or \"covariance\".",
+        "DOI:10.1080/01621459.1990.10474985: accessible abstract states the distribution-free symmetry-runs construction and power study, but exposes no mixed variance moment.",
+        "Published-record searches returned no statement matching the adjacent-magnitude covariance formula."
+      ],
+      "reasoning": "Equivalent forms would include a covariance of the runs statistic with centered sum of squares, a conditional quadratic sign identity, or a formula proportional to adjacent absolute-order products. None was located.",
+      "searches": [
+        "McWilliams runs statistic sample variance covariance absolute value ordering",
+        "absolute-rank sign runs sample variance covariance symmetric distribution",
+        "\"McWilliams\" \"sample variance\" runs symmetry",
+        "\"sign changes\" \"sample variance\" covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database/result entry located the finite covariance, the uniform-law closed form, or the chronological corollary.",
+        "Closest semantic records concerned signed Gaussian-chaos maxima, permutation/order-statistic dependence, and other covariance problems rather than symmetry runs."
+      ],
+      "reasoning": "No tabulation or database hit supplied the claimed mixed moment or a stronger joint distribution from which it follows as a stated special case.",
+      "searches": [
+        "McWilliams runs sample variance covariance",
+        "absolute value ordered signs runs second moment variance",
+        "sign sequence sample variance mean absolute deviation exact covariance"
+      ]
+    },
+    "rationale": "The accessible full literature defines and analyzes the same absolute-rank runs statistic but does not give its mixed moment with centered sample variance. The new theorem depends on an additional quadratic sign calculation and an ordering-sensitive adjacent-magnitude functional; the marginal binomial runs law does not imply it.",
+    "residual_risks": [
+      "The complete body of McWilliams (1990) was inaccessible in the lawful channels checked; it could contain an unstated or differently notated mixed moment.",
+      "Older runs-test or sign-and-rank literature may encode the same covariance under a joint-moment formulation not retrieved by the searched terminology.",
+      "No claim of exhaustive literature uniqueness is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the claimed mixed moment. The paper defines the same runs object and develops marginal/invariance theory but does not state a covariance with centered sample variance.",
+        "evidence": "The paper orders observations by absolute value and counts sign changes; targeted full-text searches returned no variance/covariance statement for this object.",
+        "identifier_or_url": "arXiv:1401.2377v1",
+        "material_read": "Full HTML: abstract, Sections 1--2 defining the univariate statistic and invariance, relevant later discussion, and references; targeted full-text searches for variance, covariance, sample variance, and second moment.",
+        "method": "Read the lawful arXiv full text and compared definitions and implications, not titles alone.",
+        "title": "Depth-based Runs Tests for Bivariate Central Symmetry",
+        "trigger": "Same univariate McWilliams absolute-rank runs statistic and a plausible broader null theory."
+      },
+      {
+        "assessment": "UNRESOLVED_BODY_RISK, not positive coverage. The abstract describes the runs statistic, its binomial sampling distribution, invariance, and power, but exposes no sample-variance joint moment.",
+        "evidence": "Accessible abstract contains no variance-covariance statement; full body remained unavailable.",
+        "identifier_or_url": "DOI:10.1080/01621459.1990.10474985",
+        "material_read": "Publisher abstract and bibliographic record. An authorized institutional retrieval attempt found no verified PDF, so the body was not read.",
+        "method": "Checked public abstract first, then attempted lawful institutional retrieval after no open full text was found.",
+        "title": "A Distribution-Free Test for Symmetry Based on a Runs Statistic",
+        "trigger": "Originating paper for the exact univariate runs statistic."
+      },
+      {
+        "assessment": "NOT_COVERING in available material. It studies a modified runs test and power, not covariance with sample variance.",
+        "evidence": "Publisher metadata gives Primary 62G10 and the abstract focuses on a modified symmetry runs test and Monte Carlo power.",
+        "identifier_or_url": "DOI:10.1080/00949655.2011.647026",
+        "material_read": "Publisher abstract and metadata, including primary AMS/MSC classification.",
+        "method": "Compared the stated scope, statistic family, and classification with the new finite mixed-moment claim.",
+        "title": "A modified runs test for symmetry",
+        "trigger": "Direct symmetry-runs literature and primary classification context."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "44317224-c161-4fe6-94b9-642555e9557f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result links a canonical distribution-free symmetry-runs statistic to the canonical centered scale estimator. Its main structural content is the sharp independence/dependence boundary: runs are independent of all magnitude-only statistics, while sample-mean centering alone creates an exact strictly positive coupling governed by adjacent magnitudes. The arbitrary sign-blind-order theorem and the closed uniform specialization make the result more than an isolated covariance calculation.",
+    "status": "PASS"
+  }
+}
