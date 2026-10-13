@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Every order-three ternary de Bruijn unfolding has 27 unique trigrams; any full attractor must mark at least 9 positions, and the only size-9 possibility is indices 2,5,...,26. All size-10 sets hitting these 27 trigrams satisfy exactly the initial/gap/final inequalities, giving precisely 275 choices. Full-factor coverage is equivalent to hitting those trigrams plus each of 3 letters and 9 digrams. The included compiled checker enumerates all 373248 rotation classes by directed Euler tours (fixed unique 000 edge), all 27 cuts each, and all needed candidates. The output 8274096 size-9 and 1803600 size-10 verifies completeness and sharpness. The finite theorem is not generalized by extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "P. Whittington, Online String Attractors, arXiv:2407.15599v1, Section 5, especially page 17 and Theorem 29.",
+        "S. Mantaci et al., String Attractors and Combinatorics on Words, arXiv:1907.04660, de Bruijn section (journal postprint pp. 23-25).",
+        "Published records about minimal string attractors for Rudin-Shapiro and regular-paperfolding prefixes concern morphic-word prefixes rather than de Bruijn cycles."
+      ],
+      "reasoning": "The general lower bound from 27 distinct trigrams gives 9 but does not imply a 10 upper bound or enumerate failures; the prime-order Lyndon construction provides one positive instance rather than every cycle. Automatic-sequence attractor results concern different word classes.",
+      "searches": [
+        "arxiv:1907.04660 de Bruijn linear word string attractor bounds",
+        "arxiv:2407.15599 Theorem 29 prime order alphabet",
+        "published published-finding corpus string attractors de Bruijn ternary"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2407.15599v1",
+      "https://pages.di.unipi.it/rosone/Papers/MRRRS_TCS2021.pdf",
+      "https://arxiv.org/abs/1803.01695 (abstract/metadata only; not used for exclusion)",
+      "Search of published mathematical records with the listed ternary de Bruijn/attractor queries",
+      "Public background on de Bruijn constructions and string-attractor verification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "P. Whittington, Online String Attractors, arXiv:2407.15599v1, Section 5, especially page 17 and Theorem 29.",
+        "S. Mantaci et al., String Attractors and Combinatorics on Words, arXiv:1907.04660, de Bruijn section (journal postprint pp. 23-25).",
+        "Binary de Bruijn order-four/five classifications have different alphabets and order parameters and do not determine the ternary order-three profile."
+      ],
+      "reasoning": "The new negative all-cycles claim is not implied by a single counterexample cut, since a different cut can succeed. An optimal Lyndon-generated witness establishes existential, not universal, success. General upper/lower asymptotic bounds do not force the exact 9/10 split. Previously obtained binary results are disjoint in parameters.",
+      "searches": [
+        "arxiv:2407.15599v1 Section 5 de Bruijn any cycle optimally unfolded",
+        "arxiv:1907.04660 de Bruijn Proposition 41",
+        "de Bruijn sequences string attractor prime order 3 ternary rotations optimal marking positions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "P. Whittington, Online String Attractors, arXiv:2407.15599v1, Section 5, especially page 17 and Theorem 29.",
+        "The unique sharp three-attractor may fail for some cuts; the present work classifies every rotation of every ternary order-three cycle."
+      ],
+      "reasoning": "The question can be restated as the rank-nine full-vs-sharp attractor condition, or as coverage of all letters and digrams by the forced three-spaced mark set. These equivalences were used in the search. Whittington supplies one failed cut and one successful Lyndon cut, not the census nor a 1632-cycle obstruction.",
+      "searches": [
+        "ternary de Bruijn order three all cyclic sequences full string attractor minimum rank 9 or 10 classify unfolding cuts exact 373248",
+        "3-ary length 29 de Bruijn word sharp 3-attractor full 3-attractor distribution 27 shifts 9 10",
+        "de Bruijn sequences string attractor prime order 3 ternary rotations optimal marking positions",
+        "arxiv:2407.15599v1 Section 5.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching all-cycle ternary order-three attractor table found in the searches performed.",
+        "Exact counts derived and asserted by the included fresh exhaustive Euler-tour program."
+      ],
+      "reasoning": "The table is not presented as an established database lookup. The absence of a matching web or published-result entry is weak negative evidence and an unindexed census remains possible.",
+      "searches": [
+        "ternary de Bruijn order three all cyclic sequences full string attractor minimum rank 9 or 10 classify unfolding cuts exact 373248",
+        "3-ary length 29 de Bruijn word sharp 3-attractor full 3-attractor distribution 27 shifts 9 10",
+        "minimal attractors de Bruijn sequences complete enumeration small alphabets",
+        "\"de Bruijn\" \"attractor\" \"373248\"",
+        "\"ternary\" \"de Bruijn\" \"attractor\" size 9 10"
+      ]
+    },
+    "rationale": "The full-text Whittington paper establishes a favorable prime-order Lyndon cycle and one unfavorable ternary cut, but explicitly asks whether every cycle admits a favorable cut; this exact census shows 1632 counterexample cycles, with an exact 9/10 distribution for all cuts. The full-text Mantaci paper gives general bounds and an example, not the all-cycle finite classification. published-finding corpus and relevant prior-result comparisons found no covering claim. Priority outside accessible sources remains unproved.",
+    "residual_risks": [
+      "An unpublished or poorly indexed exhaustive ternary order-three attractor census may exist; title/abstract searches cannot exclude it. The certificate is an exhaustive finite computation and does not address other alphabet sizes or orders."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact all-cycle classification; demonstrates one failed cut but also a successful recut and a favorable Lyndon-generated cycle.",
+        "evidence": "Section 5 pp. 16-18 explicitly poses the any-cycle question; Theorem 29 constructs an optimal unfolding for the Lyndon-generated cycle at prime order.",
+        "identifier_or_url": "https://arxiv.org/html/2407.15599v1",
+        "material_read": "Abstract; definition of attractor; Section 5 de Bruijn discussion, counterexample, Lemma 28 and Theorem 29 with proof; conclusion.",
+        "method": "Read complete relevant primary arXiv HTML section, cross-checked corresponding PDF page 17.",
+        "title": "Online String Attractors",
+        "trigger": "Explicitly studies ternary order-three de Bruijn unfoldings and asks whether every cycle has some optimal cut."
+      },
+      {
+        "assessment": "NOT_COVERING exact ternary order-three all-cycle profile; it bounds minimal attractor sizes and gives a binary example.",
+        "evidence": "Proposition 41 gives general bounds expressed in length and alphabet; no exact 373248-cycle distribution.",
+        "identifier_or_url": "https://pages.di.unipi.it/rosone/Papers/MRRRS_TCS2021.pdf",
+        "material_read": "Full source abstract and introduction; Section 6.2 pages 23-25 including Proposition 41 and example.",
+        "method": "Read publicly available author postprint PDF text and page images for relevant section.",
+        "title": "A Combinatorial View on String Attractors",
+        "trigger": "Foundational exact general bounds for de Bruijn word attractors, plausible theorem implying the finite bounds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d487f87-bd40-4b7b-8da4-181147b69581",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is an exhaustive classification of an objectively defined natural finite family directly motivated by a published de Bruijn string-attractor question. Its 1632 counterexample cycles settle negatively the universal question whether every ternary order-three cycle has some nine-optimal cut, while the exact 9/10 cut counts and ten-witness search give a complete sharp boundary. The importance is structural and not merely that code runs.",
+    "status": "PASS"
+  }
+}
