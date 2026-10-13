@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For prime powers the equality is \\(p^{au}(a+1)^v=q^{bu}(b+1)^v\\). Distinct bases force \\(p^a\\mid b+1\\) and \\(q^b\\mid a+1\\) when \\(u\\ge v\\); multiplying contradicts \\(p^a\\ge a+1\\) and \\(q^b\\ge b+1\\) unless both bases are \\(2\\). Equal bases are strictly monotone in the exponent. The exact identity \\(F_{t,3t}(2^6)=F_{t,3t}(7^3)=21952^t\\) supplies a noninjective parameter ray outside the proved region.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2201.09287v1, Theorem 1.1 and surrounding discussion",
+        "JIS:26:23.9.1, Example 9 and Theorem 13",
+        "published-finding corpus:2026/10/4/SCOPE-right-composition-by-divisor-function-iterates-preserves-quasi-i--ae7d2a9ddbe4"
+      ],
+      "reasoning": "The 2022 paper studies the image and global noninjectivity of \\(k\\tau(k)\\) but gives no prime-power restriction; the 2023 focal paper gives squarefree injectivity. Neither implies the new prime-power theorem for \\(u\\ge v\\). The composition result concerns a different construction.",
+      "searches": [
+        "restricted injectivity prime powers divisor-counting product n tau",
+        "quasi-injective n tau(n) prime powers",
+        "\"Product of Some Polynomials and Arithmetic Functions\" prime powers"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2201.09287v1",
+      "JIS:26:23.9.1",
+      "OEIS:A338382",
+      "OEIS:A000005",
+      "published-finding corpus:2026/10/4/SCOPE-a-support-exponent-obstruction-for-jordan-totient-product-collis--e314f3d430f7",
+      "published-finding corpus:2026/10/4/SCOPE-right-composition-by-divisor-function-iterates-preserves-quasi-i--ae7d2a9ddbe4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2201.09287v1 states the order of magnitude of the image of \\(k\\tau(k)\\) and records \\(18\\tau(18)=27\\tau(27)\\).",
+        "JIS:26:23.9.1 Theorem 13 states injectivity on squarefree integers.",
+        "JIS:26:23.9.1 Example 9 states \\(D(18)=D(27)\\) and asks about primitive collisions."
+      ],
+      "reasoning": "The 2022 image-counting theorem and collision discussion do not restrict both preimages to prime powers. The 2023 squarefree theorem covers only exponent-one prime powers. Therefore neither implies the arbitrary-exponent prime-power injectivity claim.",
+      "searches": [
+        "JIS 23.9.1 Theorem 13 squarefree injective n^a d(n)^b",
+        "D(n)=n tau(n) prime power collisions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "JIS:26:23.9.1, Theorem 13",
+        "OEIS:A338382",
+        "published-finding corpus:2026/10/4/SCOPE-a-support-exponent-obstruction-for-jordan-totient-product-collis--e314f3d430f7"
+      ],
+      "reasoning": "No search result states the prime-power theorem. The focal theorem is restricted to squarefree inputs. The closest published-finding corpus hit concerns \\(n^aJ_s(n)^b\\), a different arithmetic function.",
+      "searches": [
+        "For positive integers u>=v, F(n)=n^u tau(n)^v is injective on prime powers",
+        "n^a d(n)^b prime-power injectivity u>=v",
+        "\"n^a d(n)^b\" \"prime powers\" injective",
+        "\"p^a(a+1)\" \"q^b(b+1)\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A338382 lists collision values such as \\(108,192,448\\) and examples \\(18,27\\), \\(24,32\\), \\(56,64\\).",
+        "OEIS:A000005 gives \\(\\tau(p^a)=a+1\\)."
+      ],
+      "reasoning": "A338382 catalogs global repeated values but does not identify any collision between two prime powers or state an injectivity theorem on that domain.",
+      "searches": [
+        "OEIS A338382 n tau(n) collisions",
+        "\"n tau(n)\" prime powers injective divisor function"
+      ]
+    },
+    "rationale": "The focal paper proves squarefree injectivity for the same two-parameter function but does not cover repeated prime powers; the collision database does not provide a prime-power classification. Exact-form and semantic searches found no implication-equivalent theorem.",
+    "residual_risks": [
+      "An older divisor-function reference may contain the elementary prime-power lemma under different terminology; exact and semantic searches did not reveal one.",
+      "Guy's broad treatment of divisor-function equations is cited by OEIS but was not inspected in full during this review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: it studies the image size of \\(k\\tau(k)\\) and global collisions, not injectivity restricted to prime powers or the two-parameter family.",
+        "evidence": "Theorem 1.1 gives the order of magnitude of the image; the introduction records \\(18\\tau(18)=27\\tau(27)\\) and multiplicative collision families. A full-text search returned no occurrence of 'prime power'.",
+        "identifier_or_url": "arXiv:2201.09287v1",
+        "material_read": "arXiv abstract and full-text introduction/Theorem 1.1 discussion; rendered PDF page inspected.",
+        "method": "Direct arXiv full-text and PDF-page inspection.",
+        "title": "Numbers of the form kf(k)",
+        "trigger": "Earlier primary literature on the exact map \\(k\\mapsto k\\tau(k)\\), the \\((u,v)=(1,1)\\) subcase."
+      },
+      {
+        "assessment": "NOT_COVERING: it proves squarefree injectivity and discusses global collisions, but does not state or prove injectivity on non-squarefree prime powers.",
+        "evidence": "Example 9 defines \\(D(n)=n\\tau(n)\\) and records \\(D(18)=D(27)\\); Theorem 13 proves \\(n^u\\tau(n)^v\\) injective on squarefree integers; metadata gives primary MSC 11A25 and publication November 2, 2023.",
+        "identifier_or_url": "JIS:26:23.9.1",
+        "material_read": "Full-text PDF sections containing Example 9, Section 4, Theorem 13, and publication/MSC metadata.",
+        "method": "Direct full-text inspection, including rendered PDF pages.",
+        "title": "Product of Some Polynomials and Arithmetic Functions",
+        "trigger": "Same function family and the strongest plausible prior restricted-injectivity result."
+      },
+      {
+        "assessment": "NOT_COVERING: it enumerates global collision values but gives no prime-power injectivity theorem.",
+        "evidence": "The entry defines repeated values of \\(k\\tau(k)\\) and gives examples including \\(18,27\\), \\(24,32\\), and \\(56,64\\).",
+        "identifier_or_url": "OEIS:A338382",
+        "material_read": "Complete current OEIS entry, comments, examples, references, and cross-references.",
+        "method": "Direct entry inspection.",
+        "title": "OEIS A338382",
+        "trigger": "Exact database of repeated values of \\(n\\tau(n)\\)."
+      },
+      {
+        "assessment": "INAPPLICABLE_BY_OBJECT: the result concerns Jordan totients \\(J_s\\), not the divisor-counting function \\(\\tau\\).",
+        "evidence": "The indexed statement is about collisions of \\(n^aJ_s(n)^b\\) and powerful integers.",
+        "identifier_or_url": "published-finding corpus:2026/10/4/SCOPE-a-support-exponent-obstruction-for-jordan-totient-product-collis--e314f3d430f7",
+        "material_read": "Published title and scientific summary.",
+        "method": "Semantic-result inspection.",
+        "title": "A support-exponent obstruction for Jordan-totient product collisions",
+        "trigger": "Highest semantic published-finding corpus hit for a product-injectivity query."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a578f4db-486d-4cea-9888-ed6eb0f57988",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Prime powers are a natural complementary domain to the squarefree integers in the focal restricted-injectivity problem. The theorem covers all exponents uniformly for every \\(u\\ge v\\), while the infinite collision ray \\(v=3u\\) shows the parameter restriction has mathematical content.",
+    "status": "PASS"
+  }
+}
