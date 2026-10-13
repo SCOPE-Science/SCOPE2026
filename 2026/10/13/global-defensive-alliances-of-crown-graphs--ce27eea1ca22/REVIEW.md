@@ -1,0 +1,15 @@
+# Review of Global defensive alliances of crown graphs
+
+## Correctness
+PASS. In \(\operatorname{Cr}_n\), every vertex has degree \(n-1\), so the defensive condition is exactly \(\deg_S(v)\ge\lfloor(n-1)/2\rfloor\). The four matching-index states give internal degrees \(r+c\), \(r+c-1\), \(p+c\), and \(p+c-1\), from which the two classification cases follow without omitted subcases. For \(n\ge5\), both selected bipartition counts are at least two, so domination is automatic; the induced graphs are either complete bipartite or complete bipartite minus a matching with both parts of size at least three, hence connected. The minimum and its multiplicity follow from the exact inequalities. Direct exhaustive verification through \(n=9\) independently agrees with every classification and coefficient claim.
+
+## Originality
+PASS. The 2003 foundational paper was inspected in full searchable form at the defining and complete-bipartite sections. It introduces global defensive alliances and proves the complete-bipartite minimum formula, but full-text searches locate neither “crown” nor “perfect matching.” The 2018 defensive-alliance-polynomial paper was inspected at its definition and complete-bipartite section and searched across its full text; it includes complete bipartite graphs but no crown or perfect-matching case. Searches using crown graph, complete bipartite minus perfect matching, complete bipartite minus one-factor, and bipartite Kneser \(H(n,1)\) aliases found no statement implying the four-state classification, automatic-globality theorem, enumerator, or minimum-set count. The closest structured comparison results concern strong defensive alliances or global offensive alliances on complete multipartite graphs and do not apply to crowns.
+
+## Value
+PASS. The crown graph is the canonical one-perfect-matching perturbation of \(K_{n,n}\), the class explicitly treated in the foundational global-alliance paper. The theorem identifies exactly how that perturbation changes the set system: for \(n\ge5\), defensiveness alone forces both domination and connectivity; overlap with the deleted matching creates the sole threshold shift; and the minimum exhibits a parity-sensitive two-vertex drop precisely for even \(n\ge6\). The result therefore gives a structural perturbation law and complete natural enumeration rather than an isolated numerical exercise.
+
+## Closest literature and limitations
+Haynes–Hedetniemi–Henning (2003), DOI 10.37236/1740, is closest at the global defensive-alliance level and supplies the comparison \(\gamma_a(K_{n,n})=2\lfloor n/2\rfloor\). Ibrahim (2018), arXiv:1811.10089, is closest at the polynomial level but studies a different bivariate connected-subgraph polynomial and does not contain the crown family. Residual risk remains for unindexed literature under an unexpected alias. The finite verifier is corroborative only; the proof is combinatorial and valid for all stated \(n\).
+
+Self-review: passed. Independent audit: not yet performed.
