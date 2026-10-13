@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The conditional log-cosh identity holds algebraically for every positive kernel and uniform target margins. Strict positivity makes the log-partition coercive and strictly convex, so strict coordinate potential decrease for |1-omega|<1 implies global convergence by compactness and uniqueness. At omega=2 both half-steps preserve the potential exactly; at omega>2 it increases away from conditional minimizers, proving the universal sharp boundary. The affine scalar recurrence has factor (1-omega)^2<1, upgrading ratio convergence to unnormalized coupling convergence. The 2x2 Jacobian Schur inequalities are strictly positive throughout 0<omega<2. The diagnostic rederives identities from the original multiplicative equations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lehmann et al., arXiv:2012.12562v3, Theorem 1 local for 0<omega<2 and Theorem 3 global only for 0<omega<2/(1+Lambda(K)), https://arxiv.org/html/2012.12562v3",
+        "Thibault et al., arXiv:1711.01851v2, §4.3 global convergence with adaptive relaxation, https://arxiv.org/html/1711.01851v2"
+      ],
+      "reasoning": "The general global fixed-parameter sufficient bound is strictly below two whenever the Birkhoff contraction factor is nonzero. Its local theorem cannot imply global convergence from arbitrary starts. The present subclass theorem fills the interval beyond that sufficient bound and supplies the sharp endpoint obstruction.",
+      "searches": [
+        "Sinkhorn two by two uniform marginals sharp global omega 2 convergence independent of Birkhoff contraction",
+        "Sharp global convergence interval 0<omega<2 for fixed overrelaxation of positive 2x2 Sinkhorn matrix scaling with uniform row column marginals via cosh Lyapunov",
+        "two-state matrix balancing entropic optimal transport accelerated Sinkhorn 2x2 exact overrelaxation cutoff and nonconvergence at omega two",
+        "Lehmann von Renesse Sambale Uschmajew 2021 note overrelaxation Sinkhorn convergence 2/(1+Lambda)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1711.01851, arxiv v2 full HTML, first public 2017-11-06",
+      "arxiv:2012.12562, arxiv v3 full HTML, first public 2020-12-23",
+      "doi:10.1007/s11590-021-01830-0, open-access publication",
+      "Targeted published-mathematics semantic searches for the theorem and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lehmann et al. (2020/2021) Theorem 3 guarantees omega<2/(1+Lambda), strictly weaker in the balanced class with Lambda>0.",
+        "Thibault et al. (2017/2021) §4.3 requires per-iterate strict descent of a different Lyapunov, enforced by adapting omega.",
+        "Related two-coordinate linear Gauss-Seidel work concerns SPD linear systems rather than multiplicative Sinkhorn scaling."
+      ],
+      "reasoning": "Neither source theorem has the needed hypotheses and conclusion jointly: one is a weaker uniform interval from Hilbert norm contraction, the other is an adaptive rule. Standard linear SOR supplies the local Jacobian analogy, not a global nonlinear guarantee. The endpoint first integral is not an implication of the published local rate formulas.",
+      "searches": [
+        "Sharp global convergence interval 0<omega<2 for fixed overrelaxation of positive 2x2 Sinkhorn matrix scaling with uniform row column marginals via cosh Lyapunov",
+        "two-state matrix balancing entropic optimal transport accelerated Sinkhorn 2x2 exact overrelaxation cutoff and nonconvergence at omega two",
+        "overrelaxed iterative proportional fitting matrix scaling two by two 2x2 projective ratio potential log sum cosh fixed damping full 0 to 2",
+        "balanced two by two Sinkhorn overrelaxation full interval omega 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Thibault et al., arXiv:1711.01851v2, §4.1, Remark 2 (dual SOR equivalence), §4.3 (adaptive convergence), https://arxiv.org/html/1711.01851v2",
+        "Closest additional text was a log-cosh inequality on a different mathematical object, not multiplicative Sinkhorn scaling."
+      ],
+      "reasoning": "The equivalent dual-coordinate SOR and iterative-proportional-fitting formulations were searched expressly. The adaptive Lyapunov scheme controls a state-dependent relaxation rather than all fixed omega below two; the closest unrelated log-cosh item is not a scaling algorithm. A general nonlinear-coordinate descent theorem could in principle imply the result, but no matching dominating statement was found and the conditional evenness is essential.",
+      "searches": [
+        "Sinkhorn Knopp 2x2 equal uniform marginals positive kernel globally convergent constant overrelaxation 0<omega<2 sharp threshold cosh",
+        "iterative proportional fitting two-by-two balanced scaling log partition log cosh reflection invariant at omega two",
+        "overrelaxed iterative proportional fitting matrix scaling two by two 2x2 projective ratio potential log sum cosh fixed damping full 0 to 2",
+        "\"Sinkhorn\" \"two-by-two\" \"overrelaxation\" global convergence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact table or equivalent formula in the checked primary publications.",
+        "Related retrieved research concerned linear Jacobi iteration, Gauss-Seidel transients, and separate transport conditioning questions."
+      ],
+      "reasoning": "No exact table, census, database record, or published computed phase diagram describing this all-initial continuous relaxation interval was located. The result is proved for all positive kernels symbolically, rather than read off numerical tests or an exact-value database.",
+      "searches": [
+        "Sinkhorn Knopp 2x2 equal uniform marginals positive kernel globally convergent constant overrelaxation 0<omega<2 sharp threshold cosh",
+        "iterative proportional fitting two-by-two balanced scaling log partition log cosh reflection invariant at omega two",
+        "Sinkhorn two by two uniform marginals sharp global omega 2 convergence independent of Birkhoff contraction"
+      ]
+    },
+    "rationale": "Full primary texts identify fixed overrelaxed Sinkhorn and local parameter (0,2) but do not give sharp all-initial global stability for the balanced two-by-two class; the general global theorem covers only (0,2/(1+Lambda(K))). The present conditional log-cosh Lyapunov plus conservation at omega=2 prove a stronger specialized full interval rather than a direct corollary. Published-statement and mathematical-alias searches found no equivalent coverage; residual unindexed priority risk remains.",
+    "residual_risks": [
+      "Unindexed or differently named specialized nonlinear SOR theorem may already imply the statement; searches do not certify priority.",
+      "Literature on two-state iterative proportional fitting and general convex block-relaxation might contain an overlooked equivalent.",
+      "Full priority assessment is not independent scholarly review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same algorithm, but global convergence is proved with adaptive descent-enforced parameters; no theorem for constant omega in full (0,2) on balanced 2x2 kernels.",
+        "evidence": [
+          "arXiv first submitted 2017-11-06",
+          "§4.1 introduces fixed relaxation, §4.3 assumes a descent condition for adaptive choices."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1711.01851v2",
+        "material_read": "Full accessible HTML, including §4.1 equations (20)–(22), §4.2 Lyapunov lemma, §4.3 theorem/proof, §4.4 local discussion, conclusion and references.",
+        "method": "Read authors’ full HTML text and compared fixed update, assumptions, and whether their all-initial theorem applies to constant omega.",
+        "title": "Overrelaxed Sinkhorn-Knopp Algorithm for Regularized Optimal Transport",
+        "trigger": "Defines the same fixed relaxed projection and globally convergent adaptive variant."
+      },
+      {
+        "assessment": "Theorem 3 guarantees omega<2/(1+Lambda(K)); Theorem 1 ensures only local stability throughout omega<2. Neither states the balanced-2x2 full global frontier or its conserved endpoint potential.",
+        "evidence": [
+          "arXiv first submitted 2020-12-23",
+          "Theorem 1 local (0,2); Theorem 3 global (0,2/(1+Lambda))."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2012.12562v3",
+        "material_read": "Full accessible HTML, including Theorems 1–4, equations (2)–(9), proof of global Theorem 3, local spectrum discussion, final numerical examples and references.",
+        "method": "Checked stated theorem implications and separated their local full range from their global data-dependent sufficient range.",
+        "title": "A note on overrelaxation in the Sinkhorn algorithm",
+        "trigger": "Direct same-algorithm theoretical bounds for fixed omega; strongest plausible cover."
+      },
+      {
+        "assessment": "Published discussion retains strictly smaller general global interval and separate local interval.",
+        "evidence": [
+          "Published 2021-12-14, later than first preprint."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11590-021-01830-0",
+        "material_read": "Open-access article text, including abstract, stated Theorems 1 and 2, discussion of practical global interval.",
+        "method": "Compared published global statement to corresponding arXiv v3 full manuscript.",
+        "title": "A note on overrelaxation in the Sinkhorn algorithm (open-access published edition)",
+        "trigger": "Possible updated stronger publication text."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f8d495b2-ac6a-449a-a1b2-4caf83e79177",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This resolves a genuine local-versus-global stability gap for a recognized fixed overrelaxed optimal-transport scaling method. The published general guarantee omega<2/(1+Lambda(K)) can become arbitrarily conservative as Lambda(K) tends to one, while all positive balanced 2x2 kernels remain globally stable for any fixed omega<2. A conserved log-partition at omega=2 explains the sharp loss of convergence. The result is a meaningful complete classification for the smallest interacting transport problem, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
