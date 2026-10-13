@@ -1,0 +1,102 @@
+# Complete divisor-sum fiber for two-prime Set objects
+## Finding
+Let \(A\ge1\) and let \(p\) be an odd prime. For
+\[
+n=2^A p,
+\]
+the source definition gives
+\[
+Set(n)=\{2^a p^b:1\le a,b\le A\}.
+\]
+With \(\sigma\) denoting the sum of the positive divisors, define
+\[
+Set(n,\sigma)=\{m\in Set(n):\sigma(m)\in Set(n)\}.
+\]
+Then
+\[
+Set(2^A p,\sigma)\ne\varnothing
+\iff
+p=2^s-1\text{ is prime for some }2\le s\le A.
+\]
+Moreover, whenever this holds the fiber is a singleton:
+\[
+Set(2^A p,\sigma)=\{2^{s-1}p\},
+\qquad
+\sigma(2^{s-1}p)=2^s p.
+\]
+
+## Assumptions and scope
+The exponent of the odd prime in the base integer is exactly one: \(n=2^A p\) with \(A\ge1\) and \(p\) an odd prime. The theorem concerns the modified set attached to the classical divisor-sum function \(\sigma\). It does not classify bases with odd-prime exponent greater than one or bases with more than two prime supports.
+
+## Proof
+Take \(m=2^a p^b\in Set(n,\sigma)\), so \(1\le a,b\le A\). Multiplicativity gives
+\[
+\sigma(m)=(2^{a+1}-1)R_b,
+\qquad
+R_b=1+p+\cdots+p^b.
+\]
+Because \(\sigma(m)\in Set(n)\), its prime support is exactly \(\{2,p\}\), with positive exponents of both primes.
+
+The factor \(2^{a+1}-1\) is odd and greater than one, so it can contain only the prime \(p\). Hence
+\[
+2^{a+1}-1=p^c
+\]
+for some \(c\ge1\). Also \(R_b\equiv1\pmod p\), so \(p\nmid R_b\). Therefore \(R_b\) is a positive power of two. In particular \(R_b\) is even, forcing \(b\) to be odd.
+
+We first prove \(b=1\). Suppose instead that \(b\ge3\). Put \(t=(b+1)/2\ge2\) and \(x=p^2\). Then
+\[
+R_b=(p+1)C,
+\qquad
+C=1+x+\cdots+x^{t-1}.
+\]
+Since \(R_b\) is a power of two, so is \(C\). If \(t\) has an odd divisor \(d>1\), then \(C\) has the divisor
+\[
+1+x+\cdots+x^{d-1},
+\]
+which is odd and greater than one, impossible. Thus \(t=2^u\) for some \(u\ge1\). But then
+\[
+C=\prod_{j=0}^{u-1}\left(x^{2^j}+1\right).
+\]
+Because \(x=p^2\equiv1\pmod8\), each displayed factor is congruent to \(2\pmod8\) and is greater than \(2\), so it has an odd divisor. Again \(C\) cannot be a power of two. Therefore \(b=1\).
+
+Now \(R_1=p+1\) is a power of two, say \(p+1=2^s\), so \(p=2^s-1\) with \(s\ge2\). We also have
+\[
+2^{a+1}=p^c+1.
+\]
+If \(c\) is even, then \(p^c\equiv1\pmod8\), whereas the left side is divisible by \(8\) once it is large enough to equal \(p^c+1\ge10\); contradiction. If \(c>1\) is odd, then
+\[
+\frac{p^c+1}{p+1}=p^{c-1}-p^{c-2}+\cdots-p+1
+\]
+is an odd integer greater than one. Since both \(p+1\) and \(p^c+1\) are powers of two, that is impossible. Hence \(c=1\). Consequently
+\[
+p=2^{a+1}-1,
+\qquad s=a+1.
+\]
+Thus every possible element is forced to be \(m=2^{s-1}p\). The condition \(\sigma(m)=2^s p\in Set(n)\) is exactly \(s\le A\), while \(s\ge2\). This proves necessity and uniqueness.
+
+Conversely, if \(p=2^s-1\) is prime with \(2\le s\le A\), then \(m=2^{s-1}p\in Set(n)\) and
+\[
+\sigma(m)=(2^s-1)(p+1)=p\,2^s\in Set(n).
+\]
+Hence the stated singleton fiber exists.
+
+## Verification
+A standalone verifier enumerates every \(1\le A\le12\), every odd prime \(p\le2000\), and every \((a,b)\in[1,A]^2\). It computes \(\sigma(2^a p^b)\) directly and compares the resulting fiber with the theorem. It reports
+`VERIFY_OK cases=3624 A_max=12 p_max=2000 primes=302`.
+This is regression evidence only; the proof above is symbolic and has no cutoff.
+
+## Relationship to prior work
+Atanassov and Sándor introduced \(Set(n,f)\) and, in their divisor-sum section, considered exactly \(n=2^A p\). They derived the factorization
+\[
+\sigma(2^a p^b)=(2^{a+1}-1)(1+p+\cdots+p^b)
+\]
+and exhibited Mersenne-based examples, but they did not prove that \(b=1\) and the first factor has exponent one are forced, nor did they state the complete singleton classification. Their conclusion explicitly leaves further investigation of the \(\sigma\)-case open. The 2020 foundational paper defines \(Set(n)\) and its exponent interval, but predates \(Set(n,\sigma)\).
+
+Targeted semantic-database and web searches for the exact fiber, Mersenne reformulations, and broader two-prime divisor-sum classifications found no statement implying this biconditional. A 2024 monograph on the broader \(Set(n)\) program was identifiable from its publisher page but was not available in full text during this review; this is retained as a residual literature risk.
+
+## Limitations
+The result is confined to the base family \(n=2^A p\). No claim is made for \(n=2^A p^B\) with \(B>1\), for more prime supports, or for other arithmetic functions. The finite verifier does not contribute to the infinite proof. The literature search cannot prove absolute novelty, and the inaccessible 2024 monograph remains a specific residual risk.
+
+## References
+1. K. T. Atanassov and J. Sándor, “On a modification of Set(n),” *Notes on Number Theory and Discrete Mathematics* 29 (2023), 813–819. DOI: 10.7546/nntdm.2023.29.4.813-819. Online First: 2023-12-02.
+2. K. Atanassov, “Objects generated by an arbitrary natural number,” *Notes on Number Theory and Discrete Mathematics* 26 (2020), 57–62. DOI: 10.7546/nntdm.2020.26.4.57-62.
