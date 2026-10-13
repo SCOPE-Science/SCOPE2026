@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the inverse-Rayleigh CDF by integrating its density and independently conditioned on Beta(q,1). Exact survival is 1-e^{-a}+a^{q/2}Gamma(1-q/2,a), valid for a>0,q>0. Writing eta=(q-2)/2=w/log(1/a), the split integral on (a,1) is exactly L Phi(w). The remaining kernel is differentiable at eta=0 with value -EulerGamma, and truncation after multiplication by a^eta contributes O(a), uniformly on |w|<=K. This proves the two-term O(1/L) bracket. For the independent triangular array, L=log n+log log n+2log x and eta=kappa/log n; Taylor expansion provides the explicit O((log log n)^2/(log n)^2) second-order nS, and (1-S)^n converges to exp(-Phi(kappa)/x^2), with nS^2=O(1/n). The actual standalone Python checker passed 14 independent conditional-integral identities and the prescribed asymptotic cross-checks. Finite checks support but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Denisov and Zwart (2007), DOI 10.1239/jap/1197908822: product tail asymptotics under moment and slow-variation assumptions for fixed laws.",
+        "Shimura (2000), DOI 10.1023/A:1010714408233: abstract states closure and decomposition of regularly varying product distributions.",
+        "Almuhayfith et al. (2023), DOI 10.1038/s41598-023-47313-3: product of inverse-Weibull with bounded U^(1/alpha), rather than X/Beta."
+      ],
+      "reasoning": "General regular-variation results account for fixed-index tail powers, acknowledged as known. The inspected theorems and the stated scope of Shimura address fixed products, not shape drifting at 1/log n or the Euler-constant finite-size coefficient. The differently oriented inverse-Weibull mixture does not dominate the reciprocal-beta model.",
+      "searches": [
+        "Breiman product tail lemma equal index two regularly varying random variables logarithmic product 1965",
+        "product independent Pareto same index tail logarithm asymptotic q beta pareto",
+        "product of Pareto equal tail indices critical log crossover triangular array extrema distribution"
+      ]
+    },
+    "checked_sources": [
+      "Gómez et al., AIMS Mathematics 11 (2026) 23262–23281, DOI 10.3934/math.2026938, primary full text.",
+      "Denisov and Zwart, Journal of Applied Probability 44 (2007) 1031–1046, DOI 10.1239/jap/1197908822, author manuscript.",
+      "Almuhayfith et al., Scientific Reports 13 (2023) 20202, DOI 10.1038/s41598-023-47313-3, full HTML.",
+      "Shimura, Acta Applicandae Mathematicae 63 (2000) 411–432, DOI 10.1023/A:1010714408233, publisher abstract only."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gómez et al. (2026), Section 2.5, Proposition 8, printed page 23269, proves regular variation with q held fixed but leaves the limit expression unevaluated.",
+        "The existing fixed-q tail asymptotics have three distinct regimes, one with a logarithm at q=2; they do not supply uniform estimates where q approaches two with z or n.",
+        "Denisov--Zwart (2007) fixed-law Breiman-type asymptotics do not yield a triangular-array limit without additional uniformity estimates."
+      ],
+      "reasoning": "A theorem asserting, for each fixed q, asymptotic S_q(z) as z→∞ permits error rates varying arbitrarily with q. It therefore cannot imply the uniform O(1/log z) remainder for q=2+2w/log(z^2/theta), nor the explicit limit of max(Z_1,...,Z_n) for q=q_n, without the extra uniform singular-integral proof. This is the precise statement difference, not merely a parameter substitution.",
+      "searches": [
+        "\"slashed inverse Rayleigh\" \"regularly varying\" \"index\" 2026",
+        "slash inverse Rayleigh distribution heavy tail regular variation tail constants Gamma and critical q equals two",
+        "beta slash mixture tail transition shape exponent logarithmic scale crossover for iid extremes triangular arrays"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "SIR stochastic representation is equivalent to adding log(X) and an independent exponential rate-q variable, but the 2026 paper considers q fixed (DOI 10.3934/math.2026938, Section 2).",
+        "The related 2007 paper (DOI 10.1239/jap/1197908822, Introduction and Section 2) formulates fixed-distribution independent products and Breiman-type transfer conditions; no nearly-coalescing-rate triangular array appears in inspected text."
+      ],
+      "reasoning": "The logarithmic change of variables is a plausible equivalence, so searches included nearly equal exponential rates as well as incomplete gamma. The familiar equal-index product logarithm does not specify the moving shape interpolation, its second-order constant, or the rowwise extreme-value limit.",
+      "searches": [
+        "near equal power indices independent product distributions logarithmic interpolation Frechet extreme value",
+        "nearly equal exponential log-tail rates product Fréchet triangular-array maximum sqrt(n log n) crossover",
+        "uniform incomplete-gamma expansion near q=2 beta-slashed inverse-Rayleigh Euler constant (1-exp(-w))/w"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 20-page primary full text (DOI 10.3934/math.2026938) contains fixed-parameter statistical examples, not the proposed moving-q coefficient table or extremes.",
+        "Targeted scholarly searches returned the primary paper and general extreme-value topics without an exact matching formula or table."
+      ],
+      "reasoning": "No published numerical lookup table is needed: the finding is a uniform analytical limit for a continuous parameter window. Negative table searches support a limited comparison only and do not independently prove novelty.",
+      "searches": [
+        "\"slashed inverse Rayleigh\" \"Frechet\" \"tail\" 2026",
+        "\"slashed inverse Rayleigh\" \"extreme\" \"maximum\" beta q 2026",
+        "slashed inverse Rayleigh moving q_n=2+2kappa/log n Fréchet maxima crossover logarithmic correction"
+      ]
+    },
+    "rationale": "The fixed-shape regular-variation and power/log regimes for the same SIR law are already covered and explicitly excluded from novelty. In contrast, a uniform two-term expansion when the beta shape itself moves as 2+2w/log(z^2/theta), including the Euler constant term, implies a nontrivial triangular-array Fréchet crossover and an explicit (log log n)/log n correction. Pointwise regular variation at every fixed shape has no uniformity in a moving shape. The 2026 full source contains the CDF and an unevaluated fixed-shape regular variation ratio, but no triangular-array maximum analysis. The inspected general 2007 product-tail theory concerns fixed product distributions, and the 2023 inverse-Weibull construction uses a bounded multiplier. No covering mathematical implication was identified in the searches; unindexed priority remains possible.",
+    "residual_risks": [
+      "A general theorem in uncatalogued or unindexed moving-index product-tail literature could subsume the specific uniform crossover.",
+      "The Shimura (2000) original full text was not accessible in this search, so its abstract alone is not a whole-document negative comparison; the precise risk is broad Mellin–Stieltjes convolution results.",
+      "No independent scientific review has been conducted; finite numerical checks cannot establish limit assertions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the ratio construction and survival integral, discusses fixed-shape regular variation; no moving-shape critical window or triangular-array extreme-value theorem located.",
+        "evidence": [
+          "DOI 10.3934/math.2026938, printed pages 23265, 23267 and 23269, and Sections 3–6."
+        ],
+        "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/7/PDF/math-11-07-938.pdf",
+        "material_read": "Full 20-page lawful open PDF accessed; definitions and derivations on pages 23262–23269 closely read, subsequent sections on estimation/examples and conclusions scanned for competing asymptotics.",
+        "method": "Publisher open PDF and text extraction with visual inspection of equations (2.1), (2.5), and Proposition 8.",
+        "title": "EM algorithm in the slashed inverse Rayleigh regression model with an application",
+        "trigger": "Identical SIR model and directly relevant Proposition 8 regular variation."
+      },
+      {
+        "assessment": "Addresses fixed independent products and finite-moment or slowly varying conditions, not the moving-q SIR critical-window constant.",
+        "evidence": [
+          "Denisov and Zwart, Journal of Applied Probability 44 (2007) 1031–1046, especially propositions on product tail transfer."
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/jap/1197908822",
+        "material_read": "Author-posted full manuscript text: Introduction, Section 2 representation and Propositions 2.1–2.3 examined; abstract and bibliographic record separately cross-checked.",
+        "method": "Public author-posted manuscript text and university publication metadata.",
+        "title": "On a theorem of Breiman and a class of random difference equations",
+        "trigger": "Possible general dominating product-tail theorem."
+      },
+      {
+        "assessment": "Its inverse-Weibull variable is multiplied by a bounded uniform-derived factor; not the reciprocal-beta amplification X/Y_q, and no relevant coalescing-tail-index extreme-value theorem appears in inspected sections.",
+        "evidence": [
+          "Scientific Reports 13 (2023) 20202, Proposition 7 and Under variable transformation."
+        ],
+        "identifier_or_url": "https://doi.org/10.1038/s41598-023-47313-3",
+        "material_read": "Open full HTML: inverse-Weibull density, Proposition 7 mixture representation, and submodels and reciprocal transformation sections.",
+        "method": "Publisher open HTML and mathematical formula comparison.",
+        "title": "A versatile model for lifetime of a component under stress",
+        "trigger": "Earlier inverse-Weibull family with slash-related transformation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d13318f-4405-4eda-8f64-3dc2f20e18b2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two distinct regularly varying tail powers compete at the natural parameter q=2. For extreme quantiles and sample maxima, calibrations that hold q fixed cannot resolve a q_n=2+O(1/log n) regime. The nonconstant Phi(kappa) crossover gives the correctly normalized Fréchet limit and an explicit (log log n)/log n finite-size drift, revealing slow convergence that affects practical extreme-event calibration. It is a motivated complete critical-window result and not a mere restatement of the previously known fixed-q tail-index classification. No distribution-free or finite-n risk guarantee is claimed.",
+    "status": "PASS"
+  }
+}
