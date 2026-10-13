@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "For each rook edge, the two squares form a unique two-edge path in K_{m,n}. Inducedness is exactly vertex-disjointness of these paths. Their row- and column-centered types, with a and b components and residual r=m-a-2b, c=n-2a-b, have count m!n!/(2^(a+b)a!b!r!c!). A packing is inclusion-maximal iff K_{r,c} admits no two-edge path, i.e. r=0 or c=0 or (r,c)=(1,1). Labeled exponential generating functions follow. Feasible size k is characterized by k<=m,n and 3k<=m+n; maximality lower bound ceil(min(m,n)/2) is attained by explicit row-saturating stars, with small cases treated. Equating the two extrema gives precisely nine unordered rectangles. Direct brute enumeration of every induced rook matching over all 16 boards 2<=m,n<=5 agrees in 6201 cases; algebraic coefficient checks cover 289 boards up to dimension 18. Finite tests are not used as proofs of the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Basavaraju et al., arXiv:1312.5180v1, https://arxiv.org/abs/1312.5180: bounds numbers of maximal induced matchings in triangle-free graphs, while rook graphs contain triangles when a side has size at least three.",
+        "Baptiste et al., 2012 IFAC proceedings DOI 10.3182/20120523-3-RO-2023.00065 and expanded 2016 Discrete Applied Mathematics DOI 10.1016/j.dam.2016.08.015: study equicardinality and recognition in arbitrary graphs, without a rectangular-rook coefficient formula in inspected material."
+      ],
+      "reasoning": "A universal bound cannot determine the two evaluated generating functions or distinguish the nine rectangles. General recognition characterizations do not furnish these evaluated cardinality distributions; any unknowable stronger coverage is a residual risk.",
+      "searches": [
+        "all maximal induced matchings of Cartesian product of two complete graphs K_m square K_n number maximum",
+        "induced matching and maximal induced matching enumerating two-dimensional Hamming graphs rook graphs K_m square K_n",
+        "\"Maximal induced matchings in triangle-free graphs\"",
+        "\"Graphs with maximal induced matchings of the same size\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1312.5180v1 (relevant full text examined)",
+      "doi:10.1016/j.dam.2016.08.015 (2016 expanded full text examined)",
+      "doi:10.3182/20120523-3-RO-2023.00065 (2012 predecessor abstract inspected)",
+      "UBC-TR-2001-12 (dated landing page and abstract only)",
+      "OEIS:A341850 (maximum ordinary rook matching database definition)",
+      "OEIS:A341847 (maximal ordinary rook matching database definition)",
+      "doi:10.1016/S0166-218X(03)00390-1 (accessible text)",
+      "Published record: The two-matching complex of K(3,4) is a 5-sphere (different homotopy invariant)",
+      "Published record: Cyclomatic bounds and sharp matching-induced-matching gaps (different graph classes and extremal gap)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pippenger counts matchings of bipartite vertex-edge incidence graphs, pairing an original vertex to an incident original edge; this does not itself impose disjointness on both ends of distinct K_{m,n} paths.",
+        "General induced-matching papers supply definitions, bounds, and complexity but no displayed closed forms for the two-dimensional rook family in the inspected material.",
+        "Exact claim comprises both full polynomials, extremal formulas, and all nine equicardinality board sizes."
+      ],
+      "reasoning": "An earlier all-P3-packing enumerator could imply the first polynomial, and one also enumerating maximal packings could imply the second. Neither stronger implication was located in the inspected primary material. This comparison uses mathematical objects and consequences, not title matching; literature coverage is necessarily non-exhaustive.",
+      "searches": [
+        "induced matching polynomial of rook graph K_m Cartesian K_n equivalent counting disjoint 2-stars in complete bipartite graph",
+        "all maximal induced matchings of Cartesian product of two complete graphs K_m square K_n number maximum",
+        "P3 packings complete bipartite graph bicolored star packing enumerators",
+        "induced matching and maximal induced matching enumerating two-dimensional Hamming graphs rook graphs K_m square K_n",
+        "vertex disjoint 2-edge paths in complete bipartite graphs enumerator maximal 3-vertex path packing",
+        "strong matchings in line graph of complete bipartite graph K_{m,n}",
+        "\"Enumeration of matchings in the incidence graphs\" Pippenger"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An induced rook-graph matching is in bijection with a vertex-disjoint two-edge-path packing in the complete bipartite graph. This is a genuine change of formulation, so published P3 packing formulae would imply the result.",
+        "Pippenger, UBC-TR-2001-12, dated September 10 2001, https://www.cs.ubc.ca/tr/2001/tr-2001-12: counts incidence-graph matchings with different underlying combinatorial objects."
+      ],
+      "reasoning": "The path-packing bijection was reconstructed, not dismissed on terminology alone. The available dated report abstract and other retrieved research did not provide this rook enumerator, but equivalent earlier P3-packing formulae cannot be ruled out completely.",
+      "searches": [
+        "induced matching polynomial of rook graph K_m Cartesian K_n equivalent counting disjoint 2-stars in complete bipartite graph",
+        "P3 packings complete bipartite graph bicolored star packing enumerators",
+        "induced matching and maximal induced matching enumerating two-dimensional Hamming graphs rook graphs K_m square K_n",
+        "vertex disjoint 2-edge paths in complete bipartite graphs enumerator maximal 3-vertex path packing",
+        "strong matchings in line graph of complete bipartite graph K_{m,n}",
+        "\"P3 packing\" \"complete bipartite\" counting",
+        "\"induced matching polynomial\" \"rook graph\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A341847 https://oeis.org/A341847 and A341850 https://oeis.org/A341850 respectively tabulate maximal and maximum ordinary matchings of rook graphs, not induced matchings or their maximal subfamily.",
+        "No table from the actually inspected source set supplied the bivariate maximal-induced-matching polynomial."
+      ],
+      "reasoning": "The graph matching distinction is essential: the tabulated ordinary matching numbers do not count the vertex-disjoint P3 packings that correspond to induced matchings in the rook graph. Missing a database table would not demonstrate uniqueness.",
+      "searches": [
+        "site:oeis.org \"rook graph\" \"induced matching\"",
+        "site:oeis.org A341850 rook graph maximum matching",
+        "induced matching polynomial of rook graph K_m Cartesian K_n equivalent counting disjoint 2-stars in complete bipartite graph"
+      ]
+    },
+    "rationale": "The complete bivariate enumerators for induced and inclusion-maximal induced matchings in arbitrary rectangular rook graphs, their two extremal parameters, and the exact nine-shape well-indumatched classification are not supplied by the materially inspected nearest general articles or distinct-object enumeration table. The counting bijection explicitly treats equivalent disjoint P3-packings of K_{m,n}. Specialized earlier path-packing enumerations could still cover the result and are a material residual priority risk; absence of search hits is not itself proof of novelty.",
+    "residual_risks": [
+      "A differently indexed formula enumerating all vertex-disjoint two-edge paths in arbitrary complete bipartite graphs might imply the first polynomial without using rook graph language.",
+      "An earlier full enumeration of maximal P3-packings in complete bipartite graphs could imply both generating functions and the classification.",
+      "The full technical report UBC-TR-2001-12 could not be read despite its dated abstract being accessible; the mathematical distinction between vertex-edge incidence matchings and disjoint paths was checked, but no whole-report absence claim is made.",
+      "All search-based originality claims are conditional on inspected accessible published literature; independent priority review is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the rook-graph coefficient enumerators; triangle-free upper bounds apply to another class.",
+        "evidence": "First version 18 Dec 2013, primary paper theorem on maximal induced-matchings of triangle-free graphs.",
+        "identifier_or_url": "arxiv:1312.5180v1 | https://arxiv.org/abs/1312.5180",
+        "material_read": "Abstract, introduction, theorem and full-text keyword searches for Cartesian products and rook graphs.",
+        "method": "Open-access PDF text extraction and targeted full-document search",
+        "title": "Maximal induced matchings in triangle-free graphs",
+        "trigger": "Exact terminology maximal induced matchings and possible universal counting bound"
+      },
+      {
+        "assessment": "General equicardinality framework; no evaluated exact rectangular rook family enumerators in inspected material.",
+        "evidence": "2016 expanded article (earlier proceedings 2012) defines well-indumatched graphs and studies recognition and structural restrictions.",
+        "identifier_or_url": "doi:10.1016/j.dam.2016.08.015 | earlier proceedings doi:10.3182/20120523-3-RO-2023.00065",
+        "material_read": "Accessible full-text article including problem setup, definitions, characterization and recognition discussion, with targeted search for Cartesian/complete-bipartite formulations.",
+        "method": "Accessible HTML full-text reading and targeted searches",
+        "title": "Graphs with maximal induced matchings of the same size",
+        "trigger": "Possible direct implication of the nine-shape equicardinality classification"
+      },
+      {
+        "assessment": "Different graph objects. The inaccessible full report leaves explicit residual overlap risk, although an ordinary incidence matching does not enforce the rook induced-matching conditions.",
+        "evidence": "UBC source page dated 10 Sep 2001 with report identifier TR-2001-12.",
+        "identifier_or_url": "UBC-TR-2001-12 | https://www.cs.ubc.ca/tr/2001/tr-2001-12",
+        "material_read": "Dated research-report landing page and abstract specifying matchings of vertex-edge incidence graphs. Report PDF text could not be read reliably; not represented as full-text inspection.",
+        "method": "Source-page and abstract review; attempted PDF extraction",
+        "title": "Enumeration of matchings in the incidence graphs of complete and complete bipartite graphs",
+        "trigger": "Potentially deceptively close matching enumeration of complete bipartite-related graphs"
+      },
+      {
+        "assessment": "Different invariant, not covering all induced or inclusion-maximal induced matchings.",
+        "evidence": "The word maximum in the table refers to ordinary matchings, while the asserted enumerators count induced matchings.",
+        "identifier_or_url": "OEIS:A341847 | https://oeis.org/A341847; OEIS:A341850 | https://oeis.org/A341850",
+        "material_read": "Both sequence definitions and their ordinary maximal/maximum matching distinction; for instance A341847 gives 84 ordinary maximal matchings on the 3-by-3 board, versus 9 maximal induced matchings here.",
+        "method": "Database entry inspection",
+        "title": "Sequences A341847 and A341850: maximal and maximum ordinary matchings in rook graphs",
+        "trigger": "Potential exact database of rook-graph matching numbers"
+      },
+      {
+        "assessment": "Algorithmic optimization statement, not coefficient-level rook-graph enumeration in the inspected material.",
+        "evidence": "2003 article in Discrete Applied Mathematics, DOI given.",
+        "identifier_or_url": "doi:10.1016/S0166-218X(03)00390-1",
+        "material_read": "Accessible research article text describing maximum-induced-matching algorithms for AT-free graphs and their scope.",
+        "method": "Full article overview and relevant theorem reading",
+        "title": "Induced matchings in asteroidal triple-free graphs",
+        "trigger": "Could give a stronger class result implying induced matching cardinality distributions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "58c2e820-445f-484a-a3b6-035a5291db15",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two complete cardinality distributions solve a natural enumeration and structural classification for induced, not ordinary, matchings of labeled rectangular rook graphs. The maximal subfamily requires an extra combinatorial condition not obtained merely from the usual labeled set formula; this yields the exact minimum and maximum maximal sizes and the sharp nine-board well-indumatched classification. The exact polynomial can benchmark algorithms and distinguish packing regimes. The 6x6 example has distinct maximal sizes 3 (3600) and 4 (8100), showing the classification detects genuine phenomena; this is more than an isolated small numerical improvement. Value is contingent on scientific novelty as compared with inspected literature, whose residual limitations are stated.",
+    "status": "PASS"
+  }
+}
