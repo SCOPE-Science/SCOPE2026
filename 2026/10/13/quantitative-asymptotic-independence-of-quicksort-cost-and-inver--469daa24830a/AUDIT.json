@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructed from exact Quicksort/BST pair comparison identity, conditional uniform insertion into n+1 gaps, external-path identity, record-depth second moment, orthogonal square-summable martingale increments, independent future-suffix inversion approximation, and independent Lehmer-rank CLT. Finite n=3 shows nondegeneracy and lack of finite independence. All exact computations rerun from included standalone checker; infinite claims rest on analytic arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Neininger (2001), Theorem and Quicksort application section pp. 11–17 (author preprint) defines B_n as number of key exchanges.",
+        "Brodal–Fagerberg–Moruz (2004), https://www.brics.dk/RS/04/27/BRICS-RS-04-27.pdf examines presortedness and adaptivity rather than normalized joint limits.",
+        "Iliopoulos (2015), https://arxiv.org/pdf/1503.02504 , Quicksort comparison sections and inversion mentions checked.",
+        "He–Peng–Xu (2018), DOI 10.1137/1.9781611975062.4, publicly available abstract: results bound BST height when an insertion permutation has a fixed inversion number, not the normalized internal path-length/inversion joint law."
+      ],
+      "reasoning": "A general vector contraction theorem alone does not identify a mixed Quicksort/input-inversion recursion, and may require independent tolls absent here. The proof uses instead an explicit prefix/suffix coupling. General covariance results for exchanges need not imply distributional independence with inversions; no stronger implication has been established from inspected primary material.",
+      "searches": [
+        "joint distribution quicksort cost and inversion number normalized n three halves",
+        "random binary search tree internal path length inversions number of permutation joint distribution limit independence",
+        "quicksort cost joint permutation statistic asymptotic limit",
+        "Parameterizing the Hardness of Binary Search Tree Access Sequences by Inversion Counts"
+      ]
+    },
+    "checked_sources": [
+      "Neininger (2001), doi:10.1002/rsa.10010, author PDF full text",
+      "Brodal–Fagerberg–Moruz (2004), BRICS RS-04-27 report",
+      "Iliopoulos (2015), arxiv:1503.02504 full PDF",
+      "Baxter–Zeilberger (2010), arxiv:1004.1160 abstract",
+      "Neininger (2012), arxiv:1207.4556 abstract; inaccessible full PDF",
+      "Published mathematical semantic records: 2026/9/8/SCOPE022; 2026/9/20/SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91 (distinct objects)",
+      "He–Peng–Xu (2018), DOI 10.1137/1.9781611975062.4, public abstract; full paper inaccessible."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Neininger (2001), https://doi.org/10.1002/rsa.10010 , abstract and full author preprint application equations (23),(24), both specify comparisons/exchanges.",
+        "Brodal–Fagerberg–Moruz (2004) report analyzes QuickSort adaptation to presorted input measures.",
+        "Baxter–Zeilberger (2010), arxiv:1004.1160 , asymptotic independent normals concern inversions and major index.",
+        "He–Peng–Xu (2018) condition on inversion count to bound BST height; it does not provide mixed path-length fluctuations or a nonlinear asymptotic factorization in the accessible statement."
+      ],
+      "reasoning": "Known Quicksort convergence and inversion CLT, separately, do not imply joint independence: any dependent coupling could have the same marginals. Exact zero covariance does not imply nonlinear factorization. Cost/exchange joint laws are not a substitute for cost/input-inversion joint laws. Quantitative bound (1) uses a new comparison between a prefix-approximable martingale and a tail-approximable permutation U-statistic. Conditioning on inversion count to bound BST height is weaker for this purpose than a joint total-internal-path-length distributional limit; the full article was inaccessible, so implicit coverage remains a risk.",
+      "searches": [
+        "Quicksort comparison cost independent Gaussian inversion fluctuations random permutations",
+        "joint distribution quicksort cost and inversion number normalized n three halves",
+        "On a Multivariate Contraction Method Quicksort comparisons exchanges inversion",
+        "The Number of Inversions and the Major Index of Permutations are Asymptotically Joint-Independently Normal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Neininger (2001), author PDF https://www.math.uni-frankfurt.de/~neiningr/multcont.pdf , pp. 11–12: application studies vector (comparison count, exchange count), distinct from input inversion number.",
+        "The search-tree internal path-length formulation of comparison cost uses exactly the same sample as the permutation inversion statistic, so it was compared explicitly."
+      ],
+      "reasoning": "Checked aliases Quicksort comparisons, BST internal path length, inversion number, permutation inversions, and nonlinear factorization. Cost/exchange results have different second statistic; permutation-pattern inversion tables lack the algorithmic cost variable. No found theorem has the same ordered pair and mixed limit.",
+      "searches": [
+        "first pivot quicksort comparison count inversions centered normalized asymptotically independent quantitative covariance factorization random permutation",
+        "binary search tree internal path length inversion count joint probability limit stochastic asymptotic independence",
+        "quicksort inversions asymptotic independence comparison count inversion number covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical record 2026/9/8/SCOPE022 provides inversion counts restricted to permutation-avoidance classes, but no Quicksort comparison counts.",
+        "Baxter–Zeilberger (2010) supplies a different two-statistic inversion/major-index limit, arxiv:1004.1160.",
+        "Earlier published root-imbalance/internal-path-length covariance record: it conditions on the first split, not on input inversions; the present input-inversion joint law is not a corollary."
+      ],
+      "reasoning": "Neither the record's finite avoider table nor the inversion/major-index moments encode the cost-inversion joint array. Exact finite enumeration here checks consistency and does not establish originality on its own.",
+      "searches": [
+        "first pivot quicksort comparison count inversions centered normalized asymptotically independent quantitative covariance factorization random permutation",
+        "Inversion-refined census of the exceptional triple {1324,1243,1432}",
+        "Quicksort comparisons inversion joint generating polynomial permutation"
+      ]
+    },
+    "rationale": "Full author preprint of Neininger (2001) analyzes comparison counts jointly with key-exchange counts, not input inversions; the Brodal-Fagerberg-Moruz (2004) report addresses adaptive costs against presortedness, not the independent joint limiting law; Iliopoulos (2015) is a survey with inversions appearing in a different sorting context; Baxter-Zeilberger (2010) gives inversion/major-index joint Gaussian behavior, not Quicksort/inversion. Exact zero covariance and univariate limits are explicitly prior or background. The new claim is a nonlinear decorrelation estimate and independent two-coordinate limit for exact objects. Residual risk remains implicit coverage by general functional limit theory or inaccessible full text.",
+    "residual_risks": [
+      "An unlocated general theorem on stable asymptotics of random permutation statistics could imply the qualitative product limit.",
+      "The full text of arxiv:1207.4556 was not materially inspected due to restricted institutional access. No negative whole-document claim is made.",
+      "Search corpus and inspected articles do not provide a certificate of historical originality; independent priority check remains necessary.",
+      "He–Peng–Xu (2018) study BST insertion sequences conditioned on inversion count and height bounds; accessible abstract is distinguishable, but full text could not be checked. Potential implicit coverage remains unresolved.",
+      "An earlier recorded covariance between BST root-split imbalance and internal path length is a distinct two-statistic question, not a direct implication for input inversions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the stated mixed comparison/input-inversion theorem: B_n is key exchanges, not inversion count.",
+        "evidence": "PDF p.11 explicitly: 'number of key comparisons C_n and key exchanges B_n'; p.12 assigns B_n recurrence for partition exchanges.",
+        "identifier_or_url": "https://www.math.uni-frankfurt.de/~neiningr/multcont.pdf",
+        "material_read": "Complete author PDF obtained; abstract, applications pp.11–17, definitions, key recursions and theorem inspected; searched full extracted text for inversion wording.",
+        "method": "Read full-text PDF text and page renderings of pages 11–17; compared variable definitions C_n and B_n and recursion (23)–(24).",
+        "title": "On a multivariate contraction method for random recursive structures with applications to Quicksort",
+        "trigger": "Most plausible broader joint Quicksort limit; both comparison and another count analyzed."
+      },
+      {
+        "assessment": "NOT_COVERING for the mixed distributional limit; discusses adaptation to input presortedness under pivot variants.",
+        "evidence": "BRICS RS-04-27 December 2004, introduction and adaptive algorithms results.",
+        "identifier_or_url": "https://www.brics.dk/RS/04/27/BRICS-RS-04-27.pdf",
+        "material_read": "PDF pages 2–6 of report and available parsed body including definitions and main results.",
+        "method": "Read primary full text by PDF page/section and search for covariance and independent fluctuation laws.",
+        "title": "On the Adaptiveness of Quicksort",
+        "trigger": "Same algorithmic setting and inversions as a presortedness measure."
+      },
+      {
+        "assessment": "NOT_COVERING for the exact joint-limit statement, as accessible examined material does not link the two statistics.",
+        "evidence": "Quicksort comparison-count discussion and inversion-related sorting discussion in distinct sections.",
+        "identifier_or_url": "https://arxiv.org/pdf/1503.02504",
+        "material_read": "Accessible full 193-page PDF, Quicksort analysis and definitions and all matches for inversion/covariance inspected.",
+        "method": "Read PDF sections and targeted all-term search across extracted full text.",
+        "title": "The Quicksort Algorithm and Related Topics",
+        "trigger": "Potential comprehensive survey covering input inversions and comparison counts."
+      },
+      {
+        "assessment": "Abstract addresses inversions plus major index, not Quicksort comparison count; implicit broad methods remain possible.",
+        "evidence": "arXiv:1004.1160 abstract explicitly states two permutation statistics: inversions and major index.",
+        "identifier_or_url": "https://arxiv.org/abs/1004.1160",
+        "material_read": "Abstract and source description; full text not obtained in this run.",
+        "method": "Title/abstract and theorem-scope comparison; no whole-document exclusion inferred.",
+        "title": "The Number of Inversions and the Major Index of Permutations are Asymptotically Joint-Independently Normal",
+        "trigger": "Closest obvious permutation-statistic independence theorem and possible generalization."
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS; abstract on Quicksort residual error, no explicit input inversion law, but no whole-text NOT_COVERING claim.",
+        "evidence": "arxiv:1207.4556 abstract and unresolved full-text access.",
+        "identifier_or_url": "https://arxiv.org/abs/1207.4556",
+        "material_read": "Abstract only; full text unavailable through checked public and authorized access routes.",
+        "method": "Examined abstract and attempted full-text access without bypassing source restrictions.",
+        "title": "Refined Quicksort asymptotics",
+        "trigger": "Possible stronger fluctuation theorem for Quicksort errors."
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS, with a distinctive height-versus-total-path-length objective. No whole-document exclusion inferred.",
+        "evidence": "2018 ANALCO abstract says random BST conditioned on t inversions has a height bound, not joint normalized path-length distribution.",
+        "identifier_or_url": "https://doi.org/10.1137/1.9781611975062.4",
+        "material_read": "Published abstract, bibliographic metadata, and accessible overview only; full PDF not available through checked public channels.",
+        "method": "Compared exact variables and implications in abstract: conditional inversion-count ensemble and BST height bounds versus joint path-length/inversion fluctuations; full-text access attempt unsuccessful.",
+        "title": "Parameterizing the Hardness of Binary Search Tree Access Sequences by Inversion Counts",
+        "trigger": "The closest identified title pairs random binary search-tree insertion with input inversion count."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "469daa24-830a-4990-88ab-0447ae4e7d60",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The mathematically natural question is joint behavior of comparison complexity and inversion-defined input disorder. Exact uncorrelation does not ensure independence; the result proves an explicit uniform bound for nonlinear test transformations and an independent limit of two different fluctuation scales. It supplies joint statistical understanding beyond known marginal laws, not a routine finite table or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
