@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The exact formula \\(H(p^a)=\\sum_{j=0}^{a-1}p^{2j}-p^{a-1}\\) classifies prime powers. For \\(p^aq^b\\), the exact four-term expansion gives value \\(2\\) when \\(a=b=1\\), lower bound \\(34\\) with unique equality at \\(2^2\\cdot3\\) when the smaller block repeats, and lower bound \\(41\\) when only the larger block repeats. The coprime-block recursion is strictly increasing beyond the scaled prior value, which excludes all support size at least three below \\(34\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Broughan–Ford–Luca use the exact normalized product \\(\\varphi(n)\\sigma(n)/n^2=\\prod(1-p^{-a-1})\\).",
+        "Their full paper studies square values of \\(\\varphi(n)\\sigma(n)\\), with primary MSC \\(11A41\\).",
+        "Targeted full-text inspection found no \\(\\sigma_2\\) term and no theorem about the additive function \\(H(n)\\)."
+      ],
+      "reasoning": "A theorem about square values of the product does not imply an additive low-spectrum theorem after adding \\(\\sigma_2(n)\\) and subtracting \\(2n^2\\).",
+      "searches": [
+        "On square values of the product of the Euler totient and sum of divisors functions",
+        "sigma_2(n) phi(n) sigma(n) number theory",
+        "sum of squares of divisors Euler totient sigma product"
+      ]
+    },
+    "checked_sources": [
+      "OEIS:A072780",
+      "OEIS:A072779",
+      "DOI:10.4064/cm130-1-11",
+      "targeted exact-form, low-fiber, support, and boundary-value web searches",
+      "semantic published-result searches for exact and equivalent formulations",
+      "current and prior owned archive ledgers for identifier, formula, and claim overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest semantic published-result hits concern other support thresholds, semiprime divisor equations, or \\(\\sigma_{2,2}\\) prime-pair problems.",
+        "Current and prior owned archive ledgers contain no A072780 claim, no exact defining formula, and no \\(34\\)-barrier statement.",
+        "The known A072780 \\(0\\)- and \\(2\\)-fiber statements do not imply the new repeated-support lower bound."
+      ],
+      "reasoning": "The new theorem depends on the exact two-block expansion and strict block-adjoining recursion; none of the closest results supplies that implication.",
+      "searches": [
+        "A072780 sigma_2 phi sigma sharp 34 repeated prime factors",
+        "sigma_2(n)+phi(n)sigma(n)-2n^2 low fibers 3 7 17 21 34",
+        "mixed support lower bound 34 sigma_2 totient divisor sum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A072780 defines exactly \\(H(n)=\\sigma_2(n)+\\varphi(n)\\sigma(n)-2n^2\\).",
+        "The entry records \\(H(n)=0\\) for primes and \\(H(n)=2\\) exactly for products of two distinct primes.",
+        "No retrieved statement gives the sharp \\(34\\)-barrier or the complete intermediate spectrum."
+      ],
+      "reasoning": "The searches cover the canonical identifier, exact formula, explicit low values, prime-power wording, squarefree-semiprime wording, and mixed-support wording.",
+      "searches": [
+        "A072780 sigma_2 phi sigma sharp 34 repeated prime factors",
+        "sigma_2(n)+phi(n)sigma(n)-2n^2 low fibers 3 7 17 21 34",
+        "squarefree semiprime value 2 sigma_2 phi sigma prime power low spectrum",
+        "mixed support lower bound 34 sigma_2 totient divisor sum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A072780 lists the target values and states the structural fibers at \\(0\\) and \\(2\\).",
+        "A072779 records the corresponding unshifted function and the same prime/semiprime observations.",
+        "Neither inspected entry states the repeated-support minimum, its equality case, or the full spectrum below \\(34\\)."
+      ],
+      "reasoning": "The initial table corroborates the candidate boundary \\(34\\) at \\(12\\), but only the proof excludes arbitrarily large mixed-support inputs from smaller values.",
+      "searches": [
+        "OEIS A072780",
+        "OEIS A072779",
+        "A072780 34 12"
+      ]
+    },
+    "rationale": "The exact database covers only the zero and two fibers structurally. The companion database and the inspected product paper do not imply the repeated-support barrier. Targeted semantic and exact-form searches found no same or stronger low-spectrum theorem.",
+    "residual_risks": [
+      "An equivalent elementary proof may occur in an unindexed note or discussion of A072780.",
+      "The fibers \\(0\\) and \\(2\\) are pre-existing database facts; the new content begins at the repeated-support transition.",
+      "No claim is made about arbitrary fibers above \\(34\\)."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXACT_OBJECT_PARTIAL_COVERAGE.",
+        "evidence": "The entry defines \\(H(n)\\), states nonnegativity and the exact fibers \\(0\\) and \\(2\\), and dates the authored entry to 15 July 2002; it does not state the \\(34\\)-barrier or intermediate fibers.",
+        "identifier_or_url": "OEIS:A072780",
+        "material_read": "Definition, initial values, comments, formula, programs, cross-references, author line, and status.",
+        "method": "Direct inspection of the exact sequence page.",
+        "title": "OEIS A072780",
+        "trigger": "Exact public database for the target arithmetic function."
+      },
+      {
+        "assessment": "COMPANION_SEQUENCE_NOT_COVERING.",
+        "evidence": "The entry gives \\(\\sigma_2(n)+\\varphi(n)\\sigma(n)\\) and the equivalent prime/semiprime statements, but no repeated-support threshold.",
+        "identifier_or_url": "OEIS:A072779",
+        "material_read": "Definition, comments, formula, programs, cross-references, and author line.",
+        "method": "Direct inspection of the exact sequence page.",
+        "title": "OEIS A072779",
+        "trigger": "Companion unshifted sequence with equivalent prime and squarefree-semiprime observations."
+      },
+      {
+        "assessment": "SAME_PRODUCT_DIFFERENT_PROBLEM_NOT_COVERING.",
+        "evidence": "The paper lists primary MSC \\(11A41\\), uses the exact product identity, and studies square values of \\(\\varphi(n)\\sigma(n)\\); no \\(\\sigma_2\\) term or \\(H(n)\\)-type low-spectrum theorem appears.",
+        "identifier_or_url": "DOI:10.4064/cm130-1-11",
+        "material_read": "Full lawful open-access PDF, including abstract, introduction, normalized Euler-product identity, theorem statements, proof sections, targeted full-text searches for sigma_2 and additive-difference terminology, and rendered first-page inspection.",
+        "method": "Direct full-text PDF inspection with page rendering.",
+        "title": "On square values of the product of the Euler totient and sum of divisors functions",
+        "trigger": "Highly relevant primary literature on the exact product term \\(\u000barphi(n)\\sigma(n)\\) and subject-classification ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "581aaf63-c0d9-4b92-ae98-987e5a6051b9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A072780 already identifies primes and squarefree semiprimes as distinguished layers, making the first repeated-support value a natural invariant. The theorem proves that invariant is \\(34\\), uniquely at \\(12\\), and completely determines all intervening fibers, giving a structural explanation of the initial spectrum.",
+    "status": "PASS"
+  }
+}
