@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The source gives the exact Pauli contractions, utility, and pure-pair fidelity formula. The new lower bound follows from the exact Shannon grouping identity for the two Pauli sign classes, and the two-gate I/Z distribution attains every feasible boundary point. The analytic proof handles all endpoints and the antipodal case; finite checks are only corroborative.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bouda--Ziman, arXiv:0710.2004, treats perfect privacy for arbitrary qubit plaintext sets and approximate privacy for the entire Bloch sphere.",
+        "Ambainis--Smith, arXiv:quant-ph/0404075, gives approximate-encryption constructions for arbitrary quantum messages."
+      ],
+      "reasoning": "These are broader in message class but use different global privacy criteria and no overlap-utility threshold. They do not determine the exact Shannon minimum under the 2026 pair-specific fidelity constraint. The zero-radius one-bit endpoint is prior and is explicitly not claimed as novel.",
+      "searches": [
+        "approximate private quantum channel Shannon entropy qubit",
+        "approximate quantum encryption key entropy Pauli channel"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.21203/rs.3.rs-10148794/v1",
+      "arXiv:0710.2004",
+      "arXiv:quant-ph/0404075"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Anchor Lemma 4.1 reduces divergence optimization to contractions and supplies one realizing Pauli distribution; Theorem 4.3 solves the smallest feasible sensitive contraction.",
+        "Bouda--Ziman explicitly states that approximate-PQC optimality for general plaintext sets is beyond its scope."
+      ],
+      "reasoning": "Combining the anchor with Shannon grouping yields a new resource optimum. Neither inspected prior theorem contains the pair-specific utility constraint, and the older exact-private result only supplies the endpoint \\(t=0\\).",
+      "searches": [
+        "binary pure qubit Pauli key entropy utility fidelity",
+        "two-state approximate private quantum channel entropy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.21203/rs.3.rs-10148794/v1 contains no occurrence of 'Shannon' and states key-randomness budgets only as an admissible-set example.",
+        "arXiv:0710.2004 optimizes classical-key entropy for private quantum channels under a different privacy formulation."
+      ],
+      "reasoning": "The new statement was compared both as a sensitive-contraction cap and as its equivalent fidelity-radius cap. Searches for Shannon-key, Pauli-randomization, phase-damping, and quantum-one-time-pad formulations did not produce an implication-equivalent fixed-pair utility-constrained theorem.",
+      "searches": [
+        "Utility-Constrained Pauli-Weyl Randomization key entropy binary pure qubit privacy utility",
+        "Pauli randomization minimum Shannon key entropy fidelity privacy pure binary qubit",
+        "Pauli channel optimal key randomness privacy utility dephasing binary entropy",
+        "quantum one-time pad partial randomization key entropy two pure states fidelity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The anchor's Theorem 4.3 gives the exact privacy radius and optimal contraction but no key-entropy column or theorem.",
+        "Bouda--Ziman Figure 3 and Eq. (19) concern the whole-state-space approximate-private-channel entropy curve."
+      ],
+      "reasoning": "The exact tables/formulas inspected do not tabulate or imply the function \\(h_2((1-t)/2)\\) under the anchor's utility constraint. The source's reduced-family probabilities do provide an achiever at \\(b=1\\), but not the global Shannon lower bound over all Pauli decompositions.",
+      "searches": [
+        "DOI 10.21203/rs.3.rs-10148794/v1 Theorem 4.3",
+        "arXiv:0710.2004 key entropy approximate private quantum channels"
+      ]
+    },
+    "rationale": "The 2026 source mentions key-randomness budgets but does not optimize Shannon entropy. Bouda--Ziman covers exact private qubit channels and approximate privacy for the whole Bloch sphere, not this pair-specific overlap-utility/fidelity-cap frontier. No searched source implied the exact formula or the all-Pauli two-gate optimum.",
+    "residual_risks": [
+      "The anchor is recent, so indexing lag may hide a contemporaneous equivalent corollary.",
+      "The entropy theorem is elementary once the correct Pauli sign partition is recognized; novelty is claimed for the exact source-specific three-way frontier, not for Shannon grouping or binary entropy themselves."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source supplies exact contractions and the privacy optimizer, and explicitly mentions key-randomness budgets, but does not state a Shannon-key optimum.",
+        "evidence": "Pauli contractions Eq. (2.7); key-randomness-budget remark in Section 2.5; Lemma 4.1; Theorem 4.3 and its fidelity proof.",
+        "identifier_or_url": "doi:10.21203/rs.3.rs-10148794/v1",
+        "material_read": "Full public preprint text: Sections 2.5 and 4.1--4.3, including Lemma 4.1, Theorem 4.3, proof, and references.",
+        "method": "Direct full-text inspection of the public preprint.",
+        "title": "Utility-Constrained Pauli–Weyl Randomization for Robust Quantum α-z Rényi Privacy",
+        "trigger": "Primary anchor with the same Pauli mechanism, utility, and fidelity-line pure-binary setting."
+      },
+      {
+        "assessment": "Covers the one-bit perfect-privacy endpoint and whole-Bloch-sphere approximate privacy, but not the fixed-pair utility-constrained fidelity frontier.",
+        "evidence": "The paper states one bit is sufficient for non-full-state exact qubit privacy; its approximate entropy curve is for the entire qubit state space, and it says general-set APQC optimality is beyond scope.",
+        "identifier_or_url": "arXiv:0710.2004",
+        "material_read": "Abstract, single-qubit private-channel conclusions, Section 4 approximate-private-channel formulation, Figure 3 and Eq. (19), and conclusion.",
+        "method": "Direct inspection of the full public PDF.",
+        "title": "Optimality of private quantum channels",
+        "trigger": "Closest prior work explicitly optimizing Shannon entropy of a classical key for qubit private channels."
+      },
+      {
+        "assessment": "Addresses approximate encryption of arbitrary quantum messages and asymptotic key length, not the anchor's binary overlap-utility problem.",
+        "evidence": "The abstract gives \\(n+o(n)\\)-bit approximate encryption for \\(n\\) qubits and does not impose the 2026 utility constraint.",
+        "identifier_or_url": "arXiv:quant-ph/0404075",
+        "material_read": "Abstract and stated problem scope.",
+        "method": "Public arXiv record inspection.",
+        "title": "Small Pseudo-Random Families of Matrices: Derandomizing Approximate Quantum Encryption",
+        "trigger": "Standard approximate-encryption/key-length comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a31edfd3-4167-493f-acba-01a17e4a580b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source itself names key-randomness budgets as a natural admissibility restriction. The result gives a complete exact randomness/privacy/utility frontier and a globally optimal two-gate implementation in its main closed-form pure-binary regime. It identifies an operational resource cost not supplied by the source while preserving the same scientific setting.",
+    "status": "PASS"
+  }
+}
