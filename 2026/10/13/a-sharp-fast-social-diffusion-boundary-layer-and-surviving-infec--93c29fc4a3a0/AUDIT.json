@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Reconstruction of [1, Eq. (27)] gives the stated conservation and scalar Riccati equation. Uniform upper/lower risk comparisons force susceptible mass to zero off the initial layer. Exact integration by parts proves infected convergence. Moving-barrier Riccati comparison establishes the positive-time square-root diffusion rate. Dominated convergence yields the exact logarithmic susceptible coefficient. Continuous dependence proves the fast-time limiting ODE; its positive equilibrium attracts the fast layer. Numeric solver values at D=100, 10000, and 1000000 approach all three formulas, but analytic arguments, not those tests, establish the limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[2] Sections 2-4 derive kinetic Boltzmann/Fokker-Planck equations with generalized Gamma contact equilibria and macroscopic incidence; not the Gaussian SfIR Riccati ODE.",
+        "[1] Section 5.1 controls D=0 and some t-to-infinity cases and leaves D-infinity open.",
+        "Generic fast-slow theory applies in principle but no inspected source supplied these concrete exact limiting observables and coefficients."
+      ],
+      "reasoning": "Neither cited paper has the complete exact Riccati-linked four-ODE limit with diffusion-independent infection seed. Known general singular-perturbation frameworks do not by themselves constitute an explicit published result unless their hypotheses and conclusions are shown to dominate the present statement; residual risk noted.",
+      "searches": [
+        "singular perturbation strong diffusion in epidemic transmission Gaussian risk ODE initial layer susceptible exponential square root D",
+        "Berestycki Oury 2023 high diffusion Gaussian susceptibility exact asymptotic law square root diffusion",
+        "\"Berestycki\" \"Desjardins\" \"Weitz\" \"Oury\" \"high\" \"diffusion\" \"limit\" Gaussian SIR 2024 2025 2026",
+        "kinetic models epidemic dynamics social heterogeneity Dimarco Perthame Toscani Zanella Gamma equilibrium fast relaxation"
+      ]
+    },
+    "checked_sources": [
+      "https://link.springer.com/article/10.1007/s00285-022-01861-w",
+      "https://link.springer.com/article/10.1007/s00285-021-01630-1",
+      "https://pubmed.ncbi.nlm.nih.gov/36964799/",
+      "Published finding: Universal coupled-SEIR R0 bracketing is false (two-patch SEIR, not covering)",
+      "Published finding: Crossing-only switch geometry in a threshold-controlled dengue model (distinct dynamical system)",
+      "Published finding: Exact first integral reveals a two-sided blow-up dichotomy for exponential memory (different states and singular limit)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] Section 5.1 explicitly conjectures that infection vanishes for every fixed positive time as D increases, whereas the proved limit is K exp(-gamma t)>0.",
+        "[1] Proposition 4 is for mu0=0 with time tending to infinity; it does not imply the finite-time D-infinity law.",
+        "[2] has contact-class gamma closures rather than the four ODEs."
+      ],
+      "reasoning": "A prior statement concluding fixed-time I->0 cannot imply the present positive limit. Changing the order of t and D limits is not valid; the noncommutation is proved via the exact removal convolution. The specific fast layer, infected profile, transmission-rate coefficient, and log susceptible rate are not covered by the inspected source statements.",
+      "searches": [
+        "SfIR Gaussian reduction Berestycki Desjardins Weitz Oury 2023 large social diffusion D infinity infection remains positive at fixed time",
+        "singular perturbation strong diffusion in epidemic transmission Gaussian risk ODE initial layer susceptible exponential square root D",
+        "\"Berestycki\" \"Desjardins\" \"Weitz\" \"Oury\" \"high\" \"diffusion\" \"limit\" Gaussian SIR 2024 2025 2026",
+        "\"Epidemic modeling with heterogeneity and social diffusion\" \"conjecture\" \"D\" \"infinity\"",
+        "SfIR Gaussian reduction Berestycki Desjardins Weitz Oury 2023 large social diffusion D infinity infection remains positive at fixed time",
+        "Gaussian SfIR Berestycki Desjardins Weitz Oury fixed time large D 2023 limit K e^-gamma t susceptible log sqrt D nonlinear fast initial layer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "[1] Eq. (27) is an equivalent original model formulation, with w=average-beta minus beta0 and N normalized to one.",
+        "[1] Section 5.1 formulates the D-infinity asymptotic as a future question, rather than a theorem.",
+        "Closest public indexed finding on two-patch SEIR reproduction-number bracketing concerns two-patch E/I-churn in SEIR, not Gaussian SfIR or high social diffusion."
+      ],
+      "reasoning": "The time rescaling tau=sqrt(D)t and the change w=sqrt(D)b are invertible for positive D, so aliases are covered by the searched singular-layer forms. The original four-compartment equations define the same objects but not the new diffusion-limit conclusions; the closest indexed two-patch result is not an equivalent theorem.",
+      "searches": [
+        "SfIR Gaussian reduction Berestycki Desjardins Weitz Oury 2023 large social diffusion D infinity infection remains positive at fixed time",
+        "singular perturbation strong diffusion in epidemic transmission Gaussian risk ODE initial layer susceptible exponential square root D",
+        "Berestycki Oury 2023 high diffusion Gaussian susceptibility exact asymptotic law square root diffusion",
+        "SfIR Gaussian reduction Berestycki Desjardins Weitz Oury 2023 large social diffusion D infinity infection remains positive at fixed time",
+        "singular perturbation strong diffusion in epidemic transmission Gaussian risk ODE initial layer susceptible exponential square root D",
+        "Gaussian SfIR Berestycki Desjardins Weitz Oury fixed time large D 2023 limit K e^-gamma t susceptible log sqrt D nonlinear fast initial layer",
+        "four dimensional SIR risk Riccati beta mean beta0 transmission 2D beta1 high diffusion asymptotic exponentially fast susceptible"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "[1] Table 1 compiles large-time regimes rather than the high-D fixed-time law.",
+        "PubMed 36964799 and publisher identify the original paper dated 2023-03-25; no exact high-D numerical or symbolic database table was found."
+      ],
+      "reasoning": "The finding is a continuum singular-limit theorem with a fast-layer differential equation and exact exponent, not an exact value extracted from a table. Its counterpart [1] Table 1 studies a different limiting order.",
+      "searches": [
+        "SfIR Gaussian reduction Berestycki Desjardins Weitz Oury 2023 large social diffusion D infinity infection remains positive at fixed time",
+        "Berestycki Oury 2023 high diffusion Gaussian susceptibility exact asymptotic law square root diffusion",
+        "\"Epidemic modeling with heterogeneity and social diffusion\" 2022 preprint arxiv hal"
+      ]
+    },
+    "rationale": "The exact Gaussian SfIR equations and explicitly posed D-to-infinity problem occur in [1, Eq. (27), Section 5.1, lines corresponding to the open-problems paragraph]. The source gives time-to-infinity rather than diffusion-to-infinity results and conjectures infected density tends to zero at fixed positive time, contradicted by a uniform positive lower bound and the new explicit limit. [2] has different Gamma-type contact dynamics and a different kinetic scaling. Published-record searches and targeted mathematical searches found no theorem implying the explicit ODE asymptotic, fast-layer system, and sharp coefficient. This is a bounded evidence-based assessment, not a universal novelty guarantee.",
+    "residual_risks": [
+      "Other unindexed publications or general fast-slow comparison theorems could subsume part of the result; searches cannot establish universal absence.",
+      "No limit for the full heterogeneous Fokker--Planck PDE is proved; its asymptotic question remains open.",
+      "One full-text earlier related article has different contact closure, so the present proof must not be read as covering every social-contact diffusion model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: large-time asymptotics and the open-question prediction differ from and do not imply the four positive-time limits now proved. The model and initial assumptions coincide.",
+        "evidence": "Eq. (27) and initial data; Proposition 4 at t->infinity; Section 5.1 opening high-D question; 2023-03-25 publisher date and MSC 92D30.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00285-022-01861-w",
+        "material_read": "Full HTML original model derivation, Eq. (27), Section 5.1 asymptotics and open problems, Section 7 conclusions and relevant original references",
+        "method": "Direct full-text article reading and mathematical implication comparison of Eq. (27), Proposition 4 and the paragraph posing D-to-infinity limits",
+        "title": "Epidemic modeling with heterogeneity and social diffusion",
+        "trigger": "Exactly the same Gaussian SfIR ODE and its explicit high-diffusion open question"
+      },
+      {
+        "assessment": "NOT_COVERING: Gamma contact-class kinetic model is not the Gaussian susceptibility mean ODE analyzed here. Different singular scaling and no shared exact high-D limit.",
+        "evidence": "Sections 2.2 and 3; generalized Gamma equilibrium (Eq. (16)); distinct kinetic small-parameter limit.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00285-021-01630-1",
+        "material_read": "Full-text HTML Sections 2-4 including kinetic-to-Fokker-Planck scaling, Gamma-type contact equilibria, macroscopic closure and computational regimes",
+        "method": "Direct source text comparison of variables, closure family, singular parameter and theorem statements",
+        "title": "Kinetic models for epidemic dynamics with social heterogeneity",
+        "trigger": "Related social-diffusion Fokker--Planck epidemiology and kinetic limits"
+      },
+      {
+        "assessment": "Publisher and PubMed agree on 2023-03-25 online publication date; not scientific proof evidence.",
+        "evidence": "PMID 36964799, DOI 10.1007/s00285-022-01861-w, electronic publication 2023-03-25.",
+        "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/36964799/",
+        "material_read": "Publication metadata, abstract and cited identifiers",
+        "method": "Official bibliographic indexing check",
+        "title": "Epidemic modeling with heterogeneity and social diffusion (bibliographic validation)",
+        "trigger": "Earliest verified public source date and DOI"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "93c29fc4-a3a0-43dc-a602-e438115c5be7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original study explicitly asks for the large-social-diffusion asymptotic of the Gaussian ODE and predicts a biologically different infection outcome. The theorem resolves all four bulk fields and the endogenous transmission variable for every fixed positive time, identifies and matches the nonlinear O(D^-1/2) initial layer, and derives a nontrivial exact large-deviation exponent for susceptible decay. These quantitative limits are needed to interpret strong behavioral diffusion and the order of epidemiological timescales. This is not a normalizing identity or a single-parameter numerical check.",
+    "status": "PASS"
+  }
+}
