@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For each private clique, parity forces either a positive odd root-color multiplicity and even base same-color degree (odd r), or zero root-color multiplicity and odd base same-color degree (even r). Labeled clique extensions are counted independently by r![z^r]sinh(z)cosh(z)^(q-1) or r![z^r]cosh(z)^(q-1). Gallai/Laplacian yields the sharp chromatic transfer, and consistency of Lx=d over GF(2) proves the exact odd-r two-color count. Direct tests independently inspect all 4,467,792 assigned colorings over 99 samples and binary boundaries over 1,099 labeled base graphs. Infinite conclusion rests on proof, not finite data.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Belmonte et al. 2023 arxiv:2303.03225, introductory bounds and subdivided-clique discussion; 2025 Journal of Graph Theory full text sections on modular width and intervals.",
+        "Belmonte--Sau 2020 arxiv:2002.06078 Theorems 3 and 7 address binary feasibility and treewidth bounds."
+      ],
+      "reasoning": "General algorithms and upper bounds for a graph class do not directly enumerate all q-colorings of each clique corona, nor force the explicit two parity branches and unbounded contrast. The older rank-based binary method covers part of the q=2 calculation; only the full additional relationship is claimed as new.",
+      "searches": [
+        "\"odd coloring\" \"corona\" \"induced\" Gallai",
+        "arxiv:2002.06078 (full-text find corona)",
+        "arxiv:2303.03225 (full-text find corona)",
+        "arxiv:2303.03225 (full-text introduction; 2025 published journal sections on modules and graph classes)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2002.06078",
+      "arxiv:2303.03225",
+      "doi:10.1002/jgt.23200",
+      "Mounisha et al. 2026 publisher PDF, Palestine Journal of Mathematics 15 (Special Issue II), 126--132"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The older paper provides a general Gaussian-elimination two-color test but no local private-clique coefficient factor.",
+        "The 2023 paper gives chi_odd of subdivided cliques and Gallai partitions, furnishing the input family but not its corona transformation.",
+        "The 2026 corona paper has proper coloring and an odd occurrence in an open neighborhood, so even its exact corona results are not constraints on monochromatic induced degrees."
+      ],
+      "reasoning": "Prior information implies pieces such as existence of a two-even-class partition and unbounded base examples, so none is asserted as novel. It does not, as stated, imply all-q color-by-color correspondence, complete count, parity-sharp transfer, and exact nullity count together; proof supplies the missing local bijection.",
+      "searches": [
+        "arxiv:2002.06078 (Theorem 3 binary equations on pages 11--12)",
+        "arxiv:2303.03225 (subdivided-clique discussion on page 2)",
+        "Mounisha et al. 2026 publisher PDF (first pages and Section 3)",
+        "Clique corona parity switch in odd chromatic number: G circ K_(odd) is one-or-two odd induced colors, while G circ K_(even) preserves odd chromatic number, exact counts via GF(2) Laplacian."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Belmonte--Sau 2020, Section 3, treats arbitrary graph odd-induced two-colorability through binary equations (arxiv:2002.06078), but does not state clique-corona extension factors.",
+        "Mounisha et al. 2026, Abstract and Section 1, define proper neighborhood-parity odd coloring rather than partition into odd induced subgraphs."
+      ],
+      "reasoning": "The ordinary name odd coloring refers to at least two inequivalent definitions. This result explicitly uses odd monochromatic induced degrees. Linear rank count for even base partitions is an acknowledged known technique; a general arbitrary-q clique-corona factorization is not equivalent to that binary decision procedure.",
+      "searches": [
+        "\"odd induced subgraphs\" \"corona\" \"clique\"",
+        "\"odd colouring\" \"corona\" clique",
+        "odd induced coloring corona graph G o K_r odd chromatic number leaf parity same color degree",
+        "arxiv:2002.06078 (full-text Section 3 and find corona)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant literature retrieved on induced-odd partitions included arxiv:2002.06078 and arxiv:2303.03225; neither inspected manuscript tabulates the arbitrary-base clique-corona enumerator.",
+        "A nearby indexed odd-coloring count concerns proper neighborhood-parity coloring of complete multipartite graphs, a distinct invariant."
+      ],
+      "reasoning": "No exact corona table or counting polynomial implying this result was identified in checked sources. Search limitations and the possibility of a hidden equivalent enumeration are explicitly retained as residual risks.",
+      "searches": [
+        "All odd induced subgraph colorings of rooted or corona graph enumerated by exponential generating functions local clique pendant vertices hyperbolic sine cosine.",
+        "\"odd coloring polynomial\" \"odd induced\" corona",
+        "\"odd chromatic\" \"corona product\" \"induced odd\"",
+        "Crown and leaf coronas induced-odd chromatic colorings binary Laplacian nullity exact number of 2-colorings"
+      ]
+    },
+    "rationale": "The earlier foundational paper establishes GF(2) two-color feasibility and the earlier graph-classes paper gives odd partition bounds and subdivided-clique base examples; neither inspected text supplies the complete arbitrary-q clique-corona identity. The 2026 corona paper instead uses proper neighborhood-parity odd colorings. The claimed new content is the full q-enumerator transfer, exact chromatic parity switch and odd-r nullity count together. Unindexed literature remains a residual risk.",
+    "residual_risks": [
+      "A general algorithm for odd induced coloring might be repurposed to derive this special transfer, but the arbitrary-palette counting identity was not stated in the inspected primary results.",
+      "Unindexed dissertations or articles, and papers not retrieved by text search, might contain an equivalent clique-corona enumerator.",
+      "Full text sections directly relevant to coloring were inspected; a lexical search does not constitute a global novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Presents general two-color linear test and treewidth bounds; the clique-corona arbitrary-q enumerator and parity transfer are not stated in inspected relevant sections.",
+        "evidence": [
+          "arxiv:2002.06078v2 pages 1--2, 11--12, 16--17; the authors explicitly distinguish odd induced from even partitions."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2002.06078",
+        "material_read": "Full-text pages 1--2, 11--12 (Theorem 3 and binary equations), and 16--17 (Theorem 7) plus full-PDF term search for corona",
+        "method": "Original lawful arXiv PDF textual reading and page rendering",
+        "title": "On the complexity of finding large odd induced subgraphs and odd colorings",
+        "trigger": "Same induced-odd invariant, possible general two-color criterion covering scalar consequences"
+      },
+      {
+        "assessment": "Contains classical input bounds, Scott examples, and graph-class theory but no explicit clique-corona counting transfer in examined sections or corona term hits.",
+        "evidence": [
+          "arxiv:2303.03225v1 pages 1--3; DOI:10.1002/jgt.23200 full text."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2303.03225",
+        "material_read": "Pages 1--3 of 21-page arXiv v1 and full-PDF search for corona; compared 2025 full-text journal introduction and main graph-class results",
+        "method": "Lawful original arXiv PDF text and page rendering; open-access published journal HTML",
+        "title": "Odd Chromatic Number of Graph Classes",
+        "trigger": "Same induced-odd invariant and earlier sharp subdivided-clique examples"
+      },
+      {
+        "assessment": "Different proper neighborhood-parity invariant; definitions and main formula cannot cover the induced-odd graph-partition enumerator.",
+        "evidence": [
+          "2026 Palestine Journal of Mathematics paper, Abstract/Section 1 and Section 3, first theorems."
+        ],
+        "identifier_or_url": "https://pjm.ppu.edu/sites/default/files/papers/PJM_15%28Special%20Issue%20II%29_2026%29_126_to_132.pdf",
+        "material_read": "Pages 1--3 of the seven-page PDF including definition and displayed corona theorems",
+        "method": "Lawful publisher full-text PDF and rendered first page",
+        "title": "On Odd Chromatic Number of Corona Product of Graphs",
+        "trigger": "Direct title-level overlap: odd chromatic number for corona products with complete attachments"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d19efdeb-29b9-4687-86ae-9fb869de4999",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives all q-color counts (not only existence) for arbitrary base graphs under the widely used clique-corona operation. Odd-sized attachments collapse odd induced chromatic number to 1 or 2 and yield an exact GF(2) two-color count; even-sized attachments retain arbitrarily high base odd chromatic number or infeasibility. This produces unbounded, parity-controlled jumps on the known family of subdivided cliques and exposes a reusable local parity composition law.",
+    "status": "PASS"
+  }
+}
