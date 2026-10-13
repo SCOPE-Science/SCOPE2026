@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "All symbols and quantifiers are explicit. At depth t every subsequence is constant, so the max is the k-ary tree node count; the period word with distinct output letters attains it. A depth-(t-1) nonconstant ancestor chain gives t pairwise distinct nonconstant elements, since any repeat yields a nonconstant cycle reaching arbitrary depth, plus two distinct constant states. For interleaving, the isolated nonzero output fixes residue mod k and enforces exact period k^t, and disjoint nonzero child alphabets imply exact rank 2+sum(q_j-1). Base t=1 covers 3..k+1, binary (2,2) covers 4..7 by explicit words, and remaining cases have overlapping induction intervals since B_(t-1)>=2t. Unsharing zeros in k maximal children fills the last k-1 values. The provided verifier independently checks 168 constructed examples and 25,285 primitive partition patterns; no infinite fact depends on extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bosma (2019), §4, Theorem 9 and Remarks 10–13 describe partial upper bounds and conjectural binary lower bounds, not an all-ranks base-power theorem on unrestricted alphabets.",
+        "Kreczman et al. (2023), §6 characterizes the general noncoprime automatic-rank problem as future work."
+      ],
+      "reasoning": "A stronger statement for all noncoprime period lengths would imply this theorem, but was not found in the inspected comparable papers or semantic search. The 2019 binary-output discussion is not stronger and does not establish intermediate unrestricted-alphabet attainability.",
+      "searches": [
+        "published-finding corpus: noncoprime period base magic numbers automatic sequences prime power period exact rank spectrum",
+        "published-finding corpus: period k power k automatic k-kernel ranks magic numbers noncoprime periodic words missing states",
+        "https://www.math.ru.nl/~bosma/pubs/periodic.pdf",
+        "https://ericrowland.github.io/papers/Magic_numbers_in_periodic_sequences.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2304.03268",
+      "https://ericrowland.github.io/papers/Magic_numbers_in_periodic_sequences.pdf",
+      "https://www.math.ru.nl/~bosma/pubs/periodic.pdf",
+      "published-finding corpus semantic searches: k-automatic periodic sequence with period k^t: possible k-kernel sizes all integers interval no magic numbers complete spectrum; noncoprime period base magic numbers automatic sequences prime power period exact rank spectrum; Magic Numbers in Periodic Sequences Kreczman Prigioniero Rowland Stipulanti noncoprime power base period k^t full range possible automaton kernel ranks; period k power k automatic k-kernel ranks magic numbers noncoprime periodic words missing states"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kreczman et al. Proposition 2 implies only the top endpoint; Theorem 1 imposes gcd(base, period)=1, whereas gcd(base, base^t)>1.",
+        "Bosma Conjecture 12 with odd factor one predicts the base-two binary-output lower endpoint, while Remark 13 notes missing ranks in other noncoprime cases."
+      ],
+      "reasoning": "Our construction requires new control of the intersections of children’s kernels and is not a corollary of a sharp maximum or a restricted binary lower bound. The lower endpoint covers Bosma’s conjectured base-power lower bound, but rank interpolation is an additional non-implied assertion.",
+      "searches": [
+        "https://arxiv.org/abs/2304.03268",
+        "https://ericrowland.github.io/papers/Magic_numbers_in_periodic_sequences.pdf",
+        "https://www.math.ru.nl/~bosma/pubs/periodic.pdf",
+        "published-finding corpus: Magic Numbers in Periodic Sequences Kreczman Prigioniero Rowland Stipulanti noncoprime power base period k^t full range possible automaton kernel ranks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kreczman et al., §3, Proposition 2 gives a maximum; Theorem 1 assumes coprimality; §6 explicitly identifies noncoprime period lengths as open.",
+        "The theorem concerns kernel cardinality (LSD-first DFAO rank), not circulant-matrix rank or Q-vector-space dimension."
+      ],
+      "reasoning": "The exact interval of possible distinct kernel states for least period a base power is neither a relabeling of the coprime theorem nor equivalent to its maximum-bound statement; unlike the regular-rank version, equal kernel states are counted without linear dependence.",
+      "searches": [
+        "published-finding corpus: k-automatic periodic sequence with period k^t: possible k-kernel sizes all integers interval no magic numbers complete spectrum",
+        "published-finding corpus: Magic Numbers in Periodic Sequences Kreczman Prigioniero Rowland Stipulanti noncoprime power base period k^t full range possible automaton kernel ranks",
+        "https://arxiv.org/abs/2304.03268",
+        "https://ericrowland.github.io/papers/Magic_numbers_in_periodic_sequences.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kreczman et al. Table 1 treats a sample period-six kernel and their general proposition is an upper bound.",
+        "Bosma §4 uses examples and conjectured binary-output bounds, not a parameter-uniform table of all attainable base-power-period ranks."
+      ],
+      "reasoning": "Neither checked source provides an exact indexed table determining the claimed complete infinite spectrum. The provided finite verification checks are new corroboration, not an appeal to an external numerical table.",
+      "searches": [
+        "published-finding corpus: k-automatic periodic sequence with period k^t: possible k-kernel sizes all integers interval no magic numbers complete spectrum",
+        "published-finding corpus: period k power k automatic k-kernel ranks magic numbers noncoprime periodic words missing states",
+        "https://ericrowland.github.io/papers/Magic_numbers_in_periodic_sequences.pdf",
+        "https://www.math.ru.nl/~bosma/pubs/periodic.pdf"
+      ]
+    },
+    "rationale": "The full-text 2023 primary source handles automatic kernel-rank spectra only for coprime base and period and explicitly leaves the noncoprime case untreated. This theorem completely determines the distinct kernel-state ranks for least period equal to a positive power of the base; the bound cited there and Bosma’s binary interleaving observations do not imply every intermediate rank is attainable. published-finding corpus semantic matches did not provide a dominating published statement, although unindexed equivalence is possible.",
+    "residual_risks": [
+      "Equivalent constructions may exist in unindexed literature under DFAO minimization or kernel-semigroup terminology.",
+      "No priority conclusion is drawn from a semantic search alone.",
+      "Fixed binary-output rank spectra are intentionally left unclassified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Bounds and coprime rank characterization are prior; no all-base-power-rank interval, with noncoprime case stated as future work.",
+        "evidence": [
+          "arXiv v1 submitted 2023-04-06 (arXiv entry submission history).",
+          "Author PDF §3 Proposition 2 and Theorem 1; §6 pp.17–18, explicit noncoprime future-work paragraph."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.03268",
+        "material_read": "Original arXiv submission metadata (v1 UTC date); freely available 19-page author PDF, definitions in Sections 1–2, automatic-rank definitions and bounds in Section 3, the coprime theorem and full conclusion Section 6.",
+        "method": "Read primary full text on the author’s site and arXiv entry, compared statement and quantifiers, and visually inspected conclusion on page 17.",
+        "title": "Magic Numbers in Periodic Sequences",
+        "trigger": "Exact same notion of automatic sequence kernel rank and a closely matching magic-number question, with noncoprime periods."
+      },
+      {
+        "assessment": "Studied primarily binary-output periods, gave bounds and conjectural lower bounds; no unconditional complete parameter-uniform base-power kernel-rank spectrum on arbitrary finite output alphabets.",
+        "evidence": [
+          "Bosma §4, page 5, Theorem 9 and Remarks 10–13; Conjecture 12 lower bound when odd period factor is one."
+        ],
+        "identifier_or_url": "https://www.math.ru.nl/~bosma/pubs/periodic.pdf",
+        "material_read": "Entire seven-page publicly accessible preprint, especially §§3–4, Theorems 5, 6 and 9 and Remarks 10, 13 and Conjecture 12.",
+        "method": "Read parsed full text and visually inspected the final Section 4 page containing the recursive zip discussion.",
+        "title": "Complexity of Periodic Sequences",
+        "trigger": "Earlier paper directly about finite kernels of periodic sequences and interleaving; plausible stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "575bd2aa-74d4-4ab8-ae9d-b4b7f0d5d7ce",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete infinite classification of a previously excluded noncoprime family of periodic automatic-sequence ranks is mathematically motivated by the primary source’s explicit remaining problem. It establishes both sharp endpoints and the absence of all intermediate magic numbers by a structural recursive construction, beyond known bounds and examples; unrestricted finite output alphabet is naturally part of the published automatic-rank formulation.",
+    "status": "PASS"
+  }
+}
