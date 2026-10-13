@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary p, the neighbor shell has six points; pairwise data-distance forces injectivity; a square-XOR four-color lemma forces opposite edges to agree and hence global edge colors, establishing p affine. The converse checks every possible message-difference Hamming weight. The complete pairwise checker for all 720 column permutations and local square patterns passed; no finite-only extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rajput et al. 2025, Theorem 4 gives r >= 2t_f+t_d = 5.",
+        "Their Example 10 constructs a parity map at message dimension four, whereas the classification concerns the dimension-six endpoint."
+      ],
+      "reasoning": "A parameter lower bound does not establish the maximum dimension at that redundancy, and one construction does not establish uniqueness among arbitrary assignments. The 2026 Lee-modular-sum upper bound similarly is not an equality-classification theorem.",
+      "searches": [
+        "function correcting parity codes with data protection 6 bit messages redundancy five theorem",
+        "systematic function correcting code binary sum modulo two parity data correction 1 error function correction 2 errors redundancy five six dimensions",
+        "https://arxiv.org/pdf/2511.18420 Theorem 4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2511.18420",
+      "https://arxiv.org/pdf/2603.01049",
+      "https://arxiv.org/pdf/2604.26397",
+      "https://pure.tue.nl/ws/portalfiles/portal/4297991/253159.pdf",
+      "https://arxiv.org/pdf/2610.12217"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "March 2026 Example 1 has k=4, redundancy 5, and distances 3 and 5; the paper does not claim the k=6 nonlinear equality classification.",
+        "April 2026 strict-code theorem concerns existence via distance-graph connectivity and linear constructions.",
+        "2026 Lee paper Corollary 4.8 and Theorem 4.9 bound redundancy for modular sums but do not establish rigidity."
+      ],
+      "reasoning": "The implications needed for the final theorem are: all six local antipodal colors used, opposite edges equal in every square, global coordinate-color constancy, and exact uniqueness/count. No compared prior statement implies this chain. The nearest parameter and functions are transparently credited.",
+      "searches": [
+        "parity function correcting codes with data protection binary 5 redundancy six message bits rigidity unique nonlinear 2026",
+        "nonlinear unequal error protection code rigidity affine",
+        "https://arxiv.org/pdf/2603.01049 Example 1",
+        "https://arxiv.org/pdf/2610.12217 Section 4.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "1982 linear UEP Appendix A records separation vector (5,3,3,3,3,3) for a linear [11,6] code; related linear parameters are not new.",
+        "The main theorem quantifies over *all maps* p:F_2^6 -> F_2^5, not just generator matrices."
+      ],
+      "reasoning": "A linear-code table and classical UEP basis reduction can imply existence of a suitable linear protection structure, but cannot rule out nonlinear maps or enumerate every nonlinear equality case; our square-XOR rigidity supplies precisely that extra implication.",
+      "searches": [
+        "binary nonlinear (5,3) unequal error protection code unique [11,6] all systematic",
+        "all optimal parity-function correcting codes with data protection six input bits nonlinear affine uniqueness classification",
+        "https://pure.tue.nl/ws/portalfiles/portal/4297991/253159.pdf Appendix A"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 1982 Appendix A row (n,k)=(11,6) includes 533333, an explicit linear separation-vector benchmark.",
+        "The verified new count is of labeled systematic mappings, not the number of abstract linear codes."
+      ],
+      "reasoning": "The existing exact table is credited, rather than recomputed as a new fact. Its linear classification scope is strictly narrower than the new all-nonlinear rigidity statement.",
+      "searches": [
+        "unequal error protection systematic nonlinear code separation (5,3) length 11 dimension 6 classification",
+        "binary [11,6] unequal error protection separation vector",
+        "https://pure.tue.nl/ws/portalfiles/portal/4297991/253159.pdf Appendix A"
+      ]
+    },
+    "rationale": "The validated claim is equality-case affine rigidity and complete nonlinear systematic map enumeration at k=6, not the known 5-check-bit lower bound, k=4 parity example, or linear UEP (11,6) feasibility. The cited primary papers and historical table address those prior numerical statements. The exact nonlinear equality classification is not entailed by them, and no equivalent result appeared in the recorded literature and published-record searches; residual unindexed precedent remains possible.",
+    "residual_risks": [
+      "An earlier unindexed nonlinear UEP coding classification or equality-case theorem may exist, despite the searches.",
+      "The historical 1982 table gives the same linear parameter benchmark but not the proved nonlinear uniqueness; avoiding a broader novelty claim is essential."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Already supplies the five-check-bit lower bound and four-bit construction; does not characterize all nonlinear systematic equality maps at six bits.",
+        "evidence": [
+          "Theorem 4: binary bound r >= 2t_f+t_d for k>=2",
+          "Example 10: parity function at k=4 with five check bits"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2511.18420",
+        "material_read": "Theorem 4 and proof, Section IV bounds, Example 10 and displayed four-message-bit construction",
+        "method": "Direct inspection of the primary preprint PDF and relevant displayed mathematical statements",
+        "title": "Function-Correcting Codes With Data Protection",
+        "trigger": "Original joint function/data-protection framework and parity example"
+      },
+      {
+        "assessment": "Its four-message-bit parity example is already known; the paper gives distance-graph criteria, not the six-dimensional nonlinear map classification.",
+        "evidence": [
+          "Example 1: parity f on four-bit messages, data distance 3 and function distance 5, redundancy 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.01049",
+        "material_read": "Definition 3 and Example 1, including the nine-bit length-four-message parity code; introductory distance-graph nonexistence results",
+        "method": "Direct inspection of the primary arXiv PDF text and printed construction",
+        "title": "Non-Existence of Some Function-Correcting Codes With Data Protection",
+        "trigger": "Same parity function and exact distance requirements"
+      },
+      {
+        "assessment": "General strict-code existence and linear Cayley-graph techniques do not imply rigidity of all nonlinear systematic parity encoders.",
+        "evidence": [
+          "Theorems 1–2 concern distance graph connectivity and function-class count; scope is different"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2604.26397",
+        "material_read": "Abstract and Section II distance-graph framework, Theorems 1–2, and the linear-code emphasis",
+        "method": "Direct inspection of the 22-page primary arXiv PDF at relevant sections",
+        "title": "Existence and Constructions of Strict Function-Correcting Codes with Data Protection",
+        "trigger": "Potential stronger structural classification via graph connectivity"
+      },
+      {
+        "assessment": "Table already includes the linear separation vector (5,3,3,3,3,3); it does not classify arbitrary nonlinear systematic equality maps. Linear feasibility explicitly excluded from claimed novelty.",
+        "evidence": [
+          "Appendix A: n=11, k=6, separation vector 533333; the report explicitly studies linear codes"
+        ],
+        "identifier_or_url": "https://pure.tue.nl/ws/portalfiles/portal/4297991/253159.pdf",
+        "material_read": "Definition of linear separation vector and Appendix A, page 47 of thesis, table at length 11 dimension 6",
+        "method": "Read and visually inspect scanned primary thesis pages and the full relevant table entry",
+        "title": "On Linear Unequal Error Protection Codes",
+        "trigger": "Older linear UEP may dominate numerical redundancy/length claims"
+      },
+      {
+        "assessment": "Bounds and a general concatenated construction; no six-input-bit binary nonlinear equality-case classification is stated in the inspected material. Not used as the first motivating public source.",
+        "evidence": [
+          "Corollary 4.8 and Theorem 4.9: general Lee-modular-sum bounds and construction"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.12217",
+        "material_read": "Section 4.3 modular sum, Corollary 4.8, Theorem 4.9 and proof, first-page scope and classification",
+        "method": "Direct inspection of the primary arXiv PDF including mathematical statements",
+        "title": "On Function-Correcting Lee Metric Codes with Data Protection",
+        "trigger": "Later manuscript with same modular-sum function, checked for dominating claims"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a7cfa304-b0f2-4354-beee-bc6dce27b508",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At the known minimum budget of five check bits the mathematically natural question is maximum protected message dimension, and whether nonlinear encoders can outperform or diversify designs. The theorem proves a sharp six-coordinate cap and complete rigidity of all equality cases, with a labeled count driven by the classification rather than an arbitrary small example.",
+    "status": "PASS"
+  }
+}
