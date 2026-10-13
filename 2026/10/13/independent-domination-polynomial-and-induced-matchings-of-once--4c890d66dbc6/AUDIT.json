@@ -1,0 +1,167 @@
+{
+  "correctness": {
+    "rationale": "The forced-edge-vertex classification is a bijection for every finite simple graph, including isolates and empty graphs. The difference |W|-|E(G[W])| is bounded by the number of tree components, each of which yields one edge of an induced matching; an induced matching attains equality. The Laurent-state forest recursion is derived by exact child-state decomposition, not by extrapolation. Independent direct subset enumeration and DP checks support but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1602.08250, https://arxiv.org/html/1602.08250v1: Corollary 2.12 gives a general inclusion-exclusion identity for every graph polynomial, but no optimization identity for full subdivisions.",
+        "doi:10.1007/s00373-020-02269-3, https://link.springer.com/article/10.1007/s00373-020-02269-3: Theorems 2.1–2.6 and 4.1 concern minimum edge-subdivision counts that change an independent domination parameter, not full-subdivision enumeration.",
+        "Closest published record 2026/9/20/SCOPE-cyclomatic-matching-induced-matching-gaps--ac8bd54efbfc: compares matching and induced matching, with no subdivision-independent domination output."
+      ],
+      "reasoning": "Generic identities for the polynomial of any graph can be specialized syntactically to the graph S(G), but that tautological specialization does not state or immediately imply the explicit no-isolate bijection, n-minus-induced-matching minimum, or forest-state algorithm. Stronger named subdivision parameter work measures a different quantity. No checked source dominates all parts of the claim.",
+      "searches": [
+        "\"independent domination number\" \"subdivision graph\" induced",
+        "\"independent domination number\" \"subdivision\" graphs",
+        "\"independent domination\" \"once-subdivided\" matching",
+        "\"minimum maximal independent set\" \"subdivision graph\" matching",
+        "published record query: independent domination number of full subdivision graph S(G) equals vertex count minus induced matching number im(G), exact enumerator maximal independent sets subdivision"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1808.07369, https://arxiv.org/html/1808.07369v3",
+      "arXiv:1602.08250, https://arxiv.org/html/1602.08250v1",
+      "doi:10.1007/s00373-020-02269-3, https://link.springer.com/article/10.1007/s00373-020-02269-3",
+      "doi:10.55016/ojs/cdm.v12i1.62277, https://cdm.ucalgary.ca/article/download/62277/46773/178118",
+      "JETIR1904I23, https://www.jetir.org/papers/JETIR1904I23.pdf",
+      "doi:10.1080/09728600.2024.2342310, https://www.tandfonline.com/doi/full/10.1080/09728600.2024.2342310",
+      "Published finding ID 2026/9/20/SCOPE-cyclomatic-matching-induced-matching-gaps--ac8bd54efbfc",
+      "Published finding ID 2026/9/17/SCOPE-iterated-central-graph-independent-domination--7dc2104ad847",
+      "Published finding ID 2026/10/4/SCOPE-exact-total-domination-formula-central-graphs--f6679e0fe594"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "doi:10.1007/s00373-020-02269-3, https://link.springer.com/article/10.1007/s00373-020-02269-3: an edge-subdivision threshold sd_i(G) cannot give the all-edges-subdivided parameter without additional structure.",
+        "doi:10.55016/ojs/cdm.v12i1.62277, https://cdm.ucalgary.ca/article/download/62277/46773/178118: a homotopy equivalence of simplicial complexes does not determine how many maximal faces of each cardinality occur.",
+        "JETIR1904I23, https://www.jetir.org/papers/JETIR1904I23.pdf: the ladder-specialization asserted there differs on S(L_3), and in any case a few scalar families do not imply the universal polynomial.",
+        "arXiv:1602.08250, https://arxiv.org/html/1602.08250v1: general-purpose alternating-sum identity exists for all graphs, without the matching or dynamic-program equivalence."
+      ],
+      "reasoning": "This claim implies the minimum independent-domination number for every fully once-subdivided finite simple graph and supplies the full enumerator and exact minimum multiplicities. None of the checked prior statements implies the induced-matching equality as a stated or direct corollary; conversely the generic graph identities do not encode its structural explanation or efficient forest specialization. The 2019 conflicting assertion is a declared residual external-comparison risk rather than hidden evidence.",
+      "searches": [
+        "\"independent domination subdivision in graphs\" Babikir Dettlaff Henning Lemanska",
+        "\"independent domination in some subdivision graphs\" Stella Mary Santhanamariammal ladder",
+        "\"The Independent Domination Polynomial\" Dod 2016",
+        "\"independence complexes and incidence graphs\" Tsukuda",
+        "published record query: subdivision graph independent domination polynomial induced matching tree recurrence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.55016/ojs/cdm.v12i1.62277, https://cdm.ucalgary.ca/article/download/62277/46773/178118: Example 4.2 identifies the incidence graph with edge subdivision, while Theorem 4.10 and Corollary 4.11 are topological, not facet-cardinality enumerations.",
+        "arXiv:1808.07369, https://arxiv.org/html/1808.07369v3: defines the same independent domination polynomial but section 3 investigates compound graph construction and section 4 paths.",
+        "Closest published record 2026/9/17/SCOPE-iterated-central-graph-independent-domination--7dc2104ad847: iterated central graphs, a non-equivalent graph construction."
+      ],
+      "reasoning": "The incidence bipartite graph and the fully subdivided graph are the same object here, and independent dominating sets are maximal independent faces. Those aliases were checked. A homotopy-equivalent independence complex need not preserve its facet-size polynomial. No located equivalent bijection or exact induced-matching identity was found.",
+      "searches": [
+        "\"independent domination\" \"subdivision\" \"induced matching number\"",
+        "\"independent domination polynomial\" \"subdivision\" graph",
+        "\"maximal independent sets\" \"incidence graph\" \"induced subgraph\" no isolated vertices",
+        "\"incidence graph\" \"independent dominating\" \"matching\"",
+        "published record query: complete independent domination polynomial of incidence graph S(G) vertex subset no isolated induced subgraphs forest algorithm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "JETIR1904I23, https://www.jetir.org/papers/JETIR1904I23.pdf: Theorem 3.4 reports a ladder-specific scalar formula (six for three rungs), not an all-cardinality table or a general polynomial.",
+        "CHECK_OUTPUT.txt: direct enumeration of all 8192 subsets of S(L_3) gives coefficients [(4,1),(5,27),(6,7),(7,1)], so a minimum four-set exists.",
+        "arXiv:1808.07369, https://arxiv.org/html/1808.07369v3: path polynomial tables and recurrences concern special graphs, not a complete all-base-graph subdivision table."
+      ],
+      "reasoning": "Searched tables, explicit formulas, and publication titles, including the closest 2019 same-operation paper. The existing family-specific scalar claims cannot supply this all-cardinality formula; one such claim conflicts with an explicit finite certificate. No exact equivalent database row or table was found. Search absence does not certify global novelty.",
+      "searches": [
+        "\"independent domination\" \"subdivision\" \"induced matching\"",
+        "\"independent domination polynomial\" \"subdivision graph\" full",
+        "\"subdivision graph\" \"minimum maximal independent\" \"induced matching\"",
+        "\"i(S(G))\" \"induced matching\"",
+        "published record query: 2019 independent domination in some subdivision graphs ladder graph 2n induced matching contradiction"
+      ]
+    },
+    "rationale": "The 2018 independent-domination-polynomial source computes graph products and paths; the 2021 subdivision paper optimizes the number of subdivided edges, not maximal independent sets after full subdivision. The 2017 incidence-graph article establishes homotopy equivalence, which does not determine facet counts. The 2016 universal polynomial identities are not the stated forced-vertex bijection, forest recursion or induced-matching extremal equality. The 2019 family-specific scalar paper overlaps the operation but not the complete enumeration or general matching identity: its ladder formula disagrees with a direct four-vertex certificate on the three-rung ladder. Relevant published-record semantic searches found no equal or dominating statement. Unknown implicit equivalence remains possible.",
+    "residual_risks": [
+      "An earlier explicit incidence-graph facet-enumerator or induced matching theorem could exist under different terminology beyond searched literature.",
+      "The 2019 ladder scalar assertion contradicts the disclosed independent four-vertex certificate and exhaustive L_3 subset count; reconciliation by an external reader is needed.",
+      "Generic universal polynomial identities necessarily specialize to S(G); the originality claimed here is the new structural simplification, induced-matching link and efficient forest recursion, not mere existence of a counting sum."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not equivalent; graph products and path enumeration rather than complete edge-subdivision bijection.",
+        "evidence": [
+          "arXiv:1808.07369, Sections 3 and 4",
+          "https://arxiv.org/abs/1808.07369, v1 2018-08-21, MSC 05C69"
+        ],
+        "identifier_or_url": "arXiv:1808.07369, https://arxiv.org/html/1808.07369v3",
+        "material_read": "Full HTML research text: definitions, Sections 2–4, coronal/clique-cover constructions, path recurrence and bibliography; arXiv abstract and v1 timestamp.",
+        "method": "Read arXiv full HTML and dated abstract; compared graph operations and quantifiers.",
+        "title": "On the independent domination polynomial of a graph",
+        "trigger": "Same polynomial, matching MSC and a relevant dated foundation."
+      },
+      {
+        "assessment": "General identities apply tautologically but do not present the no-isolate classification, induced matching identity or forest recursion.",
+        "evidence": [
+          "arXiv:1602.08250, Theorem 2.5 and Corollary 2.12"
+        ],
+        "identifier_or_url": "arXiv:1602.08250, https://arxiv.org/html/1602.08250v1",
+        "material_read": "Full HTML definitions and general identities, including Theorem 2.5 and Corollary 2.12, plus graph-product and expansion sections.",
+        "method": "Read arXiv full HTML and compared direct implications.",
+        "title": "The Independent Domination Polynomial",
+        "trigger": "Prior generic polynomial identity could dominate a specialized enumeration."
+      },
+      {
+        "assessment": "Studies the minimum number of edges whose subdivision changes i(G); not the all-edges subdivision polynomial or n-minus-induced-matching formula.",
+        "evidence": [
+          "DOI:10.1007/s00373-020-02269-3, Theorems 2.1–2.6 and 4.1"
+        ],
+        "identifier_or_url": "doi:10.1007/s00373-020-02269-3, https://link.springer.com/article/10.1007/s00373-020-02269-3",
+        "material_read": "Open-access full HTML, abstract and Sections 1–7 including theorem statements and proofs in Sections 4–7.",
+        "method": "Read primary publisher HTML and compared parameter definitions.",
+        "title": "Independent Domination Subdivision in Graphs",
+        "trigger": "Exact overlap in independent domination and edge subdivision."
+      },
+      {
+        "assessment": "Establishes homotopy equivalence of complexes, not counts of maximal independent sets or induced matching minima.",
+        "evidence": [
+          "DOI:10.55016/ojs/cdm.v12i1.62277, Example 4.2, Remark 4.12"
+        ],
+        "identifier_or_url": "doi:10.55016/ojs/cdm.v12i1.62277, https://cdm.ucalgary.ca/article/download/62277/46773/178118",
+        "material_read": "19-page publisher PDF: introduction and topology setup, Example 4.2, Theorem 4.10, Corollary 4.11, Remark 4.12, Section 5 and bibliography; figures at pages 1, 10 and 18 inspected.",
+        "method": "Read PDF text and inspected source page images to check formulas and objects.",
+        "title": "Independence complexes and incidence graphs",
+        "trigger": "Incidence graph is an alias for full one-subdivision, and maximal faces are independent dominating sets."
+      },
+      {
+        "assessment": "Treats selected graph-family scalar parameters, not complete polynomial; Theorem 3.4 differs from direct verification at L_3, as disclosed.",
+        "evidence": [
+          "JETIR1904I23, Theorem 3.4 p132–133",
+          "CHECK_OUTPUT.txt, L_3 polynomial x^4+27x^5+7x^6+x^7"
+        ],
+        "identifier_or_url": "JETIR1904I23, https://www.jetir.org/papers/JETIR1904I23.pdf",
+        "material_read": "All nine PDF pages including the definitions, Theorems 3.1–3.8, worked ladder Theorem 3.4, example 3.5, figures and references.",
+        "method": "Read PDF text with page-image checks of pages 1, 4 and 9; compared a three-rung ladder via separate exhaustive checker.",
+        "title": "Independent Domination in Some Subdivision Graphs",
+        "trigger": "Same complete edge-subdivision operation and exact independent-domination scalar results."
+      },
+      {
+        "assessment": "Relates a line-graph independent-domination number to edge domination and efficient edge domination; not the full subdivision identity.",
+        "evidence": [
+          "DOI:10.1080/09728600.2024.2342310, Theorem 2"
+        ],
+        "identifier_or_url": "doi:10.1080/09728600.2024.2342310, https://www.tandfonline.com/doi/full/10.1080/09728600.2024.2342310",
+        "material_read": "Open access HTML abstract, introduction, and statements including Theorem 2 regarding i(L(G)).",
+        "method": "Read primary full-text HTML and compared graph operations.",
+        "title": "Dominating induced matchings and other graph parameters",
+        "trigger": "Possible confusion of maximum induced matchings with dominating induced matchings."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4c890d66-dbc6-45ef-940c-66cb4b20f0a0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result enumerates every maximal independent set, not merely a minimum parameter, for full edge subdivisions of all finite simple graphs. It identifies an induced matching invariant controlling the minimum, characterizes all minimum sets by induced nontrivial tree components, and gives a finite-state polynomial-time enumerator for the full forest class. This is motivated by prior independent-domination subdivision work and has structural use beyond routine family substitution.",
+    "status": "PASS"
+  }
+}
