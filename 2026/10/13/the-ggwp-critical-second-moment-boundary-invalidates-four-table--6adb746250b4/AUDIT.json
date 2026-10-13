@@ -1,0 +1,88 @@
+{
+  "correctness": {
+    "rationale": "The source proves \\(\\Pr(T>t)\\sim C t^{-1/\\beta}\\) with \\(C>0\\). The nonnegative-tail identity for real moments then gives convergence iff \\(r<1/\\beta\\), and at equality the tail integral is asymptotic to a positive constant times \\(\\int dt/t\\). Thus at \\(\\beta=1/2\\) the second moment and variance diverge, while the mean remains finite. The consequences for CV, standardized skewness, and kurtosis follow from their defining moment requirements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Generic power-tail theory explains the logarithmic divergence at the critical exponent, but it does not identify the GGWP paper's contradictory table rows.",
+        "The GGWP source itself is the decisive primary evidence because it supplies both the strict theorem and the conflicting numerical summaries."
+      ],
+      "reasoning": "A generic regular-variation theorem subsumes the tail-integral step, but not the model-specific correction of the published statements. The scientific content retained here is the exact boundary diagnosis and its table consequences.",
+      "searches": [
+        "regular variation moment boundary equality logarithmic divergence Pareto tail",
+        "Weibull Pareto moment existence beta one half variance"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026952"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.6 gives the positive tail constant and strict moment cutoff.",
+        "Corollary 2.8 states the strict variance condition.",
+        "The prose and Table 1 apply finite higher-moment summaries at beta=0.5, contradicting those statements."
+      ],
+      "reasoning": "The prior theorem logically forces divergence at equality, while the same source asserts the opposite in its interpretation and table. The final claim resolves the inconsistency rather than presenting a covered corollary as a new standalone theorem.",
+      "searches": [
+        "GGWP Theorem 2.6 tail moment iff r<1/beta",
+        "GGWP Corollary 2.8 variance beta<1/2",
+        "GGWP Table 1 beta=0.5 all moments exist"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit concerns the GGWP model or the beta=0.5 Table 1 boundary.",
+        "Exact DOI/correction search located the original paper but no corrigendum.",
+        "The source's own theorem states the strict inequality while the table uses the excluded equality case."
+      ],
+      "reasoning": "Searches covered the model acronym/name, exact DOI, critical beta boundary, and variance-language aliases. No published statement equivalent to the four-row correction was located.",
+      "searches": [
+        "GGWP beta 0.5 variance infinite Table 1",
+        "10.3934/math.2026952 correction moments beta one half",
+        "gamma-generated Weibull Pareto critical moment boundary beta=1/2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 1 contains four rows with beta=0.5 and finite variance, skewness, kurtosis, and coefficient of variation.",
+        "The text immediately preceding the table says that at beta=0.5 all moments exist.",
+        "The same paper's Corollary 2.8 requires beta<1/2 for finite variance."
+      ],
+      "reasoning": "The table comparison is decisive: the reported finite population summaries require moments that the paper's proved tail theorem excludes at the equality boundary.",
+      "searches": [
+        "10.3934/math.2026952 Table 1 beta 0.5 variance skewness kurtosis",
+        "10.3934/math.2026952 correction moments beta 0.5"
+      ]
+    },
+    "rationale": "The source contains an internal contradiction: its theorem and corollary exclude the critical second moment, while its prose and four Table 1 rows report finite higher-moment summaries at exactly \\(\\beta=0.5\\). Five focused published-result searches found no corrigendum or model-specific correction identifying the boundary error. The accepted claim is the resolution of that contradiction and identification of the affected rows, not a claim that the source's general moment theorem is new.",
+    "residual_risks": [
+      "A very recent unindexed author correction may exist outside the publisher record.",
+      "The finding does not assess whether the finite table entries arose from numerical truncation, a software convention, or a transcription error.",
+      "Generic regular-variation literature covers the abstract critical-moment principle, but no source-specific GGWP correction was located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY COVERING BUT INTERNALLY INCONSISTENT. The strict tail/moment theorem is correct and implies boundary divergence, while later prose and four Table 1 rows incorrectly treat beta=0.5 as having finite second and higher moments.",
+        "evidence": "Published tail constant is positive; moment existence is stated iff r<1/beta; variance condition is beta<1/2; later prose states all moments exist at beta=0.5 and Table 1 prints finite higher-moment summaries for four beta=0.5 rows.",
+        "identifier_or_url": "doi:10.3934/math.2026952",
+        "material_read": "Open-access full PDF, including the CDF/survival definition, Theorem 2.6 and its moment-existence consequence, Corollary 2.8, the paragraph immediately following the moment/MGF discussion, and the rendered Table 1 page.",
+        "method": "Direct full-text and rendered-page inspection.",
+        "title": "A unified gamma-generated Weibull–Pareto distribution for heavy-tailed and skewed data with applications to medicine, engineering, and environment",
+        "trigger": "Primary 2026 source containing the GGWP tail theorem and the contradictory moment table."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6adb7462-50b4-449c-b286-502f9eb58c31",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Table 1 is used to interpret how the model's parameters control mean, variance, skewness, kurtosis, and coefficient of variation. At the highlighted boundary beta=0.5, four rows report finite quantities that do not exist as population summaries. The correction is therefore directly relevant to model interpretation and parameter selection, and the boundary is mathematically natural rather than an arbitrary slice.",
+    "status": "PASS"
+  }
+}
