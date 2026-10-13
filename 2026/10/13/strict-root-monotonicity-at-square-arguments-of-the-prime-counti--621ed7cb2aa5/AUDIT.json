@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The target is equivalently B^n<A^(n+1), with A=pi(n^2) and B=A+d. For n>=1000, explicit Brun--Titchmarsh bounds d from above and Rosser--Schoenfeld bounds A from below. After log(1+u)<u, the left side is below 8+4/n<9, while the lower bound A>50000 gives log A>9. The exact packaged sieve exhaustively checks every n from 3 through 999 with arbitrary-precision integer powers, so no finite or infinite case is omitted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper contains a different nearby root-monotonicity conjecture, Conjecture 2.7(i), but its arguments are kn and (k+1)n with fixed n.",
+        "Searches did not locate a broader published root-monotonicity theorem covering the transition from n^2 to (n+1)^2."
+      ],
+      "reasoning": "A broader statement would need to compare the exact square endpoints. Conjecture 2.7(i), even when instantiated with k=n or with scale n+1, moves one endpoint to n(n+1), so monotonicity of pi does not turn it into the desired comparison.",
+      "searches": [
+        "\"Problems on combinatorial properties of primes\" \"strictly decreasing\" pi",
+        "prime counting square arguments root monotonicity theorem",
+        "Sun prime counting monotonicity Conjecture 2.14 proof",
+        "\"pi(n^2)\" monotonicity theorem"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1402.6641v12",
+      "arXiv submission history for 1402.6641",
+      "OEIS:A038107",
+      "Montgomery--Vaughan, Mathematika 20 (1973), 119--134",
+      "Rosser--Schoenfeld, Illinois J. Math. 6 (1962), 64--94",
+      "targeted exact-phrase and semantic literature searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Conjecture 2.7(i) compares pi(kn)^(1/k) with pi((k+1)n)^(1/(k+1)) at fixed scale n.",
+        "With k=n it reaches n(n+1) on the right, which is below (n+1)^2; with scale n+1 it starts at n(n+1), which is above n^2.",
+        "Therefore either substitution weakens the wrong side and does not imply the square-endpoint inequality."
+      ],
+      "reasoning": "The implication comparison is endpoint-sensitive, not title-based. The previous fixed-scale statement and the present square-scale statement are logically distinct, and monotonicity of pi is insufficient to bridge either mismatch in the needed direction.",
+      "searches": [
+        "Does Conjecture 2.7(i) imply Conjecture 2.14(ii) prime counting roots?",
+        "Sun Conjecture 2.7(i) Conjecture 2.14(ii) prime counting",
+        "pi(kn) root monotonicity versus pi(n^2) root monotonicity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper states Conjecture 2.14(ii) as strict decrease of the n-th root of pi(n^2) for n starting at 3.",
+        "OEIS A038107 repeats the same conjecture for a(n)=pi(n^2).",
+        "No searched later source stated a proof or a stronger theorem implying all n>=3."
+      ],
+      "reasoning": "The claim was searched in root notation, verbal square-argument language, and through the equivalent adjacent power inequality pi((n+1)^2)^n<pi(n^2)^(n+1). The located exact matches preserved conjectural status rather than supplying coverage.",
+      "searches": [
+        "\"The sequence\" \"pi(n^2)\" \"strictly decreasing\"",
+        "\"pi(n^2)\" \"strictly decreasing\" Sun",
+        "\"Conjecture 2.14(ii)\" primes Sun",
+        "strictly decreasing nth root of prime-counting function at square arguments pi(n^2)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A038107 is the exact sequence a(n)=pi(n^2) and records the same n-th-root monotonicity as a conjecture.",
+        "The database provides a table and the conjectural statement but no universal proof."
+      ],
+      "reasoning": "Finite sequence data can corroborate initial cases but cannot imply the universal theorem. The new argument proves the infinite tail analytically and uses exhaustive computation only for the explicitly bounded prefix.",
+      "searches": [
+        "site:oeis.org \"pi(n^2)\" \"strictly decreasing\"",
+        "site:oeis.org \"pi(n^2)\" Sun",
+        "OEIS A038107 pi n squared"
+      ]
+    },
+    "rationale": "Sun's primary paper states the identical claim as Conjecture 2.14(ii), and the exact OEIS sequence A038107 still labels it a conjecture. Targeted statement, alias, equivalent-power, database and implication searches found no later proof. The closest own/prior monotonicity result concerns Sun's Conjecture 2.7(i), whose fixed-scale inequalities do not imply the square-argument transition.",
+    "residual_risks": [
+      "An equivalent proof may exist in unindexed notes, correspondence, or a source not surfaced by the targeted searches.",
+      "The result is specific to square arguments and does not settle analogous statements for arbitrary powers.",
+      "The infinite tail cites, rather than reproves, the two classical explicit prime-counting estimates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_OPEN_PROBLEM_SOURCE. It states the exact square-root monotonicity assertion as a conjecture and does not provide a proof.",
+        "evidence": "Conjecture 2.14(ii) says the sequence of n-th roots of pi(n^2), for n=3,4,..., is strictly decreasing. Conjecture 2.7(i) is a distinct fixed-scale inequality.",
+        "identifier_or_url": "arXiv:1402.6641v12",
+        "material_read": "The title page, abstract, introduction, Section 2 around Conjecture 2.7 and its remark, the full page containing Conjecture 2.14 and Remark 2.14, and the arXiv submission history were inspected. The Conjecture 2.14 page was also checked as a rendered page image.",
+        "method": "Direct inspection of the lawful open-access arXiv full text, page image, and arXiv record.",
+        "title": "Problems on combinatorial properties of primes",
+        "trigger": "Primary source containing the exact conjecture and the closest neighboring monotonicity conjecture."
+      },
+      {
+        "assessment": "DATA_NOT_COVERING. It preserves the same monotonicity statement as a conjecture and gives finite sequence data, not a proof.",
+        "evidence": "The entry explicitly labels strict decrease of a(n)^(1/n), n=3,4,..., as a conjecture.",
+        "identifier_or_url": "OEIS:A038107",
+        "material_read": "Definition, comments, conjecture text, references and links.",
+        "method": "Direct inspection of the exact database entry.",
+        "title": "A038107",
+        "trigger": "Exact database entry for the sequence pi(n^2)."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "621ed7cb-2aa5-4b7f-aa3c-86be2971fdbf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem resolves an explicit conjecture from a paper devoted to sixty open problems on exact prime-counting behavior. It replaces numerical evidence by a complete proof for all n>=3, with a transparent mechanism linking the local count of primes between consecutive squares to the accumulated value pi(n^2). The finite computation has a bounded supporting role and the mathematical content is the uniform analytic tail.",
+    "status": "PASS"
+  }
+}
