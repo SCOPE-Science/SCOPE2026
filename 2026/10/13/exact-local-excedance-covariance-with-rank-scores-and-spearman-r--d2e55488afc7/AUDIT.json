@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on an excedance at position i makes the selected value uniform on {i+1,...,n}; the deterministic permutation sum then fixes the common conditional shift of all other positions. This yields the arbitrary-weight covariance formula directly. Squared displacement is affine in the weighted rank inner product, and exact indicator-pair counts and centered-rank moments independently give the excedance and Spearman variances. Exhaustive checks through n=9 and exact closed-form replay through n=1000 match every displayed identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hultman gives a broad character-theoretic treatment of expected permutation statistics and explicitly defines excedance, but no Spearman statistic appears in the inspected full text.",
+        "Jiang develops asymptotic dependence theory for Spearman-family metrics, but no excedance statistic appears in the inspected full text.",
+        "Brändén--Leander--Visontai place multivariate Eulerian polynomials in a probabilistic setting and are classified under primary MSC 60C05."
+      ],
+      "reasoning": "The broader literature covers excedance distributions and Spearman metrics separately. None of the inspected statements subsumes the position-wise covariance law without the new conditional-coordinate calculation.",
+      "searches": [
+        "arXiv:1301.0430",
+        "arXiv:1110.0807",
+        "DOI:10.1017/S0963548316000031",
+        "excedance set permutation linear statistic covariance"
+      ]
+    },
+    "checked_sources": [
+      "Hultman, arXiv:1301.0430, complete accessible article.",
+      "Jiang, arXiv:1110.0807, complete accessible article.",
+      "Brändén, Leander, and Visontai, DOI 10.1017/S0963548316000031, publisher abstract/metadata and MSC classification.",
+      "Classical excedance-set literature identified through the inspected Eulerian references.",
+      "Current and prior scientific ledgers for descents, fixed points, footrule, cycles, records, and Spearman dependence."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A checked prior finding on descents and Spearman rho uses adjacent comparison events; marginal Eulerian equidistribution between descents and excedances does not determine their joint law with an external Spearman statistic.",
+        "Checked findings coupling Spearman rho with fixed points, footrule, total cycle count, and records involve different permutation summaries and do not imply the excedance threshold-event covariance.",
+        "A published finding on a Spearman--Gini boundary concerns population dependence geometry rather than permutation-null Eulerian statistics."
+      ],
+      "reasoning": "No checked prior statement has the event Pi(i)>i. Equidistribution of total Eulerian counts cannot transfer mixed moments with a third statistic unless a joint-preserving bijection is supplied, and no such implication was found.",
+      "searches": [
+        "descent excedance equidistributed dependence Spearman rho",
+        "own descent Spearman permutation covariance",
+        "own fixed point footrule cycle record Spearman permutation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1301.0430 defines excedance and weak excedance statistics but contains no Spearman or squared-displacement formulation.",
+        "arXiv:1110.0807 treats Spearman-family metrics and their correlations but full-text searches found no excedance terminology.",
+        "Searches covered the local-indicator, total-count, squared-displacement, linear-score, and Spearman-affine formulations."
+      ],
+      "reasoning": "The accepted statement is stronger than a single covariance coefficient because the local theorem covers every deterministic linear rank score. Its Spearman and squared-displacement versions are equivalent affine specializations, and all were compared.",
+      "searches": [
+        "excedance indicator linear rank score covariance random permutation",
+        "number of excedances squared rank displacement covariance permutation",
+        "local excedance indicator Spearman covariance sign change position",
+        "Eulerian excedance Spearman rank correlation permutation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-form semantic searches returned no published record stating either the covariance -1/[2(n-1)] or the correlation -sqrt(3/(n^2-1)).",
+        "The finite verification values are produced by complete permutation enumeration rather than copied from a table."
+      ],
+      "reasoning": "The finding is an all-n symbolic theorem with a local arbitrary-weight extension, so a finite table would not by itself cover the accepted claim.",
+      "searches": [
+        "Cov(excedance count, Spearman rho) = -1/(2(n-1)) permutation",
+        "Corr(excedance number, Spearman rho) = -sqrt(3/(n^2-1))",
+        "excedance Spearman rho random permutation covariance exact"
+      ]
+    },
+    "rationale": "The closest full-text sources split along the two sides of the claim: Hultman treats excedance statistics in detail but has no Spearman or displacement statistic, while Jiang treats Spearman-family permutation metrics but has no excedance statistic. Modern multivariate Eulerian work supplies the probabilistic classification context but does not state the mixed local covariance law. Semantic, alias, implication, and exact-form searches did not locate the arbitrary-weight formula, the local Spearman sign reversal, or the total correlation. A residual risk remains because the conditional argument is elementary and could appear in older literature under a different formulation.",
+    "residual_risks": [
+      "Older excedance-set or linear-rank-statistic literature may contain an equivalent local covariance under different notation.",
+      "A general permutation-matrix moment identity could make the local formula implicit even if the explicit excedance/Spearman corollary is not stated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXCEDANCE_BACKGROUND_WITHOUT_SPEARMAN",
+        "evidence": "The article explicitly defines excedance statistics and develops expectation formulas for permutation statistics; no Spearman or squared rank-displacement statistic was found.",
+        "identifier_or_url": "arXiv:1301.0430",
+        "material_read": "Complete accessible arXiv article, with focused inspection of the definitions and excedance sections and full-text searches for Spearman and displacement terminology.",
+        "method": "Public full-text inspection.",
+        "title": "Permutation statistics of products of random permutations",
+        "trigger": "Direct full-text source defining excedance and weak excedance in a broad study of permutation statistics."
+      },
+      {
+        "assessment": "SPEARMAN_BACKGROUND_WITHOUT_EXCEDANCES",
+        "evidence": "The article develops correlations among Spearman-family metrics and motivates redundancy questions; no excedance statistic was found in the inspected text.",
+        "identifier_or_url": "arXiv:1110.0807",
+        "material_read": "Complete accessible article with focused inspection of the Spearman-family section and full-text searches for excedance, exceedance, and Eulerian terminology.",
+        "method": "Public full-text inspection.",
+        "title": "Asymptotic correlations of metrics on the symmetric groups",
+        "trigger": "Direct full-text source on Spearman-family permutation metrics and dependence among ranking summaries."
+      },
+      {
+        "assessment": "EULERIAN_PROBABILITY_CONTEXT",
+        "evidence": "The source connects multivariate Eulerian polynomials with a probabilistic exclusion process and lists primary MSC 60C05; it does not expose the mixed Spearman covariance claimed here.",
+        "identifier_or_url": "DOI:10.1017/S0963548316000031",
+        "material_read": "Publisher abstract, bibliographic metadata, MSC classification, and reference context linking to classical excedance-set work.",
+        "method": "Public publisher-page inspection.",
+        "title": "Multivariate Eulerian Polynomials and Exclusion Processes",
+        "trigger": "Primary probability-classified modern source for Eulerian permutation statistics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d2e55488-afc7-4adf-a1ea-8cf376c0debc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Excedance count is a canonical Eulerian statistic and Spearman rho is a canonical global rank-displacement summary. The arbitrary-weight local law is structurally reusable rather than a one-off moment, and its Spearman specialization reveals a nontrivial sign reversal across positions. The total-count corollary gives a simple exact finite redundancy scale, while the local theorem explains where that aggregate dependence comes from.",
+    "status": "PASS"
+  }
+}
