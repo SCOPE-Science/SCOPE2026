@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For common \\(k,N\\), Shannon ranking is the reverse ordering of \\(Q=\\prod_i n_i^{n_i}\\), and order-\\(\\infty\\) Hill diversity is the reverse ordering of \\(\\max_i n_i\\). After subtracting the baseline one individual per species, profiles are partitions of \\(r=N-k\\); once \\(k\\ge r\\), padding by ones proves stabilization. Exact enumeration gives the stated \\(r=4\\) weak boundary and \\(r=6\\) strict boundary with the complete first layer.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Morris et al. explicitly analyze Shannon and Berger–Parker together, emphasize different sensitivity to abundant species, and state that index choice can alter interpretation.",
+        "Carrigg et al. place Shannon and Berger–Parker at distinct points of a Rényi diversity profile and compare sample rankings across metrics.",
+        "Berger and Parker's 1970 article is the foundational source for the dominance measure."
+      ],
+      "reasoning": "These sources establish why cross-order disagreement is scientifically meaningful, but they do not supply a minimum integer census heterogeneity at fixed richness.",
+      "searches": [
+        "Choosing and using diversity indices Shannon Berger Parker Hill series",
+        "Understanding microbial community diversity metrics Shannon Berger Parker ranks",
+        "Berger Parker 1970 diversity planktonic foraminifera"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1126/science.168.3937.1345",
+      "doi:10.1002/ece3.1155",
+      "doi:10.1111/j.1574-6941.2012.01405.x",
+      "MSC2020:92D40"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published diversity-profile work makes crossings across orders conceptually possible and empirical studies show metric-dependent rankings.",
+        "General non-interchangeability does not imply universal agreement through three excess individuals, absence of strict reversal through five, or completeness of the excess-six layer.",
+        "Related own-ledger results compare Shannon with Simpson and Berger–Parker with Simpson, but neither pairwise theorem determines the direct order-\\(1\\) versus order-\\(\\infty\\) boundary."
+      ],
+      "reasoning": "The accepted claim is a sharp inverse ordering threshold under fixed richness, not merely another observation that diversity metrics emphasize different portions of the abundance distribution.",
+      "searches": [
+        "Hill diversity profile lines cross community order Shannon Berger Parker",
+        "Shannon Berger Parker rankings community diversity",
+        "diversity indices not interchangeable Shannon Berger Parker"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Morris et al. place Shannon at Hill order \\(1\\) and reciprocal Berger–Parker at Hill order \\(\\infty\\).",
+        "At fixed total, the same comparison is equivalently between \\(\\prod_i n_i^{n_i}\\) and the maximum abundance.",
+        "No checked source stated the excess-four or excess-six thresholds."
+      ],
+      "reasoning": "The claim has equivalent formulations as Shannon versus Berger–Parker, Hill order \\(1\\) versus order \\(\\infty\\), or an exact integer-partition comparison between a weighted power product and the largest part. Searches covered all three formulations.",
+      "searches": [
+        "Shannon diversity Berger Parker dominance rank reversal abundance profile",
+        "Berger Parker index Shannon entropy comparison species abundance integer",
+        "Hill diversity order 1 order infinity same richness ordering reversal",
+        "Shannon Berger Parker first ranking reversal fixed species richness integer abundance 1 4 4 2 2 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-vector search located either strict first-layer mechanism.",
+        "No checked table or database result gave the excess-six minimality statement.",
+        "The verifier generates the layer from integer partitions and imports no abundance table."
+      ],
+      "reasoning": "Exact-vector and boundary-language searches directly test whether the small witnesses already appear as ecological examples, benchmark tables, or software tests.",
+      "searches": [
+        "\"1,4,4\" \"2,2,5\" Shannon Berger Parker",
+        "\"1,3,3,3\" \"2,2,2,4\" Berger Parker Shannon",
+        "\"Shannon\" \"Berger-Parker\" \"rank reversal\" diversity",
+        "\"Hill diversity\" \"order infinity\" crossing communities"
+      ]
+    },
+    "rationale": "The literature establishes the two indices, their Hill-spectrum interpretation, and the practical fact that diversity metrics can rank communities differently. The checked published material, database searches, exact-vector searches, and own-ledger comparison did not state or imply the sharp fixed-richness integer excess thresholds or their complete first layers.",
+    "residual_risks": [
+      "The complete original Berger–Parker 1970 article was not available through the checked lawful route; only its bibliographic record and abstract were inspected.",
+      "An unindexed teaching example or software test could contain one of the small abundance-profile reversals.",
+      "Related prior work and own-ledger findings establish other Hill-order comparisons, so originality is restricted to the direct order-\\(1\\) versus order-\\(\\infty\\) fixed-richness boundary and its complete first layers."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly establishes ecological motivation, formulas, and non-interchangeability, but does not state the sharp fixed-richness integer boundary.",
+        "evidence": "The paper lists Shannon as Hill power \\(1\\), reciprocal Berger–Parker as Hill power \\(\\infty\\), explains their different abundance sensitivity, and states that index choice can profoundly alter interpretation.",
+        "identifier_or_url": "doi:10.1002/ece3.1155",
+        "material_read": "Open full text covering the abstract, introduction, index formula table, Hill-series interpretation, sensitivity discussion, ranking/application motivation, and methods using Shannon and Berger–Parker across organism and trait groups.",
+        "method": "Open full-text HTML inspection.",
+        "title": "Choosing and using diversity indices: insights for ecological applications from the German Biodiversity Exploratories",
+        "trigger": "Highly relevant open original research directly calculating Shannon and Berger–Parker on the same ecological data and placing both in Hill's series."
+      },
+      {
+        "assessment": "Shows that metric-dependent community ranking is practically relevant. It does not give the finite fixed-richness minimality theorem.",
+        "evidence": "The article defines Berger–Parker as the proportion of the most abundant species, Shannon as a richness-and-dominance metric, compares rankings, and marks them at Rényi orders \\(1\\) and \\(\\infty\\).",
+        "identifier_or_url": "doi:10.1111/j.1574-6941.2012.01405.x",
+        "material_read": "Full article text around the diversity-metric definitions, rank-order comparison table, and Rényi-profile discussion marking Shannon at order \\(1\\) and Berger–Parker at order \\(\\infty\\).",
+        "method": "Full-text HTML inspection.",
+        "title": "Understanding microbial community diversity metrics derived from metagenomes: performance evaluation using simulated data sets",
+        "trigger": "Original empirical study directly comparing Shannon and Berger–Parker rankings and interpreting them as points of a Rényi diversity profile."
+      },
+      {
+        "assessment": "Establishes the foundational source and exact public date. Whole-document noncoverage is not asserted.",
+        "evidence": "PubMed records publication on 12 June 1970 and identifies the paper as Berger and Parker's study of diversity and species dominance.",
+        "identifier_or_url": "doi:10.1126/science.168.3937.1345",
+        "material_read": "PubMed bibliographic record and abstract, including the exact publication date and the original discussion of species diversity and dominance.",
+        "method": "PubMed metadata and abstract inspection; complete lawful full text was not available through the checked route.",
+        "title": "Diversity of planktonic foraminifera in deep-sea sediments",
+        "trigger": "Foundational Berger–Parker source and archival date anchor."
+      },
+      {
+        "assessment": "The theorem concerns ecological species-abundance diversity measures.",
+        "evidence": "MSC2020 lists 92D40 as Ecology.",
+        "identifier_or_url": "MSC2020:92D40",
+        "material_read": "MSC2020 hierarchy entry naming 92D40.",
+        "method": "Public MSC classification inspection.",
+        "title": "MSC2020 database: 92D40 Ecology",
+        "trigger": "Primary classification ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "606b8f9b-7c92-42ba-9cdc-413913cee5e9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Shannon and reciprocal Berger–Parker are canonical order-\\(1\\) and order-\\(\\infty\\) Hill diversities, respectively, and differ maximally in how much of the abundance distribution they use. By fixing richness and expressing census size as baseline plus excess, the theorem isolates the smallest amount of compositional heterogeneity needed for a genuine cross-order ranking reversal and classifies every minimal mechanism.",
+    "status": "PASS"
+  }
+}
