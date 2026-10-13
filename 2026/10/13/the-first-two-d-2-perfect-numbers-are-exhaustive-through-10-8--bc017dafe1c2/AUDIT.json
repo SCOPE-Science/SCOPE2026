@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The finite claim is reduced to exact recurrences derived from the published Schemmel formula. A deterministic linear sieve provides every least prime factor through 100000000. Because L_2(n)<n for n>1, D_2(n)=L_2(n)+D_2(L_2(n)) is evaluated only from previously computed exact integers. The finalized verifier scans the entire domain and asserts that its fixed-point vector is exactly [37147,53290831], while also checking the exact prime count 5761455.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Defant's paper asks whether further D_m-perfect numbers exist rather than giving a global classification.",
+        "OEIS:A241667 records the second known fixed point but no broader uniqueness theorem.",
+        "Searches did not locate a global or larger-cutoff theorem that would imply the stated 100000000 classification."
+      ],
+      "reasoning": "A stronger result would either classify all D_2-perfect numbers or provide an exhaustive cutoff at least 100000000. Neither form was found in the inspected primary paper, exact database entry, or targeted literature searches.",
+      "searches": [
+        "\"37147\" \"Schemmel totient\"",
+        "\"53290831\" \"Schemmel totient\"",
+        "\"D_m-perfect\" Schemmel",
+        "\"D2-perfect\" 37147"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1506.05426v1",
+      "Journal of Integer Sequences 18 (2015), Article 15.2.1",
+      "OEIS:A241667",
+      "targeted exact-phrase, fixed-point, cutoff and semantic literature searches",
+      "current and prior number-theory research ledgers for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary paper says its computation for m in {2,4,6} below 100000 found only 37147.",
+        "The primary paper explicitly asks whether further D_m-perfect numbers exist.",
+        "OEIS adds 53290831 as another exact D_2 fixed point but does not supply a no-other-solutions interval reaching 100000000."
+      ],
+      "reasoning": "The source's 100000 computation cannot imply a 100000000 cutoff, and isolated evaluation of 53290831 cannot imply absence of intervening or later fixed points. The exhaustive scan supplies precisely the missing implication.",
+      "searches": [
+        "\"On Arithmetic Functions Related to Iterates of the Schemmel Totient Functions\" D_m-perfect",
+        "\"only D_m-perfect\" 37147",
+        "\"53290831\" \"D_m-perfect\"",
+        "\"D_2-perfect\" exhaustive"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1506.05426v1 defines D_m and reports the finite computation below 100000.",
+        "OEIS:A241667 identifies the same function as the sum of iterates of A058026 and records both fixed-point equalities.",
+        "No located source states that these two are exhaustive through 100000000."
+      ],
+      "reasoning": "The claim was compared both as D_2-perfect terminology and as the equivalent fixed-point equation for the iterate-sum sequence. Known sources cover the definition and individual examples, but not the finite completeness interval asserted here.",
+      "searches": [
+        "D2-perfect Schemmel totient fixed points 37147 53290831",
+        "sum iterates L_2 fixed point 53290831 37147",
+        "D_m-perfect numbers 37147 53290831 Defant",
+        "\"D_2-perfect\" \"100000000\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A241667 states a(37147)=37147 and a(53290831)=53290831.",
+        "The same OEIS entry links a table only through n=40000.",
+        "The database entry does not claim that no additional fixed point occurs below 100000000."
+      ],
+      "reasoning": "The database is decisive coverage of the two examples themselves, so the new claim is deliberately framed as exhaustive completeness through a larger cutoff, not as discovery of either example.",
+      "searches": [
+        "OEIS A241667 53290831 fixed point",
+        "\"a(53290831) = 53290831\" A241667",
+        "\"37147\" \"A241667\""
+      ]
+    },
+    "rationale": "The primary paper states only a computation below 100000 and explicitly raises the existence of further D_m-perfect numbers. The exact OEIS sequence records the two individual D_2 fixed points, including 53290831, but gives no exhaustive classification through 100000000. Targeted statement, alias, cutoff, database, implication, and internal-overlap searches found no covering theorem.",
+    "residual_risks": [
+      "An unindexed or unpublished computation may have searched beyond 100000000 without appearing in the inspected sources.",
+      "The finite theorem does not address whether additional D_2-perfect numbers exist above 100000000.",
+      "The result depends on an exhaustive program; the mathematical recurrence and exact integer implementation are supplied to make that dependency auditable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIMARY_GAP_SOURCE. It defines the object and gives only a much smaller finite computation, so it does not cover the 100000000 cutoff.",
+        "evidence": "The paper reports that for m in {2,4,6} the only D_m-perfect number below 100000 found was 37147, then asks whether any further D_m-perfect numbers exist for positive even m.",
+        "identifier_or_url": "arXiv:1506.05426v1",
+        "material_read": "The definition of the Schemmel totient formula; Definition 12 of D_m; the deficiency and abundance theorems; the paragraph reporting the computation below 100000; the concluding open question about further D_m-perfect numbers; and the MSC line.",
+        "method": "Direct inspection of the lawful open-access full text, including rendered PDF pages containing the concluding open question.",
+        "title": "On Arithmetic Functions Related to Iterates of the Schemmel Totient Functions",
+        "trigger": "Primary source defining L_m, R_m, H_m and D_m and posing the D_m-perfect-number question."
+      },
+      {
+        "assessment": "KNOWN_EXAMPLES_NOT_COVERING_CUTOFF. It records both fixed points but not their exhaustiveness through 100000000.",
+        "evidence": "The entry states a(37147)=37147 and a(53290831)=53290831; its linked table is through n=40000 and it gives no 100000000 completeness statement.",
+        "identifier_or_url": "OEIS:A241667",
+        "material_read": "Definition, comments, examples, linked table description, program snippets, authorship date and source links.",
+        "method": "Direct inspection of the current database entry.",
+        "title": "A241667",
+        "trigger": "Exact database entry for the D_2 iterate-sum function and known fixed points."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bc017daf-e1c2-4940-b08d-59664877d9c5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly identifies the existence and distribution of D_m-perfect numbers as a natural open direction. An exact 100000000 cutoff extends the paper's stated 100000 computation by three decimal orders and, unlike that original range, lies beyond the second known fixed point 53290831. It therefore establishes a natural finite classification rather than an arbitrary sample or a recomputation of a known table.",
+    "status": "PASS"
+  }
+}
