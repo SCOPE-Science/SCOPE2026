@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness: PASS.** The block normal form follows from the full anticommutator equation; squaring it gives five simultaneous and exhaustive equations. A nonzero \(2\times2\) square-zero block \(P\) has exactly \(q^2-1\) choices. Each of the two independent intertwiner blocks has \(q^s\) choices for an arbitrary square-zero \(s\times s\) block, and the final commutator equation has \(q^2\) solutions because its right-hand side automatically anticommutes with \(P\). The image/kernel/isomorphism count yields the exact square-zero factor \(S_s(q)\). Explicit small-field enumeration independently reproduces the first three dimension cases. Main risks checked: the dimensions of the module homomorphism spaces, the sign in the block equations, the characteristic-two case, and the zero-size quotient.
+
+**Originality: PASS, with literature risk.** Chen–Wang's general anti-commuting normal-form proposition is relevant background but lacks the finite-field square-zero and nonzero-product multiplicity. Schröer and Huang impose mutual annihilation and therefore cannot directly count this disjoint stratum. Source and equivalence searches did not reveal an exact nonzero-product rank-two fixed-target count. This is not a uniqueness certificate; differently indexed exterior-algebra representation literature remains a residual risk.
+
+**Value: PASS.** This is the first nontrivial product-rank fiber in representations with two square-zero anticommuting generators: first-generator rank one forces the product to vanish, while rank two supports it in every dimension at least four and every characteristic. The nonobvious independence of the count from the remaining nilpotent Jordan type yields a uniform exact factorization by the whole square-zero matrix population and an exact count of all corresponding ordered representations. A direct rank-one parameter substitution would give zero and would not yield this result.
+
+**Limits and closest literature.** The theorem does not count the mutually annihilating branch, higher fixed rank, or the distribution of second-matrix ranks. Chen–Wang's Proposition 2.2 describes the unrestricted linear anticommutant, not the constrained finite-field locus. Independently established publication priority is not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
