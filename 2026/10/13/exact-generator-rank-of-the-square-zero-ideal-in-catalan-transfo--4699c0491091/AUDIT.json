@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3, square-zero maps are exactly initial-one-fiber maps whose entire image lies in that fiber; this yields |S_n|=2^(n-2). Necessity of m>=M+s follows from comparing the two factor images and requiring s distinct intermediates outside the second factor one-fiber. An explicit construction of u and v with u^2=v^2=epsilon proves sufficiency. Output/run binomial enumeration gives b_n and a formal geometric series proves OEIS A005251 generating function. Nilpotency S_n^(n-1)={epsilon} and a nonzero indecomposable whose square is zero prove S_n\\S_n^2 uniquely minimally generates. Exhaustive compositions in checker.py n<=11 confirm the equivalence and counts; experiments are not offered as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2021 Theorem 3.4 applies to all bounded nilpotency indices but gives only a lower bound, not an exact rank.",
+        "2020 Yağcı–Korkmaz study determines rank of N(C_n), the full nilpotent ideal, which is strictly larger than S_n and does not specify S_n squared.",
+        "2023 Korkmaz thesis catalog abstract emphasizes m-potent counts and maximal nilpotent subsemigroups, not the exact generating rank of the restricted index-two ideal; whole thesis not materially read."
+      ],
+      "reasoning": "A theorem about a larger ideal does not automatically determine the intrinsic rank or two-factor product set of a proper subsemigroup. A lower bound for all r likewise does not yield an exact r=2 formula; strictness at n=6 is a concrete nonimplication. The inaccessible dissertation is expressly a residual risk.",
+      "searches": [
+        "web: order preserving decreasing Catalan monoid index 2 nilpotent subsemigroup minimal generating set rank products generators",
+        "web: \"Ranks of nilpotent subsemigroups of order-preserving and decreasing\"",
+        "web: \"On nilpotent subsemigroups of the order-preserving and decreasing\"",
+        "web: 2023 Emrah Korkmaz dissertation Rank of some order-preserving transformation semigroups and combinatorics"
+      ]
+    },
+    "checked_sources": [
+      "DOI 10.3906/mat-2008-19 full paper (Theorem 3.4, Examples 3.5, 3.6)",
+      "DOI 10.1007/s00233-020-10098-2 publisher preview",
+      "DOI 10.1007/s40840-020-00899-7 abstract",
+      "OEIS A005251 complete entry",
+      "2023 Korkmaz thesis catalog abstract",
+      "published-finding corpus semantic queries listed in equivalent_formulations and new row prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.4 of DOI 10.3906/mat-2008-19: rank N_2(C_n)>=|N_2(C_n)|-|N_2(C_(n-1))|=2^(n-3).",
+        "Example 3.5 proves one concrete n=6 map does not factor and observes a nonsurjective injection; it does not identify every factorable transformation.",
+        "New exact count |S_6|=16, |S_6^2|=7, rank=9; compare lower bound 8."
+      ],
+      "reasoning": "Full-factorization criterion and exact rank strictly refine rather than restate known lower bounds or one-off examples. The predecessor theorem does not determine the rank since its bound can be strict. The other published-finding corpus hit concerns self-maps of finite weak orders, unrelated to ordered-chain decreasing nilpotent semigroup rank.",
+      "searches": [
+        "Korkmaz Ayik 2021 Theorem 3.4 exact versus lower bound N_r(C_n)",
+        "2020 Yağcı Korkmaz m-potent element enumeration",
+        "2020 Yağcı Korkmaz nilpotent ideal rank Catalan",
+        "published-finding corpus published record 1cee64311a06"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Korkmaz–Ayık 2021, Theorem 3.4 and Examples 3.5–3.6, DOI 10.3906/mat-2008-19, complete open full text: only inequality, rank at n=5 and obstruction example.",
+        "published-finding corpus nearest search hit published published-finding corpus record 1d4bcdcec1ba concerns unit-group orbits in wreath products, not these nilpotent Catalan ideals.",
+        "published-finding corpus hit published published-finding corpus record 5cc1344198a0 concerns commutative ring radicals, not transformation monoid products."
+      ],
+      "reasoning": "The names bounded-potency ideal N_2(C_n), square-zero nilpotents, 2-potent elements and products of nondecreasing/decreasing maps all denote or subsume the same object. The inspected direct primary source does not give the iff inequality involving prefix length, image maximum and number of nonunit values, and its lower bound is strict at n=6; thus it cannot imply the exact result.",
+      "searches": [
+        "exact minimal generating set rank of square-zero nilpotent index-two order-preserving order-decreasing transformations Catalan monoid N^2(C_n) factorization",
+        "characterization of decomposable products of two 2-potent elements in the Catalan monoid and generating rank",
+        "generating rank of bounded-index nilpotent semigroup N^r(C_n), r=2; rational sequence 1 2 4 7 12 21 37",
+        "Yağcı Korkmaz Ayık rank N^2 Cn 2021 two-potent",
+        "Catalan monoid square-zero nilpotent ideal exact rank formula indecomposable transformations decomposition m M number image values",
+        "web: \"N_2(C_n)\" \"rank\" \"Korkmaz\" \"2024\"",
+        "web: Catalan monoid index 2 nilpotent subsemigroup minimal generating set rank products generators"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A005251 lists b_n=1,1,1,2,4,7,12,21,37,... and exact generating function z(1-z)/(1-2z+z^2-z^3).",
+        "Korkmaz–Ayık 2021 Example 3.6 explicitly lists all N_2(C_5)^2 and the known rank 4, but no general b_n counts."
+      ],
+      "reasoning": "The numerical sequence is classical and must not be presented as novel. Its semigroup interpretation b_n=|N_2(C_n)^2|, structural criterion and intrinsic generator rank are not recorded by those sources; sharing the same numbers alone is not stronger scientific coverage.",
+      "searches": [
+        "OEIS A005251 0 1 1 1 2 4 7 12 21 37 65 114",
+        "open: https://oeis.org/A005251",
+        "web: Korkmaz Ayik Example 3.6 N2 C5 rank 4"
+      ]
+    },
+    "rationale": "The complete Korkmaz–Ayık (2021) full text, including Theorem 3.4 and Examples 3.5–3.6, proves only a lower bound for N_2(C_n), an individual nonfactorability example at n=6, and rank=4 at n=5. The exact all-n factorization iff criterion and rank were not established there. The new rank 9 at n=6 exceeds the earlier lower bound 8. Published nilpotency-degree counts and full-nilpotent-semigroup rank do not imply the exact N_2(C_n)^2 image. OEIS already lists the integer sequence and recurrence, which are expressly not claimed novel. Full 2023 dissertation inaccessible; see residual risks.",
+    "residual_risks": [
+      "A 2023 doctoral thesis on similar semigroups was not available in full, and could include an unindexed equivalent exact result.",
+      "The 2020 full nilpotent semigroup paper was accessible only as publisher preview, while the 2021 paper referring to it was fully read.",
+      "published-finding corpus search and public literature inspection cannot establish universal novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides bound and n=5 exact case, n=6 obstruction; does not state proposed exact rank for all n or iff decomposability criterion.",
+        "evidence": [
+          "DOI 10.3906/mat-2008-19, pp 1632–1633, Theorem 3.4 and Examples 3.5–3.6"
+        ],
+        "identifier_or_url": "https://doi.org/10.3906/mat-2008-19",
+        "material_read": "Open-access text of complete article: definitions in Section 1, Section 2 and entire Theorem 3.4 proof, Examples 3.5 and 3.6, discussion and references",
+        "method": "Read publisher-paper text reproduced openly with full article content at https://www.researchgate.net/publication/353567648_Ranks_of_nilpotent_subsemigroups_of_order-preserving_and_decreasing_transformation_semigroups",
+        "title": "Ranks of nilpotent subsemigroups of order-preserving and decreasing transformation semigroups",
+        "trigger": "Same named bounded-potency nilpotent semigroup and rank problem"
+      },
+      {
+        "assessment": "Full nilpotent ideal rank is distinct; cannot exclude uninspected equivalences, recorded as risk.",
+        "evidence": [
+          "Semigroup Forum 101 (2020), 486–496; published online 2020-03-23, abstract specifies rank of full N(C_n)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00233-020-10098-2",
+        "material_read": "Publisher preview and abstract, opening definitions only; full paper unavailable in consulted access",
+        "method": "ResearchGate publisher preview and metadata, cross-compared with the full 2021 paper references",
+        "title": "On nilpotent subsemigroups of the order-preserving and decreasing transformation semigroups",
+        "trigger": "Same Catalan nilpotent monoid, potentially stronger full ideal results"
+      },
+      {
+        "assessment": "Establishes number of elements of each nilpotency index, not the two-factor product set or its generator rank. Full text not inspected.",
+        "evidence": [
+          "Bulletin of the Malaysian Mathematical Sciences Society 43 (2020), 3863–3870, first online 2020-01-28."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s40840-020-00899-7",
+        "material_read": "Abstract and published bibliographic record, not full journal text",
+        "method": "University publication database and ResearchGate abstract",
+        "title": "On Elements of Finite Semigroups of Order-Preserving and Decreasing Transformations",
+        "trigger": "Direct earlier counting theorem for 2-potent map family"
+      },
+      {
+        "assessment": "The sequence and generating function are previously known; no reference to the present Catalan nilpotent product-set interpretation identified.",
+        "evidence": [
+          "OEIS A005251 formulas z(1-z)/(1-2z+z^2-z^3) and recurrence 2,-1,1."
+        ],
+        "identifier_or_url": "https://oeis.org/A005251",
+        "material_read": "Sequence definitions, complete comments, formulas, cited references and first terms",
+        "method": "Direct open OEIS sequence page",
+        "title": "OEIS A005251",
+        "trigger": "Exact numerical-match comparison for product-set counting sequence"
+      },
+      {
+        "assessment": "Abstract emphasizes element counts and ranks of maximal nilpotent semigroups, not restricted 2-potent rank. No negative whole-document claim; residual risk.",
+        "evidence": [
+          "2023 Çukurova University doctoral thesis, E. Korkmaz, national thesis no 790815."
+        ],
+        "identifier_or_url": "https://tezara.org/theses/790815",
+        "material_read": "Bibliographic record and abstract only; the complete 2023 thesis was not obtained",
+        "method": "Cross-matched Turkish and English catalog abstracts",
+        "title": "Rank of some order-preserving transformation semigroups and combinatorics (doctoral thesis)",
+        "trigger": "Same authors and semigroup ranks; plausible later treatment"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4699c049-1091-4364-bc0e-4b11e0309762",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Addresses the exact minimal generator rank of the natural index-two nilpotent ideal explicitly left at a lower bound by Korkmaz–Ayık (2021), with a uniform necessary-and-sufficient factorization criterion and explicit construction. The exact rank already differs from the published 2^(n-3) bound at n=6, and rank ~2^(n-2) while the decomposable fraction vanishes exponentially. The b_n integer sequence itself is pre-existing and is only an auxiliary count, not the asserted novelty. The result is neither an arbitrary slice nor a routine recomputation of a known table.",
+    "status": "PASS"
+  }
+}
