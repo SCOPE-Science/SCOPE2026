@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Squarefreeness follows because a repeated prime divides psi(N) but cannot divide MN-1. The even branch is eliminated by parity except N=2. On the odd branch M is odd and at least 3. Coordinatewise monotonicity reduces every support size r≤15 to the first r odd primes, and exact rational arithmetic gives a maximum strictly below 3. The proof is unrestricted; bounded computation is only regression evidence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yamada Theorem 3 gives M<15.52051 log log log N for both signs and Theorem 4 gives an omega-dependent upper bound; neither implies nonexistence for omega≤15.",
+        "Subbarao proves omega≥16 only for the plus-sign set T(M)."
+      ],
+      "reasoning": "An upper bound on M does not imply the claimed support lower bound, while the stronger-looking classical 16-prime theorem is sign-specific and therefore does not cover the minus equation.",
+      "searches": [
+        "Yamada arXiv 2303.16853 Theorem 3 Theorem 4 Dedekind psi MN ±1",
+        "Subbarao A companion to a Lehmer problem T(M) psi 1+MN omega 16",
+        "Dedekind psi minus one Lehmer companion lower bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2303.16853v1",
+      "Publ. Math. Debrecen 52 (1998), 683–698",
+      "OEIS:A001615",
+      "OEIS:A203444",
+      "semantic literature index searches for the exact minus equation and congruence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full Subbarao text explicitly defines T(M)={n:psi(n)=1+Mn} before deriving M odd and omega(n)≥16.",
+        "The Yamada introduction explicitly attributes that lower bound to psi(N)=MN+1, while its own theorems concern upper bounds for ±1."
+      ],
+      "reasoning": "The final claim is not a corollary or special case of either source: changing +1 to -1 changes the defining congruence, and the ± results available in Yamada run in the opposite implication direction (upper bounds on M).",
+      "searches": [
+        "Subbarao psi(N)=MN+1 M odd omega 16",
+        "Yamada psi(N)=MN±1 omega Theorem 4",
+        "Dedekind psi N equals M N minus 1 omega at most 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yamada 2023 states the equation as psi(N)=MN±1 but does not state a lower support bound for the minus sign.",
+        "Subbarao 1998 defines T(M) only for psi(N)=1+MN and proves the 16-prime lower bound in that plus-sign setting.",
+        "Targeted semantic searches returned no record matching psi(N)=MN-1 with a low-support classification."
+      ],
+      "reasoning": "The claim was searched both as an exact equation and as the congruence psi(N)≡-1 mod N. The closest primary sources distinguish the plus-sign lower bound from later ± upper bounds, so no equivalent minus-sign statement was located.",
+      "searches": [
+        "Dedekind psi N equals M N minus 1 omega at most 3",
+        "Dedekind function psi(N)=MN-1 three prime factors",
+        "psi(N) congruent -1 modulo N Dedekind three primes",
+        "Dedekind psi MN minus 1 omega at least 6",
+        "Dedekind function psi(N)=MN-1 M odd squarefree omega 6",
+        "psi(n) congruent -1 mod n squarefree at least six primes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001615 gives psi(n)=n product_{p|n}(1+1/p).",
+        "OEIS A203444 tabulates the range and notes psi(n) is even for n>2.",
+        "Neither entry states a classification of solutions to psi(N)=MN-1 by prime support."
+      ],
+      "reasoning": "Function and range tables support the parity background but do not imply the equation-level sixteen-prime barrier.",
+      "searches": [
+        "OEIS A001615 Dedekind psi",
+        "OEIS A203444 range Dedekind psi",
+        "Dedekind psi MN-1 OEIS"
+      ]
+    },
+    "rationale": "The inspected 1998 source proves the 16-prime barrier for psi(N)=MN+1. The inspected 2023 source treats both signs in multiplier upper bounds but does not provide the minus-sign support lower bound. Exact equation, congruence, alias, and low-support searches found no implication-equivalent result.",
+    "residual_risks": [
+      "An unindexed note may have observed the same sign-adapted extremal-product argument.",
+      "The method is elementary once the parity split is noticed, so unpublished prior observation is a nonzero risk.",
+      "No claim is made beyond the 16-prime necessary threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves upper bounds for both signs and cites a 16-prime lower bound only for the plus sign; it does not state the final minus-sign theorem.",
+        "evidence": "Theorem 3 treats psi(N)=MN±1; Theorem 4 assumes omega(N)≥4 for an upper bound. The introduction attributes omega(N)≥16 to Subbarao under psi(N)=MN+1.",
+        "identifier_or_url": "arXiv:2303.16853v1",
+        "material_read": "Abstract, submission history, MSC metadata, introduction around Theorems 3 and 4, and the Dedekind-function background; the relevant PDF page was visually inspected.",
+        "method": "Full-text inspection plus PDF-page visual check.",
+        "title": "On Lehmer's problem and related problems",
+        "trigger": "Focal 2023 source covering Dedekind psi equations with both signs."
+      },
+      {
+        "assessment": "The 16-prime theorem is explicitly for T(M)={n:psi(n)=1+Mn}; it does not cover psi(n)=Mn-1.",
+        "evidence": "The paper defines T(M) by the plus equation immediately before the displayed M odd, omega(n)≥16 estimate.",
+        "identifier_or_url": "Publ. Math. Debrecen 52 (1998), 683–698",
+        "material_read": "Definition of T(M), Conjecture C, and the page deriving M odd and omega(n)≥16; the page was visually inspected.",
+        "method": "Open full-text PDF and page-level inspection.",
+        "title": "A companion to a Lehmer problem",
+        "trigger": "Closest classical lower-support result for Dedekind psi."
+      },
+      {
+        "assessment": "The entries define/tabulate psi and record parity information but do not state the minus-equation support barrier.",
+        "evidence": "A001615 gives the Euler product; A203444 notes the range is even above 2.",
+        "identifier_or_url": "OEIS:A001615; OEIS:A203444",
+        "material_read": "Definitions, formulas, range comments, and linked descriptive text.",
+        "method": "Database entry inspection.",
+        "title": "OEIS A001615 and A203444",
+        "trigger": "Natural exact databases for Dedekind psi values and range."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d18b2c71-7b6c-4862-b377-589a93f4e150",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The minus-sign equation is a natural companion to a classical plus-sign Lehmer-type problem. Matching the classical 16-prime support barrier closes all smaller support sizes uniformly and identifies the exact exceptional solution N=2. The cutoff is intrinsic to the extremal Euler product, not an arbitrary numerical slice, and the parity/squarefreeness reductions are reusable in further study.",
+    "status": "PASS"
+  }
+}
