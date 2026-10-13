@@ -1,0 +1,91 @@
+{
+  "correctness": {
+    "rationale": "The source second moment is exactly a normalized weighted sum. Replacing one baseline term by an outlier adds exactly \\( (H^2-G^2)\\tau^{-\\gamma}/B_t \\). The three limits then follow from integral comparison, harmonic-number asymptotics, and convergence of the zeta series. The embedded checker independently replays the recurrence and limiting scalings.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical weighted-average theory distinguishes divergent and convergent total weight.",
+        "Adam's exponential second-moment weights forget a fixed isolated perturbation exponentially.",
+        "NosAdam deliberately replaces exponential recency weighting by nonincreasing hyperharmonic weights."
+      ],
+      "reasoning": "The weighted-average principle is classical, but the accepted claim identifies its exact optimizer-specific consequence for the source NosAdam-HH adaptive denominator, including the source parameterization and denominator-rescaling limit.",
+      "searches": [
+        "hyperharmonic weighted average finite perturbation summability memory",
+        "Adam exponential weighting isolated gradient outlier forgetting",
+        "NosAdam long term memory large gradient"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1805.07557v1",
+      "DOI:10.24963/ijcai.2019/355"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 1 and the surrounding derivation give \\(v_t=(1/B_t)\\sum b_k g_k^2\\).",
+        "Corollary 3.2.1 defines NosAdam-HH by \\(b_k=k^{-\\gamma}\\).",
+        "The discussion of a very large gradient says NosAdam can subsequently decrease its second-moment state, unlike AMSGrad's running maximum."
+      ],
+      "reasoning": "Those source statements supply the recurrence and motivation but not the fate of a fixed outlier. The new statement requires isolating one weighted term and classifying the normalization by the summability of the full hyperharmonic series.",
+      "searches": [
+        "arXiv:1805.07557 Algorithm 1 v_t weighted average",
+        "arXiv:1805.07557 NosAdam-HH b_k k gamma",
+        "arXiv:1805.07557 large gradient AMSGrad NosAdam decrease v_t"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source gives the exact normalized hyperharmonic weighted-average formula.",
+        "It says NosAdam can recover its second-moment scale after a large gradient because the scale can decrease.",
+        "No inspected source states an exact finite-outlier imprint or a gamma-one forgetting threshold."
+      ],
+      "reasoning": "Equivalent coverage would classify whether a fixed finite prefix perturbation vanishes in the normalized second moment, or state the same power/log/permanent trichotomy. Qualitative long-term-memory language and monotonicity of the weights do not imply that classification.",
+      "searches": [
+        "NosAdam Nostalgic Adam exact alternating gradient memory weights optimizer",
+        "NosAdam hyperharmonic single outlier forgetting polynomial memory gamma phase transition permanent bias",
+        "NosAdam hyperharmonic outlier forgetting gamma 1 second moment memory"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed results concern stochastic-feedback stability, AdOGD persistence, and unrelated memory phase transitions.",
+        "No returned indexed record names NosAdam or states the hyperharmonic outlier-forgetting transition."
+      ],
+      "reasoning": "The closest records use different state recurrences and do not imply the normalized NosAdam hyperharmonic weighted-average law.",
+      "searches": [
+        "NosAdam Nostalgic Adam exact alternating gradient memory weights optimizer",
+        "NosAdam hyperharmonic single outlier forgetting polynomial memory gamma phase transition permanent bias",
+        "NosAdam hyperharmonic outlier forgetting gamma 1 second moment memory"
+      ]
+    },
+    "rationale": "The defining source states the hyperharmonic weighting rule, qualitative long-term memory, and the ability of the second moment to decrease after a large gradient. It does not state the exact isolated-outlier memory law, the sharp summability transition at gamma one, or the permanent residual for summable weights. Focused published-record and owned-ledger searches found no implication-equivalent NosAdam result.",
+    "residual_risks": [
+      "The summability argument is elementary and an equivalent observation may exist in unindexed optimizer notes or generic weighted-average discussions.",
+      "The theorem concerns only the second-moment denominator, not the first-moment transient or the full optimization path.",
+      "The practical desirability of permanent memory for gamma above one is task dependent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_MEMORY_RULE_NOT_COVERING_SHARP_OUTLIER_FORGETTING_TRANSITION.",
+        "evidence": "The source states that the second moment can decrease and illustrates large-gradient recovery, but no exact isolated-outlier decay law or gamma-one phase transition was found.",
+        "identifier_or_url": "arXiv:1805.07557v1 / DOI:10.24963/ijcai.2019/355",
+        "material_read": "Full open-access paper covering Algorithm 1, the weighted-average identity, Corollary 3.2.1 defining the hyperharmonic weights, the weighting comparison with Adam and AMSGrad, and the discussion and figure concerning a very large gradient. The algorithm/hyperharmonic page was visually inspected.",
+        "method": "Full-text PDF inspection plus page-image inspection.",
+        "title": "Nostalgic Adam: Weighting More of the Past Gradients When Designing the Adaptive Learning Rate",
+        "trigger": "Defining source for NosAdam's weighted second moment, hyperharmonic specialization, and large-gradient recovery motivation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7f7aa379-b238-4ed0-84f5-3a0c7156eef3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Long-term memory is the defining design choice of NosAdam, and the source explicitly motivates its ability to recover after a large gradient. The result gives the exact boundary of that recovery: below gamma one the memory tail is polynomial, at gamma one it is logarithmic, and above gamma one recovery of the baseline denominator is incomplete. This is a direct, interpretable tuning law for the defining hyperharmonic parameter rather than an arbitrary scalar exercise.",
+    "status": "PASS"
+  }
+}
