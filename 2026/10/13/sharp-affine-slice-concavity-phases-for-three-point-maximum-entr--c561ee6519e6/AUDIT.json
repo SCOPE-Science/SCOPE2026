@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The normalized three-dimensional scaled NLP-Id determinant is positive on the entire compact two-selection hypersimplex. A direct determinant expansion gives exact elementary-symmetric coefficients. Both outer spectral concavity ranges follow from affine log-determinant concavity. The additional low range follows because e2 and e3 are concave on this slice and have nonnegative coefficients. In the excluded gap the coefficient B is negative, yielding an exact positive directional second derivative at a feasible relative-interior point; all boundaries are handled. Symmetry/Jensen gives the exact maximizer and determinant formula. The derivative numerator is a concave quadratic positive at both relevant endpoints, ensuring strict monotonicity. The Hessian has uniform curvature bounded above by -B/Dmax on the extra low interval, and compactness ensures persistence for covariance perturbations. The actual standalone checker returned VERIFY_OK on 770 rational determinant configurations plus further checks; real quantifiers are proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.01214v1 Section 3 proves concavity for gamma<=1/(1+2a) or gamma>=1/(1-a) when n=3.",
+        "Its Theorem 17 gives gamma<=(1-3a)/(1-a)^2 only for a<1/3, on the full cube; 1/(1+a) exceeds this endpoint by 4*a^2/((1+a)*(1-a)^2).",
+        "DOI:10.1007/s00453-026-01373-9 develops the separate generalized factorization (GFact/DGFact) bound; no scaled NLP-Id Hessian threshold is proved."
+      ],
+      "reasoning": "Full-cube Hessian conditions need not be necessary on a fixed-sum plane; direct comparison of ranges shows the source sufficient bounds are strictly weaker in the new low slice interval. Generalized factorization changes the objective and cannot imply the curvature of the specific NLP-Id log determinant without an additional equivalence, which was not given.",
+      "searches": [
+        "Anstreicher Fampa Lee Li Ponte 2026 NLP Id Hessian scaling affine cardinality concavity",
+        "2026 maximum entropy sampling scaled NLP-Id logdet concavity on cardinality constrained hypersimplex equicorrelation C=(1-a)I+a 11 transpose gamma 1/(1+a)",
+        "https://arxiv.org/html/2609.01214v1 Theorems 2, 13, 17, 18; Remark 16",
+        "https://link.springer.com/article/10.1007/s00453-026-01373-9 generalized factorization bound"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.01214v1",
+      "https://arxiv.org/html/2511.04350v3",
+      "https://link.springer.com/article/10.1007/s00453-026-01373-9",
+      "https://ideas.repec.org/p/cor/louvco/1997029.html",
+      "https://arxiv.org/abs/2609.01214 (initial 2026-09-01 submission)",
+      "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SEA.2024.25 (earlier generalized factorization proceedings)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 17 is a sufficient condition for concavity on [0,1]^n; it is not a necessary characterization on Delta.",
+        "Theorem 18 studies scale monotonicity under a narrower a and gamma regime, not the explicit all-a closed-form upper-bound derivative on the slice.",
+        "The historical 1997 working-paper abstract discusses NLP relaxations and branch-and-bound, without material support for an exact two-interval affine-slice theorem."
+      ],
+      "reasoning": "The final claim contains a sharp iff classification and explicit positive-curvature witnesses. Those logical necessities do not follow from the source sufficiency or from the related natural-bound equivalence. The derivative profile and open perturbation stability are further assertions absent from the direct source. The inaccessible historical source remains a genuine but not decisive coverage risk.",
+      "searches": [
+        "equicorrelation maximum entropy sampling scaled NLP-Id concavity gamma 1/(1+a) 1/(1-a) exact phase diagram",
+        "Anstreicher Fampa Lee Li Ponte 2026 NLP Id Hessian scaling affine cardinality concavity",
+        "new insights NLP-Id bound maximum entropy sampling Anstreicher Fampa Lee Li Ponte September 2026 variable scaling concavity",
+        "https://arxiv.org/html/2609.01214v1 Remark 16 and Theorem 17",
+        "https://arxiv.org/html/2511.04350v3 Theorem 3.13"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The scaled NLP-Id determinant equals det(I+(gamma*C-I)*Diag(x)) by Sylvester.",
+        "arXiv:2511.04350v3 Theorem 3.13 maps NLP-Id at gamma=1/lambda_max to a natural D-opt bound.",
+        "arXiv:2609.01214v1 Definition of scaled NLP-Id covers arbitrary gamma but its mapping theorems split at the spectral extremes."
+      ],
+      "reasoning": "The determinant and D-optimal-design reformulations were compared as mathematical identities. They establish concavity at the spectral scaling or in spectral semidefinite regions; none supplies the sharp low threshold 1/(1+a) or the interior failure up to 1/(1-a). The new result is a property of the actual affine slice rather than a restatement of the relaxation.",
+      "searches": [
+        "maximum entropy sampling NLP-Id scaled determinant objective concavity hypersimplex three variables sample size two equicorrelation sharp",
+        "equicorrelation maximum entropy sampling scaled NLP-Id concavity gamma 1/(1+a) 1/(1-a) exact phase diagram",
+        "\"NLP-Id\" \"hypersimplex\" \"concave\"",
+        "https://arxiv.org/html/2511.04350v3 Sections 3.3.3 and 5.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full relevant text of arXiv:2609.01214v1 includes example matrices and numerical intervals for ambient Hessians but no three-variable cardinality-two table of exact scaling ranges.",
+        "Published semantic-search hits concerned unrelated coordinate sampling, generic determinant curvature, and entropy rectangles; no exact NLP-Id affine-slice table was identified."
+      ],
+      "reasoning": "The exact endpoints depend on the signed elementary-symmetric coefficient B for the specified cardinality-two slice, and are not reproduced by a numerical table or by the published results inspected. A negative search is only supporting context and does not certify global uniqueness.",
+      "searches": [
+        "maximum entropy sampling NLP-Id scaled determinant objective concavity hypersimplex three variables sample size two equicorrelation sharp",
+        "sharp concavity interval 3 by 3 exchangeable covariance maximum entropy sampling two selections, gamma 1/(1+a) threshold",
+        "\"maximum entropy sampling\" \"concavity\" \"fixed sum\" \"scaled\"",
+        "maximum entropy sampling two sensors three candidates strong concavity stability perturbations equicorrelated covariance"
+      ]
+    },
+    "rationale": "The motivating 2026 work proves ambient-cube spectral sufficient intervals and a limited equicorrelation sufficient interval, but not exact necessity/sufficiency on the cardinality-two affine slice. A detailed comparison of its Theorem 17 and Remark 16, the preceding MESP/D-Opt equivalence work, and a distinct 2026 generalized factorization bound revealed no statement implying the all-scale classification, explicit slice curvature, relaxation-value monotonicity or robust off-spectral concavity. The 1996/1999 originals were not retrieved in full; that and unindexed equivalent mathematics remain risks.",
+    "residual_risks": [
+      "A mathematically equivalent affine-slice phase classification may exist under D-optimal-design terminology or in an unindexed paper.",
+      "The 1996 conference manuscript and 1999 original continuous-NLP study were not reviewed in full; abstract access cannot establish noncoverage.",
+      "Results about the exact equicorrelation family should not be represented as general sharp boundaries for arbitrary covariance matrices; only qualitative perturbation stability was proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest direct source. It supplies two spectral intervals and an equicorrelation full-cube sufficient condition, but no iff affine-cardinality-two classification or explicit stable extra range.",
+        "evidence": [
+          "arXiv:2609.01214v1, definition (NLP-Id(gamma)), Theorem 2, Theorem 13, Remark 16, Theorem 17, Theorem 18."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.01214v1",
+        "material_read": "Full open-access HTML sections 1–5 including objective definition, spectral concavity, Theorems 13, 17, 18, Remark 16, examples and references.",
+        "method": "Direct full-text HTML reading and comparison of statements, hypotheses, parameter ranges and conclusions.",
+        "title": "New insights into the NLP-Id bound for maximum-entropy sampling",
+        "trigger": "Same scaled objective, same equicorrelation family, and discussion of restricted affine-slice Hessians."
+      },
+      {
+        "assessment": "Natural-bound identity at the spectral scaling, not a sharp variable-scale affine-slice concavity result.",
+        "evidence": [
+          "arXiv:2511.04350v3, Section 3.3.3, Theorem 3.13, Section 5.4."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2511.04350v3",
+        "material_read": "Open-access HTML introduction, Section 3 basic bounds and Section 3.3 equivalences including Theorem 3.13, Section 5.4 comparison and references.",
+        "method": "Direct full-text HTML inspection of the relevant mathematical statements and proof transformations.",
+        "title": "On the relationship between MESP and 0/1 D-Opt and their upper bounds",
+        "trigger": "Predecessor linking the same determinant family with a different natural convex relaxation."
+      },
+      {
+        "assessment": "Generalized factorization and dual bound; does not subsume the scaled NLP-Id curvature problem.",
+        "evidence": [
+          "Algorithmica 88:22 (2026), equations GFact/DGFact, Theorems 1–7, DOI:10.1007/s00453-026-01373-9."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00453-026-01373-9",
+        "material_read": "Open-access full-text HTML introduction, Sections 2–3 mathematical formulation and results, references; compared the distinct GFact/DGFact objectives.",
+        "method": "Direct primary HTML text inspection of relaxation definitions and theorem conclusions.",
+        "title": "Convex relaxation for the generalized maximum-entropy sampling problem",
+        "trigger": "A 2026 convex relaxation potentially broader than MESP."
+      },
+      {
+        "assessment": "Abstract confirms originating method but is insufficient to exclude hidden equivalent special-case concavity. This unresolved risk was explicitly retained, not marked noncovering.",
+        "evidence": [
+          "RePEc:cor:louvco:1997029 abstract; Math. Programming 85 (1999), 221–240; DOI:10.1007/s101070050055."
+        ],
+        "identifier_or_url": "https://ideas.repec.org/p/cor/louvco/1997029.html",
+        "material_read": "Authoritative bibliographic record and abstract only; publisher/working-paper links were checked but complete text was not retrieved.",
+        "method": "Read open bibliographic abstract and followed open-access discovery; full-text request through authorized institutional route was unavailable.",
+        "title": "Using continuous nonlinear relaxations to solve constrained maximum-entropy sampling problems",
+        "trigger": "Classical original NLP formulation and possible earlier geometric special cases."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c561ee65-19e6-4385-b2d5-8a6bbb31aa6a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The cardinality-two slice with three coordinates is the first natural two-dimensional feasible hypersimplex of scaled maximum-entropy sampling; the motivating publication explicitly identifies affine-slice curvature as unresolved by its ambient Hessian approach. The theorem provides an exact global concavity/nonconcavity threshold, a computable strictly improving optimal relaxation value, a Euclidean strong-concavity modulus, and convex off-spectral relaxation guarantees on an open class of non-equicorrelated matrices with nonidentical discrete selection values. It is a structural phase classification with a motivated robustness consequence, not a textbook restatement, routine enumerated invariant, or claim of global algorithm speedup.",
+    "status": "PASS"
+  }
+}
