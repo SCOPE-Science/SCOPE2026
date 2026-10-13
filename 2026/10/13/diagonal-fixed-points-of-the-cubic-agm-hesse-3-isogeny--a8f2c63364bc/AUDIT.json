@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Otsubo's displayed parameter relation gives the diagonal equation \\(9\\mu^{3}(\\mu^{2}+\\mu+1)=(\\mu+2)^{3}\\). Exact factorization produces \\((\\mu-1)(3\\mu^{2}+2\\mu+4)(3\\mu^{2}+4\\mu+2)\\); \\(\\mu=1\\) is singular, and the two quadratic factors give exactly four allowed complex parameters. Exact polynomial reduction of Otsubo's \\(j\\)-formula gives \\(j=-32768\\) and \\(j=8000\\). The packaged standard-library checker replays all algebraic identities. Otsubo's theorem then turns each diagonal correspondence point into a degree-\\(3\\) endomorphism with kernel \\(X+Y+Z=0\\).",
+    "risks": [
+      "The checker verifies the derived algebra, not the general isogeny theorem.",
+      "The CM-discriminant labels rely on the cited standard CM table rather than a packaged Hilbert-class-polynomial derivation."
+    ],
+    "sources": [
+      "arXiv:2610.03100v1, Theorem 1.1 and equation (4.8)",
+      "SageMath Reference Manual, cm_j_invariants_and_orders"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arpin et al. factor the diagonal modular polynomial as Φ_3(j,j)=-j(j-54000)(j-8000)^2(j+32768)^2.",
+        "Hashimoto--Nuida's abstract states that its finite-field cubic-AGM graph is a union of directed cycles and that edges correspond to Hessian 3-isogenies."
+      ],
+      "reasoning": "The modular-polynomial result is broader at the unmarked j-invariant level but does not cover the finer Hesse-parameter diagonal. The finite-field AGM work is plausibly closer, but its inspected abstract does not state the four complex parameters or the exact diagonal classification.",
+      "searches": [
+        "\"Cubic AGM graphs\" loops length 1 fixed points",
+        "\"Cubic AGM graphs and Hessian 3-isogenies\" self-loop fixed point",
+        "\"modular polynomial\" 8000 -32768 54000 degree 3 self isogeny"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.03100v1",
+      "DOI:10.1080/10586458.2021.1926009",
+      "arXiv:2609.14300v1 (abstract)",
+      "SageMath Reference Manual: cm_j_invariants_and_orders"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Otsubo supplies the relation and j-formula but no fixed-locus theorem.",
+        "Arpin et al. supply the j-level self-loop classification but no Hesse parameter lift.",
+        "The Hashimoto--Nuida abstract is finite-field and does not state the present complex parameter-level classification."
+      ],
+      "reasoning": "Neither Otsubo alone as stated nor the older self-isogeny table states the final claim. The final statement is a new exact structural corollary of Otsubo's correspondence, compared against and sharpened relative to the older unmarked self-loop classification.",
+      "searches": [
+        "arXiv:2610.03100v1 Theorem 1.1 equation 4.8 fixed",
+        "Adventures in Supersingularland Phi_3(x,x) 8000 -32768",
+        "arXiv:2609.14300 cubic AGM Hessian cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No semantically matching published finding was returned for the parameter-level fixed-locus formulation.",
+        "The full text of arXiv:2610.03100v1 has no occurrences of 8000, 32768, or self-isogeny terminology."
+      ],
+      "reasoning": "The claim is not merely that the curves have self-3-isogenies. It classifies literal fixed parameters of the newly stated Hesse correspondence. Searches were therefore made both in fixed-point language and using the exact quadratic factors.",
+      "searches": [
+        "Otsubo 2610.03100 Hesse cubic AGM isogeny fixed parameter",
+        "Hesse parameter fixed point 3-isogeny 8000 -32768",
+        "degree 3 self-isogeny Hesse j 8000 -32768 cubic AGM",
+        "\"3 μ^2+2 μ+4\" \"Hesse\" elliptic",
+        "\"3 μ^2+4 μ+2\" \"Hesse\" elliptic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sage's cm_j_invariants_and_orders(QQ) lists (-8,1,8000) and (-11,1,-32768)."
+      ],
+      "reasoning": "The CM labels are a standard table lookup and are not claimed as new. The new content is the exact lift from the new Hesse parameter correspondence to these two entries.",
+      "searches": [
+        "\"j-invariant 8000\" CM -8",
+        "\"j-invariant -32768\" CM -11",
+        "Sage cm_j_invariants_and_orders 8000 -32768"
+      ]
+    },
+    "rationale": "The source paper supplies the new Hesse parameter correspondence but does not state its diagonal fixed locus. Older modular-polynomial literature already identifies the j-level self-3-isogeny values, including 8000 and -32768; that does not determine which self-isogenies preserve Otsubo's literal Hesse parameter. The new statement is the complete parameter-level diagonal classification and its selection of exactly the two double-loop CM types.",
+    "residual_risks": [
+      "The inaccessible full text of arXiv:2609.14300v1 may contain a finite-field parameter fixed-point calculation.",
+      "A differently worded older level-3 Hesse modular-curve treatment could encode the same four fixed parameters without using cubic-AGM terminology."
+    ],
+    "risks": [
+      "Only the abstract of arXiv:2609.14300v1 was inspectable; a finite-field fixed-point calculation may appear in its full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_OF_PREMISES_NOT_COVERING_FINAL_FIXED_LOCUS",
+        "evidence": "Theorem 1.1 states the 3-isogeny parameter relation and kernel; equation (4.8) states the Hesse j-invariant. No occurrence of 8000, 32768, or self-isogeny was found.",
+        "identifier_or_url": "arXiv:2610.03100v1",
+        "material_read": "Full HTML text; introduction, Theorem 1.1, Hesse section around equation (4.8), and searches for fixed/self-isogeny and the two j-values.",
+        "method": "Direct full-text inspection.",
+        "title": "Cubic arithmetic-geometric mean and isogenies of Hesse elliptic curves",
+        "trigger": "Primary source defining the exact Hesse parameter correspondence."
+      },
+      {
+        "assessment": "RELATED_J_LEVEL_RESULT_NOT_PARAMETER_LEVEL_COVERAGE",
+        "evidence": "The diagonal modular polynomial has roots 0, 54000, 8000, -32768, with double loops at the latter two; no Otsubo Hesse parameter correspondence is involved.",
+        "identifier_or_url": "DOI:10.1080/10586458.2021.1926009",
+        "material_read": "Publisher full-article passages describing Φ_3(j,j), loops at j=8000 and j=-32768, and the distinction from j=0 and j=54000.",
+        "method": "Direct full-text web inspection of relevant section.",
+        "title": "Adventures in Supersingularland",
+        "trigger": "Potential broader coverage through the classical modular 3-isogeny graph."
+      },
+      {
+        "assessment": "PLAUSIBLE_RELATED_SOURCE_WITH_RESIDUAL_ACCESS_RISK",
+        "evidence": "The abstract states finite-field cubic-AGM cycles and Hessian 3-isogeny edges under q congruent to 2 modulo 3, but no explicit parameter fixed-point classification.",
+        "identifier_or_url": "arXiv:2609.14300v1",
+        "material_read": "Abstract only.",
+        "method": "Abstract inspection after full-text access attempt did not succeed.",
+        "title": "Cubic AGM graphs and Hessian 3-isogenies over finite fields",
+        "trigger": "Closest title and object match; cited by Otsubo as independently constructing the same finite-field isogeny."
+      },
+      {
+        "assessment": "SUPPORTS_CM_LABELS_ONLY",
+        "evidence": "The table lists (-8,1,8000) and (-11,1,-32768).",
+        "identifier_or_url": "SageMath Reference Manual: cm_j_invariants_and_orders",
+        "material_read": "Reference documentation and example output over the rational field.",
+        "method": "Direct documentation inspection.",
+        "title": "Complex multiplication for elliptic curves",
+        "trigger": "Verification of the CM discriminants attached to the two exact j-values."
+      }
+    ],
+    "sources": [
+      "arXiv:2610.03100v1 full text",
+      "DOI:10.1080/10586458.2021.1926009",
+      "arXiv:2609.14300v1 abstract",
+      "SageMath Reference Manual, cm_j_invariants_and_orders"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8f2c633-64bc-4405-b18d-21ce212b5843",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete fixed-locus classification is a natural structural invariant of the newly explicit cubic-AGM Hesse isogeny correspondence. It identifies exactly four marked Hesse parameters, collapses them to two CM isomorphism classes, and explains the level-structure selection among the four classical j-level self-3-isogeny types. The statement is exact and reusable in studying cycles, specializations, and finite-field reductions of the correspondence.",
+    "risks": [
+      "The derivation is algebraically short; its significance depends on treating the literal Hesse parameter as meaningful level structure rather than only the unmarked j-invariant."
+    ],
+    "sources": [
+      "arXiv:2610.03100v1",
+      "DOI:10.1080/10586458.2021.1926009"
+    ],
+    "status": "PASS"
+  }
+}
