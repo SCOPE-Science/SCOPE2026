@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Direct multiplication gives A-Ahat=(ab/d)vv^T with ||v||=1 and d=au_1^2+bu_2^2. Real Gaussian directions induce Beta(1/2,1/2) coordinate energy, yielding the explicit CDF and q-moment integral. Standard angular integrals give E R=sqrt(kappa) and E R^2=(kappa+1)sqrt(kappa)/2. Beta dominated convergence, boundary logarithm and rescaling t=s/kappa give the full moment trichotomy, including constants. Strict convexity plus isotropy E T=1/2 proves the sharp sign-law minimum for all q>0. Rational residual tests and deterministic Gaussian angular quadrature passed; neither is substituted for an infinite proof. At kappa=1 minimizer uniqueness is deliberately excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Persson et al. require target rank at least two and positive oversampling (at least four extra probes for their Frobenius expectation theorem).",
+        "Tropp et al. require sketch size strictly larger than target rank for their relative-error bounds; their general projector identity is compatible but not an expected-risk classification.",
+        "The published multistage pivoting comparison concerns column subset projection error, not an unstructured one-Gaussian-column Nyström residual."
+      ],
+      "reasoning": "Neither a stronger sampling theorem at the same one-column parameters nor a dominating all-positive-moment estimate was identified. Oversampling results do not specialize to no oversampling, and stronger bounds in other regimes are not misrepresented as absent.",
+      "searches": [
+        "\"Nystrom\" \"Rademacher\" \"Gaussian\" \"error\" matrix; nystrom approximation no oversampling expected trace error square root condition number; arXiv:2404.00960 Theorems 2, 4, 6, 7",
+        "arXiv:2404.00960 Theorems 2/6; arXiv:1706.05736 Theorems 4.1/4.2",
+        "published multistage adaptive randomized pivoting error products"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2404.00960 (2024-04-01, full HTML relevant sections)",
+      "arXiv:1706.05736 (2017-06-18, full HTML relevant sections/appendix)",
+      "arXiv:2205.13355 (2022-05-26, full publisher HTML relevant sections)",
+      "Additional keyword and synonym searches for 2-by-2 Gaussian/sign Nyström exact risk and moments",
+      "Published multistage adaptive randomized pivoting comparison (public result summary; different column-subset error metric)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior source formula A^(1/2) P A^(1/2) supplies a deterministic residual representation but not the Gaussian angular integral, exact moments, critical q=1/2 regime, or isotropic Jensen equality classification.",
+        "Persson et al. give norm bounds for larger target/sketch dimension; Carson and Daužickaitė address rounding perturbations, not the underlying law."
+      ],
+      "reasoning": "The new theorem is not merely a special case of any inspected numerical bound: those hypotheses exclude the one-probe regime or address different error mechanisms. It uses standard Gaussian angular distribution and Jensen as proof tools and does not claim these components as independently new.",
+      "searches": [
+        "arXiv:1706.05736 Theorems 4.1, 4.2 and Appendix A; arXiv:2205.13355 Sections 1-4; \"Single-pass Nyström approximation in mixed precision\" arxiv",
+        "arXiv:2404.00960 Sections 2.3/2.4 and Appendix A",
+        "arXiv:1706.05736 Appendix A"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The rank-one residual is equivalently a one-dimensional Schur complement, a projection complement, or a reciprocal Rayleigh quotient.",
+        "The searched 2024 Gaussian Nyström analysis has a covariance-based bound rather than this exact arcsine distribution."
+      ],
+      "reasoning": "Checked aliases include inverse Rayleigh quotients, Schur complements, rank-one PSD projections, and reciprocal-beta/angular Gaussian laws; the formulas can be derived from these standard ingredients but were not found as prior Nyström risk statements.",
+      "searches": [
+        "\"Nyström\" \"2x2\" \"Gaussian\" expected error; rank one Nystrom approximation condition number square root eigenvalue error exact; randomized Nystrom diagonal matrix gaussian sign sketches exact error",
+        "Gaussian sketch Nyström one column exact Frobenius moment; rank-one PSD sketch Gaussian vs sign angular risk; Nyström Beta arcsine direction law",
+        "arXiv:2404.00960 Section 2.1 and Equation (1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact tabulated two-eigenvalue Nyström Gaussian/Rademacher risk formula appeared in the indexed sources searched.",
+        "Primary sources give analytic bounds, algorithm definitions, and general numerical examples rather than the displayed distribution and sharp q=1/2 trichotomy."
+      ],
+      "reasoning": "No relevant exact table found. This search limitation is not treated as proof of novelty; the explicit statement and implication comparisons control the assessment.",
+      "searches": [
+        "\"Nyström\" \"2x2\" \"Gaussian\" expected error; rank one Nystrom approximation condition number square root eigenvalue error exact; randomized Nystrom diagonal matrix gaussian sign sketches exact error",
+        "\"Nyström\" \"2x2\" \"Gaussian\" expected error",
+        "\"Nyström\" \"Gaussian\" \"moments\" oversampling spectral gap"
+      ]
+    },
+    "rationale": "The inspected primary sources establish the Nyström formula, projector identities, oversampled expectation bounds, or finite-precision stability; none states or directly subsumes this one-column complete angular distribution, every-positive-moment contrast law, and all-moment isotropic-direction minimization on diagonal rank two. This priority assessment is provisional with respect to unindexed specialized literature.",
+    "residual_risks": [
+      "A specialized preprint or appendix not indexed by keyword search could present an equivalent rank-two angular calculation.",
+      "The equality condition uses a diagonal eigenbasis and does not produce a distribution-free oblivious Rademacher improvement for rotated matrices.",
+      "The claim concerns strict one-probe no-oversampling exact arithmetic and is not a guarantee for stabilized or multi-column Nyström."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorems 2 and 6 assume rank >=2 and oversampling p>=2 / p>=4, not k=1,p=0; exact angular law and sign optimality not stated in inspected material.",
+        "evidence": [
+          "Definition (1) Nyström AΩ(Ω*AΩ)^†Ω*A",
+          "Theorem 2: k>=2, p>=2",
+          "Theorem 6: p>=4 Frobenius expectation upper bound"
+        ],
+        "identifier_or_url": "arXiv:2404.00960 | https://arxiv.org/html/2404.00960v2",
+        "material_read": "Full HTML: introduction and finite-dimensional construction in Sections 1-2.2; spectral/trace and Frobenius expectation/tail theorems in Sections 2.3-2.4; operator extension and Appendix A headings and formulas.",
+        "method": "Author-hosted arXiv full HTML, equations and theorem hypotheses inspected",
+        "title": "Randomized Nyström approximation of non-negative self-adjoint operators",
+        "trigger": "Closest 2024 work on Gaussian Nyström sketches and approximation norms; source provides 65F30 MSC and 2024-04-01 public date"
+      },
+      {
+        "assessment": "Theorem 4.1 requires 1<=r<k; appendix gives deterministic projector identity but not a sharp one-column Gaussian distribution or simultaneous isotropic moment minimization.",
+        "evidence": [
+          "Equation (2.5) and projector identity in Appendix A",
+          "Theorem 4.1 requires r<k",
+          "Theorem 4.2 shares these assumptions"
+        ],
+        "identifier_or_url": "arXiv:1706.05736 | https://arxiv.org/html/1706.05736v1",
+        "material_read": "Full HTML Sections 2-4, including Nyström formula (2.5) and Theorems 4.1-4.2, and Appendix A projector identity and proof of relative-error theorem.",
+        "method": "Author-hosted arXiv full HTML, proof and hypotheses comparison",
+        "title": "Fixed-Rank Approximation of a Positive-Semidefinite Matrix from Streaming Data",
+        "trigger": "Foundational fixed-rank PSD Nyström analysis and possible dominating guarantee"
+      },
+      {
+        "assessment": "Mathematical treatment concerns rounding error and preconditioning, with no-oversampling examples, not exact zero-shift Gaussian angular error law in 2D or sign-probe dominance.",
+        "evidence": [
+          "Equation (1.1), Section 2 deterministic and probabilistic error bounds",
+          "Algorithm 2.1 shifted finite-precision single-pass Nyström",
+          "Section 4 includes no-oversampling experiments"
+        ],
+        "identifier_or_url": "arXiv:2205.13355 | https://epubs.siam.org/doi/full/10.1137/22M154079X",
+        "material_read": "Open-access full HTML Sections 1-4: exact formula and background error bounds, shifted algorithm and finite-precision analysis, preconditioning section and numerical examples.",
+        "method": "Full publisher HTML and dated arXiv abstract checked",
+        "title": "Single-pass Nyström approximation in mixed precision",
+        "trigger": "Same single-pass Nyström construction including no-oversampling experimental setting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "94238ed8-8421-4389-8ee2-855b9110e0dc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The no-oversampling one-probe regime is natural for minimum-pass low-rank Nyström and sits outside standard oversampled guarantees. Its exact risk quantifies rare near-orthogonal Gaussian directions: despite bounded risk at every finite condition number, relative mean-squared error grows as kappa^(3/2)/2 and all error-moment orders change at q=1/2. A complete equality characterization identifies angle-balanced sampling as optimally robust among isotropic direction laws on a diagonal two-eigenvalue benchmark, giving a concrete nontrivial distribution-design comparison. This does not purport to optimize unknown-eigenbasis, higher-rank, or floating-point deployments.",
+    "status": "PASS"
+  }
+}
