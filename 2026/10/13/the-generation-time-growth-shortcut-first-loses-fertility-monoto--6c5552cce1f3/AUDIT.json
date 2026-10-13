@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Exact growth satisfies \\(\\lambda=(a+\\sqrt{a^2+4b})/2\\), so it increases strictly with \\(b\\). The shortcut equals \\((a+b)\\log(a+b)/(a+2b)\\). Its one-step decrease is equivalent to an integer-power inequality, exhaustively checked through the first failure; only \\((5,1)\\) fails at initial \\(R_0=6\\), with certificate \\(6^{54}>7^{49}\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "de-Camino-Beck and Lewis state that total reproductive output and reproductive timing both affect population growth and that interpreting \\(R_0\\) without generation time can be misleading.",
+        "Clavijo-Baquet et al. explicitly use \\(r\u0007pprox\\log(R_0)/T_g\\) and state that it works acceptably near replacement or with little generation-time variation.",
+        "Steiner, Tuljapurkar, and Coulson describe reproductive level and timing as joint determinants and approximators of population growth."
+      ],
+      "reasoning": "These sources establish the methodological motivation and known approximation regime, but do not imply coordinatewise monotonicity of the shortcut outside that regime.",
+      "searches": [
+        "\"On Net Reproductive Rate and the Timing of Reproductive Output\"",
+        "\"Differential responses to thermal variation between fitness metrics\" R0 generation time r approximation",
+        "\"Generation Time, Net Reproductive Rate, and Growth in Stage-Age-Structured Populations\""
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1086/588060",
+      "doi:10.1038/srep05349",
+      "doi:10.1086/675894",
+      "MSC2020:92D25"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known dependence of growth on reproductive amount and timing does not imply that the approximation preserves monotonicity under an increase in one fertility coordinate.",
+        "The checked local exact Euler–Lotka theorem holds \\(R_0\\) and mean age fixed, whereas the new perturbation increases \\(R_0\\) and mean age simultaneously.",
+        "The approximation being a lower bound in a nondegenerate growing two-age schedule does not by itself determine how that lower bound moves when fertility changes."
+      ],
+      "reasoning": "The new claim is a qualitative sensitivity failure of an approximation, not another exact-growth ordering theorem.",
+      "searches": [
+        "R0 generation time intrinsic growth exact Euler Lotka approximation Jensen",
+        "reproductive timing population growth R0 generation time",
+        "Euler Lotka convex order reproductive timing growth"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The shortcut can be written either as \\(\\log(R_0)/T\\) or, for the two-age schedule, \\((a+b)\\log(a+b)/(a+2b)\\).",
+        "Exact growth can be written as the Euler–Lotka root \\(r\\) or the positive quadratic root \\(\\lambda=e^r\\).",
+        "No checked search result stated that adding late fertility can lower the shortcut while raising the exact Euler–Lotka rate."
+      ],
+      "reasoning": "Searches covered the demographic names, the approximation formula, the monotonicity property, and the equivalent two-age Euler–Lotka representation.",
+      "searches": [
+        "Euler Lotka approximation log R0 over generation time fertility timing monotonicity counterexample",
+        "intrinsic growth rate approximation ln R0 / T adding late fertility decreases approximate r",
+        "\"ln(R0)/T\" monotonicity fertility approximation",
+        "\"generation time\" approximation \"nonmonotonic\" population growth rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-witness search located the pair \\((5,1)\to(5,2)\\) as a demographic approximation counterexample.",
+        "The packaged verifier derives the boundary from all positive integer two-age schedules through initial \\(R_0=6\\), rather than importing a table."
+      ],
+      "reasoning": "Exact schedule searches directly test whether the minimal witness is already catalogued in examples, teaching tables, or software documentation.",
+      "searches": [
+        "\"5,1\" \"5,2\" \"net reproductive rate\" generation time",
+        "\"adding\" \"late reproduction\" \"ln R0\" generation time",
+        "\"fertility\" \"ln R0/T\" monotonic"
+      ]
+    },
+    "rationale": "Prior demographic work establishes the amount–timing decomposition and the approximate formula, but the checked sources and database results do not state a fertility-monotonicity failure or its first integer boundary. A related local exact Euler–Lotka result fixes both net reproduction and mean timing and therefore does not imply this changing-fertility approximation failure.",
+    "residual_risks": [
+      "The older demographic literature is extensive, and an unindexed worked example could contain similar numerical schedules.",
+      "The sharp integer threshold is specific to two reproductive ages and one-unit late-fertility increments.",
+      "The public author-hosted 2008 PDF allowed full text extraction but blocked the separate rendered-page fetch attempted during inspection."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the amount–timing framework and exact public date, but does not state the shortcut monotonicity failure.",
+        "evidence": "The paper states that total reproductive output and timing affect growth and explicitly warns that interpreting \\(R_0\\) without generation time can be misleading.",
+        "identifier_or_url": "doi:10.1086/588060",
+        "material_read": "The complete public PDF text was inspected, including the abstract, introduction, discussion of why \\(R_0\\) without generation time can be misleading, and the sections defining net reproductive rate and reproductive timing.",
+        "method": "Public author-hosted full-text PDF text inspection; a rendered-page request was attempted but the source denied that secondary fetch.",
+        "title": "On Net Reproductive Rate and the Timing of Reproductive Output",
+        "trigger": "Foundational directly relevant treatment of net reproductive output, generation time, and population growth."
+      },
+      {
+        "assessment": "Direct evidence that the shortcut is used in applied ecological demography and is acknowledged as approximate; it does not give the monotonicity counterexample.",
+        "evidence": "The methods state that the approximation works acceptably when \\(R_0\\) is near one or generation time varies little; the results show \\(R_0\\), \\(T_g\\), and \\(r\\) can respond differently.",
+        "identifier_or_url": "doi:10.1038/srep05349",
+        "material_read": "Open full article text covering the introduction, discussion, and methods, including definitions of \\(R_0\\), generation time, and the approximation \\(r\u0007pprox\\log(R_0)/T_g\\), plus its stated applicability conditions.",
+        "method": "Open full-text article inspection through the public biomedical archive/search representation.",
+        "title": "Differential responses to thermal variation between fitness metrics",
+        "trigger": "Primary ecological life-table study explicitly using the shortcut under discussion."
+      },
+      {
+        "assessment": "Supports the broader amount–timing framework but is not used for whole-document novelty.",
+        "evidence": "The abstract states that reproductive timing together with \\(R_0\\) has a direct mathematical relationship to and approximates growth rate.",
+        "identifier_or_url": "doi:10.1086/675894",
+        "material_read": "Publisher abstract, publication history, and bibliographic page.",
+        "method": "Publisher page inspection.",
+        "title": "Generation Time, Net Reproductive Rate, and Growth in Stage-Age-Structured Populations",
+        "trigger": "Relevant theoretical treatment of reproductive level, timing, and growth."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6c5552cc-e1f3-45a9-943c-156912801e04",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The shortcut is used to turn net reproduction and mean timing into an annualized growth estimate. A monotonicity violation under added fertility is therefore more consequential than a small numerical approximation error: it can reverse the sign of comparative sensitivity. The exact first witness and the derivative criterion identify a concrete diagnostic regime for avoiding that misuse.",
+    "status": "PASS"
+  }
+}
