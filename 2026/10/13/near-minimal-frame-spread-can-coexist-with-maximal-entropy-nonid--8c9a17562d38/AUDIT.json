@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The rank-sensitive inequality follows from positivity, the exact trace identity \\(\\operatorname{Tr}F_{\\nu,0}=d-1\\), and the fact that the maximum eigenvalue is at least the mean positive eigenvalue. For an \\(m\\)-basis MUB subset, the trace-zero diagonal spaces are pairwise Hilbert--Schmidt orthogonal, so \\(F_{\\nu_m,0}\\) is exactly \\(1/m\\) times the orthogonal projector onto their direct sum. An omitted-MUB pure state and \\(I/d\\) induce exactly the same full outcome law while their entropies are \\(0\\) and \\(\\log d\\); the midpoint constant estimator matches the resulting two-point lower bound, proving the minimax value exactly for every sample size.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:quant-ph/0502031 proves that complete MUBs are complex projective \\(2\\)-designs, covering the full-family \\(\\kappa=1\\) endpoint but not incomplete subsets.",
+        "arXiv:2310.09644 treats \\(d+1\\) MUBs as minimal informationally complete measurements for full-state shadow tomography; it does not give the entropy minimax boundary for \\(m\\le d\\)."
+      ],
+      "reasoning": "Broader informational-completeness and \\(2\\)-design results explain why all \\(d+1\\) bases are sufficient, but do not imply the new quantitative rank-spread equality together with the exact all-sample entropy risk for every incomplete MUB subset.",
+      "searches": [
+        "near minimal frame spread noninformationally complete rank-one POVM MUB",
+        "rank frame spread lower bound rank(F) quantum rank-one POVM kappa (d^2-1)/r",
+        "MUB subset frame operator rank m(d-1) kappa (d+1)/m",
+        "complete mutually unbiased bases tight informationally complete measurements entropy estimation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.00270v1",
+      "arXiv:1509.07614v1",
+      "arXiv:quant-ph/0502031",
+      "arXiv:2310.09644",
+      "semantic literature-index searches under nine frame-spread/MUB/minimax aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The recent source proves \\(\\operatorname{Tr}F_{\\nu,0}=d-1\\) and its general finite-sample lower bound, but its explicit nonidentifiable example uses only one basis and hence \\(\\kappa=d+1\\).",
+        "The 2015 source supplies orthogonality of the MUB trace-zero hyperplanes and studies incomplete reconstruction, but not the decision-theoretic entropy minimax value or recent frame-spread parameter.",
+        "The complete-MUB \\(2\\)-design theorem concerns \\(m=d+1\\), where the measurement is informationally complete; the new obstruction is at every \\(m\\le d\\)."
+      ],
+      "reasoning": "Neither the recent source nor the older primary MUB sources imply the assessed claim as a stated theorem or a covered special case. The proof combines a new sharp rank-sensitive spectral bound with the incomplete-MUB geometry and then establishes an exact minimax identity. The main residual originality risk is that an older tomography paper may have observed the same all-but-one-basis indistinguishability without the frame-spread formulation.",
+      "searches": [
+        "arXiv:2610.00270v1 trace-zero frame spread single orthonormal basis entropy minimax",
+        "arXiv:1509.07614v1 incomplete mutually unbiased bases orthogonal subspaces unmeasured probabilities",
+        "arXiv:quant-ph/0502031 complete MUB 2-design",
+        "arXiv:2310.09644 complete MUB minimal informationally complete"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.00270v1 discusses a single-basis entropy obstruction at \\(\\kappa=d+1\\), not an incomplete-MUB obstruction near \\(\\kappa=1\\).",
+        "arXiv:1509.07614v1 treats incomplete MUB reconstruction and unmeasured probabilities, without a fixed-sample entropy minimax theorem."
+      ],
+      "reasoning": "Searches used the aliases incomplete MUB tomography, nonidentifiability, fixed rank-one POVM, frame spread, omitted basis, and minimax entropy risk. The closest primary sources contain separate ingredients but not the combined statement or its implication that frame spread can approach its optimum while entropy remains maximally nonidentifiable.",
+      "searches": [
+        "incomplete mutually unbiased bases entropy estimation minimax risk nonidentifiable frame spread",
+        "partial MUB POVM von Neumann entropy indistinguishable maximally mixed pure state",
+        "d mutually unbiased bases missing one entropy estimation pure omitted basis maximally mixed",
+        "frame spread kappa (d+1)/m mutually unbiased bases entropy",
+        "near minimal frame spread noninformationally complete rank-one POVM MUB"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Focused indexed searches returned no record with the formulas \\(\\kappa=(d+1)/m\\) and \\(R^*=\\frac14\\log^2 d\\) for incomplete MUBs under the recent frame-spread normalization.",
+        "The inspected 2015 incomplete-MUB paper gives geometric reconstruction formulas rather than an entropy-risk table or frame-spread spectrum."
+      ],
+      "reasoning": "No exact database entry or published table located in the checked sources contains the claimed rank spectrum, frame-spread equality, and exact minimax risk as one result. Failed search alone is not treated as proof of originality; the full-text implication comparisons are decisive.",
+      "searches": [
+        "rank frame spread lower bound rank(F) quantum rank-one POVM kappa (d^2-1)/r",
+        "MUB subset frame operator rank m(d-1) kappa (d+1)/m",
+        "incomplete mutually unbiased bases exact minimax entropy risk log^2 d / 4",
+        "d MUB bases kappa 1+1/d entropy nonidentifiability"
+      ]
+    },
+    "rationale": "The inspected recent source defines frame spread and gives a high-spread single-basis nonidentifiability example, while the older incomplete-MUB source gives the orthogonal-subspace geometry. No inspected source states the sharp rank-sensitive frame-spread inequality with equality characterization, its saturation by every MUB subset, or the resulting all-but-one-MUB phenomenon \\(\\kappa=1+1/d\\) with maximal all-sample entropy risk.",
+    "residual_risks": [
+      "The exact two-state minimax argument is elementary once the omitted-MUB indistinguishability is noticed, so an older paper may contain an equivalent observation under different language even though no such statement was found in the inspected primary sources.",
+      "The general rank-sensitive spectral inequality may be implicit in frame-theoretic literature as a rank-versus-trace bound under another normalization; no checked source connected it to this entropy-estimation boundary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_FRAMEWORK_NOT_COVERING_RANK_SENSITIVE_MUB_THEOREM",
+        "evidence": "The source gives \\(\\operatorname{Tr}F_{\\nu,0}=d-1\\) and a single-basis nonidentifiability example with \\(\\kappa=d+1\\); no mutually unbiased basis subset theorem or rank-sensitive equality statement was located.",
+        "identifier_or_url": "arXiv:2610.00270v1",
+        "material_read": "ArXiv abstract and full HTML sections containing the frame-operator definition, trace identity, main lower bound, discussion, and single-basis example.",
+        "method": "Direct primary full-text inspection.",
+        "title": "A Frame-Spread Lower Bound for Quantum Entropy Estimation under Fixed Rank-One Measurements",
+        "trigger": "Primary recent source defining the frame-spread parameter and entropy-estimation problem."
+      },
+      {
+        "assessment": "GEOMETRIC_INGREDIENT_NOT_COVERING_MINIMAX_CLAIM",
+        "evidence": "The paper states the pairwise orthogonality of the MUB trace-zero subspaces and analyzes unmeasured probabilities, but does not formulate the recent frame-spread quantity or an exact entropy minimax risk.",
+        "identifier_or_url": "arXiv:1509.07614v1",
+        "material_read": "PDF abstract, MUB definitions, trace-zero hyperplane orthogonality, and incomplete-MUB reconstruction discussion.",
+        "method": "Direct PDF text and page inspection.",
+        "title": "Least-bias state estimation with incomplete unbiased measurements",
+        "trigger": "Closest primary source on incomplete MUB tomography."
+      },
+      {
+        "assessment": "FULL_FAMILY_BACKGROUND_NOT_COVERING_INCOMPLETE_BOUNDARY",
+        "evidence": "The result concerns maximal \\(d+1\\) MUB families and supports \\(\\kappa=1\\) for the full family, not the incomplete \\(m\\le d\\) entropy obstruction.",
+        "identifier_or_url": "arXiv:quant-ph/0502031",
+        "material_read": "ArXiv abstract and theorem-level description of complete MUBs as complex projective 2-designs.",
+        "method": "Direct arXiv record inspection.",
+        "title": "Mutually Unbiased Bases are Complex Projective 2-Designs",
+        "trigger": "Primary source for the complete-MUB 2-design endpoint."
+      },
+      {
+        "assessment": "FULL_TOMOGRAPHY_BACKGROUND_NOT_COVERING_ENTROPY_MINIMAX",
+        "evidence": "The abstract treats d+1 MUBs as minimal and optimal informationally complete measurements for full-state tomography, without the assessed incomplete-subset entropy theorem.",
+        "identifier_or_url": "arXiv:2310.09644",
+        "material_read": "ArXiv abstract.",
+        "method": "Direct arXiv record inspection.",
+        "title": "Classical Shadow Tomography with Mutually Unbiased Bases",
+        "trigger": "Modern comparison for informational completeness and MUB measurement design."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c9a1756-2d38-47da-a0fa-331c099991dc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result identifies a sharp failure mode for the new frame-spread proxy: an all-but-one-MUB measurement is optimally isotropic on every operator direction it can see and has \\(\\kappa=1+1/d\\) approaching the global optimum \\(1\\), yet entropy remains maximally nonidentifiable forever. This distinguishes anisotropy on the measured subspace from missing operator directions and shows that small frame spread alone cannot be interpreted as near-informational-completeness for entropy estimation. The exact rank bound also proves the example is not poorly conditioned relative to its identifiable dimension.",
+    "status": "PASS"
+  }
+}
