@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on one fixed point leaves a uniform bijection between the remaining positions and values. Writing Spearman's squared displacement as an affine function of the rank inner product gives the exact conditional mean after one finite-population expectation. Summing the coordinate covariances uses a centered-square identity. The standard permutation covariance of centered ranks gives the exact null variance of rho, while two fixed-point inclusion probabilities give Var(F)=1. Exhaustive exact enumeration through n=9 independently checks every displayed mixed-moment identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kendall, Kendall, and Babington Smith study the exact null distribution of Spearman's coefficient when all rankings are equally likely.",
+        "Olds studies the exact distribution of the sum of squared rank differences for small sample sizes, which is the numerator underlying Spearman's rho.",
+        "Diaconis, Evans, and Graham fully analyze the fixed-point random set of a uniform permutation and its distributional equivalence with unseparated pairs."
+      ],
+      "reasoning": "The first two sources determine marginal information about rho but do not retain fixed-point events. The third retains the fixed-point set but does not introduce Spearman's rho or squared rank displacement. Neither source family supplies the joint statement, and their separate marginals do not imply a covariance or conditional mean.",
+      "searches": [
+        "doi:10.1093/biomet/30.3-4.251",
+        "doi:10.1214/aoms/1177732332",
+        "arXiv:1308.5459"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.2307/1412159",
+      "doi:10.1093/biomet/30.3-4.251",
+      "doi:10.1214/aoms/1177732332",
+      "doi:10.1080/00949658808811066",
+      "arXiv:1308.5459"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The fully inspected fixed-point random-set theorem gives the distribution of fixed locations but contains no Spearman or rank-displacement statistic.",
+        "A previously checked fixed-point/descent result concerns adjacent descent indicators; it does not determine a quadratic displacement functional.",
+        "The classical exact null distribution of rho does not identify which permutations carry fixed points and therefore cannot imply the mixed moment."
+      ],
+      "reasoning": "Neither marginal source nor the distinct fixed-point/descent cross-covariance determines E[rho | Pi(i)=i]. The proof needs the conditional distribution of the remaining permutation values and a new rank-inner-product calculation.",
+      "searches": [
+        "arXiv:1308.5459 fixed points random permutation",
+        "fixed points descents covariance random permutation",
+        "Spearman rho fixed point indicator covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Spearman's rho is equivalently an affine function of the sum of squared rank differences, so searches included both rho and squared-rank-displacement formulations.",
+        "Searches also used fixed points, exact rank matches, derangements, and Spearman permutation distance; no matching position-resolved mixed-moment statement was located.",
+        "The exact formulas were compared against the classical uniform-ranking null rather than only against modern terminology."
+      ],
+      "reasoning": "The claimed conditional profile is unchanged by rewriting rho as a centered rank inner product or as squared rank displacement. The searches covered those equivalent formulations and the main aliases for fixed points. Failed search alone is not treated as proof; the originality conclusion also rests on direct source comparison.",
+      "searches": [
+        "Spearman rho fixed points random permutation covariance",
+        "fixed points Spearman rank correlation permutation covariance",
+        "number of fixed points Spearman footrule rho joint distribution",
+        "fixed points Spearman distance permutation pdf",
+        "sum of squared rank differences fixed points permutation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Franklin's exact-null tables and the earlier Olds/Kendall exact-distribution work tabulate or determine rho alone.",
+        "No checked table indexed permutations simultaneously by fixed-point count or fixed-point location and Spearman's rho."
+      ],
+      "reasoning": "A marginal exact table for rho cannot determine its covariance with fixed points. The present coordinate conditional means require joint information that those tables do not record.",
+      "searches": [
+        "The Complete Exact Null Distribution of Spearman rho",
+        "Distributions of Sums of Squares of Rank Differences for Small Numbers of Individuals",
+        "fixed points Spearman rho exact table"
+      ]
+    },
+    "rationale": "The inspected exact-null literature concerns the marginal distribution of Spearman's rho, while the fully inspected fixed-point source concerns the fixed-point random set. Searches using fixed-point, derangement, squared-rank-displacement, Spearman-distance, and covariance aliases did not locate the position-resolved conditional profile or the aggregate covariance. A prior fixed-point/descent theorem is not stronger because descents are adjacent comparisons rather than the global quadratic rank displacement. The remaining risk is older multivariate permutation enumeration under different notation.",
+    "residual_risks": [
+      "The full 1939 Kendall-Kendall-Smith article could not be read because the publisher endpoint required human verification after open-access retrieval failed.",
+      "Older multivariate permutation generating functions may encode fixed points jointly with squared rank displacement without using Spearman terminology.",
+      "The aggregate covariance is elementary once the position-resolved conditional expectation is known; originality is therefore claimed for the full parabolic location profile together with its exact aggregate consequences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FIXED_POINT_RANDOM_SET_NOT_SPEARMAN_JOINT_LAW",
+        "evidence": "The paper gives the fixed-point-set law and related permutation structures. Searches within the full text found no Spearman or rank statistic; the only rho symbol is the cyclic shift permutation.",
+        "identifier_or_url": "arXiv:1308.5459",
+        "material_read": "Full public HTML through the introduction, Theorem 1.1, exchangeability remarks, enumerative proof, Markov-chain proof, bijection, and fixed-point discussion.",
+        "method": "Checked whether the source introduces Spearman rank correlation, rank differences, or any joint functional of fixed points with quadratic displacement.",
+        "title": "Unseparated pairs and fixed points in random permutations",
+        "trigger": "Strong probability source on the entire fixed-point random set of a uniform permutation."
+      },
+      {
+        "assessment": "MARGINAL_SPEARMAN_NULL_PLAUSIBLE_BUT_FULL_TEXT_UNAVAILABLE",
+        "evidence": "The source explicitly concerns the sampling distribution of Spearman rho when all rankings occur equally often; no inspected material indicates conditioning on fixed points.",
+        "identifier_or_url": "doi:10.1093/biomet/30.3-4.251",
+        "material_read": "Publisher metadata, title, publication information, and secondary bibliographic descriptions of its exact-null scope; direct full text was unavailable after open-web retrieval and an authorized institutional attempt reached publisher verification.",
+        "method": "Compared the stated object and scope with the joint fixed-point claim and retained the access limitation as a residual risk.",
+        "title": "The Distribution of Spearman's Coefficient of Rank Correlation in a Universe in Which All Rankings Occur an Equal Number of Times",
+        "trigger": "Strongest classical exact-null source located for the same uniform-ranking model and same Spearman statistic."
+      },
+      {
+        "assessment": "MARGINAL_DISTANCE_TABLE_NOT_JOINTLY_INDEXED",
+        "evidence": "The source is indexed as a distribution of sums of squared rank differences for small sample sizes, with no fixed-point conditioning in the accessible description.",
+        "identifier_or_url": "doi:10.1214/aoms/1177732332",
+        "material_read": "JSTOR issue/article record and later exact-null bibliographic descriptions; the article body was not exposed by the available text endpoint.",
+        "method": "Checked whether the indexed scope is marginal squared-distance distribution or a joint enumeration with fixed points.",
+        "title": "Distributions of Sums of Squares of Rank Differences for Small Numbers of Individuals",
+        "trigger": "Exact finite distribution of the squared rank-difference statistic underlying Spearman rho."
+      },
+      {
+        "assessment": "HISTORICAL_BACKGROUND",
+        "evidence": "The record verifies publication in January 1904 and the article's rank-association role.",
+        "identifier_or_url": "doi:10.2307/1412159",
+        "material_read": "Open JSTOR article record with publication details and references; the browser endpoint did not expose the article body as text.",
+        "method": "Used only as the historical source for the rank-association statistic, not as evidence for absence of the new joint identity.",
+        "title": "The Proof and Measurement of Association between Two Things",
+        "trigger": "Historical source for Spearman rank association and archive anchor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c6a3a84e-2388-4b6d-b3e7-bda880e60b3a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed points are exact rank agreements, while Spearman's rho is the canonical quadratic rank-displacement measure. The theorem quantifies exactly how an exact agreement at a specific rank affects global concordance: central matches can be neutral, endpoint matches have the strongest effect, and the entire location dependence is a simple parabola. The aggregate identity Cov(F,rho)=Var(rho) gives the unusually clean best linear predictor 1+rho for the number of exact rank matches under the null. This is a natural finite-sample calibration linking a local agreement count to a standard global rank statistic, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
