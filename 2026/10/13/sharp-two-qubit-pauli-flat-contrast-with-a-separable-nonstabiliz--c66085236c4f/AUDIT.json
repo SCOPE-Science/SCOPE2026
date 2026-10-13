@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Universal proof: every assignment of signs on the fifteen Hermitian two-qubit Paulis makes one of the six Peres–Mermin contexts inconsistent, because each of nine square entries occurs twice whereas the context-product signs multiply to -1. The rank-one joint (-rP,-rQ) projector on the inconsistent triple has exactly three expectations -r and other twelve zero; positivity forces (1-3gamma)/4 >= 0. The rank-one product projectors with local Bloch axes ±(1,1,1)/sqrt(3), mixed with weights (3±sqrt(3))/6, give all 15 expectations +1/3; convex interpolation with I/4 covers every 0<=gamma<=1/3 and is separable. Endpoint rank and purity are exact; W=sum P has bound 3 on the stabilizer polytope, while the constructed family has W=15gamma>3 for gamma>1/5. Direct exact small-matrix replay checks all 32768 sign assignments and the endpoint polynomial identity, but analytic proof rather than finite sampling gives state-space universality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu–Low–Yin arXiv:2502.17550v3 Eq. (18) and text around Eqs. (15)–(19) optimize \\(M_2\\) among pure two-qubit vectors; they explicitly distinguish a qudit SIC from the 2-qubit tensor-Pauli structure.",
+        "Cuffaro–Fuchs arXiv:2412.21083v1 Theorem 1 characterizes pure-state WH-SIC saturation and explicitly sets aside mixed stabilizer states.",
+        "Peres–Mermin classical parity products are the structural input, not a theorem quantifying all 15 mixed-state equal-modulus expectations."
+      ],
+      "reasoning": "The pure-state SIC and maximal-magic theorems do not dominate the mixed-state all-sign uniform-correlation feasible interval or the separable endpoint. The standard Mermin square alone forces a parity-frustrated context, but applying its stabilizer projector to obtain the sharp mixed-state contrast ceiling and matching a separable all-positive family is a separate optimization statement. A short equivalent derivation in less indexed literature remains a risk.",
+      "searches": [
+        "arxiv:2502.17550v3 full text pp. 1–4: two-qubit maximal magic, pure state, 480 MUB fiducials",
+        "arxiv:2412.21083v1 full text Theorem 1 and discussion of pure-state scope",
+        "MathWorld Peres–Mermin Square and N. D. Mermin DOI 10.1103/PhysRevLett.65.3373",
+        "published-finding corpus: uniform magnitude all fifteen two-qubit Pauli expectations maximal amplitude positivity 1/3 stabilizer contextuality"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2502.17550v3 (eligible v1 first public 2025-02-24)",
+      "arxiv:2412.21083v1",
+      "arxiv:2610.07172v1 (posted 2026-10-05; close overlap explicitly credited)",
+      "DOI:10.1103/PhysRevLett.65.3373",
+      "MathWorld Peres–Mermin Square",
+      "published-finding corpus records 2026/10/4/SCOPE-sharp-phase-flatness-of-the-four-character-walsh-affine-basis--cd44a812cc6a, 2026/9/12/SCOPE091, 2026/9/19/SCOPE-local-cliffords-nonplussed-distinct--1434efbb2fb7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Oct 2026 preprint constructs an entangled \\(\\gamma=1/3\\) state and discusses possible SDP optimisation; it neither quantifies the full feasible interval via an arbitrary-sign witness nor gives a separable rank-two endpoint in the inspected results.",
+        "The textbook Peres–Mermin contradiction concerns six sign-product constraints, not a global density-operator contrast optimization; the new proof links each frustrated context to a rank-one positive projector and exact \\((1-3\\gamma)/4\\) bound.",
+        "The 2025 pure MUB-fiducial result is neither a comparison at fixed mixed Pauli contrast nor a separability threshold."
+      ],
+      "reasoning": "A previously reported endpoint example implies only \\(\\gamma_{\\max}\\ge1/3\\). The new projector argument supplies \\(\\gamma_{\\max}\\le1/3\\) for all 2^15 signs, and the all-positive convex product mixture shows the same ceiling is attainable under separability. These implications are strictly stronger than the exhibited entangled example or pure-state entropy results. Residual possibility of an unpublished or implicit one-page reduction is acknowledged rather than ruled out by failed searches.",
+      "searches": [
+        "arxiv:2610.07172v1 Sections III–V and conclusion; examine source signs, scope and optimisation language",
+        "arxiv:2502.17550v3 Eq. (18), maximal magic and MUB fiducials",
+        "DOI 10.1103/PhysRevLett.65.3373 and MathWorld Peres–Mermin Square context identities",
+        "published-finding corpus: quantum state equal absolute Pauli correlations fixed sign assignment Mermin square frustration spectral minimum minus three"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cieśliński, arXiv:2610.07172v1, Sec. III defines \\(\\rho=(I+\\gamma\\sum r_PP)/4\\) for all signs and Sec. V poses an SDP to optimize \\(\\gamma\\). A particular entangled construction reaches \\(1/3\\); its Table 1 calls the entries best-found and reports \\(0.3334\\).",
+        "Closest published-finding corpus record 2026/10/4/SCOPE-sharp-phase-flatness-of-the-four-character-walsh-affine-basis--cd44a812cc6a addresses unimodular Walsh peak flatness, not quantum density-matrix positivity."
+      ],
+      "reasoning": "The SDP formulation is mathematically equivalent to optimizing the minimal eigenvalue of a signed Pauli sum. The inspected 2026 paper establishes feasibility at the numerical endpoint, not the global bound across all sign patterns nor attainment by a separable rank-two state. The new contextual projector provides the missing all-sign implication. That recent direct source makes absolute originality of the endpoint number inappropriate.",
+      "searches": [
+        "published-finding corpus: For every two-qubit signed sum of all fifteen Pauli operators there is a stabilizer state with expectation minus three; maximal Pauli-flat mixed-state contrast equals 1/3, contextuality Mermin square",
+        "published-finding corpus: Pauli flat two-qubit mixed density matrix all nonidentity expectation values equal modulus exact 1/3 optimum sign vector positivity; Cieslinski",
+        "Web: \"Pauli flat\" \"two qubits\" \"1/3\" upper bound",
+        "arxiv:2610.07172v1 Secs. III and V, eqs. (6),(7),(15) and Table 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Cieśliński Table 1 gives a two-qubit best-found correlation \\(\\gamma\\approx0.3334\\) and the text gives an exact special-state endpoint \\(1/3\\).",
+        "The inspected Table 1 does not provide a certified all-sign upper bound or catalogue a separable all-positive optimizer."
+      ],
+      "reasoning": "An exact value \\(1/3\\) for a particular prior state is already tabulated and is credited, so a statement claiming merely that such a value is attainable would be covered. The present new claim concerns necessity for every sign pattern AND sharp separable realization with a specific stabilizer-polytope separation interval; those assertions are not supplied by the table.",
+      "searches": [
+        "arxiv:2610.07172v1 Table 1 and Sec. V lines specifying the two-qubit example and SDP",
+        "published-finding corpus: Pauli flat two qubit states exact maximum correlator gamma = one third global optimum via Peres-Mermin contextuality bound",
+        "Web: Pauli flat states two qubits exact optimal 0.3333 matrix"
+      ]
+    },
+    "rationale": "Prior Liu–Low–Yin (arxiv:2502.17550) and Cuffaro–Fuchs (arxiv:2412.21083) treat pure-state stabilizer-Renyi/SIC extrema. The preprint Cieśliński (arxiv:2610.07172v1, 2026-10-05) explicitly gives the same contrast value 1/3 and a nonstabilizer entangled state, so existence and that numerical value alone are covered and credited; its inspected Sec. V/Table 1 call it best-found and do not establish an all-sign upper bound or separable rank-two optimizer. The claim here is precisely universal sharpness PLUS separable, nonstabilizer attainment for the whole indicated interval, using the classical Peres–Mermin square as acknowledged input. Targeted published-finding corpus and primary-literature comparisons found no direct prior theorem of this strength. An unindexed source or implicit derivation remains a risk; search absence is not a proof of priority.",
+    "residual_risks": [
+      "The same-endpoint 2026-10-05 Pauli-flat preprint uses the term “analytical values” for two qubits, and an implicit all-sign argument could exist outside the sections explicitly setting out its claims.",
+      "The general Peres–Mermin parity identity has been known since 1990; an equivalent quantitative mixed-state application may be a short unpublished or unindexed corollary.",
+      "Published published-finding corpus search covers a ranking rather than other unpublished work; no absolute priority or independence is asserted.",
+      "The publisher-hosted Mermin 1990 primary full text was inaccessible; its classical square was checked from a detailed reference and directly by matrices."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: pure-state entropy optimization and MUB structure, not mixed-state equal-modulus 15-Pauli feasible contrasts",
+        "evidence": "arXiv PDF lines 118–135 and 242–306; paper explicitly focuses on pure states, with 480 pure MUB fiducials.",
+        "identifier_or_url": "arxiv:2502.17550v3; first public v1 on 2025-02-24",
+        "material_read": "Full-text PDF pp. 1–4, especially SRE and two-qubit maximal magic sections and Eq. (18); abstract/submission history checked",
+        "method": "Readable arXiv PDF text and direct page image",
+        "title": "Maximal Magic for Two-qubit States",
+        "trigger": "Motivating 2-qubit Pauli spectrum and maximal pure-state nonstabilizerness"
+      },
+      {
+        "assessment": "NOT_COVERING: theorem is about pure-state WH-SIC SRE saturation, with mixed stabilizer states beyond the stated scope",
+        "evidence": "Theorem 1 in PDF p. 4; PDF p. 2 explicitly says mixed stabilizer states are beyond scope.",
+        "identifier_or_url": "arxiv:2412.21083v1",
+        "material_read": "Full-text PDF introduction, definitions, Theorem 1 and its proof/implications sections, especially pp. 2–6",
+        "method": "arXiv PDF text with relevant theorem and scope examination",
+        "title": "Quantum States with Maximal Magic",
+        "trigger": "Possible domination by general WH-SIC maximal magic theorem"
+      },
+      {
+        "assessment": "PARTIAL_OVERLAP: same equal-modulus object and an entangled two-qubit state reaching the same numerical endpoint. No all-sign upper-bound proof or separable endpoint appears in inspected statements.",
+        "evidence": "Secs. III–V: definition Eq. (6), two-qubit example Eqs. (V), best-found Table 1 at 0.3334, SDP Eq. (15). Explicit example is described as entangled.",
+        "identifier_or_url": "arxiv:2610.07172v1; posted 2026-10-05",
+        "material_read": "Available full HTML main text Sections I–VI, especially definitions, Proposition 1, Sec. V construction, Eq. (15), Table 1, and appendix context",
+        "method": "Read arXiv HTML text including explicit signed matrix and all listed contrasting quantities",
+        "title": "Pauli Flat Quantum States Mimicking Maximal Magic",
+        "trigger": "Direct same-object and same-number prior example with potential domination"
+      },
+      {
+        "assessment": "STRUCTURAL_PRIOR: the context parity obstruction is classical. Its text not fully inspected, so no claim about what further refinements it contains.",
+        "evidence": "Mermin 1990 publisher abstract addresses no-hidden-variables theorems; MathWorld lists the exact square and five positive/one negative context signs.",
+        "identifier_or_url": "DOI:10.1103/PhysRevLett.65.3373",
+        "material_read": "Publisher abstract and reference metadata; no accessible primary full text",
+        "method": "APS publisher abstract; independently reconstructed and exactly checked the explicit six triple products using the commonly documented square",
+        "title": "Simple unified form for the major no-hidden-variables theorems",
+        "trigger": "Primary historical source for the Peres–Mermin contextuality square"
+      },
+      {
+        "assessment": "STRUCTURAL_PRIOR: supplies parity paradox, not flat mixed-state positivity ceiling or separable optimizer",
+        "evidence": "The six row/column contexts and 5+1 operator-product signs are explicitly described.",
+        "identifier_or_url": "https://mathworld.wolfram.com/Peres-MerminSquare.html",
+        "material_read": "Entire concise entry including matrix, sign products and references",
+        "method": "Direct web article read; operator identities rechecked in independent finite matrix code",
+        "title": "Peres–Mermin Square",
+        "trigger": "Confirmation of the classical contextual array and product signs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c6608523-6c4f-419c-8bc3-9c849d0211e3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An equal-modulus full two-qubit Pauli spectrum is a natural quantum-information invariant motivated by WH-SIC and magic state research. The theorem determines the exact feasible contrast set for all mixed two-qubit states, proves a sign-universal obstruction using a contextuality geometry, and shows that the sharp endpoint and nonstabilizer witnesses are realized by separable rank-two mixtures. Thus maximal flat Pauli correlations and nonstabilizer character need not entail bipartite entanglement. It is a structural exact classification, not arbitrary numerical slicing, while making no claim about computation advantage or larger systems.",
+    "status": "PASS"
+  }
+}
