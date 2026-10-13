@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For all a,b>0, eta>0, 0<=beta<1 and every initial pair, two-step transfer P has trace (1+beta-eta*a)(1+beta-eta*b)-2beta and determinant beta^2. The strict Schur/Jury inequalities reduce algebraically to eta*ab*(C-eta)>0 and ab*(eta-C/2)^2-Delta/(4ab)>0, giving exactly the three cases and all strict endpoints. Rational checker recomputes 5000 tuples and exact two witnesses; infinite claim rests on proof, not finite checks. Rate-optimal resonance extension follows from rho(P)>=sqrt(abs(det P))=beta and trace(P)=-2beta at eta=(1+beta)/a or eta=(1+beta)/b; both characteristic roots are -beta. When beta=0 the transfer is nilpotent.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghadimi et al., arXiv:1412.7457v1, develop convergence of full-gradient heavy ball, with constant Hessian per iterate.",
+        "Tseng 1998 abstract and first original page introduce an adaptive diminishing-on-failure stepsize rule on incremental components.",
+        "Qiu and Milzarek, arXiv:2404.18452, establish broader stochastic reshuffling convergence/complexity conditions, but the examined statements do not give an exact fixed-cycle stability interval."
+      ],
+      "reasoning": "A global theorem for a safeguarded varying step or a small-step stochastic convergence theorem does not imply an if-and-only-if picture for every fixed positive step, especially restoration of stability at large steps. Full-text unavailability of Tseng leaves a precisely identified comparison risk.",
+      "searches": [
+        "\"An Incremental Gradient(-Projection) Method with Momentum Term and Adaptive Stepsize Rule\" arxiv pdf",
+        "\"Global convergence of the Heavy-ball method for convex optimization\"",
+        "arxiv:2404.18452"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1412.7457v1",
+      "DOI:10.1137/S1052623495294797",
+      "arxiv:2404.18452",
+      "arxiv:1407.0202",
+      "Published result titled \"Uniform real-root barrier for fixed-parameter heavy-ball acceleration\"; full-gradient real-root restrictions do not dominate this product-law theorem."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full-gradient constant-curvature transfer is a single matrix per step, whereas this claim involves the nontrivial product of two different component transfers.",
+        "An adaptive safeguard protects smaller per-stage parameters and cannot certify nonmonotone fixed-step convergence with a distant high-step island.",
+        "A real-root requirement over a constant-curvature spectrum is distinct from spectral roots of a period-two product."
+      ],
+      "reasoning": "The classified quantity is a two-step monodromy spectral radius. Prior full-gradient sufficient bounds are neither a sharp converse nor a theorem about this product; generic Schur facts supply a proof technique but do not by themselves imply a published exact finite-sum classification.",
+      "searches": [
+        "arxiv:1412.7457v1",
+        "10.1137/S1052623495294797",
+        "momentum alternating gradient quadratic Floquet stability exact trace determinant step size"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original heavy-ball and incremental-momentum iteration are known; exact period-two transfer and explicit interval inequalities are not stated in the accessible original opening page or abstracts.",
+        "The method under fixed step is equivalent to a switched scalar linear second-order recurrence, whose Schur test is standard."
+      ],
+      "reasoning": "Cyclic curvature two-step matrices share the standard Floquet reduction, but a general algebraic criterion is not a published value of the discriminant phase boundary in the inspected sources. Matching the algorithm family is not matching the final theorem; unavailable older chapters prevent certainty.",
+      "searches": [
+        "\"cyclic\" \"heavy ball\" \"quadratic\" \"stability\" alternating gradients",
+        "\"alternating\" \"quadratic\" \"momentum\" \"stability regions\"",
+        "arxiv:2404.18452",
+        "10.1137/S1052623495294797"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact two-component parameter classification was exposed by the stated title/formula searches.",
+        "Original methods and close full-gradient stability results concern different iteration operators."
+      ],
+      "reasoning": "The final closed-form curvature threshold, isolated-point case, and two open stability components were not found as an exact tabulation in the searched literature. Lack of indexing is not an absolute originality proof.",
+      "searches": [
+        "cyclic two component heavy ball momentum alternating quadratics disconnected stability interval eta plus eta minus phase diagram",
+        "periodic incremental gradient momentum resonance stepsize 1 plus beta divided component curvature spectral radius beta",
+        "fixed-order heavy ball two positive curvatures sharp Schur Jury critical curvature contrast"
+      ]
+    },
+    "rationale": "A complete strict all-initial-state fixed-parameter convergence classification for deterministic period-two scalar incremental heavy-ball; neither constant-curvature full-gradient heavy-ball nor adaptive-step incremental schemes logically supply the disconnected stability intervals and critical curvature ratio. Direct overlap searches found no matching fixed-parameter two-curvature formula, but older specialized literature remains a disclosed residual risk. The rate-optimal component-cancellation resonances are included as consequences of the same period-two classification, not independently claimed findings.",
+    "residual_risks": [
+      "The unseen later sections of Tseng (1998) might contain an equivalent fixed-step scalar example or stronger implication.",
+      "Switched-system/Floquet references might have an isomorphic two-period multiplier classification not indexed using optimization terminology.",
+      "Generalization beyond the scalar two-component and shared-minimizer regime is not proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original full-gradient heavy-ball convergence; not a cyclic two-component monodromy phase diagram.",
+        "evidence": [
+          "Full-gradient update uses the objective gradient at each step, not one alternating component."
+        ],
+        "identifier_or_url": "arxiv:1412.7457v1",
+        "material_read": "Original manuscript cover, abstract, algorithm statement and early convergence analysis; first publication 23 December 2014; primary 90C26.",
+        "method": "primary preprint reading",
+        "title": "Global convergence of the Heavy-ball method for convex optimization",
+        "trigger": "archive primary-MSC anchor and original heavy-ball global guarantees"
+      },
+      {
+        "assessment": "Algorithm matches momentum-plus-component-gradient after fixed-step elimination, but its principal claimed guarantee uses an adaptive decrease-on-insufficient-progress rule. Exact fixed-step classification not observed in material read. Remaining text is a genuine originality risk.",
+        "evidence": [
+          "Original abstract explicitly specifies an adaptive stepsize rule.",
+          "Original displayed direction recurrence mixes component gradient and previous momentum direction."
+        ],
+        "identifier_or_url": "DOI:10.1137/S1052623495294797",
+        "material_read": "Publisher-linked accessible preview of original first page 506, including abstract and equations (1)–(3), and bibliographic records; not the entire 506–531 text.",
+        "method": "source preview and abstract reading after preprint and lawful public-text attempts",
+        "title": "An incremental gradient(-projection) method with momentum term and adaptive stepsize rule",
+        "trigger": "Very close algorithm family, could subsume the fixed-parameter case"
+      },
+      {
+        "assessment": "Random reshuffling and asymptotic/diminishing stepsize complexity results; not identified as an exact fixed-order period-two stability classification in inspected material.",
+        "evidence": [
+          "Results described in abstracts concern nonconvex iteration complexity and last-iterate convergence under schedules."
+        ],
+        "identifier_or_url": "arxiv:2404.18452",
+        "material_read": "Original arXiv abstract and accessible expanded 2026 abstract; not full theorem pages.",
+        "method": "original paper abstract and lawful scholarly preview",
+        "title": "Random Reshuffling with Momentum for Nonconvex Problems: Iteration Complexity and Last Iterate Convergence",
+        "trigger": "Potential stronger all-model convergence for component momentum"
+      },
+      {
+        "assessment": "Stores component gradients and uses variance reduction, a different update from fixed-order heavy ball.",
+        "evidence": [
+          "SAGA gradient-table correction makes its update different from a two-component cyclic heavy-ball recurrence."
+        ],
+        "identifier_or_url": "arxiv:1407.0202",
+        "material_read": "Original manuscript opening pages and algorithm description.",
+        "method": "open-access source reading",
+        "title": "SAGA: A Fast Incremental Gradient Method With Support for Non-Strongly Convex Composite Objectives",
+        "trigger": "Finite-sum incremental methods and epoch ordering context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "60f51dc1-b1a2-4fa5-acdc-1f379dcf0edb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Full sharp stepsize classification of the natural simplest periodic incremental strongly convex problem; a disconnected stability set, isolated instability at equality, and exact curvature-versus-momentum critical ratio quantify a counterintuitive learning-rate restoration. This separates epoch convergence from one-step monotonicity and gives a concrete caution for cyclic momentum tuning without claiming higher-dimensional generality. The two explicit component-cancellation stepsizes additionally minimize the per-cycle spectral radius at beta irrespective of curvature contrast, clarifying how the high-step stable island arises.",
+    "status": "PASS"
+  }
+}

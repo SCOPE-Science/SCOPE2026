@@ -1,0 +1,15 @@
+# Scientific review: disconnected stability of cyclic two-component heavy-ball descent
+
+## Correctness — PASS
+For every \(a,b>0\), \(\eta>0\), and \(0\le\beta<1\), the true two-step update is exactly \(P=B_bB_a\). Its trace and determinant are \((1+\beta-\eta a)(1+\beta-\eta b)-2\beta\) and \(\beta^2\), so the strict quadratic Schur test reduces to the two explicitly factored inequalities in RESULT.md. The discriminant regimes prove all quantified statements, including gap endpoints and the isolated equality case. The `verify.py` program independently reconstructs 5000 rational cases and both witnesses; finite checks do not replace the all-real-parameter proof. No assumptions are made about favorable initial states.
+
+## Originality — PASS, with explicit residual risk
+The standard heavy-ball iteration, finite-sum cyclic evaluation, and Schur/Floquet spectral method are prior mathematics. Ghadimi–Feyzmahdavian–Johansson (arXiv:1412.7457v1) analyze full-gradient heavy ball and do not imply the period-two product-law classification. Tseng (DOI 10.1137/S1052623495294797) studies the matching general incremental-momentum family but uses an adaptive step safeguard; the accessible initial page and abstract do not state the fixed-parameter scalar disconnected-interval theorem. Qiu–Milzarek (arXiv:2404.18452) study momentum reshuffling with diminishing/polynomial stepsize guarantees, not the present deterministic period-two sharp stability set in the inspected material. A previously established heavy-ball real-root barrier concerns constant-curvature full gradients, which neither implies nor is implied by alternating nonidentical curvature dynamics. The exact special-case possibility hidden in unavailable older full text is expressly a residual risk, not asserted away by search absence.
+
+## Value — PASS
+The classification settles a natural all-stepsize question for the smallest periodically varying, interpolation-compatible strongly convex finite sum. The stability set is topologically disconnected when curvature contrast exceeds an explicit momentum-sensitive threshold, and can lose exactly one interior stepsize at the critical ratio. Exact witnesses demonstrate that a larger learning rate can regain convergence even when intermediate iterates are severely amplified. Moreover the two explicit resonance stepsizes always achieve the minimum possible per-cycle spectral radius \(\beta\), since the two-step determinant equals \(\beta^2\). This is not a recommendation to use the large-step branch without robustness safeguards. It distinguishes epochwise convergence from per-step safety and separates fixed cyclic ordering from deterministic averaged-gradient stability.
+
+## Limitations
+Only a scalar, centered, two-component, strictly alternating, fixed-momentum model is covered. Higher dimensions, arbitrary orders, unequal component minimizers, and finite-precision robustness remain unproved. Equivalent earlier specialized formulas in incremental momentum or switched-systems literature remain possible, particularly within uninspected portions of the older Tseng paper.
+
+Self-review: passed. Independent audit: not yet performed.
