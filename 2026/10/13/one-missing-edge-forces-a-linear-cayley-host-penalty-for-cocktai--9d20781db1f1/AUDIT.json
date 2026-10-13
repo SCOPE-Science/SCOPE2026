@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "In the complement, the selected graph is P4+(r-2)K2 on 2r vertices with r+1 edges and maximum degree 2. If a d-regular host complement has t other vertices, selected-to-outside incidence gives (2r-t)d<=2(r+1); as d>=2, t>=r-1. The cyclic host complement C_{3r-1} has an induced copy by blocks of lengths 4,2,...,2 separated by one vertex. All boundaries, including r=2, are handled; finite verifier ran on r=2..100.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.01486 abstract states exact formulas for paths and K_{a,b}, but not one-edge-deleted cocktail-party graphs.",
+        "Standard clique-coclique bound for vertex-transitive hosts gives only 2r here (alpha=2, omega=r), strictly weaker than 3r-1 for r>=3."
+      ],
+      "reasoning": "The known general clique-coclique inequality and the undeleted complete multipartite embedding do not imply this edge-deletion penalty. The r=2 path boundary is previously known; the novel domain is r>=3.",
+      "searches": [
+        "web: \"Induced Embeddings of Graphs into Abelian Cayley Graphs\" complete multipartite",
+        "web: \"vertex transitive\" \"induced\" \"matching\" \"path\" \"minimum order\" regular",
+        "published-finding corpus: exact minimum order abelian Cayley graph containing complete multipartite K_{n1,...,nr} induced subgraph r maximum part"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.01486 abstract and source metadata (full text unavailable)",
+      "doi:10.1007/s10623-016-0209-4 Section 4.2 web-rendered",
+      "Own 2026-09_week4 and 2026-10_week1 claim/ID ledgers for dedup",
+      "published-finding corpus queries listed in four named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2016 cocktail-party Cayley characterization concerns CP_r itself (host order 2r).",
+        "The 2026 arXiv abstract covers P4 (r=2) via its path formula, but does not assert the r>=3 regular-complement crossing-edge obstruction.",
+        "Closest prior owned eta(K_{1,1,n})=3n concerns a book graph and does not imply the cocktail-party deletion formula."
+      ],
+      "reasoning": "The edge-deleted graphs are not themselves vertex-transitive and the extra r-1 vertices are not consequences of the parent graph eta=2r. The sharper lower bound requires the induced P4+(r-2)K2 crossing-edge argument.",
+      "searches": [
+        "web: \"cocktail party graph\" \"one edge\" \"Cayley\" host",
+        "web: \"complete multipartite\" \"one edge deleted\" \"Cayley\" \"induced\"",
+        "published-finding corpus: minimum order abelian Cayley induced host for complete multipartite graph minus one cross edge K_{2,2,...,2} minus edge cyclic complement induced path matching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The complement of the target is exactly P4 disjoint union (r-2)K2; the host complement must be regular. No published-finding corpus hit claimed this exact embedding bound.",
+        "Known cycle-complement ambient construction differs from standard regular cocktail-party hosts."
+      ],
+      "reasoning": "Compared the induced Cayley-host minimum against the equivalent minimum-order vertex-transitive host and the complementary induced linear forest. No retrieved claim gives the sharp 3r-1 bound.",
+      "searches": [
+        "published-finding corpus: minimum order abelian Cayley graph containing complete multipartite K_{n1,...,nr} induced subgraph r maximum part",
+        "published-finding corpus: minimum order abelian Cayley induced host for complete multipartite graph minus one cross edge K_{2,2,...,2} minus edge cyclic complement induced path matching",
+        "web: \"complete multipartite\" \"one edge deleted\" \"Cayley\" \"induced\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus showed other complete multipartite invariants but no exact eta table for CP_r minus an edge.",
+        "Souop–Bitjoka report finite exact values for 22 graphs in their abstract; their full table was inaccessible, so small r could overlap."
+      ],
+      "reasoning": "The theorem applies at every r, so any finite tabulation would only cover its initial instances; however, the inaccessible table is recorded as a residual overlap risk.",
+      "searches": [
+        "published-finding corpus: minimum order abelian Cayley graph containing complete multipartite K_{n1,...,nr} induced subgraph r maximum part",
+        "web: \"eta\" \"complete tripartite\" \"Cayley graph\" \"abelian\"",
+        "web: \"Induced Embeddings of Graphs into Abelian Cayley Graphs\" pdf full text"
+      ]
+    },
+    "rationale": "The 3r-1 vertex-transitive induced-host lower bound and matching cyclic upper bound for CP_r minus one cross edge are not entailed by the standard alpha*omega lower bound (2r), the undeleted cocktail-party Cayley characterization (2r), the previously treated P4 case, or the inspected motivating 2026 abstract. Searches found no dominating result; full source access remains a declared risk.",
+    "residual_risks": [
+      "The full preprint arXiv:2609.01486 was not accessible, so an equivalent theorem in its body cannot be conclusively excluded.",
+      "Unindexed work on induced linear forests in regular or vertex-transitive graphs may already contain an equivalent lower-bound lemma."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Abstract does not cover the new infinite edge-deletion formula; full-body noncoverage not established",
+        "evidence": [
+          "arXiv:2609.01486 posted 2026-09-01, reports complete bipartite and path exact formulas; reports 22 finite benchmarks.",
+          "Full text inaccessible: arxiv.org/pdf and arxiv.org/html returned disabled errors."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.01486",
+        "material_read": "Complete abstract and external open-problem listings; full PDF and arXiv HTML inaccessible",
+        "method": "arXiv indexed abstract plus attempted direct arXiv PDF and HTML access",
+        "title": "Induced Embeddings of Graphs into Abelian Cayley Graphs",
+        "trigger": "Same graph invariant and complete bipartite benchmark in motivating preprint"
+      },
+      {
+        "assessment": "Characterizes undeleted cocktail-party graphs only in inspected section; does not cover added induced-host cost",
+        "evidence": [
+          "Proposition 4.4 describes CP_r as Cayley iff the connection set is the group minus an order-two subgroup."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10623-016-0209-4",
+        "material_read": "Public web-rendered Section 4.2 around Proposition 4.4",
+        "method": "Publisher open webpage section text",
+        "title": "Distance-regular Cayley graphs with least eigenvalue -2",
+        "trigger": "Contains standard characterization of cocktail-party graphs as Cayley graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9d20781d-b1f1-4ddc-8460-8b29ac8ee3a0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem quantifies a linear r-1 increase in the minimum induced Cayley-host order caused by removing only one edge from the natural vertex-transitive cocktail-party family. It extends a recently investigated embedding invariant, proves a stronger vertex-transitive lower bound, and has exact constructions for unbounded r. It is not a recomputation of small instances, and the known clique-coclique inequality alone gives only the weaker 2r floor.",
+    "status": "PASS"
+  }
+}
