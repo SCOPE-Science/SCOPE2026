@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "A direct primorial-copy induction gives w_{n+1}(a)=p_{n+1}w_n(a)-s_{n+1}(a) and limits delta_a with 0<=e_n(a)<1. Exact copied-block counting yields E_n(a)<=2p_{n+1}; the prime number theorem turns this into O(log X). The computed difference w_14(1)-w_14(5) with two errors in [0,1) proves the strict rational bounds. A standalone stdlib verifier checks independent greedy records, exact block counts, 14 finite gap recurrences and fractional comparisons. Infinite assertions rest on the written induction, not finite computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Basistha–Ionascu Theorem 2.9 provides a primorial-translation property.",
+        "Basistha–Ionascu Theorem 2.12 establishes a positive natural density for the union of records, not a residue-class-split or a signed bias.",
+        "The present calculation produces distinct rational intervals and a logarithmic pointwise counting error."
+      ],
+      "reasoning": "The original paper proves primorial block replication and the density of all record values, but neither separate residue-class constants nor the stated logarithmic discrepancy. Its total density is the sum of two quantities; knowing the sum does not determine their difference. A general block-replication result is an ingredient, not an explicit implication of the bias, which requires counts in two classes, control of their tails and a strict signed inequality. An unchecked hidden corollary remains a residual risk.",
+      "searches": [
+        "Basistha Ionascu primorial numbers Theorem 2.9 Theorem 2.12 natural density records",
+        "\"Basistha\" \"Ionascu\" \"residue class\" \"records\" density",
+        "\"Basistha Ionascu\" greedy least coprime permutation record density 1 mod 6 versus 5 mod 6 O(log X)",
+        "arXiv:2302.02838v5 full text, especially Theorems 2.9 and 2.12"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.02838v1",
+      "arXiv:2302.02838v5",
+      "DOI:10.59277/RRMPA.2025.235.255",
+      "OEIS:A261271",
+      "Primary literature searches on record permutation modulo-six residue density and logarithmic error",
+      "Independent mathematical-record searches for the claim, aliases and parameters"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary theorem 2.9 establishes replication; theorem 2.12 gives only overall record density.",
+        "New result gives C_1(X)-C_5(X)=(delta_1-delta_5)X+O(log X), with delta_1-delta_5>1/35.",
+        "The cited record-multiple result addresses only a finite initial interval, and no formula for either delta_a is implied."
+      ],
+      "reasoning": "The new signed difference is not implied by the published total density or by finite enumerations. The source prime-record and replication facts are reused openly, and a complete additional residue-weighted recursion, uniform error proof and exact strict inequality are furnished.",
+      "searches": [
+        "arXiv:2302.02838v1 and arXiv:2302.02838v5 theorem and appendix checks",
+        "\"A special sequence and primorial numbers\" density \"+1\" \"-1\" mod6",
+        "\"greedy gcd permutation record numbers\" asymptotic modulo 6 difference",
+        "\"logarithmic discrepancy and permanent modulo-six bias in greedy coprime records\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS:A261271 defines the least-prime-nondivisor record sequence and its initial terms.",
+        "The two nonempty residue classes are 1 and 5 modulo 6; the total record count equals the sum of the two counts.",
+        "The finite recurrence and strict rational interval are produced by explicit calculations in RESULT.md and verify.py."
+      ],
+      "reasoning": "Comparisons were made against prime-nondivisor recurrence, turning-point values of the greedy coprime permutation, and congruence-class restrictions. Neither a differently worded density-difference statement nor an equivalent asymptotic identity was located. Searches alone cannot prove uniqueness.",
+      "searches": [
+        "\"A261271\" \"modulo 6\" density records",
+        "\"greedy coprime permutation\" records residue densities discrepancy",
+        "\"A261271\" \"logarithmic discrepancy\" natural density",
+        "\"A261271\" residue class signed density 0.028972884849888",
+        "OEIS:A261271 record recurrence; arXiv:2302.02838v5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A261271 gives the sequence and initial enumerations; it does not list the two limiting class densities or logarithmic bounds.",
+        "An exact finite record-multiple pattern is locally specific, with no global class-density theorem.",
+        "The rational bias certificate uses w_14 values and is reproduced by verify.py without enumerating up to P_14."
+      ],
+      "reasoning": "A table of record positions and the particular finite progression break do not imply positive signed asymptotic bias or an O(log X) discrepancy. A table of the exact same class densities would be relevant; no such table was found.",
+      "searches": [
+        "OEIS A261271 record sequence b-file congruence density",
+        "\"A261271\" \"modulo 6\" density records",
+        "\"A261271\" density records congruent 1 mod 6 versus 5 mod 6 2023",
+        "first break period 30 greedy record multiples 25 55 85 2026"
+      ]
+    },
+    "rationale": "The original paper proves primorial block replication and the density of all record values, but neither separate residue-class constants nor the stated logarithmic discrepancy. Its total density is the sum of two quantities; knowing the sum does not determine their difference. The target result also proves an explicit signed inequality and a uniform logarithmic error not located in relevant checked sources. Residual search-coverage risk remains; no independent validation is claimed.",
+    "residual_risks": [
+      "An unindexed equivalent analysis of the primorial-translation theorem may have extracted the two residue constants or logarithmic error.",
+      "The same source structure is being refined; the new claims must be judged for substantive implication rather than merely different terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains necessary known ingredients and total density but no identified class-1/class-5 signed density, strict bias certificate or logarithmic discrepancy estimate.",
+        "evidence": [
+          "Theorem 2.9: primorial recurrence/translation.",
+          "Theorem 2.12: aggregate density.",
+          "New weighted recurrence and tail proof in RESULT.md."
+        ],
+        "identifier_or_url": "arXiv:2302.02838v1; arXiv:2302.02838v5; https://arxiv.org/pdf/2302.02838",
+        "material_read": "Definitions of the greedy coprime sequence and record values; section establishing the primorial-translation theorem 2.9; global density theorem 2.12; surrounding stated consequences and references.",
+        "method": "Lawful open preprint/full-PDF text inspection and direct theorem/statement comparisons.",
+        "title": "A special sequence and primorial numbers (preprint, including revised full text)",
+        "trigger": "The paper defines the exact permutation and proves the closest prime-record, primorial-copy and density theorems."
+      },
+      {
+        "assessment": "No identified complete residue-class splitting or logarithmic counting-error theorem.",
+        "evidence": [
+          "Journal paper pages 235–255; its global density concerns the union of record classes."
+        ],
+        "identifier_or_url": "DOI:10.59277/RRMPA.2025.235.255; https://imar.ro/journals/Revue_Mathematique/pdfs/2025/3-4/4.pdf",
+        "material_read": "Definitions and statement-level comparison of primorial translations, record-density result and relevant discussion.",
+        "method": "Open journal full-text examination, checking theorem-level scope against the revised preprint.",
+        "title": "A special sequence and primorial numbers (journal version)",
+        "trigger": "Later published version of the same primary work may contain further statements."
+      },
+      {
+        "assessment": "Corroborates the recurrence and initial terms, but does not provide the two residue-class density constants or an effective logarithmic counting bound.",
+        "evidence": [
+          "A261271 sequence and recurrence; initial records 5,7,11,13,17,19,23,25,29,31."
+        ],
+        "identifier_or_url": "https://oeis.org/A261271",
+        "material_read": "Definition, recurrence, initial terms, references and comments relevant to density claims.",
+        "method": "Online sequence-record inspection.",
+        "title": "OEIS A261271",
+        "trigger": "Independent public entry for the record recurrence and numerical values."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "78a4e053-331d-40e6-824d-5114b101e9df",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two possible prime-to-six residue classes partition an established positive-density arithmetic record set. Resolving whether they split evenly is a natural structural question: the result proves a permanent explicit bias >1/35 and full O(log X) discrepancy, with convergent arithmetic series and certified high-precision rational intervals. The result is not merely a finite example, a restatement of the original global density, or an arbitrary slice.",
+    "status": "PASS"
+  }
+}
