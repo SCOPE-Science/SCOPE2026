@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "CG residual orthogonality makes the normalized residual polynomial the degree-k orthogonal polynomial for the positive discrete spectral measure with masses b_i^2. Its roots are real Ritz values inside the active spectral interval. When kappa<=2, every factor 1-lambda/theta lies in [-1,1], so the residual polynomial is at most one in every active coordinate and x_i=x_i^*(1-p_k(lambda_i)) is nonnegative. Two dimensions terminate in at most two active modes. For every kappa>2, the three-mode epsilon family has a second residual polynomial converging to the two-point annihilator whose value at the high mode is kappa-1>1. The exact rational witness was replayed from the packaged verifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Forsgren--Odland state that well-defined one-parameter Broyden methods generate CG-parallel directions and identical exact-line-search iterates on positive-definite quadratics.",
+        "Their full text gives CG's Krylov characterization and finite termination in at most the number of active spectral modes.",
+        "The source does not claim that these iterates stay in a coordinate cone below any condition threshold."
+      ],
+      "reasoning": "The prior equivalence is broader across algorithms but neutral about coordinate signs. It transfers the new CG theorem to BFGS/Broyden once proved; it does not imply the theorem without the sign-sensitive Ritz-polynomial argument.",
+      "searches": [
+        "On the connection between the conjugate gradient method and quasi-Newton methods on quadratic problems full text",
+        "BFGS exact line search conjugate gradient identical iterates quadratic",
+        "Broyden exact line search positive orthant quadratic"
+      ]
+    },
+    "checked_sources": [
+      "optimization-online:3764",
+      "arXiv:1407.1268",
+      "doi:10.1007/s10589-014-9677-5",
+      "doi:10.1051/ro/2015064"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Forsgren--Odland theorem implies only that certain quasi-Newton schemes share CG iterates; it does not determine the signs of those iterates.",
+        "Classical CG finite termination implies two-dimensional exactness by the second active mode, but does not by itself show the all-dimensional kappa<=2 frontier or its sharpness.",
+        "Nearby positivity and transient results for steepest descent, Barzilai--Borwein, Richardson, and Gauss--Seidel use different iteration polynomials or observables and do not imply the CG residual-polynomial claim."
+      ],
+      "reasoning": "The final theorem needs both the Ritz-root factor bound for every iteration and a three-mode continuity obstruction. Neither is a corollary of the inspected rate/equivalence statements alone.",
+      "searches": [
+        "Forsgren Odland 2013 CG quasi-Newton identical iterates exact line search",
+        "CG Ritz values residual polynomial positive diagonal nonnegative",
+        "published numerical optimization positivity conjugate gradient diagonal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No searched scientific record stated the all-iterate condition-number-two orthant-invariance theorem.",
+        "The nearest retrieved CG records concern rate, tolerance fluctuations, or energy/residual behavior rather than coordinate signs.",
+        "Searches using both linear-system and optimization terminology did not recover a two-dimensional all-conditioning positivity theorem or the three-dimensional second-iterate obstruction."
+      ],
+      "reasoning": "Norm convergence, residual orthogonality, and Ritz-root localization are not themselves the claimed coordinatewise theorem; the new implication requires combining the factor-by-factor sign range with the diagonal coordinate identity.",
+      "searches": [
+        "conjugate gradient positive diagonal quadratic componentwise nonnegative iterates",
+        "CG positive orthant diagonal SPD sign change iterate",
+        "conjugate gradient Ritz polynomial positivity condition number two nonnegative diagonal",
+        "CG residual polynomial bounded by one condition number two positivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched database result tabulated or stated the condition-number-two positivity boundary.",
+        "The claim is an all-dimensional symbolic theorem with a minimal-dimension obstruction, not a recomputation of a published table."
+      ],
+      "reasoning": "No exact database or table coverage was located.",
+      "searches": [
+        "conjugate gradient condition number 2 nonnegative iterates",
+        "CG diagonal positivity threshold",
+        "BFGS positivity condition number two"
+      ]
+    },
+    "rationale": "The closest full-text source develops exactly the CG/quasi-Newton equivalence, finite termination, Krylov structure, and exact-line-search assumptions, but it does not state a componentwise positivity frontier. Statement-level searches for CG positivity, Ritz-polynomial sign bounds, BFGS/Broyden nonnegative iterates, and diagonal sign loss found no implication-equivalent theorem. Nearby published numerical-optimization findings concern objective or Euclidean-norm behavior rather than orthant membership.",
+    "residual_risks": [
+      "Older CG or orthogonal-polynomial literature may contain the same coordinatewise implication without using positivity or orthant terminology.",
+      "The root-location lemma is classical, so an unlocated source specializing it to diagonal nonnegative right-hand sides could make the theorem previously implicit.",
+      "The quasi-Newton corollary is not independently novel once the CG theorem and the published identical-iterate result are combined; its role is to show the scope of the new positivity statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_NOT_CLAIM: establishes algorithmic equivalence and finite termination but does not state the componentwise positivity frontier, two-dimensional safety theorem, or three-dimensional sign-loss construction.",
+        "evidence": "The full text states that CG is a Krylov method with exact solution after at most n iterations and that well-defined one-parameter Broyden updates generate CG-parallel directions and identical exact-line-search iterates.",
+        "identifier_or_url": "optimization-online:3764 / arXiv:1407.1268",
+        "material_read": "Full arXiv text, including the quadratic setup, exact-line-search formula, CG recurrence, Krylov-space characterization, finite-termination discussion, quasi-Newton setup, Broyden-family formula, and the background equivalence statement.",
+        "method": "Full-text arXiv HTML inspection.",
+        "title": "On the connection between the conjugate gradient method and quasi-Newton methods on quadratic problems",
+        "trigger": "Closest primary source on exact-line-search CG and Broyden-family quasi-Newton equivalence for positive-definite quadratics."
+      },
+      {
+        "assessment": "CLASSIFICATION_ONLY: used to support placement of conjugate-gradient optimization work under 90C25; not used as whole-document novelty evidence.",
+        "evidence": "The article explicitly lists Mathematics Subject Classification 65K05, 90C25, 90C26, 90C27, 90C30.",
+        "identifier_or_url": "doi:10.1051/ro/2015064",
+        "material_read": "Article metadata and first-page text including Mathematics Subject Classification.",
+        "method": "Publisher/archival PDF metadata inspection.",
+        "title": "New conjugate gradient method for unconstrained optimization",
+        "trigger": "Classification check for numerical optimization ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a288665-8444-4709-a20d-052b82338991",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "CG and BFGS are canonical accelerated solvers, while nonnegative iterates matter whenever coordinates represent masses, rates, concentrations, or other positive quantities. The theorem gives a complete, dimension-free safety frontier and proves the earliest minimal-dimensional failure above it. Unlike a routine rate estimate, it answers a feasibility question not controlled by the usual energy-norm convergence theory, and the Broyden-family transfer shows the boundary applies across a major class of exact-line-search second-order approximations.",
+    "status": "PASS"
+  }
+}
