@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** Forward closure of the first non-contingency truth set yields an ascending iterate chain. A terminal strongly connected component forces at least two new points in the sole exceptional case where the first truth set has one world and does not already stabilize. This closes the off-by-one gap and yields the exact bound; strict linear orders and a two-world complete relation attain it. The accompanying Python program exhaustively checks 4,180 labeled transitive frames and 65,328 frame/valuation instances up to four worlds and sharp orders to sixty worlds. These finite computations corroborate but do not replace the general proof.
+
+**Originality — PASS (qualified).** The motivating 2026 manuscript provides a proof calculus for non-contingency over transitive frames, not an exact iteration cutoff. The inspected 2025 nested-sequent literature concerns proof systems rather than sharp nonlinear truth-set saturation times. Crucially, Zolin's 2002 \(\mathbf{S4}\) axiom \(\nabla p\to\nabla^2p\) is prior art: growth of non-contingency on reflexive-transitive frames is not claimed as new. The distinct contribution is the exact frame-size invariant over all finite transitive (not necessarily reflexive) frames and its sharp witnesses. Search cannot exclude every older equivalent translation under a different name, particularly in algebraic or dynamic-logic presentations.
+
+**Value — PASS.** Determining when repeated knowing-whether ceases to refine truth sets is a natural finite-model depth question. An exact sharp cutoff for the broad \(\mathbf{K4}\) frame class is usable to normalize consecutive iterations in bounded finite-model settings, and the terminal-cycle obstruction identifies why the naïve cardinality bound improves by one world. The result includes an infinite family of matching extremal frames, not an isolated computation.
+
+Self-review: passed. Independent audit: not yet performed.
