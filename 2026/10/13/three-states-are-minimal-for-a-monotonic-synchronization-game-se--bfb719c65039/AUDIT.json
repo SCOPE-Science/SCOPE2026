@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For two states the only nonconstant nondecreasing chain map is the identity, so any synchronizing binary monotonic automaton has a constant letter that Alice can choose immediately. For three states all 10 nondecreasing maps and all 100 ordered pairs are exhausted. Independent full-subset and endpoint-pair reachability-game solvers agree on every pair and identify exactly four synchronizing Bob-winning presentations. The representative is reset by aa, while Bob's stationary b response restores the active endpoints {0,2} after either Alice move.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 paper proves a polynomial endpoint-pair reduction for monotonic automata and gives a four-state counterexample, but does not analyze the three-state boundary.",
+        "The 2024 theorem ensures Alice wins on synchronizing DS-automata; it does not imply that every three-state monotonic automaton is DS, and its own Bob-winning illustration is nonmonotonic.",
+        "The later uniform-strategy paper contains no monotonic or three-state classification in the checked full text."
+      ],
+      "reasoning": "General game algorithms and sufficient algebraic winning conditions do not determine the smallest monotonic Bob-winning automaton or exhaust the finite three-state monotonic presentations.",
+      "searches": [
+        "The Synchronization Game on Subclasses of Automata monotonic Figure 3 Proposition 7.1",
+        "Winning Strategies for the Synchronization Game on Subclasses of Finite Automata DS automata",
+        "Uniform winning strategies synchronization games monotonic automata"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.4230/LIPIcs.FUN.2022.14 full text",
+      "arXiv:2409.06971v1 full text and rendered figure",
+      "DOI:10.4204/EPTCS.407.6 bibliographic/MSC record",
+      "arXiv:2512.11007v1 full text",
+      "targeted indexed searches under smallest-counterexample, three-state, A-automaton, and monotonic-game formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 7.1 in the 2022 paper reduces the game to endpoints but does not solve the resulting finite three-state game.",
+        "The 2022 four-state example proves existence at four states, not minimality.",
+        "The 2024 three-state example is nonmonotonic, so it cannot serve as a monotonic three-state witness.",
+        "The new classification requires excluding every two-state candidate and solving all 100 normalized three-state transition pairs."
+      ],
+      "reasoning": "Neither the four-state monotonic example nor the unrestricted three-state example implies the monotonic three-state boundary; the finite exhaustive classification supplies the missing implication.",
+      "searches": [
+        "DOI 10.4230/LIPIcs.FUN.2022.14 monotonic automata full text",
+        "arXiv 2409.06971 synchronization game three-state example full text",
+        "arXiv 2512.11007 synchronization game monotonic three-state"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2022 source defines monotonic synchronization games and exhibits a four-state monotonic Bob-winning automaton.",
+        "The 2024 source uses the equivalent A-automaton terminology for automata on which Alice has a winning strategy.",
+        "No checked result states that three states are minimal in the monotonic binary class or lists the four normalized three-state exceptions."
+      ],
+      "reasoning": "These formulations cover the direct game terminology, the A-automaton alias, the player-winning formulation, and the binary monotonic specialization.",
+      "searches": [
+        "three-state monotonic automaton synchronization game Alice winning",
+        "synchronizable monotonic automaton Bob winning strategy minimum states",
+        "3-state monotonic DFA A-automaton synchronization game",
+        "binary monotonic synchronization game counterexample"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked indexed record or paper table reports the census 77 Alice-win, 4 Bob-win, 19 nonsynchronizing for the 100 binary three-state monotonic presentations.",
+        "The closest direct source table-free discussion gives only one four-state monotonic example."
+      ],
+      "reasoning": "A small-state table or a stated minimal counterexample would directly dominate the finite result, so searches specifically targeted state size, classification, and the source's figure.",
+      "searches": [
+        "three-state monotonic synchronization game classification",
+        "four-state monotonic synchronization game classification",
+        "Figure 3 synchronization game monotonic automaton minimal",
+        "monotonic automaton synchronization game smallest counterexample"
+      ]
+    },
+    "rationale": "The 2022 direct paper gives a four-state monotonic Bob-winning example and the endpoint-pair reduction, but no minimal-state theorem or three-state census. The 2024 paper gives a three-state Bob-winning example in the unrestricted DFA class, but its displayed b letter has a nontrivial 2-cycle and the automaton is not monotonic under any state order. Later algebraic work classifies sufficient transition-monoid classes for Alice rather than small monotonic counterexamples. Targeted exact and alias searches found no covering statement.",
+    "residual_risks": [
+      "An unindexed note, thesis, or unpublished small-state computation may already contain the same four-presentation census.",
+      "The count four is for normalized preserved-chain presentations; abstract automata can have presentation multiplicities if more than one preserved order exists.",
+      "The result does not classify Bob-winning monotonic automata with four or more states."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper exhibits a four-state synchronizing monotonic automaton where Alice loses and proves endpoint reduction, but states no three-state census or minimality result.",
+        "identifier_or_url": "DOI:10.4230/LIPIcs.FUN.2022.14",
+        "material_read": "Section 7 on monotonic automata, including the definition, the four-state Figure 3 counterexample, Proposition 7.1, and the endpoint-pair proof; concluding discussion.",
+        "method": "Open full-text PDF with rendered-page inspection of the monotonic counterexample and its surrounding proof.",
+        "title": "The Synchronization Game on Subclasses of Automata",
+        "trigger": "Direct source treating synchronization games on monotonic automata."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Its three-state example is not monotonic because one letter swaps two states; its theorem gives an Alice-winning condition for DS-automata rather than a small monotonic classification.",
+        "identifier_or_url": "arXiv:2409.06971v1 / DOI:10.4204/EPTCS.407.6",
+        "material_read": "Introduction; game rules; rendered page containing the three-state illustrative DFA; main DS-automaton theorem; relations to earlier results.",
+        "method": "Open HTML and PDF with rendered-page inspection.",
+        "title": "Winning Strategies for the Synchronization Game on Subclasses of Finite Automata",
+        "trigger": "Later direct paper on the same synchronization game, with a three-state Bob-winning illustration."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The checked text develops uniform DS strategies and contains no monotonic or three-state boundary classification.",
+        "identifier_or_url": "arXiv:2512.11007v1",
+        "material_read": "Introduction, localization lemma, stated main results, and full-text searches for monotonic and three-state terminology.",
+        "method": "Open HTML full-text statement comparison.",
+        "title": "Uniform winning strategies for the synchronization games on subclasses of finite automata",
+        "trigger": "Later expanded work on the same game and transition-monoid framework."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bfb719c6-5039-47b5-ad31-ab6c08587709",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2022 paper explicitly uses a four-state monotonic Bob-winning automaton as the obstruction showing that monotonic synchronizability does not guarantee an Alice win. Determining whether the obstruction can occur sooner is a natural sharp boundary question. The three-state theorem improves that boundary, proves two states impossible, and completely classifies the first exceptional layer rather than supplying only another witness.",
+    "status": "PASS"
+  }
+}
