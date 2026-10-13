@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "A complete 512-word scan produces 148 self-unbordered vertices and 3080 exact compatibility edges. Every valid code is a clique and every inclusion-maximal code a maximal clique. Pivoted Bron–Kerbosch enumeration has an inductive completeness/uniqueness argument; all 62280 output sets are directly rechecked for compatibility and inability to add another admissible word. A separate C++ string-and-set algorithm reproduces the entire 7,338,080-byte canonical catalogue byte-for-byte, not just the histogram. Orbit closure and orbit sizes are directly verified by bit reversal and complementation. Claim is finite, so exhaustive enumeration suffices; no extrapolation is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chee et al. arXiv:1209.0236, §3 proves non-expandability of a constructed family and records the exceptional size-14 length-nine optimum.",
+        "Barcucci et al. arXiv:1410.4710, §§2–4 give constructions and non-expandability proofs, rather than an exhaustive catalogue of all maximal cliques.",
+        "Qin–Chen–Luo arXiv:2309.08915, §§3–4 and Tables 1–2 deal with the non-expandability of particular parameterized constructions."
+      ],
+      "reasoning": "These are strong results on some explicit families or on maximum size. They do not imply the number of all suboptimal yet inclusion-maximal codes. The top-size 1152 component is not separately claimed as a novelty.",
+      "searches": [
+        "\"non-expandable\" \"cross-bifix-free\" \"enumeration\" counts maximal 2013 2018",
+        "\"cross bifix free\" all maximal codes classification size distribution binary length nine",
+        "\"non-overlapping\" \"maximal\" \"n=9\" \"code\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1112.3168v1",
+      "arxiv:1209.0236v2",
+      "arxiv:1303.1026v3",
+      "arxiv:1410.4710v1",
+      "arxiv:2309.08915v1",
+      "Public exact-phrase searches for inclusion-maximal binary length-nine cross-bifix-free spectra"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chee et al. §3 gives binary C(9,2)=14 and selected construction sizes, not the global maximal-clique histogram.",
+        "Bilotta et al. §3 supplies a 14-codeword Dyck-path code and proves its non-expandability; existence of one such set does not enumerate all maximal sets.",
+        "Blackburn §4 treats maxima at small lengths and asymptotics in alphabet size, not all size layers at fixed binary length nine."
+      ],
+      "reasoning": "A known maximum value 14 proves no larger clique but leaves both the number and the size distribution of all inclusion-maximal cliques undetermined. The newly evaluated coefficients for sizes below fourteen and the symmetry action are not special cases of a general maximal-size bound.",
+      "searches": [
+        "\"Cross-Bifix-Free Codes Within a Constant Factor of Optimality\" n=9 table",
+        "\"On non-expandable cross-bifix-free codes\" n=9 cardinality tables",
+        "\"A new approach to cross-bifix-free sets\" n=9 non-expandable"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bilotta–Pergola–Pinzani arXiv:1112.3168, §2 defines non-expandable; Blackburn arXiv:1303.1026, §1 defines the equivalent non-overlap condition.",
+        "No complete inclusion-maximality polynomial is present in the inspected portions of these full primary articles."
+      ],
+      "reasoning": "Cross-bifix-free/non-overlapping are equivalent definitions here; inclusion-maximal means graph maximal clique, not maximum clique. Literature on the size of largest codes cannot determine the count at sizes 1 and 4–13.",
+      "searches": [
+        "\"minimal maximal\" \"cross-bifix-free\" \"non-overlapping codes\"",
+        "\"cross bifix free\" all maximal codes classification size distribution binary length nine",
+        "\"cross-bifix-free\" \"maximal independent sets\" enumerate binary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chee et al. arXiv:1209.0236, Table I (construction versus optimum) records the exceptional length-nine maximum of 14, not the full distribution.",
+        "Qin et al. arXiv:2309.08915, Tables 1 and 2 list sizes of their named construction families, not global numbers of all codes.",
+        "An exact-phrase search for 62280 cross-bifix-free and associated saturation terminology did not identify an earlier matching table."
+      ],
+      "reasoning": "Known numerical maximum-cardinality tables, and counts of particular explicitly generated families, are different invariants. Lack of an indexed match is supporting but not proof of novelty.",
+      "searches": [
+        "\"non-expandable\" \"cross-bifix-free\" smallest size minimal cardinality 2013",
+        "\"minimal maximal\" \"cross-bifix-free\" \"non-overlapping codes\"",
+        "\"cross bifix free\" all maximal codes classification size distribution binary length nine",
+        "\"62280\" \"cross-bifix-free\" 9",
+        "\"non-overlapping\" \"maximal\" \"n=9\" \"code\"",
+        "arxiv:1112.3168 §2 and §3",
+        "arxiv:2309.08915 §3 Table 1 Table 2"
+      ]
+    },
+    "rationale": "A full size-by-size count of all inclusion-maximal binary length-nine non-overlap codes is not implied by maximum-size bounds, a particular non-expandable construction, or the previously studied top cardinality. Direct examination of the relevant original articles, later construction-family results, and exact-phrase searches did not reveal the present complete histogram or the free-action result. The largest-size coefficient is included for completeness, not advertised as new. Some unindexed exhaustive computations may still overlap.",
+    "residual_risks": [
+      "Earlier exhaustive tables or unindexed code catalogues might count the same inclusion-maximal sets.",
+      "The polynomial includes the optimum-size component already studied elsewhere; it is not separately asserted as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING full maximality spectrum",
+        "evidence": "Defines non-expandable on unbordered words and constructs one Dyck-path family of size 14 at odd length nine; does not enumerate every maximal code.",
+        "identifier_or_url": "https://arxiv.org/html/1112.3168v1",
+        "material_read": "Full-text §§1–3, especially §2 definitions and §3 odd-length construction",
+        "method": "Open-access article HTML inspection",
+        "title": "A new approach to cross-bifix-free sets",
+        "trigger": "Original non-expandability constructions and exact length nine"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE maximum size and selected non-expandable families",
+        "evidence": "Section 3 gives general constructed sets; numerical short-length comparison identifies the n=9 size-14 exception but not global numbers of inclusion-maximal codes.",
+        "identifier_or_url": "https://arxiv.org/html/1209.0236v2",
+        "material_read": "Full-text §§1–3, construction theorem, numerical discussion",
+        "method": "Open-access article HTML inspection",
+        "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+        "trigger": "Exact binary length-nine extremal exception and family maximality"
+      },
+      {
+        "assessment": "NOT_COVERING suboptimal maximality spectrum",
+        "evidence": "Studies strongest size bounds, constructions, short-length maxima and asymptotic alphabet behavior, not counts of all maximal compatibility cliques for n=9.",
+        "identifier_or_url": "https://arxiv.org/html/1303.1026v3",
+        "material_read": "Full-text introduction, §§2–5 and tables/constructions",
+        "method": "Open-access article HTML inspection",
+        "title": "Non-overlapping codes",
+        "trigger": "Equivalent non-overlap formulation and potentially stronger theorem"
+      },
+      {
+        "assessment": "NOT_COVERING global enumerator",
+        "evidence": "Defines BF_q(n) and non-expandability and constructs particular Motzkin-path families; conclusion says maximal-size classification remains open generally.",
+        "identifier_or_url": "https://arxiv.org/pdf/1410.4710",
+        "material_read": "PDF pp. 1–3 definitions, §§3–4 constructions and concluding discussion at p. 14",
+        "method": "Accessible primary PDF, text and page-image inspection",
+        "title": "Cross-bifix-free sets via Motzkin paths generation",
+        "trigger": "Non-expandable construction approach for binary and q-ary words"
+      },
+      {
+        "assessment": "NOT_COVERING global maximality spectrum",
+        "evidence": "Studies parameterized families and enlargements, and counts members of those constructions; no census across all binary length-nine inclusion-maximal codes.",
+        "identifier_or_url": "https://arxiv.org/html/2309.08915v1",
+        "material_read": "Full-text §§1–4 including Example 3.9 and Tables 1–2",
+        "method": "Open-access article HTML inspection",
+        "title": "On non-expandable cross-bifix-free codes",
+        "trigger": "Focused later results on complete non-expandability of construction families"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f7a00f52-6eb3-4d90-a778-2b3d41f8e6e3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The earlier non-expandable-code literature motivates the distinction between greedy termination (inclusion maximality) and globally optimal code size. Binary blocklength nine is a documented exceptional optimum-size case. The complete saturation spectrum quantifies every possible terminal design size and its multiplicity, proves a gap at sizes 2 and 3, and determines all 15570 symmetry classes. It supplies substantially more than a witness, an isolated tiny numerical improvement, or recomputation of the known optimum.",
+    "status": "PASS"
+  }
+}
