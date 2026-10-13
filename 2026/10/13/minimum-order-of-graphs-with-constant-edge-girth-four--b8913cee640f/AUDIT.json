@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Universal argument: m<=3 cannot contain a cycle; distinct 4-cycles overlap in at most 2 edges, ruling out m=5. Edge-girth four implies triangle-free, so Mantel gives n>=ceil(2 sqrt(m)). For n least admissible and m>=7, a=floor(n/2),b=ceil(n/2),d=ab-m satisfies a,b>=3 and 0<=d<=a-1. K_(a,b) minus a d-edge matching has n vertices and m edges. Each surviving edge has nonempty opposite-neighbor candidate sets; absence of a 4-cycle would force a=b=3 and three distinct matching deletions, contradicting d<=2. Same-part common neighbors prove connectedness. C4 and K_(2,3) handle m=4,6. Reproducible exhaustive enumeration 33,861 graphs on at most 6 vertices and checks of 2,996 explicit witnesses match, without treating finite checking as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mantel/Turán triangle-free bound: https://en.wikipedia.org/wiki/Tur%C3%A1n%27s_theorem",
+        "Marey–Hilaire–Laclau Section 7 determines maximum diameter, not minimum order: https://www.researchgate.net/publication/410930988_On_the_Realizability_of_Edge-Girth_Sequences"
+      ],
+      "reasoning": "The strongest relevant general coverage bound is Mantel: no triangle-free graph with m edges can use fewer than ceil(2 sqrt(m)) vertices. This gives a lower bound only. The present construction proves that this bound is attainable subject to the strictly stronger every-edge-on-four-cycle constraint at every admissible size. The paper’s maximum-diameter result optimizes a different invariant and does not supply the missing order-minimal construction.",
+      "searches": [
+        "minimum vertices in triangle-free graph with m edges each edge in a 4-cycle equality Mantel graph minus matching",
+        "graphs with every edge lying on a 4-cycle and no triangles minimal order m edges Turan sharp",
+        "maximum density edge-girth four graphs edge counts every m balanced bipartite graph delete matching",
+        "minimum graph order realizing edge-girth sequence uniform four compared with maximum diameter",
+        "\"edge-girth\" \"minimum vertices\" \"four\" complete bipartite",
+        "\"C4-covered\" graphs minimum vertices edges",
+        "\"every edge\" \"4-cycle\" \"maximum\" \"triangle-free\" graphs"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.25629",
+      "https://www.researchgate.net/publication/410930988_On_the_Realizability_of_Edge-Girth_Sequences",
+      "https://en.wikipedia.org/wiki/Tur%C3%A1n%27s_theorem",
+      "https://epubs.siam.org/doi/10.1137/060656747",
+      "Published search record: Six extremal C_[4,6]-saturated graphs on eight vertices (different saturation invariant)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "First public full text Theorem 6.1 and Section 8: https://www.researchgate.net/publication/410930988_On_the_Realizability_of_Edge-Girth_Sequences",
+        "Classical Mantel bound: https://en.wikipedia.org/wiki/Tur%C3%A1n%27s_theorem",
+        "The matching-deletion square-coverage lemma in the present proof proves the needed upper bound."
+      ],
+      "reasoning": "Primary result implies feasibility exactly for m=4 and m>=6; Mantel independently implies n>=ceil(2 sqrt(m)). Neither statement, separately or together, forces the feasible witness on the lower bound: an existential graph may require more vertices. The new edge-girth-preserving matching deletion construction closes precisely that implication gap. No stronger source was identified.",
+      "searches": [
+        "minimum order realization constant edge girth sequence (4 repeated m) triangle-free every edge lies on square ceil 2 sqrt m",
+        "minimum vertices in triangle-free graph with m edges each edge in a 4-cycle equality Mantel graph minus matching",
+        "edge girth sequences shortest cycle through edge 4 m vertices minimal order",
+        "4-cycle edge covered triangle-free graphs vertex order realization problem Marey Hilaire Laclau",
+        "minimum graph order realizing edge-girth sequence uniform four compared with maximum diameter",
+        "\"edge girth sequence\" \"number of vertices\" \"minimum\" 4",
+        "\"every edge lies in a 4-cycle\" \"number of edges\" \"vertices\" minimum triangle-free"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Marey–Hilaire–Laclau, Definition 2.2 and Theorem 6.1: https://www.researchgate.net/publication/410930988_On_the_Realizability_of_Edge-Girth_Sequences",
+        "Every-edge quadrilateral coverage is equivalent to constant edge-girth four once triangles are absent."
+      ],
+      "reasoning": "The exact graph class is simultaneously (i) connected triangle-free graphs whose every edge lies on a 4-cycle, and (ii) realizations of the constant edge-girth sequence of four values. Primary source Theorem 6.1 classifies the possible edge counts, while Section 8 explicitly leaves vertex counts for further investigation. The minimum-vertex formula and matching-deletion witness are not implied by mere realizability.",
+      "searches": [
+        "minimum order realization constant edge girth sequence (4 repeated m) triangle-free every edge lies on square ceil 2 sqrt m",
+        "edge girth sequences shortest cycle through edge 4 m vertices minimal order",
+        "quadrangle covered triangle free graphs near Turan all edge counts order square root",
+        "constant edge-girth four sequence (4 repeated m) smallest possible vertex count order ceil 2 sqrt m",
+        "\"edge girth sequence\" \"number of vertices\" \"minimum\" 4",
+        "\"every edge lies in a 4-cycle\" \"number of edges\" \"vertices\" minimum triangle-free",
+        "\"4-cycle covered\" graphs \"minimum order\" edges"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full-text primary paper Figure 12 tables diameter extremizers for four edge-girth, not minimum vertex count.",
+        "Published records on small 4–6-cycle saturation and graph four-cycle avoidance address different edge constraints, not this vertex-budget minimum."
+      ],
+      "reasoning": "Exact expressions, short equivalent formulations and table parameter values were checked. A figure with seven- to eleven-edge examples in the initiating paper is a maximum-diameter illustration, not an exact table of minimal vertex orders. The queried published records returned no table or exhaustive prior formula implying the result.",
+      "searches": [
+        "minimum order realization constant edge girth sequence (4 repeated m) triangle-free every edge lies on square ceil 2 sqrt m",
+        "quadrangle covered triangle free graphs near Turan all edge counts order square root",
+        "constant edge-girth four sequence (4 repeated m) smallest possible vertex count order ceil 2 sqrt m",
+        "4-cycle edge covered triangle-free graphs vertex order realization problem Marey Hilaire Laclau",
+        "\"edge-girth sequence\" \"vertex count\" 4 edges K bipartite",
+        "\"4-cycle covered\" graphs \"minimum order\" edges"
+      ]
+    },
+    "rationale": "Direct comparison to Marey–Hilaire–Laclau full text, especially Theorem 6.1 and Sections 7–8, demonstrates a minimum-order question not solved by their existence and maximum-diameter results; the classical Mantel bound lacks the needed square-coverage construction. Nine actual published-record queries and seven external literature queries across aliases found no covering statement. Unindexed equivalent work remains possible.",
+    "residual_risks": [
+      "An unindexed prior proof of the same constant-edge-girth-four vertex-order formula or a stronger all-edge-quadrilateral extremal theorem may exist.",
+      "The author-posted full text was inspected via a third-party plain-text rendering; mathematical figures and subtle formatting may not be faithfully represented, though Theorem 6.1 and the open vertex-order question are explicitly legible.",
+      "A distinct prescribed-girth extremal-order publisher article was available at abstract level; its stated constraint forbids short cycles rather than prescribing every edge-girth four, making it structurally different."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_MINIMUM_ORDER; first-date and earlier existence/maximum-diameter results retained as attribution.",
+        "evidence": "https://www.researchgate.net/publication/410930988_On_the_Realizability_of_Edge-Girth_Sequences ; https://arxiv.org/abs/2607.25629",
+        "identifier_or_url": "https://arxiv.org/abs/2607.25629",
+        "material_read": "Author-posted full text available at ResearchGate: Introduction, Definitions 2.1–2.4, Theorem 6.1 (constant sequence), Section 7 including Proposition 7.16 and Figure 12, Section 8 concluding remarks including the explicitly posed vertex-order question. Text also searched for minimum order and vertex-number terminology.",
+        "method": "Read full-text HTML rendering of author-uploaded paper, checked theorem statements and conclusion.",
+        "title": "On the Realizability of Edge-Girth Sequences",
+        "trigger": "Introduces edge-girth sequences and exactly this constant-four class; plausible dominating primary source."
+      },
+      {
+        "assessment": "SUPPLIES_LOWER_BOUND_ONLY; does not assert every edge participates in a 4-cycle for each admissible edge count.",
+        "evidence": "https://en.wikipedia.org/wiki/Tur%C3%A1n%27s_theorem",
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Tur%C3%A1n%27s_theorem",
+        "material_read": "Mantel theorem subsection, edge maximum floor(n^2/4), and equality witnesses.",
+        "method": "Read public mathematical reference for precise bound.",
+        "title": "Mantel's theorem (triangle-free extremal bound)",
+        "trigger": "Strongest immediately applicable broader edge bound."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b8913cee-640f-4bb5-b2df-dc4fa2cc80a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact minimum vertex budget for every constant-four edge-girth realization is a natural infinite-family subproblem of the expressly proposed vertex-number realization problem (Marey et al., Section 8). The theorem shows zero vertex overhead relative to Mantel despite every edge requiring membership in a quadrilateral, and supplies a uniform extremal construction. The result cannot be obtained as a mere renaming or direct substitution into the motivating paper’s existence/diameter theorems. It does not claim a broader theorem for all edge-girth constants.",
+    "status": "PASS"
+  }
+}
