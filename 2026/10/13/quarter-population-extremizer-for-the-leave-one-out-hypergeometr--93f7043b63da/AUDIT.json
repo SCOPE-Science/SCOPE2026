@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "For n=N-1 the hypergeometric law has two atoms, and both matching binomial point masses equal the Bin(N,L/N) mass at its integer mean. This yields an exact closed form for the maximal density ratio. Its adjacent quotient on the half-range is C_{N-k-1}/A_k. Strict monotonicity of C_m plus exact inequalities C_{3k+1}<A_k<C_{3k+2} proves H_N(k+1)>H_N(k) iff N>=4k+3, hence the unique half-range optimizer floor((N+1)/4) and exactly two reflected global optimizers. No finite experiment is used for the universal claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dümbgen--Samworth--Wellner Theorem 2 assumes n-1<=N/2 and gives edge composition L=1 or N-1 in that regime.",
+        "For n=N-1 and N>=4, that hypothesis fails. The inspected source does not state an outer-composition theorem covering this endpoint."
+      ],
+      "reasoning": "The closest broader theorem does not imply the new claim because its sample-size domain excludes the leave-one-out regime. Its fixed-parameter density-ratio machinery is compatible with, but does not supply, the new outer optimization over L.",
+      "searches": [
+        "hypergeometric binomial density ratio leave one out sample N-1 exact maximizer L quarter population",
+        "maximal likelihood ratio hypergeometric versus binomial near full sampling",
+        "Bounding distributional errors via density ratios hypergeometric binomial theorem 2"
+      ]
+    },
+    "checked_sources": [
+      "Dümbgen--Samworth--Wellner, arXiv:1905.03009v1 / Bernoulli 27(2) (2021), doi:10.3150/20-BEJ1256.",
+      "Ehm (1991) and Holmes (2004) as characterized and displayed in the primary source.",
+      "Candidate-specific published-finding searches listed in the four originality checks."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source explicitly describes Ehm and Holmes as total-variation comparisons, whereas the claim concerns a non-symmetric maximal density ratio.",
+        "Theorem 2 of arXiv:1905.03009 gives outer L maximization only in the half-sample regime."
+      ],
+      "reasoning": "Total-variation upper bounds do not determine the exact maximal density-ratio optimizer. The primary density-ratio theorem has a disjoint sample-size restriction, so neither line of prior work implies the quarter-population endpoint law.",
+      "searches": [
+        "hypergeometric binomial density ratio leave one out sample N-1 exact maximizer L quarter population",
+        "maximal likelihood ratio hypergeometric versus binomial near full sampling",
+        "Ehm Holmes hypergeometric binomial total variation bound",
+        "maximal density ratio Hyp(N,L,N-1) Bin(N-1,L/N) population composition optimizer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1905.03009, Section 2 and Theorem 2, uses the same maximal density ratio for Hyp(N,L,n) versus Bin(n,L/N).",
+        "Candidate-specific indexed searches returned no result stating the leave-one-out composition maximizer L=floor((N+1)/4).",
+        "A final exact-claim indexed search using leave-one-out and explicit Hyp(N,L,N-1)/Bin(N-1,L/N) notation found no covering record; nearest hits addressed different probability models or discrepancies."
+      ],
+      "reasoning": "Searches covered the aliases maximal density ratio, relative error, likelihood ratio, sampling without replacement, one omitted item, and leave-one-out hypergeometric approximation. No equivalent formulation with the same optimizer and sharp value was retrieved.",
+      "searches": [
+        "hypergeometric binomial density ratio leave one out sample N-1 exact maximizer L quarter population",
+        "Hyp(N,L,N-1) Bin(N-1,L/N) maximal density ratio",
+        "sampling without replacement one omitted item binomial approximation density ratio extremal L",
+        "leave-one-out hypergeometric binomial maximal density ratio quarter population floor (N+1)/4",
+        "maximal density ratio Hyp(N,L,N-1) Bin(N-1,L/N) population composition optimizer"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed result retrieved the exact maximizer floor((N+1)/4), its reflection, or the displayed closed-form peak density ratio."
+      ],
+      "reasoning": "The finding is an analytic extremizer theorem rather than a recomputation of a known table. Exact-parameter and exact-form searches did not locate a matching database or tabulation.",
+      "searches": [
+        "Hyp(N,L,N-1) Bin(N-1,L/N) maximal density ratio",
+        "quarter population extremizer hypergeometric binomial relative error",
+        "floor((N+1)/4) hypergeometric binomial relative error",
+        "leave-one-out hypergeometric binomial maximal density ratio quarter population floor (N+1)/4"
+      ]
+    },
+    "rationale": "The exact same approximation problem is treated by Dümbgen--Samworth--Wellner, but their outer-composition maximizer theorem is restricted to n-1<=N/2. The leave-one-out regime is outside that theorem and candidate-specific searches found no published statement of the quarter-population maximizer. The claim therefore survives statement-level and implication-level comparison, subject to disclosed terminology risk.",
+    "residual_risks": [
+      "An equivalent elementary leave-one-out calculation may exist in older finite-population, relative-error, or likelihood-ratio terminology that was not retrieved.",
+      "The older Ehm and Holmes papers were compared through the primary paper’s explicit statements of their total-variation results rather than independently line-by-line in full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the paper proves the outer population-composition maximizer only for n-1<=N/2. The leave-one-out regime n=N-1 is outside this range for N>=4, and no quarter-population endpoint theorem was found in the inspected material.",
+        "evidence": "The source states Theorem 2 with hypothesis n-1<=N/2 and describes L=1 and N-1 as maximizers there; its proof supplies the exact density-ratio formula used as comparison background.",
+        "identifier_or_url": "arXiv:1905.03009 / doi:10.3150/20-BEJ1256",
+        "material_read": "ArXiv metadata and full-text Section 2, Theorem 2, remarks, and the proof portion deriving the hypergeometric/binomial density ratio and fixed-parameter maximizer.",
+        "method": "Lawful arXiv HTML/PDF full text, including visual inspection of the relevant PDF proof page.",
+        "title": "Bounding distributional errors via density ratios",
+        "trigger": "Exact same hypergeometric-to-binomial approximation and discrepancy; decisive possible broader coverage."
+      },
+      {
+        "assessment": "NOT_COVERING on the inspected evidence: these results control total variation, not the exact non-symmetric maximal density ratio or its outer population-composition optimizer.",
+        "evidence": "Section 2 explicitly labels the Ehm and Holmes results as total-variation bounds and presents them separately from the density-ratio theorem.",
+        "identifier_or_url": "Ehm (1991); Holmes (2004), as cited in arXiv:1905.03009 Section 2",
+        "material_read": "The primary paper’s statements of the Ehm and Holmes bounds and its comparison of those bounds with maximal-density-ratio results.",
+        "method": "Primary-source literature discussion and displayed total-variation bounds.",
+        "title": "Earlier hypergeometric/binomial total-variation comparisons cited by the primary source",
+        "trigger": "Possible domination by classical approximation inequalities."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "93f7043b-63da-4844-a639-fc998f88b255",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The leave-one-out regime n=N-1 is the natural opposite endpoint to the primary paper’s half-sample theorem. It exposes a qualitative reversal of the worst population composition from an edge to asymptotic quarter population, while retaining the same maximal-density-ratio approximation criterion. The exact optimizer and peak value therefore give structural information about a canonical finite-population approximation problem rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
