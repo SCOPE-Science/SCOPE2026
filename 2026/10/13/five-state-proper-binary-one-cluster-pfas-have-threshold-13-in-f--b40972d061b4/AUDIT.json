@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "All 7776 partial maps of one binary letter on five labeled states are generated. Exactly 1569 total maps satisfy the one-cluster functional-graph condition. Exhausting every proper ordered pair with at least one such letter gives 14,594,838 candidates. Forward breadth-first search from the full state set and an independently implemented reverse multi-source breadth-first search from the five singletons agree for every candidate. The exact histogram has maximum 13 with 1200 labeled extremizers; canonicalization under every state permutation and both letter orders gives five classes of size 240.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ruszil proves general results for one-cluster PFAs but does not enumerate small binary instances.",
+        "De Bondt--Don--Zantema report that proper binary five-state PFAs realize synchronization lengths 1 through 15 without imposing a one-cluster condition.",
+        "The unrestricted upper value 15 neither implies nor dominates the exact maximum in the structurally restricted one-cluster subclass."
+      ],
+      "reasoning": "The strongest inspected small-state census is over a broader class but reports only unrestricted synchronization lengths. Restricting to one-cluster PFAs can lower the maximum, so a fresh exhaustive implication comparison is necessary and yields 13.",
+      "searches": [
+        "arXiv:2311.15020v1 full text, preliminaries, long-word construction, binary NP-hardness, and conclusion",
+        "arXiv:1801.10436v1 / DOI:10.1142/S0129054119400021, small-PFA census and Table 3",
+        "proper binary PFA five states one-cluster"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2311.15020v1 full text",
+      "DLT 2024 proceedings metadata for DOI 10.1007/978-3-031-66159-4_18",
+      "MaRDI bibliographic record confirming MSC 68Q45 for the direct source",
+      "arXiv:1801.10436v1 / International Journal of Foundations of Computer Science 30(1), Table 3",
+      "four focused published-finding searches for five-state binary one-cluster PFA thresholds and equality cases",
+      "current-week private ledger through generation g000026",
+      "previous-week private ledger generation g000057"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest published finding concerns complete binary one-cluster automata on eight states with a fixed five-cycle, not proper PFAs on five states.",
+        "A prior five-state ledger result classifies a triple-rendezvous invariant for complete automata, not shortest careful reset length for partial one-cluster automata.",
+        "The C7 one-hole census concerns a local seven-state mutation family and does not imply the global five-state one-cluster PFA census."
+      ],
+      "reasoning": "Neither prior own work nor the closest published small automata censuses has the same object and invariant. The unrestricted proper-PFA threshold 15 is not an implication of the one-cluster threshold 13, and the one-cluster eight-state complete census does not cover partial five-state automata.",
+      "searches": [
+        "2026/9/7/SCOPE007 binary one-cluster synchronizing automata 8 states",
+        "2026/9/9/SCOPE010 careful synchronizability C7 one-hole",
+        "prior research ledger one-cluster partial automata five states threshold 13",
+        "prior research ledger five-state triple rendezvous automata"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ruszil defines a one-cluster PFA by a total letter whose functional digraph has a single cluster and studies binary careful synchronizability, but the inspected full text has no five-state census and no occurrence of a five-state threshold statement.",
+        "Searches under both “carefully synchronizing word” and “reset threshold” terminology returned the general one-cluster paper and unrelated finite automata censuses, not the value 13 with five classes."
+      ],
+      "reasoning": "The searches cover the PFA abbreviation, the expanded partial-automaton terminology, reset-threshold terminology, careful synchronization, and the equality-class formulation.",
+      "searches": [
+        "proper binary one-cluster partial automata five states shortest carefully synchronizing word length 13",
+        "binary one-cluster PFA 5 states maximum reset threshold",
+        "one-cluster PFA 13 five states",
+        "five-state one-cluster PFA careful synchronization equality cases"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published small-PFA table lists the unrestricted proper-binary five-state range through 15, not a one-cluster subtable.",
+        "No inspected table, repository description, or indexed result listed 1200 labeled one-cluster extremizers or five isomorphism classes."
+      ],
+      "reasoning": "The claimed histogram and class census are regenerated from the transition definitions and are not transcribed from a located table.",
+      "searches": [
+        "one-cluster partial automata 5 states 13",
+        "proper binary PFA one-cluster five states",
+        "careful synchronization one-cluster partial automata small state census 13"
+      ]
+    },
+    "rationale": "The direct one-cluster PFA source develops general exponential and complexity results but contains no five-state or threshold-13 census. The closest exhaustive small-PFA paper gives the unrestricted proper-binary five-state range through 15, which does not imply the one-cluster maximum 13 or the five equality classes. Focused literature and published-finding searches found no covering statement.",
+    "residual_risks": [
+      "Source-author or earlier small-PFA enumeration code may permit this one-cluster filter even though the inspected publications do not report its output.",
+      "An unindexed thesis, supplement, or private computation could contain the same five classes.",
+      "The result is finite and does not suggest a general formula for larger numbers of states."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant and not covering the finite five-state threshold or equality classes.",
+        "evidence": "The paper defines one-cluster PFAs via a total letter with one cluster and states general exponential/NP-hardness results; searches within the full text found no five-state census or threshold 13.",
+        "identifier_or_url": "arXiv:2311.15020v1 / DOI:10.1007/978-3-031-66159-4_18",
+        "material_read": "Introduction; PFA and careful-synchronization definitions; one-cluster definition; exponential construction section; binary NP-hardness theorem; conclusion and future-work discussion.",
+        "method": "Full-text statement and implication comparison, including rendered PDF-page inspection.",
+        "title": "Careful Synchronization of One-Cluster Automata",
+        "trigger": "Direct source defining one-cluster PFAs and proving binary complexity results."
+      },
+      {
+        "assessment": "Covers all proper binary five-state PFAs only at the level of attainable synchronization lengths; does not filter by one-cluster structure or classify equality cases for that subclass.",
+        "evidence": "Table 3 gives proper binary five-state synchronization lengths 1 through 15, while the article does not report the one-cluster-restricted maximum or a five-class census.",
+        "identifier_or_url": "arXiv:1801.10436v1 / DOI:10.1142/S0129054119400021",
+        "material_read": "Small-state PFA section, the binary-PFA enumeration discussion, Table 3, and the specific-construction discussion.",
+        "method": "Full-text/table implication comparison, including rendered PDF-page inspection.",
+        "title": "Lower Bounds for Synchronizing Word Lengths in Partial Automata",
+        "trigger": "Strongest inspected exhaustive small-state PFA census and possible broader coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b40972d0-61b4-4646-8f56-445c86cee09b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The one-cluster condition is the central structural restriction of the direct source, while five-state proper binary PFAs are already completely known in the unrestricted class to reach length 15. Determining that the one-cluster subclass stops sharply at 13 and has exactly five equality classes quantifies the effect of that structural restriction at a natural small-state boundary and gives a complete, reproducible extremal classification rather than a routine witness.",
+    "status": "PASS"
+  }
+}
