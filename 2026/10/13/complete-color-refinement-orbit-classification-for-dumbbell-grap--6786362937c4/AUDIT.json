@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "checked_sources": [
+      "arXiv:1407.3175, Lemmas 2.6–2.7",
+      "arXiv:1502.01255, Section 8, Lemma 10 and Theorem 8.1",
+      "dumbbell_replay.py, SHA256 4ed0c74cefa51ab00d8eefef439b43c1660e0a7890d2d64c8222afc655c976f6"
+    ],
+    "rationale": "For p,q>=3 and k>=0, the universal cover is a subdivided 3-regular branch tree with incident thread lengths (p,p,k+1) at a left branch and (q,q,k+1) at a right branch. Lemma 2.6 of Krebs–Verbitsky uses the same uniform round-zero convention. When p<q, no outgoing branch-degree discrepancy is visible before depth p+1; at that depth the two p-threads distinguish the left root, while the connector is identical at both roots. Stable branch types and the distances to the first branch in the two directions separate the three regions when p!=q. Reflection gives precisely the remaining cycle orbits. When p=q, reversal exchanges the branches and unordered endpoint distances classify each thread; distinct sums separate connector and cycles unless k+1=p=q. In that balanced case the branch tree is uniformly subdivided and corresponding positions are color-equivalent, while cut-vertex status prevents a cycle/connector automorphism. The finite replay confirms 13056 triples and 12240 split times, but does not replace the uniform proof.",
+    "residual_risks": [
+      "The finite replay is bounded to 3<=p,q<=18 and 0<=k<=50; the all-parameter conclusion relies on the universal-cover argument."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krebs–Verbitsky Lemmas 2.6–2.7 are general cover/refinement equivalences; Theorem 3.2 concerns maximal distinguishing depth, not this orbit classification.",
+        "Arvind et al. Theorems 8.1–8.2 establish a strict hierarchy and recognition hardness; they supply no family-membership premise for arbitrary dumbbells.",
+        "Wang et al. Theorems 4.6 and 5.3 concern adjacency and signless-Laplacian spectra. Their path parameter c+3 equals k+2 here, so c=k-1. Spectral exceptions and the equal-thread color-refinement exception are different.",
+        "Liu–Lu Theorems 1.1 and 3.5 determine dumbbells by Laplacian spectrum; they do not compare vertices within one graph by uniform refinement."
+      ],
+      "reasoning": "The strongest relevant published conclusions were compared by hypotheses and conclusion. None gives either stable vertex-orbit equality for every unequal-cycle dumbbell or the first attachment split round. The general cover method still requires the family-specific branch-type proof.",
+      "searches": [
+        "arXiv: cactus AND (all:\"color refinement\" OR all:\"refinable\" OR all:\"orbit partition\")",
+        "arXiv:1407.3175 full-text Section 2 and later depth/logic theorem statements",
+        "arXiv:1502.01255 full-text hierarchy and recognition theorems",
+        "DOI:10.37236/314 open-access full paper",
+        "arXiv:1407.5255 full-text main theorems"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1407.3175, Lemmas 2.6–2.7",
+      "arXiv:1502.01255, Section 8, Lemma 10 and Theorem 8.1",
+      "arXiv:1407.5255, family definition and Theorems 1.1 and 3.5",
+      "DOI:10.37236/314, Sections 1–5",
+      "Equal-cycle dumbbell record f9df20bb-1fa3-44ee-a55e-b11ffd40d9b9",
+      "Cycle-rank-at-most-one record 77092f11-e76f-410f-8b3d-9954d742f9d3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior equal-cycle theorem covers exactly p=q; neither its stabilization formula nor its resonance classification quantifies over p!=q.",
+        "The connected cycle-rank<=1 theorem excludes every dumbbell here, since its cycle rank is 2.",
+        "Uniform refinement/rooted-cover equivalence does not itself assert which root types are distinct or which correspond to automorphisms. The unequal-cycle (p,p,r)/(q,q,r) argument supplies that missing comparison."
+      ],
+      "reasoning": "The retained claim strictly extends the prior equal-cycle domain and proves a new boundary for the unequal attachment types. It is not a substitution into the prior theorem; it also does not claim a new general theorem about all cactus graphs.",
+      "searches": [
+        "Actual equal-cycle result f9df20bb-1fa3-44ee-a55e-b11ffd40d9b9",
+        "Actual cyclomatic-number<=1 result 77092f11-e76f-410f-8b3d-9954d742f9d3",
+        "Krebs–Verbitsky Lemma 2.6 and Arvind et al. Section 8 theorem comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The completed published-finding corpus queries returned no matching classification; their returned claims concerned other graph invariants or unrelated orbit problems.",
+        "Krebs–Verbitsky Lemma 2.6 identifies uniform refinement rounds with rooted universal-cover truncation types. This is a method for the proposed family calculation, not the family calculation itself.",
+        "Arvind et al. Section 8 defines refinable by equality of stable and full automorphism partitions. Amenability, compactness and Tinhofer properties are distinct stronger notions."
+      ],
+      "reasoning": "The comparison uses the identical invariant under refinable, coarsest-equitable/orbit partition and 1-WL terminology. A graph with a known global spectral characterization is not thereby classified for rooted color equivalence.",
+      "searches": [
+        "published-finding corpus: dumbbell graph color refinement refinable p q k equal thread lengths attachment split round",
+        "published-finding corpus: D_{p,k,q} dumbbell refinable stable equitable automorphism orbit p q k balanced threads",
+        "arXiv: dumbbell AND (all:\"color refinement\" OR all:\"Weisfeiler\" OR all:\"equitable partition\" OR all:\"refinable\")"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching refinability table or all-parameter classification appeared among the returned published-finding corpus records.",
+        "The owned equal-cycle record f9df20bb-1fa3-44ee-a55e-b11ffd40d9b9 already gives the p=q resonance k+1=p. The barbell record 010e1378-d074-401b-b5ec-6147e6ad6245 concerns cliques and only coincides with cycle dumbbells for triangles.",
+        "Published records a82ebe98-c575 and b0e5d709-d6db use two cliques joined by a bridge and count paired-dominating sets or alliances; both the object and invariant differ from the cycle-thread orbit-recovery problem."
+      ],
+      "reasoning": "The relevant exact object is the all-parameter yes/no orbit-recovery classification, with a split-time invariant. Exact parameter coincidences and shared 'dumbbell' terminology were checked against actual graph definitions; missing search matches alone do not establish novelty.",
+      "searches": [
+        "published-finding corpus: D_{p,k,q} dumbbell refinable stable equitable automorphism orbit p q k balanced threads",
+        "published-finding corpus: dumbbell graph color refinement refinable p q k equal thread lengths attachment split round",
+        "Owned foundations archive records 14–18 and current/prior foundations ledgers"
+      ]
+    },
+    "rationale": "Best-of-knowledge comparison found no prior all-dumbbell orbit-recovery classification or unequal-cycle split-time formula. The equal-cycle resonance and the general universal-cover equivalence are prior ingredients. The exact new part is the classification of the remaining unequal-cycle parameter space, combined with the equal-cycle result; no novelty is claimed for the underlying universal-cover method.",
+    "residual_risks": [
+      "The search is targeted rather than exhaustive; an unindexed family-specific classification may exist.",
+      "Generic covering/refinement and the equal-cycle resonance are prior results; originality is limited to the complete unequal-cycle classification and exact split time.",
+      "The primary source reading is reported by actual sections and statements, not as an exclusion of every possible unstated implication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected results concern graph spectra, not vertex color-refinement orbits. The c parameter equals k-1 in the present convention.",
+        "evidence": [
+          "Section 1 defines D_a,b,c using P_(c+3).",
+          "Theorem 4.6 excludes adjacency-cospectral exceptions D_a,3a,0; Theorem 5.3 treats signless-Laplacian exceptions D_a,3a,-1. Neither conclusion states the stable orbit partition."
+        ],
+        "identifier_or_url": "DOI:10.37236/314; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v17i1r42/pdf",
+        "material_read": "Open-access PDF text, Sections 1–5: family/path convention, tentative cospectral-mate arguments, characteristic-polynomial comparisons and final adjacency/signless-Laplacian theorems.",
+        "method": "Full-text reading and direct hypothesis/conclusion comparison.",
+        "title": "Spectral Characterizations of Dumbbell Graphs",
+        "trigger": "Same named graph family and a full-parameter spectral characterization."
+      },
+      {
+        "assessment": "Supports the proof's exact round convention and stable cover equivalence. Its inspected theorems are methodological/depth results, not a dumbbell refinability theorem.",
+        "evidence": [
+          "Lemma 2.6: U_x^i is isomorphic to W_y^i iff C^i(alpha(x))=C^i(beta(y)).",
+          "The base case i=0 is uniform; Lemma 2.7 passes from sufficiently deep truncations to full rooted covers."
+        ],
+        "identifier_or_url": "arXiv:1407.3175",
+        "material_read": "Full-text Section 2 definitions and Lemmas 2.6–2.7 with their proofs; statements and scope of subsequent depth and counting-logic results.",
+        "method": "Lawful arXiv full text and mathematical comparison.",
+        "title": "Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth",
+        "trigger": "The nonstandard cover/refinement lemma used by the proof."
+      },
+      {
+        "assessment": "Same graph family; Laplacian spectral determination does not imply the proposed within-graph color-orbit classification.",
+        "evidence": [
+          "Definition joins C_p,C_q through P_(k+2), p,q>=3,k>=0.",
+          "Theorems 1.1 and 3.5 say every dumbbell is determined by its L-spectrum."
+        ],
+        "identifier_or_url": "arXiv:1407.5255",
+        "material_read": "Full-text family definition, spectral preliminaries and main Laplacian theorem statements and argument structure.",
+        "method": "Lawful arXiv full text; compare graph convention and invariant.",
+        "title": "Laplacian spectral characterization of dumbbell graphs and theta graphs",
+        "trigger": "Identical D_p,k,q notation and all-dumbbell theorem."
+      },
+      {
+        "assessment": "Defines the exact invariant and stronger hierarchy, without an inspected theorem asserting all unequal-cycle dumbbells belong to a stronger class.",
+        "evidence": [
+          "Section 8: refinable means the stable partition is the orbit partition of Aut(G).",
+          "Theorem 8.1 lists strict Discrete/Amenable/Compact/Godsil/Tinhofer/Refinable inclusions; Theorem 8.2 is recognition hardness."
+        ],
+        "identifier_or_url": "arXiv:1502.01255",
+        "material_read": "Full-text introduction, structural theorem scope, and all of Section 8 including the refinability definition, Lemma 10, Theorems 8.1–8.2 and their examples/proof discussion.",
+        "method": "Lawful arXiv full text; compare hypotheses and class inclusions.",
+        "title": "Graph Isomorphism, Color Refinement, and Compactness",
+        "trigger": "Could contain a stronger class theorem already covering this orbit classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "67863629-37c4-4238-8586-946e05d085c4",
+  "self_review_status": "passed",
+  "value": {
+    "checked_sources": [
+      "arXiv:1407.3175, Lemmas 2.6–2.7",
+      "arXiv:1502.01255, Section 8, Lemma 10 and Theorem 8.1",
+      "arXiv:1407.5255, family definition and Theorems 1.1 and 3.5",
+      "DOI:10.37236/314, Sections 1–5",
+      "Equal-cycle dumbbell record f9df20bb-1fa3-44ee-a55e-b11ffd40d9b9",
+      "Cycle-rank-at-most-one record 77092f11-e76f-410f-8b3d-9954d742f9d3"
+    ],
+    "rationale": "Dumbbells form a standard connected bicyclic family immediately beyond the tree/unicyclic regime. The theorem gives a complete boundary for failure of color refinement to recover automorphism orbits: exactly equal cycle and connector lengths. It closes the unequal-cycle domain that the prior resonance calculation left open, including connectors whose length equals just one of the two cycles. The exact split time explains how the cycle-length asymmetry becomes observable. This is a motivated structural classification, rather than a numerical improvement or a generic claim of significance.",
+    "residual_risks": [
+      "No classification of amenability, arbitrary cactus graphs or higher-dimensional Weisfeiler–Leman is claimed."
+    ],
+    "status": "PASS"
+  }
+}
