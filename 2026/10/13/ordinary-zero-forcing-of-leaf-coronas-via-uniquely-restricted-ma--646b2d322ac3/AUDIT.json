@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "In any original neighbor force from an initially empty pair, the forcing vertex has its private leaf initially blue; otherwise it cannot force an original until all original neighbors already blue. Thus a successful forcing chronology defines an injective donor assignment with an acyclic predecessor graph, exactly a uniquely restricted matching; reversing the acyclic order forces every empty pair. Enumeration is disjoint by D,U and the clique minimality proof checks each deletion. Direct ordinary closure versus derived cut test: 500260 instances; matching-versus-peeling enumerated directly in 5421 cases; polynomial and minimal-set comparisons pass in verify.py output.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Javaid et al. attach a connected H of order at least 2 in the relevant scalar formula",
+        "Brimkov-Carlson directly consider K_(n/2) corona K_1 but focus on lower bounds on number of inclusion-minimal sets"
+      ],
+      "reasoning": "Neither the order-at-least-two scalar corona theorem nor exponential-example statement gives the full cardinality polynomial of a one-leaf corona. The new polynomial applies to every finite base graph, so specializes to whiskered cliques.",
+      "searches": [
+        "zero forcing sets of corona of a complete graph with one leaf per vertex",
+        "arXiv:1607.04071v1",
+        "arXiv:2204.01810v2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1801.08910v1; full relevant arXiv HTML",
+      "arXiv:2204.01810v2; Section 2 full relevant arXiv HTML",
+      "arXiv:1607.04071v1; material assumptions",
+      "arXiv:1405.6222; abstract/index only with unavailable full text",
+      "Searches for leaf-corona polynomial, whiskered clique minimal sets, matching variants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2018 paper explicitly gives z(K_n;k) rather than z(K_n corona K1;k)",
+        "2022 Proposition 1 mixed-leaf/root family is asserted minimal but deleting a selected root in K4 corona K1 keeps zero forcing"
+      ],
+      "reasoning": "Neither published result implies the weighted cut classification or exact number of all inclusion-minimal sets without additional structural reasoning; a nearby direct assertion is shown to have a counterexample. General constrained matching theorems could potentially subsume part of characterization, a named residual risk.",
+      "searches": [
+        "graph zero forcing polynomial of trees counting zero forcing sets all sizes",
+        "zero forcing of leaf corona whiskered graph uniquely restricted matching and exact polynomial",
+        "arXiv:2204.01810v2",
+        "arXiv:1801.08910v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "General constrained matchings are an established framework (Tréfois-Delvenne 2014), but only abstract was available",
+        "Boyer 2018 has full polynomial and fort interpretation but no retrieved leaf-corona weighted formula"
+      ],
+      "reasoning": "Cut peeling, donor saturating matching, and absence of alternating cycles are proved equivalent. Earlier constrained-matching theory may give a generic antecedent for the structural reduction; the exact weighted leaf-corona identity and clique minimal census have not been located there, with full-text access risk disclosed.",
+      "searches": [
+        "zero forcing polynomial of whiskered complete graph K_n corona K_1 private pendant leaves",
+        "zero forcing of leaf corona whiskered graph uniquely restricted matching and exact polynomial",
+        "arXiv:1405.6222",
+        "arXiv:1801.08910v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact coefficient table for arbitrary whiskered K_n found in source sections inspected",
+        "Own executable directly enumerates and matches coefficients for 2<=n<=9"
+      ],
+      "reasoning": "The formula is a symbolic infinite-family identity, not recomputation of a fixed finite database. The checked finite tables corroborate but do not create the theorem.",
+      "searches": [
+        "minimal zero forcing sets whiskered cliques K_n corona K_1 exact enumeration",
+        "arXiv:1801.08910v1",
+        "arXiv:2204.01810v2"
+      ]
+    },
+    "rationale": "The 2018 zero forcing polynomial text does not yield the leaf-corona cut sum; the 2022 minimal set paper treats the same whiskered clique but only asserts an exponential construction without the full polynomial or complete inclusion-minimal classification, and its mixed witness family contains nonminimal sets as explicitly demonstrated. The 2016 corona theorem excludes the attached singleton. General matching antecedents remain a residual risk rather than a false claim of novelty for uniquely restricted matchings.",
+    "residual_risks": [
+      "General constrained-matching reduction might already imply some parts, and the Tréfois-Delvenne 2014 complete text could not be inspected",
+      "Equivalent weighted corona formula may exist in unindexed literature",
+      "Self-review and sampled computations do not constitute independent validation"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No theorem identified for full polynomial of G corona K_1 or the matching decomposition",
+        "evidence": "Sections 2-4 and 5; Theorem 1 enumerates extremal coefficients of arbitrary G, while graph-family formulas concern complete, multipartite, paths and related graphs.",
+        "identifier_or_url": "arXiv:1801.08910v1; https://arxiv.org/html/1801.08910v1",
+        "material_read": "Definitions, Section 3 extremal coefficients, Section 4 graph families, and searchable complete HTML headings/text, including links to fort/matching discussion",
+        "method": "Read arXiv HTML source, inspected relevant formulas and searched for corona/whisker",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Direct source introducing polynomial and explicit graph-family enumerations"
+      },
+      {
+        "assessment": "Exhibits same graph and asserts exponential minimal count but no full polynomial or classification; a claimed mixed selection is not minimal according to explicit K4 counterexample",
+        "evidence": "Proposition 1 proof says any selection of half the clique pairs as leaves and half as nonleaves is minimal; choosing leaves 1',2' and roots 3,4 is not minimal since deleting root 3 leaves a zero forcing set.",
+        "identifier_or_url": "arXiv:2204.01810v2; https://arxiv.org/html/2204.01810v2",
+        "material_read": "Proposition 1 and its proof, adjacent definitions and Section 2 context, including mixed leaf/root construction",
+        "method": "Read arXiv HTML lines 35-86, compared exact proposed family against one-vertex deletion",
+        "title": "Minimal Zero Forcing Sets",
+        "trigger": "Exact same base corona K_(n/2) corona K_1 and inclusion-minimal counting"
+      },
+      {
+        "assessment": "Discussed forcing number for attached graph with at least two vertices; not a weighted set enumerator and does not settle one-private-leaf case",
+        "evidence": "Theorem 2.3 requires attached H connected and |V(H)|>=2, unlike H=K_1.",
+        "identifier_or_url": "arXiv:1607.04071v1; https://arxiv.org/abs/1607.04071",
+        "material_read": "Coronal product definitions and scalar zero forcing theorem with attached connected factor order condition",
+        "method": "Read available open-access full text material, especially theorem assumptions",
+        "title": "On the zero forcing number of corona and lexicographic product",
+        "trigger": "Corona forcing scalar general theorem might subsume leaf case"
+      },
+      {
+        "assessment": "Potential ancestor for matching equivalence. No complete-text noncoverage inference is made.",
+        "evidence": "Title explicitly links zero forcing and constrained matchings; residual risk retained for the general structural lemma.",
+        "identifier_or_url": "arXiv:1405.6222; https://arxiv.org/abs/1405.6222",
+        "material_read": "Abstract and indexing only; complete text not accessible in this run",
+        "method": "Attempted open arXiv abstract and lawful ar5iv HTML, both inaccessible; reviewed bibliographic abstract/index",
+        "title": "Zero forcing number, constrained matchings and strong structural controllability",
+        "trigger": "Possible stronger general matching framework providing structural implications"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "646b2d32-2ac3-4197-9a61-bd88da779fee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete exact multivariate cut-parameter sum produces the zero forcing polynomial of every graph after attaching a private leaf at each vertex. For a natural and previously studied whiskered clique, it evaluates every coefficient and distinguishes minimum and inclusion-minimal zero forcing sets in closed form, including a new size-n minimal set and an explicit counterexample to the published mixed-family minimality assertion. No polynomial-time complexity claim or arbitrary slice gain is needed.",
+    "status": "PASS"
+  }
+}
