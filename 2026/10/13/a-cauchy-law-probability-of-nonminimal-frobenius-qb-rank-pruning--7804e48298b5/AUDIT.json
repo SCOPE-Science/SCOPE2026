@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The two nonzero entries in the first Gaussian test column determine the unpivoted QR angle almost surely. Direct multiplication gives \\(w_1^2=1-(1-\\epsilon^2)s\\) and \\(w_2^2=\\epsilon^2+(1-\\epsilon^2)s\\). For tau between epsilon and sqrt((1+epsilon^2)/2), rank 2 is retained exactly when \\(u\\le s\\le 1-u\\). Because Y/X is standard Cauchy, its two-sided interval gives (1). The rank-one optimal residual is epsilon by Eckart–Young–Mirsky. For the full algorithm, a failed initial lookahead implies \\(X_1^2+X_2^2\\le 2c^2\\epsilon^2\\), bounding its probability by the 2-degree chi-square CDF. The second lookahead is exactly zero on successful full-rank first QR, giving the joint-event bound (2). In the c-fixed scaling, Cauchy cutoffs tend to \\(\\sqrt{c^2-1}\\) and infinity, yielding (3). Exact rational and simulated reproduction supplements this complete proof; no infinite claim is inferred from finite experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[2] discusses QB and postprocessing by a small SVD; this covers the classical existence of an optimal rotated rank-one compression.",
+        "[1] Section 4.2 uses SVD in its *spectral-norm* algorithm, not the particular Frobenius row-pruning decision.",
+        "[4] introduces a randomized blocked QB scheme but is not evidence for the specific 2026 row-pruning probability."
+      ],
+      "reasoning": "Eckart–Young–Mirsky and conventional QB SVD postprocessing are stronger for finding the best rank but do not imply the probability of the different *fixed-row* pruning algorithm. The new result does not take credit for SVD optimality. Earlier methods could nonetheless contain an unrecognized equivalent event analysis.",
+      "searches": [
+        "Adaptive Matrix-Free Low-Rank Approximation Smith Do Chen 2026 rank pruning basis rotation near optimal rank",
+        "Gaussian QR non rank revealing row-based fixed tolerance Frobenius pruning epsilon diagonal 2 by 2 exactly half probability",
+        "arXiv:1606.09402 Sections 1–3",
+        "arXiv:2607.06758v1 Section 4.2",
+        "arXiv:1503.07157 title abstract and contribution"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.06758v1, full HTML sections 1,3.1,3.2,4.2",
+      "arXiv:2607.06758v1 public code randQB_MF_Fro.m and Prune_Rank_Fro.m",
+      "arXiv:2508.07553v1 full HTML relevant sections",
+      "arXiv:1606.09402 full ar5iv HTML relevant sections",
+      "arXiv:1503.07157 abstract only",
+      "Public mathematical-record searches: seven distinct claim/source/alias queries",
+      "Worst-case sharpness of multistage adaptive randomized pivoting (public mathematical finding)",
+      "Deflation-history contamination can make weighted-mass ACA arbitrarily suboptimal (public mathematical finding)",
+      "Sharp one-step Frobenius growth under complete-pivot ACA (public mathematical finding)",
+      "A sharp row-coherence obstruction in PDNQP diagonal step initialization (public mathematical finding)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source theorem makes a fixed-basis error exactly a sum of squared discarded row norms, but does not derive the randomized basis-row energy law.",
+        "The row norms can be calculated from the first unpivoted Gaussian QR column, and their joint event requires an additional standard-Cauchy integration.",
+        "[3] singular-value gap analysis does not determine that row-energy event."
+      ],
+      "reasoning": "The source fixed-row additivity and the known Cauchy quotient are inputs to the new derivation; neither one separately states the exact probability nor the accepted-first-test bound. The source near-minimal empirical claim does not logically imply the half-probability overshoot at c=sqrt(2), while SVD optimality is explicitly excluded from the novelty claim.",
+      "searches": [
+        "arXiv:2607.06758v1 Algorithm 2, Algorithm 3 and Theorem 8",
+        "arXiv:2508.07553v1 Theorems in Section 3",
+        "basis-dependent Frobenius row-norm rank pruning block randomized QB rotational mismatch versus singular-value truncation Gaussian probability Cauchy",
+        "randQB_MF_Fro Prune_Rank_Fro Smith Do Chen rotated SVD 2026 rank overestimation threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "[1], Theorem 8 proves a fixed-basis Frobenius additivity identity; Algorithm 3 prunes by sorted row norms.",
+        "[1], Algorithm 2 specifies unpivoted QR with normalized Gaussian blocks; [1] does not state the Cauchy ratio interval or completed-branch probability.",
+        "[3], Sections 2–3 analyze deflated singular values, not the distribution of post-block row pruning."
+      ],
+      "reasoning": "An alternative formulation is a conditional Cauchy-angle event that both rotated row energies exceed the tolerance, while the singular values already permit rank one. Matching numerical-rank terminology alone is insufficient: neither [1] nor [3] gives the row selection event law, two-sided Cauchy cutoffs or its 1/2 limit. Search is not proof of universal uniqueness.",
+      "searches": [
+        "Gaussian QB matrix free adaptive block Frobenius rank pruning row norm sorted over retains numerical rank Cauchy angle distribution",
+        "Cauchy directional distribution anisotropic Gaussian QR rank pruning singular values threshold redundant rows",
+        "basis-dependent Frobenius row-norm rank pruning block randomized QB rotational mismatch versus singular-value truncation Gaussian probability Cauchy",
+        "arXiv:2607.06758v1 Sections 3.1–3.2 and Algorithm 3",
+        "arXiv:2508.07553v1 Sections 2–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact Cauchy probability for the stated family was among the returned published mathematical-record titles and summaries; nearest hits concern adaptive randomized pivoting, ACA, or numerical rank bounds.",
+        "[1] reports numerical near-optimal ranks across datasets, but not the explicit rank-two diagonal Cauchy event."
+      ],
+      "reasoning": "No matching table, published mathematical-record entry, or finite database entry was encountered. A failed database search does not establish novelty, and the claimed fact is a parameterized continuum identity rather than a recomputation of an existing finite table.",
+      "searches": [
+        "randomized QB rank refinement sorted row energies Gaussian small singular value probability extra rank exact rank-2 example",
+        "randQB_MF_Fro Prune_Rank_Fro Smith Do Chen rotated SVD 2026 rank overestimation threshold",
+        "Published mathematical-record database searches of Gaussian QR/pruning/low-rank",
+        "arXiv:2607.06758v1 Section 5 numerical rank tables"
+      ]
+    },
+    "rationale": "The new claim concerns the exact probability that a recently specified Frobenius row-pruning rule retains 2 basis rows though the fixed-tolerance optimum is 1, and a sharp asymptotic for its real Gaussian lookahead branch. The full initiating paper [1], its exact algorithm implementation, and full-text previous adaptive QB papers [2,3] were inspected and contrasted on objects, assumptions, statements and implications. [1] proves fixed-row Frobenius Pythagoras, not this stochastic orientation distribution. SVD optimality is treated strictly as prior input. Searches of public mathematical-finding records found related randomized pivoting/ACA results, not the new exact event. A differently indexed equivalent result remains a genuine residual risk, not a novelty certificate.",
+    "residual_risks": [
+      "Older blocked QB rank revealing full texts not fully examined in every appendix; could hide an equivalent probabilistic row-orientation statement.",
+      "Semantic matching is imperfect; negative database search is not a uniqueness proof.",
+      "The exact law is conditional on the QR basis being created by the unpivoted Gaussian first column; a different orthonormalization convention yields a different distribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers row-energy pruning and fixed-row Frobenius identity, but not the new Cauchy rank-retention law or probability for the full lookahead branch.",
+        "evidence": [
+          "Algorithms 2–3 specify Omega scaling, unpivoted QR, alpha recurrence and sorted rows; Theorem 8 is fixed-row Pythagoras.",
+          "The different spectral variant explicitly rotates with SVD in Section 4.2."
+        ],
+        "identifier_or_url": "arXiv:2607.06758v1; https://arxiv.org/html/2607.06758v1",
+        "material_read": "Full text Sections 1, 3.1, 3.2, and 4.2, Algorithm 2, Algorithm 3, Theorem 8, contributions and numerical context.",
+        "method": "arXiv complete HTML manuscript, direct inspection of equations, algorithm branches, and stated scopes.",
+        "title": "Adaptive, Matrix-Free Low-Rank Approximation",
+        "trigger": "Original motivating new Frobenius rank-pruning rule and random lookahead; direct same-object source."
+      },
+      {
+        "assessment": "Confirms unpivoted qr(Y, econ), first lookahead condition, and sorting/deleting rows only when the accumulated norm stays strictly below the tolerance.",
+        "evidence": [
+          "randQB_MF_Fro.m QR and stopping branches and Prune_Rank_Fro.m alpha_new and sort implementation."
+        ],
+        "identifier_or_url": "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/randQB_MF_Fro.m ; https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/Prune_Rank_Fro.m",
+        "material_read": "Full relevant functions, lines 543–650 in randQB_MF_Fro.m and lines 278–355 in Prune_Rank_Fro.m as rendered on GitHub.",
+        "method": "Read public source-code web pages, not inferred from filenames.",
+        "title": "Frobenius QB algorithm and row-pruning implementation",
+        "trigger": "Check exact code branch, whether unpivoted QR is used and strict row deletion."
+      },
+      {
+        "assessment": "Reports numerical-rank behavior and block-deflation perturbation bounds, not the specific Frobenius sorted-row Cauchy event or 1/2 limiting probability.",
+        "evidence": [
+          "Theorem 6 concerns singular values of a projected residual; Section 4 compares computed ranks."
+        ],
+        "identifier_or_url": "arXiv:2508.07553v1; https://arxiv.org/html/2508.07553v1",
+        "material_read": "Full text introduction, Section 3 rank-decrease conditions and singular-value deflation theorems, experiments concerning numerical rank.",
+        "method": "Direct full HTML manuscript text, with targeted reading of Section 3 and observations.",
+        "title": "Efficient adaptive randomized algorithms for fixed-threshold low-rank matrix approximation",
+        "trigger": "Recent numerical-rank adaptive deflation potentially implying nonminimality statements."
+      },
+      {
+        "assessment": "Provides known QB/SVD background but not the Smith–Do–Chen Frobenius sorting rule (introduced later) or its probability law.",
+        "evidence": [
+          "Section 1 states SVD postprocessing and adaptive QB objective; no equivalent sorted-row pruning discussion found."
+        ],
+        "identifier_or_url": "arXiv:1606.09402; https://ar5iv.labs.arxiv.org/html/1606.09402",
+        "material_read": "Full-text introduction and low-rank QB/SVD algorithm descriptions and comparison of ranked approximants in the results section.",
+        "method": "Accessible full preprint HTML (ar5iv), inspected SVD and randomized QB passages.",
+        "title": "Efficient Randomized Algorithms for the Fixed-Precision Low-Rank Matrix Approximation",
+        "trigger": "Prior QB fixed-precision work and conventional small-block SVD postprocessing."
+      },
+      {
+        "assessment": "Relevant background not excludable as an unknown equivalent technique; its algorithm predates the specific 2026 sorted-row rule. Residual originality risk noted.",
+        "evidence": [
+          "Abstract describes blocked QB and near-optimal epsilon-rank without the stated conditioning/probability details."
+        ],
+        "identifier_or_url": "arXiv:1503.07157; https://arxiv.org/abs/1503.07157",
+        "material_read": "Public abstract and published abstract only; full preprint HTML unavailable via attempted ar5iv URL.",
+        "method": "Abstract-level comparison; not a full-text negative assertion.",
+        "title": "A randomized blocked algorithm for efficiently computing rank-revealing factorizations of matrices",
+        "trigger": "Historical antecedent of block-randomized QB and rank-overestimation effects."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7804e482-98b5-4bcf-88d7-f4301eea54f1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Near-minimal rank for block-efficient matrix-free Frobenius QB is an explicit objective of [1], and the source pruning criterion is basis-row rather than rotation invariant. Formula (1) gives an exact quantitative failure rate for that motivated policy, with the full algorithm retaining twice the optimal rank on roughly half of well-separated near-rank-one inputs at \\(\\tau=\\sqrt2\\,\\epsilon\\); as c decreases to 1 the rate approaches one. The event persists despite exact zero residual before pruning and is not an estimator-noise artifact. This is a meaningful, natural algorithmic boundary beyond a textbook SVD fact; rotating to singular directions is credited as a conventional fix. It does not claim large-dimensional rate, runtime improvement, or a universal algorithmic failure.",
+    "status": "PASS"
+  }
+}
