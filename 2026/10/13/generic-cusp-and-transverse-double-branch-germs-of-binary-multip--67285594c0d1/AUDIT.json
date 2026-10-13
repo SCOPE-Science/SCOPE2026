@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For exact (m+1,1...) cluster the coefficient algebra is C[a,v²,v³]: the centered coefficients at orders two and three have nonzero constants for every m>=2, and all higher powers belong to that algebra; coprime analytic factorization adds smooth factors. For exact (m,m,1...) disjoint Hensel clusters identify the image with a reduced union of two independently straightened smooth power curves; the scheme ideal is the cross-product monomial ideal. The fiber-product exact sequence gives dimension q+m-1 and depth q+1 (for m=2 a hypersurface). Localization at the pair-root generic point has dimension m-1 and depth one; for m>=3 this violates S2. The accompanying package checker passes finite independent symbolic instances but is not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chipalkatti §6 discusses arithmetic Cohen--Macaulay questions and Weyman Hilbert-function papers, but not these generic local depth formulas.",
+        "Kurmann Corollary 2.3 establishes codimension-one singular support for every nonsmooth CRL; it does not settle local S2 or non-CM along the second collision component.",
+        "Weyman 1993 paper identified, but authorized full text not obtained; this remains a residual risk."
+      ],
+      "reasoning": "Prior singular-support and global graded Hilbert-function results do not by themselves imply the precise local depth at an exact two-multiple-root form. The non-CM claim is narrower and independently proved by an explicit transverse fiber-product model; an uninspected stronger Hilbert-function theorem could reduce novelty.",
+      "searches": [
+        "web: coincident root loci local Cohen Macaulay irreducible partition (m,1,...1) higher discriminant",
+        "web: multiple root loci Cohen-Macaulay d 2m",
+        "web: Weyman On Hilbert functions of multiplicity ideals 1993 161 358 369 PDF binary forms",
+        "arXiv:math/0110224 §5, §6 and arXiv:1108.4532 §2, §3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0110224; HTML §§4--6",
+      "arXiv:1108.4532; HTML §§1--3",
+      "Macaulay2 CoincidentRootLoci singularLocus documentation",
+      "Published published research index semantic record 2026/10/4/SCOPE-extremal-degrees-of-three-dimensional-coincident-root-loci--e636e8e5ed80 (claim/summary only)",
+      "Weyman DOI:10.1006/jabr.1993.1224 (metadata only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chipalkatti Theorem 5.4 and Kurmann Proposition 2.1 identify whether points are singular using normalization fibres and tangent-map injectivity, not the scheme-theoretic completed germ.",
+        "The explicit ring (2) is a union of two codimension-(m-1) smooth coefficient branches with a common codimension-(m-1) smooth intersection in each; the fiber-product exact sequence yields the precise depth defect m-2."
+      ],
+      "reasoning": "The geometric distinction between one collided m-root plus a simple root and two distinct m-roots is known qualitatively. The new computation of the completed local ring and its fiber-product depth is a strict strengthening, not an automatic corollary of the cited support theorem alone. In the evidence above, the phrase about codimension is immediately corrected by its explicit m-1 value and used only as a dimension comparison.",
+      "searches": [
+        "published research index: local analytic structure along coincident root loci with two roots of multiplicity m transverse union of smooth branches",
+        "arXiv:math/0110224 Theorem 5.4 and Section 6",
+        "arXiv:1108.4532 Proposition 2.1 and Corollary 2.3",
+        "web: higher discriminants binary forms root multiplicity m coincident root locus singularity transverse generic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kurmann arXiv:1108.4532 §2 Proposition 2.1 counts normalization preimages and flags noninjective tangent maps; calls their geometry nodal-type/cusp-like without exact transverse formal equations.",
+        "Chipalkatti arXiv:math/0110224 §5 gives singular support in terms of coarsened partitions and normalization fibres; no completed local ring formula."
+      ],
+      "reasoning": "Aliases CRL, binary multiple-root locus, higher discriminant and coincident-root variety were compared. Generic nodal or cusp-like terminology does not specify that the higher-multiplicity cusp is exactly A2, or the two-root local fiber-product ring with m-1 normal coordinates per branch.",
+      "searches": [
+        "published research index: generic transverse analytic germ singularity of coincident root locus binary forms one root multiplicity m+1 cusp A2 independent m",
+        "published research index: local analytic structure along coincident root loci with two roots of multiplicity m transverse union of smooth branches",
+        "web: coincident root loci \"local analytic\" \"normal crossings\" \"cusp\"",
+        "web: binary coincident root locus \"cusp\" \"node\" general partition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Macaulay2 CoincidentRootLoci singularLocus returns a list of singular coincident-root subloci rather than exact formal germs or depth.",
+        "published research index closest relevant result: 2026/10/4/SCOPE-extremal-degrees-of-three-dimensional-coincident-root-loci--e636e8e5ed80, concerned with extremal projective degrees of three-part partitions.",
+        "Own previous relevant item: Extremal degrees of three-dimensional coincident root loci, a numerical degree optimization, no local analytic depth classification."
+      ],
+      "reasoning": "No accessed exact table or database entry gave either generic formal local-ring presentation or d-2m+3 depth. The available published research index entry is a degree optimization and does not imply branch type or depth; its full public package was not materially read and is retained as a literature-access limitation.",
+      "searches": [
+        "published research index: generic transverse analytic germ singularity of coincident root locus binary forms one root multiplicity m+1 cusp A2 independent m",
+        "published research index: normalization map P1 x P(d-m) multiple root locus discriminant cusp conductor A2 transverse",
+        "Macaulay2: singularLocus(CoincidentRootLocus) documentation",
+        "Comparison of published three-dimensional coincident-root loci degree formula with local formal-germ and depth claims"
+      ]
+    },
+    "rationale": "Chipalkatti (arXiv:math/0110224 §5) and Kurmann (arXiv:1108.4532 §2) already identify singular support and normalization mechanisms, respectively; these established results are credited. Their inspected full text does not state the exact two completed local rings or the d-2m+3 depth/Serre S2 consequence. The nearest published research index finding concerns extremal degrees rather than transverse germ or depth. Risk remains from uninspected Weyman 1993 and other unindexed equivalences; novelty cannot be certified by negative search.",
+    "residual_risks": [
+      "Weyman 1993 Hilbert-function article inaccessible in full; no stronger theorem about the completed local rings was ruled out.",
+      "An equivalent local-germ/depth calculation may appear under higher discriminant, coincident root, or tangent-developable terminology outside the accessed literature.",
+      "The published degree-focused published research index package was not materially read beyond available claim/summary; it is not relied on for whole-document NOT_COVERING."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_EXACT_GERMS: proves the set-theoretic singular support and discusses global graded algebra, but no general completed local rings or d-2m+3 depth statement",
+        "evidence": "§5 Theorem 5.4 classifies singular subloci; §6 notes unresolved arithmetic Cohen--Macaulay patterns and cites Weyman; neither supplies the claimed generic transverse scheme presentations.",
+        "identifier_or_url": "arXiv:math/0110224; https://arxiv.org/html/math/0110224v1",
+        "material_read": "Full accessible arXiv HTML, including §§4--6, Theorem 5.4, Proposition 5.1, and the concluding Cohen--Macaulay discussion",
+        "method": "Read original full HTML sections and search for analytic/local-depth claims",
+        "title": "On equations defining coincident root loci",
+        "trigger": "Foundational normalization and singular-support theorem for the exact binary-form family"
+      },
+      {
+        "assessment": "PARTIAL_PRIOR: recognizes nodal-type and cusp-like mechanisms, but does not identify the universal A2 or exact two-block crossing depth",
+        "evidence": "§2 explicitly uses qualitative words nodal type and similar to a cusp; Proposition 2.1 gives fibres/tangent criterion, while Corollary 2.3 gives only codimension-one presence.",
+        "identifier_or_url": "arXiv:1108.4532; https://arxiv.org/html/1108.4532v1",
+        "material_read": "Full accessible original arXiv HTML including introduction, Proposition 2.1, Corollaries 2.2--2.3, and Section 3",
+        "method": "Read detailed normalization/fibre and tangent statements",
+        "title": "Some remarks about equations defining coincident root loci",
+        "trigger": "Closest local and normalization-fibre analysis; exact potential coverage"
+      },
+      {
+        "assessment": "SINGULAR_SUPPORT_ONLY: outputs coincident-root subloci, not the analytic germs or depth",
+        "evidence": "Function output is a list of singular coincident-root loci; description cites Chipalkatti and Kurmann support theorems.",
+        "identifier_or_url": "https://www.macaulay2.com/doc/Macaulay2-1.23/share/doc/Macaulay2/CoincidentRootLoci/html/_singular__Locus_lp__Coincident__Root__Locus_rp.html",
+        "material_read": "Complete short documentation page, including synopsis, description, example and literature citations",
+        "method": "Read web documentation",
+        "title": "singularLocus(CoincidentRootLocus) documentation",
+        "trigger": "Exact existing software table of singular strata may subsume the claim"
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS_RISK: no whole-text negative comparison is asserted",
+        "evidence": "Chipalkatti §6 cites this article for Hilbert functions; the 1993 publication is identified by DOI but not verified as discussing the claimed local depth.",
+        "identifier_or_url": "DOI:10.1006/jabr.1993.1224",
+        "material_read": "Bibliographic metadata and citations in Chipalkatti; full article not accessible through attempted arXiv/open-access search; institutional retrieval required unavailable interactive authorization",
+        "method": "Searched arXiv and OA sources, then attempted authorized institutional retrieval; interactive approval was required and not bypassed",
+        "title": "On the Hilbert functions of multiplicity ideals",
+        "trigger": "Potential stronger historical coverage of Cohen--Macaulay properties"
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT in accessible claim: degree extrema for three-root partitions, not complete local rings or depth",
+        "evidence": "Reported claim maximizes/minimizes Hilbert formula degree among three-dimensional root loci; none of its accessible statements implies the branch-ring or S2 formula.",
+        "identifier_or_url": "2026/10/4/SCOPE-extremal-degrees-of-three-dimensional-coincident-root-loci--e636e8e5ed80",
+        "material_read": "Search result summary and publicly indexed claim of that published finding; its full public package was not accessible",
+        "method": "Compared mathematical predicates in the available result/claim text",
+        "title": "Extremal degrees of three-dimensional coincident root loci",
+        "trigger": "Closest published overlapping subject found by published research index and published literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "67285594-c0d1-49a7-9418-fbb4f730a160",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact two-branch presentation yields a structural homological obstruction in all higher multiple-root loci m>=3,d>=2m: generic non-Cohen--Macaulayness with exact depth defect m-2 and a concrete failure of S2. This resolves a natural local singularity question for an infinite, classically motivated family and refines previously qualitative nodal/cuspidal stratification. The nontrivial conclusion is not a mere restatement of singular support or a finite example.",
+    "status": "PASS"
+  }
+}
