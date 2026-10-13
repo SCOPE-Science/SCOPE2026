@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "A joint three-category multinomial probability gives all exact moments. The consecutive ratio \\(Q_m(n+1)/Q_m(n)\\) exceeds one precisely for \\(n\\le2m-1\\) and is below one thereafter. The unique maximum at \\(n=2m\\) exceeds one by strict logarithmic inequalities. At positive fixed load \\(c\\), the expansion is \\(m\\log Q_m(n)\\to-(c-2)^2/c\\); in the critical window \\(n=2m+z\\sqrt m\\), it becomes \\(m^2\\log Q_m(n)\\to1-z^2/2\\). The mean-product limit is \\(4e^{-4}/3\\), yielding the claimed covariance and sharp endpoint scales. Exhaustive rational and finite numerical tests support the derivation but do not replace the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sevast'yanov and Chistyakov (1964), doi:10.1137/1109034, abstract: a joint local normal theorem for the vector of arbitrary fixed occupancy-frequency counts at bounded positive load.",
+        "Hwang–Janson, arXiv:math/0604397, pages 1–3: local normality and asymptotic variance for the number of occupied urns, with other frequency counts mentioned as possible extensions.",
+        "Barbour–Gnedin, arXiv:0809.4387, Introduction and Section 2: joint normal approximation in an infinite-box scheme."
+      ],
+      "reasoning": "The 1964 theorem is more general in the number of fixed occupancy classes for leading normal approximation, and can explain the nonpositive first-order covariance coefficient. A leading covariance matrix does not by itself yield the \\(O(1)\\) critical bubble when its relevant entry vanishes at load two, nor the all-finite-n sharp unimodality. Since its full text was inaccessible, implicit higher-order coverage remains an explicit risk.",
+      "searches": [
+        "frequency counts joint asymptotic covariance occupancy numbers mu_1 mu_4 rare conditional Poisson covariance critical",
+        "arXiv:math/0604397; arXiv:0809.4387; doi:10.1137/1109034"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0604397",
+      "arXiv:math/0701718",
+      "arXiv:0809.4387",
+      "arXiv:0806.1007",
+      "DOI:10.1137/1109034",
+      "BRICS-RS-96-25"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eaton–Godbole–Sinclair, arXiv:0806.1007, Theorem 3 and preceding discussion: multivariate independent Poisson approximation in sparse collision/tie regimes; at linear load the frequency counts have order m.",
+        "Gnedin–Hansen–Pitman, arXiv:math/0701718, Eq. (7) is for Poisson arrival times and therefore gives negative inter-frequency covariance, unlike this fixed-total result.",
+        "The 1964 fixed-total joint local normal theorem describes a broader vector at leading order but its abstract does not state a second-order critical-window covariance or exact finite-n integer phase."
+      ],
+      "reasoning": "The finite exact covariance follows from known joint-binomial/multinomial probabilities, so this part is acknowledged as implied prior method rather than a novel standalone fact. The accepted compound claim is the strict unimodality, nonempty exact positive interval for every m, and the asymptotically sharp square-root width and profile. These features are not logical corollaries of a Poissonized negative covariance or a leading-order CLT at the degenerate load, though an uninspected older joint expansion might still subsume them.",
+      "searches": [
+        "arXiv:0806.1007; arXiv:math/0701718; arXiv:0809.4387",
+        "fixed multinomial occupancy frequency of singletons and quadrupletons critical cancellation limiting correlation r=1 s=4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gnedin–Hansen–Pitman, arXiv:math/0701718, Eq. (7), explicitly gives cross-frequency covariance in Poissonized infinite occupancy and finds a nonpositive sign.",
+        "The fixed-ball independent uniform occupancy covariance has the exact cross-box joint probability based on \\(\\operatorname{Multinomial}(n;1/m,1/m,1-2/m)\\), not independent cell occupancies."
+      ],
+      "reasoning": "Aliases include occupancy frequencies, frequency spectrum, boxes with exactly one or four balls, singleton/fourfold tie counts, and the conditional Poisson representation. The Poissonized identity has a different law, so it does not imply the positive finite-n window. Classical joint multinomial counts imply the covariance formula, but the strict interval and sharp second-order window were not located as stated or derived in the inspected sources.",
+      "searches": [
+        "random occupancy empty boxes singleton boxes covariance sign multinomial balls into bins fixed n classical occupancy",
+        "fixed multinomial occupancy frequency of singletons and quadrupletons critical cancellation limiting correlation r=1 s=4",
+        "arXiv:0809.4387; arXiv:math/0701718"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches identified published material on occupancy counts, binomial/multinomial modes, and general frequency laws but no exact table of all integer positive intervals or a tabulated critical-width coefficient.",
+        "The supplied exact-rational checker tests \\(3\\le m\\le40\\) and reports selected intervals; these are consistency checks, not substitutes for comparison with published tables."
+      ],
+      "reasoning": "No matching exact database or published table was identified by the recorded queries. This is limited search evidence, not proof no table exists. The claim derives symbolic all-size values from a proof and is not based on rediscovering a finite numerical table.",
+      "searches": [
+        "multinomial occupancy counts boxes with exactly one ball and exactly four balls covariance sign changes critical sqrt(number boxes) n approximately twice number boxes",
+        "occupancy r counts s counts covariance two sign transitions discriminant roots critical window"
+      ]
+    },
+    "rationale": "General multinomial occupancy cross moments and leading multivariate central limit theorems are known. The accessible primary papers inspected address occupied-count limits, negative Poissonized frequency covariance, infinite-box joint approximations, and sparse multivariate Poisson limits, but do not supply the complete finite-size strict sign interval and \\(\\sqrt m\\)-scale profile at load two. A highly relevant 1964 joint-normality source was available only at abstract level; implicit historical coverage remains a recorded risk.",
+    "residual_risks": [
+      "The full 1964 Sevast'yanov–Chistyakov paper was inaccessible; a hidden higher-order or implicit exact sign comparison cannot be excluded.",
+      "General multinomial generating functions determine cross moments; a prior specialized exact sign theorem may exist under different language.",
+      "Literature retrieval cannot certify absence of an equivalent unpublished result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves local limit for occupied box count; mentions prescribed occupancy counts as possible extension; does not state cross-frequency critical sign window.",
+        "evidence": [
+          "Theorem scope in abstract and pages 1–3 concerns number of occupied urns; page 3 mentions other counts as possible extension."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0604397",
+        "material_read": "Full-text PDF pages 1–4, Introduction, theorem outline and relevant notation",
+        "method": "Accessible public arXiv PDF text, cross-check with abstract and original classification",
+        "title": "Local limit theorems for finite and infinite urn models",
+        "trigger": "Same urn setting, potential stronger asymptotic coverage"
+      },
+      {
+        "assessment": "Equation (7) gives negative covariance of different frequency counts in Poissonized infinite occupancy. Different conditioning and box regime; does not directly cover fixed-n sign reversal.",
+        "evidence": [
+          "PDF page 6 Eq. (7) computes Poissonized cross-frequency covariance."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0701718",
+        "material_read": "Full-text PDF pages 1–6 including equation (7), and further remarks in Section 3",
+        "method": "Public arXiv PDF text and displayed equation",
+        "title": "Notes on the occupancy problem with infinitely many boxes: general asymptotics and power laws",
+        "trigger": "Specific frequency counts and exact covariance comparison"
+      },
+      {
+        "assessment": "Joint normal approximation for infinitely many nonuniform fixed frequencies; leading-order joint normality but no exact finite uniform-box positive interval.",
+        "evidence": [
+          "Introduction describes infinite frequencies and joint normal convergence; Section 2 establishes Poissonization comparisons."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0809.4387",
+        "material_read": "Full-text PDF Introduction and Section 2, pages 1–3",
+        "method": "Public arXiv PDF text",
+        "title": "Small counts in the infinite occupancy scheme",
+        "trigger": "Joint frequency-count asymptotic covariance in a more general model"
+      },
+      {
+        "assessment": "Sparse Poisson approximation for strict tie counts; conditions not the linear-density regime and no matching all-finite sign interval.",
+        "evidence": [
+          "Theorem 3 studies multivariate Poisson approximation, with the discussion around pages 5–7 distinguishing sparse regimes."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0806.1007",
+        "material_read": "Full-text PDF pages 1–7 and 15–17 including statements of Theorems 1–3",
+        "method": "Public arXiv PDF text and page image",
+        "title": "Competition between Discrete Random Variables, with Applications to Occupancy Problems",
+        "trigger": "Explicit multivariate vector of exact occupancy-frequency counts"
+      },
+      {
+        "assessment": "Negative association applies to monotone functions of disjoint box loads, not the nonmonotone exactly-one and exactly-four indicators; therefore no conflict.",
+        "evidence": [
+          "Negative-association statements concern occupancy random variables and monotonic functions."
+        ],
+        "identifier_or_url": "https://www.brics.dk/RS/96/25/BRICS-RS-96-25.pdf",
+        "material_read": "Full-text PDF introduction and principal negative-association results for bin loads",
+        "method": "Public PDF text",
+        "title": "Balls and Bins: A Study in Negative Dependence",
+        "trigger": "Possible monotonicity theorem excluding positive covariance"
+      },
+      {
+        "assessment": "Leading joint local normality likely explains first-order covariance. Any second-order boundary implication is unverified and remains a material risk, not a negative full-text finding.",
+        "evidence": [
+          "Abstract explicitly states joint local normal theorem for counts of boxes with occupancy \\(r_1,\\ldots,r_s\\) when \\(n/m\\) is bounded between positive constants."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/1109034",
+        "material_read": "Journal abstract, publication metadata and cited theorem scope only; full primary text inaccessible",
+        "method": "Journal abstract and bibliography; authorized full-text retrieval could not proceed because institutional network access was unavailable",
+        "title": "Asymptotic Normality in the Classical Ball Problem",
+        "trigger": "Highly relevant 1964 joint local normality for the same fixed-total frequency-count vector"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "48d2e4a1-b70a-4de7-810c-1a2a4f2d5243",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The simultaneous counts of singly occupied and four-occupied boxes are natural sampling and collision frequency descriptors. The leading fixed-load covariance density is always nonpositive and vanishes at load two. Proving that a nonzero positive covariance survives inside an exactly characterized \\(\\sqrt m\\)-wide window reveals a substantive cancellation invisible in first-order limit theorems and Poissonization. The phase boundary is analytically dictated by the occupancy model, not an arbitrary slice.",
+    "status": "PASS"
+  }
+}
