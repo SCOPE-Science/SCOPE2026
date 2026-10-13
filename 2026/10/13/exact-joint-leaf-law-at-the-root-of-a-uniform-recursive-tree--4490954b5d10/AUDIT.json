@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For any specified k nonroot labels, deleting those k leaf-children of the root gives a bijection with all (n-k-1)! recursive trees on remaining vertices and preserves uniformity. This gives the exact mixed falling-factorial transform, with a separately handled all-star endpoint k=n-1. Eulerian leaf-count recursion and expansion of u^Q yield the full polynomial for every n≥2 and all complex u,z. Its derivatives yield E[QL]=(n+1)/2 and Cov(Q,L)=1/2 for n≥3. Marginal variances Var(Q)=1 and Var(L)=n/12 yield Corr=sqrt(3/n). The independent Poisson/Gaussian joint limit follows from a bounded 1-dependent descent CLT and dominated convergence of the mixed factorial transform, not finite experiments. The standalone verifier independently enumerated each (n-1)! tree for n=2,...,9 (46,233 total), checking all integer joint coefficients and all admissible factorial identities plus covariances in exact arithmetic. n=2 covariance exception is explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Devroye–Janson (2013) Section 7 addresses root protection and root-child thinning in a Yule tree, with no global-leaf factorial transform.",
+        "Mahmoud–Ward (2015) sections 2–3 calculate the number of globally protected nodes and its variance growth; its variable is not the number of all leaves.",
+        "Janson (2004) author-PDF request timed out twice; accessible publisher abstract concerns degree-profile marginals."
+      ],
+      "reasoning": "The nearest broad machinery provides root-local marginal or global degree-count tools, not a stated mixed root-specific/global Eulerian law. The abstract-only source is not represented as wholly inspected; implicit specialization remains a residual risk.",
+      "searches": [
+        "uniform random recursive trees bivariate joint distribution root number of leaf children and total number of leaves factorial moment identity deletion root leaf children",
+        "root protected event and leaf count Eulerian distribution Poisson-Eulerian joint generating function recursive trees",
+        "Janson Asymptotic degree distribution in random recursive trees preprint pdf uu.se",
+        "https://arxiv.org/html/1310.0665v1",
+        "https://the-examples-book.com/personal/mdw/_attachments/paper029.pdf"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1310.0665v1",
+      "https://the-examples-book.com/personal/mdw/_attachments/paper029.pdf",
+      "doi:10.1002/rsa.20046"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Devroye–Janson (2013), formula (7.1) and Section 7: root protected probability from a Poisson thinning; no joint conditioning on total leaves.",
+        "Mahmoud–Ward (2015), Theorem 2.1 and Proposition 3.1: protected-vertex first and second moments rather than a root singleton/global leaves transform.",
+        "Earlier separately determined global-leaf Eulerian law, root singleton Poisson-type marginal, and root-degree/leaf covariance leave mixed joint moments undetermined."
+      ],
+      "reasoning": "The claimed mixed transform is not logically implied by the cited individual marginal distributions; many couplings share them. The reported earlier root-degree/global-leaf covariance is of a distinct root statistic and likewise does not fix the new joint distribution. A general exact recursive-tree multivariate enumerator, if found, could imply the formula and would change the priority assessment.",
+      "searches": [
+        "uniform random recursive trees bivariate joint distribution root number of leaf children and total number of leaves factorial moment identity deletion root leaf children",
+        "random recursive trees exact covariance one half root singleton leaf branches and total leaves Poisson normal asymptotic independence",
+        "root protected event and leaf count Eulerian distribution Poisson-Eulerian joint generating function recursive trees",
+        "Janson Asymptotic degree distribution in random recursive trees preprint pdf uu.se"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Devroye–Janson, arXiv:1310.0665v1, Section 7: time-t number of root leaf-children has Poisson mean 1-exp(-t).",
+        "Janson, doi:10.1002/rsa.20046, abstract: whole-tree outdegree frequency central limits.",
+        "The explicit polynomial also describes the joint distribution of the number of singleton root branches and the global Eulerian leaf count."
+      ],
+      "reasoning": "A change to singleton branches or fixed-point-type marginals does not recover the mixed coefficients in the polynomial. No matching bivariate Eulerian/rencontres specialization was identified in the inspected sources. Marginal Poisson thinning is not a joint global-leaf theorem.",
+      "searches": [
+        "uniform random recursive trees bivariate joint distribution root number of leaf children and total number of leaves factorial moment identity deletion root leaf children",
+        "random recursive trees exact covariance one half root singleton leaf branches and total leaves Poisson normal asymptotic independence",
+        "\"random recursive tree\" \"root\" \"leaves\" \"joint\" \"Eulerian\"",
+        "\"recursive tree\" \"fixed points\" \"Eulerian numbers\" leaves",
+        "\"recursive trees\" \"root\" \"number of leaves\" \"fixed points\" joint distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Reviewed available prior statements include the root-outdegree versus global leaves covariance and root degree versus degree frequencies, not the bivariate singleton-root-branch/global-leaf law.",
+        "Targeted semantic searches returned mostly unrelated tree-structure entries rather than the exact mixed polynomial; absence of a ranked hit is not proof of absence."
+      ],
+      "reasoning": "The claim is not a tabulated finite census or recomputation of known Eulerian marginals: it simultaneously determines every joint count in all orders, with a distinguished terminal star correction. Historical source coverage is the important residual issue, not finite-table coverage.",
+      "searches": [
+        "uniform random recursive trees bivariate joint distribution root number of leaf children and total number of leaves factorial moment identity deletion root leaf children",
+        "random recursive trees exact covariance one half root singleton leaf branches and total leaves Poisson normal asymptotic independence",
+        "root protected event and leaf count Eulerian distribution Poisson-Eulerian joint generating function recursive trees",
+        "\"recursive trees\" \"leaves adjacent to the root\" covariance"
+      ]
+    },
+    "rationale": "The new statement is a full finite-size bivariate law for the count of root children that are leaves together with all leaves, yielding covariance exactly 1/2 and a joint independent Poisson/Gaussian limit. Devroye–Janson (2013), Section 7, derives a Poisson-thinning marginal of root leaf-children in the time-indexed Yule tree, not the joint distribution conditioned on exactly n vertices. Mahmoud–Ward (2015), Sections 2–3, calculates means and variance growth for the total number of protected vertices, a different observable. Janson (2004/05) gives global outdegree-profile marginals. A previous root-degree/global-leaf covariance does not imply the present root leaf-child/global-leaf joint polynomial. No checked full primary text gives the bivariate statement or a directly dominating theorem; historical implicit derivability via classical increasing-tree generating functions remains a disclosed risk.",
+    "residual_risks": [
+      "Broad classical bivariate enumeration of increasing labeled trees might contain an implicit equivalent coefficient specialization not surfaced by targeted primary/full-text searches.",
+      "Janson 2004/05 author-hosted full PDF could not be read because both fetches timed out; the available abstract does not decide every indirect implication.",
+      "A negative semantic query is neither exhaustive coverage nor proof of global novelty; priority remains provisional pending independent human review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct root leaf-child Poisson-thinning marginal, not a size-conditioned full bivariate law with global leaf count.",
+        "evidence": [
+          "Section 7 describes a Yule tree with root leaf-children Poisson(1-exp(-t)) and then root-protection probability.",
+          "No variable for the total number of leaves occurs in its Section 7 joint calculations."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1310.0665v1",
+        "material_read": "Accessible full HTML; inspected Sections 1, 6, 7 and references and equations (7.1)–(7.3).",
+        "method": "Read relevant sections of the lawful arXiv HTML, checked matching PDF cover and primary MSC/date.",
+        "title": "Protected nodes and fringe subtrees in some random trees",
+        "trigger": "Direct parent source: rooted protection is determined by the number of leaf-children of the root."
+      },
+      {
+        "assessment": "Computes global protected-node mean and variance, not the proposed joint leaf-child/global-leaf bivariate generating function.",
+        "evidence": [
+          "Theorem 2.1 concerns E(number of protected nodes); Section 3 concerns variance of that count.",
+          "Its distinguished root-protection indicator is not root leaf-child count Q nor the total-leaf count L."
+        ],
+        "identifier_or_url": "https://the-examples-book.com/personal/mdw/_attachments/paper029.pdf",
+        "material_read": "Publisher/author-accessible eight-page text: abstract, Sections 1–3, recurrences (2.1), (2.2), (3.1) and conclusions.",
+        "method": "Examined complete indexed PDF text and relevant passages from each mathematical section.",
+        "title": "Asymptotic properties of protected nodes in random recursive trees",
+        "trigger": "Same random recursive tree and protected-root questions; plausible overlapping mixed-moment recurrences."
+      },
+      {
+        "assessment": "The verified abstract covers the global degree-count vector and asymptotic covariances, not a stated root leaf-child/global leaf polynomial; implicit coverage is unresolved.",
+        "evidence": [
+          "Abstract describes degree-frequency asymptotic normality and covariance across global outdegrees.",
+          "An author-hosted preprint exists at https://www2.math.uu.se/~svantejs/papers/sj155.pdf but two attempts to read it timed out."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.20046",
+        "material_read": "Publisher abstract and bibliography; author-hosted full PDF was located, but repeated fetch timed out.",
+        "method": "Publisher abstract reading, independent author preprint discovery; full text transport did not succeed.",
+        "title": "Asymptotic degree distribution in random recursive trees",
+        "trigger": "Whole-tree outdegree-zero count equals the leaf count and could have broader multivariate degree methods."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4490954b-5d10-47fd-bf81-15da021c7bc3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of root leaf-children controls whether the founding vertex is protected and how many immediate root branches are singletons, while the global number of leaves controls total terminal branching. These are different natural local/global observables in the same canonical random-growth tree. The result determines every finite bivariate coefficient, not merely a root-local mean, a known Eulerian marginal, or a trivial special case. It reveals a striking precise phenomenon: Cov(Q,L)=1/2 and positive Corr=sqrt(3/n) for every n>=3 while the unscaled root count and normalized global leaf fluctuations converge independently; the exact correction is useful for calibration of joint branching observables and finite-size random-tree models. The deletion bijection, complete law and asymptotic coupling are structurally motivated by protected-root versus whole-tree leaf behavior; no unsupported application theorem is asserted.",
+    "status": "PASS"
+  }
+}
