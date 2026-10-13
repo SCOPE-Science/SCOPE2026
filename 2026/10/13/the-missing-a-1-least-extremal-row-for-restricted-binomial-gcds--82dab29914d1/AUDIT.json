@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For \\(2\\le q<p\\), every selected split of \\((p+1)q\\) has zero base-\\(p\\) carries because both low columns sum to \\(q<p\\). At \\(q=p\\), both low columns sum to \\(p\\), and the incoming carry in the second column forces exactly two carries total. Kummer's theorem therefore gives the stated valuations. Since \\(r_p(p+1)=2\\), the target row is extremal and all smaller admissible rows are not.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 7.2 of arXiv:2610.01328v1 covers \\(m=p^a+1\\) only for \\(a\\ge2\\).",
+        "McTague's Theorem Q assumes the valuation prime is congruent to \\(1\\) modulo the restriction parameter, which is impossible for the present pair \\(p<p+1\\).",
+        "The inspected Wu theorem excerpt concerns a different prime-power hypothesis on the restriction parameter and does not imply the least-row identity here."
+      ],
+      "reasoning": "The recent source has broader general extremal theory but explicitly excludes this boundary from its exact least-row theorem. The older same-family results do not dominate the present claim under their hypotheses.",
+      "searches": [
+        "arXiv:2610.01328v1 full-text inspection of Theorem 7.2, Remarks 8.3-8.4, and Section 9",
+        "arXiv:1510.06696v5 full-text inspection of Theorem Q and its remarks",
+        "Web: \"g(m,n)\" \"v_p\" Wu 2606.20940"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01328v1 full HTML",
+      "arXiv:1510.06696v5 full HTML",
+      "arXiv:2606.20940v2 abstract and theorem text extraction",
+      "OEIS A265388",
+      "Published-finding semantic index via targeted queries",
+      "Web exact and alias searches for the formula and family"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 4.2 of the recent paper guarantees some attaining row in general but does not identify the least row for \\(m=p+1\\); its construction yields a much later row in this boundary case.",
+        "Theorem 7.2 cannot be specialized to \\(a=1\\) because its statement assumes \\(a\\ge2\\), and the paper explains why its minimality proof uses that assumption.",
+        "McTague's theorem does not apply because \\(p\\not\\equiv1\\pmod{p+1}\\)."
+      ],
+      "reasoning": "The new minimality statement requires the additional observation that all multipliers \\(q<p\\) have no carries, together with the exact two-carry profile at \\(q=p\\). These implications are not supplied by the prior theorems.",
+      "searches": [
+        "arXiv:2610.01328v1 Proposition 4.2, Theorem 7.2, Remarks 8.3-8.4",
+        "arXiv:1510.06696v5 Theorem Q",
+        "Web: Computing the Greatest Common Divisor of Binomial Coefficients theorem g(m,n) valuation p 2026 Wu"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.01328v1 Remark 8.3 states that the \\(a=1\\) regime is not included in the theorem.",
+        "arXiv:2610.01328v1 Remark 8.4 records only \\(T_2(3)=6\\) as prior art.",
+        "The published-finding semantic search closest hits were unrelated binomial-valuation or extremal problems and did not state the same restricted-GCD boundary formula."
+      ],
+      "reasoning": "The claim can be phrased either as the least-row identity or as the exact profile \\(v_p(G((p+1)q;p+1))=0\\) for \\(2\\le q<p\\) followed by valuation \\(2\\) at \\(q=p\\). Neither formulation appeared in the checked sources.",
+      "searches": [
+        "Published-finding semantic search: restricted binomial gcd least extremal row m=p+1 T_p(p+1)",
+        "Published-finding semantic search: T_p(p+1)=p(p+1) restricted binomial gcd least extremal row boundary a=1",
+        "Web: \"T_p(p+1)\" binomial gcd",
+        "Web: \"p+1\" \"binomial\" gcd Kummer restricted"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A265388 tabulates the restriction parameter \\(2\\), not the moving boundary restriction \\(p+1\\).",
+        "No OEIS entry located by the checked searches records the least-extremal-row function \\(T_p(p+1)\\)."
+      ],
+      "reasoning": "The claim is a structural least-row theorem, and the closest relevant table is a different fixed-restriction sequence.",
+      "searches": [
+        "Web/OEIS: site:oeis.org gcd binomial coefficients p+1 restricted multiples",
+        "Web/OEIS: site:oeis.org \"gcd\" \"binomial\" \"p+1\""
+      ]
+    },
+    "rationale": "The recent source explicitly omits \\(a=1\\) from its exact formula for \\(T_p(p^a+1)\\) and records only the known \\(p=2\\) boundary instance. The closest older theorem (McTague) has a congruence hypothesis that fails for the present valuation prime, while Wu's published family results use different hypotheses. No equivalent or stronger uniform \\(T_p(p+1)\\) formula was found in published-finding semantic searches, exact web searches, or OEIS.",
+    "residual_risks": [
+      "Wu's complete v2 full text was not available through the same browser path during this check; comparison used its abstract, theorem text extraction, and the recent paper's detailed literature section.",
+      "A very recent or differently phrased source not indexed by the checked systems could independently contain the same elementary boundary theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING. The exact least-row theorem is restricted to \\(a\\ge2\\); \\(a=1\\) is explicitly excluded, with only \\(p=2\\) recorded as known.",
+        "evidence": "Remark 8.3 says the \\(a=1\\) regime is not included. Remark 8.4 records \\(T_2(3)=6\\).",
+        "identifier_or_url": "arXiv:2610.01328v1",
+        "material_read": "Full arXiv HTML: abstract, definitions, universal bound, constructive attainment, Theorem 7.2, Remarks 8.3-8.4, related-work section, and references.",
+        "method": "Direct theorem and proof comparison.",
+        "title": "Sharp \\(p\\)-adic Extrema and Least Extremal Rows for Restricted Binomial GCDs",
+        "trigger": "Primary motivating source defining the same extremal quantity and special family."
+      },
+      {
+        "assessment": "NOT_COVERING except for the single \\(p=2\\) instance. The general theorem requires a valuation prime congruent to \\(1\\) modulo the restriction parameter.",
+        "evidence": "Theorem Q assumes the valuation prime is \\(1\\) modulo the restriction parameter; the present valuation prime satisfies \\(p<p+1\\). The paper separately notes the valuation-two example \\(\\binom{6}{3}\\).",
+        "identifier_or_url": "arXiv:1510.06696v5",
+        "material_read": "Full arXiv HTML including Theorem Q, remarks, Kummer lemma, proof, and references.",
+        "method": "Hypothesis and implication comparison.",
+        "title": "On the Greatest Common Divisor of Binomial Coefficients",
+        "trigger": "Earlier theorem on the identical multiple-index GCD family."
+      },
+      {
+        "assessment": "NOT_KNOWN_TO_COVER. The inspected theorem uses different structural hypotheses and gives no least-extremal-row formula for \\(m=p+1\\).",
+        "evidence": "The visible theorem excerpt assumes a prime-power restriction parameter and a congruence condition on prime factors; the recent extremal paper cites Wu as prior work on the family but still states that \\(a=1\\) is outside its exact least-row theorem.",
+        "identifier_or_url": "arXiv:2606.20940v2",
+        "material_read": "arXiv abstract plus a text extraction of the stated main theorem and examples, together with the comparison in Section 9 of arXiv:2610.01328v1.",
+        "method": "Statement-level hypothesis comparison.",
+        "title": "Computing the Greatest Common Divisor of Binomial Coefficients",
+        "trigger": "Recent paper on the same function \\(g(m,n)=G(mn;m)\\)."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "82dab299-14d1-4bd2-83bb-46782413223d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The claim closes the exact boundary \\(a=1\\) that the motivating paper explicitly leaves outside its \\(m=p^a+1\\) least-row theorem. It gives a complete, uniform classification of every admissible multiplier up to the first extremal row and shows a genuine regime change from the \\(a\\ge2\\) formula, so it is more than a numerical or routine one-instance check.",
+    "status": "PASS"
+  }
+}
