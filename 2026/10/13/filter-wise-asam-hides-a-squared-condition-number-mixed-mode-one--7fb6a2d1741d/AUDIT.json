@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For one filter, the source normalization is scalar, so the \\(p=2\\) ASAM perturbation reduces exactly to \\(\\rho(\\|x\\|+\\tau)Ax/\\|Ax\\|\\). On the chosen unit vector, all required moments are explicit. Expanding the squared norm yields a positive quadratic in the outer step, so its nonexpansion threshold is exact. The \\(\\kappa^{-2}\\) limit follows from the \\(\\rho^2\\|A^2v_\\kappa\\|^2/\\|Av_\\kappa\\|^2\\) term, and direct pure-mode formulas establish the separation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Standard SAM dynamics literature establishes that sharpness-aware perturbations can create oscillatory behavior on quadratics.",
+        "ASAM's source motivates adaptive parameter-scale geometry and explicitly introduces an additive normalization stabilizer for stability.",
+        "The accepted claim is narrower in objective class but sharper in giving an exact state-specific if-and-only-if nonexpansion threshold."
+      ],
+      "reasoning": "Broader convergence or dynamics statements for SAM do not dominate an exact ASAM witness unless their assumptions and update algebra include the same filter-wise state-dependent normalization. The inspected related work does not contain that implication.",
+      "searches": [
+        "Adaptive Sharpness-Aware Minimization scale invariant quadratic",
+        "Adaptive Sharpness-Aware Minimization practical stabilizer nonzero cycle quadratic",
+        "adaptive sharpness aware minimization chattering cycle epsilon stabilizer"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2102.11600v1",
+      "PMLR:139:5905-5914",
+      "arXiv:2210.01513v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The ASAM source defines filter-wise normalization by filter norm and recommends adding a small identity term to the normalization for stability.",
+        "Its p=2 algorithm uses the T_w-squared perturbation normalized by the T_w-scaled gradient norm.",
+        "The later SAM dynamics paper derives quadratic behavior for fixed-radius SAM rather than one-filter filter-wise ASAM."
+      ],
+      "reasoning": "The source statements determine the update but not the accepted theorem. The new implication requires a mixed direction with balanced gradient coordinates, exact norm expansion, and comparison against pure eigenmodes; none of the inspected prior statements yields that separation.",
+      "searches": [
+        "arXiv:2102.11600v1 filter-wise normalization T_w eta stability",
+        "arXiv:2102.11600v1 Algorithm 1 p=2 perturbation",
+        "arXiv:2210.01513 convex quadratic SAM dynamics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining ASAM source gives filter-wise normalization and the normalized p=2 perturbation but no scalar or two-dimensional quadratic stability frontier.",
+        "The later fixed-radius SAM dynamics paper studies quadratic bouncing under a different perturbation geometry.",
+        "No indexed ASAM-specific result returned an order-kappa-squared mixed-mode learning-rate obstruction."
+      ],
+      "reasoning": "Equivalent coverage would need to imply the exact mixed-state ratio or at least the asymptotic threshold \\(\\alpha\\sim4(1+\\rho\\sqrt2)/(\\rho^2\\kappa^2)\\). Fixed-radius SAM results do not do so because they lack the multiplicative \\(\\|x\\|\\) factor created by one-filter ASAM.",
+      "searches": [
+        "ASAM adaptive sharpness aware minimization scalar quadratic exact stability",
+        "ASAM quadratic stability adaptive sharpness perturbation scalar",
+        "ASAM stabilizer eta scalar quadratic two cycle rho learning rate",
+        "ASAM cannot converge optimum fixed rho scalar quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed optimization findings concern Polyak-step frontiers, adaptive-feedback curvature thresholds, reflected-gradient stability, and other recurrences.",
+        "No returned indexed finding names ASAM or states the same filter-wise mixed-mode formula."
+      ],
+      "reasoning": "The closest records use different update maps and therefore do not imply the ASAM polynomial obtained here. Search absence is supporting evidence rather than a uniqueness proof.",
+      "searches": [
+        "ASAM adaptive sharpness aware minimization scalar quadratic exact stability",
+        "ASAM quadratic stability adaptive sharpness perturbation scalar",
+        "Adaptive Sharpness-Aware Minimization scale invariant quadratic",
+        "ASAM stabilizer eta scalar quadratic two cycle rho learning rate",
+        "Adaptive Sharpness-Aware Minimization practical stabilizer nonzero cycle quadratic",
+        "ASAM cannot converge optimum fixed rho scalar quadratic",
+        "ASAM T_w eta I stability hyperparameter cycle",
+        "adaptive sharpness aware minimization chattering cycle epsilon stabilizer"
+      ]
+    },
+    "rationale": "The defining ASAM paper supplies filter-wise normalization, the additive stabilizer, and the perturbation formula, but does not classify quadratic one-step stability by condition number. The closest quadratic sharpness-aware dynamics source analyzes fixed-radius SAM, whose perturbation geometry is not state-proportional. Focused published-record and owned-ledger searches found no implication-equivalent ASAM mixed-mode barrier.",
+    "residual_risks": [
+      "An equivalent filter-wise ASAM quadratic calculation may exist in unindexed technical notes or implementation discussions.",
+      "The witness is not proved to be the globally worst ASAM direction.",
+      "One-step Euclidean expansion does not by itself imply global divergence.",
+      "Practical multi-filter neural networks may have substantially different coupled dynamics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_FILTER_WISE_ASAM_NOT_COVERING_MIXED_MODE_QUADRATIC_NONEXPANSION_FRONTIER.",
+        "evidence": "The paper provides the exact normalization and perturbation used here and discusses the stabilizer as a stability control, but no condition-number-dependent mixed-mode one-step threshold was found.",
+        "identifier_or_url": "arXiv:2102.11600v1 / PMLR 139:5905-5914",
+        "material_read": "Open-access full text covering the filter-wise normalization definition, the stabilizer discussion, Algorithm 1, the p=2 perturbation formula, and the experimental use of the stabilizer; the algorithm page was visually inspected.",
+        "method": "Full-text open-access inspection plus page-image inspection.",
+        "title": "ASAM: Adaptive Sharpness-Aware Minimization for Scale-Invariant Learning of Deep Neural Networks",
+        "trigger": "Defining source for filter-wise normalization, the practical additive stabilizer, and the p=2 ASAM perturbation."
+      },
+      {
+        "assessment": "RELATED_FIXED_RADIUS_SAM_DYNAMICS_NOT_IMPLYING_FILTER_WISE_ASAM_MIXED_MODE_BARRIER.",
+        "evidence": "The perturbation magnitude in the inspected SAM analysis is fixed by the sharpness radius, whereas one-filter ASAM scales it with the current parameter norm; the accepted kappa-squared obstruction uses that state-proportional factor.",
+        "identifier_or_url": "arXiv:2210.01513v1",
+        "material_read": "Open-access full text covering the quadratic SAM map, its sharp-direction oscillatory behavior, and the main dynamical statements for fixed-radius SAM.",
+        "method": "Full-text open-access inspection.",
+        "title": "Towards Understanding Sharpness-Aware Minimization",
+        "trigger": "Highly relevant later analysis of sharpness-aware dynamics on convex quadratics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7fb6a2d1-741d-4ea2-a48e-7517eb881e91",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result targets ASAM's defining design choice: filter-wise scale normalization, together with the stabilizer explicitly introduced for stability. It shows that pure-eigenmode sanity checks can miss an additional full factor of the condition number in the one-step learning-rate scale. The balanced-gradient witness is structurally motivated because its tiny high-curvature parameter component contributes an order-one gradient component, which the perturbation then feeds through the Hessian a second time. This is a concrete tuning and stability mechanism rather than an arbitrary quadratic slice.",
+    "status": "PASS"
+  }
+}
