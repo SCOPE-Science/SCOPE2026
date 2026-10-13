@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For fixed \\(s\\), direct multiplication gives the sole potentially negative entries of \\((I-sA)^2\\) as \\(sc(2-s(a+d))\\), proving the iff threshold. For adaptive SqS3, an eigenbasis expansion at \\(p+\\delta q\\) gives \\(s_\\delta\\to1/\\mu\\), suppresses the Perron mode to higher order, and leaves a first-order sign-changing non-Perron mode; the final \\(J\\) update preserves that sign split when its second eigenvalue is nonzero. The exact witness is replayed in the embedded verifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Varadhan--Roland (2008), Sections 3--6, gives SqS3 and its globalization; its experiments report parameter-constraint violations but no cone classification.",
+        "Roland--Varadhan--Frangakis (2007), Sections 1--3, develops squared polynomial extrapolation and explicitly distinguishes the squared transform; it does not contain SqS3 or an orthant-invariance theorem."
+      ],
+      "reasoning": "Known feasibility failures show that unsafeguarded acceleration can leave constraints, but they do not dominate the new statement: the result here is a sharp iff operator threshold plus a generic two-dimensional affine mechanism for the specific SqS3 step.",
+      "searches": [
+        "\"SQUAREM\" parameter constraints linear contraction positivity",
+        "\"Cauchy-Barzilai-Borwein\" positivity M-matrix",
+        "SQUAREM positivity parameter constraints linear fixed point",
+        "squared iterative positivity cone fixed point extrapolation"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1111/j.1467-9469.2007.00585.x",
+      "doi:10.1007/s11075-007-9094-2",
+      "https://biostats.bepress.com/jhubiostat/paper63/",
+      "2026/9/21/SCOPE-aitken-steffensen-contraction-stability-frontier--6741f4b1d748",
+      "Own ledger item 43c06b1c-7de8-4ca3-8b6c-a9904ede7644"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2008 source introduces SqS3 with alpha=-||r||/||v|| and derives squared error propagation, but does not state any entrywise cone criterion or Perron-ray sign theorem.",
+        "The 2007 source treats squared RRE/MPE polynomial extrapolation and does not contain the later SqS3 steplength.",
+        "The own-ledger Anderson result concerns a different least-squares accelerator on diagonal maps and does not imply the coupled SqS3 operator threshold."
+      ],
+      "reasoning": "The new claim requires combining the SqS3 adaptive rule with an entrywise analysis of a coupled Stieltjes defect matrix and a singular perturbation about its Perron mode. None of the inspected prior statements has broader hypotheses with a conclusion that implies this cone boundary or generic completed-cycle sign loss.",
+      "searches": [
+        "doi:10.1111/j.1467-9469.2007.00585.x, equations (9), (19), (20), Section 6 and numerical-failure discussion",
+        "doi:10.1007/s11075-007-9094-2, Sections 1--3 and Proposition 3.2",
+        "item 43c06b1c-7de8-4ca3-8b6c-a9904ede7644 (Anderson acceleration on diagonal positive contractions)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned semantic-database record stated an SqS3 positive-cone criterion or the threshold 2/tr(I-J).",
+        "The closest semantic hit was 2026/9/21/SCOPE-aitken-steffensen-contraction-stability-frontier--6741f4b1d748, which concerns scalar Aitken--Steffensen error amplification rather than two-dimensional cone invariance."
+      ],
+      "reasoning": "Scalar Aitken--Steffensen robustness neither contains a matrix positive-cone statement nor implies the two-dimensional SqS3 threshold or the Perron-ray sign mechanism.",
+      "searches": [
+        "\"SqS3\" positivity cone affine contraction",
+        "\"SQUAREM\" positive cone invariant affine map",
+        "\"squared iterative\" cone preservation fixed point"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned database record or literature result tabulated an exact cone threshold for SqS3 or squared positive contractions.",
+        "The property is a continuous symbolic matrix-invariance question rather than a finite benchmark table."
+      ],
+      "reasoning": "No exact database/table entry was found that could subsume the theorem; the relevant prior data are algorithmic formulas and empirical failures, not a classification table.",
+      "searches": [
+        "\"SqS3\" nonnegative parameters",
+        "\"SQUAREM\" positive cone invariant affine map",
+        "(I - t A)^2 M-matrix nonnegative threshold 2 trace"
+      ]
+    },
+    "rationale": "The inspected SqS3 source already reports that parameter constraints can fail, so mere feasibility loss is not claimed as new. The accepted contribution is the exact two-dimensional cone-preservation iff threshold and the generic Perron-ray mechanism for the adaptive SqS3 rule. Statement-level semantic-database, prior-result, and primary-source comparisons did not locate a stronger or implication-equivalent theorem.",
+    "residual_risks": [
+      "Older vector-extrapolation or nonlinear fixed-point literature may encode an equivalent cone-invariance statement under terminology not recovered by the searches.",
+      "The 2004 working-paper full text was not available through the open route; this risk is reduced, not eliminated, by the later primary papers' explicit descriptions of its methods and by the 2008 statement that SqS3's norm-ratio steplength is newly proposed there."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING_METHOD_NOT_CLAIM: defines SqS3 and reports generic constraint failures, but does not state the sharp two-dimensional cone threshold or Perron-ray mechanism.",
+        "evidence": "Equation (9) gives alpha=-||r||/||v||; equations (19)--(20) give the squared mechanism; Section 6 gives backtracking; the experiments distinguish safeguarded and unsafeguarded behavior.",
+        "identifier_or_url": "doi:10.1111/j.1467-9469.2007.00585.x",
+        "material_read": "Full text, pages 335--346 covering motivation, fixed-point formulation, SqS1/SqS2/SqS3 steplengths, squared error relation, algorithmic update, and globalization; numerical-failure discussion also inspected.",
+        "method": "Full-text inspection of the article.",
+        "title": "Simple and Globally Convergent Methods for Accelerating the Convergence of Any EM Algorithm",
+        "trigger": "Primary source for the SqS3 steplength and standard cycle."
+      },
+      {
+        "assessment": "NOT_COVERING: develops squared RRE/MPE methods and error propagation, not the later SqS3 norm-ratio step or a positive-cone theorem.",
+        "evidence": "The paper writes squared RRE/MPE transforms explicitly and identifies their polynomial error-square structure; no orthant-invariance classification is stated in the inspected material.",
+        "identifier_or_url": "doi:10.1007/s11075-007-9094-2",
+        "material_read": "Full text pages 159--170, including Sections 1--3 and Proposition 3.2.",
+        "method": "Full-text inspection of the article.",
+        "title": "Squared polynomial extrapolation methods with cycling: an application to the positron emission tomography problem",
+        "trigger": "Closest earlier primary paper on the squaring device and fixed-point extrapolation."
+      },
+      {
+        "assessment": "ACCESS_LIMITED_BUT_NOT_DECISIVE: the abstract concerns SqRRE1/SqMPE1; the 2008 source explicitly describes SqS3 equation (9) as a new steplength extension beyond that work.",
+        "evidence": "Repository citation dates the work to November 2004; the 2008 full text states that its new contributions include proposing steplength scheme (9).",
+        "identifier_or_url": "https://biostats.bepress.com/jhubiostat/paper63/",
+        "material_read": "Repository title, abstract, and citation metadata; full text was not available through the open route checked.",
+        "method": "Repository metadata/abstract inspection, cross-checked against the later primary papers' descriptions of its contents.",
+        "title": "Squared Extrapolation Methods (SQUAREM): A New Class of Simple and Efficient Numerical Schemes for Accelerating the Convergence of the EM Algorithm",
+        "trigger": "Earlier SQUAREM working paper cited by both later primary sources."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7b77beb5-73e6-4a58-8cc5-6149b8d2aa7e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Positive maps are often used precisely because ordinary fixed-point iteration respects feasibility or order. The theorem isolates the exact two-dimensional coupling threshold at which the squared stage loses that property and shows that the standard adaptive SqS3 norm-ratio choice generically triggers a sign-changing mode even arbitrarily close to the Perron ray. This gives a mathematically motivated boundary for when projection, clipping, or feasibility-aware acceptance is structurally necessary rather than a numerical accident.",
+    "status": "PASS"
+  }
+}
