@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Exact local factors \\(\\beta(p^a)/p^a\\) prove all rational inequalities. For composite \\(n\\ne4\\), \\(\\beta(n)<n-1\\) ensures integer \\(K\\ge2\\). If \\(n\\) is even with at most four distinct prime factors, oddness of \\(\\beta(n)\\) implies even odd-prime exponents, giving \\(\\beta(n)/n\\ge105/384>1/4\\); \\(K\\) is odd and hence equals \\(3\\), while \\(3\\nmid n\\) raises the ratio bound to \\(385/1152>1/3\\), contradiction. For odd integers with at most three distinct primes, \\(\\beta(n)/n>1/2\\) except when their support is \\(\\{3,5,7\\}\\), \\(\\{3,5,11\\}\\), or \\(\\{3,5,13\\}\\). There \\(K=2\\), the exponent of \\(3\\) is \\(1\\), and exact ratio bounds and congruences modulo \\(4\\), \\(3\\), and \\(5\\) exclude each support. The independent finite arithmetic check up to one million supports but does not prove the universal statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tóth reports Problem 4 and no composite examples besides \\(4\\) through \\(10^6\\), not a general support theorem.",
+        "Classical \\(\\varphi(n)\\mid n-1\\) imposes stronger constraints on the squarefree subset, where \\(\\beta(n)=\\varphi(n)\\), but does not directly exclude nonsquarefree candidates to \\(\\beta(n)\\mid n-1\\)."
+      ],
+      "reasoning": "A bound for all non-squarefree candidate integers would dominate; no such bound identified in inspected primary work. This statement applies to all exponents and strictly extends the two-distinct-prime exclusion.",
+      "searches": [
+        "alternating divisor sum beta(n) divides n-1 composite Lehmer problem prime factor support at least four, even at least five",
+        "alternating sum-of-divisors Lehmer three prime factors four prime factors parity bound",
+        "Lehmer totient φ(n) divides n-1 composite bound number of prime factors versus alternating divisor sum",
+        "\"Lehmer\" \"beta\" \"prime factors\" Toth alternating divisor",
+        "Tóth arXiv:1111.4842 full text sections 2,7,8"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1111.4842",
+      "https://arxiv.org/html/1111.4842v2",
+      "https://math.colgate.edu/~integers/g41/g41.pdf",
+      "https://oeis.org/A206369"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tóth states the exact problem as unresolved and provides formulas; these formulas are premises, not the low-support exclusions.",
+        "The statement excluding only \\(\\omega(n)\\le2\\) is weaker: it does not settle odd \\(\\omega(n)=3\\) or even \\(\\omega(n)=3,4\\) with arbitrary exponents."
+      ],
+      "reasoning": "The new universal theorem implies a two-support exclusion, but neither such a bound nor finite numerical absence implies the new three- and four-support cases. The source introducing \\(\\rho\\) studies a different equation.",
+      "searches": [
+        "Toth Problem 4 alternating divisor beta(n) divides n-1 odd at least four prime factors even five primes",
+        "multiplicative alternating sum of divisors Lehmer problem 4 p q r beta n",
+        "Tóth A survey arXiv 1111.4842 Problem 4",
+        "Iannucci 2006 On a variation of perfect numbers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tóth: multiplicative alternating sum \\(\\beta(p^a)=(p^{a+1}+(-1)^a)/(p+1)\\), Problem 4 \\(\\beta(n)\\mid n-1\\); arXiv:1111.4842, sections 2,7.",
+        "Iannucci (2006) defines \\(\\rho(p^a)=p^a-p^{a-1}+\\cdots+(-1)^a\\), hence \\(\\rho=\\beta\\), but studies \\(k\\rho(n)=n\\)."
+      ],
+      "reasoning": "Compared the same arithmetic function under \\(\\beta\\) and \\(\\rho\\) and exact shifted-divisibility against \\(k\\)-imperfectness; no primary result supplies the parity-separated requirement that odd candidates have \\(\\omega(n)\\ge4\\) and even ones \\(\\omega(n)\\ge5\\).",
+      "searches": [
+        "\"beta(n)\" \"n-1\" \"3\" primes alternating sum divisors Lehmer",
+        "\"alternating sum of divisors\" \"divides n-1\" prime factors",
+        "\"rho(n)\" \"n-1\" Iannucci alternating divisor prime factors",
+        "beta(n) divides n minus 1 Toth odd even k imperfect omega(n) small prime factors",
+        "alternating divisor sum beta Lehmer phi beta divisibility n minus one triple prime factors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A206369 tabulates function values; Tóth reports a numerical test through \\(10^6\\). Neither proves an unbounded prime-support restriction."
+      ],
+      "reasoning": "Finite sequence values and bounded experiments do not imply an unrestricted parity-split \\(\\omega(n)\\) bound.",
+      "searches": [
+        "OEIS A206369 alternating divisor beta values",
+        "beta(n) divides n-1 OEIS n=4 Lehmer",
+        "alternating sum of divisors function Lehmer obstruction n=4 omega(n) three prime factors"
+      ]
+    },
+    "rationale": "The primary 2011 survey poses the exact divisibility \\(\\beta(n)\\mid n-1\\) and supplies bounded numerical evidence, not an unrestricted prime-support theorem. The equivalent function \\(\\rho\\) in Iannucci (2006) is investigated for \\(k\\rho(n)=n\\), not the shifted divisibility. A two-prime-support exclusion is strictly weaker than excluding odd integers with \\(\\omega(n)=3\\) and even integers with \\(\\omega(n)=3\\) or \\(4\\). Actual literature, historical claims, alias, and sequence searches found no covering theorem, with a residual possibility of unindexed earlier proofs.",
+    "residual_risks": [
+      "A covering elementary proof may exist in unindexed historical writing; search absence does not certify global novelty.",
+      "Classical Lehmer necessary conditions for squarefree numbers do not directly settle nonsquarefree \\(\\beta\\), but stronger unpublished reductions cannot be excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Problem 4 gives no unbounded support classification; it does give key local formula, parity, and \\(\\beta(n)<n-1\\) for composite \\(n\\ne4\\).",
+        "evidence": [
+          "section 2 local identity, comparison \\(\\beta\\ge\\varphi\\), and parity criterion",
+          "section 7 Problem 4 plus the \\(10^6\\) numerical observation",
+          "section 8 use of \\(\\beta(n)<n-1\\)"
+        ],
+        "identifier_or_url": "arXiv:1111.4842; https://arxiv.org/html/1111.4842v2",
+        "material_read": "Complete main HTML text with direct examination of definition, local identities, section 2, section 7 Problem 4, and section 8 proofs; PDF was separately visually inspected.",
+        "method": "Inspected primary open-access paper text and its section and proposition statements, not merely the abstract.",
+        "title": "A survey of the alternating sum-of-divisors function",
+        "trigger": "Defines the exact arithmetic function and asks its beta(n) divisibility by n-1 as Problem 4."
+      },
+      {
+        "assessment": "Studies \\(k\\rho(n)=n\\) instead of \\(\\rho(n)\\mid n-1\\); results not covering this condition.",
+        "evidence": [
+          "abstract and section 1 define \\(\\rho(p^a)\\) in identical form",
+          "theorems impose \\(k\\)-imperfect equality instead of Lehmer shift"
+        ],
+        "identifier_or_url": "Iannucci, Integers 6 (2006), A41, https://math.colgate.edu/~integers/g41/g41.pdf",
+        "material_read": "Full 13-page primary PDF, including definition, theorems and proofs on k-imperfect numbers and structural bounds.",
+        "method": "Inspected PDF text and original first page visually.",
+        "title": "On a Variation of Perfect Numbers",
+        "trigger": "Same arithmetic function uses rho rather than beta and may contain a stronger covering theorem."
+      },
+      {
+        "assessment": "A function-value table cannot imply the support theorem.",
+        "evidence": [
+          "A206369 contains values of \\(\\beta(n)\\), not an unrestricted classification of \\(\\beta(n)\\mid n-1\\)"
+        ],
+        "identifier_or_url": "https://oeis.org/A206369",
+        "material_read": "Sequence description and reference links identifying beta; finite values only.",
+        "method": "Reviewed OEIS entry metadata and cross-referenced the primary published survey.",
+        "title": "OEIS A206369: Alternating sum-of-divisors function",
+        "trigger": "Possible exact table or sequence already recording this condition."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c7e355b4-4925-4d15-8346-ba22e293b447",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A concrete question posed in 2011 motivates a complete, exponent-uniform low-prime-support obstruction. Excluding odd integers with \\(\\omega(n)=3\\) and even integers with \\(\\omega(n)=3\\) or \\(4\\) uses a parity-to-quotient obstruction and exact local congruences. These exclude infinite structurally natural families, without asserting counterexample existence above the boundaries.",
+    "status": "PASS"
+  }
+}
