@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The exact BFGS-conjugation identity yields the product of squared cosine overlaps. The Poisson-kernel direction law and ergodic logarithmic integral yield Q(r); the positive finite-rank transfer operator with even Perron eigenfunction yields Lambda(r). Fourier products give the displayed 3-by-3 T and exact cubic, and nonzero starting forms have nonzero Perron coefficient. Direct BFGS code identities, 100 rational characteristic polynomials, quadrature, and sample-path rates passed. Limits are proved analytically, not inferred from simulations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1602.01768 Eq. (52): mean-square error is bounded above by rho^k times its initial squared norm, with rho=1-lambda_min(E[P]).",
+        "arXiv:1802.04079 accelerated Algorithm 2 includes a second momentum matrix and is not the nonaccelerated recurrence.",
+        "arXiv:2002.11337 Theorems 2.1/2.5 concern optimization iterates and matrix error through a coupled Lyapunov estimate."
+      ],
+      "reasoning": "The broad source bounds do apply to the present update, but do not imply the sharp constant or the different almost-sure exponent: the bound 1/2 versus actual 3/8 at isotropy is an explicit separation. Accelerated BFGS adds dynamics and hence is not an enclosing exact-rate classification. Abstract transfer-operator results are tools, not a pre-existing explicit Gaussian rate computation.",
+      "searches": [
+        "arXiv:1602.01768 Sections 6 and 8 and convergence proof",
+        "arXiv:1802.04079 Sections 3-4 and accelerated update",
+        "arXiv:2002.11337 Sections 2-3 and Appendix B.3",
+        "sketch-and-project stochastic matrix inversion anisotropy stationary angular Poisson kernel quenched annealed rates"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1602.01768v3 Sections 6,8",
+      "arXiv:2002.11337v4 Sections 1-4 and Appendix B.3",
+      "arXiv:1802.04079v2 Sections 1-4",
+      "SIAM J. Matrix Anal. Appl. DOI:10.1137/16M1062053",
+      "Public mathematical findings returned for source/alias/parameter/equivalence searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For isotropic SPD H, the original mean-square bound contracts by at most 1/2 per update, while this work proves an exact 3/8 asymptotic rate.",
+        "The 2020 coupled contraction factor is expressed through minimal expected projector eigenvalues and does not determine an exact inverse-matrix error Lyapunov exponent.",
+        "The new cubic and quenched formula remain valid for every nonzero symmetric initial inverse error."
+      ],
+      "reasoning": "The new statement is strictly stronger than these nonsharp bounds for the 2D Gaussian fixed-Hessian case and is logically different from rates for optimization state variables. It is not merely a corollary with a renamed error norm: the explicit Poisson-kernel Fourier moments and positive transfer operator must be evaluated.",
+      "searches": [
+        "arXiv:1602.01768 Theorem 6.2 and Eq. (82)",
+        "arXiv:2002.11337 Theorem 2.1 and Lemma B.5",
+        "Fast Linear Convergence of Randomized BFGS Gower Richtarik Gaussian Hessian sketch exact squared Frobenius decay rate planar",
+        "randomized quasi Newton Gaussian sketched secant updates exact two-dimensional asymptotic rate expectation squared Frobenius norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2016 inverse-BFGS identity is the same update but Theorem 6.2 provides a norm bound, not an exact asymptotic limit.",
+        "The 2020 RBFGS paper gives a mixed-iterate Lyapunov contraction and its Gaussian experiments, not the planar angular transfer spectrum."
+      ],
+      "reasoning": "Equivalent sketch-and-project, inverse-BFGS, weighted-Frobenius and projector-sandwich formulations were checked. Under the identical Gaussian sketch, the previous 2016 bound evaluates to 1/2 in the isotropic case whereas the exact limit here is 3/8, showing that bound is neither an equal statement nor an exact evaluation. No inspected formulation yields the all-anisotropy cubic or the quenched exponent.",
+      "searches": [
+        "Fast Linear Convergence of Randomized BFGS Gower Richtarik Gaussian Hessian sketch exact squared Frobenius decay rate planar",
+        "Rank one randomized inverse BFGS 2 by 2 Gaussian sketches geometric mean typical convergence rate transfer matrix spectral Perron",
+        "arXiv:1602.01768 Section 8.8",
+        "arXiv:2002.11337 Eq. (2) and Appendix B.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical-index hits for BFGS-like and randomized matrix-inverse queries concerned other stochastic optimization rate bounds, randomized subspace descent, coordinate and Gaussian matrix calculations; none presented this exact pair of contraction rates.",
+        "In the inspected primary papers Gaussian sketches appear as general distributions or numerical experiments, without a table for planar exact asymptotic error rates."
+      ],
+      "reasoning": "Checked direct statements, exact constants, symbolic cubic, angular distribution and possible rank-one projector aliases. An exact database/table covering these quantities was not located. Search absence alone does not certify novelty; an unindexed tabulation is a residual priority risk.",
+      "searches": [
+        "Gaussian rank one matrix inversion quasinewton exact expectation Frobenius and almost sure error exponent",
+        "randomized BFGS Gaussian rank one inverse Hessian error exact almost sure Lyapunov exponent two-dimensional curvature",
+        "random matrix inversion randomized BFGS mean square spectral radius Gaussian sketches planar quadratic angular kernel",
+        "Gaussian BFGS exact Perron cubic 2d mean-square rate",
+        "random rank-one projector products angular Poisson kernel Lyapunov exponent mean square quasi Newton"
+      ]
+    },
+    "rationale": "The closest matching 2016 original establishes identical inverse-BFGS dynamics but only a general squared-error upper bound. In the exact isotropic model that bound is 1/2 while the present theorem establishes the strict 3/8 mean-square rate and 1/16 almost-sure rate. The 2020 original RBFGS optimization analysis and the 2018 accelerated matrix-inversion work do not state the two sharp planar Gaussian rates. Matching implications and transfer-operator aliases were searched. Priority remains subject to independent literature examination, especially unindexed special-case products.",
+    "residual_risks": [
+      "An unindexed exact computation for independent anisotropic Gaussian sketch projector products could already encode these formulas.",
+      "The generic abstract compact-kernel Perron theorem is classical and not claimed as new.",
+      "No independent audit or priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_OF_METHOD_AND_BOUND_NOT_EXACT_RATE",
+        "evidence": [
+          "Section 8.8 Eq. (82): matching inverse-BFGS recurrence.",
+          "Theorem 6.2 Eq. (52): a one-sided squared Frobenius error estimate using expected projector spectral gap; factor equals 1/2 at isotropy, vs 3/8 here."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1602.01768v3",
+        "material_read": "Sections 2.4, 6.1-6.2, 8.8, original proof of Theorem 6.2, abstract and related applications",
+        "method": "Open-access full-text HTML and PDF first page",
+        "title": "Randomized Quasi-Newton Updates Are Linearly Convergent Matrix Inversion Algorithms",
+        "trigger": "Identical randomized inverse-BFGS update and general error rate"
+      },
+      {
+        "assessment": "SAME_UPDATE_BUT_DIFFERENT_NONSHARP_RATE_STATEMENTS",
+        "evidence": [
+          "Eq. (2) and Algorithm 1 specify the same BFGS matrix update.",
+          "Theorem 2.1 concerns a coupled optimization/matrix Lyapunov function, and Appendix B.3 bounds error using rho; Gaussian sketches are tested in Section 4, without the planar quenched/annealed exact spectral results."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2002.11337v4",
+        "material_read": "Sections 1-4, Theorems 2.1 and 2.5, Eq. (2), numerical Gaussian-sketch section, Appendix B.3 projection lemma and proof structure",
+        "method": "Open-access full-text HTML",
+        "title": "Fast Linear Convergence of Randomized BFGS",
+        "trigger": "2020 motivating study of rates for the very same randomized BFGS update and Gaussian sketches"
+      },
+      {
+        "assessment": "NOT_COVERING_NONACCELERATED_EXACT_GAUSSIAN_RATES",
+        "evidence": [
+          "Algorithm 2 maintains additional momentum state and has a different recursion.",
+          "Its rates depend on abstract spectral parameters rather than an exact planar Poisson angular transfer computation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1802.04079v2",
+        "material_read": "Sections 1-4 including Algorithm 2 and vectorized analysis, stated results, and discussion of unaccelerated method",
+        "method": "Open-access full-text HTML",
+        "title": "Accelerated Stochastic Matrix Inversion: General Theory and Speeding up BFGS Rules for Faster Second-Order Optimization",
+        "trigger": "Potential stronger convergence theorem for randomized inverse-BFGS"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7e050efa-343e-4f2e-9d73-6a5d922ae4ab",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact fixed-Hessian planar Gaussian rate is a motivated analytic benchmark for the randomized inverse-BFGS algorithm. It replaces a nonsharp general 1/2 isotropic bound with the exact 3/8 factor and reveals a substantially faster 1/16 typical factor; the anisotropic cubic characterizes all positive condition ratios with monotone slowdown. This is an exact, natural parameter-dependent numerical invariant, not an arbitrary finite sample or routine substitution. No claim for moving Hessians, higher dimensions or downstream optimization iterates.",
+    "status": "PASS"
+  }
+}
