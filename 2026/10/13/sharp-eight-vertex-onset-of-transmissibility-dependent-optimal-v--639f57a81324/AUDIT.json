@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "rationale": "For a finite tree, independent bond connectivity yields \\(M_v(p)=1+2S_v(p)/(n-1)\\). Prüfer words exhaust all labeled trees with orders 2–7 (counts 1+3+16+125+1296+16807=18,248). For each tree, the included executed checker finds one vaccinee whose \\(S_u-S_w\\) has nonnegative coefficients in the degree-five Bernstein basis for every competitor; this proves the whole-continuum minimum. The eight-vertex distance polynomials are given term by term. Their comparisons reduce to \\(S_3-S_0=p(1-p^2-p^3)\\) and strict \\(S_v>S_3\\) for all other candidates, establishing the unique root and optima. For arbitrary \\(n\\ge8\\), degree-three versus degree-at-most-two establishes center as uniquely optimal near \\(p=0\\); exact component-pair counts establish \\(S_c(1)-S_b(1)=n-7>0\\), hence its loss near \\(p=1\\). The actual packaged verifier ran successfully, with exact rational independent bond-state crosschecks. The finite checker is not invoked for infinite n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Holme 2017 pp. 1–2 defines single-vaccinee optimization under constant infection rate beta and recovery rate one, and pp. 6–8 compares high-degree low-beta and fragmentation high-beta importance.",
+        "Holme 2017 studies all connected graphs up to seven vertices for *differences among influence, vaccination, and sentinel objectives*, not an all-\\(p\\) parameter-independent vaccination optimum on trees for independent-bond transmission.",
+        "Bucur–Holme 2019, section 1 and discussion, studies predicting outbreaks conditioned on sources; section discussion refers to targeted vaccination as a different future scenario.",
+        "Newman 2002 studies percolation epidemics in general network ensembles, without vertex-by-vertex tree vaccinee cutoff."
+      ],
+      "reasoning": "The published broader areas encompass network epidemiology, vaccine targeting, and small graph enumeration, but their inspected statements neither prove the exact seven/eight tree cut nor dominate it under a same-objective reduction. Holme 2017 provides prior qualitative intuition, so no first-observation claim is made for low/high transmission shifts.",
+      "searches": [
+        "optimal single vertex removal mean outbreak size tree bond percolation transmission probability switch optimal node",
+        "vaccination optimal node for expected epidemic size percolation trees center centroid degree reversal infection probability",
+        "\"Three faces of node importance\" switching ranking β optimal vaccination param small graphs tree",
+        "network vaccination optimal node transmission probability switch degree betweenness node selection SIR",
+        "Holme arXiv:1708.06456v3 pp. 1–8",
+        "Bucur and Holme arXiv:1909.10021, sections 1, 2 and discussion",
+        "Newman arXiv:cond-mat/0205009v1"
+      ]
+    },
+    "checked_sources": [
+      "Newman (2002), arXiv:cond-mat/0205009v1, epidemic percolation model",
+      "Chen et al. (2006), arXiv:cond-mat/0610625v1, node-fragmentation pair-connectivity formula",
+      "Holme (2004), arXiv:q-bio/0403021, abstract only",
+      "Holme (2017), arXiv:1708.06456v3, complete eight-page primary text",
+      "Bucur and Holme (2019), arXiv:1909.10021, primary text methods and discussion",
+      "Relevant indexed work on tree graph polynomials and epidemic targeting retrieved by semantic and bibliographic searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pair connection probability \\(p^{d_T(a,b)}\\) on a tree immediately gives the mean formula, a standard prerequisite and NOT the new assertion.",
+        "Low-p degree priority and \\(p=1\\) pair-fragmentation priority are existing endpoint principles, but they do not establish seven-vertex universal optimality; the exact all-\\(p\\)arameter finite certificate does.",
+        "Holme 2017 identifies the qualitative degree-versus-fragmentation competition, whereas the new exact alpha switch, sharp tree cutoff, and arbitrary-order spider construction require further proof."
+      ],
+      "reasoning": "The claim is not simply the known susceptibility formula, the degree/fragmentation endpoints, or a restatement of an existing graph ranking. It compares all candidate deletion vertices for an entire continuum of independent edge-retention probabilities, proves non-switching up to a sharp order, and supplies exact witnesses thereafter. Results on other dynamic models or other objective notions do not imply this precise all-tree statement.",
+      "searches": [
+        "optimal single vertex removal mean outbreak size tree bond percolation transmission probability switch optimal node",
+        "immunization degree vs centroid reversal tree susceptibility polynomial uniform seed",
+        "vaccination optimal node for expected epidemic size percolation trees center centroid degree reversal infection probability",
+        "Newman arXiv:cond-mat/0205009v1",
+        "Chen et al. arXiv:cond-mat/0610625v1",
+        "Holme arXiv:1708.06456v3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For fixed vaccinee v on a tree, the objective is exactly 1+2 S_v(p)/(n-1); S_v is the distance-generating polynomial for connected pairs after deletion.",
+        "Newman 2002 derives the bond-percolation description of epidemic outbreaks; Chen et al. 2006 define fragmentation using connected pair counts after node removal.",
+        "At \\(p=1\\), the polynomial equals the sum of binomial component-size pair counts (a known fragmentation endpoint); its first-degree coefficient equals residual edge count (degree heuristic)."
+      ],
+      "reasoning": "The comparison explicitly tests the equivalent labels susceptibility, pair-connectivity, distance generating polynomial, residual Wiener/Hosoya polynomial, immunization, and fragmentation. These equivalences account for the objective and endpoints, but do not independently imply that one vertex is optimal for every parameter through order seven or that order eight is sharp.",
+      "searches": [
+        "tree vertex immunization minimizing average random percolation cluster size p distance polynomial",
+        "vertex deletion minimize Wiener polynomial Hosoya polynomial tree optimal vertex parameter p",
+        "immunization degree vs centroid reversal tree susceptibility polynomial uniform seed",
+        "epidemic immunization vertex selection polynomial expected outbreak size tree distance centrality all transmission probabilities",
+        "Newman arXiv:cond-mat/0205009v1 §§II–III",
+        "Chen et al. arXiv:cond-mat/0610625v1 §§I–II"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Holme 2017 enumerates all connected graphs up to seven under a *continuous-time SIR* process and compares importance-objective classes, not all independent-bond vertex-deletion distance polynomials.",
+        "The new exact certificate enumerates all 18,248 labeled trees orders two through seven and checks the existence of a single Bernstein-dominating vaccination vertex on the continuous parameter interval.",
+        "The eight-vertex spider has explicitly certified distance polynomials for each vaccinee, not just a numerical database entry."
+      ],
+      "reasoning": "Cayley/Prüfer tree lists alone carry no optimizer invariant. We compared the closest exact small-graph studies and did not find a database/table asserting the uniform bond-vaccinee property or this exact eight-vertex transition. This is not a proof against all unindexed tables.",
+      "searches": [
+        "smallest tree vertices maximum degree maximum betweenness different 8",
+        "tree bond percolation distance polynomial minimize after vertex deletion p-dependent optimizer",
+        "starlike tree single vertex vaccination bond percolation outbreak expected size crossing",
+        "Holme arXiv:1708.06456v3, numerical/symbolic small-graph results",
+        "Prüfer-code tree census n=2..7 (complete scientific computation described in RESULT.md)"
+      ]
+    },
+    "rationale": "The novelty assessed is solely the exact tree-domain threshold: a parameter-independent optimum for every tree with at most seven vertices, explicit unique two-site switch at the eight-vertex spider at the root of \\(p^3+p^2=1\\), and examples for every \\(n\\ge8\\). Bond-percolation epidemic interpretation and the mean pair-connectivity identity are known (Newman 2002). Node deletion and fragmentation objectives are known (Chen et al. 2006). Degree-versus-fragmentation tradeoffs and symbolic small-graph vaccination comparisons are known (Holme 2017), but that full article uses continuous-time infection/recovery dynamics and studies differences among objective classes; no proof of the current all-\\(p\\) seven-tree cutoff follows from it. The 2004 Holme heuristic work is a residual inaccessible full-text risk. An unindexed equivalent theorem or broader structural classification remains possible; a negative search is not uniqueness proof.",
+    "residual_risks": [
+      "The complete text of Holme (2004) was inaccessible; an undisclosed equivalence or stronger theorem cannot be categorically excluded.",
+      "An unindexed mathematically equivalent distance-polynomial or vertex-susceptibility result could cover this sharp threshold without sharing its title or parameters.",
+      "The finite tree census is exact, but a future paper could prove a broader theorem from which this follows as a corollary; no priority certification is claimed.",
+      "Changing from the independent-bond model to continuous-time SIR with random infectious periods changes edge dependence and need not preserve the threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes percolation outbreak model, pair connectivity and network-ensemble methods, but does not supply a sharp optimal single-vaccinee transition on small contact trees.",
+        "evidence": [
+          "arXiv:cond-mat/0205009v1 p. 1, first public date 30 Apr 2002",
+          "arXiv:cond-mat/0205009 §§II–III, cluster reached through occupied bonds"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0205009",
+        "material_read": "Preprint title and dated first page (2002-04-30); sections II–III and bond-percolation equivalence on PDF pages 1–3; discussion of directed/undirected vaccination in later sections.",
+        "method": "Accessible primary arXiv PDF full-text examination, with first-page image examination.",
+        "title": "The spread of epidemic disease on networks",
+        "trigger": "Original independent-bond epidemic/percolation formulation and earliest source date."
+      },
+      {
+        "assessment": "The node-removal pair-connectivity endpoint is prior. No all-transmissibility optimal vaccinee tree-threshold statement is implied by the studied random-network fragmentation analyses.",
+        "evidence": [
+          "arXiv:cond-mat/0610625v1 introduction and Eq. (1): F=1 minus connected-pair fraction",
+          "arXiv:cond-mat/0610625v1 analysis uses random, high-degree and high-betweenness deletion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0610625",
+        "material_read": "Fourteen-page primary preprint searched; title/abstract and introductory sections I–III, fragmentation Eq. (1), targeted-degree and betweenness strategies, sections on random and scale-free networks; PDF page 2 visually inspected.",
+        "method": "Accessible primary arXiv full-text search and targeted passage/page examination.",
+        "title": "Percolation theory applied to measures of fragmentation in social networks",
+        "trigger": "Closest related connected-pair / fragmentation objective after vertex deletion."
+      },
+      {
+        "assessment": "Qualitative changes in node importance with infection parameters are prior. Its SIR recovery-rate model and multi-objective comparisons do not entail the independent-bond tree-only sharp seven/eight optimum threshold, exact switch equation or all-orders spider family.",
+        "evidence": [
+          "arXiv:1708.06456v3 §II.A–B: vaccination by deletion, one uniformly random seed, infection rate beta and recovery rate nu",
+          "arXiv:1708.06456v3 §IV: low-beta degree and high-beta fragmentation importance",
+          "arXiv:1708.06456v3 §III: small graphs studied by importance objective comparisons"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1708.06456",
+        "material_read": "Full eight-page paper, including abstract, §II vaccination objective and continuous-time SIR model, §III special cases/figures and §IV discussion; PDF pages 2 and 8 visually inspected.",
+        "method": "Accessible full primary arXiv preprint text, figures and relevant page images.",
+        "title": "Three faces of node importance in network epidemiology: Exact results for small graphs",
+        "trigger": "Highest-similarity primary paper: exact vaccination objective and exhaustive small-graph classification."
+      },
+      {
+        "assessment": "Optimizes or predicts expected outbreak sizes when a chosen vertex is the initial source. Does not present this single-vertex removal cutoff theorem.",
+        "evidence": [
+          "arXiv:1909.10021 p. 2 scope of epidemic-source centrality",
+          "arXiv:1909.10021 discussion, targeted vaccination identified as a continuation"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1909.10021",
+        "material_read": "Abstract, introduction, methods and discussion passages, notably PDF pages 1–3 and 15–17, including targeted vaccination flagged as a different question.",
+        "method": "Accessible primary arXiv PDF targeted full-text/passage examination.",
+        "title": "Beyond ranking nodes: Predicting epidemic outbreak sizes by network centralities",
+        "trigger": "Potential stronger prediction of optimal immunization targets from outbreak size."
+      },
+      {
+        "assessment": "Abstract studies iterative local vaccinee choices and empirical/model network efficiencies, not an explicit small-tree all-\\(p\\) threshold. However, absence of full text remains a real literature-comparison risk.",
+        "evidence": [
+          "arXiv:q-bio/0403021 abstract, first posted 2004-03-16: local strategies using limited neighborhood information"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/q-bio/0403021",
+        "material_read": "Public title, author and abstract only; full text not obtained via the arXiv PDF or alternate public access, and a complete publicly accessible copy was not obtained.",
+        "method": "Read original arXiv abstract; full-text retrieval attempts unsuccessful; no assertion about its complete results.",
+        "title": "Efficient local strategies for vaccination and network attack",
+        "trigger": "Plausible directly related original single-vaccination literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "639f57a8-1324-4507-a395-03a19d0d50a7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Vaccinating exactly one node to minimize mean final outbreak size is a natural, published epidemic-control objective. A universally optimal choice would be robust to unknown transmissibility. The sharp tree order at which such robustness fails and the algebraic transition parameter for an explicit smallest witness supply a complete, motivated boundary classification and a general counterexample family. The result sharply distinguishes epidemic-control decisions from degree ranking and fragmentation alone, without asserting clinical significance outside its independent-bond model. It is not solely code reproduction, a coefficient identity, or an arbitrary numeric example.",
+    "status": "PASS"
+  }
+}
