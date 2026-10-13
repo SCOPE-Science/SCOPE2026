@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "At the disease-free equilibrium the continuous infected eigenvalue is negative with magnitude c(1-R0), while direct differentiation of the printed NSFD map gives multiplier (1+c R0 phi)/(1+c phi). Its decomposition as R0+(1-R0)/(1+c phi) proves the strict floor for every finite positive denominator. The crossover and asymptotic-rate statements follow algebraically; symbolic replay verifies them and the exact witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The inspected 2021 Mathematics NSFD paper defines elementary stability through preservation of equilibria and their linear stability properties for arbitrary step size.",
+        "That qualitative notion does not require equality with the continuous semigroup multiplier or decay exponent.",
+        "Published-finding searches returned rate-versus-stability phenomena for other numerical methods, but no epidemic NSFD result dominating this source-specific floor."
+      ],
+      "reasoning": "Broader NSFD work explains why all-step qualitative stability can coexist with the quantitative obstruction; it does not imply the sharp floor or crossover for this update.",
+      "searches": [
+        "NSFD elementary stability definition equilibrium same stability properties any h",
+        "nonstandard finite difference epidemic large timestep convergence rate",
+        "\"Nonstandard Finite Difference Schemes for an SIR Epidemic Model\" elementary stability"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2021010",
+      "doi:10.3390/math9233082"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source theorem implies qualitative stability of the disease-free multiplier for all step sizes, not exact semigroup matching.",
+        "The later elementary-stability literature likewise concerns stability type rather than exact physical-time decay.",
+        "No indexed correction or theorem stating the source-specific hard floor and sharp crossover was located."
+      ],
+      "reasoning": "Qualitative stability does not imply quantitative semigroup matching. The final claim adds a sharp implication boundary without contradicting the correct stability classification.",
+      "searches": [
+        "\"10.3934/math.2021010\" correction decay rate",
+        "\"10.3934/math.2021010\" eigenvalue floor",
+        "\"10.3934/math.2021010\" erratum",
+        "nonstandard finite difference SIR exact decay multiplier denominator"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source gives the disease-free multiplier formula and proves it remains inside the unit disk for every step size when the continuous disease-free equilibrium is stable.",
+        "The multiplier algebra yields a strict floor at the reproduction number, stronger than qualitative stability preservation.",
+        "No checked published finding or source-specific search stated the same multiplier floor or crossover."
+      ],
+      "reasoning": "The claim was checked under equivalent formulations: multiplier floor, decay-rate distortion, large-step physical-time slowing, eigenvalue obstruction, and exact rate matching.",
+      "searches": [
+        "\"10.3934/math.2021010\" decay floor physical time rate",
+        "NSFD SIR eigenvalue floor R0 large timestep elementary stability",
+        "nonstandard finite difference large step decay multiplier R0 epidemic",
+        "\"On the nonstandard numerical discretization of SIR epidemic model with a saturated incidence rate and vaccination\" convergence rate time step decay"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary PDF was inspected at the model, denominator, nonlocal scheme, disease-free Jacobian and eigenvalues, and global-stability discussion.",
+        "The publisher record gives publication on 30 September 2020 and lists MSC 92D30 first.",
+        "The exact witness uses positive parameters and evaluates the printed denominator exactly."
+      ],
+      "reasoning": "The accepted formula is reconstructed from the exact printed map and disease-free state rather than a generic discretization template.",
+      "searches": [
+        "doi:10.3934/math.2021010 disease free eigenvalues theorem 5",
+        "doi:10.3934/math.2021010 phi exp(mu h) nonstandard scheme",
+        "doi:10.3934/math.2021010 MSC 92D30 published 30 September 2020"
+      ]
+    },
+    "rationale": "Qualitative elementary stability of NSFD schemes is established prior work and is not claimed as new. The original source-specific contribution is the hard multiplier floor, the sharp physical-step crossover beyond which the exact continuous infection multiplier cannot be matched by any positive denominator in this update architecture, and the zero large-step physical-time decay-rate limit for the source denominator. Database, ledger, exact-title, DOI, decay-rate, and elementary-stability searches found no equivalent source-specific statement.",
+    "residual_risks": [
+      "A non-indexed numerical-analysis source could contain the same source-specific multiplier-floor characterization.",
+      "The result is local to the disease-free infected mode and does not quantify nonlinear global transient error.",
+      "A different discretization architecture may avoid the floor."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "QUALITATIVE_STABILITY_PRESERVED_BUT_SHARP_QUANTITATIVE_DECAY_FLOOR_NOT_ANALYZED",
+        "evidence": "The source proves all-step stability preservation, while its displayed infected multiplier simplifies to R0+(1-R0)/(1+c phi).",
+        "identifier_or_url": "doi:10.3934/math.2021010",
+        "material_read": "Publisher full PDF at the continuous model and reproduction number, denominator function, nonlocal update, disease-free local stability theorem and multiplier formulas, endemic analysis, global-stability section, and numerical comparison. Scheme and disease-free theorem pages were visually inspected.",
+        "method": "Differentiate the infected update at the disease-free equilibrium, compare its multiplier with the exact continuous semigroup multiplier, and solve the floor-crossing condition.",
+        "title": "On the nonstandard numerical discretization of SIR epidemic model with a saturated incidence rate and vaccination",
+        "trigger": "Primary source defining the continuous model and target all-step NSFD scheme."
+      },
+      {
+        "assessment": "ELEMENTARY_STABILITY_IS_QUALITATIVE_AND_DOES_NOT_DOMINATE_RATE_FIDELITY",
+        "evidence": "The inspected definition requires the same equilibria and linear stability properties for arbitrary step size, not equality of decay exponents.",
+        "identifier_or_url": "doi:10.3390/math9233082",
+        "material_read": "Open full PDF at the introduction and elementary-stability definition and discussion.",
+        "method": "Compared qualitative stability preservation with quantitative multiplier matching.",
+        "title": "Nonstandard Finite Difference Schemes for an SIR Epidemic Model",
+        "trigger": "Broader NSFD literature clarifying elementary stability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b8a749ca-1d0f-415a-9fa3-28187bd1bc5e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The paper advertises dynamic consistency for all step sizes and numerical superiority over competing schemes. The exact crossover identifies where qualitative stability ceases to imply even possible matching of the physical infection-decay multiplier, and the source denominator makes the per-unit-time decay arbitrarily slow for large steps. This is a sharp, interpretable limitation on long-step epidemic time-scale fidelity rather than a generic truncation-error observation.",
+    "status": "PASS"
+  }
+}
