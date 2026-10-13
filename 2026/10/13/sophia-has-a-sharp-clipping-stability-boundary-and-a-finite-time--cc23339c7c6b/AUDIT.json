@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Under the stated assumptions the practical source update cancels each diagonal curvature exactly, leaving one clipped affine map per coordinate. The three branches of that map give strict magnitude decrease in the stable range, an exact finite entry time into the linear core, and an exact post-entry multiplier. A one-coordinate half-step state gives a two-cycle at and above the boundary, while equality of learning rate and clipping scale reduces the map to soft-thresholding. The embedded checker replays all cases from the package path.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Clipped Newton and trust-region methods provide general context for bounding second-order steps.",
+        "The defining paper analyzes a simplified full-Hessian clipped Newton-like method on convex functions.",
+        "Generic clipping theory does not identify Sophia's exact practical parameter ratio, its explicit two-cycle, or its finite-time resonance."
+      ],
+      "reasoning": "The accepted result is not the generic observation that clipping stabilizes Newton steps. It is the complete state dynamics of Sophia's actual diagonal update under exact curvature, including a finite-time parameter resonance.",
+      "searches": [
+        "clipped Newton quadratic finite time convergence coordinate clipping",
+        "clipped Newton method quadratic exact convergence",
+        "trust region clipped Newton quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.14342v1",
+      "arXiv:2305.14342v4",
+      "ICLR2024:06960915ba8674c7a898ec0b472b80ff",
+      "published-finding:scalar-newton-derivative-sector-minimax",
+      "published-finding:finite-time-osgm-sgd-persistent-noise-quadratics",
+      "published-finding:polyak-objective-monotonicity-frontier"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 3 gives the practical update used in the proof.",
+        "Section 4 analyzes a different simplified full-Hessian variant and proves a burn-in plus exponential-decay bound with fixed parameters.",
+        "The inspected paper contains no soft-threshold, finite-step, or two-cycle statement for the practical diagonal recurrence."
+      ],
+      "reasoning": "The source establishes the mechanism and a broader convergence motivation but not a free-parameter if-and-only-if stability theorem for the practical diagonal map. The accepted statement requires exact reduction to a scalar clipped recurrence and a complete dynamical classification.",
+      "searches": [
+        "arXiv:2305.14342 Algorithm 3 Sophia clip gamma h epsilon",
+        "arXiv:2305.14342 Theorem 4.3 condition number independent",
+        "arXiv:2305.14342 soft-threshold finite steps two-cycle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining algorithm uses elementwise clipping of momentum divided by the scaled diagonal Hessian.",
+        "The source has no matching soft-threshold, finite-step, or two-cycle statement.",
+        "No indexed finding returned an exact practical Sophia hyperparameter boundary."
+      ],
+      "reasoning": "Equivalent coverage would classify the same practical diagonal recurrence for arbitrary learning-rate-to-clipping-scale ratio, or state the exact finite-time map when the two parameters are equal. The source's qualitative clipping discussion and condition-number-independent upper bound do not imply that complete classification.",
+      "searches": [
+        "Sophia practical optimizer diagonal quadratic beta1 beta2 zero exact dynamics eta gamma finite time",
+        "Sophia clipped Newton diagonal quadratic global convergence eta gamma two cycle",
+        "Sophia exact Hessian finite step convergence eta equals gamma",
+        "Second-order clipped stochastic optimization diagonal quadratic soft threshold dynamics",
+        "Sophia optimizer finite-time quadratic clipping",
+        "Sophia eta gamma quadratic exact convergence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding records concern a scalar Newton relaxation frontier, a finite-time stochastic-gradient absorption result, and sharp quadratic step frontiers for unrelated algorithms.",
+        "None of the closest records uses Sophia's diagonal Hessian scaling followed by elementwise clipping."
+      ],
+      "reasoning": "The closest public records concern different maps. The scalar Newton result has derivative-sector uncertainty and multiplicative relaxation, while the finite-time stochastic-gradient result uses a random reset mechanism rather than deterministic soft-thresholding.",
+      "searches": [
+        "Sophia practical optimizer diagonal quadratic beta1 beta2 zero exact dynamics eta gamma finite time",
+        "Sophia clipped Newton diagonal quadratic global convergence eta gamma two cycle",
+        "Sophia exact Hessian finite step convergence eta equals gamma",
+        "Second-order clipped stochastic optimization diagonal quadratic soft threshold dynamics"
+      ]
+    },
+    "rationale": "The defining paper gives the clipped diagonal-Hessian update and proves a condition-number-independent bound for a simplified full-Hessian method, but the inspected full text does not state the sharp practical diagonal stability boundary, exact two-cycle, or finite-time resonance. Focused published-record and owned-ledger searches found no implication-equivalent Sophia finding.",
+    "residual_risks": [
+      "The piecewise map is elementary enough that an equivalent clipped-Newton calculation may exist under different terminology.",
+      "The theorem removes momentum, Hessian averaging, staleness, and stochastic estimation.",
+      "The exact curvature cancellation relies on the denominator floor being inactive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_UPDATE_AND_CONDITION_NUMBER_INDEPENDENT_BOUND; SHARP_PRACTICAL_DIAGONAL_DYNAMICS_NOT_STATED.",
+        "evidence": "The paper gives the exact practical update and a condition-number-independent bound for a simplified full-Hessian method, but no practical diagonal stability boundary, exact two-cycle, or finite-time resonance was found.",
+        "identifier_or_url": "arXiv:2305.14342v4",
+        "material_read": "Full open paper, including Algorithm 3, the clipping discussion in Section 2.2, Section 4 theoretical analysis, Theorem 4.3, and Appendix D's proof structure. The algorithm page and theoretical-analysis page were visually inspected.",
+        "method": "Full-text open-paper inspection with page-level visual verification.",
+        "title": "Sophia: A Scalable Stochastic Second-order Optimizer for Language Model Pre-training",
+        "trigger": "Defining source for the practical diagonal-Hessian clipped update and the strongest plausible coverage through its deterministic theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cc23339c-7c6b-4090-a3e7-a27ba9545e72",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Clipping and curvature adaptation are Sophia's defining design choices, and the source emphasizes condition-number-independent behavior. The result identifies the exact scalar control ratio behind that behavior in the clean diagonal setting. It gives a sharp global convergence boundary, an explicit failure cycle, an exact burn-in time, and a finite-time resonance that annihilates all coordinates independently of curvature. These facts directly clarify how the learning-rate and clipping/Hessian-scale hyperparameters interact.",
+    "status": "PASS"
+  }
+}
