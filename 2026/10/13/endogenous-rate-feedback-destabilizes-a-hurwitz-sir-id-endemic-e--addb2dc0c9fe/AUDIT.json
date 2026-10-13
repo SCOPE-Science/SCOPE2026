@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The strict positive parameter witness and both clipping inequalities are exact. Substitution makes all five differential equations vanish. Symbolic differentiation yields the full rational 5x5 Jacobian. Its monic quintic has nonzero Routh pivots with signs +,+,+,-,+,+, proving exactly two open-right-half-plane eigenvalues; the frozen 3x3 principal block satisfies the cubic Hurwitz criterion. The included verifier reproduces all statements directly. No nonlinear Hopf or periodic orbit is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kuniya and Inaba 2023 concern infection-age distributions and a shifted-exponential infectivity kernel, rather than two finite-dimensional infectivity/mortality feedback states.",
+        "Guan, Kopfová and Rachinskii 2024 concern Preisach hysteresis, a continuum of equilibria, and set stability; their operator and state space are different.",
+        "Moore and Shillor 2024 use a hospitalization/infection extension, not the specific death/infectivity feedback and rational witness here."
+      ],
+      "reasoning": "Broader literature demonstrates that endemic oscillations and feedback-related stability changes are known. That does not logically imply the exact instability at the specified SIR-ID interior equilibrium. The claim deliberately concerns only this particular five-equation system and does not claim generic priority.",
+      "searches": [
+        "feedback infection recovered dependent transmission mortality SIR 5D oscillatory instability stable frozen epidemic rate state",
+        "epidemic model variable transmission mortality coefficients dynamic equation infected recovered endogenous rate oscillatory instability",
+        "Hopf bifurcation in a chronological age-structured SIR epidemic model with age-dependent infectivity",
+        "Global Stability of SIR Model with Heterogeneous Transmission Rate Modeled by the Preisach Operator"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.20944/preprints202604.1114.v1",
+      "https://doi.org/10.3390/axioms15080603",
+      "https://doi.org/10.3934/mbe.2023581",
+      "https://doi.org/10.1137/22M154274X",
+      "https://doi.org/10.55630/j.biomath.2024.11.146"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In the published work Theorem 7 explicitly uses a 3x3 Jacobian to derive a cubic and to discuss endemic stability/no Hopf bifurcation.",
+        "The feedback ODEs directly couple the two extra state variables to the three populations; their derivatives give nonzero off-diagonal Jacobian blocks at the presented strictly interior equilibrium.",
+        "The full quintic has a nonzero Routh column with signs +,+,+,-,+,+, unlike the frozen 3x3 polynomial, which is Hurwitz."
+      ],
+      "reasoning": "The published cubic controls only perturbations that hold both coefficient states fixed and therefore does not imply full five-state local asymptotic stability. A direct exact counterexample proves that promotion of this premise is invalid. Conversely, this example does not prove a Hopf point or recurrent nonlinear epidemic dynamics.",
+      "searches": [
+        "SIR Model with Dependent Infectivity and Death Rates Hopf three population Jacobian full five equations",
+        "202604.1114 five variables disease-induced death infectivity stability analysis",
+        "2024 adapted transmission SIR Preisach stability endogenous rates"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source preprint, Section 4, computes a 3x3 population Jacobian and analyzes its eigenvalues, not the five-equation feedback Jacobian.",
+        "The 2026 published source Model 1 specifies five state variables; its Theorem 7 derives a cubic polynomial from the 3x3 population block.",
+        "The exact two-right-half-plane-eigenvalue certificate applies to the original full five-variable system at a strictly interior equilibrium."
+      ],
+      "reasoning": "Equivalent forms were sought under the SIR-ID name, original authors, feedback rates, full Jacobian, and oscillatory instability. The relevant source material treats frozen rate coefficients in its Jacobian and gives no equivalent five-dimensional counterexample. No searched published result states the same claim.",
+      "searches": [
+        "SIR Model with Dependent Infectivity and Death Rates Breidenich Cooper Huang Shillor Wagner five-dimensional endemic equilibrium instability variable alpha beta 2026",
+        "SIR-ID 202604.1114 Hopf feedback variable transmission infection fatality eigenvalues Routh Hurwitz",
+        "\"Breidenich\" \"Shillor\" \"dependent infectivity\" instability Hopf",
+        "https://www.preprints.org/manuscript/202604.1114"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published source provides two numerical trajectories and a population-subsystem cubic in its Theorem 7; the specific rational five-state matrix and two-unstable-root certificate are not present in the relevant original analysis.",
+        "The 2024 SIR-IH model uses a different rate-feedback object.",
+        "The exact full-characteristic-polynomial certificate has coefficients fixed by the state and parameter values stated here."
+      ],
+      "reasoning": "Checked the actual source model, equilibrium discussion, Theorem 7, simulation scheme, and companion publication. There is no known exact table entry implying this source-specific stable-frozen/unstable-full contrast. This check is a source- and database-comparison, not an inference from parameter mismatch alone.",
+      "searches": [
+        "10.3390/axioms15080603 full Jacobian five variables endemic stability delta gamma",
+        "10.3390/axioms15080603 five-state endemic instability rational parameter counterexample",
+        "https://doi.org/10.3390/axioms15080603",
+        "https://doi.org/10.55630/j.biomath.2024.11.146"
+      ]
+    },
+    "rationale": "The original model and preprint were read in their relevant analyses: each computes a 3x3 population Jacobian despite five actual feedback states, and the published Theorem 7 uses its cubic to draw an endemic-stability conclusion. The exact full-five-equation counterexample is absent from those inspected results. Searches of source IDs, aliases, full Jacobian, rate balances, and related feedback literatures did not reveal equivalent or logically stronger published coverage; broader oscillatory phenomena are known in genuinely different models.",
+    "residual_risks": [
+      "Unindexed or unpublished independent work may have the same specific five-state witness; semantic search cannot prove absolute uniqueness.",
+      "The published model admits many feedback functions, so this finding applies specifically to the two source functions chosen in its simulations and not every permitted function.",
+      "The related 2023 age-structured and 2024 Preisach papers were checked at the accessible article-record level only; no whole-document novelty certification is claimed for those distinct models.",
+      "Linear spectral instability does not establish a nonlinear periodic orbit or a Hopf bifurcation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original study applies a frozen-coefficient 3x3 Jacobian; inspected portions do not cover the full five-dimensional rational instability witness. This is a scientific statement comparison, not merely title/parameter matching.",
+        "evidence": [
+          "Model 1 has five state variables including unrestricted rate states, mapped to clipped coefficients.",
+          "Remark 1 specifies δ+I−δ−αR and γ+I−γ−βR for simulations.",
+          "Theorem 7 evaluates a cubic characteristic polynomial and claims endemic stability/no Hopf on that basis."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/axioms15080603",
+        "material_read": "Remark 1 feedback and cutoff definitions; Model 1 equations (5)-(10); equilibrium relations in Section 4; Theorem 7 and proof, full 3x3 Jacobian and cubic; simulation ODE steps (37)-(42); Conclusions",
+        "method": "Openly readable full-text article rendering and comparison of the printed equations with a symbolic five-variable differentiation",
+        "title": "SIR Model with Dependent Infectivity and Death Rates (peer-reviewed version)",
+        "trigger": "Same five-variable model and published endemic stability theorem"
+      },
+      {
+        "assessment": "The preprint explicitly analyzes a 3x3 Jacobian for populations and provides the same rate balances, but no source-specific five-variable two-unstable-root certificate.",
+        "evidence": [
+          "Posted 15 April 2026 and primary MSC 92C60.",
+          "Section 4 gives the 3x3 population Jacobian and equilibrates both auxiliary rate states."
+        ],
+        "identifier_or_url": "https://doi.org/10.20944/preprints202604.1114.v1",
+        "material_read": "Posted date and primary MSC; Introduction and Model sections; Section 4 source-model Jacobian and endemic rate balances; relevant conclusions",
+        "method": "Read HTML full-text source and compare the three-population Jacobian and two auxiliary rate balances to the proposed five-dimensional dynamics",
+        "title": "SIR Model with Dependent Infectivity and Death Rates (first preprint)",
+        "trigger": "Earliest verifiable public source and previous analysis of the same model"
+      },
+      {
+        "assessment": "Shows feedback-related epidemic bifurcations in a different infinite-dimensional age-structured model; abstract does not imply the present exact five-state witness. Full text beyond record not asserted to have been exhaustively excluded.",
+        "evidence": [
+          "The model uses infection-age structure and a shifted-exponential infectivity kernel, unlike the two auxiliary rate ODEs."
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/mbe.2023581",
+        "material_read": "Published title, abstract, methods/model description as identified in publicly displayed introduction and abstract, and publication metadata",
+        "method": "Inspected journal article record and its mathematical object; compared infection-age kernel to the five-ODE feedback system",
+        "title": "Hopf bifurcation in a chronological age-structured SIR epidemic model with age-dependent infectivity",
+        "trigger": "Potential stronger prior theorem covering infectivity-feedback oscillations"
+      },
+      {
+        "assessment": "Does not provide an implication covering a specific five-equation SIR-ID Jacobian. Full publisher text not inspected; its accessible abstract identifies a different mathematical object.",
+        "evidence": [
+          "The source is based on Preisach operator and heterogeneous hysteretic switches rather than the stated smooth rate-feedback laws."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/22M154274X",
+        "material_read": "Journal article abstract, MSC, and model/stability summaries accessible in publisher record",
+        "method": "Read publisher record and compared distinct Preisach hysteresis operator to smooth finite-dimensional feedback ODEs",
+        "title": "Global Stability of SIR Model with Heterogeneous Transmission Rate Modeled by the Preisach Operator",
+        "trigger": "Strong literature on adaptive SIRS local/global stability"
+      },
+      {
+        "assessment": "A different disease-response mechanism and state system; no inspected material implies the exact target five-equation certificate.",
+        "evidence": [
+          "The 2024 predecessor models hospitalization states and dependent infection/hospitalization rates, not this death-rate/infectivity-rate pair."
+        ],
+        "identifier_or_url": "https://doi.org/10.55630/j.biomath.2024.11.146",
+        "material_read": "Open-access journal abstract and readable portions of model definitions and endemic-state discussion",
+        "method": "Compared the predecessor hospitalization and infectivity variables and equations with the death/infectivity variables in the target SIR-ID system",
+        "title": "A modified SIR model with dependent infection and hospitalization rates",
+        "trigger": "Direct predecessor cited in the motivating source and plausible dominating statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "addb2dc0-c9fe-4cb5-bd8e-4fe780b9664b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact interior endemic witness reverses the qualitative stability of the distinctive source-specific five-variable system despite a Hurwitz three-population Jacobian. This identifies a scientifically motivated structural gap in using a frozen-rate analysis to characterize feedback-driven epidemic dynamics; it is not an arbitrary parameter slice, trivial numerical gain, or generic rediscovery of oscillations.",
+    "status": "PASS"
+  }
+}
