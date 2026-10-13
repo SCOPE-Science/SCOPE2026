@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "The fair-cut covariance influence identity and exact split contribution are reconstructed. Pattern occurrence probabilities, incompatible overlaps, one-endpoint overlaps, and Arratia–Goldstein–Gordon Theorem 1 yield the uniform conditional void error O((j+log n)2^-j). Small and large size windows have negligible contributions, and the central total error is o(1) after multiplying by all n cut locations. The final lattice change gives the explicit A and B series; the Mellin transform proves A nonconstant. The exact independent recurrence agrees with all directly enumerated compositions through n=12 and selected larger asymptotic checks. These finite tests do not establish the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bender–Canfield (2005), DOI 10.37236/1954, Theorem 1 and ordinary-compositions Example 1 give number-of-parts central/local limits and logarithmic order for the number of distinct sizes, not their mixed covariance.",
+        "Hitczenko–Louchard (2001), DOI 10.1002/rsa.10008, studies the distinctness distribution and moments after a fixed-size geometric-sample approximation; it does not supply the joint dependence with the fluctuating sample count.",
+        "Hwang–Yeh (1997) has broad generating functions but the relevant displayed asymptotics concern marginal distinctness, not a two-term mixed covariance."
+      ],
+      "reasoning": "A central limit theorem for a finite list of fixed-length part counts cannot directly cover the growing family of lengths responsible for the logarithmic covariance and its periodic fluctuations. A broad exact generating function is stronger in encoding raw coefficients, but without the claimed asymptotic analysis it does not explicitly dominate this new statement. Implicit derivability remains a literature risk.",
+      "searches": [
+        "expected number of distinct part sizes composition conditional on part count negative dependence",
+        "number of parts versus number of distinct part sizes covariance in uniform integer compositions logarithm periodic modulation",
+        "covariance part count distinct summand sizes composition Chen Stein occupancy e to minus u gamma oscillation",
+        "Hitczenko Stengle Hwang Yeh composition number distinct parts mixed variance joint covariance",
+        "Locally Restricted Compositions I. Restricted Adjacent Differences Bender Canfield 2005"
+      ]
+    },
+    "checked_sources": [
+      "Hwang–Yeh (1997), DOI 10.1006/aama.1997.0555",
+      "Hitczenko–Stengle (2000/2001), DOI 10.1017/S0963548300004399",
+      "Hitczenko–Louchard (2001), DOI 10.1002/rsa.10008",
+      "Bender–Canfield (2005), DOI 10.37236/1954",
+      "Finch (2020), arXiv:2010.06643",
+      "Arratia–Goldstein–Gordon (1989), DOI 10.1214/aop/1176991491",
+      "Published 2026/9/19/SCOPE-random-word-distinct-substring-first-correction--022b2626ec5b",
+      "Published 2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hitczenko–Stengle (2000/2001), DOI 10.1017/S0963548300004399, gives an oscillatory expected number of distinct sizes, which does not determine covariance with number of parts.",
+        "Hwang–Yeh (1997), DOI 10.1006/aama.1997.0555, introduces general occupancy-frequency marking; the checked theorem and mean-asymptotic sections do not state the mixed covariance.",
+        "Finch (2020), arXiv:2010.06643, examines covariance between part count and largest part, a different random variable.",
+        "Published record 2026/9/19/SCOPE-random-word-distinct-substring-first-correction--022b2626ec5b proves a digital correction for distinct substrings of random words, not this composition mixed cumulant.",
+        "Published record 2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac treats species discoveries and missing mass, not a uniform-composition renewal statistic."
+      ],
+      "reasoning": "Marginal asymptotics for the support size and asymptotics for part count alone do not algebraically imply their mixed covariance. Maximum-part covariance cannot replace distinct-part-size covariance. Unlike fixed-dimensional CLTs, the displayed log-periodic mixed covariance gathers lengths of order log n and supplies both leading and constant-order periodic profiles. A general marked generating function could in principle produce this identity with additional work, so the residual potential for implicit coverage is expressly retained.",
+      "searches": [
+        "uniform random integer composition number of distinct part sizes and number of parts covariance log periodic asymptotic",
+        "geometric renewal random composition distinct block lengths block count covariance oscillatory logarithmic",
+        "expected number of distinct part sizes composition conditional on part count negative dependence",
+        "number of parts versus number of distinct part sizes covariance in uniform integer compositions logarithm periodic modulation",
+        "covariance part count distinct summand sizes composition Chen Stein occupancy e to minus u gamma oscillation",
+        "Hitczenko Stengle Hwang Yeh composition number distinct parts mixed variance joint covariance",
+        "covariance number of parts number of distinct part sizes uniform random compositions integer",
+        "joint distribution length distinct part sizes composition number of summands covariance",
+        "Hitczenko Stengle expected number distinct part sizes random integer composition covariance number summands",
+        "Hwang Yeh measures distinctness compositions covariance number parts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The split-variable representation turns the covariance into a sum over separator influences; this is equivalent to the mixed moment of a renewal count and its support-size occupancy statistic.",
+        "Hwang–Yeh (1997), DOI 10.1006/aama.1997.0555, Theorem 1 marks multiplicities and part sizes but its inspected mean and theorem sections do not state the specific mixed covariance.",
+        "Hitczenko–Louchard (2001), DOI 10.1002/rsa.10008, Section 2.1 gives geometric sample representation and concentrates the random number of parts."
+      ],
+      "reasoning": "The exact object could be called the covariance of the renewal count and distinct completed run lengths, or a mixed cumulant of separator count and geometric occupancy support. The broad marked generating functions can encode this moment after differentiation, so basic encodability is not claimed as new. The two periodic terms with an absolute o(1) remainder require a further rare-event and uniform summation argument not present in the inspected statements.",
+      "searches": [
+        "uniform random integer composition number of distinct part sizes and number of parts covariance log periodic asymptotic",
+        "geometric renewal random composition distinct block lengths block count covariance oscillatory logarithmic",
+        "covariance number of parts number of distinct part sizes uniform random compositions integer",
+        "joint distribution length distinct part sizes composition number of summands covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No table of the mixed covariance for number of parts and distinct part-size count was identified in the inspected primary sources.",
+        "The finite exact recurrence is derivable directly from exclusions of a single part size and is used solely as verification; no originality is claimed for a numerical table or the recurrence."
+      ],
+      "reasoning": "The theorem is a uniform asymptotic expansion with nonconstant Fourier coefficient, not an isolated finite table value. Finding or failing to find sample values neither proves nor disproves coverage of the expansion; the source comparison is based on theorem implications.",
+      "searches": [
+        "uniform random integer composition number of distinct part sizes and number of parts covariance log periodic asymptotic",
+        "geometric renewal random composition distinct block lengths block count covariance oscillatory logarithmic",
+        "covariance number of parts number of distinct part sizes uniform random compositions integer",
+        "joint distribution length distinct part sizes composition number of summands covariance"
+      ]
+    },
+    "rationale": "A direct comparison of theorem statements and implications distinguishes the new two-term K-versus-distinct-size mixed covariance from earlier mean-distinctness, marginal distributions, fixed-size part-count CLTs, and K-versus-largest-part covariance. General Hwang–Yeh marked generating functions may encode the mixed moment and historical implicit coverage is a real residual risk; no novelty is claimed for those generating functions or Poisson approximation.",
+    "residual_risks": [
+      "Marked multiplicity generating functions in Hwang–Yeh are stronger exact encodings and may imply a not-yet-located explicit covariance formula under additional asymptotic analysis.",
+      "A historical joint occupancy result under an equivalent renewal-process name might prove the same log-periodic expansion without matching current search keywords.",
+      "The publicly indexed mathematical record is not a comprehensive index of unpublished work or all journal archives."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Broad exact marked counts and marginal means; the inspected results do not state the two-term covariance expansion.",
+        "evidence": "Theorem 1 and pp. 383–385 mark occupancy sizes; p. 385 notes mean part count (n+1)/2; no mixed K,D formula in those examined results.",
+        "identifier_or_url": "https://mathweb.ucsd.edu/~ebender/comp.papers/102-distinct_parts.pdf",
+        "material_read": "Theorem 1, its multiplicity-marking formula, sections 3.1–3.2 on distinctness means, the discussion of number of parts, and section 6 open problems.",
+        "method": "Accessible 37-page primary PDF; text and rendered pages, including page 383 with the multivariate generating function.",
+        "title": "Measures of Distinctness for Random Partitions and Compositions of an Integer",
+        "trigger": "The broadest directly relevant generating-function treatment of uniform compositions and distinct part sizes."
+      },
+      {
+        "assessment": "A marginal expectation of D is given; no mixed covariance with K is stated.",
+        "evidence": "Expected-distinct-size formula and periodic term; online Cambridge date 2001-04-09, DOI 10.1017/S0963548300004399.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0110189",
+        "material_read": "Introduction, statement of distinct-size mean asymptotics, and main proof development in its eight-page open preprint.",
+        "method": "Full downloadable preprint PDF and corresponding rendered pages; publisher date cross-checked separately.",
+        "title": "Expected Number of Distinct Part Sizes in a Random Integer Composition",
+        "trigger": "Direct preceding theorem for periodically fluctuating distinct-size expectation."
+      },
+      {
+        "assessment": "Its fixed-sample geometric proxy loses the joint fluctuation of K with D and its displayed results do not cover their covariance.",
+        "evidence": "Section 2.1 explicitly notes random number of parts and replaces it with a concentrated deterministic-length sample for D-marginal distribution.",
+        "identifier_or_url": "https://mathweb.ucsd.edu/~ebender/comp.papers/93-distinct_parts.pdf",
+        "material_read": "Section 2.1 geometric stopping-time representation, distribution and moment results, and Section 4.3 asymptotic analysis of the Carlitz variant.",
+        "method": "Accessible complete 31-page PDF with focused theorem/formula reading and rendered pages.",
+        "title": "Distinctness of Compositions of an Integer: A Probabilistic Analysis",
+        "trigger": "Distribution and moment analysis of the same distinct-size statistic."
+      },
+      {
+        "assessment": "Provides marginal and finite-dimensional distributional statements but not the stated log-periodic mixed covariance.",
+        "evidence": "Theorem 1(c) fixed-list counts; 1(g) logarithmic distinct-size growth; no assertion linking K and D in those statements.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v12i1r57/pdf/",
+        "material_read": "Abstract, ordinary-composition Example 1, and full main Theorem 1 statements (parts a–g).",
+        "method": "Open complete 27-page primary PDF; theorem and example sections inspected.",
+        "title": "Locally Restricted Compositions I. Restricted Adjacent Differences",
+        "trigger": "Potential stronger umbrella framework with both number of parts and distinct sizes."
+      },
+      {
+        "assessment": "Part-count vs maximum part, not vs number of distinct part sizes.",
+        "evidence": "The named second variable is the maximum (largest) part size.",
+        "identifier_or_url": "https://arxiv.org/abs/2010.06643",
+        "material_read": "Abstract and central object definitions; comparison with the distinct-count definition.",
+        "method": "Open arXiv preprint, focused inspection.",
+        "title": "Covariance within Random Integer Compositions",
+        "trigger": "Plausible same-title covariance result; verify the second statistic."
+      },
+      {
+        "assessment": "Justifies the required local dependency-neighborhood Poisson void bound; not an originality source for the covariance.",
+        "evidence": "Theorem 1 gives |P(W=0)-exp(-lambda)| <= (1 wedge lambda^-1)(b1+b2+b3) and b3=0 for disjoint-variable dependency neighborhoods.",
+        "identifier_or_url": "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/AGG-1.pdf",
+        "material_read": "Full statement of Theorem 1 and definitions of b1,b2,b3 on manuscript pp. 10–11; the void inequality checked directly.",
+        "method": "Accessible original 17-page PDF and rendered theorem page.",
+        "title": "Two Moments Suffice for Poisson Approximations: The Chen–Stein Method",
+        "trigger": "Critical cited nonstandard lemma in correctness proof."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cf5bde8e-41ab-49f6-8f36-f132fc19d45d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This concerns natural complexity/diversity observables K (part count) and D (number of different sizes) on the same random composition. Their mixed covariance has a negative logarithmic scale, a genuinely nonconstant periodic leading coefficient, and a separately resolved periodic constant term with absolute o(1) error. It is not a generic restatement of marginal distinctness fluctuations or finite recurrences; the interplay between separator count and long rare runs explains the scale and phase.",
+    "status": "PASS"
+  }
+}
