@@ -1,0 +1,127 @@
+{
+  "claim": "Let \\(\\mathcal R_G\\) be the pure replacer channel from a \\(d\\)-dimensional input space, \\(\\mathcal R_G(\\rho)=|G\\rangle\\langle G|\\). For every CPTP map \\(\\Phi\\) of Kraus rank \\(r<d\\), \\(\\sup_{\\rho}\\|\\Phi(\\rho)-\\mathcal R_G(\\rho)\\|_1=2\\). Consequently, uniform approximation of a fixed pure output with any trace-norm tolerance \\(\\varepsilon<2\\) requires Kraus rank at least \\(d\\), and this is sharp because \\(\\mathcal R_G\\) has Kraus rank exactly \\(d\\). Hence any single-contact cooling protocol obtained by coupling \\(N\\) fermionic system modes unitarily to \\(m\\) initially pure fermionic bath modes and discarding the bath only at the end, while guaranteeing \\(\\sup_{\\rho}\\|\\rho_{\\mathrm{out}}(\\rho)-|G\\rangle\\langle G|\\|_1<2\\), must satisfy \\(m\\ge N\\). Applied to arXiv:2609.40328v1, which uses \\(2N\\) initially empty bath modes and guarantees error \\(\\varepsilon\\in(0,1]\\) uniformly over system inputs, the coherent bath has at most a factor-two mode overhead over this absolute information-theoretic minimum.",
+  "correctness": {
+    "rationale": "The Stinespring compression operator \\(A\\) has rank at most the environment dimension. If that dimension is below the input dimension, a kernel vector produces an output exactly orthogonal to the target pure state, forcing full trace-norm error \\(2\\). The exact replacer has \\(d\\) linearly independent Kraus operators and Choi rank \\(d\\). The fermionic mode lower bound is the base-two logarithm of this exact environment-dimension threshold.",
+    "risks": [
+      "The mode-count application uses the pure-bath, single-final-discard architecture; mixed initial environments or intermediate resets are outside the claim."
+    ],
+    "sources": [
+      "arXiv:2609.40328v1",
+      "arXiv:1711.00697v3",
+      "arXiv:2301.05488"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lancien--Winter proves general small-Kraus-rank approximation upper bounds and linear-in-dimension lower bounds for some channels, and states that channel-dependent optimal approximating Kraus rank remains open.",
+        "vom Ende concerns realization of a given channel from Kraus operators and environment size, not approximate pure replacers."
+      ],
+      "reasoning": "These broader sources provide the framework but do not dominate the claim: the exact conclusion that every rank \\(r<d\\) has worst-case error exactly \\(2\\) is stronger and source-specific.",
+      "searches": [
+        "arXiv:1711.00697v3 channel compression Kraus rank uniform 1-to-1 norm",
+        "arXiv:2301.05488 Stinespring environment Kraus rank"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.40328v1",
+      "arXiv:1711.00697v3",
+      "arXiv:2301.05488",
+      "MSC2020 81P47 entry"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.40328v1 states arbitrary-input cooling with two initially empty bath modes per system mode but no resource lower bound.",
+        "arXiv:1711.00697v3 gives entropy-based approximate lower bounds and general compression theory, not the exact dimension-versus-maximal-error threshold for a pure replacer."
+      ],
+      "reasoning": "The source construction does not imply its own optimality. General Kraus-rank compression results do not imply the exact threshold because their lower bounds permit a nontrivial constant-factor reduction. The kernel argument closes precisely that implication gap for pure replacers.",
+      "searches": [
+        "replacer channel approximate environment dimension Kraus rank pure target",
+        "Lancien Winter pure-output channel Kraus rank approximation trace norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No relevant published-result hit stated an equivalent pure-replacer threshold.",
+        "The current and prior own ledgers contained no arXiv:2609.40328v1 claim or equivalent minimum-bath-mode statement."
+      ],
+      "reasoning": "The candidate was searched as a pure replacer, constant pure-output channel, low-Kraus-rank approximation, Stinespring environment bound, and maximal trace-distance obstruction. The formulations are equivalent under the standard Kraus/Stinespring correspondence.",
+      "searches": [
+        "pure replacer channel approximation Kraus rank at least input dimension trace norm",
+        "constant pure output channel approximate small Kraus rank uniform trace norm",
+        "rank deficient Stinespring environment pure target all inputs distance two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-result semantic database returned no covering item; top matches were scientifically unrelated.",
+        "The cumulative 2026-10 ledger and latest 2026-09 ledger were searched by source identifier, bath-dimension language, replacer terminology, and Kraus-rank aliases."
+      ],
+      "reasoning": "No standard numerical database or classification table can cover this theorem; the relevant exact repositories are literature and the own-result ledgers, which were checked for statement-level overlap.",
+      "searches": [
+        "arXiv:2609.40328 Bath-assisted cooling without resets bath dimension lower bound",
+        "bath-assisted cooling pure bath at least N modes approximate pure target all inputs"
+      ]
+    },
+    "rationale": "Targeted semantic searches, the cumulative current ledger, the latest prior-week ledger, the recent cooling source, and the closest channel-compression literature were compared at statement and implication level. No source inspected states the exact pure-replacer incompressibility threshold. Lancien--Winter gives general compression and order-d lower bounds but explicitly leaves channel-dependent optimal approximating Kraus rank open.",
+    "residual_risks": [
+      "The exact pure-replacer special case may have appeared as an unindexed observation in older quantum-channel literature; targeted searches found no such statement."
+    ],
+    "risks": [
+      "A differently indexed older note could contain the same elementary pure-replacer special case; this residual risk is not resolved by search failure alone, but no highly relevant source found supplied it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies the exact architecture and uniform trace-norm setting needed for the corollary but does not state a minimum bath dimension or Kraus-rank lower bound.",
+        "evidence": "The source states two initially empty bath modes per system mode, arbitrary mixed input, a pure interacting-ground-state target, global trace-norm error, and one final bath discard.",
+        "identifier_or_url": "arXiv:2609.40328v1",
+        "material_read": "Abstract, main theorem statement, bath construction, and discussion of information transfer and final bath discard.",
+        "method": "Lawful arXiv text/HTML inspection and indexed metadata cross-check.",
+        "title": "Bath-assisted cooling without resets",
+        "trigger": "Primary recent anchor using one coherent bath contact to cool arbitrary mixed inputs to a pure ground state."
+      },
+      {
+        "assessment": "It establishes general approximation theory and linear-in-dimension necessity in some cases, but no pure-replacer exact threshold; it explicitly describes channel-dependent optimal approximating Kraus rank as open.",
+        "evidence": "The text identifies Kraus rank with minimal Stinespring environment dimension and discusses lower bounds from entropy change, then asks for optimal channel-dependent approximating rank.",
+        "identifier_or_url": "arXiv:1711.00697v3",
+        "material_read": "Introduction, Stinespring/Kraus-rank setup, lower-bound discussion around Eq. (28)--(29), and Discussion section.",
+        "method": "Full-text inspection of the openly available manuscript.",
+        "title": "Approximating quantum channels by completely positive maps with small Kraus rank",
+        "trigger": "Closest general literature on uniform channel approximation with reduced Kraus rank."
+      },
+      {
+        "assessment": "Framework only; it does not address approximation to constant pure-output channels.",
+        "evidence": "The source constructs pure-environment unitary realizations from Kraus representations and discusses environment size.",
+        "identifier_or_url": "arXiv:2301.05488",
+        "material_read": "Abstract and finite-dimensional realization statement.",
+        "method": "ArXiv abstract inspection.",
+        "title": "From Kraus Operators to the Stinespring Form of Quantum Maps: An Alternative Construction for Infinite Dimensions",
+        "trigger": "Broader source for the environment-dimension/Kraus-rank relation."
+      }
+    ],
+    "sources": [
+      "arXiv:2609.40328v1",
+      "arXiv:1711.00697v3",
+      "arXiv:2301.05488"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c9f53dde-e38a-4d30-b5b3-54bbc6dbf984",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recent protocol makes coherent bath size a concrete resource. The theorem determines the exact unconstrained threshold: no uniform approximation with nonmaximal trace error can use an environment smaller than the input dimension. For fermionic cooling this proves \\(m\\ge N\\) and quantifies the source's \\(2N\\) bath as a factor-two overhead at the mode-count level. The result is a natural exact invariant and a sharp boundary, not an arbitrary parameter slice or numerical recomputation.",
+    "risks": [
+      "The factor-two comparison does not establish optimality under locality, gap, or pulse constraints and should not be read as an achievability theorem with \\(N\\) modes."
+    ],
+    "sources": [
+      "arXiv:2609.40328v1",
+      "arXiv:1711.00697v3"
+    ],
+    "status": "PASS"
+  }
+}
