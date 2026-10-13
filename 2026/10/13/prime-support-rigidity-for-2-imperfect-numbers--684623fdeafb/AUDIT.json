@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "All positive integers of prime support at most two are exhausted after parity forces an even integer: pure powers of two, then 2^a p^b. For a>=2, T_a<=4/5. The local ratio for p>=7 is >=6/7, p=5 forces b=1 and a=3, and p=3 forces b odd, a even, then (3^c-1)(3^c+1)=2^(a+1), giving a=2,b=1. Reverse substitutions and n=1 boundary are checked; exact checker independently corroborates up to 300000 without claiming global completeness from enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhou–Zhu (2009), Lemma 3: only squarefree k-imperfect integers are 2 and 6; it cannot cover the nonsquarefree witnesses 12 or 40.",
+        "Zhou–Zhu (2009), Proposition 11: k-imperfect numbers have omega(n)>=k-1; at k=2 this gives only omega(n)>=1 and no upper-layer classification.",
+        "Iannucci (2006), §§4–6: restrictions concern odd 3-imperfect numbers, not even two-prime 2-imperfect numbers."
+      ],
+      "reasoning": "Squarefree-only and generic lower-support results neither imply the new unrestricted-exponent necessary-and-sufficient description nor dominate it. Analogous perfect/near-perfect and unitary-divisor claims in research indexes concern different functions.",
+      "searches": [
+        "\"k-imperfect\" \"two distinct prime\" 2 12 40",
+        "k-imperfect numbers alternating divisor sum two prime support 2^a p^b classification",
+        "Any 2-imperfect integer other than 2,12,40 necessarily has at least three distinct prime divisors"
+      ]
+    },
+    "checked_sources": [
+      "https://math.colgate.edu/~integers/g41/g41.pdf",
+      "https://math.colgate.edu/~integers/j1/j1.pdf",
+      "https://arxiv.org/abs/1111.4842",
+      "https://oeis.org/A127725",
+      "Scientific research-record comparisons on exact statements and aliases; closest indexed results concern different divisor functions."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tóth, arXiv:1111.4842, §8, displays a Fermat-product sufficient 2-imperfect family containing 40; it does not assert it exhausts two-prime-support values.",
+        "Iannucci (2006), §3 gives an extension construction that introduces additional prime factors rather than an exclusion theorem for two support.",
+        "Zhou–Zhu (2009), §3 addresses finite 2^32 range and structural necessary conditions, not the claimed biconditional."
+      ],
+      "reasoning": "The new statement implies that every 2-imperfect n distinct from 2,12,40 has omega(n)>=3, independent of its size; the inspected constructions and censuses imply only existence or bounded computations. No contrary or dominating theorem surfaced in these read passages.",
+      "searches": [
+        "Toth 2013 alternating divisor function imperfect numbers 2^a p^b p=3 p=5",
+        "\"2β(n)=n\" \"prime factors\" 12 40",
+        "\"2-imperfect\" \"exactly two\" prime \"40\"",
+        "Exact classification of imperfect numbers n satisfying 2 rho(n)=n with omega(n)<=2: only 2,12,40"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Iannucci, Integers 6 (2006) A41, §1: rho(p^a) is the same alternating divisor sum; H(n)=n/rho(n).",
+        "Tóth, arXiv:1111.4842 §1: beta is the same multiplicative function; a different ordered-divisor alternating sum is also discussed.",
+        "Zhou–Zhu, Integers 9 (2009) A01, §1: same rho and normalized H(n)."
+      ],
+      "reasoning": "The claimed equality may be written H(n)=2 or rho(n)=n/2 or beta(n)=n/2. Those are aliases, not independent results; searching these forms and reading their primary definitions did not locate a classification over all 2^a p^b.",
+      "searches": [
+        "\"On a variation of perfect numbers\" Iannucci 2006 pdf",
+        "\"On k-Imperfect Numbers\" Zhou Zhu 2009 pdf",
+        "\"imperfect numbers\" \"two distinct prime factors\" alternating sum divisors",
+        "For alternating sum of divisors beta, 2 beta(n)=n, every n having at most two distinct prime factors is 2, 12 or 40"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A127725 lists 2,12,40,252,880,... with an explicit example for 40; a list alone gives no assertion of exhaustion at omega<=2.",
+        "Iannucci (2006), Table 1 enumerates k-imperfect values only through 10^9.",
+        "Zhou–Zhu (2009), §3 reports a computer census under 2^32."
+      ],
+      "reasoning": "The database and tables contain the three listed witnesses but their numerical coverage is bounded and cannot establish absence of large values with only two prime factors.",
+      "searches": [
+        "OEIS A127725 2-imperfect numbers",
+        "\"2, 12 and 40\" \"imperfect numbers\" rho",
+        "\"only 2 12 40\" \"imperfect\" alternating",
+        "Iannucci 2006 Table 1 k-imperfect numbers up to 10^9"
+      ]
+    },
+    "rationale": "The inspected full relevant primary papers and exact OEIS entry record the alternating divisor-sum definition, numerical examples, special sufficient families, squarefree cases and general necessary support conditions. None of those stated results entails the complete unbounded two-prime 2-imperfect fiber. Independently rediscovered elementary arguments remain a residual risk.",
+    "residual_risks": [
+      "A potentially unindexed earlier elementary proof may have established this exact support classification without searchable terminology.",
+      "No independent mathematical review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides function, known witnesses and bounded census, but no unbounded two-prime classification.",
+        "evidence": [
+          "Published 2006-12-20, page 1",
+          "Table 1 page 4 lists 2,12,40 and omega>=3 later witnesses",
+          "Section 4 explicitly shifts focus to odd 3-imperfect numbers."
+        ],
+        "identifier_or_url": "https://math.colgate.edu/~integers/g41/g41.pdf",
+        "material_read": "Full article sections 1-6 with Table 1 and stated theorems; definitions, H ratios, example construction, odd 3-imperfect analysis.",
+        "method": "Opened full OA PDF, read parsed pages/sections and inspected the Table 1 page image.",
+        "title": "On a Variation of Perfect Numbers",
+        "trigger": "Exact original arithmetic function and multiplier-two equation"
+      },
+      {
+        "assessment": "Squarefree lemma and lower bound omega>=k-1 are not the proposed exact two-support classification.",
+        "evidence": [
+          "Lemma 3 page 3: squarefree k-imperfect values are 2 and 6",
+          "Proposition 11 page 6: omega>=k-1",
+          "Section 3: finite census to 2^32."
+        ],
+        "identifier_or_url": "https://math.colgate.edu/~integers/j1/j1.pdf",
+        "material_read": "Sections 1-3, Lemma 3, Propositions 7 and 11, Theorems 8-9, reported bounded census; pages 1-7.",
+        "method": "Opened lawful OA original PDF, read theorem statements and their implications, inspected page 6 image.",
+        "title": "On k-Imperfect Numbers",
+        "trigger": "Potential stronger multiplier-k and prime-support coverage"
+      },
+      {
+        "assessment": "Special sufficient families and known examples, no complete necessary-and-sufficient two-support result.",
+        "evidence": [
+          "arXiv first submitted November 2011; source §1 lists 2,12,40",
+          "§8 exhibits a family containing 40."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1111.4842",
+        "material_read": "Introduction, fundamental identities, sections 7 and 8, special Fermat-product imperfect family and references.",
+        "method": "Read arXiv-hosted OA survey from lawful mirror PDF and inspected original page 1 image.",
+        "title": "A Survey of the Alternating Sum-of-Divisors Function",
+        "trigger": "Definition/alias and possibly dominating classification of imperfect numbers"
+      },
+      {
+        "assessment": "Known witnesses and a construction, not the unbounded exclusion theorem.",
+        "evidence": [
+          "Entry dated 2007-01-25",
+          "Shows initial terms 2,12,40,252,880,10880,..."
+        ],
+        "identifier_or_url": "https://oeis.org/A127725",
+        "material_read": "Sequence description, listed terms, example and references, entry original author date.",
+        "method": "Read public database entry and compared prime supports of stated witnesses.",
+        "title": "OEIS A127725: 2-imperfect numbers",
+        "trigger": "Exact numerical database for the multiplier-two fiber"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "684623fd-eafb-4132-ac59-ff2014e6c941",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "2-imperfect numbers form a classical, naturally defined multiplier-two fiber, studied in Iannucci (2006), Zhou–Zhu (2009), and Tóth (2013). The new result gives an exact unbounded classification across an entire first nontrivial prime-support layer, including arbitrarily large prime exponents, rather than merely confirming a small known table. It gives a sharp support obstruction omega>=3 for every remaining solution, attained at 252; this is a meaningful and natural boundary for subsequent three-prime analysis.",
+    "status": "PASS"
+  }
+}
