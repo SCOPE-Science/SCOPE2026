@@ -1,0 +1,11 @@
+# Scientific review: bath-independent mixed-qubit ergotropy crossing
+
+**Correctness — PASS.** The proof starts from the physical thermal Lindblad generator, derives the exact decaying Bloch coordinates, and obtains the normalized ergotropy by passive eigenvalue rearrangement. Equality of positive ergotropies eliminates the thermal bias from the inverse-level identity; positivity, endpoint order and strict level monotonicity give the unique crossing, its explicit time, and the monotone bias dependence. All mixed states and the zero-/infinite-temperature endpoints are covered. Independent exact-rational cases and 12,000 finite physical-state tests are supplementary, not a substitute for the proof.
+
+**Originality — PASS, with residual risk.** Sapui, Konar and Sen (De), arXiv:2602.11056 (Sections II.1 and Appendices B.1, C), already give the exact one-state dynamical formula, qualitative coherence-ordering criterion, and *pure-state* crossing time; these are not new. Their complete accessible manuscript was inspected for the arbitrary-mixed crossing value and unique-time formulas, neither of which it states. Choquehuanca et al., arXiv:2504.07200, develop the qubit thermal ergotropy framework but not the same pairwise level theorem. Semantic and published-literature searches did not identify a dominating pairwise statement. Because the present result follows algebraically from known dynamics, a differently indexed implicit derivation is a genuine residual originality risk, not a claim of database-certified uniqueness.
+
+**Value — PASS.** For a preparation pair in the experimentally natural generalized-amplitude-damping channel, exact work at crossover and time are observable operational quantities. Prior coherence-ordering criteria tell *whether* crossing occurs but not its arbitrary-mixed temperature-invariant work value. The monotone thermal-bias response provides a way to move the crossover time without changing its work level. This is a complete natural quantitative classification for a continuous family, rather than a decorative new constant.
+
+**Limits.** No result is asserted for additional dephasing, memory revivals, population-inverted reservoirs or different baths on the two states. No numerical run is claimed to prove the infinite-state theorem.
+
+Self-review: passed. Independent audit: not yet performed.
