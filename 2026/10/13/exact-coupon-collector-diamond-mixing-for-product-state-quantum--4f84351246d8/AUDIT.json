@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For every finite tensor product with local dimension >=2 and weights positive summing to one, direct Kraus normalization proves CPTP. Site maps commute and are idempotent. Conditioning on the visited set writes T^m=(1-p)R+pN with CPTP N, giving a diamond upper bound 2p. A tensor product of states orthogonal at each site to the target is orthogonal to the target after every incomplete update history, saturating both the system-state trace distance and diamond norm. Inclusion–exclusion proves the weighted finite formula for all m>=0 (0^0=1). A uniform factorial-series domination justifies the Gumbel cutoff and its epsilon quantile. Walsh/Fourier chi-square upper and magnetization Chebyshev lower bounds give classical mixing time (1/2+o(1))n log n. The packaged verify.py completed 122 direct Kraus, independent subset-mask, ancilla-reference, biased qubit–qutrit and finite asymptotic tests. The experiments are not used as infinite-size proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Temme–Wocjan Theorem 1 and Lemma 16 give a general but nonsharp quantum convergence estimate containing a stationary minimum probability prefactor.",
+        "Their Section 6 question 2 explicitly asks whether that prefactor can be removed.",
+        "Other nearby results on resetting circuits and quantum Markov-chain mixing treat more general dynamics but no exact weighted coverage/diamond identity for this family was found."
+      ],
+      "reasoning": "The prior general result supplies upper bounds, not a theorem whose conclusion implies the exact equality. The present product-only result is not promoted to a universal improvement for interacting models. Nearby classical coupon asymptotics are insufficient for a diamond lower bound.",
+      "searches": [
+        "local pure-state replacement channel arbitrary entangled input exact diamond distance to preparation weighted coupon collector",
+        "Temme Wocjan random walk on hypercube quantum channel reset qubits worst-case trace distance coupon collector Gumbel",
+        "quantum strong stationary time diamond norm product-state refresh",
+        "quantized Markov chain couplings diamond coupon collector"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2504.02651v1 — full HTML, Sections 3–6 and references; grand-coupling and coupon bounds",
+      "Quantum 9 (2025) 1951, DOI:10.22331/q-2025-12-18-1951 — lawful open-access PDF relevant sections and figures",
+      "Diaconis–Graham–Morrison 1990 DOI:10.1002/rsa.3240010105 — publisher abstract and metadata (full text not accessed)",
+      "Mathematical research-index searches: exact-claim, weighted-coupon and diamond-norm aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2504.02651v1 Section 5.2: classical random-bit refresh, grand coupling, and Pr(tau>n log n+cn)<=exp(-c).",
+        "arXiv:2504.02651v1 Eq. (56): Kraus form of the quantized grand coupling; Section 4: general quantum contraction estimates, not equality.",
+        "arXiv:2504.02651v1 Section 6 question 2: author-identified nonsharp pi_*^-1 factor issue.",
+        "Diaconis–Graham–Morrison (1990) and standard Walsh analysis establish classical hypercube cutoff, not a quantum diamond profile."
+      ],
+      "reasoning": "Using the existing Kraus construction plus classical coupon estimates does not by direct implication produce the exact quantum trace/diamond identity: conditional channel decomposition and an orthogonal input are needed to show matching upper/lower bounds. The Gumbel profile requires an additional uniform sharp limit rather than the source one-sided tail. Conversely, the new exact identity specializes to the source hypercube example and removes the prefactor only for the proved commuting rank-one replacement family. The known classical cutoff is credited and independently derived for normalization alignment.",
+      "searches": [
+        "arXiv:2504.02651v1 Section 5.2 hypercube coupon tail quantum convergence exact diamond",
+        "arXiv:2504.02651v1 Eq 56 local reset quantum channel Kraus",
+        "classical hypercube cutoff lazy 1/2 n log n Fourier"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Temme–Wocjan arXiv:2504.02651v1 Eq. (56), Sections 5.2 and 6 explicitly give the channel family and a coupon-tail upper estimate, not the exact diamond equality.",
+        "Exact equality also means that an orthogonal product input already attains the fully ancilla-assisted optimum; searches for local replacement/reset-channel aliases did not locate that matching lower-bound theorem.",
+        "The related published record Balanced non-uniform reset coupon collectors: profile rates and heterogeneity penalties concerns a classical catastrophe/reset collector, not quantum preparation."
+      ],
+      "reasoning": "The displayed result is equivalent to a sharp strong-stationary-time identity for commuting pure quantum site replacements. Neither the general upper bound of the motivating manuscript nor a classical coverage probability alone establishes exact quantum operational distance: the missing step is an explicit orthogonal quantum witness and a CPTP conditional-mixture bound. The queried records gave no statement-level equivalent.",
+      "searches": [
+        "random-scan qubit reset channels exact diamond norm convergence coupon collector uncovered probability Gumbel cutoff",
+        "quantized grand coupling Qsamples uniform hypercube reset coupon collector exact trace norm diamond norm",
+        "local pure-state replacement channel arbitrary entangled input exact diamond distance to preparation weighted coupon collector",
+        "quantum channel all qubits visited diamond norm",
+        "product states local reset coupon collector exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published record Balanced non-uniform reset coupon collectors: profile rates and heterogeneity penalties is about a different classical reset process.",
+        "The published Poisson and Gumbel laws for one-flip instability in Gaussian binary MIMO concerns unrelated communication geometry.",
+        "The coupon-collector inclusion–exclusion formula itself is standard and is not claimed as new.",
+        "Published mathematical-record searches did not find the same quantum product-refresh result."
+      ],
+      "reasoning": "An exact classical coverage table/formula is not a database or theorem of the associated quantum channel diamond norm. No table or indexed result directly giving this operational identity was located in the recorded searches; incomplete indexing remains a risk.",
+      "searches": [
+        "random-scan qubit reset channels exact diamond norm convergence coupon collector uncovered probability Gumbel cutoff",
+        "quantized grand coupling Qsamples uniform hypercube reset coupon collector exact trace norm diamond norm",
+        "quantum hypercube coupon collector dissipative state preparation exact convergence",
+        "exact mixing time diamond norm random local reset channels coupon collector",
+        "weighted quantum local replacement diamond norm exact inclusion exclusion",
+        "random qubit reset coupon collector trace distance"
+      ]
+    },
+    "rationale": "The new statement is an exact operational diamond-norm equality, valid with arbitrary entangled references, for nonuniform product-state quantum refresh channels, together with the all-time inclusion–exclusion law and a sharp uniform Gumbel cutoff. Temme–Wocjan (arXiv:2504.02651v1 and published version) provide the underlying quantized grand-coupling formula and the classical hypercube coupon upper tail, but not the matching quantum distinguishability witness or the strong norm equality. The classical coupon and hypercube cutoff are established and explicitly credited. Searches and statement-level comparisons found no stronger result implying the exact formula. Earlier unindexed or implicitly obtainable derivations remain a genuine priority risk.",
+    "residual_risks": [
+      "The identity may be an unindexed or implicitly observed consequence of prior reset-channel algebra, despite no covering statement in the inspected relevant manuscripts.",
+      "A more general theorem about commuting idempotent channels might imply this case even without similar vocabulary; the targeted searches did not find one.",
+      "The classical hypercube-cutoff paper was available in abstract only; the classical comparison is separately proved from Walsh analysis here.",
+      "The exact law does not extend to arbitrary grand-coupling quantum channels; the authors’ general prefactor problem remains open."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes CPTP grand-coupling family and one-sided coupon upper tail; no exact diamond equality, orthogonal product witness, nonuniform weighted law or full Gumbel diamond profile stated.",
+        "evidence": [
+          "https://arxiv.org/html/2504.02651v1 Sections 3.1 and 5.2",
+          "https://arxiv.org/html/2504.02651v1 Section 6 question 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2504.02651v1",
+        "material_read": "Full-text HTML Sections 3, 4, 5.2, 6, including Kraus Eq. (56), grand-coupling Kraus derivation, convergence estimates, coupon example and open questions.",
+        "method": "Open-access arXiv full HTML, direct targeted passage and equivalence inspection.",
+        "title": "Quantized Markov Chain Couplings that Prepare Qsamples, arXiv first version",
+        "trigger": "Same qsample construction and uniform hypercube grand-coupling example; potential direct coverage."
+      },
+      {
+        "assessment": "Exact operational distance and sharp profile absent from examined primary statements and plausible locations. Section 5.2 gives classical coupon tail and Section 6 raises the prefactor problem.",
+        "evidence": [
+          "https://quantum-journal.org/papers/q-2025-12-18-1951/pdf/ Eq. (55) p. 10",
+          "https://quantum-journal.org/papers/q-2025-12-18-1951/pdf/ Section 5.2 p. 18",
+          "https://quantum-journal.org/papers/q-2025-12-18-1951/pdf/ Section 6 p. 21"
+        ],
+        "identifier_or_url": "https://quantum-journal.org/papers/q-2025-12-18-1951/pdf/",
+        "material_read": "Material sections 3.1, 4, 5.2, 6 and relevant PDF pages 8–10, 17–18 and 20–21 inspected as page text and rendered page images.",
+        "method": "Full lawful open-access publisher PDF, text examination and page-image inspection.",
+        "title": "Quantized Markov Chain Couplings that Prepare Qsamples, Quantum 9 (2025) 1951",
+        "trigger": "Most recent accessible full version including revisions and relevant hypercube and appendix material."
+      },
+      {
+        "assessment": "Classical cutoff is prior mathematics and credited; its model has a different step normalization and does not imply the quantum diamond equality.",
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/10.1002/rsa.3240010105 abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240010105",
+        "material_read": "Publisher bibliographic metadata and abstract describing the classical cutoff and its normalization; no claim to inspect inaccessible complete article.",
+        "method": "Publisher abstract/metadata and separate self-contained Fourier derivation of the needed half-lazy classical comparison.",
+        "title": "Asymptotic analysis of a random walk on a hypercube with many dimensions",
+        "trigger": "Classical cutoff baseline might dominate the secondary factor-two comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4f843512-46d8-4704-9041-774521946aaf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural product-refresh qsample family was studied with only nonsharp generic bounds; the new exact operational diamond norm provides a reference-ancilla-safe benchmark at every finite time and arbitrary site weights. The uniform sharp Gumbel window and time-quantile law identify the precise mixing cost without an exponentially small stationary probability penalty. The explicit ratio two against the matched classical hypercube TV cutoff distinguishes coherent preparation from classical sampling and gives an interpretable exact performance threshold. The result is scoped to commuting pure replacement maps; broad prefactor conjectures are not claimed.",
+    "status": "PASS"
+  }
+}
