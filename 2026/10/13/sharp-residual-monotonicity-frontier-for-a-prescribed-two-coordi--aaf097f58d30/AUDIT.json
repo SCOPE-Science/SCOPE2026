@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "A complete forward sweep maps an arbitrary residual by a rank-one operator with exact norm |c|/b sqrt(1+c^2/a^2). Normalizing the two eigenvalues to 1 and kappa and parameterizing the rotation by u=tan^2(theta) yields the displayed Phi_kappa exactly. The derivative polynomial has exactly one positive root for every kappa>1 by Descartes' rule, so the scalar maximum is unique. Tangency with level one eliminates u to the reciprocal degree-six polynomial; its reduction through x=kappa+kappa^{-1} has a unique root above two. Continuity plus the exact kappa=6 witness fixes the safe side of the frontier. The packaged checker independently replays the rational witness and root isolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical and modern analyses guarantee asymptotic convergence or monotonicity in the A-energy for SPD systems, which does not imply monotonicity of the Euclidean residual.",
+        "Hefny–Needell–Ramdas analyze expected residual convergence for randomized Gauss-Seidel and give the coordinate update formula.",
+        "Xiao–Xiao–Sun analyze cyclic and symmetrized coordinate-descent convergence rates and order effects rather than the one-sweep Euclidean residual operator norm."
+      ],
+      "reasoning": "Asymptotic rates, expected rates, and energy monotonicity do not dominate a deterministic one-sweep Euclidean residual statement.",
+      "searches": [
+        "cyclic coordinate descent Gauss-Seidel quadratic worst-case convergence",
+        "Gauss-Seidel monotone convergence SPD A norm residual norm",
+        "randomized Gauss-Seidel residual convergence SPD"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1507.05844",
+      "doi:10.1137/16M1077891",
+      "doi:10.1137/19M1292473"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest published-record result concerns Euclidean solution-error amplification and chooses the better of two coordinate orders; the present claim fixes an order and measures residual norm.",
+        "Because r=Ae, an error-norm bound does not give the exact residual operator norm, and multiplying by condition-number inequalities loses sharpness.",
+        "Exact coordinate minimization decreases the quadratic objective, but that fact alone does not control Euclidean residual norm."
+      ],
+      "reasoning": "The closest statement is scientifically adjacent but neither logically equivalent nor stronger in the metric and ordering quantified here.",
+      "searches": [
+        "two-coordinate Gauss-Seidel Euclidean transient threshold",
+        "Gauss-Seidel error amplification residual amplification relation SPD",
+        "coordinate descent objective monotone residual norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches recovered general Gauss-Seidel convergence and coordinate-descent literature, but no theorem with the degree-six threshold or the value 5.36076789614546.",
+        "The full arXiv text of Hefny–Needell–Ramdas gives coordinate-descent/Gauss-Seidel updates and expected residual convergence for randomized variants, not this deterministic completed-sweep worst-case norm."
+      ],
+      "reasoning": "The aliases cover the classical solver name, coordinate-descent interpretation, Euclidean residual norm, one-sweep transients, two-dimensional SPD systems, and condition-number language.",
+      "searches": [
+        "Gauss Seidel residual norm one sweep sharp condition number 2x2 SPD",
+        "coordinate descent residual norm amplification two dimensional SPD",
+        "Gauss-Seidel residual can increase Euclidean norm condition number",
+        "2x2 SPD Gauss Seidel residual amplification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact constant or polynomial match was located in the searched literature or published-record results.",
+        "The threshold is obtained by eliminating the orientation parameter from the analytic amplification function and its derivative."
+      ],
+      "reasoning": "The constant is not imported from a table or numerical benchmark.",
+      "searches": [
+        "5.360767896 Gauss Seidel residual",
+        "32 kappa^6 131 kappa^5 Gauss Seidel",
+        "Gauss Seidel residual condition number exact threshold"
+      ]
+    },
+    "rationale": "The inspected primary literature identifies Gauss-Seidel with coordinate descent and studies residual or error convergence in randomized and cyclic settings, but the searched statements do not give a sharp deterministic prescribed-sweep Euclidean residual frontier on 2x2 SPD systems. A closely related published result on two-coordinate Gauss-Seidel concerns Euclidean solution-error amplification and best ordering; it neither implies nor states the residual-norm threshold here.",
+    "residual_risks": [
+      "Older matrix-iterative-analysis literature may contain the same two-by-two residual norm calculation without modern coordinate-descent terminology.",
+      "The theorem fixes the coordinate order; a best-order theorem is a different question and may have a different frontier.",
+      "The polynomial elimination was independently replayed during derivation, but the public checker only corroborates the final scalar threshold and exact witness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: supplies the algorithmic interpretation and expected residual convergence framework, but not the deterministic two-coordinate one-sweep residual frontier.",
+        "evidence": "The paper writes x_{t+1}=x_t+(b_i-A^i x_t)A_{ii}^{-1}e_i for SPD coordinate descent and states expected residual convergence for randomized Gauss-Seidel.",
+        "identifier_or_url": "arxiv:1507.05844",
+        "material_read": "Full arXiv HTML was inspected, especially Sections 2.2 and 2.3 containing the randomized Gauss-Seidel residual bound and the SPD coordinate-descent update.",
+        "method": "Full-text arXiv HTML inspection.",
+        "title": "Rows vs. Columns: Randomized Kaczmarz or Gauss-Seidel for Ridge Regression",
+        "trigger": "Primary full-text source explicitly linking Gauss-Seidel, coordinate descent, residuals, and SPD linear systems."
+      },
+      {
+        "assessment": "ADJACENT_NOT_COVERING_BY_STATEMENT: studies epochwise convergence-rate gaps and symmetric orderings, not a two-dimensional Euclidean residual-norm frontier.",
+        "evidence": "The abstract explicitly treats cyclic order 1,2,...,n and symmetric Gauss-Seidel order but frames the results as worst-case convergence-rate comparisons.",
+        "identifier_or_url": "doi:10.1137/19M1292473",
+        "material_read": "Publisher abstract, algorithmic description, MSC classification, bibliographic history, and reference list were inspected.",
+        "method": "Publisher-page inspection.",
+        "title": "Two Symmetrized Coordinate Descent Methods Can Be O(n^2) Times Slower Than the Randomized Version",
+        "trigger": "Highly relevant modern source on cyclic ordering and worst-case coordinate-descent transients."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aaf097f5-8d30-43fd-8c41-ac0efc6c68b8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Residual norm is a standard stopping and progress metric for linear solvers, while SPD Gauss-Seidel is classically convergent and decreases the associated quadratic energy. The result gives an exact condition-number boundary separating guaranteed completed-sweep residual decrease from possible residual spikes, already in the smallest nontrivial dimension, and supplies a simple exact counterexample. This exposes a concrete mismatch between objective/energy progress and a commonly monitored solver diagnostic.",
+    "status": "PASS"
+  }
+}
