@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Fixing one vertex of a bipartition forces every opposite-part letter to occur once on each side of its two occurrences. Same-part nonalternation makes the remaining same-part occurrence intervals nested around that opposite-part block; opposite-part nonalternation then forces reversed order across the two sides. This yields the exact cyclic form ABA^RB^R. The converse is immediate from relative-order tests. Counting the two-to-one parameterization and primitive rotations gives the formulas. Exhaustive direct enumeration through m+n=5 independently agrees with the structural generator.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Das and Hariharasubramanian prove representation-number-uniform square-freeness and count n*n! square-free representants of K_n, but do not state a K_{m,n} count.",
+        "Halldorsson, Kitaev, and Pyatkin state the standard equivalence of circle graphs and 2-word-representable graphs.",
+        "Brijder and Hoogeboom use double-occurrence words and interlacement graphs as the circle-graph model, without a complete-bipartite count."
+      ],
+      "reasoning": "The broad structural literature supplies equivalences and examples but does not dominate the exact classification of every K_{m,n} double-occurrence representant.",
+      "searches": [
+        "arXiv:2402.14426v1 Lemma 2.4 Section 3 Theorem 3.1",
+        "Semi-Transitive Orientations and Word-Representable Graphs circle graphs 2-word-representable",
+        "Splitting cubic circle graphs double occurrence word interlacement graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2402.14426v1 full text",
+      "DOI:10.1016/j.dam.2015.07.033 structured full text",
+      "arXiv:1504.01143v1 introduction",
+      "focused searches in word-representation terminology",
+      "focused searches in double-occurrence/interlacement terminology",
+      "focused searches in chord-diagram/circle-graph terminology"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior theorem that all representation-number-uniform words are square-free supplies only the square-free corollary after the exact 2-uniform layer is classified.",
+        "Knowing that K_{m,n} is a circle graph proves existence of some 2-uniform representant, not the structural form of every representant or their count.",
+        "The infinite higher-uniformity construction for non-complete graphs does not imply a finite count at the representation-number layer."
+      ],
+      "reasoning": "The new theorem needs a global uniqueness-of-form argument and a two-to-one cyclic parameter count; neither is a corollary of existence or square-freeness alone.",
+      "searches": [
+        "arXiv:2402.14426 complete graph number square-free representations",
+        "arXiv:2402.14426 non-complete connected infinitely many square-free representations",
+        "complete bipartite 2-word-representable circle graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Circle graphs are exactly 2-word-representable graphs, so double-occurrence words and chord diagrams are genuine equivalent formulations of the same layer.",
+        "The retrieved complete-bipartite circle-graph sources give examples or recognition facts, not an enumeration of all labeled representants."
+      ],
+      "reasoning": "The searches deliberately span the three standard languages for the same object, reducing the risk that an enumeration is hidden behind circle-graph terminology.",
+      "searches": [
+        "complete bipartite word representable graph double occurrence word exact number representations K_mn",
+        "circle graph K_mn chord diagram number double occurrence representations complete bipartite",
+        "complete bipartite double occurrence words",
+        "K_{m,n} double occurrence word",
+        "complete bipartite circle graph chord diagram representation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected search result or table states the formula (m+n)m!n! or the cyclic count m!n!/2.",
+        "The primary paper's only exact enumeration in its counting section is for complete graphs."
+      ],
+      "reasoning": "The exact formula and its cyclic normalization are the most likely signatures of a prior finite/enumerative treatment, so both were searched directly.",
+      "searches": [
+        "complete bipartite word representation enumeration",
+        "(m+n) m! n! complete bipartite word representation",
+        "complete bipartite chord diagram enumeration",
+        "complete bipartite interlacement graph count"
+      ]
+    },
+    "rationale": "The direct 2024 source proves square-freeness of every representation-number-uniform word and counts square-free representants only for complete graphs; for non-complete connected graphs it gives an infinite extension construction rather than an exact minimum-uniform count. Searches in word-representation, double-occurrence-word, chord-diagram, and interlacement terminology found explicit complete-bipartite examples and general circle-graph theory but no equivalent all-representant classification or count.",
+    "residual_risks": [
+      "An older or unindexed chord-diagram enumeration may contain the same complete-bipartite count.",
+      "The result counts labeled words; quotienting by graph automorphisms is a different enumeration problem.",
+      "No classification is claimed for higher-uniformity square-free representants or general bipartite circle graphs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant but not covering complete-bipartite 2-uniform classification or enumeration.",
+        "evidence": "The paper explicitly counts square-free representants for K_n, while its treatment of non-complete connected graphs establishes infinitely many larger square-free representants rather than counting the representation-number layer.",
+        "identifier_or_url": "arXiv:2402.14426v1 / DOI:10.1007/s00373-025-03000-w",
+        "material_read": "Definitions 1.1-1.3 and cyclic-shift Proposition 1.1; Lemma 2.4 and its proof; Section 3 introduction; Lemma 3.1 and Theorem 3.1 counting complete-graph square-free representations; Corollary 3.1 and conclusion/open directions.",
+        "method": "Full-text PDF statement and implication comparison, including rendered-page inspection of Lemma 2.4 and the complete-graph counting section.",
+        "title": "Square-free Word-representation of Word-representable Graphs",
+        "trigger": "Direct source motivating counts of square-free word-representations and supplying the representation-number square-freeness premise."
+      },
+      {
+        "assessment": "Gives the circle-graph equivalence but no all-representant enumeration for complete bipartite graphs.",
+        "evidence": "The source identifies chord diagrams with 2-uniform word representations, so it is relevant to alias/equivalence checking.",
+        "identifier_or_url": "DOI:10.1016/j.dam.2015.07.033",
+        "material_read": "Introduction and the statement that circle graphs are exactly 2-word-representable graphs; representation-number definitions and general bounds.",
+        "method": "Published full-text/structured webpage statement comparison.",
+        "title": "Semi-Transitive Orientations and Word-Representable Graphs",
+        "trigger": "Standard structural source for representation number and circle-graph equivalence."
+      },
+      {
+        "assessment": "Supplies terminology equivalence but no complete-bipartite enumeration.",
+        "evidence": "The paper defines adjacency by occurrence order abab or baba, exactly the alternation relation used here.",
+        "identifier_or_url": "arXiv:1504.01143v1",
+        "material_read": "Introduction definitions of double occurrence words, interlacement graphs, and circle graphs.",
+        "method": "Open full-text statement comparison.",
+        "title": "Splitting cubic circle graphs",
+        "trigger": "Circle-graph literature using the double-occurrence-word/interlacement terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4913b04e-21bb-4c30-8e70-2e3cf9f3ddf3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The direct source makes counting square-free representants a central problem, solves only the complete-graph case exactly, and shows non-complete connected graphs have infinitely many representants overall. The representation-number layer is therefore the natural finite layer to count. Complete bipartite graphs are the fundamental connected non-complete circle graphs, and the theorem gives both a full structural normal form and exact labeled/cyclic counts for the entire family.",
+    "status": "PASS"
+  }
+}
