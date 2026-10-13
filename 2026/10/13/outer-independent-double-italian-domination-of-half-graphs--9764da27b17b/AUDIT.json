@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For each matched pair a_i b_i, outer independence gives x_i+y_i>=1. Writing s_i=x_i+y_i-1 makes total weight n+sum s_i. The leaf b_1 gives s_1+s_2>=2 and, by symmetry, a_n gives s_{n-1}+s_n>=2; these blocks are disjoint for n>=4. Equality eliminates the exceptional endpoint pairs (0,2) and (2,0), forces all interior sums to one, and zero-set independence forces a unique staircase threshold. The endpoint sum-three cases reduce to exactly two possibilities on each side. Exhaustive verification for n=4,5 reproduces the complete minimum family.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2021 paper proves gamma_oidI(K_{n1,n2})=n1+2 when n1>=3 and exact formulas for complete multipartite graphs.",
+        "The 2022 paper characterizes a tree equality and supplies degree-based lower bounds.",
+        "The 2023 complexity/characterization paper studies small and near-maximal parameter values rather than nested bipartite half graphs.",
+        "The 2023 graph-products paper is about graph products; its full text was not accessible through the inspected route."
+      ],
+      "reasoning": "The complete-bipartite theorem is the strongest natural superclass-like comparison, but deleting the Ferrers triangle of edges can change both feasibility and optimum, so it does not imply the half-graph result. The later broad characterizations have stated scopes that do not subsume a formula for all half graphs. The inaccessible products paper is retained as a residual risk.",
+      "searches": [
+        "DOI 10.7494/OpMath.2021.41.2.259, especially Theorem 3.1 and the complete multipartite section",
+        "DOI 10.5614/ejgta.2022.10.2.2, abstract and scope",
+        "DOI 10.1142/S1793830922500859, abstract and indexed scope",
+        "DOI 10.20429/tag.2023.100105, title, journal record, and accessible metadata"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.7494/OpMath.2021.41.2.259",
+      "DOI:10.5614/ejgta.2022.10.2.2",
+      "DOI:10.1142/S1793830922500859",
+      "DOI:10.20429/tag.2023.100105",
+      "targeted web and semantic-database searches under half-graph, chain-graph, Ferrers-graph, and OIDIDF aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For K_{n,n}, the published value is n+2; the target half graph has n+4 for n>=4.",
+        "The general vertex-cover and degree bounds in the 2021 paper leave a wide interval and do not force n+4.",
+        "The 2023 characterization abstract concerns complexity and specified extreme parameter regimes, not an all-n half-graph theorem.",
+        "The graph-products title and metadata identify a different construction class."
+      ],
+      "reasoning": "Neither a value on K_{n,n} nor general upper/lower bounds determine the effect of deleting the Ferrers staircase of edges. The new endpoint-surplus argument is needed both for the sharp value and for the 4(n-1) equality classification.",
+      "searches": [
+        "Theorem 3.1 of DOI 10.7494/OpMath.2021.41.2.259",
+        "general bounds in DOI 10.7494/OpMath.2021.41.2.259",
+        "scope of DOI 10.1142/S1793830922500859",
+        "scope of DOI 10.20429/tag.2023.100105"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The inspected 2021 primary full text has no occurrence of “half” or “chain”.",
+        "Targeted semantic-database searches returned chain-graph domination results for different parameters and an edge-metric half-graph result, not the target invariant.",
+        "The parameter definition in the 2021 and 2022 sources matches the closed-neighborhood-sum and independent-zero-set definition used here."
+      ],
+      "reasoning": "Half graph, chain graph, and Ferrers graph are the principal object aliases. OIDIDF and the spelled-out parameter name are the principal invariant aliases. No retrieved statement under those combinations was equivalent to the claimed formula plus minimum-function classification.",
+      "searches": [
+        "\"outer-independent double Italian domination\" \"half graph\"",
+        "\"outer-independent double Italian domination\" \"chain graph\"",
+        "\"outer-independent double Italian domination\" Ferrers",
+        "\"OIDIDF\" \"half graph\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved semantic-database item states an OIDIDF value or optimizer classification for half graphs.",
+        "The closest half-graph hit concerns edge metric bases, a different invariant.",
+        "The closest chain-graph hits concern ordinary, restrained, paired, and Roman domination variants."
+      ],
+      "reasoning": "The target theorem is not an extrapolation from a table: it is symbolic in n and includes a complete optimizer classification. Nearby half-graph and chain-graph records use non-equivalent admissibility predicates.",
+      "searches": [
+        "outer-independent double Italian domination half graph",
+        "outer independent double Italian domination chain graph",
+        "OIDIDF half graph exact value",
+        "outer-independent double Italian domination Ferrers graph"
+      ]
+    },
+    "rationale": "The main direct prior exact theorem covers complete multipartite graphs, including gamma_oidI(K_{n,n})=n+2, but half graphs are proper Ferrers subgraphs and the theorem gives neither the n+4 value nor the optimizer classification. The primary 2021 full text was searched for half and chain terminology with no occurrence. Later same-parameter papers have scopes centered on tree bounds, complexity/extreme-value characterization, and graph products. Targeted literature and semantic database searches found no equivalent half-graph statement.",
+    "residual_risks": [
+      "The graph-products paper was identifiable but its full text was inaccessible through the inspected route.",
+      "A differently phrased or non-indexed half/Ferrers treatment may exist.",
+      "The small half graphs H_2 and H_3 have additional minimum-function shapes and are outside the classification theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact invariant, lists MSC 05C69, and gives the complete-bipartite comparator n+2; it does not state a half-graph or chain-graph specialization.",
+        "evidence": [
+          "Published online 17 March 2021.",
+          "Mathematics Subject Classification 05C69.",
+          "Theorem 3.1 gives gamma_oidI(K_{n1,n2})=n1+2 for n1>=3.",
+          "Full-text searches found no “half” or “chain” occurrence."
+        ],
+        "identifier_or_url": "DOI:10.7494/OpMath.2021.41.2.259",
+        "material_read": "Full open PDF: definition, introductory propositions, general bounds, Theorem 3.1 and its proof, complete multipartite section, and targeted full-text searches for half and chain.",
+        "method": "Primary full-text statement and implication comparison.",
+        "title": "Remarks on the outer-independent double Italian domination number",
+        "trigger": "Primary same-invariant paper with exact complete multipartite results and verified MSC ownership."
+      },
+      {
+        "assessment": "Studies tree equality characterizations and degree-based lower bounds; no half-graph theorem was identified in the inspected material.",
+        "evidence": [
+          "The abstract gives the same OIDIDF definition.",
+          "The stated results concern trees and general lower bounds.",
+          "The source lists Mathematics Subject Classification 05C69."
+        ],
+        "identifier_or_url": "DOI:10.5614/ejgta.2022.10.2.2",
+        "material_read": "Open article page, abstract, definition, bibliographic data, and accessible PDF abstract text.",
+        "method": "Scope and definition comparison.",
+        "title": "On the outer-independent double Italian domination number",
+        "trigger": "Later same-invariant continuation."
+      },
+      {
+        "assessment": "The abstract reports NP-completeness and characterizations of small or near-maximal values, not an all-order half-graph formula.",
+        "evidence": [
+          "Indexed as a 2023 same-invariant paper with MSC 05C69.",
+          "The abstract describes complexity and specified parameter-level characterizations."
+        ],
+        "identifier_or_url": "DOI:10.1142/S1793830922500859",
+        "material_read": "Abstract, bibliographic metadata, and indexed scope; full text was not available from the inspected open routes.",
+        "method": "Statement-scope and implication comparison.",
+        "title": "Outer independent double Italian domination: Complexity, characterization",
+        "trigger": "Broad later same-invariant characterization paper that could potentially dominate special-family claims."
+      },
+      {
+        "assessment": "Its stated subject is graph products, not half/Ferrers/chain graphs. Because full text could not be read through the inspected route, it remains a residual literature risk rather than negative evidence.",
+        "evidence": [
+          "The Theory and Applications of Graphs issue identifies the article as a graph-products paper.",
+          "Direct full-text retrieval through the inspected route was unavailable."
+        ],
+        "identifier_or_url": "DOI:10.20429/tag.2023.100105",
+        "material_read": "Journal issue record, title, authors, DOI metadata, and accessible abstract-level records; direct PDF retrieval returned an access error.",
+        "method": "Construction-class comparison with explicit access-risk retention.",
+        "title": "Outer Independent Double Italian Domination of Some Graph Products",
+        "trigger": "Same-invariant special-family paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9764da27-b17b-4d05-b7fe-06b1610d3c62",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Half graphs are canonical connected chain/Ferrers graphs with strictly nested neighborhoods. The theorem gives an exact infinite-family law and a full equality classification, not merely a numerical instance. Relative to the known balanced complete-bipartite value n+2, the Ferrers edge deletion creates a sharp two-unit surcharge, while the optimizer set becomes a one-breakpoint staircase with exactly 4(n-1) minima. This provides a natural benchmark for how outer independence interacts with nested bipartite neighborhoods.",
+    "status": "PASS"
+  }
+}
