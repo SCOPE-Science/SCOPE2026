@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The source's product moment-generating function identifies the third-level law, up to translation and reflection, with a three-term iid Bernoulli weighted sum. Sorting the positive integer weights as \\(\\{1,u,v\\}\\), all collisions among the eight subset sums are exhausted by \\(u=1\\), \\(u=v\\), or \\(v=u+1\\). These give five exact entropy formulas. Each second derivative is strictly negative using only \\(h''=-1/[p(1-p)]\\), \\(p(1-p)\\le1/4\\), \\(h\\le\\log2\\), and the sign of \\((2p-1)\\log((1-p)/p)\\). No experimental enumeration is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.01529v1 studies Rényi-entropy comparisons for weighted sums with a uniform Bernoulli vector, hence fixed success probability \\(1/2\\), and its full text notes that its coupling does not directly extend to biased Bernoulli variables.",
+        "The classical Shepp–Olkin concavity theorem concerns ordinary sums of independent Bernoulli variables and covers the equal-weight case, not the additive subset-sum collision \\(v=1+u\\)."
+      ],
+      "reasoning": "Broader weighted-Bernoulli and Poisson-binomial entropy results do not dominate the claim because the new parameter is the common Bernoulli bias and the weighted map can merge configurations with different Hamming weights.",
+      "searches": [
+        "weighted Bernoulli subset sum Shannon entropy concave common parameter three weights",
+        "Bernoulli weighted sum entropy concavity common parameter"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.05546v1",
+      "arXiv:2609.01529v1",
+      "Shepp and Olkin, Proceedings of the Sixth Berkeley Symposium, 1972",
+      "Published finding ID 2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda",
+      "Published finding ID 2026/9/19/SCOPE-nonuniform-distinct-substrings-shannon-correction--b50e5b4eb7f4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's computations support but do not prove the third-level statement; finite symbolic checks do not imply global concavity on the full parameter interval.",
+        "The unbiased weighted-Bernoulli Rényi results concern a single parameter value and entropy-order comparisons, so they do not imply curvature in a varying Bernoulli bias."
+      ],
+      "reasoning": "No inspected theorem has hypotheses and conclusion strong enough to imply strict Shannon-entropy concavity for every positive integer three-weight pattern. The result is a genuine finite-level proof of the open conjectural direction rather than a numerical special case.",
+      "searches": [
+        "weighted Bernoulli subset sum Shannon entropy concave common parameter three weights",
+        "recursive overlap Bernoulli entropy concavity n=3 proof"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.05546v1 formulates Shannon entropy concavity for recursive overlap Bernoulli distributions and says the non-extremal overlap cases lack a proof there.",
+        "The source's moment-generating-function factorization makes the third-level problem equivalent to entropy concavity for a three-weight iid Bernoulli subset sum.",
+        "Published finding ID 2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda concerns cumulants of unweighted Poisson-binomial laws, not weighted-sum Shannon curvature."
+      ],
+      "reasoning": "Aliases using recursive overlap, weighted Bernoulli sums, subset sums, common Bernoulli parameter, three weights, and finite-level conjecture language were checked. None of the surfaced records gives the five collision-type classification or its strict-concavity proof.",
+      "searches": [
+        "recursive overlap Bernoulli entropy concavity n=3 proof",
+        "weighted Bernoulli subset sum Shannon entropy concave common parameter three weights",
+        "Neunhaeuserer entropy concavity conjecture finite n=3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2609.05546v1, Conjecture 3.1 states concavity for every sequence and every level.",
+        "arXiv:2609.05546v1, Proposition 3.1 proves only the binomial and non-overlapping regimes; Section 4 gives computational evidence for additional sequences rather than a proof."
+      ],
+      "reasoning": "The comparison targets the exact conjecture and its proved regimes. The third-level theorem includes partial-overlap patterns such as weights \\(\\{1,2,3\\}\\) and \\(\\{1,1,2\\}\\), which are not subsumed by the source's two global extremal assumptions.",
+      "searches": [
+        "Neunhaeuserer entropy concavity conjecture finite n=3",
+        "recursive overlap Bernoulli entropy concavity n=3 proof"
+      ]
+    },
+    "rationale": "The direct source states the all-level concavity conjecture, proves only the binomial and fully non-overlapping regimes, and explicitly reports no proof for the remaining overlap sequences. The third level is the first level not automatically forced into those extremal regimes. The inspected weighted-Bernoulli Rényi paper fixes unbiased bits and does not imply common-parameter Shannon concavity. Focused semantic searches found no covering three-weight theorem.",
+    "residual_risks": [
+      "An older equivalent result for entropy of three weighted Bernoulli variables may exist under additive-combinatorics or subset-sum terminology not surfaced by the bounded searches.",
+      "The theorem does not address the substantially more complex collision patterns beginning at four Bernoulli coordinates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the proved third-level theorem.",
+        "evidence": "The paper proves only the binomial and non-overlapping regimes and states that it has no proof for other increasing sequences; the third-level partial-overlap cases are supported only computationally.",
+        "identifier_or_url": "arXiv:2609.05546v1",
+        "material_read": "Full six-page preprint, including the recursive definition, moment-generating-function factorization, Conjecture 3.1, Proposition 3.1, computational evidence, and references.",
+        "method": "Full-text inspection.",
+        "title": "Recursive overlap Bernoulli distributions and an entropy concavity conjecture",
+        "trigger": "Direct source of the conjecture and recursive family."
+      },
+      {
+        "assessment": "NOT_COVERING.",
+        "evidence": "The paper takes the Bernoulli vector uniform on the discrete cube, studies multiplicative comparisons across Rényi orders, and explicitly notes that its key coupling does not directly apply to biased Bernoulli variables.",
+        "identifier_or_url": "arXiv:2609.01529v1",
+        "material_read": "Abstract and Sections 1–3 through the main Rényi comparison argument and the remark on biased Bernoulli variables.",
+        "method": "Full-text inspection.",
+        "title": "Multiplicative comparisons of Rényi entropies for weighted Bernoulli sums",
+        "trigger": "Highly relevant recent work on the same weighted Bernoulli-sum objects."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "96162963-5dc7-47d7-b30c-8791669b13bb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the first genuinely overlapping finite level of a newly stated all-level entropy-concavity conjecture. The proof is a complete classification for every admissible third-level sequence, not an arbitrary numerical slice, and it isolates the precise additive collision mechanism that first lies outside the source's two proved extremal families. Such a finite cutoff is useful both as evidence for the conjecture and as a structural template for higher-level collision analysis.",
+    "status": "PASS"
+  }
+}
