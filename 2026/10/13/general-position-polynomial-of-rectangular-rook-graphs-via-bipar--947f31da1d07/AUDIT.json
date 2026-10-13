@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Every selected rook vertex is an edge of K_{m,n}; a shortest-path forbidden triple is exactly a selected simple 3-edge path. A bipartite graph lacking such paths has only star components. The labeled two-color exponential formula gives a bijection without double counting 1-edge components. The maximum-set trichotomy follows by forcing exactly two star components; the four-cycle is treated separately. The independent metric-based checker matched the component recurrence on 146762 subsets in 24 small instances. Finite tests corroborate rather than replace the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general-position polynomial was defined for arbitrary graphs by Irsic et al.; their Cartesian-product evaluation is for P_r square P_s, not K_m square K_n.",
+        "Stones Theorems 1-3 sum over all labeled spanning trees of components with both part sizes positive; ordinary forests include length-three paths, which are excluded here.",
+        "General exact forest counts by edge number cannot separate star forests with the same edge number from longer trees."
+      ],
+      "reasoning": "General definitions and universal inclusion-exclusion are not closed family coefficient evaluations. The published total-forest generating data is a coarser invariant: in K_{2,2}, for example, three-edge spanning trees exist but no three-edge star forest. Therefore the full set of rook-general-position coefficients and thin/thick optimizer multiplicities are not direct substitution corollaries of those published scalar or aggregate statements.",
+      "searches": [
+        "general position sets in line graph complete bipartite graph Cartesian product complete graphs",
+        "general position polynomial K_m K_n Cartesian product",
+        "star-forest enumeration counting all spanning subgraphs K_{m,n} component size polynomial",
+        "Computing the number of h-edge spanning forests in complete bipartite graphs Stones 2014 full text",
+        "arXiv:2401.05696v1 Sections 2-4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1512.02161v1 (full text, main theorem and decomposition sections inspected)",
+      "arXiv:1903.04286v2 (full text, Cartesian-product results inspected)",
+      "arXiv:2401.05696v1 (full text, polynomial and product cases inspected)",
+      "DOI:10.46298/dmtcs.1248 (PDF, forest enumeration statements and method inspected)",
+      "arXiv:1907.04535v4 (Cartesian-product GP literature checked)",
+      "Published title/index searches for rook graphs, general-position polynomials, P4-free bipartite graphs and labelled star forests"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghorbani Theorem 3.2 implies degree \\(m+n-2\\), which is explicitly not new here; it does not imply the number of maximum sets.",
+        "Irsic et al. Theorem 3.5 evaluates P_r square P_s, not K_m square K_n; the two families agree only in small boundary cases.",
+        "The special star-component restriction is not a coefficient or parameter substitution of the total spanning-forest number f_{m,n,h} of Stones.",
+        "Aroca--Llado studies existence of an edge-disjoint ascending sequence, not its weighted enumeration."
+      ],
+      "reasoning": "The final claim is exactly the star-forest bivariate generating function together with the optimizer-count trichotomy, not the known scalar gp number. The inspected potentially stronger works do not state or logically entail these new counts by direct specialization.",
+      "searches": [
+        "Ghorbani et al 2019 theorem 3.2 complete Cartesian graphs gp",
+        "Irsic Klavzar Rus Tuite 2024 theorem 3.5 path grid polynomial",
+        "Stones 2014 theorem 1 h edge forests in complete bipartite graphs",
+        "Aroca Llado 2015 theorem 1 star forest ascending subgraph decomposition",
+        "geodesic irredundant sets rook graphs line graph complete bipartite counting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Line-graph vertex subsets of K_m square K_n correspond to edge subsets of K_{m,n}; geodesic forbidden triples correspond exactly to simple three-edge paths.",
+        "Aroca--Llado Theorem 1 concerns when a bipartite graph admits an ascending decomposition into star forests, not counting all such subsets.",
+        "Ghorbani et al. Section 3 determines the maximum cardinality of general-position sets in K_m square K_n but not their cardinality enumerator."
+      ],
+      "reasoning": "Equivalent names include rook graphs, line graphs of complete bipartite graphs, P4-free spanning bipartite subgraphs (forbidding noninduced simple P4), and spanning star forests. The elementary bijection does not import an already stated exact polynomial from the inspected works; the exponential generating function requires counting both orientations of all labeled star components, including isolated and one-edge cases.",
+      "searches": [
+        "rook graph Cartesian product complete graphs general position polynomial star forests line graph",
+        "P4-free bipartite spanning subgraphs rook graph general position enumerator",
+        "labelled bipartite star-forest exponential formula exp(u e^(v z)+v e^(u z)-u v z)",
+        "arXiv:1903.04286v2 Section 3",
+        "arXiv:1512.02161v1 Sections 1-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact matching coefficient table was identified by the above searches; the inspected 2024 polynomial paper lists C4 and path grid polynomials but not a table of rectangular rook polynomials.",
+        "The graph K_2 square K_2 equals C4, and its polynomial 1+4z+6z^2 is already covered as a special case."
+      ],
+      "reasoning": "The known C4 row is explicitly treated as prior coverage; it does not specify the two-parameter bivariate generating function. Search non-detection is an access and indexing limitation, not a novelty proof.",
+      "searches": [
+        "rook graph general position polynomial binomial Stirling numbers",
+        "general position polynomial rook 3,3",
+        "1+9x+36x^2+48x^3+9x^4",
+        "star forest polynomial of complete bipartite graph",
+        "general position number K_m box K_n rook graph"
+      ]
+    },
+    "rationale": "The full two-parameter general-position polynomial and count of all maximizing sets are distinct from the established scalar value in Ghorbani et al. 2019, the path-grid polynomial computations of Irsic et al. 2024, the ascending star-forest decomposition existence theorem of Aroca--Llado 2015, and Stones 2014, which enumerates all forests without singling out star forests. Complete primary texts were compared on matching objects/quantifiers. Targeted current research-index searches supplied no closer theorem; this is not a claim of guaranteed uniqueness.",
+    "residual_risks": [
+      "A prior exact enumeration of two-colored labeled star forests might exist under species, forbidden-path, or bipartite graph-class terminology and imply the same exponential generating function.",
+      "Historical databases and informal tables cannot be exhaustively searched, and a failed textual search is not proof of uniqueness.",
+      "The scalar maximum-cardinality bound and the C4 special case are known and explicitly excluded from novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different problem: existence of a sequence of ascending disjoint star forests for bipartite host graphs, not cardinality enumeration of all spanning star forests.",
+        "evidence": [
+          "Theorem 1 imposes a condition on one bipartition degree sequence and concludes existence of a star-forest ascending subgraph decomposition."
+        ],
+        "identifier_or_url": "arXiv:1512.02161v1; https://arxiv.org/html/1512.02161v1",
+        "material_read": "Abstract; introduction; Theorem 1; ascending star-forest definitions, matrices, and edge-coloring construction in Section 2; section-by-section structure.",
+        "method": "Read lawful full-text HTML and compare mathematical objects and quantifiers",
+        "title": "On star-forest ascending subgraph decomposition",
+        "trigger": "Archival star-forest research and possible decomposition covering theorem"
+      },
+      {
+        "assessment": "Explicitly covers the degree formula \\(\\operatorname{gp}(K_m\\square K_n)=m+n-2\\). Does not count all general-position subsets or classify all maximizers.",
+        "evidence": [
+          "Theorem 3.2 concludes gp(K_{n1} square K_{n2}) = n1+n2-2, a statement solely about maximum size."
+        ],
+        "identifier_or_url": "arXiv:1903.04286v2; https://arxiv.org/html/1903.04286v2",
+        "material_read": "Introduction and prior structural theorem; complete Section 3 theorem statements and relevant proofs for the Cartesian product.",
+        "method": "Read lawful full-text HTML and check exact theorem hypotheses/conclusions",
+        "title": "The general position problem on Kneser graphs and on some graph operations",
+        "trigger": "Known scalar general-position result for Cartesian products of complete graphs"
+      },
+      {
+        "assessment": "Defines the invariant; obtains C4 and path-grid polynomials, but does not present rectangular rook-graph complete-graph Cartesian-product enumeration.",
+        "evidence": [
+          "Section 3 Theorem 3.5 gives a polynomial for P_r square P_s; Proposition 2.1 gives K_{m,n}, not L(K_{m,n})."
+        ],
+        "identifier_or_url": "arXiv:2401.05696v1; https://arxiv.org/html/2401.05696v1",
+        "material_read": "Introduction and graph-class overview; Proposition 2.1; Section 3 graph operations, Cartesian-product statements and Theorem 3.5.",
+        "method": "Read lawful full-text HTML, search Cartesian and named graph cases",
+        "title": "General Position Polynomials",
+        "trigger": "Direct general-position polynomial framework and potential broader Cartesian-product theorem"
+      },
+      {
+        "assessment": "Enumerates all spanning forests by edge number via tree-component partitions; does not isolate the star-only subclass needed to count rook-graph general-position sets.",
+        "evidence": [
+          "Theorem 1 weights every bipartite spanning tree component by a complete-bipartite tree count; its coefficients aggregate star components with nonstar trees."
+        ],
+        "identifier_or_url": "DOI:10.46298/dmtcs.1248; https://dmtcs.episciences.org/en/articles/1248/download",
+        "material_read": "14-page PDF text: abstract and introduction, decomposition method and Theorems 1-3, Section 5 algorithm/complexity, plus document-wide text searches; first-page image inspected.",
+        "method": "Read PDF page text and page image and inspect formulas for distinguished tree-component types",
+        "title": "Computing the number of h-edge spanning forests in complete bipartite graphs",
+        "trigger": "Potentially dominating enumeration of spanning subgraphs of K_{m,n}"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "947f31da-1d07-45b5-bb46-c7607b2a4990",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The entire cardinality distribution of general-position sets for a natural two-parameter graph class is the primary mathematical object, not a tiny numerical improvement. Its exact compact bivariate exponential generating function bridges metric geodesics and labelled bipartite star forests; the top coefficient counts every extremal set and exhibits a genuine thin/thick boundary. Earlier scalar formulas and all-forest totals do not answer these questions. The work does not assert a general downstream theorem or an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
