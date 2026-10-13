@@ -1,0 +1,92 @@
+{
+  "correctness": {
+    "rationale": "The even historical-norm subsequence is a first-order affine recurrence with fixed point \\((\\gamma A+B)/(1+\\gamma)\\), and the odd subsequence follows by one additional EMA step. The high subsequence stays strictly below \\(A\\), while the low subsequence increases strictly to a value above \\(B\\), giving a unique correction onset. The contrast law is a rational function with positive derivative and a finite sharp limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source provides an intuitive optimization explanation and a convergence analysis for its wrapped methods.",
+        "The source states that the corrected current norm is made at least as large as the historical norm when correction is active.",
+        "The paper's main comparison reports gamma equal to 0.95."
+      ],
+      "reasoning": "General convergence and qualitative low-gradient correction do not determine the exact periodic response, finite activation time, or the sharp host-independent contrast ceiling.",
+      "searches": [
+        "AdaNorm gradient norm correction convergence analysis",
+        "AdaNorm low atypical gradient historical norm",
+        "AdaNorm gamma 0.95"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2210.06364v1",
+      "DOI:10.1109/WACV56688.2023.00525"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's Equations 3 and 4 supply the exact wrapper recurrence used in the proof.",
+        "The source applies the corrected gradient to the first moment while leaving the raw gradient in the second moment.",
+        "The source's qualitative scenarios do not compute the wrapper's periodic steady state."
+      ],
+      "reasoning": "The final claim requires solving the two-step EMA recurrence, classifying when the conditional correction turns on, and optimizing the resulting contrast over all raw two-level ratios. These are not stated implications in the source.",
+      "searches": [
+        "arXiv:2210.06364v1 equation 3 corrected gradient",
+        "arXiv:2210.06364v1 equation 4 historical gradient norm",
+        "AdaNorm optimizer periodic gradient norms"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source defines the historical norm EMA and the conditional rescaling of the current gradient.",
+        "Source full-text searches for periodic, alternating, two-cycle, and oscillation formulations returned no covering statement.",
+        "No returned published-record result stated the exact two-level contrast law or cap."
+      ],
+      "reasoning": "Equivalent formulations include the steady two-cycle of the historical norm, the maximum asymptotic corrected contrast, and a lower floor on corrected small-gradient magnitude relative to the alternating large gradient. These are mathematically equivalent consequences of the derived closed form and were not located in the inspected literature.",
+      "searches": [
+        "AdaNorm optimizer alternating gradient norm two level periodic exact response",
+        "AdaNorm gradient norm correction periodic gradients EMA threshold",
+        "AdaNorm alternating gradient periodic norm correction",
+        "arXiv:2210.06364v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record hits involved unrelated adaptive-gradient persistence, minimax polynomials, quadratic stability, and normalization obstructions.",
+        "No returned record involved AdaNorm's gradient-norm EMA under a two-level alternating norm sequence."
+      ],
+      "reasoning": "The closest database results use different recurrences and do not imply the AdaNorm contrast law. Search absence is supporting evidence only and is combined with direct primary-source inspection.",
+      "searches": [
+        "AdaNorm optimizer alternating gradient norm two level periodic exact response",
+        "AdaNorm gradient norm correction periodic gradients EMA threshold",
+        "AdaNorm optimizer scale invariance gradient norm correction exact cycle"
+      ]
+    },
+    "rationale": "The defining paper states the norm-correction rule and qualitatively explains low-gradient boosting, but the inspected full text does not give a periodic two-level response, exact onset index, or universal contrast cap. Focused published-record and web searches did not identify an equivalent AdaNorm result. Closest own findings concern different gradient-modulation mechanisms such as diffGrad and adaptive moment methods.",
+    "residual_risks": [
+      "An equivalent short recurrence calculation may exist in unindexed implementation notes.",
+      "The result isolates the wrapper and does not predict every host optimizer's parameter-update amplitude.",
+      "The periodic input is a diagnostic for persistent batch-to-batch norm heterogeneity rather than a universal stochastic model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RULE_NOT_COVERING_EXACT_TWO_LEVEL_CONTRAST_CAP.",
+        "evidence": "The source defines the mechanism and qualitatively argues that low gradients are boosted, but no closed periodic response, correction-onset index, or universal contrast ceiling was found.",
+        "identifier_or_url": "arXiv:2210.06364v1",
+        "material_read": "Open full-text HTML covering the motivation, Equations 1--9, the generic AdaNorm construction, the fact that corrected gradients feed the first moment while raw gradients feed the second moment, the intuitive flat/steep/narrow-valley scenarios, and the experiment statement using gamma equal to 0.95.",
+        "method": "Full-text HTML inspection with targeted searches for periodic, alternating, two-cycle, and oscillation terminology.",
+        "title": "AdaNorm: Adaptive Gradient Norm Correction based Optimizer for CNNs",
+        "trigger": "Defining source for the historical norm EMA, conditional gradient rescaling, generic-wrapper claim, host-moment integration, and experimental gamma."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c06802a3-3da2-452e-b88c-ccd6f5d84807",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "AdaNorm's central purpose is to suppress atypically small gradient norms using training history. The theorem gives a sharp and host-independent quantitative meaning to that promise on the canonical two-level persistent pattern: it proves exactly when correction begins and shows that arbitrarily large raw contrast is compressed to a finite ceiling controlled only by gamma. At the paper's gamma equal to 0.95, an arbitrarily small alternating gradient is lifted to nearly half the large-gradient norm, a substantial design consequence.",
+    "status": "PASS"
+  }
+}
