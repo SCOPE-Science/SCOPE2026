@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Choose alpha=7/20. Zero-rich ternary strings are exponentially sparse because alpha exceeds the binomial zero frequency 1/3. For the rest, the inspected recurrence lemmas yield 2^(m-n)n asymptotic to 3^n, so only O(1) recurrence indices occur for each digit length. After fixing the index and the first (1-alpha)n digits, comparable suffixes would give a positive difference M<3^(alpha n+O(1)) but also M bounded below by a constant times (3/2)^n. The exact inequality 3^alpha<3/2 gives a contradiction. The published antichain bound then yields O(3^n/sqrt(n)) per digit length and O(x/sqrt(log x)) globally.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Klazar--Luca prove the x/sqrt(log x) bound in base 10 and state that small modifications cover every base b>=4.",
+        "Their closing remark says the two parameter conditions cannot be simultaneously satisfied for b=3 and that this case seems to require more substantial changes."
+      ],
+      "reasoning": "The broader published theorem stops exactly one base short of the present claim, so it does not imply the ternary case. The present large-deviation repair supplies the missing implication.",
+      "searches": [
+        "\"Counting Keith numbers\" base 3 extension",
+        "\"Keith numbers\" density zero base b",
+        "\"Keith numbers\" \"base 3\" \"density\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0608419v1",
+      "JIS:10:07.2.2",
+      "OEIS:A007629",
+      "OEIS:A320122"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full primary paper was inspected through the theorem, recurrence lemmas, proof of the density bound, and the final base-b remark.",
+        "The paper itself identifies base 3 as not covered by its proof because the crude zero-count and antichain inequalities have no common alpha."
+      ],
+      "reasoning": "The new proof is not a restatement of the published b>=4 theorem. It changes the zero-rich counting estimate so that alpha may lie between 1/3 and 1-log_3(2), a nonempty interval, after which the existing recurrence and antichain machinery applies.",
+      "searches": [
+        "Klazar Luca base 3 cannot satisfy alpha Keith numbers",
+        "Counting Keith numbers remark base 3",
+        "ternary repfigit density"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The indexed searches returned no Keith-number result asserting a base-3 density theorem.",
+        "General web searches returned the Klazar--Luca paper and general Keith-number pages, but no later proof of ternary density zero."
+      ],
+      "reasoning": "The queries cover the named ternary/base-3 formulation, the density-zero conclusion, and the specific antichain mechanism. No equivalent statement was located.",
+      "searches": [
+        "ternary Keith numbers density base 3",
+        "base 3 Keith numbers asymptotic density zero",
+        "Keith numbers base three antichain density",
+        "\"base 3 Keith numbers\" density Klazar Luca",
+        "\"ternary Keith numbers\" density"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A007629 tabulates decimal Keith numbers and cites the counting paper.",
+        "OEIS A320122 concerns integers that are not Keith numbers in any base, not the counting density of ternary Keith numbers."
+      ],
+      "reasoning": "Neither inspected sequence entry states or implies an asymptotic upper bound for the base-3 population.",
+      "searches": [
+        "OEIS A007629 Keith numbers",
+        "OEIS A320122 Keith numbers any base",
+        "Keith numbers base 3 OEIS"
+      ]
+    },
+    "rationale": "The foundational Keith-number counting paper explicitly leaves base 3 outside its density proof; the new argument closes precisely that stated gap by replacing its crude many-zero-string estimate with a binomial large-deviation estimate.",
+    "residual_risks": [
+      "A later unindexed or unpublished note may contain the same ternary extension.",
+      "No infinitude or lower-bound theorem for ternary Keith numbers is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIOR_FRAMEWORK_NOT_COVERING. It proves the density estimate in base 10 and extends the method to b>=4, but explicitly states that b=3 is not covered.",
+        "evidence": "The final remark lists the two alpha inequalities, says they are incompatible for b=3 under its crude estimate, and concludes that base 3 seems to require more substantial changes. The paper lists primary MSC 11B39 and secondary 11A63.",
+        "identifier_or_url": "arXiv:math/0608419v1; JIS 10 (2007), Article 07.2.2",
+        "material_read": "Abstract and introduction; Theorem 1.2; Lemma 2.1 and its recurrence estimates; Lemma 2.3 on product-poset antichains; the full proof of Theorem 1.2; the final base-b remark; MSC and publication metadata.",
+        "method": "Full-text PDF inspection, page-image inspection, and targeted exact-text searches.",
+        "title": "Counting Keith Numbers",
+        "trigger": "Foundational primary paper proving the Keith-number density bound and explicitly discussing the base-3 obstruction."
+      },
+      {
+        "assessment": "NOT_COVERING. The entry is decimal and does not state a ternary density theorem.",
+        "evidence": "The entry gives the decimal definition and sequence and cites Klazar--Luca.",
+        "identifier_or_url": "OEIS:A007629",
+        "material_read": "Definition, initial terms, comments, references, and links.",
+        "method": "Direct database-page inspection.",
+        "title": "OEIS A007629: Keith numbers, or Repfigit numbers",
+        "trigger": "Exact database for the standard Keith sequence and literature links."
+      },
+      {
+        "assessment": "NOT_COVERING. It classifies a different cross-base property and gives no asymptotic ternary count.",
+        "evidence": "Its predicate is failure to be Keith in every base b<=N, not membership density in fixed base 3.",
+        "identifier_or_url": "OEIS:A320122",
+        "material_read": "Definition, comments, examples, and links.",
+        "method": "Direct database-page inspection.",
+        "title": "OEIS A320122: Numbers that are not Keith numbers in any base",
+        "trigger": "Database entry explicitly involving Keith numbers across bases."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a7800d8b-ac30-4fac-b939-df1338d467a1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result closes a specific case explicitly left unresolved in the foundational counting paper, with the same quantitative density bound as the settled bases. The repair isolates the true zero-digit threshold by large deviations and is an analytic theorem, not a finite census.",
+    "status": "PASS"
+  }
+}
