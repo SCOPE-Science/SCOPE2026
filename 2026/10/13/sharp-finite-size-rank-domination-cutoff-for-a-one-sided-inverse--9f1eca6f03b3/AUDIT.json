@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For each m<=N the rank inequality is equivalent to vanishing on all inverse pairs because C=N works off the zero locus; direct-sum padding reduces to m=N. Rational canonical form proves the universal annihilator P_{q,N}, both inclusions via companion blocks of maximum feasible exponent. The two-sided inverse quotient is exactly k[t,t^-1], the P degrees grow unboundedly, and equal-rank XY-I/YX-I establishes the global equality class. Every degree-L free polynomial maps to Laurent support [-L,L], forcing 2L>=D; the symmetrically shifted P provides equality. The verifier reconstructs P and checks GF(2), GF(3) exhaustive small cases including 6839 full matrix pairs. General case uses proof, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shamovich–Volčič classify rank equality, not arbitrary rank domination or bounded-rank tests; their standing assumption is an algebraically closed characteristic-zero field.",
+        "Klep–Vinnikov–Volčič provide rational identity bounds and Nullstellensätze over infinite fields; the finite-field annihilator of all invertible N-matrices, including multiplicities, is not given.",
+        "Yan–Yang characterize homogeneous-generator membership and exhibit one explicit nonhomogeneous counterexample, without the finite-field class for every g."
+      ],
+      "reasoning": "None of the examined statements dominates a finite-field all-polynomial inverse-pair rank inequality, with exact sharp first false-positive word length for arbitrary q,N.",
+      "searches": [
+        "rank Nullstellensatz nonhomogeneous xy-1 yx-1 matrix rank equality",
+        "finite field one-sided inverse XY-I rank-domination truncated sizes preimage annihilator polynomial GL_n(Fq) sharp word degree ceiling half",
+        "polynomial identities of finite general linear group matrices annihilator polynomial least common multiple",
+        "arXiv:2505.07469v1 Theorem 3.4; arXiv:1504.08004v2 Theorems 3.8 and 4.6"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01804v1, §2–3; full HTML",
+      "arXiv:2505.07469v1, introduction and §3; full HTML",
+      "arXiv:1504.08004v2, §§2.1.4, 3.8, 4.6–4.10; full HTML",
+      "DOI:10.1112/blms.12819, abstract, introduction, §3; full HTML"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equal ranks of XY-I and YX-I prove that the two-sided inverse ideal is globally rank-dominated, but do not bound finite-size false positives.",
+        "The new proof adds the common annihilator of every GL_m(F_q), m<=N, its primary-power exponents, and the exact half-degree construction.",
+        "The published characteristic-zero rank-equivalence theorem concerns equality of ranks, not the complete finite-field all-g truncated ideal."
+      ],
+      "reasoning": "The new theorem is not an immediate special case of the cited results: its quantification is over all free polynomials and all finite fields, but only bounded matrix sizes; its sharp degree cutoff derives from polynomial identities that disappear over infinite fields. Explicit finite-size false positives show its genuinely different implication content.",
+      "searches": [
+        "arXiv:2610.01804v1 §3 Proposition 3.1",
+        "arXiv:2505.07469v1 Theorem 3.4",
+        "arXiv:1504.08004v2 Theorems 3.8 and 4.6",
+        "sharp finite matrix size rank domination cutoff one-sided inverse xy-1 finite fields polynomial identities general linear GL_n lcm irreducible degree half"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Yan–Yang relation is stated for all sizes over algebraically closed characteristic zero; it contains no finite-field cutoff.",
+        "Klep–Vinnikov–Volčič prove a different, rational-function identity bound; their explicit Theorem 3.8 uses generic evaluations rather than a finite-field universal vanishing polynomial.",
+        "Rational canonical form supplies the classical factor exponents but not, by itself, the full two-variable rank-domination filtration or sharp word length."
+      ],
+      "reasoning": "The closest reformulation is the vanishing ideal of GL_N(F_q) pulled back along x=t,y=t^{-1}. The present statement proves and exploits this exact reduction, then determines the minimum degree of every possible finite-size false positive. No inspected source asserts the combined equivalence and threshold.",
+      "searches": [
+        "bounded-size rank domination ideals free algebra xy-1 yx-1 finite field Laurent degree optimal false positives",
+        "single variable polynomial identity all invertible matrices finite field P product irreducibles floor(N/d)",
+        "finite matrices GL_n(Fq) annihilating polynomial least common multiple minimal polynomials formula",
+        "arXiv:2610.01804v1 §3; arXiv:1504.08004v2 §§2.1.4,3.8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches yielded no exact table of the inverse-relation rank-domination ideals or first false-positive degrees.",
+        "Draisma–Kahle–Wiersig consider sparse commutative polynomials on generic bounded-rank matrices, rather than this rank-domination condition or free-word-degree threshold.",
+        "The finite-field irreducible counts are standard and explicitly not asserted as new."
+      ],
+      "reasoning": "The exact q,N-dependent degree D_{q,N} and all-degree threshold are determined symbolically, not interpolated from known small tables. Existing matrix identities alone would require the extra two-variable rank-inequality reduction and sharp Laurent-lift argument.",
+      "searches": [
+        "GL_n(q) polynomial identity lcm minimal polynomials irreducible exponent floor(n/d) Laurent support width",
+        "minimum free polynomial degree fake rank Nullstellensatz bounded matrix evaluations inverse relation xy=1 over finite field",
+        "least common multiple characteristic polynomials of all n by n finite field matrices polynomial",
+        "No short polynomials vanish on bounded rank matrices"
+      ]
+    },
+    "rationale": "The motivating October 2026 paper proves homogeneous rank domination and shows a single nonhomogeneous inverse-pair counterexample over characteristic zero. Inspected subsequent rank-equivalence, earlier rationally-resolvable ideal results and a sparsity comparison do not supply the finite-field complete truncated ideal or sharp first false-positive degree. Actual semantic database searches yielded no stronger match. The known rational canonical form factors are acknowledged as classical. An unidentified equivalent older finite-general-linear-group polynomial-identity treatment remains a residual risk.",
+    "residual_risks": [
+      "A classical finite-field GL_n annihilating polynomial could have been previously combined with a one-sided inverse rank inequality under different terminology.",
+      "This theorem concerns a specific generator and does not imply a general finite-field Nullstellensatz."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the finite-field all-g bounded-size classification or sharp word degree.",
+        "evidence": [
+          "§3 Proposition 3.1 treats XY-I,YX-I rank equality over algebraically closed characteristic-zero ground field; no finite-field P_{q,N} or threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.01804v1",
+        "material_read": "Full accessible 175-line HTML, including §2, §3 Proposition 3.1 and references.",
+        "method": "Inspected full HTML and compared exact hypotheses, rank quantifiers and counterexample.",
+        "title": "On a Rank Nullstellensatz Conjecture for Noncommutative Polynomials",
+        "trigger": "Exact one-sided inverse rank counterexample and strongest motivating source."
+      },
+      {
+        "assessment": "NOT_COVERING the one-sided bounded-rank-inequality filtration over finite fields.",
+        "evidence": [
+          "§1 assumes algebraically closed characteristic zero; Theorem 3.4 equates pointwise rank equality and stable association."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.07469v1",
+        "material_read": "Full accessible text in introduction, §3 rank equivalence, Theorem 3.4, and adjacent discussion.",
+        "method": "Compared definition of rank-equivalence, standing field hypotheses and theorem implications.",
+        "title": "Global structure behind pointwise equivalences of noncommutative polynomials",
+        "trigger": "Potentially stronger rank-equivalence theorem for all matrices."
+      },
+      {
+        "assessment": "NOT_COVERING the exact finite-field inverse-pair annihilator or half-degree threshold.",
+        "evidence": [
+          "Theorem 3.8 establishes size bounds for rational identities in generic evaluations, not a finite-field GL_N annihilator polynomial."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1504.08004v2",
+        "material_read": "Full accessible HTML sections §2.1.4 (zero sets), §3.8 rational identity size bounds and §4.6–4.10.",
+        "method": "Examined actual result statements, coefficient-field regime and distinction between rational identities and finite-field pointwise vanishing.",
+        "title": "Null- and Positivstellensätze for rationally resolvable ideals",
+        "trigger": "Potential strong nullstellensatz and quantitative finite-dimensional detection."
+      },
+      {
+        "assessment": "NOT_COVERING the all-g inverse-pair rank inequality or minimal free-word degree.",
+        "evidence": [
+          "Its Theorem 3.1 minimizes number of terms vanishing on generic fixed-rank matrix varieties, not free word length or GL_N invertible matrix identities."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/blms.12819",
+        "material_read": "Open-access full HTML abstract, introduction, §3 Theorem 3.1 and Corollary 3.3.",
+        "method": "Compared vanishing space, measure minimized and field assumptions.",
+        "title": "No short polynomials vanish on bounded rank matrices",
+        "trigger": "Title might suggest a stronger finite degree/size obstruction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9f1eca6f-03b3-4c5d-8f34-03182a9367da",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Finite matrix tests for nonhomogeneous rank inequalities are susceptible to false positives. The result supplies the complete finite-size rank-domination ideal for a canonical obstruction, the optimal degree at which finite testing first fails, and a universal necessary-and-sufficient degree/size verification boundary for all candidate free polynomials. It is an infinite, naturally motivated q,N classification, not a small isolated computation or a routine check; the binary degree-two witness exhibits the first genuinely nontrivial barrier.",
+    "status": "PASS"
+  }
+}
