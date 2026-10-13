@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Each F-LLoM component has the exact Lomax survival \\(S_m(y|x)=(1+y/\\kappa_m(x))^{-\\lambda_m}\\). Its survival and density have explicit power equivalents with constants \\(\\kappa_m^{\\lambda_m}\\) and \\(\\lambda_m\\kappa_m^{\\lambda_m}\\). A finite positive-weight sum is therefore dominated exactly by the minimum shape. Bayes division by the mixture survival proves survivor-tier localization, and the unique-minimum rate follows by comparing the Lomax \\(O(y^{-1})\\) correction with the smallest exponent gap. The checker independently evaluates exact finite formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A 2021 two-component Lomax-mixture article is centered on Bayesian estimation under censoring and prior choice, not on tail-posterior localization.",
+        "Generic finite-mixture Bayes formulas give component responsibilities but do not by themselves determine which tiers survive an extreme-threshold limit.",
+        "The F-LLoM model has covariate-dependent weights and scales, so the limiting tie weights require its specific Lomax tail constants."
+      ],
+      "reasoning": "General mixture theory supplies the ratio identity, while regular variation supplies dominance. The accepted model-specific content is the exact F-LLoM constant, tie law, unique-tier localization rate, and terminal-hazard cancellation.",
+      "searches": [
+        "Lomax mixture hazard asymptotic lambda min over t",
+        "finite Pareto mixture conditional component membership given exceedance",
+        "Frailty logistic weighted Lomax mixture extreme posterior tail"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026261",
+      "doi:10.2991/jsta.d.210616.002"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source explicitly says the minimum shape governs the power exponent and that covariates alter extreme-event risk through weights and scales.",
+        "Its EM section uses latent tier indicators and standard responsibilities, but does not take the extreme-survival limit of those responsibilities.",
+        "The earlier Lomax-mixture estimation article does not provide an implication covering the F-LLoM covariate-dependent tie weights or terminal hazard."
+      ],
+      "reasoning": "The source qualitative tail statement is a necessary ingredient but does not imply the exact posterior limit unless the component constants are retained. The new theorem makes the latent-tier interpretation asymptotically sharp and distinguishes unique from tied heaviest-tail tiers.",
+      "searches": [
+        "F-LLoM Section 3.3 tail behaviour smallest lambda",
+        "F-LLoM softmax latent tier survival posterior",
+        "two-component Lomax mixture posterior risk tail"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The F-LLoM source states \\(S_Y(y|x)\\propto y^{-\\lambda_{min}}\\) and that the constant depends on heaviest-tail weights and scales, but does not display the constant or latent-tier posterior limit.",
+        "Searches for extreme-survivor posterior concentration and minimum-shape localization returned no F-LLoM-specific theorem.",
+        "The closest returned probability results concern unrelated hazard-identification or endpoint-localization models."
+      ],
+      "reasoning": "The claim was searched as survival-tail equivalence, terminal-hazard equivalence, and posterior component localization under exceedance. No statement equivalent to all three consequences for F-LLoM was located.",
+      "searches": [
+        "finite mixture Lomax extreme survivor posterior latent class tail dominance hazard asymptotic",
+        "F-LLoM heaviest tail posterior tier given survival extreme",
+        "Lomax mixture hazard asymptotic lambda min over t"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full primary PDF was inspected through its component survival formulas, mixture definition, moment section, tail section, and latent-tier EM formulation.",
+        "The source tail section gives only proportional powers and a qualitative description of the constant.",
+        "No correction or companion source stating the accepted posterior-localization result was found."
+      ],
+      "reasoning": "The result is not a table lookup; it is a direct theorem obtained by retaining the exact constants in the source formulas and applying them to the latent-tier posterior.",
+      "searches": [
+        "10.3934/math.2026261 tail posterior tier",
+        "10.3934/math.2026261 hazard asymptotic",
+        "F-LLoM extreme survivors"
+      ]
+    },
+    "rationale": "The primary article gives only proportional tail order and says that its constant depends on weights and scales. It does not state the exact leading constant, the universal terminal hazard \\(\\lambda_*/y\\), or posterior concentration of latent tiers conditional on extreme survival. Five focused semantic searches and the closest earlier two-component Lomax-mixture article did not reveal a covering model-specific statement.",
+    "residual_risks": [
+      "A general theorem for finite mixtures of regularly varying distributions may imply the posterior localization abstractly, although no F-LLoM-specific statement was located.",
+      "A later unindexed note could state the exact same tail constant or survivor-tier limit.",
+      "The result is conditional on fixed covariates and does not cover covariates diverging with the threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY COVERING. It identifies the minimum-shape exponent but does not state the exact tail constant, terminal hazard equivalent, or extreme-survivor posterior localization.",
+        "evidence": "Component survival/density formulas, mixture definition, Section 3.3, and the softmax latent-tier specification.",
+        "identifier_or_url": "doi:10.3934/math.2026261",
+        "material_read": "Full open-access PDF: hierarchical model, component survival/density, mixture formulas, moments, Section 3.3 tail behavior, and latent-tier EM formulation.",
+        "method": "Direct full-text and rendered-page inspection.",
+        "title": "Frailty-Augmented Logistic-Weighted Lomax Mixture regression for survival analysis",
+        "trigger": "Primary 2026 source defining F-LLoM and its qualitative tail behavior."
+      },
+      {
+        "assessment": "NOT_COVERING. The article addresses Bayesian estimation and censoring, not posterior latent-component concentration conditional on extreme survival.",
+        "evidence": "Article scope and full-text structure center on prior elicitation, Bayes estimation, and posterior risk.",
+        "identifier_or_url": "doi:10.2991/jsta.d.210616.002",
+        "material_read": "Open full HTML and article metadata, including the model focus, censored sampling, Bayes estimators, posterior risks, and prior selection.",
+        "method": "Direct full-text HTML inspection and targeted term checks.",
+        "title": "Preference of Prior for Two-Component Mixture of Lomax Distribution",
+        "trigger": "Earlier finite Lomax-mixture literature potentially capable of covering component-tail comparisons."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6f5f4825-da46-425f-a38d-482c8acf8133",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Latent risk tiers and extreme-event interpretation are explicit motivations of F-LLoM. The finding shows that the tier interpretation becomes asymptotically decisive: a unique heaviest-tail tier captures essentially all sufficiently extreme survivors, while ties have explicit limiting posterior weights. The simultaneous hazard cancellation shows which part of covariate heterogeneity survives at first order and which does not. This is a structural consequence for model interpretation, not a routine numerical refinement.",
+    "status": "PASS"
+  }
+}
