@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The arbitrary-n proof uses an exhaustive classification of permutations at inversion length two, pairwise-intersecting two-element sets, and strict equality in both parity slices. A separate contradiction eliminates center distance 3 or greater. Neighborhood-center uniqueness identifies one anticode with exactly one permutohedron edge; elementary orbit counting finishes. The finite checker reconstructs every n=5 and n=6 Kendall distance with independent inversion and shortest-path algorithms, exhaustively enumerates maximal anticodes and double balls, verifies the group orbits, and checks local inversion patterns through n=7. Finite data are not used to justify the universal bound.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Buzaglo–Etzion 2014, Theorem 7 (complete conference paper) states an optimal diameter-three double-ball construction.",
+        "Buzaglo–Etzion 2015, Theorem 8 (full arXiv treatment) proves the upper bound 2(n−1) by separating even and odd inversion parity, but stops at the cardinality inequality.",
+        "The 2015 text also proves a different uniqueness claim for diameter-two anticodes; that claim does not by itself classify equality in the parity-restricted diameter-three problem."
+      ],
+      "reasoning": "The closest papers dominate the size-only part, which is credited as known. Their proofs do not force each parity slice to be the full open neighborhood of a unique center, so they do not logically imply the classified full equality layer.",
+      "searches": [
+        "Bounds on the Size of Permutation Codes with the Kendall tau Metric Theorem 8 optimal anticodes",
+        "Perfect Permutation Codes with the Kendall tau Metric Theorem 7",
+        "Kendall tau optimal diameter 3 anticodes enumeration equality classification"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1310.5515 (full 2014 conference text and submission history)",
+      "arXiv:1408.4963 (full arXiv text)",
+      "DOI:10.1109/TIT.2015.2424701",
+      "DOI:10.1016/j.jcta.2024.106002 (abstract; metric exclusion)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A 2(n−1) upper bound plus one matching double ball establishes cardinality and existence but not equality rigidity.",
+        "Diameter-two optimality of radius-one balls at size n does not classify parity-homogeneous anticodes of size n−1; a separate inversion-edge star argument is needed.",
+        "The uniqueness of a center edge and the resulting labeled count are proved after rigidity rather than assumed from the known double-ball construction."
+      ],
+      "reasoning": "The new claim is strictly stronger than optimum existence: it rules out all other shapes and supplies the exact count and orbit types. No inspected prior theorem or reduction implies these additional facts.",
+      "searches": [
+        "Bounds on the Size of Permutation Codes Kendall tau arXiv 1408.4963 Theorem 8 proof parity",
+        "Perfect Permutation Codes Kendall tau arXiv 1310.5515 Theorem 6 Theorem 7",
+        "permutation Kendall rank distance 3 anticode equality classification double balls label orbit n factorial edges"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The standard metric counts adjacent-position swaps, equivalently discordant unordered label pairs (Buzaglo–Etzion, 2014, Section II).",
+        "The earlier double-ball construction is exactly N(a) union N(b) for adjacent centers; this equivalence is explicitly demonstrated in the proof."
+      ],
+      "reasoning": "Both the closed-ball union and the two opposite-parity open-neighborhood formulations are treated as one object. No novelty is assigned to terminology or to the pre-existing extremal size.",
+      "searches": [
+        "Kendall tau anticode diameter 3 all maximum 2(n-1) double ball uniqueness",
+        "All optimal Kendall tau anticodes diameter three symmetric group are double balls radius one uniqueness equality classification number n!(n-1)/2",
+        "arXiv:1310.5515v5 Theorem 7",
+        "arXiv:1408.4963 Section IV Theorem 8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2015 full-length paper contains short-parameter tables of maximum anticode sizes and code upper bounds, not tables of 240 and 1800 labeled extremizers or a general count n!(n−1)/2.",
+        "Independent full finite enumerations at n=5 and n=6 yielded 240 and 1800 maximum anticodes, respectively."
+      ],
+      "reasoning": "Numeric maximum-size tables do not specify the combinatorial number or orbit structure of all optimal anticodes. No inspected exact table supplies the new enumeration.",
+      "searches": [
+        "Kendall diameter 3 anticode n=5 240 n=6 1800 maximum double balls",
+        "Kendall tau diameter 3 anticode extremal unique double ball all optimal anticodes",
+        "diameter three permutation anticode 2(n-1) classification counting"
+      ]
+    },
+    "rationale": "The 2014 source Theorem 7 and 2015 full-length source Theorem 8 establish the sharp 2(n-1) maximum and exhibit adjacent-center double balls. They do not classify all equality cases, prove uniqueness of centers, count n!(n-1)/2 labeled maxima or derive the n-dependent orbit partition. The new parity-class equality lemma supplies the missing strict implication. Searches for diameter-three anticode equality, double-ball uniqueness, Kendall anticodes and their code-anticode aliases found no stronger covering statement. Originality is qualified by the residual risk of an unindexed equivalent proof.",
+    "residual_risks": [
+      "The all-extremizer classification could occur in an obscure or unindexed later work absent from the targeted searches.",
+      "The small length n=4 lies outside the theorem and admits exceptional parity-slice behavior.",
+      "The orbit result is for the specified explicit isometry subgroup; no classification under hypothetical extra isometries is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_OPTIMUM_AND_CONSTRUCTION_NOT_ALL_EQUALITY",
+        "evidence": "Theorem 7 constructs an optimal double ball of size 2(n−1); it does not state every optimum is a double ball or count the equality layer. Theorem 6 concerns diameter two.",
+        "identifier_or_url": "arXiv:1310.5515; https://cmrr-star.ucsd.edu/static/saritsite/conferencePapers/perfectPermutationsISIT14.pdf",
+        "material_read": "Full five-page public conference PDF, especially Section II metric definitions and Section V Theorems 6–7, plus arXiv submission history documenting 2013-10-21.",
+        "method": "Lawful open PDF full-text reading and page-image inspection.",
+        "title": "Perfect Permutation Codes with the Kendall’s τ-Metric",
+        "trigger": "Original construction and possible equality classification for optimal diameter-three Kendall anticodes."
+      },
+      {
+        "assessment": "SHARP_BOUND_NOT_EQUALITY_RIGIDITY",
+        "evidence": "Theorem 8 splits the anticode into parity classes, obtains |A_even|,|A_odd|≤n−1 and proves the maximum 2(n−1), without determining all equality shapes or center uniqueness.",
+        "identifier_or_url": "arXiv:1408.4963; DOI:10.1109/TIT.2015.2424701",
+        "material_read": "Full lawful 18-page arXiv PDF, especially Section IV Theorems 7–8 and their proofs, the anticode table, and appendices.",
+        "method": "Open full-text inspection of mathematical statements, proof steps and table coverage.",
+        "title": "Bounds on the Size of Permutation Codes With the Kendall τ-Metric",
+        "trigger": "Full-length same-authors continuation containing the nearest exact diameter-three upper-bound proof."
+      },
+      {
+        "assessment": "DIFFERENT_METRIC_ULAM_NOT_KENDALL",
+        "evidence": "The title and abstract explicitly define the Ulam deletion distance, not the Kendall adjacent-swap distance.",
+        "identifier_or_url": "DOI:10.1016/j.jcta.2024.106002",
+        "material_read": "Public abstract and bibliographic metadata, not full text.",
+        "method": "Abstract-level metric comparison.",
+        "title": "Diametric problem for permutations with the Ulam metric (optimal anticodes)",
+        "trigger": "Similar terminology and anticode problem; potential metric alias confusion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "adb2f2b3-9dbb-435a-8ebb-b22027a0c940",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural infinite-family equality classification at the canonical first odd anticode diameter in Kendall rank-modulation coding. Unlike the known bound and one sharp construction, rigidity identifies every extremal configuration with a unique permutohedron edge, computes its exact labeled count for all n, and distinguishes all positional symmetry types including the central even-n exceptional stabilizer. These are structurally motivated properties relevant to diameter-perfect/code-anticode methods, not a routine restatement of the optimum size.",
+    "status": "PASS"
+  }
+}
