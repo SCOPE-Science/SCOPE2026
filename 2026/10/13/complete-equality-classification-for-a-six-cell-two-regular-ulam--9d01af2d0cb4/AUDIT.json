@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The ambient domain has exactly 90 codewords and is exhaustively regenerated. For every ambient pair, the defining minimum over 8-by-8 representative permutations is computed with both LCS dynamic programming and an independent relative-permutation LIS implementation; the full distance matrices agree. Exact Bron--Kerbosch search gives maximum size five and 72 maxima, a separate fixed-size search proves existence of a five-clique and nonexistence of a six-clique, and a nested census independently reproduces all 72 maxima. Every structural and orbit assertion is then checked against that complete census.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1312.2163v1 Section III-B gives general bounds on A_circ(n,r,d); its equation (12) specializes to the non-sharp upper bound S(4,3,2)=54.",
+        "arXiv:1312.2163v1 Section IV gives constructions; its n=6,r=2 displayed interleaving example has distance 2, and the one-error almost-disjoint construction requires 2t<r.",
+        "arXiv:1701.03896v1 states that it analyzes multipermutation Ulam sphere sizes and resulting code-size bounds."
+      ],
+      "reasoning": "The broad sources address the same research program but do not imply the exact five-word optimum, the number of equality cases, or their one-factorization and orbit structure.",
+      "searches": [
+        "Multipermutation Codes in the Ulam Metric for Nonvolatile Memories bounds constructions",
+        "Multipermutation Ulam Sphere Analysis Toward Characterizing Maximal Code Size",
+        "multipermutation Ulam code exact small parameters"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1312.2163v1",
+      "DOI:10.1109/JSAC.2014.140512",
+      "arXiv:1701.03896v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2013 upper bound at the target parameters is 54, so it does not force the exact value 5.",
+        "The 2013 small n=6,r=2 construction displayed in the inspected construction section is for distance 2 rather than 3.",
+        "The 2017 paper's stated contribution is sphere-size analysis and bounds, not a census of all target equality cases."
+      ],
+      "reasoning": "A general upper bound, a construction at a different distance, and sphere-size bounds do not imply either the exact optimum or the complete equality classification. The new statement requires the exhaustive finite argument supplied in the package.",
+      "searches": [
+        "multipermutation Ulam code n=6 r=2 d=3 maximum size 5",
+        "MPC Ulam 6 2 3 exact maximum 5",
+        "multipermutation 001122 Ulam distance 3 classification",
+        "ordered set partitions six points three pairs Ulam code five"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1312.2163v1 defines the 2013 regular Ulam distance as the minimum ordinary Ulam distance over the two representative equivalence classes.",
+        "The same source represents a multipermutation equivalently as an ordered set partition of the labeled cells.",
+        "The supplied verifier recomputes the defining representative-class distance directly rather than substituting a different repeated-symbol LCS convention."
+      ],
+      "reasoning": "The claim was compared under the source's permutation-class, multipermutation, and ordered-set-partition descriptions. This avoids conflating the 2013 convention with the later alternative correspondence convention.",
+      "searches": [
+        "multipermutation Ulam code n=6 r=2 d=3 maximum size 5",
+        "multipermutation 001122 Ulam distance 3 classification",
+        "ordered set partition Ulam code six cells three pairs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact small-parameter table containing the (6,2,3) value was located in the inspected primary source or directly related sphere-analysis source.",
+        "The available primary finite formulas provide bounds rather than an equality table for this cell."
+      ],
+      "reasoning": "Absence from a search is not treated as a novelty proof. This check is supplementary to the statement-level full-text comparison with the two most directly relevant papers.",
+      "searches": [
+        "A_circ(6,2,3) multipermutation Ulam",
+        "MPC Ulam 6 2 3 exact table",
+        "multipermutation Ulam length 6 multiplicity 2 distance 3"
+      ]
+    },
+    "rationale": "The 2013 primary source defines exactly the model used here and develops broad upper bounds and constructions, but its inspected exact examples do not settle the parameter (6,2,3); its general bound gives only 54 here. The directly related 2017 sphere-analysis paper develops sphere sizes and bounds rather than this finite equality classification. Exact-parameter and alias searches located no source stating the value five together with the 72-code census or the one-factorization classification.",
+    "residual_risks": [
+      "An obscure or unindexed historical finite computation could contain the same 90-point equality census.",
+      "The literature comparison establishes noncoverage in the inspected primary and directly related texts, not absolute bibliographic uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_OBJECT_NOT_COVERING_TARGET_EQUALITY",
+        "evidence": "The source defines the representative-class distance and A_circ(n,r,d), gives broad bounds and constructions, but the inspected target-near examples do not state A_circ(6,2,3), a complete optimizer count, or the one-factorization classification.",
+        "identifier_or_url": "arXiv:1312.2163v1",
+        "material_read": "Full HTML text, especially Sections II-A, II-C, III-B, and IV including the small n=6,r=2 examples.",
+        "method": "Direct full-text inspection and parameter specialization of the printed bounds.",
+        "title": "Multipermutation Codes in the Ulam Metric for Nonvolatile Memories",
+        "trigger": "Primary source defining the exact multipermutation Ulam model and extremal parameter."
+      },
+      {
+        "assessment": "RELATED_BOUNDS_NOT_COVERING_TARGET_CENSUS",
+        "evidence": "The paper studies sphere sizes and resulting bounds and gives n=6,r=2 only as a metric-definition example in the inspected text; no target exact optimum or equality census was located. Its correspondence convention is explicitly different from the 2013 source.",
+        "identifier_or_url": "arXiv:1701.03896v1",
+        "material_read": "Full HTML text, including the metric preliminaries and the min/max sphere and code-size-bound sections.",
+        "method": "Direct full-text inspection with exact-parameter searches for n=6 and r=2.",
+        "title": "Multipermutation Ulam Sphere Analysis Toward Characterizing Maximal Code Size",
+        "trigger": "Most directly related later work on multipermutation Ulam sphere sizes and code-size bounds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9d01af2d-0cb4-4135-aa4c-35eea576626e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The target is the smallest natural three-rank regular multipermutation cell with two cells per rank at the single-translocation-correction distance threshold. The result closes both the exact cardinality and the full equality layer. The one-factorization structure connects every optimum to a canonical design on six labeled cells, and the single S6 orbit gives a reusable symmetry benchmark rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
