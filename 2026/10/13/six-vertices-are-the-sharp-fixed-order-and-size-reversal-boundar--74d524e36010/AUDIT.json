@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For every connected graph isomorphism class through \\\\(n=5\\\\), the verifier computes the adjacency characteristic polynomial and the Ihara--Bass auxiliary polynomial exactly, isolates dominant roots by rational Sturm sequences, groups by common \\\\((n,m)\\\\), and finds no strict reversal. The explicit \\\\(n=6,m=7\\\\) edge sets replay with certified disjoint root intervals in opposite directions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang et al. connect epidemic-threshold approximations to the largest adjacency eigenvalue.",
+        "Karrer, Newman, and Zdeborová derive a nonbacktracking message-passing threshold and explicitly compare nonbacktracking and adjacency bounds.",
+        "Lin and Zhou prove bounds involving both radii and discuss that their extremal behavior need not coincide.",
+        "Hamilton and Pryadko show that a Hashimoto-based percolation bound can be tighter than the adjacency-based bound."
+      ],
+      "reasoning": "These sources establish significance and non-equivalence of the two spectral constructions, but inequalities between their values on one graph do not determine how they rank two different graphs with the same order and edge count, nor a minimal order for reversal.",
+      "searches": [
+        "Epidemic Spreading in Real Networks eigenvalue viewpoint largest adjacency eigenvalue threshold",
+        "Percolation on sparse networks non-backtracking matrix inverse leading eigenvalue threshold",
+        "On the non-backtracking spectral radius of graphs adjacency spectral radius relation",
+        "Tight lower bound percolation threshold Hashimoto adjacency spectral radius"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/RELDIS.2003.1238052",
+      "arxiv:1405.0483",
+      "doi:10.13001/ela.2022.6507",
+      "doi:10.1103/PhysRevLett.113.208701",
+      "MSC2020:92D30"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known inequalities compare \\(\\rho_A(G)\\) and \\(\\rho_B(G)\\) within a single graph or under auxiliary degree assumptions.",
+        "Karrer et al. show the nonbacktracking percolation bound is at least as strong as the adjacency bound on a given network, which does not impose the same cross-network ordering.",
+        "Lin and Zhou note that adjacency and nonbacktracking extremal behavior can differ, but do not provide the sharp six-vertex same-size reversal proved here."
+      ],
+      "reasoning": "Within-graph inequalities and differing extremizers make reversal plausible but do not imply universal nonreversal through five vertices or exhibit the first fixed-density witness. The new claim requires both the exhaustive lower bound and a same-\\((n,m)\\) witness.",
+      "searches": [
+        "non-backtracking spectral radius adjacency spectral radius inequality graph",
+        "percolation threshold adjacency nonbacktracking lower bound compare",
+        "graphs maximizing adjacency spectral radius nonbacktracking spectral radius different"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The nonbacktracking matrix is also called the Hashimoto matrix; searches covered both names.",
+        "Taking reciprocals reverses each spectral ordering, so a radius reversal is equivalently a reversal between inverse spectral threshold surrogates.",
+        "No checked source stated the six-vertex fixed-order-and-size boundary."
+      ],
+      "reasoning": "The claim can be expressed either as an ordering problem for two graph spectral radii or as an ordering problem for their reciprocal network-threshold surrogates. Both formulations and the Hashimoto alias were checked.",
+      "searches": [
+        "adjacency spectral radius non-backtracking spectral radius epidemic threshold ranking networks",
+        "quenched mean field threshold nonbacktracking matrix message passing epidemic network comparison",
+        "spectral radius adjacency Hashimoto nonbacktracking same edges graph ranking reversal",
+        "nonbacktracking spectral radius epidemic threshold network topology adjacency eigenvalue",
+        "SIS SIR epidemic thresholds adjacency nonbacktracking matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked search located the explicit six-vertex pair as a ranking reversal between the two radii.",
+        "The lower-order census is generated directly from simple graphs and imports no precomputed spectral table."
+      ],
+      "reasoning": "Exact-structure and fixed-edge searches test whether the witness or its minimality is already tabulated as a small-graph comparison.",
+      "searches": [
+        "adjacency spectral radius nonbacktracking spectral radius same number of edges",
+        "nonbacktracking spectral radius adjacency ranking reversal graph",
+        "two triangles sharing a vertex pendant leaf nonbacktracking spectral radius",
+        "K4 minus edge pendant path nonbacktracking spectral radius adjacency"
+      ]
+    },
+    "rationale": "The literature establishes both spectral threshold constructions and later graph-theoretic bounds between the two radii, but the checked sources do not state the exact smallest same-order same-size reversal. Searches included epidemic/percolation terminology, Hashimoto aliases, fixed-edge comparisons, ranking language, and the witness graph structures.",
+    "residual_risks": [
+      "An unindexed small-graph computation or software benchmark could contain the same witness without identifying the sharp boundary.",
+      "The epidemiological meanings of the two inverse radii arise from different approximation regimes, so the result should not be read as a contradiction between two exact thresholds for one universal epidemic process.",
+      "The theorem does not classify every six-vertex reversing pair or larger-order reversal."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the adjacency spectral interpretation under stated approximations; it does not compare adjacency and nonbacktracking spectral rankings.",
+        "evidence": "The paper states that the epidemic threshold under its approximations is closely related to the largest adjacency eigenvalue.",
+        "identifier_or_url": "doi:10.1109/RELDIS.2003.1238052",
+        "material_read": "Full conference-paper PDF, including the abstract, epidemic-threshold derivation, and the linearized matrix involving the adjacency matrix.",
+        "method": "Full-text PDF inspection with rendered-page checks.",
+        "title": "Epidemic Spreading in Real Networks: An Eigenvalue Viewpoint",
+        "trigger": "Foundational source for the adjacency-eigenvalue epidemic-threshold surrogate."
+      },
+      {
+        "assessment": "Directly establishes the nonbacktracking threshold interpretation and the within-network bound relation, but not cross-network ranking equivalence or the minimal reversal.",
+        "evidence": "For locally tree-like networks the percolation threshold is the reciprocal of the leading nonbacktracking eigenvalue; the paper also states that the nonbacktracking bound improves on or matches the adjacency bound.",
+        "identifier_or_url": "arxiv:1405.0483",
+        "material_read": "Open full text covering the message-passing equations, linearization, definition of the Hashimoto matrix, critical occupation probability, and comparison with adjacency-based bounds.",
+        "method": "Open full-text article inspection.",
+        "title": "Percolation on sparse networks",
+        "trigger": "Primary source deriving the nonbacktracking/message-passing threshold and comparing it with adjacency-based bounds."
+      },
+      {
+        "assessment": "Shows substantive but nontrivial relations between the two spectral radii and differing extremal behavior; it does not state the sharp fixed-order-and-size six-vertex reversal.",
+        "evidence": "The article derives explicit bounds between the two radii and observes that adjacency and nonbacktracking spectral radii do not have an immediate graph-by-graph extremal connection.",
+        "identifier_or_url": "doi:10.13001/ela.2022.6507",
+        "material_read": "Full article PDF, including the nonbacktracking definition, Ihara determinant relation, bounds involving adjacency spectral radius, extremal results, and concluding comparison of the two radii.",
+        "method": "Full-text PDF inspection with rendered-page checks.",
+        "title": "On the non-backtracking spectral radius of graphs",
+        "trigger": "Closest graph-theoretic source directly relating adjacency and nonbacktracking spectral radii."
+      },
+      {
+        "assessment": "The finding is framed as a comparison of two classical network spreading/percolation threshold surrogates.",
+        "evidence": "MSC2020 lists 92D30 as Epidemiology.",
+        "identifier_or_url": "MSC2020:92D30",
+        "material_read": "MSC2020 hierarchy entry for 92D30.",
+        "method": "Public classification-page inspection.",
+        "title": "MSC2020 database: 92D30 Epidemiology",
+        "trigger": "Primary subject classification for network epidemic-threshold comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "74d524e3-6010-474c-a45a-df901f78fc21",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Adjacency and nonbacktracking spectral radii are both standard network quantities used in spreading and percolation threshold analysis. Fixing both order and size removes simple density explanations. The exact first reversal therefore gives a natural diagnostic boundary for when two widely used spectral vulnerability surrogates can recommend opposite network rankings.",
+    "status": "PASS"
+  }
+}
