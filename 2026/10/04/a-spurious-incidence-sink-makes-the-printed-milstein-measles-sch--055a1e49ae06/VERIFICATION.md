@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled `verifier.py` reconstructs the deterministic drift terms from the stated six-compartment model and from the printed Milstein scheme. It checks symbolically that the inserted deterministic term is \(-\beta SI/N\) in the infected update, that the target total drift is \(\Lambda-\mu N-\phi_1I\), and that the printed Milstein total drift is smaller by exactly \(\beta SI/N\).
+# Independent mathematical audit
 
-It also checks the exact witness \(\beta=1/20\), \(S=I=1\), \(E=V_1=V_2=R=0\), for which \(N=2\) and the spurious drift equals \(-1/40\).
+## correctness
 
-Run with a standard Python interpreter with SymPy available. Expected terminal output is exactly `VERIFY_OK`.
+PASS
 
-The checker verifies algebraic consistency, not article implementation history. No source code for the published figures was available, so the claim does not assert which formula was executed by the authors.
+Re-read the actual primary source six-compartment SDE (2.2) and Section 6.1 Milstein formula. The published model has b_I=φE−(μ+γ+φ1)I whereas the printed Milstein drift is b_I−βSI/N; their difference is exactly −βSI/N, nonzero when β,S,I>0,N>0. Independently reconstructed all six drift terms and simplified their sums: stated model gives Λ−μN−φ1 I, printed update gives the same minus βSI/N, proving a spurious total-population sink. Setting all stochastic coefficients to zero exhibits a deterministic Euler O(Δt) inconsistency, not a stochastic Milstein correction; a rational witness β=1/20,S=I=1,N=2 gives −1/40. The source later prints a correct ANN Euler infected drift without the extra incidence sink. The claim concerns print, not unknown program code.
+
+## originality
+
+PASS
+
+This is a specific new diagnosis of contradictory equations inside the same 2026 primary article. The SDE, the erroneous Milstein line and the later correct Euler line are publicly present, but no explicit printed corrigendum or statement of their exact drift inconsistency was located. Identifying its O(Δt) character and population-balance effect is beyond restating the line.
+
+## value
+
+PASS
+
+This exposes a structural, first-order discretization defect in a published six-compartment stochastic epidemic model, not merely a cosmetic typographical issue. An artificial susceptible-to-exposed incidence loss in the infected equation violates the model population-balance identity, so the printed numerical scheme approximates a different drift even with arbitrarily small steps. The exact term and minimal correction matter for mathematical and numerical reproducibility of this named model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
