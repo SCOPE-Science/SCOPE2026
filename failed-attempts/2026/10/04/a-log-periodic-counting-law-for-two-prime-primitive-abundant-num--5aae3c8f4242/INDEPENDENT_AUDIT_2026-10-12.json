@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T09:00:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Odd two-prime-support numbers are deficient since product of maximal divisor-sum ratios <=(3/2)(5/4)=15/8<2. Write n=2^a p^b, B=2^(a+1), d=B-p>0. Strict abundance forces d p^b>B-1, while deficiency of n/p forces d p^(b-1)<B-1; if b>=2, (d-1)(p-1)<0, impossible. Thus b=1 and maximal-proper-divisor tests give 2^a<p<2^(a+1)-1, a>=2. Counting every completed dyadic block and partial current block yields P2(X)=pi(U)-2-M(U), U=min(X/2^m,2^(m+1)), X>=16, m=floor(log4 X). The number of Mersenne endpoints is O(log X), and uniform PNT for U/2^m in [1,2] gives phase 2min(r,2)/sqrt(r) with liminf2, limsup2sqrt2. Independently checked exact counts for X=16,20,88,1024,2000,10000,99999 with a separate small primality enumeration. The repository verifier to 500000 corroborates but is not the proof. Rendered RESULT.md has a form-feed/frac typographic glitch in one repeated display; the mathematical statement is also correctly displayed elsewhere.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Amato et al explicitly record that Dickson determined all even primitive abundant numbers with omega<=3.",
+          "The counting claim is for the omega=2 subclass, not a new structural classification; PNT supplies pi(U) asymptotics."
+        ],
+        "reasoning": "Dickson two-prime classification, together with elementary block truncation and the standard PNT, implies the entire prime-count identity and phase function with no new number-theoretic estimate. This is a direct known-classification corollary, even though a precise F(r) was not found literally printed.",
+        "searches": [
+          "Resultary semantic query attempted (temporarily_unavailable, search_completed=false): strict primitive abundant numbers omega 2 2^a p log periodic counting primes Mersenne excluded",
+          "Dickson Even Abundant Numbers 1913 via Amato et al primary full text; arXiv:1802.07178 sections 1-2"
+        ]
+      },
+      "checked_sources": [
+        "Amato–Hasler–Melfi–Parton arXiv:1802.07178 PDF pp. 1-3, discussion of Dickson even primitive-abundant classification with omega<=3 and PAN definition",
+        "Dickson, Even Abundant Numbers, Amer. J. Math. 35 (1913) 423-426, DOI:10.2307/2370406 (bibliographic/TOC access; original full primary text not read)",
+        "Pinned Git RESULT.md 845ab9f45ad914ade997c83aa4a3e0be30573a1c and verify.py cd79bdfc1c60702b6c253b1a8b20e18f33961da0",
+        "OEIS A071395, A133814, A306986 (known primitive-abundant sequences cited in package)",
+        "Classical prime number theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classified forms yield U=min(X/2^m,2^(m+1)) with m=floor(log4 X).",
+          "PNT gives pi(U)~U/log U and #Mersenne primes<=log2 U, producing F(r)=2min(r,2)/sqrt(r)."
+        ],
+        "reasoning": "The historical complete two-prime classification plus prime number theorem entail the advertised logarithmic oscillation through immediate change of variables. Under implication-based originality this is covered notwithstanding absence of the exact same slogan.",
+        "searches": [
+          "Resultary semantic query attempted (temporarily_unavailable, search_completed=false): strict primitive abundant numbers omega 2 2^a p log periodic counting primes Mersenne excluded",
+          "Amato et al arXiv:1802.07178 pp.1-3; classical PNT; Dickson DOI:10.2307/2370406"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical even primitive-abundant classification includes the two-prime-factor case.",
+          "The claimed P2(X) is the fixed-two-factor count over n=2^a p satisfying 2^a<p<2^(a+1)-1."
+        ],
+        "reasoning": "Reparameterizing p by a=floor(log2 p) already identifies the arithmetic series from the classical classified support; exclusion of Mersenne endpoints is directly embedded in the classification.",
+        "searches": [
+          "Resultary semantic query attempted (temporarily_unavailable, search_completed=false): strict primitive abundant numbers omega 2 2^a p log periodic counting primes Mersenne excluded",
+          "arXiv:1802.07178 Dickson classification all even PAN omega<=3; web exact two-prime PAN Mersenne phase searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS records primitive abundant values / least-by-power and counts across a different global family; no inspected table directly states F(r).",
+          "The only correction to the prime count is the explicitly excluded Mersenne endpoints."
+        ],
+        "reasoning": "No exact database entry was found for the phase function; however known classification+PNT already dominates the result, independent of table coverage.",
+        "searches": [
+          "Resultary semantic query attempted (temporarily_unavailable, search_completed=false): strict primitive abundant numbers omega 2 2^a p log periodic counting primes Mersenne excluded",
+          "OEIS A071395 A133814 A306986; elementary Mersenne-endpoint search"
+        ]
+      },
+      "rationale": "The phase claim is an immediate explicit counting/PNT consequence of the already established complete classification for even primitive-abundant numbers with exactly two prime factors; lack of verbatim asymptotic in surveyed tables is not sufficient for originality against this strong implication.",
+      "residual_risks": [
+        "Original Dickson 1913 PDF/XML was not available as readable full text; classification scope is independently attested by Amato et al.",
+        "An obscure independent asymptotic treatment could exist, but would strengthen (not weaken) coverage concern.",
+        "Resultary temporarily unavailable; no negative-search inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly attributes all even primitive abundant numbers with omega<=3 to Dickson, and defines strict PAN by absence of smaller non-deficient divisor; does not claim newly derived P2 phase formula.",
+          "evidence": "Introduction p.1 Dickson coverage; §2 primitive abundant structural conditions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1802.07178",
+          "material_read": "Read the whole paper text by section-level inspection with particular attention to pp.1-3 definitions, historical Dickson coverage and algorithmic classification motivation.",
+          "method": "Primary PDF full text and page image",
+          "title": "Primitive abundant and weird numbers with many prime factors",
+          "trigger": "Most relevant modern published treatment citing 1913 classification scope."
+        },
+        {
+          "assessment": "Exact historical theorem not reconstructed verbatim; second source firmly attests classification scope; strong implication remains subject to original-primary detail risk.",
+          "evidence": "JSTOR issue pp.423-426 and Amato et al intro.",
+          "identifier_or_url": "https://doi.org/10.2307/2370406",
+          "material_read": "Bibliographic and free-JSTOR issue pages, pages 423-426; JSTOR XML endpoint failed to return readable text, so original theorem text not fully inspected.",
+          "method": "JSTOR table of contents and modern full-text primary secondary account",
+          "title": "Even Abundant Numbers",
+          "trigger": "Original historical source claimed to classify the precise object."
+        },
+        {
+          "assessment": "Given classified prime interval, oscillation follows from PNT and ratio X/4^m.",
+          "evidence": "Known PNT and proof arithmetic.",
+          "identifier_or_url": "standard theorem",
+          "material_read": "Standard π(x)~x/log x used directly; no novel analytic estimate to inspect.",
+          "method": "Independent mathematical deduction",
+          "title": "Classical prime number theorem",
+          "trigger": "Asymptotic step converting prime count to F(r)."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Amato–Hasler–Melfi–Parton arXiv:1802.07178 PDF pp. 1-3, discussion of Dickson even primitive-abundant classification with omega<=3 and PAN definition",
+        "Dickson, Even Abundant Numbers, Amer. J. Math. 35 (1913) 423-426, DOI:10.2307/2370406 (bibliographic/TOC access; original full primary text not read)",
+        "Pinned Git RESULT.md 845ab9f45ad914ade997c83aa4a3e0be30573a1c and verify.py cd79bdfc1c60702b6c253b1a8b20e18f33961da0",
+        "OEIS A071395, A133814, A306986 (known primitive-abundant sequences cited in package)",
+        "Classical prime number theorem"
+      ],
+      "rationale": "The phase-dependent exact natural counting function and distinct liminf/limsup are useful arithmetic descriptors, with an exact Mersenne-prime exclusion and nonexistence of one constant asymptotic. They are mathematically motivated by primitive abundance with omega=2 rather than an arbitrary finite slice, though their immediate derivation from known classification and PNT prevents novelty-based acceptance.",
+      "residual_risks": [
+        "An exact count does not address omega>=3 primitive-abundant numbers; no general global asymptotic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Pinned assigned Git tree SHA and named RESULT.md/SLOGAN.txt/REVIEW.md/VERIFICATION.md/METADATA.json examined; no publication or GitHub write occurred.",
+    "All five Resultary searches were attempted, but search_completed=false / temporarily_unavailable for every query. This is an access limitation, NOT negative novelty evidence.",
+    "The pre-existing historical ledger gap and all previous bytes are preserved. The continuation is sequencing, not scientific certification.",
+    "All three decisions apply to this single exact final claim; mathematical source material was treated as evidence rather than instructions.",
+    "Osękowski 2026 full primary unavailable and full text of 1913 Dickson unread; only source-scoped best-of-knowledge claims are made."
+  ],
+  "schema_version": 1
+}
