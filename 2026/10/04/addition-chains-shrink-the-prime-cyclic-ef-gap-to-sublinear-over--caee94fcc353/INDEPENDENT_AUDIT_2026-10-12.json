@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T22:50:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every distinct primes p<q, the r selected positive entries preceding p in an addition chain are distinct nonidentity residues mod p; recursive atomic R(a_j,a_k,a_i) equalities force all q-side choices to be a_i*y. Closing the chain with R(a_j,a_k,e) forces p*y=0. Since q is prime distinct from p, y=0, contradicting the named identity relation on the first move. For p+1, either truncate at a preceding p or close with R(a_j,a_k,a_0), forcing (p+1)y=y. For p-1, select the endpoint (r+1 moves) and close (p-1)y+y=0. Yao’s singleton power-evaluation bound yields l(p)<=log2(p)+O(log p/loglog p), thus n+O(n/log n) where 2^n<p<2^(n+1). Explicit small-chain arithmetic and closure cases were independently reconstructed from actual verify.py, which tests only finite instances and is not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Walid Gomaa, Model Theory and Complexity Theory, dissertation (2007), UMD hdl:1903/7227 Chapter 3, Theorems 3.3-3.6, Section 3.9",
+          "Andrew C.-C. Yao, On the Evaluation of Powers (1976), DOI:10.1137/0205008"
+        ],
+        "reasoning": "Yao bounds arithmetic chains but not finite-model distinguishing formulas; Gomaa bounds EF depth but does not give the sublinear overhead; they are independent premises, not a published broader theorem covering the transfer.",
+        "searches": [
+          "Resultary semantic query: minimal addition chains existential quantifier rank Ehrenfeucht Fraisse games distinct cyclic prime groups Gomaa sublinear gap",
+          "Gomaa 2007 Chapter 3 Theorem 3.3 and upper bound 2n",
+          "Yao 1976 singleton power theorem"
+        ]
+      },
+      "checked_sources": [
+        "Walid Gomaa, Model Theory and Complexity Theory, dissertation (2007), UMD hdl:1903/7227 Chapter 3, Theorems 3.3-3.6, Section 3.9",
+        "Andrew C.-C. Yao, On the Evaluation of Powers (1976), DOI:10.1137/0205008",
+        "Alfred Brauer, On Addition Chains (1939), DOI:10.1090/S0002-9904-1939-07068-7",
+        "Resultary semantic query: minimal addition chains existential quantifier rank Ehrenfeucht Fraisse games distinct cyclic prime groups Gomaa sublinear gap"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gomaa n+1<=d<=2n and asks gap improvement.",
+          "Yao l(p)<=log2(p)+O(log(p)/loglog(p))."
+        ],
+        "reasoning": "Neither alone implies the new EF conclusion. Their combination requires the new explicit structural reduction from addition chains to atomic relations, reconstructed above; earlier signed-binary refinements are weaker.",
+        "searches": [
+          "Resultary semantic query: minimal addition chains existential quantifier rank Ehrenfeucht Fraisse games distinct cyclic prime groups Gomaa sublinear gap",
+          "Gomaa dissertation Chapter 3 Section 3.9",
+          "Yao 1976 Theorem power multiplication upper bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Walid Gomaa, Model Theory and Complexity Theory, dissertation (2007), UMD hdl:1903/7227 Chapter 3, Theorems 3.3-3.6, Section 3.9",
+          "Andrew C.-C. Yao, On the Evaluation of Powers (1976), DOI:10.1137/0205008",
+          "Gomaa binary binders encode constrained sums; addition-chain closure encodes a general integer straight-line program."
+        ],
+        "reasoning": "The uniform existential EF-rank bound in terms of shortest chain can be expressed as an existential atomic-diagram distinguishing formula. Checked prime cyclic language and closure arithmetic; no equivalent predecessor found outside the assessed item.",
+        "searches": [
+          "Resultary semantic query: minimal addition chains existential quantifier rank Ehrenfeucht Fraisse games distinct cyclic prime groups Gomaa sublinear gap",
+          "Gomaa dissertation Chapter 3 EF prime cyclic groups",
+          "Search: addition chain finite cyclic group quantifier rank",
+          "Search: powers evaluation Ehrenfeucht Fraisse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prime-specific exact-chain numerical tables do not imply the uniform formula for all prime pairs."
+        ],
+        "reasoning": "No exact finite database/table can certify the universal bound; individual p with Lambda(p)=n+1 become immediate exact ranks only after Gomaa lower bound and the transfer lemma.",
+        "searches": [
+          "Resultary semantic query: minimal addition chains existential quantifier rank Ehrenfeucht Fraisse games distinct cyclic prime groups Gomaa sublinear gap",
+          "Gomaa prime group finite sparse binary examples",
+          "Addition chain length exact tables"
+        ]
+      },
+      "rationale": "The mathematical contribution is a uniform EF-game realization of arbitrary addition chains, not addition-chain asymptotics alone; Gomaa establishes n+1 lower and 2n upper for prime cyclic groups and asks to improve the gap, while Yao supplies the arithmetic lemma without EF games. Current published-finding semantic retrieval returned this item and adjacent signed-binary models, not an earlier same theorem; priority for an unindexed model-theory thesis remains possible.",
+      "residual_risks": [
+        "Unindexed preprints or later expositions may contain an equivalent addition-chain/EF binder.",
+        "The result does not extend to composite target groups or bound the number of variables; finite checker does not prove all p."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NO_PRIOR_COVERAGE",
+          "evidence": "The bound and question are the launching premises; no minimal addition-chain transfer to arbitrary p in the inspected chapter.",
+          "identifier_or_url": "hdl:1903/7227",
+          "material_read": "Chapter 3 theorem/lemma prime EF constructions, n+1 lower and 2n upper, open gap discussion",
+          "method": "UMD dissertation full-text PDF, search and page reading",
+          "title": "Model Theory and Complexity Theory",
+          "trigger": "Exact primary source of prime-cyclic EF bounds"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Source addresses multiplication chains and gives singleton bound; no finite-model theory application.",
+          "identifier_or_url": "doi:10.1137/0205008",
+          "material_read": "Abstract and mathematical statement of power-evaluation construction, singleton case",
+          "method": "Public SIAM article description and lawful author-posted PDF text",
+          "title": "On the Evaluation of Powers",
+          "trigger": "Classical asymptotic addition-chain upper bound"
+        },
+        {
+          "assessment": "ASSESSED_RECORD",
+          "evidence": "Symbolic induction and finite tests separately identified.",
+          "identifier_or_url": "GitHub tree 8b982bc9fed8c4dd9829b68ca3baec3f09cf7b45",
+          "material_read": "Entire RESULT.md and actual verify.py; atomic closing relations and three cases",
+          "method": "Authorized GitHub read-only pinned Git blob",
+          "title": "Addition chains shrink the prime-cyclic EF gap to sublinear overhead",
+          "trigger": "Assigned final claim verification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Replacing a universal factor-two gap by sublinear additive overhead for a natural prime-cyclic quantifier-rank comparison advances a stated descriptive-complexity problem and yields exact ranks when Lambda(p)=n+1; this is not a parameter-renaming of Gomaa’s binary construction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Distinct cyclic groups of prime order p<q only; no bounded-variable estimate.",
+    "Yao asymptotic imported as a published theorem; finite script checks only small examples."
+  ],
+  "schema_version": 1
+}
