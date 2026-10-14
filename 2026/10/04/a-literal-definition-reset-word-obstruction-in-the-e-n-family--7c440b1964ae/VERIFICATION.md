@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`artifacts/verify.py` reconstructs the literal displayed transition table without relying on stored search logs. It checks the proposed reset word, its length, and its strict improvement over the stated Theorem 4 value for each tested state count. It also computes exact shortest reset lengths by breadth-first search over the complete power automaton for \(4\le n\le12\).
+# Independent mathematical audit
 
-The recorded output is in `artifacts/verification_output.txt` and ends with `VERIFY_OK symbolic_n_max=500 exhaustive_power_n_max=12`.
+## correctness
 
-The finite checks do not certify the universal quantifier. The proof in `RESULT.md` does: the image after each block \(a^2b^{n-2}\) is an initial interval with its upper endpoint reduced by two, until the final \(a^2\) collapses the remaining two or three states to state \(3\).
+PASS
 
-The verification does not claim an exact formula for the reset threshold of the literal cyclic-table automaton for arbitrary \(n\), and it does not test or certify the distinct Figure-6/intended automaton.
+For n>=5, under literal b(i)=i+1 modulo n and a(1)=2,a(2)=3,a(i)=i (i>=3), B=a²b^(n-2) sends [1,n] to [1,n-2], and [1,m] to [1,m-2] for m>=4. With r=floor((n-2)/2), B^r reaches [1,2] (even n) or [1,3] (odd n), and a² sends either to singleton {3}. Thus w=B^r a² synchronizes; length nr+2 differs from alleged n²−3n+2 by n(n−4)/2 for even n>=6 and n(n−3)/2 for odd n>=5, strictly positive. I independently replayed n=5,6,7,8,20 from the literal tables; verifier artifact enumerates full power automata only n<=12, not a universal certificate. Boundaries n=4 excluded from strict violation. The source Figure 6 does NOT define this literal table; no claim about intended E_n exact threshold.
+
+## originality
+
+PASS
+
+Best-of-knowledge new explicit infinite-family consistency obstruction confined to the printed cyclic-b formula, not the intended Figure-6 theorem; literal word and length absent in read primary passages.
+
+## value
+
+PASS
+
+Motivated source-correction for a named infinite synchronizing-automata family: provides a uniform explicit witness separating literal stated transition data from a headline theorem and guards reproducibility. Not a mere tiny numerical counterexample and correctly limits implication to the literal table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

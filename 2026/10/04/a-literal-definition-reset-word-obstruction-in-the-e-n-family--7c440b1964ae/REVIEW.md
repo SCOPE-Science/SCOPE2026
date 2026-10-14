@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is limited to the literal transition table. The interval-image proof explicitly reconstructs the action of \(a^2b^{n-2}\), handles parity, proves the universal reset word, and compares its length with \(n^2-3n+2\). Exact power-automaton breadth-first search for \(4\le n\le12\) independently verifies the finite instances but is not used as an infinite proof.
+## correctness
 
-## Originality
-**PASS.** The primary arXiv v2 full text was inspected at the exact definition, Figure 6, and Theorem 4 proof. The 2010 precursor announces the threshold family but does not define \(E_n\). Searches over the family name, threshold, proof identities, transition-table language, and erratum/correction aliases found no indexed statement that implies the universal literal-table obstruction. The residual risk is an informal or non-indexed correction, and the claim is accordingly limited to the public arXiv v2 presentation.
+PASS
 
-## Value
-**PASS.** A literal implementation of the displayed table yields an explicit reset word of asymptotic length about half the claimed threshold for every \(n\ge5\). The discrepancy therefore materially affects reproducibility and benchmarking for a named slowly synchronizing family. Figure 6 and the proof resolve which semantics the theorem intended.
+For n>=5, under literal b(i)=i+1 modulo n and a(1)=2,a(2)=3,a(i)=i (i>=3), B=a²b^(n-2) sends [1,n] to [1,n-2], and [1,m] to [1,m-2] for m>=4. With r=floor((n-2)/2), B^r reaches [1,2] (even n) or [1,3] (odd n), and a² sends either to singleton {3}. Thus w=B^r a² synchronizes; length nr+2 differs from alleged n²−3n+2 by n(n−4)/2 for even n>=6 and n(n−3)/2 for odd n>=5, strictly positive. I independently replayed n=5,6,7,8,20 from the literal tables; verifier artifact enumerates full power automata only n<=12, not a universal certificate. Boundaries n=4 excluded from strict violation. The source Figure 6 does NOT define this literal table; no claim about intended E_n exact threshold.
 
-## Closest literature and limitations
-The closest source is the defining 2013 paper itself; its intended Figure-6 automaton is not challenged. The 2010 precursor does not contain the problematic definition. The exact universal reset threshold of the literal cyclic-table automaton is not claimed here.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new explicit infinite-family consistency obstruction confined to the printed cyclic-b formula, not the intended Figure-6 theorem; literal word and length absent in read primary passages.
+
+## value
+
+PASS
+
+Motivated source-correction for a named infinite synchronizing-automata family: provides a uniform explicit witness separating literal stated transition data from a headline theorem and guards reproducibility. Not a mere tiny numerical counterexample and correctly limits implication to the literal table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

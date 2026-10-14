@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T09:00:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=5, under literal b(i)=i+1 modulo n and a(1)=2,a(2)=3,a(i)=i (i>=3), B=a²b^(n-2) sends [1,n] to [1,n-2], and [1,m] to [1,m-2] for m>=4. With r=floor((n-2)/2), B^r reaches [1,2] (even n) or [1,3] (odd n), and a² sends either to singleton {3}. Thus w=B^r a² synchronizes; length nr+2 differs from alleged n²−3n+2 by n(n−4)/2 for even n>=6 and n(n−3)/2 for odd n>=5, strictly positive. I independently replayed n=5,6,7,8,20 from the literal tables; verifier artifact enumerates full power automata only n<=12, not a universal certificate. Boundaries n=4 excluded from strict violation. The source Figure 6 does NOT define this literal table; no claim about intended E_n exact threshold.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 purports to give the threshold n^2-3n+2, but its proof relies on a noncyclic b action; the precursor has no literal E_n table."
+        ],
+        "reasoning": "The prior intended-family theorem does not mathematically imply that the printed cyclic table has the short explicit reset word; the correction is a different literal-instance assertion.",
+        "searches": [
+          "Resultary semantic query attempted (temporarily_unavailable, search_completed=false): reset threshold Ananichev Gusev Volkov automaton E_n cyclic b formula n^2 - 3n + 2 correction erratum",
+          "arXiv:1302.5793v2 sections introducing E_n and Theorem 4; 2010 MFCS precursor"
+        ]
+      },
+      "checked_sources": [
+        "Ananichev, Gusev, Volkov arXiv:1302.5793v2, PDF pp. 12-13, E_n displayed transitions, Fig. 6, Theorem 4 and proof",
+        "Pinned Git RESULT.md 60123e047a973cbc190f4f0d0af02df021e541a5; artifacts/verify.py e2c1bc488950b279021bd06780517a65ff4cedbe",
+        "2010 precursor: Ananichev–Gusev–Volkov, Slowly Synchronizing Automata and Digraphs, DOI:10.1007/978-3-642-15155-2_7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original Theorem 4 asserts a threshold, not the displayed-definition obstruction; the discrepancy follows only after noticing incompatible transition presentations and constructing the new word."
+        ],
+        "reasoning": "The original source contains both discordant pieces but not the explicit all-n refutation for its literal table. Best-of-knowledge originality survives; an unindexed correction is possible.",
+        "searches": [
+          "Resultary semantic query attempted (temporarily_unavailable, search_completed=false): reset threshold Ananichev Gusev Volkov automaton E_n cyclic b formula n^2 - 3n + 2 correction erratum",
+          "arXiv:1302.5793v2 pp. 12-13; 2010 precursor Theorem scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The preprint literal formula makes b an n-cycle; Figure 6 instead has noncyclic b with 1 and 2 mapping to 3.",
+          "Theorem 4 states n^2-3n+2 for the intended family and its proof uses bab=b^2, false for cyclic b."
+        ],
+        "reasoning": "The statement only concerns the literal displayed cyclic-b transition formula. It is not an alias of the intended Figure-6 automaton or a statement contradicting its genuine theorem.",
+        "searches": [
+          "Resultary semantic query attempted (temporarily_unavailable, search_completed=false): reset threshold Ananichev Gusev Volkov automaton E_n cyclic b formula n^2 - 3n + 2 correction erratum",
+          "arXiv:1302.5793v2 E_n formula and Figure 6; web literature search E_n automaton cyclic b erratum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exhibited witness length n*floor((n-2)/2)+2 is an infinite-n formula, not a finite OEIS catalogue value.",
+          "No inspected correction or counterexample table explicitly documents the literal cyclic-b discrepancy."
+        ],
+        "reasoning": "No relevant exhaustive public database/table for printed automaton definition was found; a failed search is not proof of originality.",
+        "searches": [
+          "Resultary semantic query attempted (temporarily_unavailable, search_completed=false): reset threshold Ananichev Gusev Volkov automaton E_n cyclic b formula n^2 - 3n + 2 correction erratum",
+          "Web search for E_n automaton erratum/correction n^2-3n+2; source preprint main/figure comparison"
+        ]
+      },
+      "rationale": "Best-of-knowledge new explicit infinite-family consistency obstruction confined to the printed cyclic-b formula, not the intended Figure-6 theorem; literal word and length absent in read primary passages.",
+      "residual_risks": [
+        "Erratum or informal note in literature not indexed by available searches.",
+        "2013 journal-typeset variant not established to retain identical typography.",
+        "Resultary semantic query temporarily unavailable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cyclic b formula contradicts Figure 6 and bab=b² in the proof; no literal-table short-word obstruction stated in that discussion.",
+          "evidence": "E_n b formula, Figure 6 and Theorem 4; pp.12-13.",
+          "identifier_or_url": "https://arxiv.org/abs/1302.5793",
+          "material_read": "Full 2013 paper examined with focus on displayed E_n transition table, Figure 6, Theorem 4 and proof on pp. 12-13.",
+          "method": "PDF full text plus page-image inspection of relevant pages",
+          "title": "Primitive digraphs with large exponents and slowly synchronizing automata",
+          "trigger": "Same named E_n family and theorem with exact threshold."
+        },
+        {
+          "assessment": "Precursor does not resolve printed-table error.",
+          "evidence": "Conference precursor statement of additional family; not E_n definition.",
+          "identifier_or_url": "DOI:10.1007/978-3-642-15155-2_7",
+          "material_read": "Identified conference announcement scope from accessible material: later E_n n²−3n+2 family announced without explicit cyclic table.",
+          "method": "Bibliographic and available excerpt comparison; not a claim of entire-paper full-text inspection",
+          "title": "Slowly Synchronizing Automata and Digraphs",
+          "trigger": "Conference precursor of the E_n result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ananichev, Gusev, Volkov arXiv:1302.5793v2, PDF pp. 12-13, E_n displayed transitions, Fig. 6, Theorem 4 and proof",
+        "Pinned Git RESULT.md 60123e047a973cbc190f4f0d0af02df021e541a5; artifacts/verify.py e2c1bc488950b279021bd06780517a65ff4cedbe",
+        "2010 precursor: Ananichev–Gusev–Volkov, Slowly Synchronizing Automata and Digraphs, DOI:10.1007/978-3-642-15155-2_7"
+      ],
+      "rationale": "Motivated source-correction for a named infinite synchronizing-automata family: provides a uniform explicit witness separating literal stated transition data from a headline theorem and guards reproducibility. Not a mere tiny numerical counterexample and correctly limits implication to the literal table.",
+      "residual_risks": [
+        "No exact literal-table reset threshold asserted; designed automaton is excluded."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Pinned assigned Git tree SHA and named RESULT.md/SLOGAN.txt/REVIEW.md/VERIFICATION.md/METADATA.json examined; no publication or GitHub write occurred.",
+    "All five Resultary searches were attempted, but search_completed=false / temporarily_unavailable for every query. This is an access limitation, NOT negative novelty evidence.",
+    "The pre-existing historical ledger gap and all previous bytes are preserved. The continuation is sequencing, not scientific certification.",
+    "All three decisions apply to this single exact final claim; mathematical source material was treated as evidence rather than instructions."
+  ],
+  "schema_version": 1
+}
