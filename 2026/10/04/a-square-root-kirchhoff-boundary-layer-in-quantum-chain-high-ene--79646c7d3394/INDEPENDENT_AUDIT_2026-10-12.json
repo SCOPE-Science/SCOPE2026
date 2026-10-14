@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T21:49:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed gamma=0 coefficients directly from Exner–Pekař Sec. IV end/Appendix A: P6=72ℓ^6(c−1)² sin(kl1)sin(kl2)sin(kl3), P4=12ℓ^4(c−1)(c+1)B4, Pc=−16ℓ²(c+1)[3k²ℓ²(c−1)−(c+1)](sin(kl2)+sin(kl3)), with c=cos(πt/3). On t_m√m→τ and k=k_m+x/m, c−1=−π²τ²/(18m)+o(1/m), sin(kl1)=εl1x/m+O(m^-3), B4(k_m)=4ε sin(a_m+b_m). Dividing the exact secular equation by m³ gives an affine x-equation proportional to [π⁴ℓ²τ²/(24l1)] εx sin a sin b−ε sin(a+b)+(sin a+sin b)cosθ; k²P2 and k² sinθ Ps are lower order, uniformly in θ on bounded x. Nonresonance sin a sin b≠0 makes the derivative nonzero, yielding a unique local root and uniform x_m→x∞. Since (k_m+x/m)²−k_m²→2πx/l1, the asserted translated energy profile and limiting width W∞=96/(π³ℓ²τ²)| (sin a+sin b)/(sin a sin b)| follow. Independently checked leading coefficient ratios in SymPy and evaluated exact secular equations for m=121,241,481, finding widths 3.3045673,3.4660149,3.5541772 tending toward 3.64808465. Finite computations support, not establish, the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier arXiv:1804.01414 treats another graph with different dispersion determinant and Dirichlet centers.",
+          "For Exner–Pekař the fixed-t width behaves ∼m^-1 cot²(πt/6), whose coefficients diverge as t→0."
+        ],
+        "reasoning": "The fixed-t expansion is nonuniform at t=0 and cannot alone imply the precise finite-width limiting interval; square lattice dispersion cannot dominate a chain-specific phase-dependent formula.",
+        "searches": [
+          "https://arxiv.org/pdf/2403.09457 Sec. IV and Appendix A",
+          "https://arxiv.org/abs/1804.01414 interpolation on square-lattice quantum graph"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2403.09457 Sec. IV gamma=0 p22 and Appendix A",
+        "https://arxiv.org/abs/1804.01414 distinct square-lattice model"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed t≠0 the source asserts band widths typically O(m^-1), while its gamma=0 Sec. IV prints all polynomial coefficients.",
+          "Scaling t_m√m→τ moves P6,P4,Pc to the same order m³, producing the explicit x∞ and W∞."
+        ],
+        "reasoning": "Neither separate limit supplies the joint scaling or the nonresonant phase dependence; the finite translated-energy width arises from a new dominant balance. Source coefficient identity is acknowledged as prior ingredient.",
+        "searches": [
+          "https://arxiv.org/pdf/2403.09457 fixed-t asymptotic statements versus gamma=0 secular polynomial",
+          "https://arxiv.org/abs/1804.01414 different graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2403.09457 derives gamma=0 exact secular coefficients P6,P4,P2,Pc,Ps.",
+          "Current limit takes simultaneously t→0 with √m t→τ and m→∞ to obtain nonzero finite band-width profile."
+        ],
+        "reasoning": "A fixed-t high-energy expansion and a t=0 endpoint do not fix the intermediate singular layer without uniform remainder control. The joint scaled-root proof uses all three m³ terms.",
+        "searches": [
+          "https://arxiv.org/pdf/2403.09457 Sec. IV high-energy asymptotics, gamma=0 p22, Appendix A",
+          "Queries: quantum chain band Kirchhoff t sqrt m double limit boundary layer; Resultary semantic query attempted; returned temporarily_unavailable/search_completed=false, NOT a negative search result"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "There is no exact counting database or table applicable to this continuously parametrized spectral band profile.",
+          "Existing fixed-t high-energy width formula is a different asymptotic regime."
+        ],
+        "reasoning": "The result is a nonuniform double-limit theorem, not a known numerical tabulation; checking exact source formulas does not itself constitute a prior statement of the novel limit.",
+        "searches": [
+          "Queries \"Kirchhoff\", \"Kirchhoff chain graph\" in SCOPE GitHub indexed code search; no reliable coverage",
+          "https://arxiv.org/pdf/2403.09457 explicit Appendix A coefficients, published high-energy widths"
+        ]
+      },
+      "rationale": "The source obtains high-energy widths at fixed nonzero interpolation t and analyzes t=0 separately; neither gives a uniform theorem in the joint t_m≈m^-1/2 and k≈mπ/l1 limit. The new finite nonzero translated-energy band profile is a distinct singular boundary-layer limit, not a trivial substitution into a fixed-parameter O-term. A 2018 paper concerns a different square-lattice graph.",
+      "residual_risks": [
+        "Conclusions restricted to γ=0, ℓ1-centered nonresonant fixed-parity phase subsequences with τ∈(0,∞).",
+        "No claim about τ=0, τ=∞, resonant sin a sin b=0, other Dirichlet branches, or global density of states.",
+        "Resultary temporarily unavailable/search_completed=false; SCOPE indexed searches not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_OVERLAP",
+          "evidence": "Exact γ=0 P6,P4,P2,Pc,Ps are printed, but no simultaneous t_m√m→τ fixed-parity translated-band profile is stated.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.09457",
+          "material_read": "Full arXiv paper sections 2 and 4, Sec. IV final Kirchhoff discussion p22 with coefficient formulas, Appendix A and fixed-t asymptotic sections",
+          "method": "Read primary PDF text and page images, verify algebraic coefficient extraction and limiting order independently",
+          "title": "Vertex coupling interpolation in quantum chain graphs",
+          "trigger": "Exact γ=0 secular law and possible fixed-t stronger result"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_LIMITED_READ",
+          "evidence": "Square-lattice periodic quantum graph has different geometry; no supplied theorem yields this chain-specific nonresonant phase formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.01414",
+          "material_read": "Abstract/background material and graph class only; full mathematical development not re-inspected",
+          "method": "Scope comparison with source citation",
+          "title": "A family of quantum graph vertex couplings interpolating between different symmetries",
+          "trigger": "Could be a general interpolation spectral scaling theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit nonzero finite-width crossover regime of the genuine periodic chain-graph Bloch spectrum is a natural spectral boundary-layer question: it connects shrinking fixed-t bands to the Kirchhoff endpoint through a critical m^-1/2 interpolation and yields the full phase-dependent limiting energy band, not just a numerical width. The result isolates the nonresonance boundary and provides an analytically usable band profile.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Local ℓ1-centered band only; fixed-parity subsequence and nonresonant limiting phases required.",
+    "No statement about all spectral bands or other t_m regimes."
+  ],
+  "schema_version": 1
+}

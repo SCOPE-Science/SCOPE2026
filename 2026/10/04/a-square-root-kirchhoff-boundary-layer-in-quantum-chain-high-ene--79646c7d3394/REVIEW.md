@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The final claim is reconstructed from the exact \(\gamma=0\) secular coefficients. On \(t_m\sqrt m\to\tau\), the terms \(k^6P_6\), \(k^4P_4\), and \(k^2\cos\theta P_c\) are all of order \(m^3\); \(k^2P_s\) and \(k^2P_2\) are lower order. After division by \(m^3\), the limiting equation is affine in the local variable with nonzero slope whenever \(\sin a\sin b\ne0\). This proves the unique local branch and its energy limit. `verify.py` evaluates the exact secular equation and independently checks convergence on a concrete subsequence.
+## correctness
 
-## Originality
-PASS. The closest primary source is arXiv:2403.09457v1, which provides the exact model and fixed-parameter high-energy analysis but does not give the simultaneous \(t_m\to0\), \(m\to\infty\) boundary layer. The earlier square-lattice interpolation paper arXiv:1804.01414v1 concerns a different geometry and a different high-energy scaling. Searches for equivalent double-scaling, boundary-layer, and critical-coupling formulations found no covering statement.
+PASS
 
-## Value
-PASS. The law pinpoints the critical exponent \(1/2\) and gives the full phase-dependent limiting interval. It explains where the fixed-parameter \(O(m^{-1})\) energy widths cease to be informative near Kirchhoff coupling and provides a reusable local model for the transition.
+Reconstructed gamma=0 coefficients directly from Exner–Pekař Sec. IV end/Appendix A: P6=72ℓ^6(c−1)² sin(kl1)sin(kl2)sin(kl3), P4=12ℓ^4(c−1)(c+1)B4, Pc=−16ℓ²(c+1)[3k²ℓ²(c−1)−(c+1)](sin(kl2)+sin(kl3)), with c=cos(πt/3). On t_m√m→τ and k=k_m+x/m, c−1=−π²τ²/(18m)+o(1/m), sin(kl1)=εl1x/m+O(m^-3), B4(k_m)=4ε sin(a_m+b_m). Dividing the exact secular equation by m³ gives an affine x-equation proportional to [π⁴ℓ²τ²/(24l1)] εx sin a sin b−ε sin(a+b)+(sin a+sin b)cosθ; k²P2 and k² sinθ Ps are lower order, uniformly in θ on bounded x. Nonresonance sin a sin b≠0 makes the derivative nonzero, yielding a unique local root and uniform x_m→x∞. Since (k_m+x/m)²−k_m²→2πx/l1, the asserted translated energy profile and limiting width W∞=96/(π³ℓ²τ²)| (sin a+sin b)/(sin a sin b)| follow. Independently checked leading coefficient ratios in SymPy and evaluated exact secular equations for m=121,241,481, finding widths 3.3045673,3.4660149,3.5541772 tending toward 3.64808465. Finite computations support, not establish, the asymptotic proof.
 
-## Closest literature and limitations
-The primary chain paper is the necessary starting point and remains the closest literature. The claim is deliberately local: nonresonant phase subsequences only, with no global density statement and no classification of the smaller- or larger-coupling regimes. An equivalent result under substantially different terminology remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The source obtains high-energy widths at fixed nonzero interpolation t and analyzes t=0 separately; neither gives a uniform theorem in the joint t_m≈m^-1/2 and k≈mπ/l1 limit. The new finite nonzero translated-energy band profile is a distinct singular boundary-layer limit, not a trivial substitution into a fixed-parameter O-term. A 2018 paper concerns a different square-lattice graph.
+
+## value
+
+PASS
+
+An explicit nonzero finite-width crossover regime of the genuine periodic chain-graph Bloch spectrum is a natural spectral boundary-layer question: it connects shrinking fixed-t bands to the Kirchhoff endpoint through a critical m^-1/2 interpolation and yields the full phase-dependent limiting energy band, not just a numerical width. The result isolates the nonresonance boundary and provides an analytically usable band profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
