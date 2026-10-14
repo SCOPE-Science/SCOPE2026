@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T10:52:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For D=1+sum b_j x_j and c_j<=b_j, y_dot/y=(sum c_j x_j)/D-1 <= -1/D. Positive-prey logistic upper comparison gives 0<x_i(t)<=M_i=max(1,x_i(0)), hence D<=1+sum b_i M_i=Dmax. Integrate y_dot<= -y/Dmax to obtain exponential y(t)<=y(0)e^{-t/Dmax}, including y(0)=0. Since q_i(t)=p_i y/D tends to zero, upper and eventual lower logistic comparisons force x_i(t)->1 for every initially strictly positive prey. The source local R0=(sum c_i)/(1+sum b_i)<1 automatically. No condition p_i^2<4a_i is used. Boundary x_i(0)=0 is invariant and explicitly excluded; this is an all-time analytic argument, not a numerical inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Actual reviewed RESULT.md Git blob 39fc9c17bade0879fd1f03c99b78e60bba5ec146",
+          "DOI:10.3934/math.2023291 Theorem 4, source Eq.(2)",
+          "doi:10.1016/j.chaos.2007.06.058 (limited)"
+        ],
+        "reasoning": "The original theorem has the extra p_i²<4a_i hypotheses and excludes equality c_i=b_i, so it does not imply the enlarged sufficient region. Elettreby studies a different two-prey functional response; no broader identical model theorem verified.",
+        "searches": [
+          "Primary source cross-check: Fatah Mustafa Amin, AIMS Mathematics 8 (2023), Theorem 4; Elettreby 2009 two-prey model",
+          "Resultary attempted (not completed): multi prey Holling II predator extinction c_i ≤ b_i global asymptotic stability p_i Fatah Mustafa Amin"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2023291 Theorem 4, source Eq.(2)",
+        "doi:10.1016/j.chaos.2007.06.058 (limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Actual reviewed RESULT.md Git blob 39fc9c17bade0879fd1f03c99b78e60bba5ec146",
+          "DOI:10.3934/math.2023291 Theorem 4, source Eq.(2)",
+          "doi:10.1016/j.chaos.2007.06.058 (limited)"
+        ],
+        "reasoning": "The prior implication (c_i<b_i AND p_i²<4a_i) => stability is contained in the new implication (c_i<=b_i) => stability; the reverse entailment fails for large p_i. The new exponential inequality is derived from the actual model, not cited as a prior theorem.",
+        "searches": [
+          "Primary source cross-check: DOI 10.3934/math.2023291, Theorem 4 and model Eq.(2)",
+          "Resultary attempted (not completed): multi prey Holling II predator extinction c_i ≤ b_i global asymptotic stability p_i Fatah Mustafa Amin"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Actual reviewed RESULT.md Git blob 39fc9c17bade0879fd1f03c99b78e60bba5ec146",
+          "DOI:10.3934/math.2023291 Theorem 4, source Eq.(2)",
+          "doi:10.1016/j.chaos.2007.06.058 (limited)"
+        ],
+        "reasoning": "The inequality c_i<=b_i enforces a uniform negative predator per-capita growth along bounded positive solutions; an asymptotically vanishing forcing then restores independent logistic prey carrying capacities.",
+        "searches": [
+          "Primary source cross-check: predator invasion upper bound; Holling II D=1+sum b_i x_i; cooperative/triangular asymptotic systems",
+          "Resultary attempted (not completed): multi prey Holling II predator extinction c_i ≤ b_i global asymptotic stability p_i Fatah Mustafa Amin"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual reviewed RESULT.md Git blob 39fc9c17bade0879fd1f03c99b78e60bba5ec146",
+          "DOI:10.3934/math.2023291 Theorem 4, source Eq.(2)",
+          "doi:10.1016/j.chaos.2007.06.058 (limited)"
+        ],
+        "reasoning": "The result is a universal analytic dynamical stability statement, not a table lookup; a single violating example merely tests exclusion from prior hypotheses, not the theorem.",
+        "searches": [
+          "Primary source cross-check: AIMS 2023 Theorem 4, parameter domain; checked numerical witness p=(10,12)",
+          "Resultary attempted (not completed): multi prey Holling II predator extinction c_i ≤ b_i global asymptotic stability p_i Fatah Mustafa Amin"
+        ]
+      },
+      "rationale": "The source Theorem 4 asserts global stability only with strict c_i<b_i plus p_i^2<4a_i. The direct predator-decay comparison allows equality c_i=b_i and arbitrary positive p_i, changing the actual sufficient-parameter region for exactly that n-prey model. The primary source theorem does not imply the removal of its own assumptions. The later related predator-prey examples use different dynamics; although simple once noticed, no equivalent model-specific strengthening was identified in accessible comparisons. A generic logistic comparison lemma is proof technique, not a previously stated n-prey extinction criterion.",
+      "residual_risks": [
+        "An unindexed ecological comparison argument might give the same sharpening.",
+        "Conclusion restricted to autonomous model, x_i(0)>0; nothing for missing-prey boundary faces or modified delayed systems.",
+        "The numerical stress-test, whether rerun or not, is not needed to justify the global theorem.",
+        "Resultary not completed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRICTLY_WEAKER_SOURCE",
+          "evidence": "Theorem4 printed c_i<b_i and p_i^2<4a_i, whereas direct uniform predator decay only requires c_i<=b_i.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2023/3/PDF/math-08-03-291.pdf",
+          "material_read": "Model Eq.(2), Theorem 4 on printed p.5785, proof and stated parameter restrictions",
+          "method": "Full-lawful-OA PDF, text + screenshot of theorem page",
+          "title": "Predator and n-classes-of-prey model incorporating extended Holling type II functional response for n different prey species",
+          "trigger": "Original n-prey model and claimed global-stability theorem"
+        },
+        {
+          "assessment": "LIMITED_ACCESS",
+          "evidence": "No full-text noncoverage assertion is justified; different source parametrization remains a literature risk.",
+          "identifier_or_url": "doi:10.1016/j.chaos.2007.06.058",
+          "material_read": "Title and bibliographic description, not whole primary text",
+          "method": "Public bibliographic context",
+          "title": "Two-prey one-predator model",
+          "trigger": "Potential two-species alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Removing every p_i/a_i restriction from a published extinction/stability theorem and allowing equality c_i=b_i changes the biological admissible parameter region qualitatively, for arbitrarily strong predation, while supplying an explicit uniform decay rate. This is a motivated strengthening of the paper’s principal n-prey global-stability result, not an arbitrary toy invariant; it avoids the article’s cumbersome sufficient Lyapunov inequality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed ecological comparison argument might give the same sharpening.",
+    "Conclusion restricted to autonomous model, x_i(0)>0; nothing for missing-prey boundary faces or modified delayed systems.",
+    "The numerical stress-test, whether rerun or not, is not needed to justify the global theorem.",
+    "Resultary not completed."
+  ],
+  "schema_version": 1
+}

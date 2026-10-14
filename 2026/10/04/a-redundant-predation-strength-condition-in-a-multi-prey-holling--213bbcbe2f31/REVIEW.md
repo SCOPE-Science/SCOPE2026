@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source system has predator per-capita growth \(\sum_i c_i x_i/(1+\sum_i b_i x_i)-1\). Under \(c_i\le b_i\), this is at most \(-1/(1+\sum_i b_i x_i)\). Logistic comparison bounds every prey coordinate above by \(\max\{1,x_i(0)\}\), giving an explicit uniform exponential decay rate for the predator. The predation load in each prey equation therefore tends to zero, and a two-sided logistic comparison gives \(x_i(t)\to1\). The source threshold \(R_0<1\) follows automatically, supplying local asymptotic stability. No step uses \(p_i^2<4a_i\).
+## correctness
 
-## Originality
-PASS. The primary source states the global-stability theorem with both \(c_i<b_i\) and \(p_i^2<4a_i\), but does not remove the second condition or allow equality in the first. Targeted searches using the source title, theorem conditions, multiple-prey Holling-II terminology, predator-free equilibrium, and equivalent extinction phrasing found the source itself and related but different predator-prey systems; no located source states this sharpening for the original \(n\)-prey model.
+PASS
 
-Closest literature: Fatah, Mustafa, and Amin (2022/2023), DOI 10.3934/math.2023291, which contains the model and the weaker theorem; Elettreby (2009), DOI 10.1016/j.chaos.2007.06.058, which studies a different two-prey/one-predator system.
+For D=1+sum b_j x_j and c_j<=b_j, y_dot/y=(sum c_j x_j)/D-1 <= -1/D. Positive-prey logistic upper comparison gives 0<x_i(t)<=M_i=max(1,x_i(0)), hence D<=1+sum b_i M_i=Dmax. Integrate y_dot<= -y/Dmax to obtain exponential y(t)<=y(0)e^{-t/Dmax}, including y(0)=0. Since q_i(t)=p_i y/D tends to zero, upper and eventual lower logistic comparisons force x_i(t)->1 for every initially strictly positive prey. The source local R0=(sum c_i)/(1+sum b_i)<1 automatically. No condition p_i^2<4a_i is used. Boundary x_i(0)=0 is invariant and explicitly excluded; this is an all-time analytic argument, not a numerical inference.
 
-Residual risk: an unindexed note or later paper could contain the same comparison argument. The claim is therefore limited to the exact source system and does not assert a new general theory of multi-prey predator extinction.
+## originality
 
-## Value
-PASS. The result removes an entire family of source hypotheses involving predation strength and prey growth, enlarges the admissible parameter region to arbitrarily large \(p_i\), relaxes \(c_i<b_i\) to \(c_i\le b_i\), and supplies an explicit predator extinction rate. This is directly relevant to the source's principal global-stability theorem rather than an arbitrary parameter slice.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The source Theorem 4 asserts global stability only with strict c_i<b_i plus p_i^2<4a_i. The direct predator-decay comparison allows equality c_i=b_i and arbitrary positive p_i, changing the actual sufficient-parameter region for exactly that n-prey model. The primary source theorem does not imply the removal of its own assumptions. The later related predator-prey examples use different dynamics; although simple once noticed, no equivalent model-specific strengthening was identified in accessible comparisons. A generic logistic comparison lemma is proof technique, not a previously stated n-prey extinction criterion.
+
+## value
+
+PASS
+
+Removing every p_i/a_i restriction from a published extinction/stability theorem and allowing equality c_i=b_i changes the biological admissible parameter region qualitatively, for arbitrarily strong predation, while supplying an explicit uniform decay rate. This is a motivated strengthening of the paper’s principal n-prey global-stability result, not an arbitrary toy invariant; it avoids the article’s cumbersome sufficient Lyapunov inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
