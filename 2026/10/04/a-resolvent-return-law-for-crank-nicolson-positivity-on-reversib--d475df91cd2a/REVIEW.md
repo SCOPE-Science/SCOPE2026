@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The identity \(C_h=2(I-hQ/2)^{-1}-I\) is exact. The resolvent is a nonnegative stochastic matrix because \(I-hQ/2\) is a nonsingular \(M\)-matrix and fixes \(\mathbf 1\). Hence only diagonal entries can violate positivity. Reversibility symmetrizes the generator and expresses each diagonal resolvent entry as a positive mixture of strictly decreasing scalar resolvents, proving a unique crossing and the spectral bounds. The finite-state resolvent limit gives the unconditional classification. Exact-rational replay verifies the matrix identities and the two closed families.
+## correctness
 
-## Originality
-PASS with explicit residual risk. General Runge–Kutta positivity, the trapezoidal rule's problem-class positivity radius \(2\), and the Cayley identity \(I+C(A)=2(I+A)^{-1}\) are all prior work and are excluded from the novelty claim. Targeted searches of the current research ledger, published-finding corpus, and primary literature under Crank–Nicolson, trapezoidal, Cayley, Markov-generator, reversible-chain, return-resolvent, and \(1/2\)-diagonal aliases did not locate the fixed-generator theorem: exact reduction to return diagonals together with the reversible single-threshold spectral law, unconditional classification, and closed chain-family thresholds. The principal residual risk is specialized stochastic-matrix literature using different terminology.
+PASS
 
-## Value
-PASS. Crank–Nicolson is a standard second-order, \(A\)-stable integrator, but a negative entry in a Markov transition approximation is a direct probabilistic failure. The result gives a generator-specific exact diagnostic rather than a generic sufficient step restriction, explains the failure through resolvent return probabilities, identifies the only nontrivial irreducible chain with unconditional positivity, and supplies sharp spectral bounds and closed thresholds useful for step selection and regression tests.
+For any finite row generator Q, s=h/2 and R=(I-sQ)^-1, the exact Cayley identity gives C_h=2R-I. I-sQ is a nonsingular M-matrix so R>=0 and R1=1, hence all offdiagonals of C are nonnegative and C>=0 iff each R_ii>=1/2. For irreducible reversible Q, symmetric similarity yields R_ii=pi_i+sum_(k>=1)u_ki²/(1+s lambda_k), strictly decreasing from 1 to pi_i when n>1. Unique crossings occur precisely for pi_i<1/2, defining a sharp interval 0<=h<=h*. Positive-mixture spectral bounds imply 2/[lambda_max(1-2pi_i)]<=h_i<=2/[lambda_min(1-2pi_i)]. The irreducible resolvent limit R->1pi^T rules out all-step positivity for n>=3; direct two-state inversion gives h*=2/|a-b| unless a=b, and a complete-graph spectral projection yields 2/[c(n-2)] for n>=3. Independently checked exact rational two-state and complete graph sizes 3,4,6,10. No finite check is used to infer universal proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The Cayley identity itself is already explicit in Fallat--Tsatsomeros Lemma 2.2, and Horváth develops worst-case Runge--Kutta positivity-radius theory; neither is claimed as new. The final claim concerns exact one-generator Markov end-step positivity and derives diagonal return tests, an irreducible reversible spectral single-crossing law, statewise spectral bounds and unconditional-chain classification. These fixed-generator consequences have not been found as one prior implication from available primary portions, but the 1998 Horváth full paper was inaccessible and institutional retrieval safety-blocked; Fallat complete text was not retrieved. Best-of-knowledge O PASS with MATERIAL residual risk; do not misstate these as full-text noncoverage.
+
+## value
+
+PASS
+
+A second-order A-stable time step applied to a Markov generator need not preserve probabilistic nonnegativity. An exact per-generator threshold and one-interval criterion on reversible chains are useful for positive-step selection, distinct from generic worst-case sufficient radii. The balanced two-state and complete-graph formulas are motivated complete classifications, not arbitrary small numerical slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
