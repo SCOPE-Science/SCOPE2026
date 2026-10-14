@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The construction is an absolutely continuous \(3\times3\) checkerboard copula. Exact row and column sums give uniform margins, exact piecewise-bilinear integration gives \(J=J_0=1/36\), and nonindependence is certified both by unequal cell probabilities and by \(\rho_S=64/363\). The attached exact-arithmetic checker reproduces these identities.
+## correctness
 
-## Originality
-**PASS.** Focused searches covered the exact BFEx source, failure-extropy predecessors, copula/dependence aliases, and the relevant database. The exact source introduces the normalized index but does not cover this checkerboard cancellation. Earlier BFEx work supplies the underlying functional rather than the zero-set claim. The closest database hits concern different copula or Rényi functionals and do not imply the result.
+PASS
 
-Residual risk: an equivalent observation could appear under older copula-functional terminology that does not use the words failure extropy or BFEx.
+For the exact positive 3×3 table P=(1/1089)[[265,49,49],[13,49,301],[85,265,13]], each row and column sums to 363/1089, hence uniform marginal density; nonindependence follows from P_11=265/1089 versus 1/9. I independently reimplemented the source’s cellwise bilinear copula moments in exact Python Fraction arithmetic, confirming ∫C=1153/4356, ∫C²=1/9, J=1/36=J0 and rho_S=64/363. The source’s P(t)=1/9+tQ identity is quadratic and at t=-4/121 its linear and quadratic terms cancel; no asymptotic or floating evidence is needed. Positive entries and null cell-boundary effects address boundaries. This proves only failure of D=0 to characterize independence on absolutely continuous uniform-margin copulas; no full zero-set classification is claimed.
 
-## Value
-**PASS.** The zero value of a dependence index is ordinarily used as an independence diagnostic. Showing that the proposed BFEx index has a nontrivial zero set changes its mathematical interpretation and affects any use of the statistic as an independence detector. The example is exact, low-complexity, and absolutely continuous rather than a degenerate discrete construction.
+## originality
 
-## Closest literature and limitations
-Pandey and Kundu's 2025 author manuscript (DOI 10.13140/RG.2.2.22787.77600; journal DOI 10.1080/00949655.2026.2713196) is the exact source of the index. Kayal's arXiv:2104.13705 is the closest earlier failure-extropy source. Neither inspected source contains the present checkerboard counterexample. The result does not classify all zero-index copulas, prove a smooth-density analogue, or assess estimator performance.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The scalar equality ∫C²=∫(uv)² is not a nonnegative distance; exact cancellation furnishes a motivated counterexample to the asserted BFEx zero characterization. Neither the antecedent extropy functional nor a distance-based copula independence test implies this explicit counterexample. The focal recent paper full text was unavailable; PASS is best of knowledge, not an assertion that every source was read.
+
+## value
+
+PASS
+
+A concrete positive-density counterexample to the claimed independence-characterization axiom of a newly defined dependence index is a useful correction: it isolates signed cancellation and provides a rational, independently checkable witness with nonzero Spearman rho, not a generic negative normalization check. The phenomenon is structurally relevant to interpreting scalar BFEx diagnostics and requires no sweeping classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
