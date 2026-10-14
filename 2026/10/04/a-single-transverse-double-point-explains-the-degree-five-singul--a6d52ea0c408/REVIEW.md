@@ -1,15 +1,21 @@
-# Review: A single transverse double point explains the degree-five singular scheme in a Hadamard quartic surface
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the smooth conic in the source plane, identifies the rank-five projection and its center, and classifies every possible failure of the projection. The center has rank two. Its row line meets the conic in two distinct points because the restricted polynomial is \(44t^2+16t+17\) with discriminant \(-2736\). This gives one and only one secant fiber. A tangent incidence would force the same row line to be tangent to the conic, which the discriminant excludes. Exact differentiation then shows the two branches over the unique double fiber are immersive and have transverse tangent planes. The standard analytic straightening of transverse smooth submanifolds gives the completed local model \(\mathbb C[[u,v,s,t]]/(us,ut,vs,vt)\). The bundled computation of the dimension-two Jacobian/Fitting ideal gives \((u,v,s,t)^2\), hence length \(5\).
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:1804.01388v4, Section 4, Example 4.1, states only that the singular locus is zero-dimensional of degree \(5\) and displays the rank-deficient Khatri--Rao matrix. It does not state that the support is one point, identify \(q=[0:17:-51:-66:-77:-44]\), describe the two normalization preimages, or give the transverse-double-crossing analytic model. Targeted published-finding and web searches for the exact example, the degree-five singular scheme, the Segre--Veronese projection, and transverse-double-point formulations returned no statement implying this refinement. A 2024 monograph on Hadamard products is a residual comparison risk because its full text was not accessible through the inspected sources.
+PASS
 
-## Value
-PASS. The source leaves a geometrically ambiguous degree-five zero-dimensional singular scheme: it could a priori have several support points or nontrivial local structure. Showing that it is a single transverse two-branch point explains the degree \(5\) from the intrinsic Jacobian algebra and identifies the normalization behavior. This is a structural refinement of the paper's nongenericity example, not a recomputation of its degree or Hilbert function.
+Reconstructed Calussi et al. Example 4.1 exactly: Khatri–Rao M has rank 5 and kernel generator [0,-2,0,3,2,2], giving a point projection of the smooth Segre P¹×Y into P⁴. The conic Q=9z0²−18z0z1+18z0z2+11z1²+z1z2−28z2² has symmetric determinant −5913/4≠0. The center row line z=(3,2−2t,2) meets Y at two distinct points, Q|line=44t²+16t+17 with discriminant −2736. Rank-two secant decomposition uniqueness gives one double fiber, and non-tangency rules out ramification elsewhere. Independent exact arithmetic over Q(ω), ω²=−19, verifies both preimages map to q=[0:17:−51:−66:−77:−44] and five tangent image vectors have nonzero minor 2357771608607690880 ω; the branches are transverse. Their completed local intersection is C[[u,v,s,t]]/(us,ut,vs,vt). Independent Gröbner reduction of the Fitting/Jacobian 2-minors gives exactly m²; basis 1,u,v,s,t gives scheme length 5. This proves support and analytic germ rather than inferring them from degree alone.
 
-## Closest literature and limitations
-The closest source is Calussi--Carlini--Fatabbi--Lorenzini, arXiv:1804.01388v4 / DOI 10.4171/PM/2029, Example 4.1. The 2024 Bocci--Carlini monograph is relevant background but could not be inspected in full. The claim is limited to the named example over characteristic zero.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary Example 4.1 reports singular dimension zero and degree five, not the support or transverse two-branch analytic type. The local classification and Fitting explanation are new relative to the inspected preprint. A later 2024 monograph is a high-relevance unresolved-access risk, not an automatic novelty veto.
+
+## value
+
+PASS
+
+It resolves the geometric meaning of a published degree-five singular-scheme computation: instead of five nodes or unspecified fat points there is one transverse double surface point with precisely determined completed local ring and embedded Jacobian length five. Such an exact local classification of a natural counterexample to generic Hadamard smoothness is independently useful in singularity, projection and scheme calculations; not an arbitrary slice or a recomputed degree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

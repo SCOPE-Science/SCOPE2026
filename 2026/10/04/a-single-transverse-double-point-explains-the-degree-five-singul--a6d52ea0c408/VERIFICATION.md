@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact checker `artifacts/verify.py` performs the following finite symbolic checks over \(\mathbb Q(\omega)\) with \(\omega^2=-19\):
+# Independent mathematical audit
 
-- reconstructs the conic equation after the source's plane parametrization and verifies that its quadratic matrix has determinant \(-5913/4\);
-- verifies that the Khatri--Rao matrix has rank \(5\), center \([0:-2:0:3:2:2]\), and target hyperplane \(w_0+3w_1+w_2=0\);
-- computes the row-line restriction \(44t^2+16t+17\) and discriminant \(-2736\), certifying two distinct row directions;
-- checks explicit normalization preimages and their common target \([0:17:-51:-66:-77:-44]\);
-- verifies immersivity at both preimages and a nonzero tangent-transversality minor \(2357771608607690880\omega\);
-- computes the Jacobian/Fitting ideal of \(V(us,ut,vs,vt)\) and verifies that it is the square of the maximal ideal, with quotient basis \(1,u,v,s,t\) and length \(5\).
+## correctness
 
-The global uniqueness of the singular point follows from the projection geometry in RESULT.md: any double fiber corresponds to a secant through the center, and any differential failure corresponds to a tangent incidence. The row-line calculation gives exactly one secant and no tangent incidence. The checker is finite and exact; it does not attempt a classification of other projection centers.
+PASS
+
+Reconstructed Calussi et al. Example 4.1 exactly: Khatri–Rao M has rank 5 and kernel generator [0,-2,0,3,2,2], giving a point projection of the smooth Segre P¹×Y into P⁴. The conic Q=9z0²−18z0z1+18z0z2+11z1²+z1z2−28z2² has symmetric determinant −5913/4≠0. The center row line z=(3,2−2t,2) meets Y at two distinct points, Q|line=44t²+16t+17 with discriminant −2736. Rank-two secant decomposition uniqueness gives one double fiber, and non-tangency rules out ramification elsewhere. Independent exact arithmetic over Q(ω), ω²=−19, verifies both preimages map to q=[0:17:−51:−66:−77:−44] and five tangent image vectors have nonzero minor 2357771608607690880 ω; the branches are transverse. Their completed local intersection is C[[u,v,s,t]]/(us,ut,vs,vt). Independent Gröbner reduction of the Fitting/Jacobian 2-minors gives exactly m²; basis 1,u,v,s,t gives scheme length 5. This proves support and analytic germ rather than inferring them from degree alone.
+
+## originality
+
+PASS
+
+The primary Example 4.1 reports singular dimension zero and degree five, not the support or transverse two-branch analytic type. The local classification and Fitting explanation are new relative to the inspected preprint. A later 2024 monograph is a high-relevance unresolved-access risk, not an automatic novelty veto.
+
+## value
+
+PASS
+
+It resolves the geometric meaning of a published degree-five singular-scheme computation: instead of five nodes or unspecified fat points there is one transverse double surface point with precisely determined completed local ring and embedded Jacobian length five. Such an exact local classification of a natural counterexample to generic Hadamard smoothness is independently useful in singularity, projection and scheme calculations; not an arbitrary slice or a recomputed degree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
