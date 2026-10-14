@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Conditional on the common Gaussian factor, the e-values are iid lognormal, and the e-BH event is exactly an empirical upper-tail crossing. The proof handles both fixed positive rejection fractions and the small-fraction tail, then reduces the boundary to a scalar Gaussian-hazard minimization. The Gaussian hazard is strictly increasing, giving a unique first-contact point. A standalone deterministic verifier reproduces the scalar minimum and numerical benchmark.
+## correctness
 
-## Originality
-PASS, with a specific residual literature risk. Wang--Ramdas provide e-BH and the lognormal likelihood-ratio e-value family but do not analyze the equicorrelated joint large-\(K\) law; their conclusion explicitly points to multivariate Gaussian e-value questions. Dey gives the closest common-factor asymptotic formula for ordinary BH applied to one-sided Gaussian p-values. The inspected Dey text contains no e-value/lognormal treatment, and its critical curve is not the likelihood-ratio e-BH curve. Targeted database searches found no equivalent formula. A more abstract common-factor step-up theorem elsewhere could still subsume this result.
+PASS
 
-## Value
-PASS. The formula quantifies how positive common-factor dependence changes complete-null e-BH from a marginally conservative procedure into one with a strictly positive large-\(K\) rejection probability, and identifies the macroscopic rejection fraction at first contact. The independence of \(t_*\) from \(\alpha\) is a useful structural separation between the geometry of the dependent e-values and the nominal-level shift.
+For fixed α,ρ∈(0,1), δ>0, conditional on common W=w the e-values are iid lognormal and q_w(t)=P(E≥1/(αt)|W=w). e-BH rejects iff some sorted E_[k]≥K/(αk); for k/K bounded away from zero the empirical tails converge uniformly, and for small k the conditional lognormal tail decays super-polynomially, permitting a binomial/Chernoff geometric control. Thus except at the boundary the rejection event converges to 1{sup_t q_w(t)/t>1}; null FDR equals P(R>0). Equality q_w(t)=t with t=Φbar(x) gives w=g(x)=[log(1/(αΦbar(x)))+δ²/2−s x]/(δ√ρ), s=δ√(1−ρ). The strictly increasing Gaussian hazard h=φ/Φbar has unique h(x*)=s, minimizing g and giving t*=Φbar(x*), w*=g(x*), asymptotic FDR Φbar(w*) by dominated convergence (W continuous). I independently numerically solved h=s: x*=1.71265196548, t*=0.04338829351108, w*=3.29993272728449, FDR=0.000483540037138 at α=.05,δ=3,ρ=.5. The scalar numeric script cannot itself establish the asymptotic small-k step.
 
-## Closest literature and limitations
-The closest sources are arXiv:2009.02824 for e-BH/lognormal e-values and arXiv:2212.08372 for equicorrelated Gaussian BH asymptotics. The result is limited to the complete null, fixed \(0<\rho<1\), fixed \(\delta>0\), and asymptotically many hypotheses; no finite-\(K\) error rate is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Existing e-BH work defines the likelihood-ratio e-values and arbitrary-dependence FDR control; existing Gaussian common-factor asymptotic results concern ordinary BH p-values. Their threshold equations differ. The candidate derives a specifically lognormal e-BH closed hazard boundary and α-independent tangency fraction rather than substituting a parameter in the p-value theorem.
+
+## value
+
+PASS
+
+A closed-form exact global-null error limit for a canonical dependence model of e-BH answers a substantive question left by general upper bounds, identifies rare common-factor false-rejection bursts and a nonobvious α-independent critical rejection fraction. The scalar hazard optimization is accessible but the stochastic conditional crossing and precise limiting quantity are motivated and useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T07:56:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md Git blob 853487d8339699e0f42661fab4c6978a2ea1347e",
+        "pinned verifier.py Git blob 746e7d9cc2c10ceb3ee903caa4f5edb3386e1cbf",
+        "Wang–Ramdas arXiv:2009.02824, full source read, Gaussian LR example and e-BH definition",
+        "Dey arXiv:2212.08372, full primary PDF, Theorem 4.3 on ordinary Gaussian p-value BH"
+      ],
+      "rationale": "For fixed α,ρ∈(0,1), δ>0, conditional on common W=w the e-values are iid lognormal and q_w(t)=P(E≥1/(αt)|W=w). e-BH rejects iff some sorted E_[k]≥K/(αk); for k/K bounded away from zero the empirical tails converge uniformly, and for small k the conditional lognormal tail decays super-polynomially, permitting a binomial/Chernoff geometric control. Thus except at the boundary the rejection event converges to 1{sup_t q_w(t)/t>1}; null FDR equals P(R>0). Equality q_w(t)=t with t=Φbar(x) gives w=g(x)=[log(1/(αΦbar(x)))+δ²/2−s x]/(δ√ρ), s=δ√(1−ρ). The strictly increasing Gaussian hazard h=φ/Φbar has unique h(x*)=s, minimizing g and giving t*=Φbar(x*), w*=g(x*), asymptotic FDR Φbar(w*) by dominated convergence (W continuous). I independently numerically solved h=s: x*=1.71265196548, t*=0.04338829351108, w*=3.29993272728449, FDR=0.000483540037138 at α=.05,δ=3,ρ=.5. The scalar numeric script cannot itself establish the asymptotic small-k step.",
+      "residual_risks": [
+        "The small-order-statistic exclusion requires the conditional lognormal Chernoff argument; the package sketches rather than quantifies a finite-K rate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arbitrary-dependence e-BH bound FDR≤α holds, but is not the exact strict positive limit",
+          "Ordinary BH Gaussian p-value limit is a nearby model, not a dominating theorem for LR e-BH"
+        ],
+        "reasoning": "A sufficiently general abstract factor step-up convergence theorem could supply an umbrella implication if coupled with the current calculus; no such fully verified dominating result was found.",
+        "searches": [
+          "Resultary semantic: e-BH equicorrelated Gaussian lognormal likelihood ratio e-values asymptotic global null FDR common factor (temporarily_unavailable; search_completed=false)",
+          "Wang–Ramdas 2022 arbitrary dependence theorem",
+          "Dey Theorem 4.3"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md Git blob 853487d8339699e0f42661fab4c6978a2ea1347e",
+        "pinned verifier.py Git blob 746e7d9cc2c10ceb3ee903caa4f5edb3386e1cbf",
+        "Wang–Ramdas arXiv:2009.02824, full source read, Gaussian LR example and e-BH definition",
+        "Dey arXiv:2212.08372, full primary PDF, Theorem 4.3 on ordinary Gaussian p-value BH"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang–Ramdas proves general FDR upper bound, not a common-factor limit",
+          "Dey handles p-value thresholds and does not derive the LR e-value log cutoff"
+        ],
+        "reasoning": "The exact expression follows only after establishing a new conditional lognormal e-BH crossing and minimizing its threshold; the compared prior specific theorems do not directly imply it.",
+        "searches": [
+          "arXiv:2009.02824 e-BH Gaussian LR section",
+          "arXiv:2212.08372 Theorem 4.3",
+          "Resultary semantic: e-BH equicorrelated Gaussian lognormal likelihood ratio e-values asymptotic global null FDR common factor (temporarily_unavailable; search_completed=false)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang–Ramdas lognormal Gaussian likelihood-ratio e-values and e-BH step-up condition",
+          "Dey ordinary Gaussian p-value BH common-factor limit has quantile Φ^{-1}(1−αt), not log(1/(αt)) threshold"
+        ],
+        "reasoning": "Equivalent formulations as conditional factor tail crossings were considered; the e-value log-threshold curve and Gaussian hazard characterization are distinct from ordinary BH. No independently verified identical formula found.",
+        "searches": [
+          "Resultary semantic: e-BH equicorrelated Gaussian lognormal likelihood ratio e-values asymptotic global null FDR common factor (temporarily_unavailable; search_completed=false)",
+          "arXiv:2009.02824 Gaussian likelihood ratio e-values",
+          "arXiv:2212.08372 Gaussian common-factor BH"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The benchmark t*=0.0433882935111, w*=3.29993272728449, FDR=0.000483540037138 was reproduced from the candidate hazard equation, not copied from a prior table"
+        ],
+        "reasoning": "No matching indexed record/table identified; Resultary was unavailable and the GitHub index search empty, so neither establishes novelty.",
+        "searches": [
+          "Resultary semantic: e-BH equicorrelated Gaussian lognormal likelihood ratio e-values asymptotic global null FDR common factor (temporarily_unavailable; search_completed=false)",
+          "GitHub SCOPE2026 code search: lognormal (no indexed results)"
+        ]
+      },
+      "rationale": "Existing e-BH work defines the likelihood-ratio e-values and arbitrary-dependence FDR control; existing Gaussian common-factor asymptotic results concern ordinary BH p-values. Their threshold equations differ. The candidate derives a specifically lognormal e-BH closed hazard boundary and α-independent tangency fraction rather than substituting a parameter in the p-value theorem.",
+      "residual_risks": [
+        "Broader abstract factor-model step-up literature might subsume this calculation.",
+        "Resultary query temporarily unavailable; no negative inference from index."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No equicorrelated large-K complete-null formula found in inspected relevant sections",
+          "evidence": [
+            "Defines E=exp(δX−δ²/2); base e-BH threshold K/(αk)"
+          ],
+          "identifier_or_url": "arXiv:2009.02824",
+          "material_read": "Primary full text sections defining base e-BH, Gaussian likelihood-ratio e-values, and discussion of Gaussian dependence; not only abstract",
+          "method": "Read accessible primary full text",
+          "title": "False Discovery Rate Control with E-values",
+          "trigger": "Original procedure and same Gaussian likelihood-ratio example"
+        },
+        {
+          "assessment": "Close methodological comparison but different test statistics/procedure",
+          "evidence": [
+            "Theorem 4.3 concerns one-sided Gaussian p-values, not likelihood-ratio e-values"
+          ],
+          "identifier_or_url": "arXiv:2212.08372",
+          "material_read": "Primary full PDF: model definitions and Theorem 4.3, including p-value Gaussian BH critical curve",
+          "method": "Read arXiv original full-text material and theorem page",
+          "title": "On Asymptotic Behaviors of Stepwise Multiple Testing Procedures",
+          "trigger": "Closest Gaussian factor asymptotic prior result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "pinned RESULT.md Git blob 853487d8339699e0f42661fab4c6978a2ea1347e",
+        "pinned verifier.py Git blob 746e7d9cc2c10ceb3ee903caa4f5edb3386e1cbf",
+        "Wang–Ramdas arXiv:2009.02824, full source read, Gaussian LR example and e-BH definition",
+        "Dey arXiv:2212.08372, full primary PDF, Theorem 4.3 on ordinary Gaussian p-value BH"
+      ],
+      "rationale": "A closed-form exact global-null error limit for a canonical dependence model of e-BH answers a substantive question left by general upper bounds, identifies rare common-factor false-rejection bursts and a nonobvious α-independent critical rejection fraction. The scalar hazard optimization is accessible but the stochastic conditional crossing and precise limiting quantity are motivated and useful.",
+      "residual_risks": [
+        "The formula is only for fixed positive equicorrelation and complete null; no finite-K rate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact pinned Git trees and RESULT.md/source verifier artifacts inspected. All three scientific axes are fresh decisions rather than inherited self-review.",
+    "All five Resultary attempts returned temporarily_unavailable/search_internal_error (search_completed=false); this is a recorded literature-search limitation and not a negative novelty finding.",
+    "The original historical ledger gap predates this run; existing exact ledger bytes and incomplete prior reviews are preserved unchanged.",
+    "No GitHub modification/publication or independent formal certification is claimed. Plans are staged only."
+  ],
+  "schema_version": 1
+}
