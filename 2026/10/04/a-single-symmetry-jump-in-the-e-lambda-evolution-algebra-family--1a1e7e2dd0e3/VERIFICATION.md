@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,44 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verification is symbolic and uses the basis
-\[
-u=e_1+e_3,\qquad v=e_2+e_3,\qquad w=e_3.
-\]
-The multiplication table is
-\[
-u^2=0,\quad uv=u,\quad v^2=-u+\lambda v,\quad uw=u,\quad vw=u,\quad w^2=u.
-\]
+# Independent mathematical audit
 
-Any automorphism preserves \(E_\lambda^2=\operatorname{span}_K\{u,v\}\). Its square-zero locus is \(Ku\), so an automorphism must have
-\[
-\phi(u)=\alpha u,\qquad \phi(v)=\beta u+v.
-\]
-The relation \(v^2=-u+\lambda v\) gives
-\[
-\alpha=1+(\lambda-2)\beta.
-\]
-Writing \(\phi(w)=pu+qv+cw\), the relations \(uw=u\) and \(vw=u\) give
-\[
-q=0,\qquad c=1,\qquad p=\alpha-\beta-1.
-\]
-The relation \(w^2=u\) then gives \(2p+1=\alpha\), hence
-\[
-(4-\lambda)\beta=0.
-\]
+## correctness
 
-Therefore \(\lambda\ne4\) forces the identity. For \(\lambda=4\),
-\[
-\phi_\beta(u)=(1+2\beta)u,\qquad
-\phi_\beta(v)=v+\beta u,\qquad
-\phi_\beta(w)=w+\beta u.
-\]
-Its determinant is \(1+2\beta\), and direct substitution preserves all six basis products. Composition satisfies
-\[
-1+2(\beta+\gamma+2\beta\gamma)=(1+2\beta)(1+2\gamma),
-\]
-which identifies the automorphism group with \(K^\times\).
+PASS
 
-No finite experiment is used as a proof, and no claim is made about automorphism group schemes or semilinear automorphisms.
+Reconstructed the full three-dimensional multiplication from the original structure constants in the u=e1+e3,v=e2+e3,w=e3 basis: u²=0, uv=u, v²=-u+λv, uw=vw=w²=u. Since E²=Ku+Kv is characteristic and λ≠0, its square-zero locus is precisely Ku. An arbitrary automorphism has φ(u)=αu, φ(v)=v+βu, φ(w)=pu+qv+cw. The six products force α=1+(λ−2)β, q=0,c=1,p=α−β−1 and (4−λ)β=0. Independent symbolic substitution reproduces the one residual (λ−4)β. If λ≠4, identity is forced; if λ=4, admissible φβ has determinant 1+2β and composition parameter t=1+2β multiplies, giving K×. In characteristic 2, λ=4=0 is excluded, so all fields and finite-field counts follow without an enumeration.
+
+## originality
+
+PASS
+
+Best-of-knowledge new full-algebra automorphism stabilizer: Hu–Wen proves the same Eλ family, its idempotents and nonisomorphism of distinct parameters through Eλ², but does not classify Aut(Eλ). Although the square-zero argument is reused, extension through w gives the decisive new (4−λ)β=0 obstruction. Earlier full 3D isomorphism classifications remain a real implicit-stabilizer risk.
+
+## value
+
+PASS
+
+A complete, exact structural invariant (automorphism stabilizer) of the naturally arising Eλ family identifies precisely the exceptional symmetry-enhancement λ=4 and separates it from the idempotent-free exceptional λ=2. The dichotomy is not a table lookup or routine renaming; it supplies group types for arbitrary fields and exact finite-field sizes, which are usable in orbit or moduli questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

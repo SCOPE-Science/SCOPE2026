@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reconstructs every algebra automorphism from the characteristic subspace \(S=E_\lambda^2\). The square-zero locus of \(S\) is exactly \(Ku\), forcing \(\phi(u)=\alpha u\). The relations \(uv=u\), \(v^2=-u+\lambda v\), \(uw=u\), \(vw=u\), and \(w^2=u\) then successively force
-\[
-\phi(v)=v+\beta u,\qquad
-\phi(w)=w+\beta u,\qquad
-(4-\lambda)\beta=0.
-\]
-When \(\lambda=4\), the determinant is \(1+2\beta\), and direct substitution verifies all products. The characteristic-\(2\) edge case is consistent because \(\lambda=4\) would mean \(\lambda=0\), excluded by \(\lambda\in K^\times\).
+## correctness
 
-## Originality
-**PASS, with stated residual risk.** The motivating source gives the family, its square, its idempotents, and pairwise non-isomorphism, but no automorphism-group theorem was located in its inspected text. General automorphism results for perfect evolution algebras do not apply because \(\dim E_\lambda^2=2<3\). Exact-form and alias searches located no published statement of the rigidity-versus-\(K^\times\) dichotomy. The main residual risk is that an older three-dimensional isomorphism classification may encode the same self-isomorphism stabilizer implicitly after a change of basis.
+PASS
 
-## Value
-**PASS.** This is a complete structural invariant for a natural recent one-parameter family, not a sample computation. It identifies a unique symmetry-enhancement parameter and shows that it is different from the idempotent-free exceptional parameter. Over finite fields it immediately yields the exact automorphism count \(1\) or \(q-1\), which can be used to distinguish orbit behavior and moduli-stack stabilizers inside the family.
+Reconstructed the full three-dimensional multiplication from the original structure constants in the u=e1+e3,v=e2+e3,w=e3 basis: u²=0, uv=u, v²=-u+λv, uw=vw=w²=u. Since E²=Ku+Kv is characteristic and λ≠0, its square-zero locus is precisely Ku. An arbitrary automorphism has φ(u)=αu, φ(v)=v+βu, φ(w)=pu+qv+cw. The six products force α=1+(λ−2)β, q=0,c=1,p=α−β−1 and (4−λ)β=0. Independent symbolic substitution reproduces the one residual (λ−4)β. If λ≠4, identity is forced; if λ=4, admissible φβ has determinant 1+2β and composition parameter t=1+2β multiplies, giving K×. In characteristic 2, λ=4=0 is excluded, so all fields and finite-field counts follow without an enumeration.
 
-## Closest literature and limitations
-Hu–Wen is the same-family source and therefore the closest comparison. Elduque–Labra and Costoya–Mayorga–Viruel concern automorphism theory under stronger structural assumptions not satisfied here. Cabrera Casado–Siles Molina–Velasco is the principal older classification risk. The claim is limited to ordinary \(K\)-linear automorphisms of this family.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new full-algebra automorphism stabilizer: Hu–Wen proves the same Eλ family, its idempotents and nonisomorphism of distinct parameters through Eλ², but does not classify Aut(Eλ). Although the square-zero argument is reused, extension through w gives the decisive new (4−λ)β=0 obstruction. Earlier full 3D isomorphism classifications remain a real implicit-stabilizer risk.
+
+## value
+
+PASS
+
+A complete, exact structural invariant (automorphism stabilizer) of the naturally arising Eλ family identifies precisely the exceptional symmetry-enhancement λ=4 and separates it from the idempotent-free exceptional λ=2. The dichotomy is not a table lookup or routine renaming; it supplies group types for arbitrary fields and exact finite-field sizes, which are usable in orbit or moduli questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
