@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T21:49:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd N=2k+1 and 0<α<π/4, directly count unordered pairs: repeated orthonormal X has k²; split competitor Y has (k−1)²+2(k−1)c^p+2ks^p+d^p with c=cosα,s=sinα,d=cos2α all in (0,1). Thus F_k=2(k−1)c^p+2ks^p+d^p−(2k−1) is continuous strictly decreasing; F_k(0+)=2k>0 and F_k(2)=2s²(2s²−1)<0. Unique q_k∈(0,2) exists and gives p(2k+1)≤q_k because the explicit competitor beats the repeated orthonormal configuration for all p>q_k. Rewriting F=2k(c^p+s^p−1)+(1−2c^p+d^p) and a mean-value theorem gives k(2−q_k)→[1−2c²+d²]/[2(c²log c+s²log s)]>0 as q_k→2. Independently solved monotone equations: at π/8, C=0.497260512828602 and k(2−q_k) rises 0.4393 (k=2) to 0.49713 (k=1000); at k=2, α=π/7 root 1.777662643085261. Numerical evaluations corroborate, not replace, the proof. This is a one-sided bound only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 source proves Xperp minimization for p up to log3/log2 and reports numerical phase transitions.",
+          "Glazyrin–Park uniform small-p minimization supplies lower-side information."
+        ],
+        "reasoning": "Showing minimization below a p range cannot imply the explicit upper fence p≤q_k or rate 2−p≥C/k; a competitor beating X is an independent opposing inequality.",
+        "searches": [
+          "https://arxiv.org/pdf/2212.04444 Theorem 1.1 and conjectured p(2k+1)→2",
+          "https://arxiv.org/abs/1901.06096 small-p repeated minimizers"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2212.04444 Section 3.2, Theorem 1.1, Conjecture 3.4",
+        "https://arxiv.org/abs/1901.06096 abstract and theorem scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conjecture 3.4 says an optimized Y(α) may minimize for N=5; it is explicitly unproved.",
+          "The present fixed-α Y_{k,α} is a witness for nonminimality above q_k for ALL k and implies liminf k(2−p(2k+1))≥C(α)."
+        ],
+        "reasoning": "Numerical identification of an apparent minimizer at k=2 neither proves universal k competitors nor bounds the possible approach to 2. Existing lower-side theorem works in opposite direction.",
+        "searches": [
+          "https://arxiv.org/pdf/2212.04444 Theorem 1.1 and Section 3.2",
+          "https://arxiv.org/abs/1901.06096 prior repeated minimizer theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2212.04444 explicitly defines Y(α)=X_{0,0,π/2−α,π/2,π/2+α} for N=5.",
+          "Audited all-odd competitor has multiplicities k,k−1,1,1 and F_k exact root."
+        ],
+        "reasoning": "For k=2 the competitor is literally prior Y(α), so novelty must not be credited to that configuration alone; extending to all k and extracting the asymptotic k(2−q_k) limit are the distinct mathematical conclusions.",
+        "searches": [
+          "https://arxiv.org/pdf/2212.04444 Section 3.2 Conjecture 3.4 pp.13–14",
+          "https://arxiv.org/abs/1901.06096 repeated minimizers",
+          "Queries: split pair Y(alpha), odd planar p-frame transition 1/k gap; Resultary semantic query attempted; returned temporarily_unavailable/search_completed=false, NOT a negative search result"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source provides numerical p1 for N=5, not a proved exact formula for all odd N.",
+          "The π/7 bound 1.77766264308526 is an analytically certified upper fence, not the claimed exact transition."
+        ],
+        "reasoning": "Known numerical tables are acknowledged; the new all-size root inequality and asymptotic exact constant are not entries in that N5 numerical table. No equality with numerical optimum is claimed.",
+        "searches": [
+          "Queries \"frame potential\", \"p-frame phase transition\" in SCOPE2026 public GitHub index; unreliable zero hits",
+          "https://arxiv.org/pdf/2212.04444 numerical N=5 transition p≈1.77766251887019"
+        ]
+      },
+      "rationale": "Ben Av et al. already introduce the identical split competitor Y(α) for N=5 (k=2) and numerically conjecture first transition p≈1.77766251887019. That N5 family is NOT new. The assessed final claim instead proves a global-competitor upper bound for every odd N and an explicit positive 1/k transition-gap obstruction not stated in their paper; numerical N5 root is only a reproducible corollary. Literature lower-side bounds do not imply an upper bound.",
+      "residual_risks": [
+        "The N=5 split-angle family predates this record; no novelty claimed for that configuration itself.",
+        "The bound is not a sharp p(5) equality or a proof that p(2k+1) converges to 2.",
+        "Resultary unavailable/search_completed=false; GitHub indexed search inconclusive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_OVERLAP",
+          "evidence": "The N5 Y(alpha) split is prior; the all-odd F_k upper bound and k^{-1} gap restriction are not stated in cited text.",
+          "identifier_or_url": "https://arxiv.org/pdf/2212.04444",
+          "material_read": "Full arXiv paper incl. main proven small-p theorem and pp.12–14 numerical Section 3.2 with Y(alpha), Z(alpha), Conjecture 3.4, first-transition decimal",
+          "method": "Read accessible full arXiv text and inspect page image of original competitor list",
+          "title": "Phase transitions for minimizers of p-frame potentials in R²",
+          "trigger": "Exact original odd-N threshold and split-family prior overlap"
+        },
+        {
+          "assessment": "DIFFERENT_INEQUALITY_DIRECTION",
+          "evidence": "Known lower-p global minimality does not imply this family of explicit nonminimality witnesses at p near 2.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.06096",
+          "material_read": "ArXiv abstract / bibliographic summary of uniform small-p repeated minimization; entire detailed proof not reinspected",
+          "method": "Accessible bibliographic and main theorem scope",
+          "title": "Repeated minimizers of p-frame energies",
+          "trigger": "Potential stronger odd-N threshold bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact upper fence addresses the named open odd-N planar p-frame phase transition and supplies a quantitative obstruction to convergence faster than order 1/k. A natural competitor originally observed at N=5 becomes an all-odd analytic family and yields a positive explicit asymptotic constant; it supplies a mathematically meaningful one-sided rate rather than a tiny numerical improvement alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Competing family is not proved globally optimal after transition.",
+    "Actual p(5) ≠ certified upper root generally; no equality claim.",
+    "The original N5 candidate was published previously."
+  ],
+  "schema_version": 1
+}

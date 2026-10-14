@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The comparison is exact: the unordered energy of \(X^\perp_{2k+1}\) is \(k^2\), while the split-pair competitor has unordered energy \((k-1)^2+2(k-1)\cos^p\alpha+2k\sin^p\alpha+\cos^p(2\alpha)\). Their difference is the displayed scalar function \(F_k\). On \(0<\alpha<\pi/4\), all three bases lie strictly between \(0\) and \(1\), so \(F_k\) is strictly decreasing; its limit at \(p\downarrow0\) is positive and its value at \(p=2\) is negative. The root and the one-sided transition bound follow. The asymptotic constant follows from the root equation and the mean-value theorem once \(q_k\to2\), which is forced by \(\cos^p\alpha+\sin^p\alpha>1\) for every fixed \(p<2\).
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:2212.04444, defines the same first-transition threshold, conjectures its limiting behavior, and gives numerical phase-transition evidence, but does not state an explicit all-odd-size split-pair upper fence or a quantitative \(1/k\) lower bound on the transition gap. The earlier arXiv:1901.06096 proves repeated-orthonormal optimality on a lower \(p\)-range and does not imply the competitor bound. Targeted semantic and exact-phrase searches did not locate a stronger statement covering the theorem.
+PASS
 
-## Value
-PASS. The source leaves the first-transition behavior for odd sizes largely numerical. An analytic family that works for every odd size converts part of that numerical picture into a closed scalar obstruction and constrains the conjectured approach to \(2\) to be no faster than order \(1/k\). The \(N=5\) specialization also gives a simple exact-angle certificate almost coincident with the reported numerical first transition.
+For odd N=2k+1 and 0<α<π/4, directly count unordered pairs: repeated orthonormal X has k²; split competitor Y has (k−1)²+2(k−1)c^p+2ks^p+d^p with c=cosα,s=sinα,d=cos2α all in (0,1). Thus F_k=2(k−1)c^p+2ks^p+d^p−(2k−1) is continuous strictly decreasing; F_k(0+)=2k>0 and F_k(2)=2s²(2s²−1)<0. Unique q_k∈(0,2) exists and gives p(2k+1)≤q_k because the explicit competitor beats the repeated orthonormal configuration for all p>q_k. Rewriting F=2k(c^p+s^p−1)+(1−2c^p+d^p) and a mean-value theorem gives k(2−q_k)→[1−2c²+d²]/[2(c²log c+s²log s)]>0 as q_k→2. Independently solved monotone equations: at π/8, C=0.497260512828602 and k(2−q_k) rises 0.4393 (k=2) to 0.49713 (k=1000); at k=2, α=π/7 root 1.777662643085261. Numerical evaluations corroborate, not replace, the proof. This is a one-sided bound only.
 
-## Closest literature and limitations
-The primary comparison is Ben Av--Chen--Goldberger--Kang--Okoudjou, arXiv:2212.04444 / DOI 10.1137/22M1539915. Glazyrin--Park, arXiv:1901.06096 / DOI 10.1137/19M1282702, supplies the closest earlier repeated-minimizer theorem. The present claim is only an upper fence: it neither proves global optimality of the split family nor resolves the monotonicity or limit conjecture.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ben Av et al. already introduce the identical split competitor Y(α) for N=5 (k=2) and numerically conjecture first transition p≈1.77766251887019. That N5 family is NOT new. The assessed final claim instead proves a global-competitor upper bound for every odd N and an explicit positive 1/k transition-gap obstruction not stated in their paper; numerical N5 root is only a reproducible corollary. Literature lower-side bounds do not imply an upper bound.
+
+## value
+
+PASS
+
+The exact upper fence addresses the named open odd-N planar p-frame phase transition and supplies a quantitative obstruction to convergence faster than order 1/k. A natural competitor originally observed at N=5 becomes an all-odd analytic family and yields a positive explicit asymptotic constant; it supplies a mathematically meaningful one-sided rate rather than a tiny numerical improvement alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
