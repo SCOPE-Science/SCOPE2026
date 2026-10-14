@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Direct differentiation proves the affine first integral, and the coordinate change exposes an invariant three-dimensional tangent bundle with an identity quotient. For \(\varepsilon>0\), equilibria are impossible, so the flow direction supplies one neutral exponent on compact support; the quotient supplies another. Invariance of \(z\) gives the exact second-moment identity. The bundled symbolic checker reproduces the algebra and source initial-condition leaf value.
+## correctness
 
-## Originality
-PASS. The exact source full text was inspected for the defining equations, stability discussion, Lyapunov claims, initial conditions, and conclusions. Searches by DOI, title, equation aliases, first-integral terminology, invariant-leaf terminology, and neutral-Lyapunov terminology did not locate this exact claim. The closest published conceptual precedent is the 2020 Szumiński–Przybylska–Maciejewski comment on conservation-law constraints for Hamiltonian Lyapunov spectra; it does not cover this non-Hamiltonian memristive Sprott-A system. An inaccessible 2019 Lorenz-type article discusses different parameter-dependent first integrals and remains a non-decisive residual access risk rather than evidence of coverage.
+PASS
 
-## Value
-PASS. The invariant is structurally consequential: it reduces every trajectory to an exact three-dimensional leaf, forces an additional neutral Lyapunov direction, and makes dissipative two-positive-exponent asymptotic spectra impossible. At the published parameters it also reveals that the two highlighted initial conditions lie on the same leaf, providing a concrete diagnostic for interpreting the reported chaotic classifications.
+For printed 4D flow xdot=a*y, wdot=y and a !=0, d(w-x/a)/dt = y-(1/a)(a*y)=0 exactly; changing coordinates K=w-x/a leaves Kdot=0 and induces identity quotient cocycle over three-dimensional invariant leaves. With ε>0 no equilibria since xdot=0 implies y=0 and then zdot=ε>0. On compact invariant support X is bounded and bounded away from zero, so Dφ_t X(p)=X(φ_t p) gives a zero exponent tangent to leaf. Exact constant quotient cocycle supplies a second zero exponent (multiplicity counted via block-triangular Lyapunov spectrum). Stationarity applied to z gives integral y² dμ=ε. Thus 4D Lyapunov sum negative implies at most one strictly positive exponent; cannot conclude for nonnegative sums. At a=1/20 both published initial points have K=-2 by direct evaluation. These are infinite-time structural identities, not claims from numerical Lyapunov plots.
 
-## Closest literature and limitations
-The 2020 Nonlinear Dynamics comment, DOI 10.1007/s11071-020-05726-z, is the closest conceptual precedent because it explains how conservation laws constrain Lyapunov spectra and can expose false hyperchaos classifications. The present result is system-specific and does not claim that every invariant measure is dissipative, nor does it classify the reduced three-dimensional dynamics. Search coverage cannot exclude an unindexed prior correction.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Original Adelakun–Odusote article full text prints xdot=a y and wdot=y, has no reported first integral K=w-x/a or shared leaf for its two examples and labels model hyperchaotic. Published conceptual work on conservation laws and neutral Lyapunov exponents is a general mechanism in Hamiltonian dynamics, not a computation for these exact memristive equations. Resultary finds analogous Sprott-C conserved-leaf results, but their systems and invariants differ.
+
+## value
+
+PASS
+
+An exact conserved affine foliation invalidates the interpretation of a published four-dimensional dissipative hyperchaotic numerical attractor, enforces two neutral exponents on every compact ergodic invariant measure, and yields a stationary moment law and concrete equality of two reported initial-condition leaves; these are substantive system-specific structural checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

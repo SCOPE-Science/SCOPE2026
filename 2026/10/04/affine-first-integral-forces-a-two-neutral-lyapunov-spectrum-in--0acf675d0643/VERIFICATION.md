@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` from the package directory. The expected output is `VERIFY_OK`.
+# Independent mathematical audit
 
-The script checks the exact identities directly from the printed vector field: \(d(w-x/a)/dt=0\), the transformed affine coordinate has zero derivative, \(\varepsilon>0\) excludes equilibria, and the two published initial conditions have \(I=-2\) when \(a=0.05\).
+## correctness
 
-The Lyapunov multiplicity argument is analytic rather than a finite numerical computation. In the transformed coordinates, the tangent bundle to \(K=\mathrm{const}\) is invariant and the quotient cocycle is the identity, giving one zero quotient exponent. The vector field is nonzero on compact invariant support and is mapped into itself by the derivative flow, giving a second zero exponent in the leaf. Therefore a negative total Lyapunov sum leaves room for at most one positive exponent.
+PASS
 
-The verification does not claim existence, uniqueness, or type of a chaotic invariant set for the reduced three-dimensional flow, and it does not infer asymptotic Lyapunov exponents from finite-time numerical data.
+For printed 4D flow xdot=a*y, wdot=y and a !=0, d(w-x/a)/dt = y-(1/a)(a*y)=0 exactly; changing coordinates K=w-x/a leaves Kdot=0 and induces identity quotient cocycle over three-dimensional invariant leaves. With ε>0 no equilibria since xdot=0 implies y=0 and then zdot=ε>0. On compact invariant support X is bounded and bounded away from zero, so Dφ_t X(p)=X(φ_t p) gives a zero exponent tangent to leaf. Exact constant quotient cocycle supplies a second zero exponent (multiplicity counted via block-triangular Lyapunov spectrum). Stationarity applied to z gives integral y² dμ=ε. Thus 4D Lyapunov sum negative implies at most one strictly positive exponent; cannot conclude for nonnegative sums. At a=1/20 both published initial points have K=-2 by direct evaluation. These are infinite-time structural identities, not claims from numerical Lyapunov plots.
+
+## originality
+
+PASS
+
+Original Adelakun–Odusote article full text prints xdot=a y and wdot=y, has no reported first integral K=w-x/a or shared leaf for its two examples and labels model hyperchaotic. Published conceptual work on conservation laws and neutral Lyapunov exponents is a general mechanism in Hamiltonian dynamics, not a computation for these exact memristive equations. Resultary finds analogous Sprott-C conserved-leaf results, but their systems and invariants differ.
+
+## value
+
+PASS
+
+An exact conserved affine foliation invalidates the interpretation of a published four-dimensional dissipative hyperchaotic numerical attractor, enforces two neutral exponents on every compact ergodic invariant measure, and yields a stationary moment law and concrete equality of two reported initial-condition leaves; these are substantive system-specific structural checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
