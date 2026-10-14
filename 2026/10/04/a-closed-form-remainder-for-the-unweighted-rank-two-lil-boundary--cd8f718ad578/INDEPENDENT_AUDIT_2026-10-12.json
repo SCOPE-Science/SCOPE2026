@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T07:56:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md Git blob 9f1819af300767c3da053f17f1f44895eac8dbf5",
+        "pinned verify.py Git blob 02d794ac458765b79ca9f28053031b89a83e5c01",
+        "Moldavskaya arXiv:2609.30331v1, full primary PDF, Proposition 5.1, Theorem 5.4, Section 7",
+        "Moldavskaya arXiv:2606.21006 companion stochastic LIL source"
+      ],
+      "rationale": "For ε=1−2α∈(0,1) and K_α f(x)=∫_0^1 |x−y|^{−α}f(y)dy, the source exact LIL normalization yields R(ε)=√(1+ε) λ_ε/2. Leading eigenfunctions are nonnegative and Rayleigh quotient comparison gives 0≤λ*−λ_ε≤||K*−K_ε||, without incorrectly claiming positive semidefinite difference. For nonnegative difference kernel Dε, Hε(t)=∫_0^t(r^{−1/2}−r^{−1/2+ε/2})dr=2√t−2t^{(1+ε)/2}/(1+ε); derivative Hε″=.5 t^{−3/2}[(1−ε)t^{ε/2}−1]<0, so the symmetric row sum is maximized at x=1/2, exactly δ(ε)=2√2(1−2^{−ε/2}/(1+ε)). Schur yields ||Dε||≤δ(ε), proving two-sided normalized bound and error modulus for ALL 0<ε<1. Independent high-precision Decimal evaluation at ε=.02: δ=.0746136429069799366 and enclosure 1.3171293297370383<R(.02)<1.3548073724874499 using source certified λ* bounds. Finite script/grid is diagnostic only and not used to prove concavity or infinite-dimensional spectral result.",
+      "residual_risks": [
+        "Depends on the precise source LIL normalization and certified endpoint λ* bounds; not itself an LIL at ε=0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source lists a companion manuscript on global bounds/parameter expansions as unpublished",
+          "The source Section 7 still flags explicit unweighted remainder as an outstanding improvement"
+        ],
+        "reasoning": "Unpublished companion is a plausible stronger source but inaccessible on available public routes; this is residual risk rather than proof of coverage or a reason to fabricate failure.",
+        "searches": [
+          "Resultary semantic: rank two LIL weighted Hermite kernel alpha half explicit remainder Schur Moldavskaya (temporarily_unavailable; search_completed=false)",
+          "Moldavskaya arXiv:2609.30331 bibliography: Global bounds and parameter expansions..."
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md Git blob 9f1819af300767c3da053f17f1f44895eac8dbf5",
+        "pinned verify.py Git blob 02d794ac458765b79ca9f28053031b89a83e5c01",
+        "Moldavskaya arXiv:2609.30331v1, full primary PDF, Proposition 5.1, Theorem 5.4, Section 7",
+        "Moldavskaya arXiv:2606.21006 companion stochastic LIL source"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier proof uses a local Schur O(|α−1/2|) estimate",
+          "The source calls for an explicit modulus usable at interior α"
+        ],
+        "reasoning": "A local big-O estimate alone does not give numerical constants or a global modulus; the exact concave-row calculation makes this a strict quantitative refinement, even if derived with familiar Schur arguments.",
+        "searches": [
+          "Moldavskaya arXiv:2609.30331 Proposition 5.1",
+          "Moldavskaya arXiv:2609.30331 Section 7",
+          "Resultary semantic: rank two LIL weighted Hermite kernel alpha half explicit remainder Schur Moldavskaya (temporarily_unavailable; search_completed=false)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 5.1 states unweighted boundary limit plus big-O remainder",
+          "Candidate identifies exact row-sum formula for endpoint kernel difference"
+        ],
+        "reasoning": "The earlier O(ε) statement does not specify δ(ε) or certify bounds throughout (0,1); the candidate supplies the explicit function, not a mere notation change.",
+        "searches": [
+          "Resultary semantic: rank two LIL weighted Hermite kernel alpha half explicit remainder Schur Moldavskaya (temporarily_unavailable; search_completed=false)",
+          "Moldavskaya arXiv:2609.30331 Proposition 5.1 and Section 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 5.4 of source already certifies λ* to high precision; new contribution is ε-dependent remainder, not re-computation of that fixed table"
+        ],
+        "reasoning": "Reusing λ* enclosure is explicitly a boundary input, while the function δ(ε) and its all-ε inequality are new steps in this result. No checked table subsumes the epsilon-dependent bound.",
+        "searches": [
+          "Resultary semantic: rank two LIL weighted Hermite kernel alpha half explicit remainder Schur Moldavskaya (temporarily_unavailable; search_completed=false)",
+          "GitHub SCOPE2026 code search: Moldavskaya (no indexed results)"
+        ]
+      },
+      "rationale": "The primary article proves asymptotic O(ε) with an unspecified constant and explicitly requests an explicit remainder. This claim gives a globally closed, computable Schur modulus and interior enclosure. It is not a new stochastic theorem, but a quantitatively stronger spectral-error certificate relative to the identified primary formulation.",
+      "residual_risks": [
+        "The unpublished companion manuscript on global bounds/parameter expansions may contain a stronger estimate; its full text was inaccessible.",
+        "Resultary semantic search temporarily unavailable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Has big-O boundary law and certified λ* but not stated explicit all-ε modulus",
+          "evidence": [
+            "Proposition 5.1 norm scaling and O(1−2α); Section 7 requests explicit remainder"
+          ],
+          "identifier_or_url": "arXiv:2609.30331v1",
+          "material_read": "Primary full PDF: Proposition 5.1, Theorem 5.4 λ* interval, Section 7 explicit-remainder request, cited companion-manuscript remark",
+          "method": "Read primary arXiv PDF including relevant mathematical derivation",
+          "title": "Constants in the Weighted Law of the Iterated Logarithm under Long-Range Dependence: Hermite Rank Two",
+          "trigger": "Same boundary constant, spectral operator and proposed refinement"
+        },
+        {
+          "assessment": "Background LIL normalization, not evidence of the proposed explicit remainder",
+          "evidence": [
+            "Underlying stochastic LIL model"
+          ],
+          "identifier_or_url": "arXiv:2606.21006",
+          "material_read": "Bibliographic/cited theorem relation and source characterization, not exhaustively inspected full text",
+          "method": "arXiv source and candidate primary citations",
+          "title": "Law of the Iterated Logarithm for Weighted Sums of Functionals of Long-Memory Gaussian Sequences",
+          "trigger": "Prior stochastic theorem underlying scalar Λ2 normalization"
+        },
+        {
+          "assessment": "Uninspected plausible source; residual risk, not evidence of existing exact formula",
+          "evidence": [
+            "Unpublished citation in source reference list"
+          ],
+          "identifier_or_url": "unpublished manuscript cited in arXiv:2609.30331v1",
+          "material_read": "Only citation and description in inspected public primary source; full manuscript unavailable",
+          "method": "Public source/title lookup; no Oxford bypass",
+          "title": "Global bounds and parameter expansions for weighted LIL constants",
+          "trigger": "Potential domination by parameter-expansion theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "pinned RESULT.md Git blob 9f1819af300767c3da053f17f1f44895eac8dbf5",
+        "pinned verify.py Git blob 02d794ac458765b79ca9f28053031b89a83e5c01",
+        "Moldavskaya arXiv:2609.30331v1, full primary PDF, Proposition 5.1, Theorem 5.4, Section 7",
+        "Moldavskaya arXiv:2606.21006 companion stochastic LIL source"
+      ],
+      "rationale": "A source-motivated explicit bound on a natural critical LIL constant, valid at each interior memory exponent and accompanied by numerically evaluable enclosures, supplies practical information unavailable from an unspecified O(ε) theorem. The calculation is an elementary Schur estimate but is precisely an independently useful quantitative refinement requested by the original source.",
+      "residual_risks": [
+        "The bound is not sharp, and no next-order asymptotic coefficient or endpoint stochastic LIL is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact pinned Git trees and RESULT.md/source verifier artifacts inspected. All three scientific axes are fresh decisions rather than inherited self-review.",
+    "All five Resultary attempts returned temporarily_unavailable/search_internal_error (search_completed=false); this is a recorded literature-search limitation and not a negative novelty finding.",
+    "The original historical ledger gap predates this run; existing exact ledger bytes and incomplete prior reviews are preserved unchanged.",
+    "No GitHub modification/publication or independent formal certification is claimed. Plans are staged only."
+  ],
+  "schema_version": 1
+}
