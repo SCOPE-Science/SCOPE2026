@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T22:50:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The printed twelve additive diffusion coefficients combine, by independent Brownian coordinates, to sigma_sum*dW where sigma_sum^2=sum sigma_i^2>0. Reading the actual twelve drift equations and the supplied labelled-cancellation verifier gives dT=(Pi-mu*T-pi_p*S_f)dt+sigma_sum*dW. Couple with Y solving dY=(Pi-mu*Y)dt+sigma_sum*dW and Y(0)=T0; integrating factors give T(t)-Y(t)=-pi_p*exp(-mu*t)*integral_0^t exp(mu*s)*S_f(s)ds. On every path nonnegative to t, S_f>=0 and T(t)>=0 imply Y(t)>=0. But Y(t) is Gaussian with mean m_t=T0 exp(-mu*t)+(Pi/mu)(1-exp(-mu*t)) and variance sigma_sum^2(1-exp(-2mu*t))/(2mu)>0 for any t>0; therefore P(exit positive orthant by t)>=Phi(-m_t/sqrt(v_t))>0. The later source Ito terms sigma_i^2 X_i^2 and sigma_i X_i dB_i are multiplicative, different from printed Eq.(24). Gaussian positivity analytically, not floating-point tail rounding, is decisive.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General viability theory warns about diffusion transverse to a boundary.",
+          "Cai et al use state-dependent coefficients vanishing at biologically relevant boundaries."
+        ],
+        "reasoning": "General boundary invariance excludes positivity qualitatively but does not provide the twelve-compartment exact OU tail, source proof mismatch, or this article correction. The cited SIS paper concerns different noise.",
+        "searches": [
+          "Resultary semantic query: additive Brownian noise stochastic syphilis twelve compartment model equation positivity Khan Khan Alqarni 2026 OU total population",
+          "Search: viability orthant constant additive Brownian diffusion epidemic",
+          "Cai Cai Mao 2019 stochastic SIS DOI 10.1016/j.jmaa.2019.02.039"
+        ]
+      },
+      "checked_sources": [
+        "Khan, Khan & Alqarni, Stochastic dynamics of a syphilis epidemic model with perturbation, AIMS Mathematics 11 (2026), DOI:10.3934/math.20261114, Eq.(24), Theorem 1, Eq.(80), appendix",
+        "Cai Cai Mao JMAA 2019 DOI:10.1016/j.jmaa.2019.02.039",
+        "Resultary semantic query: additive Brownian noise stochastic syphilis twelve compartment model equation positivity Khan Khan Alqarni 2026 OU total population",
+        "Search: additive noise positivity positive orthant Ornstein Uhlenbeck epidemic SDE"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source text has additive terms Eq.(24), despite multiplicative diffusion in later proof.",
+          "Original article claims strictly positive solution, the opposite conclusion."
+        ],
+        "reasoning": "A textbook diffusion-boundary theorem suggests failure, but applying exact drift cancellation and coupling yields a model-specific rigorous lower bound and identifies source-internal inconsistency.",
+        "searches": [
+          "Resultary semantic query: additive Brownian noise stochastic syphilis twelve compartment model equation positivity Khan Khan Alqarni 2026 OU total population",
+          "Khan et al 2026 Eq(24) vs positivity proof Eq80",
+          "Cai Cai Mao 2019 SDE structure"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Khan, Khan & Alqarni, Stochastic dynamics of a syphilis epidemic model with perturbation, AIMS Mathematics 11 (2026), DOI:10.3934/math.20261114, Eq.(24), Theorem 1, Eq.(80), appendix",
+          "The article Eq.(24) adds sigma_i dB_i, its Theorem 1 asserts global positivity; later calculations use sigma_i X_i terms."
+        ],
+        "reasoning": "The Gaussian sum/OU domination is an exact quantification of additive-diffusion boundary violation for THIS system, not the same as a generic stochastic positivity caution. No source-specific equivalent correction found.",
+        "searches": [
+          "Resultary semantic query: additive Brownian noise stochastic syphilis twelve compartment model equation positivity Khan Khan Alqarni 2026 OU total population",
+          "Search: 10.3934/math.20261114 additive Brownian noise orthant positivity erratum",
+          "Search: syphilis model Eq 24 OU sum stochastic positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finding is a continuous-time all-t stochastic event and has no finite exact database or table as its source."
+        ],
+        "reasoning": "A numerical epidemic parameter table or simulation cannot establish an all-t Gaussian lower bound; no applicable exact table reported.",
+        "searches": [
+          "Resultary semantic query: additive Brownian noise stochastic syphilis twelve compartment model equation positivity Khan Khan Alqarni 2026 OU total population",
+          "Search: syphilis stochastic additive noise 2026 correction table"
+        ]
+      },
+      "rationale": "The observation that constant additive Brownian noise obstructs positive invariance is standard; the scoped finding is a source-specific exact twelve-compartment cancellation with a quantitative Gaussian lower bound and the primary text’s additive-versus-multiplicative mismatch. Inspected the primary Eq.(24) and later calculations, compared distinct state-dependent SIS source, and searched the exact model title/DOI and OU exit aliases; no prior publication of this exact corrective result found.",
+      "residual_risks": [
+        "An unindexed correction or alternative manuscript could predate this result.",
+        "Authorized Oxford institutional retrieval returned vpn_disconnected; publisher equation excerpts and indexed full-text material were nonetheless read and cross-checked; do not claim Oxford PDF read.",
+        "Exit probability is a lower bound, not the exact first-exit law; conclusion applies only to the printed additive system."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MATERIAL_CONTRADICTION",
+          "evidence": "Eq.(24) gives additive sigma_i dB_i; proof later uses multiplicative sigma_i X_i dB_i; comparison theorem proves positive exit probability for former.",
+          "identifier_or_url": "doi:10.3934/math.20261114",
+          "material_read": "Actual AIMS open HTML indexed Eq.(24) twelve stochastic equations, positivity theorem and later Eq.(80) Ito proof terms",
+          "method": "Lawfully public publisher HTML and indexed equation text, cross-checked frozen RESULT.md, checker",
+          "title": "Stochastic dynamics of a syphilis epidemic model with perturbation: Stationary distribution and extinction thresholds",
+          "trigger": "Same object, exact Eq.(24) and purported Theorem 1"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Its infected-population factors vanish at boundary; model is not the printed constant-additive syphilis model.",
+          "identifier_or_url": "doi:10.1016/j.jmaa.2019.02.039",
+          "material_read": "Model diffusion structure and published SIS abstract/theorem comparison",
+          "method": "Public scholarly abstract and primary source excerpts",
+          "title": "A stochastic differential equation SIS epidemic model with two independent Brownian motions",
+          "trigger": "Source-cited stochastic epidemic positivity comparator"
+        },
+        {
+          "assessment": "ASSESSED_RECORD",
+          "evidence": "Reconstructed cancellation and pathwise OU comparison rather than asserting finite replay proves all time.",
+          "identifier_or_url": "GitHub tree 8ce81d74d34724ca4d9d8667b41c1b7c942c7a82",
+          "material_read": "Entire frozen RESULT.md, verifier.py, metadata/review text and symbolic drift ledger",
+          "method": "Authorized GitHub connector read-only blob access",
+          "title": "Additive Brownian forcing breaks positivity in the stochastic syphilis model",
+          "trigger": "Audit claim, test scope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit positive exit-probability bound formally refutes a stated global positivity theorem for a currently published epidemiological model; this matters for interpreting downstream stationary and extinction assertions and is more than a generic noise warning or numerical counterexample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent Brownian coordinates; sigma_sum>0; mu>0; positive initial state; nonnegative parameters.",
+    "Does not assess a corrected multiplicative, reflected or truncated model."
+  ],
+  "schema_version": 1
+}

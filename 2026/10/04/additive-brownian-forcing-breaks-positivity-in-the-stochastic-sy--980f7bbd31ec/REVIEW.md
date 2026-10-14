@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Summing the twelve displayed equations yields \(dT=(\Pi-\mu T-\pi_pS_f)dt+\sum_i\sigma_i dB_i\). With \(\sigma_\Sigma^2=\sum_i\sigma_i^2>0\), the Brownian sum is one Brownian motion of variance rate \(\sigma_\Sigma^2\). The exact integrating-factor identity against the corresponding Ornstein--Uhlenbeck process gives \(T(t)\le Y(t)\) on every path that remains nonnegative. Since \(Y(t)\) has a nondegenerate Gaussian law for every \(t>0\), the claimed strict positive-orthant invariance fails with the stated positive lower bound. The primary source was inspected at Eq. (24), Theorem 1, Theorem 5, and the Appendix formulas where state-dependent diffusion appears.
+## correctness
 
-## Originality
-**PASS.** Exact-title, DOI, additive-noise, orthant-invariance, Ornstein--Uhlenbeck, and Gaussian-exit searches did not locate a source-specific correction or an equivalent bound. The closest primary predecessor inspected in full uses boundary-vanishing state-dependent diffusion and therefore does not imply the result for Eq. (24). General SDE intuition about additive noise is acknowledged and not claimed as new.
+PASS
 
-## Value
-**PASS.** The finding addresses the state-space premise on which the stochastic epidemic interpretation and later stationary-distribution arguments depend. The exact bound holds for every positive time and every positive initial state whenever the aggregate additive noise is nonzero, so it is materially stronger than a simulation showing occasional negative compartments. It also pinpoints the mathematical repair needed at the modeling level: change the diffusion structure or otherwise enforce the state constraint before applying positivity-based analysis.
+The printed twelve additive diffusion coefficients combine, by independent Brownian coordinates, to sigma_sum*dW where sigma_sum^2=sum sigma_i^2>0. Reading the actual twelve drift equations and the supplied labelled-cancellation verifier gives dT=(Pi-mu*T-pi_p*S_f)dt+sigma_sum*dW. Couple with Y solving dY=(Pi-mu*Y)dt+sigma_sum*dW and Y(0)=T0; integrating factors give T(t)-Y(t)=-pi_p*exp(-mu*t)*integral_0^t exp(mu*s)*S_f(s)ds. On every path nonnegative to t, S_f>=0 and T(t)>=0 imply Y(t)>=0. But Y(t) is Gaussian with mean m_t=T0 exp(-mu*t)+(Pi/mu)(1-exp(-mu*t)) and variance sigma_sum^2(1-exp(-2mu*t))/(2mu)>0 for any t>0; therefore P(exit positive orthant by t)>=Phi(-m_t/sqrt(v_t))>0. The later source Ito terms sigma_i^2 X_i^2 and sigma_i X_i dB_i are multiplicative, different from printed Eq.(24). Gaussian positivity analytically, not floating-point tail rounding, is decisive.
 
-## Closest literature and limitations
-The closest inspected epidemic-SDE predecessor is Cai, Cai, and Mao (2019), DOI 10.1016/j.jmaa.2019.02.039. Its diffusion coefficients contain factors of \(I\), so its positivity theorem is inapplicable to constant additive diffusion. The present result does not analyze any repaired version of the syphilis model, does not provide the full first-exit distribution, and does not claim that every downstream statement is false after a valid reformulation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The observation that constant additive Brownian noise obstructs positive invariance is standard; the scoped finding is a source-specific exact twelve-compartment cancellation with a quantitative Gaussian lower bound and the primary text’s additive-versus-multiplicative mismatch. Inspected the primary Eq.(24) and later calculations, compared distinct state-dependent SIS source, and searched the exact model title/DOI and OU exit aliases; no prior publication of this exact corrective result found.
+
+## value
+
+PASS
+
+The explicit positive exit-probability bound formally refutes a stated global positivity theorem for a currently published epidemiological model; this matters for interpreting downstream stationary and extinction assertions and is more than a generic noise warning or numerical counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
