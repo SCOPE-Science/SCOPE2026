@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Exact elimination from the displayed monomial parametrization gives the graph kernel. Dehomogenizing the complete kernel at \(X=D=1\) yields the ideal \((Y-CZ,W-BZ^2,C^2-ABZ^2)\), so the chart is the hypersurface \(C^2=ABZ^2\). The integral element \(T=C/Z\) proves nonnormality because \(T^2=AB\) while \(C\notin ZR\). The finite birational extension \(k[Z,A,B,T]/(T^2-AB)\) is normal by Serre's criterion and therefore is the normalization. The conductor calculation and Jacobian decomposition are algebraic consequences of these presentations and were replayed against the packaged checker.
+PASS
 
-## Originality
+The bihomogeneous graph map is induced by A=xy²t,B=xw²t,C=yzwt,D=z²wt. In the actual X=D=1 torus chart, equations give Y=CZ, W=BZ² and C²=ABZ²; elimination closure is the irreducible hypersurface R=k[Z,A,B,C]/(C²−ABZ²), independently checked by solving the birational monomial ratios and reviewing exact Groebner script. Element T=C/Z is integral (T²=AB) but T∉R: modulo Z the class C is nonzero in k[A,B,C]/(C²). S=k[Z,A,B,T]/(T²−AB) is finite birational normal (hypersurface S2, singular V(A,B,T) codim2), hence normalization. The conductor ideal is (Z,C): ZT=C and CT=ZAB lie in R; modulo Z the image R/(Z,C)=k[A,B] cannot contain f(A,B)T unless f=0. Jacobian of C²−ABZ² gives V(Z,C)∪V(A,B,C), with the latter normal A1-transverse away from Z=0. The former is height one and is exactly the chart nonnormal locus. Proof needs characteristic zero for this Jacobian description; it does not assert global conductor classification.
 
-PASS. The primary source gives the exact map and its multidegrees but does not state this chart equation, nonnormality, normalization, conductor, or the two singular strata. Exact monomial-tuple searches, graph/Rees-algebra searches, and normalization/conductor searches did not locate a covering statement. Broader papers found on normal monomial Rees algebras concern squarefree or Ferrers-type classes and do not imply the claim for this non-squarefree base ideal. A residual risk remains that an equivalent computation exists under different toric or blow-up notation.
+## originality
 
-## Value
+PASS
 
-PASS. Nonnormality in codimension one is a structural boundary, not a routine recomputation of the published multidegrees. The explicit conductor identifies where normalization changes the graph and separates that defect from a normal \(A_1\) singular stratum. This is directly relevant to using nonlinear multiview graphs as blow-ups or toric models, where normality controls divisor theory and birational geometry.
+The exact original Example 6.7 gives the four multidegrees (1,3,5,2) but does not assert the local equation, chart normalization, conductor, or codimension-one nonnormal component. Those geometric properties are not determined by multidegrees. General squarefree/Ferrers Rees-algebra normality theorems do not apply to the non-squarefree monomial ideal here.
 
-The main limitation is scope: one affine chart is fully classified, which is enough for global nonnormality but not for a global normalization theorem.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Codimension-one nonnormality of a natural explicitly published nonlinear multiview graph, together with complete affine normalization and conductor, is a meaningful geometric invariant beyond its known multidegree table. The normal A1 stratum/non-normal conductor dichotomy can inform subsequent birational and singularity work on this specific example, without requiring a global normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
