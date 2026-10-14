@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal proof is symbolic and does not depend on enumeration.
 
-For \(L_n(q)\), the proof partitions all elements according to whether the \(e_1\)-coefficient is nonzero, zero but noncentral, or central. The corresponding adjoint ranks are \(n-2\), \(1\), and \(0\).
+# Independent mathematical audit
 
-For \(M_n(q)\), the proof partitions all elements by the first two coefficients and then by the first nonzero coefficient among \(e_3,\ldots,e_{n-2}\). The resulting adjoint ranks are exactly
-\[
-0,\quad 1,\quad 2,\quad n-3,\quad n-2,
-\]
-with the multiplicities stated in RESULT.md.
+## correctness
 
-The packaged checker `artifacts/verify.py` reconstructs the bracket tables and checks Jacobi on all basis triples. It then enumerates every element and computes every adjoint rank by finite-field Gaussian elimination for
-\[
-(q,n)=(2,9),\quad(3,7),\quad(4,6).
-\]
-The \(q=4\) test uses the field \(\mathbf F_2[\alpha]/(\alpha^2+\alpha+1)\).
+PASS
 
-For each family and each case, the checker verifies the complete predicted rank distribution, sums the corresponding centralizer sizes, and checks the exact rational commutativity-degree formula. It also directly enumerates all ordered commuting pairs for both algebras at \((q,n)=(2,6)\).
+For both standard filiform brackets over F_q and n>=6, Jacobi follows because the e3..en ideal is abelian and ad_e1 and ad_e2 act by commuting shifts, including characteristic 2. For L: if a1 !=0 ad has rank n-2; else all brackets except ad(e1) vanish, giving rank1 for noncentral and rank0 for q central elements. Thus counts q, q^(n-1)-q, (q-1)q^(n-1). For M: a1 !=0 gives triangular rank n-2; a1=0,a2 !=0 yields e5..en plus independent e3 => rank n-3; a1=a2=0 gives rank2 iff some a3..a_(n-2) !=0, rank1 iff only a_(n-1) !=0, else rank0. Counts respectively q^(n-2)-q^2, q(q-1), q. All strata sum q^n; rank-nullity gives d_L=q^-2+(q^2-1)q^-n and d_M=q^-4+2(q^2-1)q^-n, difference (q^2-1)(q^(n-4)-1)/q^n>0. Independently built finite-field adjoint matrices and row-reduced for (q,n)=(2,6),(3,6), obtaining L counts [2,30,32], [3,240,486] and M [2,2,12,16,32], [3,6,72,162,486], consistent with universal symbolic strata; finite enumeration not proof.
 
-The checker returns `VERIFY_OK`.
+## originality
 
-Finite enumeration is not used as evidence for the universal quantifiers beyond replaying the stated consequences in representative fields and dimensions.
+PASS
+
+The original 2024 Shamsaki Example 3.8 already computes d for n=5 L-type and supplies universal averaging lemma, while the published Resultary almost-abelian theorem FULLY subsumes the L_n(q) rank spectrum for all n: L_n has abelian codim-one ideal span(e2..en), with operator rank n-2. This is explicitly acknowledged, not marketed as novel. However M_n(q) for n>=6 has no abelian codim-one ideal (any such ideal contains [M,M]=span(e3..en) but any complementary vector a e1+b e2 must have a=0 by bracket with e_(n-1), then b=0 by bracket with e3). The almost-abelian theorem cannot apply, nor does Shamsaki class-three derived-two paper for n>=6; new M-spectrum and provably strict separation remain an independent original mathematical claim in the joint theorem.
+
+## value
+
+PASS
+
+This complete uniform adjoint-rank stratification for the m2-type maximal-class filiform family and explicit separation from canonical m0 across every dimension n>=6 is a natural exact invariant in finite Lie algebra theory. The L component is already covered; the non-covered M component and separation are substantial and not a trivial restatement of almost-abelian rank-only theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
