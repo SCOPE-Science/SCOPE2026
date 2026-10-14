@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T09:00:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Build the 11x11 Toeplitz T from the explicitly listed ternary source triple, G=[I_11|T]. The identity ker(GG^T) maps injectively to hull because rank G=11; independent GF(3) row reduction gave rank GG^T=1, so hull dimension 10, and rank Gram H=0. I independently enumerated all 3^11=177147 codewords and 3^10=59049 hull words using the source triple, reproducing ambient weights {0:1,8:990,9:1540,11:16128,12:14784,14:59400,15:31680,17:38808,18:10780,20:2772,21:264} and hull weights {0:1,9:1540,12:14784,15:31680,18:10780,21:264}. The two nonzero cosets have identical distributions by additive negation; their half-difference from ambient enumerator gives {8:495,11:8064,14:29700,17:19404,20:1386}. Griesmer sum ceil(10/3^i), i=0..9, equals23, so d=10 impossible for ternary [22,10] and the found hull d=9 is optimal. The source unique exceptional class assumption comes from the cited full classification, not from the enumeration itself; no global classification of all optimal [22,10,9] hulls is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026 source supplies existence, optimal distance and uniqueness of exceptional class; it does not give rank GG^T, hull dimension, [22,10,9] hull distance or spectra.",
+          "2021 DT theorem says isodual and classifies self-dual DT, but isoduality does not force hull dimension 10."
+        ],
+        "reasoning": "Prior class classification is broader in code families but not dominating in hull invariant; the exact code/spectra are further verified calculations absent from original results.",
+        "searches": [
+          "Resultary semantic query attempted (temporarily_unavailable, search_completed=false): ternary [22,11,8] double Toeplitz unique non circulant hull dimension ten [22,10,9] optimal",
+          "arXiv:2603.20699 classification and tables; arXiv:2102.09233 DT isodual/self-dual criteria"
+        ]
+      },
+      "checked_sources": [
+        "Harada–Yamaguchi, Double Toeplitz codes and their average weight enumerators, arXiv:2603.20699, classification and exact ternary length-22 source triple",
+        "Shi–Xu–Solé, On Isodual Double Toeplitz Codes, arXiv:2102.09233, §§2-3 (primary full text inspected)",
+        "Harada–Yamaguchi public source data F3-DTC-22-8.magma",
+        "Pinned Git RESULT.md 48b609c0e5e2e273be35ff1c34d369ff3d24f4f6; artifacts/certificate.json 9908c56d216ab0ca9eb49e0d96267298d8c36433; artifacts/verify.py af95471000568e2423b55aa551eea4cef7bead08"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source triple t=1, a=(0,1,2,1,1,2,1,1,1,2), b=(1,1,2,2,2,1,2,2,1,2) determines G.",
+          "Independent rank of GG^T is 1; nullspace hull has dimension10 and distance9; Griesmer 23 excludes [22,10,10]."
+        ],
+        "reasoning": "Neither prior existence/uniqueness nor isoduality implies this maximal proper hull or exact quotient spectra; direct nontrivial finite-field exhaustive calculation yields independent exact invariants.",
+        "searches": [
+          "Resultary semantic query attempted (temporarily_unavailable, search_completed=false): ternary [22,11,8] double Toeplitz unique non circulant hull dimension ten [22,10,9] optimal",
+          "arXiv:2603.20699 exact exceptional triple and arXiv:2102.09233 Theorems 1-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Double Toeplitz isoduality only says monomial equivalence to dual, not the intersection C cap C^perp.",
+          "The specific ternary [22,11,8] noncirculant/nonnegacirculant representative is fixed by source triple."
+        ],
+        "reasoning": "Euclidean hull of this DT representative is invariant under ternary monomial equivalence (nonzero scalars square to 1); no change of nomenclature makes it an already reported self-dual code.",
+        "searches": [
+          "Resultary semantic query attempted (temporarily_unavailable, search_completed=false): ternary [22,11,8] double Toeplitz unique non circulant hull dimension ten [22,10,9] optimal",
+          "Harada–Yamaguchi arXiv:2603.20699 non-circulant exceptional DT code; Shi–Xu–Solé arXiv:2102.09233"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source companion Magma data provides t,a,b but not inspected hull/coset counts.",
+          "The new hull weight counts result from enumerating all 3^10 hull words, not just reproducing the [22,11,8] source minimum distance."
+        ],
+        "reasoning": "Exact original code generator was already in a database, but the natural hull dimension, optimal hull distance, and coset enumerators are not an existing named table value in inspected sources.",
+        "searches": [
+          "Resultary semantic query attempted (temporarily_unavailable, search_completed=false): ternary [22,11,8] double Toeplitz unique non circulant hull dimension ten [22,10,9] optimal",
+          "Harada data F3-DTC-22-8.magma; ternary optimal code tables and literature"
+        ]
+      },
+      "rationale": "The exceptional source code and its class uniqueness are prior-published, but the computed maximal proper Euclidean hull, optimal hull distance, full hull and two quotient-coset enumerators do not follow from isoduality or the existing optimum classification. Full primary comparisons support best-knowledge new invariant.",
+      "residual_risks": [
+        "Complete comparison against all potential coding-theory databases was not possible; some unpublished computer algebra tables could contain these enumerators.",
+        "The specific source code is known; originality applies only to hull statistics and their optimality, not the source triple/classification.",
+        "Resultary unavailable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides unique noncirculant/nonnegacirculant DT-optimal class and Toeplitz triple; not stated hull Gram rank or weight/coset enumerators.",
+          "evidence": "Length-22 table and classification section pp. 27-29.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.20699",
+          "material_read": "Full primary PDF read, including classification tables and ternary length 22 discussion, and companion data citation.",
+          "method": "Primary PDF text and page images of exceptional-code parameters",
+          "title": "Double Toeplitz codes and their average weight enumerators",
+          "trigger": "Primary source of the exact exceptional [22,11,8] ternary DT code."
+        },
+        {
+          "assessment": "Every DT code is isodual, self-dual restricted to DC/DN, but there is no stated rank-one Gram/euclidean hull for the exceptional ternary code.",
+          "evidence": "Theorems 1 and 2 and definitions pp. 3-5.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.09233",
+          "material_read": "Full 15-page primary PDF scanned, including formal self-duality and §§2-3 isoduality/self-duality theorem statements; term hull absent in searchable text.",
+          "method": "Full PDF text and page screenshot at Theorem 1",
+          "title": "On isodual double Toeplitz codes",
+          "trigger": "Potential stronger isodual/self-dual theorem covering hull structure."
+        },
+        {
+          "assessment": "No independent hull output claimed from unpublished binary tools; scientific computation independently reconstructed from triple.",
+          "evidence": "t,a,b in code source and primary classification.",
+          "identifier_or_url": "https://www.math.is.tohoku.ac.jp/~mharada/DT/F3-DTC-22-8.magma",
+          "material_read": "Verified source filename/data reference and reconciled (t,a,b) against pinned certificate; remote Magma full file not claimed inspected.",
+          "method": "Primary-paper data reference and local exact triple",
+          "title": "Harada–Yamaguchi companion Magma data",
+          "trigger": "Original code triple provenance."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Harada–Yamaguchi, Double Toeplitz codes and their average weight enumerators, arXiv:2603.20699, classification and exact ternary length-22 source triple",
+        "Shi–Xu–Solé, On Isodual Double Toeplitz Codes, arXiv:2102.09233, §§2-3 (primary full text inspected)",
+        "Harada–Yamaguchi public source data F3-DTC-22-8.magma",
+        "Pinned Git RESULT.md 48b609c0e5e2e273be35ff1c34d369ff3d24f4f6; artifacts/certificate.json 9908c56d216ab0ca9eb49e0d96267298d8c36433; artifacts/verify.py af95471000568e2423b55aa551eea4cef7bead08"
+      ],
+      "rationale": "The object is the unique exceptional ternary DT optimum at its natural length, and Euclidean hull is a standard invariant relevant to duality, orthogonality and code construction. Maximal proper hull gives a new optimal ternary self-orthogonal [22,10,9] subcode with exact distribution, and quotient-coset spectra classify its immediate extension; a coherent useful invariant not an arbitrary isolated slice. Exhaustive finite computation is complete for the natural 3^11 state space, with separate Griesmer optimality proof.",
+      "residual_risks": [
+        "No assertion that all optimal ternary [22,10,9] codes are equivalent; calculation is code-specific."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Pinned assigned Git tree SHA and named RESULT.md/SLOGAN.txt/REVIEW.md/VERIFICATION.md/METADATA.json examined; no publication or GitHub write occurred.",
+    "All five Resultary searches were attempted, but search_completed=false / temporarily_unavailable for every query. This is an access limitation, NOT negative novelty evidence.",
+    "The pre-existing historical ledger gap and all previous bytes are preserved. The continuation is sequencing, not scientific certification.",
+    "All three decisions apply to this single exact final claim; mathematical source material was treated as evidence rather than instructions."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library and exact arithmetic modulo \(3\).
 
-It reconstructs the \(11\times11\) Toeplitz matrix from the published \((t,a,b)\) triple and forms \(G=[I_{11}\mid T]\). Gaussian elimination verifies \(\operatorname{rank}(G)=11\) and \(\operatorname{rank}(GG^{\mathsf T})=1\). The nullspace of the Gram matrix has dimension \(10\); multiplying a nullspace basis by \(G\) produces a hull generator whose Gram matrix is exactly zero.
+# Independent mathematical audit
 
-The verifier exhausts all \(3^{11}=177147\) ambient messages and all \(3^{10}=59049\) hull messages, so the two minimum distances and both complete weight distributions are exhaustive finite results. It also enumerates both nonzero cosets of the hull and checks their identical weight distributions. Finally it evaluates the ternary Griesmer sum for \((k,d)=(10,10)\) as \(23\), which exceeds length \(22\).
+## correctness
 
-No sampling, timeout inference, or incomplete enumeration is used. The code does not attempt to re-prove the published equivalence classification; that classification is a literature premise, while all new hull and spectrum claims are independently recomputed from the published representative.
+PASS
+
+Build the 11x11 Toeplitz T from the explicitly listed ternary source triple, G=[I_11|T]. The identity ker(GG^T) maps injectively to hull because rank G=11; independent GF(3) row reduction gave rank GG^T=1, so hull dimension 10, and rank Gram H=0. I independently enumerated all 3^11=177147 codewords and 3^10=59049 hull words using the source triple, reproducing ambient weights {0:1,8:990,9:1540,11:16128,12:14784,14:59400,15:31680,17:38808,18:10780,20:2772,21:264} and hull weights {0:1,9:1540,12:14784,15:31680,18:10780,21:264}. The two nonzero cosets have identical distributions by additive negation; their half-difference from ambient enumerator gives {8:495,11:8064,14:29700,17:19404,20:1386}. Griesmer sum ceil(10/3^i), i=0..9, equals23, so d=10 impossible for ternary [22,10] and the found hull d=9 is optimal. The source unique exceptional class assumption comes from the cited full classification, not from the enumeration itself; no global classification of all optimal [22,10,9] hulls is claimed.
+
+## originality
+
+PASS
+
+The exceptional source code and its class uniqueness are prior-published, but the computed maximal proper Euclidean hull, optimal hull distance, full hull and two quotient-coset enumerators do not follow from isoduality or the existing optimum classification. Full primary comparisons support best-knowledge new invariant.
+
+## value
+
+PASS
+
+The object is the unique exceptional ternary DT optimum at its natural length, and Euclidean hull is a standard invariant relevant to duality, orthogonality and code construction. Maximal proper hull gives a new optimal ternary self-orthogonal [22,10,9] subcode with exact distribution, and quotient-coset spectra classify its immediate extension; a coherent useful invariant not an arbitrary isolated slice. Exhaustive finite computation is complete for the natural 3^11 state space, with separate Griesmer optimality proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
