@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T09:00:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a,c,alpha>0 with q=alpha*a and y=x sqrt(a/c), the exact min cap/Polyak rule is F_q(y)=(1-q)y on q<=1/2+1/y² and F_q(y)=y/2-1/y otherwise; formulas agree at the boundary. For 0<q<2, capped steps strictly reduce |y| and once capped remain so; the uncapped condition forces y²>1/(q-1/2)>2/3, on which |y/2-1/y|<|y|. A hypothetical perpetually uncapped orbit would have a nonzero magnitude limit satisfying |r/2-1/r|=r, hence r²=2/3, contradicting the branch lower bound. Therefore every orbit eventually caps and geometrically converges (zero is absorbing). For q>=2, y*=sqrt(2/3) has proposal exactly 2 and F_q(y*)=-y*, producing a persistent 2-cycle; f=c/3, δ=4c/3*(1-1/q) by direct substitution. Independently tested normalized cycle at q=2,2.5,10; verifier.py checks additional representative cases but analytic argument handles all q. RESULT contains nonessential double braces in some displayed TeX, not a different mathematical map.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 reference bounds the stability index, not a global iff classification for constant cap on f=a x²/2 with a strict floor error.",
+          "The 2021 exact-minimum convergence theorem has a different assumption C=inf f."
+        ],
+        "reasoning": "Neither broader SPS convergence estimate implies nonconvergence for q>=2 with a loose floor; scalar counterexample is not covered by exact-minimum theorems.",
+        "searches": [
+          "Resultary semantic query attempted (temporarily_unavailable, search_completed=false): stochastic Polyak step size loose lower bound quadratic exact two cycle cap threshold gradient descent",
+          "arXiv:2602.09842 equations for SPS stability index and lower-bound error; Loizou et al 2021"
+        ]
+      },
+      "checked_sources": [
+        "Schaipp, Gower, Taylor, Step-Size Stability in Stochastic Optimization: A Theoretical Perspective, arXiv:2602.09842, §3 and lower-bound misspecification discussion",
+        "Loizou et al, Stochastic Polyak Step-size for SGD: An Adaptive Learning Rate for Fast Convergence, AISTATS/PMLR 130 (2021)",
+        "Schaipp, Gower, Ulbrich, A Stochastic Proximal Polyak Step Size, arXiv:2301.04935 (available abstract/related-source reference)",
+        "Pinned Git RESULT.md f362681482b9dc8e6467180211d7f155dd653c1a and verify.py f8a10a128b256d644cd9ff9ceb274df6bdda6ac3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source δ^SPS expression evaluates to 4c/3(1-1/q) on the new cycle, while its global pointwise iteration does not converge for q>=2.",
+          "No prior source inspected asserts the exact universal convergence threshold with its explicit missed-floor cycle."
+        ],
+        "reasoning": "The boundary at q=2 matches the classic GD stability ceiling but that alone does not imply the capped, nonlinearly uncapped map admits a 2-cycle at precisely sqrt(2c/(3a)); original scalar proof supplies it.",
+        "searches": [
+          "Resultary semantic query attempted (temporarily_unavailable, search_completed=false): stochastic Polyak step size loose lower bound quadratic exact two cycle cap threshold gradient descent",
+          "arXiv:2602.09842 stability index eqs and lower-bound misspecification section; Loizou 2021 published scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Normalized x sqrt(a/c) gives a 2-branch nonlinear rational map, not ordinary fixed-step gradient descent globally.",
+          "The source SPS analysis allows valid loose lower bounds C<=inf f; older interpolation analyses commonly assume exact component minima."
+        ],
+        "reasoning": "Simple scalar cap branch is ordinary GD but uncapped branch and the critical two-cycle are specific to lower-bound misspecification; name SPS versus Polyak alias checked.",
+        "searches": [
+          "Resultary semantic query attempted (temporarily_unavailable, search_completed=false): stochastic Polyak step size loose lower bound quadratic exact two cycle cap threshold gradient descent",
+          "arXiv:2602.09842 scalar truncated-model SPS; AISTATS 2021 capped SPS exact minimum; arXiv:2301.04935 proximal variant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is a continuum-of-parameters scalar dynamical classification; no natural finite table database applies."
+        ],
+        "reasoning": "Specific database/table coverage check is inapplicable; published SPS formula and comparisons were inspected directly.",
+        "searches": [
+          "Resultary semantic query attempted (temporarily_unavailable, search_completed=false): stochastic Polyak step size loose lower bound quadratic exact two cycle cap threshold gradient descent",
+          "SPS lower-bound-error 2-cycle quadratic and threshold searches; source comparisons"
+        ]
+      },
+      "rationale": "An exact sharp global dynamical classification and persistent loose-floor two-cycle at q=2, beyond general stability-index bounds and exact-minimum interpolation regimes in sources read. The classic GD threshold by itself does not entail this nonlinear capped iteration result.",
+      "residual_risks": [
+        "Equivalent result may have appeared under different Polyak-step terminology not reached by current literature search.",
+        "PMLR and 2023 proximal companion were not confirmed by complete full-text inspection.",
+        "All Resultary attempts failed without search completion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General stability index formula and allowed loose lower bound confirmed; no exact scalar iff threshold/cycle stated.",
+          "evidence": "SPS step and δ equations and error discussion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.09842",
+          "material_read": "Read complete source PDF with focus on truncated-model SPS definition, equations 9-10 and qualitative misspecified-floor discussion.",
+          "method": "Primary PDF full text and relevant page screenshots",
+          "title": "Step-Size Stability in Stochastic Optimization: A Theoretical Perspective",
+          "trigger": "Defines exactly the SPS update and lower-bound-error stability index whose interpretation is tested."
+        },
+        {
+          "assessment": "Exact-minimum interpolation setting differs from C=-c<0; no identified identical misspecification cycle.",
+          "evidence": "Convergence guarantees under exact component minima.",
+          "identifier_or_url": "https://proceedings.mlr.press/v130/loizou21a.html",
+          "material_read": "Published paper scope/abstract and cited results cross-compared; no assertion of entire full text read.",
+          "method": "PMLR abstract and source-cited theorem review",
+          "title": "Stochastic Polyak Step-size for SGD: An Adaptive Learning Rate for Fast Convergence",
+          "trigger": "Earlier capped SPS under exact minima."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Schaipp, Gower, Taylor, Step-Size Stability in Stochastic Optimization: A Theoretical Perspective, arXiv:2602.09842, §3 and lower-bound misspecification discussion",
+        "Loizou et al, Stochastic Polyak Step-size for SGD: An Adaptive Learning Rate for Fast Convergence, AISTATS/PMLR 130 (2021)",
+        "Schaipp, Gower, Ulbrich, A Stochastic Proximal Polyak Step Size, arXiv:2301.04935 (available abstract/related-source reference)",
+        "Pinned Git RESULT.md f362681482b9dc8e6467180211d7f155dd653c1a and verify.py f8a10a128b256d644cd9ff9ceb274df6bdda6ac3"
+      ],
+      "rationale": "The loose but valid component lower bound is an intrinsic SPS modeling choice, and the result pinpoints the universal convergence boundary and an explicit obstruction despite bounded stability-index quantity. This motivated scalar boundary/counterexample meaningfully separates a cited stability estimate from pointwise dynamics, without claiming new stochastic generality.",
+      "residual_risks": [
+        "Only deterministic one-dimensional constant-cap quadratic model; no many-sample stability theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Pinned assigned Git tree SHA and named RESULT.md/SLOGAN.txt/REVIEW.md/VERIFICATION.md/METADATA.json examined; no publication or GitHub write occurred.",
+    "All five Resultary searches were attempted, but search_completed=false / temporarily_unavailable for every query. This is an access limitation, NOT negative novelty evidence.",
+    "The pre-existing historical ledger gap and all previous bytes are preserved. The continuation is sequencing, not scientific certification.",
+    "All three decisions apply to this single exact final claim; mathematical source material was treated as evidence rather than instructions."
+  ],
+  "schema_version": 1
+}
