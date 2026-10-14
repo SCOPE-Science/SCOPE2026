@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The counterexample can be replayed entirely from the displayed formulas.
+# Independent mathematical audit
 
-Take \(H=\ell^2(\mathbb N)\), \(C=K=I\), \(F=(e_n)\), and \(G=(e_2,e_2,e_3,e_4,\ldots)\). For each coefficient vector \(c=(c_n)\),
-\[
-(T_F-T_G)c=c_1(e_1-e_2),
-\]
-so the difference has rank one. For the test vector \(e_1\),
-\[
-\sum_{n\ge1}|\langle e_1,g_n\rangle|^2=0,
-\]
-so \(G\) cannot have a positive lower frame bound.
+## correctness
 
-For the restricted quantitative repair, if \(F\) has lower frame bound \(A\) and \(E=T_F-T_G\), then
-\[
-\|T_G^*f\|\ge(\sqrt A-\|E\|)\|f\|.
-\]
-Thus \(\|E\|<\sqrt A\) gives lower frame bound \((\sqrt A-\|E\|)^2\). This verification uses no numerical approximation.
+PASS
 
-Limits: no claim is made that this norm condition is necessary or optimal in general Hilbert \(C^*\)-modules. The literature comparison cannot exclude an unindexed prior observation.
+For C=K=I in H=ell2(N), F=(e_j) is Parseval. G=(e_2,e_2,e_3,...) has all nonzero unit atoms, but (T_F-T_G)c=c_1(e_1-e_2) has rank one while T_G*e_1=0. Thus G cannot have a strictly positive lower frame bound. Theorem 3.7 of Rajput--Sahu--Mishra as actually printed only demands compact E=T_F-T_G and range/commutation conditions, all automatic with C=K=I and T_F onto. The optional bound ||E||<sqrt(A) implies (sqrt(A)-||E||)^2 lower bound by reverse triangle inequality, explicitly Hilbert-space only. The failure is infinite-dimensional and exact, not extrapolated from numerics.
+
+## originality
+
+PASS
+
+The printed theorem is not merely a general perturbation result: its compactness-only conclusion is contradicted by this exact scalar case. General Christensen--Heil and Han--Jing--Mohapatra perturbation results impose quantitative hypotheses and thus do not already identify this false claim. Ordinary rank-one deletion is classical, so the novelty, to the extent supported, is the theorem-specific counterexample; an earlier erratum or brief note may cover it.
+
+## value
+
+PASS
+
+Correcting a false sufficient stability theorem is substantive even with an elementary witness: a single rank-one unit-vector replacement violates the claimed conclusion while preserving all positive-atom conditions. The small-norm estimate identifies the essential missing class of control without asserting optimality in Hilbert C*-modules.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,18 +1,21 @@
-# Review of A rank-one compact perturbation that destroys a controlled \(K\)-frame
+# Independent mathematical audit
 
-## Correctness
-PASS. In the scalar specialization \(C=K=I\), \(F=(e_n)\) is Parseval. The formula
-\[
-(T_F-T_G)c=c_1(e_1-e_2)
-\]
-proves rank-one compactness exactly, while \(T_G^*e_1=0\) proves failure of every positive lower frame bound. The quantitative small-norm repair follows directly from the reverse triangle inequality for the analysis operators.
+## correctness
 
-## Originality
-PASS. The exact theorem and its arXiv version were inspected. Equivalent formulations involving rank-one synthesis perturbations, missing directions, and compact perturbations were searched, and broader perturbation literature was compared by implication rather than title. The checked classical and Hilbert \(C^*\)-module perturbation theorems impose quantitative control and therefore do not cover the compactness-only assertion or this counterexample.
+PASS
 
-Residual risk: an unindexed erratum, thesis remark, or informal note may already record the same counterexample.
+For C=K=I in H=ell2(N), F=(e_j) is Parseval. G=(e_2,e_2,e_3,...) has all nonzero unit atoms, but (T_F-T_G)c=c_1(e_1-e_2) has rank one while T_G*e_1=0. Thus G cannot have a strictly positive lower frame bound. Theorem 3.7 of Rajput--Sahu--Mishra as actually printed only demands compact E=T_F-T_G and range/commutation conditions, all automatic with C=K=I and T_F onto. The optional bound ||E||<sqrt(A) implies (sqrt(A)-||E||)^2 lower bound by reverse triangle inequality, explicitly Hilbert-space only. The failure is infinite-dimensional and exact, not extrapolated from numerics.
 
-## Value
-PASS. The finding corrects a perturbation principle at the level where the theory is supposed to guarantee stability. The counterexample is minimal in mechanism--a rank-one change to an orthonormal basis--and the ordinary Hilbert-space repair identifies the missing type of hypothesis: quantitative smallness relative to the lower frame bound.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The printed theorem is not merely a general perturbation result: its compactness-only conclusion is contradicted by this exact scalar case. General Christensen--Heil and Han--Jing--Mohapatra perturbation results impose quantitative hypotheses and thus do not already identify this false claim. Ordinary rank-one deletion is classical, so the novelty, to the extent supported, is the theorem-specific counterexample; an earlier erratum or brief note may cover it.
+
+## value
+
+PASS
+
+Correcting a false sufficient stability theorem is substantive even with an elementary witness: a single rank-one unit-vector replacement violates the claimed conclusion while preserving all positive-atom conditions. The small-norm estimate identifies the essential missing class of control without asserting optimality in Hilbert C*-modules.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
