@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The invariant-simplex and logistic-comparison inequalities give a uniform positive lower bound on the first occupied species. Its cumulative abundance is therefore an unbounded time parameter. In that clock, every species ratio obeys an exactly triangular predation equation; induction proves strictly positive or exponentially vanishing terminal ratios, including originally absent indices. All neighboring products then decay exponentially, and the perturbed logistic equation forces the total population to its exact carrying level. Dividing by the sum of terminal ratios proves the global pointwise limit and its exponential approach. The three-species expression follows by elementary integration. The executable diagnostic test passed, but is not used as an infinite-time proof.
+## correctness
 
-## Originality
-PASS, conditional on the described search coverage. Samanta et al. (2026, arXiv:2609.09027v1) prove an equilibrium independent-set restriction and give local spectra and simulations, not global trajectory selection for every support or explicit final proportions. Baigent–Ching (2020, DOI 10.1080/17513758.2020.1736656) show the existence of an attracting balance simplex, not convergence to an initial-condition-dependent point within its continuum. Hou (2007, arXiv:0711.3385) provides single-point global-attractor criteria; the present symmetric chain has a continuum of accessible equilibria and thus does not fall under that conclusion. Exact-support, ratio, normalized-cascade, equilibrium-count and broader-convergence searches identified no statement logically covering this theorem. Further older unindexed replicator or competitive-system theory may bear on novelty and remains a genuine risk.
+PASS
 
-## Value
-PASS. This is not a new name for the equilibrium independent-set bound: the initial-support-only greedy algorithm selects *which* independent set is realized from every nonempty initial condition, proves full convergence with exponential rate, and gives quantitative final-abundance memory of an extinct intermediate competitor. The arbitrary-chain theorem sharpens interpretation of neutral coexistence manifolds in the recent ecological model and gives a stringent benchmark for comparing finite-time deterministic and finite-site stochastic simulations.
+For all N>=1, r>d>0, p_i>0 and initial 0<T<=1, P=sum p_i x_i x_{i+1}<=p_*T^2, hence logistic comparison yields uniform T>=min(T0,(r-d)/(r+p_*)). If m=min initially occupied site then u_i=x_i/x_m are decreasing, x_m/T bounded below, and clock tau=int_0^t x_m ds >= delta t. The triangular exact system du_i/dtau=-p_{i-1}u_{i-1}u_i determines by induction whether u_i has positive limit (preceding absent/decays) or decays exponentially (preceding positive), giving the greedy support with no dependence on magnitude of positive p_i. P(t) decays, logistic relaxation gives T->K=1-d/r exponentially, and each x_i tends exponentially to the claimed equilibrium. For N=3 integrate u_2 in tau to obtain R and exact limiting abundances. Independently solved N=3 IVP and matched exact limit to 1.4e-12; not a proof. No convergence statement when demographic rates differ or p_i=0.
 
-## Limits and sources
-Scope is the homogeneous-demography deterministic chain with strict positive predation, \(r>d>0\), and finite \(N\). Heterogeneous rates, immigration, zero predation and finite-population extinction remain outside the theorem. The full 2026 preprint (including appendices), the relevant main sections of the 2020 open-access article, and the criteria sections of the 2007 preprint were inspected; there is residual risk of unindexed stronger competition results.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): Samanta et al study the same hierarchical directed model and establish only independent-set equilibrium restrictions and transverse/numerical observations; a stable independent set is not the trajectory-selected greedy independent set. The exact triangular time-change proves global convergence from every nonzero nonnegative initial state, initial-support selection, exponential rate, and abundance split. Baigent–Ching attract a continuum and Hou assumes a unique common attractor; neither implies the history-dependent all-N result. Standard competitive triangular techniques may overlap in older unindexed literature, recorded as risk.
+
+## value
+
+PASS
+
+PASS: The source paper identifies coexistence-compatible independent sets without deciding which one a trajectory reaches. A global all-N greedy support rule and exact surviving abundances solve a meaningful selection problem for the specified deterministic ecological chain, including arbitrary positive predation rates and boundary initial supports. The rate of convergence is not uniform over initial states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

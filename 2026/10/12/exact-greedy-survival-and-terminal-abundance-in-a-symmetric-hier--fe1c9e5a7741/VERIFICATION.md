@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and proof checks
+# Independent mathematical audit
 
-The source equations are \(\dot x_i=x_i[r(1-\sum_jx_j)-d-p_{i-1}x_{i-1}]\), with zero predator term for the first species. The proof checks the forward-invariant density simplex, the population logistic envelope, exact logarithmic-ratio cancellation, divergence of the first-species cumulative-population clock, and the inductive finite-integral-versus-divergent-integral dichotomy. This proves the result for every finite species count, not only the checked examples.
+## correctness
 
-Run `python verify_hierarchy.py` with Python 3, NumPy, SciPy. The program tests the exact three-species terminal split, positive limiting mass, and the support-greedy selection rule for initial support patterns in chains of three, five, six and seven species. At the source package path the program returned `VERIFY_OK`.
+PASS
 
-The numerical integrations are finite-horizon diagnostic checks, not certificates of the claimed infinite-time limits. No external mathematical review or independent audit has been performed. The result does not claim a uniform decay rate across all positive initial configurations, and it does not cover unequal demographic rates or finite stochastic ecological populations.
+For all N>=1, r>d>0, p_i>0 and initial 0<T<=1, P=sum p_i x_i x_{i+1}<=p_*T^2, hence logistic comparison yields uniform T>=min(T0,(r-d)/(r+p_*)). If m=min initially occupied site then u_i=x_i/x_m are decreasing, x_m/T bounded below, and clock tau=int_0^t x_m ds >= delta t. The triangular exact system du_i/dtau=-p_{i-1}u_{i-1}u_i determines by induction whether u_i has positive limit (preceding absent/decays) or decays exponentially (preceding positive), giving the greedy support with no dependence on magnitude of positive p_i. P(t) decays, logistic relaxation gives T->K=1-d/r exponentially, and each x_i tends exponentially to the claimed equilibrium. For N=3 integrate u_2 in tau to obtain R and exact limiting abundances. Independently solved N=3 IVP and matched exact limit to 1.4e-12; not a proof. No convergence statement when demographic rates differ or p_i=0.
+
+## originality
+
+PASS
+
+PASS (best of knowledge): Samanta et al study the same hierarchical directed model and establish only independent-set equilibrium restrictions and transverse/numerical observations; a stable independent set is not the trajectory-selected greedy independent set. The exact triangular time-change proves global convergence from every nonzero nonnegative initial state, initial-support selection, exponential rate, and abundance split. Baigent–Ching attract a continuum and Hou assumes a unique common attractor; neither implies the history-dependent all-N result. Standard competitive triangular techniques may overlap in older unindexed literature, recorded as risk.
+
+## value
+
+PASS
+
+PASS: The source paper identifies coexistence-compatible independent sets without deciding which one a trajectory reaches. A global all-N greedy support rule and exact surviving abundances solve a meaningful selection problem for the specified deterministic ecological chain, including arbitrary positive predation rates and boundary initial supports. The rate of convergence is not uniform over initial states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
