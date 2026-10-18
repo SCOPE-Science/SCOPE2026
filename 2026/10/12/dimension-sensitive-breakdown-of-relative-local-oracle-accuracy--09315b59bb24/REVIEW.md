@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses only constrained first-order optimality, the squared-radius identity, and explicit witnesses. For every locally feasible point the linear model gap bounds squared distance by \(\mu/2\); this proves the absolute certificate and uniqueness of the exact oracle. One-dimensional order gives an exact equality between the relative model gap and the error ratio, while a two-dimensional halfspace gives admissible \(\eta\)-relative points whose distance ratio tends to 2. The triangle bound establishes the upper endpoint. The equality example for the absolute gap verifies the optimal constant. Exact rational checks supplement, but do not replace, these arguments.
+PASS
 
-## Originality — PASS, with residual risk
+PASS: For an isotropic strongly convex quadratic on closed convex X, constrained first-order stationarity and the radius inequality 2<x−x*,y−x*> >= ||y−x*||² imply E=<∇f(x),y−x*> >= μ||y−x*||²/2. Hence the exact local linear minimizer is uniquely x* and the absolute-gap factor 2 is sharp at X=R², x=(1,1), y=(2,0). In one dimension order yields E/Δ=||y−x*||/R. For d>=2 triangle inequality gives at most 2, and the halfspace X={z2>=0}, x=(1,a), y=(2,0), c=(0,C) with C≥(2/η−1−a²)/a gives E=2, Δ≥2/η and ratio 2/sqrt(1+a²)→2. Exact rational checks at η=1/10,1/2,1 gave Δ=20,4,2 and ratio near 2 at a=1/1000. Applies to one-step ideal radius only; upper value 2 is supremum, not asserted attained.
 
-The closest preprint, Richtárik--Gruntkowska--Li, arXiv:2605.08850v2, proves its sharp ideal-radius contraction only for **exact** local linear minimization and notes the need for an inexact-oracle analysis of approximate master/pricing solutions. Its Appendix B.7 compares the exact trust-ball subproblem of Ferris--Zavriev with Garber--Hazan's relaxed oracle, which changes the admissible radius while retaining a no-worse-than-exact-original-ball model value. Neither implies the displayed positive relative-gap worst-case classification. Actual published-research similarity searches for the relative-gap/dimension formulation and source-title/alias searches found nearby but not covering results. The later projection-interpretation preprint arXiv:2609.33383 was available by abstract only, and the 2016 relaxed-oracle paper only by publisher abstract and the full comparison in the 2026 source. These are material residual originality risks, not proofs of noncoverage.
+## originality
 
-## Value — PASS
+PASS
 
-The complete sharp \(0\)/\(\eta\)/\(2\) dimension taxonomy identifies a genuine breakdown in a recently studied exact one-step benchmark and isolates active normal components as the cause, even for perfectly conditioned quadratics. The optimal absolute-gap certificate provides an explicit replacement accuracy scale. The theorem is one-step and does not claim convergence or implementable knowledge of the solution radius.
+Best-of-knowledge original as precise final theorem, after distinguishing stronger priors and genuine access limitations. Failed search is not proof of novelty; see mathematical implication checks and source inspections.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: The exact 0/η/2 classification exposes a genuine dimension/active-normal stability failure hidden by an idealized exact one-step benchmark. It rules out uniform positive relative-model-gap distance contraction even on perfectly conditioned quadratics and supplies an optimal absolute-gap replacement. Geometric boundary, not a routine normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

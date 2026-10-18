@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The main universal argument is analytical; review its five proof steps in `RESULT.md`. The decisive identities are the closed-ball expansion \(2\langle x-x_\star,y-x_\star\rangle\ge\|y-x_\star\|^2\), constrained stationarity \(\langle\nabla f(x_\star),y-x_\star\rangle\ge0\), and their sharp combination \(E\ge\mu\|y-x_\star\|^2/2\).
+## correctness
 
-For the high-dimensional family, direct substitution with \(x=(1,a)\), \(y=(2,0)\), and \(c=(0,C)\) gives \(E=2\), \(\Delta=1+a^2+Ca\), and \(\|y\|/R=2/\sqrt{1+a^2}\), with the stated lower bound on \(C\). There is no inference from finitely many samples to the universal theorem.
+PASS
 
-A standalone, standard-library-only checker is embedded as `verify.py`. Running `python verify.py` in a directory containing this file produces `VERIFY_OK 536 exact-rational checks` for selected halfspace witnesses, sharp one-dimensional equality examples, and ball-geometry sanity tests. The checker does not enumerate all convex sets, dimensions, real parameters, or solver outputs; the proof addresses those quantifiers.
+PASS: For an isotropic strongly convex quadratic on closed convex X, constrained first-order stationarity and the radius inequality 2<x−x*,y−x*> >= ||y−x*||² imply E=<∇f(x),y−x*> >= μ||y−x*||²/2. Hence the exact local linear minimizer is uniquely x* and the absolute-gap factor 2 is sharp at X=R², x=(1,1), y=(2,0). In one dimension order yields E/Δ=||y−x*||/R. For d>=2 triangle inequality gives at most 2, and the halfspace X={z2>=0}, x=(1,a), y=(2,0), c=(0,C) with C≥(2/η−1−a²)/a gives E=2, Δ≥2/η and ratio 2/sqrt(1+a²)→2. Exact rational checks at η=1/10,1/2,1 gave Δ=20,4,2 and ratio near 2 at a=1/1000. Applies to one-step ideal radius only; upper value 2 is supremum, not asserted attained.
 
-The strict absolute accuracy boundary requires \(E<\mu R^2/2\), not \(E\le\mu R^2/2\). Nothing in the verification asserts algorithmic complexity, multi-step convergence, or independent validation.
+## originality
+
+PASS
+
+Best-of-knowledge original as precise final theorem, after distinguishing stronger priors and genuine access limitations. Failed search is not proof of novelty; see mathematical implication checks and source inspections.
+
+## value
+
+PASS
+
+PASS: The exact 0/η/2 classification exposes a genuine dimension/active-normal stability failure hidden by an idealized exact one-step benchmark. It rules out uniform positive relative-model-gap distance contraction even on perfectly conditioned quadratics and supplies an optimal absolute-gap replacement. Geometric boundary, not a routine normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

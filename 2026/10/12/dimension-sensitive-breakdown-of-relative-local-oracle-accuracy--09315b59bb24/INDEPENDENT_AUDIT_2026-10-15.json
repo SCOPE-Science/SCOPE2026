@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T23:58:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For an isotropic strongly convex quadratic on closed convex X, constrained first-order stationarity and the radius inequality 2<x−x*,y−x*> >= ||y−x*||² imply E=<∇f(x),y−x*> >= μ||y−x*||²/2. Hence the exact local linear minimizer is uniquely x* and the absolute-gap factor 2 is sharp at X=R², x=(1,1), y=(2,0). In one dimension order yields E/Δ=||y−x*||/R. For d>=2 triangle inequality gives at most 2, and the halfspace X={z2>=0}, x=(1,a), y=(2,0), c=(0,C) with C≥(2/η−1−a²)/a gives E=2, Δ≥2/η and ratio 2/sqrt(1+a²)→2. Exact rational checks at η=1/10,1/2,1 gave Δ=20,4,2 and ratio near 2 at a=1/1000. Applies to one-step ideal radius only; upper value 2 is supremum, not asserted attained.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary exact-oracle theorem gives contraction zero for isotropic L=μ; projection interpretation is for exact local LMO and local halfspaces. No retrieved statement gave the sharp relative-gap error amplification 0/η/2."
+        ],
+        "reasoning": "Exact one-step projection equivalence does not entail stability against positive oracle model gaps. A general inexact trust-region result might imply an upper bound, but matching dimension-dependent sharp counterexamples were not seen.",
+        "searches": [
+          "arXiv:2605.08850v1 Theorem 3.5, Appendix; revised 2026-09-28",
+          "arXiv:2609.33383 projection interpretation",
+          "Garber–Hazan 2016 DOI:10.1137/140985366",
+          "Resultary semantic query: local linear minimization oracle relative multiplicative improvement trust ball strongly convex quadratic active constraint amplification dimension inexact LMO"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2605.08850v1",
+        "https://arxiv.org/abs/2609.33383",
+        "https://doi.org/10.1137/140985366"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact local linear minimization under the ideal radius already reaches x* and is credited. The submitted claim changes the oracle tolerance definition and proves a discontinuity at any η>0 for d>=2."
+        ],
+        "reasoning": "The prior premise is exact-oracle contraction; it does not imply a positive-relative-error contraction. The manuscript does not claim the exact result as new. The September 2026 projection paper full text was not read; relevant uninspected inexact discussion remains a priority risk.",
+        "searches": [
+          "arXiv:2605.08850v1 Theorem 3.5 and exact-radii proof",
+          "arXiv:2609.33383 abstract",
+          "Resultary semantic query: local linear minimization oracle relative multiplicative improvement trust ball strongly convex quadratic active constraint amplification dimension inexact LMO"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Richtárik–Gruntkowska–Li arXiv:2605.08850 exact Theorem 3.5 (earlier Theorem 3.7) sets radius equal to solution distance when L=μ; it assumes exact subproblem minimization."
+        ],
+        "reasoning": "Equivalent names broximal gradient descent and local LMO were searched. The inexact positive model-gap specification is different from the exact original oracle and Garber–Hazan relaxed-feasibility oracle.",
+        "searches": [
+          "Resultary semantic query: local linear minimization oracle relative multiplicative improvement trust ball strongly convex quadratic active constraint amplification dimension inexact LMO",
+          "Web: local LMO inexact relative improvement oracle dimension active constraints isotropic quadratic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published numeric table of 0/η/2 classification located; the source supplies continuous halfspace witnesses indexed by a,η,C."
+        ],
+        "reasoning": "An exact universal supremum across convex sets cannot be established from finite examples; constructive continuous witness and geometry yield the sharp characterization.",
+        "searches": [
+          "Resultary semantic query: local linear minimization oracle relative multiplicative improvement trust ball strongly convex quadratic active constraint amplification dimension inexact LMO",
+          "Web: relative local LMO error counterexample active normal quadratic ball radius"
+        ]
+      },
+      "rationale": "Best-of-knowledge original as precise final theorem, after distinguishing stronger priors and genuine access limitations. Failed search is not proof of novelty; see mathematical implication checks and source inspections.",
+      "residual_risks": [
+        "Full revised 2026 Broximal manuscript and later September 2026 projection preprint were not independently inspected throughout; inexact analysis outside the read sections may change priority.",
+        "The radius depends on unknown optimizer and result is one step only; not an implementable algorithmic convergence guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact contraction source premise verified; no matching relative positive model-gap 0/η/2 taxonomy in inspected material",
+          "evidence": "arXiv:2605.08850v1 Theorem 3.5 eqs 11–12, Appendix D.3",
+          "identifier_or_url": "https://arxiv.org/html/2605.08850v1",
+          "material_read": "Full accessible v1 arXiv HTML, Section 3.3 Theorem 3.5 and Appendix D.3 contraction argument; cross-checked revised paper summary and changes",
+          "method": "full-text theorem and proof inspection",
+          "title": "Local LMO: Constrained Gradient Optimization via a Local Linear Minimization Oracle (revised as Broximal Gradient Descent)",
+          "trigger": "Same exact local linear oracle and ideal radius"
+        },
+        {
+          "assessment": "Exact local LMO/projection formulation not a verified positive-gap worst-case classification; risk disclosed",
+          "evidence": "arXiv:2609.33383, posted 2026-09-27",
+          "identifier_or_url": "https://arxiv.org/abs/2609.33383",
+          "material_read": "Public arXiv abstract and author summary; full paper was not read in this run",
+          "method": "abstract/title and statement comparison",
+          "title": "Local LMO is Secretly a Projection Method!",
+          "trigger": "Later paper by the same authors on projection interpretation"
+        },
+        {
+          "assessment": "Its different relaxed-radius/no-worse-than-exact gap requirement does not cover arbitrary ηΔ positive gap",
+          "evidence": "Garber and Hazan, SIAM J. Optim. 26 (2016), 1493–1528",
+          "identifier_or_url": "https://doi.org/10.1137/140985366",
+          "material_read": "Accessible bibliographic and description plus comparison in inspected 2026 primary text; no new full 2016 PDF read",
+          "method": "cross-paper statement comparison",
+          "title": "A Linearly Convergent Variant of the Conditional Gradient Algorithm under Strong Convexity",
+          "trigger": "Related local linear optimization oracle with relaxed feasible region"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The exact 0/η/2 classification exposes a genuine dimension/active-normal stability failure hidden by an idealized exact one-step benchmark. It rules out uniform positive relative-model-gap distance contraction even on perfectly conditioned quadratics and supplies an optimal absolute-gap replacement. Geometric boundary, not a routine normalization check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2605.08850v1",
+    "https://arxiv.org/abs/2609.33383",
+    "https://doi.org/10.1137/140985366"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full revised 2026 Broximal manuscript and later September 2026 projection preprint were not independently inspected throughout; inexact analysis outside the read sections may change priority.",
+    "The radius depends on unknown optimizer and result is one step only; not an implementable algorithmic convergence guarantee.",
+    "GitHub returned matching actual record tree objects and file blob identifiers; root-to-record ancestry of full pinned commit not independently reconstructed."
+  ],
+  "residual_risks": [
+    "Full revised 2026 Broximal manuscript and later September 2026 projection preprint were not independently inspected throughout; inexact analysis outside the read sections may change priority.",
+    "The radius depends on unknown optimizer and result is one step only; not an implementable algorithmic convergence guarantee."
+  ],
+  "schema_version": 1
+}
