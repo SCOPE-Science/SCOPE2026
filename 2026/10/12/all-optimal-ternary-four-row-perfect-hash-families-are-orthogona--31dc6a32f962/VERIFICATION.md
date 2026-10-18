@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The included `verify.py` uses only the Python standard library. It performs the following exact finite checks:
+# Independent mathematical audit
 
-1. Constructs all \(81\) ternary length-four columns and the defining three-column separation predicate.
-2. Uses independent symbol relabeling to normalize a selected codeword to \(0000\), then proves by branch-and-bound that no normalized family has ten columns.
-3. Enumerates all normalized size-nine families; there are exactly eight.
-4. Directly checks every enumerated family for the perfect-hash condition and for the \(\operatorname{OA}(9,4,3,2)\) pair-projection condition.
-5. Exhausts all \(6^4\cdot24=31{,}104\) coordinate/symbol symmetries. One representative has an orbit of \(72\) labeled unordered families, exactly eight of which contain \(0000\). Thus the orbit exhausts the normalized census and therefore all maxima; its stabilizer has order \(432\).
-6. Canonically serializes the normalized census and checks SHA-256 `6ae9b8858ab49282946cb1b34c64525624a51904f01fe99130fc913df5cffa59`.
+## correctness
 
-A successful run ends with:
+PASS
 
-`VERIFY_OK maximum=9 normalized_maxima=8 labeled_maxima=72 natural_group=31104 orbits=1 orbit_size=72 stabilizer=432 all_maxima_OA=True bound_nodes=18705 enum_nodes=21771 census_sha256=6ae9b8858ab49282946cb1b34c64525624a51904f01fe99130fc913df5cffa59`
+A family can be normalized so a selected word is 0000 via independent ternary symbol permutations. Independently reconstructed all 80 other words and exact 3-word separation predicates; branch-and-bound over every normalized compatible set visited 18,705 bound nodes and found maximum 9; separate cardinality-9 enumeration found exactly 8 normalized maxima. For all 8, every coordinate-pair projection is bijective (OA), and independent full 6^4*4!=31,104 group enumeration of a representative produced exactly 72 arrays with eight containing 0000; hence complete and one orbit, stabilizer 432. Conversely OA entails PHF by no pair agreeing twice among four rows. Finite exhaustive proof with explicit search invariant, not extrapolation.
 
-The computation proves only this finite parameter. It does not certify analogous statements for other alphabet sizes, row counts, or strengths.
+## originality
+
+PASS
+
+The 2003 MOLS example and Walker–Colbourn 2007 construction/table establish existence, and an independent published 3-row census is a different parameter. A targeted Resultary query and exact-parameter searches did not find a previous N=4 all-equality census. The genuinely new part is the OA converse/complete 72-orbit classification, not the known optimum construction.
+
+## value
+
+PASS
+
+Complete rigidity and a symmetry-canonical census of all optimal arrays is a natural exact invariant for perfect hash designs; useful for identifying equivalent solutions and optimal block ingredients, not simply reprinting a best-known size-nine table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
