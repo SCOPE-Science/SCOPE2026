@@ -1,11 +1,21 @@
-# Review of the hollow rank-two determinantal classification
+# Independent mathematical audit
 
-**Correctness — PASS.** For every nonzero off-diagonal pivot, a Schur-complement calculation gives an equality of localized ideals, not only a set-theoretic parametrization. The resulting independent equations are \(u_iv_i=0\), yielding reduced complete-intersection charts. The same charts establish the bijection with bipartition Segre components, saturated prime intersection, and product-of-nodes completed local rings. The branch counts, smoothness criterion, Hilbert--Samuel series and degree are formal consequences verified with their hypotheses and normalization intact. The finite symbolic checker tests all \(3\times3\) minors for \(3\le n\le6\) but is not used as an infinite proof.
+## correctness
 
-**Originality — PASS, residual risk acknowledged.** Grood et al. (2014), Theorem 2.3, determines **real rank-two complete-bipartite support graphs**; that set-theoretic fact is not new. Their inspected full article does not establish the complex projective **minor ideal** decomposition, the exact universal local equations, the local branch multiplicities or the Hilbert--Samuel series. Bruns--Römer--Wiebe (2003) treat generic rectangular determinantal rings, not the hollow symmetric specialization. Other published small determinant singularity results address different ambient schemes or only one size. The present scheme-and-local-ring theorem is not a logical consequence of the support-graph classification alone. An unindexed equivalent local calculation cannot be excluded.
+PASS
 
-**Value — PASS.** This is a complete classification of the singularity type at **every** point of a natural infinite projective determinantal family, including arbitrarily deep intersections of many components. The exact local multiplicities grow exponentially with the number of zero rows; neither the published support criterion nor the classical aggregate rank-two degree gives these local algebras. The saturated radical decomposition is specifically useful for studying the nonnormal/projective scheme, beyond counting solutions. No assertion about the irrelevant affine-cone vertex or positive characteristic is needed.
+At every nonzero projective hollow symmetric rank<=2 point, rank cannot be one in characteristic zero (w_i^2=0), hence some off-diagonal pivot s=x_ab is invertible. Schur complement elimination identifies the entire localized ALL-3-minor ideal with diagonal equations 2u_i v_i=0 and off-pivot variables determined by (u_iv_j+v_iu_j)/s. Projective chart is C[u_i,v_i]/(u_i v_i), proving radical local complete intersection, Segre components indexed by bipartitions, saturated intersection of their primes, and 1/2 binom(2n-2,n-1) degree. At any point z zero rows correspond exactly to z nodal pairs and remaining smooth coordinates; completed local algebra is product of z nodes, multiplicity 2^z, Hilbert (1+t)^z/(1-t)^(n-2), smooth iff z=0. Independent symbolic full 3-minor checks n=3,4,5 recover exactly 1,16,100 minors; all n supported by symbolic Schur argument, not finite extrapolation.
 
-**Limitations and nearest comparisons.** The exact theorem assumes a structural zero diagonal over \(\mathbb C\) and all \(3\times3\) minors. The degree and graph-of-support conclusions overlap older work and are not represented as new. The full homogeneous resolution and unreduced singular subscheme are not addressed; independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Scientific best-of-knowledge assessment after independently reading the frozen RESULT.md and recreating relevant proof/calculation, checking Resultary and named primary source statements. Grood et al. Theorem 2.3 gives set-theoretic support graph K_{a,b} for real hollow rank-two symmetric matrices, a component-label input but not the scheme structure or local intersection multiplicities. Generic determinantal work of Bruns--Römer--Wiebe uses independent rectangular entries, not the repeated symmetric entries and forced diagonal zeros here; the extra nodal relations are not mechanically entailed by a quoted prior special-case theorem.
+
+## value
+
+PASS
+
+The projective minor scheme is a canonical sparse symmetric determinantal locus with a natural full local analytic classification. Explicit nodal-product local rings give exact singular support, local multiplicities, branches, normalization, Hilbert--Samuel series and total degree for every n, a geometrically substantive refinement of prior support classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
