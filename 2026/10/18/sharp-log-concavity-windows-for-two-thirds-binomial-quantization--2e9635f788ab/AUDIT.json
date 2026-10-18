@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The exact binomial weights yield \\(b_0=1+nt\\), \\(b_1=\\binom n2t^2\\), and \\(b_2=\\binom n3t^3+\\binom n4t^4\\) for \\(n\\ge3\\), where \\(t=p/(1-p)>0\\). For \\(n=3,4\\), the first gap is the only constraint; at \\(n=5\\), the second gap factors as \\(5t^6(5t^2+18t+20)>0\\). At \\(n=6\\), the index-one and index-three constraints require disjoint odds intervals \\([1/3,2/3]\\) and \\([20/21,\\infty)\\). For \\(n\\ge7\\), the first-gap quadratic discriminant is strictly negative, since with \\(m=n-7\\ge0\\) the controlling factor is \\(5m^4+98m^3+661m^2+1672m+912>0\\), while the leading coefficient is negative. Hence the all-size theorem follows. The standalone checker verifies the identities symbolically and checks 1,200 independent rational examples; these finite checks are not substituted for the infinite argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tang--Tang 2019 Theorem 4.4 treats failure of real-rootedness for a p=1/2 subfamily X~Bin(3n,1/2), not ordinary log-concavity for every p and every sample size.",
+        "Tang--Tang 2019 Theorem 4.3 treats floor(X/k), k an integer; our map floor(2X/3) has nonuniform block sizes.",
+        "The supplementary DOI 10.1214/22-STS852SUPP could not be read separately; arXiv:1908.10024v1 does contain full Appendix A and was inspected."
+      ],
+      "reasoning": "Failure of strong Rayleigh property or Newton inequalities does not establish ordinary-log-concavity failure, and preservation under equal-sized block grouping does not decide alternating blocks. No checked prior general statement dominates the all-n classification. The unread supplementary source creates a residual possibility, not a known implication.",
+      "searches": [
+        "Poisson binomial rational fraction floor(2X/3) real rooted polynomial approximation strong Rayleigh",
+        "poisson binomial rational fraction 2X/3 ordinary logconcavity threshold n=6",
+        "scaled binomial integer floor rounded two thirds sequence coefficients 1+np choose n 2 choose n 3 log concavity",
+        "Tang Tang 2023 \"Rational Fractions of Poisson Binomial\" supplementary pdf"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1908.10024v1 (full available preprint, Section 4 and Appendix A)",
+      "doi:10.1214/22-STS852 (author-hosted published main article, Section 4)",
+      "https://www.imstat.org/publications/sts/sts_38_1/sts_38_1.pdf (publication metadata)",
+      "2026/10/4/SCOPE-the-mean-three-case-of-the-binomial-left-loadedness-conjecture--78a4e5e09253",
+      "2026/10/4/SCOPE-exact-pair-balancing-law-for-gini-dispersion-of-poisson-binomial--bd2c764a90dd",
+      "2026/10/4/SCOPE-eight-atoms-are-minimal-for-a-discrete-log-concave-half-mass-fai--a7db5ef46966",
+      "2026/10/4/SCOPE-sharp-success-probability-threshold-for-the-two-trial-chaundy-bu--2fc37a4008e7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tang--Tang arXiv:1908.10024v1, Theorem 4.4: root-imaginary-part lower bound in Bin(3n,1/2) subfamily.",
+        "Tang--Tang 2019, Theorem 4.3: equal-block integer-division strong-Rayleigh result.",
+        "Closest result 2026/10/4/SCOPE-exact-pair-balancing-law-for-gini-dispersion-of-poisson-binomial--bd2c764a90dd proves a Gini dispersion law under Bernoulli-pair balancing, with no claim about floor(2X/3).",
+        "Archived mathematical result concerning floor(2X/3+1/2) and a transport obstruction controls different mass coefficients; its nonlogconcavity result is not the claim for floor(2X/3)."
+      ],
+      "reasoning": "A polynomial can lack real roots while its coefficient sequence is log-concave, so the root theorem cannot give this sharp ordinary-log-concavity phase diagram. The two quantizers have different preimages and are not related by relabeling. The result is not a restatement of a general binomial log-concavity theorem, because deterministic quantization need not preserve it.",
+      "searches": [
+        "Exact classification when floor(2 Bin(n,p)/3) is log-concave; fails for all p when n at least 6; thresholds for n=3 4 5",
+        "poisson binomial rational fraction 2X/3 ordinary logconcavity threshold n=6",
+        "Poisson binomial distribution stochastic ordering characterization heterogeneous Bernoulli parameters"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tang--Tang arXiv:1908.10024v1, Section 4, formulates the rational quantizer, derives root-location and real-rootedness obstruction, and treats transport accuracy; Appendix A calculates transport for small counts, not ordinary-log-concavity thresholds.",
+        "The map has alternating preimage sizes two and one, whereas integer-division block coarsening has constant preimage size.",
+        "A related archived nearest-integer quantization result uses floor(2X/3+1/2), a distinct allocation of atoms."
+      ],
+      "reasoning": "Normalizations by a common binomial factor and by the positive odds parameter are equivalent formulations of this new claim. The source zero statements for polynomial roots and the nearest-integer quantizer cannot imply all ordinary second-difference inequalities for the floor map; their hypotheses and conclusions differ.",
+      "searches": [
+        "Poisson binomial rational fraction floor(2X/3) real rooted polynomial approximation strong Rayleigh",
+        "Poisson binomial thinning conditioning modulo three log concavity PF sequence",
+        "alternating 2-1 grouping of binomial probabilities floor two thirds X discrete log concavity exact thresholds six trials",
+        "\"floor(2X/3)\" \"log-concave\" \"binomial\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The research-index closest result 2026/10/4/SCOPE-the-mean-three-case-of-the-binomial-left-loadedness-conjecture--78a4e5e09253 concerns binomial left-loadedness, a different comparison of binomial tails and masses.",
+        "Closest result 2026/10/4/SCOPE-eight-atoms-are-minimal-for-a-discrete-log-concave-half-mass-fai--a7db5ef46966 concerns general finite-support log-concavity and a half-mass inequality, not rational rounding.",
+        "The published original source Appendix A computes transport distances for small n, not a log-concavity table across all p."
+      ],
+      "reasoning": "The exact endpoint radicals, sharp trial-count six cutoff, and full parameter intervals were queried with scientific aliases and compared by statement. No matching database/table claim was retrieved; absence of hits is not itself a proof of novelty.",
+      "searches": [
+        "Exact classification when floor(2 Bin(n,p)/3) is log-concave; fails for all p when n at least 6; thresholds for n=3 4 5",
+        "floor two X over three logconcave distribution binomial n p critical roots sqrt 33 sqrt 41",
+        "alternating 2-1 grouping of binomial probabilities floor two thirds X discrete log concavity exact thresholds six trials",
+        "\"√41\" \"√33\" binomial log concavity \"floor\""
+      ]
+    },
+    "rationale": "The primary 2019 full preprint, including Section 4 and Appendix A, and the published 2023 Section 4 discuss exactly the \\(\\lfloor2X/3\\rfloor\\) object, but give root/transport and strong-Rayleigh results rather than the sharp ordinary-log-concavity classification. Negative real-rootedness does not imply an ordinary-log-concavity failure. Further database and literature searches by object, grouped-coefficient alias, exact cutoffs and radicals gave no equivalent complete theorem; related archived statements concern different roundings or different shape questions. This establishes originality to the best of inspected public evidence, with the 2023 supplement and unindexed equivalents explicitly recorded as risks.",
+    "residual_risks": [
+      "The separately published supplement DOI 10.1214/22-STS852SUPP was not accessible separately, although the longer 2019 preprint appendix was inspected; an uninspected additional argument is possible.",
+      "An unindexed or differently formulated prior theorem on alternating block summation could subsume the classification.",
+      "Search retrieval is incomplete by nature; exact independence from all unsearched literature is not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the sharp ordinary-log-concavity classification. It proves distinct zeros/transport claims and analyzes other shapes.",
+        "evidence": "Theorem 4.4 bounds imaginary parts of roots of floor(2X/3) for X~Bin(3n,1/2). Appendix A computes transport accuracy and strongly-Rayleigh approximating polynomials for small n.",
+        "identifier_or_url": "https://arxiv.org/pdf/1908.10024",
+        "material_read": "Sections 1, 4, and Appendix A (21-page complete public PDF; relevant pages 8-11 and 15-16 inspected in text and page views).",
+        "method": "Full-text extraction plus visual inspection of the rational-fraction theorem and the complete relevant appendix.",
+        "title": "The Poisson binomial distribution -- Old & New (full 2019 preprint)",
+        "trigger": "Exact \\(\\lfloor2X/3\\rfloor\\) object studied as strong-Rayleigh quantization and transport."
+      },
+      {
+        "assessment": "No sharp ordinary-log-concavity classification for all \\(n,p\\) in the inspected main article.",
+        "evidence": "The rational-fraction discussion centers on strong Rayleigh and Hurwitz stability and transport approximation; a supplementary DOI is named.",
+        "identifier_or_url": "https://www.columbia.edu/~wt2319/PB.pdf",
+        "material_read": "Section 4 and the reference to supplementary material, 12-page author-hosted article, relevant pages 114-116 inspected.",
+        "method": "Parsed published main text, with visual checks of pages displaying rational quantization, structural root properties and citations.",
+        "title": "The Poisson Binomial Distribution—Old & New (published 2023 article)",
+        "trigger": "Journal version of the source with possible stronger Section 4 statements."
+      },
+      {
+        "assessment": "Confirms source identity and primary-publication comparison rather than an independent competing theorem.",
+        "evidence": "Tang and Tang, Statistical Science 38 (2023), 108–119, DOI: 10.1214/22-STS852.",
+        "identifier_or_url": "https://www.imstat.org/publications/sts/sts_38_1/sts_38_1.pdf",
+        "material_read": "Publication metadata (journal, volume, article pages and DOI) and introductory summary.",
+        "method": "Journal issue indexing and public article text.",
+        "title": "Statistical Science publication record, 2023, volume 38 number 1",
+        "trigger": "Confirm published bibliographic metadata and main text source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2e9635f7-88ab-496b-8e70-d7acad354454",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The law \\(\\lfloor2X/3\\rfloor\\) is a canonical rational quantization motivating a published research direction. Ordinary log-concavity is a substantive intermediate shape property not decided by previous real-rootedness obstructions. A complete classification with sharp algebraic parameter windows at \\(n=3,4,5\\) and the universal extinction of log-concavity from \\(n=6\\) onward is structurally informative; it is an all-sample-size result, not an arbitrary isolated numerical calculation. It separates admissible shape regimes from universal failure and informs shape-based approximations of rationally scaled binomial variables.",
+    "status": "PASS"
+  }
+}
