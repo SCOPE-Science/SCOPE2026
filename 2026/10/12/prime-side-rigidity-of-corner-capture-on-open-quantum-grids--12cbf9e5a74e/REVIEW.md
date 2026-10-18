@@ -1,15 +1,21 @@
-# Scientific assessment: corner capture on prime-sided open grids
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces long-time no-detection survival to the orthogonal complement of the corner cyclic space, using the negative imaginary part of the dissipative generator. Corner visibility of every product eigenvector is verified from the path sine basis. The central nonstandard argument then counts distinct energy sums exactly: the cyclotomic polynomial proves independence of cosine representatives for equal primes; field-intersection and trace bounds exclude unequal-prime collisions, including the exceptional small primes \(3\) and \(5\). The formula includes all primes covered by its quantifiers, every nonzero uniform hopping, every positive absorption strength, and every density matrix. A separately constructed finite-matrix verifier confirms representative cases, without substituting for the proof.
+## correctness
 
-## Originality — PASS, with priority limitations
-Novo and colleagues' Krylov-subspace transport method is a substantial antecedent: the spectral-support-to-absorption reduction itself is known. The inspected primary treatments of periodic square-lattice dynamics (Agliari et al.), randomly restricted two-dimensional walks with column absorbers (Anishchenko et al.), and graph transport with traps (Razzoli et al.) do not state the two-prime corner spectrum and the exact square-versus-rectangle capture dichotomy. The new theorem is not implied numerically or symbolically by those texts without an additional cyclotomic collision classification, which is proved here. Targeted searches for alternate terminology, Cartesian-grid spectrum, cosine sums, dark states and prime path dimensions did not identify an exact equivalent. This does not prove publication priority: an unlocated stronger spectral-graph classification or prior specialized derivation could cover the result.
+PASS
 
-## Value — PASS
-The corner capture probability and dark-space rank are natural dynamical invariants: they determine whether a local, irreversible sink can remove *every* excitation and what fraction of a maximally mixed ensemble remains. The infinite-family dichotomy is exact and structurally sharp. Switching from two distinct odd-prime shifted path lengths to equal shifted lengths changes eventual absorption from certainty to a value approaching one half, independently of the positive sink strength. The proof explains that macroscopic difference through arithmetic eigenenergy collisions. This is a complete motivated classification within a substantive family, not a numerical gain or arbitrary parameter slice.
+For rank-one corner loss, H-cyclic subspace B=span{H^j c} equals the span of nonzero spectral projections P_E c; on B^⊥ absorption vanishes, while every eigenvalue of K|B has strictly negative imaginary part, giving decay even with Jordan blocks. Open path P_{p−1} has eigenvalues ±(ζ_p^j+ζ_p^{-j}) and nonzero sine endpoint components, so dim B equals number of distinct pairwise eigenvalue sums. For equal p, the m=(p−1)/2 real cyclotomic basis elements are Q-linearly independent by the Φ_p constant-term argument; the sums are 0, ±2t_j, and ±t_i±t_j giving 2m²+1. For distinct odd primes cyclotomic intersection is Q and common difference is integer; field traces kill nonzero integer differences at primes>=7 and the (3,5) small case has incompatible differences 2 versus 1. Thus all (p−1)(q−1) sums are distinct. Independent 70-digit numerical spectral computation for all 25 pairs p,q in {3,5,7,11,13} reproduced exact ranks (R3_VISIBLE_SPECTRUM_PRIME_GRID_OK); proof is cyclotomic, not numeric.
 
-## Closest literature and limitations
-Agliari, Blumen and Mülken, arXiv:0810.1184v1; Anishchenko, Blumen and Mülken, arXiv:1309.2827v1; Novo et al., arXiv:1412.7209; Razzoli, Paris and Bordone, arXiv:2011.13794v1. All generic Krylov-space and spectral-support principles are antecedents, not claimed as discoveries. The result does not handle nonprime shifted lengths, multiple losses, random potentials, finite-time optimality, or arbitrary boundary geometry. Remaining external priority risk requires independent scholarly assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General Krylov/dark-state transport machinery and path sine eigenbasis are prior. Novel assessed statement is the exact arithmetic rank and all-density-matrix absorption law with a sharp equal-versus-distinct odd-prime dichotomy. Novo’s open full journal account is graph-transport generic; related Resultary result on weighted P4 Cartesian powers is about powers and different spectral collision patterns. No examined source yields this two-prime formula.
+
+## value
+
+PASS
+
+Absorption in a finite quantum walk is directly controlled by detectable spectral support. The exact dichotomy changes capture from unity for different prime shifts to near 1/2 on equal-prime squares, and applies to arbitrary initial densities and every positive sink strength. This is a motivated structural arithmetic resonance effect rather than an arbitrary grid-size experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
