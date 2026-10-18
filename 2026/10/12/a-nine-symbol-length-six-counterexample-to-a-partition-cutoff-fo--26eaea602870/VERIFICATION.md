@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-From the same directory, run `python3 verify.py` using standard Python 3. The program constructs the length-one through length-five prefix/right partitions, builds the entire length-six code as sets of integer tuples, and independently tests the defining absence of all five possible proper overlaps using global prefix/suffix sets. It checks all integers \(1\le a\le8\) for the cutoff restriction. Expected successful output:
+## correctness
 
-```text
-VERIFY_OK q=9 n=6 size=33872 L=(2, 12, 88, 640, 4656) R=(7, 2, 0, 0, 0) prefix_suffix_disjoint=yes restricted_max=33614 gap=258
-```
+PASS
 
-The codeword list is finite and produced deterministically from the formulas in the proof. This finite verification confirms an existence proof rather than substituting finite evidence for an infinite universal statement. The impossibility of a *maximum* code meeting the cutoff uses the full algebraic enumeration of all possible cutoff representations at the fixed parameter pair. The construction does not determine the unrestricted exact maximum, and an independent audit has not been performed.
+Read Construction 6 and Conjecture 1 in Stanovnik–Moškon–Mraz arXiv:2307.12593v2. For q=9,n=6 the strict cutoff i>1+6/10 forces R2=R3=R4=R5=empty, and recurrence forces code L1 R1^5, size a(9-a)^5, maximum 33,614 over all integers 1<=a<=8 (at a=2). Independently built the unrestricted explicit partition with L1={0,1}, R1={2,...,8}, R2={(0,2),(0,3)}, later Ri empty, obtained |Li|=(2,12,88,640,4656) and a literal set of exactly 33,872 distinct length-six words. For each proper length k=1..5 computed all prefixes and suffixes and confirmed disjoint sets (includes self-overlap). Thus some non-overlapping code exceeds every cutoff-representable code by 258; every maximum code also exceeds the cutoff and the conjecture is false. No exact optimum S(9,6) or smallest counterexample is claimed.
+
+## originality
+
+PASS
+
+The original 2024 primary paper states the universal cutoff as Conjecture 1 and its tabulated exact cases concern q<=6; the counterexample at q=9,n=6 uses the paper’s own representation but violates the claimed existence of a cutoff-compatible maximum. An examined 2025 dissertation still states that conjecture rather than this refutation; a 2024 constrained-code paper addresses different restrictions. Resultary search returned no covered same q=9 cutoff refutation. Priority could nevertheless be affected by unindexed numerical datasets or subsequent work.
+
+## value
+
+PASS
+
+This is a motivated, explicit refutation of a universal published conjecture about structure of maximum non-overlapping codes, not an arbitrary finite instance. The exact 258-word gap independently separates a concrete admissible code from every cutoff-compatible representation. It changes the status of a proposed algorithmic restriction in synchronization/DNA address coding even without computing S(9,6).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact partition recursion gives level sizes \((2,12,88,640,4656)\) and \((7,2,0,0,0)\). Its code comprises precisely \(33872\) distinct six-letter words; the standalone program exhaustively verifies that the proper-prefix and proper-suffix sets are disjoint for each of five lengths. The constrained class has \(R_2=\cdots=R_5=\varnothing\) and therefore a code size of \(a(9-a)^5\) for \(1\le a\le8\), with global integer maximum \(33614\). These are complete finite arguments, not extrapolations.
+## correctness
 
-**Originality — PASS, with priority risk.** The 2024 Stanovnik–Moškon–Mraz publication states the contradicted claim as Conjecture 1 (arXiv:2307.12593, doi:10.1007/s10623-023-01344-z). The same author prints it again as Conjecture 5.1 in a 2025 dissertation. The authors' separate 2024 almost-balanced/run-restricted follow-up addresses a distinct constrained setting. Searches for the exact cardinalities, q=9/n=6, and cross-bifix-free equivalents revealed no indexed covering counterexample; unseen and unindexed sources remain possible.
+PASS
 
-**Value — PASS.** The result settles a concrete published universal conjecture negatively, using an explicit witness whose size is \(258\) above the cutoff-restricted maximum. It demonstrates that the cutoff cannot be imposed without losing optimality. The true maximum \(S(9,6)\), smaller parameters, and Blackburn's separate sufficiently-large-alphabet conjecture are not resolved.
+Read Construction 6 and Conjecture 1 in Stanovnik–Moškon–Mraz arXiv:2307.12593v2. For q=9,n=6 the strict cutoff i>1+6/10 forces R2=R3=R4=R5=empty, and recurrence forces code L1 R1^5, size a(9-a)^5, maximum 33,614 over all integers 1<=a<=8 (at a=2). Independently built the unrestricted explicit partition with L1={0,1}, R1={2,...,8}, R2={(0,2),(0,3)}, later Ri empty, obtained |Li|=(2,12,88,640,4656) and a literal set of exactly 33,872 distinct length-six words. For each proper length k=1..5 computed all prefixes and suffixes and confirmed disjoint sets (includes self-overlap). Thus some non-overlapping code exceeds every cutoff-representable code by 258; every maximum code also exceeds the cutoff and the conjecture is false. No exact optimum S(9,6) or smallest counterexample is claimed.
 
-The self-contained finite witness, full construction proof, and reproducibility program provide checkable evidence. A later independent mathematical review and comprehensive priority study have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original 2024 primary paper states the universal cutoff as Conjecture 1 and its tabulated exact cases concern q<=6; the counterexample at q=9,n=6 uses the paper’s own representation but violates the claimed existence of a cutoff-compatible maximum. An examined 2025 dissertation still states that conjecture rather than this refutation; a 2024 constrained-code paper addresses different restrictions. Resultary search returned no covered same q=9 cutoff refutation. Priority could nevertheless be affected by unindexed numerical datasets or subsequent work.
+
+## value
+
+PASS
+
+This is a motivated, explicit refutation of a universal published conjecture about structure of maximum non-overlapping codes, not an arbitrary finite instance. The exact 258-word gap independently separates a concrete admissible code from every cutoff-compatible representation. It changes the status of a proposed algorithmic restriction in synchronization/DNA address coding even without computing S(9,6).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
