@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,93 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For
-\[
-\Lambda_1=
-\begin{pmatrix}
-\sqrt2&1/\sqrt2\\
-0&\sqrt{3/2}
-\end{pmatrix},
-\]
-direct multiplication gives
-\[
-\Lambda_1^*\Lambda_1=
-\begin{pmatrix}
-2&1\\
-1&2
-\end{pmatrix}.
-\]
-The characteristic polynomial is
-\[
-(\lambda-1)(\lambda-3),
-\]
-so the frame operator is positive with lower eigenvalue \(1\) and upper eigenvalue \(3\).
+# Independent mathematical audit
 
-With
-\[
-K=P_{\operatorname{span}\{e_1\}},
-\]
-the \(K\)-\(g\)-fusion lower inequality follows from
-\[
-\langle S_\Lambda f,f\rangle
-\ge
-\|f\|^2
-\ge
-\|K^*f\|^2.
-\]
+## correctness
 
-The restricted map
-\[
-C=S_\Lambda|_{R(K)}
-\]
-sends
-\[
-e_1\longmapsto2e_1+e_2.
-\]
-Using the normalized vector
-\[
-q=\frac{2e_1+e_2}{\sqrt5},
-\]
-one obtains
-\[
-C^{-1}q=\frac1{\sqrt5}e_1
-\]
-and therefore
-\[
-(C^{-1})^*e_1
-=
-\frac{2e_1+e_2}{5}.
-\]
-Applying \(S_\Lambda\) yields
-\[
-S_\Lambda(C^{-1})^*e_1
-=
-e_1+\frac45e_2,
-\]
-which is not \(Ke_1\).
+PASS
 
-For the general obstruction, let
-\[
-R=R(K),\qquad C=S_\Lambda|_R.
-\]
-Since \(K\) maps onto \(R\), the source identity is equivalent to
-\[
-S_\Lambda(C^{-1})^*|_R=I_R.
-\]
-Because
-\[
-C^*=P_RS_\Lambda|_{S_\Lambda(R)}
-\]
-and \((C^{-1})^*=(C^*)^{-1}\), this is equivalent to
-\[
-S_\Lambda^2(R)\subseteq R.
-\]
-The subspace \(R\) then reduces the self-adjoint operator \(S_\Lambda^2\), and functional calculus for its positive square root gives
-\[
-S_\Lambda(R)\subseteq R.
-\]
-The converse follows because the restricted positive operator is then self-adjoint and invertible on \(R\).
+PASS. The restricted inverse C^{-1} of C=S|_{R(K)} maps S(R(K)) back to R(K); its adjoint reverses these spaces. C^*(C^{-1})^*=I_{R(K)} is true, but the source replaces C^*=P_R S with unprojected S. Exact H=C^2, K=projection onto e1, Lambda=[[sqrt2,1/sqrt2],[0,sqrt(3/2)]] yields S=[[2,1],[1,2]], bounded lower/upper bounds 1,3 and S(C^{-1})^*e1=e1+(4/5)e2 !=Ke1. Algebraically S(C^{-1})^*|_R=I_R iff S^2R subset R; S positive and self-adjoint implies invariance under S via functional calculus. Hence theorem fails even under its closed-range and frame hypotheses; the equivalence concerns the displayed first reconstruction identity, not unrelated infinite-dimensional closedness claims.
 
-The source theorem and the later journal reproduction were inspected directly, and the related \(K\)-fusion reconstruction was checked in full text. No numerical approximation is used.
+## originality
+
+PASS
+
+PASS, best-of-knowledge. Original Sadri–Ahmadi–Rahimi arXiv:1806.03595v1 Theorem 3.3 and the 2020 journal Theorem 8 were materially read and use the exact false first identity. Later K-fusion (not K-g-fusion) theory reconstructs with P_{R(K)}S(C^{-1})^*, which diagnoses the type issue but neither states the source-specific two-dimensional K-g-fusion counterexample nor the iff invariance criterion. Generic K-frame theory admits noninvariant ranges, but this by itself does not prove the canonical dual formula fails. No exact correction/erratum found; unindexed coverage remains risk.
+
+## value
+
+PASS
+
+PASS. The missing projection invalidates an advertised canonical K-g-fusion dual even in C^2 with all hypotheses satisfied, and the exact invariance boundary identifies when the reconstruction does hold. This is a structural defect affecting an actual dual frame construction, not an unmotivated matrix type test. The projected restricted-adjoint distinction makes the correction mathematically useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

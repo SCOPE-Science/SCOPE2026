@@ -1,38 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source inverse is an inverse between
-\[
-R(K)
-\quad\text{and}\quad
-S_\Lambda(R(K)),
-\]
-so its adjoint reverses those two spaces. The automatic identity is
-\[
-\bigl(S_\Lambda|_{R(K)}\bigr)^*
-\bigl(\bigl(S_\Lambda|_{R(K)}\bigr)^{-1}\bigr)^*
-=
-I_{R(K)},
-\]
-not the source's replacement of the first factor by the unrestricted \(S_\Lambda\).
+## correctness
 
-The finite counterexample satisfies every substantive hypothesis and the proposed dual reconstructs
-\[
-e_1+\frac45e_2
-\]
-instead of \(Ke_1=e_1\).
+PASS
 
-## Originality
-PASS. The exact preprint and journal theorem, later \(K\)-\(g\)-fusion work, \(K\)-\(g\)-frame duality records, and the closest full-text \(K\)-fusion dual construction were compared. The \(K\)-fusion paper already exhibits the correct projected restricted-adjoint reconstruction in its own setting, but no checked source gives the present \(K\)-\(g\)-fusion counterexample or the exact equivalence between the source's first identity and \(S_\Lambda\)-invariance of \(R(K)\).
+PASS. The restricted inverse C^{-1} of C=S|_{R(K)} maps S(R(K)) back to R(K); its adjoint reverses these spaces. C^*(C^{-1})^*=I_{R(K)} is true, but the source replaces C^*=P_R S with unprojected S. Exact H=C^2, K=projection onto e1, Lambda=[[sqrt2,1/sqrt2],[0,sqrt(3/2)]] yields S=[[2,1],[1,2]], bounded lower/upper bounds 1,3 and S(C^{-1})^*e1=e1+(4/5)e2 !=Ke1. Algebraically S(C^{-1})^*|_R=I_R iff S^2R subset R; S positive and self-adjoint implies invariance under S via functional calculus. Hence theorem fails even under its closed-range and frame hypotheses; the equivalence concerns the displayed first reconstruction identity, not unrelated infinite-dimensional closedness claims.
 
-## Value
-PASS. The theorem is the source's canonical-dual construction, so failure of its first reconstruction identity is structural. The exact invariance criterion identifies when that step is valid and why an orthogonal range projection appears in related correct reconstruction formulas.
+## originality
 
-## Closest literature and limitations
-Later \(K\)-fusion theory uses
-\[
-P_{R(K)}S_W
-\]
-rather than \(S_W\) alone in the corresponding restricted-inverse reconstruction. This supports the diagnosis but is not a \(K\)-\(g\)-fusion correction. In infinite dimension, separate closedness conditions may still be required for image subspaces in the source formula.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS, best-of-knowledge. Original Sadri–Ahmadi–Rahimi arXiv:1806.03595v1 Theorem 3.3 and the 2020 journal Theorem 8 were materially read and use the exact false first identity. Later K-fusion (not K-g-fusion) theory reconstructs with P_{R(K)}S(C^{-1})^*, which diagnoses the type issue but neither states the source-specific two-dimensional K-g-fusion counterexample nor the iff invariance criterion. Generic K-frame theory admits noninvariant ranges, but this by itself does not prove the canonical dual formula fails. No exact correction/erratum found; unindexed coverage remains risk.
+
+## value
+
+PASS
+
+PASS. The missing projection invalidates an advertised canonical K-g-fusion dual even in C^2 with all hypotheses satisfied, and the exact invariance boundary identifies when the reconstruction does hold. This is a structural defect affecting an actual dual frame construction, not an unmotivated matrix type test. The projected restricted-adjoint distinction makes the correction mathematically useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
