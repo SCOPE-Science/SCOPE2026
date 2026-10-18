@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The real-sphere beta log moments, angular rank-two integral, projection digamma recurrence, strict concavity of the normalized projection function for rank parameter at least five, exact Taylor checks for the initial increments, and Abel-summation of the singular-value decomposition form a complete proof. The infinite family is controlled analytically; the finite checker only verifies four base inequalities. The rank-three projector proves optimality, and positivity of the tail proves the if-and-only-if rank-two characterization.
+PASS
 
-## Originality — PASS (qualified)
+The geometric spherical log mean H_n is orthogonally invariant and a norm by Kovalev, used as an explicit prior input rather than newly proved. For a real rank-two diagonal (a,b) the angular logarithmic identity gives exp integral=C_n(a+b); the radial beta log moment gives C_n=exp[(ψ(1/2)−ψ(n/2))/2]. Rank-k projectors satisfy H_n(P_k)=C_n exp[(ψ(k/2)−ψ(1/2))/2]=C_n r_k, with exact r1=1, r2=2, r3=e, r4=2√e, r5=e^{4/3}, r6=2e^{3/4}. For real x=k/2≥5/2, ψ1≤1/x+1/x² and ψ2≤−1/x² imply r″(k)<0; the finitely remaining increments decrease by exact rational exponential enclosures in inspected verify_hardy_rational.py (I independently checked the exact formulas and high-precision gaps, not an infinite numerical extrapolation). Therefore r_j−r_{j−1}≤e−2 for j≥3. Projector decomposition diag(s)=Σ(s_k−s_{k+1})P_k, triangle inequality, and Abel summation give the claimed spectral-tail bound for all real n×n A,n≥3. Rank≥3 forces strict nuclear inequality because 3−e>0, and rank3 tP_3 attains coefficient sharpness. No assertion of equality in refined inequality for all matrices beyond stated witnesses.
 
-Kovalev (arXiv:2607.17373v1) established the matrix norm and calculated projection values; neither of those are claimed here. Focused searches of equivalent nuclear/tracenorm bounds, rank-two equality, and third-singular stability, including public mathematical records and relevant published literature, revealed no covering exact coefficient. The new claim requires the diminishing-projection-increments lemma and the rank-two angular identity. The original paper's full text could not be accessed: implicit coverage remains a material originality risk, and abstract/summary evidence alone is **not** treated as proof the full paper omits the claim.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem quantitatively separates rank-two nuclear flatness from higher-rank curvature of a newly introduced unitarily invariant norm, with a sharp, dimension-independent spectral-tail coefficient. This gives an exact stability modulus in a natural Schatten-one comparison and completely identifies equality in the nuclear envelope. The statement is restricted to real matrices and does not resolve the motivating author's separate duality conjecture.
+The parent paper Hardy-type norms of matrices supplies the norm axiom and projection formula, which are credited, but its accessible abstract/synopsis does not establish the dimension-free sharp (3−e) trace-tail inequality or if-and-only-if rank-two nuclear equality. Primary PDF is inaccessible through lawful public routes and the separately authenticated Oxford route reported disconnected institutional VPN; this is a MATERIAL comparison risk, not alone a failed O assessment. Resultary found the exact indexed research item but not another stronger distinct Hardy-matrix spectral-tail result. Best-of-knowledge PASS qualified by uninspected primary sections: no fabricated assertion that whole paper is NOT_COVERING.
 
-## Limits and literature
+## value
 
-Kovalev, *Hardy-type norms of matrices*, arXiv:2607.17373v1 (19 July 2026), supplies the norm property and projection radii. The paper could not be read in full through available lawful routes; see AUDIT.json for coverage checks and scientific residual risk.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Quantitative sharp stability of a geometrically defined matrix norm against its natural nuclear envelope controls every singular-value tail, determines the nontrivial rank-two equality stratum, and gives an optimal rank-three obstruction with a dimension-free constant. This is a natural all-dimension spectral inequality rather than a renaming of projection values; the nonstandard global projection concavity is the substantive ingredient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
