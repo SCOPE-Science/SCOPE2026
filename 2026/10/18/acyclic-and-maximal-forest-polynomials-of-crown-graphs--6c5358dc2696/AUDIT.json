@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Self-contained exact classification by (a,b,t): min(a,b)<=1 or (2,2,t>=1) or (2,3,t=2) and transpose. Both necessity (edges ab-t, forest edge bound) and sufficiency (cycle-free small graphs) proved; one-vertex extension checks exhaust maximality including n=3,4. Exact bivariate coefficients derive by disjoint counting. Independent graph-based union-find/one-vertex-extension enumeration for n=3..9 checks every bivariate coefficient over 349504 subsets; finite experiments are explicitly supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barton–Brown–Pike arXiv:2011.01735 Theorem 1.3 only gives a join identity; a crown graph has missing cross-edges and is not that join.",
+        "Jafarpour-Golzari arXiv:2105.14339 Corollary 6.16 classifies K_{r,s}, not K_{n,n}-M_n.",
+        "Gunderson et al. arXiv:2301.05207 Theorem 3.9 treats K_n×K_n with n² vertices, versus 2n in K_2×K_n."
+      ],
+      "reasoning": "The graph join formula covers the undeleted complete bipartite boundary; deleted perfect-matching edges create additional feasible (2,2) and (2,3) selections. General facts about the maximum size and purity do not supply all bipartition-refined coefficients and facet multiplicities, and the other tensor-power family is nonisomorphic.",
+      "searches": [
+        "\"crown graph\" \"feedback vertex\" forest number maximal induced forest",
+        "well-f-covered crown graph complete bipartite graph with perfect matching removed induced forests",
+        "arxiv:2011.01735 [inspected Theorem 1.3]",
+        "arxiv:2301.05207 [inspected Theorem 3.9]",
+        "arxiv:2105.14339 [inspected Theorem 6.15]"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2011.01735 (open full text §§1.1,1.3)",
+      "arxiv:2105.14339 (open full text §6 and Corollary 6.16)",
+      "arxiv:2301.05207 (open full text §3.4 and Theorem 3.9)",
+      "published mathematical record: exact non-CIS-pair count for matching-deleted complete bipartite graphs (title and summary only; distinct invariant)",
+      "published mathematical record: dissociation polynomials of complete multipartite graphs (title and summary only; different graph and invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2011.01735 defines the acyclic polynomial and relates it to feedback sets without providing these crown-graph coefficients.",
+        "2105.14339 shows balanced complete bipartite graphs are well-f-covered; the perfect-matching-deleted graphs can fail this at n=5.",
+        "2301.05207 studies a different tensor product: its K_n×K_n has n² vertices; the current graphs K_2×K_n have 2n.",
+        "Dissociation sets impose maximum induced degree at most one; induced-forest sets can have high-degree stars and longer paths."
+      ],
+      "reasoning": "The new claim gives exact bivariate face and facet formulas and the first nonpure order for the matching-deleted balanced bipartite family. These conclusions do not follow from any checked scalar extremal result, graph-join result, different graph-product maximum, or dissociation-set polynomial.",
+      "searches": [
+        "Barton Brown Pike acyclic polynomials of graphs arxiv 2011.01735 2020",
+        "Jafarpour-Golzari Graphs whose all maximal induced forests are of the same order 2021",
+        "Induced forests in some distance-regular graphs pdf full text ar5iv 2301.05207",
+        "well-f-covered crown graphs full dissociation induced forest face counts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2011.01735 §1.1 shows that vertex-induced forests are complements of feedback vertex sets.",
+        "arXiv:2301.05207 §3.4 studies the equal-factor tensor product K_n×K_n, not K_2×K_n.",
+        "The crown graph is K_2×K_n, equivalent to K_{n,n} with a perfect matching deleted."
+      ],
+      "reasoning": "The claim has been compared under the exact aliases induced-forest polynomial, acyclic polynomial, minimal decycling or feedback-vertex-set spectrum, tensor product, and bipartite double cover. The complete facet polynomial is stronger than the maximum induced-forest cardinality. No equivalent statement was identified in the primary documents read; this is not a proof of historical novelty.",
+      "searches": [
+        "\"crown graph\" \"feedback vertex\" forest number maximal induced forest",
+        "\"crown graphs\" \"induced forest\" \"well-f-covered\"",
+        "\"bipartite double cover\" \"acyclic polynomial\" induced forest",
+        "induced acyclic vertex subsets of crown graphs graph K_2 tensor K_n feedback vertex transversal polynomial",
+        "minimal feedback vertex set enumeration of crown graph bipartite Kneser graph H(n,1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed results consulted described acyclic polynomials of general graphs, complete bipartite well-f-coveredness, or other graph invariants.",
+        "The arXiv:2011.01735 full-text discussion computes complete graphs, cycles and joins but contains no all-n bivariate crown-graph table."
+      ],
+      "reasoning": "No exact indexed table for both forest faces and facets of crown graphs was retrieved. A failed indexed search does not exclude a table in unindexed sources; the full proof and reproducible finite tests support correctness independently of priority.",
+      "searches": [
+        "crown graph induced forest acyclic polynomial vertex subsets feedback vertex set maximal forest K n n minus perfect matching",
+        "\"crown graphs\" \"induced forest\" \"well-f-covered\"",
+        "\"bipartite double cover\" \"acyclic polynomial\" induced forest",
+        "acyclic vertex subsets and vertex induced forest polynomial complete bipartite minus matching"
+      ]
+    },
+    "rationale": "Primary full-text implication comparisons show no coverage of the perfect-matching-deleted crown family’s complete induced-forest and maximal-facet enumerators. The nearest graph-join, complete-bipartite, and equal-factor tensor-power results concern different graphs or weaker extrema. The exact statement was also compared under feedback-vertex, crown, bipartite-double-cover and acyclic-polynomial aliases. Priority uncertainty remains for unindexed equivalences.",
+    "residual_risks": [
+      "Equivalent enumeration may exist under minimal feedback vertex sets, decycling transversals, or bipartite double cover terminology outside indexed results.",
+      "A matching numerical maximum-forest formula occurs for the different graph K_n×K_n; structural equivalence to K_2×K_n is ruled out by their distinct vertex counts for n≥3.",
+      "Unindexed tables, dissertations, or print-only publications were not exhaustively searched. No independent priority determination."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Foundational definition and join formula; neither a graph-product closure theorem nor the matching-deleted crown-graph face/facet formulas.",
+        "evidence": [
+          "§1.1 identifies complements of induced forests as decycling sets.",
+          "Theorem 1.3 assumes G+H, which contains all cross-edges between the factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2011.01735",
+        "material_read": "Full HTML text, in particular §1.1 on feedback vertex sets, §1.3 Theorem 1.3 on graph joins, and examples of cycles and complete graphs.",
+        "method": "Lawful open HTML full-text inspection (https://ar5iv.labs.arxiv.org/html/2011.01735).",
+        "title": "Acyclic polynomials of graphs",
+        "trigger": "Foundational work on exact vertex-induced acyclic polynomials and graph join operations."
+      },
+      {
+        "assessment": "The result on K_{r,s} confirms the undeleted boundary and cannot classify perfect-matching deletion or count its faces or facets.",
+        "evidence": [
+          "Corollary 6.16: K_{r,s} is well-f-covered exactly if r=s or one part is a singleton.",
+          "Theorem 6.15 proof uses complete join adjacency, absent in the crown graph."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.14339",
+        "material_read": "Accessible full-text transcription including definition, Section 6, Theorem 6.15, Corollary 6.16 and proof of the complete-bipartite case.",
+        "method": "Open author-posted full-text HTML transcription (https://www.researchgate.net/publication/352017324_Graphs_whose_all_maximal_induced_forests_are_of_the_same_order).",
+        "title": "Graphs whose all maximal induced forests are of the same order",
+        "trigger": "Directly relevant well-f-coveredness and all maximal induced forests."
+      },
+      {
+        "assessment": "Strongest plausible source by tensor-product language, but n²-vertex X_{2,n}=K_n×K_n is different from 2n-vertex H_n=K_2×K_n. It studies largest forest sizes rather than the full bivariate face/facet enumerators.",
+        "evidence": [
+          "§3.4 defines X_{m,n} as the m-fold tensor power of K_n.",
+          "Theorem 3.9 gives τ(X_{2,n})=max(5,n+1), a numerical coincidence on a different graph."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.05207",
+        "material_read": "Open full-text transcript: introduction, graph families, Section 3.4 on tensor powers, Theorems 3.8 and 3.9, and proof of Theorem 3.9.",
+        "method": "Lawful open full-text HTML transcription (https://www.researchgate.net/publication/367088838_Induced_forests_in_some_distance-regular_graphs).",
+        "title": "Induced forests in some distance-regular graphs",
+        "trigger": "Crown graphs are distance-transitive and have a tensor-product alias."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6c5358dc-2696-4ed6-98e6-947d86680c5d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete two-parameter face and facet enumerators for the natural family of crown graphs (K_{n,n} minus a perfect matching) refine the induced-forest count by both bipartition occupancies. The first failure of purity at n=5 and n-5 absent maximal-face sizes for n>=6 give structural information not recoverable from known scalar acyclic numbers or the pure complete-bipartite boundary. The complement gives a complete minimal feedback-vertex-set size/count distribution.",
+    "status": "PASS"
+  }
+}
