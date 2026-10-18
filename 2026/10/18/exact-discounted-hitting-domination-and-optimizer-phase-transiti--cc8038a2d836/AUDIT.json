@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The proof derives the unique peripheral support \\(y_s(x)\\) and exact clique-sum response. A strict one-clique source lower bound and a direct hub-containing construction yield \\(1+mr\\); every hub-free placement with fewer sources fails at its hub because a uniform r-per-clique placement has hub support \\(b_{r-1}\\) below tau. At equality, every hub-free optimizer has exactly one exceptional clique; a contraction yields X, and the least support is the explicit theta. Adding one source strictly raises X, so \\(b_{r-1}\\)<theta<b_r including \\(r=0\\) and \\(\\(r=q\\)-1\\). Endpoint \\(r=q\\) is separately proved. Exact rational brute-force independent adjacency-matrix computations test all nonempty subsets for five graph families, two discounts, and 132 threshold comparisons; finite results are supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.31535v1, Theorem 2.2: the equilibrium linear system holds for every graph; Theorem 6.5: a spider-graph algorithm; Proposition 7.1: a formula for complete graphs; §4: general mixed-integer formulation.",
+        "The clique windmill has triangles for every peripheral clique size at least two and has at least two blocks, so it is neither a spider nor one complete graph."
+      ],
+      "reasoning": "A general numerical optimization formulation can solve each finite instance, but neither its existence nor the special complete/star/spider results imply the explicit all-parameter phase thresholds or enumeration of every optimum. The proof uses the hub-free occupancy lower bound and one-extra-source reduction, which those results do not state.",
+      "searches": [
+        "pinned discounted trust dynamics windmill K_q cliques common hub all minimum optimizing source sets and phase diagram",
+        "Uniform-floor group hitting probability of clique-bouquet graph K_1 vee (m K_q), pinning source selection optimal thresholds",
+        "discounted hitting domination number path cycles hypercube exact formula"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.31535v1 (primary full PDF, sections cited)",
+      "doi:10.1109/TKDE.2023.3349164 (primary full PDF, methods and objectives cited)",
+      "Exact discounted hitting domination of complete bipartite graphs (indexed statement only)",
+      "Dissociation polynomial and all maximal dissociation sets of generalized windmills (indexed statement only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.31535v1, Corollary 6.7 handles stars; Proposition 7.1 handles complete graphs; Section 6 handles spider trees; no optimizer census for generalized clique windmills.",
+        "Guo et al. (2024), §I and conclusion, aim at pairwise and top-k group hitting probability queries for a chosen starting vertex."
+      ],
+      "reasoning": "The parameter applies to all graphs in the 2026 definition, but a general definition or solver does not entail this theorem. The hub-free source-allocation phase transition depends on simultaneous local supports, not on pointwise query rankings. The additional rational threshold in every cardinality plateau and the binomial optimizer multiplicity are strictly stronger in detail than known star/complete expressions and not logical corollaries on this different domain.",
+      "searches": [
+        "discounted hitting domination windmill friendship graph bouquet of complete graphs exact formula optimal source placement",
+        "minimum uniform group hitting probability source placement on clique windmill block graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Allagan–Pereyra–Massey (2026), arXiv:2609.31535v1 §§2,5–7: hitting source potential and examples; no formula for clique windmills.",
+        "Guo et al. (2024), DOI:10.1109/TKDE.2023.3349164: group hitting probabilities for given starting vertex and target-set queries."
+      ],
+      "reasoning": "The same discounted first-hit probability is described as pinned source support or group hitting probability, and the graph is also called a generalized friendship graph or clique bouquet. The searched literature treats the primitive probability and related optimization, but the simultaneous all-vertex threshold, optimal size, optimizer occupancy profile and count do not follow from those query statements.",
+      "searches": [
+        "discounted hitting domination windmill friendship graph bouquet of complete graphs exact formula optimal source placement",
+        "discounted random-walk hitting target set friendship windmill graph source allocation floor threshold",
+        "All minimum discounted hitting dominating source sets of a windmill / generalized friendship graph, counting center-free alternatives and sharp interval transitions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed exact same invariant: “Exact discounted hitting domination of complete bipartite graphs” (published mathematical record): different graph family and profile.",
+        "Closest exact same graph family: “Dissociation polynomial and all maximal dissociation sets of generalized windmills” (published mathematical record): different graph invariant.",
+        "No identical windmill discount/floor cardinality and optimizer-census entry identified among returned records; search coverage cannot establish uniqueness."
+      ],
+      "reasoning": "A complete bipartite graph is not a windmill of at least two full clique blocks with triangles. A dissociation set is controlled by degree at most one in its induced subgraph, not by a discount-weighted first-hitting boundary condition. Neither statement covers the claim by equivalence, specialization, or a dominating parameter bound. Lack of an indexed match is auxiliary only.",
+      "searches": [
+        "For windmill graph K_1 join m disjoint K_q, discounted hitting domination delta(lambda,tau) = 1+m*r, exactly two thresholds in each clique occupancy interval",
+        "discounted hitting domination windmill friendship graph bouquet of complete graphs exact formula optimal source placement",
+        "pinned discounted trust dynamics windmill K_q cliques common hub all minimum optimizing source sets and phase diagram"
+      ]
+    },
+    "rationale": "The named 2026 primary paper defines discounted hitting domination, proves general algorithmic results, and provides formulas for spider trees, stars and complete graphs, not the full windmill phase classification. A 2024 primary group-hitting paper addresses evaluating or ranking target groups rather than simultaneously covering every starting vertex at minimum target-set cardinality. Closest indexed exact work on complete bipartite graphs concerns a different family; a windmill polynomial concerns dissociation, not discounted hitting. The novel claim supplies a sharp internal threshold and every optimal subset for all clique counts, clique sizes, and admissible real parameters. The proof independently determines the optimizer count and boundaries. Unindexed prior statements are a residual risk.",
+    "residual_risks": [
+      "A mathematically equivalent all-parameter windmill optimizer theorem may be unindexed or described with other pinning/control terminology.",
+      "Two relevant research records were compared by published summaries; their full documents were not read, although their stated object/invariant differs from the present claim.",
+      "No external independent mathematical audit has yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies the invariant and general solver, not the all-parameter optimal-size and minimum-set classification for windmill clique blocks.",
+        "evidence": [
+          "Theorem 2.2 derives the universal equilibrium; §6 treats spiders, §7 treats complete graphs, §9 lists other open families; no windmill formula appeared in the material inspected."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.31535v1",
+        "material_read": "Abstract; §§1–3 and 5–7 covering definitions, first-step equilibrium, transfer methods for spiders, stars and complete graphs; concluding remarks (§9).",
+        "method": "Open-access arXiv PDF text read with mathematical pages inspected as rendered images; targeted searches for windmill and cycle terms.",
+        "title": "Discounted Hitting Domination on Graphs with Submodularity, Complexity and Exact Algorithms",
+        "trigger": "The defining September 2026 paper for the target graph invariant; potentially covering general and special-case statements."
+      },
+      {
+        "assessment": "Estimation/ranking of hitting probability for an input starting vertex, rather than minimum uniform-floor source sets over an infinite windmill family.",
+        "evidence": [
+          "Its two named queries are pairwise group hitting probability and top-k target-set ranking (abstract and conclusion)."
+        ],
+        "identifier_or_url": "https://www.cse.ust.hk/~raywong/paper/tkde24-GroupHittingProb.pdf",
+        "material_read": "Abstract; introduction, group-hitting problem definition, specified pairwise and top-k query objectives; conclusion and bibliography.",
+        "method": "Public full PDF: searched for windmill, friendship, minimum-cardinality and studied defined optimization and stated conclusions.",
+        "title": "Efficient Algorithms for Group Hitting Probability Queries on Large Graphs",
+        "trigger": "Earlier primary treatment of an equivalent killed-walk hitting probability."
+      },
+      {
+        "assessment": "The stated theorem treats complete bipartite graphs, not clique windmills with triangles and one cut vertex.",
+        "evidence": [
+          "Summary reports a one-dimensional formula for complete bipartite graphs and a threshold at the discount parameter."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d",
+        "material_read": "Indexed title and scientific summary only; complete source not inspected.",
+        "method": "Published research-record similarity search; explicit domain/claim comparison from summary.",
+        "title": "Exact discounted hitting domination of complete bipartite graphs",
+        "trigger": "Closest published exact result for the same invariant."
+      },
+      {
+        "assessment": "Dissociation polynomials do not specify the discount-dependent random-walk source-placement threshold.",
+        "evidence": [
+          "Summary gives an induced-degree-at-most-one selection polynomial, unrelated to hitting probabilities."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+        "material_read": "Indexed title and scientific summary only; complete source not inspected.",
+        "method": "Published research-record search with direct comparison of invariant definitions.",
+        "title": "Dissociation polynomial and all maximal dissociation sets of generalized windmills",
+        "trigger": "Same graph family under its alternative windmill terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cc8038a2-d836-4cbf-9a35-ee323431fc45",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The newly introduced discounted-hitting domination problem motivates exact source placement on natural symmetric block graphs. For an infinite two-parameter family and all real fidelity/floor parameters, the result gives not only the optimum budget but the complete extremizer classification and explicit count. Every cardinality plateau splits into a hub-optional and hub-compulsory subphase at a nontrivial rational threshold (for rational discounts). An exact nine-vertex instance drops from 64 to 16 optimal three-source sets at \\(\\tau=9/17\\) while the minimum budget remains unchanged; this pinning redundancy transition has a clear role in network coverage. It is not a finite arbitrary census or a substitution of the known star and complete-graph formulas.",
+    "status": "PASS"
+  }
+}
