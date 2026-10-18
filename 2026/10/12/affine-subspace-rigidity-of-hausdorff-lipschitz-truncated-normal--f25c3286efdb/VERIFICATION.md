@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The arbitrary-dimensional result is proved analytically in `RESULT.md`.
+# Independent mathematical audit
 
-The critical proof steps are:
+## correctness
 
-1. For \(A=\operatorname{aff}C=a+L\), every relative-interior point has normal cone \(L^\perp\).
-2. Every relative-boundary point of a non-affine closed convex set has a nonzero relative supporting normal in \(L\).
-3. A radius-\(r\) supporting normal is orthogonal to the entire relative-interior truncated normal set, producing distance exactly \(r\).
-4. Relative interior is dense, so this fixed separation persists while base points converge.
-5. Affine sets have a constant normal cone and therefore a constant truncated map.
+PASS
 
-`artifacts/verify_boundary_examples.py` checks exact interval, disk, segment, and affine-line instances. Those checks are illustrative only; no finite experiment is used as an infinite proof.
+For A=aff C=a+L, at any y in ri C the normal cone N_C(y)=L^perp. For any ybar in relbd C, a supporting hyperplane in the affine hull yields a unit u in L∩N_C(ybar); ru lies in N_C(ybar)∩B_r at distance exactly r from L^perp∩B_r. ri C is dense in C, so taking y_k->ybar in ri C gives d_H≥r. Non-affine closed convex C has a nonempty relative boundary. Conversely an affine subspace has constant normal L^perp and zero Hausdorff modulus. Closedness, finite dimension and r>0 essential; no claim for nonconvex sets or multiplier-bounded manifold map.
+
+## originality
+
+PASS
+
+Full proof of the source ADMM direct normal map in form (3) is not in the initiating convergence paper; that paper assumes a global Hausdorff-Lipschitz property and presents examples, whereas the assessed theorem characterizes every closed convex constraint. Its jump phenomenon follows classical convex normal-cone geometry; the potentially original scientific implication is the exact affine-only scope of this *specific* assumption. Local Aubin/graphical Lipschitz properties are not the same as symmetric Hausdorff continuity of entire fixed-radius values. No previously published identical complete iff statement/application emerged from actual semantic and bibliographic comparisons; this is best-of-knowledge, not novelty certification.
+
+## value
+
+PASS
+
+The exact classification resolves the applicability of a stated algorithmic hypothesis for every closed convex constraint, ruling out intervals, boxes, balls and all non-affine convex examples while carefully sparing the paper’s separate multiplier-bounded manifold option. The jump lower bound r supplies a sharp structural obstruction, not merely a one-off counterexample or a routine estimate without motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Let \(A=\operatorname{aff}C=a+L\). At every relative-interior point, the convex normal cone is \(L^\perp\). At every relative-boundary point of a non-affine closed convex set, relative separation supplies a unit supporting normal \(u\in L\). Hence \(ru\) belongs to the boundary-point truncated normal set while its distance from the relative-interior truncated set \(L^\perp\cap B_r\) is exactly \(r\). A relative-interior sequence approaching the boundary therefore gives a nonvanishing Hausdorff jump. For an affine set, the normal cone is constant. These two arguments prove the equivalence without numerical approximation.
+PASS
 
-## Originality
+For A=aff C=a+L, at any y in ri C the normal cone N_C(y)=L^perp. For any ybar in relbd C, a supporting hyperplane in the affine hull yields a unit u in L∩N_C(ybar); ru lies in N_C(ybar)∩B_r at distance exactly r from L^perp∩B_r. ri C is dense in C, so taking y_k->ybar in ri C gives d_H≥r. Non-affine closed convex C has a nonempty relative boundary. Conversely an affine subspace has constant normal L^perp and zero Hausdorff modulus. Closedness, finite dimension and r>0 essential; no claim for nonconvex sets or multiplier-bounded manifold map.
 
-PASS. The primary full proof context and the closest recent normal-cone stability literature were compared statement-by-statement. The inspected papers treat localized Aubin properties, coderivatives, or generalized-equation solution maps and do not state symmetric global Hausdorff continuity of the entire truncated normal-cone value. Targeted source-specific and alias searches found no equivalent published result or correction.
+## originality
 
-The main residual originality risk is an older set-valued-analysis result stated under different terminology. The proof uses standard convex facts, so the originality claim is limited to the complete fixed-radius Hausdorff classification and its source-specific scope consequence.
+PASS
 
-## Value
+Full proof of the source ADMM direct normal map in form (3) is not in the initiating convergence paper; that paper assumes a global Hausdorff-Lipschitz property and presents examples, whereas the assessed theorem characterizes every closed convex constraint. Its jump phenomenon follows classical convex normal-cone geometry; the potentially original scientific implication is the exact affine-only scope of this *specific* assumption. Local Aubin/graphical Lipschitz properties are not the same as symmetric Hausdorff continuity of entire fixed-radius values. No previously published identical complete iff statement/application emerged from actual semantic and bibliographic comparisons; this is best-of-knowledge, not novelty certification.
 
-PASS. The finding isolates the exact convex-set scope of an assumption used in a recent convergence analysis. It shows that the obstruction is not a large constant but an order-one Hausdorff jump at every genuine convex boundary, while preserving the separate smooth-manifold route provided by the source.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact classification resolves the applicability of a stated algorithmic hypothesis for every closed convex constraint, ruling out intervals, boxes, balls and all non-affine convex examples while carefully sparing the paper’s separate multiplier-bounded manifold option. The jump lower bound r supplies a sharp structural obstruction, not merely a one-off counterexample or a routine estimate without motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
