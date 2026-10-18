@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T23:16:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Over F2, the adjacency Laurent polynomial becomes x^b Gamma(x)=(1+x^{b-a})(1+x^{a+b}), so nullity equals degree gcd(x^n-1, product). Factoring n=2^t m and tracking repeated-root multiplicities proves exact kappa formula with odd-part gcds and 2-adic valuations. Coprimality and proper-divisor case analysis give kappa<=n/2+1 for n=2 mod4, <=n/2+2 otherwise; the constructed steps a=1,b=n/2-1 attain each bound. The independent GF2 row-reduction checked all 1752 admissible connected (n,a,b) triples at even n<=32, including minimum at each n. Finite checks corroborate the arbitrary-even-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior quartic circulant extremal nullity over R/C and free-parameter Hermitian min-rank do not control the repeated-root GF2 nullity."
+        ],
+        "reasoning": "The known real-spectral extremal graph shares a step pattern, but its objective can differ by two binary nullity dimensions and gives no binary lower bound.",
+        "searches": [
+          "arXiv:2212.12959 Theorem 14 Table 4",
+          "arXiv:1511.07920"
+        ]
+      },
+      "checked_sources": [
+        "https://faculty.nps.edu/pstanica/research/2021AMCNewMixed.pdf",
+        "https://arxiv.org/pdf/2212.12959",
+        "https://arxiv.org/abs/1511.07920"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining the known rank/cost equality with a theorem over R does not imply rank over F2 because ranks differ on explicitly given n=12 witness."
+        ],
+        "reasoning": "The field change is mathematically decisive; repeated factors of x^n-1 generate additional binary kernel.",
+        "searches": [
+          "DOI:10.3934/amc.2021015 Lemma 4.1",
+          "arXiv:2212.12959 Theorem 14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The underlying mixed-graph ancillary qubit cost exactly equals half the F2 rank of Gamma=A+A^T."
+        ],
+        "reasoning": "This equivalence is prior work, explicitly not claimed new; the novel content is minimizing that binary rank across all allowed connected quartic circulants.",
+        "searches": [
+          "Resultary: Mixed graph quantum graph states minimal auxiliary ancilla qubits binary rank 4 regular two shift cyclic circulants",
+          "DOI:10.3934/amc.2021015 Lemma 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Damnjanović Table 4 tabulates real-spectral nullity classes; not the binary commutator rank/ancillary cost all-n table."
+        ],
+        "reasoning": "Published extremal real data are credited, not recomputed for novelty. New characteristic-two multiplicity calculations determine binary outcomes.",
+        "searches": [
+          "Resultary: Mixed graph quantum graph states minimal auxiliary ancilla qubits binary rank 4 regular two shift cyclic circulants",
+          "arXiv:2212.12959 Table 4"
+        ]
+      },
+      "rationale": "Riera–Parker–Stănică Lemma 4.1 already identifies ancillary cost as half GF2 commutator rank. Damnjanović Theorem 14/Table 4 classifies REAL/COMPLEX nullity of quartic circulants and includes related extremal shifts. The characteristic-2 binary repeated-root spectrum is different (e.g. n=12,a=1,b=5 real nullity 6 but binary nullity 8), so the real bound is not an implication of the exact GF2 ancillary optimum. Novelty is restricted to the binary all-even-n optimization and its sharp formula.",
+      "residual_risks": [
+        "An independent binary circulant code-rank theorem may already imply the numerical optimum under another vocabulary.",
+        "Cost is specifically binary stabilizer commutation completion, not general ancilla or gate minimization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies rank identity, not the connected two-shift ring minimization",
+          "evidence": [
+            "Riera–Parker–Stănică Lemma 4.1"
+          ],
+          "identifier_or_url": "https://faculty.nps.edu/pstanica/research/2021AMCNewMixed.pdf",
+          "material_read": "Author-hosted full primary PDF, graph-state definitions and p.7 Lemma 4.1 with e=rank_F2/2",
+          "method": "Inspected relevant full primary section and checked page image of lemma",
+          "title": "Quantum states associated to mixed graphs and their algebraic characterization",
+          "trigger": "Exact mixed-graph operational definition and Lemma 4.1"
+        },
+        {
+          "assessment": "Results are real/complex rank, not GF2 rank; n=12 exhibits mismatch",
+          "evidence": [
+            "Damnjanović, Theorem 14 and Table 4, arXiv:2212.12959"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.12959",
+          "material_read": "Original full arXiv PDF, especially Theorem 14 and Table 4 (p.19 screenshot), definitions of ordinary eigenvalues",
+          "method": "Read relevant classification and displayed real nullity results in primary PDF",
+          "title": "On the nullities of quartic circulant graphs and their extremal null spaces",
+          "trigger": "Possible stronger same-graph extremal result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Commutation-completion qubits are a direct resource invariant of a natural connected oriented two-shift quantum-state construction; an exact n-uniform lower bound and attaining family are useful for design. Distinguishing fixed binary rank from real circulant spectral nullity resolves a substantive characteristic-specific mathematical question.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only even n>=6, connected simple oriented two-shift rings with pairwise distinct ±a,±b.",
+    "No uniqueness of optimizing step pair; no assertion about other mixed graph families."
+  ]
+}

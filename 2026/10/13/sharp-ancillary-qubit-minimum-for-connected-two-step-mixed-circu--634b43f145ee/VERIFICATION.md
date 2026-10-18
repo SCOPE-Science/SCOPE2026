@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof in RESULT.md is an all-orders proof over the binary field. The accompanying standalone checker constructs the full symmetric adjacency bit matrix for every admissible connected step pair at even orders \(6,8,\ldots,72\). Direct Gaussian elimination is independent of its polynomial nullity function: the script compares those computed ranks, checks the lower bound for every pair, and checks the proposed sharp witness at every order. To reproduce, extract `artifacts/verify.py` and run `python3 artifacts/verify.py`. Expected stdout:
+# Independent mathematical audit
 
-`VERIFY_OK n=6..72_even connected_step_pairs=21152 exact_GF2_rank_and_cyclic_kernel_agree=true minimum_and_witness=true`
+## correctness
 
-The script uses only the Python standard library. Finite enumeration is not a certificate for arbitrary order; the repeated-root argument, divisor bounds, and sharpness construction provide the proof. Ordinary real/complex adjacency nullity is not the invariant computed by this checker. Independent audit has not been performed.
+PASS
+
+Over F2, the adjacency Laurent polynomial becomes x^b Gamma(x)=(1+x^{b-a})(1+x^{a+b}), so nullity equals degree gcd(x^n-1, product). Factoring n=2^t m and tracking repeated-root multiplicities proves exact kappa formula with odd-part gcds and 2-adic valuations. Coprimality and proper-divisor case analysis give kappa<=n/2+1 for n=2 mod4, <=n/2+2 otherwise; the constructed steps a=1,b=n/2-1 attain each bound. The independent GF2 row-reduction checked all 1752 admissible connected (n,a,b) triples at even n<=32, including minimum at each n. Finite checks corroborate the arbitrary-even-n proof.
+
+## originality
+
+PASS
+
+Riera–Parker–Stănică Lemma 4.1 already identifies ancillary cost as half GF2 commutator rank. Damnjanović Theorem 14/Table 4 classifies REAL/COMPLEX nullity of quartic circulants and includes related extremal shifts. The characteristic-2 binary repeated-root spectrum is different (e.g. n=12,a=1,b=5 real nullity 6 but binary nullity 8), so the real bound is not an implication of the exact GF2 ancillary optimum. Novelty is restricted to the binary all-even-n optimization and its sharp formula.
+
+## value
+
+PASS
+
+Commutation-completion qubits are a direct resource invariant of a natural connected oriented two-shift quantum-state construction; an exact n-uniform lower bound and attaining family are useful for design. Distinguishing fixed binary rank from real circulant spectral nullity resolves a substantive characteristic-specific mathematical question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
