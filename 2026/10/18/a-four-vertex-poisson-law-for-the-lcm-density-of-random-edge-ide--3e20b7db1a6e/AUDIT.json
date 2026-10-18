@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Every edge generator is a squarefree two-vertex support; a nonleaf--nonleaf edge forces a full-support collision and all other graphs have private variables per edge. A P4 contributes exactly seven LCM supports, and edge additions cannot increase normalized cardinality. In the critical window, triangles and four-edge connected subgraphs vanish, and factorial moments give a Poisson(c^3/2) count of P4 components. At higher densities, coupling, second moments and a conflict-graph independence bound give arbitrarily many disjoint P4s and hence density tending to zero. verify.py exhaustively tested every simple graph through six vertices, density monotonicity through five vertices and independent path product examples; the general proof is analytic and does not rely on finite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mohammadi–Petrović–Sáenz-de-Cabezón (2026), §4.1 discusses edge-ideal density but not the exact asymptotic result.",
+        "Mohammadi–Sáenz-de-Cabezón–Wynn (2025), Theorem 3.10 is about random cut ideals.",
+        "De Loera–Hoşten–Krone–Silverstein (2019) uses a fixed-variable increasing-degree random monomial model."
+      ],
+      "reasoning": "Broader monomial ideals results are not automatically stronger in the required probability model: neither the cut-generator ideal nor fixed-dimensional high-degree model specializes by setting degree=2 and n growing. No primary theorem with hypotheses including this model and conclusions implying the Poisson law was found.",
+      "searches": [
+        "\"edge ideal\" \"LCM lattice\" \"random graph\" \"phase transition\"",
+        "\"random\" \"cut ideals\" \"LCM density\" threshold",
+        "\"random\" \"edge ideals\" \"Taylor\" \"threshold\" \"P4\"",
+        "random squarefree edge ideals lcm density Poisson P4 components and sharp threshold; Taylor minimal resolution random graph G(n,p)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2605.03464v1",
+      "https://arxiv.org/html/2505.01416v2",
+      "https://arxiv.org/abs/1802.06537",
+      "https://arxiv.org/html/2605.03464v1#S4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 article supplies the random edge-ideal target, not a proof of its limiting distribution.",
+        "The 2025 cut-ideal theorem has non-equivalent generators.",
+        "The 2018/19 resolution study has a different asymptotic regime."
+      ],
+      "reasoning": "Prior statements as published do not logically imply this one: experimental conjectures lack proof; cut-ideal and fixed-n degree-growing results have incomparable hypotheses. Classical P4 Poisson convergence and a deterministic support collision calculation together imply the result, but their synthesis in the published edge-ideal statistic is not found in the inspected literature. This makes the result mathematically a concise derived theorem and leaves implicit coverage as the main originality risk.",
+      "searches": [
+        "https://arxiv.org/html/2605.03464v1 Section 4.1 Conjecture 4.1",
+        "https://arxiv.org/html/2505.01416v2 Theorem 3.10",
+        "https://arxiv.org/abs/1802.06537 principal theorems",
+        "LCM lattice of edge ideals of Erdős–Rényi graphs, Taylor lattice Boolean iff disjoint union of stars, Poisson limiting LCM density at p=n^{-4/3}"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The LCM cardinality here is the number of unions of edge endpoints, equivalently the support-union map of subsets of graph edges.",
+        "The classical maximal Taylor-resolution question supplies an equivalent Booleanity test but does not on its own imply the critical probability law.",
+        "The closest accessible fixed-graph edge-ideal comparisons concern Waldschmidt constants and Castelnuovo–Mumford regularity, not random LCM-lattice cardinality."
+      ],
+      "reasoning": "The finite star-forest criterion can be rephrased using edge-private vertices, Taylor minimality or union-independent hyperedges; all were treated as potentially preexisting, and no novelty is asserted for the elementary criterion by itself. The contribution is the complete random edge-ideal density limit and sharp threshold, not just renamed minimality.",
+      "searches": [
+        "\"edge ideal\" \"Taylor resolution\" \"star\" \"forest\" minimal",
+        "\"lcm-density\" \"Poisson\" \"edge ideals\" random",
+        "LCM lattice of edge ideals of Erdős–Rényi graphs, Taylor lattice Boolean iff disjoint union of stars, Poisson limiting LCM density at p=n^{-4/3}",
+        "LCM lattice of edge ideals of Erdős–Rényi graphs, Taylor lattice Boolean iff disjoint union of stars, Poisson limiting LCM density at p=n^{-4/3}"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating primary article contains finite experimental plots and conjectural behavior, not an exact table of the limiting distribution.",
+        "The accessible indexed fixed-graph ideal papers treat Waldschmidt and regularity invariants instead of the random LCM-density law."
+      ],
+      "reasoning": "No exact theorem/table storing (7/8)^Poisson(c^3/2), the critical mass exp(-c^3/2), or limiting mean exp(-c^3/16) for this model appeared in targeted checks; a failed database search is not evidence that none exists.",
+      "searches": [
+        "\"lcm-density\" \"Poisson\" \"edge ideals\" random",
+        "\"LCM lattice\" \"Poisson\" \"random graph\"",
+        "edge-ideal LCM lattice boolean iff star forest; critical G(n,c n^{-4/3}) distribution"
+      ]
+    },
+    "rationale": "The recent motivating full manuscript introduces the exact statistic and asks about phase transitions without giving the four-vertex obstruction, precise n^{-4/3} scale or Poisson critical distribution. The 2025 cut-ideal theorem concerns a different generator family, and 2018/2019 monomial-resolution asymptotics use different degree/dimension limits. Targeted published-literature and theorem-statement comparisons did not locate a stronger statement implying this precise theorem. Non-discovery is not a novelty proof; the absence of unindexed or implicit formulations remains an explicit risk.",
+    "residual_risks": [
+      "The elementary Booleanity criterion is a standard private-variable/dominance principle; no originality is claimed for it independently.",
+      "An unindexed monomial-ideal literature result or an implicit corollary from standard Poisson small-graph theory may have already stated an equivalent random LCM-density law.",
+      "Only accessible full texts and indexed results were compared; global novelty cannot be proved by search."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivating prior paper, not a covering theorem: introduces experiments and conjecture but does not derive star-forest equivalence, critical n^{-4/3} law, Poisson limiting distribution, or its expectation.",
+        "evidence": [
+          "2026 first public posting May 5; section 4.1 focuses on graph edge ideals and their LCM-density phase behavior.",
+          "The displayed conjecture is experimental and does not present the exact distribution (7/8)^Poisson(c^3/2)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.03464v1",
+        "material_read": "Full accessible HTML manuscript, including definitions, experiment discussion and section 4.1 with Conjecture 4.1 and supporting material.",
+        "method": "Read online full-text HTML and compare random model, normalization, limiting quantifiers, conjectured phase behavior and named objects.",
+        "title": "Asymptotic properties of random monomial ideals",
+        "trigger": "Defines the exact random edge-ideal LCM-density statistic and proposes a phase transition in section 4.1."
+      },
+      {
+        "assessment": "Not covering: Theorem 3.10 concerns cut-ideal generators and a giant-component-scale graph transition, not the one-edge-one-generator ideal nor the LCM cardinality normalized by 2^{number of edges}.",
+        "evidence": [
+          "Theorem 3.10 is presented for graph cut ideals; their monomial generating family is not {x_i x_j: ij in E}.",
+          "A threshold for cut ideals cannot imply the edge-union collision criterion without an additional argument."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.01416v2",
+        "material_read": "Full accessible HTML manuscript including model definitions, results and Theorem 3.10.",
+        "method": "Read full-text HTML and inspect generator definition for cut ideal versus graph edge ideal; compare exact events and asymptotic parameter.",
+        "title": "Redundancy analysis using lcm-filtrations: networks, system signature and sensitivity evaluation",
+        "trigger": "Potentially dominant random graph LCM-filtration theorem with a different critical scale."
+      },
+      {
+        "assessment": "Not covering: this work takes fixed variable count and growing generator degree, addressing genericity and resolutions, not degree-two graph ideals with n growing and their LCM-lattice density.",
+        "evidence": [
+          "The theorems address a model with fixed number of variables and varying generator degree, unlike the fixed squarefree degree two regime.",
+          "No Poisson P4 obstruction nor a graph LCM-lattice density law is among the stated conclusions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1802.06537",
+        "material_read": "Accessible full arXiv textual manuscript, including models and principal theorems.",
+        "method": "Read primary manuscript; compare variable-count and degree asymptotics, random-generator distributions and invariant type.",
+        "title": "Average behavior of minimal free resolutions of monomial ideals",
+        "trigger": "Broad asymptotic coverage for random monomial ideals and Taylor/Scarf complexes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3e20b7db-1a6e-45a9-bd68-9c08b11592af",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The graph edge-ideal normalized LCM-lattice size is the natural invariant explicitly posed in recent commutative algebra literature. Rather than an arbitrary finite computation, this theorem finds the exact threshold, the entire nondegenerate critical probability law, the limiting expectation and a deterministic maximum-lattice characterization. It locates a distinct algebraic transition before the giant component in every growing-vertex finite-field-independent degree-two model. The elementary finite criterion alone is not the claimed value; the motivated random model and universal limiting theorem are.",
+    "status": "PASS"
+  }
+}
