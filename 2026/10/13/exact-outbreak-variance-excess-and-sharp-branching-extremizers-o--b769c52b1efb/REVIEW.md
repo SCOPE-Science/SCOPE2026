@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The scope fixes one infected root, one forward edge trial per tree edge, iid vertex-specific conditional transmissibilities, independent trials given those variables, and \(0<q<1\). A root-to-vertex path uses distinct latent variables, giving its infection probability \(q^{d(u)}\). For incomparable endpoints, their paths share exactly two edges with a common parent—their lowest common ancestor—so the pair-infection excess is exactly \(v q^{d(u)+d(w)-d(\ell(u,w))-2}\). Expanding the total-count variance yields the factor of two without wrongly assuming infection indicators independent. Every branching tree contains a sibling pair, and its depth and weight imply the sharp minimum; root-versus-nonroot comparability implies the sharp maximum. Both equality cases were checked including \(n=3\) and \(v=0\). The Laplace moment derivation of \(v\) for Poisson contacts and exponential recovery is direct. Independently enumerated exact rational small-tree cases in `verify_tree_variance.py` replay to `VERIFY_OK`, but finite enumeration is explicitly not the proof for arbitrary size.
+PASS
 
-## Originality — PASS, restricted to the precise theorem
+For finite rooted tree T seeded at root, iid vertex Q_i with E Q=q∈(0,1), Var Q=v≥0 and conditionally independent forward-edge trials, each root-to-u path uses distinct parents and E I_u=q^{d(u)}. For incomparable u,w with LCA a, their shared-path union contains exactly two outward trials from a and other distinct parents, so P(I_u=I_w=1)=(q²+v)q^{d(u)+d(w)−d(a)−2}; same model independent bonds yield q to the full union length. Comparable pairs have identical joint law. Covariance expansion therefore yields Var(Z_T)−Var(Z_T^BP)=2v∑_{u∥w}q^{d(u)+d(w)−d(LCA)−2}. Each exponent≥0 gives upper bound choose(n−1,2), uniquely central star when branching. Pick a depth-k branching vertex with two children, k≤n−3, to obtain lower q^k≥q^{n−3}, uniquely terminal binary broom; zero iff root is endpoint of a path. For v=0 all variance excesses vanish and shape uniqueness is asserted for B_T only. Continuous-time exponential recovery contact specialization v=q²(1−q)/(1+q) checked. Source exact enumeration of trees through n=7 inspected, universal result from indicator proof.
 
-The full 2026 source explicitly gives equality of marginal infection probabilities and means on trees; its Appendix A gives the outgoing-edge covariance and its Section VI observes increased large-network component-size variance. Those antecedents must not be relabeled as contributions. Kenah–Robins (2007) already provides exact epidemic-percolation representations, and Ramírez-Ramírez–Thompson (2013/2014) already develops variance formulas for configuration-model-type random networks with random infectious periods. The inspected sources do not state or logically directly specialize to the exact fixed-rooted-tree lowest-common-ancestor polynomial together with the unique finite-order star/broom extremal theorem: the general network branching approximation does not encode the positions of individual branches in an arbitrary fixed tree, and epidemic percolation alone requires further nontrivial expansion and optimization to give the theorem. Searches were made for synonymous outbreak dispersion, descendant-pair covariance, and rooted tree extrema; no matching result was identified. This is a self-review rather than a proof of absolute novelty. The most salient residual risk is that a general tree covariance theorem elsewhere might already imply the new formula and its extrema.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Finite-tree SIR risk analysis often uses a bond-percolation approximation because it gives exact infection marginals and expected outbreak size. The theorem establishes a structural, fully quantitative variance correction requiring only the first two moments of host transmissibility and the branching locations of a **known** rooted contact network. It distinguishes unbranched contact chains (zero excess), early centralized branching (maximal excess), and the sharp smallest nonzero risk distortion (one terminal split). The result therefore turns a qualitative modeling caveat into a computable sharp finite-network uncertainty bound and an extremal classification. No unproved claim is made for cyclic networks or stochastic tail probabilities beyond second moments.
+Previously known mean tree agreement with bond percolation and shared-infectious-period outgoing-transmission covariance are properly credited. The exact fixed-tree lowest-common-ancestor variance-excess polynomial and both sharp rooted-shape extremizers are more specific than general epidemic-percolation distribution representations or random-degree outbreak-variance formulas inspected. Implicit derivation from earlier general moment frameworks remains plausible.
 
-## Literature limitations
+## value
 
-The 2013 variance framework is the closest earlier analysis; its formula covers random network degree laws, not this exact fixed finite rooted-tree claim. Unindexed sources or implicit reductions may exist. The finding is not independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact single-seed, finite-tree variance inflation and sharp star/broom extremizers characterize how contact topology magnifies shared recovery variability without altering expected outbreak size. This directly addresses a natural distinction between independent percolation and epidemic dependence, not a marginal or trivial numerical restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
