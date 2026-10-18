@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T13:10:16.706937Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: In any connected finite cubic G, if D is (1,2)-dominating, each vertex inside D has at most one edge to R=V-D, so |E(D,R)|≤|D|; each vertex outside D has at least one edge back, giving |E(D,R)|≥|R|=n-|D|. Thus |D|≥n/2. Equality makes both inequalities equalities, forcing every vertex of both D and R to have exactly one cross neighbor; that crossing edge set is a perfect matching and both shores induce 2-regular graphs. Conversely any perfect matching cut leaves internal degree two, so either shore is (1,2)-dominating of size n/2. This covers all finite connected simple cubic graphs without experiment and matches the 2021 published argument verbatim in mathematical content.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original 2021 general theorem covers every connected cubic graph, not just a strict graph subclass.",
+          "Its proof explicitly derives both 2-regular shores as part of equality."
+        ],
+        "reasoning": "The same general graph class and exactly the same equality iff property and structural consequence are all already covered. No uncaptured broader hypothesis or improved endpoint remains.",
+        "searches": [
+          "Fakharan et al. (2021) §5, inequality (4), Observation 4",
+          "arXiv:2610.01796v1 introduction bounds and sources"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and verify.py pinned Git blobs",
+        "DOI 10.1016/j.disc.2021.112546 (Fakharan et al. 2021), full text §5 Observation 4",
+        "arXiv:2610.01796v1",
+        "arXiv:2608.17851v1",
+        "Resultary query: (1,2)-domination cubic graphs lower bound n/2 perfect matching cut equality characterization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2021 paper writes n-|S|=|V\\S|≤|[S,V\\S]|≤|S|, then at equality shows G[S], G[V\\S] are 2-regular and gives iff Observation 4.",
+          "The submitted proof uses the same chain with R=V\\D."
+        ],
+        "reasoning": "The complete claimed theorem, proof mechanism, and witness description are logically implied, indeed stated, by the 2021 Observation 4. Correctness is unaffected; scientific novelty and additional mathematical value fail decisively.",
+        "searches": [
+          "Fakharan et al. Discrete Math 344 (2021) §5 pp.15–16, inequality (4), Observation 4",
+          "arXiv:2610.01796v1 discussion of known bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2021 paper defines G_cubic by joining two disjoint equal-size 2-regular graphs by a perfect matching, precisely a perfect matching cut.",
+          "Observation 4 proves gamma_{1,2}(G)≥n/2 with equality iff G∈G_cubic."
+        ],
+        "reasoning": "The submitted statement is exactly the same under the trivial replacement \"G∈G_cubic\" by \"G admits a perfect matching cut\"; title and terminology are irrelevant to coverage.",
+        "searches": [
+          "Fakharan et al., Discrete Mathematics 344 (2021) 112546, full text §5 Observation 4, DOI 10.1016/j.disc.2021.112546",
+          "arXiv:2610.01796v1 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact original result is published in the 2021 primary source; no independent database search is needed to conclude coverage.",
+          "The prior family uses a standard constructive description rather than the term perfect matching cut."
+        ],
+        "reasoning": "An exact published theorem is sufficient to reject originality even if search tables index another wording. The source and its proof were inspected, not inferred from a failed search or abstract.",
+        "searches": [
+          "Fakharan et al. 2021 §5 Observation 4 and G_cubic definition",
+          "Resultary query: (1,2)-domination cubic graphs lower bound n/2 perfect matching cut equality characterization"
+        ]
+      },
+      "rationale": "FAIL: The full source of Fakharan–Gorzin–Henning–Jafari–Touserkani (2021), §5 Observation 4, states the precise equality iff 2-regular-shores-with-perfect-matching-cut theorem and proves it by the same crossing-edge inequalities. Publication priority was verified in the original full text, not inferred from an abstract. No originality survives.",
+      "residual_risks": [
+        "No scientific uncertainty on prior coverage: the 2021 source gives exactly the submitted lower-bound equality characterization.",
+        "Proof itself is correct for finite connected simple cubic graphs; O/V rejection is not a code or literature-access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_COVERING: G_cubic equals perfect-matching-cut connected cubic graphs, and Observation 4 is identical iff equality criterion plus 2-regular shores.",
+          "evidence": "Inequality (4) n-|S|≤|cut|≤|S|, equalities yield 2-regular shores; Observation 4 equality iff G∈G_cubic.",
+          "identifier_or_url": "https://www.researchgate.net/publication/353283962_On_12-domination_in_cubic_graphs",
+          "material_read": "Read author-accessible full text §5 Concluding remarks pp.15–16, construction of G_cubic, inequality (4) and Observation 4 including equality proof; compared its full statement word-for-word mathematically with submitted finding.",
+          "method": "Author-available primary full text read through web HTML, not just abstract",
+          "title": "On (1,2)-domination in cubic graphs",
+          "trigger": "The source cited for sharp bound might already characterize equality."
+        },
+        {
+          "assessment": "Recent bounded-value results do not supersede the decisive 2021 exact prior theorem.",
+          "evidence": "Introduction recalls n/2≤gamma_{1,2}≤3n/4 and cites 2021 work.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01796",
+          "material_read": "Read abstract, introduction and relevant bounds/family results.",
+          "method": "Primary arXiv PDF targeted sections",
+          "title": "On 1-limited and (1,2)-domination in cubic graphs",
+          "trigger": "Recent source attribution of known lower bound and context."
+        },
+        {
+          "assessment": "The good-set observation is different; the 2021 exact equality criterion already settles the submitted claim.",
+          "evidence": "Observation 4 relates good dominating sets to gamma and c_ind.",
+          "identifier_or_url": "https://arxiv.org/html/2608.17851v1",
+          "material_read": "Read introductory scope and Observation 4 about good sets and γ≤c_ind.",
+          "method": "Primary arXiv HTML relevant sections",
+          "title": "Counterexamples to two conjectures on (1,2)-domination in cubic graphs",
+          "trigger": "Potential alternative terminology good sets and c_ind."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: The equality characterization and its witness structure are identical to Fakharan–Gorzin–Henning–Jafari–Touserkani (2021) Observation 4, including the n-|D|≤cut≤|D| proof. Recasting their family G_cubic as a perfect-matching cut contributes only a standard equivalence of formulations and no new classification, invariant or counterexample. The interesting lower-bound equality is genuine mathematics but the submitted result is a known-table restatement.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Submitted result is a restatement of published 2021 Observation 4; no surviving new claim provided.",
+    "The failed source package is preserved; no compensatory edit, disclaimer or certificate makes the known theorem new."
+  ],
+  "schema_version": 1
+}
