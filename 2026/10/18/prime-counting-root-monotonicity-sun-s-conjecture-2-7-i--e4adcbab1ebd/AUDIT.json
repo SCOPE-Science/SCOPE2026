@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For n>=300 the standard Brun–Titchmarsh interval estimate yields B-A<=2n/log n and Rosser–Schoenfeld yields A>kn/log(kn). Consequently k log(B/A)<2log(kn)/log n<=4<log π(300)<=log A. For 5<=n<=299, two distinct prime-count implementations agree at all 89,701 indices and exact integer powers prove all 44,840 required inequalities. The packaged checker was inspected and run. The separate input bounds are classical published theorems, not inferred from code.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Montgomery–Vaughan 1973 explicit Brun–Titchmarsh interval estimate controls one increment, without asserting the root-monotonicity conclusion.",
+        "Rosser–Schoenfeld 1962 supplies an explicit lower bound for π, not a two-scale root comparison.",
+        "Sun–Zhao, arXiv:2004.01080, studies prime/composite values among π(kn), not the monotonicity inequality."
+      ],
+      "reasoning": "A universally strong ratio estimate for π at consecutive multiples could imply the theorem; neither independently inspected classical ingredient directly implies it without the displayed combination and bounded-case certificate. The related modern paper concerns different quantifiers and output properties.",
+      "searches": [
+        "prime counting function log(pi(kn)) divided by k monotonic for fixed integer n greater than four",
+        "monotonicity of kth roots of prime counting function at multiples pi(k n) inequality",
+        "\"Sun\" \"Conjecture 2.7\" pi(kn) powers monotone prime count proved",
+        "\"π(kn)\" \"π((k+1)n)\" inequality",
+        "Rosser Schoenfeld pi(x)>x/log x x>=17",
+        "Brun Titchmarsh pi(x+y)-pi(x)<=2y/log y"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1402.6641, Conjecture 2.7(i) and nearby discussion",
+      "arxiv:2004.01080, all six pages",
+      "doi:10.1215/ijm/1255631807, bound from original text",
+      "doi:10.1112/S0025579300004708, explicit theorem statement cross-checked",
+      "OEIS A237578 and A238277, distinct tabulated properties",
+      "Mathematical-results search: totient–prime thresholds, ID 3d28ecd6b6a8",
+      "Mathematical-results search: prime-index lattice, ID 56d261c09b7b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest semantic index entry 3d28ecd6b6a8 studies totient-vs-prime-count thresholds, not π(kn) root ordering.",
+        "Closest semantic index entry 56d261c09b7b studies finite-index prime-index lattices, not π(kn) root ordering.",
+        "Sun, arXiv:1402.6641: the exact target appears as Conjecture 2.7(i), not a theorem.",
+        "Sun–Zhao, arXiv:2004.01080: related π(kn) set, different arithmetic properties."
+      ],
+      "reasoning": "The source conjecture is the exact result; the nearby results concern prime counts in unrelated arguments, prime-index lattices, or properties of the value π(kn), so none implies strict decrease of the normalized roots for every k up to n. The classical analytic tools are components of this proof rather than prior statements covering the complete range. Residual priority uncertainty remains.",
+      "searches": [
+        "Zhi-Wei Sun 2014 Conjecture 2.7(i) prime-counting function pi(kn)^{1/k} decreasing k and Brun Titchmarsh proof",
+        "prime counting function log(pi(kn)) divided by k monotonic for fixed integer n greater than four",
+        "For integer n > 4 and 1 <= k <= n π(kn)^{k+1} > π((k+1)n)^k",
+        "\"Problems on combinatorial properties of primes\" \"Conjecture 2.7\" solution",
+        "\"Conjecture 2.7\" \"pi(kn)\" \"Sun\" proof"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun, arXiv:1402.6641, Conjecture 2.7(i): exactly the root inequality with n>4 and k=1,...,n.",
+        "Equivalent condition tested: π(kn)^(k+1)>π((k+1)n)^k; no indexed prior proof of this inequality was identified."
+      ],
+      "reasoning": "Taking positive logarithms/powers shows that the root formulation and integer-power statement are equivalent, so a prior result in either form would cover the claim. The source explicitly poses the full statement as a conjecture; targeted searches using both formulations found no proof.",
+      "searches": [
+        "Zhi-Wei Sun 2014 Conjecture 2.7(i) prime-counting function pi(kn)^{1/k} decreasing k and Brun Titchmarsh proof",
+        "strict inequality π(kn)^(1/k) > π((k+1)n)^(1/(k+1)) for k from 1 to n prime counting monotonic",
+        "Sun Conjecture 2.7(i) pi(kn) ^ (1/k) strict root decrease 2014 Brun Titchmarsh",
+        "For integer n > 4 and 1 <= k <= n π(kn)^{k+1} > π((k+1)n)^k",
+        "\"pi(kn)^(1/k)\" \"pi((k+1)n)\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A237578 counts indices for which π(kn) itself is prime, which neither contains nor implies a strict root inequality.",
+        "Sun arXiv:1402.6641 points to A238277 for Conjecture 2.7(ii), about square values of interval prime counts, a separate property.",
+        "Published mathematical-results search did not return an exact-table entry encoding all requested inequalities."
+      ],
+      "reasoning": "The integer-power comparison is checked exactly at each small index, not inferred from an empirical table. Tables of π(kn) primality or short interval prime counts cannot, by themselves, establish the universal normalized-root theorem.",
+      "searches": [
+        "Zhi-Wei Sun 2014 Conjecture 2.7(i) prime-counting function pi(kn)^{1/k} decreasing k and Brun Titchmarsh proof",
+        "strict inequality π(kn)^(1/k) > π((k+1)n)^(1/(k+1)) for k from 1 to n prime counting monotonic",
+        "Sun 2014 problems combinatorial properties primes Conjecture 2.7 complete solution",
+        "OEIS A237578 a(n)=number of prime values pi(kn)",
+        "OEIS A238277 prime-count interval square conjecture"
+      ]
+    },
+    "rationale": "The original 2014 conjecture is an exact statement of the result, and later full-text primary work on π(kn) investigates different properties. The classical bounds invoked do not themselves state the universal strict root comparison. Actual synonymous/equivalent published-finding corpus and published-literature searches found no prior equivalent or stronger claim; nevertheless mathematical novelty is provisional because searches cannot exclude all differently indexed proofs.",
+    "residual_risks": [
+      "A later or unindexed proof of Sun Conjecture 2.7(i) may exist under different terminology.",
+      "The original Montgomery–Vaughan full article was not inspected; the explicit classical theorem statement was corroborated via independent mathematical expositions.",
+      "The general counting theorems might have a strengthened published corollary that directly dominates this inequality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "States the exact inequality as a conjecture, not a proof; companion part (ii) separate.",
+        "evidence": [
+          "Conjecture 2.7(i) on printed page 4; arXiv abstract metadata 2014-02-25."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1402.6641",
+        "material_read": "Original conjecture page, adjoining remark and neighboring conjectures, introduction and arXiv first-submission metadata.",
+        "method": "Full text extraction plus visual inspection of PDF page 4 (zero-index page 3).",
+        "title": "Problems on combinatorial properties of primes",
+        "trigger": "This is the original source of the precisely claimed Conjecture 2.7(i)."
+      },
+      {
+        "assessment": "Discusses arithmetic properties of π(kn) and prime values rather than the fixed-n strict decrease of kth roots.",
+        "evidence": [
+          "arXiv:2004.01080, theorem statements and concluding references."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2004.01080",
+        "material_read": "All six pages of available article text, including theorem statements and references.",
+        "method": "Read text extracted from the full arXiv preprint.",
+        "title": "On the set {π(kn): k=1,2,3,...}",
+        "trigger": "Later primary work on the exact same sequence of prime counts."
+      },
+      {
+        "assessment": "Verifies the strict lower bound at x>=17; does not assert the new root comparison.",
+        "evidence": [
+          "Rosser–Schoenfeld (1962), inequality (3.5) in original article."
+        ],
+        "identifier_or_url": "doi:10.1215/ijm/1255631807",
+        "material_read": "Original 1962 paper PDF page bearing the π(x)>x/log x inequality, visually inspected.",
+        "method": "Original full-page image and textual theorem check.",
+        "title": "Approximate formulas for some functions of prime numbers",
+        "trigger": "Critical explicit lower bound needed for the universal proof."
+      },
+      {
+        "assessment": "Supplies standard interval bound for x>=y>=2, used as a known theorem; no plausible directly dominating theorem identified in accessible material.",
+        "evidence": [
+          "Montgomery–Vaughan (1973), classical explicit Brun–Titchmarsh bound 2y/log y."
+        ],
+        "identifier_or_url": "doi:10.1112/S0025579300004708",
+        "material_read": "Publisher metadata/abstract and precise inequality checked against independent mathematical exposition; original full article not obtained.",
+        "method": "DOI/publisher bibliographic check and cross-reference of the explicit Brun–Titchmarsh statement.",
+        "title": "The large sieve",
+        "trigger": "Critical explicit Brun–Titchmarsh interval bound."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e4adcbab-1ebd-4327-ac16-7c4eb8cf8719",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sun explicitly posed the same quantified strict prime-count root monotonicity as Conjecture 2.7(i) in 2014. The proof resolves that entire conjecture by integrating explicit short-interval estimates with an exact finite endpoint certificate, rather than proving a routine finite special case. Its value is the complete unconditional statement; part (ii) is not implied.",
+    "status": "PASS"
+  }
+}
