@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The support-fiber proof uses only finiteness of the group and the top element of the semilattice. Each nonempty fiber is a subgroup of the group square containing its diagonal, and therefore is classified by a unique normal subgroup. Multiplying fibers proves both necessity and sufficiency of reverse inclusion under the meet order, including the nonabelian conjugation step. Congruence equivalence forces constant normal-group labels on semilattice-congruence classes. The chain specialization follows from the exact two-element normal-subgroup lattice and the interval-partition formula. The finite verifier tests direct multiplication independently in the smallest cases; no finite enumeration is used as an infinite proof.
+
+## Originality — PASS, with residual historical risk
+Barber and Ruškuc, arXiv:2602.17286, Section 4 and Lemma 4.1, construct only an injection of kernel/trace pairs into Clifford diagonal subsemigroups, explicitly explain that the construction is not exhaustive, and prove an inequality for DSC coefficients (Theorem 4.2). Their statement does not determine all fibers of a constant-group direct product. The present classification uses a separate normal-subgroup label at each supported semilattice pair; generally those labels cannot be represented by the prior kernel/trace construction. The pure-chain support count is only an ingredient, not coverage of these group-valued fibers. Their earlier arXiv:2504.02428 gives the finite-group baseline but not this classification. Searches under subgroup-valued congruence, semilattice direct products, and equivalent Clifford terminology found no claim whose conclusion includes the entire statement. A historically equivalent construction hidden in older relation-lattice literature remains possible; independent priority confirmation is not available.
+
+## Mathematical value — PASS
+The finding gives the complete inclusion lattice and computable counts of compatible reflexive relations on a natural, broad class of Clifford monoids. It replaces a known lower-bound construction by an exhaustive classification for constant group fibers. It shows an unexpected invariance under replacement of one group by another with the same normal-subgroup lattice, and provides exact coefficients and a strictly improved bound for all chain products with nontrivial finite simple groups. The numeric examples verify a general, independently proved structural theorem rather than being isolated computations.
+
+## Limitations and closest literature
+The result does not treat nonidentity connecting maps, nonperiodic infinite groups, or finite semilattices without a greatest element. It does not claim a closed product or asymptotic equivalent for the sequence of diagonal counts. Main comparison: Barber–Ruškuc, arXiv:2602.17286, Section 4. Finite-group baseline: Barber–Ruškuc, arXiv:2504.02428, Proposition 1.2. Possible differently named older subgroup-valued descriptions have not been conclusively ruled out.
+
+Self-review: passed. Independent audit: not yet performed.
