@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem was checked in two complementary ways.
+# Independent mathematical audit
 
-First, the proof derives an exact local witness condition. For an omitted \(a_i\), any witness \(b_j\) has omitted neighborhood \(\{a_k:k\in I,\ k\ne j\}\). This immediately bounds \(|I|\) by two and forces index disjointness when equality holds; symmetry supplies the same conditions on \(J\). The converse explicitly chooses witnesses, with \(n=3\) handled separately.
+## correctness
 
-Second, `verify_super_crown.py` exhaustively enumerates all subsets of the crown graph for \(3\le n\le8\), tests the defining super-domination condition directly, compares that result with the theorem's criterion, checks every coefficient of the bivariate enumerator, and checks the minimum size and number of minimum sets. Replay output is:
+PASS
 
-`VERIFY_OK n_range=3..8 subset_checks=87360 classification_checks=87360 coefficient_checks=51 minimum_checks=6 max_order=16`
+Reconstruct N(b_j)∩(V\D)={a_i} requiring omitted index set I⊂{i,j}; hence each side <=2, and when I has two omissions its two indices must not be omitted in J. Conversely n>=4 allows a selected opposite-side witness outside J∪{i}; paired omissions are witnessed by the opposite omitted index. n=3 has a separate one-versus-two obstruction and exactly |I|+|J|<=2. Counting omission profiles produces the stated bivariate formula and minima. Independent direct adjacency/private-neighbor exhaustive reimplementation examined all 2^(2n) subsets for n=3..7 (totals 22,67,146,289,526) and matched the polynomial and minimum counts; the unrestricted n result follows from the symbolic witness proof, not enumeration.
 
-The exhaustive range is finite and therefore is not evidence for the unbounded quantifier by itself. The all-order conclusion rests on the symbolic witness proof. The literature comparison also has one explicit access limitation: the 2024 super-domination-polynomial chapter was not available in full text, so its uninspected contents remain a residual originality risk.
+## originality
+
+PASS
+
+Best-of-knowledge: full primary comparison distinguishes K_{n,m}, cycle boundary C6 and crown Cr_n for n>=4. Exact complete bivariate set-profile for the matching deletion was not entailed by an inspected broader statement; a directly relevant inaccessible polynomial chapter is honestly retained as risk.
+
+## value
+
+PASS
+
+The complete all-cardinality/bivariate super-domination profile of the natural crown graph is a structurally motivated enumeration; deleting the matching changes the private-witness geometry and lowers the complete-bipartite minimum. The exact coefficients and minimum-set counts are more informative than a known scalar domination number and are not mere renaming or a table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
