@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic and valid for arbitrary positive shore sizes. The critical steps checked independently are:
+# Independent mathematical audit
 
-1. For \(m,n\ge2\), a set in \(K_{m,n}\) is locating-dominating exactly when it omits at most one vertex from each shore.
-2. The three-block construction works for every star of order at least three and every nonstar biclique with a shore of size at least three.
-3. The all-singleton partition gives four blocks for \(K_{2,2}\).
-4. In any hypothetical four-block partition, choosing one coalition pair forces the two remaining blocks to be opposite-shore singletons; following the required partner of each singleton forces \(K_{2,2}\).
-5. \(K_2\) has no LDC-partition because each singleton is already an LD-set.
+## correctness
 
-`verify.py` exhaustively enumerates all set partitions for \(1\le m\le n\) and \(m+n\le9\), recomputes the LD predicate from graph adjacency, and confirms the claimed coalition number or no-partition status. It also checks the explicit constructions for all \(1\le m\le n\le40\). The finite enumeration is not used to infer the infinite theorem.
+PASS
+
+Directly from open-neighborhood trace definitions, an LD-set of K_{m,n}, m,n≥2, omits at most one vertex per shore, giving gamma_L=m+n-2. For K_{1,n} (n≥2), gamma_L=n. The explicit partition V\{y1,y2}, {y1}, {y2} with y1,y2 in a shore of size ≥3 supplies three coalition blocks; P3 uses all singleton blocks. K2,2 has four singleton coalition blocks and the general bound n-gamma_L+2≤4. For any hypothetical four-block partition of a larger biclique, two coalition partners cover all but exactly one vertex on each shore, hence the other two blocks are opposite-shore singletons; analyzing their required partners forces an LD two-vertex set and therefore m=n=2, contradiction. K2 has none because each singleton is already LD. An independent complete set-partition enumeration for all m≤n,total vertices≤8 confirmed 16 small profiles; this corroborates the all-size structural proof.
+
+## originality
+
+PASS
+
+The initiating Chellali et al paper proves a universal upper bound n-gamma_L+2, plus paths/cycles and extremal graph classes, which cover P3 and C4 as small cases but give only ≤4 for a generic nonstar biclique. The proof of the infinite exact value 3 needs a nontrivial four-block partner-complement obstruction. An actual text search of the complete primary PDF found no occurrence of bipartite.
+
+## value
+
+PASS
+
+Provides the complete first canonical nontrivial biclique family for the newly defined coalition invariant, with a sharp unique four-block exception and an all-size obstruction argument. The classification improves the universal upper bound on infinitely many graphs and goes beyond a numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
