@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T01:08:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/categorical-coverage-and-run-count-have-universal-positive-covar--a8532889aa0a/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/categorical-coverage-and-run-count-have-universal-positive-covar--a8532889aa0a/checker.py",
+        "/mnt/data/scope05_run120/private_math_checks.py"
+      ],
+      "rationale": "Decompose coverage K_n as a sum of present-symbol indicators A_i and the switch count T_n as adjacent inequality indicators I_j. Iid exchangeability makes each Cov(K_n,I_j) identical. For symbol probability p, P(A_i=0,I_1=1)=(1−p)^(n−2)[(1−p)^2−(s2−p²)], which algebraically yields Cov(A_i,I_1)=p(1−p)^(n−2)[2s2−(1+s2)p]. For U_t=Σp_i(1−p_i)^t and V_t=Σp_i²(1−p_i)^t, Cauchy–Schwarz gives V_{t+1}/U_{t+1}≤V_t/U_t≤s2. Therefore Cov(K_n,T_n)≥(n−1)U_t s2(1−s2)>0 for every n≥2 and nondegenerate finite iid law. For uniform p=1/m, substitution gives the stated exact special formula and conditional switch/coverage gap. Independently enumerated weighted words and verified exact rational mixed moments for uniform and heterogeneous m=2..4, n up to 5 (e.g. p=(1/2,1/3,1/6), n=5, covariance=173/486). The universal proof is the indicator calculation and Cauchy–Schwarz, not finite enumeration.",
+      "residual_risks": [
+        "No extension to non-iid, Markov, fixed-composition or infinite-alphabet cases without new arguments.",
+        "Positivity of one covariance does not assert full positive association."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Johnson–Fu give runs/pattern distributions for multi-state sequences, without analyzing the total number of distinct observed symbols in the inspected mathematical discussion.",
+          "Ben-Hamou et al. treat occupancy counts/missing mass and concentration, not adjacent-change counts."
+        ],
+        "reasoning": "Both theories supply marginal objects but neither inspected principal theorem covers the exact mixed covariance as a corollary without the two-position indicator computation. A general multivariate word-generating function could encode it implicitly; no decisive stronger result located.",
+        "searches": [
+          "doi:10.1186/2195-5832-1-5 (Johnson–Fu 2014)",
+          "arXiv:1412.8652 (Ben-Hamou–Boucheron–Ohannessian)",
+          "Resultary mathematical research semantic index search: iid categorical number of distinct symbols occupancy number of runs switches positive covariance conditional coverage mixed moments"
+        ]
+      },
+      "checked_sources": [
+        "Johnson–Fu, 2014, doi:10.1186/2195-5832-1-5 full HTML",
+        "Ben-Hamou–Boucheron–Ohannessian, arXiv:1412.8652 PDF",
+        "Resultary 2026-10-04 occupancy richness/frequency covariance, RESULT.md",
+        "Resultary semantic search on categorical occupancy richness and runs covariance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither primary work contains the cross statistic with the relevant conditional gap in the inspected full-text material.",
+          "The Resultary occupancy one-switch covariance differs: it compares richness to frequency-bin counts K_r rather than run switches I_j."
+        ],
+        "reasoning": "The exact formula and strict sign need covariance between positional and occupancy indicators; such an identity is not automatically implied by separate run and urn concentration formulas. This is best-of-knowledge original, with implicit earlier mixed-generating-function risk.",
+        "searches": [
+          "Johnson–Fu, 2014, doi:10.1186/2195-5832-1-5",
+          "Ben-Hamou et al., arXiv:1412.8652",
+          "Resultary mathematical research semantic index search: iid categorical number of distinct symbols occupancy number of runs switches positive covariance conditional coverage mixed moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary related occupancy richness/frequency covariance concerns multiplicities K_r, which discard sample order.",
+          "The joint statistic here is global distinct-symbol coverage coupled to adjacency switches, not singleton or pattern count alone."
+        ],
+        "reasoning": "Aliasing runs=1+switches leaves the covariance unchanged; neither marginal runs distribution nor occupancy count distribution yields the cross moment or its universal sign by itself.",
+        "searches": [
+          "Resultary mathematical research semantic index search: iid categorical number of distinct symbols occupancy number of runs switches positive covariance conditional coverage mixed moments",
+          "primary literature search: species richness adjacent transitions run count covariance iid samples occupancy distinct"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The independent exact rational values corroborate the formula at finite tests and are not an existing table.",
+          "Resultary search returns no indexed same covariance table; the closest indexed covariance concerns K and frequency counts."
+        ],
+        "reasoning": "No natural named exact database for an arbitrary-real-vector covariance formula was identified. Comparisons target mixed moments and universal positivity, not overlap in numeric examples.",
+        "searches": [
+          "primary literature search: categorical runs coverage covariance exact formula occupancy",
+          "Resultary mathematical research semantic index search: iid categorical number of distinct symbols occupancy number of runs switches positive covariance conditional coverage mixed moments"
+        ]
+      },
+      "rationale": "Best-of-knowledge original after mathematical claim-versus-prior comparison: The exact formula and strict sign need covariance between positional and occupancy indicators; such an identity is not automatically implied by separate run and urn concentration formulas. This is best-of-knowledge original, with implicit earlier mixed-generating-function risk. Explicit unexcluded risks and source-access limits are documented without claiming exhaustive novelty proof.",
+      "residual_risks": [
+        "Classical multinomial word generating functions may encode the mixed moment under another normalization or notation.",
+        "The independent checks exhaust only small categorical configurations; general strict sign is analytic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RUNS_ONLY_NOT_COVERING",
+          "evidence": "Treats run/pattern probabilities but not the cross covariance with total distinct symbols.",
+          "identifier_or_url": "doi:10.1186/2195-5832-1-5",
+          "material_read": "Complete lawful full-text HTML, definitions and multistate run/pattern approximation arguments and cited results",
+          "method": "Web full-article HTML and targeted mathematical sections",
+          "title": "Approximating the distributions of runs and patterns",
+          "trigger": "Primary same run/switch statistic"
+        },
+        {
+          "assessment": "OCCUPANCY_ONLY_NOT_COVERING",
+          "evidence": "Studies counts of occupied urns and missing mass, but not adjacency-sensitive run count.",
+          "identifier_or_url": "arXiv:1412.8652",
+          "material_read": "Accessible complete preprint: occupancy count definitions and concentration results; targeted search for adjacency/run statistics",
+          "method": "Full-text PDF mathematical discussion",
+          "title": "Concentration inequalities in the infinite urn scheme for occupancy counts and the missing mass, with applications",
+          "trigger": "Primary same categorical coverage statistic"
+        },
+        {
+          "assessment": "DIFFERENT_SECOND_STATISTIC",
+          "evidence": "Frequency counts K_r depend only on word multiplicities; run count T_n depends on ordering, so the former formula does not imply the latter.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+          "material_read": "Full published RESULT.md, formula Cov(K,K_r) and sign switch in r",
+          "method": "GitHub result theorem and proof reading",
+          "title": "A one-switch covariance law for occupancy richness and frequency counts",
+          "trigger": "Same word richness and covariance; potential alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Johnson–Fu, 2014, doi:10.1186/2195-5832-1-5 full HTML",
+        "Ben-Hamou–Boucheron–Ohannessian, arXiv:1412.8652 PDF",
+        "Resultary 2026-10-04 occupancy richness/frequency covariance, RESULT.md",
+        "Resultary semantic search on categorical occupancy richness and runs covariance"
+      ],
+      "rationale": "This is an exact strictly signed cross-moment linking an order-invariant statistic (observed richness) to an order-sensitive statistic (run changes). It holds for every unequal finite categorical law, not just uniform occupancy, with a transparent conditional contrast and structural Cauchy–Schwarz mechanism; this is a naturally useful probabilistic coupling rather than an arbitrary slice.",
+      "residual_risks": [
+        "All symbols with positive mass, finite alphabet, iid draws, n≥2; no fixed-composition or dependent model conclusion.",
+        "One covariance sign is established; no broad positive association or entire joint distribution is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "All symbols with positive mass, finite alphabet, iid draws, n≥2; no fixed-composition or dependent model conclusion.",
+    "One covariance sign is established; no broad positive association or entire joint distribution is claimed."
+  ]
+}

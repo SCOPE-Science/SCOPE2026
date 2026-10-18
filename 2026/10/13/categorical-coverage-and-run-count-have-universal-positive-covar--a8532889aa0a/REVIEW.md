@@ -1,16 +1,21 @@
-# Review
-## Correctness
-PASS. The proof reduces the mixed statistic to the covariance of a symbol-presence indicator with one adjacent-change indicator. The relevant joint probability is computed exactly from the iid law. Summing over symbols yields the displayed finite covariance. Strict positivity follows from a monotone tilted-moment ratio whose one-step decrease is exactly controlled by Cauchy--Schwarz. Exact weighted enumeration over nonuniform rational probability vectors independently agrees with the identity and its uniform specialization.
+# Independent mathematical audit
 
-## Originality
-PASS, with a specific older generating-function risk. The inspected run literature treats multi-state run and pattern distributions but not categorical coverage. The inspected occupancy literature treats distinct-symbol and occupancy-frequency statistics but not adjacent transitions or run count. Exact-form and alias searches did not locate the covariance or its universal positive-sign theorem.
+## correctness
 
-Prior results on fixed-composition binary transition covariances do not involve random coverage, and prior results on occupancy richness versus occupancy-frequency counts discard order entirely. Neither statement implies the present iid mixed covariance.
+PASS
 
-## Value
-PASS. Coverage and run count are canonical global and local summaries of a categorical sequence. The theorem gives an exact arbitrary-probability dependence law and a universal sign mechanism rather than a single numerical case. The uniform conditional identity gives a direct interpretation: one forced local switch raises expected global richness by an explicit amount.
+Decompose coverage K_n as a sum of present-symbol indicators A_i and the switch count T_n as adjacent inequality indicators I_j. Iid exchangeability makes each Cov(K_n,I_j) identical. For symbol probability p, P(A_i=0,I_1=1)=(1−p)^(n−2)[(1−p)^2−(s2−p²)], which algebraically yields Cov(A_i,I_1)=p(1−p)^(n−2)[2s2−(1+s2)p]. For U_t=Σp_i(1−p_i)^t and V_t=Σp_i²(1−p_i)^t, Cauchy–Schwarz gives V_{t+1}/U_{t+1}≤V_t/U_t≤s2. Therefore Cov(K_n,T_n)≥(n−1)U_t s2(1−s2)>0 for every n≥2 and nondegenerate finite iid law. For uniform p=1/m, substitution gives the stated exact special formula and conditional switch/coverage gap. Independently enumerated weighted words and verified exact rational mixed moments for uniform and heterogeneous m=2..4, n up to 5 (e.g. p=(1/2,1/3,1/6), n=5, covariance=173/486). The universal proof is the indicator calculation and Cauchy–Schwarz, not finite enumeration.
 
-## Closest literature and limitations
-The closest run source is Johnson and Fu's multi-state run and pattern framework. The closest occupancy source is Ben-Hamou, Boucheron, and Ohannessian's iid occupancy-count framework. The theorem assumes iid sampling and does not extend automatically to Markov or fixed-composition sequences. It is a covariance result, not a full joint-distribution or general association theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original after mathematical claim-versus-prior comparison: The exact formula and strict sign need covariance between positional and occupancy indicators; such an identity is not automatically implied by separate run and urn concentration formulas. This is best-of-knowledge original, with implicit earlier mixed-generating-function risk. Explicit unexcluded risks and source-access limits are documented without claiming exhaustive novelty proof.
+
+## value
+
+PASS
+
+This is an exact strictly signed cross-moment linking an order-invariant statistic (observed richness) to an order-sensitive statistic (run changes). It holds for every unequal finite categorical law, not just uniform occupancy, with a transparent conditional contrast and structural Cauchy–Schwarz mechanism; this is a naturally useful probabilistic coupling rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
