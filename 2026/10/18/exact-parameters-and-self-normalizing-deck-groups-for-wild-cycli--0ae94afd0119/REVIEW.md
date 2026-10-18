@@ -1,0 +1,11 @@
+# Scientific review: wild genus-six cyclic-cover parameters
+
+**Correctness (PASS).** Kazemifard–Tafazolian Theorem 5.8 establishes the exact genus-six normal form and the distinguished branch indices. Under an isomorphism of cyclic-subgroup pairs, their two different branch inertia orders fix both branch points. The degree-two Artin–Schreier quotient forces the remaining base scaling to be identity. The isomorphism of cyclic degree-four extensions is then governed precisely by the two Witt-unit options, with rational-function pole orders excluding all parameters except \(\mu=\lambda\) and \(\mu=\lambda+1\). The former is tautological and the latter has an explicit Witt coboundary. The same base-rigidity reasoning proves the stated normalizer. `CHECK.py` checks characteristic-two algebra but does not replace these infinite-field arguments.
+
+**Originality (PASS, qualified by access and indexing risks).** The originating Theorem 5.8 gives a nonunique normal form and explicitly disclaims parameter uniqueness. It does not state the equivalence relation, complete parameter invariant, or cyclic-deck normalizer. Nearby large-order characteristic-two classifications concern the range beyond this boundary, and genus-two moduli classifications concern other objects. Searches for the precise genus-six Witt parameters, the involution \(\lambda\mapsto\lambda+1\), and the cyclic order-twelve normalizer identified no theorem covering the present pair statement. This is evidence-supported best-knowledge originality, not a proof of worldwide uniqueness; a previously unindexed special-purpose classification remains possible.
+
+**Value (PASS).** The source leaves genuine geometric redundancy in a natural one-dimensional family classifying all boundary genus-six wild cyclic-order-twelve pairs. The result determines the exact isomorphism classes by an explicit polynomial invariant and resolves the deck-group normalizer for all parameters. It does not merely rewrite an equation or enumerate arbitrary finite cases.
+
+The main limitations are that a designation of the cyclic subgroup is essential, that the full automorphism group of the underlying curve is not classified, and that the result is geometric over an algebraically closed field.
+
+Self-review: passed. Independent audit: not yet performed.
