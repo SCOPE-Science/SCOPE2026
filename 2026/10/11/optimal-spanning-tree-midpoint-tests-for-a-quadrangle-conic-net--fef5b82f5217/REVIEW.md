@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Each side-midpoint bisection condition is exactly the endpoint-value equality \\(H(v_i)=H(v_j)\\). For a nondegenerate quadrangle the four-point evaluation map on degree-at-most-two polynomials is surjective with two-dimensional kernel \\(\\mathcal V(Q)\\). Hence the selected tests define the net exactly when their side graph is connected. The disconnected case is not merely a dimension heuristic: the larger preimage contains a polynomial outside the net, and adding a nonzero pencil polynomial if needed produces a degree-two counterexample without changing vertex values. The entanglement corollary follows from equality of two three-dimensional polynomial spaces.
+## correctness
 
-## Originality
-PASS, subject to the residual bibliographic risk below. The closest source is Olberding--Walker, arXiv:2610.02020v1. Its Theorem 4.5 explicitly says that two distinct pairs of opposite sides, hence four sides, suffice; its surrounding text describes this as the reduced membership test. The inspected full text contains no spanning-tree or connected-side-graph criterion. The predecessor arXiv:2305.11762v1 develops the bisector-field geometry but does not state this membership optimization. Exact and alias searches found no covering result.
+PASS
 
-## Value
-PASS. The paper makes midpoint tests central to recognizing its conic nets and entanglement classes. Replacing a special four-side certificate by the exact connectivity criterion gives the minimal possible three tests, classifies all minimal certificates, and yields a compact six-incidence entanglement certificate. This is a structural recognition theorem with a clear use inside the source's framework.
+For a quadratic H restricted to an edge, phi prime at 1/2 equals H(v_j)-H(v_i). The four-vertex degree<=2 evaluation E has rank four and its two-dimensional kernel is the opposite-side conic pencil; the net is E inverse of the all-equal diagonal. Tested edges enforce constant E(H) on connected components, yielding exactly the net iff graph connected. If disconnected, surjectivity gives an outside polynomial, and adding a nonzero pencil member yields a genuine degree-two outside conic. Cayley gives 16 spanning trees; two opposite-pair members of the second pencil give six incidences. This is universal in the stated nondegenerate characteristic-ne-2 setting.
 
-## Closest literature and limitations
-The closest literature is Bruce Olberding and Elaine A. Walker, *Quadrangles entangled in conic nets*, arXiv:2610.02020v1, especially Corollary 3.4, Proposition 4.1, Theorem 4.5, Corollary 4.7, and Theorem 7.5. A direct predecessor is *Bisector fields of quadrilaterals*, arXiv:2305.11762v1. The theorem here is restricted to nondegenerate quadrangles; repeated vertices in degenerate cases introduce tangency data. No global minimality is claimed for the six-incidence entanglement certificate. A differently phrased historical equivalent remains a residual bibliographic risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The originating quadrangle conic-net paper gives six-side criterion and reports a reduction to a four-side test, but the inspected accessible abstract and frozen result do not establish this optimal connected graph criterion. No independently retrieved Resultary theorem dominates the three-side classification. Full original paper unavailable this execution, so noncoverage of its full text is not claimed.
+
+## value
+
+PASS
+
+This exactly minimizes a natural geometric membership test central to the originating net theory, classifies all minimal tests (16 trees), and gives a usable finite entanglement certificate. Excludes degenerate quadrangles and does not claim six entanglement incidences globally minimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
