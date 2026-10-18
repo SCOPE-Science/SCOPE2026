@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "First-hit time finite by a positive-probability m-step success block. Independent type-refresh Poisson clocks yield exact from-empty and from-all transition probabilities. Strong Markov first-passage convolution yields the Laplace resolvent ratio and discrete PGF. Small-s expansion gives the subset mean, Karamata yields strict Schur-convexity since \\(\\log(1-e^{-tx})\\) is strictly concave and \\(\\log(1+r e^{-tx})\\) is convex. This covers \\(p=0\\), every finite \\(m\\ge 2\\) and all strictly positive weights. A separate \\(2^m\\)-state rational checker validates 207 finite instances, without treating samples as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Anceaume et al. analyze irreversible monotone coupon holdings and prove weight optimization.",
+        "Long §3.6 uses global reset rather than erasure of just the selected type; §4 assumes uniform sampling."
+      ],
+      "reasoning": "Uniform-only clumsy results do not imply general nonuniform assertions; monotone heterogeneous collectors and global-reset models have different transition mechanisms. General Markov hitting-time formulas apply but do not automatically imply the exact weight-sensitive profile or its Schur-convexity. No known broader theorem was found that settles this claim.",
+      "searches": [
+        "coupon collector with failures or replacement reset on selected type Schur-convex expected full occupancy time optimal uniform distribution",
+        "Random scan heat bath dynamics independent Bernoulli sites hitting full configuration expected time Schur convex scan rates majorization",
+        "nonuniform heat-bath coupon refresh completion time uniform scan optimal sampling distribution",
+        "arXiv:1504.03878",
+        "arXiv:2605.14511v1 §3.6",
+        "random walk biased hypercube coordinate probabilities first passage opposite corner Schur convex hitting time 2^d binary spins"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.14206v1 (abstract/initial material and indexed detailed exposition)",
+      "arXiv:2605.14511v1 (full rendered text sections relevant to clumsy and reset)",
+      "DOI:10.1007/978-3-031-76738-8_32 (complete three-page author PDF)",
+      "arXiv:1504.03878 (abstract and model)",
+      "published mathematical-record similarity searches on exact claim and aliases",
+      "arXiv:2302.01963 (abstract, model comparison, cited by original chapter)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Long: uniform selected-type Poisson entry flux \\(pq^m\\), not arbitrary-weight finite first-hitting expectation.",
+        "Attrill–Garoni: exact uniform PGF, no explicit unequal-weight balancing assertion in material read.",
+        "Anceaume et al.: nonuniform monotone collection minimization, without selected-type losses.",
+        "The original Aggarwal–Garoni full three-page note assumes uniformly sampled types and only conjectures large-size moment growth; Zhang group-walk formula may cover the symmetric case but not, from inspected material, biased-refresh loss."
+      ],
+      "reasoning": "Neither specializing a uniform theorem nor applying a monotone optimization theorem proves the positive-loss result. Long §3.6 concerns a different global reset; even a uniform asymptotic does not determine an exact finite heterogeneity functional. Remaining uninspected sources and generalized product-chain methods may imply it and are recorded as risks.",
+      "searches": [
+        "Nonuniform clumsy coupon collector selected type overwrite Bernoulli success probability p exact expectation Schur convex majorization sampling rates",
+        "coupon collector with failures or replacement reset on selected type Schur-convex expected full occupancy time optimal uniform distribution",
+        "Exact nonuniform coupon collector with clumsy resets at selected type, finite expectation inclusion-exclusion subset sums and Schur convexity",
+        "Random scan heat bath dynamics independent Bernoulli sites hitting full configuration expected time Schur convex scan rates majorization",
+        "arXiv:2605.14206v1",
+        "arXiv:2605.14511v1",
+        "arXiv:1504.03878",
+        "arXiv:2302.01963"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The process equals random-scan heat-bath refresh of a Bernoulli product measure; Long §4 explicitly uniform.",
+        "Exact nonuniform mean is a new subset-sum profile rather than the uniform expression of Attrill–Garoni."
+      ],
+      "reasoning": "Checked aliases including random-scan product heat-bath, coordinate refresh, clumsy coupon losses, nonmonotone collection and nonuniform weighted scans. Equivalent Markov-chain descriptions alone provide generic first-passage linear systems, not the stated closed resolvent quotient and strict majorization ordering. No equivalent claim found in actually compared works.",
+      "searches": [
+        "Clumsy coupon collector with unequal sampling probabilities and erasures; exact full-collection entrance flux, invariant product Bernoulli distribution, first hitting time",
+        "Nonuniform clumsy coupon collector selected type overwrite Bernoulli success probability p exact expectation Schur convex majorization sampling rates",
+        "nonmonotone coupon collection independent telegraph coordinates weighted update first full hitting time inclusion exclusion",
+        "Exact nonuniform coupon collector with clumsy resets at selected type, finite expectation inclusion-exclusion subset sums and Schur convexity",
+        "arXiv:2605.14511v1 §4",
+        "arXiv:2605.14206v1",
+        "Nonuniform clumsy coupon collector exact mean probability generating function finite subset sum Schur convex majorization sampling weights for biased refresh"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The result quantifies an entire continuous probability simplex for every finite m, rather than a finite precomputed table.",
+        "Exact rational diagnostics cover selected small cases but are not prior art or evidence of uniqueness.",
+        "Aggarwal–Garoni original full three-page note contains no nonuniform coupon-sampling formula or table."
+      ],
+      "reasoning": "Queries of published mathematical research records and source/parameter aliases did not retrieve a table or database covering the full functional claim. The source manuscripts focus on uniform selected-type probabilities, while the original chapter was inspected in full and states uniform sampling. Search absence alone is not accepted as priority proof.",
+      "searches": [
+        "Clumsy coupon collector with unequal sampling probabilities and erasures; exact full-collection entrance flux, invariant product Bernoulli distribution, first hitting time",
+        "Nonuniform clumsy coupon collector selected type overwrite Bernoulli success probability p exact expectation Schur convex majorization sampling rates",
+        "Exact nonuniform coupon collector with clumsy resets at selected type, finite expectation inclusion-exclusion subset sums and Schur convexity",
+        "arXiv:2605.14206v1",
+        "DOI:10.1007/978-3-031-76738-8_32"
+      ]
+    },
+    "rationale": "The precise claim is a nonuniform selected-type loss first-passage PGF plus strict Schur-convexity of its mean at all \\(0\\le p<1\\). Literature searches and comparison with the model-setting preprint, an independent clumsy paper, a monotone heterogeneous optimum theorem and historical claims found no statement implying both parts. Standard renewal and Karamata methods are acknowledged. Priority remains qualified because some later portions of the recent uniform preprint were inaccessible; the original short chapter was subsequently inspected in full.",
+    "residual_risks": [
+      "Some later material of arXiv:2605.14206v1 was not re-inspected after document-fetch failure; abstract and indexed formulation explicitly say uniformly random type, but no complete-text NOT_COVERING claim is made.",
+      "A broader prior result on independent-product heat-bath hitting times and Schur comparisons could imply the claim without coupon terminology.",
+      "No independent priority or expert mathematical verification has been performed.",
+      "An uninspected full group-walk formula might imply the symmetric-loss subcase, while other independent-product chain theorems might imply the general result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Confirmed analysis is for uniformly sampled types; known exact PGF and asymptotics do not explicitly cover arbitrary positive weights or establish strict Schur-convexity for positive loss probability. No whole-document absence claim for unread later portions.",
+        "evidence": [
+          "arXiv:2605.14206v1; published model uses iid uniform selected coupon type",
+          "indexed description of uniform-only exact generating function and three asymptotic regimes"
+        ],
+        "identifier_or_url": "arXiv:2605.14206v1; https://arxiv.org/abs/2605.14206",
+        "material_read": "Public abstract, initial rendered article model/intro material, indexed detailed survey of its methods, results and limitations. Full later sections and appendices could not be re-fetched during this comparison.",
+        "method": "Scientific implication comparison of uniform sample rule versus arbitrary positive scan vector, and whether mean majorization is stated.",
+        "title": "The clumsy coupon collector's problem",
+        "trigger": "Direct match to model and exact generating-function claims; check extension from uniform to unequal probabilities."
+      },
+      {
+        "assessment": "Section 4 explicitly chooses each type uniformly and proves fixed-loss exponential scale; Section 3.6 allows unequal standard-coupon sampling only under global reset. These do not imply the claimed nonuniform selected-type exact transform or strict balancing law.",
+        "evidence": [
+          "arXiv:2605.14511v1 Section 4.1 uniform type selection; Section 4.4 asymptotic law",
+          "arXiv:2605.14511v1 Section 3.6 unequal global-reset collector"
+        ],
+        "identifier_or_url": "arXiv:2605.14511v1; https://arxiv.org/abs/2605.14511",
+        "material_read": "Rendered article introduction, Section 3.6 and Remark 3.15, Sections 4.1–4.4 including the uniform model and stationary-entry analysis, Section 6 and conclusion.",
+        "method": "Read model definitions and theorem statements; distinguish selected-type erasure from reset-button global catastrophe and distinguish asymptotic flux from exact finite mean.",
+        "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+        "trigger": "Closest alternative clumsy model and potentially misleading unequal-sampling section."
+      },
+      {
+        "assessment": "Explicitly uses uniformly sampled coupon types and proposes conjectures about its asymptotics; it contains neither nonuniform sampling formulas nor weight-majorization ordering.",
+        "evidence": [
+          "Aggarwal–Garoni full author PDF pp. 1–2: iid coupon types chosen uniformly; Section 2 defines selected-type erasure.",
+          "p. 3: conjectures concern growth and standardized limits, not heterogeneous scan weights."
+        ],
+        "identifier_or_url": "DOI:10.1007/978-3-031-76738-8_32; https://www.matrix-inst.org.au/wp_Matrix2016/wp-content/uploads/2023/Garoni.pdf",
+        "material_read": "Entire three-page public author PDF, inspected in rendered text and page images (pages 1–3).",
+        "method": "Read the original introduction, model definition, hypercube representation, conjectures, and reference list.",
+        "title": "The Clumsy Coupon Collector",
+        "trigger": "Original short model announcement possibly containing same parameter extension."
+      },
+      {
+        "assessment": "Strict optimization for monotone collection does not yield the present positive-loss nonmonotone hitting-time formula or mean ordering.",
+        "evidence": [
+          "arXiv:1504.03878 abstract: iid nonuniform draws and null coupon; monotone distinct-collection time"
+        ],
+        "identifier_or_url": "arXiv:1504.03878",
+        "material_read": "Indexed abstract and formulation of generalized monotone/null-coupon model.",
+        "method": "Compared state dynamics and implication: collected types remain held in their model versus selected-type erasure and revisits here.",
+        "title": "Optimization results for a generalized coupon collector problem",
+        "trigger": "Previously established majorization or uniform-optimal sampling theorem that might subsume mean-balancing conclusion."
+      },
+      {
+        "assessment": "Representation-theoretic group-walk formulas might imply part of the present mean at symmetric refresh; they do not directly cover the biased product-chain model over the entire loss interval or prove the stated general majorization from the material read.",
+        "evidence": [
+          "arXiv:2302.01963 abstract gives group random walk hitting time formulas.",
+          "Aggarwal–Garoni original p.2 cites this theorem specifically for non-lazy symmetric hypercube walk."
+        ],
+        "identifier_or_url": "arXiv:2302.01963; https://arxiv.org/abs/2302.01963",
+        "material_read": "Indexed abstract and title; complete paper not inspected.",
+        "method": "Compared group-walk structure at symmetric refresh against biased product heat-bath refresh with loss probability other than one-half.",
+        "title": "Formulas for Hitting Times and Cover Times for Random Walks on Groups",
+        "trigger": "Explicitly cited by the original clumsy paper for symmetric hypercube hitting times; possible formula dominating symmetric-refresh specialization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d79ee5d7-e4b4-4dc6-b766-6c4ac4fe4912",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Optimizing sampling effort is a natural, previously unresolved choice in the recent nonmonotone coupon-refresh model. The full finite first-hitting PGF and subset-sum mean identify the objective for arbitrary positive frequencies; strict Schur-convexity solves its allocation problem at every common positive loss rate and strictly quantifies improvement under balancing. It differs structurally from classical monotone coupon optimality, and supplies an analytically motivated exact finite result, not a routine parameter renaming.",
+    "status": "PASS"
+  }
+}
