@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-The analytic proof uses only three source-level facts: the uniform multimode steady-state identity \(\operatorname{tr}(V^{-1})=2N/\nu\), the generalized entropy-production identity, and the Gaussian displacement-QFI formula. The new step is the reciprocal-spectrum inequality
-\[
-\sum_{i=1}^{2N}\frac1{x_i}
-\ge
-\frac1R+\frac{(2N-1)^2}{2N-R}
-\]
-for positive \(x_i\) with \(\sum_i x_i=2N\) and \(\max_i x_i=R\). It follows directly from convexity of \(1/x\) applied to the \(2N-1\) coordinates other than a maximizer.
+# Independent mathematical audit
 
-The bundled checker verifies the algebraic identity
-\[
-\frac1R+\frac{(2N-1)^2}{2N-R}-2N
-=
-\frac{2N(R-1)^2}{R(2N-R)}
-\]
-and tests the reciprocal-spectrum inequality on deterministic finite samples. Those tests do not prove the theorem.
+## correctness
 
-For \(N>1\), equality of the spectral relaxation is not asserted to be physically attainable: symplectic uncertainty and the Lyapunov steady-state constraint may strengthen the bound. The theorem remains valid because those constraints only reduce the admissible covariance set.
+PASS
+
+Assuming the *specified uniform thermal Lindblad Gaussian steady-state model* identities from Yoshimura–Hamazaki, tr(V^-1)=2N/nu and Σdot/γ=arcoth(2nu)(||rbar||²+tr V−2Nnu), and displacement QFI u^T V^-1 u, put d=2N and x_i=nu λ_i(V^-1)>0. Then sum x_i=d and their max R∈[1,d). For an index with x1=R, Cauchy–Schwarz/Jensen yields sum_{i>=2} 1/x_i >= (d−1)^2/(d−R); this is exact and yields tr V≥nu[1/R+(d−1)^2/(d−R)]. Removing nonnegative ||rbar||² and simplifying gives Σdot/γ≥d nu arcoth(2nu)(R−1)^2/[R(d−R)]. Independent symbolic algebra verified the identity for arbitrary d and R and finite positive spectra corroborate Jensen. For R=rho N with 0<rho<2, dividing by N and taking limit yields the stated 2rho nu arcoth(2nu)/(2−rho). Important boundary: for N=1 physical attainable R has tighter restrictions and R=1 equality; no claim of realizability/saturation for N>1. Source Gaussian thermodynamic identities could not be independently checked against the full primary because of access; proof is therefore conditional on these precisely cited premises, not certified from finite spectral checks.
+
+## originality
+
+PASS
+
+The prior Yoshimura–Hamazaki paper establishes source multimode trace/entropy identities and a single-mode sensitivity tradeoff, per accessible abstract and assigned package, but the accessible material does not display the full N-dependent best-displacement-direction profile. The new derivation applies a sharp trace-constrained reciprocal-eigenvalue inequality to those identities. Best-of-knowledge PASS with prominent high priority risk: full source End Matter unavailable and may already imply or state this profile.
+
+## value
+
+PASS
+
+The rational gain-dependent lower bound quantifies unavoidable entropy-production growth for extensive best-direction multimode displacement sensitivity, with explicit near-ceiling divergence and linear-in-N necessary cost. This supplies a motivated scalable measurement/dissipation obstruction even though spectral extremizers need not obey physical symplectic constraints, and no equality over physical steady states is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

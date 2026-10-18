@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source proves the two required uniform multimode identities: \(\operatorname{tr}(V^{-1})=2N/\nu\) and the generalized entropy-production formula. Its Gaussian displacement-QFI formula applies to arbitrary mode number, so the best unit displacement direction has QFI \(\lambda_{\max}(V^{-1})\). Normalizing the inverse-covariance eigenvalues reduces the new step to a convex reciprocal-sum minimization. Jensen's inequality gives the stated bound for every positive spectrum, and the final rational expression is an exact algebraic simplification. The scaling corollary follows by direct substitution. No finite experiment is used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The closest source, arXiv:2610.01112v1, proves the single-mode QFI trade-offs but leaves multimode extensions and system-size scaling as future work. Its End Matter supplies the general thermodynamic identities, not the new multimode displacement-QFI inequality. Focused searches for the exact source, multimode displacement QFI, the inverse-covariance trace constraint, and the rational \(N\)-dependent profile found no implication-equivalent published statement. Earlier QFI/entropy-production work uses different finite-dimensional nonequilibrium models, while prior Gaussian entropy-production work studies correlation decompositions rather than this sensitivity bound.
+PASS
 
-## Value
-PASS. The result addresses the anchor's explicit multimode-scaling direction with a dimension-explicit theorem valid even for correlated multimode Gaussian steady states. It shows that relative best-direction sensitivity cannot exceed the trace ceiling \(2N\), quantifies the entropy-production blow-up near that ceiling, and proves that an \(O(N)\) sensitivity gain requires \(O(N)\) dissipation. This is a structural scaling law rather than a routine numerical substitution.
+Assuming the *specified uniform thermal Lindblad Gaussian steady-state model* identities from Yoshimura–Hamazaki, tr(V^-1)=2N/nu and Σdot/γ=arcoth(2nu)(||rbar||²+tr V−2Nnu), and displacement QFI u^T V^-1 u, put d=2N and x_i=nu λ_i(V^-1)>0. Then sum x_i=d and their max R∈[1,d). For an index with x1=R, Cauchy–Schwarz/Jensen yields sum_{i>=2} 1/x_i >= (d−1)^2/(d−R); this is exact and yields tr V≥nu[1/R+(d−1)^2/(d−R)]. Removing nonnegative ||rbar||² and simplifying gives Σdot/γ≥d nu arcoth(2nu)(R−1)^2/[R(d−R)]. Independent symbolic algebra verified the identity for arbitrary d and R and finite positive spectra corroborate Jensen. For R=rho N with 0<rho<2, dividing by N and taking limit yields the stated 2rho nu arcoth(2nu)/(2−rho). Important boundary: for N=1 physical attainable R has tighter restrictions and R=1 equality; no claim of realizability/saturation for N>1. Source Gaussian thermodynamic identities could not be independently checked against the full primary because of access; proof is therefore conditional on these precisely cited premises, not certified from finite spectral checks.
 
-## Closest literature and limitations
-The anchor is the decisive comparison because it contains both the general multimode entropy-production identity and the single-mode sensitivity theorem. The new argument is the spectral optimization that converts the multimode trace constraint into a QFI-dependent thermodynamic bound. For \(N>1\), physical attainability of the equality spectrum is not established, so the theorem is not advertised as a sharp physical frontier. The bath-equilibrium reference differs from the anchor's single-mode state-dependent passive reference.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior Yoshimura–Hamazaki paper establishes source multimode trace/entropy identities and a single-mode sensitivity tradeoff, per accessible abstract and assigned package, but the accessible material does not display the full N-dependent best-displacement-direction profile. The new derivation applies a sharp trace-constrained reciprocal-eigenvalue inequality to those identities. Best-of-knowledge PASS with prominent high priority risk: full source End Matter unavailable and may already imply or state this profile.
+
+## value
+
+PASS
+
+The rational gain-dependent lower bound quantifies unavoidable entropy-production growth for extensive best-direction multimode displacement sensitivity, with explicit near-ceiling divergence and linear-in-N necessary cost. This supplies a motivated scalable measurement/dissipation obstruction even though spectral extremizers need not obey physical symplectic constraints, and no equality over physical steady states is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

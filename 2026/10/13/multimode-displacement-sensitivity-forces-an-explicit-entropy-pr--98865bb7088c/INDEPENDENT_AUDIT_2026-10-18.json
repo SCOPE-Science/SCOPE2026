@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T10:59:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/multimode-displacement-sensitivity-forces-an-explicit-entropy-pr--98865bb7088c/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/multimode-displacement-sensitivity-forces-an-explicit-entropy-pr--98865bb7088c/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/multimode-displacement-sensitivity-forces-an-explicit-entropy-pr--98865bb7088c/METADATA.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/multimode-displacement-sensitivity-forces-an-explicit-entropy-pr--98865bb7088c/AUDIT.json"
+      ],
+      "rationale": "Assuming the *specified uniform thermal Lindblad Gaussian steady-state model* identities from Yoshimura–Hamazaki, tr(V^-1)=2N/nu and Σdot/γ=arcoth(2nu)(||rbar||²+tr V−2Nnu), and displacement QFI u^T V^-1 u, put d=2N and x_i=nu λ_i(V^-1)>0. Then sum x_i=d and their max R∈[1,d). For an index with x1=R, Cauchy–Schwarz/Jensen yields sum_{i>=2} 1/x_i >= (d−1)^2/(d−R); this is exact and yields tr V≥nu[1/R+(d−1)^2/(d−R)]. Removing nonnegative ||rbar||² and simplifying gives Σdot/γ≥d nu arcoth(2nu)(R−1)^2/[R(d−R)]. Independent symbolic algebra verified the identity for arbitrary d and R and finite positive spectra corroborate Jensen. For R=rho N with 0<rho<2, dividing by N and taking limit yields the stated 2rho nu arcoth(2nu)/(2−rho). Important boundary: for N=1 physical attainable R has tighter restrictions and R=1 equality; no claim of realizability/saturation for N>1. Source Gaussian thermodynamic identities could not be independently checked against the full primary because of access; proof is therefore conditional on these precisely cited premises, not certified from finite spectral checks.",
+      "residual_risks": [
+        "The source RESULT.md has two stray form-feed control characters in intended LaTeX fractions; sanitize and guard before any public publication.",
+        "No Lean or expert-attested verification claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier general entropy-production and Gaussian QFI theory supplies premises; the submitted bound is for all N in a uniform thermal model and arbitrary unit displacement direction. Closest 2026 preprint may cover this as corollary: full text not read."
+        ],
+        "reasoning": "No claim that failure to inspect full closest primary disproves broader coverage; the risk is identified and best-of-knowledge only.",
+        "searches": [
+          "arXiv:2610.01112v1 abstract/End Matter citations from submitted RESULT.md",
+          "Ptaszyński–Esposito PRX Quantum 4 020353",
+          "Wang–Wang arXiv:1912.12734"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/multimode-displacement-sensitivity-forces-an-explicit-entropy-pr--98865bb7088c/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/multimode-displacement-sensitivity-forces-an-explicit-entropy-pr--98865bb7088c/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/multimode-displacement-sensitivity-forces-an-explicit-entropy-pr--98865bb7088c/artifacts/verify.py",
+        "https://arxiv.org/abs/2610.01112",
+        "Resultary: multimode thermal bosonic Gaussian steady-state displacement quantum Fisher information entropy production lower bound inverse covariance trace"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From prior trace/entropy premises plus Jensen one obtains d nu arcoth(2nu)(R−1)^2/[R(d−R)], which is not visibly stated in accessible primary abstract, but is mathematically an elementary corollary of those identities."
+        ],
+        "reasoning": "This is a new explicit optimization/quantitative corollary under best-of-knowledge, with lower degree of independence than a new foundational thermodynamic theorem. The unseen full primary could already cover it.",
+        "searches": [
+          "arXiv:2610.01112v1 cited general multimode identities",
+          "Jensen reciprocal inequality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted Fmax is the maximal *directional displacement* QFI nuλmax(V^-1), with equilibrium reference 1/nu; the source main-text bound uses a state-dependent passive reference, not identical by normalization. Source abstract offers generic dissipation-sensitivity, but not the exact rational N-bound in accessible material."
+        ],
+        "reasoning": "Searched Gaussian covariance and QFI aliases and distinguished bath-equilibrium from passive-reference QFI; no evidence of equivalent complete formula, but primary End Matter inaccessible.",
+        "searches": [
+          "Resultary: multimode thermal bosonic Gaussian steady-state displacement quantum Fisher information entropy production lower bound inverse covariance trace",
+          "Yoshimura–Hamazaki arXiv:2610.01112 v1 accessible abstract",
+          "Wang–Wang arXiv:1912.12734"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The equation is a universal symbolic inequality rather than an independently tabulated finite instance, so no exact database/table comparison is applicable. Its parameter dependence is R∈[1,2N) and rational in R."
+        ],
+        "reasoning": "Specific inapplicability: theorem is continuous-parameter analytic lower bound and not an exact tabular invariant; checked literature for same formula under QFI and inverse trace wording.",
+        "searches": [
+          "Resultary: multimode thermal bosonic Gaussian steady-state displacement quantum Fisher information entropy production lower bound inverse covariance trace",
+          "source supplied trace identity tr(V^-1)=2N/nu",
+          "same N=1 as source single-mode tradeoff"
+        ]
+      },
+      "rationale": "The prior Yoshimura–Hamazaki paper establishes source multimode trace/entropy identities and a single-mode sensitivity tradeoff, per accessible abstract and assigned package, but the accessible material does not display the full N-dependent best-displacement-direction profile. The new derivation applies a sharp trace-constrained reciprocal-eigenvalue inequality to those identities. Best-of-knowledge PASS with prominent high priority risk: full source End Matter unavailable and may already imply or state this profile.",
+      "residual_risks": [
+        "Direct full-text inspection of same-paper Yoshimura–Hamazaki End Matter blocked: authorized Oxford returned vpn_disconnected; exact normalization/premises and complete prior coverage must be checked by authorized human access.",
+        "For N>1 spectral equality configurations may be forbidden by uncertainty and Lyapunov steady-state constraints; the lower bound is not claimed globally sharp.",
+        "The source RESULT.md has two stray form-feed control characters in intended LaTeX fractions; sanitize and guard before any public publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "High-priority source comparison unresolved by access; best-of-knowledge conditional conclusion only",
+          "evidence": "The paper studies dissipation–sensitivity and says multimode scaling needs attention; exact identities appear as cited premises but were not verified from actual full primary.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01112",
+          "material_read": "Accessible arXiv/search abstract and the submitted proof’s quotations; full primary PDF/End Matter could not be retrieved",
+          "method": "arXiv/preprint and lawful OA attempts; authorized Oxford institutional retrieval returned vpn_disconnected (job 22d517a1c0c6b48cca1d829ae87a5a14); no bypass",
+          "title": "Dissipation–Sensitivity Trade-Off in Dissipative Bosonic Systems, Yoshimura and Hamazaki",
+          "trigger": "Exactly same stable multimode uniform Lindblad model and cited central trace/entropy premises"
+        },
+        {
+          "assessment": "Broader entropy identities are separate from the stated best-direction rational bound",
+          "evidence": "General Gaussian entropy production and system-environment correlations, not verified same model bound.",
+          "identifier_or_url": "https://doi.org/10.1103/PRXQuantum.4.020353",
+          "material_read": "Bibliographic abstract/description, not complete primary",
+          "method": "publication summary",
+          "title": "Quantum and Classical Contributions to Entropy Production in Fermionic and Bosonic Gaussian Systems",
+          "trigger": "Related Gaussian entropy-production theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/multimode-displacement-sensitivity-forces-an-explicit-entropy-pr--98865bb7088c/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/multimode-displacement-sensitivity-forces-an-explicit-entropy-pr--98865bb7088c/artifacts/verify.py",
+        "https://arxiv.org/abs/2610.01112",
+        "Resultary: multimode thermal bosonic Gaussian steady-state displacement quantum Fisher information entropy production lower bound inverse covariance trace"
+      ],
+      "rationale": "The rational gain-dependent lower bound quantifies unavoidable entropy-production growth for extensive best-direction multimode displacement sensitivity, with explicit near-ceiling divergence and linear-in-N necessary cost. This supplies a motivated scalable measurement/dissipation obstruction even though spectral extremizers need not obey physical symplectic constraints, and no equality over physical steady states is claimed.",
+      "residual_risks": [
+        "Direct full-text inspection of same-paper Yoshimura–Hamazaki End Matter blocked: authorized Oxford returned vpn_disconnected; exact normalization/premises and complete prior coverage must be checked by authorized human access.",
+        "For N>1 spectral equality configurations may be forbidden by uncertainty and Lyapunov steady-state constraints; the lower bound is not claimed globally sharp.",
+        "The source RESULT.md has two stray form-feed control characters in intended LaTeX fractions; sanitize and guard before any public publication."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Direct full-text inspection of same-paper Yoshimura–Hamazaki End Matter blocked: authorized Oxford returned vpn_disconnected; exact normalization/premises and complete prior coverage must be checked by authorized human access.",
+    "For N>1 spectral equality configurations may be forbidden by uncertainty and Lyapunov steady-state constraints; the lower bound is not claimed globally sharp.",
+    "The source RESULT.md has two stray form-feed control characters in intended LaTeX fractions; sanitize and guard before any public publication."
+  ],
+  "schema_version": 1
+}
