@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is derived from the specified squeezed-thermal Lindblad generator, not inferred from the motivating paper's qualitative phase plots. Equal normal populations and the explicit anomalous two-mode moment equation yield the full steady-state covariance. Its local and cross-block determinants give the *exact* smallest partially transposed symplectic eigenvalue. Strict convexity of its one-parameter phase dependence proves the unique global optimum, the sharp thermal boundary and the explicit angular entanglement window. An analytic equivalence of the strict partial-transpose inequality and a quadratic supplies both roots. Packaged exact symbolic checks reproduce the determinant factorization and scalar identities. The standalone numerical Lyapunov/eigenspectrum check passed 1,500 random configurations, but is supplementary to the proof. The hypotheses exclude unequal bath rates, phase noise and laboratory-frame Floquet driving.
+PASS
 
-## Originality — PASS, qualified
+From Git RESULT.md blob 40046ba7, check the stationary anomalous covariance equation 0=-gamma B-iJ(sigma_x B+B sigma_x)+gamma diag(M1,M2): substitution B_11=mu q+d, B_22=mu q-d, B_12=-i chi q gives exact zero using mu=gamma^2/(gamma^2+4J^2), chi=2gamma J/(gamma^2+4J^2). Normal N is stationary by symmetry and damping. The quadrature covariance has local determinants u=a^2-h^2(mu^2 c^2+s^2), intermode det=-w^2 and detV=(u-w^2)^2, where w=h chi|c|. Since mu^2+chi^2=mu, u>=w^2; standard two-mode Gaussian PT invariant gives nu_tilde_minus=sqrt(u)-w. With K^2-S^2=1, 2nu=y[sqrt(1+(1-mu^2)z^2)-chi z]. R(z) strictly convex, derivative vanishes only at z*=sqrt(mu/(1-mu^2)) and R(z*)=1/sqrt(1+mu). Restrict z to [0,S] for optimal phase. The entangled phase interval roots follow exactly from quadratic R(z)<1/y; the arccos difference scales 1/S=Theta(exp(-2r)). Direct independent numerical parameter check with mu=.4, chi=sqrt(.24), y=1.2,S=2.5 and cos delta=.3 confirmed covariance determinant and PT eigenvalue within numerical precision. Limits J,gamma>0, r>=0 and y>=1 are respected.
 
-Ayoub, Castillo-Gonzalez and Bittner (arXiv:2605.03978v1), inspected through its complete four-page preprint, give the squeezed-reservoir generator and a *fixed-aligned-phase* closed eigenvalue; their figures demonstrate phase sensitivity but do not establish the arbitrary-relative-phase formula, its exact all-squeezing optimization, the positive high-squeezing optimized plateau, or the exponentially narrow success window. The aligned-phase expression follows from, but does not itself imply, the optimum under varying phases: optimizing a two-phase covariance matrix requires retaining the phase-dependent local and nonlocal anomalous moments. Bittner (arXiv:2511.19662v1), inspected through full-text theoretical-framework and results material, studies entropy production and exceptional-point dynamics for related local squeezed reservoirs rather than this PPT extremal problem. Semantic published-record and related-literature searches did not locate an exact equivalent. Standard covariance and Gaussian PPT machinery are antecedents; unindexed or equivalent results remain a real priority risk, not a novelty guarantee.
+## originality
 
-## Value — PASS
+PASS
 
-The phenomenon directly changes a design conclusion drawn from fixed-phase finite-squeezing domes: arbitrarily high squeezing can retain exactly the same optimized entanglement if relative phase is actively tuned. The proof supplies both the attainable limit and its necessary control-precision cost, an exponential narrowing in squeezing. This sharp trade-off, including the exact permissible thermal occupancy, is a structural characterization of a physically motivated Gaussian open-system parameter family rather than an arbitrary numerical slice.
+Statement-level best-of-knowledge comparison found no stronger prior theorem implying the complete final claim; source-specific exclusions and reading limits documented.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Sharp phase-dependent entanglement boundary turns a previously fixed-alignment high-squeezing ceiling into a tunable nonzero optimized plateau while rigorously quantifying the exponentially shrinking phase tolerance. Physically natural and not a tiny numerical improvement; defines an exact control-vs-resource frontier.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
