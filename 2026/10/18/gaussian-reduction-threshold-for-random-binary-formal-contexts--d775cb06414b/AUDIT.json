@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The finite event is exactly simultaneous zero-witness coverage by eligible rows, including the empty-intersection case s=m. Conditioning yields the binomial mixture, and independent inclusion-exclusion yields the second expression. The critical-window Chernoff/union-bound sandwich against the binomial CLT proves the Gaussian law. The complete standalone verifier checked 33 exhaustive rational cases and the one-column boundary; the proof, not the experiments, establishes the all-size theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2112.15534, Jacobovic-Zuk §3.2, eq. (26), Theorem 1",
+        "Jacobovic-Zuk Theorem 1 yields the same leading threshold \\(c_p=-p\\log p\\) for existence of a dominating row, so the location is explicitly treated as prior coverage.",
+        "Their §3.2 displays a finite formula for the absence of dominating rows, not the reduction law or its Gaussian profile."
+      ],
+      "reasoning": "The first-order exponential location is covered and not claimed novel. The finite exact reduction formula and proof that intersecting all dominators gives full zero-witness coverage with high probability in the critical window require a further claim; they do not follow as literal instances of the displayed prior theorem.",
+      "searches": [
+        "formal concept analysis random contexts reduction clarification redundant rows threshold",
+        "A phase transition for the probability of being a maximum among random vectors Bernoulli",
+        "formal concept lattice random context"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2112.15534",
+      "https://arxiv.org/pdf/2101.11023",
+      "https://doi.org/10.3390/info11030135",
+      "https://doi.org/10.1007/978-3-031-35949-1_2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2112.15534, Jacobovic-Zuk §3.2, eq. (26), Theorem 1",
+        "arxiv:2101.11023, Sakurai §§2–5",
+        "doi:10.3390/info11030135, Felde-Hanika-Stumme abstract/intro",
+        "doi:10.1007/978-3-031-35949-1_2, Pattison-Nataraja abstract/§5 index",
+        "The new witness lemma asserts that conditional on many eligible dominating rows, every absent target attribute is missing from some eligible row with probability tending to one. That additional assertion is not a premise or conclusion of the cited maximum theorem."
+      ],
+      "reasoning": "Standard reduction supplies the meaning, Felde and Sakurai supply random-context models, and Jacobovic-Zuk supplies the dominance threshold. None of the inspected relevant mathematical statements explicitly establishes the exact finite object-reduction event or its Gaussian profile. An equivalent implicit consequence of different methods remains possible.",
+      "searches": [
+        "Probability of object reducibility in random binary formal contexts, Gaussian critical threshold of redundant objects, row intents intersections of other rows; exact formula and asymptotic reduction.",
+        "Gaussian threshold object reducibility in random formal contexts",
+        "\"formal concept\" \"reducible\" \"random\" probability",
+        "2023 context standardisation Pattison Nataraja object reduction",
+        "random vector maximum Bernoulli phase transition Jacobovic Zuk"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2112.15534, Jacobovic-Zuk §3.2, eq. (26), Theorem 1",
+        "arxiv:2101.11023, Sakurai §§2–5",
+        "The event is an arbitrary intersection of eligible superset rows, whereas a Pareto maximum is defined by existence/nonexistence of one dominator. For \\(r=3,m=2,p=1/2\\), object reducibility is \\(39/64\\) but existence of a dominating row is \\(47/64\\)."
+      ],
+      "reasoning": "Finite events are demonstrably inequivalent. The closest nontrivial alias is Pareto dominance: the source provides its exact law but not the required intersection-witness coverage law. Available semantic searches found no matching reduction theorem.",
+      "searches": [
+        "Probability of object reducibility in random binary formal contexts, Gaussian critical threshold of redundant objects, row intents intersections of other rows; exact formula and asymptotic reduction.",
+        "formal concept lattice random context",
+        "intersection of binary row intents",
+        "\"formal context\" \"object reducible\" \"random\" probability",
+        "probability binary vector is coordinatewise AND of other iid Bernoulli vectors threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record queries returned unrelated statements, including exact ordered-tuple orbit counts for the random distributive lattice and an antecedent-boundary theorem for team-semantic material implication; neither concerns object-intent intersections or Bernoulli reduction probabilities.",
+        "The recorded finite values are independent brute-force checks, not known-table lookups."
+      ],
+      "reasoning": "No exact reduction-probability or Gaussian-window database table was identified. Retrieval failure or lack of search hits is not a uniqueness proof; this remains a bounded best-knowledge check.",
+      "searches": [
+        "Probability of object reducibility in random binary formal contexts, Gaussian critical threshold of redundant objects, row intents intersections of other rows; exact formula and asymptotic reduction.",
+        "Gaussian threshold object reducibility in random formal contexts",
+        "formal concept lattice random context",
+        "intersection of binary row intents",
+        "\"random formal context\" \"reducible\" \"threshold\""
+      ]
+    },
+    "rationale": "The random-context and reduction concepts and the leading Pareto-dominance threshold are established background. Jacobovic-Zuk has an exact formula for a distinct event and only a first-order Bernoulli threshold; their result is expressly acknowledged. The exact intersection-reduction probability and the necessary sufficiency-of-dominators witness lemma yield a finer Gaussian reduction law not stated in inspected sources. Residual risk of implicit/obscure equivalent treatment remains.",
+    "residual_risks": [
+      "A Gaussian window for Bernoulli Pareto dominance can be deduced from the prior exact formula using an additional CLT; novelty is restricted to exact intersection-reduction and its asymptotic equivalence with dominance.",
+      "Full Felde-Hanika-Stumme and Pattison-Nataraja articles could not be read under current access; no whole-document noncoverage is inferred.",
+      "Unindexed equivalent formulations in random-set or Boolean-vector theory may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STRONG_PARTIAL_COVERAGE: exact nondominance formula and first-order threshold are prior; exact intersection reducibility and critical Gaussian profile are not stated.",
+        "evidence": "§2.4 eq. (17) gives \\(\\gamma=-p\\log p\\); §3.2 eq. (26) counts strong Pareto maxima.",
+        "identifier_or_url": "https://arxiv.org/pdf/2112.15534",
+        "material_read": "Theorem 1 and Corollary 1; Bernoulli §3.2 including eqs. (26)–(28); relevant comparison to normal-window work in §3.1 and numerical discussion in §3.3",
+        "method": "Open full 17-page arXiv PDF, inspect relevant sections and text",
+        "title": "A phase transition for the probability of being a maximum among random vectors with general iid coordinates",
+        "trigger": "Same Bernoulli product order and identical first-order threshold"
+      },
+      {
+        "assessment": "NOT_COVERING_INSPECTED_SECTIONS: expected number of concepts rather than object reduction",
+        "evidence": "Proposition 4.1 and Theorem 5.1 concern the total expected concept count.",
+        "identifier_or_url": "https://arxiv.org/pdf/2101.11023",
+        "material_read": "Introduction, preliminaries, random-context model, exact expected-concept formula and main asymptotic result, plus term search through document",
+        "method": "Open and inspect seven-page arXiv PDF text and a page image",
+        "title": "On formal concepts of random formal contexts",
+        "trigger": "Same random-incidence setting in formal concept analysis"
+      },
+      {
+        "assessment": "PARTIAL_ACCESS: establishes coin-toss/null-model background, no whole-paper noncoverage inference",
+        "evidence": "Abstract treats Dirichlet and coin-toss context generation; 2020-02-28 online date, MSC 03G10.",
+        "identifier_or_url": "https://doi.org/10.3390/info11030135",
+        "material_read": "Publisher-indexed abstract, introduction, publication metadata only; full publisher page was blocked by HTTP 429",
+        "method": "Search-result rendered article sections and publication metadata",
+        "title": "Null Models for Formal Contexts",
+        "trigger": "Published Bernoulli/null model; permitted MSC ownership and source date"
+      },
+      {
+        "assessment": "PARTIAL_ACCESS: procedural reduction is known, Gaussian Bernoulli analysis not established by the inspected material",
+        "evidence": "Section 5 discusses removing reducible objects and attributes while preserving lattice structure.",
+        "identifier_or_url": "https://doi.org/10.1007/978-3-031-35949-1_2",
+        "material_read": "Publisher abstract and indexed excerpts from §5 on context standardisation; full publisher chapter unavailable to inspect",
+        "method": "Publisher catalogue and indexed relevant sections",
+        "title": "Doubly-Lexical Order Supports Standardisation and Recursive Partitioning of Formal Context",
+        "trigger": "Explicit algorithms for reducing formal contexts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d775cb06-414b-4851-926b-4b1656b9aa49",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Removing one individually reducible object preserves the full concept lattice, making the invariant mathematically and algorithmically natural. The exact finite probability and sharp Gaussian scaling resolve a natural random-preprocessing question, and the asymptotic absence of duplicates proves this is not merely clarification. No simultaneous deletion or critical-window concentration theorem is claimed.",
+    "status": "PASS"
+  }
+}
