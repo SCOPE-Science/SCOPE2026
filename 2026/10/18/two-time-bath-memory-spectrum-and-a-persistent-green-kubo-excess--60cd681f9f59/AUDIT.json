@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Synchronous coupling yields strict Lyapunov contraction; the three stationary moments solve a nonsingular linear generator system. An exact two-time semigroup has two distinct negative eigenvalues. The identity (d-k_s)(d-k_f)<0 proves both covariance weights positive. Explicit inversion of the semigroup generator yields the full Green–Kubo integral and the near-infinite reset expansions are algebraically derived. Independent 80-point matrix generator comparisons, 16 quadratures, six large-reset checks, and direct Poisson-reset Langevin simulation corroborate the closed proof. The t>0 restriction is explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Standard Markov jump-diffusion theory gives semigroup identities but does not by itself state the explicit parameter-dependent positive weights and strong-reset excess.",
+        "The Santra–Das moment calculation provides the covariance at lag zero but not the conditional two-time propagator needed to recover the claim."
+      ],
+      "reasoning": "No inspected source supplied stronger coverage with the same Poisson reset map and Brownian-noise normalization. Broad linear jump-process methods are flagged as remaining risk; no novelty claim is made for the method.",
+      "searches": [
+        "coupled overdamped Brownian particles tracer resets while bath continues Green Kubo integrated autocorrelation fast resetting enhanced diffusion",
+        "Exact double-exponential stationary time covariance and Green-Kubo integral of probe x under Poisson reset x -> 0 while coupled viscoelastic bath q is not reset, Santra Das 2026",
+        "coupled OU process partial stochastic resetting stationary time correlation strong reset"
+      ]
+    },
+    "checked_sources": [
+      "Santra and Das (2026), arXiv:2603.17027v1 and open-access New Journal of Physics article, doi:10.1088/1367-2630/ae868c",
+      "Guéneau, Majumdar and Schehr (2023), resetting-noise harmonic trap paper",
+      "Ginot and Bechinger (2025/2026), experimental non-Markovian resetting paper",
+      "Published records searched for bath-memory temporal autocovariance, partial tracer resetting, two-mode Green–Kubo behavior"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "From prior stationary moments alone, a,b determine C(0) and C′(0) but not the full function absent the extra post-reset semigroup analysis.",
+        "The new theorem derives C(t)=(exp(Mt) Sigma)_{11}; the independent semigroup and asymptotic mode calculation is not stated in the examined prior publication."
+      ],
+      "reasoning": "The result is not merely a rewording of the known stationary-variance limit: it concerns the integrated path observable and a nonuniform fast-reset covariance limit. The conclusion does follow by a fresh elementary generator computation from the published model, which limits originality strength but does not imply an identified previously stated result.",
+      "searches": [
+        "Exact double-exponential stationary time covariance and Green-Kubo integral of probe x under Poisson reset x -> 0 while coupled viscoelastic bath q is not reset, Santra Das 2026",
+        "\"Resetting in a viscoelastic bath\" exact stationary two-time covariance bi-exponential and Green-Kubo strong-reset limit (2+gamma)/r^2",
+        "Santra Das moments Eq 12 vs stationary two-time Green Kubo"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source eqs. (1), (12) concern the same stochastic model but one-time moments; the newly proved object is Cov(X_t,X_0) with stationary initial law.",
+        "Related harmonic-trap work resets a driving process, rather than resetting the tracer with an untouched bath."
+      ],
+      "reasoning": "A two-exponential form can be obtained from matrix semigroup methods, so equivalent formulations were sought under autocovariance, temporal spectral density, relaxation spectrum, linear jump diffusion and integrated correlation. No covering statement was identified; standard generator machinery is acknowledged as a possible implicit derivation.",
+      "searches": [
+        "Santra Das resetting viscoelastic bath tracer-only reset bath memory stationary two-time position autocovariance spectral density two exponential relaxation correlation",
+        "stochastic partial resetting coupled Ornstein Uhlenbeck tracer viscoelastic bath two time covariance memory autocorrelation",
+        "\"Resetting in a viscoelastic bath\" \"autocorrelation\"",
+        "\"tracer-only resetting\" \"two-time covariance\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published record nearest results describe an unrelated Holstein bath, OU trend-reversal and a Jacobi diffusion; none state the present tracer resetting model and coefficients.",
+        "Santra–Das source lists explicit one-time moment formulas, not a table of exact stationary two-time covariance coefficients."
+      ],
+      "reasoning": "The explicit parameter formulas were compared against directly relevant source text and indexed records; database nonmatches alone are not proof of global uniqueness.",
+      "searches": [
+        "Santra Das resetting viscoelastic bath tracer-only reset bath memory stationary two-time position autocovariance spectral density two exponential relaxation correlation",
+        "\"Resetting in a viscoelastic bath\" exact stationary two-time covariance bi-exponential and Green-Kubo strong-reset limit (2+gamma)/r^2",
+        "arXiv:2603.17027 exact two-time covariance Green Kubo",
+        "stationary autocovariance reset viscoelastic bath spectral density"
+      ]
+    },
+    "rationale": "The primary Santra–Das paper contains the coupled model, stationary marginal laws and relaxation of one-time moments, which this result attributes to prior work. Its identified full-text statements do not establish the stationary two-time covariance, two strictly positive modes, Green–Kubo integral, or nonuniform strong-reset excess. Related studies change the reset operator or physical observable; claim-directed published record searches returned no covering title/summary. General linear jump-generator results may implicitly derive these expressions and remain a residual risk.",
+    "residual_risks": [
+      "General linear jump-process theory may implicitly provide the result as a special case, despite no matching explicit statement being identified.",
+      "Bibliographic coverage of experimental non-Markovian resetting is not guaranteed exhaustive.",
+      "Positive spectral weights and asymptotics are specific to the fluctuation-dissipation noise strengths and reset-at-zero convention."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The primary text contains the one-time moment laws already credited, but no identified stationary two-time autocovariance or time-integrated Green–Kubo strong-reset excess.",
+        "evidence": [
+          "Santra–Das (2026), equations (1), (12) and subsequent moment discussion; conclusion compares steady-state position distributions and moment relaxations, not stationary two-time temporal correlations."
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/1367-2630/ae868c",
+        "material_read": "Model equations, analytic stationary-moment and relaxation sections, discussion/conclusion, and relevant full-text result passages",
+        "method": "Full-text open-access HTML reading, equation-by-equation comparison of objects and temporal arguments",
+        "title": "Resetting in a viscoelastic bath: the bath remembers",
+        "trigger": "Identical physical model, probe-only resetting, and stationary second moments"
+      },
+      {
+        "assessment": "First public preprint 2026-03-17; same study as journal article; not a separate originality comparator.",
+        "evidence": [
+          "arXiv:2603.17027v1 submitted 2026-03-17, same two authors and title."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.17027",
+        "material_read": "arXiv version metadata, abstract, paper identity and publication date",
+        "method": "Open-access arXiv listing and paper cross-reference to open-access full article",
+        "title": "Resetting in a viscoelastic bath: the bath remembers",
+        "trigger": "First publicly available version and exact first-public-date ownership"
+      },
+      {
+        "assessment": "The force/noise is reset rather than the tracer alone, and the precise bath-preserving tracer covariance statement is not implied without changing the generator.",
+        "evidence": [
+          "Guéneau–Majumdar–Schehr (2023): resetting noise in harmonic trap, different reset operator and initial-condition object."
+        ],
+        "identifier_or_url": "https://arxiv.org/search/?query=Active+particle+in+a+harmonic+trap+driven+by+a+resetting+noise&searchtype=all",
+        "material_read": "Full-text theoretical structure and appendix about correlations, including resetting-noise protocol",
+        "method": "Primary open-access text comparison of which variable resets and which two-time observable is computed",
+        "title": "Active particle in a harmonic trap driven by a resetting noise: an approach via Kesten variables",
+        "trigger": "Closest reset-induced harmonic-memory correlations and distribution theory"
+      },
+      {
+        "assessment": "Establishes experimental memory effects but not the present exact two-mode covariance and strong-reset integral for the Santra–Das minimal model.",
+        "evidence": [
+          "Ginot–Bechinger (2025/2026): experimental probe resetting in a non-Markovian environment."
+        ],
+        "identifier_or_url": "https://arxiv.org/search/?query=Experimental+investigation+of+stochastic+resetting+in+non-Markovian+environment&searchtype=all",
+        "material_read": "Primary open-access study of memory-preserving resetting, experimental observables and compared theory",
+        "method": "Direct comparison of observables and protocol",
+        "title": "Experimental investigation of stochastic resetting in non-Markovian environment",
+        "trigger": "Experimental bath-memory persistence under repeated resetting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "60cd681f-9f59-4a00-8e8d-7e0b553383bc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A measurable integrated position observable has excess asymptotic variance even when one-time probe variance agrees at leading order with isolated Brownian resetting. The exact excess factor 1+gamma/2, full relaxation spectrum, and nonuniform fixed-lag bath tail identify a sharp experimentally relevant distinction between one-time and temporal Markovianization; no general downstream theorem is asserted.",
+    "status": "PASS"
+  }
+}
