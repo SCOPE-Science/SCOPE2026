@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Every terminal-to-terminal arm is a length L geodesic giving 2m upper bound. Chosen symmetric levels a,b=L+1-a are feasible by classifying all shortest-path routes and excluding three chosen edges via x+y constraints. At maximum every arm has two edges a_i,b_i; violating b_i+a_j>=L+1 or a_i+b_j<=L+1 creates an explicit three-edge geodesic. The cross constraints force a_i+b_j=L+1 for all distinct i,j; m>=3 synchronizes all levels and gives floor(L/2) distinct sets. Actual standard-library checker exhaustively verifies small graphs with an independent shortest-path enumerator. Finite checks are not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2207.07357, Lemma 2.4: edge k-general-position <= (k-1) edge-geodesic cover number",
+        "Cao–Ji–Wang 2025, Theorem 3.1 proof, five-edge theta witness excludes gp_e=4"
+      ],
+      "reasoning": "A cover of m theta arms gives the known inequality gp_e<=2m; neither the sharp construction nor all equality cases follow from it. The 2025 theta discussion establishes a much weaker gp_e>=5 for 3-path theta subgraphs in a gp_e=4 classification. No identified stronger published classification dominates the present claim.",
+      "searches": [
+        "edge general position theta graph m disjoint length L shortest paths exactly floor L over 2 maximum edge sets",
+        "edge geodesic cover equality extremal edge general position two-terminal parallel paths theta",
+        "arXiv:2207.07357 Lemma 2.4 geodesic cover bound",
+        "doi:10.1007/s40840-025-01873-x Section 3 theta subgraph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2105.04292 (v1 dated 2021-05-10; full source)",
+      "arXiv:2207.07357 (v1 2022-07-15; author-posted full manuscript)",
+      "arXiv:2302.01587 (open-access 2024 article full text)",
+      "DOI:10.1007/s40840-025-01873-x (full author-posted manuscript 2025)",
+      "Indexed graph-theory findings with similar graph objects or edge-geodesic terminology",
+      "accessible prior edge-general-position claims in current own ledger, none theta optimal-set classification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2105.04292, definitions and Theorems 3.2/3.3 plus grid section",
+        "arXiv:2207.07357, Lemma 2.4",
+        "arXiv:2302.01587, Sections 2 and 3, block graphs and gp_e=3 or |E|-1",
+        "Cao–Ji–Wang 2025 full manuscript Theorem 3.1, theta only in lower-bound contradiction"
+      ],
+      "reasoning": "Statements were compared by implication. The known cover bound implies gp_e<=2m only. The other general-position results concern trees/products, block graphs, or small/extreme values and do not force the paired levels on every arm. The 2025 theta construction of five edges is not an upper bound or an extremizer classification for gp_e=2m>=6. Hence the all-parameter equality and optimizer rigidity are not implied by the examined assertions.",
+      "searches": [
+        "equal length generalized theta graph m internally disjoint s t paths edge general position maximum 2m floor(L/2) distinct largest sets",
+        "edge geodesic cover equality extremal edge general position two-terminal parallel paths theta",
+        "arXiv:2105.04292 Edge general position problem",
+        "arXiv:2302.01587 Extremal Edge General Position Sets in Some Graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Manuel–Prabha–Klavžar, arXiv:2105.04292, definitions and graph-family theorems",
+        "Indexed graph-theory result entitled “All edge general-position sets of spider trees”; the underlying graph is a tree."
+      ],
+      "reasoning": "For theta graphs the cycles created by sharing both terminals change geodesics relative to a spider tree. The indexed spider result has a completely different one-per-arm maximum mechanism. No matching theta assertion or equivalent classification was found.",
+      "searches": [
+        "edge general position number theta graphs internally disjoint paths between two branch vertices",
+        "equal length generalized theta graph m internally disjoint s t paths edge general position maximum 2m floor(L/2) distinct largest sets",
+        "edge general position all maximum sets generalized theta graph equal length arms 2m symmetric positions from terminals"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed graph-theory results on Rips complexes of equal-arm theta graphs address a different topological invariant.",
+        "Searches for maximum-set counts on equal-arm theta graphs and the complete-bipartite length-two case."
+      ],
+      "reasoning": "The named equal-arm theta source concerns Vietoris–Rips homotopy, not maximum edge-geodesic-position set enumeration. No exact table or database entry giving the optimizer count was identified; absence from indexed results is not a proof of originality.",
+      "searches": [
+        "graph theta K_{2,m} subdivision edge general position number 2m all maximum sets",
+        "edge general position all maximum sets generalized theta graph equal length arms 2m symmetric positions from terminals",
+        "edge general position theta graph published exact table maximum sets"
+      ]
+    },
+    "rationale": "The available founding, geodesic-cover, small-value, and closely related theta-subgraph literature yields neither the exact classification of all maximum edge-general-position sets of equal-arm theta graphs nor the count independent of the arm number. The numeric upper bound follows from [2], but equality and rigidity require the new two-pole inequalities. Extensive actual indexed searches of statement/alias/implication variants and prior own-claim deduplication found no covering theorem. Residual unindexed-literature risk remains.",
+    "residual_risks": [
+      "Unindexed or inaccessible equivalent literature could exist; semantic search alone cannot certify global uniqueness.",
+      "A 2026 graph-product/ILP paper was only available through bibliographic abstract, not read in full; no assertion of whole-document noncoverage.",
+      "The m>=3 equal-arm restriction is essential for the present rigidity deduction; no extension to unequal arm lengths is established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines invariant; its particular results cover trees, hypercubes and rectangular Cartesian grids, not equal-arm theta maximum-set rigidity.",
+        "evidence": [
+          "arXiv:2105.04292",
+          "https://arxiv.org/abs/2105.04292"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2105.04292",
+        "material_read": "full PDF including definitions, Lemma 3.1, Theorems 3.2/3.3, tree and grid results",
+        "method": "open-access arXiv paper inspected by text and page view",
+        "title": "Edge general position problem",
+        "trigger": "Foundational definition and possible generic theorem subsuming two-terminal graphs"
+      },
+      {
+        "assessment": "General bound yields gp_e<=2m from m arm geodesics, but offers neither the equal-arm realizing constructions nor the uniqueness of maximum sets.",
+        "evidence": [
+          "arXiv:2207.07357",
+          "https://arxiv.org/abs/2207.07357",
+          "DOI:10.26493/2590-9770.1745.5f4"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/378883440_Generalization_of_edge_general_position_problem",
+        "material_read": "author-posted full manuscript sections 1, 2 (particularly Lemma 2.4), 3, 4, 5, and conclusion",
+        "method": "lawful open-access author-posted manuscript text; arXiv abstract crosschecked",
+        "title": "Generalization of edge general position problem",
+        "trigger": "Potential dominating geodesic-cover theorem for all graphs"
+      },
+      {
+        "assessment": "Characterizes |E|-1 and gp_e=3 cases and block graphs. A theta graph with m>=3 and L>=2 is not a block graph; its gp_e=2m>=6, and the result neither gives the new count nor forces synchronized levels.",
+        "evidence": [
+          "arXiv:2302.01587",
+          "DOI:10.1007/s00373-024-02770-z"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00373-024-02770-z",
+        "material_read": "full open-access Springer article: introduction, Theorems 2 and 3, block graph bounds and proof",
+        "method": "publisher open-access full-text reading",
+        "title": "Extremal Edge General Position Sets in Some Graphs",
+        "trigger": "Strong graph generalizations and extremal maximum-size structure"
+      },
+      {
+        "assessment": "Its five-edge theta construction is used solely to exclude noncactus graphs when gp_e=4; does not calculate gp_e=2m>=6 or enumerate maxima.",
+        "evidence": [
+          "DOI:10.1007/s40840-025-01873-x",
+          "Section 3 proof, theta(l1,l2,l3) construction"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/391511435_The_Edge_General_Position_Number_of_Some_Graphs",
+        "material_read": "author-posted complete preprint sections 1, 2, and 3, specifically Theorem 3.1 and theta-case proof around pages 9–10",
+        "method": "author-posted full manuscript read beyond abstract",
+        "title": "The Edge General Position Number of Some Graphs",
+        "trigger": "2025 work explicitly uses theta subgraphs in the same invariant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a7438e27-0539-48ed-afd9-b674163bbd83",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact structural classification and optimum count solve a natural two-terminal network optimization family of unbounded path lengths and arm counts. Existing path-geodesic-cover bounds do not explain when equality holds or the number and shape of all extremizers. The theorem proves global edge-level synchrony forced solely by shortest-path constraints; exactly floor(L/2) maxima independently of m. Boundary m>=3 is substantively used; this is neither a direct exercise from the cover bound nor a computation of an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}

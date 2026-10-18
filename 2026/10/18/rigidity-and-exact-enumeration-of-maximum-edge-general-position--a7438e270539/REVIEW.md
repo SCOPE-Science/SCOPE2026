@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The proof starts from the exact domain \(m\ge3\), \(L\ge2\), with simple graphs, and uses each complete terminal-to-terminal arm as a geodesic to bound \(\operatorname{gp}_e\le2m\). For symmetric chosen positions \(a\) and \(b=L+1-a\), both kinds of potential three-edge two-arm shortest paths contradict the respective necessary geodesic inequalities. Conversely, equality forces two chosen positions per arm. A forbidden three-edge route via the first terminal forces \(b_i+a_j\ge L+1\), while a forbidden three-edge route via the second forces \(a_i+b_j\le L+1\). Cross-applying these bounds yields \(a_i+b_j=L+1\) for all distinct arms; a third arm forces uniformity. There are exactly \(\lfloor L/2\rfloor\) choices. A standalone geodesic-enumeration checker passed; it is corroboration and not an infinite proof. The two-arm boundary is deliberately excluded.
+
+## Originality — PASS (best-knowledge, with residual risk)
+Full available literature material was inspected for the same invariant, parallel paths, greater-parameter theorems and implications. The 2021 introduction and tree/product results do not include theta optimizers [1]. The general \(2\)-times-geodesic-cover inequality of [2] yields only the upper bound, not this equality construction and classification. The 2024 block-graph and small-number results [3] do not apply to theta graphs containing overlapping cycles. The author-posted full 2025 manuscript [4] explicitly discusses a theta subgraph only to construct *five* edges for excluding \(\operatorname{gp}_e=4\): this neither bounds the optimum above by \(2m\) nor determines all maximum sets when \(m\ge3\). Searches by alternate phrases, shortest-path reductions, complete-bipartite endpoint \(L=2\), and related indexed findings did not surface an equivalent statement. Search nonappearance does not prove global uniqueness; indexing and inaccessible future work remain residual risks.
+
+## Value — PASS
+This naturally solves a complete extremizer-classification problem for an unbounded family of cyclic two-terminal graphs. A trivial path-cover upper bound alone leaves sharpness and the shape/multiplicity of optimizers unresolved. The equality conditions enforce global level synchronization across arbitrarily many arms, giving the surprising exact count \(\lfloor L/2\rfloor\) independent of \(m\). The third-arm hypothesis is structurally essential for the rigidity argument; the classification is not a numerical restatement or arbitrary finite slice.
+
+## Closest literature and limits
+Sources [1]–[4] are identified in `RESULT.md`. A related 2026 work on graph products (Hamed-Labbafian, Henning, Tavakoli) was available only in abstract/metadata form and does not visibly concern parallel-path networks; it is not used for a whole-text noncoverage assertion. No claim of optimal results for unequal-arm theta graphs or of formal/independent verification is made.
+
+Self-review: passed. Independent audit: not yet performed.
