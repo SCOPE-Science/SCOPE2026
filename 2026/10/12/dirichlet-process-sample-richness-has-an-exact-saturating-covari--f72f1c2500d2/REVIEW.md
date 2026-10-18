@@ -1,30 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Conditioning on the latent frequencies turns each richness increment into the discovery functional
-\[
-\Delta_n(P)=\sum_iP_i(1-P_i)^n.
-\]
-The equal-species and distinct-species contributions to \(\mathbb E[\Delta_nH]\) are reconstructed from the first two independent GEM beta factors. Subtracting the product of means gives the positive digamma increment. Telescoping and summation by parts yield the finite-sum and trigamma covariance formulas. The saturation and correlation asymptotics follow from standard special-function tails, the exact cluster-count variance, and the sourced Shannon-entropy variance.
+PASS
 
-The packaged checker independently evaluates the mixed moment by beta-integral and closed digamma routes, then cross-checks the cumulative and asymptotic forms.
+For P~PD(0,theta), theta>0, iid draws and K_n distinct species, H(P)=-sum_i P_i log P_i, use discovery increment I_{n+1}. Given P, E I_{n+1}=sum_i P_i(1-P_i)^n. First two size-biased GEM variables V1,V2 iid Beta(1,theta) yield equal-species part E[-V1 log V1 (1−V1)^n] and distinct-species part E[(1−V1)^{n+1}(−log[(1−V1)V2])]. Direct beta differentiation gives formulas A_n=theta/((theta+n)(theta+n+1))[psi(theta+n+2)−psi(2)] and B_n=theta/(theta+n+1)^2+theta/(theta+n+1)[psi(theta+1)−psi(1)]. Subtract theta/(theta+n)EH and simplify to Cov(I_{n+1},H)=theta/((theta+n)(theta+n+1))sum_{j=1}^n 1/(theta+j), strictly positive. From K1=1, telescoping/summation-by-parts gives finite covariance theta[sum_{k=1}^{n−1}(theta+k)^{-2}−(theta+n)^{-1}sum_{k=1}^{n−1}(theta+k)^{-1}] and trigamma form, with limit theta psi1(theta+1). Independently evaluated the distinct special-function and finite-sum expressions for theta=0.3,1,2.5 and n=1,2,4,10,100 at 35 decimal-digit precision. Under DP Chinese-restaurant independent new-table Bernoulli indicators, Var(K_n)~theta log n; JMLR's exact prior entropy variance V_H=theta/(theta+1)^2+psi1(2)/(theta+1)−psi1(theta+2) yields the claimed scaled correlation limit. n1 zero. Finite calculations do not replace analytic proof.
 
-## Originality
+## originality
 
-PASS, with a residual bibliographic risk. Cerquetti's full paper supplies prior and posterior Shannon/diversity moments under Gnedin--Pitman and Poisson--Dirichlet models but no sample-richness/latent-entropy covariance was found. Archer, Park, and Pillow explicitly use the observed unique-symbol count \(K\) in posterior entropy formulas, but their full article does not state the unconditional \(K_n\)-entropy covariance or its saturation law.
+PASS
 
-Chao, Wang, and Jost relate fixed-population entropy to species-discovery rates. That expectation identity does not imply the covariance created by randomizing the abundance vector under a Dirichlet process.
+Distinguishes joint prior-predictive Cov(K_n,H(P)) from posterior entropy estimates, fixed-P accumulation identities and joint richness with unbiased Gini–Simpson. Archer–Park–Pillow give prior H moments and posterior H conditional on frequency counts; Cerquetti's Bayesian diversity moments concern Tsallis indexes and diversity posterior. Neither examined scientific passage directly provides the finite-n unconditional K_n-H covariance or its exact saturation/correlation constant, despite potentially implying it after a new joint moment calculation. Best-of-knowledge PASS with a concrete terminology-equivalence risk.
 
-The nearest own findings are noncovering: one couples two latent diversity functionals, Shannon and Gini--Simpson, while another couples sample richness with an unbiased Gini--Simpson sample statistic. Neither determines the present sample-richness/latent-Shannon mixed moment.
+## value
 
-## Value
+PASS
 
-PASS. Sample richness and Shannon entropy are canonical but differently weighted diversity summaries. Their exact cross-dependence under the Dirichlet process calibrates how much observed richness tracks latent evenness.
+Quantifies a genuine distinction between unboundedly varying richness and a bounded absolute information-association with the random latent Shannon diversity under a benchmark Dirichlet-process prior. Exact monotone n law, saturation ceiling and correlation decay constant are jointly useful for assessing richness as an entropy proxy and prior predictive uncertainty, beyond the standard mean/variance of H alone.
 
-The structural point is not merely positivity: \(\operatorname{Var}(K_n)\) grows like \(\theta\log n\), while \(\operatorname{Cov}(K_n,H)\) approaches a finite explicit ceiling. The resulting \(1/\sqrt{\log n}\) correlation decay quantifies diminishing entropy information in continued rare-species discovery.
-
-Self-review: passed. Independent audit: not yet performed.
-
-
-Deterministic replay: `VERIFY_OK beta_increment_checks=840 closed_form_checks=1680 monotonicity_checks=840 saturation_checks=7 scaled_correlation_checks=5`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

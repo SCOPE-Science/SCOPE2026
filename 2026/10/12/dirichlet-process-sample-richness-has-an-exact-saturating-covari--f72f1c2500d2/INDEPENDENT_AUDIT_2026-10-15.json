@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T11:18:55.760719Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For P~PD(0,theta), theta>0, iid draws and K_n distinct species, H(P)=-sum_i P_i log P_i, use discovery increment I_{n+1}. Given P, E I_{n+1}=sum_i P_i(1-P_i)^n. First two size-biased GEM variables V1,V2 iid Beta(1,theta) yield equal-species part E[-V1 log V1 (1−V1)^n] and distinct-species part E[(1−V1)^{n+1}(−log[(1−V1)V2])]. Direct beta differentiation gives formulas A_n=theta/((theta+n)(theta+n+1))[psi(theta+n+2)−psi(2)] and B_n=theta/(theta+n+1)^2+theta/(theta+n+1)[psi(theta+1)−psi(1)]. Subtract theta/(theta+n)EH and simplify to Cov(I_{n+1},H)=theta/((theta+n)(theta+n+1))sum_{j=1}^n 1/(theta+j), strictly positive. From K1=1, telescoping/summation-by-parts gives finite covariance theta[sum_{k=1}^{n−1}(theta+k)^{-2}−(theta+n)^{-1}sum_{k=1}^{n−1}(theta+k)^{-1}] and trigamma form, with limit theta psi1(theta+1). Independently evaluated the distinct special-function and finite-sum expressions for theta=0.3,1,2.5 and n=1,2,4,10,100 at 35 decimal-digit precision. Under DP Chinese-restaurant independent new-table Bernoulli indicators, Var(K_n)~theta log n; JMLR's exact prior entropy variance V_H=theta/(theta+1)^2+psi1(2)/(theta+1)−psi1(theta+2) yields the claimed scaled correlation limit. n1 zero. Finite calculations do not replace analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Archer–Park–Pillow JMLR 2014 Proposition 1 and Equations (12),(13) give prior E H and Var H, Section 3.2 posterior entropy formulas with K_n; they do not directly evaluate unconditional joint K_n-H moments in the passages inspected. Cerquetti (2014) diversity moments and fixed-P accumulation approaches are related but not stated as this covariance."
+        ],
+        "reasoning": "Archer–Park–Pillow JMLR 2014 Proposition 1 and Equations (12),(13) give prior E H and Var H, Section 3.2 posterior entropy formulas with K_n; they do not directly evaluate unconditional joint K_n-H moments in the passages inspected. Cerquetti (2014) diversity moments and fixed-P accumulation approaches are related but not stated as this covariance.",
+        "searches": [
+          "Resultary: Poisson Dirichlet sample richness K_n latent Shannon entropy covariance saturating trigamma",
+          "Resultary: Dirichlet process Poisson Dirichlet covariance Shannon entropy sample distinct species K_n richness prior predictive",
+          "web: Cerquetti Shannon entropy diversity moments covariance number of species Dirichlet process cluster count",
+          "arxiv:1302.0328",
+          "arxiv:1404.3441",
+          "JMLR:archer14a"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: Poisson Dirichlet sample richness K_n latent Shannon entropy covariance saturating trigamma",
+        "Resultary: Dirichlet process Poisson Dirichlet covariance Shannon entropy sample distinct species K_n richness prior predictive",
+        "web: Cerquetti Shannon entropy diversity moments covariance number of species Dirichlet process cluster count",
+        "arxiv:1302.0328",
+        "arxiv:1404.3441",
+        "JMLR:archer14a",
+        "E. Archer, I. M. Park, J. Pillow; JMLR 15(81):2833–2868 (2014); arxiv:1302.0328",
+        "arxiv:1404.3441v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The JMLR posterior formula plus Ew expectation and K_n EPPF could in principle be combined to derive the result, but a prior mean/variance formula for H alone does not imply the mixed joint covariance. The submitted size-biased joint identity is an additional calculation and establishes strict positive increments and a sharp saturation constant."
+        ],
+        "reasoning": "The JMLR posterior formula plus Ew expectation and K_n EPPF could in principle be combined to derive the result, but a prior mean/variance formula for H alone does not imply the mixed joint covariance. The submitted size-biased joint identity is an additional calculation and establishes strict positive increments and a sharp saturation constant.",
+        "searches": [
+          "Resultary: Poisson Dirichlet sample richness K_n latent Shannon entropy covariance saturating trigamma",
+          "Resultary: Dirichlet process Poisson Dirichlet covariance Shannon entropy sample distinct species K_n richness prior predictive",
+          "web: Cerquetti Shannon entropy diversity moments covariance number of species Dirichlet process cluster count",
+          "arxiv:1302.0328",
+          "arxiv:1404.3441",
+          "JMLR:archer14a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "DP with non-atomic base and PD(0,theta) ranked frequencies, number of blocks K_n in Chinese restaurant process, and prior-predictive observed richness are the same objects. Shannon H(P) of *latent* P is not empirical plug-in entropy or conditional posterior entropy."
+        ],
+        "reasoning": "DP with non-atomic base and PD(0,theta) ranked frequencies, number of blocks K_n in Chinese restaurant process, and prior-predictive observed richness are the same objects. Shannon H(P) of *latent* P is not empirical plug-in entropy or conditional posterior entropy.",
+        "searches": [
+          "Resultary: Poisson Dirichlet sample richness K_n latent Shannon entropy covariance saturating trigamma",
+          "Resultary: Dirichlet process Poisson Dirichlet covariance Shannon entropy sample distinct species K_n richness prior predictive",
+          "web: Cerquetti Shannon entropy diversity moments covariance number of species Dirichlet process cluster count",
+          "arxiv:1302.0328",
+          "arxiv:1404.3441",
+          "JMLR:archer14a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Checked JMLR equations (12)–(13) exactly reproduce V_H but not Cov(K_n,H). Resultary exact semantically similar result 'Universal positive covariance of sample richness and unbiased Gini–Simpson diversity' involves finite iid unbiased empirical Gini–Simpson, not latent PD Shannon; missing-mass discovery covariances also differ."
+        ],
+        "reasoning": "Checked JMLR equations (12)–(13) exactly reproduce V_H but not Cov(K_n,H). Resultary exact semantically similar result 'Universal positive covariance of sample richness and unbiased Gini–Simpson diversity' involves finite iid unbiased empirical Gini–Simpson, not latent PD Shannon; missing-mass discovery covariances also differ.",
+        "searches": [
+          "Resultary: Poisson Dirichlet sample richness K_n latent Shannon entropy covariance saturating trigamma",
+          "Resultary: Dirichlet process Poisson Dirichlet covariance Shannon entropy sample distinct species K_n richness prior predictive",
+          "web: Cerquetti Shannon entropy diversity moments covariance number of species Dirichlet process cluster count",
+          "arxiv:1302.0328",
+          "arxiv:1404.3441",
+          "JMLR:archer14a"
+        ]
+      },
+      "rationale": "Distinguishes joint prior-predictive Cov(K_n,H(P)) from posterior entropy estimates, fixed-P accumulation identities and joint richness with unbiased Gini–Simpson. Archer–Park–Pillow give prior H moments and posterior H conditional on frequency counts; Cerquetti's Bayesian diversity moments concern Tsallis indexes and diversity posterior. Neither examined scientific passage directly provides the finite-n unconditional K_n-H covariance or its exact saturation/correlation constant, despite potentially implying it after a new joint moment calculation. Best-of-knowledge PASS with a concrete terminology-equivalence risk.",
+      "residual_risks": [
+        "Although Cerquetti's relevant prior/posterior sections were inspected in a full accessible arXiv PDF, an unrecognized consequence of its Gibbs-weight formulas or different index terminology remains a bibliographic possibility.",
+        "More general species-estimation EPPF posterior calculations may imply this as a corollary without explicitly presenting the formula.",
+        "Only PD(0,theta) and prior-predictive covariance are proved; no positive Pitman–Yor discount or posterior covariance extension.",
+        "Independent high-precision test cross-checks stated closed expressions, not GEM sampling over all positive theta/n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains entropy prior variance and posterior conditional moments; no displayed unconditional latent H and richness K_n covariance in inspected sections",
+          "evidence": [
+            "Proposition 1 size-biased expectation, Eq13 VarH, Section3.2 conditional posterior entropy"
+          ],
+          "identifier_or_url": "E. Archer, I. M. Park, J. Pillow; JMLR 15(81):2833–2868 (2014); arxiv:1302.0328",
+          "material_read": "Full public 36-page JMLR PDF accessed, focused pp6–7 Proposition 1/Eqs (12),(13), Section 3.2 posterior entropy with K, pp20–25 appendix calculations; inspected rendered pages",
+          "method": "public JMLR PDF and rendered p6,p20",
+          "title": "Bayesian Entropy Estimation for Countable Discrete Distributions",
+          "trigger": "same DP/PY prior Shannon entropy with observed species K"
+        },
+        {
+          "assessment": "Theorem 2 and Poisson–Dirichlet Example 1 state marginal prior H moments; Section 3.2 addresses posterior H. In inspected sections no displayed prior-predictive joint covariance with K_n or its saturation rate; no claim about unrelated uninspected material",
+          "evidence": [
+            "Theorem 2 prior entropy moments; p6 E H=psi(theta+1)-psi(1), VarH=theta/(theta+1)^2+psi1(2)/(theta+1)-psi1(theta+2); posterior moments in Section 3.2"
+          ],
+          "identifier_or_url": "arxiv:1404.3441v2",
+          "material_read": "Public 21-page arXiv PDF inspected: Introduction and model pp0–3, Theorem 2 prior Shannon moments pp4–5, Poisson–Dirichlet Example 1 p6, posterior Shannon section pp10–11; visually inspected p6",
+          "method": "full arXiv primary PDF text and rendered p6",
+          "title": "Bayesian nonparametric estimation of Tsallis diversity indices under Gnedin-Pitman priors",
+          "trigger": "closest prior moments for random diversity and species discovery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quantifies a genuine distinction between unboundedly varying richness and a bounded absolute information-association with the random latent Shannon diversity under a benchmark Dirichlet-process prior. Exact monotone n law, saturation ceiling and correlation decay constant are jointly useful for assessing richness as an entropy proxy and prior predictive uncertainty, beyond the standard mean/variance of H alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git snapshot SCOPE-Science/SCOPE2026@22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/dirichlet-process-sample-richness-has-an-exact-saturating-covari--f72f1c2500d2/RESULT.md blob 28e454618429d12e096ffcef2589bc55e9928366",
+    "VERIFICATION.md:bb208dd48cbcf6eb2565f11526d360726bd3ee5a",
+    "E. Archer, I. M. Park, J. Pillow; JMLR 15(81):2833–2868 (2014); arxiv:1302.0328",
+    "arxiv:1404.3441v2"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Although Cerquetti's relevant prior/posterior sections were inspected in a full accessible arXiv PDF, an unrecognized consequence of its Gibbs-weight formulas or different index terminology remains a bibliographic possibility.",
+    "More general species-estimation EPPF posterior calculations may imply this as a corollary without explicitly presenting the formula.",
+    "Only PD(0,theta) and prior-predictive covariance are proved; no positive Pitman–Yor discount or posterior covariance extension.",
+    "Independent high-precision test cross-checks stated closed expressions, not GEM sampling over all positive theta/n."
+  ],
+  "schema_version": 1
+}
