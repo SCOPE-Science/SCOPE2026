@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T06:14:14.077651Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. At k=alpha+gamma+mu=beta K, the exact noise-zero, constant-h BIM is z_{n+1}=z_n+tau_n F(z_n), tau_n=h/[1+h(k+beta I_n)]. Positive initial S,I,R and S+I+R<=K stay in the invariant simplex; x_n=K-S_n>=I_n, I_n is positive strictly decreasing, and a uniform lower bound on tau_n proves extinction I_n->0. Stable forced recurrences give x_n,R_n->0. The ratio r_n=x_n/I_n satisfies a contractive affine recursion with limiting fixed point k/mu; reciprocal increments 1/I_{n+1}-1/I_n->beta k h/[mu(1+kh)]. Cesaro proves lim nhI_n=mu(1+kh)/(beta k). The ODE similarly has r(t)->k/mu and lim t I(t)=mu/(beta k). Independently checked exact rational step identities and an 800000-step trajectory, not as an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schurz–Tosun prove fixed-T numerical convergence and positive invariance for the algorithm; neither implies fixed-h, n->infinity coefficient.",
+          "Resultary nearby square-root-step-size stochastic SIS threshold is different disease dynamics and noise regime."
+        ],
+        "reasoning": "Uniform-in-horizon critical asymptotics do not follow from finite-T convergence; other model results do not dominate this exact SIR recurrence.",
+        "searches": [
+          "Schurz Tosun 2026 SIR balanced implicit fixed horizon convergence theorem",
+          "balanced implicit stochastic SIR Schurz Tosun critical threshold deterministic infected algebraic decay amplitude n h I"
+        ]
+      },
+      "checked_sources": [
+        "Schurz–Tosun, Journal of Mathematical Biology 92:88 (2026), DOI:10.1007/s00285-026-02392-4 (lawful OA primary HTML)",
+        "Resultary published SIS BIM bias summary",
+        "Immutable source RESULT.md, METADATA and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's fixed-T convergence does not permit interchange of h->0 with n->infinity.",
+          "A stochastic SIS invasion-threshold correction does not determine a deterministic SIR nonlinear extinction amplitude.",
+          "Continuous ODE critical coefficient mu/(beta k) is prior/classical and credited."
+        ],
+        "reasoning": "The submitted claim adds the exact ratio of two different asymptotic coefficients for the identical SIR system under a specified numerical scheme.",
+        "searches": [
+          "Schurz Tosun DOI:10.1007/s00285-026-02392-4 eq 12-13 16-17",
+          "2026 Resultary BIM SIS invasion square-root bias"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Noise-free constant-h recurrence exactly from Schurz–Tosun BIM after choosing F1=F2=0.",
+          "Previously published same-source results concern positivity and finite-horizon convergence, not limit (nh I_n) or reciprocal-infection slope."
+        ],
+        "reasoning": "Reciprocal slope, asymptotic amplitude and time-rescaling formulations were considered as equivalent; none found covering exact factor.",
+        "searches": [
+          "balanced implicit stochastic SIR Schurz Tosun critical threshold deterministic infected algebraic decay amplitude n h I",
+          "Schurz Tosun critical BIM reciprocal infection slope 1/I_n asymptotic",
+          "stochastic SIR numerical algebraic critical decay fixed step"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target is an infinite-horizon limit of a specified nonlinear numerical map, not a tabulated invariant.",
+          "No inspected scientific table/source supplies 1+kh for this exact BIM."
+        ],
+        "reasoning": "The arithmetic is an analytic dynamical asymptotic and no matching exact database or lookup formula was identified.",
+        "searches": [
+          "balanced implicit stochastic SIR Schurz Tosun critical threshold deterministic infected algebraic decay amplitude n h I",
+          "SIR BIM critical 1/n amplitude 1+kh Schurz Tosun"
+        ]
+      },
+      "rationale": "PASS, best of knowledge. The full accessible Schurz–Tosun paper sets out this actual balanced implicit update and proves invariant-domain properties and fixed finite-time convergence, but the examined model/method/results do not provide a fixed-positive-h critical infected 1/n amplitude or the exact ratio to the ODE. Earlier related SIS BIM noise-threshold work concerns a stochastic transverse stability boundary, not the nonlinear noise-free SIR critical tail. Classical SIR critical 1/t asymptotics alone cannot determine the scheme-specific factor 1+kh without analyzing this exact nonlinear update.",
+      "residual_risks": [
+        "An older unindexed critical-tail comparison for the exact same scheme could overlap.",
+        "Only deterministic zero-noise specialization is audited; stochastic properties or variable h are not implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_SPECIFIC_ASYMPTOTIC",
+          "evidence": "Published scheme indeed has state-dependent tau=h/(1+h(k+beta I)); its finite-time results do not give a fixed-h exact critical-tail amplitude.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00285-026-02392-4",
+          "material_read": "Lawful full open-access HTML, equations (12)–(13) and (16)–(17), statement of invariant-domain and convergence results, and context",
+          "method": "Read mathematical HTML sections and compared denominators/model limits",
+          "title": "Numerical Analysis of BIMs for Stochastic SIR and SIS Models with Variable Contact Diffusion Rates",
+          "trigger": "Identical published original scheme, equations and critical reproduction parameter"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT_PARTIAL",
+          "evidence": "Published result is noisy SIS local invasion threshold with sqrt(h) bias, not deterministic SIR infected 1/n amplitude.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-square-root-step-size-bias-in-the-balanced-implicit-sis-invasi--168b7afadfef",
+          "material_read": "Published title and scientific summary from fresh semantic search; full underlying source not inspected",
+          "method": "Compared source result summary and its mathematical parameters",
+          "title": "A square-root step-size bias in the balanced implicit SIS invasion threshold",
+          "trigger": "Nearest published semantics match balanced implicit epidemic schemes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Near epidemic invasion criticality, the leading extinction amplitude is a natural quantitative asymptotic invariant. The exact fixed-step factor exposes a limitation of an unconditionally positive scheme despite finite-horizon convergence and invariant-domain preservation. This is an interpretable, state-independent asymptotic bias, not a trivial sign or tiny finite instance; its derivation needs dynamics on a nonhyperbolic boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed h>0, exact beta K=k, strictly positive admissible infection and zero diffusion only.",
+    "No assertion of uniform-in-time convergence to the continuous solution or stochastic rate correction.",
+    "An older unindexed critical-tail comparison for the exact same scheme could overlap.",
+    "Only deterministic zero-noise specialization is audited; stochastic properties or variable h are not implied.",
+    "Publication remains not_ready because potentially public metadata contains operational provenance; no sanitization bypass, GitHub write or publication is authorized."
+  ],
+  "schema_version": 1
+}
