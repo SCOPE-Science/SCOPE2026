@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The analytic proof has four critical checks.
 
-1. **Support propagation.** In one edge-local layer, every site newly entering the Heisenberg support is adjacent to the previous support. Induction confines \(UZ_vU^\dagger\) to \(B_G(v,L)\).
-2. **Projector factorization.** The Pauli sum defining the fourth-order Clifford projector factors over any qubit bipartition, not only a contiguous one-dimensional cut.
-3. **Exact target count.** Uniform Clifford conjugation sends a fixed nonidentity Pauli uniformly over the \(4^n-1\) nonidentity Pauli classes. Exactly \(4^s-1\) are supported inside a chosen \(s\)-qubit graph ball.
-4. **Threshold inversion.** Diamond distance at most \(\varepsilon\) forces \(4^{b_G(L)}\ge1+(1-\varepsilon)(4^n-1)\). For \(\varepsilon<3/4\), this quantity is strictly larger than \(4^{n-1}\), so the integer ball size is \(n\), for every center, and \(L\ge\operatorname{diam}(G)\).
+# Independent mathematical audit
 
-The accompanying checker confirms the algebraic inversion and representative finite graph specializations. Those computations are sanity checks only; the all-graph statement follows from the analytic support and counting proof.
+## correctness
 
-No independent audit has been performed, and no claim is made that the graph-diameter lower bound is tight on arbitrary architectures.
+PASS
+
+Support of conjugated Z_v grows by at most one graph edge per disjoint local layer and is contained in B(v,L). Pauli fourth-order projector factorizes over arbitrary bipartitions; by Clifford transitivity, of 4^n-1 nonidentity Pauli classes precisely 4^s-1 are supported on s=|B(v,L)| sites. Applying the cited invariant-projector channel inequality yields diamond lower bound 1-(4^s-1)/(4^n-1); all centers imply min volume. For epsilon<3/4 the required integer b_G(L)>n-1 gives b_G(L)=n and depth>=diam(G). Independently checked path n=5 L=3 gives exact bound 256/341>3/4. The source projector theorem remains a separately cited, not independently full-text-reconstructed, premise.
+
+## originality
+
+PASS
+
+Prior West-Cerezo-Larocca Theorem 1 gives the general invariant-projector template, and its printed Clifford Corollary 3 specializes to a 1D nearest-neighbor chain. The new application requires checking arbitrary-graph Heisenberg balls, arbitrary-subset projector factorization and each-center diameter consequence. No searched published mathematical record gives this explicit graph-ball inequality, but the derivation is a close corollary of general prior machinery and full original text was inaccessible; these are material originality limitations.
+
+## value
+
+PASS
+
+Architecture-sensitive sharp lightcone volume obstruction is a natural independent quantitative design bound, distinguishing paths/cycles/other topologies at fixed diamond error. Value is the general graph consequence, not a new projector theory; no tight general-graph construction is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
