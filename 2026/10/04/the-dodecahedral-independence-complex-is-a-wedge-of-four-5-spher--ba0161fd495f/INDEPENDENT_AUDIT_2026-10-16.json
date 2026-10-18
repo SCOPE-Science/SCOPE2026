@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T08:49:29.783621Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The defining graph is exactly generalized Petersen GP(10,2): edges u_i u_{i+1}, u_i v_i, v_i v_{i+2} (indices mod10). Independently generated all independent vertex subsets recursively: exactly 5,828 with empty face, nonempty size counts 20,160,660,1510,1912,1240,320,5. Independently constructed vertex-order greedy matching on 5,827 nonempty faces with 2,911 matched covers and 5 critical cells: one singleton {0} and four specified 6-vertex faces. Constructed all 27,620 oriented Hasse edges and topologically sorted all 5,827 vertices: acyclic. A perfect finite Forman matching with one 0-cell and four 5-cells gives wedge of four S^5, because all 5-cell attachments land in the sole 0-skeleton. Euler characteristic −3 supports the result but does not establish homotopy type.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berghoff worked graph examples: Petersen and cube, not the 20-vertex dodecahedron; Goyal et al. families are categorical products of complete graphs and generalized Mycielskians."
+        ],
+        "reasoning": "No known stated family theorem in inspected sources implies Ind(GP(10,2))≃∨⁴S⁵.",
+        "searches": [
+          "Berghoff arXiv:2008.06267 independence complexes",
+          "Goyal Shukla Singh arXiv:1905.06926",
+          "dodecahedron generalized Petersen GP(10,2) independence complex homotopy wedge four 5 spheres"
+        ]
+      },
+      "checked_sources": [
+        "Assigned tree dfe68afdb55f4869658697f54d84bc020d76f4d2, RESULT.md blob 43385fd3296b3a125504e4659ffaba384e13e858, verify_dodecahedron_independence.py blob b8c79614a16852ae8046b2dfa36defecd6d1e919",
+        "Berghoff arXiv:2008.06267 inspected full PDF",
+        "Goyal–Shukla–Singh arXiv:1905.06926 title/abstract and family scope checked; full article not independently read",
+        "Resultary: dodecahedron generalized Petersen GP(10,2) independence complex homotopy wedge four 5 spheres"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Berghoff’s computational methods apply broadly but do not supply a specific 20-vertex acyclic matching certificate; general Forman theory does not assert existence of this special matching."
+        ],
+        "reasoning": "The submitted complete matching data plus acyclicity yields its specific wedge type rather than a corollary of a stronger quoted theorem.",
+        "searches": [
+          "Berghoff 2020 Petersen and cubical graph examples",
+          "Forman Morse theory",
+          "dodecahedron generalized Petersen GP(10,2) independence complex homotopy wedge four 5 spheres"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "GP(10,2) is the dodecahedral graph; the primary paper studies the same simplicial functor Ind(G), whereas dodecahedral matching complexes use independent EDGE sets, not vertex sets."
+        ],
+        "reasoning": "Dodecahedral graph and generalized Petersen G(10,2) are aliases; no located earlier full Homotopy(Ind(GP(10,2))) result.",
+        "searches": [
+          "dodecahedron generalized Petersen GP(10,2) independence complex homotopy wedge four 5 spheres",
+          "GP(10,2) independence complex",
+          "dodecahedron matching complex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full exact face vector and unique critical-cell set verified via independently built finite Hasse DAG, not inferred from finite sample."
+        ],
+        "reasoning": "No matching prior table of exact homotopy type surfaced in targeted primary and semantic searches; having related matching-complex tables is inapplicable.",
+        "searches": [
+          "dodecahedron generalized Petersen GP(10,2) independence complex homotopy wedge four 5 spheres",
+          "dodecahedral independence complex 5828 faces Morse",
+          "generalized Petersen independence homology"
+        ]
+      },
+      "rationale": "Berghoff 2020 studies independence-complex homology and explicitly works out Petersen and cubical examples; materially inspected paper does not compute dodecahedral GP(10,2). Goyal–Shukla–Singh 2019 provide wedge decompositions for different graph families, not this generalized Petersen instance. Published related dodecahedral MATCHING, neighborhood, Rips and Čech complexes are different complexes and therefore do not cover ordinary independent vertex sets.",
+      "residual_risks": [
+        "An independent computation may exist in a graph-homotopy database or thesis not indexed under GP(10,2).",
+        "Goyal–Shukla–Singh full paper not materially read: comparison presently relies on stated graph-family scope; potential undiscovered appendix case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING graph GP(10,2), though same functor and related standard graph examples",
+          "evidence": [
+            "https://arxiv.org/pdf/2008.06267",
+            "Primary worked examples and lack of dodecahedron term in parsed full PDF"
+          ],
+          "identifier_or_url": "arXiv:2008.06267",
+          "material_read": "Read open PDF introduction, graph-complex methodology and worked examples including Petersen and cubical graphs; searched entire parsed text for dodecahedral terminology",
+          "method": "Open arXiv full PDF and text search",
+          "title": "On the homology of independence complexes",
+          "trigger": "Potential source of a Petersen/dodecahedral graph homology table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit homotopy invariant of the canonical dodecahedron graph is a natural previously undetermined exact case. The finite acyclic matching proves a complete homotopy classification, strictly beyond an Euler characteristic or homology table; it is useful to compare independence complexes of Platonic and generalized Petersen graphs without requiring a family theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Single finite graph, no Platonic-graph family theorem or equivariant homotopy type.",
+    "Finite proof uses exhaustive checking, not a symbolic classification of all gradient paths."
+  ],
+  "schema_version": 1
+}

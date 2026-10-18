@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The explicit GP(10,2) graph has 20 vertices and 30 edges. Exhaustive enumeration yields 5,828 faces including the empty face and the stated face vector. The packaged verifier reconstructs the deterministic 2,911-pair matching, checks every pair is a cover relation, verifies exactly one critical 0-cell and four critical 5-cells, and topologically sorts the complete oriented Hasse graph. Discrete Morse theory therefore gives the claimed wedge.
+## correctness
 
-## Originality
-PASS. Berghoff (arXiv:2008.06267), a primary 55U10 source, was inspected in full HTML around its independence-complex machinery and cubic-graph examples: it computes the Petersen graph and cube but has no dodecahedral/generalized-Petersen calculation. Goyal--Shukla--Singh (arXiv:1905.06926) was inspected for its discrete-Morse wedge results and covers different graph families. Alias searches for dodecahedral graph, GP(10,2), independence complex, homology, and homotopy returned no equivalent claim. Absolute novelty cannot be guaranteed from search coverage.
+PASS
 
-## Value
-PASS. The dodecahedral graph is a canonical Platonic and cubic symmetric graph, and an exact full homotopy type is a mathematically natural invariant. Compressing its 5,828-face independence complex to one 0-cell and four 5-cells gives a useful exact benchmark adjacent to established Petersen/cube examples rather than a routine recomputation.
+The defining graph is exactly generalized Petersen GP(10,2): edges u_i u_{i+1}, u_i v_i, v_i v_{i+2} (indices mod10). Independently generated all independent vertex subsets recursively: exactly 5,828 with empty face, nonempty size counts 20,160,660,1510,1912,1240,320,5. Independently constructed vertex-order greedy matching on 5,827 nonempty faces with 2,911 matched covers and 5 critical cells: one singleton {0} and four specified 6-vertex faces. Constructed all 27,620 oriented Hasse edges and topologically sorted all 5,827 vertices: acyclic. A perfect finite Forman matching with one 0-cell and four 5-cells gives wedge of four S^5, because all 5-cell attachments land in the sole 0-skeleton. Euler characteristic −3 supports the result but does not establish homotopy type.
 
-## Closest literature and limitations
-Berghoff gives a general spectral-sequence framework and nearby cubic examples; Goyal--Shukla--Singh give full wedge decompositions using discrete Morse theory for other families. Neither inspected source covers GP(10,2). The present proof is finite and graph-specific, and unindexed prior computations remain a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Berghoff 2020 studies independence-complex homology and explicitly works out Petersen and cubical examples; materially inspected paper does not compute dodecahedral GP(10,2). Goyal–Shukla–Singh 2019 provide wedge decompositions for different graph families, not this generalized Petersen instance. Published related dodecahedral MATCHING, neighborhood, Rips and Čech complexes are different complexes and therefore do not cover ordinary independent vertex sets.
+
+## value
+
+PASS
+
+An explicit homotopy invariant of the canonical dodecahedron graph is a natural previously undetermined exact case. The finite acyclic matching proves a complete homotopy classification, strictly beyond an Euler characteristic or homology table; it is useful to compare independence complexes of Platonic and generalized Petersen graphs without requiring a family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
