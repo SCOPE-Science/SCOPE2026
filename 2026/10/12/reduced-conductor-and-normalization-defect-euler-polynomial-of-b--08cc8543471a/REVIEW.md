@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The source is a smooth product, finite birational over an integral hypersurface. The local conductor is \(\operatorname{Hom}_R(\nu_*\mathcal O_N,\mathcal O_R)\); finite duality identifies it with \(\omega_N\otimes\nu^*\omega_R^{-1}\). Adjunction gives exactly \(\mathcal O_N(0,1-n,1-m)\), and the conductor support is the single irreducible residual resultant divisor. Its Cartier multiplicity must be one, hence the ideal is exactly that reduced divisor. Radicality downstairs follows algebraically. The Euler polynomial comes from two exact sequences and standard Euler characteristics. The finite checker verifies nontrivial low-degree algebra but is not offered as a proof of the infinite claim. Risks: dependence on standard finite duality and the precise normal-crossing theorem from the cited primary source; both hypotheses are explicitly satisfied.
+## correctness
 
-## Originality — PASS, subject to historical literature risk
-Choudary's 1990 primary paper provides the affine normalization and normal-crossing criterion, which the proof acknowledges. It does not state the all-stratum conductor ideal, its reduced image ideal, or the bi-graded defect Euler polynomial. Eisenbud–Schreyer's 2001 Chow-form complexes concern resultant equations, not the normalization conductor. The closest published published-record item concerned a different pencil-orbit closure with an unrelated conductor divisor; no implication to this binary resultant claim was found. General conductor and duality theory is applicable but requires the geometric identification and divisor comparison carried out here. Residual risk: an unindexed earlier elimination-theoretic conductor computation may cover this claim; searches cannot establish uniqueness. The 1990 paper provides month-only historical publication evidence; 2001-11-05 is the earliest exactly day-verified public version among the listed arXiv source identifiers, not a claim that the resultant subject originated then.
+PASS
 
-## Value — PASS
-The scheme-theoretic conductor distinguishes the reduced nonnormal locus from a potentially nonreduced Jacobian scheme. Uniform determination of its multiplicity, for arbitrary residual gcd degenerations, and its exact bi-graded normalization-defect Euler polynomial supply natural invariants for adjunction and normalization computations in a full bidegree family, rather than a selected tiny numerical case. The result does not attempt generators for the reduced subresultant ideal or a classification of every deep singular germ.
+The map ν:P¹×P^{m−1}×P^{n−1}→R_{m,n} taking (ℓ,F,G)↦(ℓF,ℓG) is proper with finite fibers (common roots), generically one-to-one and source smooth, hence normalization. Its residual resultant D is the irreducible Cartier divisor class (0,n−1,m−1) and full preimage of S₂, the degree≥2 common factor locus. Hypersurface adjunction gives ν*ω_R=O_N(−2,n−m−1,m−n−1) while ω_N=O_N(−2,−m,−n), so finite duality yields conductor invertible ideal sheaf O_N(0,1−n,1−m). The conductor support is irreducible D; effective multiplicity forced exactly one by Pic(N)=Z³, so conductor ideal I_D and radical downstairs contraction is I_{S₂,red}. The Euler polynomial follows from 0→O_R→ν*O_N→Q→0 and bidegree(n,m) hypersurface exact sequence, valid for all integer twists via generalized binomials. Independent symbolic Pic/class and low-degree Euler checks verified sample degrees. Full all-degree argument depends on accepted finite duality and support criterion; finite checker is not proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Choudary 1990 proves the normalization map and singular/gcd strata, including generic normal crossings, and is fully credited. Its original five-page primary paper does not supply the global multiplicity-one conductor ideal or normalization-defect two-variable Euler polynomial. General duality supplies a tool but not the specific divisor identification. Eisenbud–Schreyer–Weyman arXiv:math/0111040 addresses Chow complexes/determinantal resultants and does not directly compute this normalization defect. A historical elimination-theoretic conductor formula could be unindexed.
+
+## value
+
+PASS
+
+The exact reduced conductor distinguishes scheme-theoretic normalization defect from the Jacobian ideal and determines its multiplicity at all higher-gcd strata uniformly in m,n. The full bigraded Euler polynomial is a natural exact invariant of these nonnormal resultant hypersurfaces and useful for adjunction and sheaf calculations, not a single narrow numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
