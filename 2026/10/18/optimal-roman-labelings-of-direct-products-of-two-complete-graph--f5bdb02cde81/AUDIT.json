@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Complete proof checks all possible cardinalities 0,1,2,3 of label-2 support at weight at most six. For two defenders the undominated cells are two cross corners or the remaining row/column cells. For three defenders all valid configurations are partial matchings or 2-by-2 elbows. These five disjoint families exhaust and attain all equality cases; counting them proves the formula. Explicit adjacency enumeration in verify.py independently matches 8 boards through 8-by-9. The finite computation is not presented as proof of the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cabrera Martínez–Peterin–Yero, arXiv:2105.10006v1, Proposition 2.1 (pages 3–4), proves Roman domination number six for factor orders at least four and gives an L-shaped construction; it has no optimizer-number formula.",
+        "Cabrera Martínez et al., arXiv:2005.13608v1, pages 1–4 and subsequent Section 2, study total Roman domination, which imposes additional positive-support adjacency.",
+        "A separately indexed Roman {3}-domination result for Cartesian complete prisms uses another variant and another graph product."
+      ],
+      "reasoning": "The known optimal weight is explicitly credited rather than claimed new. No identified general enumeration theorem of a stronger invariant specializes to the precise named Roman-optimum counting claim. Total Roman constraints are strictly stronger here (a three-defender elbow contains an isolated positive center), and Cartesian graph products are not tensor products.",
+      "searches": [
+        "roman domination complete graph direct product K_m x K_n exact minimum functions counting optimal labelings complement rook graph",
+        "Roman domination of rooted product graph enumerate minimum optimal functions",
+        "Roman domination number direct product complete graphs K_m K_n 2020 2021",
+        "Roman domination polynomial direct product of two cliques complement rook graph"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2105.10006v1 (Roman minimum on clique direct products)",
+      "arxiv:2005.13608v1 (total Roman graph-product variant)",
+      "arxiv:1908.02445v1 (ordinary direct-product domination)",
+      "doi:10.1080/09728600.2022.2041365 (indexed abstract/theorem only, inaccessible full text)",
+      "Indexed scientific record: Roman domination polynomial of complete multipartite graphs",
+      "Indexed scientific record: Roman {3}-domination of complete prisms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 2.1 of arXiv:2105.10006v1 proves only the minimum weight 6 for factor orders at least four; its example uses 2s in an L pattern, and its proof excludes smaller weights without classifying the other optima.",
+        "arXiv:2005.13608v1 concerns the distinct total-Roman variant. An L triple has the elbow 2-vertex isolated in the induced positive support, so it is not total Roman despite being an ordinary Roman optimum.",
+        "arXiv:1908.02445v1 concerns ordinary set domination and total set domination, not Roman labels. The 2022 unitary-Cayley article retrieved by search classifies only rings whose Roman minimum is at most four; here the known minimum is six."
+      ],
+      "reasoning": "Knowing the minimum weight six gives no formula for the number or geometry of all assignments attaining it. The new proof establishes exactly five pairwise disjoint configuration types and the count. None of the sources identified implies this enumerative refinement through specialization or a stronger uniform classification.",
+      "searches": [
+        "arXiv:2105.10006v1, Section 2, Proposition 2.1, pages 3–4",
+        "arXiv:2005.13608v1, definitions and product results in Sections 1–2",
+        "arXiv:1908.02445v1, introduction and Theorems 1.1–1.5",
+        "Unitary Cayley graphs whose Roman domination numbers are at most four 2022"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The graph is the direct/tensor product of two cliques, the complement of a Cartesian rook graph. For distinct primes p and q it is also the unitary Cayley graph of Z/(pq)Z under the Chinese remainder isomorphism; Vemuri arXiv:1908.02445v1, pages 1–2, describes that equivalence.",
+        "Closest mathematical-record results include Roman domination polynomials of complete multipartite graphs, a graph family not isomorphic to these direct clique products in the claimed range."
+      ],
+      "reasoning": "The searches deliberately considered direct/tensor product, complement-of-rook, and squarefree unitary Cayley descriptions, and counted named optimum labelings rather than only the scalar minimum. Found formulations address different graphs or scalar parameters; no matching enumeration was recovered. This search result alone does not prove novelty.",
+      "searches": [
+        "number of gamma_R functions complete graph tensor product adjacent iff both coordinates differ exact optimal count",
+        "Roman domination on complement of rook graph minimum function count 6 times choose(m,2) choose(n,2)",
+        "Roman domination polynomial unitary Cayley graph Zpq p q two prime factors",
+        "Roman domination polynomial direct product of two cliques complement rook graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The recorded semantic-index searches returned adjacent topics (complete multipartite Roman polynomials and Cartesian complete-prism Roman {3} domination), but no hit with the same graph product and optimum enumerator.",
+        "Web searches recovered the 2021 numerical Proposition 2.1 and different domination/variant polynomials; no pre-existing table of these counts was identified."
+      ],
+      "reasoning": "The proposed counts 360 for the 4-by-4 product, 630 for 4-by-5, 1200 for 5-by-5, etc., were independently checked by explicit adjacency rather than sourced from or reverse-engineered from a table. Absence of a database hit is a residual-risk statement, not mathematical proof of novelty.",
+      "searches": [
+        "K_m tensor K_n Roman domination minimum functions exactly 6 labels three 2s L shaped two 2s two 1s enumerator",
+        "number of gamma_R functions complete graph tensor product adjacent iff both coordinates differ exact optimal count",
+        "minimum roman domination number complement of rook graph counting",
+        "minimum Roman dominating functions categorical direct product complete graphs count"
+      ]
+    },
+    "rationale": "The same-graph same-parameter 2021 proposition supplies only the scalar optimum of six, not the all-optimizer classification or exact enumerator. Stronger-coverage and alias comparisons were conducted with relevant full texts and semantic-index searches; the total Roman and ordinary domination literature does not imply this enumeration. Residual unindexed-equivalence risk is documented.",
+    "residual_risks": [
+      "An equivalent optimal-configuration count might exist under the unitary-Cayley or complement-of-rook alias in unindexed literature.",
+      "The 2022 paper on unitary Cayley Roman minima at most four was available only as indexed theorem/snippet; its stated domain does not cover minimum-six products.",
+      "Lack of an indexed match alone is not a uniqueness guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Numerical optimum and L construction covered; five-case optimizer classification and its count not stated or implied by numerical theorem alone.",
+        "evidence": [
+          "Proposition 2.1 at arXiv:2105.10006v1 pp.3–4 proves 4/5/6 by smallest factor size and exhibits an L triple.",
+          "Subsequent Proposition 2.7 concerns direct products of graphs with universal vertices and remains numerical."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2105.10006",
+        "material_read": "Abstract, definitions, full Section 2 including Proposition 2.1 and subsequent product bounds, plus section transitions and reference indications (pages 1–7); inspected page 3 rendering.",
+        "method": "Open access arXiv preprint full text, section comparison and page image",
+        "title": "Roman domination in direct product graphs and rooted product graphs",
+        "trigger": "Exact same graph product and Roman parameter; numerical minimum already known"
+      },
+      {
+        "assessment": "The additional no-isolated-positive-vertex condition excludes at least one enumerated ordinary optimum class; this is not a covering classification.",
+        "evidence": [
+          "arXiv:2005.13608v1 pages 1–4 define and bound total Roman domination, not enumerators of every ordinary Roman optimum."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2005.13608",
+        "material_read": "Abstract, Section 1 definitions, initial product results Section 2, reference list",
+        "method": "Open access arXiv preprint full text, text-search and section reading",
+        "title": "Dominating the direct product of two graphs through total Roman strategies",
+        "trigger": "Same direct graph product and closely related Roman-type notion"
+      },
+      {
+        "assessment": "No Roman-label assignment results; different scalar set-domination parameter.",
+        "evidence": [
+          "arXiv:1908.02445v1 pp.1–3 identifies clique direct products with squarefree unitary Cayley graphs and develops set domination and total set domination."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1908.02445",
+        "material_read": "Abstract and introduction through the stated domination theorems, pages 1–4; the remainder concerns set domination and Jacobsthal-type issues, not Roman labeling",
+        "method": "Open access arXiv preprint full text, search for Roman and comparison of theorems",
+        "title": "Domination in direct products of complete graphs",
+        "trigger": "Same graph product and the unitary-Cayley alias"
+      },
+      {
+        "assessment": "The retrieved theorem classifies Roman minima at most four; direct products with two clique factors of orders at least four have minimum six, so its announced theorem cannot imply the claim. Full text remains inaccessible.",
+        "evidence": [
+          "Publicly indexed Theorem 1.1 concerns rings whose unitary Cayley graph has Roman domination number 2, 3, or 4."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/09728600.2022.2041365",
+        "material_read": "Search-indexed abstract and theorem statement only; full text blocked by 403",
+        "method": "Publisher/search result snippet, not a full text inspection",
+        "title": "Unitary Cayley graphs whose Roman domination numbers are at most four",
+        "trigger": "Potential exact graph-family alias and Roman invariant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f5bdb02c-de81-44f9-aa58-40e2571606b7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem resolves the natural multiplicity and complete support geometry of all optimal Roman allocations on the two-parameter direct product family, refines a published minimum-six result, exposes exceptional width-four families, and proves almost-all asymptotic rigidity of optimal patterns. Unlike a routine formula substitution, it identifies five exhaustive combinatorial mechanisms and their exact contributions.",
+    "status": "PASS"
+  }
+}
