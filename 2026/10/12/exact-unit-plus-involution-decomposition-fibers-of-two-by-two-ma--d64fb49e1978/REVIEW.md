@@ -1,11 +1,21 @@
-# Review of the exact unit-plus-involution decomposition theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** All involutions over an odd finite field are \(\pm I_2\) or points on the traceless affine quadric \(Q(V)=1\). The determinant identity translates singularity of \(A-V\) into one linear section. The proof independently treats scalar, nilpotent, and nonisotropic traceless parts, obtains all point counts, and derives the sharp minimum and class sizes. The standalone verifier agrees with exhaustive enumeration over five fields, but finite tests are not a proof of the all-fields statement.
+## correctness
 
-**Originality — PASS, with residual historical risk.** Luo–Lei–Ji (2025), Theorem 2.5, counts sums of two unrestricted units according only to matrix rank. Here \(I_2\) and \(2I_2\) over \(\mathbb F_5\) have the same rank but different restricted counts, \(1\) and \(32\), so the new formula is not a corollary of their rank-only value. Kirova's 2026 expanded translation of 2019 work studies the *existence* of unit-plus-involution decompositions; McDonald (1972) counts involutions themselves. Neither inspected source states or implies the exact fiber formula through its given results. Semantically close research records involve other summand conditions or multiplicative factorizations. Unindexed older equivalent formulas remain a risk.
+PASS
 
-**Value — PASS.** This solves the complete per-matrix additive representation problem with one involutory summand over every odd finite field in dimension two. The sharp second-smallest count \(q^2-q+1\), exact geometric extremizers, and count \(3q^2+q-2\) give substantially more information than the existence property or an average enumeration.
+Reconstructed all odd-characteristic involutions as ±I and q(q+1) nonscalar traceless quadric points u²+vw=1. The identity det(A−V)=d−1+tr(BV) converts forbidden nonscalar V to a plane section <B,V>=(1−d)/2. For B=0 the count is 0 or all q(q+1); for B nilpotent and nonzero the section has 2q (λ=0) or q (λ≠0) solutions; for δ=Q(B)≠0 orthogonal 2-space is split/anisotropic according to χ(δ), giving H=q−χ(δ)+qχ(δ)1_{λ²=δ}. Checking E(A) from the two scalar involutions yields all fibers. A case analysis proves minimum 1 at ±I, second minimum q²−q+1 precisely on nonscalar involutions and two nontrivial Jordan classes; class counts q(q+1)+2(q²−1)=3q²+q−2. Independent exhaustive prime-field checks on F3,F5,F7,F11 reproduce sharp counts and explicit F3 formula; general proof is coordinate-free finite-field conic counting, not finite extrapolation.
 
-Scientific limitations: the characteristic-two case, larger dimensions and general finite rings are not established. First public motivating literature is Luo–Lei–Ji, March 5, 2025. The auxiliary 2026 translated paper expressly attributes an original 2019 publication. No independent audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Previous Luo–Lei–Ji exact sums-of-k-ordinary-units formula depends on rank and does not condition one summand to square to I. McDonald counts involutory matrices globally, not the intersection with a translated singular matrix locus; Kirova addresses existence of decompositions, not every restricted fiber. Resultary closest fiber records concern multiplicative idempotent–nilpotent or torsion-unit–nilpotent problems. No reviewed source implies this exact conjugacy-sensitive additive fiber formula.
+
+## value
+
+PASS
+
+Complete every-matrix restricted decomposition counts over all odd finite fields are a motivated structural classification, stronger than existence or total involution counts; sharp smallest/second-smallest fibers and complete extremizer count are meaningful exact algebraic data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
