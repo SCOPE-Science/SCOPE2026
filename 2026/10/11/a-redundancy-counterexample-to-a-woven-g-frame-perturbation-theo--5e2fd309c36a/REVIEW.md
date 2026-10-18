@@ -1,28 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Both constituent families are tight \(g\)-frames with exact bound \(16\). The numerical threshold holds at
-\[
-\lambda_1=\lambda_2=\frac1{100},
-\qquad
-\mu=\frac34.
-\]
-The printed componentwise perturbation norm is at most \(\|c\|/\sqrt2\), so the hypothesis holds. A specified weave nevertheless has zero energy on \(e_2\). The proof error is independently quantified by
-\[
-\|T_\Lambda-T_\Gamma\|=8
-\]
-versus componentwise-difference operator norm
-\[
-\frac1{\sqrt2}.
-\]
+## correctness
 
-## Originality
-PASS. Exact source, theorem number, DOI, perturbation formula, synthesis-versus-direct-sum aliases, correction terms, same-setting perturbation literature, and semantic literature searches were compared. No checked indexed source supplies this theorem-specific redundancy counterexample.
+PASS
 
-## Value
-PASS. The theorem is intended as a practical perturbation certificate for weaving. The counterexample satisfies every printed quantitative condition while the conclusion fails maximally on one coordinate. The missing redundancy factor identifies a structural rather than typographical defect.
+For 64 indices the first frame analyzes \(e_1\) at scale \(1/2\), and on the next 64 it analyzes \(e_2\); the second family swaps these directions, giving both tight frame bounds \(64/4=16\). The choices \(\lambda_1=\lambda_2=1/100\) and \(\mu=3/4\) make the published scalar smallness expression \(83/100<1\). For all coefficients the norm of separate adjoint differences is \(\|c_{\rm act}\|/\sqrt2\le\mu\|c\|\), whereas the actual synthesis-difference norm is \(8\). Taking the first frame on indices 1--64 and the second frame on 65--128 repeats only the \(e_1\) functional, so this weave annihilates \(e_2\). This directly contradicts the claimed lower bound \(8\), without any limit or numerical approximation. The exact source theorem and the invalid norm substitution in its proof were directly inspected in the primary publisher PDF.
 
-## Limitations
-The result refutes the published sufficient condition. It does not claim a complete sharp replacement theorem for arbitrary Hilbert \(C^*\)-modules.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary paper itself states rather than corrects the theorem; the actual counterexample establishes the precise redundancy gap between componentwise norms and their synthesis sum. The 2021 Zhao weaving perturbation theorem uses global operator control instead, so it does not supply this exact source-specific counterexample. No verified public correction was located; semantic-index unavailability is expressly retained as risk.
+
+## value
+
+PASS
+
+The counterexample invalidates an explicit published sufficient condition in an active class of operator-valued frame perturbation theorems, quantifies the exact missing redundancy factor, and pinpoints a repairable analytic gap rather than a trivial type mismatch.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

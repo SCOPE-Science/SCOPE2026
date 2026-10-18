@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,71 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For each original family,
-\[
-\sum_i\|\Lambda_i f\|^2
-=
-\sum_i\|\Gamma_i f\|^2
-=
-16\|f\|^2.
-\]
-Thus
-\[
-A_1=B_1=A_2=B_2=16.
-\]
+# Independent mathematical audit
 
-The scalar threshold is
-\[
-\frac1{100}\cdot4
-+
-\frac1{100}\cdot4
-+
-\frac34
-=
-\frac{83}{100}
-<
-1
-=
-\frac{16}{2(4+4)}.
-\]
+## correctness
 
-For every coefficient family \(c\),
-\[
-\left(
-\sum_i\|(\Lambda_i^*-\Gamma_i^*)c_i\|^2
-\right)^{1/2}
-=
-\frac1{\sqrt2}\|c_{\rm act}\|
-\le
-\frac1{\sqrt2}\|c\|
-<
-\frac34\|c\|.
-\]
-Hence the theorem's perturbation inequality holds.
+PASS
 
-The weave using \(\Lambda_i\) on the first \(64\) active indices and \(\Gamma_i\) on the next \(64\) uses only the \(e_1\)-coordinate. Therefore its energy at \(e_2\) is zero, and it is not a \(g\)-frame.
+For 64 indices the first frame analyzes \(e_1\) at scale \(1/2\), and on the next 64 it analyzes \(e_2\); the second family swaps these directions, giving both tight frame bounds \(64/4=16\). The choices \(\lambda_1=\lambda_2=1/100\) and \(\mu=3/4\) make the published scalar smallness expression \(83/100<1\). For all coefficients the norm of separate adjoint differences is \(\|c_{\rm act}\|/\sqrt2\le\mu\|c\|\), whereas the actual synthesis-difference norm is \(8\). Taking the first frame on indices 1--64 and the second frame on 65--128 repeats only the \(e_1\) functional, so this weave annihilates \(e_2\). This directly contradicts the claimed lower bound \(8\), without any limit or numerical approximation. The exact source theorem and the invalid norm substitution in its proof were directly inspected in the primary publisher PDF.
 
-Finally,
-\[
-(T_\Lambda-T_\Gamma)c
-=
-\frac12
-\left(
-\sum_{i=1}^{64}c_i
--
-\sum_{i=65}^{128}c_i
-\right)(e_1-e_2),
-\]
-so
-\[
-\|T_\Lambda-T_\Gamma\|=8.
-\]
-The operator appearing in the source hypothesis has norm \(1/\sqrt2\). The ratio is
-\[
-\sqrt{128},
-\]
-which verifies the redundancy mechanism exactly.
+## originality
 
-The publisher PDF was inspected by text and page image at both the theorem statement and the proof step containing the invalid equality.
+PASS
+
+The primary paper itself states rather than corrects the theorem; the actual counterexample establishes the precise redundancy gap between componentwise norms and their synthesis sum. The 2021 Zhao weaving perturbation theorem uses global operator control instead, so it does not supply this exact source-specific counterexample. No verified public correction was located; semantic-index unavailability is expressly retained as risk.
+
+## value
+
+PASS
+
+The counterexample invalidates an explicit published sufficient condition in an active class of operator-valued frame perturbation theorems, quantifies the exact missing redundancy factor, and pinpoints a repairable analytic gap rather than a trivial type mismatch.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
