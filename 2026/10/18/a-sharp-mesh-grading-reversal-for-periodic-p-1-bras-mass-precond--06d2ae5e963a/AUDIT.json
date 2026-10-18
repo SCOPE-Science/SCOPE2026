@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Exact cell matrices M_K=h*T/6 and M_K^{-1}=2U/h give D=2I and the stated assembled operators. For n>=3 deleting the shrinking cell leaves a connected path, so remaining mass and BRAS sums are SPD; a rank-two positive 1/epsilon term plus the Courant–Fischer principle gives exactly two eigenvalue branches Theta(1/epsilon) and n-2 bounded branches. For n=2 the product BM is a scalar multiple of I. The n=3 characteristic factors, Jacobi eigenvalues, and cubic comparison are exact identities checked with rational arithmetic in verify.py, and the cubic has a unique root in (0,1). The elementwise SPD comparison independently proves kappa_J<=3. Finite tests support but do not establish any infinite assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krzysik–Southworth–Wimmer Corollary 2 bounds BRAS top eigenvalue above by a factor of maximum/minimum element metrics, i.e. at worst O(1/epsilon) for the graded model.",
+        "The new result supplies a matching lower-order construction: kappa_BRAS~1/(2epsilon) while Jacobi kappa<=3. No prior cited upper bound implies this sharpness.",
+        "Wathen/Miller robustness applies to diagonal mass preconditioning, already credited here."
+      ],
+      "reasoning": "The strongest close source includes a contrast-dependent upper estimate but no lower bound proving contrast dependence is necessary, no minimal ring classification and no exact reversal threshold. The classical broader Jacobi inequality is not represented as new.",
+      "searches": [
+        "2026 Krzysik Southworth Wimmer broken space additive Schwarz BRAS mass inverse inverse element diagonal condition number mesh grading",
+        "additive Schwarz element inverse mass preconditioning deterioration small elements mesh grading counterexample",
+        "arXiv:2607.12138, Section 2.4, Lemma 2 and Corollary 2; Wathen 1987 mass-matrix bounds"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.12138 / https://academ.us/article/2607.12138/ (inspected accessible full-text rendering)",
+      "doi:10.1093/imanum/7.4.449 (publisher abstract, full text inaccessible)",
+      "doi:10.1137/0729006 (publisher abstract)",
+      "doi:10.1137/18M1182450 (publisher abstract)",
+      "arXiv:2607.07485 (abstract)",
+      "Relevant published claim records: scientific queries and statement comparisons in named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source defines B and gives lambda_min>=1 and lambda_max<=metric_contrast*reference_value, which permits but does not require unbounded kappa.",
+        "Our n=2 exact scalar-product case shows small element ratios alone do not force spectral deterioration; the minimal n=3 topology and rank-two vs ambient-space mechanism are essential.",
+        "The Wathen diagonal result directly covers only the Jacobi half of the comparison, not the BRAS condition-number reversal."
+      ],
+      "reasoning": "The evaluated statement is not a mere restatement of a general bound: it proves a matching lower-order family, the exact count of stiff modes, the minimal cell count and a unique quantitative transition relative to a different preconditioner. It does not claim the generic BRAS positivity or Jacobi robustness as novel.",
+      "searches": [
+        "broken space additive Schwarz BRAS exact mass inverse preconditioned spectrum on highly graded one dimensional periodic meshes",
+        "unbounded condition number BRAS inverse despite bounded Jacobi mass preconditioning three element ring",
+        "Krzysik–Southworth–Wimmer 2026 Definition (3), Corollary 2; Wathen 1987 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Direct BRAS formula is Definition (3) of arXiv:2607.12138; the derived example uses the same D^{-1}P^T M_br^{-1} P D^{-1}.",
+        "The nearest indexed inverse result concerns additive bidirectional Gauss–Seidel (not element-mass BRAS) and supplies no graded-periodic P1 mass spectrum.",
+        "Accessible published mathematical claims were compared for the exact BRAS inverse, graded mass spectra, and short-element eigenvalue mechanism; no equivalent indexed statement was found."
+      ],
+      "reasoning": "The theorem is invariant under cyclic relabeling and positive common scaling of all cell lengths, but no searched equivalent BRAS formulation gives the one-short-cell pair of divergent eigenvalues or the exact Jacobi crossover. The general BRAS matrix definition does not itself state those new spectral properties; the proof constructs and analyzes them.",
+      "searches": [
+        "BRAS broken-space additive Schwarz mass inverse spectral condition number graded mesh one dimensional piecewise linear unbounded contrast Jacobi",
+        "periodic three-cell P1 finite element mass matrix broken space averaging inverse preconditioner exact eigenvalues nonuniform mesh"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating BRAS article presents 2D and 3D tests for H1/H(curl)/H(div), polynomial orders 1–4; no 1D three-cell eigenvalue table.",
+        "Published-claim index returned neighboring mass/Schwarz topics but no exact three-cell BRAS-vs-Jacobi spectral formula or epsilon root.",
+        "The exact rational identities and polynomial crossover are derived and checked independently, not copied from a table."
+      ],
+      "reasoning": "No inspected indexed table/database directly supplies the spectral triple, the cubic crossover, or the general two-mode contrast divergence. This is an evidence-limited negative comparison, not a proof of global publication uniqueness.",
+      "searches": [
+        "periodic three-cell P1 finite element mass matrix broken space averaging inverse preconditioner exact eigenvalues nonuniform mesh",
+        "2026 Krzysik Southworth Wimmer broken space additive Schwarz BRAS mass inverse inverse element diagonal condition number mesh grading",
+        "2026 BRAS source arXiv:2607.12138 Section 3 Tables 1–3, with one-dimensional / graded text search"
+      ]
+    },
+    "rationale": "The fully inspected 2026 source introduces BRAS and proves upper metric-contrast control but gives neither the three-cell lower bound nor the sharp reversal; classical Jacobi bounds are credited. Targeted published-claim and accessible own-claim comparisons revealed no equivalent result. Residual access risks are documented and not treated as novelty proofs.",
+    "residual_risks": [
+      "Older Wathen 1987 full text could not be inspected ; classical Jacobi fact independently proved and not claimed original.",
+      "Full text of other secondary/predecessor preconditioner papers was not read; they use apparently different algorithms on available abstracts.",
+      "Indexed searches are incomplete and cannot rule out an unindexed exact three-cell example elsewhere.",
+      "The 2026 metric-contrast upper estimate is known; novelty is restricted to a sharp necessity construction, two-mode mechanism and reversal comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same inverse and proves eigenvalue lower bound >=1 and upper growth bounded by global cell-metric contrast. It neither demonstrates necessity of this factor, nor gives the n>=3 two-mode mechanism, exact three-cell eigenvalues, or the BRAS-vs-Jacobi crossover. Tests are on 2D/3D finite elements.",
+        "evidence": [
+          "Definition (3), Section 2.2; Theorem 1 and Lemma 2/Corollary 2, Section 2.3–2.4; Tables 1–3, Section 3; conclusion Section 6."
+        ],
+        "identifier_or_url": "https://academ.us/article/2607.12138/ (arXiv:2607.12138)",
+        "material_read": "Accessible full-text rendering: Sections 1–3, especially definition (3), Lemma 1, Corollary 1, Theorem 1, Lemma 2, Corollary 2, spectral experiment table; also conclusion, references, and targeted searches throughout for graded/nonuniform/one-dimensional counterexamples.",
+        "method": "Read accessible full text and compare definitions, hypotheses, results, spectral implications and tested dimensions.",
+        "title": "Broken-space Additive Schwarz Mass Inverse Approximations and (Block) Preconditioning",
+        "trigger": "Same exact BRAS construction, broken element matrices, multiplicity weighting and geometric spectral estimates."
+      },
+      {
+        "assessment": "Credited for the known mesh-independent Jacobi bound. Published 1987, prior to BRAS algorithm introduced in 2026. Full-text contents cannot be certified; no claim of whole-document exclusion.",
+        "evidence": [
+          "IMA Journal of Numerical Analysis 7 (1987), 449–457, abstract describing diagonal preconditioning with mesh-irregularity-independent bounds."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/imanum/7.4.449",
+        "material_read": "Publisher abstract and publisher bibliographic data only; the full text was not retrieved.",
+        "method": "Searched for open/free full-text access, read publisher abstract; did not obtain a full-text copy. Derived the explicit P1 Jacobi inequality independently from 2x2 element matrices.",
+        "title": "Realistic Eigenvalue Bounds for the Galerkin Mass Matrix",
+        "trigger": "Primary classical source of robust elementwise Jacobi/mass-diagonal bounds, a component of the comparison."
+      },
+      {
+        "assessment": "Establishes classical diagonal mass spectrum comparison; no identity with the later BRAS inverse is asserted by its abstract. Not used to certify absence of unpublished related ideas.",
+        "evidence": [
+          "SIAM Journal on Numerical Analysis paper abstract gives the mass diagonal eigenvalue interval [1/2,1+d/2]."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0729006",
+        "material_read": "Publisher abstract and bibliographic information, not full PDF.",
+        "method": "Compared the exact abstract claim to the new statement and independently reconstructed Jacobi estimate.",
+        "title": "On the Mass Matrix Spectrum Bounds of Wathen and the Local Moving Finite Elements of Baines",
+        "trigger": "Potential broader theorem covering diagonal mass matrix spectral bounds."
+      },
+      {
+        "assessment": "Uses specially constructed hierarchical bases and different additive Schwarz blocks for high-order elements, rather than exact broken element mass inverses averaged by copies. Does not directly imply the BRAS reversal; full text not examined.",
+        "evidence": [
+          "SIAM J. Numer. Anal. 57 (2019) abstract describes basis-based high-order Schwarz and p/h independence."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/18M1182450",
+        "material_read": "SIAM publisher abstract and metadata only.",
+        "method": "Compared algorithmic ingredients from the abstract with multiplicity-weighted BRAS element inverse.",
+        "title": "Preconditioning the Mass Matrix for High Order Finite Element Approximation on Triangles",
+        "trigger": "Potential stronger mass-preconditioner robustness results."
+      },
+      {
+        "assessment": "Describes a different multilevel preconditioner built from local Gram factorizations and spectral coarse spaces. No direct implication for the fixed BRAS inverse on a three-cell ring appears in accessible abstract; uninspected details remain a limited bibliographic risk.",
+        "evidence": [
+          "arXiv:2607.07485 public abstract describes least-squares AMG domain decomposition, not BRAS."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.07485",
+        "material_read": "arXiv abstract and repository/public bibliographic synopsis only; full text not inspected.",
+        "method": "Compare named solver architecture: LS-AMG-DD multilevel Gram local-energy method versus explicit BRAS inverse.",
+        "title": "A black-box, multilevel algebraic preconditioning framework for conforming finite elements",
+        "trigger": "Same authors, nearby 2026 finite-element preconditioner; plausible algorithmic overlap."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "06d2ae5e-963a-4ca1-bc10-443e431d70a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A recent broadly usable sparse approximate mass inverse has a natural mesh-grading stress test. The theorem proves that the original contrast-dependent upper estimate has the correct asymptotic order on standard low-order periodic elements, while older Jacobi is uniformly conditioned. A minimal topology argument and unique explicit crossover identify when the nominally stronger preconditioner becomes worse. This is a structural solver-design limitation, not an arbitrary isolated numeral or a claim about algorithm runtime.",
+    "status": "PASS"
+  }
+}
