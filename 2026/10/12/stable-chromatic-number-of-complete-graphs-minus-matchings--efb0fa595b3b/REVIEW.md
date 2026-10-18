@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The upper bound follows from a concrete acyclic orientation with at most \(n-1\) reachable vertices per starting vertex and a fully specified greedy preference assignment. The lower bound uses one explicit preference profile: two doubled missing-edge color classes force a directed envy two-cycle. The proof covers the complete-graph case, a single missing edge, arbitrarily many missing edges, unmatched vertices, and the two-vertex boundary. The included standard-library verifier checks 11,888 complete finite proper-coloring cases and 3,000 additional upper-construction profiles. Finite tests are corroborative, not the proof of the universal statement.
+## correctness
 
-**Originality — PASS, subject to residual literature risk.** Koana–Oh–Yoneda, arXiv:2609.00569v1, supplies the stable-coloring definition and general reachability bound and determines complete bipartite graphs. It consequently covers \(K_4-M_2\), but the inspected exact-family section contains no parameter-uniform classification for \(K_n\) minus arbitrary matchings. The standalone reverse-pair lower bound is the unaccounted-for step. Results on acyclic signatures or other coloring parameters of the same graph family do not imply the displayed classification. Targeted searches did not find an equivalent theorem; that negative result cannot exclude unindexed work.
+PASS
 
-**Value — PASS.** The family includes every cocktail-party graph, a standard dense graph class. The stable chromatic number stays one below the order even when the ordinary chromatic number is only half the order, yielding an arbitrarily growing stable-versus-ordinary gap in a simple, canonical family. The reverse-ranking obstruction explains structurally why a proper coloring using two or more missing edges to reuse colors becomes unstable, and the result extends a newly introduced invariant beyond the exact elementary families treated in its initiating paper.
+For r>=1, an acyclic total-order orientation starts with the endpoints of a deleted edge; as they are nonadjacent, each vertex reaches at most n-1 vertices including itself. The reverse-order most-preferred unused-reachable-color algorithm with n-1 colors is proper and permits no envy arc against the orientation: an assumed backward envy arc would force a repeated reachable color, contradicting the earlier endpoint choice. Lower bound for r>=2: with q=n-2 colors, each proper color class has size at most 2 and every doubled class must be an absent edge; at least 2 distinct absent pairs must be doubled. On each absent pair impose opposite rankings of q colors. Two doubled classes of colors a != b then have adjacent members that mutually envy and form a 2-cycle. r=1 is forced by clique size n-1; r=0 complete graph has stable chi n; chi ordinary is n-r. Independently enumerated every proper (n-2)-coloring in 9 profiles 4<=n<=8, 2<=r<=floor(n/2): 11,888 colorings and each had the mutual-envy obstruction. The universal quantifiers follow from proof, not enumeration.
 
-**Closest literature and limitations.** The primary source is *Graph Coloring with Color Preferences*, arXiv:2609.00569v1 (2026-09-01). Its Theorem 3.1 provides the general upper-bound technique, Proposition 3.4 establishes subgraph monotonicity, and Proposition 3.7 determines complete bipartite graphs. The new result is only for complete graphs with matching deletions; no general near-clique classification is asserted. External indexing and independent validation remain open risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new September 2026 graph-coloring-with-preferences paper supplies definitions, a general reachability upper bound and complete bipartite special case K4-M2. The full two-color-class obstruction for arbitrarily many absent disjoint pairs is a distinct theorem and is not in the accessible material. A related published Resultary result evaluates K_{2,3,3}, a different complete multipartite graph. Full 2026 arXiv text could not be obtained after open-access search; authorized Oxford retrieval reported VPN disconnected. No whole-document negative claim is drawn from its abstract.
+
+## value
+
+PASS
+
+A sharp exact value on the full natural matching-deletion/cocktail-party family reveals an unbounded preference-stability versus ordinary-coloring gap and supplies an explicit obstruction/constructive sharp upper bound; this is independently useful for a recently defined graph parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
