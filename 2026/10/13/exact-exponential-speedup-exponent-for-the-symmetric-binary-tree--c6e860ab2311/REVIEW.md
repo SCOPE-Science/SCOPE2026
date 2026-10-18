@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source generating functions were reconstructed from equations (15), (17), and (18). Eliminating the square root gives the algebraic parameter \(u=3q/((1-q)(1+2q))\). On \(|u|=1\), the modulus equation factors exactly into two circles; the analytic branch has sharp maximum at \(q=(\sqrt3-1)/2\), yielding \(|\widehat h_1|^2=(2+\sqrt3)/6\). The proportional-time saddle is nondegenerate and gives \(t/n\to2(\sqrt3-1)\). The classical first-passage transform gives \(h(1)=1/2\) and tilted mean \(3\), hence exponent \(\log2\). The bundled verifier reproduces all constants and returns `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS. The closest source is arXiv:1107.4201 itself: it supplies the generating functions and numerical fits but explicitly conjectures \(2/3\) rather than deriving the exact proportional-time saddle. Searches of the source identifier, the exact constants, the conjectured exponent, and equivalent root-hitting/runtime language found no implication-equivalent result. A later infinite-tree quantum-walk paper inspected studies Grover-walk spectral localization, not this run-time asymptotic. Residual risk remains from differently phrased saddle-point analyses not indexed by those terms.
+PASS
 
-## Value
-PASS. The finding resolves a stated numerical conjecture, explains two independent numerical observations in the source (the \(0.685\) slope ratio and \(1.46n\) peak location), and replaces an empirical exponent with exact algebraic constants. The result is structural rather than a finite numerical improvement because it identifies the global boundary-modulus mechanism governing all large starting levels.
+PASS: The cited Eq. (15),(17),(18) yield one-level transform F(u), algebraic relation u=3q/[(1-q)(1+2q)], and boundary maximum |h1|^2=(2+sqrt3)/6 attained at q=(sqrt3-1)/2. The q-saddle gives alpha=sqrt3-3/2 and t/n=2(sqrt3-1). Nondegenerate local saddle and bounded renewal factor yield a n^-1/2 rho^n coefficient at parity-compatible t, while the unit-circle sup gives a uniform all-time bound; t>=n then brackets optimal runtime rate. Classical first-passage h=z/3+2zh^2/3 has h(1)=1/2 and tilted mean3, giving exponent log2. Independently simplified radical constants exactly; a finite unit-circle scan in source is auxiliary and not an asymptotic proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, qualified: The initiating 2011 paper explicitly conjectures the 2/3 exponent and reports empirical 0.685, not this analytic proportional-time saddle. Its t-n large fixed-n asymptotic cannot be substituted for a n,t simultaneous limit. Searched the decimal, algebraic exponent, hitting time, and spectral-walk aliases in published database and broader literature, finding no coverage; unindexed subsequent analytic solution is residual risk.
+
+## value
+
+PASS
+
+PASS: A sharp exponential growth-rate for the time-to-hit quantity answers a specific open numerically investigated scaling question, falsifies proposed 2/3 law while explaining observed 0.685, and determines an optimal linear-time ratio. This is more than a routine parameter substitution into existing fixed-n formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
