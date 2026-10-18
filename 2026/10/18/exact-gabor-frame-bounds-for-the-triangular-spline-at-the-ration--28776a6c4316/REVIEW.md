@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The exact compact-support Walnut expansion reduces the frame operator to a direct integral of finite tridiagonal matrices for every integer parameter. The upper row-sum bound, endpoint eigenvalue, and explicit positive ground-state quadratic decomposition prove both optimal spectral edges. The formal interior and boundary polynomial identities can be reconstructed without relying on finite experiments; the independent exact-rational program checks 1,091 concrete identities and spectral certificates, and is reproducible with Python standard libraries. The density limit follows from the exact algebraic constants. No statement about arbitrary rational lattices follows.
+
+## Originality — PASS (best knowledge)
+Primary source comparison: Atindehou et al. (arXiv:1806.05614) establish qualitative spline frame regions; Kloos and Stöckler (arXiv:1311.7359, Theorem 5.3 and Remark 5.4) provide nonoptimal lower estimates, even after specializing their exponential-spline shape parameter to zero; Ghosh and Selvan (arXiv:2310.01141) treat different non-frame obstructions; Buck et al. (arXiv:2603.16986) study truncated Gram and Toeplitz blocks, with bounds but not this whole-operator sharp two-edge spectrum; Janssen (1996) establishes general representations and other window calculations. Two published tent-window exact-bound analyses address lattice products \(1/2\) or \(1/q\) with modulation spacings exceeding \(3/2\), and do not imply the present translation-one, subunit-modulation family. Multiple formula-specific literature and published mathematical-record searches revealed no equivalent claim. Residual bibliographic risk: a nonindexed Jacobi-fiber/polyphase identity might precede these papers; negative search results are not novelty proof.
+
+## Mathematical value — PASS
+The sharp lower constant of a widely studied compactly supported Gabor window is structurally significant: it quantifies invertibility and numerical conditioning, across an infinite natural sequence converging to the critical frame-density obstruction. The binomial ground state certifies an entire family of growing Jacobi matrices at once; this is not a single small-dimensional numerical optimum. The exact linear slope \(2\) and the sharp upper constant are unavailable from qualitative frame-membership theorems or the known nonsharp lower estimates. The special rational sequence and window are explicit limitations.
+
+Self-review: passed. Independent audit: not yet performed.
