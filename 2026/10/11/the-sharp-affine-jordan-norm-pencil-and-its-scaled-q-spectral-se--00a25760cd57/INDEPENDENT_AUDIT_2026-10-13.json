@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T21:17:37.624000Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2 the checked exact Gram decomposition Q_n-I=n(n+1) sum_{j<n}(n+1-j)(n-j)|x_j/(n+1-j)+x_{j+1}/(n-j)|^2 proves simple bottom eigenvalue 1. The tridiagonal sine recurrence and boundary equation give the displayed finite sine-sum stationarity identity; independently simplified its symbolic algebra to zero for arbitrary symbolic n,z, and recomputed top SVD stationarity with errors <7e-17 for n=2,3,4,5,8,12. For a fixed real unit top singular vector x at s=(n+1)/(2n+1), <B(s)x,(J-I)x>=0, so ||B(lambda)x||^2=gamma_n^2+|lambda-s|^2||(J-I)x||^2, strictly larger for every complex lambda!=s because 1 is not an eigenvalue of J. Exact tridiagonal eigenvalues give the stated gamma and gamma_2=4/5; compression and the constant-vector lower bound give monotonicity and gamma_n->1. Unit-circle symmetry/connected admissible pairs give W_q(J) a centered disk. A norm-attaining calibrated pair makes r_n(gamma)=gamma, the affine support inequality makes r_n(q)<q for q>gamma, and the same singular vector plus its orthogonal J component makes r_n(q)>q for q<gamma. Radius >=1 iff q<=gamma; von Neumann plus test p(z)=z gives the exact 1-spectral equivalence. The all-n proof is analytic, not extrapolated from finite SVD tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aouichaoui–O’Loughlin general universal constant max(1,2q/(1+sqrt(1-q^2))) gives sufficient q<=4/5, not sharp gamma_n>4/5 for n>=3.",
+          "Kaunisto et al. general q dilation theorem is universal, not this nilpotent size-dependent minimax."
+        ],
+        "reasoning": "A general universal guarantee is only a sufficient condition for an individual Jordan matrix; it does not imply this exact larger cutoff and the unique complex norm minimizer.",
+        "searches": [
+          "arXiv:2608.09866 sharp universal scaled q spectral constant",
+          "arXiv:2610.00443 rho_q dilation theorem",
+          "arXiv:2603.15536 spectral sets q numerical ranges"
+        ]
+      },
+      "checked_sources": [
+        "Git source RESULT.md, tree 6141cbed4fe07207361760e0dd243c846c38b270, blob 872f93d25c10446860bf67e826e84a9aad59be89",
+        "Git source verify_jordan_pencil.py blob 3c1173a8cd4e9e530ffc9d6273cdf17721f6ed16",
+        "Tichý–Liesen–Faber, Worst-case and ideal GMRES for a Jordan block, 2007 §6 Theorem 6.2, https://www2.karlin.mff.cuni.cz/~ptichy/download/public/TiLiFa2007.pdf",
+        "O’Loughlin–Rani, q-Numerical Ranges and Spectral Sets, arXiv:2603.15536",
+        "Aouichaoui–O’Loughlin, Sharp spectral constants for scaled q-numerical ranges, arXiv:2608.09866",
+        "Kaunisto–O’Loughlin–Virtanen, Dilation Theory for Scaled q-Numerical Ranges, arXiv:2610.00443"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known ideal-GMRES one-step bounds do not force equality or a unique coefficient.",
+          "Known sharp dimension-free spectral constant is one only for q<=4/5, whereas claimed gamma_n is >4/5 for n>=3."
+        ],
+        "reasoning": "The submitted precise norm pencil equality and strictness are extra information; the scaled-q spectral-set transition follows by an additional radius and calibrated singular-vector argument. No inspected stronger primary statement implies these exact operator-specific conclusions.",
+        "searches": [
+          "arXiv:2603.15536 Section 4 Jordan q radius",
+          "Tichý Liesen Faber §6 degree-one minimax",
+          "Aouichaoui O’Loughlin arXiv:2608.09866 Theorem 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tichý et al. §6 bounds cos(pi/(2n)) <= minimal one-step Jordan residual norm <= cos(pi/(2n+1)); B_n(lambda) is the affine ideal-GMRES polynomial of I-J up to a unitary sign convention."
+        ],
+        "reasoning": "The norm problem is indeed the one-step ideal GMRES problem; cited Theorem 6.2 provides two different nonsharp upper/lower bounds rather than the exact unique coefficient (n+1)/(2n+1), so the old result does not by itself determine this optimizer.",
+        "searches": [
+          "one-step ideal GMRES Jordan matrix eigenvalue one affine polynomial",
+          "Tichý Liesen Faber 2007 §6 Theorem6.2",
+          "nilpotent Jordan linear pencil norm minimizing scalar"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 6.2 gives bounds rather than an all-size coefficient table; same-tree numerical script checks finite sizes but is not prior publication.",
+          "Resultary repository code search returned incomplete_results:true, so no comprehensive database absence is claimed."
+        ],
+        "reasoning": "All-n norm minimization cannot be established by finitely many entries; no checked exact table implies the all-n optimizer, while unindexed formulas remain a risk.",
+        "searches": [
+          "\"(n+1)/(2n+1)\" Jordan optimal GMRES",
+          "\"sqrt(29+4 sqrt 7)\" Jordan norm",
+          "repo:Resultary/2026 \"Jordan\" \"spectral\""
+        ]
+      },
+      "rationale": "Statement-level comparisons against direct primary mathematical texts found no implication of this full exact claim in the inspected sources; separate specific comparisons below, with documented residual priority risks rather than a negative-search novelty proof.",
+      "residual_risks": [
+        "An older unindexed exact degree-one ideal GMRES optimizer or Jordan q-radius evaluation could imply the formula.",
+        "Resultary semantic service failed internally and GitHub code search explicitly reported incomplete results; neither failure nor zero matches supports a global novelty claim.",
+        "The implication of prior Jordan radius formulas to exact spectral threshold remains sensitive to their exact hypotheses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains nearby cosine upper and lower bounds, but does not settle unique exact affine coefficient",
+          "evidence": [
+            "§6 Theorem 6.2: cos(pi/(2n)) <= phi_1(J_1) <= cos(pi/(2n+1))."
+          ],
+          "identifier_or_url": "https://www2.karlin.mff.cuni.cz/~ptichy/download/public/TiLiFa2007.pdf",
+          "material_read": "23-page primary PDF, §6 Theorem 6.2 and its proof, bounds and definitions; theorem/proof page screenshot",
+          "method": "Open-access PDF text and page image",
+          "title": "Worst-case and ideal GMRES for a Jordan block",
+          "trigger": "Same Jordan affine one-step minimax"
+        },
+        {
+          "assessment": "General geometry and spectral-set estimates, no claimed all-size exact Jordan minimizer",
+          "evidence": [
+            "§4 q-numerical range spectral estimates and GMRES application."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.15536",
+          "material_read": "Full 19-page primary preprint including introduction, §4, GMRES discussion and references",
+          "method": "Open-access PDF full text",
+          "title": "q-Numerical Ranges and Spectral Sets",
+          "trigger": "Same scaled q-numerical range and polynomial spectral inequality"
+        },
+        {
+          "assessment": "Universal constant, not exact operator-dependent Jordan n threshold",
+          "evidence": [
+            "Universal max(1,2q/(1+sqrt(1-q^2))) theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.09866",
+          "material_read": "Full available author-posted ResearchGate article text including Theorem 3.3 and Theorem 4.1",
+          "method": "Lawful publicly available full-text HTML",
+          "title": "Sharp spectral constants for scaled q-numerical ranges",
+          "trigger": "Potential dominating general sharp q theorem"
+        },
+        {
+          "assessment": "Dilation bound general, no exact Jordan-specific minimizer",
+          "evidence": [
+            "Theorem 2.2, rho_q dilation constant."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00443",
+          "material_read": "Full eight-page arXiv preprint, statement and proof of Theorem 2.2, theorem page screenshot",
+          "method": "Open-access arXiv PDF text and page image",
+          "title": "Dilation Theory for Scaled q-Numerical Ranges",
+          "trigger": "Relevant stronger dilation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact unique unconstrained complex affine norm minimizer for every nilpotent Jordan size, together with the dimension-dependent optimal disk spectral-set transition; these are structural sharp invariants useful in ideal GMRES and operator-specific q-numerical range geometry, not merely finite numerical approximations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git source RESULT.md, tree 6141cbed4fe07207361760e0dd243c846c38b270, blob 872f93d25c10446860bf67e826e84a9aad59be89",
+    "Git source verify_jordan_pencil.py blob 3c1173a8cd4e9e530ffc9d6273cdf17721f6ed16",
+    "Tichý–Liesen–Faber, Worst-case and ideal GMRES for a Jordan block, 2007 §6 Theorem 6.2, https://www2.karlin.mff.cuni.cz/~ptichy/download/public/TiLiFa2007.pdf",
+    "O’Loughlin–Rani, q-Numerical Ranges and Spectral Sets, arXiv:2603.15536",
+    "Aouichaoui–O’Loughlin, Sharp spectral constants for scaled q-numerical ranges, arXiv:2608.09866",
+    "Kaunisto–O’Loughlin–Virtanen, Dilation Theory for Scaled q-Numerical Ranges, arXiv:2610.00443"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An older unindexed exact degree-one ideal GMRES optimizer or Jordan q-radius evaluation could imply the formula.",
+    "Resultary semantic service failed internally and GitHub code search explicitly reported incomplete results; neither failure nor zero matches supports a global novelty claim.",
+    "The implication of prior Jordan radius formulas to exact spectral threshold remains sensitive to their exact hypotheses."
+  ],
+  "schema_version": 1
+}

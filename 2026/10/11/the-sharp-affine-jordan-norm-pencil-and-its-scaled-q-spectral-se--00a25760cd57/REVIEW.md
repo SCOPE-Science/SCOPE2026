@@ -1,15 +1,21 @@
-# Mathematical review: sharp affine Jordan minimax and scaled-range transition
+# Independent mathematical audit
 
-## Correctness — PASS
-The operator pencil uses the Euclidean matrix norm, and the complex scalar is genuinely unrestricted. The ground-state Gram factorization proves that the special eigenvalue \(1\) is simple and that all other Gram eigenvalues exceed \(1\). The Jacobi recurrence and its boundary condition produce an eigenvector for the top eigenvalue; elementary finite trigonometric sum identities give exact cancellation of the directional derivative. A fixed top singular vector then gives a *strict quadratic lower bound* for every complex departure from the specified scalar, proving global optimality and uniqueness without assuming convexity is strict. The calibrated singular pair gives both sides of the scaled-\(q\) radius crossing; connectedness plus phase covariance makes the range exactly a disk. Finally, von Neumann's disk theorem and the polynomial \(p(z)=z\) give the two spectral-set directions. The accompanying symbolic and numerical checker passed; finite tests are supplemental rather than an infinite proof.
+## correctness
 
-## Originality — PASS, with specified residual risk
-Tichý–Liesen–Faber (2007), Theorem 6.2, inspected in its original PDF, bounds precisely the degree-one Jordan norm-minimization value between two distinct cosines but does not supply the all-dimensional exact coefficient or the strict complex uniqueness proof. O'Loughlin–Rani (`arXiv:2603.15536`, first public March 2026), inspected in full available 19-page version, develops general scaled-\(q\) numerical spectral sets without this Jordan-specific sharp crossing. Aouichaoui–O'Loughlin (`arXiv:2608.09866`, August 2026) gives the dimension-free sharp \(q\)-dependent constant, but this does not determine the improved operator-dependent threshold for \(n\ge3\). Kaunisto–O'Loughlin–Virtanen (`arXiv:2610.00443`, September 2026) concerns general dilations. Searches for alternate formulations, scalar minimizing coefficients, singular-value pencils and polynomial GMRES formulas did not identify a covering statement. The exact Jordan \(q\)-numerical radius admits an implicit variational description in related work; that description does not itself give the explicit global complex optimizer proved here. The plausible full texts of the August and September 2026 papers could not be retrieved; their publicly accessible statements do not settle the exact claim, and unindexed overlap remains a genuine risk.
+PASS
 
-## Value — PASS
-This determines a canonical, previously bracketed exact norm minimization rather than a routine substitution: the optimizer itself has the unexpectedly simple universal formula \((n+1)/(2n+1)\), whereas the value has a nontrivial tridiagonal spectrum. It closes the published 2007 one-step Jordan GMRES upper/lower gap and supplies a sharp matrix-specific \(1\)-spectral-set phase boundary in the newer scaled-\(q\) setting, strictly beyond the universal \(4/5\) threshold for all dimensions at least three. The proof also explains why the optimum is unique over complex coefficients, not merely locally stationary along the real line. It does not claim new results for arbitrary weighted shifts or matrices.
+For n>=2 the checked exact Gram decomposition Q_n-I=n(n+1) sum_{j<n}(n+1-j)(n-j)|x_j/(n+1-j)+x_{j+1}/(n-j)|^2 proves simple bottom eigenvalue 1. The tridiagonal sine recurrence and boundary equation give the displayed finite sine-sum stationarity identity; independently simplified its symbolic algebra to zero for arbitrary symbolic n,z, and recomputed top SVD stationarity with errors <7e-17 for n=2,3,4,5,8,12. For a fixed real unit top singular vector x at s=(n+1)/(2n+1), <B(s)x,(J-I)x>=0, so ||B(lambda)x||^2=gamma_n^2+|lambda-s|^2||(J-I)x||^2, strictly larger for every complex lambda!=s because 1 is not an eigenvalue of J. Exact tridiagonal eigenvalues give the stated gamma and gamma_2=4/5; compression and the constant-vector lower bound give monotonicity and gamma_n->1. Unit-circle symmetry/connected admissible pairs give W_q(J) a centered disk. A norm-attaining calibrated pair makes r_n(gamma)=gamma, the affine support inequality makes r_n(q)<q for q>gamma, and the same singular vector plus its orthogonal J component makes r_n(q)>q for q<gamma. Radius >=1 iff q<=gamma; von Neumann plus test p(z)=z gives the exact 1-spectral equivalence. The all-n proof is analytic, not extrapolated from finite SVD tests.
 
-## Closest literature, scope and risks
-Relevant accessible primary documents are O'Loughlin–Rani (`arXiv:2603.15536`, Section 4), Tichý–Liesen–Faber (2007, Section 6), and the public abstracts of `arXiv:2608.09866` and `arXiv:2610.00443`. General q-numerical convexity and von Neumann's inequality are inputs, not discoveries. An older exact minimax identity not exposed by targeted indexing or the uninspected full texts could affect originality; independent expert assessment remains outstanding.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Statement-level comparisons against direct primary mathematical texts found no implication of this full exact claim in the inspected sources; separate specific comparisons below, with documented residual priority risks rather than a negative-search novelty proof.
+
+## value
+
+PASS
+
+Exact unique unconstrained complex affine norm minimizer for every nilpotent Jordan size, together with the dimension-dependent optimal disk spectral-set transition; these are structural sharp invariants useful in ideal GMRES and operator-specific q-numerical range geometry, not merely finite numerical approximations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
