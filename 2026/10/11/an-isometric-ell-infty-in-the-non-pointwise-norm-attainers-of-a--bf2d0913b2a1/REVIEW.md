@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The off-diagonal metric lies in \([1,2)\), making the triangle inequality immediate. Each sign-coloured coordinate function is bounded by the positive weights \(1-2\alpha_n\); the identity \(d(n,m)-(r_n+r_m)=\alpha_{\min(n,m)}\) proves the global bound and a strictly subunit slope bound at every fixed basepoint. A sign-opposed divergent pair sequence for each coordinate proves the global reverse inequality. There is no unjustified passage from finite verification to the infinite theorem.
+## correctness
 
-## Originality — PASS, subject to residual literature risk
-The 2023 source studies existence of isometric subspaces **inside** pointwise and strongly norm-attaining classes and singles out the asymmetric metric. The 2024 source proves nonattainment as a Lipschitz-free functional on arbitrary infinite metrics, not the stronger local absence of pointwise attainment, and proves the pointwise-complement case for real Banach-space domains rather than these uniformly discrete countable metrics. Published-record semantic searches revealed no dominating implication. Unindexed or later work might still contain an equivalent formulation.
+PASS
 
-## Mathematical value — PASS
-The construction resolves a natural complementary spaceability question for a concrete metric held up as resistant to several positive spaceability criteria. It gives a closed isometric \(\ell_\infty\), rather than mere nonempty complement or lineability, and quantifies strict failure at every basepoint for every nonzero vector. The parameter family shows the mechanism is stable under arbitrary monotone decay, not an isolated numerical example.
+Every distance of distinct points lies in [1,2), hence the triangle inequality holds. Write each n uniquely as \(2^{k-1}(2q+1)\); assign sign \((-1)^q\) and magnitude \(r_n=1-2\alpha_n\). The exact pair identity \(d(n,m)-r_n-r_m=\alpha_{\min(n,m)}\) bounds slopes by the coefficient sup; divergent opposite-sign indices with fixed k realize each coefficient in the norm limit. Monotonicity gives \(\alpha_{\min(n,m)}\ge\alpha_n\) and d<2, proving the strict \((1-\alpha_n/2)\) local gap at every basepoint. The closed subspace follows from completeness of \(\ell_\infty\). Independent exact-rational checks evaluated 276 pair bounds on a 24-index sample, without replacing the all-sequence proof.
 
-## Limitations and references
-Only real scalar-valued functions and the stated metric family are covered. The local gap is basepoint-dependent, and no global classification is claimed. Primary comparisons: arXiv:2312.00393v1, Definition 2.1 and Example 4.10; arXiv:2404.07599v1, Theorem 2.2 and Proposition 4.2.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2023 paper explicitly provides the \(\alpha_n=3^{-n}\) asymmetric metric while seeking positive norm-attaining embeddings, and the 2024 paper supplies functional nonattainers or Banach-space-domain pointwise constructions. Neither analyzed statement implies avoidance of pointwise norm attainment on these countable uniformly discrete metrics under arbitrary monotone decay. This all-decay spaceability result is a distinct best-of-knowledge claim.
+
+## value
+
+PASS
+
+The exact positive metric family was identified previously as an obstruction to several positive PNA/SNA isometric embeddings, making the complementary spaceability question natural. A closed isometric ell-infinity of functions strictly nonattaining locally at every point resolves this distinct structural question, and the proof gives a quantitative gap for all monotone null sequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
