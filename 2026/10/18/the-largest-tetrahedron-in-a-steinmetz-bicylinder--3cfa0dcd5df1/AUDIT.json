@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Unrestricted competitors reduce to 2-circle vertices by multilinear volume maximization over the disk hull. All circle distributions are handled: 4+0 zero, 3+1 at most sqrt(3)/4 in the normalized hull, and 2+2 at most 8/(9 sqrt(3)) via an exact determinant identity and the sharp AM–GM/cubic chain. Equality forces the pair of equal horizontal chords at opposite heights. A strict exposed-support calculation and reverse replacement establish that all unrestricted maximizers have those coordinates. The affine determinant is 2 and the ambient volume is 16/3 at radius one. Standard-library exact-rational and numerical checker successfully ran 6000 rational and 5000 interior tests, but the proof is analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Á. G. Horváth, Volume of convex hull of two bodies and related problems, arXiv:1509.08859, https://arxiv.org/html/1509.08859v2; Sections 3.1–3.2 discuss convex-hull volume and volume-maximal simplices inscribed in spheres, not arbitrary tetrahedra inside the two-disk hull.",
+        "Published 2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a: treats THREE orthogonal disks and boundary/intrinsic volumes, not maximal contained tetrahedron.",
+        "General multilinearity permits the boundary reduction, but no general sharp containment theorem supplying the numerical value and equality locus was located."
+      ],
+      "reasoning": "Broader convex-hull and maximal-simplex principles are related but do not fix a sharp determinant for the specific two-disk union. Three-disk results have a different convex body and invariant. The fresh content is the complete two-circle chord inequality and classification, not generic vertex-replacement or known ball/polygon facts.",
+      "searches": [
+        "largest simplex cross cylindrical intersection",
+        "maximum tetrahedron volume convex hull perpendicular disks general theorem",
+        "Horvath volume convex hull two bodies inscribed simplex",
+        "Á. G. Horváth, Volume of convex hull of two bodies and related problems, arXiv:1509.08859, https://arxiv.org/html/1509.08859v2 Section 3.2",
+        "Published 2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "S. R. Finch, Convex Hull of Two Orthogonal Disks, arXiv:1211.4514 (first publicly posted 2012-11-19), https://arxiv.org/pdf/1211.4514",
+      "Á. G. Horváth, Volume of convex hull of two bodies and related problems, arXiv:1509.08859, https://arxiv.org/html/1509.08859v2",
+      "2026/10/11/SCOPE-a-universal-surface-volume-identity-for-hulls-of-concurrent-circ--f6dccc1bad11",
+      "2026/10/4/SCOPE-a-one-dimensional-derivative-law-for-orthogonal-disk-mean-width--6e52fbc79bdf",
+      "2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a",
+      "Paul Bourke, Intersecting cylinders, https://www.paulbourke.org/geometry/cylinders/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Finch proves volume 8/3 and surface area 2(2+pi) for the orthogonal-disk hull; the proof has no inscribed simplex extremum.",
+        "2026/10/11/SCOPE-a-universal-surface-volume-identity-for-hulls-of-concurrent-circ--f6dccc1bad11 gives surface-volume identities for k concurrent disks and optimal angular spacing; no four-vertex volume bound.",
+        "2026/10/4/SCOPE-a-one-dimensional-derivative-law-for-orthogonal-disk-mean-width--6e52fbc79bdf gives separation-dependent derivatives of mean width; a distinct valuation and quantity.",
+        "2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a gives a 3-disk hull boundary classification, intrinsic volumes and radii; no four-vertex maximum."
+      ],
+      "reasoning": "Ambient-body volume or intrinsic volumes do not imply the largest inscribed simplex: different bodies with the same volume can have widely different simplex maxima. Horváth’s maximal sphere-vertex polytope inequalities constrain another feasible family. The closest published statements therefore do not imply the exact bound or exhaustive equality case of the current finding.",
+      "searches": [
+        "S. R. Finch, Convex Hull of Two Orthogonal Disks, arXiv:1211.4514 (first publicly posted 2012-11-19), https://arxiv.org/pdf/1211.4514 Example 1",
+        "Á. G. Horváth, Volume of convex hull of two bodies and related problems, arXiv:1509.08859, https://arxiv.org/html/1509.08859v2 Sections 3.1–3.2",
+        "Published 2026/10/11/SCOPE-a-universal-surface-volume-identity-for-hulls-of-concurrent-circ--f6dccc1bad11 RESULT.md",
+        "Published 2026/10/4/SCOPE-a-one-dimensional-derivative-law-for-orthogonal-disk-mean-width--6e52fbc79bdf RESULT.md",
+        "Published 2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "S. R. Finch, Convex Hull of Two Orthogonal Disks, arXiv:1211.4514 (first publicly posted 2012-11-19), https://arxiv.org/pdf/1211.4514; Section 1 treats the equal-center orthogonal-disk hull of volume 8/3.",
+        "The affine map (u,v,z) -> (u+v,u-v,z) identifies the bicylinder with the two-disk hull; its determinant is 2.",
+        "Published 2026/10/11/SCOPE-a-universal-surface-volume-identity-for-hulls-of-concurrent-circ--f6dccc1bad11: the same two-disk case yields intrinsic-volume identities only."
+      ],
+      "reasoning": "Orthogonal-disk hull, two-cylinder intersection, bi-cylinder, square-section spindle and mixed l1/l2 norm ball are equivalent formulations of the target body, not distinct novelty domains. Comparison of the full target invariant—maximal volume of any contained four-vertex simplex and its equality set—with the inspected disk-hull primary result and indexed related statements finds only area, surface area, mean width and section formulas. No inspected equivalent-formulation result provides the sharp tetrahedral volume.",
+      "searches": [
+        "Steinmetz solid intersection of two perpendicular equal circular cylinders maximal inscribed tetrahedron volume",
+        "bicylinder orthogonal cylindrical intersection inscribed largest tetrahedron",
+        "two orthogonal disks common diameter maximum inscribed tetrahedron 8/(9 sqrt(3))",
+        "maximal volume 3-simplex in mixed norm ball sqrt((abs(x)+abs(y))^2+z^2)",
+        "largest volume tetrahedron inside Steinmetz solid exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical tabulations give bicylinder ambient volume 16/3 and surface area 16, not the four-vertex maximal-volume invariant.",
+        "S. R. Finch, Convex Hull of Two Orthogonal Disks, arXiv:1211.4514 (first publicly posted 2012-11-19), https://arxiv.org/pdf/1211.4514 Introduction/Section 1: 8/3 is a BODY volume, not an inscribed-tetrahedron volume.",
+        "Relevant indexed published-finding corpus similarities primarily concern other bodies, intrinsic volumes, radii and mean widths rather than this exact tetrahedron table."
+      ],
+      "reasoning": "The classical 16/3 ambient volume must not be confused with the new 16/(9 sqrt 3) inscribed tetrahedron volume, nor with the normalized 1/(3 sqrt 3) volume fraction. Neither numerical coincidence nor a search without hits establishes priority; no checked exact table already records the maximal-tetrahedron value.",
+      "searches": [
+        "Steinmetz bicylinder largest inscribed tetrahedron 16/(9 sqrt 3)",
+        "Steinmetz solid tetrahedron volume ratio 1/(3 sqrt 3)",
+        "bicylinder tetrahedron maximum table",
+        "convex hull of two orthogonal disks maximal tetrahedron volume",
+        "published-finding corpus Steinmetz maximum tetrahedron"
+      ]
+    },
+    "rationale": "The two-circle orthogonal disk hull is known (Finch), as are its ambient intrinsic volumes and related disk-hull support-function facts. Checked full primary sources and the most relevant published geometry results do not state or imply its exact contained-tetrahedron maximum 8/(9 sqrt(3)) (disk coordinates), affine bicylinder maximum 16/(9 sqrt(3)), or full equality classification. This is a positive best-knowledge comparison rather than a uniqueness guarantee.",
+    "residual_risks": [
+      "Classical Steinmetz/bicylinder/Chinese-umbrella literature may contain an unindexed maximal-tetrahedron calculation.",
+      "Semantic indexing and inspected texts do not provide a proof of worldwide historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the exact four-vertex containment extremum; same body but source focus is intrinsic volumes and mean width.",
+        "evidence": "Page 1 states three disk configurations and volume, area and mean-width aims; Section 1 states the centered case and 8/3 volume; no matching simplex statement in searchable text.",
+        "identifier_or_url": "arxiv:1211.4514; https://arxiv.org/pdf/1211.4514",
+        "material_read": "Introduction and Section 1 including explicit disk sets, volume 8/3 and surface area; full document searched for tetrahedron and simplex; section structure and later examples inspected.",
+        "method": "Full-text arXiv PDF and visual inspection of first two pages plus section navigation.",
+        "title": "Convex Hull of Two Orthogonal Disks",
+        "trigger": "Exact source object: two equal disks in perpendicular planes with common center."
+      },
+      {
+        "assessment": "NOT_COVERING: maximizing volume of hulls of convex-body pairs and sphere-inscribed simplex problems differs from containing a largest tetrahedron inside this bicylinder.",
+        "evidence": "Section 3.2 Theorems 3.13–3.15 concern orthogonal triangles or pairs of tetrahedra and enclosing hull volumes, not this containment extremum.",
+        "identifier_or_url": "arxiv:1509.08859; https://arxiv.org/html/1509.08859v2",
+        "material_read": "Full HTML abstract/introduction, section 3.1 on convex hull volume, section 3.2 on regular simplices, and associated theorem statements.",
+        "method": "Open-access full HTML, direct reading of relevant named theorems and search for cylindrical/Steinmetz coverage.",
+        "title": "Volume of convex hull of two bodies and related problems",
+        "trigger": "Potentially stronger general tetrahedron/convex-hull theorem."
+      },
+      {
+        "assessment": "NOT_COVERING: solves ambient volume/surface relationship and plane-angle extremization, not contained-tetrahedron maxima.",
+        "evidence": "Its two-disk case recovers Finch volume 8/3 and area 2(2+pi); no four-vertex extremal result.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-universal-surface-volume-identity-for-hulls-of-concurrent-circ--f6dccc1bad11",
+        "material_read": "Published RESULT.md Finding, assumptions, exact section derivation, relationship to prior work, limitations and references; document-wide tetrahedron/simplex search.",
+        "method": "Read public RESULT.md mathematical content.",
+        "title": "A universal surface–volume identity for hulls of concurrent circular disks",
+        "trigger": "Directly same disk-hull configuration among k=2 cases."
+      },
+      {
+        "assessment": "NOT_COVERING: differentiates mean width under disk separation, not an inscribed-tetrahedron determinant.",
+        "evidence": "Its invariant is W(delta), and only support-function mean-width statements are established.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-one-dimensional-derivative-law-for-orthogonal-disk-mean-width--6e52fbc79bdf",
+        "material_read": "Published RESULT.md Finding, derivation of mean-width derivatives, relationship to prior work, limitations and references.",
+        "method": "Read public RESULT.md mathematical content.",
+        "title": "A one-dimensional derivative law for orthogonal-disk mean width",
+        "trigger": "Orthogonal-disk hull family contains the same equal-center shape."
+      },
+      {
+        "assessment": "NOT_COVERING: object has three pairwise perpendicular disks, and the result gives boundary patches, intrinsic volumes and radii.",
+        "evidence": "Published theorem explicitly separates its three-disk hull from the polar triple-cylinder body and states no maximal contained tetrahedron.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a",
+        "material_read": "Published RESULT.md Finding, supporting-face proof, relationship to prior work, limitations and references.",
+        "method": "Read public RESULT.md mathematical content and scan for tetrahedral containment.",
+        "title": "Exact intrinsic volumes and boundary decomposition of the orthogonal three-disk hull",
+        "trigger": "Three-disk variant might dominate two-disk simplex geometry."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3cfa0dcd-5df1-4b5a-85df-785eabc2561d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The classical bicylinder has a nontrivial curved boundary but a known exact volume; the maximal inscribed tetrahedron volume and ratio form a natural affine-invariant four-point approximation measure. Establishing its exact sharp fraction 1/(3 sqrt(3)) for ALL contained tetrahedra, with full optimizer rigidity, fills a distinct extremal gap. This cannot be read off from the classical volume 16/3 or the disk-hull area and mean-width identities.",
+    "status": "PASS"
+  }
+}
