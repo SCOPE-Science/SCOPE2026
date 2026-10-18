@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The target theorem was checked in the publisher full text, including its definition of the pseudoinverse/right inverse and the full proof of Theorem 4.2. The counterexample was then evaluated symbolically:
+# Independent mathematical audit
 
-\[
-H=\mathbb C,\qquad \Lambda_1=2I,\qquad \Gamma_1=0,
-\]
-so \(A=B=4\), \(T_\Lambda=2I\), \(T_\Lambda^\dagger=\tfrac12I\), and the source threshold is exactly \(2\). The relative inequality is equality at \(\lambda=1\), while the perturbed lower frame energy is zero.
+## correctness
 
-For the corrected statement, the only estimate used is
-\[
-\|U_\Gamma f\|\ge\|U_\Lambda f\|-\|(U_\Lambda+U_\Gamma)f\|,
-\]
-together with the corresponding upper triangle inequality and the reference frame bounds. This proves the claimed quantitative lower and upper bounds for every Hilbert-space \(g\)-frame under \(\lambda<1\). The zero-family example proves sharpness for universal guarantees at every \(\lambda\ge1\).
+PASS
 
-The open ESI version of Sun's stability theorem was inspected to compare implications. Its Theorem 3.1 contains the repaired result as the specialization with comparison family \(-\Gamma\), \(\lambda_1=\sqrt\lambda\), and \(\lambda_2=\mu=0\). Therefore the general perturbation principle is treated as prior art rather than as a new theorem.
+The exact 1-dimensional counterexample takes H=C, one analysis map Λ=2I and Γ=0. Then A=B=4, synthesis TΛ=2I has unique right inverse TΛ†=(1/2)I, and A||TΛ†||^{-2}/(2B)=2. The source inequality is an equality at λ=1<2, although Γ is the zero family and cannot be a g-frame. For every Hilbert g-frame, the relative assumption ||(UΛ+UΓ)f||≤sqrt(λ)||UΛ f|| yields by the reverse and direct triangle inequalities the exact bounds A(1-sqrt(λ))² and B(1+sqrt(λ))² whenever 0≤λ<1. At λ≥1, Γ=0 supplies the sharp obstruction for every nonzero Hilbert space. Invertibility avoids any choice-of-pseudoinverse ambiguity. Scaling Λ by c changes the printed threshold by |c|² while the relative inequality remains invariant.
 
-No finite computation, numerical search, or extrapolation is part of the proof. The only unresolved literature risk is the possible existence of an unindexed source-specific correction.
+## originality
+
+PASS
+
+The general λ<1 perturbation theorem is already in Sun and is expressly not claimed new. The new source-specific fact is an exact counterexample to Rajeswari--George Theorem 4.2 at the printed strict pseudoinverse threshold, together with its scale-invariance diagnosis. The primary article was materially read at the exact source theorem. No indexed published erratum was established. The Resultary search could not complete, a residual priority risk rather than novelty evidence.
+
+## value
+
+PASS
+
+Correcting a false published sufficient condition is mathematically useful even though the obstruction is one-dimensional: the source theorem admits the zero family as a purported stable g-frame. The sharp dimensionless replacement prevents downstream misuse and explains the structural source of the error.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

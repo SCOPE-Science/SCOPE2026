@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. In the one-index example \(H=\mathbb C\), \(\Lambda_1=2I\), and \(\Gamma_1=0\), the exact frame bounds are \(A=B=4\), the synthesis operator is \(T_\Lambda=2I\), and the source pseudoinverse identity forces \(T_\Lambda^\dagger=\tfrac12I\). Thus the source threshold is \(2\), while its relative inequality holds with \(\lambda=1\); the zero family cannot satisfy a positive lower frame inequality. The repaired bounds are immediate from the direct-sum triangle inequality, and sharpness follows from the same zero-family construction for every \(\lambda\ge1\).
+# Independent mathematical audit
 
-## Originality
-PASS for the source-specific claim. The target theorem and its proof were read in the publisher full text. Sun's earlier stability theorem was also read in the ESI preprint and materially compared: it already covers the safe \(\lambda<1\) implication after replacing the perturbed family by \(-\Gamma\). Therefore the general stability principle is treated as prior art. Searches of the target title, DOI, theorem number, pseudoinverse condition, scale-rescaling alias, and zero-family alias found no indexed correction of the 2022 theorem. The closest indexed results concern a different duality theorem in the same paper, compact perturbations, and unrelated \(K\)-frame range questions.
+## correctness
 
-## Value
-PASS. The issue is not a constant-factor improvement. The printed criterion can conclude that the identically zero family is a frame, and it can be made to do so solely by scaling the reference tight frame. The correction identifies the exact universal stability boundary in the source's own relative formulation and reconnects the result to the established perturbation theorem that has the required scale invariance.
+PASS
 
-## Closest literature and limitations
-W. Sun's 2005/2007 stability theorem is the closest substantive prior result and already yields the corrected sufficient condition and quantitative bounds. It does not state that Rajeswari--George Theorem 4.2 is false, nor does it provide the source-specific scale-rescaling counterexample. No claim is made that \(\lambda<1\) is necessary for every particular fixed pair; it is the sharp threshold for a universal guarantee from the displayed relative inequality alone. An unindexed correction may exist.
+The exact 1-dimensional counterexample takes H=C, one analysis map Λ=2I and Γ=0. Then A=B=4, synthesis TΛ=2I has unique right inverse TΛ†=(1/2)I, and A||TΛ†||^{-2}/(2B)=2. The source inequality is an equality at λ=1<2, although Γ is the zero family and cannot be a g-frame. For every Hilbert g-frame, the relative assumption ||(UΛ+UΓ)f||≤sqrt(λ)||UΛ f|| yields by the reverse and direct triangle inequalities the exact bounds A(1-sqrt(λ))² and B(1+sqrt(λ))² whenever 0≤λ<1. At λ≥1, Γ=0 supplies the sharp obstruction for every nonzero Hilbert space. Invertibility avoids any choice-of-pseudoinverse ambiguity. Scaling Λ by c changes the printed threshold by |c|² while the relative inequality remains invariant.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The general λ<1 perturbation theorem is already in Sun and is expressly not claimed new. The new source-specific fact is an exact counterexample to Rajeswari--George Theorem 4.2 at the printed strict pseudoinverse threshold, together with its scale-invariance diagnosis. The primary article was materially read at the exact source theorem. No indexed published erratum was established. The Resultary search could not complete, a residual priority risk rather than novelty evidence.
+
+## value
+
+PASS
+
+Correcting a false published sufficient condition is mathematically useful even though the obstruction is one-dimensional: the source theorem admits the zero family as a purported stable g-frame. The sharp dimensionless replacement prevents downstream misuse and explains the structural source of the error.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
