@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS (self-review).** The minimal cyclotomic polynomial for a prime power has \(p\) equal-spaced terms; because the determinant equality has only three positive and three negative monomials, and \(p\ge5\), it forces exponent multiset equality. The six-term matching proof covers every permutation and gives only restricted row/column collisions. The valuation-rank criterion, type multiplicities, inclusion--exclusion and dominated-convergence steps were independently reconstructed from the final statement. The exact checker corroborates the finite arithmetic and does not substitute for the proof of all exponents.
+
+**Originality — PASS (bounded assessment).** The inspected prime-square theorem proves the exponent-two specialization and is **not** claimed as novel. A recent principal-nonsingularity paper addresses square-free rather than prime-power orders and only principal minors. The new scope comprises all three-by-three minors for every higher odd prime power, the complete incidence counts, and an explicit leading probability constant. Searches by rank-deficiency, equivalence, repeated restricted rows/columns, p-adic valuations, rank enumerations, and probability did not locate the full package in accessible statements. Delvaux--Van Barel's earlier general work on prime-power rank-deficient blocks is the main unresolved overlap risk, because only its abstract was accessible; the full text might subsume some structure or more. The originality assessment is not an assertion of exhaustive priority or external certification.
+
+**Value — PASS (self-review).** Exact singular Fourier-minor counts quantify how often three-frequency interpolation fails on prime-power cycles. The rank incidence rule dispenses with complex determinant calculations for every individual minor, while the sharp constant identifies a genuinely arithmetic change in the rarity of failure as the group order grows. The result is a natural complete classification rather than an arbitrary finite cutoff.
+
+**Scientific limitations.** Primes two and three are excluded; only size-three minors and fixed-prime asymptotics are proved. The historical coverage risk is not eliminated by the absence of a web-search match. No external independent audit has taken place.
+
+Self-review: passed. Independent audit: not yet performed.
