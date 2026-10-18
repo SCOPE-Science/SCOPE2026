@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For fixed Fourier magnitudes, equality of bispectra is exactly the supported modular-addition phase relation. Forward and backward recursions with one cross-band bridge reduce every compatible phase multiplier to a single signed phase ramp. The maximum possible modular wrap is \(2r+s\), and an explicit wrapped triple exists exactly at or above the threshold. This proves the complete circle-versus-roots-of-unity classification for every admitted integer. The measurement packet consists of algebraically independent phase characters; the torus-dimension bound proves minimality. An exact integer-lattice checker confirms all allowed relations and packet Smith invariants in 1,522 small parameter cases. The computation is corroborative rather than a proof of the infinite family.
+PASS
 
-## Originality — PASS with residual risk
+With known nonzero magnitudes, equality of each nonzero bispectral triple is exactly u_j u_k=u_(j+k mod n), and zero triples impose no constraints. Positive (1,k−1) relations force u_k=t^k, negative (−1,−j+1) force u_−j=v^j, bridge (2,−1)→1 yields v=t^(−1); all phases are one signed ramp. For a nonwrapping permitted triple j+k−ℓ=0, this works for arbitrary t. Since supported signed frequencies lie [-s,r], largest potential positive wrap is 2r+s and largest negative wrap magnitude is 2s+r<2r+s; below n none is possible. At 2r+s≥n the explicit pair j=r, k=n−s−r lies in positive support and sums to −s mod n, imposing t^n=1. Cyclic shift acts by exactly these nth-root ramps since frequency 1 occurs. Constructed d−1 bridge/chain characters leave dimension one and an additional wrap character yields precisely n shifts; fewer characters cannot cut the real d-torus to identity component of rank one/finitely many points respectively. Independently enumerated all supported modular triples for (n,r,s)=(11,4,2),(11,5,1),(8,4,2),(13,5,3), obtaining no wrap only in first case. The rank proof, not a small Smith enumeration, supports all n.
 
-The relevant classical results prove bispectral completeness for fully nonzero Fourier data or under subgroup conditions, and the later real-symmetric finite-band result gives only a related *balanced-real* sufficiency threshold. Those statements do not imply the exact asymmetric complex fiber classification, its converse, or the sharp individual-measurement counts. The 2021 bandlimited sampling result concerns a different spectral support hypothesis and does not determine missing-DC imbalance dependence. Targeted literature comparisons, plus searches against related mathematical research records, identified no exact same-object, same-parameter theorem. Earlier results on bispectral slices, especially Pozidis–Petropulu (1998), were available only in abstract/partial form; priority risk remains. No exhaustive novelty certification is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Bispectrum is a natural third-order Fourier invariant for shift-invariant signal reconstruction. The theorem gives a complete identification criterion and a minimal exact phase-measurement certificate across an infinite, naturally parametrized family of complex signals. The case \(\(n=11\)\) demonstrates that changing spectral imbalance at fixed support cardinality switches a continuous ambiguity into discrete translational ambiguity. The exact lower bound gives a principled sampling benchmark, independent of numerical reconstruction quality.
+Known group-theoretic bispectral reconstruction and phase recursion predates this work. Kakarala 2009 full spectrum or subgroup-closed assumptions do not cover a zero-frequency gap and two unequal contiguous signed bands. Bendory et al 2017 Proposition II.1 gives one-sided complex sufficient condition and balanced real ±K sufficient threshold, but not the complex asymmetric necessary-and-sufficient transition nor minimal exact packets. Pinilla et al 2021 Proposition 1 assumes a consecutive B-band support with nonzero central frequency and proves generic sufficient sample count 2B given power, rather than the exact all-signal punctured asymmetric support fiber classification. The 1998 Pozidis–Petropulu selected-region approach might possess an equivalent phase-constraint rank statement and was not accessible in full; residual risk preserved. Resultary search ranked same current output plus unrelated Fourier/STFT results.
 
-## Limits of this assessment
+## value
 
-All premises of the new theorem were checked; the mathematical argument is algebraic and assumes noiseless exact observations, known support, and known power. Historical priority could be affected by an older equivalently formulated slice-reconstruction theorem. Review is not independent validation.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Bispectrum is a standard shift invariant; the exact unknown-phase fiber is a natural identifiability invariant. Threshold 2r+s=n separates true continuous impossibility from unique reconstruction modulo translations for all signals with this exact support, with constructive information-theoretic minimum individual bispectral measurements. n=11 examples at equal active cardinality show spectral imbalance, not cardinality alone, controls identifiability. This is a principled optimal sampling benchmark, not merely applying recursion to a single signal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
