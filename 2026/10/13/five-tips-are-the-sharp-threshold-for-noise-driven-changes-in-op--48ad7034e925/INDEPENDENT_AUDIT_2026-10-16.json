@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:58:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All 5 root-to-tip paths have length 55 and submitted K has exactly the shared-path Brownian off-diagonals 25,35,50. Symbolic direct inversion of every 4×4 selected covariance K_S+ηI produces only L,R,M; L=2(2η²+205η+4600)/((η+55)(η²+145η+3700)), R=2/(η+105)+2/(η+80), M=2/(η+105)+2/(η+90). R−M=20/((η+80)(η+90))>0, and L−R has numerator −10(2η³+205η²−1225η−198500) over a positive denominator. The cubic has exactly one positive root (one sign change plus IVT), 29.8018144905886…, separating disjoint optimal omission classes C/D vs A/E. For <=4 tips, k=1,2,n are noise-invariant; the only n=4,k=3 cases root split 2+2 or1+3 have common minimizing cherry. The latter follows from strictly positive three-tip GLS coefficients and replacing a tip with the independent root-child tip, lowering all incident covariances. Independent SymPy reconstruction checked identities and all five four-tip exclusions. No finite grid is used to establish uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ives 2007 allows varying tip-error covariances; Bartoszek 2015 adds arbitrary M; Ané 2008 optimizes tree subsets."
+        ],
+        "reasoning": "More general allowed covariances or optimization algorithms do not by themselves establish which minimum number of leaves allows a common-noise argmax switch, nor the all-noise optimal sets; inspected primary sources lack that implication.",
+        "searches": [
+          "Resultary semantic query: phylogenetic Brownian ancestral mean taxon selection measurement error variance optimal subset switch five tips",
+          "web: phylogenetic sampling design tips measurement error variance optimal set change ultrametric tree",
+          "Ané 2008 §7 Sampling design",
+          "Ives–Midford–Garland 2007 Methods",
+          "Bartoszek arXiv:1507.07113 discussion §4"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/0804.3166",
+        "https://biology.ucr.edu/people/faculty/Garland/Ives_et_al_2007.pdf",
+        "https://arxiv.org/pdf/1507.07113",
+        "Resultary semantic search for phylogenetic sampling and noise thresholds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ané derives objective with no separate η varying for subset comparison; Bartoszek discusses V+M, not universal four-leaf minimality."
+        ],
+        "reasoning": "Prior tools make it possible to calculate I_S(η), but deriving a universal <=4-tip theorem and the 5-tip exact sign change requires additional structural and symbolic arguments; no cited theorem directly implies the sharp threshold.",
+        "searches": [
+          "Resultary semantic query: phylogenetic Brownian ancestral mean taxon selection measurement error variance optimal subset switch five tips",
+          "web: phylogenetic sampling design tips measurement error variance optimal set change ultrametric tree",
+          "Ané 2008 §7 Sampling design",
+          "Ives–Midford–Garland 2007 Methods",
+          "Bartoszek arXiv:1507.07113 discussion §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ané §7: maximize the scaled ancestral effective sample size 1^TV_S^{-1}1; Ives Eq.(3): generalized least squares; submitted K+ηI."
+        ],
+        "reasoning": "Minimizing root-mean BLUE variance, maximizing Fisher information, and phylogenetic effective sample size are exactly the same ordering for fixed tree height. Comparison uses this equivalence rather than assuming different terminology signals novelty.",
+        "searches": [
+          "Resultary semantic query: phylogenetic Brownian ancestral mean taxon selection measurement error variance optimal subset switch five tips",
+          "web: phylogenetic sampling design tips measurement error variance optimal set change ultrametric tree",
+          "Ané 2008 §7 Sampling design",
+          "Ives–Midford–Garland 2007 Methods",
+          "Bartoszek arXiv:1507.07113 discussion §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Explicit rational covariance K with off-diagonals 25,35,50 and critical cubic; Resultary search for five-tip switch."
+        ],
+        "reasoning": "The complete five-omission rational table and switching root were checked against related available design examples and searched by objective/parameters; no prior identical table was found, not a proof of global uniqueness.",
+        "searches": [
+          "Resultary semantic query: phylogenetic Brownian ancestral mean taxon selection measurement error variance optimal subset switch five tips",
+          "web: phylogenetic sampling design tips measurement error variance optimal set change ultrametric tree",
+          "Ané 2008 §7 Sampling design",
+          "Ives–Midford–Garland 2007 Methods",
+          "Bartoszek arXiv:1507.07113 discussion §4"
+        ]
+      },
+      "rationale": "Previously published Brownian GLS, error covariance, effective sample size and tree-subset selection furnish the model and objective. The exact sharp combinatorial onset of a noise-induced change in argmax—universal non-switch below five tips and an explicit rational five-tip switch—is not asserted by the relevant full sources inspected or surfaced by Resultary. General matrix optimal-design methods could conceal an equivalent smaller-dimensional example; this remains a substantive residual risk.",
+      "residual_risks": [
+        "An equivalent non-phylogenetic correlated-Gaussian optimal-design result may subsume the five-point example and minimality.",
+        "No guarantee beyond ultrametric binary positive-edge trees, known root/variance and one sample per tip."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes 1^TV_S^{-1}1 as a sample-design objective and optimization motivation but does not compute the universal <=4-tip obstruction or noise-induced five-tip topology.",
+          "evidence": [
+            "p.3 Brownian shared ancestry covariance; §7 sampling design maximizes 1^TV_n^{-1}1 over tip subsets."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0804.3166",
+          "material_read": "Full 27-page PDF, Brownian covariance/GLS formulas pp. 2–4, Section 7 Sampling design pp.18–19 and cited effective sample size",
+          "method": "Read and compared accessible full-text primary document, including stated theorems and relevant proof sections",
+          "title": "Analysis of comparative data with hierarchical autocorrelation",
+          "trigger": "Direct ancestor-mean subset information objective and possible already-known exact five-tip switch"
+        },
+        {
+          "assessment": "Introduces error-inclusive phylogenetic GLS but not the exact 5-tip switching threshold and four-tip universal non-switch.",
+          "evidence": [
+            "p.254 covariance of observed trait is evolutionary covariance plus measurement covariance; GLS for ancestral expectation."
+          ],
+          "identifier_or_url": "https://biology.ucr.edu/people/faculty/Garland/Ives_et_al_2007.pdf",
+          "material_read": "Full primary 19-page PDF, abstract and Methods pp.252–255 including Eq. (1) and GLS Eq.(3), measurement covariance model",
+          "method": "Read and compared accessible full-text primary document, including stated theorems and relevant proof sections",
+          "title": "Within-Species Variation and Measurement Error in Phylogenetic Comparative Methods",
+          "trigger": "Same Brownian phylogenetic model with independent tip error"
+        },
+        {
+          "assessment": "States addition of measurement covariance M to phylogenetic covariance V, not sharp minimal tip count for change in subset argmax as scalar M varies.",
+          "evidence": [
+            "p.18 observation-error matrix M added to V for effective-sample calculations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.07113",
+          "material_read": "47-page arXiv primary PDF, effective-size definitions and Section on measurement error around p.18",
+          "method": "Read and compared accessible full-text primary document, including stated theorems and relevant proof sections",
+          "title": "Phylogenetic effective sample size",
+          "trigger": "Alternative information criterion with phylogenetic measurement covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Separates sampling precision improvements from stability of the actual optimal taxon set under measurement noise. A sharp five-tip minimum plus explicit threshold and competing optimal classes is a motivated boundary in correlated experimental design rather than a generic numerical trial.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/0804.3166",
+    "https://biology.ucr.edu/people/faculty/Garland/Ives_et_al_2007.pdf",
+    "https://arxiv.org/pdf/1507.07113",
+    "Resultary semantic search for phylogenetic sampling and noise thresholds"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An equivalent non-phylogenetic correlated-Gaussian optimal-design result may subsume the five-point example and minimality.",
+    "No guarantee beyond ultrametric binary positive-edge trees, known root/variance and one sample per tip."
+  ],
+  "residual_risks": [
+    "An equivalent non-phylogenetic correlated-Gaussian optimal-design result may subsume the five-point example and minimality.",
+    "No guarantee beyond ultrametric binary positive-edge trees, known root/variance and one sample per tip."
+  ],
+  "schema_version": 1
+}

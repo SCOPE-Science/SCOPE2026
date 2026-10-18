@@ -1,15 +1,21 @@
-# Scientific review: minimum five-tip noise-driven taxon-design reversal
+# Independent mathematical audit
 
-## Correctness — PASS
-The mathematical claim is restricted to Brownian unit-rate shared-ancestry covariance on positive-edge-length rooted binary ultrametric trees, with one measurement per chosen tip and independent equal-variance noise. The generalized least-squares information is \(I_S(\eta)=\mathbf1^\mathsf{T}(K_S+\eta I)^{-1}\mathbf1\). The universal four-tip argument covers every permissible \(k\): direct pair comparison handles \(k=2\), cardinality handles \(k=1,n\), and explicit covariance/positive-GLS-weight arguments handle \(n=4,k=3\) for both possible root splits. The five-tip branch lengths all sum to \(55\) from root to tip. The exact symbolic reconstruction of all five possible four-tip submatrices produces three information functions and an exact crossing cubic with one positive root. Direct symbolic identities and 35 rational parameter evaluations succeeded in the accompanying checker; the sign proof and Descartes' rule establish the continuum result. No finite grid is treated as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The underlying Brownian covariance, generalized least-squares estimator, taxon-selection objective, and addition of measurement-error covariance are already in primary literature. Felsenstein (1985) supplies the Brownian phylogenetic model; Ives, Midford and Garland (2007) the measurement-error GLS framework; Ané (2008) the motivation and explicit root-mean effective-sample-size optimization across subsets in a model without a separate measurement-error parameter; Bartoszek (2015 preprint) effective-sample-size discussion with added error covariance. The checked work supports these ingredients but does not state the minimum-five-tip threshold, prove impossibility on all smaller rooted binary ultrametric trees, or give this exact unique changing optimum. Searches for the same object, measurement-error parameter, equivalent GLS precision, and stronger optimal-design results found no decisive coverage. An unexamined specialized correlated-Gaussian sensor-design theorem could imply the result indirectly; search nonappearance alone cannot certify novelty. All assumptions and prior contributions are explicitly delimited in the main result.
+PASS
 
-## Value — PASS
-Choosing taxa when collecting traits is expensive and an evolutionary tree is known is an established mathematical-ecology sampling question. Ané explicitly motivates maximizing ancestral-root inference precision through selective sampling; Ives and Bartoszek establish the relevance of measurement errors. The result provides a genuinely structural smallest-tree threshold at which that optimal biological sampling recommendation can depend on error magnitude. The example requires no change in the tree, evolutionary variance, or sampling budget. The exact crossing distinguishes two competing selection patterns and supplies a reproducible benchmark for larger-tree optimal-design algorithms. It does not assert broad ecological policy, large-tree classifications, or unknown phylogenetic parameters.
+All 5 root-to-tip paths have length 55 and submitted K has exactly the shared-path Brownian off-diagonals 25,35,50. Symbolic direct inversion of every 4×4 selected covariance K_S+ηI produces only L,R,M; L=2(2η²+205η+4600)/((η+55)(η²+145η+3700)), R=2/(η+105)+2/(η+80), M=2/(η+105)+2/(η+90). R−M=20/((η+80)(η+90))>0, and L−R has numerator −10(2η³+205η²−1225η−198500) over a positive denominator. The cubic has exactly one positive root (one sign change plus IVT), 29.8018144905886…, separating disjoint optimal omission classes C/D vs A/E. For <=4 tips, k=1,2,n are noise-invariant; the only n=4,k=3 cases root split 2+2 or1+3 have common minimizing cherry. The latter follows from strictly positive three-tip GLS coefficients and replacing a tip with the independent root-child tip, lowering all incident covariances. Independent SymPy reconstruction checked identities and all five four-tip exclusions. No finite grid is used to establish uniqueness.
 
-## Closest literature and limitations
-See Felsenstein (1985; DOI 10.1086/284325), Ives–Midford–Garland (2007; DOI 10.1080/10635150701313830), Ané (2008; arXiv 0804.3166, DOI 10.1214/08-AOAS173), and Bartoszek (2015 preprint; arXiv 1507.07113). The result concerns a known rooted binary ultrametric tree, conditional Brownian traits, fixed \(k\), known homogeneous measurement noise, and the GLS estimate of the common root mean; it does not cover covariance-parameter inference or other phylogenetic designs. Remaining originality risk lies principally in general correlated-Gaussian optimal-subset literature that could subsume this special tree result. No independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Previously published Brownian GLS, error covariance, effective sample size and tree-subset selection furnish the model and objective. The exact sharp combinatorial onset of a noise-induced change in argmax—universal non-switch below five tips and an explicit rational five-tip switch—is not asserted by the relevant full sources inspected or surfaced by Resultary. General matrix optimal-design methods could conceal an equivalent smaller-dimensional example; this remains a substantive residual risk.
+
+## value
+
+PASS
+
+Separates sampling precision improvements from stability of the actual optimal taxon set under measurement noise. A sharp five-tip minimum plus explicit threshold and competing optimal classes is a motivated boundary in correlated experimental design rather than a generic numerical trial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
