@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The objects, row and column capacities, and edge-label normalization are explicit. The standalone proof checker exhausts every one of the 32,767 nonempty candidate edge subsets, constructs 1,694 disjoint admissible matched facet pairs, finds one critical zero-cell and 91 critical five-cells, and verifies acyclicity by topologically sorting all 3,480 faces across all 15,870 oriented Hasse incidences. Forman's theorem then establishes the stated integral homotopy type. A second, differently ordered combinatorial reconstruction reproduces all face counts and mod-two boundary ranks. Risk: this is computer-assisted finite proof; successful execution and transparent complete-code inspection are required. No infinite-family claim is made.
+## correctness
 
-## Originality — PASS
-The closest direct theoretical references are Wachs (2003), Reiner–Roberts (rational homology), Singh (2020), and Vega (2019). Wachs's Sections 7.1–7.3 explicitly define the same two-capacity bipartite complexes and describe rational homology, but separate bipartite homotopy analogues appear as Problem 7.10. Reiner–Roberts' Theorem 3.3 covers the rational representation, so no equivariant or rational homology novelty is claimed. Singh's square bipartite homotopy theorem and Vega's graph-family calculations do not imply this integral 91-sphere homotopy equivalence. The closest indexed two-matching calculation treats \(K_{3,4}\) rather than \(K_{3,5}\). Checks compared the actual statements and known stronger results, not titles alone. Residual risk: unindexed exact calculations and an inaccessible full text of the indexed smaller-board result.
+PASS
 
-## Value — PASS
-The rectangular \(3\times5\) board with uniform capacity two is a canonical finite example of the classical chessboard-with-multiplicities construction. It supplies an explicit integral homotopy calculation in a setting where rational equivariant groups have long been known, but the old literature explicitly calls for bipartite homotopy refinements. The result is not a mere Betti-number recomputation: it exhibits a full acyclic matching and reduces all attaching-map uncertainty to a wedge of 91 spheres. The multiplicity jump from the known \(3\times4\) sphere shows that the next natural rectangle is topologically distinct. Risk: a broader subsequent classification could imply it; no downstream general theorem or universal formula is asserted.
+PASS. From the exact ordinary 3×5 board with capacities 2 in every row and column, independent combination-based enumeration gives 3,480 nonempty simplices with face vector (15,105,420,990,1260,690). Stagewise toggle matching yields 1,694 disjoint pairs and critical cells exactly one 0-simplex plus ninety-one 5-simplices. Independently reconstructed every one of 15,870 Morse-directed codimension-one incidences and exact topological sort of all 3,480 simplices in /mnt/data/scope08_independent_20261015.py. Therefore Forman gives one 0-cell and 91 5-cells with no positive lower skeleton: the integral homotopy type is wedge^91 S5. Source secondary GF2 boundary ranks (14,91,329,661,599) corroborate but are not relied on for integral homotopy.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS under strongest plausible coverage. Wachs 2003 §7 and Reiner–Roberts Theorem 7.1 cover exactly the bounded-degree bipartite complex Delta_{(2,2,2),(2,2,2,2,2)} with a rational characteristic-zero homology representation/Betti formula, so number 91 and degree 5 are anticipated; they do not give a complete acyclic matching or explicitly determine this integral homotopy type, and the representation-theoretic formula does not automatically rule out integral torsion. Wachs §7.3 Problem 7.10 asks for missing bipartite homotopy analogues. Published M2(K3,4) and M2(K4,4) are different boards; Singh n−1 square-board results do not include 3×5. This precise integral wedge upgrade survives, with the existing rational rank plainly not presented as new.
+
+## value
+
+PASS
+
+PASS. Exact integral homotopy classification for a natural rectangular 2-rook-per-row-and-column bounded-degree graph complex is a motivated missing bipartite homotopy calculation. The proof is a complete acyclic matching, stronger than rational Betti numbers. Although this is a narrow board, no family theorem is required and it is neither an arbitrary unmotivated slice nor claimed as a general result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

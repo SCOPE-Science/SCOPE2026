@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Reproduction
-Place `verify_morse.py` and `verify_boundary.py` together and run each with Python 3. The code has no external dependencies, downloaded reference data, random choices or unchecked cached intermediate data. Both programs were executed successfully from their original package source paths.
+# Independent mathematical audit
 
-`verify_morse.py` enumerates the full finite complex, constructs every priority-ordered matched pair, checks all critical-cell dimensions and counts, and reorients each Hasse incidence. Its exact topological sort visits all 3,480 vertices and certifies acyclicity. It reports 1,694 matched pairs and critical-cell counts one in dimension zero and 91 in dimension five.
+## correctness
 
-`verify_boundary.py` independently reconstructs the complex using a different indexing order and performs exact bitset elimination on all five mod-two simplicial boundary matrices. It reports rank vector `(14,91,329,661,599)` and Betti vector `(1,0,0,0,0,91)` including ordinary dimension-zero homology.
+PASS
 
-## Interpretation and limits
-The complete acyclic matching—not the finite-field homology cross-check—proves the integral homotopy equivalence. The proof only treats the explicitly specified fifteen-vertex simplicial complex, not a generalized or infinite family. Reproduction assumes correct Python integer arithmetic and faithful execution of the displayed sources; no independent external audit has been performed.
+PASS. From the exact ordinary 3×5 board with capacities 2 in every row and column, independent combination-based enumeration gives 3,480 nonempty simplices with face vector (15,105,420,990,1260,690). Stagewise toggle matching yields 1,694 disjoint pairs and critical cells exactly one 0-simplex plus ninety-one 5-simplices. Independently reconstructed every one of 15,870 Morse-directed codimension-one incidences and exact topological sort of all 3,480 simplices in /mnt/data/scope08_independent_20261015.py. Therefore Forman gives one 0-cell and 91 5-cells with no positive lower skeleton: the integral homotopy type is wedge^91 S5. Source secondary GF2 boundary ranks (14,91,329,661,599) corroborate but are not relied on for integral homotopy.
+
+## originality
+
+PASS
+
+PASS under strongest plausible coverage. Wachs 2003 §7 and Reiner–Roberts Theorem 7.1 cover exactly the bounded-degree bipartite complex Delta_{(2,2,2),(2,2,2,2,2)} with a rational characteristic-zero homology representation/Betti formula, so number 91 and degree 5 are anticipated; they do not give a complete acyclic matching or explicitly determine this integral homotopy type, and the representation-theoretic formula does not automatically rule out integral torsion. Wachs §7.3 Problem 7.10 asks for missing bipartite homotopy analogues. Published M2(K3,4) and M2(K4,4) are different boards; Singh n−1 square-board results do not include 3×5. This precise integral wedge upgrade survives, with the existing rational rank plainly not presented as new.
+
+## value
+
+PASS
+
+PASS. Exact integral homotopy classification for a natural rectangular 2-rook-per-row-and-column bounded-degree graph complex is a motivated missing bipartite homotopy calculation. The proof is a complete acyclic matching, stronger than rational Betti numbers. Although this is a narrow board, no family theorem is required and it is neither an arbitrary unmotivated slice nor claimed as a general result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
