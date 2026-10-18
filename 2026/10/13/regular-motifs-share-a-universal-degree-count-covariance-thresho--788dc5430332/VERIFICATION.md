@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is analytic. The accompanying checker uses exact rational arithmetic for the finite identities.
+# Independent mathematical audit
 
-It exhaustively enumerates every graph on four, five, and six labeled vertices for several rational edge probabilities. For each graph it computes every degree-class count together with non-induced counts of edges, triangles, four-cycles, four-cliques, and three-vertex paths.
+## correctness
 
-The edge, triangle, four-cycle, and four-clique cases test regular motif degrees one, two, two, and three. The three-vertex path tests the nonregular formula with degree sequence \((2,1,1)\).
+PASS
 
-The checker verifies the full covariance identity, the regular specialization, the sign rule, and the triangle formula. A separate high-\(n\) computation checks the stated first-order location of the continuous regular-motif sign boundary.
+Condition on the actual H-copy indicator: off-copy vertices have disjoint edge sets and zero covariance; each on-copy vertex has exactly d_a incident edges forced open, yielding Bin(n-1-d_a,p) remaining edges. The binomial ratio and linearity establish the exact all-n formula. Strict monotonicity of falling factorial on (d-1,infinity) gives a unique continuous sign boundary; fixed-d expansion gives the constant correction. Direct independent exact fraction checks for n=4,5,p=2/5,triangle versus degree-two N_2 returned 3744/15625 and 432/15625, agreeing with the formula; source verifier explicitly enumerates n=4..6 and includes a nonregular path. Finite enumeration corroborates but does not prove the infinite statement. Interpret nonzero-motif claim with n>=h.
 
-Finite replay is supplementary. The universal statement is proved by indicator expansion and conditional binomial degree calculation in `RESULT.md`.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact replay result: `VERIFY_OK parameter_sets=9 graphs_enumerated_weighted=101568 formula_checks=225 regular_checks=180 sign_checks=180 triangle_checks=45 asymptotic_checks=48`.
+The exact cross-covariance and its regular-degree universal sign profile were not located in inspected marginal degree-count/triangle papers. The finite indicator identity can also be derived from the standard subgraph-score decomposition; therefore the originality claim is confined to this explicit cross-statistic identity and sharp universal profile, subject to substantial risk of an implicit older general-decomposition corollary. Best-of-knowledge PASS, not proof of priority.
+
+## value
+
+PASS
+
+Degree frequencies and motif counts are central and jointly interpretable network statistics; the exact covariance of their fluctuations under the canonical independent-edge null and the shape-independent sign threshold for all regular motifs give a motivated reusable all-size statistic, not merely a single finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

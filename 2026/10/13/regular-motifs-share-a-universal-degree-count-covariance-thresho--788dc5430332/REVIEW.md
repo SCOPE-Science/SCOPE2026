@@ -1,24 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof decomposes \(N_k\) and \(X_H\) into elementary indicators. A vertex outside a motif copy depends on a disjoint set of Bernoulli edges and contributes zero covariance. A vertex occupying motif role \(a\) has exactly \(d_a\) incident edges forced open when the copy is present, leaving a binomial number of additional incident edges. This gives the exact conditional degree probability and the binomial-ratio formula.
+PASS
 
-For a regular motif the sign reduction is immediate because the remaining prefactor is positive. The continuous falling factorial is strictly increasing above \(d-1\), so the sign boundary is unique. The stated constant-order displacement from the mean degree follows from a first-order expansion of the two falling factorials. The embedded checker verifies the complete formula, including a nonregular path motif, with exact rational arithmetic.
+Condition on the actual H-copy indicator: off-copy vertices have disjoint edge sets and zero covariance; each on-copy vertex has exactly d_a incident edges forced open, yielding Bin(n-1-d_a,p) remaining edges. The binomial ratio and linearity establish the exact all-n formula. Strict monotonicity of falling factorial on (d-1,infinity) gives a unique continuous sign boundary; fixed-d expansion gives the constant correction. Direct independent exact fraction checks for n=4,5,p=2/5,triangle versus degree-two N_2 returned 3744/15625 and 432/15625, agreeing with the formula; source verifier explicitly enumerates n=4..6 and includes a nonregular path. Finite enumeration corroborates but does not prove the infinite statement. Interpret nonzero-motif claim with n>=h.
 
-## Originality
+## originality
 
-PASS, with a residual risk from general random-graph-statistic decomposition theory. Goldstein's full text was inspected because it studies the exact degree-count statistic and is classified in probability; it does not introduce triangles or general motif counts. Gilmer--Kopparty's full public triangle paper was inspected for the complementary statistic; it does not introduce degree-class counts.
+PASS
 
-Janson's classical paper is a plausible stronger framework because its abstract covers functional limits for broad random graph statistics and fixed-subgraph counts. Full text was not available in the inspected source, so whole-document noncoverage is not asserted. The accepted novelty is the exact finite cross-statistic identity and the regular-motif universality of its sign threshold, not the separate marginal theories.
+The exact cross-covariance and its regular-degree universal sign profile were not located in inspected marginal degree-count/triangle papers. The finite indicator identity can also be derived from the standard subgraph-score decomposition; therefore the originality claim is confined to this explicit cross-statistic identity and sharp universal profile, subject to substantial risk of an implicit older general-decomposition corollary. Best-of-knowledge PASS, not proof of priority.
 
-## Value
+## value
 
-PASS. Degree frequencies and motif counts are canonical local summaries of network structure, and their dependence under the basic Erdős–Rényi null model is directly relevant when degree heterogeneity and clustering are interpreted together.
+PASS
 
-The formula does more than evaluate one covariance: it identifies a universality class. Every fixed regular motif of the same degree has the same normalized sign profile, with a sign change near the mean degree and an explicit constant correction. This provides a compact structural explanation for why low-degree and high-degree vertex classes move in opposite directions relative to regular motif abundance.
+Degree frequencies and motif counts are central and jointly interpretable network statistics; the exact covariance of their fluctuations under the canonical independent-edge null and the shape-independent sign threshold for all regular motifs give a motivated reusable all-size statistic, not merely a single finite example.
 
-Self-review: passed. Independent audit: not yet performed.
-
-
-Exact replay: `VERIFY_OK parameter_sets=9 graphs_enumerated_weighted=101568 formula_checks=225 regular_checks=180 sign_checks=180 triangle_checks=45 asymptotic_checks=48`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
