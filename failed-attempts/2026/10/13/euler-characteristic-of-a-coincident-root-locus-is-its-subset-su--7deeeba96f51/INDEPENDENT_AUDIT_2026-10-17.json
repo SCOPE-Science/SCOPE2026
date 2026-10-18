@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T21:01:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For partition λ=(λ_1,...,λ_e) of d≥1, diagonal C* action on P(Sym^d C²) has exactly d+1 monomial coordinate fixed points [x^(d-s)y^s]. Such a monomial lies in the closed coincident-root locus Δ_λ if and only if the exponent s is the sum of a subset of the λ_i: forward by choosing factors x or y, reverse by unique factorization. Distinct subset sums index DISTINCT points, not multiplicity. Projective torus localization gives χ_top(Δ_λ)=|Σ(λ)|. The d+1 extremum follows from elementary sorted complete-subset-sum criterion a1=1 and aj≤1+Σ_(i<j)ai. Independent subset enumeration checked partitions (2,1),(3,3),(2,2,2),(3,2,1),(1,2,3,5), with respective χ candidates 4,3,4,7,12. This is an all-partition proof, not an extrapolation from checked partitions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kőműves gives χ_y for each root-multiplicity stratum, strictly richer than χ alone",
+          "Public source code documentation lists Euler characteristic and motivic/CSM classes for coincident root loci including closures"
+        ],
+        "reasoning": "The prior χ_y algorithm is strictly broader same-object coverage for every partition; the submitted χ is its t=−1 specialization followed by finite additivity, not an independent unknown family.",
+        "searches": [
+          "coincident root loci binary forms Euler characteristic distinct subset sums",
+          "Kőműves 2018 slides §17–25",
+          "https://hub.darcs.net/bkomuves/coincident-root-loci"
+        ]
+      },
+      "checked_sources": [
+        "Kőműves 2018 50-slide published workshop presentation",
+        "https://hub.darcs.net/bkomuves/coincident-root-loci",
+        "arXiv:math/0110224",
+        "arXiv:math/0311312",
+        "Resultary semantic query coincident root loci binary forms Euler characteristic distinct subset sums"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "χ(Δ_λ)=Σ_(ν coarsening λ) χ(X_ν) by 2018 slide 7",
+          "χ(X_ν)=χ_y(X_ν)|_(t=−1) and arbitrary-partition χ_y extraction displayed in slides 19–25"
+        ],
+        "reasoning": "The earlier two formulas entail the submitted invariant for every λ regardless of whether a distinct-subset-sum expression is named. The all-subset-sum equality test is standard complete-sequence arithmetic, not a distinct new geometric invariant.",
+        "searches": [
+          "coincident root loci binary forms Euler characteristic distinct subset sums",
+          "Kőműves 2018 slides pp.6–8,19,25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2018 slides define X_mu open multiplicity strata, closures as union of X_nu over coarsenings",
+          "χ_y at t=−1 equals ordinary Euler characteristic for exactly those loci"
+        ],
+        "reasoning": "Previously known χ_y(X_mu) plus additivity over closure strata is an equivalent complete recipe for every χ(Δ_λ); the new subset-sum formulation is an elementary simplification of this covered numerical invariant.",
+        "searches": [
+          "coincident root loci binary forms Euler characteristic distinct subset sums",
+          "Kőműves 2018 motivic characteristic classes coincident root loci χ_y generating function",
+          "https://rimanyi.web.unc.edu/wp-content/uploads/sites/9870/2018/08/Komuves_motivic_slides.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Public pre-2026 program directly offers Euler characteristic for specified partitions, in addition to χ_y; slides give a uniform generating function",
+          "The subset-sum cardinality formula is not literally printed in the inspected source"
+        ],
+        "reasoning": "The exact computed invariant and an arbitrary-partition generating mechanism already exist. A compact alternative closed form alone does not establish originality of the principal Euler-characteristic claim.",
+        "searches": [
+          "coincident root loci binary forms Euler characteristic distinct subset sums",
+          "https://hub.darcs.net/bkomuves/coincident-root-loci"
+        ]
+      },
+      "rationale": "FAIL: The main invariant is already completely determined by Balázs Kőműves’s publicly available 2018 motivic-characteristic-class treatment and computational package for the same coincident root loci, including closures. The 2018 χ_y generating function for every exact-root open stratum yields χ at y=−1, and the published finite coarsening-stratum sum yields χ for every projective closure Δ_λ. The source explicitly identifies Euler characteristic of coincident root loci as previously trivial. The concise distinct-subset-sum expression and sorted equality test were not found stated verbatim; however the claimed exact Euler invariant is a corollary of stronger same-object prior coverage. Search failure for matching formula wording is not evidence of originality.",
+      "residual_risks": [
+        "Kőműves’s 2018 presentation calls some work in progress, but the stated χ_y algorithm and public software are concrete and published. No line-by-line examination of all program functions; precise subset-sum closed form not found in the slides."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG SAME-OBJECT COVERAGE. Computes χ_y for every open partition stratum; specialization at −1 and closure additivity determine χ_top of every projective coincident root locus. The submitted simple subset-sum formula is not displayed literally but is a specialization/reformulation of a previously determined complete invariant, not an unknown χ.",
+          "evidence": [
+            "slides 7–8: closure of X_mu is disjoint union of coarsening open strata",
+            "slide 19: χ_y(X)|t=-1 = χ(X), with explicit footnote \"Euler characteristic of coincident root loci is more-or-less trivial\"",
+            "slide 25: generating-function extraction of χ_y(X_mu) for arbitrary partitions"
+          ],
+          "identifier_or_url": "https://rimanyi.web.unc.edu/wp-content/uploads/sites/9870/2018/08/Komuves_motivic_slides.pdf",
+          "material_read": "Slides 6–8 defining open strata X_mu and closure as union of coarsening strata, slides 17–25 explaining χ_y generating-function algorithm, especially slide 19 exact χ_y(X)|_(t=-1)=χ(X) and footnote that Euler characteristic of coincident root loci is trivial; substantive 2018 public source material read",
+          "method": "50-slide publicly hosted PDF, text lines and screenshots of pages 19 and 25",
+          "title": "Motivic characteristic classes of coincident root loci: The generating function approach",
+          "trigger": "direct same coincident root loci and topological Euler invariant, published 2018 workshop slides"
+        },
+        {
+          "assessment": "Explicitly computes Euler characteristic for coincident root loci, with closures discussed, and more informative invariants; confirms prior determination of entire invariant rather than mere title similarity.",
+          "evidence": [
+            "README identifies both open loci and singular projective closures; lists Euler characteristic among supported computations"
+          ],
+          "identifier_or_url": "https://hub.darcs.net/bkomuves/coincident-root-loci",
+          "material_read": "Full README introduction and invariant list including Euler characteristic, CSM and χ_y; code itself not executed or independently examined line by line",
+          "method": "public source repository README",
+          "title": "Characteristic classes of coincident root loci, computation package",
+          "trigger": "exact same-object algorithmic census, closed loci and Euler characteristic"
+        },
+        {
+          "assessment": "Provides object equations but not independently decisive Euler formula.",
+          "evidence": [
+            "Classical multiplicity partition loci"
+          ],
+          "identifier_or_url": "arXiv:math/0110224",
+          "material_read": "Abstract, relevant parameterization background",
+          "method": "arXiv source overview",
+          "title": "On equations defining coincident root loci",
+          "trigger": "classical geometric definition/projective parametrization"
+        },
+        {
+          "assessment": "Studies more refined equivariant Poincare duals, separate from exact ordinary Euler coverage supplied by Kőműves.",
+          "evidence": [
+            "Fehér–Némethi–Rimányi cohomological classes"
+          ],
+          "identifier_or_url": "arXiv:math/0311312",
+          "material_read": "Abstract and statements on equivariant fundamental classes",
+          "method": "arXiv source overview",
+          "title": "Coincident root loci of binary forms",
+          "trigger": "equivariant characteristic classes and same root loci"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The torus-fixed monomial interpretation and exact distinct-subset-sum equality criterion are mathematically natural and give an exceptionally concise way to evaluate a classical singular projective variety invariant. They are motivated and potentially useful as a simple closed reformulation even though the Euler characteristic is already determined by stronger prior computational and characteristic-class results; value does not override originality failure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is O, not C or any access failure; no cosmetic repair prepared",
+    "Kőműves slide not a polished peer-reviewed article but a public mathematical presentation plus public code, with exact all-partition invariant coverage",
+    "Do not falsely claim the prior explicitly prints the new subset-sum closed form"
+  ],
+  "schema_version": 1
+}
