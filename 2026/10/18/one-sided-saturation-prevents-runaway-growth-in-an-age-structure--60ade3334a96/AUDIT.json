@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Logistic bound x<=L for t>=log(2)/C. Uncapped births B<=Kx; mortality m<=mu<=M; mass P'<=KL P. After T, every prior living predator that survives is adult, hence y2>=exp(-MT)P(t-T)>=cP(t). This supplies q=bc/(2K)>0 and V'<=(C+m)L-mV. Gronwall controls transient; standard bounded renewal continuation gives global solutions and limit superior P<=(C+m)L/(mq). Exact 2499-rational and 2400-parameter checks ran from embedded verifier; finite tests are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cai–Li–Song–Yu (2007), DOI:10.1155/2007/54861, full delayed stage-structured analysis uses distinct demographic equations.",
+        "Suarez et al., Theorem 1/Section 7 and appendix, local wellposedness and two-sided proposal."
+      ],
+      "reasoning": "Compared possible general dissipativity theorems, delayed predator–prey boundedness, and source-specific preliminary arguments. A theorem for a predator with self-competition or capped birth does not imply one with arbitrarily large unsaturated kx fecundity. No inspected source supplies the needed adult-y2 lower bound in this exact renewal model.",
+      "searches": [
+        "Suarez Cameron Fagan Levy predator prey role reversal age structured saturated birth rates global boundedness renewal equation 2026",
+        "nonlinear prey predator age-structured role reversal Lyapunov absorbing set uniform boundedness",
+        "renewal predator-prey model saturated prey growth global boundedness age-structured recruitment no birth saturation"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2502.19748v1",
+      "doi:10.1007/s00285-026-02402-5",
+      "doi:10.1155/2007/54861",
+      "published-finding corpus Two-stage reproductive kernels force complete threshold convergence in a bistable age-structured population model (published record)",
+      "Own previous-week source-specific invasion records 23803b5b-9a1c-47a8-9a7d-901dcff2bc51 and 09e4b1a8-9451-4f3e-9b48-0c23fe002fc4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Suarez et al., source model eqs (5), double modifications (42),(43), discussion Section 7.1.",
+        "Cai et al., DOI:10.1155/2007/54861, equations and boundedness/permanence assumptions."
+      ],
+      "reasoning": "Main source: a theorem under both capped prey and capped predator birth cannot imply the new statement where predator birth grows linearly with prey, since it omits precisely the unbounded case. Cai et al.: its density regulation is not the same unbounded linear fecundity and juvenile prey benefit. Prior source-specific invasion thresholds are linearizations, not an absorbing estimate for arbitrary initial distributions.",
+      "searches": [
+        "sharp predator-free extinction and invasion threshold in stage-structured role reversal with maturation and saturating fertility",
+        "Single-sided juvenile-benefit saturation alone yields uniform boundedness and absorbing set for an age-structured role-reversal predator-prey renewal equation despite linear unbounded adult fecundity.",
+        "predator prey age structured juvenile benefit saturation alone global boundedness unbounded predator fertility role reversal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Suarez et al., DOI:10.1007/s00285-026-02402-5, Sections 2,7; direct comparison of cap (42) versus birth (43).",
+        "published-finding corpus nearest scalar age-structured record Two-stage reproductive kernels force complete threshold convergence in a bistable age-structured population model (published record)."
+      ],
+      "reasoning": "Equivalent statement sought as one-sided saturation, prey-side bounded functional response, birth unbounded in prey, and characteristic adult coercivity. Motivating paper uses two distinct saturations and does not prove global boundedness for only one; scalar renewal result lacks adult–prey coupling.",
+      "searches": [
+        "Single-sided juvenile-benefit saturation alone yields uniform boundedness and absorbing set for an age-structured role-reversal predator-prey renewal equation despite linear unbounded adult fecundity.",
+        "Age-structured predator prey renewal equations global dissipativity positive adult fraction after one maturation interval and bounded prey equation",
+        "Suarez Cameron Fagan Levy 2026 boundedness only prey saturation predator birth unlimited"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest IDs: Two-stage reproductive kernels force complete threshold convergence in a bistable age-structured population model (published record); A determinant-sign proof of stability exchange in the predator-dependent replicator model (published record).",
+        "Previous ledger records 23803b5b-9a1c-47a8-9a7d-901dcff2bc51 and 09e4b1a8-9451-4f3e-9b48-0c23fe002fc4."
+      ],
+      "reasoning": "The exact theorem is not an entry in a known numerical table; it is a universal analytic estimate. Existing records for the same paper investigate predator-free invasion frontier, including high-resource limits, not one-sided global boundedness.",
+      "searches": [
+        "Role reversal prey logistic juvenile prey subsidy saturation unbounded predator births global bounds Suarez Cameron Levy 2502.19748",
+        "Delayed maturation transport adult stock lower bound by total population and birth/mortality bounds Lyapunov ecology",
+        "age structured predator saturating juvenile unbounded fecundity"
+      ]
+    },
+    "rationale": "The original Suarez–Cameron–Fagan–Levy model proposes capping both prey juvenile-benefit and predator births. The one-sided bound, with its unrestricted linear kx fecundity, is not implied by the published two-sided cap formulation, nor by the inspected age-structured delay comparison. Accessible previous research claims on this source concern invasion stability and spectral thresholds, not global dissipativity. Searches do not establish uniqueness; unindexed general renewal inequalities remain a residual risk.",
+    "residual_risks": [
+      "Unindexed generalized renewal-system dissipativity theorem might subsume the specific cohort argument.",
+      "Uniform global upper bound on age-specific baseline mortality is required; the source also permits a wider locally bounded mortality class.",
+      "published-finding corpus semantic overlap search cannot establish absence of unpublished findings."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains local wellposedness and numerical observations, proposes BOTH saturations; no one-sided global absorbing theorem stated.",
+        "evidence": [
+          "Original uncapped B(x,age) and mu(x,age) in Section 2.3",
+          "Source Sections 7.1 eqs (42),(43) change prey and predator recruitment simultaneously",
+          "Appendix local existence and characteristic cohort equations"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00285-026-02402-5",
+        "material_read": "Sections 2.2–2.3, 3.1–3.3, 7.1, conclusions and existence appendix, including equations and saturating interventions.",
+        "method": "Read open-access complete HTML; compared source eqs (5), (42), (43), and appendix against current theorem.",
+        "title": "A predator-prey model with age-structured role reversal",
+        "trigger": "Exact motivating system, proposed saturated modifications, theorem with possible coverage."
+      },
+      {
+        "assessment": "Analyzes different prey-age structure and predator delay setting with different feedback; does not imply the current one-sided renewal result.",
+        "evidence": [
+          "2007 paper title, main model and boundedness conditions",
+          "Age-structure and nonlinear density feedback not equivalent to unbounded prey-dependent predator fecundity"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2007/54861",
+        "material_read": "Accessible main mathematical model, population boundedness/permanence assumptions and stability arguments.",
+        "method": "Inspected open-access scientific text and compared coupled variables and density regulation.",
+        "title": "Permanence and Stability of an Age-Structured Prey-Predator System with Delays",
+        "trigger": "Potential broader age-structured predator–prey boundedness."
+      },
+      {
+        "assessment": "First public 2025-02-27; primary subject populations/ecology.",
+        "evidence": [
+          "arXiv v1 submitted 2025-02-27 04:25:42 UTC",
+          "arXiv MSC 92D25,35L04,65M06"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2502.19748",
+        "material_read": "Full arXiv metadata including submission history and listed subject/MSC codes.",
+        "method": "Read arXiv abstract and dated v1 history.",
+        "title": "A predator-prey model with age-structured role reversal (original preprint metadata)",
+        "trigger": "Determine earliest verified public date independent of journal publication."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "60ade333-4a96-4791-bcf8-3c7701d478dc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source identifies mutually amplifying prey and predator recruitment and proposes two separate saturations. Establishing a single-side sufficient repair without restricting maturation time or coupling strengths has a meaningful mechanistic interpretation and a global analytic conclusion for an infinite-dimensional renewal population. Cohort survival enforces adult predation sufficient for dissipativity. It is not a small numerical refinement or a direct scalar logistic exercise.",
+    "status": "PASS"
+  }
+}
