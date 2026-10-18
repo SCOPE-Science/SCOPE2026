@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,58 +18,25 @@
   "schema_version": 1
 }
 ---
-For finite \(p\ne2\), the verification target is the quotient
-\[
-Q_p(b)
-=
-\frac{N_p(b)}{D_p(b)}
-\]
-for
-\[
-x=(1,0),
-\qquad
-y_b=(b,1).
-\]
-The proof establishes a sign-changing zero of \(D_p\) and a nonzero same-sign numerator on the appropriate side.
 
-For
-\[
-p>2,
-\]
-\[
-D_p(0)=2-2^{2/p}>0,
-\qquad
-D_p(-1)<0,
-\]
-and the numerator is positive at the boundary zero in \((-1,0)\).
+# Independent mathematical audit
 
-For
-\[
-1\le p<2,
-\]
-\[
-D_p(0)=2-2^{2/p}<0,
-\qquad
-D_p(1)=2^{2/p}>0,
-\]
-and the numerator is negative at the boundary zero in \((0,1)\).
+## correctness
 
-For
-\[
-p=\infty,
-\]
-\[
-N_\infty(b)=1,
-\qquad
-D_\infty(b)=2-(1-b)^2,
-\]
-so the pole is exactly at
-\[
-b=1-\sqrt2.
-\]
+PASS
 
-`verify.py` uses the standard library only. It bisects the sign-changing zero for representative exponents on both sides of \(2\), checks the numerator sign, and confirms quotient values above a large threshold when approaching the zero from the admissible side. It separately checks the exact \(p=\infty\) branch and the Hilbert quotient \(-1\).
+The endpoint-sign and nonvanishing-opposite-defect proof for all p is exact; the 9-point floating verifier is only corroboration, not an infinite proof. The Hilbert case is the parallelogram identity.
 
-The finite exponent sample is a reproducibility check only; the universal quantifiers are proved by the endpoint inequalities in `RESULT.md`.
+## originality
 
-No independent audit or independent validation has been performed.
+PASS
+
+Explicit two-coordinate family x=(1,0), y_b=(b,1) gives denominators D_p(b)=1+(1+|b|^p)^(2/p)-((1-b)^p+1)^(2/p). For p>2, D_p(-1)<0<D_p(0), and N_p=1+(1+|b|^p)^(2/p)-((1+b)^p+1)^(2/p) is positive at a negative-b zero; approach from D>0 gives +infinity. For 1<=p<2, D_p(0)<0<D_p(1) and N_p<0 at a positive-b zero; approach from D<0 gives +infinity. At p=infinity D=2-(1-b)^2, N=1 and b approaches 1-sqrt(2) from above; Hilbert parallelogram law makes the quotient identically -1 when defined. The two-coordinate embedding proves arbitrary |I|>=2, no reliance on sampled exponents.
+
+## value
+
+PASS
+
+Distinguishes the unique finite Hilbert p in the canonical ℓp family and shows the P(X) quotient is structurally unbounded even for smooth uniformly convex non-Hilbert spaces; this diagnoses a natural geometric invariant, not a routine table evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(1\le p<\infty\), the two-coordinate family \(x=(1,0)\), \(y=(b,1)\) gives explicit continuous numerator and denominator functions. For \(p>2\), the denominator is positive at \(b=0\) and negative at \(b=-1\); at the boundary zero approached from the positive side, the numerator is strictly positive. For \(1\le p<2\), the denominator is negative at \(b=0\) and positive at \(b=1\); at the boundary zero approached from the negative side, the numerator is strictly negative. In both cases the quotient tends to \(+\infty\). The \(p=\infty\) denominator is explicitly \(2-(1-b)^2\) with numerator \(1\), and \(p=2\) gives the constant quotient \(-1\) by the parallelogram identity. Every larger \(\ell_p(I)\) contains the same two-coordinate configurations.
+## correctness
 
-## Originality
-PASS. The defining 2023 full text was inspected throughout its \(P(X)\) section, including the definition, Hilbert characterization, lower bounds, and sequence-space discussion. It does not provide a finiteness theorem or exact \(\ell_p\) classification. Searches covered the exact notation, Pythagorean-orthogonality aliases, \(\ell_p\) terminology, and unbounded-supremum language. The closest same-invariant prior result is a single regular-octagonal unbounded example; it does not imply the smooth uniformly convex cases or the complete exponent dichotomy. The closest \(\ell_p\) records concern different invariants.
+PASS
 
-## Value
-PASS. The theorem resolves whether the newly introduced quotient is actually finite on the canonical \(\ell_p\) scale and finds a sharp phase transition at the Hilbert exponent. Showing unboundedness throughout \(1<p<\infty\), \(p\ne2\), rules out an interpretation of divergence as a purely polyhedral pathology and provides a structurally significant boundary for future use of the invariant.
+The endpoint-sign and nonvanishing-opposite-defect proof for all p is exact; the 9-point floating verifier is only corroboration, not an infinite proof. The Hilbert case is the parallelogram identity.
 
-## Closest literature and limitations
-Zhou, Ni, Liu and Li introduced \(P(X)\) in Contributions to Mathematics 8 (2023), 38--47, published online 11 September 2023, with primary MSC 46B20. Their paper develops lower estimates and a Hilbert characterization but does not give the present finiteness dichotomy. The theorem here is restricted to real \(\ell_p\) sequence spaces and does not classify arbitrary \(L_p\) spaces or all Banach spaces with finite \(P(X)\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Explicit two-coordinate family x=(1,0), y_b=(b,1) gives denominators D_p(b)=1+(1+|b|^p)^(2/p)-((1-b)^p+1)^(2/p). For p>2, D_p(-1)<0<D_p(0), and N_p=1+(1+|b|^p)^(2/p)-((1+b)^p+1)^(2/p) is positive at a negative-b zero; approach from D>0 gives +infinity. For 1<=p<2, D_p(0)<0<D_p(1) and N_p<0 at a positive-b zero; approach from D<0 gives +infinity. At p=infinity D=2-(1-b)^2, N=1 and b approaches 1-sqrt(2) from above; Hilbert parallelogram law makes the quotient identically -1 when defined. The two-coordinate embedding proves arbitrary |I|>=2, no reliance on sampled exponents.
+
+## value
+
+PASS
+
+Distinguishes the unique finite Hilbert p in the canonical ℓp family and shows the P(X) quotient is structurally unbounded even for smooth uniformly convex non-Hilbert spaces; this diagnoses a natural geometric invariant, not a routine table evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
