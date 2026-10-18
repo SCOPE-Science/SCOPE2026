@@ -1,27 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The exact characteristic factorization gives a transverse pair with crossing speed \(1/2\). The explicitly normalized dual eigenvectors, bilinear term, and resulting \(l_1(a)<0\) hold symbolically for every \(a>0\). A second derivation via the scalar jerk equation independently obtains the first-harmonic solvability condition, positive branch parameter coefficient, amplitude and period slopes. The sign and stability use the standard nondegenerate Hopf theorem; they do not follow from finite simulation alone. Integrating the jerk equation times its first derivative proves the global periodic identity, and the strict Wirtinger bound follows without numerical assumptions.
+PASS
 
-## Originality: PASS, subject to residual risks
+For a>0 fixed, b crossing zero, transform Sprott Q via s=y,x=s'+s,z=-s''-s' to jerk s'''+(1-b)s''+(a-b)s'+as+s²=0. At the origin the characteristic polynomial is (lambda+1)(lambda²-b lambda+a); simple pair crosses with positive real speed 1/2 and the third eigenvalue stays -1. An explicitly normalized quadratic Hopf calculation yields l1=-(8a+1)/(a^(3/2)(a+1)(4a+1))<0. Independent Lindstedt/Fourier first/second harmonics give beta=(8a+1)/(2a(a+1)(4a+1))>0 and frequency shift delta=-(26a+5)/(12a^(3/2)(a+1)(4a+1)), yielding asserted stable branch, physical amplitude M_y²=2a(a+1)(4a+1)/(8a+1)b+O(b^(3/2)), mean y=-(a+1)(4a+1)/(8a+1)b+o(b), and period T=(2pi/sqrt a)[1+(26a+5)b/(6a(8a+1))+O_a(b²)]. Multiplying jerk by s' and integrating yields ∫s''²=(a-b)∫s'², so Wirtinger forces all nonconstant cycles T>2pi/sqrt(a-b), with strictness from s² generating second harmonic. The new gap coefficient is 2pi(a+1)/(3a^(3/2)(8a+1))b>0. Independently checked eigenvectors, l1, Fourier constants and gap algebra in SymPy. Infinite local existence relies on nondegenerate Hopf theorem, not simulation.
 
-The full introducing paper [1] and entire parameter atlas [2] report numerical trajectories and regions, not the claimed \(b\)-dependent amplitude, period and strict-floor-gap coefficients. The full equivalence study [3] concerns system relationships without establishing these coefficients. An earlier stable Hopf calculation for a *different* Sprott system has a closely related critical jerk normal form: indeed the critical Sprott-S jerk can be conjugated by an affine scaling to the critical Sprott-Q jerk. Accordingly the sign of the critical cubic focus coefficient is **not** treated as independent novelty. A parameter-dependent time/coordinate equivalence can even map the neighboring Q family to a curve in the S family, but that curve varies both S parameters and rescales physical time. The previously known S critical Hopf sign and limiting period still do not determine the Q period slope or strict gap; these coefficients must be separately calculated. A previous necessary periodic-orbit floor for the same Q vector field cannot imply the existence or expansion of a stable Hopf cycle. No inspected source established a mathematically stronger covering result. The finite search does not exclude unknown or unindexed treatments of the same unfolding.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-This is a specific quantitative bifurcation question for a classical, experimentally charted chaotic-flow family, rather than a trivial eigenvalue threshold. The branch existence supplies a locally attracting oscillation; the exact physical-coordinate amplitude and frequency derivatives turn numerical parameter transitions into testable analytic predictions. The strict coefficient in the gap above a universal period obstruction measures the first-order slack of that obstruction along the emerging stable cycle, clarifying whether the inequality is asymptotically sharp in the onset parameter. The analysis computes the period response on a particular parameter curve through the related S jerk family, distinguishing its physical-time normalization from the critical-limit information.
+Sprott 1994 paper (full four pages visually read) introduces numerical chaotic flows, and the later parameter atlas (read) describes numerics, not all-a analytic Hopf period/amplitude derivatives. A published Resultary Q source of Oct 4 proves the exact UNIVERSAL period floor T>2pi/sqrt(a-b): this part is explicitly covered and NOT novelty. Another Sprott-S source proves a critical supercritical Hopf and limiting period at an equivalent critical jerk, but under the Q unfolding BOTH transformed S parameters and physical time vary. Thus the S sign and floor do not imply the Q first-order physical y-amplitude, b-period derivative or strictly positive gap coefficient. This comparison explicitly grants known components and accepts only the surviving exact quantitative branch calculation; full Mendes 2021 equivalence paper is uninspected and residual risk remains.
 
-## Risks and limits
+## value
 
-This is a same-model scientific review, not independent certification. Novelty is relative to the actual inspected literature and published search coverage, not exhaustive discovery; a more obscure source may already compute the same quantitative unfolding. The result is local for each fixed \(a>0\), not a global classification of chaos or all attractors.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+All-a>0 first-order period and physical amplitude laws for a classical polynomial flow provide analytic predictions near the origin and quantify how a known universal period constraint fails to be attained by the emerging stable cycle. The sharp strictly positive gap slope addresses a natural extremal/bifurcation boundary rather than a textbook eigenvalue check. The already-known floor and shared critical Hopf sign are not counted as separate contributions.
 
-### References
-
-[1] J. C. Sprott, *Physical Review E* **50** (1994), R647–R650, DOI: 10.1103/PhysRevE.50.R647.
-
-[2] J. C. Sprott, “Dynamic Regions in Simple Chaotic Flows,” https://sprott.physics.wisc.edu/technote/regions.htm.
-
-[3] Mendes, Lainscsek and Letellier, *Chaos* **31** (2021), 083126, DOI: 10.1063/5.0058330.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

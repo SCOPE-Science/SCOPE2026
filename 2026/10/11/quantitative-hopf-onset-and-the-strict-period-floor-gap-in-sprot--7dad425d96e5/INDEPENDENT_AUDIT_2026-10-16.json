@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T23:15:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a>0 fixed, b crossing zero, transform Sprott Q via s=y,x=s'+s,z=-s''-s' to jerk s'''+(1-b)s''+(a-b)s'+as+s²=0. At the origin the characteristic polynomial is (lambda+1)(lambda²-b lambda+a); simple pair crosses with positive real speed 1/2 and the third eigenvalue stays -1. An explicitly normalized quadratic Hopf calculation yields l1=-(8a+1)/(a^(3/2)(a+1)(4a+1))<0. Independent Lindstedt/Fourier first/second harmonics give beta=(8a+1)/(2a(a+1)(4a+1))>0 and frequency shift delta=-(26a+5)/(12a^(3/2)(a+1)(4a+1)), yielding asserted stable branch, physical amplitude M_y²=2a(a+1)(4a+1)/(8a+1)b+O(b^(3/2)), mean y=-(a+1)(4a+1)/(8a+1)b+o(b), and period T=(2pi/sqrt a)[1+(26a+5)b/(6a(8a+1))+O_a(b²)]. Multiplying jerk by s' and integrating yields ∫s''²=(a-b)∫s'², so Wirtinger forces all nonconstant cycles T>2pi/sqrt(a-b), with strictness from s² generating second harmonic. The new gap coefficient is 2pi(a+1)/(3a^(3/2)(8a+1))b>0. Independently checked eigenvectors, l1, Fourier constants and gap algebra in SymPy. Infinite local existence relies on nondegenerate Hopf theorem, not simulation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Oct 4 published compact-recurrence Sprott Q record covers the global period floor identically. The separate Sprott S all-a Hopf theorem has the same *critical* jerk equation after time/coordinate change but does not state the derivatives along the parameter-dependent Q-to-S curve and physical time transformation. The quantitative branch coefficients are an additional calculation. An equivalence study might contain such derivatives; not read fully.",
+          "Independently recomputed Hopf and Lindstedt beta,delta and relative gap slope with SymPy."
+        ],
+        "reasoning": "The Oct 4 published compact-recurrence Sprott Q record covers the global period floor identically. The separate Sprott S all-a Hopf theorem has the same *critical* jerk equation after time/coordinate change but does not state the derivatives along the parameter-dependent Q-to-S curve and physical time transformation. The quantitative branch coefficients are an additional calculation. An equivalence study might contain such derivatives; not read fully.",
+        "searches": [
+          "Sprott Q Hopf bifurcation amplitude period lower bound equivalent Sprott S system",
+          "Resultary: 2026/10/4 compact recurrence phase boundary strict period floor generalized Sprott Q",
+          "Resultary: 2026/10/11 uniform supercritical Hopf boundary quadratic Sprott S",
+          "J C Sprott Some simple chaotic flows 1994 DOI:10.1103/PhysRevE.50.R647",
+          "Mendes Lainscsek Letellier Diffeomorphical equivalence vs topological equivalence among Sprott systems DOI:10.1063/5.0058330"
+        ]
+      },
+      "checked_sources": [
+        "Sprott Q Hopf bifurcation amplitude period lower bound equivalent Sprott S system",
+        "Resultary: 2026/10/4 compact recurrence phase boundary strict period floor generalized Sprott Q",
+        "Resultary: 2026/10/11 uniform supercritical Hopf boundary quadratic Sprott S",
+        "J C Sprott Some simple chaotic flows 1994 DOI:10.1103/PhysRevE.50.R647",
+        "Mendes Lainscsek Letellier Diffeomorphical equivalence vs topological equivalence among Sprott systems DOI:10.1063/5.0058330",
+        "doi:10.1103/PhysRevE.50.R647; https://sprott.physics.wisc.edu/pubs/paper212.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-compact-recurrence-phase-boundary-and-strict-period-floor-in-the--429ba7cbe97a/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-uniform-supercritical-hopf-boundary-in-the-quadratic-sprott-s-fl--0faa06abba27/RESULT.md",
+        "doi:10.1063/5.0058330"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known period floor and nondegenerate Sprott S Hopf at an equivalent critical jerk do not imply physical Q period-gap slope, because the local Q parameter curve changes both S parameters and rescales time; proof calculates beta and delta explicitly. Subtracting the known floor expansion from independently computed T produces the positive gap. Claimed novelty is only this calculational quantitative refinement, not the global bound.",
+          "Full actual Sprott 1994 author-hosted four-page PDF inspected with page screenshots; numerical flow catalog, not the all-a branch derivatives.",
+          "Resultary Sprott Q period-floor RESULT.md read and found identical strict T>2pi/sqrt(a-b); credited as covering that component."
+        ],
+        "reasoning": "Known period floor and nondegenerate Sprott S Hopf at an equivalent critical jerk do not imply physical Q period-gap slope, because the local Q parameter curve changes both S parameters and rescales time; proof calculates beta and delta explicitly. Subtracting the known floor expansion from independently computed T produces the positive gap. Claimed novelty is only this calculational quantitative refinement, not the global bound.",
+        "searches": [
+          "Sprott Q Hopf bifurcation amplitude period lower bound equivalent Sprott S system",
+          "Resultary: 2026/10/4 compact recurrence phase boundary strict period floor generalized Sprott Q",
+          "Resultary: 2026/10/11 uniform supercritical Hopf boundary quadratic Sprott S",
+          "J C Sprott Some simple chaotic flows 1994 DOI:10.1103/PhysRevE.50.R647",
+          "Mendes Lainscsek Letellier Diffeomorphical equivalence vs topological equivalence among Sprott systems DOI:10.1063/5.0058330"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sprott case Q Hopf bifurcation; cubic scalar jerk equation; quantitative period slowing; first-Lyapunov coefficient; parameter-unfolding equivalence to Sprott S.",
+          "Full actual Sprott 1994 author-hosted four-page PDF inspected with page screenshots; numerical flow catalog, not the all-a branch derivatives.",
+          "Resultary Sprott Q period-floor RESULT.md read and found identical strict T>2pi/sqrt(a-b); credited as covering that component."
+        ],
+        "reasoning": "Sprott 1994 paper (full four pages visually read) introduces numerical chaotic flows, and the later parameter atlas (read) describes numerics, not all-a analytic Hopf period/amplitude derivatives. A published Resultary Q source of Oct 4 proves the exact UNIVERSAL period floor T>2pi/sqrt(a-b): this part is explicitly covered and NOT novelty. Another Sprott-S source proves a critical supercritical Hopf and limiting period at an equivalent critical jerk, but under the Q unfolding BOTH transformed S parameters and physical time vary. Thus the S sign and floor do not imply the Q first-order physical y-amplitude, b-period derivative or strictly positive gap coefficient. This comparison explicitly grants known components and accepts only the surviving exact quantitative branch calculation; full Mendes 2021 equivalence paper is uninspected and residual risk remains. Alias/synonym reduction: Sprott case Q Hopf bifurcation; cubic scalar jerk equation; quantitative period slowing; first-Lyapunov coefficient; parameter-unfolding equivalence to Sprott S.",
+        "searches": [
+          "Sprott Q Hopf bifurcation amplitude period lower bound equivalent Sprott S system",
+          "Resultary: 2026/10/4 compact recurrence phase boundary strict period floor generalized Sprott Q",
+          "Resultary: 2026/10/11 uniform supercritical Hopf boundary quadratic Sprott S",
+          "J C Sprott Some simple chaotic flows 1994 DOI:10.1103/PhysRevE.50.R647",
+          "Mendes Lainscsek Letellier Diffeomorphical equivalence vs topological equivalence among Sprott systems DOI:10.1063/5.0058330"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Sprott numerical parameter atlases describe chaotic/periodic regimes, but do not provide exact expressions for T'_a(0), M_y²/b or the gap coefficient for all a>0. No exact bifurcation coefficient database/table matching this normalization was found. Numerical windows are not algebraic coverage.",
+          "Full actual Sprott 1994 author-hosted four-page PDF inspected with page screenshots; numerical flow catalog, not the all-a branch derivatives."
+        ],
+        "reasoning": "Published Sprott numerical parameter atlases describe chaotic/periodic regimes, but do not provide exact expressions for T'_a(0), M_y²/b or the gap coefficient for all a>0. No exact bifurcation coefficient database/table matching this normalization was found. Numerical windows are not algebraic coverage.",
+        "searches": [
+          "Sprott Q Hopf bifurcation amplitude period lower bound equivalent Sprott S system",
+          "Resultary: 2026/10/4 compact recurrence phase boundary strict period floor generalized Sprott Q",
+          "Resultary: 2026/10/11 uniform supercritical Hopf boundary quadratic Sprott S",
+          "J C Sprott Some simple chaotic flows 1994 DOI:10.1103/PhysRevE.50.R647",
+          "Mendes Lainscsek Letellier Diffeomorphical equivalence vs topological equivalence among Sprott systems DOI:10.1063/5.0058330"
+        ]
+      },
+      "rationale": "Sprott 1994 paper (full four pages visually read) introduces numerical chaotic flows, and the later parameter atlas (read) describes numerics, not all-a analytic Hopf period/amplitude derivatives. A published Resultary Q source of Oct 4 proves the exact UNIVERSAL period floor T>2pi/sqrt(a-b): this part is explicitly covered and NOT novelty. Another Sprott-S source proves a critical supercritical Hopf and limiting period at an equivalent critical jerk, but under the Q unfolding BOTH transformed S parameters and physical time vary. Thus the S sign and floor do not imply the Q first-order physical y-amplitude, b-period derivative or strictly positive gap coefficient. This comparison explicitly grants known components and accepts only the surviving exact quantitative branch calculation; full Mendes 2021 equivalence paper is uninspected and residual risk remains.",
+      "residual_risks": [
+        "The full Mendes–Lainscsek–Letellier equivalence study was not read; a stronger period-response calculation could already be published.",
+        "The Q universal strict period floor and critical Hopf sign via Sprott S are already mathematically covered, explicitly excluded from originality claim.",
+        "Local fixed-a small-b conclusions do not characterize other equilibria, global attractors or chaos, and O_a errors are not uniform in a."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides numerical examples and flow list; no exact all-a Q Hopf amplitude/physical period derivatives.",
+          "evidence": "Original catalog of Sprott examples and their sample chaotic parameters.",
+          "identifier_or_url": "doi:10.1103/PhysRevE.50.R647; https://sprott.physics.wisc.edu/pubs/paper212.pdf",
+          "material_read": "All four original PDF pages visually inspected, including vector fields, parameter settings and numerical examples.",
+          "method": "Lawful author-hosted PDF with direct page screenshots.",
+          "title": "Some simple chaotic flows",
+          "trigger": "Primary introduction of the exact Sprott polynomial family and its numerical regimes"
+        },
+        {
+          "assessment": "IDENTICAL strict period floor is previously covered; original reviewed record retains it as context, not new mathematical credit.",
+          "evidence": "Published conclusion every nonconstant cycle has T>2pi/sqrt(a-b).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-compact-recurrence-phase-boundary-and-strict-period-floor-in-the--429ba7cbe97a/RESULT.md",
+          "material_read": "Full Finding and relevant proof of energy/Wirtinger lower period bound read from actual RESULT.md.",
+          "method": "Fetched published source via GitHub and compared identical a,b and T normalization.",
+          "title": "Compact-recurrence phase boundary and strict period floor in the generalized Sprott Q flow",
+          "trigger": "Exact same Q system and potential dominating period inequality"
+        },
+        {
+          "assessment": "Critical Hopf sign and limiting period are covered under equivalence, but not the Q unfolding physical period/gap slope.",
+          "evidence": "S record establishes l1<0 and limiting 2pi/sqrt a at bS=1/4, without the Q along-curve period derivative.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-uniform-supercritical-hopf-boundary-in-the-quadratic-sprott-s-fl--0faa06abba27/RESULT.md",
+          "material_read": "Full Finding and critical Hopf coefficient/equilibrium proof passages read; not full paper beyond these source excerpts.",
+          "method": "Compared critical jerk conjugacy, S parameter bS=1/4, and limits to the Q parameter derivative.",
+          "title": "Uniform supercritical Hopf boundary in the quadratic Sprott-S flow",
+          "trigger": "Equivalent critical jerk and possible coverage of Hopf computation"
+        },
+        {
+          "assessment": "Equivalence could cover relationships, but absent full text cannot exclude a hidden exact Hopf period derivative.",
+          "evidence": "The required Q physical-time slope depends on parameter-dependent time rescaling.",
+          "identifier_or_url": "doi:10.1063/5.0058330",
+          "material_read": "Bibliographic details/abstract-level information only; full paper not read due external access challenge.",
+          "method": "Compared cited equivalence scope with the explicit exact near-critical Q-to-S mapping in assigned RESULT.md.",
+          "title": "Diffeomorphical equivalence vs topological equivalence among Sprott systems",
+          "trigger": "Potential general parameter-dependent conjugacies and their invariant coefficients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "All-a>0 first-order period and physical amplitude laws for a classical polynomial flow provide analytic predictions near the origin and quantify how a known universal period constraint fails to be attained by the emerging stable cycle. The sharp strictly positive gap slope addresses a natural extremal/bifurcation boundary rather than a textbook eigenvalue check. The already-known floor and shared critical Hopf sign are not counted as separate contributions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Sprott Q Hopf bifurcation amplitude period lower bound equivalent Sprott S system",
+    "Resultary: 2026/10/4 compact recurrence phase boundary strict period floor generalized Sprott Q",
+    "Resultary: 2026/10/11 uniform supercritical Hopf boundary quadratic Sprott S",
+    "J C Sprott Some simple chaotic flows 1994 DOI:10.1103/PhysRevE.50.R647",
+    "Mendes Lainscsek Letellier Diffeomorphical equivalence vs topological equivalence among Sprott systems DOI:10.1063/5.0058330",
+    "doi:10.1103/PhysRevE.50.R647; https://sprott.physics.wisc.edu/pubs/paper212.pdf",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-compact-recurrence-phase-boundary-and-strict-period-floor-in-the--429ba7cbe97a/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-uniform-supercritical-hopf-boundary-in-the-quadratic-sprott-s-fl--0faa06abba27/RESULT.md",
+    "doi:10.1063/5.0058330"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The full Mendes–Lainscsek–Letellier equivalence study was not read; a stronger period-response calculation could already be published.",
+    "The Q universal strict period floor and critical Hopf sign via Sprott S are already mathematically covered, explicitly excluded from originality claim.",
+    "Local fixed-a small-b conclusions do not characterize other equilibria, global attractors or chaos, and O_a errors are not uniform in a."
+  ],
+  "residual_risks": [
+    "The full Mendes–Lainscsek–Letellier equivalence study was not read; a stronger period-response calculation could already be published.",
+    "The Q universal strict period floor and critical Hopf sign via Sprott S are already mathematically covered, explicitly excluded from originality claim.",
+    "Local fixed-a small-b conclusions do not characterize other equilibria, global attractors or chaos, and O_a errors are not uniform in a."
+  ],
+  "schema_version": 1
+}
