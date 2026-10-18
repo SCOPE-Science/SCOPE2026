@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "All m>=2 and all w>0: group averaging proves unrestricted minimality; an exact edge-gradient identity reduces heavy-direction norm to a radial bounded-Lipschitz cube optimization; nested-coordinate path comparison gives the pointwise sharp bound; one global clipped-affine function attains every bound. The light directions contract. For w>=m use ES_m^2=m; below m use support of |S_m|=m-2 and monotonicity. Full finite primal LPs on m=2..5 check 24 parameter instances and 48 edge directions without substituting finite tests for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2208.06467 Ch.8 uses the uniform norm and gives no metric-edge weights.",
+        "arxiv:2302.00233 §3 likewise optimizes within C(Boolean cube) equipped with the uniform norm."
+      ],
+      "reasoning": "Although the cited theorems treat every Fourier support, that greater support generality is with respect to a distinct norm. They do not imply a constant varying with heavy-edge length, much less the condition w>=m. The special known unit-weight case has insufficient parameters.",
+      "searches": [
+        "Projection constants for three degree-two Walsh monomials x1 x2 x1 x3 x1 x4 on unequal-weight Hamming cube",
+        "\"Boolean cube\" \"Lipschitz\" \"projection constant\" Walsh",
+        "arxiv:2208.06467 Chapter 8 Theorem 8.1.1",
+        "arxiv:2302.00233 Theorem 3.1"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier": "arxiv:2208.06467",
+        "result": "Not covering metric-edge Lip norm",
+        "scope": "Chapter 8 full theorem and norm definitions"
+      },
+      {
+        "identifier": "arxiv:2302.00233",
+        "result": "Not covering weighted Lipschitz norm",
+        "scope": "Sections 1-3 full theorem and norm definitions"
+      },
+      {
+        "identifier": "arxiv:2102.02778",
+        "result": "Not the same underlying space or projection",
+        "scope": "Introduction and Theorems A/B plus domains"
+      },
+      {
+        "identifier": "published semantic search",
+        "result": "No direct covering entry found",
+        "scope": "weighted Walsh-star, anisotropic gradients, Fourier Lip projections"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2102.02778 Thm.A is Euclidean-ball polynomial projection lower bounds, and Thm.B is infinite Banach-ball noncomplementability.",
+        "arxiv:2302.00233 Thm.3.1 depends only on spectral support and the uniform norm; the current formula changes with w."
+      ],
+      "reasoning": "The new statement specializes at w=1 to the known Rademacher first moment, but yields independent w-dependent values and a norm-one threshold for w>=m. The latter is not a corollary of a w=1 result or any inspected sup-norm or continuous-ball statement.",
+      "searches": [
+        "arxiv:2102.02778 Theorem A Theorem B",
+        "arxiv:2302.00233 Theorem 3.1",
+        "Projection onto Walsh star spectral subspace of weighted Lipschitz spaces and Lipschitz-free spaces"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Weighted coordinate-difference seminorm is the Lipschitz norm of the shortest-path metric; the candidate formula is therefore equivalent to an anisotropic discrete-gradient Fourier multiplier norm.",
+        "arxiv:2302.00233 Thm.3.1 studies a sup-norm Fourier multiplier, a different operator norm."
+      ],
+      "reasoning": "A metric-edge Lipschitz norm is a maximum of normalized discrete gradients; a sup-norm Walsh convolution formula does not turn into the weighted gradient phase law by a change of labels. Queries examined both direct projection language and gradient/Fourier aliases.",
+      "searches": [
+        "Weighted Hamming cube anisotropic Lipschitz Walsh Fourier projection constant star characters coordinate derivatives norm one threshold",
+        "Projection onto Walsh star spectral subspace of weighted Lipschitz spaces and Lipschitz-free spaces",
+        "\"weighted Hamming\" \"Fourier projection\" \"Lipschitz\" norm",
+        "\"Fourier\" \"projection\" \"Lipschitz norm\" \"cube\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-record search returned Boolean Walsh Fourier-support and general weighted projection items but no exact anisotropic star table.",
+        "Finite-dimensional LP tests were independently computed, not copied from any existing table."
+      ],
+      "reasoning": "No exact indexed table or database entry with m>=2 and variable w was identified. This is negative search evidence, not a proof of novel priority.",
+      "searches": [
+        "Weighted Hamming cube anisotropic Lipschitz Walsh Fourier projection constant star characters coordinate derivatives norm one threshold",
+        "Projection constants for three degree-two Walsh monomials x1 x2 x1 x3 x1 x4 on unequal-weight Hamming cube",
+        "Projection onto Walsh star spectral subspace of weighted Lipschitz spaces and Lipschitz-free spaces",
+        "\"weighted cube\" \"projection constants\" Walsh"
+      ]
+    },
+    "rationale": "The inspected primary sup-norm Fourier projection formulas and Banach-ball Lipschitz polynomial projection theorems do not imply the all-weight finite metric-edge Lipschitz projection law. The known unweighted special case does not determine changes with w or the sharp norm-one threshold w=m. Targeted semantic and exact-alias searches found no directly covering source; residual undiscovered equivalence risk is explicitly recorded.",
+    "residual_risks": [
+      "Unindexed or differently formulated results in discrete harmonic analysis may contain the same clipped-gradient formula.",
+      "An isometric embedding of integer-weight metric cubes into larger unweighted cubes does not alone transfer the relative projection invariant; an unidentified extension/retraction theorem might provide an indirect prior implication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: Theorem 8.1.1 computes a supremum-norm Fourier projection constant independent of metric weights; the present result optimizes a weighted edge-gradient norm and has a sharp weight threshold.",
+        "evidence": [
+          "PDF p.102, §8.1, Theorem 8.1.1; source space B^N_S is identified with a subspace of ℓ∞(Boolean cube)."
+        ],
+        "identifier_or_url": "arxiv:2208.06467 / https://arxiv.org/pdf/2208.06467",
+        "material_read": "Public 181-page PDF, Contents and Introduction, Chapter 8 pp.101-103, Theorem 8.1.1 and its norm definitions.",
+        "method": "Direct full-PDF text and page inspection; contrasted source Banach norm and relative projection statement.",
+        "title": "Projection constants for spaces of multivariate polynomials",
+        "trigger": "Closest systematic projection-constant theorem for Boolean Walsh spectra; possible broader coverage."
+      },
+      {
+        "assessment": "NOT_COVERING: Theorem 3.1 is an expectation formula for the classical uniform (supremum) norm; no weighted metric Lipschitz seminorm is used.",
+        "evidence": [
+          "PDF p.1 introduction and p.9 Theorem 3.1: B^N_S is endowed with supremum norm. Theorem 3.1 is the L1 norm of the Walsh kernel."
+        ],
+        "identifier_or_url": "arxiv:2302.00233 / https://arxiv.org/pdf/2302.00233",
+        "material_read": "Full 35-page PDF, Introduction pp.1-3, §2.1 and §2.3, §3 pp.8-10 including Theorem 3.1 and following estimates.",
+        "method": "Direct arXiv full-PDF inspection of theorem, definitions of the function-space norm, and its consequences.",
+        "title": "Asymptotic insights for projection, Gordon–Lewis and Sidon constants in Boolean cube function spaces",
+        "trigger": "Direct same-object Boolean-cube Walsh projection formula, possible stronger case."
+      },
+      {
+        "assessment": "NOT_COVERING: Theorem A concerns polynomial subspaces on continuous Euclidean balls and dimension-growth lower bounds; Theorem B deals with infinite-dimensional type and failure of complementability, not finite weighted Hamming cubes.",
+        "evidence": [
+          "PDF pp.2-3 Theorems A and B and their Banach-ball domains."
+        ],
+        "identifier_or_url": "arxiv:2102.02778 / https://arxiv.org/pdf/2102.02778",
+        "material_read": "Full 21-page PDF, abstract, Introduction pp.1-3, Theorems A and B, and relevant descriptions of their proof scopes.",
+        "method": "Direct arXiv full-PDF inspection of domain hypotheses and precise projection statements.",
+        "title": "Projecting Lipschitz functions onto spaces of polynomials",
+        "trigger": "Title and Lipschitz polynomial-projection theme make it a plausible directly related result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0f43b9d6-75de-4bcb-92e0-89838d9c525a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact relative projection norm and the necessary-and-sufficient contractive-complementability transition w=m hold for the entire natural family of Walsh star spectral spaces across arbitrary finite dimension and positive metric anisotropy. This is a meaningful classification of a stable Banach-space invariant with an explicit extremizing construction and nontrivial change of geometric behavior, not a special numeric example or a routine reformulation of the uniform-norm Fourier theorem.",
+    "status": "PASS"
+  }
+}
