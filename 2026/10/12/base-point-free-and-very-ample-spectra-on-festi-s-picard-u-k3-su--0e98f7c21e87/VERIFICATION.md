@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is unbounded and symbolic. Its lattice checks are
-\[
-D=xe+yf=xO+(x+y)F,
-\]
-\[
-D^2=2xy,\qquad D\!\cdot\!F=x,\qquad D\!\cdot\!O=y-x.
-\]
-The only integral isotropic rays in \(U\) are the \(e\)- and \(f\)-rays; only the \(f\)-ray is nef because \(e\!\cdot\!O=-1\). The only \((-2)\)-classes are \(\pm(e-f)\). These identities reduce the cited K3 base-divisor and very-ampleness criteria to \(x=1\) and \(x=2\), respectively.
+# Independent mathematical audit
 
-The accompanying script then performs an independent arithmetic consistency replay for \(2\le d\le5000\). It checks the coprime-factor-pair count, the stated base-point-free and very-ample count formulas, and the minimal thresholds \(D^2=12\) and \(D^2=24\). A finite replay is not used as a proof for the all-\(d\) assertion; the prime-power allocation argument in the proof establishes the count formulas for every \(d>1\).
+## correctness
+
+PASS
+
+The hyperbolic lattice U has D²=2xy and gcd(x,y)=1 for primitivity; Festi Proposition 3.3 gives y>x>0. Assign each prime-power block of d to one of two coprime factors, exchanging sides gives 2^{omega(d)−1}. Isotropic classes have xy=0 and nef fiber is uniquely f; (-2)-classes satisfy xy=−1, effective one is O=e−f. The K3 big-nef base-divisor criterion gives fixed section precisely D=O+(y+1)F (x=1); primitive ample classes with x>=2 are base-point free. Saint-Donat very-ampleness criterion detects degree-two intersection with elliptic F at x=2; for x>=3 no hyperelliptic obstruction or divisibility on this lattice, so very ample. Primitive minimal coprime factor pairs x>=2 (2,3), x>=3 (3,4); counting x=2 requires d=2m with odd m>1. Independently enumerated pairs d=6,12,14,30,42,60,210; source script checks 2<=d<=5000 but no finite enumeration substitutes for geometric criteria.
+
+## originality
+
+PASS
+
+Best-of-knowledge non-coverage after primary statement and implication comparisons. The claim is not made new merely because a text query lacked an identical title.
+
+## value
+
+PASS
+
+A complete arithmetic count of globally generated and projectively embedding primitive ample classes on the Picard-rank-two order-three example is a natural geometric classification. It corrects the misleading impression that the source’s uniform ample polarizations are automatically morphism-producing, and gives sharp first degree 12/24 thresholds; it is more than a random lattice enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
