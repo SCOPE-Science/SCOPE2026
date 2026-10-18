@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** At fixed vertex count, inverse average degree orders connected graphs exactly by edge count in the opposite direction, while the spectral threshold orders them by adjacency spectral radius in the opposite direction. Complete exact generation of every connected graph through five vertices shows that spectral radius never decreases when edge count increases across two different graphs at those orders. The six-vertex star-cycle witness is symbolic: \(5<6\) in edge count but \(\sqrt5>2\) in spectral radius. The persistent family follows from \(2(n-1)/n<2\) and \(\sqrt{n-1}>2\) for every \(n\ge6\). The packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the epidemic interpretation is mean-field, not an exact finite-state stochastic phase transition.
+PASS
 
-## Originality
-**PASS.** Wang et al. already contrast inverse average connectivity with the largest-eigenvalue threshold and explicitly give the star formula. Van Mieghem et al. give the N-intertwined SIS spectral threshold. These sources own the epidemiological distinction between homogeneous and spectral summaries. The accepted claim is narrower and finite-extremal: six vertices are necessary and sufficient for opposite strict rankings among equal-order connected simple graphs, with a star-cycle witness that persists for every larger order. Targeted exact and alias searches did not locate this sharp boundary.
+At fixed n the inverse-average-degree proxy ranks only by edge count; the inverse-adjacency-spectral proxy ranks by Perron root. I independently generated ALL connected unlabeled simple graphs for n=2,3,4,5 (1,2,6,21 classes, respectively), computed exact characteristic polynomials and rational real-root isolating intervals, and compared each class pair with unequal edge counts. All n<=5 edge-rank orders were spectral-radius nondecreasing: zero strict reversal pairs. Symbolically K_{1,5} has 5 edges, mean degree 5/3, Perron root sqrt(5)>2, while C6 has 6 edges, mean 2 and Perron root 2. For all n>=6, n-1<n and sqrt(n-1)>2 ensure the same strict reversal. This is complete finite proof of minimality plus exact infinite family; neither numerical approximations nor finite checks support the infinite claim.
 
-Risk: the witness uses standard graph spectra and could occur in an unindexed classroom or software example even though the universal minimum was not located.
+## originality
 
-## Value
-**PASS.** Average degree is the canonical homogeneous contact-density summary, while spectral radius is the canonical network-sensitive mean-field epidemic summary. The theorem gives the smallest network on which “more edges” and “lower epidemic threshold” become genuinely incompatible rankings, and the all-order star-cycle family shows that the effect is structural rather than a one-off enumeration artifact.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The published eigenvalue-viewpoint network epidemic papers establish the two competing threshold proxies and the star spectral formula, but do not exhibit the exhaustive sharp n<=5 boundary as a theorem. Full connected-graph census and exact rational spectra make the minimization statement distinct from the elementary star-cycle observation. Relevant published mathematical result search did not find exact coverage; a folklore graph-spectral exercise could still have this comparison.
+
+## value
+
+PASS
+
+The precise first connected equal-order network size at which two widely-used epidemic vulnerability proxies induce opposite strict ranks is a motivated exact finite boundary. It quantifies a failure mode with a rigorous minimum and establishes persistence on a natural infinite graph family; the result does not assert true finite stochastic SIS extinction thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
