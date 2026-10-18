@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bound quiver and relation convention were checked directly against Liu--Xin Example 6.3. In particular, paths are composed left to right and the source quiver has arrows \(u:S_1\to P_1\), \(v:P_1\to S_1\), \(b:P_1\to P_3\), and \(a:P_3\to P_1\). Thus \(vu\) and \(ba\) are both cycles at \(P_1\).
+# Independent mathematical audit
 
-For the three-edge Brauer path, the type-I relation at the central edge is exactly \(vu-(ba)^m\), and the only cross-cycle type-III relations are \(ub\) and \(av\). The standard minimality criterion confirms that no endpoint type-II relation must be added to the minimal generating set. Direct reductions also verify those consequences: \((uv)u=u(vu)=u(ba)^m=0\) and \((ab)^m a=a(ba)^m=avu=0\), with the analogous central cycle-ending relations obtained from \(ub=av=0\).
+## correctness
 
-The additional source relation \(uv=0\) therefore gives the quotient map \(C_m\twoheadrightarrow B_m\). In \(C_m\), the nonzero path \(uv\) is annihilated on both sides by the arrow ideal, so its span is a one-dimensional socle ideal. The source basis for \(B_m\), together with \(uv\), gives the dimension check \(\dim_k C_m=4m+6\).
+PASS
 
-The all-parameter representation-finiteness conclusion then uses only two standard facts: a Brauer tree algebra has finite representation type, and any quotient of a representation-finite finite-dimensional algebra is representation-finite. No computational experiment is used to extend a finite check to arbitrary \(m\).
+Reconstructed source quiver with u:S1->P1, v:P1->S1, b:P1->P3, a:P3->P1 using left-to-right path multiplication, taking care not to confuse map-composition order. At the interior shared tree edge the two special cycles are vu and ba; their weighted equality gives vu=(ba)^m. The cross-cycle type-III zero products are ub and av. Schroll Section 2.4 minimality criterion shows no further independent type-II relations for this path (the immediate successor at each truncation is not again truncated). In C_m, uv is a nonzero path; (uv)u=u(vu)=u(ba)^m=0 and v(uv)=(vu)v=(ba)^mv=0, with all other products ruled out by endpoints. Thus k uv is a two-sided 1-dimensional socle ideal. Basis lengths give dim C_m=4m+6, dim B_m=4m+5, agreeing with source basis. Every quotient module indecomposable over B_m is indecomposable over C_m, and the three-edge Brauer tree algebra is representation-finite; the conclusion holds for ALL m, not by finite tests.
 
-Limits: the proof concerns exactly the Example 6.3 family and does not establish a Brauer-tree cover for arbitrary endomorphism algebras outside the G-condition.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the explicit Brauer-tree socle-cover identification, not of Brauer-tree representation theory or the source quiver. Liu--Xin explicitly leave this example's representation type undetermined. Originality risk from very recent, perhaps unindexed observations remains.
+
+## value
+
+PASS
+
+Settles the representation-finiteness ambiguity for an infinite, directly motivated family singled out because the G-condition/string-band machinery no longer applies. The codimension-one Brauer tree cover is a reusable structural explanation rather than a numeric instance or a routine corollary without a new identification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
