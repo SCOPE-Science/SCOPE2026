@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is an exact finite-space homotopy statement, not an inference from sampled homology. Two independent exhaustive map enumerations recover all 2836 isotone maps from the sixteen-point product torus to the four-point circle. The embedded certificate lists 2824 individual beat-point deletions; the verifier independently recomputes the current pointwise order for each witness and identifies the twelve survivors. Their full order is the four-point circle plus eight isolated points. Stong's beat-point theorem then proves a strong deformation retraction, and the integral homology follows from the displayed core. The embedded proof and verifier explicitly define all spaces and conventions; there is no claim for larger products or general targets.
+## correctness
 
-**Originality — PASS, subject to stated residual risk.** The closest published result for the identical mapping poset proves the 2836-map count, nine components, and eight isolated projection maps; these statements are acknowledged, not reused as novelty. It does not determine whether its large component is simply connected, contractible, a circle, or another homotopy type. The 2824-step deformation onto a twelve-point noncontractible core supplies that missing information. Literature on finite-circle topological complexity, torus minimal models, and mapping-poset retractions with other source spaces does not assert or imply the same core computation. Targeted public and mathematical-record searches found no covering theorem; an unindexed duplicate remains possible.
+PASS
 
-**Value — PASS.** Determining the homotopy type, rather than only the set of homotopy classes, is a natural structural question for a compact-open function space. This is the canonical minimal product finite-torus model, and its null-homotopy component is shown to retain an integral first-homology generator. The comparison with the classical circle-valued mapping space clarifies precisely what the finite model retains and what it truncates. The fact is self-contained and reproducible despite depending on a complete finite certificate.
+The compact-open mapping finite topology has the pointwise specialization order for maps from C×C to C, with all 16 source points and four target points. Independently enumerated 430 down-ideals and exactly 2,836 isotone maps by the 2^(components(D)+components(U)) signature. Independently reconstructed full pointwise comparabilities and an alternate greedy sequence of 2,824 valid Stong beat-point deletions, leaving exactly four constants forming the finite 4-circle plus eight isolated projection-after-automorphism maps. This independently checked retraction (different up/down path than source certificate) proves S^1 disjoint eight points and H1=Z; strong deformation retraction preserves integral homotopy. The packaged certificate's 2,824-step algorithm and path were read, not accepted from VERIFY_OK alone.
 
-The result remains limited to this precise finite function poset. Published analogous core calculations for other sources are not equivalent to the torus case. It does not resolve mapping spaces for the other minimal torus, subdivisions, or general higher products. The literature search cannot rule out unindexed equivalent computations; no independent validation has occurred.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original *core and H1* determination, not original component count: exact earlier Resultary Oct 4 theorem already enumerated all 2,836 maps, one 2,828-map connected component and eight singleton projections; its full RESULT.md did NOT calculate the core or first homology of the large component. The present 2,824-step Stong collapse gives genuinely stronger information not implied merely by pi_0. Existing finite-space results concern other domain/codomain models. Literature risk remains.
+
+## value
+
+PASS
+
+The finite compact-open mapping space of two canonical minimal finite models is itself a natural object. Determining a nontrivial circle core of the large null-component resolves topological structure left undecided by the established nine-component enumeration, including new H1=Z; a natural full finite-space classification with genuine mathematical content, not a cheap recount of components.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

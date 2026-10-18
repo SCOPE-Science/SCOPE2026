@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The source and target are specified completely in `RESULT.md`. Run `python3 verify.py` in the same directory as `collapse_certificate.txt`, using Python 3. No third-party packages or external data are required.
+## correctness
 
-The checker independently generates the entire finite map set via (i) the ideals/components parameterization and (ii) recursive assignments in a linear extension; both produce exactly 2836 identical order-preserving functions. The exact ideal distribution contains 430 ideals. Every one of the 2824 certificate lines is verified as a legal up- or down-beat deletion against the *current* surviving pointwise poset, not an out-of-date original order. The final twelve functions are checked against the four constants and all eight coordinate projection/automorphism maps, and every induced terminal comparability is checked. The certificate contains 2668 up-beat and 156 down-beat deletions.
+PASS
 
-Expected success output:
+The compact-open mapping finite topology has the pointwise specialization order for maps from C×C to C, with all 16 source points and four target points. Independently enumerated 430 down-ideals and exactly 2,836 isotone maps by the 2^(components(D)+components(U)) signature. Independently reconstructed full pointwise comparabilities and an alternate greedy sequence of 2,824 valid Stong beat-point deletions, leaving exactly four constants forming the finite 4-circle plus eight isolated projection-after-automorphism maps. This independently checked retraction (different up/down path than source certificate) proves S^1 disjoint eight points and H1=Z; strong deformation retraction preserves integral homotopy. The packaged certificate's 2,824-step algorithm and path were read, not accepted from VERIFY_OK alone.
 
-`VERIFY_OK maps=2836 ideals=430 two_enumerations=true beat_deletions=2824 core=4_point_circle_plus_8_isolates nonzero_maps=8`
+## originality
 
-The checker and certificate together establish the exhaustive finite reduction; the mathematical conclusion uses Stong's beat-point strong deformation-retract theorem. They do not prove anything about infinite parameter families or replacement of the finite function space by a geometric realization mapping space. Independent audit has not been performed.
+PASS
+
+Best-of-knowledge original *core and H1* determination, not original component count: exact earlier Resultary Oct 4 theorem already enumerated all 2,836 maps, one 2,828-map connected component and eight singleton projections; its full RESULT.md did NOT calculate the core or first homology of the large component. The present 2,824-step Stong collapse gives genuinely stronger information not implied merely by pi_0. Existing finite-space results concern other domain/codomain models. Literature risk remains.
+
+## value
+
+PASS
+
+The finite compact-open mapping space of two canonical minimal finite models is itself a natural object. Determining a nontrivial circle core of the large null-component resolves topological structure left undecided by the established nine-component enumeration, including new H1=Z; a natural full finite-space classification with genuine mathematical content, not a cheap recount of components.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
