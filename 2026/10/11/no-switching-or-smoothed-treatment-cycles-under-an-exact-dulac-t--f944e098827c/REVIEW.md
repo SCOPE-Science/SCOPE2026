@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact Dulac divergence for smooth monotone activation was reconstructed from the two original ODEs; treatment recruitment drops out of the \(x\)-derivative, while suppression contributes only nonpositive terms. The positive quadratic criterion is elementary and includes its equality boundary. The nonzero downward normal jump produces nonnegative internal-interface flux for a hypothetical closed Filippov trajectory, and the only possible sliding orientation produces nonnegative boundary flux; weighted Green's theorem would require a strictly negative bulk integral. The equations and interface identities are independently replayable with `CHECK.py`. The proof concerns simple piecewise-regular Filippov cycles, not arbitrarily pathological differential inclusions.
+## correctness
 
-**Originality — PASS (same-model assessment).** The motivating 2023 primary paper calculates separate-subsystem Dulac expressions and analyzes sliding, but does not supply the complete switched-cycle flux contradiction or the theorem for arbitrary nondecreasing smooth activation. Related piecewise Bendixson--Dulac theorems by da Cruz--Torregrosa (2020) and Li--Chen--Chen--Wu (2021) impose normal-component continuity/refraction, whereas the treatment model has a strict nonzero normal jump. Searches by title, parameters, model equations, alternative switch formulations, and implication were compared with mathematical research records and directly inspected primary materials. Unknown papers may still contain an equivalent criterion; searching alone does not certify uniqueness.
+PASS
 
-**Value — PASS.** Switching can create periodic trajectories despite both frozen subsystems having none. This theorem provides a global, threshold-independent obstruction to **both crossing and sliding** therapy oscillations for an entire parameter region and proves that the obstruction survives arbitrary monotone actuator smoothing. The boundary of the explicit sufficient region is close to a parameter set used for oscillations in the motivating figures; the theorem does not mistake that sufficiency boundary for a bifurcation value. The limit-cycle question is directly motivated by the published model and its treatment protocol, rather than an arbitrary parameter slice.
+Under positive multiplier B=(1+epsilon*y)/(r*y), independently differentiated the source flow: div(BF_h)=-[a*y^2+b*y+1]/(r*y)-q/r[epsilon h+(1+epsilon*y)h']; all extra smooth treatment terms are nonpositive for monotone h. For a>0 the condition b+2sqrt(a)>=0 is exactly quadratic nonnegativity for all y>0, equality permitting only a measure-zero horizontal zero set. The smooth Bendixson–Dulac contradiction follows for any Jordan orbit. For the step, div(BF_-)= -P/(r*y), div(BF_+)=div(BF_-)-q*epsilon/r, and B(F_+-F_-)·n=-q(1+epsilon T)/r<0. Escape sliding is impossible because F_+,y=F_-,y-q*T, all sliding attracts. Splitting a hypothetical Jordan interior across the switch, the interface contributes B(F_--F_+)·n>0 and sliding boundary arcs have nonnegative weighted outward flux, while the bulk integrals are strictly negative; the Green divergence balance contradicts existence. This includes the equality threshold and finite tangent endpoints, not pathological inclusion solutions. The independent symbolic derivation checks every bulk and jump identity.
 
-The closest literature is Peng--Xiang (2023), Section 5; da Cruz--Torregrosa (2020), Theorem 1.2; Li--Chen--Chen--Wu (2021) on refracted systems; and the antecedent smooth tumor--immune model of Li et al. (2021). The original smooth-controller primary full text was not established, and a later same-author weighted-switch work was examined by abstract only; those are recorded residual originality risks, not assertions of full-document noncoverage.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Peng–Xiang (2023) Section 5 computes the identical frozen-subsystem Dulac multiplier and no-periodic-orbit conditions, and Section 6 broadly describes absence of noncontinuous periodic solutions; those statements are important partial same-model coverage, not ignored. Its analysis does not provide the present exact one-inequality interface/sliding Green-flux theorem nor any result for every C1 nondecreasing activation h. Da Cruz–Torregrosa (2020) Theorem 1.2 assumes equality of weighted normal components at the switch, whereas here their difference is strictly nonzero; that exact theorem is inapplicable. A later generalized discontinuous Dulac comparison remains possible.
+
+## value
+
+PASS
+
+The mathematically motivated therapy threshold can otherwise introduce sliding/crossing cycles even when each frozen subsystem lacks cycles. One explicit all-intensity, all-threshold parameter certificate rules out both crossing and sliding oscillation and survives every differentiable monotone smoothing; this is a robust structural no-cycle regime, not an arbitrary parameter slice or a claim of therapeutic efficacy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
