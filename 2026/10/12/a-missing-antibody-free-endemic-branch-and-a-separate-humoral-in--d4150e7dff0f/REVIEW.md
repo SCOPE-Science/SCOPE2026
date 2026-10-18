@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the antibody-free equilibrium equations exactly to a scalar monotone equation. Boundary cases are handled explicitly, the transverse antibody eigenvalue is read from the exact Jacobian structure, and the finite humoral-invasion threshold follows by direct substitution. The bundled verifier checks the residuals and threshold sign change on an independent representative parameter instance.
+## correctness
 
-## Originality
-PASS. A 2014 virus-immune paper already establishes the general concept of separate antibody-invasion thresholds, so that general idea is not claimed as new. Direct full-text comparison shows that its equations do not imply the exact HPV branch, monotone scalar reduction, or closed \(\beta_A\) formula. The 2026 source itself omits the branch, and the closest recent HPV model lacks an explicit antibody state.
+PASS
 
-## Value
-PASS. The missing branch changes the equilibrium census on the nonnegative state space and forces a second biologically meaningful threshold between viral establishment and antibody establishment. It also resolves the interpretation of the source's inconsistent disease-free sensitivity formula: \(q\) and \(\omega\) do not alter the DFE next-generation threshold of the printed equations.
+PASS: The source Eq.(1) was checked directly on the main mathematical pages of the 30-page primary paper. On A=0, the virus equation yields V=kI/dV; the CTL equation yields strictly increasing I(E)=(dE E−s)(h1+E)/(cE), E>s/dE, with I′=(dE+s h1/E²)/c>0. The infected-cell equilibrium determines S=D(E)(dV+σkI)/(βk), and the susceptible balance gives strictly increasing Fβ(E)=D(E)[dS dV/(βk)+(1+dSσ/β)I(E)]=λ. This has precisely one solution iff β>βc=dS dV(dI+p s/dE)/(kλ). Symbolic differentiation independently checked all five reduced balance equations and the C formula. Transverse antibody eigenvalue ωV/h2−dA crosses zero only at IA=dA dV h2/(ωk), giving finite βA iff λ>DA IA, with exact stated βA>βc. It does not establish full local stability, global attractivity, or a transcritical exchange.
 
-## Closest literature and limitations
-The closest structural prior is Jiang and Wang (2014), DOI 10.3934/dcdsb.2014.19.1087, which classifies multiple immune-invasion thresholds in a different HIV/HBV system. The closest recent HPV comparison is DOI 10.1038/s41598-025-02608-5, which has no explicit antibody state. The present result does not classify the five non-antibody eigenvalues, prove a transcritical bifurcation, or re-establish global dynamics for strictly positive antibody initial data.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 initiating six-ODE model explicitly enumerates only the disease-free state and an A>0 endemic state, while the exact invariant antibody-free endemic branch with its separate humoral threshold is absent. General virus-immune invasion thresholds predate this, but their formulas and invariant faces do not subsume the precise source-specific scalar equation and bifurcation parameter.
+
+## value
+
+PASS
+
+PASS: A hidden endemic equilibrium changes the equilibrium census of a concrete published six-compartment infection model, and the mathematically different thresholds for viral infection and humoral invasion have direct dynamical interpretation. The explicit monotone reduction provides exact uniqueness and distinguishes local transverse growth from general stability, correcting a source-specific claim without overclaiming disease dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

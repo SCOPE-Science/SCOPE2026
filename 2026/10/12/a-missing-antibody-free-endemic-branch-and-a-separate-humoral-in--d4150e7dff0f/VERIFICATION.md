@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof uses only identities from the printed six-variable ODE system.
+# Independent mathematical audit
 
-Checks performed:
+## correctness
 
-1. The factorization \(A'=A(\omega V/(h_2+A)-d_A)\) makes \(A=0\) invariant.
-2. On \(A=0\), the equilibrium equations reduce to \(V=kI/d_V\), \(I=I(E)\), the displayed expression for \(S\), and one scalar equation \(F_\beta(E)=\lambda\).
-3. \(I'(E)=(d_E+s h_1/E^2)/c>0\); the factors in \(F_\beta(E)\) are positive and strictly increasing in \(E\).
-4. The endpoint value is \(F_\beta(s/d_E)=\lambda\beta_c/\beta\), which yields the exact branch condition \(\beta>\beta_c\).
-5. The antibody transverse derivative at \(A=0\) is \(r_A=\omega V/h_2-d_A\).
-6. Substituting the unique viral load \(V=d_Ah_2/\omega\) into the same equilibrium identity gives the stated finite \(\beta_A\) exactly when \(\lambda>D_AI_A\).
-7. The included `verification/verify.py` reconstructs a positive-parameter instance, solves the scalar branch independently, evaluates all six equilibrium residuals, and verifies the predicted antibody-eigenvalue sign on both sides of \(\beta_A\).
+PASS
 
-Unproved limits: no full local-stability classification of the antibody-free branch, no transcritical-bifurcation theorem at \(\beta_A\), and no global classification of the positive-antibody dynamics are asserted.
+PASS: The source Eq.(1) was checked directly on the main mathematical pages of the 30-page primary paper. On A=0, the virus equation yields V=kI/dV; the CTL equation yields strictly increasing I(E)=(dE E−s)(h1+E)/(cE), E>s/dE, with I′=(dE+s h1/E²)/c>0. The infected-cell equilibrium determines S=D(E)(dV+σkI)/(βk), and the susceptible balance gives strictly increasing Fβ(E)=D(E)[dS dV/(βk)+(1+dSσ/β)I(E)]=λ. This has precisely one solution iff β>βc=dS dV(dI+p s/dE)/(kλ). Symbolic differentiation independently checked all five reduced balance equations and the C formula. Transverse antibody eigenvalue ωV/h2−dA crosses zero only at IA=dA dV h2/(ωk), giving finite βA iff λ>DA IA, with exact stated βA>βc. It does not establish full local stability, global attractivity, or a transcritical exchange.
+
+## originality
+
+PASS
+
+The 2026 initiating six-ODE model explicitly enumerates only the disease-free state and an A>0 endemic state, while the exact invariant antibody-free endemic branch with its separate humoral threshold is absent. General virus-immune invasion thresholds predate this, but their formulas and invariant faces do not subsume the precise source-specific scalar equation and bifurcation parameter.
+
+## value
+
+PASS
+
+PASS: A hidden endemic equilibrium changes the equilibrium census of a concrete published six-compartment infection model, and the mathematically different thresholds for viral infection and humoral invasion have direct dynamical interpretation. The explicit monotone reduction provides exact uniqueness and distinguishes local transverse growth from general stability, correcting a source-specific claim without overclaiming disease dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
