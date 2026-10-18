@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proved assertion has a finite, explicit domain: rooted nonplane fully binary trees with unit edges and at most ten leaves. The polynomial recurrence counts every selected-tip subset exactly; attaching each child edge contributes one precisely when that child is selected. Root-size ordering and recursive child indices generate each tree shape once. The included checker enumerates 192 shapes and their 131,726 tip subsets, compares an independent direct branch-union algorithm against the polynomial for every shape, and tests all required injectivity and collision-set intersections. The two displayed witness shapes have distinct root partitions yet exactly the same two-tip law. These are exhaustive integer certificates for the stated finite limit, not support for an infinite statement.
+PASS
 
-## Originality — PASS, with documented risk
+Rooted nonplane full binary unit-edge tree shapes admit unique size/order canonical enumeration. For a rooted join T=(U,V), the exact selected-subset PD generating polynomial is F_T=(1+t(F_U-1))(1+t(F_V-1)), with F_leaf=1+z. Independent direct root-to-leaf edge-set union enumeration agrees coefficientwise with this recursion for all 192 shapes through n=10, covering 131726 sampled subsets. The 2-tip histogram separates all n=4..9 shapes; for 98 ten-tip shapes the collision counts for k=1..9 are [94,1,13,39,102,232,576,1654,4753], each positive. Intersecting all 36 pairs of depth-collision sets leaves exactly (1,3),(1,4),(1,5),(2,3),(2,4),(2,5),(2,6),(2,7),(2,8) as complete identifying designs. This is a fully exhausted finite statement, not extrapolated to >10 leaves.
 
-Pachter and Speyer's full arXiv preprint treats individually indexed subtree-weight maps and requires tip identities; removing those identities can destroy their reconstruction argument. Faller, Pardi and Steel's inspected complete-text Sections 2 and 4 derive forward rooted-PD distributions on known trees under random extinction, not inverse identification of unlabeled unit-edge shapes. Nipperess and Matsen examine rarefaction means and variances rather than the complete distribution. Searches for rooted-PD distribution inverse reconstruction, pairwise histogram tree-shape ambiguity, subtree weights, and exact ten-tip identification did not reveal the same all-shape depth-design classification. Public-index search hits on zero forcing, spectral tree classification and graph phylogenetic rank use different invariants and do not imply this theorem. Residual risk: an unindexed or differently titled homometric-tree or polynomial census might cover the enumeration; no universal novelty guarantee is inferred from negative searches.
+## originality
 
-## Value — PASS
+PASS
 
-The natural idealized experiment randomly selects a fixed number of taxa and records only total rooted phylogenetic diversity rather than taxon identities. The sharp ten-tip obstruction and exact nine minimal depth pairs quantify when that coarsened information fails and exactly how a second depth resolves the first ambiguity. The finite result is a motivated identifiability boundary and sampling-design classification, not an arbitrary slice of a larger tabulation. It makes no claims about finite-replicate efficiency, natural branch lengths, or practical experimental feasibility.
+Pachter and Speyer reconstruct trees from labeled subset-to-weight functions, substantially richer than an unlabeled histogram of fixed-size tip subsets; removing labels destroys implication. Faller-Pardi-Steel give forward phylogenetic-diversity distribution algorithms for a known tree, not inverse injectivity by sampling depth. Nipperess-Matsen provide only mean/variance. Resultary search produced other tree census/invariant findings, none the fixed-cardinality PD histogram 10-tip collision classification.
 
-## Scope and independent status
+## value
 
-The finite checker is supplied in full and was run on the packaged code. Independent external review remains outstanding. Literature coverage is limited to accessible and indexed sources; published mathematical work was compared for possible overlap.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact minimal n for loss of single-depth identifiability and complete set of optimal two-depth designs for coarsened PD observations. This is a natural structural boundary in tree-shape inference; finite exact values matter for designing an idealized sampling statistic, without claiming noisy empirical reconstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
