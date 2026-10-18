@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T21:49:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "arXiv:2610.03580v1 full HTML Lemma III.1 and §VIII",
+        "arXiv:2002.06580v2 threshold source, partial inspection",
+        "Resultary hybrid wiretap threshold query",
+        "Frozen RESULT.md ef7346137532132cec10e4938f150bf7069a1096 and SLOGAN.txt 3a877224261abdad607f3cace94d6638cc022580"
+      ],
+      "rationale": "The analytic entropy difference Δ_p(z) from the cited binary convex-envelope formula is even. At z=0 its second derivative is A(p)=F(a)/a, with one interior critical root because F(0)=0, F initially positive, Fprime strictly decreasing, and F->-1 as a->1. At p*, A=0 and source second convexity condition is strict; the quartic coefficient B=[3(1-a*^2)^2-2a*^6]/a*^2>0. For δ=p*-p>0, A=-c δ+O(δ²), c=-2Fprime(a*)/a*>0. The contact minimum solves A z+(B/6)z³+O(δ z³+z⁵)=0, giving z²=6cδ/B+o(δ). Symmetry plus strict convexity outside the central nonconvex pocket makes the convex envelope constant across the two equal minima, so C=Δ(0)-Δ(z)=3 A²/(2B)+o(δ²). Independent high-precision checks for δ=1e-5,1e-6,1e-7 approach K, but asymptotics rely on Taylor and global convexity premise.",
+      "residual_risks": [
+        "The convex-envelope global behavior near p* depends on strict source convexity outside zero; extension away from this line is not established.",
+        "Original Tikku--Berta--Renes full article was not re-read completely in this audit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tikku--Berta--Renes supplies p* threshold and nonadditivity context.",
+          "Hayashi--Salek global convexity inequality is sufficient for zero private info above boundary, not quantitative below threshold."
+        ],
+        "reasoning": "A prior complete threshold/convexity theorem covers the domain qualitatively but does not logically yield exact near-critical K without the center quartic expansion and envelope maximization.",
+        "searches": [
+          "Tikku Berta Renes nonadditivity classical-quantum wiretap channel threshold",
+          "Hayashi Salek section VIII convexity lemma derivative BSC BPC"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03580v1 full HTML Lemma III.1 and §VIII",
+        "arXiv:2002.06580v2 threshold source, partial inspection",
+        "Resultary hybrid wiretap threshold query",
+        "Frozen RESULT.md ef7346137532132cec10e4938f150bf7069a1096 and SLOGAN.txt 3a877224261abdad607f3cace94d6638cc022580"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary Δ_p second-derivative equation and convexity criteria are used; critical A vanishes at p*, and the fourth derivative is positive.",
+          "Source numerical C≈4.514e-8 at p=0.124102 is consistent with but does not imply the exact asymptotic coefficient."
+        ],
+        "reasoning": "The prior results contain the analytic ingredients, not a stated or automatically immediate coefficient: differentiating through threshold and proving exact envelope contact are needed.",
+        "searches": [
+          "arXiv:2610.03580v1 Lemma III.1 Lemma VIII.2 Lemma VIII.3",
+          "arXiv:2002.06580v2 threshold 0.1241"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hayashi--Salek Lemma III.1 expresses single-use private information as convex-envelope gap; no printed quadratic K or contact sqrt coefficient in inspected full text."
+        ],
+        "reasoning": "Equivalent descriptions are a Landau quartic dip, central convex-envelope flat segment and one-sided critical exponent; threshold p* alone is strictly weaker.",
+        "searches": [
+          "hybrid BSC BPC wiretap quadratic threshold private information contact convex envelope",
+          "Hayashi Salek From Symmetry to Secrecy covariant classical quantum wiretap arXiv:2610.03580"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Top semantic hits concern unital qubit privacy tradeoffs, other channels, or entropy profile problems rather than this hybrid one-parameter second-order law."
+        ],
+        "reasoning": "No precise database or table match for both K* and L*; searched result absence is auxiliary only.",
+        "searches": [
+          "Resultary classical quantum wiretap BSC binary pure state p threshold 0.1241 single letter private information quadratic onset convex envelope"
+        ]
+      },
+      "rationale": "Tikku--Berta--Renes identified the critical p around 0.1241; Hayashi--Salek give the exact binary convex-envelope expression and analytic sufficient convexity inequalities and numerical single-use values, not the one-sided Taylor onset coefficient or square-root contact point. Prior classical BSC/BEC channel comparison is a different Eve output model. A source published in 2026 is directly inspected, not inferred from abstract.",
+      "residual_risks": [
+        "The convex-envelope global behavior near p* depends on strict source convexity outside zero; extension away from this line is not established.",
+        "Original Tikku--Berta--Renes full article was not re-read completely in this audit.",
+        "Equivalent local bifurcation expansions may occur in independently unindexed papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PREMISES_PRESENT_NOT_QUADRATIC_ONSET",
+          "evidence": "Lemma III.1 and §VIII equations establish Δ and convexity; exact K* and L* not stated in inspected text.",
+          "identifier_or_url": "arXiv:2610.03580v1",
+          "material_read": "Full accessible arXiv HTML: binary convex-envelope formula (Lemma III.1), analytic derivative expression around Eq.80, global convexity Lemmas VIII.2--VIII.3, boundary discussion, numerics.",
+          "method": "Read complete primary HTML and compare local threshold and second-convexity formulas with supplied RESULT.md.",
+          "title": "From Symmetry to Secrecy: Covariant Classical--Quantum Wiretap Channels",
+          "trigger": "Same BSC/BPC channel with exact single-use convex envelope"
+        },
+        {
+          "assessment": "THRESHOLD_PRIOR_NOT_ONSET",
+          "evidence": "Prior threshold is ~0.1241; no identified exact K* expansion in inspected material.",
+          "identifier_or_url": "arXiv:2002.06580v2",
+          "material_read": "Abstract, theorem descriptions and threshold-relevant source material; complete article not independently re-read this run.",
+          "method": "Targeted accessible source query and comparison with Hayashi--Salek citing its channel/threshold.",
+          "title": "Non-additivity in classical-quantum wiretap channels",
+          "trigger": "Original hybrid channel critical threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2610.03580v1 full HTML Lemma III.1 and §VIII",
+        "arXiv:2002.06580v2 threshold source, partial inspection"
+      ],
+      "rationale": "The bifurcation exponent, exact amplitude and contact geometry are meaningful quantitative invariants of the same channel at an established secrecy threshold; they distinguish the onset of one-shot private information from mere zero/nonzero threshold knowledge. It neither asserts multi-use capacity behavior nor global p profile.",
+      "residual_risks": [
+        "The convex-envelope global behavior near p* depends on strict source convexity outside zero; extension away from this line is not established.",
+        "Original Tikku--Berta--Renes full article was not re-read completely in this audit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Along the BSC(p)/binary pure-state overlap a=1-2p hybrid wiretap channel, as p approaches the single-use threshold p*=(1-a*)/2 from below, where (1-a*^2)atanh(a*)=a*^3, C^(1)(p)=K*(p*-p)^2+o((p*-p)^2), K*=6Fprime(a*)^2/[3-6a*^2+3a*^4-2a*^6]=136.236236..., with convex-envelope contact z_p=L*sqrt(p*-p)+o(sqrt).",
+  "limitations": [
+    "Single-use private information only, natural logarithms (nats), p approaches p* from below.",
+    "Global convex-envelope convexity premise is taken from fully inspected source lemma; no multi-use private capacity claim."
+  ],
+  "schema_version": 1
+}
