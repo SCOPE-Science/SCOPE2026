@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The linear exact HMC coupling gives diagonal expected squared cosine powers exactly for every initial pair and integer number of iid steps. For even integer frequencies \\(m\\ge2\\), the weighted identity \\(F(s)=m\\sin^2s+\\cos^2(ms)\\) has derivative \\(-2m\\sin((m-1)s)\\cos((m+1)s)\\), a sole first-lobe minimum at \\(\\delta=\\pi/[2(m+1)]\\), and a strict global barrier outside the first lobe via monotonicity of \\(\\sin^2(u)/u\\) on \\(u\\le\\pi/4\\). The integrated inequality is sharp and its equality locus classifies all optimizing probability laws. Odd m is simultaneous quarter-period. Finite verifier independently tests many instances but does not prove infinity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang–Wibisono Sec. 3 analyzes deterministic iteration-dependent Chebyshev time sequences, not iid repetition.",
+        "Apers et al. Sec. 3 Lemmas 3.1–3.3 provide dimension-independent enough probability bounds for a selected random-time support rather than sharp optimum.",
+        "Jiang Sec. 2.1 partially refreshed momentum matrix and sufficient dissipation estimates use a different kernel or comparison."
+      ],
+      "reasoning": "Wasserstein convergence, TV sampling and accelerated nonstationary schedules are different quantified objectives. No inspected stronger theorem yields the exact fixed-iid two-frequency minimax or optimizer equality sets as a corollary. In particular, non-iid two-time mode killing is not contradicted by the iid-only positive even-ratio lower bound.",
+      "searches": [
+        "arxiv:2207.02189v2 Chebyshev time varying two-mode Gaussian harmonic flow convergence",
+        "arxiv:2209.12771v1 random integration times Gaussian sampling TV mixing",
+        "arxiv:2209.07438v3 fixed integration time partial momentum refresh spectral radius"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2207.02189v2 (primary full-text relevant sections)",
+      "arxiv:2209.12771v1 (primary full-text relevant sections)",
+      "arxiv:2209.07438v3 (primary full-text relevant sections)",
+      "arxiv:1511.09382v2 (primary full-text relevant sections)",
+      "2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b",
+      "2026/9/19/SCOPE-harmonic-stability-low-cost-ubu-langevin--4fc68d9c8d50",
+      "2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285",
+      "2026/10/4/SCOPE-exact-parity-dichotomy-for-sine-product-semigroup-spectra--8d54b8b9f50c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Claim optimizes \\(\\max\\{\\mathbb E\\cos^2\\theta,\\mathbb E\\cos^2(m\\theta)\\}\\) over *all probability laws*, while Apers et al. analyze a uniform random-time law satisfying a probability-of-contraction condition.",
+        "Wang–Wibisono imply bounds on products from predetermined non-iid Chebyshev schedules, for which the claim explicitly does not assert an obstruction.",
+        "Bou-Rabee–Sanz-Serna analyze general randomized durations and efficiency but not the precise all-law saddle lower bound or equality laws."
+      ],
+      "reasoning": "Known pointwise oscillator formulas alone do not supply the global weighted trigonometric inequality or complete optimal-probability-measure classification. A general convergence result under a chosen duration law does not imply optimality over unrestricted laws. No compared statement dominates the combination of sharp value, parity and every optimizing law.",
+      "searches": [
+        "arxiv:2209.12771v1 Lemma 3.2 cosine products for random HMC",
+        "arxiv:2207.02189v2 Eq. (12),(13) Chebyshev HMC",
+        "arxiv:1511.09382v2 Gaussian random duration sampling efficiency",
+        "randomized HMC two-mode harmonic aliasing odd even frequency parity exact mean-square contraction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2209.12771v1, Lemma 3.2 gives known cosine products; does not minimize the joint squared-cosine risks over laws",
+        "arXiv:1511.09382v2 investigates random-time efficiency, with no all-law even/odd optimizer formulation in inspected material",
+        "Published-record nearest IDs: 2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b and 2026/9/19/SCOPE-harmonic-stability-low-cost-ubu-langevin--4fc68d9c8d50"
+      ],
+      "reasoning": "The equivalent stationary stochastic-kernel question would be minimization over probability measures of the maximum of the two cosine-square Fourier averages, or a weighted trigonometric support theorem with equality. The inspected harmonic HMC research uses these cosine dynamics but studies prescribed distributions, distinct metrics, or nonstationary sequences rather than this minimax.",
+      "searches": [
+        "exact ideal Gaussian Hamiltonian Monte Carlo two frequencies 1:2 optimal random integration time worst-case squared cosine 1/4 contraction",
+        "frequency resonance obstruction randomized HMC harmonic oscillator simultaneous quarter periods odd rational ratios complete classification",
+        "Gaussian Hamiltonian Monte Carlo random integration lengths exact two-frequency Wasserstein coupling minimax squared cosine",
+        "Gaussian Hamiltonian Monte Carlo fixed time arbitrary iid integration time law sharp worst mode contraction",
+        "Hamiltonian Monte Carlo two frequency spectrum minimax random duration optimal mixing resonance squared cosine"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus published record searches returned only different HMC/Langevin and harmonic spectral results, e.g. 2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285",
+        "No relevant exact two-mode parity table emerged from published-result or public web searches conducted."
+      ],
+      "reasoning": "We sought exact tables/formulas for the joint cosine-square minimax and the sharp weighted inequality, including harmonic-frequency aliases. Search nonmatches are weak evidence and do not establish priority; primary mathematical comparisons carry the originality assessment.",
+      "searches": [
+        "sharp cosine harmonic inequality m cos squared t plus cos squared mt optimal i.i.d time distributions",
+        "m cos^2 x cos^2 mx exact minima even m",
+        "ideal Hamiltonian Monte Carlo harmonic Gaussian two eigenfrequencies 1 and even m minimax integration time random i.i.d mean square coupling sine pi over 2(m+1)"
+      ]
+    },
+    "rationale": "Direct full-text comparison with Wang–Wibisono (arxiv:2207.02189), Apers–Gribling–Szilágyi (arxiv:2209.12771), Jiang (arxiv:2209.07438), and Bou-Rabee–Sanz-Serna (arxiv:1511.09382) identifies shared harmonic flow, cosine products and randomized integration as prior art but not the sharp all-law two-frequency integer-parity minimax with all optimizing supports. Published mathematical-record searches likewise found no implication-equivalent claim; residual risk of alternative terminology is explicit.",
+    "residual_risks": [
+      "An equivalent weighted trigonometric Chebyshev/minimax inequality may occur in older mathematical literature under alternative terminology.",
+      "Unindexed HMC-specific priority may exist; published-database nonmatches are not proof of novelty.",
+      "The exact quadratic model is deliberately narrow; results do not transfer automatically to nonlinear HMC or optimal couplings."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known Gaussian cosine factors and nonstationary Chebyshev schedule; no quantification over all iid timing laws for integer two-mode frequencies or optimizer support classification in the inspected mathematical statements. Inhomogeneous methods do not satisfy fixed iid policy assumptions.",
+        "evidence": [
+          "arXiv 2207.02189v2 Sec. 2.1-2.2, Sec. 3 Theorem 1, cosine product Eq. (12)-(13)",
+          "First public submission 2022-07-05 (arXiv version history)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2207.02189v2",
+        "material_read": "Abstract, introduction, ideal-HMC algorithm, quadratic constant-time analysis, Chebyshev scheduling theorem and proof, discussion and technical comparison",
+        "method": "Primary arXiv full-text HTML, direct examination of model, timing policy and quantified guarantees",
+        "title": "Accelerating Hamiltonian Monte Carlo via Chebyshev Integration Time",
+        "trigger": "Exact Gaussian mode cosines, timing optimization and stronger scheduled-step coverage"
+      },
+      {
+        "assessment": "This establishes random-time HMC mixing using a chosen discretized uniform duration law and high-probability cosine-product suppression; it does not derive an exact minimax over arbitrary iid laws for a specified two-mode integer ratio or all equality laws.",
+        "evidence": [
+          "arXiv 2209.12771v1 Sec. 3 Eq. (3.1)-(3.2), Lemma 3.2 and Lemma 3.3",
+          "First public submission 2022-09-26"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2209.12771v1",
+        "material_read": "Introduction, Sec. 2.3 quadratic integrator, Sec. 3 random-time construction Lemmas 3.1-3.3, explicit cosine-product law, appendix/method context",
+        "method": "Original lawful arXiv HTML, read the full relevant model and random-time results",
+        "title": "Hamiltonian Monte Carlo for efficient Gaussian sampling: long and random steps",
+        "trigger": "Actual iid random integration times and harmonic cosine products"
+      },
+      {
+        "assessment": "Harmonic propagation is shared background; general partially refreshed transition matrices and fixed-time interval-spectrum convergence are not the all-iid-duration two-frequency equality classification.",
+        "evidence": [
+          "arXiv 2209.07438v3 Sec. 2.1 Lemma 1, Eq. for oscillator x_t(i)",
+          "First public submission 2022-09-15"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2209.07438v3",
+        "material_read": "Introduction/related work, Sec. 2 quadratic potential, partial-refresh Algorithm 1, synchronous coupling Lemmas 1-2 and associated spectral calculations",
+        "method": "Author preprint full-text HTML, compared same harmonic formula and different velocity-persistence assumptions",
+        "title": "On the Dissipation of Ideal Hamiltonian Monte Carlo Sampler",
+        "trigger": "Potential sharper fixed-time optimum or broad theorem subsuming parity frontier"
+      },
+      {
+        "assessment": "Random durations and harmonic resonance are prior ideas; published ergodicity/efficiency results do not state an exact optimization over all iid time laws for a two-mode, integer-ratio worst-direction squared coupling.",
+        "evidence": [
+          "arXiv 1511.09382v2 Introduction and Gaussian sampling-efficiency discussion",
+          "First public submission 2015 (historical context only)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1511.09382v2",
+        "material_read": "Abstract, introduction, basic HMC Algorithm 1.1, randomized-duration formulation, Gaussian sampling efficiency discussion",
+        "method": "Lawful arXiv full-text HTML with inspection of claims and model",
+        "title": "Randomized Hamiltonian Monte Carlo",
+        "trigger": "Prior random duration idea and possible generic optimality implying the claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3ea63113-f9c6-44b2-bc46-59c0a4614732",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Arbitrary iid HMC duration selection is motivated by resonance, and the two-mode integer-ratio Gaussian is a canonical minimally nontrivial design problem. The nontrivial global weighted trigonometric supporting inequality resolves the complete sharp mean-square iid minimax for every integer m, proves a genuine even/odd exact-sampling dichotomy, and identifies all minimizing distributions. This is not the known harmonic flow identity alone and is not a wall-clock, nonstationary or multivariate-spectrum claim.",
+    "status": "PASS"
+  }
+}
