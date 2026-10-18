@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses the exact wheel matrix from the cited source and the standard tangent/conormal description of the smooth rank-two stratum of the symmetric determinantal variety. Rank-at-most-one points are singular because every first derivative of a \(3\times3\) minor is built from \(2\times2\) minors. At rank two, the conormal-intersection calculation leaves exactly the two opposite diagonal lines. The packaged symbolic replay checks all six components, representative Jacobian ranks, and the determinant \(a^2b^2\) controlling the conormal rank split.
+## correctness
 
-## Originality
-PASS. The closest source, arXiv:1902.06507, supplies \(Q_4\), reducedness, codimension and integrality but does not compute the singular locus of the second degeneracy variety. Patterson's arXiv:1004.5166 identifies the first singular stratum of a configuration hypersurface with its rank locus and therefore stops one level earlier. published-finding corpus and web searches for the wheel-four, cyclic-symmetric, and missing-entry formulations found no covering statement.
+PASS
 
-## Value
-PASS. The calculation isolates the first non-generic wheel case and shows that its iterated singular stratum is not just the rank-one locus: two extra rank-two lines appear from failure of transversality. This is a concrete structural datum for resolution and stratified geometry of wheel graph hypersurfaces, directions explicitly motivated by the lead paper.
+For the symmetric Q4 with forbidden positions (1,3),(2,4), rank<=1 points are singular since differentials of all 3x3 minors vanish; vv^t parametrization imposes u1u3=u2u4=0, four adjacent coordinate lines mapping to four Veronese conics. For rank2, smooth symmetric rank<=2 conormal Sym²(ker A) intersects the section conormal span{E13,E24} only if ker A is exactly span(e1,e3) or span(e2,e4), because det(aE13+bE24)=a²b². Thus singular rank2 points are exactly the opposite-coordinate two lines, giving a reduced K4-incidence union of six curves. Independently computed sample Jacobian ranks 0,2,3 and conormal determinant.
 
-Closest literature and limitations: Denham--Schulze--Walther (arXiv:1902.06507) is the main comparison; Patterson (arXiv:1004.5166) is the earlier rank-locus comparison. The result is restricted to characteristic zero and to the reduced singular locus; local analytic transverse types and higher wheels are not claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Denham–Schulze–Walther obtain cyclic symmetric Qn and integral second-degeneracy schemes but do not determine singularities OF the second degeneracy locus; Patterson identifies rank loci as singular loci of the configuration hypersurface, a different level of iteration.
+
+## value
+
+PASS
+
+Next rank stratum singularities of a non-generic symmetric determinantal linear section are a motivated geometric object, and identifying all six irreducible curves plus K4 incidence provides a structural classification not a trivial renaming of the rank condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
