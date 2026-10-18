@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T18:14:31.280934Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using D(n)/n=sum_{p|n} e_p/p, prime powers imply a=p-1. For p<q, a q+b p=(p-1)(q-1), equivalent (a+1)q+(b+1)p=pq+1. For p=2, parity forces a+1 odd>=3 and hence (a+1)q>2q+1 impossible. For odd p, B=b+1>=2 forces 2<=A=a+1<=p-1, uniquely A=q^{-1}(mod p), so q not congruent1 mod p. Conversely for odd p<q with q not congruent1, u inverse in 2..p-1 and k=(u q-1)/p with 1<=k<q; B=q-k cannot equal1 since q(p-u)=p-1 impossible. Thus a=u-1,b=q-1-k uniquely positive. Squarefree a=b=1 forces (p-2)(q-2)=3, giving n=15. Fixed odd p the p-2 allowable nonzero residue classes give asymptotic (p-2)/(p-1)Li(Q) by PNT in AP. Independently enumerated all 2<=p<q<100 primes and positive a<p,b<q; 249 admissible prime supports matched exactly, only squarefree (3,5). The unbounded claim rests on modular proof and PNT in AP.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cototient gap is G=D(n)-(n-phi(n)), whose zero/nonzero fibers are not D(n)-phi(n)=0.",
+          "Fixed multiplier D(n)=kn has constant k, whereas phi(n)/n varies with prime support.",
+          "Emmons–Xiao extends D to p-adic/number fields and studies valuations and iterates, not this target Diophantine equality."
+        ],
+        "reasoning": "None is a stronger statement implying uniqueness of prime-exponent solutions for D(n)=phi(n). The formula for D by itself requires new support-dependent modular Diophantine analysis.",
+        "searches": [
+          "Resultary sharp support thresholds arithmetic derivative cototient gap b2439d05e1a7",
+          "Resultary fixed multiplier level sets arithmetic derivative c31759e42cf2",
+          "Emmons Xiao DOI:10.7546/nntdm.2024.30.2.357-382"
+        ]
+      },
+      "checked_sources": [
+        "Ufnarovski–Åhlander 2003 JIS 03.3.4 relevant primary text",
+        "Emmons–Xiao 2024 full OA PDF introduction and theorem coverage",
+        "Resultary arithmetic-derivative totient/cototient gap/fixed multiplier/iterates searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The formula D(n)/n=sum e_p/p is a premise shared with older work; setting equality with phi(n)/n yields Aq+Bp=pq+1.",
+          "Published fixed-point D(n)=n has prime power p^p; here D(p^a)=phi(p^a) gives p^(p-1)."
+        ],
+        "reasoning": "Old derivative identities are necessary tools but not published stronger classifications of the same equality; the prime-power and two-prime solutions must be distinguished from D(n)=n and cototient gap questions.",
+        "searches": [
+          "Emmons and Xiao 2024 explicit formula equation in introduction",
+          "Ufnarovski and Åhlander 2003 equation and derivative fixed points"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D(n)/n=sum e_p/p in Emmons–Xiao 2024 p2 is definition-level, not an equality with phi.",
+          "The equality reduces to modular inverse parametrization; no matching published equality classification located in the searched records."
+        ],
+        "reasoning": "Possible aliases are arithmetic derivative–Euler totient coincidence and fixed support Diophantine equation; these are equivalent to current claim but not matched by the inspected primary theorems.",
+        "searches": [
+          "Resultary \"arithmetic derivative\" \"Euler totient\" D(n)=phi(n)",
+          "Ufnarovski Åhlander How to Differentiate a Number 2003",
+          "Emmons Xiao 2024 arithmetic derivative number fields"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked primary paper or indexed result contained a {p,q} inverse-residue table for D(n)=phi(n).",
+          "The exact squarefree solution 15 is a corollary of the full modular classification, not a database lookup."
+        ],
+        "reasoning": "Natural exact integer coincidence is not a database-driven small-instance claim; inspected tables of other derivatives or small cototient gap do not imply it.",
+        "searches": [
+          "Resultary arithmetic derivative equals Euler totient fixed two prime support search",
+          "Journal Integer Sequences 2003 D(n) derivative classification"
+        ]
+      },
+      "rationale": "Structured searches compared exact claims and implications; see named checks and inspection evidence. Best-of-knowledge only; residual literature-priority risks remain.",
+      "residual_risks": [
+        "An obscure or unindexed elementary-number-theory note may have observed the modular inverse formula.",
+        "Asymptotic is for prime-support q with fixed p, not integer solutions ordered by magnitude; requires PNT in arithmetic progressions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The foundational formula supports proof; no exact totient-coincidence two-prime classification found in relevant sections.",
+          "evidence": "Ufnarovski and Åhlander, Journal of Integer Sequences 6 (2003), Article 03.3.4.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.html",
+          "material_read": "Public journal paper introduction and theorem statements on D(n) formula and its fixed points, inspected via accessible PDF/text; relevant sections, not a certified exhaustive examination of every example.",
+          "method": "Read published JIS primary text and compared the equations D(n)=n and iterated derivative to D(n)=phi(n).",
+          "title": "How to Differentiate a Number",
+          "trigger": "Foundational arithmetic derivative formula and iterative/fixed-point questions"
+        },
+        {
+          "assessment": "Its broad theory does not state D(n)=phi(n) or the two-prime modular-inverse classification.",
+          "evidence": "Emmons–Xiao 2024, DOI 10.7546/nntdm.2024.30.2.357-382, p.358 exact D(x) formula; keyword totient absent.",
+          "identifier_or_url": "https://nntdm.net/papers/nntdm-30/NNTDM-30-2-357-382.pdf",
+          "material_read": "Open full author/publisher PDF, introduction with D(x)=x sum nu_p(x)/p and main theorems on p-adic derivative, number field extension, and anti-partial derivatives; searched full parsed text for totient.",
+          "method": "Read relevant proof objectives, introduction and table of results, PDF page image p2, exact formula; keyword check for totient.",
+          "title": "A generalization of arithmetic derivative to p-adic fields and number fields",
+          "trigger": "Recent complete arithmetic derivative treatment potentially covering target"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete unbounded arithmetic coincidence classification for every integer with at most two distinct prime factors, including uniqueness for each admissible prime support, a sharp squarefree exception and positive-density support family. It addresses a natural equality between standard multiplicative arithmetic functions; despite elementary algebra, the support stratification is not an arbitrary numerical table or literal substitution into a listed prior theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ufnarovski–Åhlander 2003 JIS 03.3.4 relevant primary text",
+    "Emmons–Xiao 2024 full OA PDF introduction and theorem coverage",
+    "Resultary arithmetic-derivative totient/cototient gap/fixed multiplier/iterates searches"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An obscure or unindexed elementary-number-theory note may have observed the modular inverse formula.",
+    "Asymptotic is for prime-support q with fixed p, not integer solutions ordered by magnitude; requires PNT in arithmetic progressions.",
+    "Privacy/publication blocker is separate from scientific C/O/V and from external Lean/expert verification."
+  ],
+  "schema_version": 1
+}
