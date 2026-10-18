@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite-point minimum-ball certificate is reconstructed in the proof. For the base vertices, equal contact distances and positive barycentric weights force the reciprocal-square threshold and a sorted tail. The apex containment test is an exact squared-distance comparison. When the apex lies outside that base ball, it must be positively active; the equal-distance and barycentric equations reduce to two linear equations in \(K\) and the apex weight \(t\). Their solution gives the displayed formulas. Positivity and containment depend on the strictly increasing function \(b\mapsto b^2+2atb\), so the active base support is again a tail. A convex contact certificate then proves global optimality and uniqueness.
+## correctness
 
-## Originality
-PASS. The primary source was inspected at the definition and exact lattice-covering theorem for \(S(\omega)\), and a later same-object paper was inspected at its standard-terminal-simplex proposition. Neither states a Euclidean minimum-enclosing ball. Searches covered terminal-simplex, weighted-terminal, \(S(\omega)\), axis-simplex, orthant-simplex, isosceles-simplex, regular-base-pyramid, smallest-enclosing-ball, and minimum-enclosing-sphere formulations. No covering theorem or exact table was located. Generic minimum-ball optimality is acknowledged and used, but it does not supply the sorted-tail formulas.
+PASS
 
-## Value
-PASS. The result treats the entire positive-weight source family, not an arbitrary subfamily. It converts a high-dimensional minimum-enclosing problem into a sort and a one-dimensional tail scan, explicitly identifies the apex-active transition, and records all extra zero-weight contacts. The family contains the standard terminal simplex, a central object in the source's lattice-covering program and in later lattice reduced/complete geometry.
+Read contact-center optimality proof: c must be convex combination of active points and equal-distance contacts; weighted sum of their squared distances is R²+||y−c||². For base-only contacts, α_i=(1−μ/b_i²)/2, μ=(p−2)/Σtail b_i^-2 and inactive b_j²≤μ force a tail. Apex inclusion compares κ_B against μ. In apex-active case inactive coordinates c_j=−at, active c_i=(b_i²−K)/(2b_i), and two linear equations uniquely give K_p,t_p; monotone b²+2atb forces the unique feasible tail, with slack inequalities certifying all vertices. Standard a=b_i=1 yields center −(d−1)/(2(d+1))1 and radius sqrt(d)(d+3)/(2(d+1)).
 
-## Closest literature and limitations
-The closest source computes the lattice covering radius of \(S(\omega)\); the later source computes lattice width and lattice diameter of the standard terminal simplex. These discrete invariants do not determine an ordinary Euclidean minimum-enclosing sphere. The result is realization-sensitive, and an equivalent active-set theorem in broader diagonally structured-simplex literature remains the main residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new sorted-tail full-weight minimum enclosing ball classification; known lattice radius is not the claimed invariant.
+
+## value
+
+PASS
+
+A complete, exact optimization and contact-set classification for a natural weighted simplex family introduced in lattice geometry; resolves discrete switches between base-only and apex-supported minimum spheres. Generic MEB algorithms alone do not report these closed formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

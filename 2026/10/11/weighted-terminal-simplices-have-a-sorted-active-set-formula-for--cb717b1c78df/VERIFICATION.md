@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-The arbitrary-positive-weight proof is given in `RESULT.md`.
 
-Critical checks:
-- the generic minimum-enclosing certificate is center-in-convex-hull of contact points plus containment;
-- for base-only contacts, equal squared distances imply \(c_i=(b_i^2-\mu)/(2b_i)\);
-- positive base weights are \(\frac12(1-\mu/b_i^2)\), forcing a sorted tail and fixing \(\mu\);
-- the apex squared-distance excess is exactly \(\kappa_B-\mu\);
-- if the apex is active, equal apex/base distances give \(b_i^2-2b_ic_i=K\);
-- the apex weight and \(K\) satisfy the two displayed linear equations, whose solution is \(t_p,K_p\);
-- active-base positivity and inactive-base containment are respectively strict and weak versions of \(b_i^2+2at_pb_i>K_p\);
-- monotonicity in \(b_i\) forces a tail support;
-- the positive contact weights sum to \(1\), so the weighted parallel-axis identity proves global optimality and center uniqueness.
+# Independent mathematical audit
 
-`verify.py` uses exact rational arithmetic on deterministic integer-weight families in dimensions \(2\) through \(7\). It compares the closed tail formula with an independent generic enumeration of every possible contact subset, solving the contact barycentric equations from scratch and checking containment. The finite enumeration is corroborative only and does not assess originality.
+## correctness
+
+PASS
+
+Read contact-center optimality proof: c must be convex combination of active points and equal-distance contacts; weighted sum of their squared distances is R²+||y−c||². For base-only contacts, α_i=(1−μ/b_i²)/2, μ=(p−2)/Σtail b_i^-2 and inactive b_j²≤μ force a tail. Apex inclusion compares κ_B against μ. In apex-active case inactive coordinates c_j=−at, active c_i=(b_i²−K)/(2b_i), and two linear equations uniquely give K_p,t_p; monotone b²+2atb forces the unique feasible tail, with slack inequalities certifying all vertices. Standard a=b_i=1 yields center −(d−1)/(2(d+1))1 and radius sqrt(d)(d+3)/(2(d+1)).
+
+## originality
+
+PASS
+
+Best-of-knowledge new sorted-tail full-weight minimum enclosing ball classification; known lattice radius is not the claimed invariant.
+
+## value
+
+PASS
+
+A complete, exact optimization and contact-set classification for a natural weighted simplex family introduced in lattice geometry; resolves discrete switches between base-only and apex-supported minimum spheres. Generic MEB algorithms alone do not report these closed formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

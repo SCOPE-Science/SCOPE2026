@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T06:58:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read contact-center optimality proof: c must be convex combination of active points and equal-distance contacts; weighted sum of their squared distances is R²+||y−c||². For base-only contacts, α_i=(1−μ/b_i²)/2, μ=(p−2)/Σtail b_i^-2 and inactive b_j²≤μ force a tail. Apex inclusion compares κ_B against μ. In apex-active case inactive coordinates c_j=−at, active c_i=(b_i²−K)/(2b_i), and two linear equations uniquely give K_p,t_p; monotone b²+2atb forces the unique feasible tail, with slack inequalities certifying all vertices. Standard a=b_i=1 yields center −(d−1)/(2(d+1))1 and radius sqrt(d)(d+3)/(2(d+1)).",
+      "residual_risks": [
+        "Higher-dimensional positive arbitrary real weights require the proof; exact finite enumeration covered only specific small rational tests."
+      ],
+      "sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/weighted-terminal-simplices-have-a-sorted-active-set-formula-for--cb717b1c78df/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/weighted-terminal-simplices-have-a-sorted-active-set-formula-for--cb717b1c78df/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/weighted-terminal-simplices-have-a-sorted-active-set-formula-for--cb717b1c78df/RESULT.md",
+        "https://arxiv.org/abs/1903.02866",
+        "https://doi.org/10.1112/jlms.12982"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2019 paper studies lattice covering radius and discrete surface area; Codenotti–Freyer 2024 computes lattice width/diameter and lattice reduction for S_d.",
+          "General MEB contact-convex-hull theorem provides a certificate but does not specify that positive base contact support is a sorted tail for all positive weights."
+        ],
+        "reasoning": "Neither lattice result is a broader Euclidean minimum-enclosing-ball classification; the sorted support and rational K_p,t_p formulas require the special coordinate structure.",
+        "searches": [
+          "Codenotti Santos Schymura 2019 S omega Euclidean circumradius lattice covering radius",
+          "minimum enclosing ball axis simplex diagonal simplex algorithm",
+          "minimum enclosing sphere weighted terminal simplex conv negative ones and axis vertices sorted active contact tail circumradius"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/weighted-terminal-simplices-have-a-sorted-active-set-formula-for--cb717b1c78df/RESULT.md",
+        "https://arxiv.org/abs/1903.02866",
+        "https://doi.org/10.1112/jlms.12982"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary S(ω) lattice source uses a lattice translate covering all of space, not a Euclidean ball containing these finitely many vertices.",
+          "KKT equations yield μ=(p−2)/Σtail b_i^-2 in base-only case, and a 2×2 linear system for K,t when apex contacts; contact-weight positivity is monotone in b."
+        ],
+        "reasoning": "The known min-ball contact lemma plus source definitions is insufficient to state explicit sorted-tail formula without the additional special-family derivation; no stronger exact Euclidean theorem was identified.",
+        "searches": [
+          "arxiv:1903.02866 Theorem 1.4 weighted simplex",
+          "doi:10.1112/jlms.12982 lattice reduced complete body",
+          "sorted tail minimum enclosing ball simplex"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Codenotti–Santos–Schymura define exactly S(ω)=conv{-ω0 1, ω_i e_i}; their Theorem 1.4 computes lattice covering radius, not the Euclidean minimum sphere."
+        ],
+        "reasoning": "The same source object and parameterization were compared; lattice covering radius and ordinary Euclidean enclosing ball have different optimizations. Generic finite-point MEB optimality is used as a standard lemma, not advertised as new.",
+        "searches": [
+          "minimum enclosing sphere weighted terminal simplex conv negative ones and axis vertices sorted active contact tail circumradius",
+          "smallest enclosing ball orthogonal simplex with negative all ones apex active-set support",
+          "axis simplex minimal covering sphere"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For a=b_i=1, the radius sqrt(d)(d+3)/(2(d+1)) is a very special one-parameter instance.",
+          "The claimed general weighted regime includes base-only contact and apex-active phase transitions with arbitrary positive b_i."
+        ],
+        "reasoning": "A one-parameter standard simplex radius in a table would not imply the tail contact transitions; full weighted classification is assessed.",
+        "searches": [
+          "minimum enclosing sphere weighted terminal simplex conv negative ones and axis vertices sorted active contact tail circumradius",
+          "standard terminal simplex Euclidean circumradius center table"
+        ]
+      },
+      "rationale": "Best-of-knowledge new sorted-tail full-weight minimum enclosing ball classification; known lattice radius is not the claimed invariant.",
+      "residual_risks": [
+        "A general diagonally structured minimum-enclosing-ball active-set formula under axis-simplex or orthant-simplex terminology might predate this theorem.",
+        "The result is Euclidean for the stated coordinate embedding; unimodular changes do not preserve this radius.",
+        "Higher-dimensional positive arbitrary real weights require the proof; exact finite enumeration covered only specific small rational tests."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_DIFFERENT_RADIUS",
+          "evidence": "Lattice covering radius ≠ smallest Euclidean ball containing the simplex vertex set.",
+          "identifier_or_url": "https://arxiv.org/abs/1903.02866",
+          "material_read": "Primary accessible PDF: introduction, S(ω) definitions, Theorem 1.4 and relevant geometric discussion; full 44-page article not exhaustively reread",
+          "method": "Read accessible PDF text and relevant rendered pages",
+          "title": "The Covering Radius and a Discrete Surface Area for Non-Hollow Simplices",
+          "trigger": "Introduces identical weighted source simplex S(ω) and exact covering formula"
+        },
+        {
+          "assessment": "LATTICE_INVARIANTS_PRIORITY_RISK",
+          "evidence": "Published lattice width, diameter and completeness do not directly imply Euclidean minimum enclosing sphere.",
+          "identifier_or_url": "https://doi.org/10.1112/jlms.12982",
+          "material_read": "Publication statements and source descriptions; full article not reread this execution",
+          "method": "Bibliographic and targeted theorem comparison",
+          "title": "Lattice reduced and complete convex bodies",
+          "trigger": "Same standard terminal simplex and potential radius coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete, exact optimization and contact-set classification for a natural weighted simplex family introduced in lattice geometry; resolves discrete switches between base-only and apex-supported minimum spheres. Generic MEB algorithms alone do not report these closed formulas.",
+      "residual_risks": [
+        "A general diagonally structured minimum-enclosing-ball active-set formula under axis-simplex or orthant-simplex terminology might predate this theorem.",
+        "The result is Euclidean for the stated coordinate embedding; unimodular changes do not preserve this radius."
+      ],
+      "sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/weighted-terminal-simplices-have-a-sorted-active-set-formula-for--cb717b1c78df/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/weighted-terminal-simplices-have-a-sorted-active-set-formula-for--cb717b1c78df/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/weighted-terminal-simplices-have-a-sorted-active-set-formula-for--cb717b1c78df/RESULT.md",
+        "https://arxiv.org/abs/1903.02866",
+        "https://doi.org/10.1112/jlms.12982"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/weighted-terminal-simplices-have-a-sorted-active-set-formula-for--cb717b1c78df/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/weighted-terminal-simplices-have-a-sorted-active-set-formula-for--cb717b1c78df/VERIFICATION.md",
+    "https://arxiv.org/abs/1903.02866",
+    "https://doi.org/10.1112/jlms.12982"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A general diagonally structured minimum-enclosing-ball active-set formula under axis-simplex or orthant-simplex terminology might predate this theorem.",
+    "The result is Euclidean for the stated coordinate embedding; unimodular changes do not preserve this radius.",
+    "Higher-dimensional positive arbitrary real weights require the proof; exact finite enumeration covered only specific small rational tests."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "SAME_OBJECT_DIFFERENT_RADIUS",
+      "evidence": "Lattice covering radius ≠ smallest Euclidean ball containing the simplex vertex set.",
+      "identifier_or_url": "https://arxiv.org/abs/1903.02866",
+      "material_read": "Primary accessible PDF: introduction, S(ω) definitions, Theorem 1.4 and relevant geometric discussion; full 44-page article not exhaustively reread",
+      "method": "Read accessible PDF text and relevant rendered pages",
+      "title": "The Covering Radius and a Discrete Surface Area for Non-Hollow Simplices",
+      "trigger": "Introduces identical weighted source simplex S(ω) and exact covering formula"
+    },
+    {
+      "assessment": "LATTICE_INVARIANTS_PRIORITY_RISK",
+      "evidence": "Published lattice width, diameter and completeness do not directly imply Euclidean minimum enclosing sphere.",
+      "identifier_or_url": "https://doi.org/10.1112/jlms.12982",
+      "material_read": "Publication statements and source descriptions; full article not reread this execution",
+      "method": "Bibliographic and targeted theorem comparison",
+      "title": "Lattice reduced and complete convex bodies",
+      "trigger": "Same standard terminal simplex and potential radius coverage"
+    }
+  ]
+}
