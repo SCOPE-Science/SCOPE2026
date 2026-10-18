@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-The chord-mean identities are exact, not numerical estimates:
-\[
-F_{\ell_1^n}(x)=2-\min_i|x_i|,\qquad
-F_{\ell_\infty^n}(z)=1+\frac{a_1+a_2}{2}.
-\]
-The first follows by reducing a convex maximization to signed coordinate vertices; the second reduces a convex maximization to cube corners and optimizes the range of \(\varepsilon_i z_i\). The sharp distance bounds are
-\[
-2\delta_1\le\operatorname{dist}_1(x,U_n)\le2(n-1)\delta_1,
-\qquad
-\operatorname{dist}_\infty(z,E_n)=2\delta_\infty.
-\]
-The proof explicitly constructs vectors giving equality in either bound at every \(0<\delta_1\le1/n\).
 
-The standalone `verify.py` requires only the Python standard library. It performs all computations over exact rational numbers, checks the original pointwise norm optimization on all signed vertices for many rational unit vectors in dimensions \(2\) through \(6\), and replays the sharp equality families and the duality-gap arithmetic. This finite test is not substituted for the analytic proof.
+# Independent mathematical audit
 
-No independent audit or independent validation has been performed.
+## correctness
+
+PASS
+
+For ℓ1, coordinatewise half sum equals max(|xi|,|yi|); its convex dependence on y is maximized at ±ei and gives exactly 2−min|xi|. In the cube, sign vertices maximize the chord mean and the range of signed zi has maximum a1+a2. Minimizing yields uniform absolute coordinates vs signed coordinate vertices. The ℓ1 distance is twice the sum of negative deficits from 1/n; with one or at most n−1 negative components it lies between 2δ and 2(n−1)δ, both attained by displayed modulus tuples. For ℓ∞ distance to signed coordinate vertices is exactly second-largest modulus a2=2δ. n=2 endpoints follow, and A2=2 uses two-coordinate disjoint/opposite vectors.
+
+## originality
+
+PASS
+
+Bounded originality accepted based on the complete dual pointwise profiles and optimal minimizer stability; accessible broader general and 2D BCP bounds do not imply them. Foundational 2000 article remains inaccessible and is explicitly not certified noncovering.
+
+## value
+
+PASS
+
+The full pointwise optimization and sharp global defect-to-extremizer distances answer a natural geometry-of-Banach-spaces stability problem in the dual cube/crosspolytope pair. Rigidity of opposite minimizing shape classes and dimension-dependent A1 duality gap exceed an isolated trivial constant evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

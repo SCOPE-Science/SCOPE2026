@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For the crosspolytope, the pointwise chord mean is a convex function of the moving unit vector, so signed coordinate vertices suffice; the scalar identity \((|u+v|+|u-v|)/2=\max\{|u|,|v|\}\) proves its exact profile. For the cube, convexity reduces to all sign corners and the largest range of signed coordinates equals the sum of the two largest absolute coordinates. The formulas fix both infima and minimizing sets. Exact deviation-mass balance proves both sharp stability inequalities, while the two-largest-coordinate argument proves the cube distance identity. Direct unit pairs verify both upper constants equal two. The bundled rational checker independently replays illustrative finite instances.
+## correctness
 
-## Originality
-PASS with residual access risk. The full 2022 Mizuguchi source was inspected, including the defining formula, general lower estimate, and polygonal examples; it does not state the paired pointwise profiles, finite-dimensional gap or optimal stability. Wolf's original 2011 paper explicitly assumes a *two-dimensional* normed space, so its planar upper bound does not dominate the higher-dimensional formula. Actual indexed searches covered the exact expression, dual-pair aliases and stability formulations, and current/prior own findings were compared by claim implication. The 2000 original defining article was available only at abstract level, so a hidden exact special case remains a named risk.
+PASS
 
-## Value
-PASS. This is a natural complete classification of a foundational Minkowski-ellipse invariant on the cube–crosspolytope dual pair. The result separates the lower constants by a dimension-growing amount although their upper constants coincide, and sharply quantifies stability around two fundamentally different minimizing orbits. The statement does not purport to settle a universal duality-gap problem.
+For ℓ1, coordinatewise half sum equals max(|xi|,|yi|); its convex dependence on y is maximized at ±ei and gives exactly 2−min|xi|. In the cube, sign vertices maximize the chord mean and the range of signed zi has maximum a1+a2. Minimizing yields uniform absolute coordinates vs signed coordinate vertices. The ℓ1 distance is twice the sum of negative deficits from 1/n; with one or at most n−1 negative components it lies between 2δ and 2(n−1)δ, both attained by displayed modulus tuples. For ℓ∞ distance to signed coordinate vertices is exactly second-largest modulus a2=2δ. n=2 endpoints follow, and A2=2 uses two-coordinate disjoint/opposite vectors.
 
-## Closest literature and limitations
-Baronti–Casini–Papini (2000) introduced the two constants. Wolf (2011/2012) treats only normed planes, and Mizuguchi (2022/2023) gives a general lower bound and planar examples. Their inspected statements do not determine the complete higher-dimensional profiles or sharp stability. The defining 2000 paper was not available in full, and bibliographic searches cannot establish absolute novelty.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded originality accepted based on the complete dual pointwise profiles and optimal minimizer stability; accessible broader general and 2D BCP bounds do not imply them. Foundational 2000 article remains inaccessible and is explicitly not certified noncovering.
+
+## value
+
+PASS
+
+The full pointwise optimization and sharp global defect-to-extremizer distances answer a natural geometry-of-Banach-spaces stability problem in the dual cube/crosspolytope pair. Rigidity of opposite minimizing shape classes and dimension-dependent A1 duality gap exceed an isolated trivial constant evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
