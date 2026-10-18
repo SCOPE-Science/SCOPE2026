@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For each order one through eight, inversion graphs of all n! permutations exhaust permutation graphs. Exact globally interned shared colour refinement (through 2n rounds, agreeing with n-round partitions) computes C2 equivalence; exact NetworkX isomorphism deduplicates representatives within each colour class. The full verified isomorphism totals are 1,2,4,11,33,142,776,5699 and C2 quotients 1,2,4,11,33,140,770,5654. At n=6 exactly two doubletons with 7 and 8 edges; at n=8 nontrivial multiplicities 38 of size two, 2 of size three, 1 of size four. All underlying finite certificates have been executed, with independent coded corroboration. No infinite conclusion follows.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guo–Gavrilyuk–Ponomarenko arXiv:2305.15861v1 Theorem 1.1: permutation-graph WL dimension is at most 18.",
+        "Arvind–Köbler–Rattan–Verbitsky arXiv:1502.01255 Lemma 5: biregular edge replacements preserve colour refinement."
+      ],
+      "reasoning": "Upper bounds on higher-dimensional WL identification and generic biregular switching do not state the 1-dimensional quotient or enumerate all distinct permutation graphs up to eight vertices. An earlier specialization of general results remains a priority risk.",
+      "searches": [
+        "On the Weisfeiler-Leman dimension of permutation graphs Guo Gavrilyuk Ponomarenko 2023 arxiv",
+        "Graph Isomorphism Color Refinement Compactness Arvind Köbler Rattan Verbitsky 2015"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1502.01255v3",
+      "https://arxiv.org/pdf/2305.15861",
+      "https://oeis.org/A123448",
+      "https://www.jaist.ac.jp/~uehara/graphs/",
+      "2026/10/4/SCOPE-exact-logical-width-of-arbitrary-complete-multipartite-graphs--2d960f9c3f1d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously available connected-chordal 8-vertex classification concerns pairs both chordal; at the new 6-vertex permutation collisions at least one graph in each pair is not chordal.",
+        "Previously available connected-bipartite classification concerns pairs both bipartite; at least one graph in each new 6-vertex permutation pair is not bipartite.",
+        "Guo et al. 2023 gives a different dimension theorem, not the exact 1-WL quotient."
+      ],
+      "reasoning": "Two six-vertex pairs are not implied by the earlier restricted 1-WL class census in the accessible record. Stronger general 1-WL identification criteria allow obstructions but do not imply their exhaustive multiplicity counts without a separate enumeration. First layer and all counts are explicitly verified; failure to locate older equal coverage is not itself a proof of novelty.",
+      "searches": [
+        "permutation graphs 1-WL C2 exact count nonisomorphic six vertices",
+        "quantifier rank two finite permutation graphs graph iso color refinement class count",
+        "two variable counting logic permutation graphs first collision equivalence class number eight"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Arvind et al. 2015: stable colour refinement characterizes equality of two-variable counting-logic theories in undirected graphs.",
+        "Guo et al. 2023 studies higher-dimensional WL of permutation graphs."
+      ],
+      "reasoning": "The proposed invariant is the quotient of permutation-graph iso types by 1-WL, not the number of permutation presentations or the dimension-18 upper bound. Equivalent formulations of 1-WL, fractional isomorphism and C2 were searched; none inspected provides the exact table or first-layer multiplicities.",
+      "searches": [
+        "first colour refinement 1WL ambiguity finite permutation graphs nonisomorphic permutation graphs minimal vertices",
+        "two variable counting logic permutation graphs first collision equivalence class number eight",
+        "permutation graphs Weisfeiler Leman color refinement identified"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A123448 and Uehara graph catalogs list all raw permutation-graph isomorphism totals through n=8.",
+        "Neither inspected published table records the claimed 140, 770, 5654 C2 class totals or non-singleton multiplicities."
+      ],
+      "reasoning": "The existing raw isomorphism count is expressly excluded from novelty. A table of ordinary graph iso types does not determine the coarser 1-WL quotient; the full finite partition is separately computed.",
+      "searches": [
+        "permutation graphs isomorphism types 1 2 4 11 33 142 776 5699",
+        "\"5654\" \"permutation graphs\" colour refinement",
+        "\"permutation graphs\" \"142\" \"776\" \"5699\" counting classes"
+      ]
+    },
+    "rationale": "The known graph counts, colour-refinement equivalence and switching obstructions are excluded from originality. The claimed contribution is the exact C2 logical class census and first two-pair six-vertex obstruction within all permutation graphs, including eight-vertex multiplicity profile. Published primary texts and targeted published-finding corpus searches did not show corresponding or dominating exact classification; specialist precedent remains possible.",
+    "residual_risks": [
+      "An earlier specialist graph logical-equivalence table or corollary of general C2-identification results might give the same permutation-graph quotient despite not being located.",
+      "The exact finite computation relies on the implementation and NetworkX graph-isomorphism correctness; the alternative implementation corroborates but uses cryptographic hashes.",
+      "No independent external scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General mechanisms covered; no permutation graph exact low-order class quotient found",
+        "evidence": [
+          "arXiv:1502.01255v3 introduction, Section 3 Lemmas 4-5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1502.01255v3",
+        "material_read": "Full HTML introduction and Section 3 Lemmas 4–5; relevant related-graph-class terms checked in the primary text.",
+        "method": "Direct full-text inspection",
+        "title": "Graph Isomorphism, Color Refinement, and Compactness",
+        "trigger": "Primary general colour-refinement characterization and switching mechanism"
+      },
+      {
+        "assessment": "Studies higher-dimensional WL upper bound, no order-eight C2 quotient census stated",
+        "evidence": [
+          "arXiv:2305.15861v1 Theorem 1.1, Section 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2305.15861",
+        "material_read": "PDF 15 pages available; abstract, introduction pages 1-3, Theorem 1.1, Sections 5-6 including Theorem 5.2 and proof Theorem 1.1; searched full text for 5699 and table",
+        "method": "PDF text reading, page-image inspection and full-text find",
+        "title": "On the Weisfeiler-Leman Dimension of Permutation Graphs",
+        "trigger": "Most directly relevant primary permutation-graph WL study"
+      },
+      {
+        "assessment": "Isomorphism totals only, no C2-equivalence counts",
+        "evidence": [
+          "A123448 terms 1,2,4,11,33,142,776,5699"
+        ],
+        "identifier_or_url": "https://oeis.org/A123448",
+        "material_read": "Sequence header, raw counts through order eight, provenance, references",
+        "method": "Direct page inspection",
+        "title": "OEIS A123448",
+        "trigger": "Possible stronger exact tabulation"
+      },
+      {
+        "assessment": "Raw isomorphism counts and representatives, no WL logical-class quotient",
+        "evidence": [
+          "Permutation graphs table n=1..8"
+        ],
+        "identifier_or_url": "https://www.jaist.ac.jp/~uehara/graphs/",
+        "material_read": "Permutation graph catalog table and class definitions",
+        "method": "Page search and inspection",
+        "title": "Graph and Puzzle Catalogs",
+        "trigger": "Independent full graph class census"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "95262b6d-45d6-4840-b75e-973681d16c03",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Permutation graphs are a natural and extensively studied class with identified higher-dimensional Weisfeiler–Leman bounds, making the first failure of one-dimensional counting logic a structural invariant. The complete n=6 first layer has two distinct nonisomorphic equivalence pairs, while the n=8 quotient has 41 nontrivial classes including a quadrupleton. Exact multiplicity counts provide finite benchmarks for C2 expressive power beyond known raw graph counts. The bounded natural classes and sharp threshold carry self-contained value independent of all-size consequences.",
+    "status": "PASS"
+  }
+}
