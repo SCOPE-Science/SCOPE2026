@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:52:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/order-five-uniqueness-on-the-three-state-potts-external-field-bo--5fb724796467/RESULT.md",
+        "Git RESULT.md blob 508d2493ea2ddc1bf9052df80ca66e0e53d30cb1",
+        "Frozen Git tree cf62c712e046b06efa60a5fa2f0c8604e4001478, RESULT.md blob 508d2493ea2ddc1bf9052df80ca66e0e53d30cb1"
+      ],
+      "rationale": "Directly differentiated K=L(p+1)^5/(p+L)^5 with p=v+v²+v³+v⁴,L=t p-v⁵-1,t=theta-1. Verified exact factorization K'(v)=(p+1)^4/(p+L)^6*(v-1)(v+1)v^5 R(v+1/v;t) and expansion R(2+z;t)=50(4t²+8t-7)+10(30t²+32t-119)z+10(17t²-4t-120)z²+(43t²-111t-550)z³+2(t-12)(2t+5)z⁴-2(2t+5)z⁵. For t in (1/2,(sqrt11-2)/2], all nonconstant coefficients strictly negative; constant is <=0. Hence R<0 for z>0 and K is strictly decreasing for v>1, reciprocal invariant under v->1/v, so unique maximum at v=1. At v=1 L=4t-2>0, so this is in physical domain. Original boundary-law reconstruction yields u=(4theta-2)/5. Independent Sympy expansion reproduced the factor and six z coefficients, not only the verifier log. This is an all-positive-v sign proof, not finite sampling.",
+      "residual_risks": [
+        "Global uniqueness relies on the published reversible source reduction; its exact assumptions should be preserved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1903.11440 Appendix B implements reciprocal method for k=2,3,4 only.",
+          "Rozikov 2021 survey arXiv:2103.07391 discusses those lower order cases."
+        ],
+        "reasoning": "Existing general threshold structure does not give uniqueness on the exceptional line for k>=5; the k5 positivity/sign calculation fills a genuine open gap.",
+        "searches": [
+          "Bogachev Rozikov Potts uniqueness conjecture Cayley k2 k3 k4 all k",
+          "Rozikov Gibbs measures Potts Cayley tree survey k5"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1903.11440",
+        "https://arxiv.org/abs/2103.07391",
+        "Frozen RESULT.md Git blob 508d2493ea2ddc1bf9052df80ca66e0e53d30cb1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source Conjecture 2.1 explicitly predicts uniqueness of v=1; source proves cases k=2,3,4 and leaves larger orders."
+        ],
+        "reasoning": "Earlier general boundary definitions plus unresolved conjecture do not logically force k5 global uniqueness without proving derivative sign. The new all-z coefficient negativity provides the missing implication.",
+        "searches": [
+          "Bogachev Rozikov 2019 Conjecture 2.1 positive solutions alpha1 k5 proof",
+          "Potts three state Cayley tree external field Conjecture 2.1 k=5 boundary uniqueness Bogachev Rozikov"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bogachev and Rozikov, On the uniqueness of Gibbs measure in the Potts model on a Cayley tree with external field, arXiv:1903.11440, exact Conjecture 2.1 and Appendix B."
+        ],
+        "reasoning": "Uniqueness of the boundary-law solution is exactly the K1 maximum assertion by the source reversible reduction. This equivalent formulation is independently proved at k=5 by new sign certificate; source treats it as conjectural.",
+        "searches": [
+          "Potts three state Cayley tree external field Conjecture 2.1 k=5 boundary uniqueness Bogachev Rozikov",
+          "Bogachev Rozikov Conjecture 2.1 k=5 K1 v unique maximum critical boundary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary article appendix gives separate coefficients/calculations for lower tree orders, not a published k5 result.",
+          "Source verify.py from frozen assigned tree provides an exact polynomial factorization replay."
+        ],
+        "reasoning": "An exact symbolic coefficient certificate for this k5 interval is not a known table entry in the primary source; no finite numerical phase diagram can substitute for the full-domain proof.",
+        "searches": [
+          "Potts three state Cayley tree external field Conjecture 2.1 k=5 boundary uniqueness Bogachev Rozikov",
+          "Potts external field Cayley tree k 5 uniqueness symbolic polynomial result table"
+        ]
+      },
+      "rationale": "Bogachev and Rozikov actually state Conjecture 2.1 in their primary mathematical paper and prove the global maximizer only for orders k=2,3,4 in Appendix B; their later survey still describes these orders. The k=5 reciprocal-polynomial certificate is not a restatement of their k<=4 instances, and does not follow from the numerical threshold values alone. Thus this is a new next-order case, best of knowledge.",
+      "residual_risks": [
+        "Later or independently circulated resolutions of the k=5 conjecture under different notation may exist and were not exhaustively located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING k5; explicitly conjectured and only k2-4 proved",
+          "evidence": [
+            "Conjecture 2.1 in section 2 and Appendix B with k=2,3,4 computations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1903.11440",
+          "material_read": "Accessible primary full-text transcription including Conjecture 2.1, system (2.33), K1 reduction and Appendix B lower-order proof steps; relevant passages inspected, not merely the abstract",
+          "method": "open lawful primary full-text article transcription (ResearchGate) with targeted theorem/appendix reading",
+          "title": "On the uniqueness of Gibbs measure in the Potts model on a Cayley tree with external field",
+          "trigger": "Exact same q=3, constant external field, order-k boundary conjecture"
+        },
+        {
+          "assessment": "Consistent with first open k5",
+          "evidence": [
+            "Survey cites only established k=2,3,4 exceptional uniqueness at the comparison point."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.07391",
+          "material_read": "Accessible public summary identifying order-2,-3,-4 boundary results; full survey not inspected",
+          "method": "arXiv abstract/survey summary",
+          "title": "Gibbs measures of Potts model on Cayley trees: a survey and applications",
+          "trigger": "Survey of status of the very same uniqueness conjecture"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bogachev/Rozikov Conjecture 2.1 exact boundary uniqueness open at k=5",
+        "Verified sixth-degree sign-coefficient certificate in assigned RESULT.md"
+      ],
+      "rationale": "Resolving the first previously open tree order of a concrete conjecture on the critical external-field Gibbs uniqueness boundary is motivated mathematics. The exact globally negative reciprocal derivative polynomial is a significant structural certificate and potentially informative for higher orders; not a routine parameter relabeling.",
+      "residual_risks": [
+        "The method as proved is k=5 only and does not solve all tree orders or nonhomogeneous Gibbs states."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For q=3 ferromagnetic Potts model on Cayley tree of order k=5, at external-field exceptional boundary alpha_1(theta), and for every 3/2<theta<=sqrt(11)/2, the positive boundary system has exactly one solution (u,v)=((4theta-2)/5,1), equivalently v=1 uniquely maximizes the physical-domain K_1(v;theta). This resolves the order-five case of Bogachev-Rozikov Conjecture 2.1.",
+  "limitations": [
+    "k=5 only, 3/2<theta<=sqrt(11)/2, three-state ferromagnet, constant external field and translation-invariant boundary-law setting.",
+    "k>=6 and other boundary laws/open Gibbs measures not addressed."
+  ],
+  "schema_version": 1
+}
