@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the degree-two Walsh kernel to \((S_N^2-N)/2\), isolates the central negative band, and applies an exact binomial second-difference identity whose sum telescopes to one boundary mass. The phase expansion follows from a uniform Stirling expansion with \(\delta_N\in[0,2)\); multiplication of the probability and rational-prefactor expansions produces the coefficient \(c(1/6-(\delta_N-1)^2)\). The square and one-past-square subsequences certify the sharp liminf and limsup. The accompanying checker independently reproduces the exact identities on a finite range and stress-tests the predicted remainder scale.
+## correctness
 
-## Originality
-PASS. The closest direct source gives the general invariant integral formula and the leading degree-two asymptotic \(\lambda(\mathcal B_{=2}^N)/N\to\sqrt{2/(\pi e)}\), but the inspected degree-two discussion does not state the single-boundary exact formula, the lattice variable \(\delta_N\), the order-one phase term, or the limsup/liminf split. Searches using projection-constant, second-chaos, Walsh, Krawtchouk, centered-square random-walk, exact-binomial, and formula-fingerprint aliases did not locate a covering statement. The general integral formula is acknowledged as prior coverage of the first reduction; the accepted claim begins at the nontrivial exact evaluation and finite-size phase law.
+PASS
 
-## Value
-PASS. The source literature identifies the degree-two projection constant as a natural local Banach-space invariant and determines only its leading linear growth. The new phase law explains the full order-one finite-size behavior and shows that a conventional constant second term does not exist. The oscillation is forced by the parity lattice at the sign-change boundary \(|S_N|=\sqrt N\), linking a natural harmonic-analytic invariant to a concrete discrete threshold effect rather than to an arbitrary finite computation.
+The invariant Walsh projection formula gives λ=E|K_N| with K_N=(S_N²−N)/2, where S_N is the sum of N independent signs. By mean zero, its L1 norm is twice the negative central mass. The identity K_N(k)C(N,k)=C(N,2)[C(N−2,k)−2C(N−2,k−1)+C(N−2,k−2)] telescopes over the exact parity-aware negative band to the stated one-boundary binomial difference, then the equivalent rational prefactor follows algebraically. Uniform Stirling in the window r=√N−δ, 0≤δ<2, combined with the prefactor gives cN+c(1/6−(δ−1)²)+O(N^(−1/2)). Subsequence squares δ=0 and squares+1 δ→1 attain the extrema. Fresh independently coded direct exact rational Walsh averages matched the exact boundary formula for N=2..100; N=10000,10001,40000,40001,90000,90001 matched the predicted order-one phase to the stated error scale. This does not use finite checks as an infinite proof.
 
-Closest literature: Nayar (2013/2014) for the low Walsh levels; Defant--Galicer--Mansilla--Mastyło--Muro (2023/2024) for the exact projection-kernel formula and the leading degree-two asymptotic; Polyanskiy (2013/2019) for nearby Krawtchouk multiplier analysis. Residual risk is an equivalent finite-size identity in older binomial-deviation or Krawtchouk literature under a different normalization.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary projection-constant paper determines a general invariant Walsh-kernel integral formula and the leading degree-two limit λ/N→c, but not the one-boundary finite formula or the parity-lattice order-one oscillatory correction. A single-boundary Krawtchouk telescoping formula and its limsup/liminf phase appear to be a new best-of-knowledge refinement; Resultary search failed and is explicitly not treated as negative novelty evidence.
+
+## value
+
+PASS
+
+The projection constant is a natural Banach-space invariant; its exact finite degree-two formula and uniform lattice-phase correction sharpen the previously determined leading linear growth, reveal nonconvergence of the order-one remainder and give sharp limsup/liminf. A precise finite-size oscillation is mathematically motivated, useful for comparisons and not mere arbitrary small-case computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
