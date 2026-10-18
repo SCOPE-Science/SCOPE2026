@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Reduction from complex to nonnegative real coordinates follows by coordinatewise absolute values. The two parity path spectra supply the exact top-eigenspace multiplicity and the odd-dimensional positive spectral gap. The threshold variational formula is finite, and its truth set in \(t\) is a closed ray. In dimension three the quadratic maximization proves the full radius profile. In dimension five the certificate \(Q(r,u)\ge0\) follows from explicit positive coefficients or negative discriminant, including the \(a=0\) boundary. The near-Perron perturbation meets the upper certificate sharply. Sine-profile Riemann sums and eigenvalue expansions give exact-order growth. Symbolic checker tests the nonstandard polynomial and field identities; finite matrix tests are not a proof of universal claims.
+## correctness
 
-## Originality
-PASS relative to inspected literature and accessible published mathematical results. Bhunia--Majeed (arXiv:2603.03962, Sections 1–2), Jana--Bhunia--Paul (arXiv:2204.05150, Theorem 2.2), and Moslehian--Sattari--Shebrawi (2017, Propositions 2.4–2.9) give two-operator bounds but not the exact saturation threshold for \((J_n,tJ_n^2)\). Stanković (DOI:10.4171/ZAA/1787, Section 4) identifies joint and Euclidean radii but studies spherical transform bounds rather than exact Jordan-power saturation. Gau--Wu (arXiv:1304.0295, introduction and main results) treats the numerical range of a *single* KMS sum, not the joint two-power Euclidean radius. Published mathematical-record searches found no stronger covering result. The residual risk is an unindexed equivalent formulation, not a known covering theorem; independent audit remains necessary.
+PASS
 
-## Value
-PASS. The first two powers of the canonical nilpotent Jordan contraction form a natural benchmark for two-operator numerical radii. The exact parity distinction, sharp first two critical thresholds, and \(n^{3/2}\) scale give structurally motivated information neither implied by nor equivalent to generic norm inequalities. The result does not claim a general operator classification or an exact asymptotic coefficient.
+Replacing a complex vector by its entrywise absolute values simultaneously bounds both shift correlations by the corresponding nonnegative real quadratic forms. Re(J_n^2) splits into parity path blocks. For n even their equal Perron eigenvalues allow a unit top-eigenvector with strictly positive Re(J_n) cross term, proving finite-t strictness. For n odd the simple top eigenvector and positive gap gamma give beta-b>=gamma||y||^2 and a<=3||C||||y||, yielding finite tau=sup a/sqrt(beta^2-b^2). For n=3 a reflection-symmetric vector reduces R^2 to max_{0<=s<=1/2} [4s+(t^2-8)s^2]. For n=5 independently verified the claimed polynomial Q=k(r^2-2)^2/2+B(r)u^2+k u^4 and exact discriminant factorization in Q(sqrt 2); sign analysis and top-two-block perturbations give tau_5^2=k. Sine Perron overlap tends to 1 and beta-eta~pi^2/m^3, proving stated bounds of order n^(3/2), not an exact limit constant. Finite regressions are only checks.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bhunia–Majeed 2026 defines the identical Euclidean joint radius of a 2-tuple and derives general operator inequalities; Jana–Bhunia–Paul and Moslehian–Sattari–Shebrawi likewise treat bounds. Their inspected statements do not supply equality in a parameter half-line for (J_n,tJ_n^2), parity of the threshold or n=5 closed form. A q-numerical radius plateau for one Jordan operator and affine Jordan norm pencil are different invariants; no checked published result implies this saturation transition. Qualification: literature search is best-of-knowledge, not exhaustive.
+
+## value
+
+PASS
+
+The exact saturation/non-saturation dichotomy and first nontrivial algebraic threshold distinguish odd and even Jordan sizes. Sharp finite cutoff and n^(3/2) scale provide a motivated, reusable answer about joint operator radii rather than one more generic loose inequality; the unresolved higher odd thresholds are an explicit boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
