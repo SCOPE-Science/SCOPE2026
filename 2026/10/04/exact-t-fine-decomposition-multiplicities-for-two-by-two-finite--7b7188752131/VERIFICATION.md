@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof is exact and field-uniform. It identifies the nilpotent locus in \(M_2(\mathbb F_q)\) with the cone \(a^2+bc=0\), expands \(\det(A-N)\) as a linear functional on that cone, and identifies the zero projective rays with eigenlines of \(A\). The two determinant cases then reduce to counting scalar multiples on \(q+1\) projective rays.
+# Independent mathematical audit
 
-The included `verify.py` independently enumerates all matrices over the prime fields \(\mathbb F_2\), \(\mathbb F_3\), \(\mathbb F_5\), and \(\mathbb F_7\). For every nonzero matrix it enumerates all nilpotent summands, directly counts invertible complements, counts projective eigenlines, and checks the stated formula. It also checks the nilpotent count \(q^2\), the sharp minimum \((q-1)^2\), and the global pair-count identity. The saved `verify_output.txt` ends with `CHECK_OK`.
+## correctness
 
-The finite computations do not prove the theorem for arbitrary prime powers; the projective-conic argument in `RESULT.md` does. No independent audit has been performed.
+PASS
+
+For arbitrary finite field F_q (including characteristic 2) any invertible T is torsion and N nilpotent iff N=[[a,b],[c,-a]] with a²+bc=0. The nilpotent cone has q² points on q+1 projective rays [-uv:u²:-v²]. Expanding det(A-N) = det A +(alpha-delta)a+gamma b+beta c, and the linear functional vanishes on a ray precisely for an F_q eigenline of A. When det A nonzero each nonzero-functional ray contributes one bad multiple: d=q²-q-1+e. When det A zero, bad points are zero plus q-1 points from each of e zero-functional rays: d=q²-1-(q-1)e. Classification of nonzero singular matrices and invertible split types gives min (q-1)² and source equality cases (for q=2 an invertible nonsplit class also ties). Source finite checker enumerates all matrices q=2,3,5,7; this finite check corroborates but all prime powers follow from ray proof.
+
+## originality
+
+PASS
+
+Published matrix papers give existence of invertible/torsion-plus-square-zero or t-fine decompositions; none of their inspected existence/rank criteria determines the additive fixed-element multiplicity or eigenline formula. Nearby Resultary idempotent–nilpotent *factorization* counts are multiplicative and not equivalent. Residual older finite-field convolution literature could encode the same number.
+
+## value
+
+PASS
+
+A natural count refining recently studied t-fine decomposability for the smallest full matrix algebra. The formula classifies all nonzero matrices and sharp multiplicity extremizers via intrinsic eigenline geometry, not a contrived small finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

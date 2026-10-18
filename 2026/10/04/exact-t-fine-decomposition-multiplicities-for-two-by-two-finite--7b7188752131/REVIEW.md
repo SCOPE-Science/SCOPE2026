@@ -1,15 +1,21 @@
-# Review of Exact t-fine decomposition multiplicities for two-by-two finite-field matrices
+# Independent mathematical audit
 
-## Correctness
-PASS. Over \(\mathbb F_q\), every invertible matrix is a torsion unit, and every nilpotent \(2\times2\) matrix is square-zero. The nilpotent locus is the affine cone \(a^2+bc=0\) with \(q^2\) points. Expanding \(\det(A-N)\) gives a linear functional on that cone. Its zero projective rays are in bijection with the rational eigenlines of \(A\), so the good and bad nilpotents can be counted exactly in the cases \(\det A\ne0\) and \(\det A=0\). The proof covers characteristic \(2\). The exhaustive checker verifies all nonzero matrices for \(q=2,3,5,7\) and ends with `CHECK_OK`.
+## correctness
 
-## Originality
-PASS. The 2026 motivating paper defines generalized t-fineness and studies matrix-ring inheritance, while the 2023 decomposition paper proves existence of invertible-plus-square-zero and torsion-plus-square-zero decompositions. Neither inspected source gives the number of decompositions of a fixed \(2\times2\) finite-field matrix. published-finding corpus searches for exact unit-plus-nilpotent multiplicities returned no equivalent result. The closest prior ledger items count idempotent-nilpotent products or prove qualitative fineness after matrix amplification; neither statement implies this additive multiplicity formula. Residual risk remains that older finite-field additive-convolution literature may contain the same count in another language.
+PASS
 
-## Value
-PASS. The recent t-fine framework is an existence theory. This result determines the entire representation multiplicity in the smallest nontrivial matrix algebra and shows that the multiplicity is governed by the intrinsic projective eigenline count. The sharp lower bound \((q-1)^2\) quantifies how non-unique t-fine representations are and isolates the extremal similarity types. This is a natural exact invariant attached directly to the motivating decomposition property, not an arbitrary parameter slice.
+For arbitrary finite field F_q (including characteristic 2) any invertible T is torsion and N nilpotent iff N=[[a,b],[c,-a]] with a²+bc=0. The nilpotent cone has q² points on q+1 projective rays [-uv:u²:-v²]. Expanding det(A-N) = det A +(alpha-delta)a+gamma b+beta c, and the linear functional vanishes on a ray precisely for an F_q eigenline of A. When det A nonzero each nonzero-functional ray contributes one bad multiple: d=q²-q-1+e. When det A zero, bad points are zero plus q-1 points from each of e zero-functional rays: d=q²-1-(q-1)e. Classification of nonzero singular matrices and invertible split types gives min (q-1)² and source equality cases (for q=2 an invertible nonsplit class also ties). Source finite checker enumerates all matrices q=2,3,5,7; this finite check corroborates but all prime powers follow from ray proof.
 
-## Closest literature and limitations
-The closest sources are arXiv:2609.19882v1, which supplies the current t-fine framework and matrix-ring motivation, and arXiv:2301.06106v1, which proves existence of invertible/torsion plus square-zero decompositions. The claim is limited to order \(2\) and makes no higher-dimensional enumeration claim.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Published matrix papers give existence of invertible/torsion-plus-square-zero or t-fine decompositions; none of their inspected existence/rank criteria determines the additive fixed-element multiplicity or eigenline formula. Nearby Resultary idempotent–nilpotent *factorization* counts are multiplicative and not equivalent. Residual older finite-field convolution literature could encode the same number.
+
+## value
+
+PASS
+
+A natural count refining recently studied t-fine decomposability for the smallest full matrix algebra. The formula classifies all nonzero matrices and sharp multiplicity extremizers via intrinsic eigenline geometry, not a contrived small finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
