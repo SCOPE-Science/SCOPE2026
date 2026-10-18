@@ -1,0 +1,42 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T12:56:06.443636Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the specified source model N=B+(a*pi^2*p*T(N)^2)^-1 and T(N)=kappa(log N)^2(1+o(1)), derive p(N-B)T(N)^2=1/(a*pi^2). Along solutions N->infinity, N-B~N; taking logs proves log N/log(1/p)->1, so pN(log(1/p))^4->1/(a*pi^2*kappa^2). The generalized exponent 2(1+gamma) follows from the separately assumed Theta crossover. Correct only WITH the conditional resource matching and a positive solution branch; no hardware-universal assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        "arXiv:2610.01704v1 full original HTML, equations (23)–(24) and (29)–(30)",
+        "Resultary semantic query: fermionic Fourier transform adiabatic noisy crossover log fourth log square N Granet Dreyer",
+        "arXiv:2510.05099v2 low-depth fermionic routing (cited FFT-depth context)"
+      ],
+      "rationale": "FAIL: inspected complete original Granet–Dreyer primary arXiv HTML. Its equations (23) and preceding text already explicitly supply exactly the crossover balance N=1/(a*pi^2*p*T(N)^2)+constant AND T(N)~log^2 N. Direct substitution and routine asymptotic inversion force the fourth logarithm with no additional physical input or nontrivial theorem. Its following O(1/[p log^2 p]) bound is weaker but NOT mathematically contradicted by log-fourth behavior; the submitted sharp asymptotic is a corollary of stronger, explicit published premises. Paper also gives generalized noise-balance exponents. Absence of the precise words log-fourth from searches does not rescue originality.",
+      "residual_risks": [
+        "The meaning of FFT-matched adiabatic time versus compiled circuit depth is model-dependent; original source equations need not describe every hardware platform.",
+        "The sharp prefactor presumes an exact asymptotic constant kappa; the published text uses an informal ~ relation with possible normalization ambiguities."
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "PASS: a sharp logarithmic power and prefactor quantify where an analytic comparison changes sign and can clarify the interpretation of a loose published big-O upper estimate. This is useful mathematical parameter precision conditional on the model even though it is fully implied by published equations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.01704v1 full original HTML, equations (23)–(24) and (29)–(30)",
+    "Resultary semantic query: fermionic Fourier transform adiabatic noisy crossover log fourth log square N Granet Dreyer",
+    "arXiv:2510.05099v2 low-depth fermionic routing (cited FFT-depth context)"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Original source already contains the decisive mathematical premise: this is a covered consequence, not an independent new discovery.",
+    "Does not resolve which circuit resource is physically relevant."
+  ],
+  "residual_risks": [
+    "The meaning of FFT-matched adiabatic time versus compiled circuit depth is model-dependent; original source equations need not describe every hardware platform.",
+    "The sharp prefactor presumes an exact asymptotic constant kappa; the published text uses an informal ~ relation with possible normalization ambiguities."
+  ],
+  "schema_version": 1
+}
