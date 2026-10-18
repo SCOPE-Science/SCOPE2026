@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. After translation and reflection, log-concavity is exactly the monotonicity of successive mass ratios. The support-size mean bounds and the two threshold identities are derived explicitly, and equality in every comparison forces the stated truncated geometric profile. The proof handles all boundary cases; the numerical checker is supplemental.
+## correctness
 
-## Originality
-PASS. The closest direct source, arXiv:2111.06997v1, proves only the universal \(e^{-1}\) mean-versus-mode constant. The finite-support localization theorem arXiv:2004.12005v4, the entropy-variance theorem arXiv:2212.09115v1, targeted semantic-index searches, exact-polynomial searches, and the existing related records were compared. None supplies the four- and five-atom constants or the equality classification. Residual risk remains that an older elementary specialization exists under different terminology.
+PASS
 
-## Value
-PASS. This gives the complete sharp pre-transition finite-support regime of a published mean-mode inequality. Four atoms are the first nontrivial support size, and five atoms are the last size before a second mean cell can become active; the exact roots and equality rigidity are mathematically natural benchmarks.
+For a nondegenerate monotone log-concave law with contiguous positive support of exactly N=2,3,4,5 integer atoms, reflection and translation allow positive decreasing masses. The paired monotonicity inequality gives mean μ≤(N−1)/2. N=2 and N=3 therefore always include the mode among the mean-adjacent masses (uniform N=3 included). For N=4 the nontrivial μ≥1 condition for successive ratios 1≥a≥b≥c>0 is ab(1+2c)≥1; hence a²(1+2a)≥1 and R=a≥r4. For N=5 it is ab(1+2c+3cd)≥1, giving a²(1+2a+3a²)≥1 and R=a≥r5. The defining polynomials have unique positive roots in (0,1), with equality forcing all successive ratios equal: the normalized truncated geometric sequence, up to translation/reflection. At μ=1 the mean-adjacent ratio is exactly the claimed a, so boundaries and attainment are correct. Independent new finite rational-ratio grid and high-precision root/equality-mean tests corroborate but do not prove the all-law bounds.
 
-## Closest literature and limitations
-The direct comparison is Corollary 2.8 of arXiv:2111.06997v1. General finite-support localization in arXiv:2004.12005v4 explains geometric extremizers but does not state this objective or constants. The theorem here assumes monotonicity and stops at five atoms; no claim is made for larger supports.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The precise new facts are r4≈0.6572981061 and r5≈0.5677373609, the sharp finite-support mean-neighbor/mode ratios, and their rigid geometric equality cases. Melbourne–Palafox-Castillo Corollary 2.8 proves only the weaker universal e^(−1) bound for unbounded-support discrete log-concave laws. Marsiglietti–Melbourne finite log-concave localization identifies log-affine extreme distributions but does not state this moving floor/ceiling ratio nor the N=4,5 algebraic constants. Closely relevant semantic index results concern distinct half-mass or concentration functionals. This is best-of-knowledge originality, with a genuine risk that the elementary finite specialization is earlier folklore.
+
+## value
+
+PASS
+
+Mean mass versus modal mass is a natural operational concentration measure. Four atoms is the first support length where the mode can be excluded from the two mean-adjacent masses; five is the last length before the second interior mean cell can activate. The exact algebraic sharp thresholds and rigid equality profiles classify this motivated finite regime; this is more than generic log-affine renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
