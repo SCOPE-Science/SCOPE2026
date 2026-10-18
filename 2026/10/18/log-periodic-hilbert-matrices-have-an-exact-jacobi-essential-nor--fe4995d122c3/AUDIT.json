@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The matrix-to-Carleman discretization has a Hilbert--Schmidt entry error, and cellwise Poincare estimates plus an L2 derivative-kernel tail establish the requisite compact projection defects. Mellin transformation gives the exact positive convolution kernel. Right translations prove the half-line essential norm equals the whole-line periodic norm. Floquet kernels are pointwise bounded by the positive zero-quasi-momentum kernel, whose Fourier matrix is the compact Jacobi operator. Explicit input/output boundary estimates certify finite truncations. Simple-eigenvalue analytic perturbation of D(I+epsilon X)^2D, with the two +/-1 neighboring states, yields the stated exact second-order coefficient and the unitary sign symmetry removes odd terms. Finite numpy tests checked supplementary numerical values, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pushnitski--Sobolev equations (1.3)-(1.4) impose symmetric Hankel p(log(x+y))/(x+y), unlike row multiplier p(log x)/(x+y).",
+        "Jin Theorems 1.2-1.4 use kernels determined by a positive finite Borel measure and establish boundedness/norm conditions, rather than the modulated row essential norm."
+      ],
+      "reasoning": "The closest broad classes were tested for reductions/duality. The explicit zero-momentum top fiber of the nonselfadjoint row multiplier and its frequency-sensitive second variation are not direct specializations of either paper's displayed results; historic periodic Mellin reductions are an unresolved but nondecisive risk.",
+      "searches": [
+        "arxiv:2307.09242 Floquet periodic Hankel kernel Sections 1 2 8 Appendix A",
+        "arxiv:2504.19743 generalized Hilbert matrix operators positive Borel measure weighted sequence spaces",
+        "periodic Carleman output multiplier Floquet norm historical operator theory"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.13403v1, Theorems 2 and 3 plus proof",
+      "arxiv:2307.09242, Sections 1, 2, 8 and Appendix A",
+      "arxiv:2504.19743, introduction and principal stated results",
+      "2026-10-11 public mathematical note on multiplicatively slowly oscillating row weights (summary only)",
+      "Wong 1980 DOI 10.1112/jlms/s2-21.3.527 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Norrbo Theorem 2 requires a limiting mean for an exact scalar norm and Theorem 3 gives a general implicit tail formula.",
+        "Pushnitski--Sobolev Section 8 uses gamma factors in selfadjoint Mathieu-Hankel fibers, not diagonal Carleman multipliers at zero quasi-momentum.",
+        "Jin's matrices use positive measure moment kernels and weighted sequence-space norms."
+      ],
+      "reasoning": "Having the same operator class does not imply the explicit log-periodic norm; the closest source's variational characterization does not perform the Jacobi calculation. Shared Floquet methodology similarly does not identify a common mathematical theorem. Known stronger general periodic Mellin reductions remain possible, so publication priority is a residual risk.",
+      "searches": [
+        "arxiv:2609.13403v1 Theorem 2 local magnitude mean convergence and Theorem 3 tail variational",
+        "arxiv:2307.09242 Section 8 Mathieu Hankel Gamma weighted Jacobi fibers",
+        "arxiv:2504.19743 Theorem 1.3 measure induced generalized Hilbert norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Norrbo Theorem 3 is a variational tail supremum for all coefficients, not the Fourier-Jacobi evaluation.",
+        "The present operator is compact-equivalent to a half-line multiplier of a Carleman convolution, and has a positive-kernel Floquet reduction."
+      ],
+      "reasoning": "Equivalent descriptions were compared including the matrix, Mellin convolution, periodic Wiener--Hopf compression, and compact Jacobi fiber. The cited source's implicit all-weight formula does not evaluate this class's frequency dependence or Taylor coefficient.",
+      "searches": [
+        "log-periodic weighted Hilbert matrix row cosine log k essential norm Mellin periodic Carleman Floquet spectral norm",
+        "Mellin convolution operator multiplication periodic log function essential norm Fourier Jacobi Floquet",
+        "arxiv:2609.13403v1, Theorems 2 and 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published note titled Exact essential norm for slowly oscillating generalized Hilbert matrices treats coefficients asymptotically invariant under fixed multiplicative dilations.",
+        "For nonzero epsilon the change k -> exp(pi/omega) k changes the cosine phase by pi and thus defeats that slow-oscillation hypothesis."
+      ],
+      "reasoning": "Actual title/alias/parameter queries found a related slow-oscillation result, but its stated scope is incompatible with fixed positive log-frequency. No exact row-modulated Jacobi essential-norm table was recovered; failed retrieval alone is not treated as a proof of novelty.",
+      "searches": [
+        "periodically modulated Hilbert matrix k row weight cos omega log k exact essential norm compact Jacobi Floquet Mellin Carleman",
+        "logarithmically periodic row-weighted generalized Hilbert operators nonselfadjoint essential norm spectral band diagonal Fourier cos",
+        "slowly oscillating generalized Hilbert matrices essential norm loglog versus log-periodic"
+      ]
+    },
+    "rationale": "The 2026 source (Norrbo arXiv:2609.13403v1) covers the exact family but its exact scalar essential norm Theorem 2 assumes convergence of local magnitude averages, which fixed log-periodic coefficients lack; Theorem 3 gives an implicit tail variational quantity, not the present explicit Jacobi norm and curvature. Pushnitski--Sobolev arXiv:2307.09242 develop Floquet theory for symmetric periodically modulated Hankel kernels p(log(x+y))/(x+y), not output-row modulation p(log x)/(x+y). Jin arXiv:2504.19743 addresses measure-induced generalizations and norm criteria. A related published slow-oscillation theorem does not apply because a fixed multiplicative half-period flips the present weight. Published general periodic operator theory remains a priority risk.",
+    "residual_risks": [
+      "Historical broad periodic Mellin/Wiener--Hopf or strongly Carleman pseudodifferential operator theorems may imply the zero-momentum norm reduction or perturbative coefficient; the 1980 Wong article full text was not accessible.",
+      "A closely related 2026 slow-oscillation research record was available only in summary; although its stated hypothesis excludes fixed log-frequency, unseen additional results could affect priority.",
+      "Independent mathematical priority and full peer assessment have not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct relevant source, but the exact norm claim needs a converging mean, absent for log-periodic factors; the general characterization is implicit.",
+        "evidence": "Theorem 2 in Section 2 and Theorem 3 with a tail supremum, arXiv:2609.13403v1, pages 4 and 9.",
+        "identifier_or_url": "https://arxiv.org/pdf/2609.13403",
+        "material_read": "Full-text abstract, introduction and definition, Theorems 1-3, proof of Theorem 2, last theorem's variational form.",
+        "method": "Read primary arXiv PDF with its equation statements and proof text.",
+        "title": "The essential norm, block sizes, and some Generalized Hilbert operators on lp",
+        "trigger": "Same row-weight generalized Hilbert matrix family, source of the new research question."
+      },
+      {
+        "assessment": "Treats selfadjoint periodic Hankel kernels depending on x+y, not the nonselfadjoint output-row modulation; not a direct implication.",
+        "evidence": "Equations (1.3)-(1.4), (1.7)-(1.8), and (8.1) in arXiv:2307.09242.",
+        "identifier_or_url": "https://arxiv.org/pdf/2307.09242",
+        "material_read": "Introduction and equations (1.1)-(1.8), Floquet Sections 1.5/2, Section 8 Mathieu-Hankel model including its Gamma fiber, and Appendix A's scope.",
+        "method": "Read primary arXiv full text in targeted sections and inspect PDF page images.",
+        "title": "Hankel operators with band spectra and elliptic functions",
+        "trigger": "Highly relevant Floquet theory and periodic modulation of Carleman-type kernels."
+      },
+      {
+        "assessment": "Its exact norm results concern different moment-induced kernels and sequence-space weights, not a log-periodic output multiplier.",
+        "evidence": "Theorem 1.2 and Theorem 1.3 arXiv:2504.19743, pages 2-3.",
+        "identifier_or_url": "https://arxiv.org/pdf/2504.19743",
+        "material_read": "Abstract, introduction, Theorems 1.1-1.4 and definition of positive-measure-induced kernels.",
+        "method": "Read relevant primary arXiv PDF pages 1-3, not a whole-document negative claim.",
+        "title": "Generalized Hilbert matrix operators acting on weighted sequence spaces",
+        "trigger": "Same Hilbert matrix terminology and primary operator-theory classification."
+      },
+      {
+        "assessment": "Inapplicable to fixed-frequency log-periodic weights, because they are not asymptotically constant under every fixed multiplicative scale; unknown additional coverage beyond summary remains a risk.",
+        "evidence": "The record states exact norm is a constant times limsup|g_k| under multiplicative slow oscillation, exemplified by sin(log log(k+e)).",
+        "identifier_or_url": "Published mathematical research record dated 2026-10-11 (title and summary only)",
+        "material_read": "Public title and detailed result summary only; full paper text not accessible.",
+        "method": "Scientific record semantic search and comparison of its stated slow-oscillation hypothesis.",
+        "title": "Exact essential norm for slowly oscillating generalized Hilbert matrices on ell-p",
+        "trigger": "Very close family and exact essential-norm assertion."
+      },
+      {
+        "assessment": "Priority risk unresolved; not counted as a source verified to be noncovering.",
+        "evidence": "1980 abstract announces spectral analysis of strongly Carleman pseudodifferential operators without displaying the current matrix norm formula.",
+        "identifier_or_url": "https://doi.org/10.1112/jlms/s2-21.3.527",
+        "material_read": "Publisher abstract only; complete text not inspected.",
+        "method": "Bibliographic and abstract-level lookup only.",
+        "title": "Spectral Analysis of Strongly Carleman Pseudo-Differential Operators",
+        "trigger": "Potential historical generalization in Carleman/Wiener--Hopf operator theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fe4995d1-22c3-4d6a-a42b-81456b98a0cd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Log-periodic output coefficients of generalized Hilbert matrices are a natural boundary case beyond converging local means and fixed-scale multiplicative slow oscillation. The theorem reduces an infinite-dimensional noncompact essential norm to a compact Jacobi norm, provides exponential finite-section certification for arbitrary positive frequency and real |epsilon|<1, and gives a sharp nontrivial frequency-dependent quadratic response. This directly quantifies interaction of Carleman spectral mixing and logarithmic scale oscillation rather than reporting a routine weight bound.",
+    "status": "PASS"
+  }
+}
