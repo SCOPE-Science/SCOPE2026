@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:57:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inspected Behzadipour original Theorem 1.5 (same definition) and independently derived T=(σ(n)−1)/2−n=p(h−(p+1)/2)+h−1 with h=2^a. For p<h set A=h−(p−1)/2 in [0,h−1], B=h−1−p even in [0,h−1]; pA+B=T and binary powers p2^i plus 2^i(i≥1) are distinct valid proper divisors. For p>h, if p≥2h+1, T<0; if h<p≤2h−1, T<p² excludes p²-divisor layer. Any remaining subset sum is pC+D with D even, 0≤D≤2h−2, D≡h−1 mod p; only candidate h−1 is odd, contradiction. p=h impossible for odd p. Finite bitset examples corroborated proof, not substitute for it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop1.4 forces even odd-prime exponents; closure constructions generate some members, but cannot characterize all p<h and none p>h."
+        ],
+        "reasoning": "Other two-prime-support divisor notions (Zumkeller/strong Achilles/practical) have different summand sets and conditions; cannot infer two-layeredness by title similarity.",
+        "searches": [
+          "Behzadipour Prop1.4 Thm1.7 Thm1.8",
+          "two-prime-support Zumkeller harmonious/practical Results Resultary"
+        ]
+      },
+      "checked_sources": [
+        "Behzadipour arXiv:1812.07233 Theorem 1.5 page 3",
+        "OEIS A322657 (live 2026-10-17)",
+        "RESULT.md 0bd76fbe237dfad35633473a180dac026a761ce6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem1.5 requires solving a subset-sum problem, while the new binary construction and parity+mod-p obstruction eliminate infinite casework."
+        ],
+        "reasoning": "A generic decision test is not a prior closed-form classification merely because it can decide each input; explicit general formula is independently needed.",
+        "searches": [
+          "Behzadipour full original paper §§1–3",
+          "OEIS A322657 entry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Behzadipour Thm1.5 equivalent to subset sum criterion T but does not evaluate it across the prime-square family."
+        ],
+        "reasoning": "The new iff is a nontrivial uniform solution of this general subset-sum criterion, not the criterion itself.",
+        "searches": [
+          "Behzadipour Two-layered numbers arXiv:1812.07233",
+          "Resultary two layered 2^a p² dyadic threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS lists 36,72,144,200,392,400,784,... and PARI membership code, no parametric 2^a p² theorem."
+        ],
+        "reasoning": "Finite sample tables agree but are neither infinite proof nor a prior formula establishing threshold.",
+        "searches": [
+          "OEIS A322657 two layered numbers entry table and membership algorithms"
+        ]
+      },
+      "rationale": "The originating paper provides necessary parity and general subset-sum criterion, not an iff condition for all 2^a p². OEIS A322657 lists examples and a membership algorithm, not the infinite sharp threshold. Published semantic nearest two-prime-support results concerned other divisor properties. Best-of-knowledge PASS; possible informal/table insight remains.",
+      "residual_risks": [
+        "Unindexed elementary observation of p<2^a may predate this record; search cannot establish absolute priority.",
+        "No classification claimed for odd-prime exponent 2b>2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS subset-sum criterion and necessary parity, NOT identified as threshold theorem",
+          "evidence": "Thm1.5 states T is sum of distinct proper divisors; Prop1.4 odd prime exponents even; examples 36,72,144,200.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.07233",
+          "material_read": "Complete public 12-page primary PDF; especially Proposition 1.4, Theorem 1.5, proof, examples and closure results",
+          "method": "Public PDF text and page-3 image inspection",
+          "title": "Two-layered numbers",
+          "trigger": "Exact original definition and strongest applicable result"
+        },
+        {
+          "assessment": "MEMBERSHIP TABLE; no infinite 2^a p² classification",
+          "evidence": "Explicit 36,72,... and generic subset-sum membership code; no threshold formula in entry.",
+          "identifier_or_url": "https://oeis.org/A322657",
+          "material_read": "Full entry listing terms, definition, comments, MAPLE/MATHEMATICA/PARI algorithms and references",
+          "method": "Read complete live OEIS entry",
+          "title": "OEIS A322657 — Two-layered numbers",
+          "trigger": "Exact matching database/table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Odd-prime even-exponent necessity makes the p² family the first natural two-prime-support layer; complete iff classification and constructive witnesses versus modular obstruction settle its boundary independent of a wider full census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Behzadipour arXiv:1812.07233 Theorem 1.5 page 3",
+    "OEIS A322657 (live 2026-10-17)",
+    "RESULT.md 0bd76fbe237dfad35633473a180dac026a761ce6"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Unindexed elementary observation of p<2^a may predate this record; search cannot establish absolute priority.",
+    "No classification claimed for odd-prime exponent 2b>2."
+  ]
+}

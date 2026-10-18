@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The definition and quantifiers are explicit: \(a\ge1\), \(p\) is an odd prime, and the claim is exactly about \(n=2^a p^2\). Behzadipour's Theorem 1.5 was inspected in the full paper and supplies the iff subset-sum criterion. Below the threshold, the target is decomposed into two disjoint binary divisor families. Above the threshold, negativity removes \(p\ge2^{a+1}+1\), while in the remaining interval the target is below \(p^2\), so the \(p^2\)-divisor layer is unavailable and parity plus reduction modulo \(p\) gives a contradiction. The packaged independent computation of the criterion on 549 finite cases agrees with the symbolic theorem.
+## correctness
 
-## Originality — PASS
-The focal paper states the parity restriction on odd-prime exponents, an exact general subset-sum criterion, examples, and closure constructions, but does not classify \(2^a p^2\). The general criterion alone does not imply the threshold without solving the subset-sum instance uniformly. OEIS A322657 was inspected as the exact database table; it lists members and a decision algorithm but no parametric iff theorem for this family. Targeted semantic searches for the exact family, prime-square support, dyadic threshold, and equivalent formulations returned only results about different arithmetic notions on two-prime supports.
+PASS
 
-## Value — PASS
-The family \(2^a p^2\) is the first two-prime-support stratum permitted by the source's necessary even-exponent condition on odd primes. A complete sharp threshold therefore resolves a natural boundary layer rather than an arbitrary finite slice. The result also supplies explicit witnesses in every positive case and a structural obstruction in every negative case, explaining a visible subfamily of the canonical OEIS sequence.
+Inspected Behzadipour original Theorem 1.5 (same definition) and independently derived T=(σ(n)−1)/2−n=p(h−(p+1)/2)+h−1 with h=2^a. For p<h set A=h−(p−1)/2 in [0,h−1], B=h−1−p even in [0,h−1]; pA+B=T and binary powers p2^i plus 2^i(i≥1) are distinct valid proper divisors. For p>h, if p≥2h+1, T<0; if h<p≤2h−1, T<p² excludes p²-divisor layer. Any remaining subset sum is pC+D with D even, 0≤D≤2h−2, D≡h−1 mod p; only candidate h−1 is odd, contradiction. p=h impossible for odd p. Finite bitset examples corroborated proof, not substitute for it.
 
-## Closest literature and limitations
-The closest source is Behzadipour's 2018 paper, especially Proposition 1.4 and Theorem 1.5. Its closure theorems generate descendants of known examples but do not cover all and only the pairs satisfying \(p<2^a\). OEIS A322657 is a computational table, not a stronger statement. The result does not address higher even exponents of the odd prime. An unindexed informal observation remains a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The originating paper provides necessary parity and general subset-sum criterion, not an iff condition for all 2^a p². OEIS A322657 lists examples and a membership algorithm, not the infinite sharp threshold. Published semantic nearest two-prime-support results concerned other divisor properties. Best-of-knowledge PASS; possible informal/table insight remains.
+
+## value
+
+PASS
+
+Odd-prime even-exponent necessity makes the p² family the first natural two-prime-support layer; complete iff classification and constructive witnesses versus modular obstruction settle its boundary independent of a wider full census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
