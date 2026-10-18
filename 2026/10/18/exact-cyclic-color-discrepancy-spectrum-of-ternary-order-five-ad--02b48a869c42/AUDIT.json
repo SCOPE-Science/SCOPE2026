@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Every admissible order-five cyclic word corresponds bijectively to a 48-edge Eulerian tour of the 24-vertex proper-word graph, canonically rooted at the unique 01010 edge. Each symbol occurs 16 times, making its cyclic pair discrepancy the maximum range of three integer prefix-balance paths. A complete edge-simple DFS and an independent enumeration of all 2^24 incoming/outgoing local bijections yield exactly the same histogram (3:23700,4:420924,5:341808). Direct brute interval/factor verification confirms three representative optimal/intermediate/worst witnesses, and the mandatory factor 01010 forces D>=3. The finite search ranges are exhaustive, not sampled. All executable inputs are bundled.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Álvarez et al. arXiv:2407.17367v1 Section 1 and Theorem 1 establish bounds for unrestricted de Bruijn words, which contain all length-five words, including adjacent repetitions, so their ternary order-five cycle has length 243 rather than 48.",
+        "Gabrić–Sawada arXiv:2005.01638v2 §1 studies unrestricted binary de Bruijn sequences.",
+        "Alhakim arXiv:2206.04408v1 Definition in §1 and discrepancy discussion pertain to a small set of preference-generated unrestricted full de Bruijn sequences."
+      ],
+      "reasoning": "These related discrepancy results do not include the exact constrained sample space as a special case; neither existence/minimum bounds nor other alphabets imply the restricted full histogram. A distinct published aggregate for all sequences is not stronger coverage of class-specific counts.",
+      "searches": [
+        "\"De Bruijn Sequences with Minimum Discrepancy\" arXiv:2407.17367",
+        "\"Investigating the discrepancy property of de Bruijn sequences\" 2005.01638",
+        "\"Nonbinary Counterparts\" \"discrepancy\" 2206.04408"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2309.02841v1, Definition 2 and Theorems 1–3",
+      "arXiv:2407.17367v1, Section 1, Theorem 1, Table 2",
+      "arXiv:2501.12921v2, Section VI",
+      "arXiv:2005.01638v2, Section 1",
+      "arXiv:2206.04408v1, Sections 1–4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3 of 2309.02841v1 implies the total 786432, not the discrepancy distribution.",
+        "Theorem 1 of 2407.17367v1 covers ordinary length-243 words over three symbols, including repeated neighbors.",
+        "Section VI of 2501.12921v2 bounds numbers of orthogonal collections rather than color imbalances of a single cycle."
+      ],
+      "reasoning": "Neither the published total, the unconstrained minimum-discrepancy construction, nor bounds for mutually orthogonal collections logically determine the per-cycle color discrepancy distribution for all proper five-factor cyclic tours.",
+      "searches": [
+        "arXiv:2309.02841v1 Theorems 1 and 3",
+        "arXiv:2407.17367v1 Theorem 1 and Section 7",
+        "arXiv:2501.12921v2 Section VI",
+        "\"adjacency hopping\" \"minimum discrepancy\" 2024"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen–Liang–Wu arXiv:2309.02841v1 Definition 2 specifies exactly the 48 proper cyclic five-factors for (3,5).",
+        "Chen–Sima–Milenkovic arXiv:2501.12921v2 Section VI identifies this object under the synonym Kautz sequence; Section VI studies orthogonality of collections rather than discrepancy of individual cycles."
+      ],
+      "reasoning": "The same cycle class is called adjacency-hopping de Bruijn or Kautz. Both aliases and their actual mathematical definitions were compared. The exact three-frequency distribution does not occur in the inspected relevant work. A search result alone is not evidence of absence.",
+      "searches": [
+        "\"Kautz sequence\" \"discrepancy\" \"enumeration\"",
+        "\"adjacency-hopping\" \"discrepancy\" de Bruijn",
+        "\"kautz sequences\" \"balance\" \"discrepancy\" 2024",
+        "arXiv:2501.12921v2 Section VI Kautz sequences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chen–Liang–Wu arXiv:2309.02841v1 Theorem 3 gives total 786432 circular cycles at parameters (3,5) and no discrepancy breakdown.",
+        "Álvarez et al arXiv:2407.17367v1 Table 2 gives small unrestricted de Bruijn minimum discrepancies, not frequencies for proper-factor Kautz cycles.",
+        "The two independently exhaustive certificates enumerate all 786432 constrained cycles and give frequencies 23700,420924,341808."
+      ],
+      "reasoning": "The known total is an essential consistency check but cannot uniquely imply the three individual counts, and the unrestricted minimum table does not supply them. No checked exact table with this histogram was found; this is not an absolute priority guarantee.",
+      "searches": [
+        "\"23700\" \"420924\" \"341808\" de Bruijn",
+        "\"Kautz\" \"discrepancy\" \"order 5\" 3",
+        "Chen Liang Wu 2023 adjacency hopping Theorem 3 3 5",
+        "Álvarez et al arXiv:2407.17367 Table 2 ternary order five"
+      ]
+    },
+    "rationale": "A primary-literature comparison by object and implication distinguishes the known 786432 total from the new exact discrepancy refinement. The published general-alphabet discrepancy results treat unrestricted de Bruijn sequences rather than proper-factor Kautz cycles; the new 2025 Kautz results optimize orthogonal collections rather than within-cycle color imbalance. Searches for aliases, specific coefficients, exact tables, broader coverage and previously recorded related claims did not reveal a statement determining the new histogram. Unindexed priority risk remains.",
+    "residual_risks": [
+      "A previously unindexed or otherwise uninspected table may contain an equivalent discrepancy classification. Literature checking does not prove absolute priority.",
+      "No independent external review or certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_OVERLAP_NOT_COVERING: establishes object, Eulerian encoding, and total count but not complete discrepancy histogram",
+        "evidence": [
+          "Definition 2 defines proper factors; Theorem 3 yields 786432 at (3,5); coding application in Section II-D."
+        ],
+        "identifier_or_url": "arXiv:2309.02841v1; https://arxiv.org/html/2309.02841v1",
+        "material_read": "Complete accessible HTML; Definition 2, Sections II-B and II-C, Theorems 1–3, and Section II-D",
+        "method": "Read accessible open preprint HTML and compared object, parameters, and theorem conclusions",
+        "title": "Adjacency-hopping de Bruijn Sequences for Non-repetitive Coding",
+        "trigger": "Same 3-symbol adjacency-hopping/Kautz object and exact total enumeration"
+      },
+      {
+        "assessment": "NOT_COVERING: unrestricted length-243 ternary order-five word, not constrained length-48 proper-factor cycles; no restricted frequencies",
+        "evidence": [
+          "Section 1 gives maximum minus minimum symbol counts; Theorem 1 bounds ordinary de Bruijn minimum discrepancy; Table 2 reports minimum values for ordinary cycles."
+        ],
+        "identifier_or_url": "arXiv:2407.17367v1; https://arxiv.org/html/2407.17367v1",
+        "material_read": "Accessible full HTML, Section 1, Theorem 1, Section 7 and minimum-discrepancy table",
+        "method": "Read open preprint and compare factor universes, length and strength of the results",
+        "title": "De Bruijn Sequences with Minimum Discrepancy",
+        "trigger": "Defines the identical multi-color discrepancy but over an unrestricted factor family"
+      },
+      {
+        "assessment": "NOT_COVERING: exact object overlap but different invariant, orthogonality of collections, not discrepancy distribution",
+        "evidence": [
+          "Section VI defines (sigma,k)-Kautz cycles with no repeated adjacent symbols; results bound orthogonal collection sizes."
+        ],
+        "identifier_or_url": "arXiv:2501.12921v2; https://arxiv.org/html/2501.12921v2",
+        "material_read": "Accessible full HTML, introductory definitions and Section VI generalized orthogonal Kautz sequences",
+        "method": "Compared Section VI questions about orthogonal collections with single-cycle color discrepancies",
+        "title": "Generalized Orthogonal de Bruijn and Kautz Sequences",
+        "trigger": "Same object under a second established name, Kautz sequence"
+      },
+      {
+        "assessment": "NOT_APPLICABLE_BY_DOMAIN: ordinary binary, not proper-factor ternary cycles",
+        "evidence": [
+          "Section 1 fixes binary de Bruijn cycles of length 2^n and defines binary discrepancy."
+        ],
+        "identifier_or_url": "arXiv:2005.01638v2; https://arxiv.org/html/2005.01638v2",
+        "material_read": "Accessible HTML abstract, Section 1 and listed construction/table sections",
+        "method": "Checked explicitly binary unrestricted scope and definition; no whole-document negative inference based on an abstract",
+        "title": "Investigating the discrepancy property of de Bruijn sequences",
+        "trigger": "Foundational discrepancy construction and tabulation literature"
+      },
+      {
+        "assessment": "NOT_APPLICABLE_BY_DOMAIN: nonbinary full de Bruijn preference families, rather than exhaustive Kautz class",
+        "evidence": [
+          "Section 1 requires every ordinary length-n string, including repeated-adjacent strings; abstract describes profile calculations for a specific construction."
+        ],
+        "identifier_or_url": "arXiv:2206.04408v1; https://arxiv.org/html/2206.04408v1",
+        "material_read": "Accessible HTML abstract, Sections 1, 2, 3, and Section 4 discrepancy topic",
+        "method": "Compared full de Bruijn preference-generated universe with proper-factor order-five cycles",
+        "title": "Nonbinary Counterparts of the Prefer-Same and Prefer-Opposite de Bruijn Sequences",
+        "trigger": "Nonbinary discrepancy calculations in related de Bruijn constructions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "02b48a86-9c42-42b6-baa2-a7617107ef20",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact worst-window color imbalance is a natural selection criterion for constrained nonrepetitive cyclic sequences used in structured color coding. Although the global count of 786432 is known, the first order where this quantity varies among ternary adjacency-hopping cycles is order five; precise optimal, intermediate, and worst class counts resolve the complete finite design-choice distribution. This is not a mere parameter substitution or recomputation of the published total. The domain and lack of higher-order extrapolation are explicit.",
+    "status": "PASS"
+  }
+}
