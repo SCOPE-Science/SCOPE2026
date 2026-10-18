@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The reservoir subsystem of the stated eight-dimensional ODE closes independently and yields the unique positive rodent infection force when \(\mathcal R_r>1\). Each human equilibrium is parameterized by one per-susceptible force \(L\); elimination gives \(J=pL/(1+kL)\) and \(L=z+\beta_2J\). The exact inverse \(\beta_2=(1/p)(1-kz+kL-z/L)\) is a strictly increasing bijection from \(L\in[z,\infty)\) to nonnegative contact rates. Thus the claimed sharp interval and inverse law hold for all positive parameters, with no root discarded. The companion full equilibrium count follows by checking both rodent branches and their boundary multiplicities. A standard-library exact-rational checker verifies all eight ODE residuals in a subcritical-human/supercritical-rodent witness, the strict floor, the zero-human-contact endpoint, and a human-only branch. Finite tests supplement rather than replace the analytic proof.
+## correctness
 
-## Originality
-**PASS, with the claim narrowed to the quantitative control interval.** The exact motivating full text provides an implicit coexistence equilibrium and two basic reproduction numbers but does not identify the sharp interval of attainable endemic human prevalence or the direct inverse map from prevalence to the human-to-human contact rate. The strongest close prior is Janan–Fatmawati–Hasan (2026), which already gives the *qualitative* three-branch taxonomy and a source-specific quadratic for a different seven-state Mpox model. That branch topology is expressly not claimed as new here. Its model uses vaccinated and asymptomatic humans and a different zoonotic-incidence denominator, and does not state or imply the quarantine-return system's exact prevalence range. Omede et al. (2026) treat an environmental/vertical-transmission model with backward bifurcation; Alharbi et al. (2026) use mass action and isolated humans; neither is a stronger or equivalent source for this exact normalized-incidence calibration. Source/title/formula/alias published-result searches yielded no equivalent claim. Index noncoverage alone is not proof of novelty.
+PASS
 
-## Value
-**PASS.** The target paper's reproduction threshold and sensitivity analysis do not quantify how far endemic human infection can be reduced by suppressing human-to-human contact if infected rodents persist. The exact sharp lower bound separates a mathematically avoidable human-transmission contribution from an unavoidable external-reservoir contribution. The inverse formula identifies every attainable equilibrium-prevalence target and rules out targets below the floor using only human-contact intervention. An exact positive-parameter witness has \(\mathcal R_h=49/96<1\) and \(\mathcal R_r=2\), yet human infection remains positive, quantitatively above the sharp floor. This is a naturally motivated exact model invariant, not a gratuitous parameter slice or an asserted global-stability theorem.
+Starting from the actual eight ODEs, eliminate E_h,I_h,Q_h,R_h in terms of force L and S_h. The positive coefficient D=1-tau*gamma/(AC) yields J=pL/(1+kL). The independent rodent endemic subsystem has unique force ell_r>0 iff beta3*nu>(mu_r+nu)(mu_r+d_r), supplying z=beta1 ell_r/beta3. The consistency relation beta2=(L-z)(1+kL)/(pL) strictly increases for L>=z, proving uniqueness, exact range, and inverse. Checked the source paper Eq.(1) on its full PDF, including the quarantine return term; rational verification script checks an exact eight-equation equilibrium.
 
-## Limitations and closest sources
-The result is conditional on a positive, endemic rodent reservoir and fixed reservoir/cross-species parameters. It concerns **existence and steady-state prevalence**, not equilibrium stability, transient persistence, calibrated intervention feasibility, or treatment at a universal disease-eradication threshold. The qualitative equilibrium taxonomy already appears for another Mpox model in Janan et al. (2026) and is only supporting context. An unindexed independent derivation of the identical source-specific bound cannot be excluded. The Arhinful–Anafo–Ampofi paper and the Janan/Omede comparator PDFs were materially inspected; the closely related Alharbi publisher-indexed model was inspected through its accessible Section 2 and abstract/conclusions, not through a complete independently downloaded article.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Arhinful–Anafo–Ampofi 2026 open-access 14-page primary paper was read at its equations (1), equilibrium section 4, reproduction numbers and numerical analysis. It does not state this exact monotone beta2-to-J bijection, prevalence floor or inverse. Other Mpox equilibria and imported infection floors in different compartment models are relevant broader context, not automatically this equation. The source already implicitly parameterizes endemic coordinates; originality restricted to sharp explicit control range for precisely its model.
+
+## value
+
+PASS
+
+An exact model-specific non-eradicable human-prevalence floor and a bijective contact-rate calibration law are mathematically interpretable steady-state control invariants. No empirical forecast, stability, or universal eradication statement is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

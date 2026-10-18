@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the prevalence-control theorem
 
-The full mathematical derivation is given in `RESULT.md`. The executable `verification/verify.py` uses **only Python's standard library** and exact rational fractions; run it with:
+# Independent mathematical audit
 
-```bash
-python verification/verify.py
-```
+## correctness
 
-The checker must print `VERIFY_OK`. Its computations reconstruct the eight differential-equation right-hand sides from the published model and check an exact nonnegative coexistence equilibrium whose human-to-human reproduction quantity lies below one, while the rodent reproduction quantity lies above one:
-\[
-\mathcal R_h=\frac{49}{96}<1<2=\mathcal R_r.
-\]
-At the tested parameter values, the exact endemic human infectious prevalence is
-\[
-J=\frac4{49},
-\]
-while the sharp baseline attained at zero human-to-human transmission is
-\[
-J_{\min}=\frac4{65}.
-\]
-All eight right-hand sides vanish exactly in the coexistence witness. The checker separately verifies the zero-human-contact boundary state, the disease-free state, and a human-only endemic equilibrium, each with zero residuals, and it checks the inverse-contact identity using rational arithmetic.
+PASS
 
-The proof that these are the *only* types of equilibria uses the reservoir-force cancellation and human-force monotone bijection, not finite checking. In particular the checker does not establish global stability, nor does it interpret a numerical convergence test as a general proof.
+Starting from the actual eight ODEs, eliminate E_h,I_h,Q_h,R_h in terms of force L and S_h. The positive coefficient D=1-tau*gamma/(AC) yields J=pL/(1+kL). The independent rodent endemic subsystem has unique force ell_r>0 iff beta3*nu>(mu_r+nu)(mu_r+d_r), supplying z=beta1 ell_r/beta3. The consistency relation beta2=(L-z)(1+kL)/(pL) strictly increases for L>=z, proving uniqueness, exact range, and inverse. Checked the source paper Eq.(1) on its full PDF, including the quarantine return term; rational verification script checks an exact eight-equation equilibrium.
+
+## originality
+
+PASS
+
+Arhinful–Anafo–Ampofi 2026 open-access 14-page primary paper was read at its equations (1), equilibrium section 4, reproduction numbers and numerical analysis. It does not state this exact monotone beta2-to-J bijection, prevalence floor or inverse. Other Mpox equilibria and imported infection floors in different compartment models are relevant broader context, not automatically this equation. The source already implicitly parameterizes endemic coordinates; originality restricted to sharp explicit control range for precisely its model.
+
+## value
+
+PASS
+
+An exact model-specific non-eradicable human-prevalence floor and a bijective contact-rate calibration law are mathematically interpretable steady-state control invariants. No empirical forecast, stability, or universal eradication statement is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
