@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Conditional three-way increment law is exact. Reconstructed martingales C/mu and D=B-(1-p)(C-1)/p; checked recurrences for first/second C moments and E[CD], including every normalizing factor. The exact b_(m+1)-b_m formula has denominator m+p and threshold p/m, and strict monotonicity of q_m proves one covariance sign transition. L2 positivity proves V_p>0. Taylor expansion of exact correlation shows coefficient of n^(-p); cross-covariance correction squared is o(n^(-p)). Standalone independent rational enumeration for n<=7 (151086 configurations) and finite parameter/size sign checks replayed, with finite/infinite distinction explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baur 1407.2508v1 Theorem 1 concerns cluster-size arrays in regimes p(n) -> 1, not fixed p root-cluster/boundary-count cross moments.",
+        "Baur--Bertoin 1406.2238v1 studies component sizes and fixed-p root-family growth but does not state the target b_n increment or unique covariance crossing."
+      ],
+      "reasoning": "A multitype branching process might cover the leading joint asymptotic, yet the present statement additionally gives an exact finite-n formula, one sign crossing, and sharp first correlation correction. No inspected stronger theorem explicitly implies these components together.",
+      "searches": [
+        "percolation on random recursive trees joint root cluster size number of singleton clusters covariance",
+        "Random recursive tree Bernoulli bond percolation root cluster size and number of first generation boundary clusters covariance switches from negative to positive",
+        "arXiv:1407.2508v1 sections 2.1-2.3, 3",
+        "arXiv:1406.2238v1 section 5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1406.2238v1",
+      "https://arxiv.org/html/1407.2508v1",
+      "https://arxiv.org/html/1512.05275v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The root size marginal, Yule limit and component-size asymptotics do not determine the joint sign of C versus B.",
+        "Counting vertices in daughter components requires weighting components by random sizes, whereas B counts those components unweighted."
+      ],
+      "reasoning": "A marginal limit cannot entail unique finite-size covariance sign reversal. In Kürsten, replacing daughter vertex count with daughter component count is not a notational synonym or simple parameter substitution. Residual risk: an unlocated general multitype Yule or urn moment identity could imply parts of this claim.",
+      "searches": [
+        "Random recursive tree Bernoulli bond percolation root cluster size and number of first generation boundary clusters covariance switches from negative to positive",
+        "Yule mutation root lineage number of first-generation mutations covariance asymptotically perfectly correlated",
+        "arXiv:1406.2238v1 Lemma 1",
+        "arXiv:1512.05275v1 Eq. (45)",
+        "arXiv:1407.2508v1 Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baur--Bertoin 1406.2238v1 Lemma 1: retained root family is a rate-p Yule family, deleted root-family births originate first-generation components.",
+        "Kürsten 1512.05275v1 Eq. (45) correlates root-cluster size with the number of vertices in first-generation clusters, which is a different statistic from the number of boundary edges."
+      ],
+      "reasoning": "Equivalent descriptions of the target B include first-generation component count, boundary deleted-edge count, and number of type-0 to mutant births. A first-generation vertex census is not equivalent, even when one first-generation component is large. The inspected literature gives component sizes and some vertex counts but not this exact B-versus-C sign transition and correlation deficit.",
+      "searches": [
+        "Random recursive tree Bernoulli bond percolation root cluster size and number of first generation boundary clusters covariance switches from negative to positive",
+        "Yule mutation root lineage number of first-generation mutations covariance asymptotically perfectly correlated",
+        "arXiv:1406.2238v1 sections 2.1 and 5",
+        "arXiv:1512.05275v1 sections IV, V and Appendix B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kürsten 1512.05275v1 Eq. (44) gives the root second moment already used as a check; Eqs. (45)-(46) give correlations involving total numbers of nodes in first-generation child clusters.",
+        "The exact root second moment is explicitly prior and not claimed novel."
+      ],
+      "reasoning": "The identified known moment table covers marginal root statistics and node census of daughters, not the number of daughter components. Our analytic mixed covariance and sign threshold are not a recomputation of E[C²].",
+      "searches": [
+        "Random recursive tree Bernoulli bond percolation root cluster size and number of first generation boundary clusters covariance switches from negative to positive",
+        "Yule mutation root lineage number of first-generation mutations covariance asymptotically perfectly correlated",
+        "arXiv:1512.05275v1 equations (13), (44)-(46)",
+        "arXiv:1407.2508v1 first-generation clusters"
+      ]
+    },
+    "rationale": "Direct source/claim/alias/implication checks distinguish daughter COMPONENT count from daughter VERTEX census. Root first and second moments, fixed-p scaling, and ranked daughter cluster sizes are treated as prior. The assessed new conjunction is exact root-versus-boundary covariance, a unique finite-n sign reversal for all fixed p, and sharp asymptotic correlation deficit. Three relevant original texts were materially read; possible general urn theorem subsumption remains a real historical-priority risk, not certified uniqueness.",
+    "residual_risks": [
+      "A general multitype Yule branching, urn or stochastic-approximation moment theorem not identified in inspected primary literature may imply some asymptotic dependence.",
+      "A broader prior finite-n component-count identity may exist under neutral-mutation or cluster-genealogy terminology; search cannot establish historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Presents fixed-p root-cluster scaling and Yule construction, but no exact first-generation boundary component count cross covariance or unique reversal.",
+        "evidence": [
+          "arXiv:1406.2238v1, Lemma 1; sections 2.1 and 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1406.2238v1",
+        "material_read": "Abstract, introduction, section 2.1 including Lemma 1, and section 5 percolation regimes and root-cluster discussion",
+        "method": "Read original openly available article HTML and compared theorem hypotheses/conclusions",
+        "title": "Cutting edges at random in large recursive trees",
+        "trigger": "Original neutral-mutation/Yule coupling for root clusters"
+      },
+      {
+        "assessment": "Regimes p(n) approaching one and ranked cluster sizes, not fixed-p first-generation component count covariance.",
+        "evidence": [
+          "arXiv:1407.2508v1, Theorem 1 and sections 2.1-2.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1407.2508v1",
+        "material_read": "Abstract, introduction, theorem on tree of cluster sizes, first-generation analysis, proof and appendices relevant to percolation",
+        "method": "Read original openly available article HTML and inspected theorem regime and objects",
+        "title": "Percolation on random recursive trees",
+        "trigger": "Plausible stronger genealogical cluster-size limit theorem"
+      },
+      {
+        "assessment": "Its mixed moment is with count of first-generation vertices, not the count of daughter components; root C moments are acknowledged as prior.",
+        "evidence": [
+          "arXiv:1512.05275v1, equations (44)-(46), Appendix B"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1512.05275v1",
+        "material_read": "Sections IV-V, equations (13), (44)-(46), and Appendix B",
+        "method": "Read original openly available article HTML and compared literal first-generation statistics",
+        "title": "Random Recursive Trees and the Elephant Random Walk",
+        "trigger": "Same fixed-p model and potentially dominating exact joint moment identities"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d9d22384-d073-4648-933a-b29c8fe8747e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "One natural, parameter-free geometrical boundary count and the size of its parent cluster exhibit opposite small-n and large-n covariance signs. The exactly-one-transition proof is a structural theorem, not a numerical cutoff; the explicit n^(-p) rate quantifies when daughter-component fluctuations become almost entirely driven by parent-cluster fluctuations. This dependence is not supplied by either marginal law or by daughter vertex-mass formulas.",
+    "status": "PASS"
+  }
+}
