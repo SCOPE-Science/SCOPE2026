@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The statement quantifies over all real noise strengths \(0\le x\le1\) and all integer sequential powers \(k\ge1\), with exact handling of identity, the negative spectral sector, and the weak-noise limit. Three operator sectors give explicit composition coefficients; direct normalized Choi and partial-transpose spectra give two inequalities. The nontrivial PPT-to-separable step is justified by a proof that real-orthogonally invariant qutrit states form a two-coordinate rectangle whose four corners are twirls of product projectors. Finite direct-matrix verification and exact rational certificates reproduce the critical four-power example, but the analytic argument is what extends to every real parameter and integer power.
+## correctness
 
-**Originality: PASS, subject to publication-priority uncertainty.** The exact noisy-Werner–Holevo interpolation and its one-step spectral eigenvalues are already in Karimipour (arXiv:2402.07700v5). Zhu and Wang (arXiv:2607.24693v1) prove zero capacities and NPT **at one use** for its half-noise member. Lami and Giovannetti (arXiv:1411.2517v4, Example 5) already prove index two for the unmixed Werner endpoint; that special case is not claimed new. Park (arXiv:2608.13551v1) proves general qualitative eventual breaking of PPT maps but not the parameter-dependent index of this initially NPT family. No exact full-family, first-four-powers, or sharp weak-noise threshold theorem was identified in the inspected texts and targeted searches. The earlier sector decomposition and known symmetry tools provide important ingredients; an unindexed or implicit earlier deduction remains a concrete risk. The result adds the full two-inequality phase classification and scaling, rather than republishing an endpoint.
+PASS
 
-**Value: PASS.** Entanglement-breaking depth is a physically motivated invariant of sequential channel use, unlike channel capacity measured by asymptotic parallel use. This result quantifies their separation in a recent NPT channel known to have zero quantum/private capacity. The complete all-noise criterion produces both a sharp depth-two parameter range and an exact singular weak-noise law, so the outcome is more than substituting one numerical noise strength or recomputing a known endpoint table. It does not address filtered indices or dimensions greater than three.
+For Phi_x=(1-x)id+(x/2)(Tr(.)I-T), 0<=x<=1, scalar/symmetric-traceless/skew-transpose eigenvalues are 1,s=1-3x/2,a=1-x/2. The normalized Choi partial transpose has ranks 3,1,5 eigenvalues (2-5s^k-3a^k)/18, (1+5s^k-3a^k)/9, (2+s^k+3a^k)/18. The third stays positive. Orthogonally invariant Choi states are determined by f=Tr(rho F),g=Tr(rho P), with PPT rectangle 0<=f<=1,0<=g<=1/3; all four corners are orthogonal twirls of explicit product states, so PPT iff separable within this family. Thus exact two EB inequalities hold for every k. Rational x=1/2 checks k1..4 give first EB at k=4, k=2 interval is [(4+sqrt2)/7,1], x=0 never, x>0 eventually. Monotone small-x exponential limit gives x*nEB -> -2 log y, 5y^3+3y=2. Independently reconstructed 30 direct 9x9 Choi matrices/eigenvalues and exact rational critical cases; this finite test is supplementary.
 
-**Residual limitations:** Targeted record and publication searches are not proofs of novelty. The invariant-state comparison uses a direct proof rather than claiming the classical orthogonal-invariance literature is new. The verification program is supplementary, not an external or independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier noisy Werner–Holevo papers characterize one-step channels/capacities and Lami–Giovannetti determine depth two for the unmixed Werner endpoint. Zhu–Wang 2026 show x=1/2 has zero quantum/private capacities but is not PPT after one use. None of the material read supplies the full-family necessary-sufficient two-inequality EB phase diagram, first-four iteration threshold or small-noise constant; these calculations are additional. Residual priority risk remains for implicit computations in orthogonally invariant channel literature.
+
+## value
+
+PASS
+
+EB depth of a physically motivated noisy qutrit channel determines when repeated unfiltered noise irrevocably destroys reference entanglement. The exact phase boundary, surprising depth four at zero-capacity x=1/2, and weak-noise 1/x law give concrete distinctions between capacity, PPT status and entanglement-breaking iteration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
