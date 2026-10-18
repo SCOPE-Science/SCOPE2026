@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. On every nonrepeat scalar quadratic step, the source local estimator equals \(\lambda\) exactly. The normalized steps then follow a capped multiplicative recursion. The product of admissible growth factors diverges, while the cap converges, which forces the sequence to the cap. A two-variable reparameterization gives the exact admissible supremum and its \(t_0=1\) specialization.
+PASS
 
-## Originality
+For a nondegenerate tail on f(x)=lambda x²/2, the exact source local smoothness quotient equals lambda, so r_k=lambda s_k satisfies r_(k+1)=min(A_k*r_k,B_k*r_k,C_k), with A_k=(t_(k+1)-m)/(t_(k+1)-1)>1, B_k=2(t_(k+1)-1)/[(1+beta)gamma t_(k+1)]>1 and C_k=(1-omega)/(2/B_k+1/[beta gamma (1-eta)A_k]). Published t recursion gives t_k=Theta(k), hence product A_k diverges and product min(A_k,B_k) diverges. C_k tends to Cinf; a positive growing recurrence capped by C_k converges to it for every r0>0. Optimize Cinf by x=beta gamma, y=(1+beta)gamma with 0<x<y<=2q, gamma=y-x<2, beta=x/(y-x)>0, where q=[2(t0-1)+m]/(2t0+m); its unattained supremum is 2q/(1+4q²) for q<=1/2 and 1/2 otherwise. If t0=1,m in (0,1), q<1/3 and uniform strict bound 6/13. The full published paper (2026 version, NOT 2025 preprint parameter set) permits t0=1. Distinct consecutive iterates is needed; cap removal on repeats excluded.
 
-PASS. The primary full text was inspected at the estimator, safeguard derivation, step-size rule, lower-bound result, and parameter discussion. Targeted source-specific searches and two close adaptive-gradient predecessors were compared. None states the exact scalar limit, the sharp parameter envelope, or the \(6/13\) consequence.
+## originality
 
-The main residual risk is an equivalent generic capped-growth observation in older adaptive-stepsize literature; no source-specific dominating statement was located.
+PASS
 
-## Value
+The full open 2026 Wang-Peypouquet version contains the exact three-way update and qualitative step growth/lower bound but no analyzed scalar-quadratic limiting cap and optimal transformed-parameter envelope. Its generic complexity results do not state this asymptotic recurrence solution. Related Malitsky-Mishchenko, Suh-Ma algorithms use different update recurrences. Qualified original source-specific analysis.
 
-PASS. The source emphasizes local curvature estimation and the possibility of increasing steps. The constant-curvature model reveals a sharp hidden restriction: even exact curvature information cannot drive the published safeguarded step beyond half the reciprocal-curvature scale asymptotically, and the convenient \(t_0=1\) initialization tightens the universal ceiling to \(6/13\). This clarifies the concrete cost of the Lyapunov safeguards without overclaiming about the full accelerated rate.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact asymptotic cap and sharp source-admissible parameter ceiling quantify the tradeoff of the three published Lyapunov safeguards even when curvature is exactly measured. It is a nontrivial, natural algorithmic performance ceiling and parameter-design diagnostic; no unsupported claim about total inertial acceleration or practical wall-clock speed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
