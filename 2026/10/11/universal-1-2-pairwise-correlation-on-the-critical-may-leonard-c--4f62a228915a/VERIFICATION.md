@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-The analytic proof was replayed from the stated differential equations and hypotheses. The checks are:
+# Independent mathematical audit
 
-1. On \(\alpha+\beta=2\), summing the three equations gives \(\dot u=u(1-u)\) for \(u=x+y+z\).
-2. Invariance of \(\log u\) and \(u\) gives \(\mathbb E[u]=\mathbb E[u^2]=1\), hence \(u=1\) almost surely.
-3. Coordinate-wise generator testing gives zero conditional mean of each per-capita growth rate. On \(u=1\), the first one factors as \((\alpha-1)(z-y)\), with cyclic analogues. Under \(\alpha\ne1\), the conditional equal-sharing laws follow.
-4. The conditional laws imply equal coordinate means and equal second moments; direct simplification gives each pairwise covariance as minus one half of the common variance.
-5. If the common variance vanishes, all three coordinates are almost surely \(1/3\); otherwise each Pearson correlation is exactly \(-1/2\).
+## correctness
 
-The bundled `verify.py` checks the factorization and covariance algebra and produces `ALGEBRA_OK`. It does not attempt to certify measure-theoretic invariance, literature coverage, or any infinite computation.
+PASS
 
-Limits checked explicitly: compact support lies strictly inside the positive octant; \(\alpha+\beta=2\); \(\alpha\ne1\). No boundary, stochastic, spatial, or delayed extension is asserted.
+C PASS: Independently expanded the full three-component vector field and confirmed u-dot=u(1-u) at alpha+beta=2. Invariance of log u and u on compact interior support gives E u=E u^2=1, so u=1 almost surely. Invariance against arbitrary C1 test functions of x yields E[per-capita x growth|x]=0; on u=1 this equals (alpha-1)(z-y), independently checked symbolically. Cyclic conditioning forces E[y|x]=E[z|x]=(1-x)/2. The repeated conditional equations imply equal means 1/3, equal second moments and cov=-variance/2; zero variance is the coexistence Dirac state. No infinite measure conclusion is extrapolated from finite examples.
+
+## originality
+
+PASS
+
+PASS within accessed evidence: The original May-Leonard system and Leach-Miritzis critical-line analysis yield the logistic total and periodic critical geometry, but do not determine coordinate-conditional invariant-measure means, equal variances, or universal -1/2 Pearson correlations. The candidate derives these from the stationary generator with nontrivial coordinate conditioning, not merely from the logistic reduction or existence of periodic orbits. A complete 2013 same-model Blé et al. primary paper remained inaccessible and could contain equivalent moments; that risk is recorded without treating failed access as disproof of priority.
+
+## value
+
+PASS
+
+V PASS: The critical integrable line is a geometrically distinguished classical May-Leonard regime. The all-compact-invariant-measure conditional equal-sharing identity, coordinate variances, and universal amplitude-independent -1/2 correlation are precise measurable rigidity constraints that distinguish the deterministic stationary dynamics from arbitrary simplex-supported distributions. They can test long-time orbit data without knowing periodic orbit amplitudes; this is stronger than merely recovering known simplex geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
