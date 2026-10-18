@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,73 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact symbolic replay checks the moment identities that drive the proof.
+# Independent mathematical audit
 
-For normalized spherical measure,
-\[
-\mathbb E[u_1^2]=\frac1d,\qquad
-\mathbb E[u_1^4]=\frac{3}{d(d+2)},\qquad
-\mathbb E[u_1^6]=\frac{15}{d(d+2)(d+4)}.
-\]
-With
-\[
-H_2=u_1^2-\frac1d,
-\qquad
-H_3=u_1^3-\frac{3u_1}{d+2},
-\]
-the checker verifies
-\[
-\mathbb E[u_1H_3]=0
-\]
-and
-\[
-\mathbb E[u_1H_2H_3]
-=
-\frac{6(d-1)}
-{d(d+2)^2(d+4)}.
-\]
-Therefore
-\[
-\int u\,h_\varepsilon^2\,d\mu
-=
-\frac{12(d-1)}
-{d(d+2)^2(d+4)}
-\varepsilon^2 e_1.
-\]
+## correctness
 
-The implicit-function derivative is then replayed algebraically:
-\[
-D_xF(0,0)=\frac{p-1}{d}I,
-\]
-\[
-\partial_\delta F(0,0)
-=
-\frac{(p-1)(p-2)}2
-\int u\,h_\varepsilon^2\,d\mu,
-\]
-so
-\[
-x'(0)
-=
--\frac{6(p-2)(d-1)}
-{(d+2)^2(d+4)}
-\varepsilon^2e_1.
-\]
+PASS
 
-For \(d=2\), the checker also reduces the two spherical harmonics to
-\[
-H_2=\frac12\cos(2\theta),
-\qquad
-H_3=\frac14\cos(3\theta),
-\]
-and verifies
-\[
-h_\varepsilon+h_\varepsilon''
-=
-1-\frac32\varepsilon\cos(2\theta)-2\varepsilon\cos(3\theta).
-\]
-Hence \(|\varepsilon|<2/7\) is an explicit sufficient planar convexity range.
+The actual smooth witness h_eps=1+eps[(u1^2-1/d)+(u1^3-3u1/(d+2))] defines a strictly convex support for sufficiently small nonzero eps by positivity of its spherical Hessian-plus-metric tensor. The first spherical moment vanishes; exact E[u1^2],E[u1^4],E[u1^6] yield E[u1(H2+H3)^2]=12(d-1)/[d(d+2)^2(d+4)], independently reconstructed from the mixed harmonic moment. For each ball radius R the optimization over all Euclidean isometries reduces to translation, and the Lp power is coercive and strictly convex in x, so its minimizer is unique. Expanding the exact first-order Euler condition with delta=1/R, the implicit-function derivative is x'(0)=-d(p-2)/2 times the squared-support first moment; the displayed drift follows and is nonzero at all sufficiently large finite R while tending to zero. Equivariance forces s(RB+x_R)=x_R, so association would force the fixed body s(X_eps) to equal all these varying centers, contradiction. The p=2 leading coefficient vanishes; finite p>2 and d>=2 essential.
 
-No finite enumeration is used to infer the theorem. Existence and uniqueness of the optimal translation follow analytically from coercivity and strict convexity, and the radius dependence follows from the proved asymptotic expansion.
+## originality
+
+PASS
+
+The complete 2009 Problem 13 (page 221) asks exactly whether an associated selector exists for p>2; the contemporaneous full Herburt–Moszyńska paper establishes p=2 Steiner association and the Hausdorff obstruction, not the requested finite p>2 nonexistence. Index searches for the same optimal Lp translation and associated selector formulation gave the current SCOPE self-hit but no later independent resolution. Quotient-metric and kernel-center papers are related objects but not known to answer association for this metric; unindexed later resolutions remain a real risk.
+
+## value
+
+PASS
+
+Provides a complete negative answer to an explicit 2009 open problem for every finite p>2 and d>=2, not a contrived example. The explicit (p-2)/R drift reveals exactly why the obstruction disappears at the Hilbert exponent and shows a geometric distinction between support-metric optimization and centroid-based equivariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

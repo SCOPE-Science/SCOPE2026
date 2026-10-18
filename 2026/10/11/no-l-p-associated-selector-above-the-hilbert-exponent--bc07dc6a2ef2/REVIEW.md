@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The witness support function is a sufficiently small \(C^2\) perturbation of the unit-ball support, so the standard tensor criterion \(\nabla_S^2h+h\,g_S>0\) gives a smooth strictly convex body. Its first support moment vanishes exactly, while its squared support has the explicit nonzero first moment
-\[
-\frac{12(d-1)}{d(d+2)^2(d+4)}\varepsilon^2e_1.
-\]
-For a radius-\(R\) ball, optimizing over Euclidean isometries reduces exactly to optimizing its translation. The \(p\)-power distance is coercive and strictly convex, so its critical translation is unique. The implicit-function calculation yields the nonzero \(R^{-1}\) drift with coefficient proportional to \(p-2\). Euclidean equivariance fixes the selector of every translated ball at its center, and association would force one fixed target body to have all of these distinct selector values. The packaged checker replays the exact moment and coefficient algebra.
+## correctness
 
-## Originality
-**PASS, with a residual unindexed-literature risk.** The primary 2009 paper defines the relevant \(L_p\) metric and associated-selector framework, proves the Hausdorff nonexistence result, and records the special \(p=2\) Steiner-point theorem. Problem 13 in the same volume explicitly asks the \(p>2\) question. Later inspected work on quotient metrics and on the kernel-center selector does not state an \(L_p\)-associated selector theorem or counterexample. Searches by the exact problem wording, support-function metric, optimal-translation formulation, and selector aliases found no covering result.
+PASS
 
-## Value
-**PASS.** The claim resolves an explicit archive-era open problem for the entire parameter range \(2<p<\infty\) and every dimension \(d\ge2\). The proof also exposes a structural phase transition: the leading obstruction is exactly proportional to \(p-2\), explaining why it disappears at the known Hilbert case rather than merely supplying an isolated counterexample.
+The actual smooth witness h_eps=1+eps[(u1^2-1/d)+(u1^3-3u1/(d+2))] defines a strictly convex support for sufficiently small nonzero eps by positivity of its spherical Hessian-plus-metric tensor. The first spherical moment vanishes; exact E[u1^2],E[u1^4],E[u1^6] yield E[u1(H2+H3)^2]=12(d-1)/[d(d+2)^2(d+4)], independently reconstructed from the mixed harmonic moment. For each ball radius R the optimization over all Euclidean isometries reduces to translation, and the Lp power is coercive and strictly convex in x, so its minimizer is unique. Expanding the exact first-order Euler condition with delta=1/R, the implicit-function derivative is x'(0)=-d(p-2)/2 times the squared-support first moment; the displayed drift follows and is nonzero at all sufficiently large finite R while tending to zero. Equivariance forces s(RB+x_R)=x_R, so association would force the fixed body s(X_eps) to equal all these varying centers, contradiction. The p=2 leading coefficient vanishes; finite p>2 and d>=2 essential.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The complete 2009 Problem 13 (page 221) asks exactly whether an associated selector exists for p>2; the contemporaneous full Herburt–Moszyńska paper establishes p=2 Steiner association and the Hausdorff obstruction, not the requested finite p>2 nonexistence. Index searches for the same optimal Lp translation and associated selector formulation gave the current SCOPE self-hit but no later independent resolution. Quotient-metric and kernel-center papers are related objects but not known to answer association for this metric; unindexed later resolutions remain a real risk.
+
+## value
+
+PASS
+
+Provides a complete negative answer to an explicit 2009 open problem for every finite p>2 and d>=2, not a contrived example. The explicit (p-2)/R drift reveals exactly why the obstruction disappears at the Hilbert exponent and shows a geometric distinction between support-metric optimization and centroid-based equivariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
