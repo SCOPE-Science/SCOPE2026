@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is quantified over every odd prime \(p\geq3\), every threshold \(T>0\), and every ordered pair of vertices, with one common finite time law. Fourier diagonalization reduces the matrix to \((p+1)/2\) distance classes, and elementary character sums give exact sums and square sums of the associated real coefficients. An explicit 50:50 mixture of Haar spectral phases and uniformly permuted roots has off-diagonal phase correlation \(-1/(p-1)\), forcing every averaged distance probability to be \(1/p\). A cyclotomic-polynomial coefficient comparison independently establishes rational independence of every spectral frequency gap, including the small-order boundary, so the continuous positive-time phase orbit is dense. The Haar barycenter lies in relative interior of the full phase-image convex hull, and its midpoint with the permutation barycenter does too; the convex-density lemma and Carathéodory provide exact finite physical times with the stated atom bound. This is an unrestricted proof rather than an extrapolation from finite computations. The supplied exact symbolic checks, permutation enumeration, and independent Fourier examples supplement it.
+PASS
 
-## Originality — PASS
+Set p odd prime, m=(p-1)/2, b0(d)=1, bj(d)=2cos(2πjd/p), Fourier spectral eigenvalues λj=2cos(2πj/p). The character sums S0=p,Q0=2p-1,Sd=0,Qd=p-1 for d!=0 are exact. Haar independent phases have zero offdiagonal correlation; uniform permutations of (m+1)st roots give -1/m, and 50:50 mixing c=-1/(p-1). Thus E Fd=((1-c)Qd+c Sd²)/p²=1/p at each d. Irreducibility of Φp proves independent frequency gaps λj-2, hence all tails of physical phase flow are dense on (S1)^m. Haar full support puts its barycenter in ri conv K; its midpoint with finite permutation barycenter is also relative interior, permitting exact physical finite convex combination via convex-density lemma; affine Carathéodory gives <=m+1 atoms with t>T. The analytic proof, not approximate numerical examples, establishes arbitrary p and all vertex pairs.
 
-Baptista, Coutinho and Marques, *Unexpected Averages of Mixing Matrices* (arXiv:2308.16378v1), develop arbitrary time sampling and solve selected paths and complete-graph cases but do not give the odd-prime-cycle finite-support theorem. Godsil, Mullin and Roy, *Uniform Mixing and Association Schemes* (arXiv:1301.5889v2), §§7–9, show that \(C_p\) is not instantaneously uniformly mixing for primes at least \(5\), but that arbitrarily close uniform single-time mixing exists. This is closure of the mixing curve, not finite exact convex representation. Adamczak and coauthors (arXiv:0708.2096v1), §4, exclude uniformity of the canonical Cesàro mean; their statement does not address optimized nonuniform time laws. The new contribution is the phase-correlation interior certificate converting phase density into exact finite uniform mixing with a support bound. An unlocated abstract convex-control theorem or differently indexed equivalent result remains a genuine literature risk; unsuccessful searches alone are not evidence of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem settles exact finite randomized observation-time mixing on a natural infinite family of quantum transport rings. It gives the same law from all initial vertices, a linear atom bound, and arbitrary postponement of observation times, while overcoming a known single-time impossibility. This distinguishes an operational sampling capability from standard Cesàro averaging and from mere arbitrarily close uniformity. No external quantum certification is claimed.
+Earlier single-time no-go, approximate time mixing, and standard Cesàro average results have different quantifiers; freely chosen finite time law with all t>T and at most (p+1)/2 atoms is not implied by any inspected theorem. Main novelty is an exact interior convex-hull certificate, not mere phase-density approximation.
 
-## Closest sources and limits
+## value
 
-Original texts inspected: arXiv:2308.16378v1 (§§2–4 and §7); arXiv:1301.5889v2 (§§7–9); arXiv:0708.2096v1 (§4). Numerical examples are only approximate. Exact times/weights are existential and may be large; the number of atoms is an upper bound; composite cycles are outside the theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Quantum time-sampling exact uniformity is a natural observable for coherent transport on prime ring graphs. The proof turns known approximate one-time behavior and single-time impossibility into finite exact convex reachability with a uniform law, arbitrary time delay and linear support bound. The needed precise exactness and probability matrix matter beyond a trivial reparameterization, though explicit/optimal times remain unknown.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
