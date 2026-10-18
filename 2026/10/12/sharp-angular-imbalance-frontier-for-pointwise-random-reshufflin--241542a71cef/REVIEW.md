@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** The final theorem compares exactly one two-step pass on two positive-definite quadratic components. Unit gradient updates reduce to two scaled rank-one projectors. Enumeration of the four IID words and two reshuffling words gives the two exact Gram operators. Since the two normal directions are independent, the map from initial state to their two inner products is invertible, proving necessity and sufficiency of the angular–imbalance threshold, including the strict and equality cases. A bisector Rayleigh-quotient calculation proves that the reshuffled operator always has a smaller top eigenvalue, while a direct decomposition proves the strict universal factor-two ratio and constructs a limiting sharpness family. The exact rational counterexample and standalone verifier were independently recomputed from the displayed formulas. Analytical arguments, not a finite enumeration, establish universal claims.
+## correctness
 
-**Originality (PASS, with residual priority risk).** The primary source by Safran–Shamir treats multi-epoch bounds for commuting quadratics; its conclusions do not imply the noncommuting, two-step, per-initial-vector iff criterion. Recht–Ré's two-matrix operator-norm inequality is weaker than a Loewner/pointwise characterization. De Sa's sampling counterexamples and the anonymous 2026 metric-aware framework concern different factor families, product lengths, and/or invariant metrics. Inspecting these documents and comparing their actual quantifiers revealed no direct implication of the closed-form threshold. No search proves absolute priority; equivalent unindexed two-component results remain possible.
+PASS
 
-**Value (PASS).** The model is a smallest noncommuting, fully strongly convex two-component problem on which the choice of resampling protocol can be assessed exactly. It identifies a sharp, interpretable interaction of angular coherence with update-strength imbalance, and resolves why a worst-case performance guarantee cannot be applied to every initial direction. The strict versus weak boundary, explicit finite counterexample, and sharp loss envelope make the distinction quantitative instead of qualitative. This is a one-pass theorem, not a multi-epoch rate or implementation-speed result.
+The gradient step is A=a uuᵀ or B=b vvᵀ (a,b∈(0,1)); direct products give RR Gram =a²b²c²/2 (uuᵀ+vvᵀ) and IID Gram=1/4[(a⁴+a²b²c²)uuᵀ+(b⁴+a²b²c²)vvᵀ]. Since u,v are independent, x↦(uᵀx,vᵀx) is invertible and IID−RR is PSD iff a≥bc and b≥ac. Above boundary the two coefficients have opposite signs, proving true directional reversal. The bisector maximizes RR Gram; IID−RR evaluated there is (1+c)(a⁴+b⁴−2a²b²c²)/8>0, yielding strict worst-case improvement. IID = RR/2 + (a⁴(uᵀx)²+b⁴(vᵀx)²)/4 gives RR<2 IID for all nonzero x, sharp as a→0 along x⊥v. Exact rational witness a=1/4,b=3/4,c=3/5,x=(-4/5,3/5) yields RR=81/20000 versus IID=53/20000; independently checked. All continuous quantifiers follow from the exact Gram argument, not the tests.
 
-Closest scientific references: Recht–Ré (2012), De Sa (2020), Safran–Shamir (arXiv:2106.06880), and the anonymous 2026 metric-specific sampling framework. Remaining risks: overlooked specialized coverage, unstudied multi-pass dynamics, different risk metrics, and floating-point effects.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Recht–Ré compare two-matrix product operator norms, which do not entail an all-initial-vector Loewner inequality; De Sa gives counterexamples for other sampling horizons/metrics; Safran–Shamir study multi-epoch/conditioning regimes. A related 2026 manuscript separates risk metrics in other families but does not supply this exact two-rank-one angular threshold in the inspected material. Resultary related results are about unrelated rank-one joint radii and sampling. The asserted contribution is the complete pointwise-vs-worst-case sharp frontier on a minimal noncommuting strongly convex example.
+
+## value
+
+PASS
+
+Sampling without replacement versus IID is fundamental to stochastic optimization. The first nontrivial two-component case already exhibits a sharp opposite ranking depending on whether one fixes an initial direction or takes the worst direction; the iff frontier and universal factor-two limit pinpoint when common blanket intuitions fail. The parameters a/b and angle have direct geometric meaning and the classification is not an unmotivated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:58:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The gradient step is A=a uuᵀ or B=b vvᵀ (a,b∈(0,1)); direct products give RR Gram =a²b²c²/2 (uuᵀ+vvᵀ) and IID Gram=1/4[(a⁴+a²b²c²)uuᵀ+(b⁴+a²b²c²)vvᵀ]. Since u,v are independent, x↦(uᵀx,vᵀx) is invertible and IID−RR is PSD iff a≥bc and b≥ac. Above boundary the two coefficients have opposite signs, proving true directional reversal. The bisector maximizes RR Gram; IID−RR evaluated there is (1+c)(a⁴+b⁴−2a²b²c²)/8>0, yielding strict worst-case improvement. IID = RR/2 + (a⁴(uᵀx)²+b⁴(vᵀx)²)/4 gives RR<2 IID for all nonzero x, sharp as a→0 along x⊥v. Exact rational witness a=1/4,b=3/4,c=3/5,x=(-4/5,3/5) yields RR=81/20000 versus IID=53/20000; independently checked. All continuous quantifiers follow from the exact Gram argument, not the tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Counterexamples and multi-epoch convergence results use different products, metrics or assumptions"
+        ],
+        "reasoning": "Neither general negative result nor convergence bound gives this sharp angular iff and the factor-two envelope for two rank-one components; no claim of universal RR failure is made.",
+        "searches": [
+          "Resultary: random reshuffling two rank one SPD quadratics sampling with replacement risk angular imbalance pointwise Loewner",
+          "Recht–Ré 2012 PMLR v23/recht12",
+          "De Sa NeurIPS 2020"
+        ]
+      },
+      "checked_sources": [
+        "https://proceedings.mlr.press/v23/recht12.html",
+        "https://papers.neurips.cc/paper/2020/hash/42299f06ee419aa5d9d07798b56779e2-Abstract.html",
+        "https://arxiv.org/abs/2106.06880",
+        "https://doi.org/10.5281/zenodo.22037371",
+        "Resultary: random reshuffling two rank one SPD quadratics sampling with replacement risk angular imbalance pointwise Loewner"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The RR and IID Gram operators are explicit and independent of any external optimization theorem"
+        ],
+        "reasoning": "The direction-sensitive reversal does not follow from existing spectral-norm comparison; it requires the rank-one coefficients and invertible coordinate map. It is nevertheless a short exact special-family calculation.",
+        "searches": [
+          "Resultary: random reshuffling two rank one SPD quadratics sampling with replacement risk angular imbalance pointwise Loewner",
+          "Recht–Ré 2012 PMLR v23/recht12",
+          "De Sa NeurIPS 2020"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Recht and Ré 2012 operator-norm comparison",
+          "Two exact derived Gram matrices of the particular rank-one SPD model"
+        ],
+        "reasoning": "An operator-norm ranking concerns only top eigenvalues and does not imply the all-x Loewner ordering. This record distinguishes and resolves both quantifiers.",
+        "searches": [
+          "Resultary: random reshuffling two rank one SPD quadratics sampling with replacement risk angular imbalance pointwise Loewner",
+          "Recht–Ré 2012 PMLR v23/recht12",
+          "De Sa NeurIPS 2020"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby published hits concern joint numerical radius of projections, unrelated to RR-vs-IID Gram frontier",
+          "Related metric-dependent manuscript studies larger-product simplexes"
+        ],
+        "reasoning": "No same two-component pointwise table appeared in the examined materials. Literature search limitation remains explicit.",
+        "searches": [
+          "Resultary: random reshuffling two rank one SPD quadratics sampling with replacement risk angular imbalance pointwise Loewner",
+          "Recht–Ré 2012 PMLR v23/recht12",
+          "De Sa NeurIPS 2020"
+        ]
+      },
+      "rationale": "Recht–Ré compare two-matrix product operator norms, which do not entail an all-initial-vector Loewner inequality; De Sa gives counterexamples for other sampling horizons/metrics; Safran–Shamir study multi-epoch/conditioning regimes. A related 2026 manuscript separates risk metrics in other families but does not supply this exact two-rank-one angular threshold in the inspected material. Resultary related results are about unrelated rank-one joint radii and sampling. The asserted contribution is the complete pointwise-vs-worst-case sharp frontier on a minimal noncommuting strongly convex example.",
+      "residual_risks": [
+        "Unindexed related 2026 full manuscript may include an implication-equivalent two-component special case; full text not materially read.",
+        "Rank-one/2D/two-step unit-stepsize simplifications limit generality; RR is not shown superior pointwise everywhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR two-factor operator norm inequality; does not by itself imply pointwise Loewner classification",
+          "evidence": "Operator-norm product comparison",
+          "identifier_or_url": "https://proceedings.mlr.press/v23/recht12.html",
+          "material_read": "Primary article abstract/theorem summary on matrix operator-norm comparison; full mathematical paper not verified as read",
+          "method": "PMLR scholarly primary abstract and statement",
+          "title": "Toward a Noncommutative Arithmetic–Geometric Mean Inequality: Conjectures, Case-Studies, and Consequences",
+          "trigger": "Direct two-factor without-replacement product comparison"
+        },
+        {
+          "assessment": "Acknowledged related negative phenomenon; no unsupported whole-document noncoverage claim",
+          "evidence": "De Sa 2020",
+          "identifier_or_url": "https://papers.neurips.cc/paper/2020/hash/42299f06ee419aa5d9d07798b56779e2-Abstract.html",
+          "material_read": "Primary abstract and described finite product counterexamples, not full-paper material",
+          "method": "NeurIPS primary abstract",
+          "title": "Random Reshuffling Is Not Always Better",
+          "trigger": "Published counterexamples to blanket reshuffling comparisons"
+        },
+        {
+          "assessment": "Different convergence-epoch and objective quantifiers from two-step pointwise Gram",
+          "evidence": "Safran–Shamir",
+          "identifier_or_url": "https://arxiv.org/abs/2106.06880",
+          "material_read": "Primary arXiv abstract and summary of conditioning/multi-epoch bounds",
+          "method": "arXiv abstract search",
+          "title": "Random Shuffling Beats SGD Only After Many Epochs on Ill-Conditioned Problems",
+          "trigger": "General reshuffling versus IID performance claims"
+        },
+        {
+          "assessment": "Related ranking distinctions; exact two-component rank-one angular frontier not established by examined portion",
+          "evidence": "Large-simplex Gram versus mean metric comparison",
+          "identifier_or_url": "https://doi.org/10.5281/zenodo.22037371",
+          "material_read": "Accessible scholarly overview and larger-simplex-family comparison, full manuscript not materially read",
+          "method": "Public scholarly overview",
+          "title": "Which Sampling Scheme Is Better? Metric-Dependent Rankings in Random Reshuffling Dynamics",
+          "trigger": "Recent plausibly overlapping metric-dependent RR manuscript"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sampling without replacement versus IID is fundamental to stochastic optimization. The first nontrivial two-component case already exhibits a sharp opposite ranking depending on whether one fixes an initial direction or takes the worst direction; the iff frontier and universal factor-two limit pinpoint when common blanket intuitions fail. The parameters a/b and angle have direct geometric meaning and the classification is not an unmotivated slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://proceedings.mlr.press/v23/recht12.html",
+    "https://papers.neurips.cc/paper/2020/hash/42299f06ee419aa5d9d07798b56779e2-Abstract.html",
+    "https://arxiv.org/abs/2106.06880",
+    "https://doi.org/10.5281/zenodo.22037371",
+    "Resultary: random reshuffling two rank one SPD quadratics sampling with replacement risk angular imbalance pointwise Loewner"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No claims for horizons beyond two steps, higher-rank Hessians, or arbitrary loss metrics.",
+    "Unindexed related 2026 full manuscript may include an implication-equivalent two-component special case; full text not materially read.",
+    "Rank-one/2D/two-step unit-stepsize simplifications limit generality; RR is not shown superior pointwise everywhere."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "PRIOR two-factor operator norm inequality; does not by itself imply pointwise Loewner classification",
+      "evidence": "Operator-norm product comparison",
+      "identifier_or_url": "https://proceedings.mlr.press/v23/recht12.html",
+      "material_read": "Primary article abstract/theorem summary on matrix operator-norm comparison; full mathematical paper not verified as read",
+      "method": "PMLR scholarly primary abstract and statement",
+      "title": "Toward a Noncommutative Arithmetic–Geometric Mean Inequality: Conjectures, Case-Studies, and Consequences",
+      "trigger": "Direct two-factor without-replacement product comparison"
+    },
+    {
+      "assessment": "Acknowledged related negative phenomenon; no unsupported whole-document noncoverage claim",
+      "evidence": "De Sa 2020",
+      "identifier_or_url": "https://papers.neurips.cc/paper/2020/hash/42299f06ee419aa5d9d07798b56779e2-Abstract.html",
+      "material_read": "Primary abstract and described finite product counterexamples, not full-paper material",
+      "method": "NeurIPS primary abstract",
+      "title": "Random Reshuffling Is Not Always Better",
+      "trigger": "Published counterexamples to blanket reshuffling comparisons"
+    },
+    {
+      "assessment": "Different convergence-epoch and objective quantifiers from two-step pointwise Gram",
+      "evidence": "Safran–Shamir",
+      "identifier_or_url": "https://arxiv.org/abs/2106.06880",
+      "material_read": "Primary arXiv abstract and summary of conditioning/multi-epoch bounds",
+      "method": "arXiv abstract search",
+      "title": "Random Shuffling Beats SGD Only After Many Epochs on Ill-Conditioned Problems",
+      "trigger": "General reshuffling versus IID performance claims"
+    },
+    {
+      "assessment": "Related ranking distinctions; exact two-component rank-one angular frontier not established by examined portion",
+      "evidence": "Large-simplex Gram versus mean metric comparison",
+      "identifier_or_url": "https://doi.org/10.5281/zenodo.22037371",
+      "material_read": "Accessible scholarly overview and larger-simplex-family comparison, full manuscript not materially read",
+      "method": "Public scholarly overview",
+      "title": "Which Sampling Scheme Is Better? Metric-Dependent Rankings in Random Reshuffling Dynamics",
+      "trigger": "Recent plausibly overlapping metric-dependent RR manuscript"
+    }
+  ]
+}
