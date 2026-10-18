@@ -1,15 +1,21 @@
-# Scientific review: Cartesian-product Bézout coefficient
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The two decisive reductions are valid for arbitrary compact convex factors with positive volumes. Mixed-volume monotonicity permits replacing each test body by the product of its factor projections, while the first mixed volume remains exactly unchanged because the product's surface-area measure sees only block-supported normals. The coefficient of \(ts\) in the product Minkowski-volume polynomial separates into within-factor terms and all ordered cross-factor terms. Bounding the former by the definitions of \(\beta_{d_i}\) gives the upper maximum; test segments from different factors and concentrated-in-one-factor near-optimizers give every lower maximum. Degenerate test bodies are justified by continuity. The planar consequence uses a sourced sharp two-dimensional theorem. No numerical experiment substitutes for a proof.
+## correctness
 
-## Originality
-**PASS, subject to residual historical risk.** The 2013 precursor (arXiv:1306.1315, Theorem 1.1 and Section 5), the 2015 development (arXiv:1507.00765, Sections 3–6), its simplex-characterization sequel (arXiv:1512.05442), and Xiao's general mixed-volume inequality (arXiv:1704.00883, especially Section 3.4) were inspected for a sharp product coefficient, its cross-factor witnesses, and equivalent factorwise bounds. The 2013 precursor proves the coefficient \(n/(n-1)\) for mixed discriminants but explicitly states that the analogous unrestricted mixed-volume inequality fails above dimension two; it also proves the planar bound. The 2015 development gives a dimension-independent zonoid-test-body bound two; the simplex characterization treats the coefficient-one class; Xiao gives the all-convex-body bound \(n\). None of these inspected claims states or forces the displayed exact product law without a further block-projection and coefficient argument. A publicly indexed Banach–Mazur stability result for nearly unit coefficient concerns a different implication and does not classify product coefficients. The product-of-simplices corollary may also be accessible from classical multihomogeneous estimates; novelty is not asserted for that isolated special case. An unlocated historical tensorization lemma remains possible.
+PASS
 
-## Value
-**PASS.** The best constant in a canonical Bézout-type mixed-volume inequality is a natural affine invariant that is difficult to compute on general convex bodies. The exact factorwise maximum identifies two different sharpness mechanisms (cross-factor test segments and an intrinsic factor obstruction), reduces a high-dimensional extremal problem to lower-dimensional ones, and solves the constant for arbitrary products of planar convex bodies regardless of their shapes. This is a complete natural classification rather than a small numerical improvement or isolated parameter case.
+Reconstructed the analytic proof from RESULT.md blob 11cbbd9e649066560233055c60f5cba5e4e3b940. For a product base K, replacing arbitrary test bodies L,M by Cartesian products of their factor projections weakly increases the mixed two-body numerator by monotonicity; their first mixed-volume denominators remain exactly equal because the first area measure of K is carried by factor-normal subspaces and h_L restricted to each is the projected support function. Expanding vol(K+t product(L_i)+s product(M_i))=product_i vol(K_i+t L_i+s M_i) gives normalized coefficients sum a_i, sum b_i and sum_{i≠j}a_i b_j+sum c_i. Each c_i≤[(d_i-1)/d_i] beta_i a_i b_i and all a_i,b_i≥0. Dividing yields upper beta_n≤n/(n-1) Gamma. Tests supported in different factor subspaces attain cross coefficient 1; tests in one factor approximate its beta_i, proving each lower-bound term even if sup is unattained. Symmetric affine invariance holds via determinant normalization. Theorem 6.1 of Soprunov–Zvavitch establishes beta_2(D)≤2, supplying the planar corollary. Inspected the bundled exact polynomial-product and zonotope determinant checker and separately checked the combinatorial coefficient expansion; bounded finite checks are corroboration, not the arbitrary-body proof.
 
-## Scope and limitations
-The theorem is only for Cartesian products with at least two nontrivial factor spaces and two test bodies. For higher-dimensional factors it is a reduction formula, not an evaluation of each factor coefficient. Historical equivalence and stronger unpublished results cannot be excluded; independent literature and mathematical validation remain outstanding.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Closest indexed and primary theorems distinguish PSD mixed discriminants, arbitrary-body inequalities, zonoid-limited estimates, and planar sharp constants; none of their inspected statements implies the exact max-of-factor-coefficients product formula for all convex tests.
+
+## value
+
+PASS
+
+The optimal two-body Bézout coefficient is a standard geometric invariant, and the exact functorial Cartesian-product law reduces a general higher-dimensional optimization to factor invariants plus one cross-factor witness. It gives a new sharp all-dimension consequence for products of planar sets and segments; such a tensorization statement is mathematically useful even though its proof uses classical mixed-volume tools.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
