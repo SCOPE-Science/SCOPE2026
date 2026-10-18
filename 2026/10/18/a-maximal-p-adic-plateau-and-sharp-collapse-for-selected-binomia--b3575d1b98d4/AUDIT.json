@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "A terminating cyclic base-p carry algorithm proves the uniform minimum digit sum of nonzero multiples of p^r-1. Complementary r-digit blocks show s_p((p^r-1)q)=r(p-1) for 1<=q<=p^r. Legendre then yields >=r for all selected d and equality at d=1. The next row has a selected binomial valuation zero. Finite independent Legendre checks cover 83,211 coefficients across 13 (p,r) cases, not used to prove the universal statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fairfax-Ball proves sharp global upper bound and an m=p^a+1 least-row family.",
+        "Wu selected-GCD theorem under different restrictions; Guo D(k) aggregates one coefficient across rows."
+      ],
+      "reasoning": "The prior uniform single-index valuation is consistent with a smaller GCD: it bounds its exponent above, not below. The proof here handles every selected d and sharp first zero after the full plateau; the documented stronger theorems do not subsume this.",
+      "searches": [
+        "gcd binomial coefficients binom((p^a-1)q,(p^a-1)k) p^a-1 range 1<q<=p^a valuation a",
+        "cyclic digit sum lower bound multiples of p^r-1 implies binomial coefficients gcd in rows N=(p^r-1)q divisible by p^r",
+        "arXiv:2610.01328v1 §3–§9",
+        "arXiv:2606.20940v2 available opening sections"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01328v1 complete HTML",
+      "arXiv:2606.22997v1 abstract and cross-row D(k) definition",
+      "arXiv:2606.20940v2 opening theorem text",
+      "doi:10.4169/amer.math.monthly.124.4.353 publisher abstract",
+      "OEIS A080170 displayed definition",
+      "published-finding corpus published mathematical findings: six targeted queries listed in checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known exact congruence for binom(qm,m) concerns one d only; the claimed result quantifies over all 1<=d<q.",
+        "General upper bound r from Fairfax-Ball is not sufficient for equality for every row; its example m=p^a+1 has very different least multiplier."
+      ],
+      "reasoning": "No inspected statement supplies all-index divisibility p^r at each q or the exact zero at q=p^r+1, so there is no demonstrated implication or equivalent prior claim. Residual inaccessible-source risk is explicitly retained.",
+      "searches": [
+        "restricted binomial gcd p-adic valuation m=p^r-1 rows multiples m q 2 <= q <= p^r entire block extremal first failure",
+        "gcd binomial coefficients binom((p^a-1)q,(p^a-1)k) p^a-1 range 1<q<=p^a valuation a",
+        "for each prime p and r>=2 m=p^r-1, gcd over 1<=d<q of binom(mq,md) has p-adic valuation r for 2<=q<=p^r, zero at q=p^r+1",
+        "arXiv:2606.22997v1",
+        "arXiv:2610.01328v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Legendre digit-sum formula gives an equivalent all-splitting inequality s_p(md)+s_p(m(q-d)) >= 2r(p-1) for every d, while single-index congruence fixes only d=1.",
+        "published-finding corpus nearest 2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28 concerns different binomial-prime-base congruences."
+      ],
+      "reasoning": "No retrieved mathematical statement implies the uniform within-row lower bound for all md. The general Legendre identity is an antecedent, but the exact cyclic digit-sum lemma and full multiplier interval must still be established.",
+      "searches": [
+        "restricted binomial gcd p-adic valuation m=p^r-1 rows multiples m q 2 <= q <= p^r entire block extremal first failure",
+        "for each prime p and r>=2 m=p^r-1, gcd over 1<=d<q of binom(mq,md) has p-adic valuation r for 2<=q<=p^r, zero at q=p^r+1",
+        "web: \"p^a-1\" \"gcd\" \"binomial coefficients\" \"valuation\"",
+        "web: \"p^r-1\" \"digit sum\" \"multiple\" binomial gcd"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A080170 tracks when the different cross-row gcd D(k) equals 1, not within-row valuations.",
+        "published-finding corpus top IDs 2026/9/20/SCOPE-shifted-generalized-domb-supercongruences--d55c1da5b110 and 2026/10/4/SCOPE-exact-small-prime-valuations-in-the-proposed-deficiency-one-cons--b1c9c7629241 concern unrelated binomial valuations."
+      ],
+      "reasoning": "Actual database and literature searches yielded no exact table of all q<=p^r within-row gcds or the transition to valuation zero. Negative search is evidence of non-detection, not uniqueness proof.",
+      "searches": [
+        "prime power minus one Mersenne base-p digit sum lower bound multiples p^r-1 binomial gcd phase transition",
+        "arXiv 2606.22997 uniform congruence binom(q(p^a-1),p^a-1) extension all selected indices",
+        "OEIS:A080170",
+        "web: \"p^k-1\" \"binomial\" \"gcd\" \"p\" valuation"
+      ]
+    },
+    "rationale": "Checked the focal full primary paper, two close 2026 antecedents and publisher abstract of 2017 predecessor, old own claims for overlap, targeted published-finding corpus and published searches. The known uniform single-index congruence only bounds each within-row GCD from above; this finding proves the missing simultaneous lower bound and exact first zero. Unindexed and inaccessible-full-text risk remains.",
+    "residual_risks": [
+      "Full Guo et al. PDF was not accessible in this run, so a hidden all-index lemma cannot be excluded from unread text.",
+      "Wu complete PDF and McTague full article not materially read; comparison is limited to exposed sections, theorems, and abstracts.",
+      "Unindexed prior computations or private notes could anticipate the exact uniform plateau."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains general maximal upper bound r and a formula for m=p^a+1, but does not state the uniform p^r-1 all-q plateau or zero at q=p^r+1.",
+        "evidence": [
+          "arXiv HTML §§3–9, especially Theorem 4.3 and Theorem 7.2; https://arxiv.org/html/2610.01328v1"
+        ],
+        "identifier_or_url": "arXiv:2610.01328v1",
+        "material_read": "Complete HTML text, including definitions, theorems 4.3 and 7.2, examples and related-work section; PDF cover checked",
+        "method": "Read full HTML at https://arxiv.org/html/2610.01328v1 and compare all quantifiers",
+        "title": "Sharp p-adic Extrema and Least Extremal Rows for Restricted Binomial GCDs",
+        "trigger": "Exactly the fixed-divisibility GCD and sharp maximal valuation, but p-power-plus-one parameter"
+      },
+      {
+        "assessment": "D(k) is a GCD across q of one coefficient per row, not a selected-GCD across all md within each row. The known exact valuation of the d=1 coefficient gives only an upper bound on the within-row gcd. Stronger hidden coverage in full text remains a risk.",
+        "evidence": [
+          "https://doi.org/10.48550/arXiv.2606.22997; D(k)=gcd_{2<=q<=k+1} binom(qk,k) as defined in abstract"
+        ],
+        "identifier_or_url": "arXiv:2606.22997v1",
+        "material_read": "Author abstract and mathematical definition of D(k); complete PDF text not accessible in this run",
+        "method": "Inspected arXiv source metadata/abstract and available scholarly summary; full PDF access attempted but unavailable",
+        "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+        "trigger": "Same prime-power-minus-one parameter, known exact single-coefficient congruence, cross-row GCD"
+      },
+      {
+        "assessment": "Treats m being a power of valuation prime and conditional formulas; m=p^r-1 with r>=2 is coprime to p, not a power of p. No explicit interval-and-failure claim found in read material; uninspected sections remain a risk.",
+        "evidence": [
+          "arXiv:2606.20940v2, accessible opening sections and displayed Theorems 1–2"
+        ],
+        "identifier_or_url": "arXiv:2606.20940v2",
+        "material_read": "Accessible text excerpt through the end of Section 2, with theorem statements; full PDF unavailable",
+        "method": "Read the substantial available text at https://paperity.org/p/373786524/computing-the-greatest-common-divisor-of-binomial-coefficients-binom-mn-mk",
+        "title": "Computing the Greatest Common Divisor of Binomial Coefficients",
+        "trigger": "Exactly the same selected-index GCD family"
+      },
+      {
+        "assessment": "Published criterion with p congruent 1 modulo m does not reach p<m=p^r-1 for r>=2. It includes a known small boundary case, not the uniform plateau.",
+        "evidence": [
+          "https://www.tandfonline.com/doi/abs/10.4169/amer.math.monthly.124.4.353; Fairfax-Ball §9"
+        ],
+        "identifier_or_url": "doi:10.4169/amer.math.monthly.124.4.353",
+        "material_read": "Journal abstract and Fairfax-Ball related-work description; full text not obtained",
+        "method": "Read publisher abstract and contextual primary-paper comparison",
+        "title": "On the Greatest Common Divisor of Binomial Coefficients",
+        "trigger": "Earlier fixed-divisibility selected GCD theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b3575d1b-98d4-4cbd-a66d-9d22f5a7cb4e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The distinct natural prime-power-minus-one family has a maximal-valuation plateau of p^r-1 consecutive multipliers followed by an immediate collapse to zero. This simultaneously controls all selected coefficients (quadratically many across the block), unlike the known single-binomial congruence, and resolves a sharp natural boundary in the least-extremal-row problem.",
+    "status": "PASS"
+  }
+}
