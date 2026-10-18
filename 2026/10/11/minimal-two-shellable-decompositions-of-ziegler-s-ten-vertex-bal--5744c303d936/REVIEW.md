@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is finite and exact. The source facet list is reconstructed and gives face vector \( (10,38,50,21)\). Shellability is decided by the standard recursive last-facet criterion, evaluated for all \(2^{21}-1\) nonempty tetrahedron subsets. Every unordered complementary partition is then tested, and every surviving interface is independently checked for purity and two-dimensional shellability. The finalized verifier reproduces exactly \(247\) decompositions, the full block-size distribution, and the three minimum witnesses. The known non-shellability of the full complex is also recovered.
+## correctness
 
-## Originality
-PASS. Exact-object, constructibility, shellable-split, minimum-block and numerical searches found no statement of the \(247\)-decomposition census, the sharp five-tetrahedron minimum, or the three minimal witnesses. Ziegler supplies the ball and strong non-shellability; Hachimori records constructibility; Lutz supplies the topology/constructibility context; Dao--Doolittle--Lyle supply the minimal-Cohen--Macaulay equivalence. None implies the new finite classification. A residual risk remains that an older unindexed constructibility computation contains the same data without a searchable statement.
+PASS
 
-## Value
-PASS. Ziegler's ball is a classical example separating shellability from weaker assembly properties. The new invariant directly measures the first decomposition layer by asking how the known constructibility can be witnessed using shellable children. The sharp minimum and complete set of minimum witnesses give a structural refinement of the qualitative fact "constructible but non-shellable," while the full distribution is a reproducible benchmark for algorithms that search constructibility decompositions.
+Independently rebuilt all faces from the exact 21 named tetrahedra, giving f-vector (10,38,50,21), and verified 21 distinct facets. An exact dynamic program evaluates recursive facet deletion/shellability for all 2^21-1 nonempty tetrahedron facet subsets, including non-shellability of the full complex; every one of 2^20-1 unordered nontrivial complementary partitions is then checked for two shellable sides, intersection maximal faces all triangles and recursively shellable 2-dimensional intersection. Fresh independent implementation reported exactly 247 valid partitions, six block-size counts 3/10/23/40/74/97, three size-five blocks and four-triangle interfaces matching RESULT.md. The source checker was independently read and its recurrence verified. This is a complete finite classification, not a sample or timeout inference.
 
-## Closest literature and limitations
-The closest literature establishes strong non-shellability, constructibility, and minimal Cohen--Macaulayness, but not the two-shellable split landscape. The theorem is intentionally narrower than a classification of arbitrary recursive constructibility trees and should not be read as such.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Canonical fixed strongly nonshellable but constructible ball, with a meaningful complete minimal-size shellable assembly classification. Published qualitative constructibility does not imply a count or minimum under this defined partition interface; direct exact enumeration supplies extra information.
+
+## value
+
+PASS
+
+Ziegler’s 10-vertex ball is a canonical minimal strongly nonshellable combinatorial object central to the distinction between shellability and constructibility. The finite invariant is structurally motivated: classify the smallest and all one-step assemblies into shellable pieces with shellable interface. Complete exact count, block distribution and three sharp minimum witnesses can be reused in comparisons of constructibility decompositions, without needing a general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

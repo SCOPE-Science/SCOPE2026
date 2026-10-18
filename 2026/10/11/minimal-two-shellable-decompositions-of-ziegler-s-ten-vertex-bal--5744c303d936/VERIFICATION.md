@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone `verify.py` uses only the Python standard library and the twenty-one tetrahedra stated in the result. It reconstructs the complete face set and checks the face vector \( (10,38,50,21)\).
+# Independent mathematical audit
 
-For every nonempty tetrahedron subset, it decides shellability by the exact recursive last-facet criterion. The dynamic program covers all \(2^{21}-1\) nonempty subsets. It then examines every unordered nontrivial complementary partition, retains only pairs whose two generated pure \(3\)-complexes are shellable, reconstructs their intersection from all cross-facet intersections, requires that the maximal intersection faces are triangles, and independently applies the shellability recurrence to that \(2\)-complex.
+## correctness
 
-The verification therefore exhausts the complete finite domain of the claim. It also checks that the full ball itself is not shellable, that exactly \(247\) partitions survive, that their block-size distribution is \(3,10,23,40,74,97\), and that the minimum block size is five with exactly the three displayed witnesses and four interface triangles each.
+PASS
 
-Successful replay prints:
+Independently rebuilt all faces from the exact 21 named tetrahedra, giving f-vector (10,38,50,21), and verified 21 distinct facets. An exact dynamic program evaluates recursive facet deletion/shellability for all 2^21-1 nonempty tetrahedron facet subsets, including non-shellability of the full complex; every one of 2^20-1 unordered nontrivial complementary partitions is then checked for two shellable sides, intersection maximal faces all triangles and recursively shellable 2-dimensional intersection. Fresh independent implementation reported exactly 247 valid partitions, six block-size counts 3/10/23/40/74/97, three size-five blocks and four-triangle interfaces matching RESULT.md. The source checker was independently read and its recurrence verified. This is a complete finite classification, not a sample or timeout inference.
 
-`VERIFY_OK f=10,38,50,21 shellable_full=no two_shellable_splits=247 size_distribution=5+16:3,6+15:10,7+14:23,8+13:40,9+12:74,10+11:97 minimum_block=5 minimal_splits=3 interface_triangles=4_each`
+## originality
 
-The computation is exact integer/set logic. It makes no claim about arbitrary recursive constructibility trees beyond the explicitly defined two-shellable decompositions.
+PASS
+
+Canonical fixed strongly nonshellable but constructible ball, with a meaningful complete minimal-size shellable assembly classification. Published qualitative constructibility does not imply a count or minimum under this defined partition interface; direct exact enumeration supplies extra information.
+
+## value
+
+PASS
+
+Ziegler’s 10-vertex ball is a canonical minimal strongly nonshellable combinatorial object central to the distinction between shellability and constructibility. The finite invariant is structurally motivated: classify the smallest and all one-step assemblies into shellable pieces with shellable interface. Complete exact count, block distribution and three sharp minimum witnesses can be reused in comparisons of constructibility decompositions, without needing a general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
