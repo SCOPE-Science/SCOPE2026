@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Each averaging step nests the convex hull. On a periodic orbit every hull is identical. Extreme-vertex labels can only persist, never appear from the interior because self-weights are positive; periodicity forces their sets to be constant. For n<=3 this leaves either all agents fixed or one mobile agent between fixed endpoints. Star-shaped radial membership makes left trust nonincreasing and right trust nondecreasing in the mobile scalar coordinate; explicit rational formulas show the resulting map is nondecreasing. No nondecreasing one-dimensional map has a nonfixed finite cycle. For n=4 the explicit closed star-shaped disk-and-rays confidence set gives the exact 2-step itinerary 0->2->0 and all three anchors frozen; stand-alone exact-rational checker passed 2925 order comparisons and both neighbor-set calculations. No computational enumeration substitutes for the infinite-domain proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bernardo–Altafini–Vasca (2022), DOI:10.1016/j.ejcon.2022.100674: scalar homogeneous asymmetric confidence defined by upper/lower thresholds, rather than arbitrary vector-valued star-shaped sets.",
+        "Bernardo–Altafini–Proskurnikov–Vasca (2024), DOI:10.1016/j.automatica.2023.111302: survey Theorem 40 covers one-dimensional homogeneous asymmetric bounded-confidence intervals.",
+        "Zabarianska–Proskurnikov Theorem 1 assumes symmetric confidence, whereas its Example 3 uses an asymmetric star-shaped set with a cycle."
+      ],
+      "reasoning": "The scalar theorems apply after proving that a three-agent periodic vector trajectory can only occupy a fixed segment. They do not themselves rule out noncollinear vector configurations; that reduction is the central new step. The symmetric theorem is inapplicable to the asymmetric sharpness example, so neither broader known statement implies the complete sharp threshold.",
+      "searches": [
+        "Web: \"Finite-time convergence of opinion dynamics in homogeneous asymmetric bounded confidence models\" 2022 full text",
+        "Web: \"On the termination time of the one-sided asymmetric Hegselmann-Krause dynamics\"",
+        "Web: \"convex hull\" periodic orbit \"Hegselmann Krause\" four agents",
+        "published-finding corpus: convex hull periodic opinion dynamics extreme vertex support fixed agent 3 periodic"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2408.01753 (v1 first public 2024-08-03), sections II–V",
+      "doi:10.1109/LCSYS.2024.3479275 (open repository journal copy), model, Example 3 and relevant surrounding material",
+      "doi:10.1016/j.automatica.2023.111302 (online survey Theorem 40)",
+      "doi:10.1016/j.ejcon.2022.100674 (publicly accessible abstract/intro plus 2024 survey discussion)",
+      "Indexed finding 2026/10/11/SCOPE-exact-logarithmic-switching-lifetime-near-a-nonfreezing-seven-ag--3aa033f36f32",
+      "Accessible prior claim 0e81d273-82bb-4203-9dca-a32f26bbfed0, two stubborn agents and non-star-shaped confidence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source arXiv:2408.01753 Example 2: n=3 period 3, but the confidence set has holes, breaking star-shapedness; Example 3: n=4 period 2 with star-shaped confidence.",
+        "2024 source Theorem 1: full convergence for symmetric self-confident confidence sets; no asymmetric star-shaped minimum-agent statement.",
+        "2024 Automatica proceedings comparison: three-agent cycles in heterogeneous confidence and six-agent cycles in non-star-shaped homogeneous confidence, different hypotheses."
+      ],
+      "reasoning": "Neither an existence witness at four agents nor an example at three outside the hypothesis proves a universal lower bound. The new theorem excludes every nonconstant finite period at n<=3, for arbitrary dimension and every homogeneous star-shaped set. Symmetric convergence and scalar interval convergence alone leave this precisely identified implication gap.",
+      "searches": [
+        "Web: \"SCOD\" \"star-shaped\" \"three\" \"periodic\" opinion dynamics",
+        "Web: \"set based confidence opinion dynamics\" \"minimal\" periodic agents",
+        "Web: \"Asymmetric Confidence Set: Periodic Orbits\" \"heterogeneous\" 2024 proceedings opinion",
+        "published-finding corpus: 2024 2408.01753 star-shaped minimal three agents periodic cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2408.01753 section II-B2 Examples 2 and 3: a three-agent cycle is constructed using punctured non-star-shaped confidence, while a four-agent period-two cycle uses star-shaped confidence.",
+        "The DOI:10.1109/LCSYS.2024.3479275 text and Figure 5 likewise state the four-agent witness, with no minimum-agent theorem.",
+        "The indexing queries returned primarily unrelated results; the closest domain finding was 2026/10/11/SCOPE-exact-logarithmic-switching-lifetime-near-a-nonfreezing-seven-ag--3aa033f36f32, about seven-agent graph switching rather than homogeneous star-shaped SCOD periodicity."
+      ],
+      "reasoning": "An equivalent lower bound would assert that periodic labeled configurations of homogeneous radial-star-convex confidence cannot involve at most three agents. The inspected papers provide neither this dimension-free exclusion nor the key vertex-label argument. A non-star-shaped three-agent example is a counterexample to a weaker, unqualified claim, not coverage of the present theorem.",
+      "searches": [
+        "published-finding corpus: set based confidence opinion dynamics star shaped confidence 3 agents periodic orbit impossible minimum 4 agents",
+        "published-finding corpus: Zabarianska Proskurnikov 2408.01753 set-based confidence SCOD three agents star-shaped minimal periodic cycles",
+        "Web: \"three agents\" \"star-shaped\" \"opinion dynamics\" periodic",
+        "Web: \"minimum\" \"agents\" \"star-shaped\" \"oscillations\" Hegselmann Krause"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed domain comparison returned 2026/10/11/SCOPE-exact-logarithmic-switching-lifetime-near-a-nonfreezing-seven-ag--3aa033f36f32; it concerns switching lifetime for a different seven-agent model.",
+        "The 2024 source provides explicit Examples 2 and 3 but no table or exact census establishing optimality for the star-shaped class.",
+        "The accessible private historical claim 0e81d273-82bb-4203-9dca-a32f26bbfed0 concerns a scalar system with two externally stubborn agents and non-star-shaped confidence, and does not imply the three-ordinary-agent obstruction."
+      ],
+      "reasoning": "No consulted exact table, published indexed theorem, or historical claim had the same object and impossibility range. The negative search is not treated as a proof of uniqueness; the primary arguments and parameter regimes were compared.",
+      "searches": [
+        "published-finding corpus: Opinion Dynamics with Set-Based Confidence Convergence Criteria and Periodic Solutions four agent periodic example",
+        "published-finding corpus: No nonconstant periodic orbits in 3 agent homogeneous set-based confidence model with 0-star-convex confidence O minimal four",
+        "published-finding corpus: Hegselmann Krause three agents periodic star shaped confidence set oscillations dimension two minimum agents"
+      ]
+    },
+    "rationale": "The 2024 source proves symmetry-based convergence, and illustrates three-agent nonstar-shaped and four-agent star-shaped cycles, without establishing minimality. Scalar asymmetric HK convergence theorems do not imply that a vector-valued three-agent periodic orbit has a fixed segment hull. The new vertex-persistence reduction establishes this missing universal lower bound. Indexed and accessible historical comparisons yielded no implication-covering statement; novelty remains a qualified, not exhaustive, literature conclusion.",
+    "residual_risks": [
+      "The 2022 specialist full theorem appendices were not directly inspected; the accessible scope and 2024 survey restrict their stated result to scalar intervals.",
+      "An unindexed equivalent three-agent convex-hull reduction might exist; absence from indexed results does not establish universal novelty.",
+      "The claim does not extend to heterogeneous confidence or to externally stubborn agents; those models have documented three-agent cycles."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the three-agent universal star-shaped exclusion; explicitly supplies the four-agent upper witness and a non-star three-agent contrast.",
+        "evidence": [
+          "Sections II-B2 and III Theorem 1; section V open problems; arXiv v1 public date 2024-08-03."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.01753",
+        "material_read": "Full original online text sections II (model and Examples 2–5), III (Theorem 1 and assumptions), IV (relevant proof), V (open problems); PDF figure and example pages inspected.",
+        "method": "arXiv text and PDF page image direct reading",
+        "title": "Opinion Dynamics with Set-Based Confidence: Convergence Criteria and Periodic Solutions",
+        "trigger": "Exact defining model, three-agent non-star-shaped cycle, four-agent star-shaped period-two example, and symmetry-based theorem."
+      },
+      {
+        "assessment": "The journal example remains a four-agent star-shaped period-two witness; no sharp-minimal lower bound is present in the inspected relevant passages.",
+        "evidence": [
+          "IEEE Control Systems Letters 8 (2024) 2373–2378, DOI:10.1109/LCSYS.2024.3479275, Examples 2–4."
+        ],
+        "identifier_or_url": "https://iris.polito.it/handle/11583/2993798",
+        "material_read": "Published-copy introduction, model, Figure 5 and Examples 2–4 on article page 2375; cross-checked the source paper conclusion.",
+        "method": "lawful institutional open-access PDF text and page-2375 screenshot",
+        "title": "Opinion Dynamics With Set-Based Confidence: Convergence Criteria and Periodic Solutions",
+        "trigger": "The journal revision of the exact motivating paper could have changed scope."
+      },
+      {
+        "assessment": "The convergence theorems address scalar confidence intervals (including asymmetric ones), not arbitrary vector confidence with star-shaped but nonconvex geometry.",
+        "evidence": [
+          "Theorem 40 in section 6.2.2; homogeneous asymmetric BCOD setting."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.automatica.2023.111302",
+        "material_read": "Online full-text sections 6.1, 6.2, and 8, including Theorems 36 and 40 and discussion of homogeneity and stubbornness.",
+        "method": "publisher open online text, theorem and model definitions",
+        "title": "Bounded confidence opinion dynamics: A survey",
+        "trigger": "Potential domination by existing asymmetric-confidence convergence results."
+      },
+      {
+        "assessment": "Model is homogeneous scalar HK with upper/lower confidence thresholds, not a vector-valued star-shaped confidence set; no direct implication across dimension.",
+        "evidence": [
+          "Paper abstract and 2024 survey section 6.2.2; DOI:10.1016/j.ejcon.2022.100674."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ejcon.2022.100674",
+        "material_read": "Abstract, source introduction and modeling scope as reproduced in accessible bibliographic/full-text preview; complete theorem appendices not inspected.",
+        "method": "public full-text preview and 2024 survey Theorem 40 discussing its result",
+        "title": "Finite-time convergence of opinion dynamics in homogeneous asymmetric bounded confidence models",
+        "trigger": "Potentially strongest published scalar convergence theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8fa2818b-ce4a-4066-942a-3fa0f25354c8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The paper studies periodic social-opinion behavior made possible by unusual confidence geometry and provides a four-agent star-shaped witness; its minimal required social-group size was unresolved by the provided examples. The new global theorem proves exactly n=4 is the first possible size, ruling out every finite period for all star-shaped sets in any finite dimension with n<=3. Sharp small-population thresholds are intrinsically motivated structural information for such agent models, distinguish radial holes from nonconvexity, and are not routine parameter increments or computed table entries.",
+    "status": "PASS"
+  }
+}
