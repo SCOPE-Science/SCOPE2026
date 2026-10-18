@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T16:59:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md complete analytic proof",
+        "Independent check over all odd squarefree pq≤2,000,000 and prime-series computation to 10,000,000",
+        "Grau et al. arXiv:1401.4708"
+      ],
+      "rationale": "For odd p<q the source squarefree Φ formula gives Φ(pq)=(p−β(p))(q−β(q)). Neither p nor q divides its own factor, and q>p+1≥p−β(p) excludes cross-divisibility from q to the p-factor, so failure occurs iff p|(q−β(q)). CRT yields two distinct reduced classes modulo 4p, each fixed-p progression contributes Li(X/p)/(2(p−1)). For p up to fixed P, PNT-AP gives truncated main constant; for P<p≤X^(1/3), Brun–Titchmarsh gives ≤8X/[p(p−1)logX]; for X^(1/3)<p<√X, integer counts give O(X^(2/3)); convergent prime tail then gives E(X)~C X/logX and Landau gives density one within odd squarefree semiprimes. Independent exhaustive local check 328564 pairs pq≤2e6 found 45757 non-G-cyclic and no mismatches. Independently summing primes p≤1e7 gives C lower 0.27315666318973836 and rigorous integer telescoping tail <1e−7, so six decimals 0.273157; finite checks corroborate only, analytic argument proves asymptotic.",
+      "residual_risks": [
+        "Only odd squarefree pq, p<q, not prime squares, even semiprimes or the full integer population.",
+        "PNT in AP, Brun–Titchmarsh and Landau theorem are cited published analytic inputs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary source classifies Gaussian Carmichael semiprimes, not all Gaussian-noncyclic semiprime exceptions.",
+          "Resultary Duffinian proves relative density one and O(X/log X) via a one-residue local condition, but no Gaussian Phi density constant."
+        ],
+        "reasoning": "The sibling analytic argument is a useful method but cannot directly give the leading two-class G-cyclic coefficient. The Gaussian local classification is essential; no identified stronger published Gaussian prime-pair result covers it.",
+        "searches": [
+          "arXiv:1401.4708 G-cyclic Gaussian Carmichael Proposition 10 11",
+          "Resultary: Almost all squarefree semiprimes are Duffinian",
+          "Gaussian Euler G cyclic squarefree semiprimes counting asymptotic q Legendre symbol p divides q beta"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1401.4708v1, G-cyclic Definition 3, Proposition 11",
+        "OEIS:A235866",
+        "Resultary semantic query: Gaussian Euler G cyclic squarefree semiprimes counting asymptotic q Legendre symbol p divides q beta",
+        "Resultary: Almost all squarefree semiprimes are Duffinian (different σ predicate)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Grau et al. state Φ(pq)=(p−β(p))(q−β(q)) and the G-cyclic criterion, but no E(X) asymptotic.",
+          "Duffinian local condition excludes p=2 and q≡−1 mod p and only claims O(X/log X), not this C.",
+          "For G-cyclic primes p<q odd, q cannot divide p−β(p), leaving exactly p|q−β(q)."
+        ],
+        "reasoning": "The Gaussian result is derived from a known formula plus a separate CRT prime progression count and uniform tail argument; the original theorem does not state or directly imply the exact analytic counting law, and the sibling σ problem does not dominate it.",
+        "searches": [
+          "arXiv:1401.4708 Definition 3 Proposition 11",
+          "Gaussian Euler G cyclic squarefree semiprimes counting asymptotic q Legendre symbol p divides q beta",
+          "Resultary Duffinian exact local criterion q≡−1 mod p"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "G-cyclic is gcd(n,Φ(n))=1, with β(q)=(-1/q), while Gaussian Carmichael semiprimes are a much narrower pair family.",
+          "Resultary Duffinian theorem replaces Φ(n) by the unrelated ordinary divisor sum σ(n)."
+        ],
+        "reasoning": "The Gaussian exceptional condition q≡β(q) mod p is not equivalent to all q≡−1 mod p in Duffinian case; roughly half the relevant primes have opposite congruence and the Gaussian asymptotic counts both specific reduced classes mod 4p.",
+        "searches": [
+          "Gaussian Euler G cyclic squarefree semiprimes counting asymptotic q Legendre symbol p divides q beta",
+          "G-cyclic odd squarefree pq exceptional residue q congruent ±1 mod 4p X/log X constant 0.273157",
+          "\"G-cyclic\" Gaussian cyclic semiprime density exceptional prime pairs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A235866 is the exact membership sequence and includes odd squarefree constraints, not the asymptotic density coefficient.",
+          "The other sequence is OEIS A003624 for Duffinian gcd(n,σ(n)), a different table."
+        ],
+        "reasoning": "Neither finite membership sequences nor a different divisor-function asymptotic yield the G-cyclic semiprime constant; the convergence tail is analytically controlled.",
+        "searches": [
+          "OEIS A235866 G cyclic numbers",
+          "G-cyclic odd squarefree pq exceptional residue q congruent ±1 mod 4p X/log X constant 0.273157",
+          "Resultary Duffinian squarefree semiprimes"
+        ]
+      },
+      "rationale": "The Gaussian Euler squarefree product formula and G-cyclic predicate are published, as is a different Duffinian semiprime density-one result using σ(n). The exact Gaussian obstruction p|(q−(-1/q)) occupies two classes modulo 4p and has a new explicit exceptional main-term constant C. Neither the original G-cyclic article, the exact OEIS membership table, nor the other divisor-function predicate implies that constant. Best-of-knowledge acceptance includes the risk of an unindexed elementary extension.",
+      "residual_risks": [
+        "An unindexed elementary Gaussian-number-theory note could already contain the two-class semiprime constant.",
+        "The Duffinian proof suggests an analogous technique and lowers methodological novelty, but not the specialized Gaussian result itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATION_NOT_GAUSSIAN_SEMIPRIME_COUNT",
+          "evidence": "The source defines gcd(n,Φ(n))=1 and proves squarefree Φ product; its two-prime result addresses Gaussian Carmichael, not E(X)~C X/logX.",
+          "identifier_or_url": "https://arxiv.org/pdf/1401.4708",
+          "material_read": "Complete relevant accessible primary preprint sections: squarefree Gaussian Euler product, Proposition 10 semiprime Gaussian Carmichael criterion, Definition 3 G-cyclic, Proposition 11 and adjacent discussion; page 6 rendered.",
+          "method": "Open-access full primary article text and page image",
+          "title": "Fermat test with Gaussian base and Gaussian pseudoprimes",
+          "trigger": "Source definition of Gaussian Euler Φ, Gaussian Carmichael and G-cyclic concepts"
+        },
+        {
+          "assessment": "FINITE_TABLE_NOT_ASYMPTOTIC",
+          "evidence": "No leading exceptional density constant or CRT semiprime congruence analysis.",
+          "identifier_or_url": "https://oeis.org/A235866",
+          "material_read": "Definition, initial terms, linked paper, comments, membership and computational formulas.",
+          "method": "Direct exact sequence entry",
+          "title": "OEIS A235866: G-cyclic numbers",
+          "trigger": "Exact integer sequence of the relevant arithmetic predicate"
+        },
+        {
+          "assessment": "ANALOGOUS_DIFFERENT_PREDICATE_NOT_COVERING",
+          "evidence": "For σ(pq)=(p+1)(q+1), local condition is p|q+1; this differs from β(q)-dependent Gaussian local condition and does not give coefficient ∑1/(p(p−1)).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-almost-all-squarefree-semiprimes-are-duffinian--15a95ebe2dc2/RESULT.md",
+          "material_read": "Entire published RESULT.md: theorem, exact σ local condition, BT proof, limitations and bibliography, retrieved through GitHub source connector.",
+          "method": "Full primary published mathematical record read from frozen text",
+          "title": "Almost all squarefree semiprimes are Duffinian",
+          "trigger": "Most similar published semiprime-density one theorem might dominate by analogy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Grau et al. Gaussian Euler definition and G-cyclicity",
+        "Published Duffinian semiprime analogue and its different local criterion"
+      ],
+      "rationale": "The Gaussian Euler predicate is a natural arithmetic variant of classical coprime totient sequences; identifying its exact semiprime obstruction and explicit limiting exceptional constant is a motivated thin-stratum arithmetic statistic, not arbitrary numeric recomputation. It quantifies the difference from the superficially similar Duffinian condition despite using established analytic progression machinery.",
+      "residual_risks": [
+        "Method is a straightforward analytic prime-pair splitting once Gaussian local congruences are established; no full-number density claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1401.4708v1, G-cyclic Definition 3, Proposition 11",
+    "OEIS:A235866",
+    "Resultary semantic query: Gaussian Euler G cyclic squarefree semiprimes counting asymptotic q Legendre symbol p divides q beta",
+    "Resultary: Almost all squarefree semiprimes are Duffinian (different σ predicate)"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Standard prime-distribution theorems used; full integer G-cyclic density not claimed.",
+    "Published Duffinian analogue applies to gcd(n,σ(n)), a different arithmetic predicate."
+  ]
+}
