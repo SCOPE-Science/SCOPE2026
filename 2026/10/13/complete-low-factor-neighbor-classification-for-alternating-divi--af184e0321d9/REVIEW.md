@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The claim covers every \(n\ge2\) with \(n\equiv2\pmod4\) and \(\Omega(n+1)\le3\), without imposing any support or exponent bounds on \(n/2\). The multiplicative identity \(\beta(2u)=\beta(u)\), the inequality \(\varphi(m)\le\beta(m)\), and the strict comparison \(\beta(u)<u\) force \(\varphi(m)/m<1/2\) for \(m=2u+1\). Every odd integer with at most three prime factors satisfying this inequality has exactly three *distinct* factors \(3,5,r\) with \(r\in\{7,11,13\}\); the congruence hypothesis eliminates the first two resulting values of \(n\), and direct exact evaluation verifies the remaining value \(194\). The case \(n=2\) is explicit. A complete finite independent regression through \(10^6\) corroborates the proof, but is not used for its infinite conclusion.
+## correctness
 
-**Originality: PASS, with residual risk.** Tóth's Problem 3 asks for progress on equal consecutive alternating-divisor sums and gives examples rather than a complete valuation-one/three-factor classification. A related established classification treats \(n=2p\) with \(p\) prime; it cannot imply the present conclusion for arbitrary odd \(u=n/2\), because no condition limits the factorization of \(u\). OEIS data and searches using prime-power/squarefree/twice-odd/valuation and consecutive-equality formulations did not reveal a theorem covering the full class. An unindexed earlier proof remains possible.
+PASS
 
-**Value: PASS.** The exact \(2\)-adic layer \(\nu_2(n)=1\) is natural for \(\beta\), because \(\beta(2u)=\beta(u)\) whenever \(u\) is odd. The odd-neighbor restriction \(\Omega(n+1)\le3\) is the first range where the totient ratio can dip below one half. This gives a complete unbounded classification of a full congruence class, with **no** constraint at all on prime support or exponents of the even input's odd part. The theorem strictly broadens the prime-input classification, rather than adding a finite example.
+Multiplicativity gives beta(2u)=beta(u) when u is odd, beta(p^a)>=phi(p^a), and beta(u)<u for u>1. Equality beta(2u)=beta(2u+1) forces phi(m)/m<1/2 for m=2u+1; the n=2 case is separately false. For odd m with Omega(m)<=3, one or two distinct prime divisors give at least 8/15; three distinct require primes 3,5,r with r in {7,11,13}, as r>=17 yields 128/255>1/2. Thus m in {105,165,195}; n=m-1 must be 2 mod 4, eliminating 104 and 164. At n=194, beta(2*97)=96=beta(3*5*13). The argument holds without any bound on the odd cofactor u. Independent sieve checked all admissible n<60000 with only n=194; this is finite corroboration.
 
-**Closest literature and limitations.** Tóth, arXiv:1111.4842 (2011), Sections 1–2 and Problem 3 of Section 7; OEIS A206368 and A206369; a previous narrower \(2p\) classification. This result does not settle the unrestricted consecutive-equality problem, and independent review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The older Toth survey defines the identical multiplicative alternating divisor sum, poses the adjacent-equality problem, and records the value 194 as an example. That finite witness is prior, not novel. OEIS A206368 lists further equal neighbors but has no unbounded restriction theorem. The new statement excludes all other candidates with nu2(n)=1 and Omega(n+1)<=3, without requiring n/2 to be prime. This is not entailed by an earlier prime-only 2p classification or the list of examples, although the small-prime totient sieve is elementary; an unindexed equivalent classification remains possible.
+
+## value
+
+PASS
+
+The valuation-one layer is structurally natural because beta(2u)=beta(u). Three distinct odd prime factors are the first possible layer where phi(n+1)/(n+1)<1/2, so Omega(n+1)<=3 is a mathematically motivated sharp cutoff rather than an arbitrary large bound. Establishing exactly one solution in an unbounded entire congruence class advances an explicitly posed adjacent-equality problem; the novelty is the classification, not discovery of 194.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

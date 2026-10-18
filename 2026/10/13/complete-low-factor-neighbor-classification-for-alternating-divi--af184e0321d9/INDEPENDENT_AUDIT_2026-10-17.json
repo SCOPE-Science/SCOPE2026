@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T05:15:15.258309Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Multiplicativity gives beta(2u)=beta(u) when u is odd, beta(p^a)>=phi(p^a), and beta(u)<u for u>1. Equality beta(2u)=beta(2u+1) forces phi(m)/m<1/2 for m=2u+1; the n=2 case is separately false. For odd m with Omega(m)<=3, one or two distinct prime divisors give at least 8/15; three distinct require primes 3,5,r with r in {7,11,13}, as r>=17 yields 128/255>1/2. Thus m in {105,165,195}; n=m-1 must be 2 mod 4, eliminating 104 and 164. At n=194, beta(2*97)=96=beta(3*5*13). The argument holds without any bound on the odd cofactor u. Independent sieve checked all admissible n<60000 with only n=194; this is finite corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Toth 2014 explicitly asks which n have beta(n)=beta(n+1), recording examples, not all low-Omega neighbors.",
+          "A prior narrow 2p case assumes u prime, unlike submitted theorem."
+        ],
+        "reasoning": "Existing unrestricted QUESTION and prior narrow result do not dominate this complete valuation-one low-factor classification; every unbounded u factorization remains covered.",
+        "searches": [
+          "arXiv:1111.4842 Problem 3",
+          "Resultary semantic: alternating sum divisors beta(n) beta(n+1) n two times odd omega successor 3 primes 194",
+          "alternating divisor sum beta n n+1 194 195 only omega 3 factors 2-adic layer theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://real.mtak.hu/187900/",
+        "https://oeis.org/A206368",
+        "https://oeis.org/A206369",
+        "Resultary semantic: alternating sum divisors beta(n) beta(n+1) n two times odd omega successor 3 primes 194"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Toth primary establishes beta multiplicativity and comparison with Euler phi; those inequalities can serve as proof premises.",
+          "The source does not list a quantifier-complete assertion about nu2(n)=1, Omega(n+1)<=3."
+        ],
+        "reasoning": "Deduction from generic phi inequalities requires a new finite arithmetic case exhaustion; no retrieved previous asserted conclusion already entails the exact statement.",
+        "searches": [
+          "arXiv:1111.4842 Sections 1–2, Problem 3",
+          "OEIS:A206368",
+          "Resultary beta 2p search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identity beta(2u)=beta(u) for odd u converts the question into beta(u)=beta(2u+1), where u is unrestricted odd.",
+          "OEIS A206369 defines the same multiplicative beta (also written alternating sum over divisors with Liouville signs)."
+        ],
+        "reasoning": "The aliases, divisor-sum and twice-odd forms are equivalent; a prime-only u statement has smaller quantifier scope and cannot settle arbitrary composite u.",
+        "searches": [
+          "Resultary semantic: alternating sum divisors beta(n) beta(n+1) n two times odd omega successor 3 primes 194",
+          "beta(2p)=beta(2p+1) prime p odd alternating sum divisor function omega(n+1) 3",
+          "OEIS:A206369"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A206368 begins 1,20,116,135,171,194,... and gives finite searches.",
+          "No universal theorem in inspected OEIS data establishes uniqueness under the submitted Omega bound."
+        ],
+        "reasoning": "Known tabulated equality at 194 is not original; infinite exclusion with natural multiplicity constraint cannot follow from finite tables alone.",
+        "searches": [
+          "https://oeis.org/A206368",
+          "https://oeis.org/A206369",
+          "Resultary semantic: alternating sum divisors beta(n) beta(n+1) n two times odd omega successor 3 primes 194"
+        ]
+      },
+      "rationale": "The older Toth survey defines the identical multiplicative alternating divisor sum, poses the adjacent-equality problem, and records the value 194 as an example. That finite witness is prior, not novel. OEIS A206368 lists further equal neighbors but has no unbounded restriction theorem. The new statement excludes all other candidates with nu2(n)=1 and Omega(n+1)<=3, without requiring n/2 to be prime. This is not entailed by an earlier prime-only 2p classification or the list of examples, although the small-prime totient sieve is elementary; an unindexed equivalent classification remains possible.",
+      "residual_risks": [
+        "194 itself is a known listed solution; value depends on proving the universal constrained exclusion, not the witness.",
+        "An unpublished or weakly indexed earlier exact nu2=1, Omega(neighbor)<=3 classification could exist.",
+        "No conclusion outside n=2 mod 4 or Omega(n+1)<=3; the sieve to 60000 is not the proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides definition, foundational inequalities and 194 example; not the restricted all-n uniqueness claim.",
+          "evidence": [
+            "Problem 3 asks consecutive equal values; introductory formula beta(p^a) and phi comparison."
+          ],
+          "identifier_or_url": "https://real.mtak.hu/187900/ ; arXiv:1111.4842",
+          "material_read": "Lawful academy OA 15-page manuscript including function inequalities and Section 7 Problem 3",
+          "method": "Read full PDF text and examined page with problem statement",
+          "title": "A survey of the alternating sum-of-divisors function",
+          "trigger": "Defines beta and asks adjacent-equality problem"
+        },
+        {
+          "assessment": "194 is already listed but other n with constrained Omega are not ruled out by this finite table.",
+          "evidence": [
+            "Index list begins 1,20,116,135,171,194,740..."
+          ],
+          "identifier_or_url": "https://oeis.org/A206368",
+          "material_read": "Entry definition, example terms, comments, references, and finite programs",
+          "method": "Read public sequence entry",
+          "title": "OEIS A206368, consecutive equal alternating divisor sums",
+          "trigger": "Exact known index table"
+        },
+        {
+          "assessment": "Same arithmetic object, not a separate covering uniqueness classification.",
+          "evidence": [
+            "Beta(n)=n sum_{d|n} lambda(d)/d, in OEIS related formula."
+          ],
+          "identifier_or_url": "https://oeis.org/A206369",
+          "material_read": "Public entry formula and links cited from A206368 and primary source",
+          "method": "Compared multiplicative formula and Liouville divisor expression",
+          "title": "OEIS A206369, alternating divisor-sum beta",
+          "trigger": "Alias and definition verification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The valuation-one layer is structurally natural because beta(2u)=beta(u). Three distinct odd prime factors are the first possible layer where phi(n+1)/(n+1)<1/2, so Omega(n+1)<=3 is a mathematically motivated sharp cutoff rather than an arbitrary large bound. Establishing exactly one solution in an unbounded entire congruence class advances an explicitly posed adjacent-equality problem; the novelty is the classification, not discovery of 194.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://real.mtak.hu/187900/",
+    "https://oeis.org/A206368",
+    "https://oeis.org/A206369",
+    "Resultary semantic: alternating sum divisors beta(n) beta(n+1) n two times odd omega successor 3 primes 194"
+  ],
+  "disposition": "passed",
+  "limitations": "No unrestricted classification of beta(n)=beta(n+1) and no claim for other 2-adic layers or successors with Omega>=4.",
+  "residual_risks": [
+    "194 itself is a known listed solution; value depends on proving the universal constrained exclusion, not the witness.",
+    "An unpublished or weakly indexed earlier exact nu2=1, Omega(neighbor)<=3 classification could exist.",
+    "No conclusion outside n=2 mod 4 or Omega(n+1)<=3; the sieve to 60000 is not the proof."
+  ],
+  "schema_version": 1
+}
