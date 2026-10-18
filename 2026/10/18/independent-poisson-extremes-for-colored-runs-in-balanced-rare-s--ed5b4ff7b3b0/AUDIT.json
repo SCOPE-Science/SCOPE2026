@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For each even N, conditional switch generating function exactly equals S_N(su)/S_N(u) by uniform probability of same-switch words. Pemmasani uniform Bessel bound controls it when T_N^2/N->0; Chernoff yields switch-count concentration to relative o(1/log T_N). Given switch count and first sign, positive/negative run lengths are independent uniform compositions of N/2, coupled with independent exponential spacings with collision error O(T_N^2/N). Exponential extremes converge as two independent point processes; each shifts by -log2 to intensity e^-x/2. Replacing K_N with T_N is uniformly o_p(1) for extreme points. The proof includes all needed hypotheses and no extrapolation from finite experiments; verify.py passed 285 checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fu-Wang-Lou 2003 Theorems 4.2–4.3 explicitly hold for fixed run threshold as word length grows, and its full Section 6 discusses multistate fixed-threshold extensions.",
+        "The 1996 Lou article claims finite-n conditional distributions according to abstract; full text was not accessible."
+      ],
+      "reasoning": "Unconditional, fixed-transition and fixed-threshold results do not dominate a triangular-array half-positive-conditioned joint marked point-process limit; exact finite formulas supply a method but no identified limiting theorem. Residual risk is explicitly retained.",
+      "searches": [
+        "longest run homogeneous Markov chain conditioning total time positive occupation rare transition Poisson extremal spacings",
+        "doi:10.1239/jap/1053003548 Sections 4 and 6",
+        "doi:10.1080/01621459.1996.10476727"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.06935v1 (full HTML)",
+      "Fu, Wang and Lou 2003 (author-posted full text)",
+      "Lou 1996 (publisher abstract; full text inaccessible)",
+      "Published fixed-composition transition-dependence claim c6b28ad6d93d",
+      "Published uniform-composition maximum-covariance claim 0ee24a72cd31",
+      "Darling 1953 (classical uniform-spacing result, bibliographic citation)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Bessel bound is a proof input, not an asserted domain-extrema theorem.",
+        "Classical exponential-spacing limit is a proof input, not the conditional colored switch-count theorem.",
+        "2003 fixed-k large deviations and 1996 finite exact computations concern different quantifiers."
+      ],
+      "reasoning": "No inspected statement directly implies independence of positive and negative long-run exceedance point processes for every T_N->infty with T_N^2/N->0. The new implication comes from coupling discrete conditioned compositions and a random switch count whose scale is controlled by the Bessel generating function.",
+      "searches": [
+        "arXiv:2610.06935v1 Theorems 2.1,3.1,3.3",
+        "Fu-Wang-Lou 2003 Theorems 4.2,4.3",
+        "rare-switch Markov bridge conditional occupation half longest run Gumbel Poisson limits",
+        "uniform random composition maximal part Gumbel asymptotic constrained markov chain number of flips"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Conditional Markov word run lengths become independent uniform compositions given switch count and starting sign; the claim is equivalent to a two-color extreme-spacing Poisson theorem after randomizing switch count.",
+        "Pemmasani Theorem 3.3 only normalizes central-bin switch weights; Lou abstract only advertises exact finite conditional longest-success-run distributions."
+      ],
+      "reasoning": "Search included run-length/spacing, rare-switch Markov bridge, magnetization-conditioned domain language. Classical spacings Poisson convergence alone does not yield the random-count, balanced-Markov conditional limit unless one adds concentration and two-color factorization.",
+      "searches": [
+        "rare-switch Markov bridge conditional occupation half longest run Gumbel Poisson limits",
+        "Markov binary chain conditioned magnetization zero longest clusters rare-switch extreme value point process",
+        "persistent random walk Galton board critical central bin end bin tie maximum run length Gumbel domain wall October 2026",
+        "arXiv:2610.06935v1, Sections 2-3",
+        "doi:10.1080/01621459.1996.10476727"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Transition-dependence record concerns covariance sign phases, not an extremal distribution.",
+        "Uniform composition record concerns part-count/maximum covariance, not colored run extremes."
+      ],
+      "reasoning": "An infinite asymptotic Poisson point-process law is not a numerical table cell or finite-set enumeration; prior exact run tables do not by themselves provide the joint limiting process.",
+      "searches": [
+        "Markov binomial bridge conditioned exactly half positive spins sparse switches longest run Gumbel random compositions",
+        "uniform random composition maximal part Gumbel asymptotic constrained markov chain number of flips",
+        "published record c6b28ad6d93d",
+        "published record 0ee24a72cd31"
+      ]
+    },
+    "rationale": "The complete inspected source arXiv:2610.06935v1 supplies the Bessel estimate and crossing but no sign-resolved extreme-domain limit; Fu-Wang-Lou (2003), inspected through its author-uploaded full text including asymptotic Theorems 4.2-4.3, treats unconditional fixed-threshold longest-run probabilities, not the conditional triangular-array Poisson law. Statement-level searches also compared related prior composition and transition-covariance research. This is a best-knowledge originality assessment, not certification of global priority: Lou (1996) complete text remained inaccessible and may contain broader asymptotic work.",
+    "residual_risks": [
+      "Full Lou 1996 manuscript could not be read; a stronger general conditional longest-run asymptotic, if present, could imply a marginal of the theorem.",
+      "Other unindexed general triangular-array Markov bridge or random-composition extremes theorem may imply the result.",
+      "Classical Poisson extreme-spacing convergence is not claimed to be new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact switch-count coefficients and uniform Bessel comparison, and the center/end crossing, but not longest-run point-process asymptotics conditional on the central event.",
+        "evidence": [
+          "https://arxiv.org/html/2610.06935v1, Theorem 2.1, Theorems 3.1 and 3.3, Introduction 1.4"
+        ],
+        "identifier_or_url": "arXiv:2610.06935v1",
+        "material_read": "Full accessible HTML: model, exact word enumeration in Section 2, main results and proof of uniform Bessel estimate in Section 3, related work and appendices.",
+        "method": "Primary author preprint, read substantive statements and derivations.",
+        "title": "Uniform Bessel bounds for endpoint crossings in the persistent random walk",
+        "trigger": "Identical two-state persistent walk, balanced endpoint and logarithmic crossing; potential stronger theorem."
+      },
+      {
+        "assessment": "Gives exact finite-size laws and fixed run-threshold large-deviation limits; does not cover the balanced-endpoint conditional, rare-switch sequence with moving extreme cutoff, or joint colored Poisson convergence.",
+        "evidence": [
+          "https://www.researchgate.net/publication/305973350_On_exact_and_large_deviation_approximation_for_the_distribution_of_the_longest_run_in_a_sequence_of_two-state_Markov_dependent_trials, Theorems 4.2–4.3 and discussion"
+        ],
+        "identifier_or_url": "doi:10.1239/jap/1053003548",
+        "material_read": "Author-uploaded full text: Sections 1, 2, 4, Section 5 numerical comparisons, and Section 6 discussion; inspected Theorems 4.2 and 4.3.",
+        "method": "Primary full text made readable by author upload.",
+        "title": "On exact and large deviation approximation for the distribution of the longest run in a sequence of two-state Markov dependent trials",
+        "trigger": "Exactly the maximum of positive and negative runs in Markov dependent binary trials."
+      },
+      {
+        "assessment": "Known general finite conditional numerical method; it might contain stronger implied asymptotics not visible in accessible material. No whole-document noncoverage claim.",
+        "evidence": [
+          "https://www.tandfonline.com/doi/abs/10.1080/01621459.1996.10476727, abstract"
+        ],
+        "identifier_or_url": "doi:10.1080/01621459.1996.10476727",
+        "material_read": "Publisher abstract and full-text access description only; complete article inaccessible through the checked legitimate access routes.",
+        "method": "Publisher page read, open-access search, institutional authorized access attempt unsuccessful.",
+        "title": "On Runs and Longest Run Tests: A Method of Finite Markov Chain Imbedding",
+        "trigger": "Exact conditional longest-success-run law given a prescribed success count in Markov trials."
+      },
+      {
+        "assessment": "Describes covariance signs of finitely separated transition indicators for the unweighted fixed-composition null, without a rare-switch Markov weighting or extremal-domain Poisson process.",
+        "evidence": [
+          "Published title and abstract: transition indicator covariance sign phases; no claimed extrema limit"
+        ],
+        "identifier_or_url": "c6b28ad6d93d",
+        "material_read": "Published abstract and mathematical claim summary only.",
+        "method": "Statement-level comparison.",
+        "title": "Exact dependence phases of fixed-composition run transitions",
+        "trigger": "Closest published run-transition result under fixed binary composition."
+      },
+      {
+        "assessment": "Bounds covariance of number of parts and largest part for one uniform-composition model; it does not contain the two-color conditional Markov bridge or its full Poisson extreme process.",
+        "evidence": [
+          "Published claim summary: part-count/max covariance bound"
+        ],
+        "identifier_or_url": "0ee24a72cd31",
+        "material_read": "Published abstract and mathematical claim summary only.",
+        "method": "Statement-level comparison.",
+        "title": "Rigorous decorrelation of part count and maximum in uniform compositions",
+        "trigger": "Related largest-part statistic and uniform compositions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ed5b4ff7-b3b0-4702-8d80-775e6a2ef7c1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The equal-occupation rare-switch Markov bridge arises naturally at Pemmasani’s endpoint–center coexistence threshold. The theorem determines the full two-color extremal domain geometry, including independent rare-event counts and the universal Gumbel longest run, across a nontrivial scaling regime, rather than only the number of switches or an arbitrary finite slice. It answers a structural question not encoded by central-bin crossing probabilities.",
+    "status": "PASS"
+  }
+}
