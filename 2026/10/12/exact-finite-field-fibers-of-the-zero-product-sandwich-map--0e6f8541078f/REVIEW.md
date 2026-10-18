@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For fixed ranks of the outer factors, compatible image and kernel subspaces are counted separately and the linear operator \(R\mapsto ARB\) has image dimension \(ab\), so every compatible output has \(q^{n^2-ab}\) intermediates. Independence of the chosen image/kernel data, the allowed summation range, the rank-only invariance, and the zero-output case were reconstructed. The standalone verifier exhaustively checks the binary and ternary \(2\times2\) fibers, the binary \(3\times3\) pair strata, and the total-mass identity in dimensions two through five.
+## correctness
 
-**Originality — PASS, with residual risk.** Subba–Subedi (2025 and 2026) study membership in the zero-insertive locus and ZINC. The earlier public result *Zero-insertive matrices are exactly the half-rank locus* (`8052759fe4ed`) already settles which outputs are attainable and how many eligible matrices exist; those contributions are explicitly excluded from the new claim. Inspection of its complete theorem and proof revealed no counts of ordered witness triples. Searches targeting the equations \(AB=0\), \(ARB=X\), rank-stratified fiber counts, equivalent sandwich formulations, and finite-field matrix-counting literature found no directly dominating formula. An older unindexed counting identity remains possible.
+PASS
 
-**Mathematical value — PASS.** The zero-insertive locus was recently introduced as an elementwise ring invariant. A mere output count gives no information about the bias induced by sampling actual witnesses. The theorem computes all fibers of this constrained polynomial map uniformly for every finite field and every matrix size, giving the exact rank distribution and revealing strong nonuniformity across ranks; for example, the binary four-dimensional rank-zero, rank-one and rank-two individual fibers have sizes \(35{,}813{,}933{,}056\), \(689{,}848{,}320\), and \(5{,}160{,}960\). This is a complete natural counting invariant rather than an arbitrarily selected finite case.
+For n>=2, every q and output X of rank r, AB=0 implies im B<=ker A so ranks a+b<=n; ARB=X also forces im X<=im A and ker B<=ker X, with a,b>=r. Images of A, kernels of A, kernels of B, images of B are independently chosen under these constraints: [n-r a-r]_q [n-r b-r]_q [n a]_q [n-a b]_q. Operators with each fixed image/kernel pair counted by GL_a(q) GL_b(q), and R↦ARB is onto the ab-dimensional compatible linear subspace, all fibers size q^(n²-ab). Summing gives rank-only w_{n,r}, with zero for 2r>n and nonzero via a=b=r otherwise. Independent exhaustive n2 q2 and q3 all outputs matches formula including zero and rank one: q2 zero712, rank1 24; q3 zero19953, rank1 432.
 
-**Scope and limitations.** The argument applies to full matrix algebras over finite fields, not arbitrary coefficient rings. Computational checks are finite corroboration, not the universal proof. Historical completeness cannot be certified from negative searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication-level comparison for Exact finite-field fibers of the zero-product sandwich map: precise new invariant not located as prior theorem; accessible direct sources and nearest indexed records compared, with explicit access and alias risks. A failed index search alone does not establish originality.
+
+## value
+
+PASS
+
+Refines a published half-rank SUPPORT characterization to the full nonuniform distribution of ordered witness triples of AB=0,ARB=X for every possible output rank; this is a natural enumerative invariant of zero-product sandwich factorizations. Rank-support classification and number of eligible outputs cannot recover targetwise witness numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

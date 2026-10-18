@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T14:02:50.012019Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2, every q and output X of rank r, AB=0 implies im B<=ker A so ranks a+b<=n; ARB=X also forces im X<=im A and ker B<=ker X, with a,b>=r. Images of A, kernels of A, kernels of B, images of B are independently chosen under these constraints: [n-r a-r]_q [n-r b-r]_q [n a]_q [n-a b]_q. Operators with each fixed image/kernel pair counted by GL_a(q) GL_b(q), and R↦ARB is onto the ab-dimensional compatible linear subspace, all fibers size q^(n²-ab). Summing gives rank-only w_{n,r}, with zero for 2r>n and nonzero via a=b=r otherwise. Independent exhaustive n2 q2 and q3 all outputs matches formula including zero and rank one: q2 zero712, rank1 24; q3 zero19953, rank1 432.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older division-ring theorem applies over all division rings but only characterizes image rank support and for fields counts image points.",
+          "Subba–Subedi frame the ZINC condition and matrix membership, not per-output counts."
+        ],
+        "reasoning": "Stronger coefficient scope in the published support theorem does not logically give more detailed finite-field fibers.",
+        "searches": [
+          "Resultary 2026/10/4 8052759fe4ed complete RESULT.md",
+          "arXiv:2508.01333",
+          "arXiv:2609.24439"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-zero-insertive-matrices-are-exactly-the-half-rank-locus--8052759fe4ed/RESULT.md",
+        "https://arxiv.org/abs/2609.24439",
+        "https://arxiv.org/abs/2508.01333",
+        "SCOPE2026 pinned RESULT.md, verify.py; independent all-output n2 q2/3 census"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier theorem yields exactly the positive-rank support 0<=r<=floor(n/2), and output point count; it imposes no constraints determining different positive witness fiber sizes.",
+          "New q^(n²-ab) rank-stratum summation is additional."
+        ],
+        "reasoning": "Published half-rank result is recovered as the positivity shadow of this formula; it cannot be reversed to the exact w_{n,r} distribution.",
+        "searches": [
+          "Resultary 8052759fe4ed complete theorem and matrix-unit construction",
+          "arXiv:2609.24439 zero-insertive paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Public Resultary result 8052759fe4ed defines identical sandwich map support and proves rank(X)<=floor(n/2) iff fiber nonempty, but does not enumerate ordered triples.",
+          "Subba–Subedi zero-insertive terminology refers to membership, not fiber multiplicity."
+        ],
+        "reasoning": "The actual invariant is cardinality of the inverse image under the constrained map; equivalent aliases such as ACB with AB zero and zero-insertive witnesses were searched.",
+        "searches": [
+          "Resultary: Zero-insertive matrices are exactly the half-rank locus 8052759fe4ed",
+          "Resultary: finite field zero product sandwich matrix fibers ordered triple exact",
+          "web: AB=0 ARB=X fixed rank count finite field"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed formula is the number of rank-r output matrices, which equals [n r]_q² GL_r(q) but is separate from w_{n,r}.",
+          "No indexed table for all w_{n,r} was identified."
+        ],
+        "reasoning": "Matrix-rank Gaussian enumeration provides one ingredient but not the correlated AB=0 and ARB=X incidence multiplicities.",
+        "searches": [
+          "Resultary: finite field zero product sandwich matrix fibers ordered triple exact",
+          "Resultary: zero-insertive rank locus witness multiplicity",
+          "Laksov Thorup 1994 counting fixed rank matrices"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement/implication-level comparison for Exact finite-field fibers of the zero-product sandwich map: precise new invariant not located as prior theorem; accessible direct sources and nearest indexed records compared, with explicit access and alias risks. A failed index search alone does not establish originality.",
+      "residual_risks": [
+        "An older differently named finite-field enumeration of constrained matrix products may coincide with this Gaussian sum.",
+        "Laksov–Thorup was available bibliographically but not read in full for precise possible general counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers fiber nonemptiness and image-set cardinality only, not sizes of individual fibers",
+          "evidence": "Theorem Z_i(M_n(D))={X:rank X<=floor(n/2)}; finite field sum counts rank-r matrices; no summation for w_{n,r}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-zero-insertive-matrices-are-exactly-the-half-rank-locus--8052759fe4ed/RESULT.md",
+          "material_read": "Complete primary RESULT.md including finding, proof, finite-field point count, verification and limitations",
+          "method": "Read pinned source via GitHub connector",
+          "title": "Zero-insertive matrices are exactly the half-rank locus",
+          "trigger": "Identical AB=0,ARB=X map already treated in published scientific record"
+        },
+        {
+          "assessment": "No abstract-level claim of all ordered witness multiplicities; no whole-paper negative asserted",
+          "evidence": "Matrix zero-insertivity and 2x2 case are source-level statements, not exact fiber sizes.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.24439",
+          "material_read": "Accessible statement/abstract and pinned references to core definitions; complete new full text not separately retrieved this run",
+          "method": "ArXiv indexed statement-level comparison",
+          "title": "Semicommutativity via Zero-Insertive Elements: Insights from Path and Leavitt Path Algebras",
+          "trigger": "Original definition and matrix membership framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Refines a published half-rank SUPPORT characterization to the full nonuniform distribution of ordered witness triples of AB=0,ARB=X for every possible output rank; this is a natural enumerative invariant of zero-product sandwich factorizations. Rank-support classification and number of eligible outputs cannot recover targetwise witness numbers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full matrix algebras over finite fields only; ordered triples, not similarity orbits.",
+    "Brute force n2 is corroboration, general proof is incidence count."
+  ],
+  "schema_version": 1
+}
