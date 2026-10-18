@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of exact random-grid Cramér cutoff
+# Independent mathematical audit
 
-The included `verify.py` is a standalone standard-library script. Running `python verify.py` must print `CHECK_OK` after comparing all map-selection words through length six on the first three grids with an **independent exact rational integration** of the centered circle Cramér discrepancy. The tests also exhaust finite Bernoulli collapse probabilities through length nine and compare selected large-grid binomial sums with the limiting normal CDF.
+## correctness
 
-The proof in `RESULT.md` supplies the infinite-range steps: exact cyclic subgroup arithmetic, a rational sawtooth integral for the discrepancy, the triangular-array central limit theorem with joint count dependence, convergence of the collapse CDF, and the geometric waiting-time central limit theorem at fixed unequal switching probabilities. The checker is only a diagnostic for finite cases; it does not verify the general analytic theorems, completeness of prior research, or independent correctness.
+PASS
+
+For a given word with k maps ×a and t−k maps ×b, the multiplier is a^k b^(t−k); the image of Z/(ab)^n is the uniform cyclic subgroup of cardinality (ab)^n/gcd((ab)^n,a^k b^(t−k))=a^((n−k)_+)b^((n−t+k)_+). Its centered CDF sawtooth has mean-subtracted variance 1/(12M²), so D=1/(M√12) exactly, including t=0 and M=1. Collapse means k≥n and t−k≥n, giving the exact finite-time binomial sum. For t=floor(2n+s√n), p_n=1/2+β/√n, triangular-array CLT gives (K_t−n)/√n⇒s/2+2β+Z/√2 and the complementary count gives s/2−2β−Z/√2. The continuous-mapping theorem on positive parts proves the claimed log profile. Indicator continuity away from Gaussian boundary proves the Bernoulli weak limit for s≥0; for s<0 collapse is impossible. Monotonicity of collapse yields τ limit |4β+√2Z|. At fixed p≠1/2 the minority selections arrive by a sum of n geometric waits, with mean n/q and variance n(1−q)/q²; at that time the other count exceeds n with probability tending to 1. None of the finite enumerations supplies the n→∞ step.
+
+## originality
+
+PASS
+
+Guihéneuf–Monge’s centered Cramér metric and generic finite-time discretization theory are directly acknowledged. Their asymptotic regime fixes iteration time while the grid mesh shrinks and treats generic smooth expanding maps and rounding; the present exact arithmetic resonant family instead needs t≈2n, arithmetic grid (ab)^n, and a random switching bias of order n^(-1/2). Standard binomial and negative-binomial CLTs cover count fluctuations but do not state their coupling to the exact image-subgroup discrepancy or the two-regime crossover as a theorem. The Resultary top hit is this audited record itself and is not an independent source of prior coverage.
+
+## value
+
+PASS
+
+The exact centered Cramér observable for a deterministic exponentially fine grid under a shared random composition gives an analytically sharp crossover between two different hitting-time universality regimes, with the universal folded-normal collapse and slope-dependent logarithmic profile separated. The resonant integer map grid explicitly lies outside the standard generic-rounding approach and supplies a natural tractable benchmark; the result is not claimed to create the underlying binomial CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

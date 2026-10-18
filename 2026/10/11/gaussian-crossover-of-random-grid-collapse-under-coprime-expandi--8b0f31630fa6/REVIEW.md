@@ -1,19 +1,21 @@
-# Review: Gaussian crossover of random grid collapse under coprime expanding maps
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The subgroup index formula \(M=a^{(n-K)_+}b^{(n-t+K)_+}\) follows from coprimality; the centered sawtooth integral is exactly \(1/(12M^2)\). The collapse event is precisely the event that both independent-map selection counts reach \(n\). A triangular-array binomial CLT, together with its perfect negative correlation between the two counts, gives the shifted folded-normal crossover and the exact slope-dependent log-distance profile. The fixed unequal-bias result follows from the rare-type geometric renewal CLT. Finite rational checker results independently test the identities for small grids. No finite calculation is used to prove a limit.
+PASS
 
-## Originality — PASS, residual priority uncertainty
+For a given word with k maps ×a and t−k maps ×b, the multiplier is a^k b^(t−k); the image of Z/(ab)^n is the uniform cyclic subgroup of cardinality (ab)^n/gcd((ab)^n,a^k b^(t−k))=a^((n−k)_+)b^((n−t+k)_+). Its centered CDF sawtooth has mean-subtracted variance 1/(12M²), so D=1/(M√12) exactly, including t=0 and M=1. Collapse means k≥n and t−k≥n, giving the exact finite-time binomial sum. For t=floor(2n+s√n), p_n=1/2+β/√n, triangular-array CLT gives (K_t−n)/√n⇒s/2+2β+Z/√2 and the complementary count gives s/2−2β−Z/√2. The continuous-mapping theorem on positive parts proves the claimed log profile. Indicator continuity away from Gaussian boundary proves the Bernoulli weak limit for s≥0; for s<0 collapse is impossible. Monotonicity of collapse yields τ limit |4β+√2Z|. At fixed p≠1/2 the minority selections arrive by a sum of n geometric waits, with mean n/q and variance n(1−q)/q²; at that time the other count exceeds n with probability tending to 1. None of the finite enumerations supplies the n→∞ step.
 
-Guihéneuf–Monge's 2022 theory gives generic deterministic expanding-map Cramér asymptotics and explicitly mentions resonant integer doubling; it neither switches between two coprime multipliers nor determines a probability law for full image collapse. Their 2022 companion simulations investigate orbit merging but not the exact random two-multiplier coalescence threshold. Published-record semantic searches on the arithmetic grid, Cramér norm, aliases, and Gaussian crossover found no covering theorem. The binomial and renewal limit theorems are classical and explicitly credited; their applications to an exact dynamical discrepancy are the new assertion. Publication priority remains uncertain for differently described finite automata synchronization results.
+## originality
 
-## Value — PASS
+PASS
 
-The problem addresses a central obstruction in spatially discretized ergodic simulation: resonant expanding maps can lose all grid support despite preserving continuous Lebesgue measure. The result gives the exact finite-resolution discrepancy for all coprime slope pairs and words, identifies a nontrivial \(\sqrt n\)-scale transition with a universal shifted folded-normal profile, and distinguishes this balanced phase from ordinary Gaussian rare-map collapse. The joint logarithmic-profile law separates expansion-factor dependence from the universal collapse-time law; this is a natural quantitative benchmark rather than an arbitrary parameter slice.
+Guihéneuf–Monge’s centered Cramér metric and generic finite-time discretization theory are directly acknowledged. Their asymptotic regime fixes iteration time while the grid mesh shrinks and treats generic smooth expanding maps and rounding; the present exact arithmetic resonant family instead needs t≈2n, arithmetic grid (ab)^n, and a random switching bias of order n^(-1/2). Standard binomial and negative-binomial CLTs cover count fluctuations but do not state their coupling to the exact image-subgroup discrepancy or the two-regime crossover as a theorem. The Resultary top hit is this audited record itself and is not an independent source of prior coverage.
 
-## Closest literature and scope
+## value
 
-The closest primary source is arXiv:2206.07991v1 and its published Nonlinearity version (DOI 10.1088/1361-6544/ace817); the companion arXiv:2206.08000v1 studies simulations and merges. The result treats exact integer-grid transport under one global random map per step; it does not extend the generic nonlinear/rounded results or prove any new general central limit theorem. Independent publication-priority checking remains desirable.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The exact centered Cramér observable for a deterministic exponentially fine grid under a shared random composition gives an analytically sharp crossover between two different hitting-time universality regimes, with the universal folded-normal collapse and slope-dependent logarithmic profile separated. The resonant integer map grid explicitly lies outside the standard generic-rounding approach and supplies a natural tractable benchmark; the result is not claimed to create the underlying binomial CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

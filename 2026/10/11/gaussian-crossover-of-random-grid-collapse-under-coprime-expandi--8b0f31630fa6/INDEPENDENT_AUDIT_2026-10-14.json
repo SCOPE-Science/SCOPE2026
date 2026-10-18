@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T22:52:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob e7bbc660d88886523f93862c402f3d75fe745ba2",
+        "Inspected exact rational verifier blob 3dafbc7d23dfcccd66b92279c170dc4c3c9c8789",
+        "Guihéneuf–Monge, Cramér distance and discretisations of circle expanding maps I: theory, arXiv:2206.07991v1, https://arxiv.org/pdf/2206.07991",
+        "Elementary cyclic-group quotient size and binomial/geometric CLTs"
+      ],
+      "rationale": "For a given word with k maps ×a and t−k maps ×b, the multiplier is a^k b^(t−k); the image of Z/(ab)^n is the uniform cyclic subgroup of cardinality (ab)^n/gcd((ab)^n,a^k b^(t−k))=a^((n−k)_+)b^((n−t+k)_+). Its centered CDF sawtooth has mean-subtracted variance 1/(12M²), so D=1/(M√12) exactly, including t=0 and M=1. Collapse means k≥n and t−k≥n, giving the exact finite-time binomial sum. For t=floor(2n+s√n), p_n=1/2+β/√n, triangular-array CLT gives (K_t−n)/√n⇒s/2+2β+Z/√2 and the complementary count gives s/2−2β−Z/√2. The continuous-mapping theorem on positive parts proves the claimed log profile. Indicator continuity away from Gaussian boundary proves the Bernoulli weak limit for s≥0; for s<0 collapse is impossible. Monotonicity of collapse yields τ limit |4β+√2Z|. At fixed p≠1/2 the minority selections arrive by a sum of n geometric waits, with mean n/q and variance n(1−q)/q²; at that time the other count exceeds n with probability tending to 1. None of the finite enumerations supplies the n→∞ step.",
+      "residual_risks": [
+        "Requires coprime a,b and a common random map at each time applied to the whole grid; correlations across grid points are not independent map choices.",
+        "The limit concerns collapse to a point mass, not invariant Lebesgue mixing.",
+        "No assertion of strong joint path convergence beyond fixed s profile."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic roundoff/mesh laws operate at fixed iteration depth; their methods do not imply the exact formula for simultaneous random integer compositions at t of order log N.",
+          "The companion paper reports simulations of medium- and long-time orbit merging but not the displayed two-slope critical-bias scaling limit."
+        ],
+        "reasoning": "Generic expanding-map statements are broader in map class but weaker and asymptotically different; no domination of the coprime exact-grid crossover was found.",
+        "searches": [
+          "Resultary semantic query: random expanding circle maps coprime integer grids collapse time binomial folded normal Cramer discrepancy",
+          "arXiv:2206.07991v1 Main Theorem and Sections 2–3",
+          "arXiv:2206.08000 simulations"
+        ]
+      },
+      "checked_sources": [
+        "Guihéneuf–Monge, Cramér distance and discretisations of circle expanding maps I: theory, arXiv:2206.07991v1, https://arxiv.org/pdf/2206.07991",
+        "Guihéneuf–Monge, Discrepancy and discretizations of circle expanding maps II: simulations, arXiv:2206.08000",
+        "Standard triangular-array binomial CLT and negative-binomial/geometric waiting-time CLT"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known CLTs imply count limits, but identifying the group image size and centered discrepancy gives the additional dynamical statement.",
+          "The source explicitly distinguishes resonant integer doubling grids from its generic regime."
+        ],
+        "reasoning": "Classical probability combined with elementary cyclic arithmetic mathematically implies the theorem; checked primary dynamical literature did not already package the particular observable, all-times identity, critical β drift, and Gaussian-folded crossover.",
+        "searches": [
+          "Resultary semantic query: random expanding circle maps coprime integer grids collapse time binomial folded normal Cramer discrepancy",
+          "arXiv:2206.07991v1 fixed-time generic theorem",
+          "classical binomial/geometric CLTs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-type quota completion τ_n=max(T_a(n),T_b(n)) with dependent hitting times is equivalent to collapse; within the critical window CLT gives folded normal.",
+          "Guihéneuf–Monge study Cramér distance of generic discretized expanding maps for fixed k, not this quota-hitting model."
+        ],
+        "reasoning": "Reformulated collapse as balanced two-category quotas and checked standard CLT implications. Those standard limit theorems do provide the distribution once quota equivalence is derived, but no inspected publication supplies the exact dynamical identification and logarithmic Cramér profile together.",
+        "searches": [
+          "Resultary semantic query: random expanding circle maps coprime integer grids collapse time binomial folded normal Cramer discrepancy",
+          "Guihéneuf–Monge arXiv:2206.07991v1 Section 2 and Introduction",
+          "standard occupancy/binomial limit theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact binomial CDF for two-map quota completion or full law of D for arithmetic grids in read sources."
+        ],
+        "reasoning": "The exact distance is a formula for all n,t,words; a finite numerics table could not cover the Gaussian limit, and the finite-check script is the record’s own evidence, not prior publication.",
+        "searches": [
+          "Resultary semantic query: random expanding circle maps coprime integer grids collapse time binomial folded normal Cramer discrepancy",
+          "arXiv:2206.07991v1 centered Cramér metric discussion",
+          "Resultary semantic search self-hit and unrelated expanding-map records"
+        ]
+      },
+      "rationale": "Guihéneuf–Monge’s centered Cramér metric and generic finite-time discretization theory are directly acknowledged. Their asymptotic regime fixes iteration time while the grid mesh shrinks and treats generic smooth expanding maps and rounding; the present exact arithmetic resonant family instead needs t≈2n, arithmetic grid (ab)^n, and a random switching bias of order n^(-1/2). Standard binomial and negative-binomial CLTs cover count fluctuations but do not state their coupling to the exact image-subgroup discrepancy or the two-regime crossover as a theorem. The Resultary top hit is this audited record itself and is not an independent source of prior coverage.",
+      "residual_risks": [
+        "The crossover is a probabilistic consequence of elementary binomial counts once the exact grid reduction is noticed; its proof complexity is modest.",
+        "Differently named finite-state synchronization/coupon-collection models may state an equivalent folded-Gaussian threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_METRIC_DIFFERENT_REGIME",
+          "evidence": [
+            "Fixed iterate k and N→∞ generic smooth maps, contrasted with t≈log N and quenched random coprime integer multipliers."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.07991",
+          "material_read": "Full-text Introduction, Definition of Cramér metric, §3 linear-discretization analysis and main generic fixed-time regime; particular discussion of resonant ×2 grids.",
+          "method": "Read PDF extracted text and page sections, compared N and iteration scaling",
+          "title": "Cramér distance and discretisations of circle expanding maps I: theory",
+          "trigger": "Closest metric and dynamics; potential exact resonant formula"
+        },
+        {
+          "assessment": "RELATED_RESIDUAL_NOT_FULLY_READ",
+          "evidence": [
+            "Numerical simulation scope may conceal observations of special arithmetic cases; not used to assert whole-document absence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.08000",
+          "material_read": "Title/abstract and relationship in Part I; no independently verified full Part II reading.",
+          "method": "Abstract-level scope comparison only",
+          "title": "Discrepancy and discretizations of circle expanding maps II: simulations",
+          "trigger": "Closely related orbit-merger phenomenology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Guihéneuf–Monge, Cramér distance and discretisations of circle expanding maps I: theory, arXiv:2206.07991v1, https://arxiv.org/pdf/2206.07991",
+        "Full analytic subgroup-count/CLT proof in frozen RESULT.md"
+      ],
+      "rationale": "The exact centered Cramér observable for a deterministic exponentially fine grid under a shared random composition gives an analytically sharp crossover between two different hitting-time universality regimes, with the universal folded-normal collapse and slope-dependent logarithmic profile separated. The resonant integer map grid explicitly lies outside the standard generic-rounding approach and supplies a natural tractable benchmark; the result is not claimed to create the underlying binomial CLT.",
+      "residual_risks": [
+        "Mechanism is special to coprime integer maps and exact divisible grid; no generic noisy-rounding conclusion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact coprimality and N=(ab)^n are essential.",
+    "Quenched shared map selection; limits in distribution only.",
+    "Finite verification n≤3,t≤6 does not establish asymptotic theorem.",
+    "Other stochastic grid synchronization literature may contain an aliased quota-hitting statement."
+  ],
+  "schema_version": 1
+}
