@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T18:54:14.428961Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Tangent space to Segre [u⊗v] is U⊗v+u⊗V; a bilinear form tangent there requires nonzero left and right kernels, equivalent to matrix rank <=a for (a+1)×(b+1). Determinantal codimension b-a+1 and Porteous class c_{b-a+1}[-(a+1)O(-1)]=binom(b+1,a)H^{b-a+1}. At fixed n=a+b, d_n(a)=binom(n-a+1,a); the adjacent ratio is (n-2a+1)(n-2a)/((a+1)(n-a+1)), crossing 1 precisely at q_n(a)=5a²-(5n+2)a+n²-1. Strict ratio decrease makes the ceil-root maximizer, with two adjacent ties if the small root is integral. Stirling gives defect ratio ->1/sqrt5. Pascal's identity gives sum_{a=1}^{floor(n/2)}d_n(a)=F_{n+2}-1-[n odd], and squeeze M_n^{1/n}->golden ratio. Independent exact-integer checks n=2..180 checked ratios, maximizers, and Fibonacci sum; all-n result is symbolic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ottaviani--Sodomaco--Ventura Theorem 3.8 is for hypercubical d>=3, and Sections 4,5 address other asymptotic regimes and stabilization.",
+          "Kaji gives dual codimension criterion, Fulton gives general Porteous formula."
+        ],
+        "reasoning": "Broad Segre duality theorems imply components, but do not on their face state max over unequal two-factor splits with fixed a+b nor sum of the entire degree family.",
+        "searches": [
+          "arXiv:2008.11670 full arXiv text",
+          "DOI:10.1023/A:1024968503486",
+          "Fulton DOI:10.1215/S0012-7094-92-06516-1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2008.11670 full arXiv reading",
+        "DOI:10.1023/A:1024968503486 abstract/theorem description",
+        "DOI:10.1215/S0012-7094-92-06516-1 formula/bibliography",
+        "Resultary query on fixed-n Segre degree/Fibonacci/dual defect"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Porteous gives d_n(a) for each split, and classical Fibonacci identity sums those values.",
+          "Prior Segre asymptotics optimize other parameter regimes; no relative defect at fixed intrinsic dimension specified."
+        ],
+        "reasoning": "The geometrically natural max/defect comparison is an extra exact calculation beyond isolated degree formula and classical identities. Absence of earlier mention is not mathematical independence from known ingredients; record that the new synthesis is elementary.",
+        "searches": [
+          "arXiv:2008.11670 Sections 2,3.1,4,5",
+          "Kaji 2003 On the Duals of Segre Varieties",
+          "Resultary 795871ff57a7 matched source"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary retrieved the target claim and related Segre-Veronese surface dual-degree papers, not the same fixed-n rectangular Segre problem.",
+          "Known determinantal degree is binom(n-a+1,a)."
+        ],
+        "reasoning": "Searched tensor/dual format, rectangular rank drop, standard Segre embedding, Fibonacci binomial diagonals, and maximal dual degree at fixed dimension; no prior exact mode was located.",
+        "searches": [
+          "Resultary: fixed total dimension two factor Segre projective dual degree binomial maximizing split Fibonacci total golden ratio dual defect",
+          "arXiv:2008.11670 full HTML",
+          "two factor Segre determinantal degree fixed n rectangle defect mode"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Fibonacci summation is a classical identity; a binomial table trivially lists individual d_n(a)."
+        ],
+        "reasoning": "Originality must not rest on the well-known binomial/Fibonacci table itself. The additional object-dependent optimization, defect interpretation and equality ties are the particular unlocated conclusion.",
+        "searches": [
+          "Resultary fixed dimensional Segre Fibonacci degree defect",
+          "OEIS binomial sum Fibonacci diagonal",
+          "dual Segre rank variety binomial table"
+        ]
+      },
+      "rationale": "The rank-drop determinantal dual, Porteous degree, and Fibonacci coefficient identity are classical ingredients and explicitly not novel separately. Full Ottaviani--Sodomaco--Ventura arXiv text analyzes hypercubical multi-Segre hyperdeterminants, ED degree and stabilization for quadric factors, not optimizing rectangular two-factor dual degree at a fixed total intrinsic n or deriving the 1/sqrt5 defect ratio. Kaji's dual-defect theorem and Fulton's degeneracy loci likewise do not state the fixed-n mode. Resultary lookup found only this exact family theorem, plus adjacent but different projective-duality invariants. PASS is constrained to fixed-n extremal synthesis; elementary and potentially prior folklore remains risk.",
+      "residual_risks": [
+        "The Fibonacci/binomial modal calculation is elementary enough to occur in older combinatorics or projective-geometry exercises not indexed by the targeted queries.",
+        "Kaji and Fulton full original primary PDFs were not read, so no whole-paper noncoverage claim is made; classical ingredients fully credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ASYMPTOTICS_DIFFERENT_PARAMETER_REGIME",
+          "evidence": "Theorem 3.8 takes hypercubical Segre product with >=3 factors, and later sections ED and stabilized quadric products; two-factor square determinant is mentioned but rectangular fixed-a+b degree modes are not stated.",
+          "identifier_or_url": "arXiv:2008.11670",
+          "material_read": "Full arXiv HTML/abstract source including Introduction, Theorem 3.8 and Sections 4-5 theorem statements and related two-factor discussion",
+          "method": "Read arXiv full indexed text with theorem and case comparisons",
+          "title": "Asymptotics of degrees and ED degrees of Segre products",
+          "trigger": "Primary same-family asymptotic paper"
+        },
+        {
+          "assessment": "COVERS_DEFECT_NOT_FIXED_DIM_DEGREE_EXTREMA",
+          "evidence": "In two factors codim dual =b-a+1, a standard input; no known exact Fibonacci/mode claim in accessible material.",
+          "identifier_or_url": "DOI:10.1023/A:1024968503486",
+          "material_read": "Available abstract/theorem description and mathematical facts; full paper not accessed",
+          "method": "Statement-level comparison of nondefective criterion and codimension",
+          "title": "On the Duals of Segre Varieties",
+          "trigger": "Classical dual-codimension coverage"
+        },
+        {
+          "assessment": "CLASSICAL_FORMULA",
+          "evidence": "Generic rank-a degeneracy class specializes to binomial(b+1,a).",
+          "identifier_or_url": "DOI:10.1215/S0012-7094-92-06516-1",
+          "material_read": "Bibliographic and known Thom-Porteous formula; full 1992 article not independently read",
+          "method": "Apply cited Porteous class to exact matrix bundle in target proof",
+          "title": "Flags, Schubert polynomials, degeneracy loci, and determinantal formulas",
+          "trigger": "Primary degeneracy formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dual degree and dual defect are intrinsic standard invariants of Segre varieties. The fixed-total-dimension family has a motivated tradeoff between complexity and defectivity, a nonbalanced exact optimizer, a geometric limit defect fraction 1/sqrt5, and a global Fibonacci degree census. These are natural exact family invariants and may be independently useful despite elementary binomial algebra.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Standard two-factor Segre, positive factor dimensions and fixed total dimension, no higher-factor tensor claims.",
+    "All-n proof uses algebraic ratio monotonicity and Porteous, not finite n<=180 check.",
+    "Individually classical degree and Fibonacci identities are prior art; novelty evaluated only for geometric family-level optimizer/defect ratio.",
+    "Public METADATA.json operational scope_run_id is unsanitized; publication not ready."
+  ],
+  "schema_version": 1
+}
