@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The codebook upper bound follows from the explicit eighteen-element deletion-output transversal, checked on all ninety balanced words. The complete equality enumeration uses a sound eighteen-partite recursion: every optimum selects exactly one of five parents for each transversal output, and every compatible choice is visited. All eight returned codes independently satisfy pairwise deletion-shadow disjointness; they have exactly the asserted common core and binary-block presentation. The same artifact checks the six-color descent rule on every confusable pair and exhaustively enumerates maximal cliques. The lower bound on chromatic number is a mathematical deduction from the common-core classification. The result is finite and makes no unproved extension to arbitrary length.
+## correctness
 
-## Originality — PASS with stated residual risk
-The inspected 2012 full arXiv paper by Cullina, Kulkarni and Kiyavash treats binary constant-weight optimal colorings, not this ternary fixed-composition equality census. The inspected 2013 full arXiv paper by Cullina and Kiyavash treats general-alphabet bounds, not the exact eight optima or the strict clique/chromatic separation. Searches of scholarly literature and mathematical records did not reveal an equivalent statement or a stronger statement implying it. Cullina's directly relevant 2014 thesis was located by bibliographic record but its full text was inaccessible; an unreported equivalent classification there or elsewhere is a residual risk. This cannot be interpreted as independent novelty certification.
+PASS
 
-## Value — PASS
-The theorem gives a natural complete equality classification for the smallest nontrivial uniformly twice-repeated ternary alphabet, and identifies an explicit obstruction to transferring optimal-coloring behavior from binary constant-weight deletion graphs. The exact maximum alone is a finite number; the shared twelve-word rigidity, eight-code cube and strict gap \(\omega(G)<\chi(G)\) provide the substantive structural motivation.
+Read exact 18-output transversal T and verified directly that every one of 90 words has exactly one deletion in T, each output has five parents, yielding 18 disjoint cliques and the sharp independent-set upper bound. Reimplemented 18-partite exhaustive MRV recursion from deletion sets rather than trusting stored VERIFY_OK: visited 368 nodes, produced exactly eight maxima, 12-word common core and complete three-binary-block classification. Checked six-color descent syndrome for every confusable pair; common-core intersection proves five colors impossible because five color classes would each have 18 words. Independently enumerated networkx graph maximal cliques: 272 total, 96 size-five, none above five. Finite graph enumeration covers every labeled word in its 90-vertex domain, not an infinite inference.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closest primary 2012 deletion-graph coloring analysis is explicitly binary and fixed-weight, whereas this concerns ternary fixed composition and complete equality structure. General q-ary deletion bounds do not imply the common-core or chromatic obstruction. A highly relevant 2014 Cullina thesis was located but could not be fully read; this is a genuine priority risk, not proof of coverage or automatic failure.
+
+## value
+
+PASS
+
+The (2,2,2) layer is the natural twice-repeated smallest three-symbol composition, and a nontrivial clique/chromatic gap demonstrates failure of the binary optimal-coloring analogy. All eight extremizers, their common core and the exact obstruction are meaningful finite structural facts beyond a single number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
