@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For \(G(x)=xL(x)\) and the de Bruijn normalization \(b_n^p=n\widetilde L(n)\), the proof uses
-\[
-G(b_n^p)\sim n,
-\qquad n/b_n^2\to0.
-\]
-For \(H(x)=x^pL(x^p)\) and any \(\eta\in(0,2-p)\), Potter's inequality ensures a constant \(C\) with
-\[
-\frac{x^2}{b_n^2}\le C\frac{H(x)}{H(b_n)}
-\quad (A\le x\le b_n)
-\]
-for sufficiently large fixed \(A\) and large \(n\). This bounds the quadratic contribution of centered truncated sums by the weighted Cesàro tail. Almost increase controls the complementary \(p\)-moment of the tails. Doob, von Bahr--Esseen, and elementary maximal estimates yield the full conclusion.
+# Independent mathematical audit
 
-When almost increase fails, the rare-spike rows have \(q_m=1/[m v_m L(v_m)]\), \(n_m\sim u_mL(u_m)\), and
-\[
-E\left[(M_{n_m}/b_{n_m})^p\right]
-\ge(1+o(1))\frac{L(u_m)}{mL(v_m)}\ge(1+o(1))m^2.
-\]
-The spike occurrence probability is at most \(n_mq_m=O(1/m)\), and the weighted Cesàro expectation per active row is exactly \(1/m\).
+## correctness
 
-The standalone `verify.py` uses only the Python standard library. It checks a representative decreasing slowly varying weight \(L(x)=1/\log(e+x)\), solving its exact inverse scale \(G(x)=n\) by bisection, and evaluates the lower-bound ratio for four exact two-scale choices. It also tests the analytic peak/trough formulas for a slowly varying weight that remains above one but violates almost increase. The exact inverse norming used for the check is asymptotically equivalent to the de Bruijn norming in the theorem.
+PASS
 
-Expected successful line:
-`VERIFY_OK ratios=4.000,9.000,16.000,25.000 oscillation=unbounded`.
+Set G(x)=xL(x), H(x)=x^pL(x^p). De Bruijn conjugacy gives G(b_n^p)~n and n/b_n²→0 since p<2. Under eventual almost increase, Potter lower bounds H(x)/H(b_n) for x≤b_n by (x/b_n)^(p+eta), eta in (0,2-p), controlling the below-b_n variance using Cesàro UI, Doob L² and Jensen. Above b_n, L(b_n^p)<=K L(|X|^p) bounds the pth tail moment and von Bahr–Esseen plus maximal inequalities (triangle bound p=1) give mean convergence. If no almost increase, select u_m<v_m with L(u_m)/L(v_m)>=m³, n_m=floor(G(u_m)), and Bernoulli-signed spikes ±v_m^(1/p) at probability q_m=1/(mG(v_m)); every special row is iid and other rows zero. Cesàro UI is ≤1/m in late special rows, probability of any spike is O(1/m), while expected pth maximal deviation on the one-spike event is asymptotic to L(u_m)/(m L(v_m))>=m²; force distinct n_m as in proof. The explicit oscillating L is slowly varying because its log-derivative in log x tends to zero while peak/trough ratio diverges. Independent sampled asymptotic spike-ratio checks corroborate but do not prove infinite statements.
 
-The finite calculations illustrate only consequences of the analytic proof and do not establish the infinite implications.
+## originality
+
+PASS
+
+A 2022 weak law posed an Lp upgrade question. The 2024 Thành primary paper affirmatively answers the increasing L>=1 case and proves per-array sufficient/necessary tail conditions, as well as a particular decreasing-weight counterexample. The final claim is different: a universal all-slowly-varying-weight iff characterization via eventual almost increase, with a sparse counterexample for every violating L, including weights >=1. The earlier sufficient theorem and its isolated example do not imply this functional necessity. The Oxford-authorized text retrieval supplied primary pages 1-9, including Theorem 3.1; a further read request was safety-blocked and not retried, leaving unseen later sections as a residual risk.
+
+## value
+
+PASS
+
+This identifies the precise functional boundary at which a natural Cesàro-UI weak-law assumption upgrades universally to p-mean maximal convergence. The necessity construction systematically separates probability convergence from mean convergence even for weights bounded below by one, while the sufficiency extends beyond monotone weights. It directly addresses the mathematical scope of an existing published question and later partial affirmative theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

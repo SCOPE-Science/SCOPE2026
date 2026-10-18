@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:46:07.360806Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob 5d61e5402eaf677f0351c979ed3a3174d5de6ffc",
+        "verify.py Git blob acfa6a1e8039c8d2ed19f0e1b068160604c3665f",
+        "Fresh independent sample of spike ratio and asymptotic boundary /mnt/data/scope09_science_checks_0429.py",
+        "Bingham Goldie Teugels regular variation inversion and Potter bounds as cited"
+      ],
+      "rationale": "Set G(x)=xL(x), H(x)=x^pL(x^p). De Bruijn conjugacy gives G(b_n^p)~n and n/b_n²→0 since p<2. Under eventual almost increase, Potter lower bounds H(x)/H(b_n) for x≤b_n by (x/b_n)^(p+eta), eta in (0,2-p), controlling the below-b_n variance using Cesàro UI, Doob L² and Jensen. Above b_n, L(b_n^p)<=K L(|X|^p) bounds the pth tail moment and von Bahr–Esseen plus maximal inequalities (triangle bound p=1) give mean convergence. If no almost increase, select u_m<v_m with L(u_m)/L(v_m)>=m³, n_m=floor(G(u_m)), and Bernoulli-signed spikes ±v_m^(1/p) at probability q_m=1/(mG(v_m)); every special row is iid and other rows zero. Cesàro UI is ≤1/m in late special rows, probability of any spike is O(1/m), while expected pth maximal deviation on the one-spike event is asymptotic to L(u_m)/(m L(v_m))>=m²; force distinct n_m as in proof. The explicit oscillating L is slowly varying because its log-derivative in log x tends to zero while peak/trough ratio diverges. Independent sampled asymptotic spike-ratio checks corroborate but do not prove infinite statements.",
+      "residual_risks": [
+        "Necessity uses row-varying distributions, not one fixed iid sequence across all rows.",
+        "Sufficiency relies on standard maximal moment inequalities and Potter comparison, not mere finite experiments.",
+        "The norming equivalence is asymptotic, and the theorem is only universal over rowwise independent arrays."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 source gives weak convergence under the regular-variation normalization.",
+          "2024 source Theorem 3.1 gives sufficiency from per-array conditions (3.1),(3.2) and necessity of (3.2) for centered arrays; introduction says its positive solution uses increasing L.",
+          "General mean-convergence under weighted integrability is not an if-and-only-if in L across all Cesàro-UI independent triangular arrays."
+        ],
+        "reasoning": "A per-array sufficient condition does not logically imply the full universal weight-class boundary without proving it is forced exactly by quasi-increase.",
+        "searches": [
+          "Lê Văn Thành arXiv:2207.06715 2022 Cor. 4.10",
+          "DOI:10.1007/s13398-023-01540-5 Theorems 3.1 4.1",
+          "Cao DOI:10.1186/1029-242X-2013-558"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: rowwise independent triangular arrays Cesaro uniform integrability slowly varying L exact almost increasing necessary sufficient maximal Lp mean convergence",
+        "arXiv:2207.06715",
+        "DOI:10.1007/s13398-023-01540-5",
+        "DOI:10.1186/1029-242X-2013-558"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weak convergence in probability does not imply p-mean convergence; the 2024 result supplies a positive increasing-weight case but not necessity for all L.",
+          "The new three-point row construction works even for an oscillating L>=1, not ruled out by the earlier decreasing-weight counterexample."
+        ],
+        "reasoning": "The prior literature partially covers the sufficient direction for monotone weights; neither that nor a single negative example implies the universal iff. Main residual risk is uninspected later publisher pages or older Orlicz quasi-increase criterion.",
+        "searches": [
+          "arXiv:2207.06715 weak law open problem",
+          "DOI:10.1007/s13398-023-01540-5 Theorem 3.1 and announced Theorem 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eventual almost increase means bounded ratio L(u)/L(v) for all large u<=v; also called quasimonotone up to a constant, not ordinary monotonicity.",
+          "2024 general tail conditions apply per array; they do not identify exactly which L force those conditions from Cesàro UI for all independent arrays."
+        ],
+        "reasoning": "The equivalence statement concerns a universal implication about L, strictly stronger than checking a fixed array’s sufficient tail bounds.",
+        "searches": [
+          "rowwise independent triangular arrays Cesaro uniform integrability slowly varying L exact almost increasing necessary sufficient maximal Lp mean convergence",
+          "quasi-increasing slowly varying weight monotone envelope Orlicz tail Cesaro maximal mean convergence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact indexed formula for the universal class located in Resultary or initial exact-phrase search.",
+          "This is a functional classification, not a finite numerical census; no numerical table with the same statement is applicable."
+        ],
+        "reasoning": "Exact theorem searches targeted quasimonotonicity and the normalization, rather than treating failed numeric-table search as novelty evidence.",
+        "searches": [
+          "rowwise independent triangular arrays Cesaro uniform integrability slowly varying L exact almost increasing necessary sufficient maximal Lp mean convergence",
+          "almost increasing L Cesaro UI exact iff weak p mean maximal array"
+        ]
+      },
+      "rationale": "A 2022 weak law posed an Lp upgrade question. The 2024 Thành primary paper affirmatively answers the increasing L>=1 case and proves per-array sufficient/necessary tail conditions, as well as a particular decreasing-weight counterexample. The final claim is different: a universal all-slowly-varying-weight iff characterization via eventual almost increase, with a sparse counterexample for every violating L, including weights >=1. The earlier sufficient theorem and its isolated example do not imply this functional necessity. The Oxford-authorized text retrieval supplied primary pages 1-9, including Theorem 3.1; a further read request was safety-blocked and not retried, leaving unseen later sections as a residual risk.",
+      "residual_risks": [
+        "Complete publisher article beyond page 9 was not read; a subsequent authorized pagination call was safety-blocked, not retried. This access uncertainty alone does not refute a positive best-of-knowledge assessment.",
+        "An older Orlicz/quasi-monotone weight theorem might imply this exact universal characterization under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Weak law supplies convergence in probability, not universal p-mean upgrade or its exact weight boundary.",
+          "evidence": [
+            "arXiv:2207.06715v1"
+          ],
+          "identifier_or_url": "arXiv:2207.06715v1 / TEST 32 (2023) 74-106",
+          "material_read": "Accessible preprint description and cited Corollary 4.10/open-question statement; full article was not independently reproduced in this tool turn.",
+          "method": "Primary preprint statement comparison from public source and audit source quotations",
+          "title": "On a new concept of stochastic domination and the laws of large numbers",
+          "trigger": "Initiating weak-law and Lp upgrade question"
+        },
+        {
+          "assessment": "Primary theorem 3.1 is per-array tail criterion and intro frames increasing L as positive result; unseen sections cannot be declared noncovering.",
+          "evidence": [
+            "DOI:10.1007/s13398-023-01540-5, pp.1-9, Theorem 3.1"
+          ],
+          "identifier_or_url": "DOI:10.1007/s13398-023-01540-5",
+          "material_read": "Authorized extracted primary pages 1-9 of 17: abstract, introduction, definitions of slowly varying/de Bruijn conjugate and Cesàro UI; Theorem 3.1 and conditions (3.1)-(3.2); examples of independence and failure. Later pages not read due explicit safety block on further request.",
+          "method": "Authorized Oxford institutional PDF text extraction, pages 1-9",
+          "title": "Sharp sufficient conditions for mean convergence of the maximal partial sums of dependent random variables with general norming sequences",
+          "trigger": "Most plausible dominating prior theorem in exactly same subject"
+        },
+        {
+          "assessment": "Does not establish exact universal almost-increasing slowly-varying characterization in inspected summary.",
+          "evidence": [
+            "DOI:10.1186/1029-242X-2013-558"
+          ],
+          "identifier_or_url": "DOI:10.1186/1029-242X-2013-558",
+          "material_read": "Accessible bibliographic abstract and definitions as summarized in source, not full text during this run.",
+          "method": "Statement-level comparison of weighted-integrability hypotheses",
+          "title": "Mean convergence theorems for weighted sums of random variables under a condition of weighted integrability",
+          "trigger": "Older plausible general mean convergence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2207.06715, initiating upgrade question",
+        "DOI:10.1007/s13398-023-01540-5, per-array maximal mean conditions",
+        "Explicit universal constructive three-point obstruction"
+      ],
+      "rationale": "This identifies the precise functional boundary at which a natural Cesàro-UI weak-law assumption upgrades universally to p-mean maximal convergence. The necessity construction systematically separates probability convergence from mean convergence even for weights bounded below by one, while the sufficiency extends beyond monotone weights. It directly addresses the mathematical scope of an existing published question and later partial affirmative theorem.",
+      "residual_risks": [
+        "Scope is universal across arrays, not a decision rule for an individual array."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For 1<=p<2 and locally bounded positive slowly varying L, Cesàro UI of |X|^p L(|X|^p) implies maximal normalized p-mean convergence for every rowwise independent triangular array, with b_n=(n L-tilde(n))^(1/p), if and only if L is eventually almost increasing. If that functional property fails, symmetric iid-within-row three-point arrays meet the same Cesàro UI and weak law but have limsup expected normalized maximal pth moment infinite. An explicit slowly varying L>=1 exhibits this failure.",
+  "limitations": [
+    "1<=p<2, positive slowly varying L with compact local bounds, independent within each row.",
+    "Counterexample distributions vary between sparse rows.",
+    "Only Oxford paper pages 1-9 were read; subsequent additional retrieval blocked by safety check; remaining originality risk explicitly recorded."
+  ],
+  "schema_version": 1
+}
