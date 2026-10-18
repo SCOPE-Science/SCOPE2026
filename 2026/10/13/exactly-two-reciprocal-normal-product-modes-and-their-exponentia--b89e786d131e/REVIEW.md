@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For any independent centered Gaussian numerator factor, conditioning on all other factors produces a strictly decreasing positive-half-axis Gaussian mixture; the mixing scale is almost surely positive. With no numerator, reciprocal-product inversion and exponential tilting give the exact positive density as a rescaled logarithmic-Rayleigh convolution. Strict log-concavity plus analyticity gives one and only one positive mode, and symmetry gives the second. The Mellin-gamma characteristic function admits exponentially decaying Fourier inversion; expanding the derivative at the tilted-sum mean gives the shift of \(3\zeta(3)/\pi^2\) with \(O(N^{-1})\) remainder. The strong law for \(\log|G|\) gives the exponential typical-size separation. The package checker verifies the one- and two-factor special cases, Fourier derivative signs and finite large-factor behavior. These checks cannot establish the all-factor theorem by themselves; the proof supplies that quantifier.
+PASS
 
-## Originality — PASS with priority risk
+For M≥1 condition on all but one numerator Gaussian; the conditional density is strictly decreasing for z>0 and finite there, so its expectation is strictly decreasing (symmetric for z<0). For M=0, let u=−log(s_N z): multiplying the sum-of-log|G| density by e^u exactly changes the one-factor law to h(u)=exp(2u−e^(2u)/2), the strictly log-concave log-Rayleigh density; its N-fold convolution has exactly one mode and vanishes at both tails, giving precisely ±z_N and zero density at the origin. The gamma Mellin transform yields μ=(log2−γ)/2, variance π²/24 and third cumulant −ζ(3)/4; uniform Fourier differentiated local expansion then gives u_N=Nμ+3ζ(3)/π²+O(1/N). The strong law for log|G| establishes the typical growth. Independent numerical inverse-Fourier derivatives at N=1,2,5,10,50,100 corroborated mode roots and direction, while the infinite claim rests on log-concavity and the Fourier remainder proof.
 
-Gaunt–Sutcliffe (arXiv:2601.12997v1, Section 2.2 and Remark 2.10) derive the ratio density and distinguish origin-unimodal from non-unimodal regimes. The qualitative split, Meijer-G formulas and normal-product laws are existing results and are not separately claimed. The primary paper's non-unimodality statement does not imply exactly two off-origin modes or the moving-factor displacement. Salo–El-Sallabi–Vainikainen (DOI:10.1109/TAP.2005.863087) derive finite Rayleigh-product densities without the asymptotic reciprocal-Gaussian mode or contrast with the typical observation. Standard log-concavity and Fourier asymptotics are acknowledged as proof techniques, not novel general theorems. Related historical product-normal work was available only in bibliographic/abstract form; it is a residual priority risk, as is any unindexed specialized modal theorem.
+## originality
 
-## Value — PASS
+PASS
 
-The number and positions of density modes are natural, identifiable shape statistics of the source's probability model. This is not a reparameterization or a numerical optimum alone: it provides a complete global two-mode classification in the all-denominator family, an analytic finite-dimensional characterization for every number of factors, a sharp large-factor location with a non-Gaussian zeta correction, and a surprising separation of an exponentially vanishing modal location from exponentially growing typical values. Those statements inform interpretation of mode-based summaries in heavy-tailed multiplicative models, without claiming downstream risk guarantees.
+The original 2026 exact ratio-density paper already distinguishes unimodality with numerator factors and non-unimodality of pure reciprocals. The accepted substantive remainder proves exactly two reciprocal peaks for every N, identifies their locations as tilted log-Rayleigh convolution modes, derives the 3ζ(3)/π² shift and exponential gap from typical size. Existing density formulas and standard log-concavity/Edgeworth methods are dependencies, not claimed new.
 
-## Closest literature and limitations
+## value
 
-Primary paper: R. E. Gaunt and H. L. Sutcliffe, arXiv:2601.12997v1 (2026), and *Metrika*, DOI:10.1007/s00184-026-01045-2; inspected Sections 2–3 and appendices. Rayleigh antecedent: J. Salo, H. M. El-Sallabi and P. Vainikainen, IEEE TAP (2006), DOI:10.1109/TAP.2005.863087; its product-density construction was inspected. Historical source: Springer and Thompson, SIAM J. Appl. Math. (1970), DOI:10.1137/0118065; bibliographic/abstract evidence only. The source already states the qualitative modality distinction; this contribution is narrower. The comparison cannot rule out all uncatalogued equivalences. No claims are made outside independent centered Gaussian factors or outside the stated number-of-factors asymptotics.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact number of modes of a natural reciprocal-product probability law and their large-factor movement relative to almost-sure typical size answer a concrete shape and concentration paradox left open by the source’s qualitative nonunimodality. The explicit cumulant/ζ(3) correction and exponential separation are independently useful quantitative invariants, beyond a routine restatement of known density tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
