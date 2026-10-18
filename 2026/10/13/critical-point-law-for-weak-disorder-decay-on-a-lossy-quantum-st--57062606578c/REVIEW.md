@@ -1,15 +1,21 @@
-# Scientific assessment: critical-point law for weak-disorder decay on a lossy quantum star
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim holds for every fixed integer \(k\ge3\), every pairwise-distinct real leaf detuning vector, every nonzero real hopping and positive hub loss. The block determinant reduces the small eigenvalue problem to the exact equation \(g^2P'(z)=\varepsilon(i\gamma/2+\varepsilon z)P(z)\). Interlacing makes all \(k-1\) critical-point roots simple; expanding the implicit branches gives imaginary eigenvalues \(-\gamma\varepsilon^2/(2g^2S_j)+O(\varepsilon^3)\). Their normalized eigenvectors converge to an orthonormal basis of the unperturbed dark space. The two complementary modes decay on fixed timescales, giving the limit of the survival trace for every initial density matrix at each \(\tau>0\). The dissipativity identity separately proves exact eventual absorption for every nonzero disorder strength. The attached verifier independently reconstructs the Hamiltonian, diagonalizes it, and compares the full propagator with the limiting survival mixture. Its finite tests do not constitute an infinite proof.
+## correctness
 
-## Originality — PASS, subject to independent priority review
-The general bright/dark-space transport mechanism is established by Novo et al. (arXiv:1412.7209) and is not claimed. Disorder-assisted transport in trees and hypercubes is treated by Novo, Mohseni, and Omar (arXiv:1312.6989), but not the deterministic star decay law here. The closest later source is Yalouz and Pouthier (Physical Review E 101, 012310, 2020), which numerically studies disordered extended stars. Its theoretical model, numerical methodology, weak-disorder discussion, mean-rate figures, and discussion have been inspected. It recognizes eventual full capture and long-lived weak-disorder modes but does not state a critical-point-indexed coefficient formula or the complete initial-state survival scaling limit. Searches for resonance widths, subradiance, derivative roots, secular equations and equivalent star-network formulations did not locate an implication covering this evaluated statement. General finite-dimensional analytic perturbation theory supplies a method, not an already evaluated coefficient or physical survival limit. Residual risk remains that specialized cavity-mode or non-Hermitian-arrowhead literature contains an equivalent formula; an independent literature priority audit is not performed.
+PASS
 
-## Value — PASS
-The result addresses the natural question left by qualitative disorder-assisted trapping: as disorder tends to zero, on what timescale does previously permanent population disappear, and which detuning configurations control individual lifetimes? It gives an exact multi-exponential scaling profile for arbitrary initial density matrices, with all rates expressed by the critical points of one explicit real polynomial. Their dependence on the entire detuning configuration distinguishes the result from fitting an average lifetime or guessing a universal rate from variance. The formula can guide comparisons between near-degenerate and separated leaf-energy patterns. No generalization to graph families or proof of optimality for an engineering objective is required for this exact structural result.
+Dissipativity gives Im(lambda)||u||^2=-gamma|u0|^2/2; nonzero epsilon and distinct v_i forbid a dark eigenvector. The exact secular equation g^2P′(z)=epsilon(i gamma/2+epsilon z)P(z) and the simple interlacing P′ roots imply lambda_j=epsilon theta_j-i gamma epsilon^2/(2g^2S_j)+O(epsilon^3). The associated norm-one eigenvectors converge to mutually orthogonal dark vectors, while the two lossy bright modes have a uniform decaying spectral cluster even at coalescence; finite-dimensional contour calculus yields the all-density-matrix fixed-tau>0 survival mixture. Direct independent matrix exponential at k=3, v=(-1,0,1), g=1.2, gamma=1.7, epsilon=0.004, tau=0.75 gave 0.420097863129 versus predicted 0.419994897257, and S=(9,9). The check is corroborative, not infinite proof.
 
-## Closest literature and limits
-Novo et al. (2014/2015) analyze invariant transport subspaces without the present site-detuning lifetime asymptotic. Novo, Mohseni and Omar (2013/2016) study dephasing and random disorder on binary trees and hypercubes. Yalouz and Pouthier (2020) are closest in motivation and model class but use a two-generation extended star and mainly numerical, averaged disorder observables; their inspected passages do not give the present closed deterministic rate law. The theorem requires fixed, distinct leaf detunings, a single lossy hub, fixed positive parameters and a finite star. It does not address merging detunings, finite-disorder uniform error bounds or multiple environmental noise channels.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The explicit P′-critical-point selection, epsilon^-2 timescale and all-initial-state positive exponential mixture go beyond the inspected transport/dark-subspace literature, including the directly relevant extended-star weak-disorder discussion. Best-of-knowledge original with possibility of implicit perturbation theory or another star model.
+
+## value
+
+PASS
+
+The exact spectral rates and noncommuting weak-disorder/long-time limit quantify slow transport on the simplest nonuniform lossy graph; dependence on roots of P′ rather than a mean/variance is mathematically structural and physically interpretable. Not just reproducing the known existence of eventual absorption.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

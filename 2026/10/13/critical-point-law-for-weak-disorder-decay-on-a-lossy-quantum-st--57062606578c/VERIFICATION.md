@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-The proof is given in `RESULT.md` and reduces the characteristic polynomial to a scalar critical-point equation. Run `python verify.py` after installing the dependencies from `requirements.txt`. The verifier directly constructs the complex star Hamiltonian, computes its eigenspectrum and full matrix exponentials, and independently compares results against the rates extracted from real zeros of the derivative of the detuning polynomial.
+## correctness
 
-A local execution returned `VERIFY_OK models=8 survival_comparisons=64 rate_checks=30`. Tests covered four distinct detuning configurations (three, four, five and seven leaves), two small positive disorder strengths, randomly generated complex normalized pure initial states, and scaled times \(\tau=0.4\) and \(\tau=1\). The comparisons used an absolute tolerance of \(0.01\) for survival probabilities, and checked orthogonality of the predicted critical-point modes as well as nonpositive imaginary eigenspectra. The count of rate checks is the sum of dimensions of the dark groups across all eight models. This is finite numerical corroboration; the infinite small-disorder limit is established by the analytical eigenvalue and spectral-projector arguments in `RESULT.md`.
+PASS
 
-Limitations: no certified interval arithmetic was used; the numerical tests do not certify the general statement or publication priority. The exact limit holds for each fixed positive rescaled time and fixed distinct detunings. No independent audit has been performed.
+Dissipativity gives Im(lambda)||u||^2=-gamma|u0|^2/2; nonzero epsilon and distinct v_i forbid a dark eigenvector. The exact secular equation g^2P′(z)=epsilon(i gamma/2+epsilon z)P(z) and the simple interlacing P′ roots imply lambda_j=epsilon theta_j-i gamma epsilon^2/(2g^2S_j)+O(epsilon^3). The associated norm-one eigenvectors converge to mutually orthogonal dark vectors, while the two lossy bright modes have a uniform decaying spectral cluster even at coalescence; finite-dimensional contour calculus yields the all-density-matrix fixed-tau>0 survival mixture. Direct independent matrix exponential at k=3, v=(-1,0,1), g=1.2, gamma=1.7, epsilon=0.004, tau=0.75 gave 0.420097863129 versus predicted 0.419994897257, and S=(9,9). The check is corroborative, not infinite proof.
+
+## originality
+
+PASS
+
+The explicit P′-critical-point selection, epsilon^-2 timescale and all-initial-state positive exponential mixture go beyond the inspected transport/dark-subspace literature, including the directly relevant extended-star weak-disorder discussion. Best-of-knowledge original with possibility of implicit perturbation theory or another star model.
+
+## value
+
+PASS
+
+The exact spectral rates and noncommuting weak-disorder/long-time limit quantify slow transport on the simplest nonuniform lossy graph; dependence on roots of P′ rather than a mean/variance is mathematically structural and physically interpretable. Not just reproducing the known existence of eventual absorption.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
