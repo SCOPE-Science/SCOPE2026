@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T17:12:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every complete multipartite graph with r>=3 nonempty parts and balanced signing, a switching gauge epsilon transforms the signed process to the all-positive one. After first ignition x in part P, next simultaneous spread burns every vertex outside P with the same color; at most one additional vertex v within P can be ignited in the opposite color before the last spread, and this is possible precisely when P has size at least two. This proves the full terminal code {+/-epsilon} union {(+/-epsilon)^(v):v in nonsingleton parts}, cardinality 2+2m, and the unsigned weight enumerator 1+z^N+m(z+z^(N-1)). For an arbitrary sign word w the distance to the unsigned code is t-delta(w), t=min(number of positive,number negative) and delta=1 iff an eligible coordinate lies in a smaller sign class; optimizing gives radius floor(N/2) if m=0, N/2-1 if m>0 and N even, and for odd N=2h+1 gives h if s>=h else h-1. The claimed plurality formula then follows from gauge coordinate flips. Independent state-space exploration of all legal spread-first/ignite-after trajectories for 1,044 balanced-signature cases to N=6 corroborated the formula; the universal three-round argument provides the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published source introduces general process and a radius-to-plurality identity; package sources cite its work on signed paths and hardness.",
+          "Complete primary PDF could not be read; no whole-paper not-covering conclusion is made."
+        ],
+        "reasoning": "An explicit complete-multipartite theorem in the unread source would decisively cover this claim; no implication of exact 2+2m code and singleton radius has been established from the general propositions alone.",
+        "searches": [
+          "arxiv:2610.02506v1",
+          "Harary:1953:balance-signed-graphs"
+        ]
+      },
+      "checked_sources": [
+        "Fallat–Gupta–Khodamoradi–Zilles arXiv:2610.02506v1 accessible abstract/index only; full text inaccessible",
+        "Harary 1953 classical balanced signed graph switching theorem via cited material",
+        "Resultary search on signed burning and complete multipartite coding plus distinct graph colorings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Switching transforms terminal sets but does not compute unsigned reachable set for any particular dense graph.",
+          "The new proof forces all but one vertex to initial ignition color and identifies only nonsingleton-part eligible flips."
+        ],
+        "reasoning": "Those graph-specific dynamical restrictions, and the parity/singleton distance maximization, are not an automatic restatement of the general switching/radius identity, so no decisive prior implication was established.",
+        "searches": [
+          "arxiv:2610.02506v1",
+          "Harary:1953:balance-signed-graphs",
+          "Git-RESULT-BLOB:92f3c167b0d7013ff3de0c3621e62df1df2b4d4d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General balanced switching sends the terminal code to a coordinatewise gauge translate; this equivalence is already credited to Fallat et al.",
+          "No retrieved equivalent complete-multipartite signed-burning terminal code or Hamming radius theorem."
+        ],
+        "reasoning": "The new graph-specific result could be equivalently phrased as antipodal Hamming-code reachable words, but the general switching identity does not determine which coordinates are flippable or exact radius.",
+        "searches": [
+          "Resultary:balanced signed burning complete multipartite graphs reachable terminal colorings covering radius",
+          "arxiv:2610.02506v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent BFS finite computations recover differing five-vertex radii K_(3,1,1)=2 and K_(2,2,1)=1.",
+          "No known table read in this run claims the full all-part-sizes sharp threshold."
+        ],
+        "reasoning": "Finite tabulations verify edge cases but are not prior universal classifications; unread primary appendices remain an originality risk.",
+        "searches": [
+          "Resultary:balanced signed burning complete multipartite graphs reachable terminal colorings covering radius"
+        ]
+      },
+      "rationale": "The source process, gauge-equivariance and covering-radius/plurality correspondence belong to Fallat–Gupta–Khodamoradi–Zilles; the specific complete-multipartite terminal code, exact weight enumerator and singleton threshold require a nontrivial graph-family specialization, not just quoting those general propositions. Resultary searches reveal other complete-multipartite colorings but different processes. The exact 2026 primary article is highly relevant yet full text could not be lawfully accessed (arXiv/OA attempts unsuccessful; authorized Oxford download blocked by VPN); its unread contents are expressly not labeled noncovering. Based on accessible abstract, surrounding literature and independently reconstructed result, best-of-knowledge O PASS with MATERIAL primary-source coverage risk, subject to renewed full-text comparison.",
+      "residual_risks": [
+        "MATERIAL: closest same-process arXiv:2610.02506v1 full text unavailable, including appendices; it could already cover the exact graph family despite accessible abstract. This is not treated as a negative source inspection.",
+        "Authorized Oxford download for this paper returned vpn_disconnected; no VPN bypass or assumed access.",
+        "Process ordering is simultaneous spread preceding each ignition and r>=3; different order/r<=2/unbalanced signatures are outside scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FULL_TEXT_UNREAD_MATERIAL_PRIORITY_RISK",
+          "evidence": [
+            "Accessible source establishes authors and general signed-burning topic; reviewed package attributes switching Corollary 2.4 and radius Proposition 2.9, but unread original sections/appendix cannot support a whole-document negative coverage claim."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.02506v1",
+          "material_read": "Title/abstract/index and mathematical bibliographic data only; full article was not obtained",
+          "method": "arXiv and lawful OA full-text retrieval unsuccessful; authorized Oxford attempt returned vpn_disconnected, not bypassed",
+          "title": "Burning Signed Graphs",
+          "trigger": "Exact same process, closest primary source"
+        },
+        {
+          "assessment": "ACKNOWLEDGED_CLASSICAL_PREMISE",
+          "evidence": [
+            "Balanced signings are switch-equivalent to all-positive edge signs, not new to audited result."
+          ],
+          "identifier_or_url": "Harary, Michigan Math. J. 2 (1953) 143–146",
+          "material_read": "Balance characterization as stated and used in audited source; full 1953 primary article not separately accessed",
+          "method": "classical cited theorem via package and secondary references",
+          "title": "On the notion of balance of a signed graph",
+          "trigger": "Classical switching lemma used as premise"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete set of reachable terminal colorings is the new central invariant in signed-burning dynamics, and complete multipartite graphs offer a natural dense graph family. The theorem determines every reachable word and signaturewise plurality as well as a sharp singleton-count phase boundary in Hamming covering radius. This is a nontrivial natural classification, not a mere numerical exercise or a renaming of known switching equivariance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "r>=3 nonempty partite classes, balanced signatures, spread before ignition; no claims for arbitrary signings or graphs.",
+    "Source full text arXiv 2610.02506v1 not available, material O risk disclosed; C derivation stands independently.",
+    "Independent finite BFS limited to N<=6 (not an infinite proof)."
+  ],
+  "schema_version": 1
+}
