@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T10:01:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The n=3 distance-class bound sums min(C(3,k)2^k,C(3,k)2^(3-k))=1+6+6+1=14. At equality cardinalities force (2,7) up to user swap. Two words at Hamming distance r generate 2^(3-r) disjoint cross-row collision pairs in the entire cube; deleting one word can remove all collisions only at r=3. With antipodal words, deleting either of their two elements removes the unique collision. Four antipodal unordered pairs times two omitted words times two user orientations gives exactly 16 ordered extrema and one common-cube-isometry/user-swap orbit. Independent exhaustive enumeration of all 255^2 ordered nonempty binary-code pairs returned max 14 and 16 extremizers. The finite experiment is exhaustive for n=3 only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1984 theorem supplies iff extremal (2,2^n-1) classification for any n; 1983 bound gives n=3 global max 14."
+        ],
+        "reasoning": "The 1984 statement dominates the classification dimension, while 1983 global bound excludes any larger product and forces the (2,7) cardinalities; their conjunction implies the entire claim.",
+        "searches": [
+          "https://pure.tue.nl/ws/files/2319567/256699.pdf",
+          "Van Tilborg 1983 DOI:10.1109/TIT.1983.1056667"
+        ]
+      },
+      "checked_sources": [
+        "Van Tilborg 1984 Theorem 2.4 + Table I (full relevant primary text)",
+        "van Tilborg 1983 cited classical distance-class bound",
+        "Resultary semantic search without higher-priority covering hit",
+        "inspected submitted RESULT.md and exact code verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Four unordered antipodal pairs; for each two deleted member choices and two placements of the small code yield 4*2*2=16 ordered extremizers. Common bit flips/permutations and user swap are transitive."
+        ],
+        "reasoning": "The assigned count/orbit follow mechanically from the prior iff statement; no remaining noncovered final assertion exists.",
+        "searches": [
+          "https://pure.tue.nl/ws/files/2319567/256699.pdf",
+          "Resultary semantic: two user binary adder channel length 3 uniquely decodable code pairs product 14 equality extremizers 2 by 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Van Tilborg 1984 Theorem 2.4 p.305, document PDF p.324 states |D|<=2^n-1 for |C|=2 with equality iff C={0,1^n} and D=V_n minus {0} or {1^n}; common coordinate complementation gives the submitted arbitrary antipodal pair."
+        ],
+        "reasoning": "This is the same sum-injective pair problem in its historical delta-decodable channel terminology. The normalization and user-swap turn the all-n theorem into exactly the assigned length-three structures.",
+        "searches": [
+          "Resultary semantic: two user binary adder channel length 3 uniquely decodable code pairs product 14 equality extremizers 2 by 7",
+          "https://pure.tue.nl/ws/files/2319567/256699.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Van Tilborg 1984 Table I, printed p.309 / PDF p.328, row n=3, |C|=2, |D|=7, Remark Theorem 2.4."
+        ],
+        "reasoning": "The same exact n=3 extremal size and code template were tabulated, and the nearby theorem proves exhaustive uniqueness; this is stronger than a bare matching number.",
+        "searches": [
+          "https://pure.tue.nl/ws/files/2319567/256699.pdf#page=329"
+        ]
+      },
+      "rationale": "FAIL: Van Tilborg (1984) Theorem 2.4 already proves, for EVERY block length n, that a uniquely decodable pair with size-two first user has second size at most 2^n-1, with equality if and only if the two words are antipodal and the second code is the whole cube with one of those words deleted (after common coordinate-complement normalization). Its Table I explicitly lists the length-three size-(2,7) construction. Combined with Van Tilborg 1983 distance-class upper bound 14, this entails every equality case, the 16 labeled counts and the single orbit by routine counting. This is complete prior coverage, not a search gap.",
+      "residual_risks": [
+        "No science uncertainty remains about prior coverage; institutional 1984 PDF directly covers the same code pairs.",
+        "No claim of novel independent certificate for a previously known classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "Theorem 2.4 explicit general equality iff and n=3 table row.",
+          "identifier_or_url": "https://pure.tue.nl/ws/files/2319567/256699.pdf",
+          "material_read": "full relevant paper in 1984 EUT Report pp.297-313 (PDF pp.316-333), especially Theorem 2.4 printed p.305/PDF p.324 and Table I p.309/PDF p.328",
+          "method": "opened university repository full PDF; inspected theorem and table page images",
+          "title": "A few constructions and a short table of delta-decodable codepairs for the binary, two-access adder channel",
+          "trigger": "exact same length-three UD adder pair and 2x7 equality family"
+        },
+        {
+          "assessment": "BOUND APPLIES; full-text scope not asserted",
+          "evidence": "Distance-class bound sum equals 14.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.1983.1056667",
+          "material_read": "bibliographic record and inequality as displayed in submitted proof; full publisher text not re-read",
+          "method": "source reference and submitted derivation inspection",
+          "title": "Upper bounds on |C2| for a uniquely decodable code pair",
+          "trigger": "n3 global distance-class upper bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: Although exact blocklength-three equality classification is a natural question and correct, its complete answer was already explicitly characterized by the general 1984 Theorem 2.4 and the n=3 table. Counting the 16 marked antipodal pairs and one symmetry orbit is an immediate specialization, not independently unknown substantive mathematics.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Finite block length n=3; valid mathematics, but completely covered by direct 1984 theorem and table."
+  ],
+  "schema_version": 1
+}
