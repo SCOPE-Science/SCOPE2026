@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The counterexample is an ordinary frame in \(\mathbb C^2\) with \(K=I\). For every \(0<t<1\), all three scaling coefficients are positive and the scaled frame operator is exactly \(I\). The norms \(1,2,3\) are pairwise distinct. The published trace step supplies one scalar equation and cannot imply equality of each squared scaling coefficient. The replacement criterion follows from injectivity of the real-linear outer-product map and, in the dependent case, a small two-sided perturbation of a strictly positive solution.
+## correctness
 
-## Originality
-**PASS.** The final claim was compared against the target article, earlier ordinary scalable-frame theory, the current and prior local finding ledgers, and multiple indexed searches under theorem-number, norm, scaling, linear-system, and outer-product aliases. Cahill--Chen already establish the linear-system/outer-product mechanism for ordinary scalable frames, so that mechanism is credited rather than presented as new. No checked source states the specific failure of Ramesan--Ravindran Theorem 4.4(ii)/Remark 4.5, gives the pairwise-distinct-norm continuum counterexample, or makes the same implication-level correction.
+PASS
 
-## Value
-**PASS.** The result corrects a published uniqueness theorem and its follow-on remark, not merely notation. The counterexample survives the strongest natural reading of “non-uniform” by making all norms pairwise distinct and all scaling coefficients strictly positive. The exact replacement identifies the structural invariant controlling strict uniqueness and explains precisely why the trace proof cannot work.
+With F=(e1,2e1,3e2)⊂C², K=I, norms are 1,2,3 and F spans, so is an ordinary frame. For every t∈(0,1), c=(√t,√(1−t)/2,1/3)>0 yields Σc_i²f_if_i*=diag(t+(1−t),1)=I. Hence there is a genuine continuum of strict Parseval scalings. The published trace equality Σc_i²||f_i||²=Σd_i²||f_i||² gives ONE scalar constraint and does not force c_i²=d_i², even for unequal distinct weights. For the stated finite K-frame uniqueness criterion, let L(x)=Σx_if_if_i* into real Hermitian matrices; strict x>0 solves L(x)=KK*. If outer products independent, L injective, unique; if dependent, nonzero kernel direction z gives x±εz≥0 for sufficiently small ε, yielding distinct strict scalings. All operator identities exact, no sampled evidence.
 
-## Closest literature and limitations
-The closest prior mathematical mechanism is Cahill and Chen, arXiv:1301.7292, where ordinary scalable frames are encoded by a linear system in rank-one outer products and independence yields uniqueness. This prior result limits the novelty claim to the correction and its \(K\)-frame application. The target article itself supplies the \(K\)-frame operator equation in Theorem 5.1. An unindexed erratum, thesis, or informal correction could still contain the same observation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS restricted to the explicit counterexample and correction of Ramesan–Ravindran 2023 Theorem4.4(ii)/Remark4.5, whose printed assertion and invalid trace argument were read in its primary PDF. The general linear-system criterion for scalable ordinary frames is established in Cahill–Chen 2013 and explicitly credited, not represented as new. Their earlier paper cannot mention nor already refute this later 2023 theorem; searched indexed records reveal no other direct correction/erratum, with residual possibility of an unindexed note.
+
+## value
+
+PASS
+
+A published uniqueness theorem is false even after strengthening its norm hypothesis to pairwise distinct vectors, and its main proof step is demonstrably invalid. A minimal continuum counterexample and precise strict-boundary replacement remove misleading uniqueness claims in applied K-frame scalability. Mathematical motivation is a correction of an exact literature error, rather than novelty of rank-one linear algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
