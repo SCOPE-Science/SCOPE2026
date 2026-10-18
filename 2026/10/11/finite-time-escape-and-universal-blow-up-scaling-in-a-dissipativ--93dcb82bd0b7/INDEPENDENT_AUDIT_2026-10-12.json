@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T23:04:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Hu, Sang, Wang AIMS Mathematics 7(9) 2022 eq(2.2), pp15718-15719, DOI:10.3934/math.2022861",
+        "actual RESULT.md Git blob f448068374a638ed50d86c6592e9c24df373faee",
+        "actual verify.py source blob 786263e6a45e64894541422c32f363bed677c115",
+        "Independent numeric/symbolic check of 4 inward face signs for four eta values"
+      ],
+      "rationale": "Reconstructed the exact x,y,z equations from Hu--Sang--Wang original PDF equation (2.2). With dτ/dt=e^(x/3), Y=y e^(-x/3), Z=z e^(-2x/3), direct differentiation yields x_τ=Y, Y_τ=Z-Y²/3, Z_τ=d/2-2YZ/3+E with E=-cZ e^(-x/3)-b²Y e^(-2x/3)+(eps-a x)e^(-x)-(d/2)e^(-2x). At h=(9d/4)^(1/3), k=h²/3, limiting planar field has equilibrium (h,k). For 0<η<1/3 the rectangular lower/upper Y face signs are k(η/2-η²)>0, -k(η/2+η²)<0 and lower/upper Z signs (d/2)(η/2+3η²/2)>0, (d/2)(-η/2+3η²/2)<0. Independently checked strict signs at η=.01,.1,.2,.3; uniform E->0 above finite Xη gives an invariant tube with Y>=h(1-η)>0. This gives τ-global forward motion with x linear in τ, finite original T=int e^(-x/3)dτ and exact upper/lower time bounds. For u=Y-h,v=Z-k, W=(2h²/9)u²+v² obeys Wdot=-(4h/3)W-(2K/3)u³-(4/3)u v²+2vE; on tube Young inequality gives Wdot<=-γW+γ^-1 E², γ=2h(1-η)/3, and E decays exponentially in τ. Therefore Y->h,Z->k, while q=e^(-x/3) satisfies qdot=-Y/3, q/(T-t)->h/3. Exact constants x=-3 log(T-t)+log(12/d)+o(1), (T-t)y->3 and (T-t)^2 z->3 follow; reflection negates all three for negative escape after changing eps to -eps. All a,eps real and b,c,d>0 are included; negative divergence -c does not prevent finite escape. Finite algebra checks supplement but do not replace asymptotic argument.",
+      "residual_risks": [
+        "Result constructs sufficient large-coordinate escape tubes, not a sharp global blow-up basin boundary or all bounded/chaotic dynamics; restoring sign d<0 excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Complete published compact-recurrence RESULT.md states: \"The theorem says nothing about the fate of unbounded trajectories.\"",
+          "Hu--Sang--Wang p15719 volume contraction inference is not forward completeness.",
+          "Hoang arXiv:2303.10153 abstract is about leading homogeneous nonlinearities."
+        ],
+        "reasoning": "Bounded recurrence criteria classify compact invariant sets, not existence of finite-time escaping trajectories. General homogeneously dominated blow-up theory is a different structural class; without an additional nontrivial transformation it does not imply this exact universal exponential jerk scaling.",
+        "searches": [
+          "Resultary semantic query: hyperbolic sine jerk differential system finite time blowup universal asymptotic negative divergence"
+        ]
+      },
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/math/2022/9/PDF/math-07-09-861.pdf",
+        "https://api.github.com/repos/Resultary/2026/contents/2026/10/4/SCOPE-a-sharp-compact-recurrence-threshold-for-a-hyperbolic-sine-jerk--e3c8f2764332/RESULT.md",
+        "https://arxiv.org/abs/2303.10153",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/finite-time-escape-and-universal-blow-up-scaling-in-a-dissipativ--93dcb82bd0b7/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hu--Sang--Wang p15719 and current tube construction; complete earlier compact-recurrence published finding."
+        ],
+        "reasoning": "Divergence -c<0 implies infinitesimal volume contraction on the maximal flow domain, not an upper bound for orbit coordinates. A compact-recurrence theorem conditional on boundedness cannot imply either finite escape or universal blowup limits. The constructed blow-ups are compatible with existence of bounded attractors.",
+        "searches": [
+          "Resultary semantic query: hyperbolic sine jerk differential system finite time blowup universal asymptotic negative divergence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hu--Sang--Wang (2022) eq(2.2) and §§2-5 develop local/chaotic behavior and divergence, not the escape tube.",
+          "Published bounded-recurrence result expressly confines itself to bounded dynamics."
+        ],
+        "reasoning": "The stretched-time equilibrium is an equivalent compactified description of finite-time divergence of the third-order jerk equation with exponential positional force; searching escape, incompleteness, unbounded trajectories and logarithmic profile showed no covering proof from the exact originating work.",
+        "searches": [
+          "Resultary semantic query: hyperbolic sine jerk differential system finite time blowup universal asymptotic negative divergence",
+          "third order exponential jerk ODE finite-time escape logarithmic blowup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned self-hit, earlier compact recurrence threshold, and sharp period-floor for periodic solutions; those are distinct invariants."
+        ],
+        "reasoning": "This is a dynamical existence and asymptotic theorem, not a numeric table. Exact-parameter published matches for the jerk equation address compact recurrence, global period floors, or local bifurcations rather than the logarithmic finite-escape constants.",
+        "searches": [
+          "Resultary semantic query: hyperbolic sine jerk differential system finite time blowup universal asymptotic negative divergence"
+        ]
+      },
+      "rationale": "The full 2022 paper introduces exactly this jerk field, proves local bifurcations and illustrates bounded attractors, and explicitly infers ultimate confinement from negative divergence (p15719). That implication does not follow from volume contraction and is contradicted on the new finite-escape open sets. The closest published same-equation compact recurrence result was read in full and restricts its own conclusion to bounded complete/forward orbits, leaving unbounded trajectories untreated. Hoang homogeneous-dominant-vector-field blow-up theory does not directly cover exponential positional forcing. New open invariant escaping tubes, finite physical lifetime and universal constants are not logical consequences of those older statements.",
+      "residual_risks": [
+        "Result constructs sufficient large-coordinate escape tubes, not a sharp global blow-up basin boundary or all bounded/chaotic dynamics; restoring sign d<0 excluded.",
+        "The source’s negative divergence is a local volume contraction identity only over existing trajectories and cannot establish global boundedness/completeness.",
+        "General higher-order exponential ODE compactification or blow-up theorems not indexed to this exact jerk family may subsume the asymptotic result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ORIGINAL_DIFFERENT_CONCLUSION: local chaotic mechanisms, but no finite-time blow-up theorem in checked sections; p15719 suggests all orbits confined from divergence without a completeness proof.",
+          "evidence": "Eq(2.2) exact positive d sinh x sign; p15719 statement negative divergence -c leads to eventual confinement.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2022/9/PDF/math-07-09-861.pdf",
+          "material_read": "Original 27-page PDF abstract, introduction, §§1-2 relevant equations, pp15718-15719 and indexed text searches for finite-time/blow-up; visual checks at pp15718 and 15719.",
+          "method": "Primary original journal PDF text and page-image inspection",
+          "title": "The chaotic mechanisms in some jerk systems",
+          "trigger": "Original exact five-parameter vector field and claims of dissipation/boundedness"
+        },
+        {
+          "assessment": "NOT_COVERING_ESCAPE: only characterizes bounded forward and complete orbits, compact measures and equilibria for eps=0.",
+          "evidence": "Finding: every BOUNDED forward orbit converges for a<=d; Limitations explicitly says nothing about fate of unbounded trajectories.",
+          "identifier_or_url": "https://api.github.com/repos/Resultary/2026/contents/2026/10/4/SCOPE-a-sharp-compact-recurrence-threshold-for-a-hyperbolic-sine-jerk--e3c8f2764332/RESULT.md",
+          "material_read": "Complete publicly available RESULT.md including theorem, proof and limitations.",
+          "method": "GitHub published result read full text",
+          "title": "A sharp compact-recurrence threshold for a hyperbolic-sine jerk flow",
+          "trigger": "Prior same jerk equation with a potentially broader global theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hu--Sang--Wang 2022 eq2.2 and p15719",
+        "Published exact compact-recurrence result complete RESULT.md",
+        "Current invariant-tube proof"
+      ],
+      "rationale": "Showing open sets of actual finite-time escape in a dissipative five-parameter flow corrects a mathematically consequential misuse of negative divergence as a global confinement guarantee. The invariant tube and universal logarithmic rate give precise stable mathematical structure for this natural published jerk system, contrasting bounded chaotic regimes without claiming their destruction. The sharp constants and two-sided survival-time scale can matter in singular trajectory analysis and numerical detection; neither accuracy of simulations nor symbolic verification alone is counted as value.",
+      "residual_risks": [
+        "Does not characterize all escape orbits or perturbations outside the chosen positive-feedback sign regime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Result constructs sufficient large-coordinate escape tubes, not a sharp global blow-up basin boundary or all bounded/chaotic dynamics; restoring sign d<0 excluded.",
+    "The source’s negative divergence is a local volume contraction identity only over existing trajectories and cannot establish global boundedness/completeness.",
+    "General higher-order exponential ODE compactification or blow-up theorems not indexed to this exact jerk family may subsume the asymptotic result.",
+    "Does not characterize all escape orbits or perturbations outside the chosen positive-feedback sign regime.",
+    "Export preparation was incomplete in the original submission; this administrative note does not change the scientific assessment or its limitations."
+  ],
+  "schema_version": 1
+}
