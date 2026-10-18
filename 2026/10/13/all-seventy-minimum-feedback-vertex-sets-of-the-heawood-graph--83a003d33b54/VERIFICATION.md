@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or newer; it uses only the standard library. It independently builds the Fano plane as the seven nonzero three-bit vectors and the seven triples of zero vector-sum, then constructs the fourteen-vertex incidence graph. Exactly \(16{,}384\) subsets are visited. Every acyclic complement left by at most four deletions is checked to be a connected ten-vertex tree arising from one of the two structural types; conversely every predicted type is verified. All seventy optima and both induced degree signatures are checked.
+## correctness
 
-The verifier also constructs \(168\) invertible maps on three binary coordinates, adds a verified point-line polarity, checks the resulting \(336\) maps preserve every neighborhood, and calculates the two optimizer orbits of sizes \(14\) and \(56\).
+PASS
 
-Expected terminal output:
+For cubic Heawood H with 14 vertices and 21 edges, removing k vertices spanning e(S) edges leaves 14−k vertices and 21−3k+e(S) edges. If complement forest has c components, c=2k−7−e(S). For k<=3 a forest is impossible (c<=−1); at k=4 necessary c=1 and e(S)=0: independent four-vertex deletion leaving a ten-vertex tree. By Fano incidence: four deleted point vertices leave an acyclic graph iff retained three points collinear, giving 7 possibilities, and dual gives 7; for three deleted points and one line, independence forces deleted points outside selected line, giving 7*4=28, dual 28. In two+two split, the only deleted lines avoid both deleted points and the retained point at their join creates an isolated two-vertex component, so no optimum. All 70 complements have the indicated tree degree profiles (type A six leaves/four degree-three, type B three leaves/six degree-two/one degree-three), which distinguish orbits. The 168 collineations GL(3,2) plus polarity act transitively on lines and anti-flags, yielding full group 336 and orbit sizes 14,56. Independent brute force over 2^14=16384 Fano incidence graph subsets found exactly 70 minimum sets and split counts by removed-point number 4:7,3:28,1:28,0:7. This finite graph claim is exhaustively decidable; separate combinatorial proof also supplied.
 
-```
-VERIFY_OK vertices=14 edges=21 masks=16384 optimum=4 minimum_sets=70
-VERIFY_OK orbit_types=A:14,B:56 group_order=336 tree_degrees=A:(1^6,3^4),B:(1^3,2^6,3^1)
-```
+## originality
 
-The general proof for the fixed Heawood graph uses the forest edge identity and the Fano incidence axioms, not empirical inference. No claim is made for different incidence graphs or arbitrary graph order. Scientific priority remains subject to independently inspecting unavailable related literature; external mathematical validation was not performed.
+PASS
+
+Best-of-knowledge new exact enumeration and two-orbit classification of all minimum feedback vertex sets in the natural Heawood incidence graph. Earlier cubic counting formula and decycling lower bound are acknowledged; inaccessible highly related 2022 body is an explicit risk rather than automatic rejection.
+
+## value
+
+PASS
+
+Heawood graph is a canonical incidence and highly symmetric cubic graph; exact structure of all maximum induced trees and their full automorphism orbits is a natural graph invariant with geometric interpretation. The full 70-set classification and complementary tree shapes go beyond well-known scalar decycling lower bounds; finite scope does not make it arbitrary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

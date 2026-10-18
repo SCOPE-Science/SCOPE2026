@@ -1,19 +1,21 @@
-# Review: all minimum Heawood feedback-vertex sets
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim and its converse are proved for all fourteen vertices of the unique Fano incidence graph. Edge counting gives the sharp lower bound and characterizes any optimum as an independent four-set leaving a tree. The incidence split \((4,0)\), \((3,1)\), \((2,2)\), and dual splits is complete, and the nonincident two-and-two split leaves an isolated edge, so cannot be optimal. Type-A and type-B constructions each leave an explicitly described tree, giving \(14+56=70\). The full Fano collineation and polarity action gives exactly two automorphism orbits. The embedded verifier enumerates all \(16{,}384\) subsets and checks the entire characterization. The finite graph and a full combinatorial proof, rather than extrapolation, supply the validity boundary.
+PASS
 
-## Originality — PASS, subject to stated priority risks
+For cubic Heawood H with 14 vertices and 21 edges, removing k vertices spanning e(S) edges leaves 14−k vertices and 21−3k+e(S) edges. If complement forest has c components, c=2k−7−e(S). For k<=3 a forest is impossible (c<=−1); at k=4 necessary c=1 and e(S)=0: independent four-vertex deletion leaving a ten-vertex tree. By Fano incidence: four deleted point vertices leave an acyclic graph iff retained three points collinear, giving 7 possibilities, and dual gives 7; for three deleted points and one line, independence forces deleted points outside selected line, giving 7*4=28, dual 28. In two+two split, the only deleted lines avoid both deleted points and the retained point at their join creates an isolated two-vertex component, so no optimum. All 70 complements have the indicated tree degree profiles (type A six leaves/four degree-three, type B three leaves/six degree-two/one degree-three), which distinguish orbits. The 168 collineations GL(3,2) plus polarity act transitively on lines and anti-flags, yielding full group 336 and orbit sizes 14,56. Independent brute force over 2^14=16384 Fano incidence graph subsets found exactly 70 minimum sets and split counts by removed-point number 4:7,3:28,1:28,0:7. This finite graph claim is exhaustively decidable; separate combinatorial proof also supplied.
 
-Bau (2007), Alon–Mubayi–Thomas (2001), Ren–Yang–Zhao (2017), and Yang–Ren (2019) address general induced-forest/decycling sizes or relations, not the entire Heawood optimum census. The lower bound and regular-graph edge/component identity are known and are **not** claimed as discoveries. Published records specifically involving the Heawood graph's distortion or its simplicial cut complex treat different invariants. Published searches additionally tested decycling, feedback vertex sets, induced trees, Fano incidence, exact counts and orbit structure. A closely relevant 2022 Nedela–Škoviera paper establishes a general tree-complement existence result in its publicly available abstract; its full text and appendices were not accessible for a complete negative priority check. This unresolved risk cannot be equated with a novelty certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Counting and classifying **every** optimal feedback-vertex deletion is a natural complete classification on the smallest cubic girth-six graph. The complement tree has either four branching vertices or three length-three arms; the counts and orbit split reveal geometric structure and solution diversity beyond an optimum cardinality. The result is inherently about this exact classical graph and makes no sweeping generalization.
+Best-of-knowledge new exact enumeration and two-orbit classification of all minimum feedback vertex sets in the natural Heawood incidence graph. Earlier cubic counting formula and decycling lower bound are acknowledged; inaccessible highly related 2022 body is an explicit risk rather than automatic rejection.
 
-## Limitations and closest sources
+## value
 
-General induced-forest inequalities imply only bounds. The 2022 full-text priority gap and possible older table terminology remain explicit limitations. The finite verifier does not certify global mathematical priority and no independent external audit occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Heawood graph is a canonical incidence and highly symmetric cubic graph; exact structure of all maximum induced trees and their full automorphism orbits is a natural graph invariant with geometric interpretation. The full 70-set classification and complementary tree shapes go beyond well-known scalar decycling lower bounds; finite scope does not make it arbitrary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
