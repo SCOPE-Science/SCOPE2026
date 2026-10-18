@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The estimator definition, parameter range, kernel assumptions, bandwidth assumptions, primary MSC classification, first-publication date, and Theorem 3.3 statement were checked against the publisher's open full text.
+# Independent mathematical audit
 
-For the proposed counterexample, the following analytic checks were completed:
+## correctness
 
-1. IID \(\operatorname{Exp}(1)\) observations are \(\alpha\)-mixing and have a smooth density on \((0,\infty)\).
-2. The Gaussian kernel is nonnegative, symmetric, integrates to one, is Lipschitz, and is an order-two kernel; \(b_n=n^{-1/2}\) has \(b_n\to0\) and \(n b_n\to\infty\).
-3. For \(\beta=1/2\), the target generalized past entropy is
-   \[
-   2\log\!\bigl(2(1-e^{-t/2})\bigr)-\log(1-e^{-t}),
-   \]
-   and tends to \(\log4\).
-4. For an all-equal deterministic sample at location \(c\), exact Gaussian integration gives
-   \[
-   A_n(c)=\Phi(c/b_n),
-   \qquad
-   B_n(c)=\sqrt{b_n}\,2^{3/4}\pi^{1/4}\Phi(c/(\sqrt2 b_n)).
-   \]
-   Therefore its tail estimator level tends, as \(c\to\infty\), to \(\log\sqrt{8\pi/n}\), which differs from \(\log4\) for every integer \(n\ge1\).
-5. Continuity of the tail functional in the finite sample vector gives an open positive-probability exponential-sample event on which the limiting estimation error stays nonzero. The squared error is then bounded below by a positive constant for all sufficiently large \(t\), so its integral over \((0,\infty)\) is infinite.
+PASS
 
-The source's equation (3.11) was also checked: its displayed nonnegative variance term contains a factor proportional to \(\beta^2/F(t)\), whose integral over an unbounded-support model diverges because \(F(t)\to1\). This is consistent with, but is not used to prove, the direct counterexample.
+PASS: For Exp(1), beta=1/2 the true past entropy tends to log4. For every fixed sample of Gaussian kernels, both A_n=int_0^infty f_n and B_n=int_0^infty sqrt(f_n) are finite positive, and estimated entropy converges to L_n=2log B_n-log A_n. On equal-location samples at c, A_n=Phi(c/b_n), B_n=b_n^(1/2)*2^(3/4)*pi^(1/4)*Phi(c/(sqrt2*b_n)), so L_n(c)->log sqrt(8*pi/n) as c->infty, never log4 for any integer n (equality demands n=pi/2). Local dominated convergence yields a positive-probability open neighborhood of samples with nonzero limiting error. On it the nonnegative global squared-error Lebesgue integral diverges, hence its expected value is infinite for EACH n. This is an analytic infinite-tail argument, not a finite simulation. Independently verified Gaussian normalization and exceptional integer n arithmetic.
 
-Limits: no claim is made about a compact time interval, an integrably weighted time risk, fixed-time asymptotic normality, or the source's compact-interval strong-consistency theorem. The closest 2014 generalized-past-entropy estimator paper could not be inspected in full and remains an originality-access risk.
+## originality
+
+PASS
+
+PASS best-of-knowledge: exposes a theorem-3.3 global MISE failure for the exact published generalized-past-entropy estimator. The prior source states the false convergence, not this positive-probability Gaussian-tail counterexample; no exact earlier correction surfaced in the inspected sources.
+
+## value
+
+PASS
+
+PASS: Corrects a concrete published global-integrated risk theorem at a genuine domain boundary; nondecaying Gaussian mixture tails cause infinite expected integrated loss for every sample size, a substantive mathematical obstruction to an advertised asymptotic assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

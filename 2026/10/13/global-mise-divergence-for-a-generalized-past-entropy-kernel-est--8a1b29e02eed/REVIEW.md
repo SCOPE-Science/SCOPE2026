@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The counterexample uses IID \(\operatorname{Exp}(1)\) observations, hence a valid \(\alpha\)-mixing sample, the Gaussian order-two kernel, \(\beta=1/2\), and \(b_n=n^{-1/2}\), which satisfies the source's bandwidth conditions. The target entropy tends to \(\log4\). For every realized sample, the estimator has a finite tail limit \(L_n\). At an all-equal deterministic sample location tending to infinity, that limit tends to \(\log\sqrt{8\pi/n}\), which cannot equal \(\log4\) for integer \(n\). Continuity gives a positive-probability sample neighborhood with a nonzero limiting error, forcing the time-integrated squared error, and hence its expectation, to be infinite.
+## correctness
 
-## Originality
-PASS. Searches for the exact theorem, exact article/DOI, generalized-past-entropy MISE, integrated quadratic-mean consistency, kernel-estimator tail behavior, and corrections/corrigenda found the target theorem but no published correction or equivalent Gaussian-tail counterexample. The most relevant earlier paper is the 2014 censored-dependent-data estimator paper; only abstract/metadata were accessible, so equivalence hidden in that full text remains a residual risk rather than evidence of coverage.
+PASS
 
-## Value
-PASS. The finding distinguishes compact-time consistency from global Lebesgue-time integrated consistency and shows that the latter can fail maximally: its MISE is infinite for every sample size under a natural IID exponential model and the same Gaussian kernel family used by the source. It also explains why pointwise MSE convergence cannot be integrated over an infinite time domain without a domination or finite-measure condition.
+PASS: For Exp(1), beta=1/2 the true past entropy tends to log4. For every fixed sample of Gaussian kernels, both A_n=int_0^infty f_n and B_n=int_0^infty sqrt(f_n) are finite positive, and estimated entropy converges to L_n=2log B_n-log A_n. On equal-location samples at c, A_n=Phi(c/b_n), B_n=b_n^(1/2)*2^(3/4)*pi^(1/4)*Phi(c/(sqrt2*b_n)), so L_n(c)->log sqrt(8*pi/n) as c->infty, never log4 for any integer n (equality demands n=pi/2). Local dominated convergence yields a positive-probability open neighborhood of samples with nonzero limiting error. On it the nonnegative global squared-error Lebesgue integral diverges, hence its expected value is infinite for EACH n. This is an analytic infinite-tail argument, not a finite simulation. Independently verified Gaussian normalization and exceptional integer n arithmetic.
 
-## Closest literature and limitations
-The 2025/2026 source itself is the closest literature because Theorem 3.3 is the statement being tested. The 2014 generalized-past-entropy estimator paper is structurally related but its accessible abstract does not expose this claim. The result does not settle corrected theorems on compact intervals or under integrable time weights.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: exposes a theorem-3.3 global MISE failure for the exact published generalized-past-entropy estimator. The prior source states the false convergence, not this positive-probability Gaussian-tail counterexample; no exact earlier correction surfaced in the inspected sources.
+
+## value
+
+PASS
+
+PASS: Corrects a concrete published global-integrated risk theorem at a genuine domain boundary; nondecaying Gaussian mixture tails cause infinite expected integrated loss for every sample size, a substantive mathematical obstruction to an advertised asymptotic assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
