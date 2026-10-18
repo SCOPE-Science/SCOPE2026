@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Stationary alternating three-state path probability ab, exact lag-one covariance ab(a-b)^2/(a+b)^2, eigenvalue recursion gives lag-h c(1-a-b)^{h-1}; summation is exact. f(lambda)=(m-1)-m lambda+lambda^m>0 on (-1,1) by f(1)=0 and strictly negative derivative. Independent Bernoulli sums with mean m mu have variance <=m mu(1-mu). Symmetry gives iid flips. A fresh path-enumeration checker passed 224 rational examples, including lambda<0; finite cases are not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Engländer–Volkov time-inhomogeneous symmetric turn model is broader in time dependence but restricted to equal directional change probabilities.",
+        "Dekking–Kong treats general a,b but observes a different statistic."
+      ],
+      "reasoning": "Neither article dominates both the statistic and parameter regime of the all-horizon asymmetric-versus-symmetric claim. Published general-Markov variance identities might imply it after specialization, so historical risk remains.",
+      "searches": [
+        "\"two-state\" \"number of transitions\" \"variance\" \"stationary\"",
+        "\"Markov chain\" \"number of transitions\" \"overdispersed\" \"binomial\"",
+        "https://link.springer.com/article/10.1007/s10959-016-0725-1"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/s10959-016-0725-1",
+      "https://arxiv.org/html/1102.3613v1",
+      "https://arxiv.org/abs/2006.13766"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Symmetric coin-turning theorem implies a=b case directly, which is credited.",
+        "The Markov occupation-count variance of Dekking–Kong is not the transition-count variance; variable substitution does not identify the laws.",
+        "The new proof requires a calculation of all lagged switch covariances and a universal independent Bernoulli variance envelope."
+      ],
+      "reasoning": "The symmetric case is prior theory. The novelty proposed is the strict asymmetric exclusion and exact all-horizon variance excess; this does not follow as a stated corollary of the inspected primary conclusions, though an uninspected exact transition-count variance formula could cover it.",
+      "searches": [
+        "https://arxiv.org/html/1102.3613v1",
+        "https://link.springer.com/article/10.1007/s10959-016-0725-1",
+        "stationary asymmetric two-state Markov chain number of flips changes transitions cannot be a Poisson binomial law; exact variance excess over binomial and only symmetric case is independent Bernoulli"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dekking–Kong Section 1 counts state occupations, not crossings.",
+        "Engländer–Volkov Section 1 counts turns but assumes symmetric transition kernels."
+      ],
+      "reasoning": "The sum of transitions is not the state-occupation Markov binomial even though both use the same Markov chain. The symmetric flip construction gives the positive direction only; a full negative direction is not implied by these inspected statements.",
+      "searches": [
+        "stationary asymmetric two-state Markov chain number of flips changes transitions cannot be a Poisson binomial law; exact variance excess over binomial and only symmetric case is independent Bernoulli",
+        "Markov chain transition count variance covariance positive overdispersion even when second eigenvalue negative and Poisson binomial characterization",
+        "https://arxiv.org/html/1102.3613v1 (switch count vs occupation count)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d studies fixed-composition draws, not Markov paths.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-two-crossing-transport-law-for-bernoulli-pair-balancing--952d735cb8e8 studies independent Bernoulli balancing."
+      ],
+      "reasoning": "No actual returned published result/table has the same stationary two-state Markov transition-count statistic and a,b classification. Search nonmatches do not certify uniqueness.",
+      "searches": [
+        "stationary asymmetric two-state Markov chain number of flips changes transitions cannot be a Poisson binomial law; exact variance excess over binomial and only symmetric case is independent Bernoulli",
+        "Markov binomial distribution stationary two-state Markov Bernoulli sums are Poisson binomial exactly when transition negative autocorrelation; real rooted probability generating polynomials; strictly interlacing roots",
+        "Markov chain transition count variance covariance positive overdispersion even when second eigenvalue negative and Poisson binomial characterization"
+      ]
+    },
+    "rationale": "Inspected primary texts distinguish symmetric independent turn counts (credited) and asymmetric Markov occupation counts from stationary transition counts. Exact statement/implication comparisons and published-finding corpus searches did not identify a dominating all-horizon asymmetric exclusion; classical switch-count literature and the full 2020 source remain a priority risk.",
+    "residual_risks": [
+      "A classical all-horizon switch-count dispersion result might already imply the variance gap under different names.",
+      "The motivating 2020 source was inspected only at abstract level; no claim that the entire paper lacks an equivalent specialization.",
+      "No independent priority search can establish absolute novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS symmetric case and even time-inhomogeneous symmetric flipping; does NOT give all-horizon asymmetric stationary impossibility or the exact variance gap.",
+        "evidence": "Section 1 explicitly: number of turns is sum of independent Bernoulli random variables; stochastic transition matrices doubly stochastic and symmetric.",
+        "identifier_or_url": "https://doi.org/10.1007/s10959-016-0725-1",
+        "material_read": "Accessible primary full-text Sections 1–2, including the model, independent-turn representation and preceding-literature comparison.",
+        "method": "Read primary full text, examined definitions and independent Bernoulli turn representation.",
+        "title": "Turning a Coin over Instead of Tossing It",
+        "trigger": "Closest known independent-flip switch-count construction."
+      },
+      {
+        "assessment": "Its K_n counts Y_k in a designated state, not switches Y_k != Y_{k+1}. Its variance/real-rootedness statements therefore do not imply the variance gap or classification for switch counts.",
+        "evidence": "Definition in Section 1 Eq. (1) and K_n at arxiv HTML lines 40-53; Proposition 2.1 lines 86-105.",
+        "identifier_or_url": "https://arxiv.org/html/1102.3613v1",
+        "material_read": "Accessible primary HTML, especially Sections 1 and 2 (definition, spectral decomposition, variance) and Section 4 overview in the introduction.",
+        "method": "Compared random variables and quantifiers: occupation-state sum versus transition-switch sum.",
+        "title": "Multimodality of the Markov binomial distribution",
+        "trigger": "Same two-state transition matrix and explicit Markov binomial variance, plausible broader coverage."
+      },
+      {
+        "assessment": "Related Markov-derived count-distribution program; abstract does not provide precise symmetric/asymmetric switch criterion; whole-text priority not ruled out.",
+        "evidence": "First public 2020-06-24; abstract says discrete distributions generalized by Markov-dependent model with over- and underdispersion.",
+        "identifier_or_url": "https://arxiv.org/abs/2006.13766",
+        "material_read": "Author, date, and complete indexed abstract; complete primary full text unavailable from web access.",
+        "method": "Compared abstract model description to stationary binary switch count; did not claim full-text noncoverage.",
+        "title": "Discrete distributions from a Markov chain",
+        "trigger": "Eligible 2020 literature anchor for dependent count distribution models."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "55a301c2-949c-44c6-8fa5-622546765d3b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete parametric classification for a natural dependent-event count used in runs/switching models, valid for every horizon m>=2 and every interior a,b. The strictly positive explicit gap remains valid when longer-lag correlations alternate in sign, giving an exact boundary for representing dependent switch counts by sums of independent nonidentical Bernoullis. The m=1/m=2 sharp boundary and the all-horizon formula make the result more than an isolated negative example.",
+    "status": "PASS"
+  }
+}
