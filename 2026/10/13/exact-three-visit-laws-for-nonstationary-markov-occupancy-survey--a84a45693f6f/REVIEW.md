@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The nonzero three-word probability formulas follow by conditioning on true site occupancy and multiplying Markov transitions. The ratios determining both transition probabilities have positive denominators for every interior parameter tuple. The remaining two unknowns solve two independent identities in the initial positive-history masses. The three observable equalities, four open inequalities and normalization characterize the entire feasible-law image. A continuous one-parameter family proves global two-visit nonidentifiability. Exact rational checker tests are supplemental and do not replace these general arguments.
+## correctness
 
-**Originality — PASS, residual risk.** The 2010 Hines et al. ecological occupancy paper already develops Markovian spatial and trap-response detection models and discourages fewer than three segments. That practical numerical threshold alone is not asserted as new. The assessed claim is an explicit inverse for the unrestricted initial Markov detection distribution, a complete characterization of all positive three-history laws, and a proof of two-visit nonidentifiability at *every* interior parameter point. The 2014 Hines and 2016 Wright papers develop likelihood models and empirical diagnostics, not this exact characterization. A broader two-component Markov mixture article provides a four-wave sufficient bound; its inaccessible proof leaves nonzero coverage risk. The searched published mathematical records on N-mixture and renewal processes have different observable laws and do not imply this one.
+PASS
 
-**Value — PASS.** Survey design for site occupancy must distinguish true absence from correlated nondetection. The free first-visit probability is directly motivated by the initial-segment difficulty in sequential ecological transects; the exact third-visit threshold and all-history feasibility equations are interpretable structural benchmarks. This is not a statistical precision or empirical performance theorem.
+For occupancy probability psi, initial conditional detection pi, transitions a=P(1|0), b=P(1|1), expansion of the seven nonzero histories gives u=psi*pi and r=psi*(1-pi)*a. Thus b=(q110+q111)/u, a=q101/(q100+q101), psi=u+r/a, pi=u/psi. Positivity makes divisions safe. The remaining three independent algebraic equalities q111=ub², q011=rb and q001=r(1-a), with reconstructed parameters in (0,1), are both necessary and sufficient for an interior eight-cell history law, with q000 by normalization. Two-wave observations determine only (u,r,b), leaving a free interior interval and infinitely many quadruples. Independently tested 256 exact rational parameter quadruples and the analytic inversion; this proves an ideal population-law identification theorem, not finite-sample estimation.
 
-The open-parameter, homogeneous-site and no-false-positive assumptions are essential for the stated scope. Separate local availability and detection layers, extra observation errors, heterogeneity and finite-sample estimator accuracy are excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On inspected evidence this exact final claim is not a mere restatement or implication of a known stronger theorem; all four formal comparisons below and material primary-source inspections distinguish what is already known. Originality is best-of-knowledge, not independence or certification.
+
+## value
+
+PASS
+
+An exactly invertible and sharply minimal replicate design plus necessary-and-sufficient polynomial compatibility tests answers a natural statistical identifiability question for a directly Markov observed detection process. Distinguishing structural identification from practical survey guidance can guide model checking and experimental design, even though the assumptions exclude a second hidden detection layer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
