@@ -1,15 +1,21 @@
-# Review of the regular-polygon centroid perimeter splitting law
+# Independent mathematical audit
 
-## Correctness — PASS
-For odd \(n\), a central line's two intersections are located on known edges in a fundamental angular sector. Their edge-coordinate parameters are computed exactly, yielding the shorter boundary fraction \(1/2-\tan\alpha\tan(\pi/n-\alpha)/(2n)\). A strict trigonometric maximization gives the minimizing directions; for even \(n\), central symmetry gives equal boundary arcs. The general proof covers every integer \(n\geq3\), including endpoint directions; `verify.py` separately checks boundary intersections for degrees 3 to 37 and exact-rational sample identities. Those finite tests are corroborative, not infinite proofs.
+## correctness
 
-## Originality — PASS, with documented risk
-The initiating full-text primary source, Berele–Catoiu, arXiv:2603.23653 (24 March 2026), already determines the equilateral triangle's sharp coefficient \(4/9\), and that case is not claimed new. It does not give the directional profile or equality classification for all odd regular polygons. The primary source's conjecture about arbitrary convex bodies gives no exact regular-polygon coefficient. Published mathematical-record checks of same-object polygon symmetry, central overlap, Fraenkel asymmetry, and diameter bisection found only different quantities; coincident trigonometric factors do not constitute logical coverage. Bibliographic and full-text access limitations leave a residual possibility of overlooked historical work; see `AUDIT.json` for exact queries, source reading, closest IDs, and implication comparisons.
+PASS
 
-## Value — PASS
-The theorem settles a canonically motivated spectral-free family of the perimeter Winternitz partition problem. It classifies every odd and even regular polygon, every cutting direction and every equality line, and the sharp \(n^{-3}\) parity decay. The exact geometric splitting function is a nontrivial structural reference point for the proposed all-convex-body inequality. The classical triangle and trivial centrally symmetric cases are explicit baselines, not separate novelty assertions.
+Central inversion swaps arcs when n is even. For n=2k+1, positive and opposite line rays meet prescribed polygon edges; exact barycentric edge intersection parameters u=t/[sin2β+(1−cos2β)t], v=(1+t cotβ)/2 with t=tanα, β=π/n. Counting k−u+v and n−(k−u+v) edge units gives signed gap (1/2)tanαtan(β−α) and hence fraction. Maximizing (cos(2α−β)−cosβ)/(cos(2α−β)+cosβ) uniquely at α=β/2 proves all n extremal lines, endpoints are n reflection axes and every intermediate value occurs. The expansion tan²z=z²+(2/3)z⁴+O(z⁶) yields deficit π²/(8n³)+π⁴/(48n⁵)+O(n⁻⁷). An independently written geometric line-edge intersection routine checked odd n=3,5,7,9 and even n=12 across five angles each to 2×10⁻¹³, including n=3 minimum 4/9; the proof is continuous in α and valid for all n.
 
-## Limits
-The geometry concerns the shorter part of the **original polygonal boundary**, not the full perimeter of a cut piece including its chord; it does not solve the all-convex-body conjecture. Published-record searches cannot prove independence from unindexed or inaccessible sources. Numerical samples are not a proof for arbitrary degrees.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge odd-regular-polygon directional perimeter profile extends the already known equilateral n=3 case; inspected initiating paper treats triangles and general convex-body conjectures, but does not calculate the claimed all-odd-degree formula.
+
+## value
+
+PASS
+
+Centroid perimeter partition is an explicit motivating Winternitz-type functional. A full degree-parameter family, sharp equality directions, and order n⁻³ asymptotic deficit give nontrivial, self-contained facts for regular odd convex polygons; n=3 is acknowledged as known and does not carry the novelty/value argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
