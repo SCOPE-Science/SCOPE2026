@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T09:16:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md frozen blob aecd938d5b75f34e7d6b4ce28693784720e90ebb",
+        "verify_allocation.py frozen blob 2cb5f0bdc4429cd0ff6778d2b706b8d7ee755f33",
+        "Vuilleumier and Possingham 2006 DOI:10.1098/rspb.2006.3469 full HTML methods/results",
+        "Ross and Pollett 2009 Rules of thumb for metapopulation management proceedings PDF",
+        "Ross and Pollett 2010 DOI:10.1016/j.ecolmodel.2010.02.016 abstract",
+        "Etienne and Heesterbeek 2001 DOI:10.1086/321986 abstract"
+      ],
+      "rationale": "For CTMC states 11,10,01 and absorbing 00 with extinction a,b>0, rescue directions x,y≥0 and x+y=C>0, exact first-step equations (a+b)t11=1+b t10+a t01, (a+x)t10=1+x t11, (b+y)t01=1+y t11 give common denominator D=ab(a+b+x+y) and rational numerators specified in source. Weighting independent initial probabilities w11,w10,w01 and substituting y=C-x gives T(x)=[K+(C+a w10-b w01)x-x²]/[ab(a+b+C)]. This is globally strictly concave, so x*=clip_[0,C]((C+a w10-b w01)/2) uniquely. Exact comparison (x-z)²-(x*-z)² proves globality including boundary; initial all-11 yields symmetric C/2 regardless of a,b. Independently reconstructed 3×3 linear system and symbolic numerator and curvature.",
+      "residual_risks": [
+        "The complete Ross–Pollett 2010 and Etienne–Heesterbeek 2001 documents were not available; Oxford institutional retrieval returned vpn_disconnected for 2010 source.",
+        "Model assumes allocation-independent initial distribution and linear rate budget; conclusions do not extend to more than two patches without new work."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ross–Pollett scalar c vs e investment theorem has different controls; x+y=C removes the scalar degree of freedom."
+        ],
+        "reasoning": "A scalar colonization/extinction budget theorem cannot directly imply optimal directional split without a separate two-state analysis.",
+        "searches": [
+          "Ross–Pollett 2009 proceedings",
+          "DOI:10.1016/j.ecolmodel.2010.02.016"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen blob aecd938d5b75f34e7d6b4ce28693784720e90ebb",
+        "verify_allocation.py frozen blob 2cb5f0bdc4429cd0ff6778d2b706b8d7ee755f33",
+        "Vuilleumier and Possingham 2006 DOI:10.1098/rspb.2006.3469 full HTML methods/results",
+        "Ross and Pollett 2009 Rules of thumb for metapopulation management proceedings PDF",
+        "Ross and Pollett 2010 DOI:10.1016/j.ecolmodel.2010.02.016 abstract",
+        "Etienne and Heesterbeek 2001 DOI:10.1086/321986 abstract",
+        "\"two patch stochastic metapopulation time to extinction optimal directional colonization budget\""
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The result x*=clip((C+a w10-b w01)/2) applies to arbitrary fixed initial distribution and exact absorption time; compared prior findings concern simulation or different budget variables."
+        ],
+        "reasoning": "Earlier findings do not entail the precise theorem on their stated hypotheses; inaccessible 2010 text leaves residual bibliographic risk.",
+        "searches": [
+          "Vuilleumier–Possingham 2006",
+          "Ross–Pollett 2009"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Previous work has directed colony-flow models and extinction persistence but not identified exact clip formula dependent on w10,w01."
+        ],
+        "reasoning": "Searching equivalent terms two-patch rescue, time to total extinction, migration allocation, initial occupancy: mathematical state and objective differ in read primary texts.",
+        "searches": [
+          "\"two patch stochastic metapopulation time to extinction optimal directional colonization budget\"",
+          "DOI:10.1098/rspb.2006.3469",
+          "DOI:10.1086/321986"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact two-patch CTMC optimum table found in searched indexed sources."
+        ],
+        "reasoning": "This is an all-positive-parameter formula, not a database/table output. Search limitations explicitly retained.",
+        "searches": [
+          "\"two patch stochastic metapopulation time to extinction optimal directional colonization budget\"",
+          "Resultary semantic search metapopulation time to extinction directional allocation"
+        ]
+      },
+      "rationale": "Directional connection simulations in Vuilleumier–Possingham 2006 concern large metapopulations and finite-horizon persistence, not this two-patch CTMC with exact fixed directed colonization sum and arbitrary initial occupancy. Ross–Pollett budget management splits scalar colonization and extinction rates, not opposing directed flows x/y at fixed x+y. Etienne–Heesterbeek winking-patch rules use a different stochastic model/criterion. Only accessible abstracts for some relevant sources, so fully unreviewed papers remain a bibliographic risk, not reason to reject a correctly derived specific optimizer.",
+      "residual_risks": [
+        "The complete Ross–Pollett 2010 and Etienne–Heesterbeek 2001 documents were not available; Oxford institutional retrieval returned vpn_disconnected for 2010 source.",
+        "Model assumes allocation-independent initial distribution and linear rate budget; conclusions do not extend to more than two patches without new work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_MODEL_AND_OBJECTIVE",
+          "evidence": "Large spatial patch simulations, not exact two-patch mean-time-to-absorption budget optimizer.",
+          "identifier_or_url": "DOI:10.1098/rspb.2006.3469; PMC1634917",
+          "material_read": "Public full HTML read, focusing model, Methods and Results",
+          "method": "Read full open-access article text, distinguish 100-patch simulation and finite horizon",
+          "title": "Does colonization asymmetry matter in metapopulations?",
+          "trigger": "Directly relevant asymmetry of directed colonization"
+        },
+        {
+          "assessment": "DIFFERENT_CONTROL_VARIABLES",
+          "evidence": "Optimizes aggregate colonization c versus local extinction e, not allocation between opposing directed x,y at fixed x+y.",
+          "identifier_or_url": "Ross and Pollett 2009 MODSIM09 pp1795–1801",
+          "material_read": "Accessible full proceedings PDF text and model parameter descriptions",
+          "method": "Read available primary PDF/text",
+          "title": "Rules of thumb for metapopulation management",
+          "trigger": "Primary management budget comparison"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+          "evidence": "Available abstract concerns ranking/managing metapopulations; stronger exact two-patch control theorem not excluded.",
+          "identifier_or_url": "DOI:10.1016/j.ecolmodel.2010.02.016",
+          "material_read": "Accessible abstract, no full article; OA and Oxford failed (vpn_disconnected)",
+          "method": "Web and authorized institutional access attempt",
+          "title": "Simple rules for ranking and optimally managing metapopulations",
+          "trigger": "Closest later management framework"
+        },
+        {
+          "assessment": "DIFFERENT_STATED_MODEL_WITH_RESIDUAL_RISK",
+          "evidence": "Stochastic winking-patch model and conservation rules may overlap general motivations; not proven the same directional CTMC problem.",
+          "identifier_or_url": "DOI:10.1086/321986",
+          "material_read": "PubMed/publisher abstract; full inaccessible",
+          "method": "Web academic abstract inspection",
+          "title": "Rules of thumb for conservation of metapopulations based on a stochastic winking-patch model",
+          "trigger": "Potential prior stochastic investment optimizer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md frozen blob aecd938d5b75f34e7d6b4ce28693784720e90ebb",
+        "verify_allocation.py frozen blob 2cb5f0bdc4429cd0ff6778d2b706b8d7ee755f33",
+        "Vuilleumier and Possingham 2006 DOI:10.1098/rspb.2006.3469 full HTML methods/results",
+        "Ross and Pollett 2009 Rules of thumb for metapopulation management proceedings PDF",
+        "Ross and Pollett 2010 DOI:10.1016/j.ecolmodel.2010.02.016 abstract",
+        "Etienne and Heesterbeek 2001 DOI:10.1086/321986 abstract"
+      ],
+      "rationale": "With management resources allocated between opposite directed rescue flows, which direction to favor is a motivated metapopulation decision. The exact universal optimizer, saturation thresholds and counterintuitive fact that fully occupied starts favor equal directions even under unequal local extinction supply concrete structural insight absent from general scalar-investment heuristics. The result is model-specific and not a field-prediction claim.",
+      "residual_risks": [
+        "The complete Ross–Pollett 2010 and Etienne–Heesterbeek 2001 documents were not available; Oxford institutional retrieval returned vpn_disconnected for 2010 source.",
+        "Model assumes allocation-independent initial distribution and linear rate budget; conclusions do not extend to more than two patches without new work."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The complete Ross–Pollett 2010 and Etienne–Heesterbeek 2001 documents were not available; Oxford institutional retrieval returned vpn_disconnected for 2010 source.",
+    "Model assumes allocation-independent initial distribution and linear rate budget; conclusions do not extend to more than two patches without new work."
+  ]
+}

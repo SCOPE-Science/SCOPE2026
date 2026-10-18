@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python3 verify_allocation.py` with Python 3 (standard library only). The exact checker printed:
+## correctness
 
-`VERIFY_OK exact_backward_systems=576 weighted_expectations=8640 allocation_instances=960 global_grid_inequalities=8640`
+PASS
 
-The checker constructs the transient \(3\times3\) backward matrix independently of the proposed closed forms, solves each system by fraction-valued Gauss-Jordan elimination, checks all closed-form values and weighted expectations, and compares the projected optimum against feasible grids. It also verifies exact strict local maximality for interior stationary points.
+For CTMC states 11,10,01 and absorbing 00 with extinction a,b>0, rescue directions x,y≥0 and x+y=C>0, exact first-step equations (a+b)t11=1+b t10+a t01, (a+x)t10=1+x t11, (b+y)t01=1+y t11 give common denominator D=ab(a+b+x+y) and rational numerators specified in source. Weighting independent initial probabilities w11,w10,w01 and substituting y=C-x gives T(x)=[K+(C+a w10-b w01)x-x²]/[ab(a+b+C)]. This is globally strictly concave, so x*=clip_[0,C]((C+a w10-b w01)/2) uniquely. Exact comparison (x-z)²-(x*-z)² proves globality including boundary; initial all-11 yields symmetric C/2 regardless of a,b. Independently reconstructed 3×3 linear system and symbolic numerator and curvature.
 
-The sampling domain is \(a,b,C\in\{1,2,3,4\}\), allocations \(x=jC/8\), and all nonnegative three-state distributions with denominator-four weights summing to one. These finite enumerations are corroboration only; the all-parameter guarantee rests on the algebraic first-step proof and exact quadratic identity in `RESULT.md`. No finite experiment is claimed to prove uniqueness in an infinite parameter domain. Literature access limitations are documented in `REVIEW.md`. Independent audit has not been performed.
+## originality
+
+PASS
+
+Directional connection simulations in Vuilleumier–Possingham 2006 concern large metapopulations and finite-horizon persistence, not this two-patch CTMC with exact fixed directed colonization sum and arbitrary initial occupancy. Ross–Pollett budget management splits scalar colonization and extinction rates, not opposing directed flows x/y at fixed x+y. Etienne–Heesterbeek winking-patch rules use a different stochastic model/criterion. Only accessible abstracts for some relevant sources, so fully unreviewed papers remain a bibliographic risk, not reason to reject a correctly derived specific optimizer.
+
+## value
+
+PASS
+
+With management resources allocated between opposite directed rescue flows, which direction to favor is a motivated metapopulation decision. The exact universal optimizer, saturation thresholds and counterintuitive fact that fully occupied starts favor equal directions even under unequal local extinction supply concrete structural insight absent from general scalar-investment heuristics. The result is model-specific and not a field-prediction claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
