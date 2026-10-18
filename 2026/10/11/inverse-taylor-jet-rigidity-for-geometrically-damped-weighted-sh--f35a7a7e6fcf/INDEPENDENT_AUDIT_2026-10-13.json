@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T05:09:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/inverse-taylor-jet-rigidity-for-geometrically-damped-weighted-sh--f35a7a7e6fcf/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/inverse-taylor-jet-rigidity-for-geometrically-damped-weighted-sh--f35a7a7e6fcf/verify_jet.py",
+        "Chien and Nakazato 2009 DOI:10.13001/1081-3810.1293 full PDF",
+        "Chakraborty et al. 2022 DOI:10.7153/oam-2022-16-75 full PDF"
+      ],
+      "rationale": "With weights 1,c_j q^j and bounded nonnegative coefficients, diagonal phase rotation makes numerical radius the norm of selfadjoint Jacobi J=(T+T*)/2; bipartite parity symmetry makes it the largest positive eigenvalue. At q=0 it is the simple isolated value 1/2. The holomorphic symmetric tridiagonal extension has analytic rank-one Riesz projector uniformly for interpolating bounded coefficients, by a resolvent Neumann bound on a 1/4 contour. Any Neumann path reaching coordinate j from initial support e0,e1 must cross edges 1,...,j-1, giving eigenvector coordinate order S_j=j(j-1)/2; tridiagonal recurrence yields leading coefficient (product_{l<j}h_l)/sqrt(2). Differentiating eigenvalue along the interpolation c->d by Hellmann-Feynman gives sum_{j>=k}(d_j-c_j)q^j x_j x_{j+1}. The first differing edge contributes (d_k-c_k)h_k(prod_{j<k}c_j²)/2 *q^{k(k+1)}; uniform Cauchy estimates bound all later-edge terms by o(q^{k(k+1)}). Integrating h_k yields (d_k²-c_k²)(prod_{j<k}c_j²)/4. Positivity of shared prefix makes this nonzero and allows recursive exact Taylor recovery; zeros destroy injectivity after the first disconnected component. Independently checked k=1..4 Jacobi finite examples numerically with normalized ratios converging to the coefficient, but this is not an infinite proof.",
+      "residual_risks": [
+        "The published 2026 inspiring period-four manuscript could not be read in full; overlap risk concerns originality, not the reconstructed perturbation argument.",
+        "Inverse reconstruction uses exact analytic germ and increasingly high Taylor orders; no stability from finite precision."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chien-Nakazato 2009 gives analytic expansion for a fixed pure geometric sequence, not arbitrary modulations.",
+          "2022 determinant recurrences and 2026 period-four root formula could implicitly encode coefficients but do not present invertibility of an unrestricted bounded sequence."
+        ],
+        "reasoning": "General determinant representation does not by itself imply the exact k(k+1) edge influence or stable uniqueness under all higher edges; no directly dominating theorem was found.",
+        "searches": [
+          "geometric weighted unilateral shift numerical radius analytic germ inverse reconstruction weights Taylor orders k(k+1)",
+          "2009 Chien Nakazato geometric weighted shift Taylor expansion",
+          "2022 Chakraborty Ojha Birbonshi determinantal polynomials weighted shifts",
+          "2026 Ghosh four periodic numerical radius"
+        ]
+      },
+      "checked_sources": [
+        "geometric weighted unilateral shift numerical radius analytic germ inverse reconstruction weights Taylor orders k(k+1)",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/inverse-taylor-jet-rigidity-for-geometrically-damped-weighted-sh--f35a7a7e6fcf/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/inverse-taylor-jet-rigidity-for-geometrically-damped-weighted-sh--f35a7a7e6fcf/verify_jet.py",
+        "arXiv:2608.17486 abstract",
+        "DOI:10.13001/1081-3810.1293 full PDF",
+        "DOI:10.7153/oam-2022-16-75 full PDF",
+        "Resultary other four-periodic q->1 and finite weight optimization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2026 abstract explicitly specializes edge weights (1,sq,q²,tq³,...) and advertises bounds and a root characterization.",
+          "2009 paper analyzes one geometric sequence and its low-order expansion, not arbitrary coefficient recovery.",
+          "2022 recurrence method concerns fixed eventually two-periodic tails; inverse all-positive germs require a separate nontrivial injectivity argument."
+        ],
+        "reasoning": "The inverse statement could be algorithmically deducible from determinant formulas but no source examined states its sharp graded valuation or injective recursive formula for unrestricted sequences.",
+        "searches": [
+          "arXiv:2608.17486 period-four geometric shift bounds entire function",
+          "DOI:10.13001/1081-3810.1293 2009 Taylor expansion geometric weights",
+          "DOI:10.7153/oam-2022-16-75 2022 determinant shift"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At first differing index k the exact coefficient is (d_k²-c_k²)/4 times squared product of earlier weights, recovering all positive entries inductively.",
+          "The 2009 pure-geometric expansion considers no variable coefficient sequence; 2022 eventual-periodic determinant method has different degree of freedom."
+        ],
+        "reasoning": "A scalar top spectral edge germ could encode entire Jacobi sequence, but equivalence needs triangular graded exponent and nonzero leading coefficient, not a generic determinant formula.",
+        "searches": [
+          "geometric weighted unilateral shift numerical radius analytic germ inverse reconstruction weights Taylor orders k(k+1)",
+          "Jacobi inverse spectral norm germ recover edge weights from one top eigenvalue",
+          "weighted unilateral shift numerical radius small q first difference k(k+1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary self-hit is the assigned same finding; nearby Airy edge law for q->1 or weight optimization at fixed q concern other observables/regimes.",
+          "No finite table of short-period modulations determines infinitely many coefficients from the full q->0 germ."
+        ],
+        "reasoning": "Even an exact 4-edge determinant table is a special case and cannot replace the arbitrary-index analytic uniform tail proof.",
+        "searches": [
+          "Resultary inverse Taylor jet numerical radius weighted shift",
+          "weighted shift numerical radius q^12 period four coefficient s^2 (t^2-v^2)"
+        ]
+      },
+      "rationale": "The nearest 2026 Ghosh-Birbonshi-Ojha public abstract and detailed secondary synopsis describe numerical-radius bounds and an entire-function root for a special four-periodic modulation, not an explicitly stated inverse-germ injectivity for all bounded positive coefficient sequences. Full 2009 Chien-Nakazato primary supplies a radius expansion for the single unmodulated geometric sequence; full 2022 Chakraborty-Ojha-Birbonshi primary treats finite-prefix/eventually periodic weighted shifts by determinants. Those sources offer upstream determinant machinery but not the sharp first-difference valuation k(k+1) or arbitrary-sequence triangular inverse reconstruction. Original full 2026 full text remains unread and could hide an equivalent deduction.",
+      "residual_risks": [
+        "Full original 2026 manuscript unavailable; unseen period-four Taylor coefficients or inversion corollary possible.",
+        "Uninspected Stout 1983 full text or older inverse Jacobi literature may subsume the mechanism.",
+        "Exact-derivative/germ uniqueness gives no usable numerical stability for large k."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUR_PERIODIC_SPECIAL_CASE_ACCESS_LIMITED",
+          "evidence": "Abstract concerns s,t>0 four-periodic geometric family, bounds and positive root of entire function; cannot infer the complete paper lacks an equivalent theorem.",
+          "identifier_or_url": "arXiv:2608.17486v1",
+          "material_read": "Dated original abstract and independent public analytic synopsis; primary full paper inaccessible",
+          "method": "Abstract plus clearly labeled secondary synopsis",
+          "title": "On the numerical radius of a class of weighted shift operators",
+          "trigger": "Closest motivating 2026 source with same geometric weight pattern"
+        },
+        {
+          "assessment": "ONE_UNMODULATED_FAMILY",
+          "evidence": "The expansion is for (1,q,q²,...) only and does not compare arbitrary bounded coefficients.",
+          "identifier_or_url": "DOI:10.13001/1081-3810.1293",
+          "material_read": "Full six-page primary PDF, main spectral root characterization and page 4 displayed Taylor expansion",
+          "method": "Direct full primary text and figure/formula inspection",
+          "title": "The numerical radius of a weighted shift operator with geometric weights",
+          "trigger": "Earlier exact Taylor series for geometric weighted shifts"
+        },
+        {
+          "assessment": "DETERMINANT_PREMISE_NOT_INVERSE_GERM",
+          "evidence": "Determinants supply spectral characterizations, not a first-difference/injective Taylor-germ theorem for bounded positive modulations.",
+          "identifier_or_url": "DOI:10.7153/oam-2022-16-75",
+          "material_read": "Full 20-page primary PDF including introduction, determinant recurrences and eventually periodic examples",
+          "method": "Direct full primary text and relevant formula reading",
+          "title": "Numerical radii of weighted shift operators using determinantal polynomials",
+          "trigger": "Potential general determinant domination"
+        },
+        {
+          "assessment": "POTENTIAL_BROADER_DETERMINANT_RISK",
+          "evidence": "A determinant representation is known, but no asserted inverse-germ conclusion was verified in the original Stout paper.",
+          "identifier_or_url": "Q. F. Stout, Proc. AMS 88 (1983), 495-502",
+          "material_read": "Citation and secondary discussion in 2009/2022 primary literature; original full text not read",
+          "method": "Citation-level only",
+          "title": "The numerical range of a weighted shift",
+          "trigger": "Historical general entire determinant antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/inverse-taylor-jet-rigidity-for-geometrically-damped-weighted-sh--f35a7a7e6fcf/RESULT.md",
+        "2009/2022 primary weighted-shift papers"
+      ],
+      "rationale": "The scalar numerical-radius germ is shown to encode the entire infinite bounded positive weight sequence with precisely predictable first-difference orders and a triangular reconstruction. That is a nontrivial inverse spectral uniqueness mechanism, naturally suggested by recent parameter-dependent shift families; its uniform analytic contour and tail estimates are not a routine single-number computation. It answers a structural question rather than merely improving a bound for a fixed numerical radius.",
+      "residual_risks": [
+        "Reconstruction is ill-conditioned for high Taylor order and requires all weights before first zero positive."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The published 2026 inspiring period-four manuscript could not be read in full; overlap risk concerns originality, not the reconstructed perturbation argument.",
+    "Inverse reconstruction uses exact analytic germ and increasingly high Taylor orders; no stability from finite precision.",
+    "Full original 2026 manuscript unavailable; unseen period-four Taylor coefficients or inversion corollary possible.",
+    "Uninspected Stout 1983 full text or older inverse Jacobi literature may subsume the mechanism.",
+    "Exact-derivative/germ uniqueness gives no usable numerical stability for large k.",
+    "Reconstruction is ill-conditioned for high Taylor order and requires all weights before first zero positive."
+  ],
+  "schema_version": 1
+}

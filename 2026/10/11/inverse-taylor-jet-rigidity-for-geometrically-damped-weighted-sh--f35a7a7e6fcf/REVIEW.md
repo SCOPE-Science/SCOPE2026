@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The assertion is an infinite-dimensional analytic statement with bounded nonnegative coefficients. The half-symmetrized shift has a simple isolated eigenvalue \(1/2\) at the origin; uniform contour-resolvent bounds make its eigenvalue branch analytic along the interpolation between two coefficient lists. The support-path argument gives coordinate vanishing orders \(j(j-1)/2\), and the Jacobi recurrence fixes their leading products. Hellmann–Feynman differentiation and a summable uniform tail bound then give the exact first-difference coefficient. Boundary cases \(k=1\), zero later weights, and the empty product were checked. Finite tridiagonal decimal evaluations independently corroborate indices one through four, but are not proof of the infinite statement.
+## correctness
 
-## Originality — PASS with residual access risk
-The strongest comparison is the dated 2026 geometric-shift paper of Ghosh–Birbonshi–Ojha, for which the publicly accessible abstract and independent analytical synopsis establish bounds and an entire-function root characterization. The complete primary document could not be inspected. The 2009 Chien–Nakazato article, inspected throughout, derives the root formula and finite Taylor series for one unmodulated family. The 2022 Chakraborty–Ojha–Birbonshi article, inspected in its introduction and relevant recurrence sections, concerns eventually two-periodic shifts. Those results do not state the arbitrary-sequence injective radius-germ theorem or the precise first-separation order. Literature queries and scientific database comparisons did not identify equivalent or stronger coverage, but their negative results are not proof of uniqueness. Residual risks are implicit derivability from an inaccessible 2026 full text and unlocated inverse-Jacobi literature.
+PASS
 
-## Value — PASS
-A single scalar-valued analytic radius curve is shown to determine an entire infinite positive weight sequence, despite high-order interference from all subsequent edges. The precisely graded orders \(2,6,12,20,\ldots\) provide a nontrivial inverse-uniqueness mechanism and a recursive reconstruction, directly motivated by recent multi-parameter geometric shifts. No numerical conditioning or fixed-parameter reconstruction is claimed.
+With weights 1,c_j q^j and bounded nonnegative coefficients, diagonal phase rotation makes numerical radius the norm of selfadjoint Jacobi J=(T+T*)/2; bipartite parity symmetry makes it the largest positive eigenvalue. At q=0 it is the simple isolated value 1/2. The holomorphic symmetric tridiagonal extension has analytic rank-one Riesz projector uniformly for interpolating bounded coefficients, by a resolvent Neumann bound on a 1/4 contour. Any Neumann path reaching coordinate j from initial support e0,e1 must cross edges 1,...,j-1, giving eigenvector coordinate order S_j=j(j-1)/2; tridiagonal recurrence yields leading coefficient (product_{l<j}h_l)/sqrt(2). Differentiating eigenvalue along the interpolation c->d by Hellmann-Feynman gives sum_{j>=k}(d_j-c_j)q^j x_j x_{j+1}. The first differing edge contributes (d_k-c_k)h_k(prod_{j<k}c_j²)/2 *q^{k(k+1)}; uniform Cauchy estimates bound all later-edge terms by o(q^{k(k+1)}). Integrating h_k yields (d_k²-c_k²)(prod_{j<k}c_j²)/4. Positivity of shared prefix makes this nonzero and allows recursive exact Taylor recovery; zeros destroy injectivity after the first disconnected component. Independently checked k=1..4 Jacobi finite examples numerically with normalized ratios converging to the coefficient, but this is not an infinite proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The nearest 2026 Ghosh-Birbonshi-Ojha public abstract and detailed secondary synopsis describe numerical-radius bounds and an entire-function root for a special four-periodic modulation, not an explicitly stated inverse-germ injectivity for all bounded positive coefficient sequences. Full 2009 Chien-Nakazato primary supplies a radius expansion for the single unmodulated geometric sequence; full 2022 Chakraborty-Ojha-Birbonshi primary treats finite-prefix/eventually periodic weighted shifts by determinants. Those sources offer upstream determinant machinery but not the sharp first-difference valuation k(k+1) or arbitrary-sequence triangular inverse reconstruction. Original full 2026 full text remains unread and could hide an equivalent deduction.
+
+## value
+
+PASS
+
+The scalar numerical-radius germ is shown to encode the entire infinite bounded positive weight sequence with precisely predictable first-difference orders and a triangular reconstruction. That is a nontrivial inverse spectral uniqueness mechanism, naturally suggested by recent parameter-dependent shift families; its uniform analytic contour and tail estimates are not a routine single-number computation. It answers a structural question rather than merely improving a bound for a fixed numerical radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
