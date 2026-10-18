@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T09:08:58.433461Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Immutable source RESULT.md blob c27732d01ad0a2a6bae5b38050c56bb88a49e900 at commit 475e612389968173d8ff1f5d87788e7b3684fd2d",
+        "Exact returned recursive Git source-tree SHA c5ccde2a28e6a8f968bbd719d86e41fef627f238, truncated:false",
+        "Independent bounded analytic/numeric checker: independent_checks.py; its finite tests are only supporting checks"
+      ],
+      "rationale": "PASS: With x=d-1 and u_d=x^(1/3)+x^(-1/3), choose c*=2(u_d-1)^(-2)-1 at Fang's cubic-norm branch boundary and p*=(1-(u_d-1)^(-2))/eta_d, eta_d=1-d^-2. Then 1-p*=[(u_d-1)^(-2)-d^-2]/eta_d~d^-2/3, while 1-p_L~4/d, so for sufficiently large d, p*<p_L and the explicit affine entanglement-of-formation branch applies. Fang's Proposition 12 affine cubic-norm branch yields B_d(c*)=log_2 d-s_d eta_d p*, s_d=3log_2 u_d, hence exact witness difference p*(s_d eta_d-kappa_d), kappa_d=(d²-1)/(d(d-2)) log_2(d-1). Elementary rewriting gives 3eta_d log_2(1+x^(-2/3))-2x(x+2)log_2 x/[(x+1)^2(x-1)]; the first term is 3 x^(-2/3)/ln2+o(x^-2/3), second O(log x/x)=o(x^-2/3). Thus liminf d^(2/3)G_d>=3/ln2, matching Fang's independently inspected Corollary 13 limsup. Independent numerical reconstruction verifies p* in affine region, positive witness below published bound, and convergence at d=10^3,...,10^8. No finite experiment is used to prove the limiting equality.",
+      "residual_risks": [
+        "Only maximum difference of rigorous bounds B_d and E_F for d→∞; no true entanglement-cost gap or exact finite-dimensional maximizer.",
+        "Relies on Fang's source Proposition 12 and Corollary 13, as well as the isotropic E_F formula."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fang contains the source cubic-norm bound B_d, isotropic E_F formulas, and general one-sided G_d upper bound; it does not provide a sequence attaining that bound or an equality limit.",
+          "Terhal–Vollbrecht computes isotropic entanglement-of-formation convex-hull inputs only; this is before Fang's new lower bound exists."
+        ],
+        "reasoning": "Knowledge of both bounding functions plus a limsup does not automatically establish the sharpness of the limsup. The transition witness and its coefficient-level asymptotic are the extra implication.",
+        "searches": [
+          "arXiv:2610.00187v1 Theorem 8, Proposition 12, Corollary 13",
+          "arXiv:quant-ph/0005062",
+          "Resultary_Search: isotropic qudit entanglement cost cubic norm lower bound entropy of formation certificate gap d minus two thirds sharp 3 ln2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00187v1 (full key mathematical sections and Appendix B)",
+        "arXiv:quant-ph/0005062 (full short primary PDF and page images)",
+        "Resultary_Search: isotropic qudit entanglement cost cubic norm lower bound entropy of formation certificate gap d minus two thirds sharp 3 ln2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fang Proposition 12 explicitly identifies c* and affine branch; Corollary 13 (97)-(103) proves <=3/ln2 asymptotic limsup.",
+          "At exactly the branch crossover, the reviewed computation obtains a positive witness with d^(2/3) gap tending to 3/ln2; no finite-d maximizer or true entanglement cost is asserted."
+        ],
+        "reasoning": "Fang's result alone does not entail equality in its upper bound. The new transition calculation closes a natural quantitative sharpness question while retaining all source bounds as credited premises.",
+        "searches": [
+          "arXiv:2610.00187v1 §§4.3–4.4, Appendix B",
+          "arXiv:quant-ph/0005062"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent statement: the O(d^-2/3) uniform certificate-width bound from Fang Corollary 13 is asymptotically attained at the branch crossover.",
+          "The optimized gap is between B_d and E_F; it is not the operational entanglement cost deficit E_F-E_C."
+        ],
+        "reasoning": "Cross-checks used Fang's exact variable G_d, branch point c_{*,d}, and d-scaling so that mere agreement of the constant 3/ln2 without matching functional would not count as coverage.",
+        "searches": [
+          "Resultary_Search: isotropic qudit entanglement cost cubic norm lower bound entropy of formation certificate gap d minus two thirds sharp 3 ln2",
+          "\"G_d\" \"3/ln 2\" isotropic entanglement interval",
+          "\"cubic norm\" \"d^-2/3\" lower asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fang Figure 2 gives a finite d<=10^4 numeric scan of G_d/log d; Appendix B gives limsup but no exact asymptotic equality.",
+          "No matching evaluated database/formula table of the d^(2/3)G_d limit found in bounded searches."
+        ],
+        "reasoning": "A finite numerical plot cannot establish the infinite sharp coefficient, and the Corollary 13 upper estimate alone cannot do so. Actual full primary comparison supports distinctness.",
+        "searches": [
+          "Resultary_Search: isotropic qudit entanglement cost cubic norm lower bound entropy of formation certificate gap d minus two thirds sharp 3 ln2",
+          "\"entanglement cost of quantum depolarization\" \"maximum interval width\""
+        ]
+      },
+      "rationale": "Fang first defines this exact maximum interval-width G_d and proves only the upper bound limsup d^(2/3) G_d <=3/ln2. The reviewed result selects Fang's own nonlinear-to-affine transition c_{*,d} as a witness and proves a matching lower bound, converting a one-sided bound into a sharp leading asymptotic. Terhal–Vollbrecht predates the cubic-norm lower certificate and cannot itself imply its comparison gap. The assertion is explicitly about certificate uncertainty, not true entanglement-cost regularization.",
+      "residual_risks": [
+        "The calculation uses Fang's branch formulas and corollary as premises; priority for a same-source unpublished corrigendum or subsequent note cannot be conclusively excluded.",
+        "No conclusion may be drawn about the unknown actual qudit isotropic entanglement cost or finite-dimensional G_d optimizer from equality of the certificate asymptotic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UPPER_BOUND_PRIOR_ONLY",
+          "evidence": "Source proves limsup<=3/ln2 and finite numerical scan; no liminf/equality or explicit maximizing transition witness stated.",
+          "identifier_or_url": "arXiv:2610.00187v1",
+          "material_read": "Full public HTML: Proposition 12 (65)–(70), isotropic comparison (71)–(78), Appendix B Corollary 13 (97)–(103), checked line by line",
+          "method": "read full relevant primary HTML including boundary branches and uniform upper proof",
+          "title": "Entanglement cost of quantum depolarization",
+          "trigger": "Defines the identical B_d, U_d, G_d and potentially dominates asymptotic"
+        },
+        {
+          "assessment": "SOURCE_FOR_UPPER_BOUND_ONLY",
+          "evidence": "Earlier work determines E_F from isotropic convex hull, not comparison with a later cubic-norm entanglement-cost certificate.",
+          "identifier_or_url": "arXiv:quant-ph/0005062; DOI:10.1103/PhysRevLett.85.2625",
+          "material_read": "Full open-access four-page arXiv PDF and rendered pages, especially convex-hull formulation and isotropic entanglement-of-formation derivation",
+          "method": "read primary PDF and inspect page images",
+          "title": "The Entanglement of Formation for Isotropic States",
+          "trigger": "Foundational upper envelope U_d(p)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Immutable source RESULT.md Git blob c27732d01ad0a2a6bae5b38050c56bb88a49e900",
+        "Complete assigned recursive Git tree match and bounded independent arithmetic checks"
+      ],
+      "rationale": "Fang's general O(d^-2/3) certificate-width upper bound leaves open whether the exponent/constant reflect true uncertainty or loose analysis. The new witness at a canonical bound-branch transition proves both are sharp, giving a meaningful exact leading asymptotic for a natural maximum over noise and ruling out improvement of the certificate-gap bound without changing one of its components. Its value is mathematical sharpness of rigorous bounds, not a claim to solve entanglement cost itself.",
+      "residual_risks": [
+        "Relies on Fang's source Proposition 12 and Corollary 13, as well as the isotropic E_F formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only maximum difference of rigorous bounds B_d and E_F for d→∞; no true entanglement-cost gap or exact finite-dimensional maximizer.",
+    "Relies on Fang's source Proposition 12 and Corollary 13, as well as the isotropic E_F formula."
+  ],
+  "schema_version": 1
+}
