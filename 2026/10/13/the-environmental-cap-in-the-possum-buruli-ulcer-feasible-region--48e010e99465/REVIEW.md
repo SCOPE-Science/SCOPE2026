@@ -1,30 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The environmental top-face calculation is exact. Since the source permits
-\[
-0\le I_m\le\frac{\Lambda_m}{\mu_m},
-\]
-a rectangular cap \(E\le H\) is inward-pointing for every admissible infected-mammal value exactly when
-\[
-H\ge
-\frac{\alpha_E\Lambda_m}{\mu_E\mu_m}.
-\]
-The source's own parameter table gives an exact point inside its stated population bounds with \(\dot E>0\) on the printed environmental boundary. The bundled checker replays these identities with exact arithmetic.
+PASS
 
-## Originality
+For E_dot=α_E I_m−μ_E E and mammal rectangle 0<=I_m<=K_m=Λ_m/μ_m, at E=H the maximum normal derivative is α_E K_m−μ_E H; it is nonpositive iff H>=α_E K_m/μ_E. The published H=α_E/μ_E works iff K_m<=1. From source Table1 Λ_m=2, μ_m=1/(365*60), α_E=μ_E=1/14 so K_m=43800; admissible state (S_m,I_m,S_v,I_v,E)=(1,2,1,1,1) has total mammals 3<43800, vectors 2<70 and E_dot=1/14>0. Independent exact Fraction arithmetic verified all numbers; no numerical integration required.
 
-PASS. Rectangular invariant-set arguments are standard and are not claimed as new. The accepted contribution is the source-specific diagnosis, the exact if-and-only-if validity condition for the printed cap, the minimal corrected rectangular cap, and the source-parameter counterexample. Targeted source, invariant-region, correction, broader-literature, and historical-overlap checks found no published correction. A closely related same-year possum paper remains an explicit equation-level access risk.
+## originality
 
-## Value
+PASS
 
-PASS. The source uses its feasible region to state epidemiological and mathematical well-posedness and later invokes that region in a global-stability argument. The printed environmental top face is not invariant for the paper's own parameter scale. The correction supplies a valid compact rectangular domain without changing the model equations.
+The biological dynamics and generic inward-boundary criterion are old. The new check targets a particular published invariant-set inequality that tacitly assumes I_m<=1, whereas the paper uses a mammal headcount. The source-specific failed region, exact iff regime, and Table1 counterexample were not found in original or inspected follow-ups.
 
-## Closest literature and limitations
+## value
 
-Earlier Buruli modeling uses different bounded environmental dynamics, so it does not imply this correction. A closely related 2021 possum-model publication was checked at its accessible record and preprint metadata, but equation-level comparison was unavailable.
+PASS
 
-The result corrects the feasible region only; it does not independently reassess later equilibrium or stability theorems.
+The defect is in an invariant region used for mathematical well-posedness and as a domain for epidemic stability arguments. The paper’s own calibration makes the printed cap 43,800 times too small, and an explicit admissible boundary trajectory leaves immediately. Identifying and correcting an essential analytical precondition is substantively useful beyond checking a harmless typo.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

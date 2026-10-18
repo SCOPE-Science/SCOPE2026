@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T08:43:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "source Khan et al 2021 equation dE/dt and E region",
+        "source Table 1 and Figure region boundaries",
+        "verify.py blob 48a5bdd9b673d4110d3c76f9bb1cdf92c94d0118"
+      ],
+      "rationale": "For E_dot=α_E I_m−μ_E E and mammal rectangle 0<=I_m<=K_m=Λ_m/μ_m, at E=H the maximum normal derivative is α_E K_m−μ_E H; it is nonpositive iff H>=α_E K_m/μ_E. The published H=α_E/μ_E works iff K_m<=1. From source Table1 Λ_m=2, μ_m=1/(365*60), α_E=μ_E=1/14 so K_m=43800; admissible state (S_m,I_m,S_v,I_v,E)=(1,2,1,1,1) has total mammals 3<43800, vectors 2<70 and E_dot=1/14>0. Independent exact Fraction arithmetic verified all numbers; no numerical integration required.",
+      "residual_risks": [
+        "The corrected height is uniformly minimal for this rectangular estimate, not necessarily smallest nonlinear absorbing region.",
+        "Does not invalidate global stability theorems by itself."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Different Buruli models have different environmental saturation/bounding structures; accessible Chu publication record strongly overlaps model subject but did not reveal an exact environmental cap correction."
+        ],
+        "reasoning": "General compartmental invariant region theorems require the right source and coefficient; they cannot imply the published unit environmental cap under unnormalised infected mammals.",
+        "searches": [
+          "Bonyah–Dontwi–Nyabadza 2014 DOI:10.1155/2014/576039",
+          "Chu et al 2021 DOI:10.1016/j.rinp.2021.104471",
+          "Khan et al 2021 DOI:10.3934/math.2021572"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3934/math.2021572",
+        "https://doi.org/10.1016/j.rinp.2021.104471"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source asserts E<=α_E/μ_E positively invariant; substituting its own admissible I_m=2 gives E_dot=α_E>0 on top face."
+        ],
+        "reasoning": "Current claim logically contradicts the source top-face assertion for source parameters; its correction follows precisely from the infected-mammal range. Overlapping paper not compared at all equations, retained risk.",
+        "searches": [
+          "Khan et al 2021 invariant feasible region proof and global dynamics",
+          "Chu et al 2021 possum model source"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary DOI:10.3934/math.2021572 computes environmental bound α_E/μ_E directly after its population bound Λ_m/μ_m."
+        ],
+        "reasoning": "Equivalent inward normal, Nagumo face criterion, and biological positivity aliases yield a specific counterexample to that source, not a new general lemma.",
+        "searches": [
+          "Resultary_Search semantic query: Buruli ulcer possum vector environmental compartment invariant region E cap alpha E/mu E versus infected mammal population Lambda/mu",
+          "Khan Bonyah Li Muhammad Okosun Buruli possum feasible set Omega positive invariant correction 2021",
+          "E_dot alphaE Im - muE E bound error"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source Table1 supplies values yielding K_m=43800 and a strict outward-pointing witness; Resultary query returned other epidemic corrections, none for this precise possum model."
+        ],
+        "reasoning": "This is an exact source-parameter counterexample, not a recomputation of an existing corrected table. No prior erratum carrying 43800 was identified.",
+        "searches": [
+          "Resultary_Search semantic query: Buruli ulcer possum vector environmental compartment invariant region E cap alpha E/mu E versus infected mammal population Lambda/mu",
+          "Khan 2021 Table 1 Lambda_m=2 mu_m=1/(365*60) environmental E=1 correction"
+        ]
+      },
+      "rationale": "The biological dynamics and generic inward-boundary criterion are old. The new check targets a particular published invariant-set inequality that tacitly assumes I_m<=1, whereas the paper uses a mammal headcount. The source-specific failed region, exact iff regime, and Table1 counterexample were not found in original or inspected follow-ups.",
+      "residual_risks": [
+        "Related possum model Chu et al 2021 not read equation by equation; may contain antecedent correction.",
+        "Printed population and vector bounds must be read in the authors’ original units; no implicit I_m<=1 normalisation was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The printed inequality E_dot<=α_E−μ_E E requires unprinted I_m<=1; source Table1 instead permits infected mammals >1.",
+          "evidence": [
+            "AIMS Mathematics 6 (2021) pp 9859–9881, relevant model and feasible-region paragraphs, Table 1 Λ_m=2, μ_m=1/(365·60), α_E=μ_E=1/14"
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2021572",
+          "material_read": "Full 2021 primary PDF inspected, especially mammal/environmental equations, feasible-region proof and Table 1 parameters",
+          "method": "Lawful publisher OA full PDF; verified rendered PDF pages for equations and parameter table",
+          "title": "Mathematical modeling and optimal control strategies of Buruli ulcer in possum mammals",
+          "trigger": "Direct allegedly false feasible-region theorem and its table"
+        },
+        {
+          "assessment": "Strong subject overlap; inaccessible detailed equations could include same correction.",
+          "evidence": [
+            "Chu et al, Results in Physics 27 (2021), 104471"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.rinp.2021.104471",
+          "material_read": "Article record and available preprint metadata; no full equation-level comparison",
+          "method": "Public record / accessible metadata search",
+          "title": "Mathematical modeling and stability analysis of Buruli ulcer in Possum mammals",
+          "trigger": "Same-species related 2021 article with overlapping authors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Khan et al original invariant-region proof and numerical parameters"
+      ],
+      "rationale": "The defect is in an invariant region used for mathematical well-posedness and as a domain for epidemic stability arguments. The paper’s own calibration makes the printed cap 43,800 times too small, and an explicit admissible boundary trajectory leaves immediately. Identifying and correcting an essential analytical precondition is substantively useful beyond checking a harmless typo.",
+      "residual_risks": [
+        "This establishes neither actual epidemic predictions nor validity/invalidity of later theorems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Published bound E<=α_E/μ_E fails to be invariant if Λ_m/μ_m>1; the sharp uniform inward-pointing rectangular cap E<=α_EΛ_m/(μ_E μ_m) is required. Published Table 1 gives 43800 versus published cap 1 and explicit exiting boundary state E_dot=1/14.",
+  "limitations": [
+    "Necessity refers to uniform inward pointing on the stated rectangle, not to all possible smaller invariant sets.",
+    "Closely related 2021 model inaccessible for complete equation-level comparison."
+  ],
+  "schema_version": 1
+}
