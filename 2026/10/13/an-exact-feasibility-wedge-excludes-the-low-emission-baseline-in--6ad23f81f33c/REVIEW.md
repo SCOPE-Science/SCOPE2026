@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The printed two-sided \(k\)-bound was reduced exactly. Positivity of its upper endpoint forces
-\[
-m\theta>\frac{(1-\alpha)\varphi}{2}.
-\]
-After that condition is imposed, direct factorization shows that the upper endpoint exceeds the lower endpoint exactly when
-\[
-m\theta<(1-\alpha)\varphi.
-\]
-The four baseline \((\theta,\varphi)\) cases were checked with exact rational arithmetic.
+## correctness
 
-## Originality
-PASS. The motivating article prints Assumption 4 and the baseline grid but does not identify the exact nonempty-interval wedge or note that its low-emission branch makes the upper endpoint negative. Source-specific searches and related green-supply-chain evolutionary-game literature did not reveal this compatibility result.
+PASS
 
-## Value
-PASS. The exclusion applies to an entire low-emission branch that the article uses for numerical interpretation. It therefore changes which simulations are covered by the stated economically feasible Stackelberg model, while stopping short of claiming that out-of-domain numerical trajectories are intrinsically false.
+Using A=m+(1-alpha)delta>0, D=4m theta-2(1-alpha)phi, L=A(delta theta+phi)/(2theta phi)>0, U=A^2/D, existence of positive k requires D>0. Exact independent symbolic factorization confirms U-L=-(2delta theta+phi)A(m theta-(1-alpha)phi)/[2theta phi(2m theta-(1-alpha)phi)] when D>0. This yields the necessary-and-sufficient open wedge, including excluded boundaries. Independently recomputed exact L,U for four baseline pairs: (theta,phi)=(.7,.75): (2421/1750,-729/50); (.7,.9): (897/700,-729/200); (1.45,.75): (7137/7250,729/700); (1.45,.9): (2559/2900,729/550). The third assumption can only restrict further. It is a feasibility-of-reported-assumptions finding, not falsification of out-of-domain trajectories.
 
-## Closest literature and limitations
-Sun et al. (2019), DOI 10.1016/j.jclepro.2019.06.329, and Sun, Wang, and Du (2025), DOI 10.1007/s10668-023-03980-w, provide close evolutionary-game context for green supply chains and cap-and-trade policy. Their payoff models differ and do not imply the 2026 source's feasibility wedge. A separate constrained optimization analysis could potentially justify some out-of-domain simulations, but it is not supplied here.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The algebra is elementary and not credited as a new general inequality; originality is the particular published game’s unrecognized lower feasibility boundary and its exclusion of prominently used nominal simulations. Searched primary paper and related green-supply-chain evolutionary models, with no identified existing correction. The source-specific novelty survives bounded comparison, with document-display limitations recorded.
+
+## value
+
+PASS
+
+This is mathematically motivated because a major nominal numerical branch is outside the exact domain assumed to derive equilibria and stability. Identifying the feasible wedge materially changes how the published simulations can support the theoretical model. Not a mere type check: the incompatibility affects announced model interpretation, while not proving those trajectories false.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
