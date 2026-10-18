@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For each n>1, palindromic choices of r(n) internal reciprocal-closed sets yield r(n)^ceil(k/2) injectively distinct divisor-subsets of n^k, because disjoint shells have exactly n^j<element<n^(j+1), complementary involution reverses shell indices, and the telescoping sum is 2n^k. The only nonstandard finite input r(45045)=695 is checked exhaustively using 23 pair weights via two independent complete algorithms implemented in verify.py, not sampling. The proof controls all n with r(n)>0 and k>=1; total counts outside shell-lift family are not claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang–Zelinsky Theorem 5 proves existence of a representation on all powers of one base; its proof repeats one fixed internal pattern across all shells.",
+        "SCOPE all-dyadic-multiples-60 supplies existence of an even family, not number of representations on powers.",
+        "McCormack–Zelinsky 2023 abstract discusses Zaremba function and qualitative strongly pseudoperfect constraints, without a visible multiplicity growth statement."
+      ],
+      "reasoning": "The published theorems assert existence or classifications and do not imply a positive exponential count of distinct subsets through their stated conclusions alone. The new proof refines the power-lift construction by independently choosing mirror-compatible shell patterns; this proximity is an acknowledged risk, not represented as a wholly unrelated discovery.",
+      "searches": [
+        "strongly pseudoperfect numbers power lifts number of representations multiplicity exponential in k 156^k",
+        "strongly pseudoperfect powers at least exponential number of complementary divisor representations different blocks shell index choices 45045 695",
+        "2026/10/4/SCOPE-all-dyadic-multiples-60-cdot-2-n-are-strongly-pseudoperfect--bfd0e030e549"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.36068v2 full HTML relevant sections, Theorem 5, Table 1",
+      "arXiv:2609.36068v1 submitted 2026-09-28, MSC 11A25",
+      "arXiv:2312.11661 public abstract",
+      "OEIS:A334405 sequence identification",
+      "Published mathematical records 067a5b7cff02, bfd0e030e549, e44b0bb26fb1, 8a0ca297bd59",
+      "Previous finding records 2932e339-79a0-45ab-a57f-bdfffe4d71e9, 067a5b7c-ff02-4b5e-ac71-96dd761636e7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Theorem 5 plus Table 1 implies existence of power representations, not the numerical lower bound via a stated implication. The source does not use multiple independently varying base witnesses on paired shells.",
+        "Own prior abundance-forced theorem gives sufficiency for every power and first exceptional endpoint omission; it does not count shell choices.",
+        "The small-prime-support classification gives shape restrictions, not growth of representation multiplicities."
+      ],
+      "reasoning": "The universal new counting claim is stronger than the prior source existence theorem. Its proof uses an explicit additional injective construction and derives a power-law lower bound for an odd family. A routine implicit corollary of the source proof remains a residual originality/value risk and is openly disclosed.",
+      "searches": [
+        "strongly pseudoperfect numbers power lifts number of representations multiplicity exponential in k 156^k",
+        "strongly pseudoperfect powers at least exponential number of complementary divisor representations different blocks shell index choices 45045 695",
+        "record:2932e339-79a0-45ab-a57f-bdfffe4d71e9",
+        "2026/10/4/SCOPE-strongly-pseudoperfect-integers-with-omega-n-le3--e44b0bb26fb1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.36068v2 §§1–2 discusses repeated power-lifting from one reciprocal-closed representation; Theorem 5 states existence, not a lower bound on the number of representations.",
+        "published-finding corpus:2026/10/4/SCOPE-the-first-multi-pair-strongly-pseudoperfect-number-of-the-form-2--067a5b7cff02 concerns exact first small two-pair examples and binary criteria, not shell-palindrome multiplicity.",
+        "Earlier recorded mathematical claim 2932e339-79a0-45ab-a57f-bdfffe4d71e9 proves an endpoint condition and qualitative power closure but no representation multiplicity."
+      ],
+      "reasoning": "Strongly/extremely strongly pseudoperfect sets, omitted complementary pairs, and reciprocal divisor subsets were compared as equivalent definitions. A palindromic choice of independently varying internal shell witnesses is a count of representations, not synonymous with merely showing a single power is representable.",
+      "searches": [
+        "strongly pseudoperfect numbers power lifts number of representations multiplicity exponential in k 156^k",
+        "strongly pseudoperfect 156 two representations pairs of divisors n over d lifted powers choices count 2^ceil(k/2)",
+        "strongly pseudoperfect powers at least exponential number of complementary divisor representations different blocks shell index choices 45045 695"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wang–Zelinsky Table 1 explicitly reports 695 for base 45045; that finite count is not claimed as new.",
+        "Standalone verify.py independently enumerates all 23 internal complementary-pair weights by a complete meet-in-the-middle count and an independent dynamic program; each returns 695.",
+        "OEIS A334405 lists strongly pseudoperfect integers; the examined information does not supply the palindromic shell multiplicity formula."
+      ],
+      "reasoning": "Exact preexisting small-number table entries cover the base coefficient only. The statement being assessed concerns the full infinite power family and the universal lifting inequality, which no checked exact table records.",
+      "searches": [
+        "arXiv:2609.36068v2",
+        "OEIS:A334405",
+        "strongly pseudoperfect powers at least exponential number of complementary divisor representations different blocks shell index choices 45045 695"
+      ]
+    },
+    "rationale": "Full-text comparison with Wang–Zelinsky 2026 distinguishes its qualitative fixed-pattern power existence theorem and preexisting 695 base count from the new palindrome-indexed injective family yielding quantitative exponential-in-k representation counts. Comparisons with published mathematics and previously recorded claims identified no covering statement; a straightforward implicit strengthening of the published construction is recognized as a residual risk. The finite base count is credited, not claimed as original.",
+    "residual_risks": [
+      "Mirror-shell amplification is a direct refinement of the published fixed-pattern power lift, so an unstated or unindexed equivalent observation might exist.",
+      "The 2023 foundational full text was not inspected; only its abstract and 2026 citation context were available.",
+      "Available scientific literature and indexed research statements cannot establish universal bibliographic uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 5 lifts one fixed witness to powers; Table 1 already gives the 695 base count. No exponential multiplicity or palindromic-shell count located in examined material.",
+        "evidence": [
+          "Theorem 5 and proof at HTML lines 120–148; Table 1 at lines 458–506 reports 45045 with 695 solutions; Section 4 Questions 19–21 concern existence and density."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.36068v2",
+        "material_read": "Full HTML sections 1–2 including Theorem 5 and proof; Section 4 open questions; Section 5 Tables 1 and 2 and base 45045 count",
+        "method": "Direct full-text HTML inspection and logical comparison of all displayed construction steps",
+        "title": "Strongly Pseudoperfect Numbers",
+        "trigger": "Same objects, exact power-lifting theorem, table of representation counts"
+      },
+      {
+        "assessment": "Abstract concerns Zaremba function and original definition; does not establish counting law on powers, but unseen body is a limited residual overlap risk.",
+        "evidence": [
+          "arXiv:2312.11661 abstract, December 2023; cited as foundational source in arXiv:2609.36068."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.11661",
+        "material_read": "Public arXiv abstract only; HTML full text was not available in two attempts",
+        "method": "ArXiv abstract inspection and source-context comparison via 2026 paper",
+        "title": "Weighted Versions of the Arithmetic-Mean-Geometric Mean Inequality and Zaremba’s Function",
+        "trigger": "Foundational source defining strongly pseudoperfect numbers"
+      },
+      {
+        "assessment": "The previous statements give existence, forced endpoints and small-support classifications, but not the palindromic-shell representation multiplicity law.",
+        "evidence": [
+          "Record 2932e339-79a0-45ab-a57f-bdfffe4d71e9 concerns abundance-forced power closure; record 067a5b7c-ff02-4b5e-ac71-96dd761636e7 is a two-prime-support bit-mask classification."
+        ],
+        "identifier_or_url": "record:2932e339-79a0-45ab-a57f-bdfffe4d71e9; record:067a5b7c-ff02-4b5e-ac71-96dd761636e7",
+        "material_read": "Relevant mathematical claims and their exact implication scopes, including endpoint-forcing, power closure and prime-support restrictions",
+        "method": "Targeted scientific statement and implication comparison against existing recorded results",
+        "title": "Previously recorded number-theory findings",
+        "trigger": "Same arithmetic objects and qualitative power closure"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5efa7e7-fd02-4f3d-aa28-bcead3a14d03",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating source explicitly tabulates how many reciprocal divisor representations integers possess but its infinite power theorem establishes existence only. The general palindromic-shell lemma turns this natural finite multiplicity invariant into an exact count of a canonical infinite class, and the verified odd base 45045 yields an infinite odd family with at least N^0.30535 distinct representations. This is a structural quantitative theorem about representation growth, not an isolated small base count or a renamed corollary. Its limitation to lower bounds (not exact unrestricted counts) is stated.",
+    "status": "PASS"
+  }
+}
