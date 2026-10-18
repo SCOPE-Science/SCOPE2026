@@ -1,0 +1,9 @@
+# Review
+
+**Correctness — PASS.** For each fourth-power character coset the projection formula is exact and includes nonzero-domain exclusions. For nonzero exponent supports of sizes 1, 2, 3, the character-sum bounds are respectively 2, \(\sqrt p+1\), and \(2\sqrt p\); these yield \(64N_p(e)\ge p-81\sqrt p-48\). The inequality is positive for \(p\ge6724\). The supplied deterministic program exhaustively examines all 427 relevant smaller primes; its independent quartic-power-label check confirms the finite classification and two sharp thresholds. The program's finite loop is not treated as an infinite proof.
+
+**Originality — PASS, with residual risk.** Bierstedt–Mills and Jordan establish two-consecutive and same-coset results, while Dietzel proves existence of short pairs; none of their inspected statements implies the complete 64-word three-consecutive classification. Su–Zhang consider distinct inverse-related quartic configurations. Related cubic triples involve the index-three subgroup and do not force any index-four result. The Lehmer 1983 paper was identified, but full text was unavailable; its abstracts describe least-pattern delays rather than these exact global prime thresholds. Search nonmatches are not presented as proof of novelty; a stronger unindexed result remains possible.
+
+**Value — PASS.** All four quartic-power cosets are natural arithmetic classes. Their full three-term correlation gives a complete, nontrivial 64-word existence problem, a 38-prime exception census, and two genuinely distinct sharp universal cutoffs (733 for nonzero words, 1181 for all words). The numerical cutoffs have an intrinsic first-universal-prime meaning and are not arbitrary sample endpoints. The argument combines a uniform analytic guarantee with a complete finite certificate.
+
+Self-review: passed. Independent audit: not yet performed.
