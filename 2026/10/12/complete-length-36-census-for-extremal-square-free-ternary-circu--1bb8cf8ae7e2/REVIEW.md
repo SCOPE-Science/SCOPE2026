@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exhaustive prefix generation gives all ternary square-free words through length \(37\). Direct cyclic testing leaves \(16416\) circular-square-free linear representatives at length \(36\) and \(18870\) at length \(37\). Two independent extremality tests agree on exactly \(540\) length-\(36\) linear representatives. Primitivity gives \(36\) rotations per circular class, hence \(15\) classes, and exhaustive symmetry reduction gives orbit sizes \(6,6,3\).
+## correctness
 
-## Originality
-PASS. The primary source proves the exact attainable length spectrum and uses finite computer search to find witnesses for admissible small lengths, but does not state the number of length-\(36\) equality cases or their symmetry decomposition. Searches under equivalent circular-word, last-sporadic, equality-case, exact-length, and exact-representative formulations located no covering result.
+PASS
 
-A residual risk is unpublished source-author search output or an unindexed auxiliary dataset containing the same complete boundary level.
+Prefix extension exhausts ternary linear square-free words, because adding a letter can only introduce a suffix square. Independent implementation gives 168546 at n=36,219516 at n=37. Testing every cyclic start and every half-length h with 2h<=n in ww gives 16416 and 18870 circular-square-free representatives; checking all 36*3 insertions for each n36 circular candidate against the exhaustive n37 set yields 540 extremal linear representatives. Each is primitive, hence exactly 540/36=15 circular rotation classes. Complete S_3 letter permutations and reversal action gives exactly 3 symmetry orbits of sizes 3,6,6 and reproduces three stated representatives. No extrapolation beyond n36.
 
-## Value
-PASS. Length \(36\) is the final sporadic attainable length in the published spectrum, directly before excluded length \(37\) and the eventual interval beginning at \(38\). Classifying every equality case at this sharp transition is a natural boundary result rather than an arbitrary finite census.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Mol–Rampersad 2020/2021 Theorem 1.3 identifies length 36 as the last sporadic existence length and 37 as absent; their proof describes finding an extremal witness for each finite relevant length by computer search, not the complete 15-class equality census and dihedral/alphabet symmetry orbits. The strict difference between existence and complete enumeration is verified at the primary theorem/proof, not guessed from the title. No indexed same 36 exact census found; unpublished original search output remains a risk.
+
+## value
+
+PASS
+
+Length 36 is mathematically singled out by the published sharp existence spectrum as the final isolated attainable length before the forbidden 37 and all lengths >=38. Classifying EVERY extremal object at this natural boundary into 15 rotation classes and 3 symmetry types supplies complete combinatorial information not obtainable from an existence witness; finite scope is intrinsically justified by the boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

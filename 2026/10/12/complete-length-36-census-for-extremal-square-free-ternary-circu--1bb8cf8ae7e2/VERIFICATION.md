@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Compile and run `verify.cpp` beside `certificate.json`:
+# Independent mathematical audit
 
-`c++ -O3 -std=c++17 verify.cpp -o verify && ./verify`
+## correctness
 
-The verifier reconstructs every ternary square-free linear word through length \(37\) by exact suffix-square tests. It independently checks circular square-freeness at lengths \(36\) and \(37\).
+PASS
 
-Extremality at length \(36\) is then tested twice. Engine A asks whether any insertion belongs to the completely enumerated length-\(37\) circular-square-free language. Engine B directly tests every one-letter insertion for circular square-freeness. The two exact sets must coincide.
+Prefix extension exhausts ternary linear square-free words, because adding a letter can only introduce a suffix square. Independent implementation gives 168546 at n=36,219516 at n=37. Testing every cyclic start and every half-length h with 2h<=n in ww gives 16416 and 18870 circular-square-free representatives; checking all 36*3 insertions for each n36 circular candidate against the exhaustive n37 set yields 540 extremal linear representatives. Each is primitive, hence exactly 540/36=15 circular rotation classes. Complete S_3 letter permutations and reversal action gives exactly 3 symmetry orbits of sizes 3,6,6 and reproduces three stated representatives. No extrapolation beyond n36.
 
-Finally the verifier canonicalizes rotations, confirms \(15\) circular classes, and recomputes the action of all six alphabet permutations together with reversal, obtaining three orbits of sizes \(6,6,3\).
+## originality
 
-The computation is finite and exhaustive. It proves only the length-\(36\) equality classification stated here. Independent audit has not been performed.
+PASS
+
+Mol–Rampersad 2020/2021 Theorem 1.3 identifies length 36 as the last sporadic existence length and 37 as absent; their proof describes finding an extremal witness for each finite relevant length by computer search, not the complete 15-class equality census and dihedral/alphabet symmetry orbits. The strict difference between existence and complete enumeration is verified at the primary theorem/proof, not guessed from the title. No indexed same 36 exact census found; unpublished original search output remains a risk.
+
+## value
+
+PASS
+
+Length 36 is mathematically singled out by the published sharp existence spectrum as the final isolated attainable length before the forbidden 37 and all lengths >=38. Classifying EVERY extremal object at this natural boundary into 15 rotation classes and 3 symmetry types supplies complete combinatorial information not obtainable from an existence witness; finite scope is intrinsically justified by the boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
