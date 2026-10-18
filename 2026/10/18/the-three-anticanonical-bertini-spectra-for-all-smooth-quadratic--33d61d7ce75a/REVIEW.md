@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** Exhaustive quadratic coefficient enumeration, the exact polar radical criterion, five stabilizer orbits of a fixed smooth quadric, and 31 exact Jacobian/Gröbner tests on each representative establish the complete three-profile classification. The point-incidence sums equal \(7\cdot15=105\) for each surface, and the smoothness and rational-line certificates independently validate representative geometry. The published half-discriminant criterion supplies the critical regularity implication. Reproductions of the packaged C++ and Python code agree on all claimed tables.
+
+**Originality — PASS with priority risk.** The classification of regular characteristic-two quadratic pencils and their three geometric/arithmetic types is not new: Dolgachev--Duncan's theorems cover the underlying pencils. The novel claim here is specifically the refined smooth anticanonical hyperplane-section point-count spectrum with exact frequencies. The inspected primary manuscripts of Asgarli--Ghioca and Dolgachev--Duncan, and Bergvall's anticanonical-section analysis, do not state those exact distributions. Actual searches also sought stronger, equivalent and table-like formulations. An unindexed existing exact census or an arithmetic table remains a residual priority risk; a lack of search hits is not proof of absolute uniqueness.
+
+**Value — PASS.** The complete finite-field Bertini spectrum is a natural incidence invariant of the anticanonical embedding, encoding elliptic section arithmetic, not just the already-known isomorphism classes of surfaces. Especially, two degree-four del Pezzo types with the same seven rational surface points and the same half-discriminant factorization support disjoint rational-point ranges on their smooth genus-one sections. The 12/15/9 section counts are a reproducible finite-field boundary case of a substantive Bertini question.
+
+**Limitations.** No claim is made for larger base fields, for the types of singularities of excluded hyperplanes, or for any independent external verification. Existing general pencil classification is acknowledged, not republished as new.
+
+Self-review: passed. Independent audit: not yet performed.
