@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For all \\(k\\geq1\\), direct greedy embedding gives \\(P=m+a+E\\). The local deletion cost table is reconstructed algebraically, making \\(P=2k+1\\), \\(P=2k+2\\) and the exact run restrictions necessary and sufficient. Four disjoint run-composition counts agree with two applications of Pascal, proving the all-length formula without reliance on finite tests. The rational generating function and asymptotic recurrence were checked algebraically. Standalone direct finite-word exhaustive matcher corroborates \\(1\\leq k\\leq12\\) (not used as an infinite proof).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kosche et al. Proposition 3.6 proves an exponential-vs-polynomial contrast for repeated permutations under an even alphabet of size at least four, not for binary nor with exact length multiplicities.",
+        "Manea et al. (2025) gives output-optimal enumeration algorithms and longest-MAS extraction for arbitrary input words."
+      ],
+      "reasoning": "Arbitrary-input algorithmic computability subsumes evaluation at fixed k algorithmically, but neither paper supplies the asserted symbolic binomial identity, sharp binary length support and asymptotic growth. General algorithms are not equivalent claims of an explicit formula.",
+      "searches": [
+        "published-finding corpus: number minimal absent subsequences of repeated permutation words (12)^k",
+        "published-finding corpus: Exact length profile minimal absent subsequences MAS (01)^k alternating binary word, binomial(k-j+3,2j-1) recurrence 2a(n-1)-a(n-2)+a(n-3)",
+        "primary arXiv:2108.13968 Section 3 Proposition 3.6",
+        "primary arXiv:2504.21471 Sections 1-3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.13968 Section 3",
+      "arXiv:2407.18599 Section 4 Theorem 2",
+      "arXiv:2504.21471 Sections 1-3",
+      "Published published-finding corpus semantic searches listed in the checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2021: MAS/SAS definitions and a sigma>=4 non-sharp exponential-separation construction; its assumptions exclude binary and it has no exact layer counts.",
+        "2024: worst-case counts of all absent subsequences at each length, not minimal forbidden subsequences, and the extremal alternating-reversal arches differ from (01)^k.",
+        "2025: generic algorithms for MAS enumeration/longest elements, without a formula for this family in the inspected material.",
+        "General global upper bounds for SAS counts, even if sharp, do not give the distribution of longer minimal absent subsequences."
+      ],
+      "reasoning": "Minimal absent words of length greater than the shortest layer are not measured by SAS bounds; full absent-subsequence counts are not a determination of their deletion-minimal subset. The result is not a corollary of these papers without further novel run-deletion analysis.",
+      "searches": [
+        "primary arXiv:2108.13968 Section 3 Propositions 3.6-3.9",
+        "primary arXiv:2407.18599 Theorem 2",
+        "primary arXiv:2504.21471 Sections 1-3",
+        "published-finding corpus: Kosche Koß Manea Siemer 2021 Absent Subsequences in Words minimal absent subsequences alternating binary repeated permutation Bk"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kosche et al. (2021), arXiv:2108.13968, Sections 2-3 define MAS and characterize SAS.",
+        "The nearest retrieved published-finding corpus item concerns string-attractor complexity, which is a different invariant from MAS."
+      ],
+      "reasoning": "Equivalent interpretations as subsequence-minimal forbidden binary words or minimal missing scattered patterns were checked. The closed (k,j) binomial profile and its all-length interpretation were not found; generic language recognition and counting algorithms do not give this profile.",
+      "searches": [
+        "published-finding corpus: minimal absent subsequences of alternating binary words (01)^k: exact length distribution, binomial sum, exponential growth",
+        "published-finding corpus: binary universal word (01)^k minimal absent subsequences combinatorics versus shortest absent subsequences",
+        "web: \"minimal absent subsequences\" \"binary\" \"alternating\" enumeration counts"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No domain-matching exact MAS table or formula returned by the stated searches. An identical integer recurrence in an unrelated database entry would not establish the interpretation as a binary MAS spectrum.",
+        "The first twelve totals were computed independently by finite-word direct enumeration."
+      ],
+      "reasoning": "Potential coincidences in numerical sequence databases were separated from actual statement/implication coverage. The claimed theorem contains a two-variable distribution, not merely initial terms or a recurrence; no covering table with the defined invariant was located.",
+      "searches": [
+        "web: \"minimal absent subsequences\" \"binary\" \"alternating\" enumeration counts",
+        "web: \"minimal absent subsequences\" \"repeated permutation\" binary enumeration",
+        "web: \"minimal absent subsequences\" \"run lengths\" repeated 01",
+        "web: \"minimal absent subsequences\" \"3, 5, 9, 16, 28\"",
+        "web: \"minimal absent subsequences\" \"binomial\" \"alternating\"",
+        "published-finding corpus: Exact length profile minimal absent subsequences MAS (01)^k alternating binary word, binomial(k-j+3,2j-1) recurrence 2a(n-1)-a(n-2)+a(n-3)"
+      ]
+    },
+    "rationale": "The exact MAS length profile for \\((01)^k\\) is not stated or implied by the inspected Section 3 of Kosche et al.: their repeated-permutation exponential construction assumes an even alphabet with at least four letters. Adamson et al. count all present/absent subsequences, not minimal absent boundary elements, and Manea et al. provide algorithms without this closed profile. Actual published-finding corpus and web searches found no covering result. Unindexed equivalence is a residual risk, not evidence of unique priority.",
+    "residual_risks": [
+      "An unindexed historical formula for repeated binary permutation words could still cover this invariant; no universal novelty guarantee is possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Most relevant paper; establishes general MAS framework and sigma>=4 construction, not exact binary all-length profile.",
+        "evidence": [
+          "ArXiv PDF Section 3 Proposition 3.6 assumes even alphabet sigma>=4 and counts a MAS subfamily, pp.205-208.",
+          "Section 3 Proposition 3.7 concerns alternating reversed arches, distinct from repeated ascending blocks."
+        ],
+        "identifier_or_url": "arXiv:2108.13968 / https://arxiv.org/pdf/2108.13968",
+        "material_read": "Introduction and Sections 2-3 including definitions, Theorem 3.1 and Propositions 3.6-3.14; beginning of Section 4 reviewed for context.",
+        "method": "Opened lawful arXiv PDF, inspected material section text and visual page 7.",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Same minimal absent scattered-subsequence invariant and repeated permutation powers."
+      },
+      {
+        "assessment": "Not covering: minimizes present-subsequence counts, hence maximizes arbitrary absent-subsequence counts, with no classification of deletion-minimal absent words for \\((01)^k\\).",
+        "evidence": [
+          "Theorem 2, pp.13-14, is about |SubSeq_l(w)| for arch-alternating words."
+        ],
+        "identifier_or_url": "arXiv:2407.18599 / https://arxiv.org/pdf/2407.18599",
+        "material_read": "Abstract, introduction, Section 4 including Lemmas 10-12, Theorem 2 and the following comparison table; visual page 13.",
+        "method": "Opened lawful arXiv PDF, read theorem/argument and visually inspected representative page.",
+        "title": "Tight Bounds for the Number of Absent Subsequences",
+        "trigger": "Plausible stronger all-length absent-subsequence count theorem."
+      },
+      {
+        "assessment": "Not covering: general-purpose enumeration methods and longest-MAS algorithm, no explicit binomial length spectrum for the binary repeated permutation in inspected material.",
+        "evidence": [
+          "Abstract and Sections 1-3: algorithms for arbitrary words and general MAS characterization."
+        ],
+        "identifier_or_url": "arXiv:2504.21471 / https://arxiv.org/pdf/2504.21471",
+        "material_read": "Abstract, Introduction, Definitions and Theorem 3 with supporting preliminaries, plus algorithms overview; visual page 5.",
+        "method": "Opened lawful arXiv PDF and read relevant theorem and algorithm portions.",
+        "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+        "trigger": "Potential later enumeration and longest-element theorem, after the qualifying source date."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3230a78b-84b4-45f8-8958-7bb62aba6c62",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The canonical binary k-universal repeated permutation family is mathematically motivated by 2021 MAS literature. Its exact all-length deletion-minimal forbidden basis is a natural infinite-family invariant, with sharp longest length and a binary exponential-vs-linear MAS/SAS separation. It is more than a renamed special case of a known SAS formula or a brute-force count.",
+    "status": "PASS"
+  }
+}
