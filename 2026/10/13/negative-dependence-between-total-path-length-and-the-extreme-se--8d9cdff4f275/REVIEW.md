@@ -1,15 +1,21 @@
-# Scientific assessment of the extreme-search/path-length covariance
+# Independent mathematical audit
 
-## Correctness: PASS
-The root-rank coupling matches the uniform insertion model. Conditional independence of the left and right subtrees gives the total-covariance recurrence. Three explicitly stated finite harmonic identities give the mixed root term; solving the scalar recurrence gives \(\operatorname{Cov}(P_n,R_n)=3n+H_n-2(n+1)H_n^{(2)}\). Discrete convexity of the expected total path length and concavity of the harmonic means make the conditional root covariance strictly negative for each \(n\geq3\). Independent exact enumeration and recurrence checks support the calculations but are not substituted for the proof. Marginal variances give the stated correlation limit. The theorem is restricted to uniformly grown ordinary binary search trees.
+## correctness
 
-## Originality: PASS, with residual historical risk
-The inspected weighted-depth BST paper treats label-weighted costs of designated keys and trees, not the unweighted mixed covariance; the Quicksort paper treats marginal path-length expectation and variance; the inspected search-tree limit paper treats path-length limits; the inspected multiway-tree dependence paper couples total path length to space requirements; the inspected record-biased-permutation paper treats records, inversions and other algorithms; the inspected record-biased-tree paper treats height and rightmost-path growth. None of these inspected statements gives the full mixed finite covariance or the exact strict sign. The general record-biased weighting could nevertheless yield this covariance by differentiation if an unpublished or older formula for its weighted total path length exists. Specialized classical generating-function treatments and books not exhaustively read remain potential sources of implicit coverage. No blanket claim of worldwide uniqueness follows from these comparisons.
+PASS
 
-## Value: PASS
-Total internal path length measures the aggregate cost of constructing and searching a search tree, whereas searching for its largest key follows just one extreme spine. Their covariance has a counterintuitive uniform negative sign, a closed finite expression, linear asymptotic size, and vanishing Pearson correlation. The opposing behavior of balanced versus extreme root splits provides an explanatory structural mechanism. The exact answer resolves a natural joint-cost question that the two separate marginal laws and their variances leave undecided.
+For uniform permutation insertion BST, P_n is internal path length and R_n rightmost spine node count = strict upper records, with empty-subtree P_0=R_0=0. Conditioning on uniform right subtree size J yields P_n=n−1+P_J^r+P_{n−1−J}^l and R_n=1+R_J^r; conditional independence gives covariance recurrence K_n=(Σ_{j<n}K_j)/n+g_n. The manuscript derives exact g_n=(n+1)(3/2−H_n^(2))−H_n/n from a harmonic convolution and weighted-square identity, hence K_n=3n+H_n−2(n+1)H_n^(2). Reflection/strict convexity of subtree mean path length and concavity of averaged record means show g_n<0 for n≥3 (zero n1,n2). Harmonic expansions and the classical independent record/Quicksort variances yield correlation ~−0.4471358767/sqrt(log n). Independently computed exact rational recurrence n≤50 and built 5913 BSTs over all permutations n≤7, obtaining identical covariances. The result is only for successful maximum search, not arbitrary selected key.
 
-## Boundaries and closest literature
-The result does not treat rebalanced trees, nonuniform insertion, a randomly selected search key, or joint independence. Relevant comparisons: arXiv:1006.4063 (marginal Quicksort variance); arXiv:1209.2546 (path-length strong limits); arXiv:1501.05135 (multiway path length versus space); arXiv:1605.02905 (record-biased permutations); Corsini DOI 10.1002/rsa.21110 (rightmost paths and height); Aguech–Amri–Sulzbach DOI 10.1007/s10959-017-0773-1 (weighted depths). The historical priority assessment is literature-limited and has not received an external independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Quicksort means/variances and BST right-spine record identity supply the marginals, not their cross covariance. Grübel treats normalized internal path length and its strong limits; Corsini studies height of record-biased trees; selected-node weighted-depth literature is not this unweighted mixed covariance. Related Resultary squared root-split imbalance and recursive-tree root-degree covariance are different pairs of functionals. The exact n-dependence and strict sign were not found in inspected materials; residual possibility of earlier record-weighted mixed-moment formula.
+
+## value
+
+PASS
+
+Two natural cost metrics of the same insertion order are often presumed positively linked. Exact strict negative finite-n dependence and asymptotically vanishing negative correlation expose a structural tradeoff and quantify the joint fluctuations for maximum-key searches versus total construction comparisons. The mixed covariance is a useful stand-alone algorithmic statistic even without a full joint law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
