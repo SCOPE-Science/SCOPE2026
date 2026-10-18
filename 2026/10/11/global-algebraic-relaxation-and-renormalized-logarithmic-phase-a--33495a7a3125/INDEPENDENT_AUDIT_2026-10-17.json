@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T12:51:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Recomputed the nonproper but positive Lyapunov function H_mu and verified dH/dt=-exp(-2 mu y)x^4 by independent SymPy differentiation. To obtain global boundedness, the proof separately uses finite one-sided excursion integrals (cubic drift) to bound y and then inward x drift; invoking Lyapunov properness alone would be false. LaSalle forces convergence to zero. Independently integrated the polar perturbation jets, obtaining return-radius coefficient -3pi/4 and physical period coefficient pi*mu^2/3. Reciprocal squared section radii grow (3pi/2)n+O(sqrt n), so the O(n^-3/2) errors are summable and summing the physical period yields the exact log phase (2mu^2/9), not just a leading-order frequency. Within-turn differences vanish because rho_n tends to zero. mu=0 follows by smooth specialization and its Euclidean energy.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo study treats whole qualitative phase portrait in the family; source has no inspected universal t*r^2/log-phase limit.",
+          "The 2021/2022 monomial family local period-constant result covers part of the jet but does not prove all-orbit asymptotics."
+        ],
+        "reasoning": "Broader parameter statements about absence of cycles do not dominate exact critical-boundary asymptotics; conversely this finding does not claim the broader qualitative phase portrait.",
+        "searches": [
+          "global cubic Liénard focus algebraic decay physical time all initial conditions",
+          "Guo Global Analysis of a Liénard System with Quadratic Damping 2018",
+          "Oliveira Sánchez-Sánchez Torregrosa critical periods cubic Liénard"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.15803",
+        "DOI:10.1155/2018/1249620",
+        "DOI:10.1007/s12346-021-00546-x",
+        "cubic Liénard weak focus x'=y-mu x^2-x^3 y'=-x all global orbits amplitude asymptotic t r^2 4/3 logarithmic phase period constant"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary no-cycle corollary eliminates periodic solutions but does not fix physical-time rates.",
+          "The source proof needs a new globally valid Lyapunov dissipation and a nontrivial summable physical-time return expansion."
+        ],
+        "reasoning": "Qualitative absence of cycles does not imply a universal asymptotic amplitude coefficient or finite phase after subtracting logarithmic drift. Neither assertion is a corollary of earlier isolated local coefficients without global uniform orbit control.",
+        "searches": [
+          "arXiv:2210.15803 corollary 7.4 cubic Lienard periodic solutions",
+          "2018 Guo Lienard quadratic damping Lyapunov global center focus"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gasull–Giacomini Corollary 7.4 provides cycle exclusion; Guo (2018) provides a qualitative phase portrait; neither supplies the universal limit of t*r^2 and finite renormalized angular offset.",
+          "Independent comparison of local one-turn coefficients -3pi/4 and pi*mu^2/3 makes a possible averaging/normal-form alias explicit."
+        ],
+        "reasoning": "The same polynomial oscillator can be written as a cubic Liénard equation; qualitative stability and formal local focus constants do not imply a global physical-time finite renormalized phase without boundedness, global convergence and summable return-time error.",
+        "searches": [
+          "cubic Liénard weak focus x'=y-mu x^2-x^3 y'=-x all global orbits amplitude asymptotic t r^2 4/3 logarithmic phase period constant",
+          "cubic Liénard weak focus asymptotic phase local period constants Guo 2018 Oliveira Torregrosa 2022",
+          "arXiv:2210.15803"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The object is a continuum of real mu and all nontrivial initial conditions, rather than a finite enumeration table.",
+          "The only exact constants identified previously are local focal and period jets, not the two asserted asymptotic limits."
+        ],
+        "reasoning": "No exact database/table entry with the combined infinity-time statement was identified; finite phase-portrait plots and local jets are not substitutes for the theorem.",
+        "searches": [
+          "cubic Liénard weak focus x'=y-mu x^2-x^3 y'=-x all global orbits amplitude asymptotic t r^2 4/3 logarithmic phase period constant",
+          "cubic Lienard logarithmic phase correction 2 mu^2/9 exact table"
+        ]
+      },
+      "rationale": "Prior qualitative global portraits and no-cycle results for the same cubic Liénard family do not establish the combined physical-time amplitude and finite renormalized-phase theorem. Earlier local focus and period constants are explicitly credited; originality concerns their rigorous global orbit-to-origin application, summable error control and full-time limit for arbitrary initial data.",
+      "residual_risks": [
+        "An older averaging/normal-form proof of the same full-time asymptotics may be unindexed.",
+        "The angular finite offset depends on initial data and choice of lift; no uniformity for unbounded mu or initial states."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers global qualitative phase portrait; no identified exact full-time t*r^2 or log-phase limit",
+          "evidence": "Qualitative flow classification does not state the pair of physical-time asymptotics.",
+          "identifier_or_url": "F. Guo (2018), DOI:10.1155/2018/1249620",
+          "material_read": "Accessible primary HTML of model and qualitative global phase-portrait conclusions",
+          "method": "Lawful open-access full-text HTML inspection",
+          "title": "Global Analysis of a Liénard System with Quadratic Damping",
+          "trigger": "Exact quadratic-damping cubic Liénard family; plausible global stronger theorem"
+        },
+        {
+          "assessment": "Relevant cycle exclusion, not an equivalent quantitative theorem",
+          "evidence": "Absence of periodic orbits does not specify t*r^2 or renormalized angular phase.",
+          "identifier_or_url": "arXiv:2210.15803; DOI:10.1007/s12346-023-00746-7",
+          "material_read": "Corollary 7.4 statement and relevant description of the cubic family",
+          "method": "arXiv/open-access source-level statement inspection",
+          "title": "Number of Limit Cycles for Planar Systems with Invariant Algebraic Curves",
+          "trigger": "Same polynomial Liénard family and no-cycle corollary"
+        },
+        {
+          "assessment": "Prior local-jet coverage explicitly excluded from novelty",
+          "evidence": "Local period coefficients predate this finding; summable global full-time limits are additional.",
+          "identifier_or_url": "DOI:10.1007/s12346-021-00546-x",
+          "material_read": "Theorem 11/period-constant identification from primary bibliographic/source discussion; not claimed full entire paper read",
+          "method": "Lawful primary-source and mathematical reference comparison",
+          "title": "Simultaneous Bifurcation of Limit Cycles and Critical Periods",
+          "trigger": "Overlapping local period and focus coefficients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The critical zero-linear-damping weak focus is a canonical degenerate oscillator; precise algebraic relaxation and finite logarithmically renormalized phase provide sharp dynamical invariants directly in physical time. The global-uniform orbit statement is not a trivial local normal-form coefficient or a renamed no-cycle corollary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No nonzero linear damping or generic perturbations.",
+    "Phase offset is coordinate/lift dependent; the logarithmic coefficient is for original normalization."
+  ],
+  "schema_version": 1
+}
