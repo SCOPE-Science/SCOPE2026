@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact claim is for all integers \(2\le m\le n\), with a uniform starting colour and the least stable round as the depth convention. The proof reconstructs the truncated exponential walk moments through a first-exit decomposition on the two path axes. A formal logarithm isolates the four side-distance contributions with leading degree \(a+1\); the complete short-side-pair uniqueness proof then yields both coordinates. The rooted-universal-cover witnesses establish the two lower bounds. Exact independent moment and refinement calculations agree for 539 grids, but these finite tests do not constitute the infinite proof; the formal coefficient and combinatorial arguments do.
+PASS
 
-## Originality — PASS
+Reconstructed the formal exponential walk generating function product Q_m,i Q_n,j, first-exit expansion log Q=2z+F_i+F_{m-1-i} through order m, and extraction of the multiplicities of four side distances by successive nonzero leading coefficients. The complement-to-(m-1) constraint distinguishes the short-side pair in non-squares. After dividing away its Q factor the long-side nearest distance is determined. Orbit equality and stable upper bound follow. Rooted walk-tree lower bounds distinguish adjacent near-central long coordinate and the (1,0)/(0,1) short/long-direction pair. The stabilization convention correctly counts initial uniform round 0. Independently implemented 1-WL and orbit classification on 165 rectangular grids (2<=m<=12, n<=21), all exact depths and orbit partitions matched. Prior package checker supports 539 cases, but neither finite test is an infinite proof. Boundary m=2 and square m=2 both checked.
 
-Primary source comparison: Kersting et al. (2014) provide a grid1000 computational benchmark and walk-based treatment, not an all-parameter exact grid depth; Krebs–Verbitsky (2014/2015) give general cover-depth and lower-bound results; Arvind et al. (2015) analyze graph-class recognition, not exact grid rounds; Kiefer–McKay (2020) give worst-case iteration bounds, not this family-specific equality. Record-index searches under exact grid, Cartesian paths, colour refinement, 1-WL, walk moments, and universal-cover equivalents yielded no directly matching exact formula. The previously known lower bound for a single anisotropic vertex pair does not determine the global stabilization round, square formula, orbit partition, or matching upper bound. An unindexed equivalent result remains possible and is explicitly a residual literature risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result completely determines the exact iteration depth and stable orbit geometry for all two-dimensional rectangular grid graphs, including the discontinuity between \(m=n\) and \(n=m+1\). This is a natural refinement/counted-logic local-distinguishability question for basic product graphs; no arbitrary finite slice or unsupported downstream application is needed for its value.
+Best-of-knowledge new all-parameter two-path-product depth and exact geometric orbit partition, not merely a generic color-refinement iteration bound. The empirical 1000-grid iteration statistic in Kersting et al. differs from this exact stabilized uniform 1-WL family formula; general universal-cover and extremal iteration theorems do not imply exact rectangular and square formulas.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Natural infinite family of core graph products: determining exact distinguishing radius/1-WL stabilization and when stable classes equal automorphism orbits gives a complete structural answer and a sharp square-to-immediately-nonsquare jump, not an arbitrary computational slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

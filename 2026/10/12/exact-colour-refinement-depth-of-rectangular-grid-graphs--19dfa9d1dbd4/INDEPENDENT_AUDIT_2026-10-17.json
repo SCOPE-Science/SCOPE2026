@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T06:55:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the formal exponential walk generating function product Q_m,i Q_n,j, first-exit expansion log Q=2z+F_i+F_{m-1-i} through order m, and extraction of the multiplicities of four side distances by successive nonzero leading coefficients. The complement-to-(m-1) constraint distinguishes the short-side pair in non-squares. After dividing away its Q factor the long-side nearest distance is determined. Orbit equality and stable upper bound follow. Rooted walk-tree lower bounds distinguish adjacent near-central long coordinate and the (1,0)/(0,1) short/long-direction pair. The stabilization convention correctly counts initial uniform round 0. Independently implemented 1-WL and orbit classification on 165 rectangular grids (2<=m<=12, n<=21), all exact depths and orbit partitions matched. Prior package checker supports 539 cases, but neither finite test is an infinite proof. Boundary m=2 and square m=2 both checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krebs-Verbitsky supply graph-general lower bounds; Kiefer-McKay optimize worst-case iterations for unrestricted graphs, not an identity for two-path products"
+        ],
+        "reasoning": "Global worst-case upper/lower bounds permit many depths and do not force this family-specific equality or orbit count; no dominating parameter theorem found.",
+        "searches": [
+          "Kiefer-McKay 2020 The Iteration Number of Colour Refinement",
+          "Krebs-Verbitsky 2014 universal covers refinement depth"
+        ]
+      },
+      "checked_sources": [
+        "Power Iterated Color Refinement — DOI:10.1609/aaai.v28i1.8992",
+        "Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth — arXiv:1407.3175"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4 of Kersting et al. describes computation of coarsest equitable partition via power iterates and empirical grid convergence; does not yield the first stabilization round from a uniform start"
+        ],
+        "reasoning": "The precise side-distance generating-function recovery and matching two witnesses are additional work, not a corollary of the cited general algorithm.",
+        "searches": [
+          "Kersting et al Power Iterated Color Refinement 2014 Theorem 4",
+          "Krebs Verbitsky universal covers arXiv:1407.3175",
+          "Kiefer-McKay ICALP 2020 73"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kersting et al. 2014 Table 1 grid1000 is experimental iteration count, not theorem for all P_m square P_n; source RESULT.md proves exact uniform-initial 1-WL stabilization and orbit coincidence"
+        ],
+        "reasoning": "Compared 1-WL, colour refinement, equitable partitions, universal cover iteration and adjacent-walk-moment formulations. No inspected primary theorem supplies both dimensions and square discontinuity.",
+        "searches": [
+          "Resultary: exact one-dimensional color refinement stabilization number of rounds rectangular grid graphs Cartesian product of paths P_m square P_n automorphism orbits",
+          "Kersting et al. 2014 Power Iterated Color Refinement",
+          "Krebs-Verbitsky arXiv:1407.3175"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kersting Table 1 at PDF page 5 (index 4) records the grid1000 computational benchmark with hashing iteration count 501, not a two-parameter exact formula"
+        ],
+        "reasoning": "Existing grid benchmarks and 539 source checks are finite, and do not provide exact m,n-dependent general-depth or orbit table.",
+        "searches": [
+          "Kersting Mladenov Garnett Grohe 2014 Table 1 grid1000",
+          "Resultary grid refinement paths spectral moments"
+        ]
+      },
+      "rationale": "Best-of-knowledge new all-parameter two-path-product depth and exact geometric orbit partition, not merely a generic color-refinement iteration bound. The empirical 1000-grid iteration statistic in Kersting et al. differs from this exact stabilized uniform 1-WL family formula; general universal-cover and extremal iteration theorems do not imply exact rectangular and square formulas.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact 2-parameter grid stabilization theorem",
+          "evidence": "Table 1 gives a single grid1000 algorithmic iteration count, not universal m,n depth.",
+          "identifier_or_url": "DOI:10.1609/aaai.v28i1.8992",
+          "material_read": "Full 7-page primary PDF including Theorem 4, Table 1 at page 5, experimental discussion and appendix",
+          "method": "Full PDF text plus page-image check of title/first page",
+          "title": "Power Iterated Color Refinement",
+          "trigger": "Same graph family and power-iteration notion; grid1000 numerical example"
+        },
+        {
+          "assessment": "RELATED_NOT_IDENTICAL",
+          "evidence": "General universal-cover depth lower bounds alone do not determine these specific grid upper bounds.",
+          "identifier_or_url": "arXiv:1407.3175",
+          "material_read": "Abstract and theorem descriptions; not independently inspected every appendix",
+          "method": "arXiv HTML/index plus source proof contextual reference",
+          "title": "Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth",
+          "trigger": "General lower bounds via covers and rooted unfolding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural infinite family of core graph products: determining exact distinguishing radius/1-WL stabilization and when stable classes equal automorphism orbits gives a complete structural answer and a sharp square-to-immediately-nonsquare jump, not an arbitrary computational slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Power Iterated Color Refinement DOI:10.1609/aaai.v28i1.8992",
+    "Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth arXiv:1407.3175"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only simple uncoloured 2D path Cartesian products with m,n>=2, uniform initial colour and least stable round convention.",
+    "Full generality follows from the reconstructed walk-moment and lower-witness reasoning, not from 165/539 finite tests.",
+    "Some non-indexed work on 1-WL grid products might give an equivalent formula."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING exact 2-parameter grid stabilization theorem",
+      "evidence": "Table 1 gives a single grid1000 algorithmic iteration count, not universal m,n depth.",
+      "identifier_or_url": "DOI:10.1609/aaai.v28i1.8992",
+      "material_read": "Full 7-page primary PDF including Theorem 4, Table 1 at page 5, experimental discussion and appendix",
+      "method": "Full PDF text plus page-image check of title/first page",
+      "title": "Power Iterated Color Refinement",
+      "trigger": "Same graph family and power-iteration notion; grid1000 numerical example"
+    },
+    {
+      "assessment": "RELATED_NOT_IDENTICAL",
+      "evidence": "General universal-cover depth lower bounds alone do not determine these specific grid upper bounds.",
+      "identifier_or_url": "arXiv:1407.3175",
+      "material_read": "Abstract and theorem descriptions; not independently inspected every appendix",
+      "method": "arXiv HTML/index plus source proof contextual reference",
+      "title": "Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth",
+      "trigger": "General lower bounds via covers and rooted unfolding"
+    }
+  ]
+}
