@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** For the stated channel and all \(q\in[0,1]\), the adjoint effects are reconstructed from Kraus matrices. Positivity and marginals of explicit four- and eight-outcome parent POVMs are algebraic identities. For pairwise necessity, a norm witness bounds the orthogonal equatorial pair and rank-one \(Z\)-branch matrix determinants bound the other two. For triple necessity, a fourfold covariance averaging preserves all marginals and makes the rank-one branch uniform; filtering the positive complementary branch reduces the task to an equatorial pair with effective sharpness \(\sqrt{q/(1-q)}\), forcing \(q\le1/3\). The special case \(q=1\) is excluded by the sharp incompatible pair. All endpoints and limits are handled. The included symbolic verifier was run successfully. No unproved global optimization, numerical extrapolation, or claim about arbitrary POVM collections is made.
+## correctness
 
-**Originality — PASS, with residual uncertainty.** Focused searches of published findings and primary literature identified no matching quantitative nonunital Pauli-triad threshold. Heinosaari et al. establish a wider incompatibility-breaking framework but analyze white-noise channels and not this damping-specific three-observable criterion. Andrejic–Kunjwal establish general qubit Specker realizability and sufficient conditions for biased POVMs, not these exact damping thresholds. Kiukas et al. treat dephasing and pairs, while Kumari et al. study contextuality witnesses. A very recent zonoid characterization for dichotomic measurements may contain an equivalent implication; its complete text was not available for comparison, and the priority assessment is not independently certified.
+PASS
 
-**Value — PASS.** The exact pair/triple thresholds classify the complete parameter family of an experimentally standard nonunital channel and exhibit a finite time interval in which every pair is compatible while the full triple remains incompatible. The explicit joint POVMs make both boundaries operational and the reduction reveals the mechanism: the rank-one decay branch consumes probability mass while renormalizing transverse sharpness. This is a natural dynamical compatibility question, not an arbitrary finite instance or textbook substitution.
+Adjoint zero-temperature damping sends X,Y to sqrt(q) X,Y and Z to (1-q)I+qZ with C_- = q|1><1|, q in [0,1]. For XY, dual trace witness using eigmax(aX+bY)=sqrt2 forces sqrt(q)<=1/sqrt2; H_ab=[I+a sqrt(q)X+b sqrt(q)Y]/4 is positive iff q<=1/2. For XZ and YZ any lower Z branch splits rank-one qP so 2x2 determinant positivity implies t<=(1-q)/2 and t>=(3q-1)/2, forcing q<=1/2; explicit F_a,+=[Z_++a sqrt(q)X]/2 and F_a,-=qP/2 suffice. For triple, G_ab,+= [Z_++a sqrt(q)X+b sqrt(q)Y]/4, G_ab,-=qP/4, with nonnegative determinant iff q<=1/3. Necessity: average any hypothetical parent by pi/2 rotational covariance fixing Z, producing equal qP/4 lower branch, filter positive Z_+ for q<1, leaving unbiased XY pair with sharpness sqrt(q/(1-q)); trace witness forces q<=1/3. At q=1 original XY pair already impossible. All equality endpoints handled; conclusion only Pauli triad, not channel-wide incompatibility-breaking.
 
-The strongest residual limitation is possible overlapping general theory for biased dichotomic POVMs; the calculation does not characterize arbitrary measurement sets or channel-wide incompatibility-breaking thresholds.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full Heinosaari–Kiukas–Reitzner–Schultz paper covers incompatibility-breaking channels and white-noise, not the exact Pauli triad under nonunital damping; Kiukas–Lahti–Pellonpää examines related open-system/dephasing compatibility, not this exact three-versus-two threshold. Broad 2026 Chitambar–Zhang zonoid theorem is highly relevant but only abstract was accessible; no assertion it does not cover this specialization. Best knowledge no established exact q thresholds elsewhere, with meaningful residual priority risk.
+
+## value
+
+PASS
+
+Pairwise versus triplewise joint measurability is a physically motivated Specker nonclassicality test. The exact nonunital amplitude-damped thresholds identify a sharp, operationally realizable time window with all pairs compatible and triple incompatible, together with explicit parent POVMs and proof of impossibility; not a generic channel-wide claim or a tiny arbitrary constructed example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
