@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs \(\operatorname{Cr}_n\), computes all-pairs distances, and directly applies the ordered-pair solid-resolving criterion. For every \(3\le n\le9\), it enumerates every vertex subset, compares it with the complement classification, checks every coefficient of \(2z^n(1+z)^n-z^{2n}+nz^{2n-2}\), and verifies that the two bipartition classes are the only bases.
+# Independent mathematical audit
 
-Recorded output:
+## correctness
 
-```text
-VERIFY_OK
-parameters_n_checked = [3, 4, 5, 6, 7, 8, 9]
-subset_trials = 349504
-minimum_bases_checked = 14
-all solid-resolving sets matched the complement classification
-all coefficient distributions matched 2 z^n(1+z)^n-z^(2n)+n z^(2n-2)
-all solid-metric dimensions matched n
-all minimum bases were exactly the two bipartition classes
-```
+PASS
 
-The finite enumeration is corroborative only; the all-parameter theorem follows from the proof.
+For connected Cr_n=K_n,n−M, n>=3, same-shore distances are 2, off-matching cross distances 1, matched cross distances 3. For ordered pair (a_i,a_j), i≠j, precisely a_i,b_j have d(s,a_i)<d(s,a_j). Therefore S hits every {a_i,b_j}; omitted vertices T cannot contain a_i and b_j with i≠j. Every T must lie wholly in A or B, or in one matched pair P_i={a_i,b_i}. Conversely if all B are selected, witnesses from B strictly distinguish every ordered pair originating in the omitted A, using a third index for unmatched targets (n>=3); analogously if all A selected. For T=P_i, explicit other-index witnesses cover a_i,b_i against all other vertices. Thus characterization exact. Max |T|=n only for A or B, giving solid dimension n and two bases. Enumerating subsets T⊆A/B, subtract double-counted empty complement, add n full pairs gives F(z)=2z^n(1+z)^n−z^(2n)+nz^(2n−2). Independently all subsets and directed distance tests were evaluated for n=3..7, producing total set counts 18,35,68,133,262 and exactly two bases at size n. Infinite theorem follows from explicit witness proof, not finite inference.
+
+## originality
+
+PASS
+
+Best-of-knowledge exact all-set solid-metric family and polynomial for connected crown graphs; searched crown, matching-deleted complete bipartite, and bipartite double cover aliases. Prior metric/edge/strong results do not dominate directed solid resolution.
+
+## value
+
+PASS
+
+Solid metric dimension is a natural directional distance invariant, for which the crown graph is a canonical matched-edge-deletion family with three distance classes. An exact forced-pair obstruction, full enumeration and unique basis classes yield a reusable distance-separation model beyond a mere scalar known quantity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
