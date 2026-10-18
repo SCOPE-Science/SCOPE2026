@@ -1,0 +1,132 @@
+{
+  "claim_to_evidence": {
+    "computations": [
+      "verify.py: 7437 assertions, executed from the supplied source"
+    ],
+    "domain": "integer m>=3, path length ell>=1, positive B and t, freely varying nonnegative edge conductances with three price classes",
+    "steps": [
+      "strict inverse-trace convexity gives unrestricted uniqueness",
+      "clique eigenmode and cut-edge decomposition gives exact objective",
+      "KKT conditions give two support regimes and threshold",
+      "Riemann-sum beta integral gives ell^{-3/2} budget share"
+    ],
+    "unproved_limits": [
+      "not a theorem for arbitrary individual edge prices or other appended topologies",
+      "no independent audit",
+      "unindexed equivalent prior work not excluded"
+    ]
+  },
+  "correctness": {
+    "rationale": "The cut-edge identity yields \\(\\mathcal K=A/x+C/(x+(m-1)y)+\\sum_j c_j/z_j\\). Inverse-trace strict convexity and edge injection guarantee unrestricted uniqueness. KKT equations produce the mixed and deleted phases and check equality at t*. The beta-integral Riemann sum establishes the long-tail law. The packaged verify.py produced 7437 cross-checks including full independent edge-Laplacian construction and feasible perturbations; numerical evidence is supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi conference PDF pp. 1193–1194 explicitly reduces and solves the equal-price two-clique barbell.",
+        "Yang 2014 §2.2 considers maximal unweighted Kirchhoff index for a fixed clique number.",
+        "Bianchi et al. 2016 pp. 2351–2353 maximize a different degree-weighted invariant asymptotically."
+      ],
+      "reasoning": "None of the inspected full-text materials has a theorem encompassing the freely weighted priced clique with an arbitrary pendant path. General convex programming enables a method but does not, by itself, provide the exact claimed allocation or classification.",
+      "searches": [
+        "\"Minimizing Effective Resistance of a Graph\" 2006 barbell graph weights",
+        "\"Some Bounds for the Kirchhoff Index of Graphs\" Yang 2014 lollipop",
+        "\"Upper and Lower Bounds for the Mixed Degree-Kirchhoff Index\" lollipop"
+      ]
+    },
+    "checked_sources": [
+      "Ghosh, Boyd, Saberi, MTNS Kyoto 2006, public PDF, §V (barbell) and §§I,IV,VI–VII",
+      "Yang, 2014, DOI:10.1155/2014/794781, §2.2 lollipop clique bound",
+      "Bianchi et al., 2016, DOI:10.2298/FIL1609351B, §2 mixed-degree lollipop asymptotics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2006 barbell theorem has two dense cores and equal edge prices; it does not imply the variable-price single core/path threshold by specialization.",
+        "Yang 2014 maximizes an unweighted index across graphs; fixed graph weighted-budget minimization neither follows nor implies that extremum.",
+        "The search hit on pineapple graphs concerns Lin–Lu–Yau curvature distortion, not total electrical resistance."
+      ],
+      "reasoning": "Explicit hypotheses, objective, available variables, and implication directions differ. Prior convexity and resistance decomposition are reused openly; the boundary t* and asymptotic optimal-budget allocation require solving a distinct KKT system.",
+      "searches": [
+        "Ghosh Boyd Saberi 2006 minimizing effective resistance lollipop vs barbell",
+        "Kirchhoff index lollipop exact formula clique path 2014",
+        "weighted lollipop Kirchhoff index minimize clique path conductances edge prices critical inner-edge deletion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi 2006 uses minimization of N tr L^+ for conductance weights and §V treats symmetric two-clique barbells.",
+        "Yang 2014 §2.2 fixes unit edge weights and optimizes graph topology."
+      ],
+      "reasoning": "Checked the trace-inverse and pair-resistance equivalent formulations. The closest inverse-trace prior theory gives general convexity and numerical optimality criteria, not the symbolic piecewise threshold on this clique/path topology; unweighted graph extremality is a different quantifier order.",
+      "searches": [
+        "\"lollipop graph\" \"optimal\" \"Kirchhoff index\" \"conductance\"",
+        "lollipop graph one clique attached to pendant path trace inverse Laplacian optimal edge weights phase transition",
+        "DOI:10.1137/050645452"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-results search returned unrelated lollipop curvature distortion and other graph invariants, not an exact conductance-weight table.",
+        "Existing adjacent mathematical results concern wheels, two communities, matched complete graphs, and other different graph-design objectives."
+      ],
+      "reasoning": "No exact table for the clique/path weighted-minimum-resistance problem was found. Absence of a database match is only supporting negative evidence and cannot prove novelty.",
+      "searches": [
+        "weighted lollipop Kirchhoff index minimize clique path conductances edge prices critical inner-edge deletion",
+        "optimal total effective resistance graph barbell wheel tree numerical optimization exact edge weight allocation",
+        "lollipop graph conductance optimization internal clique price threshold"
+      ]
+    },
+    "rationale": "The full 2006 Ghosh–Boyd–Saberi barbell analysis, Yang 2014 unweighted clique/path extremality, and Bianchi et al. 2016 degree-weighted lollipop asymptotics address related but distinct claims. None of the inspected passages proves an exact heterogeneous-price lollipop conductance optimum and complete deletion threshold. The same formula could still have an unindexed equivalent elsewhere.",
+    "residual_risks": [
+      "An unindexed prior derivation or a non-obvious corollary in broader resource-allocation literature may give the same exact formula.",
+      "Finite bibliographic searching does not prove historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General inverse-trace convexity and exact symmetric barbell, not priced lollipop with a path",
+        "evidence": [
+          "Conference title page dates July 24–28, 2006.",
+          "§V minimizes resistance on two equal complete graphs joined by a bridge with exactly three types of edge weights and price one."
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Abstract, §I, related problems, §IV optimality, §V full barbell calculation, §VI examples, §VII extensions; page images including proceedings pp. 1193–1194",
+        "method": "Public 12-page conference full-text PDF and visual page inspection",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Foundational closest priced-conductance problem and explicit barbell optimization"
+      },
+      {
+        "assessment": "Topology extremality at fixed clique number, with unit conductances, not conductance allocation",
+        "evidence": [
+          "§2.2 defines a clique joined to a path as G_p and proves unweighted extremality."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2014/794781",
+        "material_read": "HTML full text: definitions; §2.2 lemmas, Theorems 7–8, proof and references",
+        "method": "Open-access article HTML full-text reading",
+        "title": "Some Bounds for the Kirchhoff Index of Graphs",
+        "trigger": "Natural lollipop topology and unweighted Kirchhoff index extremality"
+      },
+      {
+        "assessment": "Different degree-weighted objective on an unweighted lollipop; no continuous conductance design",
+        "evidence": [
+          "Definition uses degree ratios times pair resistance; §2 proves asymptotic graph-shape extremality."
+        ],
+        "identifier_or_url": "https://journal.pmf.ni.ac.rs/filomat/index.php/filomat/article/download/1354/1218",
+        "material_read": "Public 8-page PDF introduction and §2 lollipop asymptotic, pp. 2351–2353, visually checked p. 2353",
+        "method": "Open-access PDF text and page-image reading",
+        "title": "Upper and Lower Bounds for the Mixed Degree-Kirchhoff Index",
+        "trigger": "Named lollipop graph with an index built from resistances"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3e0a29f3-b447-4ce9-a2e4-e8b4b33273bb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The lollipop is a canonical dense-core/path bottleneck graph in resistance and commute-time theory. The all-size price threshold, forced edge deletion, exact independent-edge optimum, and \\(\\ell^{-3/2}\\) long-tail core share determine meaningful structural and asymptotic design behavior, not just numerical recomputation.",
+    "status": "PASS"
+  }
+}
