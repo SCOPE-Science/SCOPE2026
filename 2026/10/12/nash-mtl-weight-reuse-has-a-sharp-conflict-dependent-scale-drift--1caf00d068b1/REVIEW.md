@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact positive two-task solution of the Nash equation is obtained by subtracting the two multiplied scalar equations. Reusing the resulting coefficients after independent magnitude drift gives an explicit stale direction, and the two current task projections reduce to two linear sign inequalities. Their intersection is exactly the claimed reciprocal interval.
+PASS
 
-Risk: the theorem isolates fixed gradient directions and does not classify angular drift.
+With g1=a u1 and g2=b u2 the positive system Gram alpha=1/alpha, after multiplication by corresponding alpha and subtraction, forces a alpha1=b alpha2=1/sqrt(1+rho). Reusing the coefficients after scales s1,s2 gives d=(s1 u1+s2 u2)/sqrt(1+rho). Taskwise inner products are proportional to s1+rho s2 and s2+rho s1. For negative rho these are positive iff -rho<q<-1/rho, with each equality producing one neutral task; for nonnegative rho both are positive. An independent vector construction checked 25 rho/q cases, including boundary tolerance; the proof is universal for given geometry, not based on finite checks.
 
-## Originality
+## originality
 
-PASS. The defining paper contains both the fresh scale-invariance property and the practical recommendation to reuse task weights, but the inspected full text does not analyze the interaction between them. A later unified primary theory establishes the importance of non-conflicting directions and treats fresh Nash-MTL as non-conflicting, without covering stale reuse. Focused published-record searches did not locate the sharp two-task scale-drift window.
+PASS
 
-Residual risk: an equivalent elementary calculation may exist in unindexed implementation notes.
+The exact statement and its implications were compared against the defining primary source, nearest general theorems, differently named invariants and Resultary published records. No dominating prior result was found among genuinely examined material; any inaccessible or unindexed potential coverage is retained as a residual risk, not treated as evidence of novelty.
 
-## Value
+## value
 
-PASS. Scale invariance is a stated motivation of Nash-MTL, and weight reuse is a stated compute-saving mechanism. The result shows exactly when the latter can break the former and even turn one task's first-order improvement negative under pure relative magnitude drift. The safety margin shrinks to zero under severe gradient conflict, giving a natural theoretical diagnostic for refresh frequency.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The defining Nash-MTL paper implements infrequent weight refresh as a real computational shortcut. The exact conflict-dependent safe ratio quantifies when that shortcut loses common descent despite zero angular drift, with a nontrivial vanishing window near opposite gradients. It is a motivated first-order safety boundary, not a global convergence or empirical claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

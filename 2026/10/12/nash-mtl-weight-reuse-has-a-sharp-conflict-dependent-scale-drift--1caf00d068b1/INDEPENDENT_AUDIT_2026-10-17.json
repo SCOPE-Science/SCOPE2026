@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:48:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/nash-mtl-weight-reuse-has-a-sharp-conflict-dependent-scale-drift--1caf00d068b1/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/nash-mtl-weight-reuse-has-a-sharp-conflict-dependent-scale-drift--1caf00d068b1/VERIFICATION.md"
+      ],
+      "rationale": "With g1=a u1 and g2=b u2 the positive system Gram alpha=1/alpha, after multiplication by corresponding alpha and subtraction, forces a alpha1=b alpha2=1/sqrt(1+rho). Reusing the coefficients after scales s1,s2 gives d=(s1 u1+s2 u2)/sqrt(1+rho). Taskwise inner products are proportional to s1+rho s2 and s2+rho s1. For negative rho these are positive iff -rho<q<-1/rho, with each equality producing one neutral task; for nonnegative rho both are positive. An independent vector construction checked 25 rho/q cases, including boundary tolerance; the proof is universal for given geometry, not based on finite checks.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A general aggregator that recomputes weights guarantees common descent, not that reusing prior Nash multipliers is safe."
+        ],
+        "reasoning": "The broad theory motivates the sign inequalities but does not independently imply the exact reciprocal ratio interval without this two-gradient calculation.",
+        "searches": [
+          "arXiv:2605.30452 gradient aggregation non-conflicting",
+          "arXiv:2202.01017 Section 6.4"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2202.01017",
+        "https://arxiv.org/abs/2605.30452"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A new Gram after drift changes the solution even if prior weights were correctly solved for old Gram.",
+          "At rho<0 the two sign constraints yield both distinct thresholds."
+        ],
+        "reasoning": "Source independence of gradient scales assumes weight refresh; it cannot imply reused weights also preserve safety.",
+        "searches": [
+          "arXiv:2202.01017 equation G transpose G alpha inverse",
+          "arXiv:2605.30452 current Jacobian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fresh gradient scale invariance does not survive reusing coefficients when relative scales change.",
+          "Resultary query did not return identical Nash stale drift theorem in leading results."
+        ],
+        "reasoning": "Dual cone/nonconflicting direction describes equivalent sign property, but source fresh vs stale gradients must be distinguished.",
+        "searches": [
+          "Resultary: Nash MTL stale weights reuse scale drift common descent conflict two tasks",
+          "arXiv:2202.01017 Claim 3.1 and Section 6.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "q in (0.8,1.25) at rho=-0.8 is a specific evaluation of the universal theorem, not a known-table recomputation."
+        ],
+        "reasoning": "No prior exact table needed or found; boundary is motivated by source weight refresh practice.",
+        "searches": [
+          "Resultary: Nash-MTL reuse ratio 0.8 1.25",
+          "arXiv:2202.01017"
+        ]
+      },
+      "rationale": "The exact statement and its implications were compared against the defining primary source, nearest general theorems, differently named invariants and Resultary published records. No dominating prior result was found among genuinely examined material; any inaccessible or unindexed potential coverage is retained as a residual risk, not treated as evidence of novelty.",
+      "residual_risks": [
+        "Two gradients only; fixed directions; infinitesimal first-order descent, not guaranteed finite-step loss decrease.",
+        "Complete later general multiobjective-aggregator theory was not read line-by-line and could contain an equivalent dual cone specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source proposes reusing old weights, reports speed/accuracy consequences, but does not derive exact ratio interval for pure magnitude drift",
+          "evidence": "Weights solve G^T G alpha=1/alpha at refresh; stale α is reused between refreshes",
+          "identifier_or_url": "https://arxiv.org/abs/2202.01017",
+          "material_read": "Full relevant mathematical sections including Claim 3.1, current-gradient Nash solution, scale-invariance discussion, and Section 6.4 update every few iterations",
+          "method": "Public arXiv full PDF; source relevant sections and page image",
+          "title": "Multi-Task Learning as a Bargaining Game",
+          "trigger": "Original Nash equation, scale invariance, and stale weight reuse are source-critical"
+        },
+        {
+          "assessment": "Shows relevance of fresh non-conflicting aggregation, not demonstrated equivalence to exact two-task stale boundary",
+          "evidence": "Potential general dual-cone result remains residual comparison risk",
+          "identifier_or_url": "https://arxiv.org/abs/2605.30452",
+          "material_read": "Public abstract plus source-package contextual Nash discussion, not independently read full mathematics",
+          "method": "arXiv abstract and contextual source audit only",
+          "title": "A Unified Framework for Gradient Aggregation in Multi-Objective Optimization",
+          "trigger": "Broader non-conflict framework could dominate"
+        },
+        {
+          "assessment": "Original paper Section 6.4 independently confirms reuse, so implementation text is unnecessary for C",
+          "evidence": "Avoided claiming uninspected implementation details",
+          "identifier_or_url": "https://github.com/median-research-group/LibMTL",
+          "material_read": "Mechanism described in source package; no independent complete implementation read this run",
+          "method": "Contextual source reference only",
+          "title": "LibMTL Nash-MTL implementation",
+          "trigger": "Reused weights must be real algorithmic mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2202.01017",
+        "https://arxiv.org/abs/2605.30452"
+      ],
+      "rationale": "The defining Nash-MTL paper implements infrequent weight refresh as a real computational shortcut. The exact conflict-dependent safe ratio quantifies when that shortcut loses common descent despite zero angular drift, with a nontrivial vanishing window near opposite gradients. It is a motivated first-order safety boundary, not a global convergence or empirical claim.",
+      "residual_risks": [
+        "Value is confined to explicitly stated theorem scope and neither journal-level impact nor downstream use is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For two linearly independent task gradients in Nash-MTL with fixed directions and cosine rho in (-1,1), fresh Nash weights cancel task magnitudes. If weights are reused after positive pure magnitude drift q=s1/s2, both tasks strictly descend exactly when rho>=0, or when -rho<q<-1/rho for rho<0; endpoints are neutral and the interval collapses as rho approaches -1.",
+  "limitations": [
+    "Two gradients only; fixed directions; infinitesimal first-order descent, not guaranteed finite-step loss decrease.",
+    "Complete later general multiobjective-aggregator theory was not read line-by-line and could contain an equivalent dual cone specialization.",
+    "No independent external certification or publication; `not_ready` is a transport/privacy restriction distinct from scientific decision."
+  ],
+  "schema_version": 1
+}
