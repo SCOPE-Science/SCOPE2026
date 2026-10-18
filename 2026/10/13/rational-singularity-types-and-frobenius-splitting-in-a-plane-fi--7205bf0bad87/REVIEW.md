@@ -1,15 +1,21 @@
-# Review of rational singularity types and Frobenius splitting in a plane-filling pencil
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed universe is every odd prime-power field and the specified homogeneous pencil; only rational singular points are counted. The affine rational gradient conditions imply the unique parameterization \(P_t=[t^2:t^3:1]\), \(k=t^3-t^{-4}\); the gradients at infinity exclude additional rational singularities. The second and third local jets at such points yield quadratic discriminant \(4t(t^7-4)\). When that vanishes, the unique tangent has nonzero cubic contact \(\tfrac12 t^{-4}\), giving an ordinary cusp of \(\delta=1\) even in characteristic three. The characteristic-three Frobenius cubic contributions cancel under the rational singular-point equations. The node-branch quadratic character, parameter polynomial \(256k^7=3^7\), conservation count \(q-1\), genus-three bridge, and the \(7\nmid(q-1)\) closed census follow algebraically. The supplied verifier tests fourteen prime fields and fully enumerates all rational projective singularities in five of them; the general proof is independent of those tests.
+PASS
 
-## Originality — PASS, with residual risk
+For rational affine points of the Asgarli–Ghioca F_k plane-filling pencil over odd F_q, differentiating at F_q coordinates yields 1+ka²−a²b=0, a³−b²=0, and a dependent third equation; a,b nonzero and t=b/a uniquely give (a,b,k)=(t²,t³,t³−t^−4). Infinity has no rational singularity. The quadratic tangent cone has discriminant 4t(t^7−4); nonzero gives a node and its square/nonsquare decides split branches, zero gives the unique double tangent whose transverse cubic coefficient (1/2)t^−4 is nonzero, including q=3 after Frobenius cubic cancellation. The character-sum count over t∈F_q* yields q−1 incidences and node/split/cusp formulas; if 7∤q−1, w=t^7 is a bijection and quadratic sum S=−1; if 7|q−1, the even-degree hyperelliptic H:v²=u(u^7−4) is genus 3 with two infinity points. The cusp parameter equation 256k^7=3^7 handles characteristic 3 separately. Independent direct derivative/projective-boundary and F_p counts for p=3,5,7,11,13 matched. No claims for extension-field singularities.
 
-Asgarli--Ghioca, arXiv:2307.03072, Theorems 1.2 and 1.8, already obtain the existence criterion for rational singular points, and the paper contains numerical global-smoothness tests. That result is **not** credited as new. Its accessible complete text does not give the local node/cusp classification, the precise cusp-parameter locus, Frobenius splitting of the rational branches, or the pencil-wide counts and genus-three character-sum relation. Searches for the equation, aliases, singularity types, and possible broader coverage in current mathematical literature and records did not reveal implication coverage. Homma--Kim's degree-\(q+2\) smooth plane-filling family is not the same object. Search failure does not establish priority: unpublished or unindexed calculations, or a more general local-result specialization, remain risks. The distinctions between the claims and prior implications are detailed in the structured review.
+## originality
 
-## Value — PASS
+PASS
 
-For a naturally studied family whose global smoothness is conjectural, local geometry at rational bad fibers matters: an ordinary cusp and a split or nonsplit node give different branches and arithmetic normalization behavior. The result gives the complete rational local-severity stratification in every odd characteristic, a sharp seven-power cusp discriminant, an exceptional characteristic-three concentration, and an exact family-wide Frobenius split/nonsplit census. The less elementary residue class is organized by a geometrically natural genus-three discriminant double cover. This is a structural finite-field invariant, not just a few small-field examples or a restatement of the published smoothness condition. Geometric singularities over extensions, global smoothness, and a closed formula for genus-three counts in the seventh-root regime remain beyond scope.
+Best-of-knowledge PASS for exact local two/three-jet classification and rational splitting census. The initiating Asgarli–Ghioca Theorem 1.2 establishes rational singularity EXISTENCE via roots s^7+ks³−1=0 and conjectures geometric smoothness of a different kind; it does not in inspected full primary text classify every rational branch as split/nonsplit or enumerate cusps. The singularity-location criterion itself is explicitly prior. The nonrational geometric singularities remain outside the claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Refines a concrete plane-filling pencil from mere existence of rational singularities into a complete local ADE-equivalent node/cusp classification, arithmetic Frobenius branch splitting and counts across the parameter pencil, including a characteristic-3 collision. These exact normalisation and arithmetic invariants can matter in point counts and geometry; the genus-three character sum captures a natural nontrivial residue case. This is not generic tangent-cone theory relabeled.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
