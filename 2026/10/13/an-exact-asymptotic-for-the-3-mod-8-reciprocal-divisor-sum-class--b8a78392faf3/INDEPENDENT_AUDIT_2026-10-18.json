@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T03:54:25.247920Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The published class has unique p (the only prime at odd exponent), so no multiplicity overcount. Terms exponent>=5 satisfy sum_{p,j>=1}sqrt(X/p^(4j+1))=O(sqrt(X)) by convergent p^-5/2 series. In the e=1 layer dropping p∤k adds only O(sqrt X) pairs by k=p*l, sum_p sqrt(X/p^3). The main sum M(X)=sum_{odd k<=sqrt(X/3)} pi(X/k^2;8,3). For fixed k the progression PNT yields (log X/X)*pi(X/k^2;8,3)->1/(4k^2). Split k<=X^(1/4): Chebyshev bound pi(y)<<y/log y gives uniform C/k^2 bound since y>=sqrt X; k>X^(1/4): pi(y)<=y yields O(log X*X^(-1/4)). Dominated convergence gives 1/4 sum_odd k^-2=(1/4)(pi^2/8)=pi^2/32. Error O(sqrt X) is o(X/log X). Independent exact prime/square enumeration at X=200000 gave 6160 members (11 in e>=5 layers); finite counts are not proof of the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cooper-Eichhorn-O'Bryant arXiv:math/0506496 gives a broader theory of reciprocal F2 series but does not yield this specific 3-mod-8 count in the inspected materials.",
+          "General PNT in arithmetic progressions covers the prime counting input but not by itself the reciprocal-series class without the specialized structural theorem and square-weight summation."
+        ],
+        "reasoning": "The precise class decomposition plus analytic summation is needed; broader reciprocal-generation theorems and generic density results do not directly state the quantitative residue-component formula. Important standard number theory is fully credited.",
+        "searches": [
+          "reciprocal binary generating function sigma sum divisors 3 mod 8 class A192717 pi^2/32 asymptotic",
+          "J. Integer Sequences 16 (2013), Article 13.1.8",
+          "https://oeis.org/A192717",
+          "arXiv:math/0506496"
+        ]
+      },
+      "checked_sources": [
+        "J. Integer Sequences 16 (2013), Article 13.1.8, Proposition 26",
+        "OEIS:A192717",
+        "arXiv:math/0506496",
+        "PNT for primes 3 modulo 8 and Chebyshev upper bound",
+        "Resultary query: reciprocal binary generating function sigma sum divisors 3 mod 8 class A192717 pi^2/32 asymptotic",
+        "Git RESULT.md 4536eb772b837333f385e723979ae6de9536486a",
+        "Resultary published findings semantic query: reciprocal binary generating function sigma sum divisors 3 mod 8 class A192717 pi^2/32 asymptotic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cooper and Riasanovsky 2013 Proposition 26 concludes the 3 mod8 class has natural density zero and describes p^e k^2 with e≡1 mod4.",
+          "The submitted theorem uses that exact structure plus progression PNT and a convergent odd-square sum to sharpen o(X) into ~pi^2/32 X/log X."
+        ],
+        "reasoning": "The later assertion implies the old zero-density result, not vice versa. Even though the proof uses well-known prime-distribution methods, extracting the sharp constant is a new natural quantitative fact not mechanically contained in a table.",
+        "searches": [
+          "reciprocal binary generating function sigma sum divisors 3 mod 8 class A192717 pi^2/32 asymptotic",
+          "J. Integer Sequences 16 (2013), Article 13.1.8",
+          "https://oeis.org/A192717",
+          "arXiv:math/0506496"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A192717 identifies the same set by the p^(4j+1)k^2 description and an odd-representation of x^2+2y^2 equivalent; searches for these and pi^2/32 found no formula.",
+          "Cooper-Riasanovsky 2013 Proposition 26 identifies the set and proves zero density, not a stated asymptotic equivalent."
+        ],
+        "reasoning": "An equivalent result under either quadratic-form or squarefree-kernel terminology would need the X/log X order and constant. The natural density-zero statement alone allows many rates and cannot give it.",
+        "searches": [
+          "reciprocal binary generating function sigma sum divisors 3 mod 8 class A192717 pi^2/32 asymptotic",
+          "J. Integer Sequences 16 (2013), Article 13.1.8",
+          "https://oeis.org/A192717",
+          "arXiv:math/0506496"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A192717 records the exact sequence and structural/representation descriptions but does not list X/log X asymptotic with constant pi^2/32.",
+          "Resultary semantically queried reciprocal-sigma mod8 analytic count and returned mainly unrelated divisor-sum results."
+        ],
+        "reasoning": "A known sequence table is not enough to derive the leading asymptotic constant without new argument; the searched database supplied starting identities but not the claimed quantitative growth.",
+        "searches": [
+          "reciprocal binary generating function sigma sum divisors 3 mod 8 class A192717 pi^2/32 asymptotic",
+          "Resultary published findings semantic search"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. An equivalent result under either quadratic-form or squarefree-kernel terminology would need the X/log X order and constant. The natural density-zero statement alone allows many rates and cannot give it. The later assertion implies the old zero-density result, not vice versa. Even though the proof uses well-known prime-distribution methods, extracting the sharp constant is a new natural quantitative fact not mechanically contained in a table. Residual priority/access caveats explicitly included; no search absence alone is interpreted as novelty.",
+      "residual_risks": [
+        "An unindexed asymptotic under the equivalent x^2+2y^2 representation or squarefree-kernel terminology may already exist.",
+        "The new asymptotic does not prove the full reciprocal set density 1/32 conjecture and contains no effective uniform error term."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRUCTURAL_PRIOR; no first-order X/log X constant stated in inspected material",
+          "evidence": "Proposition 26 gives zero natural density and p^(4j+1)k^2 characterization.",
+          "identifier_or_url": "J. Integer Sequences 16 (2013), Article 13.1.8",
+          "material_read": "Accessible full 13-page primary article; focused Proposition 26 and derivation of 3 mod8 structure and zero density",
+          "method": "primary PDF/text with Proposition 26 page screenshot",
+          "title": "On the Reciprocal of the Binary Generating Function for the Sum of Divisors",
+          "trigger": "Same reciprocal set and 3 mod8 decomposition"
+        },
+        {
+          "assessment": "EXACT_CLASS_DIFFERENT_CLAIM; records set rather than X/log X asymptotic",
+          "evidence": "Definition p^e*k^2 for p≡3 mod8,e≡1 mod4, odd k coprime p.",
+          "identifier_or_url": "https://oeis.org/A192717",
+          "material_read": "Sequence entry definition and mathematical comments read",
+          "method": "database record reading",
+          "title": "OEIS A192717",
+          "trigger": "Exact class identifier, equivalent representations and possible asymptotic"
+        },
+        {
+          "assessment": "BROADER_FRAMEWORK; residual uninspected material risk",
+          "evidence": "General reciprocal series and other densities, not an independently checked 3 mod8 first-order formula.",
+          "identifier_or_url": "arXiv:math/0506496",
+          "material_read": "Primary abstract and relevant stated scope and results; not certified whole-document absence",
+          "method": "open-access abstract and cited results comparison",
+          "title": "Reciprocals of Binary Power Series",
+          "trigger": "Broader reciprocal-series theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Turns an explicitly known natural density-zero arithmetic class into an exact quantitative distribution law with constant, resolving a worthwhile missing scale for an OEIS-indexed residue class of the reciprocal divisor-sum generating series. The X/log X first-order term is not determined by the older density-zero theorem or a finite table; this is an independently useful natural exact enumeration asymptotic, even without settling the full reciprocal-set positive-density conjecture.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "J. Integer Sequences 16 (2013), Article 13.1.8, Proposition 26",
+    "OEIS:A192717",
+    "arXiv:math/0506496",
+    "PNT for primes 3 modulo 8 and Chebyshev upper bound",
+    "Resultary query: reciprocal binary generating function sigma sum divisors 3 mod 8 class A192717 pi^2/32 asymptotic",
+    "Git RESULT.md 4536eb772b837333f385e723979ae6de9536486a",
+    "Actual assigned Git tree b50306f6c0653bb26010af885f58c04e07dbb156 at 40d46a820f74fdf355c691812bdc426ec204bde7"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed asymptotic under the equivalent x^2+2y^2 representation or squarefree-kernel terminology may already exist.",
+    "The new asymptotic does not prove the full reciprocal set density 1/32 conjecture and contains no effective uniform error term."
+  ]
+}

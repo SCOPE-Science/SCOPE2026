@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof of the asymptotic is analytic and does not depend on finite experimentation.
+# Independent mathematical audit
 
-The attached `verify.py` checks the finite interface to the published structural theorem. It directly constructs the reciprocal of the parity generating function for \(\sigma(n)\) over \(\mathbb F_2\) through \(30000\). For every integer in that range congruent to \(3\pmod8\), it compares the reciprocal coefficient with the exact prime-square criterion
-\[
-n=p^{4j+1}k^2,
-\qquad
-p\equiv3\pmod8,
-\qquad
-k\text{ odd},
-\qquad
-p\nmid k.
-\]
-It also computes the exact number of structural members through \(10^6\).
+## correctness
 
-The infinite proof uses two standard analytic inputs: the prime number theorem in the fixed residue class \(3\pmod8\) and the Chebyshev bound \(\pi(y)\ll y/\log y\). The higher exponent layers and the coprimality correction are each \(O(\sqrt X)\), so neither changes the \(X/\log X\) main term.
+PASS
+
+The published class has unique p (the only prime at odd exponent), so no multiplicity overcount. Terms exponent>=5 satisfy sum_{p,j>=1}sqrt(X/p^(4j+1))=O(sqrt(X)) by convergent p^-5/2 series. In the e=1 layer dropping p∤k adds only O(sqrt X) pairs by k=p*l, sum_p sqrt(X/p^3). The main sum M(X)=sum_{odd k<=sqrt(X/3)} pi(X/k^2;8,3). For fixed k the progression PNT yields (log X/X)*pi(X/k^2;8,3)->1/(4k^2). Split k<=X^(1/4): Chebyshev bound pi(y)<<y/log y gives uniform C/k^2 bound since y>=sqrt X; k>X^(1/4): pi(y)<=y yields O(log X*X^(-1/4)). Dominated convergence gives 1/4 sum_odd k^-2=(1/4)(pi^2/8)=pi^2/32. Error O(sqrt X) is o(X/log X). Independent exact prime/square enumeration at X=200000 gave 6160 members (11 in e>=5 layers); finite counts are not proof of the asymptotic.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS. An equivalent result under either quadratic-form or squarefree-kernel terminology would need the X/log X order and constant. The natural density-zero statement alone allows many rates and cannot give it. The later assertion implies the old zero-density result, not vice versa. Even though the proof uses well-known prime-distribution methods, extracting the sharp constant is a new natural quantitative fact not mechanically contained in a table. Residual priority/access caveats explicitly included; no search absence alone is interpreted as novelty.
+
+## value
+
+PASS
+
+Turns an explicitly known natural density-zero arithmetic class into an exact quantitative distribution law with constant, resolving a worthwhile missing scale for an OEIS-indexed residue class of the reciprocal divisor-sum generating series. The X/log X first-order term is not determined by the older density-zero theorem or a finite table; this is an independently useful natural exact enumeration asymptotic, even without settling the full reciprocal-set positive-density conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
