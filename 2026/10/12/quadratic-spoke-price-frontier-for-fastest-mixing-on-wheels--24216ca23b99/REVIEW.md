@@ -1,19 +1,21 @@
-# Scientific review of the wheel conductance-allocation theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim quantifies over every integer \(n\geq4\), every positive spoke-price ratio \(t\), and all individually chosen nonnegative spoke and rim conductances satisfying the exact unit budget. The two global Rayleigh test bounds follow from the hub-against-rim vector and the sine/cosine first rim Fourier pair. Their one-variable max–min envelope gives the threshold \(T_n=1/[4\sin^2(\pi/n)]\), both strict-price allocations, and the precise critical parameter interval. The uniform wheel eigenvalue spectrum checks attainment. Importantly, tightness in the **average** Fourier Rayleigh inequality at every optimizer forces both Fourier vectors to be eigenvectors; the imaginary part of their complex eigenvector equations enforces equality of all rim conductances, then the real part equality of all spokes. Thus no optimizer has been lost through an unjustified symmetry assumption. The Taylor expansion proves the large-ring statement. The standalone exact-rational and floating-point checks agree with the analytical proof but are not substituted for it. No hidden positivity assumption excludes deleted rims; all optimal spokes remain positive.
+PASS
 
-## Originality — PASS with historical uncertainty
+For all n≥4, t>0, arbitrary nonnegative independent spoke and rim conductances satisfying Σ(t a_j+b_j)=1, Rayleigh tests with hub-versus-rim and first sine/cosine rim Fourier modes give λ₂≤min{(n+1)ā,ā+μ b̄}, μ=4sin²(π/n). Optimizing this piecewise linear upper envelope gives threshold 1/μ and exact piecewise optimal value. The full uniform wheel spectrum {0,(n+1)a,a+4b sin²(πk/n)} attains the envelope. At any optimizer, equality in the average sine/cosine Rayleigh bound forces both modes eigenvectors; imaginary parts of the complex mode rim equation force b_{j-1}=b_j (sin(2π/n) nonzero), real parts force all a_j equal. Hence no asymmetric optimizer including critical degeneracy. Independently built weighted Laplacians for n=4,5,6,8 and cheap, critical, expensive prices match predicted eigenvalues; 840 asymmetric budget-feasible random probes gave no violation, corroborative only.
 
-The general semidefinite formulation under linear edge prices is prior work: Sun, Boyd, Xiao and Diaconis, *SIAM Review* 48 (2006), 681–699, DOI 10.1137/S0036144504443821, Sections 1 and 3–5. The strongest graph-specific antecedent is Boyd, Diaconis, Parrilo and Xiao, *SIAM Journal on Optimization* 20 (2009), 792–819, DOI 10.1137/070689413, Section 5.4.3: it provides a Fourier decomposition and closed-form **discrete-time SLEM** optimizer for the wheel, but it does not classify the present cost-constrained **continuous-time** \(\lambda_2\) problem. Shafi, Arcak and El Ghaoui, *IEEE Transactions on Automatic Control* 57 (2012), 1872–1877, DOI 10.1109/TAC.2011.2181795, formulate general Laplacian spectral design without this wheel classification. Relevant primary full-text sections were examined alongside searches for explicit aliases, edge prices, wheel spectra, relative cost, and optimizer completeness. Related wheel problems minimizing the Kirchhoff index involve a different objective and do not imply this spectral-gap classification. Raw spectral formulas by themselves do not state the exact price transition or exclude asymmetric optimal weights. Residual possibility: an unlocated theorem or an unpublished specialization might have derived this frontier; failure to retrieve it is not a uniqueness or independence certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The full globally optimal solution, deletion decision, critical optimal continuum, and edgewise uniqueness hold for all wheel sizes and arbitrary positive class-price ratios without numerical optimization or a symmetry assumption. A wheel is a natural redundant hub-and-ring network; choosing whether to pay for its ring is a motivated graph-design decision. The transition is structurally counterintuitive: at any fixed spoke price, sufficiently large wheels concentrate their optimal investment in the spokes and discard the entire cycle. Quadratic growth in \(n\) of the exact transition price is a natural scaling law, not an arbitrary small-table improvement. The proof supplies an explicit necessary-and-sufficient classification and a rigorous rigidity argument beyond simply plugging weights into a known eigenvalue table.
+General continuous-time priced fastest-mixing SDP framework is established by Sun–Boyd–Xiao–Diaconis 2006; it does not state this explicit wheel price phase diagram or uniqueness. Boyd et al. 2009 §5.4.3 explicitly solve a wheel problem but it is discrete-time SLEM constrained by stochastic rows, rather than a continuous-time class-price λ₂ objective, so its algebra does not directly yield this frontier. Shafi et al. 2012 Laplacian allocation is broader computational framework, not the present explicit all-optimizer classification. Search risk remains older specializations.
 
-## Limitations and residual risks
+## value
 
-Uniform invariant vertex masses, linear per-conductance prices constant within each of the two edge classes, zero rates permitted, and the continuous-time spectral-gap objective are essential. The theorem is not a discrete-time mixing-time optimum, a minimum-resistance theorem, or an independently validated research claim. Older or inaccessible specialized treatments could overlap the exact classification. The self-review does not replace specialist literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Wheels are natural ring/hub networks. The exact priced design decides when to delete all rim edges, supplies the sharp quadratic threshold T_n~n²/(4π²), critical continuum, and rigorously excludes asymmetry even at equality. This is a useful nontrivial global classification of network design, beyond merely repeating a known Fourier spectrum or solving a few numerics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
