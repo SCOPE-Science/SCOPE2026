@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact six-facet representation of \(T+t(-T)\) gives an explicit gauge. A four-translate cover of the fundamental square proves the upper covering-radius bound, and the rational torus point \((a,a)\) provides a matching strict obstruction to smaller dilations. Reflection and homogeneity handle the full parameter interval. Exact shoelace area and differentiation establish the sharp density optimizer; equality analysis of the same four translates classifies the deepest holes. The checker made 6,728 finite exact-rational lattice-gauge comparisons; the continuum result does not depend on grid completeness.
+
+**Originality — PASS, with residual risk.** The motivating 2026 source develops general planar covering-radius Minkowski inequalities and an interpolation counterexample using parallelograms; its exact statements and computations do not produce the triangle-reflection profile. The older simplex covering-radius literature verifies a triangular endpoint but not the full two-triangle mixture. The closest published parallelogram interpolation has an inverse-radius tent with the opposite direction of monotonicity, while the separate simplex-reflection Mahler-product calculation concerns a different invariant. Searches for lattice triangle reflection Minkowski covering-radius formulas and published geometric-result comparisons did not locate an identical theorem. This is a best-knowledge priority assessment, not proof of uniqueness; a buried earlier geometric-number-theory treatment is the main remaining risk.
+
+**Mathematical value — PASS.** The family continuously symmetrizes the simplest unimodular lattice triangle and tests how exact lattice covering efficiency changes under Minkowski addition. The result gives the full optimal fixed-lattice radius and density profiles, the uniquely efficient symmetric member, and an exact one-to-two bifurcation in deepest holes. These are structural covering assertions rather than a single endpoint calculation or an unmotivated finite table.
+
+The result is specific to the fixed lattice and planar simplex-reflection family. Independent bibliographic and mathematical checks are outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
