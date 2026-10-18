@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T04:08:18.701460Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned immutable RESULT.md and verify.py reviewed",
+        "Independent checker MINRES_EXACT_THRESHOLD_AND_PUBLISHED_SPECIALIZATION_OK",
+        "Published earlier Oct 4 MINRES RESULT full proof and same witness"
+      ],
+      "rationale": "The k=1 residual minimizing scalar alpha=(b^T A b)/(b^T A^2 b)>0 yields a nonnegative first iterate for SPD A and b>=0. In dimensions <=2, MINRES reaches x=A^{-1}b at grade <=2 and inverse positivity for Stieltjes matrices preserves the cone. On diag(1,2,4), b=(1,1,e), exact 2x2 normal equations with moments (3+4e²,5+16e²,9+64e²,17+256e²) yield det=4(1+100e²) and third coordinate e(50e²-1)/(2(1+100e²)), negative exactly 0<e<1/sqrt(50). Independent SymPy recomputation also confirms x2=(22/25,109/200,-1/80) at e=1/10 and the connected tridiagonal Stieltjes witness x2,3=-900492530/220852842849 with positive exact solution.",
+      "residual_risks": [
+        "Exact arithmetic only and diagonal threshold e family is not universal positivity for all SPD systems.",
+        "The source displayed second-component TeX lacks a closing parenthesis; arithmetic remains reconstructible."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorem establishes positivity of x2 for every Stieltjes SPD with condition number <=2 and sign-loss examples for every larger condition number; dimension and iteration minimality explicitly included"
+        ],
+        "reasoning": "Broader published coverage controls an entire condition-number range and contains the exact diagonal triple at kappa=4, implying all offered original claims.",
+        "searches": [
+          "Published Resultary SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731 full RESULT.md",
+          "Paige Saunders 1975 MINRES original method DOI 10.1137/0712047"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary Oct 4 stronger exact MINRES theorem (full RESULT.md)",
+        "Assigned immutable RESULT.md and verify.py",
+        "Paige and Saunders MINRES method"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier general condition epsilon² < (kappa-2)^3/(kappa^4+16(kappa-1)^2) at kappa=4 is epsilon²<1/50, exact equivalence to submitted range. Earlier n<=2 and first-step results exactly coincide."
+        ],
+        "reasoning": "The submitted entire final claim is a logical corollary of the earlier published theorem, not an independent new narrower fact. Publication should be scientific rejection despite its valid calculations.",
+        "searches": [
+          "Published MINRES kappa >2 epsilon condition formula and spectral barycenter proof",
+          "Claimed epsilon <1/sqrt(50) and two-dimensional nonnegativity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier published RESULT states x2=(22/25,109/200,-1/80) on diag(1,2,4), b=(1,1,1/10), and n3/k2 minimal",
+          "Earlier general spectral-barycenter formula handles all kappa>2"
+        ],
+        "reasoning": "The same algorithm, normalization, Stieltjes class, initial iterate, explicit matrix/vector and sign loss are used; no duality or encoding conversion needed. The proposed exact threshold is its direct kappa=4 specialization.",
+        "searches": [
+          "Resultary: MINRES Stieltjes matrix SPD nonnegative right hand side componentwise negative iterates residual-minimizing Krylov positivity",
+          "Published Condition two is the sharp second-iterate positivity frontier for MINRES"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is not merely a number-index hit: the earlier fully read source explicitly prints the identical witness and derives its exact general family."
+        ],
+        "reasoning": "Exact stored published theorem/equations already record all stated numerical and structural data, unlike an accidental parameter match.",
+        "searches": [
+          "Resultary top hit 2026/10/4 SCOPE-condition-two...b50999a21731",
+          "Published RESULT.md literal witness search diag(1,2,4) 22/25 109/200 -1/80"
+        ]
+      },
+      "rationale": "Decisive previously published theorem on exactly the same MINRES/Stieltjes object already proves strictly stronger condition-number frontier kappa<=2, sharp n=3/iteration=2, and contains identical numerical witness. Its all-kappa counterexample specializes to kappa=4 and e²<8/(256+144)=1/50: precisely the submitted sharp epsilon interval. Thus every presented novelty-bearing assertion is already an implication or literal special case; change of wording/extra irreducible witness cannot make the unchanged original novel.",
+      "residual_risks": [
+        "Published earlier source suffices for rejection regardless of unsearched older MINRES work.",
+        "Submitted text has malformed TeX bracket in the second-coordinate display, a separate rendering defect."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING, including exact same e threshold after kappa=4 specialization",
+          "evidence": "Published Oct 4 RESULT.md, formulas under Finding and Proof",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731",
+          "material_read": "Entire ~8.5k-character RESULT.md: theorem, spectral-barycenter proof, all-kappa examples, exact example and minimal dimension, limitations",
+          "method": "GitHub Resultary published full primary RESULT.md",
+          "title": "Condition two is the sharp second-iterate positivity frontier for MINRES",
+          "trigger": "Top semantic hit with same MINRES positivity and n3 witness"
+        },
+        {
+          "assessment": "Classical foundational source; not relied on to establish rejection",
+          "evidence": "Paige and Saunders 1975 MINRES",
+          "identifier_or_url": "https://doi.org/10.1137/0712047",
+          "material_read": "Method description, residual-minimizing Krylov premise in original/source citation; full original not independently reread",
+          "method": "Primary bibliographic/method reference",
+          "title": "Solution of Sparse Indefinite Systems of Linear Equations",
+          "trigger": "Original MINRES algorithm definition"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Published Oct 4 full MINRES theorem including all same conclusions",
+        "Assigned diagonal threshold and irreducible witness"
+      ],
+      "rationale": "Although its calculation and positivity counterexample are mathematically well motivated in isolation, the exact threshold, smallest dimension, first violating iteration, and even the specific witness are already explicit consequences of the stronger published Oct 4 theorem. No independently valuable new structural lemma, different invariant, or genuine extension remains in the unchanged final claim; reproducibility and an extra connected perturbation are not substantive new contributions to the central assertion.",
+      "residual_risks": [
+        "A substantively different new theorem could be audited as a new task, but no added certificate or disclaimer can rescue this covered original."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Original claim fully covered by earlier published stronger MINRES result; failed rather than repaired.",
+    "Broken displayed TeX in RESULT.md is independent of the decisive originality rejection."
+  ],
+  "schema_version": 1
+}
