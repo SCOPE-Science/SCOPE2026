@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-The accompanying `verify.py` uses Python 3.9+ and only the standard library. Run it with `python verify.py`. It constructs all \(2^k-1\) summand simplices explicitly for each \(1\le k\le6\), computes exact subset minima and maxima, and uses rational arithmetic to check both Minkowski containment inequalities at the displayed center. It also generates all \((k+1)!\) coordinate-order greedy vertices and checks the image of each under the proposed reflection-contraction against every subset inequality. The executed check passed for every tested dimension: 5,912 greedy orders and 252 independent center subset tests, as well as all reflected-vertex subset tests.
+## correctness
 
-As a separate additional check, numerical linear programs with independent variables \((s,(s+1)c_0,\ldots,(s+1)c_k)\) optimized the complete subset containment system for \(2\le k\le7\). These optima agreed with the displayed rational ratios to numerical tolerance. Those numerical LP comparisons are not part of the dependency-free verifier; they are supporting evidence only.
+PASS
 
-The exact proof in `RESULT.md`, rather than finite enumeration, establishes the formula and uniqueness for every integer \(k\ge1\). The proof does not extend to other graph-associahedron realizations. No independent scientific audit or priority certification has been conducted.
+Complete subset-inequality characterization is reconstructed via sorting linear functional coefficients and tail sets. The reflection-containment condition reduces to F_k(a)<= (s+1)c(A)<=s F_k(a). Tight singleton lower + full-leaf upper force s>=k2^(k-1)/(2^k-1) and every center leaf coordinate; decreasing F_k(a)/a verifies feasibility and uniqueness. Independent exact rational leaf-subset checks k=1..7 tested 254 subsets; finite code not used as universal proof.
+
+## originality
+
+PASS
+
+No decisive prior statement implying the exact final formula was found in materially inspected primary texts; this is explicitly best-of-knowledge, not novelty certification. Known structural ingredients are distinguished from exact claimed invariant; the failed Resultary service is separately recorded and not counted as negative evidence.
+
+## value
+
+PASS
+
+Minkowski asymmetry and its minimizing center are natural affine invariants for a canonical infinite family of graph associahedra. The exact factor and rigid hub-vs-leaf asymmetry, growing as k/2 with explicit correction, are potentially useful normalization data distinct from Euclidean radius and graph diameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

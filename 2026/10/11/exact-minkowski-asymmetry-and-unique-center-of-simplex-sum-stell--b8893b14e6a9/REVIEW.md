@@ -1,19 +1,21 @@
-# Scientific review: simplex-sum stellohedron Minkowski center
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The lower bound uses every singleton leaf and the aggregate leaf subset. Their containment inequalities force \(s\ge k2^{k-1}/(2^k-1)\), and equality forces every leaf center coordinate. The matching upper certificate uses the strict decrease of \((2^k-2^{k-a})/a\), supplemented by complement subsets in the fixed coordinate-sum hyperplane. The proof separately justifies that the complete subset-inequality representation is exact, not only necessary. Thus neither numerical enumeration nor unstated facet completeness is needed for the infinite assertion. The standard-library exact verifier passed in dimensions \(1\) through \(6\), and a separate numerical LP matched in dimensions \(2\) through \(7\).
+PASS
 
-## Originality — PASS, with residual risk
+Complete subset-inequality characterization is reconstructed via sorting linear functional coefficients and tail sets. The reflection-containment condition reduces to F_k(a)<= (s+1)c(A)<=s F_k(a). Tight singleton lower + full-leaf upper force s>=k2^(k-1)/(2^k-1) and every center leaf coordinate; decreasing F_k(a)/a verifies feasibility and uniqueness. Independent exact rational leaf-subset checks k=1..7 tested 254 subsets; finite code not used as universal proof.
 
-The closest inspected structural source, Padrol–Pilaud–Poullot, arXiv:2109.09200, gives the graph-associahedron simplex-sum model and describes deformation cones, not its Minkowski reflection-containment optimum. Cardinal–Pournin–Valencia-Pabon, arXiv:2106.16130, gives graph-distance results, not affine asymmetry. General convex-body symmetry algorithms encompass a finite LP but do not directly state the evaluated family formula or uniqueness. Earlier Euclidean-inradius calculations concern another invariant for the same realization; neither metric inradius nor a graph-diameter classification implies the new affine-invariant claim. Targeted searches for stellohedron/star graph associahedron Minkowski asymmetry, alternate spellings, center and sum-of-simplices formulations identified no decisive prior coverage. Search incompleteness and terminology changes remain risks; no independent priority claim is made.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural infinite class of graph associahedra, and its canonical simplex-sum realization is fundamental to the construction. The theorem completely determines an affine-invariant extremal ratio and unique minimizing center rather than presenting a numerical instance or a restatement of known facet inequalities. It shows exact near-half-dimensional growth \(s=k/2+O(k2^{-k})\), with an explicit sharp correction. The minimizing center breaks hub-versus-leaf coordinate equality and differs from the all-equal point, giving a useful geometric contrast with other extremal center problems.
+No decisive prior statement implying the exact final formula was found in materially inspected primary texts; this is explicitly best-of-knowledge, not novelty certification. Known structural ingredients are distinguished from exact claimed invariant; the failed Resultary service is separately recorded and not counted as negative evidence.
 
-## Scope and limitations
+## value
 
-The result is for the stated unweighted Minkowski-sum realization. The proof does not cover arbitrary deformations, weighted sums, or combinatorially equivalent realization choices. Prior-work searches do not certify that no equivalent older computation exists.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Minkowski asymmetry and its minimizing center are natural affine invariants for a canonical infinite family of graph associahedra. The exact factor and rigid hub-vs-leaf asymmetry, growing as k/2 with explicit correction, are potentially useful normalization data distinct from Euclidean radius and graph diameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
