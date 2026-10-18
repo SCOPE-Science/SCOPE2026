@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T17:54:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Independent SymPy center-manifold coefficient check audit_worker03_checks.py"
+      ],
+      "rationale": "For kappa<=0 the strict cone forces ds/dt<0. For kappa>0 d=0 produces the sole central point; d!=0 requires s=(1+H)/(2mu), and substitution gives d²/s²=(kappa-kappa_c)/(kappa+4mu), yielding exactly two additional strict-cone zeros iff kappa>kappa_c. Central Jacobian eigenvalues kappa/2 and (1+H)(kappa-kappa_c)/(2(1-H)); off-axis determinant is negative. Formal expansion at threshold independently gives center manifold u=(4mu/((1-H)(1+H))) d²+O(d⁴), and cubic reduced coefficient -16mu³/((1-H)(1+H)²), nonzero opposite sign to unfolding. Thus an exact supercritical pitchfork on the center direction; the transverse direction is unstable.",
+      "residual_risks": [
+        "Local strict-sliding equilibria only; does not classify all positive-kappa global dynamics or dynamics through fold/two-fold boundaries."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simpson arXiv:1804.11036 gives a general boundary equilibrium bifurcation framework, whereas the present bifurcation occurs strictly inside attractive sliding.",
+          "Ferreira studies crossing cycles and the kappa<=0 region for global convergence and leaves the positive-kappa sector outside its theorem."
+        ],
+        "reasoning": "Neither the general boundary collision framework nor the source global classification gives exact kappa_c, the count/types of interior equilibria, or the center-manifold cubic coefficient.",
+        "searches": [
+          "Filippov symmetric zero divergence sliding pseudo equilibria kappa threshold pitchfork visible visible two fold",
+          "Simpson 2018 a general framework for boundary equilibrium bifurcations Filippov",
+          "Ferreira 2026 symmetric visible visible two fold global classification"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md at dd1429508e43ab9bbd9e1abb4f74769c9857754d",
+        "arXiv:2609.33034v3 Lemma 1 and exact sliding source",
+        "arXiv:1804.11036 framework abstract",
+        "Resultary same-model semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 1 proves absence of interior equilibria iff kappa<=0 and demonstrates one central positive-kappa equilibrium.",
+          "The second equation factors as d((1+H)/s-2mu), producing additional d!=0 branches when kappa>kappa_c that the source does not derive."
+        ],
+        "reasoning": "The prior existence example for positive kappa cannot imply uniqueness and stability or the emergence of two further equilibria. Explicit Jacobian and center-manifold analysis supplies the extra structural result.",
+        "searches": [
+          "arXiv:2609.33034v3 Lemma 1 positive kappa discussion",
+          "Filippov symmetric zero divergence sliding pseudo equilibria kappa threshold pitchfork visible visible two fold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ferreira 2026 uses the identical Filippov-preserving zero-divergence sliding coordinates s=x-y and d=x+y.",
+          "Its no-interior-zero condition is exactly kappa<=0; its positive kappa discussion exhibits the central zero but not the off-axis branch."
+        ],
+        "reasoning": "An interior sliding symmetry-breaking pitchfork and a pseudo-equilibrium phase diagram are equivalent formulations on the same two-dimensional sliding field; these were compared directly, rather than generic Filippov titles.",
+        "searches": [
+          "Filippov symmetric zero divergence sliding pseudo equilibria kappa threshold pitchfork visible visible two fold",
+          "arXiv:2609.33034 Lemma 1 equation (12) sliding field",
+          "Filippov symmetric zero divergence sliding pseudo equilibria kappa pitchfork visible visible"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching Resultary hit was the same claim; related nonsmooth stability work covered oscillatory wedges and other models.",
+          "No source-specific published full kappa diagram was identified in the exact source equations or index."
+        ],
+        "reasoning": "The classification is an all-real-kappa analytic branch count and not a known finite table. Search failure alone is not evidence of priority.",
+        "searches": [
+          "Filippov symmetric zero divergence sliding pseudo equilibria kappa threshold pitchfork visible visible two fold",
+          "Resultary semantic Filippov symmetric zero divergence sliding pseudo equilibria kappa threshold pitchfork"
+        ]
+      },
+      "rationale": "The motivating Filippov paper proves no interior sliding zeros precisely for nonpositive kappa and exhibits the central obstruction for positive kappa. It does not establish the two additional off-axis saddle branches, threshold kappa_c or pitchfork cubic normal form; the source-specific structural classification survives.",
+      "residual_risks": [
+        "An equivalent source-specific bifurcation computation in unindexed remarks or future revised Ferreira material is possible; inspected source version did not show it.",
+        "No assertion about global separatrix reconnection or escaping paths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: kappa<=0 exclusion and one central positive-kappa example; not full positive-kappa diagram",
+          "evidence": "Lemma 1 iff kappa<=0; the positive-kappa paragraph only demonstrates central obstruction to its no-equilibrium hypothesis.",
+          "identifier_or_url": "arXiv:2609.33034v3",
+          "material_read": "Introduction, Section 1.3 canonical equations, Lemma 1 statement and proof, immediate following positive-kappa paragraph, global theorem scope",
+          "method": "Lawful open-access full text HTML sections materially read",
+          "title": "Global classification of oscillatory dynamics in symmetric zero-divergence 3D piecewise-linear Filippov systems with a visible–visible two-fold",
+          "trigger": "Exact same normal-form sliding field"
+        },
+        {
+          "assessment": "DIFFERENT MECHANISM: general equilibrium/discontinuity collision",
+          "evidence": "The audited bifurcation is a symmetry pitchfork of interior zeros of a specific 2D sliding field, not the boundary-equilibrium transition treated in the source.",
+          "identifier_or_url": "arXiv:1804.11036",
+          "material_read": "Abstract and general boundary equilibrium framework descriptions",
+          "method": "Open-access primary abstract/overview, not complete full-text theorem-by-theorem reading",
+          "title": "A general framework for boundary equilibrium bifurcations of Filippov systems",
+          "trigger": "Plausible broader nonsmooth bifurcation implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ferreira source Lemma 1 and omitted kappa>0 regime",
+        "Exact algebraic phase diagram"
+      ],
+      "rationale": "The bifurcation threshold completes the previously excluded physically natural positive-kappa sector of the exact model and distinguishes one central saddle from three equilibria with different stability. The exact center-manifold normal form captures the symmetry-breaking mechanism and is an independently useful local structural classification.",
+      "residual_risks": [
+        "Generic pitchfork theory alone does not identify model-specific threshold; global nonsmooth reconnections left open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Claim restricted to strict attractive sliding; no global orbit classification."
+  ],
+  "schema_version": 1
+}

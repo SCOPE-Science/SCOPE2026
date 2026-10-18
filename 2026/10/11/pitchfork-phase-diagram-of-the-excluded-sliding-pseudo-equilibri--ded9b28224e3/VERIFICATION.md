@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,37 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Start from the exact strict-sliding equations
-\[
-\dot s=-(1-H)-2\mu\frac{d^2}{s}+\frac{\kappa}{2s}(s^2-d^2),\qquad
-\dot d=d\left(\frac{1+H}{s}-2\mu\right).
-\]
-For \(\kappa\le0\), every term after \(-(1-H)\) in the first equation is nonpositive on \(s>0\), \(|d|<s\), so a zero is impossible.
+# Independent mathematical audit
 
-For \(\kappa>0\), \(d=0\) gives exactly \(s=2(1-H)/\kappa\). If \(d\ne0\), the second equation gives \(s=(1+H)/(2\mu)\). Substitution gives
-\[
-\frac{d^2}{s^2}=\frac{\kappa-\kappa_c}{\kappa+4\mu},\qquad
-\kappa_c=\frac{4\mu(1-H)}{1+H}.
-\]
-This ratio is positive exactly for \(\kappa>\kappa_c\), and then is strictly below one, so exactly two strict-sliding solutions occur.
+## correctness
 
-The exact Jacobian is
-\[
-J=\begin{pmatrix}
-\kappa/2+(2\mu+\kappa/2)d^2/s^2&-(4\mu+\kappa)d/s\\
--(1+H)d/s^2&(1+H)/s-2\mu
-\end{pmatrix}.
-\]
-At the central branch its eigenvalues are \(\kappa/2\) and \((1+H)(\kappa-\kappa_c)/(2(1-H))\). At either off-axis branch the determinant is strictly negative. This proves all stated local types.
+PASS
 
-At threshold, translating by the exact central branch and writing \(a=1-H\), \(b=1+H\), the center manifold begins with
-\[
-u=\frac{4\mu}{ab}d^2+O(d^4).
-\]
-The reduced equation is
-\[
-\dot d=\frac{b}{2a}(\kappa-\kappa_c)d-\frac{16\mu^3}{ab^2}d^3+O((\kappa-\kappa_c)^2|d|+|\kappa-\kappa_c|d^3+d^5).
-\]
-The unfolding and cubic coefficients are nonzero with opposite signs. The exact off-axis formula independently confirms the supercritical square-root branch. No numerical approximation or finite enumeration is used.
+For kappa<=0 the strict cone forces ds/dt<0. For kappa>0 d=0 produces the sole central point; d!=0 requires s=(1+H)/(2mu), and substitution gives d²/s²=(kappa-kappa_c)/(kappa+4mu), yielding exactly two additional strict-cone zeros iff kappa>kappa_c. Central Jacobian eigenvalues kappa/2 and (1+H)(kappa-kappa_c)/(2(1-H)); off-axis determinant is negative. Formal expansion at threshold independently gives center manifold u=(4mu/((1-H)(1+H))) d²+O(d⁴), and cubic reduced coefficient -16mu³/((1-H)(1+H)²), nonzero opposite sign to unfolding. Thus an exact supercritical pitchfork on the center direction; the transverse direction is unstable.
+
+## originality
+
+PASS
+
+The motivating Filippov paper proves no interior sliding zeros precisely for nonpositive kappa and exhibits the central obstruction for positive kappa. It does not establish the two additional off-axis saddle branches, threshold kappa_c or pitchfork cubic normal form; the source-specific structural classification survives.
+
+## value
+
+PASS
+
+The bifurcation threshold completes the previously excluded physically natural positive-kappa sector of the exact model and distinguishes one central saddle from three equilibria with different stability. The exact center-manifold normal form captures the symmetry-breaking mechanism and is an independently useful local structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
