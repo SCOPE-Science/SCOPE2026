@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T17:20:23.367842Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every row, three-wise independence gives E(S_n)_r as sum of products of distinct marginal probabilities for r=1,2,3. With sum p_i→1 and max p_i→0 all three factorial moments tend to 1. The identity S³=(S)_3+3(S)_2+S uniformly bounds third ordinary moments; therefore S and S² are uniformly integrable and any weak limit has E Y=1 and E(Y)_2=1. The nonnegative continuous extension max(0,x(x−1)(x−2)) and Portmanteau yield E(Y)_3≤1, not equality. Sufficiency uses ε_n=(a3_n−c)/(n(n−1)(n−2)) at count n, with δ0,δ1,δ2 in the pinned proof; independent SymPy simplification gave exactly zero for mass and mean correction and for the second and third factorial target residuals. Conditional uniform k-subsets then have joint all-one probabilities n^(−r) for r=1,2,3; inclusion–exclusion gives full 3-wise independence. The reference law (5/12,1/4,1/4,1/12) has E=1, E(Y)_2=1, E(Y)_3=1/2. Mixing, truncating and restoring 0/1/2 moments, then diagonalization, covers arbitrary admissible targets without mistaking finite rows for the infinite result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pairwise classification permits variance leakage; k=3 forces variance 1 but permits loss of the third factorial moment."
+        ],
+        "reasoning": "The pairwise theorem is not stronger for 3-wise independence because it misses the third constraint and the new constructive converse. Finite t-wise bounds apply for fixed n but require nontrivial weak closure.",
+        "searches": [
+          "Resultary SCOPE-20260920-81d03613e25b pairwise rare Bernoulli limits",
+          "Ramachandra–Natarajan 2023 t-wise finite bounds",
+          "Resultary semantic query: three-wise independent rare Bernoulli counts weak limit factorial moments unit intensity"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md cb604046dd5d368f095fdd1d198f510ff8bdd9f5",
+        "Pinned VERIFICATION.md a467bdf42972a27aa7ab67d12bec9e5ff90a38d8",
+        "Resultary SCOPE-20260920-81d03613e25b",
+        "Ramachandra–Natarajan arXiv:2006.00516, Corollary 4.2",
+        "Berend et al arXiv:2407.18688 abstract",
+        "Resultary semantic three-wise independent rare Bernoulli counts weak limit factorial moments unit intensity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pairwise result gives mean/variance inequality; finite count feasibility allows exact moment matching rowwise."
+        ],
+        "reasoning": "The proposed all-target k=3 criterion is a distinct implication, not an immediate corollary of the weaker pairwise theorem; rowwise finite feasibility must be combined with an explicit approximation handling escaped third moment.",
+        "searches": [
+          "Resultary weak-limit pairwise-independent Bernoulli classification record",
+          "Corollary 4.2, arXiv:2006.00516"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finite exchangeable Bernoulli k-wise laws are encoded by their first k binomial/factorial moments; weak closure can lose the top controlled moment."
+        ],
+        "reasoning": "Mapped exact count-moment feasibility into the asymptotic weak-limit statement, separately checking the needed third-order atom correction and loss at infinity. The finite equivalence does not alone state this limiting theorem.",
+        "searches": [
+          "Resultary semantic query: three-wise independent rare Bernoulli counts weak limit factorial moments unit intensity",
+          "Ramachandra–Natarajan arXiv:2006.00516 Corollary 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Class of target laws includes unbounded support and a nonclosed third-moment boundary; it is not a finite database and differs from a finite feasible-moment table."
+        ],
+        "reasoning": "Finite LP vertices/tables cannot settle weak closure for all target laws without diagonalization.",
+        "searches": [
+          "Resultary semantic query: three-wise independent rare Bernoulli counts weak limit factorial moments unit intensity",
+          "finite moment polytope of exchangeable k-wise independent Bernoulli bits"
+        ]
+      },
+      "rationale": "The indexed pairwise weak-limit classification has E Y=λ, Var(Y)≤λ. The k=3 statement is strictly different: variance is fixed at 1 and leakage begins at third factorial order. Ramachandra–Natarajan Corollary 4.2 (inspected in full arXiv PDF) supplies finite-n count-moment feasibility for t-wise independence, but does not state the precise unit-intensity weak closure with third-moment escape or the diagonal constructive sufficiency. A stronger theorem under classical discrete moment or exchangeability terminology remains a residual bibliographic risk.",
+      "residual_risks": [
+        "Finite exchangeability and discrete moment problem literature may contain an equivalent weak-closure theorem under a different language.",
+        "Intensity λ≠1, k≥4 and point-process limits are outside proven scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pairwise target class mean λ variance ≤λ, no fixed third moment",
+          "evidence": "k=3 predicts next escaped moment",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-rare-pairwise-independent-bernoulli-limit-classification--81d03613e25b",
+          "material_read": "Published indexed abstract and theorem summary for exact k=2 weak limits",
+          "method": "Resultary result and published record comparison",
+          "title": "Weak-limit classification for rare pairwise-independent Bernoulli sums",
+          "trigger": "Direct published predecessor at k=2"
+        },
+        {
+          "assessment": "General finite-n factorial-moment representation is prior art, but inspected material does not give this weak closure classification",
+          "evidence": "Corollary 4.2 first t binomial-moment constraints and feasible count vectors",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.00516",
+          "material_read": "Full 42-page PDF accessible; inspected Corollary 4.2 and surrounding moment-polytope argument",
+          "method": "Opened full primary PDF and read relevant corollary/theorem material",
+          "title": "Tight Probability Bounds with Pairwise Independence",
+          "trigger": "Finite k-wise exchangeable count feasibility may dominate new classification"
+        },
+        {
+          "assessment": "Specific finite extremal all-one probability, not shown to imply all count weak limits",
+          "evidence": "Different optimization objective; residual risk retained",
+          "identifier_or_url": "https://arxiv.org/abs/2407.18688",
+          "material_read": "Abstract/theorem summary only, not full text",
+          "method": "Source identification and objective comparison",
+          "title": "Exact expressions for the maximal probability that all k-wise independent bits are 1",
+          "trigger": "Same limited independence family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The next natural level in the hierarchy of limited-independence rare-event laws is mathematically motivated: it identifies exactly which moment can be lost under weak convergence and characterizes the complete attainable count-law class. The explicit exchangeable realization resolves a nontrivial sufficiency boundary rather than providing a finite-sample table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only unit-intensity 3-wise independent Bernoulli count limits, not arbitrary λ or point processes.",
+    "No novelty certification against all classical moment-problem literature."
+  ],
+  "schema_version": 1
+}

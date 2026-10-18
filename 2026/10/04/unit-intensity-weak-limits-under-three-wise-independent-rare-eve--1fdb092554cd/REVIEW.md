@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Three-wise independence fixes the first three factorial moments of each rare Bernoulli sum asymptotically. The bounded third ordinary moment makes the first two moments uniformly integrable, so the limit has mean one and variance one; lower semicontinuity gives the one-sided third-factorial bound. The converse is constructive: a finite target with strict third-factorial slack is corrected at \(0,1,2,n\) to the exact count moments required by three-wise independent \(\operatorname{Bernoulli}(1/n)\) coordinates, and a reference-mixture plus truncation argument reduces every admissible target to that case.
+## correctness
 
-## Originality
-PASS. The closest published record classifies the pairwise case and explicitly leaves higher-wise independence as a different moment problem. Ramachandra--Natarajan's full-text Corollary 4.2 gives the finite-\(n\) aggregated moment linear program for identical \(t\)-wise independent Bernoulli variables, but not a weak-limit iff theorem or an asymptotic realization of every law obeying the limiting moment constraints. Focused published-record searches for three-wise rare Bernoulli weak limits, factorial-moment classifications, and higher-wise Poisson limits did not locate an implication-equivalent statement.
+PASS
 
-## Value
-PASS. This is a natural complete boundary theorem for the first independence level beyond the pairwise law-of-small-numbers classification. It identifies exactly which moment becomes rigid and which can still escape, and it gives an explicit equal-marginal realization mechanism rather than only a counterexample.
+For every row, three-wise independence gives E(S_n)_r as sum of products of distinct marginal probabilities for r=1,2,3. With sum p_i→1 and max p_i→0 all three factorial moments tend to 1. The identity S³=(S)_3+3(S)_2+S uniformly bounds third ordinary moments; therefore S and S² are uniformly integrable and any weak limit has E Y=1 and E(Y)_2=1. The nonnegative continuous extension max(0,x(x−1)(x−2)) and Portmanteau yield E(Y)_3≤1, not equality. Sufficiency uses ε_n=(a3_n−c)/(n(n−1)(n−2)) at count n, with δ0,δ1,δ2 in the pinned proof; independent SymPy simplification gave exactly zero for mass and mean correction and for the second and third factorial target residuals. Conditional uniform k-subsets then have joint all-one probabilities n^(−r) for r=1,2,3; inclusion–exclusion gives full 3-wise independence. The reference law (5/12,1/4,1/4,1/12) has E=1, E(Y)_2=1, E(Y)_3=1/2. Mixing, truncating and restoring 0/1/2 moments, then diagonalization, covers arbitrary admissible targets without mistaking finite rows for the infinite result.
 
-## Closest literature and limitations
-The main residual risk is equivalent older work in discrete truncated-moment, finite-exchangeability, orthogonal-array, or limited-independence language. The theorem is intentionally restricted to intensity \(1\), three-wise independence, and scalar counts.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The indexed pairwise weak-limit classification has E Y=λ, Var(Y)≤λ. The k=3 statement is strictly different: variance is fixed at 1 and leakage begins at third factorial order. Ramachandra–Natarajan Corollary 4.2 (inspected in full arXiv PDF) supplies finite-n count-moment feasibility for t-wise independence, but does not state the precise unit-intensity weak closure with third-moment escape or the diagonal constructive sufficiency. A stronger theorem under classical discrete moment or exchangeability terminology remains a residual bibliographic risk.
+
+## value
+
+PASS
+
+The next natural level in the hierarchy of limited-independence rare-event laws is mathematically motivated: it identifies exactly which moment can be lost under weak convergence and characterizes the complete attainable count-law class. The explicit exchangeable realization resolves a nontrivial sufficiency boundary rather than providing a finite-sample table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
