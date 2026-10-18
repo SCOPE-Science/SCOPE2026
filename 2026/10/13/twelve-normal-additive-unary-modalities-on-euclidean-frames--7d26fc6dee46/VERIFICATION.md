@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Reproducibility: run `python3 verify.py` from the directory containing `verify.py`, using the Python 3 standard library only. The script uses explicit Kripke semantics rather than any external modal-logic package. The observed terminating line was `VERIFY_OK`.
+## correctness
 
-Checks performed: enumeration of all directed binary relations on labeled sets of one through four worlds (including those with no successors), filtering by the Euclidean first-order condition; \(354\) frames satisfy it. Across these frames the script inspected \(5240\) valuation instances and checked the twelve proposed formulas for empty-set preservation and binary union preservation for every pair of subsets of each frame. It also verified that all five serial signatures plus a freely chosen root truth bit and two dead-end signatures are realizable and distinguishable, that the twelve representatives are pairwise distinguishable, and that exactly twelve of the \(4096\) Boolean functions on the twelve point types satisfy normality and binary additivity on the canonical five-world frame together with the dead-end frame.
+PASS
 
-Proof obligations beyond computation: the cluster lemma for arbitrary cardinalities; both formula-structural inductions; correspondence between the canonical frame's union-preserving root operators and all globally definable operations; full exclusion of an additional infinitary case. These are established in `RESULT.md` and are not claims of exhaustive computer verification over infinite structures. There has been no independent audit.
+Every serial root in any Euclidean frame has nonempty C=R(r) included in T=R²(r), with R(x)=T for x∈T. Structural induction makes arbitrary one-variable formula truth depend on root p and the ordered C/T existential/universal pattern, giving five successor patterns times two root values; a dead end supplies two more. Six modal tests define each of twelve signatures, yielding exactly 2^12=4096 one-generated classes. A finite five-world witness plus normality and union preservation makes the induced set function singleton-generated; automorphism symmetry and indistinguishable valuations {c1} versus {c1,u1} force γ≤β, leaving three successor options and two independent root/dead options, hence precisely 12 additive operators Eε∨Hα∨Bj. Each preserves arbitrary unions on all frames. Independently 354 Euclidean frames up to size 4 and 5240 valuations and representative separation checked; this finite test does NOT establish the unbounded induction.
+
+## originality
+
+PASS
+
+Closest primary classification covers K, GL, Grz, S4, S5, not arbitrary Euclidean K5; qualitative K5 local tabularity does not imply 4096 or the 12-op census. No matching published finding surfaced. A classical free-modal-algebra census remains plausible.
+
+## value
+
+PASS
+
+The count of exactly twelve admissible operators closes an identified parameter-free K5 gap in a systematic modal-translation classification; binary additivity collapsing to complete additivity is structurally meaningful, while the natural one-generated free modal algebra has exactly 4096 elements. This is not an arbitrary tiny-instance census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
