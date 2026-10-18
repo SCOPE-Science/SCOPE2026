@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The index-two cyclic subgroup permits a direct Clifford-theoretic enumeration. For the dihedral, generalized quaternion, and semidihedral actions, only the trivial and order-two cyclic characters are invariant, while every character of order at least \(4\) forms a two-element orbit and induces a degree-\(2\) character whose codegree is its cyclic order. For the modular action, exactly the even-index cyclic characters are invariant; the abelianization is \(C_{2^{m-2}}\times C_2\), and every odd-index character is faithful. Degree-squared counts close both character sets. The packaged checker verifies the formulas for \(4\le m\le12\).
+PASS
 
-## Originality
+Let A=C_N with N=2^{m-1} and index-two conjugation exponent r. Every nonfixed lambda_k has orbit {k,rk}, induces a degree-two irreducible with kernel ker lambda_k and codegree N/gcd(N,k). For dihedral and quaternion r=-1, and for semidihedral r=2^{m-2}-1; all have exactly k=0,N/2 fixed and four linear characters with codegrees 1 once and 2 thrice. Their character orders 2^j (2<=j<=m-1) appear in 2^{j-2} induced pairs. For modular r=2^{m-2}+1, even k are fixed and the abelianization is C_{2^{m-2}}xC_2, yielding 2^j linears of codegree 2^j (2<=j<=m-2); odd k give 2^{m-3} faithful degree-two characters of codegree 2^{m-1}. Degree-squared counts give |G|=2^m. Direct independently scripted orbit enumeration at m=4,5,6,7 gives the formulas, but all-order derivation is Clifford theory.
 
-PASS. The inspected pseudo-algebra papers do not treat semidihedral or quasidihedral groups. The open semidihedral character-table paper supplies ordinary character values but not codegree multiplicities. A prior own theorem already implies the dihedral–generalized-quaternion collision, so that part is not counted as new; the accepted contribution is the completion of the full four-family cyclic-index-two classification by adding semidihedral equality and modular separation. Targeted semantic and literature searches found no covering theorem. Older codegree literature under different terminology remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The four cyclic-index-two families are a classical complete test class in finite \(2\)-group theory. Determining the invariant on all four gives a sharp structural conclusion: pseudo-algebras recover order and detect the modular family, but are blind to the distinction among all three maximal-class types.
+The Moreto invariant and the known dihedral-generalized-quaternion collision are prior input. Lewis--Yan treat equality with abelian p-group pseudo-algebras and general structural constraints, not the exact four cyclic-index-two family comparison. Semidihedral coincidence and modular contrast complete a natural classification not obtained merely by the older D-Q example. General Clifford theory is credited, not claimed new.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For the four classical nonabelian 2-group families with a cyclic subgroup of index two, determining precisely which pairwise nonisomorphic groups this codegree-multiplicity invariant confuses, which it separates, and how it recovers group order is a mathematically motivated complete family classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

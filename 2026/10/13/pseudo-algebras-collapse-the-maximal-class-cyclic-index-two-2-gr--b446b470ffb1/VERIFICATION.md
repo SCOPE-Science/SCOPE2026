@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,42 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is symbolic.
 
-The packaged checker `artifacts/verify.py` models the cyclic subgroup
-\[
-C_{2^{m-1}}
-\]
-by character indices modulo
-\[
-2^{m-1}.
-\]
+# Independent mathematical audit
 
-For the dihedral and semidihedral split groups it computes conjugation orbits for exponents
-\[
--1
-\quad\text{and}\quad
-2^{m-2}-1.
-\]
-For the generalized quaternion family it uses the same inversion action.
+## correctness
 
-For the modular family it uses exponent
-\[
-2^{m-2}+1,
-\]
-checks that the invariant cyclic characters are exactly the even-index characters, and reconstructs the linear codegree distribution from
-\[
-C_{2^{m-2}}\times C_2.
-\]
+PASS
 
-For every
-\[
-4\le m\le12,
-\]
-the checker verifies the exact pseudo-algebra formulas and the degree-squared identities.
+Let A=C_N with N=2^{m-1} and index-two conjugation exponent r. Every nonfixed lambda_k has orbit {k,rk}, induces a degree-two irreducible with kernel ker lambda_k and codegree N/gcd(N,k). For dihedral and quaternion r=-1, and for semidihedral r=2^{m-2}-1; all have exactly k=0,N/2 fixed and four linear characters with codegrees 1 once and 2 thrice. Their character orders 2^j (2<=j<=m-1) appear in 2^{j-2} induced pairs. For modular r=2^{m-2}+1, even k are fixed and the abelianization is C_{2^{m-2}}xC_2, yielding 2^j linears of codegree 2^j (2<=j<=m-2); odd k give 2^{m-3} faithful degree-two characters of codegree 2^{m-1}. Degree-squared counts give |G|=2^m. Direct independently scripted orbit enumeration at m=4,5,6,7 gives the formulas, but all-order derivation is Clifford theory.
 
-It also prints the order-\(16\) boundary formulas.
+## originality
 
-The checker returns `VERIFY_OK`.
+PASS
 
-Finite computation is not used to prove the infinite family.
+The Moreto invariant and the known dihedral-generalized-quaternion collision are prior input. Lewis--Yan treat equality with abelian p-group pseudo-algebras and general structural constraints, not the exact four cyclic-index-two family comparison. Semidihedral coincidence and modular contrast complete a natural classification not obtained merely by the older D-Q example. General Clifford theory is credited, not claimed new.
+
+## value
+
+PASS
+
+For the four classical nonabelian 2-group families with a cyclic subgroup of index two, determining precisely which pairwise nonisomorphic groups this codegree-multiplicity invariant confuses, which it separates, and how it recovers group order is a mathematically motivated complete family classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
