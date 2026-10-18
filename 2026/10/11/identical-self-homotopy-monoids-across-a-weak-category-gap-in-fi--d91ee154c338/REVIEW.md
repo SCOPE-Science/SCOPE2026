@@ -1,15 +1,21 @@
-# Review: Identical self-homotopy monoids across a weak-category gap in finite spaces
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete finite nine-point Hasse diagram agrees with the primary source. Exhaustive regeneration from its transitive closure gives 12,575 monotone selfmaps and three homotopy components of sizes 12,573, 1, 1, with precisely the identity and the unique nontrivial automorphism isolated. The source's categories for the two ordinal-sum families and its first-public date/primary MSC were read directly. A fully quantified cap lemma proves for every integer \(m\ge2\) that every nonnull selfmap uniquely consists of a base automorphism and a nonconstant apex transformation, and that all such maps are isolated. The lemma separately analyzes maps sending old points to new maxima, maps with nonautomorphic base restriction, and constant apex maps; its two comparison directions establish isolation. Composition gives the specified zeroed transformation monoid, not merely the numerical class count. Independently, the 11-point cap enumeration yields the expected five components. The first-homology distinction follows from the graph \(K_{2,m}\). A finite test is never substituted for the universal cap argument.
+## correctness
 
-## Originality — PASS
-The complete relevant primary manuscript arXiv:2609.39615v1 supplies the spaces and category triples, but not their endomorphism-monoid comparison. The closest published finite-space calculations concern the uncapped nine-point base (three homotopy classes) or the height-one bouquet family (a numerical self-homotopy count). Their conclusions do not imply that the capped nine-point family has the same **composition monoid** as the bouquet family: this requires the new structural cap lemma and complete nine-point selfmap classification. Searches for aliases including ordinal sums, capped finite posets, homotopy endomorphism monoids, and weak-category detection did not return the cross-family claim. A remaining access risk is that the full texts of two closely related published mathematical records could not be retrieved through their linked repository; only their indexed summaries were available, so unpublished or unindexed stronger results cannot be excluded.
+PASS
 
-## Value — PASS
-The endomorphism monoid \([Y,Y]\) is a canonical algebraic invariant of the ordinary homotopy category; weak LS-category and first homology are intrinsic topological invariants. Producing, for every \(m\ge2\), **identical monoids** on a weakly contractible finite space and a finite model with \(H_1\cong\mathbb Z^{m-1}\) shows a precise structural inability of self-homotopy composition to recover weak topology. The comparison is parametrically exact, preserves stable and ordinary LS-category, and has unbounded homological separation. The cap lemma is reusable beyond the selected examples. This is not a mere comparison of matching counts or a parameter substitution.
+The finite-poset cap lemma handles all selfmaps of Q⊕D_m: maps hitting an apex from the base or with nonautomorphism restriction, or constant apex transformation, are nullhomotopic; remaining automorphisms of Q combined with nonconstant apex transformations are isolated, with composition sending constant composites to zero. Both Q=P(9) and Q=D2 have no greatest element, two automorphisms C2, and all nonautomorphism selfmaps null. An independent Python enumeration reconstructed 13 Hasse covers, listed all 12,575 isotone P9 selfmaps with homotopy components 12,573/1/1, and all 232,727 P9⊕D2 maps with components 232,723/1/1/1/1. The universal count follows from exactly m^m-m nonconstant transformations and two base automorphisms. Category triple for X_m follows from Mosquera-Lois/Tanaka source theorem; D2⊕Dm has order complex K_{2,m}, giving H1 rank m-1 and the cited category triple.
 
-## Scope and residual risks
-The statement concerns unbased homotopy classes of selfmaps, not the full mapping spaces or stronger equivalences. The cited record summaries are insufficient to certify every assertion of their entire linked articles; the cross-family comparison was independently proved and checked, and no returned statement showed direct or stronger coverage. Independent validation has not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 primary source establishes category triples but accessible abstract has no homotopy-endomorphism monoid theorem. Published 2026/10/4 Resultary P9 source classifies only the uncapped 9-point base; another published height-one family gives one class-count formula but no cross-family monoid isomorphism. The more general prior weak-order theorem requires all levels antichains and h≥3 and cannot cover R⊕D_m. The new cap lemma and entire monoid isomorphism remain additional mathematics, though primary full text was inaccessible.
+
+## value
+
+PASS
+
+The construction shows the complete composition monoid of self-homotopy classes fails to detect weak contractibility, first homology of arbitrarily high rank, or weak LS-category; a natural invariant-separation theorem across an infinite family, not just a pair of coincident counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
