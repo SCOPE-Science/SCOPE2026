@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T18:54:14.428966Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=prod p^{a_p}, D(n)/n=sum a_p/p, and integrality D(n)/n=k forces p|a_p for each p by reducing n|D(n) modulo p^{a_p}; conversely if a_p=p c_p then sum c_p=k. Thus all solutions come from a composition of k into r<=k positive integers. Leading r=k solutions have c_p=1 and log n=sum_{j=1}^k p_j log p_j with distinct primes. By PNT, B(L)=#{p:p log p<=L}~L/(log L)^2, regularly varying index 1. Product weak convergence on simplex sum t_i<=1 yields k-fold ordered volume 1/k!, and division by k! distinct permutations gives B(L)^k/(k!)^2. Repeated primes and r<k solutions O(B(L)^{k-1}), so A_k(x)~(log x)^k/[(k!)^2(loglog x)^{2k}] for fixed positive integer k. Independent direct exact sieve enumerated n<=1,400,000 for k=1..4 and agreed structural equivalence; this does not prove the analytic limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "JIS Theorems 1 and 6 give factorization and n-prime=n; Barbeau supplies divisibility characterization."
+        ],
+        "reasoning": "Neither classical structural result nor PNT alone is an explicitly established more general count; their combination requires the k-fold prime-weight convolution simplex volume and lower-layer analysis.",
+        "searches": [
+          "JIS 2003 Article 03.3.4 entire PDF",
+          "Barbeau 1961 DOI:10.4153/CMB-1961-013-0",
+          "Resultary fixed-multiplier arithmetic derivative query"
+        ]
+      },
+      "checked_sources": [
+        "Ufnarovski--Åhlander Journal of Integer Sequences 6(2003) Article 03.3.4 FULL PDF",
+        "DOI:10.4153/CMB-1961-013-0 property/formula comparison",
+        "OEIS arithmetic derivative background",
+        "Resultary query for fixed integer multiplier D(n)/n level-set asymptotics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "k=1 is fully covered by Ufnarovski (prime powers p^p).",
+          "Barbeau covers exponent divisibility, not numbers of solutions up to x; PNT is an external standard analytic input."
+        ],
+        "reasoning": "For fixed k>=2 the asserted leading (k!)^{-2} constant and typical k-distinct-prime form do not follow just by quoting k=1. Reconstructed full simplex asymptotic to verify the actual added step.",
+        "searches": [
+          "Ufnarovski Ahlander JIS Theorem 6",
+          "Barbeau 1961 property n divides D(n)",
+          "PNT regularly varying prime-weight counting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 6 for k=1 is a known special case; integrality n|D(n) implies exponent divisibility and structural all-k relation."
+        ],
+        "reasoning": "Checked n-prime derivation notation n-prime=kn, integer arithmetic logarithmic derivative, composition sum c_p=k, prime-power solutions and counting law. No located primary states the fixed-k asymptotic constant.",
+        "searches": [
+          "Resultary: arithmetic derivative D(n)=k n fixed integer k counting asymptotic solutions prime powers p^{pc}",
+          "web: arithmetic derivative D(n)=kn number solutions asymptotic fixed k",
+          "Ufnarovski--Ahlander JIS 6(2003) Article 03.3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Accessible OEIS/background sources define D and list sequences; no exact fixed-k counting table or all-k leading coefficient appeared in examined search results."
+        ],
+        "reasoning": "This is an asymptotic family as x->infinity, not a finite table extrapolation; small census alone would not imply the constant.",
+        "searches": [
+          "OEIS arithmetic derivative n-prime equals k n",
+          "Resultary arithmetic derivative fixed multiplier level sets",
+          "arithmetic logarithmic derivative integer fibers density count"
+        ]
+      },
+      "rationale": "Ufnarovski--Åhlander 2003 Theorem 1 defines D(n)/n and Theorem 6 classifies k=1 as n=p^p; Barbeau's 1961 criterion concerns integrality of D(n)/n. Full Ufnarovski paper (24pp) materially read at Theorems 1,4-6,9 and equation sections: no fixed-k counting asymptotic in those statements. Resultary fixed-k D(n)=kn searches retrieved this target, other arithmetic-derivative dynamics and unrelated prime-weight results, but not a prior general counting law. Asymptotic claim is a new PNT/regular-variation consequence, not the credited structural lemma. Best-of-knowledge PASS with obscure aliases possible.",
+      "residual_risks": [
+        "An obscure arithmetic-logarithmic-derivative paper may phrase the same enumeration with prime-weight additive partitions, absent the literal D(n)=kn notation.",
+        "Barbeau 1961 full original PDF was not independently inspected in this run; only its standard structural criterion was used and independently reproved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_LOG_DERIVATIVE_AND_K1_NOT_GENERAL_COUNT",
+          "evidence": "Theorem 1 gives n-prime/n=sum a_p/p; Theorem 6 exactly n-prime=n iff n=p^p. No fixed k>=2 counting asymptotic in inspected theorem list.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.pdf",
+          "material_read": "Full 24-page searchable PDF accessible; examined Theorem 1 on p2, Theorems 4-6 on pp3-4 and equation sections, directly visually checked pp2,4",
+          "method": "Primary PDF searchable text plus two page images for theorem verification",
+          "title": "How to Differentiate a Number",
+          "trigger": "Original arithmetic-derivative equation source"
+        },
+        {
+          "assessment": "COVERS_EXPONENT_DIVISIBILITY_NOT_ASYMPTOTICS",
+          "evidence": "n|D(n) iff p|a_p for every prime-power exponent; cited as classical premise.",
+          "identifier_or_url": "DOI:10.4153/CMB-1961-013-0",
+          "material_read": "Available cited property (c)/secondary description, not independently full inspected in this run",
+          "method": "Structural implication checked independently by modular p-adic argument",
+          "title": "Remarks on an Arithmetic Derivative",
+          "trigger": "Original exponent divisibility criterion"
+        },
+        {
+          "assessment": "BACKGROUND_WITH_NO_FIXED_K_ASYMPTOTIC",
+          "evidence": "Overview defines D(p)=1 and product rule; does not establish a general fixed-k asymptotic.",
+          "identifier_or_url": "https://oeis.org/wiki/Arithmetic_derivative",
+          "material_read": "OEIS Wiki formula, named properties, citations and basic sequences",
+          "method": "Inspect open reference overview",
+          "title": "Arithmetic derivative",
+          "trigger": "Possible database/source alias for D(n)/n"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The arithmetic derivative's integer logarithmic-derivative fibers are a natural number-theoretic classification. Exact asymptotics with leading constants for every fixed k and concentration on maximal distinct prime support add meaningful distribution information to the previously known k=1 solution and exponent divisibility criterion; prime-weight simplex counting is a substantive analytic step.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed positive integer k as x->infinity; no uniformity for growing k or rational nonintegral multipliers.",
+    "Finite census not an asymptotic proof; proof depends on standard prime number theorem and convergence of regularly varying counting measures.",
+    "No expert or Lean attestation implied by numerical verification.",
+    "Public metadata includes operational scope_run_id; sanitization needed before any publication."
+  ],
+  "schema_version": 1
+}

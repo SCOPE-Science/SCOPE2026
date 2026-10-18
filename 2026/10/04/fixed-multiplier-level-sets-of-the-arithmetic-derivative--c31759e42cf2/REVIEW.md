@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exponent characterization follows from the standard factorization formula and prime-by-prime divisibility. The asymptotic then reduces to a regularly varying prime-weight counting function and a simplex-volume limit. Repeated-prime tuples and all lower-support exponent compositions are lower order. The included checker confirms the structural equivalence on a finite range; the analytic proof does not rely on that finite test.
+## correctness
 
-## Originality
-PASS. Ufnarovski--Åhlander prove the \(k=1\) fixed-point case, and Barbeau proves the exponent-divisibility criterion used as input. Targeted searches for \(D(n)=kn\), fixed integral values of \(D(n)/n\), and asymptotic counts found no same or stronger statement. The novelty claim is restricted to the fixed-\(k\) asymptotic and concentration result, not the classical structural lemmas.
+PASS
 
-## Value
-PASS. The result answers a natural distribution question attached to the arithmetic derivative and gives both an explicit leading constant and an asymptotic support law for every fixed positive integral multiplier.
+For n=prod p^{a_p}, D(n)/n=sum a_p/p, and integrality D(n)/n=k forces p|a_p for each p by reducing n|D(n) modulo p^{a_p}; conversely if a_p=p c_p then sum c_p=k. Thus all solutions come from a composition of k into r<=k positive integers. Leading r=k solutions have c_p=1 and log n=sum_{j=1}^k p_j log p_j with distinct primes. By PNT, B(L)=#{p:p log p<=L}~L/(log L)^2, regularly varying index 1. Product weak convergence on simplex sum t_i<=1 yields k-fold ordered volume 1/k!, and division by k! distinct permutations gives B(L)^k/(k!)^2. Repeated primes and r<k solutions O(B(L)^{k-1}), so A_k(x)~(log x)^k/[(k!)^2(loglog x)^{2k}] for fixed positive integer k. Independent direct exact sieve enumerated n<=1,400,000 for k=1..4 and agreed structural equivalence; this does not prove the analytic limit.
 
-Closest literature and limitations are described in `RESULT.md` and `AUDIT.json`. The result is not uniform in growing \(k\), and residual literature risk remains for obscure equivalent terminology.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ufnarovski--Åhlander 2003 Theorem 1 defines D(n)/n and Theorem 6 classifies k=1 as n=p^p; Barbeau's 1961 criterion concerns integrality of D(n)/n. Full Ufnarovski paper (24pp) materially read at Theorems 1,4-6,9 and equation sections: no fixed-k counting asymptotic in those statements. Resultary fixed-k D(n)=kn searches retrieved this target, other arithmetic-derivative dynamics and unrelated prime-weight results, but not a prior general counting law. Asymptotic claim is a new PNT/regular-variation consequence, not the credited structural lemma. Best-of-knowledge PASS with obscure aliases possible.
+
+## value
+
+PASS
+
+The arithmetic derivative's integer logarithmic-derivative fibers are a natural number-theoretic classification. Exact asymptotics with leading constants for every fixed k and concentration on maximal distinct prime support add meaningful distribution information to the previously known k=1 solution and exponent divisibility criterion; prime-weight simplex counting is a substantive analytic step.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
