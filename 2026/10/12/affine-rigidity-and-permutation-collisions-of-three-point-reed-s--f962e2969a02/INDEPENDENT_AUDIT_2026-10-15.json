@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T14:16:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md d478c52b2c616c3f2e5ce5280af88675669e93fa",
+        "Actual frozen verify.py b12e185d7b0b0c050bd881e2e43bee963a602e71",
+        "Zhang, Sun, Zhang & Ge, Random Reed–Solomon Codes Correcting Permutations, Insertions, and Deletions over Polynomial-Size Alphabets, arXiv:2606.22344"
+      ],
+      "rationale": "For each finite field F_q and 3-element E, the unordered nonconstant evaluation image of ax+b is aE+b, and two nonconstant messages give the same output iff their maps differ by affine set stabilizer H_E. The H_E action is free on affine parameter pairs so every nonconstant fiber has cardinality |H_E|, with q(q-1)/|H_E| such outputs; constant fibers are singleton. Faithful action H_E↪S3 leaves orders 1,2,3,6. Characteristic2 has no affine involution preserving odd triples, but primitive cube-root multiplication gives q(q-1)/3 order-3 triples if 3|q-1. Characteristic3 arithmetic progression triples are translation cosets with full six-element stabilizer, q(q-1)/6 of them; otherwise H_E trivial. Other odd characteristics yield q(q-1)/2 midpoint/arithmetic triples of order2, and q(q-1)/3 disjoint cube-root orbit triples of order3 only if 3|q-1; the rest order1. Verified independent exact affine-group/stabilizer enumeration for q=3 (one order6), q=5 (10 order2), q=7 (21 order2 plus 14 order3), q=8 (56 order1), plus direct unordered message fibers for those fields. First admissible q=8: every triple is rigid, thus all q^2=64 messages have distinct unordered outputs; q<8 prime powers 2,3,4,5,7 fail by classifications. The all-prime-power result rests on stabilizer orbit theory, not finite samples.",
+      "residual_risks": [
+        "Assumes exactly three distinct evaluation points and affine polynomials degree<2; permutation-only, zero-edit channel.",
+        "Does NOT imply correction of positive numbers of insertions, deletions or substitutions, nor a general n,k Reed–Solomon decoder."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang et al. arXiv:2606.22344 full HTML",
+          "Camps-Moreno et al. Thm IV.6 hypotheses 1<k<n-1"
+        ],
+        "reasoning": "Broad coding results address asymptotic errors; permutation automorphism theorem excludes the exact boundary n=3,k=2 and does not enumerate unordered message fibers. No direct implication to proposed N_h(q) found.",
+        "searches": [
+          "three point Reed Solomon permutation affine stabilizer unlabeled code collision"
+        ]
+      },
+      "checked_sources": [
+        "Zhang, Sun, Zhang & Ge, Random Reed–Solomon Codes Correcting Permutations, Insertions, and Deletions over Polynomial-Size Alphabets, arXiv:2606.22344",
+        "Camps-Moreno, Lau, López & Santos, The permutation group of Reed–Solomon codes over arbitrary points, arXiv:2601.00122v1",
+        "Con, Shpilka & Tamo, Optimal Two-Dimensional Reed–Solomon Codes Correcting Insertions and Deletions, DOI:10.1109/TIT.2024.3387848",
+        "Resultary:2026/10/4/SCOPE-exact-classification-of-three-row-ternary-perfect-hash-families--e1542e723907"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhang et al. 2026 general existence statements",
+          "Camps-Moreno et al. 2026 excluded boundary case"
+        ],
+        "reasoning": "General robust coding existence over larger alphabets neither yields the sharp smallest field nor fiber multiplicity distribution for each unlabeled E. The classical stabilizer method is known, but the particular q-uniform coding result is not a cited stronger corollary.",
+        "searches": [
+          "three point Reed Solomon permutation affine stabilizer unlabeled code collision"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Camps-Moreno et al. arXiv:2601.00122v1 Prop IV.2 and Thm IV.6",
+          "Direct stabilizer orbit group calculation"
+        ],
+        "reasoning": "Global code coordinate-permutation automorphisms overlap terminology but not the specific message collision fiber map; this is a natural finite group orbit equivalence.",
+        "searches": [
+          "three point Reed Solomon permutation affine stabilizer unlabeled code collision"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary:exact-classification-of-three-row-ternary-perfect-hash-families--e1542e723907",
+          "Resultary:exact-three-point-simultaneous-exponential-bases-in-binary-vecto--81d02823d4dc",
+          "Independent q=3/5/7/8 orbit counts"
+        ],
+        "reasoning": "The retrieved exact tables concern perfect hashes and Fourier bases, not all finite-field affine 3-set stabilizers; an unindexed classical orbit table remains plausible.",
+        "searches": [
+          "three point Reed Solomon permutation affine stabilizer unlabeled code collision"
+        ]
+      },
+      "rationale": "Zhang–Sun–Zhang–Ge 2026 full accessible paper concerns coordinate permutations PLUS insertion/deletion and polynomial-size alphabet constructions; checked sections do not give a complete q-dependent three-set affine stabilizer histogram. Camps-Moreno et al 2026 characterize global coordinate-permutation automorphisms for 1<k<n-1, which specifically EXCLUDES n=3,k=2; a related one-way affine inclusion is not the unordered message fiber count. Con–Shpilka–Tamo 2024 treats two-dimensional insertion/deletion codes, not exact zero-edit triple orbit enumeration in accessible summary. Resultary 3-point Fourier/perfect-hash findings use different objects and do not imply this classification.",
+      "residual_risks": [
+        "Unindexed classical affine group triple orbit counting may already imply this small-n census; source methods are elementary even if exact coding interpretation is motivated.",
+        "Full Con–Shpilka–Tamo journal text not reread and may contain an unrecognized zero-edit corollary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_ADVERSARIAL_EDIT_ACHIEVABILITY; NO_SAME_THREE_TRIPLE_TABLE_IDENTIFIED",
+          "evidence": [
+            "Polynomial alphabet robust insertion/deletion performance is not identical to finite q field histogram for n=3."
+          ],
+          "identifier_or_url": "arXiv:2606.22344",
+          "material_read": "Full accessible HTML, including introduction, statements and relevant decoding/construction section for k=2",
+          "method": "Full arXiv HTML scan and in-page queries",
+          "title": "Random Reed–Solomon Codes Correcting Permutations, Insertions, and Deletions over Polynomial-Size Alphabets",
+          "trigger": "Exactly concerns RS codes under permutations, plausible weaker zero-edit obstruction"
+        },
+        {
+          "assessment": "THEOREM_IV6_EXCLUDES_N3_K2",
+          "evidence": [
+            "1<k<n-1 assumption fails at k=2, n=3; global coordinate automorphism is distinct from message fiber count."
+          ],
+          "identifier_or_url": "arXiv:2601.00122v1",
+          "material_read": "Full available HTML and material around Proposition IV.2, Theorem IV.6, Example IV.9",
+          "method": "Full arXiv HTML scan and theorem inspection",
+          "title": "The permutation group of Reed–Solomon codes over arbitrary points",
+          "trigger": "Affine automorphism theorem might imply same triple stabilizer"
+        },
+        {
+          "assessment": "POSSIBLE_RELATED_BUT_UNRESOLVED_FULL_DOCUMENT",
+          "evidence": [
+            "Two-dimensional insertion/deletion correction rather than complete three-point permutation-only orbit counts."
+          ],
+          "identifier_or_url": "DOI:10.1109/TIT.2024.3387848",
+          "material_read": "Available bibliographic summary/abstract, not full primary text",
+          "method": "Publisher metadata/summary",
+          "title": "Optimal Two-Dimensional Reed–Solomon Codes Correcting Insertions and Deletions",
+          "trigger": "Same dimension-two RS but stronger error model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Zhang, Sun, Zhang & Ge, Random Reed–Solomon Codes Correcting Permutations, Insertions, and Deletions over Polynomial-Size Alphabets, arXiv:2606.22344",
+        "Camps-Moreno, Lau, López & Santos, The permutation group of Reed–Solomon codes over arbitrary points, arXiv:2601.00122v1",
+        "Con, Shpilka & Tamo, Optimal Two-Dimensional Reed–Solomon Codes Correcting Insertions and Deletions, DOI:10.1109/TIT.2024.3387848"
+      ],
+      "rationale": "Loss of coordinate identities is the natural zero-edit obstruction to coordinate-permutation coding. The complete field-characteristic-dependent collision multiplicities and the sharp first field q=8 determine a motivated exact invariant of a fundamental Reed–Solomon boundary instance, usable for selecting viable evaluation sets. A full classification is intrinsically useful even without an asymptotic code-rate theorem.",
+      "residual_risks": [
+        "Assumes exactly three distinct evaluation points and affine polynomials degree<2; permutation-only, zero-edit channel.",
+        "Unindexed classical affine group triple orbit counting may already imply this small-n census; source methods are elementary even if exact coding interpretation is motivated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Assumes exactly three distinct evaluation points and affine polynomials degree<2; permutation-only, zero-edit channel.",
+    "Does NOT imply correction of positive numbers of insertions, deletions or substitutions, nor a general n,k Reed–Solomon decoder.",
+    "Unindexed classical affine group triple orbit counting may already imply this small-n census; source methods are elementary even if exact coding interpretation is motivated.",
+    "Full Con–Shpilka–Tamo journal text not reread and may contain an unrecognized zero-edit corollary."
+  ]
+}

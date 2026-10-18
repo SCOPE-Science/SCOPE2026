@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For any three-element evaluation set \(E\subseteq\mathbb F_q\), distinct nonconstant affine polynomials have the same unordered output exactly when their affine maps differ by an element of the affine set stabilizer \(H_E\). The action on the three evaluated points is faithful, so the possible stabilizer orders are \(1,2,3,6\). In characteristic two an affine involution cannot stabilize an odd-cardinality set; in characteristic three all three-cycles arise from translations and their triples have full order-six stabilizer. In other characteristics, involution-stable triples are centered arithmetic progressions and three-cycle-stable triples are centered primitive-cube-root orbits; their classes cannot overlap. Counting midpoints, cosets, and primitive-cube-root orbits gives the formulas stated in RESULT.md. An executable finite-field census and a direct unordered-output collision check for fields of order up to nine return VERIFY_OK. The symbolic group argument, rather than these samples, establishes all prime powers.
+## correctness
 
-## Originality — PASS, subject to identified literature risk
-The 2026 permutation-and-edit Reed–Solomon paper of Zhang, Sun, Zhang and Ge (arXiv:2606.22344) motivates permutation ambiguity, but the available abstract and introductory material concern asymptotic robust coding, rather than a complete affine-stabilizer census of three-point evaluation sets. Camps-Moreno, Lau, López and Santos (arXiv:2601.00122, Proposition IV.2 and Theorem IV.6) investigate *global coordinate-permutation automorphisms*; their affine-permutation theorem requires \(1<k<n-1\), which excludes \((n,k)=(3,2)\). Their result does not directly give the kernel multiplicities of the unordered-message evaluation map. Con, Shpilka and Tamo (IEEE TIT 2024) study dimension-two insertion/deletion correction, not the exact three-point unordered fiber distribution in the inspected summary. Semantic searches of available published mathematical findings did not identify the same claim, but cannot prove universal uniqueness. The complete June 2026 manuscript was not available for a decisive full-document comparison; an earlier unindexed classification remains a real risk.
+PASS
 
-## Value — PASS
-Permutation-only reconstruction is a necessary zero-edit boundary for channels that erase coordinate positions. The complete characteristic-dependent fiber multiplicities and enumeration of all suitable evaluation sets give exact finite coding parameters for this natural boundary and a sharp first viable field, \(\mathbb F_8\). Such complete natural classifications are useful beyond an isolated numerical example; the result does not claim a new asymptotic coding theorem or nonzero edit-error correction.
+For each finite field F_q and 3-element E, the unordered nonconstant evaluation image of ax+b is aE+b, and two nonconstant messages give the same output iff their maps differ by affine set stabilizer H_E. The H_E action is free on affine parameter pairs so every nonconstant fiber has cardinality |H_E|, with q(q-1)/|H_E| such outputs; constant fibers are singleton. Faithful action H_E↪S3 leaves orders 1,2,3,6. Characteristic2 has no affine involution preserving odd triples, but primitive cube-root multiplication gives q(q-1)/3 order-3 triples if 3|q-1. Characteristic3 arithmetic progression triples are translation cosets with full six-element stabilizer, q(q-1)/6 of them; otherwise H_E trivial. Other odd characteristics yield q(q-1)/2 midpoint/arithmetic triples of order2, and q(q-1)/3 disjoint cube-root orbit triples of order3 only if 3|q-1; the rest order1. Verified independent exact affine-group/stabilizer enumeration for q=3 (one order6), q=5 (10 order2), q=7 (21 order2 plus 14 order3), q=8 (56 order1), plus direct unordered message fibers for those fields. First admissible q=8: every triple is rigid, thus all q^2=64 messages have distinct unordered outputs; q<8 prime powers 2,3,4,5,7 fail by classifications. The all-prime-power result rests on stabilizer orbit theory, not finite samples.
 
-## Limitations and closest sources
-Exact only for three distinct evaluation points and degree-less-than-two polynomials. The permitted channel is coordinate permutation alone. An inaccessible full text of the 2026 primary motivating preprint and potential unindexed prior tables are residual originality risks. Relevant sources: arXiv:2606.22344 (abstract/intro inspected), arXiv:2601.00122v1 (relevant full-text sections inspected), DOI:10.1109/TIT.2024.3387848 (abstract and bibliographic material inspected).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zhang–Sun–Zhang–Ge 2026 full accessible paper concerns coordinate permutations PLUS insertion/deletion and polynomial-size alphabet constructions; checked sections do not give a complete q-dependent three-set affine stabilizer histogram. Camps-Moreno et al 2026 characterize global coordinate-permutation automorphisms for 1<k<n-1, which specifically EXCLUDES n=3,k=2; a related one-way affine inclusion is not the unordered message fiber count. Con–Shpilka–Tamo 2024 treats two-dimensional insertion/deletion codes, not exact zero-edit triple orbit enumeration in accessible summary. Resultary 3-point Fourier/perfect-hash findings use different objects and do not imply this classification.
+
+## value
+
+PASS
+
+Loss of coordinate identities is the natural zero-edit obstruction to coordinate-permutation coding. The complete field-characteristic-dependent collision multiplicities and the sharp first field q=8 determine a motivated exact invariant of a fundamental Reed–Solomon boundary instance, usable for selecting viable evaluation sets. A full classification is intrinsically useful even without an asymptotic code-rate theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
