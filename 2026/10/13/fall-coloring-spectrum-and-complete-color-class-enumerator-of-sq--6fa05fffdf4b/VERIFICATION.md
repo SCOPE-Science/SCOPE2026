@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing this file. The code requires no third-party modules and reconstructs the 48-state transfer matrix from the displayed adjacency conditions. It computes exact traces, independently reconstructs the determinant by Newton identities, and compares its 48 polynomial coefficients with the displayed factored polynomial. It also brute-force enumerates normalized proper cyclic palette words of every length 7 through 16, checks base-word constructions and verifies the first 64 trace values.
+## correctness
 
-Expected output: `VERIFY_OK states=48 characteristic_degree=48 matrix_trace_orders=1..64 independently_bruteforced_orders=7..16 exceptional_orders=7,11 witnesses=8,9,10,15`.
+PASS
 
-The code is a finite exact verification of a fixed matrix identity and initial checks, not an exhaustive search over all graph orders. The unrestricted theorem follows from the explicit state-space bijection, finite determinant identity, and proof by insertion of four-letter distinct blocks. It establishes no analogous theorem for higher powers of cycles. Independent mathematical audit has not been performed.
+A fall coloring of C_n² n>=7 must use 3,4 or 5 colors. For 3 colors, proper cyclic triples force period 3, so exactly one partition iff 3|n. For 5 colors all cyclic five-windows are rainbow and period 5, so exactly one iff 5|n. For four colors, a 48-state quadruple automaton with transitions validating proper triples and every cyclic 5-window using four letters gives F_n=tr(T^n) labeled colorings, and F_n/24 unlabeled partitions. Independent Newton identities from tr(T^1..T^48) establish exactly the stated factored D(t)=det(I-tT), hence -tD'/D for all n. Direct cyclic enumeration n=7..15 matches counts (0,7,3,5,0,31,13,35,20); n=7,11 impossible. Every genuine four-color fall word has a four-distinct consecutive block; duplication increases n by 4 preserving admissibility, and length witnesses 8,9,10,15 imply existence for all n>=8 except 11. This proves all-n spectrum rather than extrapolating small checks.
+
+## originality
+
+PASS
+
+Kumar–Nicholas–Somasundaram's Theorem 6 already gives the five-color divisibility criterion for powers of cycles; the proof's three-color periodicity is elementary background. Its inspected primary article does not contain this 48-state four-color exact count, rational series, or exceptional 7/11 absence. General fall coloring frameworks likewise do not imply the explicit square-cycle class enumerator. Claimed novelty rests on complete four-color counting and full spectrum, not the earlier five-color criterion.
+
+## value
+
+PASS
+
+The complete unlabeled fall-color spectrum and exact rational generating function for an infinite natural 4-regular graph family are useful structural enumeration. The excluded small orders and every-order four-color existence bridge a known 5-color criterion with a nontrivial finite-state count rather than providing a lone instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

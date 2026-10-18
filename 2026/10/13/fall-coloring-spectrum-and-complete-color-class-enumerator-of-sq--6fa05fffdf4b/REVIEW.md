@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives the permitted numbers of color classes from triangle and degree bounds, then proves period-three and period-five classification directly. The four-color characterization via cyclic three- and five-windows is equivalent to the definition. The explicit 48-state digraph gives a closed-walk bijection; Newton identities and exact integer arithmetic reproduce its determinant factorization. Four checked base words and an insertion-by-four argument cover every admissible order, while the exact determinant proves the two excluded orders. Reproduction uses the embedded standalone `verify.py` rather than an inaccessible external certificate. Limit: brute-force comparisons cover only orders 7 through 16; infinite scope is justified by the proof.
+## correctness
 
-**Originality — PASS, subject to documented priority risk.** The closest 2011 source (Kumar, Nicholas and Somasundaram) proves the fall maximum-palette criterion for cycle powers, subsuming this theorem's five-color divisibility statement; this known portion is expressly excluded from claims of independent novelty. It does not state a four-color fall-coloring census or identify the 7/11 obstruction and degree-48 rational enumeration. Dunbar et al. (2000) give general fall-coloring foundations, not this graph-family enumeration; Wang et al. (2024) treat generic bounds, computational complexity and planar families, not this exact sequence. published-finding corpus searches for cycle-square fall-coloring spectra, equivalent partitions into independent dominating sets, and cyclic-word/transfer-matrix enumerations did not reveal an equivalent or stronger covering statement. The closest matched entries concern square chromatic numbers of theta graphs and unrelated coloring invariants. Absence from search is not evidence of priority; independently unindexed, differently named results remain possible.
+PASS
 
-**Value — PASS.** The theorem classifies every possible fall-palette size and counts **every partition** into independent dominating color classes of the natural family of degree-four vertex-transitive graphs. The full four-class cardinality sequence and the sharp two isolated orders with no fall-coloring distinguish this genuinely stronger all-colorings result from the old maximum-palette divisibility criterion. The finite-state factorization reveals a reproducible rational structure and the insertion lemma explains the global order threshold. The result is a complete classification and exact enumerator rather than an arbitrary finite sample.
+A fall coloring of C_n² n>=7 must use 3,4 or 5 colors. For 3 colors, proper cyclic triples force period 3, so exactly one partition iff 3|n. For 5 colors all cyclic five-windows are rainbow and period 5, so exactly one iff 5|n. For four colors, a 48-state quadruple automaton with transitions validating proper triples and every cyclic 5-window using four letters gives F_n=tr(T^n) labeled colorings, and F_n/24 unlabeled partitions. Independent Newton identities from tr(T^1..T^48) establish exactly the stated factored D(t)=det(I-tT), hence -tD'/D for all n. Direct cyclic enumeration n=7..15 matches counts (0,7,3,5,0,31,13,35,20); n=7,11 impossible. Every genuine four-color fall word has a four-distinct consecutive block; duplication increases n by 4 preserving admissibility, and length witnesses 8,9,10,15 imply existence for all n>=8 except 11. This proves all-n spectrum rather than extrapolating small checks.
 
-**Scientific and access limitations.** Alternative prior terminology (indominable partitions, independent dominating partitions, period-word counts) may conceal equivalent older work. The general 2024 article was inspected via its publicly readable HTML excerpts; the exact relevant theorem statements are general, not the squared-cycle census. Further independent literature and mathematical review are appropriate before any priority claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kumar–Nicholas–Somasundaram's Theorem 6 already gives the five-color divisibility criterion for powers of cycles; the proof's three-color periodicity is elementary background. Its inspected primary article does not contain this 48-state four-color exact count, rational series, or exceptional 7/11 absence. General fall coloring frameworks likewise do not imply the explicit square-cycle class enumerator. Claimed novelty rests on complete four-color counting and full spectrum, not the earlier five-color criterion.
+
+## value
+
+PASS
+
+The complete unlabeled fall-color spectrum and exact rational generating function for an infinite natural 4-regular graph family are useful structural enumeration. The excluded small orders and every-order four-color existence bridge a known 5-color criterion with a nontrivial finite-state count rather than providing a lone instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
