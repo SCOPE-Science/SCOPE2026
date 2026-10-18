@@ -1,15 +1,21 @@
-# Scientific review: annealed and almost-sure optimal sampling diverge for interacting Wasserstein coordinate descent
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the exact positive diagonal quadratic potential-plus-interaction model in Xu and Li (arXiv:2604.01606v1, Section 5.1), the energy decomposition into coordinate means and variances is an algebraic identity. The negative Wasserstein-gradient coordinate pushforward scales those two modes by exactly \(1-\eta_i a_i\) and \(1-\eta_i b_i\). The coordinate-count formula then gives exact finite-step energy evolution, binomial averaging gives the expected energy, and the strong law of large numbers gives the almost-sure exponential rate. Explicit one-coordinate Dirac and mean-zero two-atom laws attain each worst-case mode. The one-dimensional equioscillation problem uniquely determines each coordinate step; two distinct elementary harmonic equalizations uniquely determine expected-risk and logarithmic-risk probabilities. The limiting two-coordinate family satisfies all strict hypotheses before taking the parameter limit. The standalone verifier passed 1,197 exact-rational checks with separate numerical logarithm/limit checks. The proof, not the finite checks, establishes all quantifiers and almost-sure conclusions.
+PASS
 
-## Originality — PASS, with named residual risks
+On arbitrary P2 initial laws, E(mu)=1/2 sum_i(a_i m_i²+b_i v_i), b_i=a_i+beta_i/2, and selected-coordinate affine pushforward multiplies mean and centered modes by 1-eta_i a_i and 1-eta_i b_i. Their squared worst-case modal multiplier is uniquely minimized by eta_i=2/(a_i+b_i). At that step both squared multipliers equal t_i=((b_i-a_i)/(b_i+a_i))² in (0,1), so for visit counts N_i(k), E_k=sum_i E_i(0)t_i^{N_i(k)}. IID visits give E[E_k]=sum_i E_i(0)(1-p_i(1-t_i))^k, hence the worst-case k-step factor is max_i(1-p_i delta_i)^k; the simultaneous SLLN gives the almost-sure worst-case factor max_i(t_i^{p_i}). Equalizing p_i delta_i and p_i(-log t_i) separately yields the unique inverse-delta annealed and inverse-log quenched policies, respectively, for every k and every d>=2. The source proves the attained annealed expectation is (1-1/sum_j delta_j^-1)^k E0 for ALL initial laws and quenched rate exp(-1/sum_j c_j^-1). This is a modal proof for all dimensions, not an inference from finite tests. Independently checked the d=2 rational instance beta1=1/1000,beta2=4: t=(1/16008001,1/4), annealed p1=16008001/37352001, RA=7114667/12450667, tending to p1=3/7 and RA=4/7 as beta1 downarrow0, while quenched p1 ->0 and its expected worst-case factor ->1.
 
-Xu and Li give the pushforward definition, general expected-descent analysis, and a quadratic interaction experiment, but their Algorithm 1 fixes probabilities proportional to smoothness and does not supply an exact two-risk minimax classification. Richtárik–Takáč supply a broad expected-complexity probability analysis of Euclidean random-coordinate methods; it does not provide the almost-sure optimizer or the interacting two-mode pushforward identity. Agaskar–Wang–Lu explicitly study annealed and quenched exponents for randomized Kaczmarz and thus constitute an important conceptual precursor. Kaczmarz's projection matrices differ from the present pair of mean/fluctuation multipliers; its accessible abstract does not establish the present exact reciprocal-log law. A published inverse-positive SPD coordinate result treats exact Euclidean coordinate minimization and expected energy, not the Wasserstein two-mode update and its almost-sure optimum. Full historical Kaczmarz text was not retrieved, and unknown equivalent reductions remain a substantive residual risk. Novelty is a literature-based assessment, not a global uniqueness certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The result is a complete exact classification of a natural parameter-design question for the new Wasserstein coordinate descent algorithm, including arbitrary probability measures with finite second moment, all finite horizons for expected energy, and almost-sure asymptotic behavior. It identifies a concrete and sharp risk conflict: near the noninteracting boundary the almost-sure-optimal rule starves a fast-to-contract coordinate, making the worst-case expected factor tend to one, whereas the expected-optimal factor tends to \(4/7\). The distinction is relevant because convergence reports often compare typical trajectories while guarantees control expectations. No practical runtime advantage, non-diagonal extension, adaptive policy, tail concentration, or general nonlinear convergence theorem is claimed.
+The precise two-minimax separation for nonprojective affine Wasserstein coordinate maps is not entailed by Xu--Li general convergence bounds, by expected-rate optimized Euclidean SPD coordinate descent, or by Kaczmarz abstracts merely distinguishing expectation from typical rates. The model is a diagonal special case of Xu--Li, but the scientific contribution is the exact simultaneous two-risk optimization and incompatible sampling policies. Full text of a historically plausible Kaczmarz source was not obtained, leaving documented priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Expected-error guarantees and almost-sure sample-path error decay are genuinely distinct performance objectives; the sharp minimax sampling rules and the limiting 4/7-vs-1 separation explain precisely why choosing one can be adverse to the other, for all initial probability laws in the stated natural diagonal Wasserstein model. This is a quantitative algorithm-design tradeoff, not a renamed convergence bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

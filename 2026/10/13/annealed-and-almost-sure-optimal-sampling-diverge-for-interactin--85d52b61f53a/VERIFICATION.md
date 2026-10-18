@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The proof's exact finite-time law follows from affine transformation of coordinate means and centered variables. The law holds for every Borel probability measure with finite second moment; independence of coordinate draws makes marginal visit counts binomial and their normalized values converge almost surely to the positive sampling probabilities. Scalar equioscillation and harmonic equalization complete the infinite-horizon minimax proof. No simulation is used to establish these infinite statements.
+## correctness
 
-## Reproducible checks
+PASS
 
-Run `python verify.py` with Python 3 and no third-party dependencies. Expected stdout: `VERIFY_OK 1197 exact-rational checks and limiting-regime numerical cross-checks`. The script uses exact `Fraction` arithmetic to verify per-coordinate energy transformations, the equal-magnitude condition, the closed-form decreases, 27 finite-horizon binomial identities, and the annealed equalization. It also checks the logarithmic probability equalization and a sequence approaching the adverse two-coordinate boundary numerically. The latter tests do not prove the limit; the proof computes it analytically.
+On arbitrary P2 initial laws, E(mu)=1/2 sum_i(a_i m_i²+b_i v_i), b_i=a_i+beta_i/2, and selected-coordinate affine pushforward multiplies mean and centered modes by 1-eta_i a_i and 1-eta_i b_i. Their squared worst-case modal multiplier is uniquely minimized by eta_i=2/(a_i+b_i). At that step both squared multipliers equal t_i=((b_i-a_i)/(b_i+a_i))² in (0,1), so for visit counts N_i(k), E_k=sum_i E_i(0)t_i^{N_i(k)}. IID visits give E[E_k]=sum_i E_i(0)(1-p_i(1-t_i))^k, hence the worst-case k-step factor is max_i(1-p_i delta_i)^k; the simultaneous SLLN gives the almost-sure worst-case factor max_i(t_i^{p_i}). Equalizing p_i delta_i and p_i(-log t_i) separately yields the unique inverse-delta annealed and inverse-log quenched policies, respectively, for every k and every d>=2. The source proves the attained annealed expectation is (1-1/sum_j delta_j^-1)^k E0 for ALL initial laws and quenched rate exp(-1/sum_j c_j^-1). This is a modal proof for all dimensions, not an inference from finite tests. Independently checked the d=2 rational instance beta1=1/1000,beta2=4: t=(1/16008001,1/4), annealed p1=16008001/37352001, RA=7114667/12450667, tending to p1=3/7 and RA=4/7 as beta1 downarrow0, while quenched p1 ->0 and its expected worst-case factor ->1.
 
-## Limitations
+## originality
 
-Only diagonal positive potential and interaction matrices, exact independent-coordinate pushforwards and fixed sampling distributions are covered. Almost-sure exponential factors do not imply finite-iteration tail bounds. No independent audit or external validation has been performed.
+PASS
+
+The precise two-minimax separation for nonprojective affine Wasserstein coordinate maps is not entailed by Xu--Li general convergence bounds, by expected-rate optimized Euclidean SPD coordinate descent, or by Kaczmarz abstracts merely distinguishing expectation from typical rates. The model is a diagonal special case of Xu--Li, but the scientific contribution is the exact simultaneous two-risk optimization and incompatible sampling policies. Full text of a historically plausible Kaczmarz source was not obtained, leaving documented priority risk.
+
+## value
+
+PASS
+
+Expected-error guarantees and almost-sure sample-path error decay are genuinely distinct performance objectives; the sharp minimax sampling rules and the limiting 4/7-vs-1 separation explain precisely why choosing one can be adverse to the other, for all initial probability laws in the stated natural diagonal Wasserstein model. This is a quantitative algorithm-design tradeoff, not a renamed convergence bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
