@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T08:48:41.172358Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For dimensionless τ=λt, L=λP, N tip count, C cherry count, H summed ages of cherry-member leaves, J summed squared leaf ages, explicitly re-derived eleven expected-value generator ODEs including EC L: (ECL)'=ENC+ENL−3ECL−EL+EH with initial N(0)=1, C=L=H=J=0. An INDEPENDENT SymPy program verified all eleven stated closed forms satisfy exact differential equations and initial conditions with zero residual, then recomputed Cov(C,L)=F/(36r^3), Cov(C−N/3,L−N/2)=−g/(36r^3) and both residual variances. Here g=r^4−6r^2+24r log r−4r+9; g(1)=0, g'(r)=4(r^3−3r+6log r+5)>0 for r≥1. For F=6r^5−19r^4+18r^3+12r^2−24rlog r−8r−9, F(1)=F'(1)=F''(1)=0, F'''(1)=36>0 and F''''(r)=720r−456−48/r^3>0 for r≥1. Hence strict signs hold for every λt>0, not only sampled time points. Large-r leading variance and covariance yield correlation limit −sqrt(6)/12. P restored by λ−1. Initial single-lineage pendant-age convention is material; fixed-tip conditioning and extinction are explicitly not claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stadler–Steel arXiv:1107.5926 has branch length distributions under homogeneous speciation; dependence on cherries is not its stated invariant.",
+          "Choi–Kaur–Wu 2021 studies joint topological counts cherries/pitchforks rather than continuous terminal edge ages."
+        ],
+        "reasoning": "Prior marginal-distribution and topological two-count theorems do not imply the cross moment of N,C,P; a general enough multitype age measure generator could in principle derive it but was not located.",
+        "searches": [
+          "arxiv 1107.5926 branch length distribution Yule",
+          "arxiv 0910.5240 expected length pendant Yule",
+          "Choi Kaur Wu asymptotic joint cherries pitchforks 2021"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0910.5240",
+        "arXiv:1107.5926",
+        "DOI:10.1016/S0025-5564(99)00060-7",
+        "DOI:10.1007/s00285-021-01667-2",
+        "Resultary query: Yule pure birth process covariance cherries total pendant edge lengths conditional residual number of tips negative"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing marginal E C,E P, Var C, Var P does not determine E[CP] or its covariance sign.",
+          "The investigated primary papers use fixed-tip branching conventions or exclusively topology/length marginal quantities, so a direct substitution without a new mixed generator is unavailable."
+        ],
+        "reasoning": "The coupled eleven-state moment closure, especially H and ECL, supplies information beyond the cited prior lemmas; finite experimental signs play no role in all-time proof.",
+        "searches": [
+          "Steel Mooers 2010 arxiv 0910.5240 theorem expected length pendant interior Yule",
+          "McKenzie Steel 2000 cherry distribution Yule",
+          "Stadler Steel 2012 branch length distribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Steel–Mooers arXiv:0910.5240 gives expectations of pendant and interior branch length, not E[C P].",
+          "McKenzie–Steel DOI 10.1016/S0025-5564(99)00060-7 gives cherry distributions, not cross-moment with continuous pendant ages."
+        ],
+        "reasoning": "Equivalent mixed factorial/generator moments were searched, not just exact title string. No actual statement giving the sign reversal was identified; historical coverage remains best-of-knowledge.",
+        "searches": [
+          "Resultary semantic: Yule pure birth process covariance cherries total pendant edge lengths conditional residual number of tips negative",
+          "web: \"cherries\" \"pendant lengths\" \"covariance\" Yule",
+          "arxiv 0910.5240 length pendant interior Yule"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published tables of E(C|n) and E(P) concern distinct/marginal statistics, not the exact all-t mixed covariance.",
+          "No exact database or figure listing residual Corr limit −sqrt(6)/12 was identified by the performed semantic and literature searches."
+        ],
+        "reasoning": "All specified formulas were recomputed from the coupled dynamics, not a known moment table. Failure to find is not proof of novelty.",
+        "searches": [
+          "Resultary Yule cherry pendant total length mixed covariance",
+          "McKenzie Steel 2000 cherries Yule expected pendant lengths covariance"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: canonical Yule tree cherry count and expected pendant-edge length were studied in separate earlier works. Their individual mean/variance formulas do not logically determine cross covariance E[CP] or the residual dependence with shared N removed. The inspected Steel–Mooers pendant expectation paper, McKenzie–Steel cherry source information, and Choi–Kaur–Wu cherries/pitchforks source address marginal branch lengths or topological counts, not the exact mixed age/cherry moment for the one-lineage model. Resultary and directed literature queries found no stronger statement yielding these formulas, but an older branching-process mixed moment under a different normalization could still exist.",
+      "residual_risks": [
+        "An older age-dependent branching-process mixed-moment theorem may imply this formula in alternate notation.",
+        "The fixed-tip conditioned Yule model and two-lineage initial condition are not covered by the one-lineage theorem.",
+        "The residuals subtract fixed N/3 and N/(2λ) rather than full least-squares projections: the interpretation is a canonical leading-mean adjustment, not a claim about true conditional covariance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Only marginal length expectations in relevant results; different initialization conventions carefully distinguished",
+          "evidence": "Named expectations for pendant and interior branch lengths; no mixed cherry/pendant-age expression in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/0910.5240",
+          "material_read": "Six-page arXiv PDF; examined introduction, Yule initial conditions, definitions, and statements on expected pendant/interior edge lengths.",
+          "method": "Open access primary arXiv PDF text plus page rendering",
+          "title": "Steel and Mooers, Expected length of pendant and interior edges of a Yule tree (2010)",
+          "trigger": "Principal primary model for expected pendant edge lengths"
+        },
+        {
+          "assessment": "Affects cherry marginals, does not justify asserting whole-paper absence of a mixed moment",
+          "evidence": "Source title, abstract and standard cherry count mean conditional on tip number.",
+          "identifier_or_url": "https://doi.org/10.1016/S0025-5564(99)00060-7",
+          "material_read": "Accessible source abstract, metadata and cited cherry moment statements; full body not accessible this run.",
+          "method": "Primary abstract/metadata and cross-check with cited formulas",
+          "title": "McKenzie and Steel, Distributions of cherries for two models of trees (2000)",
+          "trigger": "Direct primary cherry distribution for Yule model"
+        },
+        {
+          "assessment": "Cherries/pitchforks are two shape counts, not sum of pendant ages",
+          "evidence": "Article considers topological cherries and pitchforks, not continuous pendant branch lengths in the inspected abstract.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-021-01667-2",
+          "material_read": "Accessible arXiv/publisher abstract and named topology variables; complete full paper not reread.",
+          "method": "Abstract/metadata and mathematical variable comparison",
+          "title": "Choi, Kaur and Wu, On asymptotic joint distributions of cherries and pitchforks for random phylogenetic trees (2021)",
+          "trigger": "Possible stronger Yule joint distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: It quantifies the relationship between an important tree-shape statistic (number of cherries) and an important continuous branch-length statistic. The rigorous all-time sign reversal between raw covariance and canonical N-adjusted residual covariance demonstrates a real model-level Simpson-type effect and supplies exact quantitative limiting correlation. It is not a generic tautology about residuals: the nonzero mixed moment and sharp sign require a coupled generator computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0910.5240",
+    "arXiv:1107.5926",
+    "DOI:10.1016/S0025-5564(99)00060-7",
+    "DOI:10.1007/s00285-021-01667-2",
+    "Resultary query: Yule pure birth process covariance cherries total pendant edge lengths conditional residual number of tips negative"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An older age-dependent branching-process mixed-moment theorem may imply this formula in alternate notation.",
+    "The fixed-tip conditioned Yule model and two-lineage initial condition are not covered by the one-lineage theorem.",
+    "The residuals subtract fixed N/3 and N/(2λ) rather than full least-squares projections: the interpretation is a canonical leading-mean adjustment, not a claim about true conditional covariance."
+  ],
+  "schema_version": 1
+}
