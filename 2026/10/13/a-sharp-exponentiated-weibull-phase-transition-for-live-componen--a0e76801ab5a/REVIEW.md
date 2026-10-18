@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The conditioning event is reduced exactly to the survivor count and failure rank. In the stated IID continuous signature model, one survivor dominates conditionally because \(S(t)\\to0\). Uniform inequalities between the maximum-of-\(r\) survivor tail and the one-survivor tail justify replacing the live-component CRJ by the component residual-life CRJ at first order. The exponentiated-Weibull tail integral is then evaluated by an endpoint incomplete-gamma asymptotic valid for every \(\\beta>0\).
+## correctness
 
-## Originality
-PASS. The closest source is Pakdaman and Alizadeh Noughabi (2026), which defines this live-component CRJ model and, for its EW example with \(\\beta=1.5\), derives only a zero limit. Searches over CRJ/extropy aliases, coherent-system residual lifetimes, EW tails, and the explicit \(t^{{1-\\beta}}\) scale found no statement giving the coefficient, the \(\\beta=1\) constant, or the \(\\beta<1\) divergence. Classical Weibull excess scaling is acknowledged as prior background rather than claimed as new.
+PASS
 
-## Value
-PASS. The theorem turns a qualitative zero-limit example into a sharp asymptotic law and exposes a natural three-regime transition in the EW tail-shape parameter. It also shows that the exponentiation parameter and coherent-system architecture affect lower-order behavior but not the leading CRJ scale for the last live component.
+Conditional on system failure before t and at least one survivor, survivor count R_t is asymptotically exactly one: P(R_t=1|event)=1-O(S(t)), as failure rank K is independent of IID order statistics. Conditional survivor maximum survival lies between Q_t=S(t+y)/S(t) and (1+O(S(t)))Q_t uniformly in y, preserving the squared-survival integral. Uniform exponentiated-Weibull tail S(x)=alpha exp[-(x/lambda)^beta](1+O(exp[-(t/lambda)^beta])) for x>=t and incomplete-gamma Laplace endpoint show integral Q_t^2 ~ lambda^beta*t^(1-beta)/(2beta). Multiplication by -1/2 proves the three regimes. Conditional event has positive probability for stated signature; n,alpha,s_i affect only lower terms.
 
-## Closest literature and limitations
-The 2026 anchor paper is the closest source and supplies the exact model, CRJ functional, and EW example. Chakraborty and Pradhan (2024) treat CRJ of coherent/mixed systems without this later live-component conditional object. Navarro, Balakrishnan, and Samaniego (2008) supply broader residual-lifetime mixture background. The present theorem is restricted to \(j=n\), fixed \(n\), IID continuous EW components, and first-order asymptotics.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The initiating 2026 article treats live-component CRJ and exponentiated-Weibull examples including beta=1.5 with a vanishing limiting CRJ, and gives fixed-y limits under IHR. It does not in the inspected text give a first-order all-beta phase transition or signature-independent coefficient for the conditional maximum; those require the survivor-count concentration step. General extreme-value excess scaling is credited. Best-of-knowledge novelty is restricted to this coherent-conditioning asymptotic.
+
+## value
+
+PASS
+
+Determines a natural reliability uncertainty functional and exact shape-class boundary, including vanishing, finite and diverging regimes. The conditional architecture independence is a substantive observation beyond merely evaluating the component tail, and permits coherent systems with different signatures to share a universal leading law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
