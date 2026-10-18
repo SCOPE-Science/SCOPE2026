@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof is exact. The two reciprocal-sum regimes are covered by two explicit operator squares in the first two coordinates. For \(p^{-1}+q^{-1}\le1\), identity and a diagonal sign map have norm one and norm-two sum and difference. For \(p^{-1}+q^{-1}>1\), identity and coordinate swap both have norm \(2^{1/p+1/q-1}\); their rank-one sum and difference both have norm \(2^{1/p+1/q}\). The quotient is therefore exactly \(2\), and the universal upper bound closes the argument. Endpoint exponents, the equality boundary, both scalar fields, and arbitrary \(m,n\ge2\) are covered explicitly.
+## correctness
 
-## Originality
-PASS. The focal full text gives the finite-dimensional injective conclusion under \(p^{-1}+q^{-1}\le1\). The closest published same-object extension gives it when \(\max\{p,q\}\ge2\) and explicitly leaves \(1\le p,q<2\) unsettled. Implication-level searches under tensor, operator-space, reciprocal-sum, uniform-non-squareness, Hadamard, and identity/swap formulations found no statement covering the missing square or the resulting all-exponent theorem. The residual risk is an older equivalent two-by-two operator observation under different terminology.
+PASS
 
-## Value
-PASS. This is a natural complete classification, not a routine parameter increment. It closes an entire two-parameter regime and shows that every finite-dimensional classical injective \(\ell_p\)-tensor product of nontrivial dimensions is maximally non-Hilbertian in the von Neumann--Jordan sense, matching the all-exponent projective conclusion of the focal source.
+Under the canonical finite-dimensional isometry ell_p² ⊗_ε ell_q² ≅ L(ell_{p′}²,ell_q²), the two-coordinate tensor corner is isometrically included for any m,n≥2, over real or complex scalars. If s=1/p+1/q≤1, p′≤q; identity I and sign D are norm-one maps and I±D are twice coordinate projections of norm two. For s>1, q<p′; I and swap S both have norm 2^(s−1) by exact two-coordinate ell_r norm comparisons, whereas I+S and I−S are rank-one operators of norm 2^s by Hölder. After scaling, both operators have norm one and their sum/difference both attain norm two, giving quotient C_NJ≥2 in the defining expression. Universal C_NJ≤2 proves equality. Endpoints p,q∈{1,∞}, s=1, m,n=2 and complex phases require no limiting argument. The high-dimensional identity follows from norm-one coordinate projections/inclusions.
 
-## Closest literature and limitations
-The closest source is Zhang--Xu--Liu--Li, arXiv:2609.37503v1, whose Theorem 3.8 covers the reciprocal-sum-at-most-one injective region. The closest published extension has identifier `2026/10/4/SCOPE-maximal-von-neumann-jordan-constant-for-injective-ell-p-tensor-p--5f2cf20451d2` and covers \(\max\{p,q\}\ge2\). The new content is the remaining sub-Hilbert square, supplied by the exact identity/swap operator square. No claim is made for arbitrary finite-dimensional Banach factors, extremizer classification, or stability.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary Zhang–Xu–Liu–Li paper proves the injective result only for 1/p+1/q≤1; a previously indexed related result covers max(p,q)≥2. Neither reaches the natural open square 1<p,q<2, where s>1 and the identity/swap rank-one square proves maximum. The new universal quantification thus genuinely extends both earlier statements even though its witness is elementary.
+
+## value
+
+PASS
+
+It completes the exact all-exponent parameter classification for a canonical family of Banach tensor products, resolving the conspicuous two-exponent interior region left by published results, with an explicit extremal operator pair. Even though the witness is short, the exact universal extremal Banach-space invariant is naturally motivated and not a known-table lookup or mere cosmetic restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

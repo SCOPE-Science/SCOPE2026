@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim is verified directly from exact operator norms in the two-dimensional coordinate corner.
+# Independent mathematical audit
 
-For \(p^{-1}+q^{-1}\le1\), the identity and diagonal sign maps from \(\ell_{p'}^2\) to \(\ell_q^2\) have norm one because \(p'\le q\). Their sum and difference are twice coordinate projections, hence have norm two.
+## correctness
 
-For \(p^{-1}+q^{-1}>1\), the identity and coordinate swap have norm \(2^{1/p+1/q-1}\). Their sum and difference are rank-one maps whose functional factor has \(\ell_p^2\)-norm \(2^{1/p}\) and whose range vector has \(\ell_q^2\)-norm \(2^{1/q}\), giving norm \(2^{1/p+1/q}\). This is exactly twice the norm of either summand.
+PASS
 
-The first two coordinates form an isometric operator corner in every dimension \(m,n\ge2\). Thus the same exact pair works in the full tensor product. The universal inequality \(C_{\mathrm{NJ}}\le2\) supplies the matching upper bound. No numerical computation or finite search is used as proof.
+Under the canonical finite-dimensional isometry ell_p² ⊗_ε ell_q² ≅ L(ell_{p′}²,ell_q²), the two-coordinate tensor corner is isometrically included for any m,n≥2, over real or complex scalars. If s=1/p+1/q≤1, p′≤q; identity I and sign D are norm-one maps and I±D are twice coordinate projections of norm two. For s>1, q<p′; I and swap S both have norm 2^(s−1) by exact two-coordinate ell_r norm comparisons, whereas I+S and I−S are rank-one operators of norm 2^s by Hölder. After scaling, both operators have norm one and their sum/difference both attain norm two, giving quotient C_NJ≥2 in the defining expression. Universal C_NJ≤2 proves equality. Endpoints p,q∈{1,∞}, s=1, m,n=2 and complex phases require no limiting argument. The high-dimensional identity follows from norm-one coordinate projections/inclusions.
 
-The focal arXiv full text was checked for the same finite-dimensional classical injective statement and its parameter range. The closest published same-object extension was compared at the implication level. The stated originality residual is limited to possible older equivalent operator-space terminology or indexing lag.
+## originality
+
+PASS
+
+The primary Zhang–Xu–Liu–Li paper proves the injective result only for 1/p+1/q≤1; a previously indexed related result covers max(p,q)≥2. Neither reaches the natural open square 1<p,q<2, where s>1 and the identity/swap rank-one square proves maximum. The new universal quantification thus genuinely extends both earlier statements even though its witness is elementary.
+
+## value
+
+PASS
+
+It completes the exact all-exponent parameter classification for a canonical family of Banach tensor products, resolving the conspicuous two-exponent interior region left by published results, with an explicit extremal operator pair. Even though the witness is short, the exact universal extremal Banach-space invariant is naturally motivated and not a known-table lookup or mere cosmetic restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
