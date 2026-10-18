@@ -1,0 +1,11 @@
+# Scientific review: Gaussian maximum calibration
+
+**Correctness (PASS).** The exact probability integral follows from transforming the larger-variance group's maximum via its Gaussian upper tail. Uniform Gaussian Mills and inverse-tail expansions on a high-probability window yield the explicit relative intensity through \(1/\log n\). Integrable Taylor remainders and explicit discarded-tail bounds give the claimed global error. Positivity of \(H\) establishes sign and uniqueness. The standalone finite-\(n\) numerical checker passed 36 assertions; the asymptotic conclusion is analytic and does not depend on those tests.
+
+**Originality (PASS, with priority caveat).** Zhang–Miao–Mao establish the leading heteroscedastic winner limit, not the displayed signed second-order finite-\(n\) coefficient or cancellation constants. Gasull–Jolis–Utzet provide one-sample Gaussian extreme-value norming refinements rather than the group competition probability. Davydov–Rotar address winner distributions and point-process limits at first order. Published mathematical-record searches for Gaussian group maxima, variance ratios, winner probabilities, quantile corrections and logarithmic calibration did not produce a dominating assertion. Classical asymptotic tools are acknowledged. An unlocated second-order winner theorem could potentially imply this specific result, so independent priority confirmation is not claimed.
+
+**Mathematical value (PASS).** At the first-order critical balance, the two groups remain competitive, and finite sizes must be selected to hit a desired winning probability. The theorem quantifies the leading systematic under-calibration and uniquely removes the two largest bias terms while retaining the same first-order scaling. This is a concrete refinement of a motivated probability-design problem, not a change of names or a numerical table.
+
+**Scientific boundaries.** Fixed two groups; independent centered Gaussians; fixed variance ratio strictly greater than one; no growing-parameter uniformity and no higher-order expansion. A general result could subsume the proof if a stronger prior source is found. Numerical checks do not certify an infinite asymptotic theorem.
+
+Self-review: passed. Independent audit: not yet performed.

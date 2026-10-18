@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For fixed \\(r>1\\), \\(C>0\\) and real \\(d,e\\), conditioning on the high-variance maximum yields an exact finite-n probability integral with density \\((1-y/n)^{n-1}\\). The Gaussian Mills ratio and inverse quantile admit uniform expansions on \\([L^{-3},L^3]\\), while excluded regions have total probability \\(O(L^{-3})\\). The parameter-dependent exponent correction follows from multiplication of independent second-order factors and is integrated with bounded Taylor remainders \\(O((\\log L)^2/L^2)\\). The signs and optimized coefficients follow by \\(H>0\\). The bundled finite integral verifier passed 36 assertions for three distinct variance ratios, but finite checks are not used to infer the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2605.21155 Sections 2–3 provide all fixed Gaussian-group first-order critical limits, including two-group competition, but their hypotheses only require the sample-size ratio to tend to \\(C\\).",
+        "arXiv:2503.02473 uses point-process limits for heterogeneous winner probabilities; its statements do not furnish an \\(O(1/\\log n)\\) correction for two Gaussian groups."
+      ],
+      "reasoning": "The cited broader point-process and multigroup conclusions determine the limit \\(F\\) but cannot by themselves imply the next-order coefficient: many distinct \\((d,e)\\) sequences share F and have different correction terms. No dominating second-order theorem was identified.",
+      "searches": [
+        "Gaussian heterogeneous maxima critical sample sizes second order log log n over log n finite size correction calibrated winning probability",
+        "Zhang Miao Mao Asymptotic Probabilities of Attaining the Maximum in Heterogeneous Gaussian Samples finite size bias"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.21155 (full available HTML)",
+      "arXiv:1308.5541 (relevant original PDF material)",
+      "arXiv:2305.05967 (full available HTML)",
+      "arXiv:2503.02473 (full original PDF)",
+      "Hall 1979, normal extremes (abstract/bibliographic only)",
+      "published-finding corpus published mathematical research record search, Gaussian maxima and winner aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2605.21155, equation (3) and Theorem 1: critical sample-size ratio \\(C\\) and limiting winner integral; proof uses convergence of normalized Gaussian maxima.",
+        "arXiv:1308.5541 derives refined centering/scaling for a single Gaussian maximum and one-dimensional rate bounds.",
+        "arXiv:2305.05967 considers argmaximum/winner convergence in heterogeneous samples."
+      ],
+      "reasoning": "If the claimed \\(P_n\\) expansion followed merely from the source first-order asymptotic, its coefficient could not depend on d and e while their sample-size ratios all converge to the same \\(C\\). A further Mills/quantile expansion plus a uniform integrated remainder is needed. One-dimensional refined norming is a relevant tool but is not an explicitly stated two-group probability calibration; any general second-order limit theorem remains a residual priority risk.",
+      "searches": [
+        "Gaussian two group maximum heteroscedastic competition refined size correction (sigma squared minus one) loglog n / (4 log n)",
+        "Zhang Miao Mao Asymptotic Probabilities of Attaining the Maximum in Heterogeneous Gaussian Samples finite size bias"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.21155 Theorem 1 expresses the limiting group-one winning probability as an integral over two independent Gumbel extremes; the present formula uses an equivalent exponential-tail integral \\(F\\).",
+        "The event that the first group supplies the overall maximum is the same as the comparison of its maximum against the second group; this event was compared rather than treated as a different formulation."
+      ],
+      "reasoning": "Transforming the limiting Gumbel event to the exponential random variable yields the same first-order \\(F\\). The added statement is the explicitly signed order-\\((\\log\\log n)/(\\log n)\\) finite-sample coefficient and its unique cancellation; no corresponding second-order statement was found in the inspected paper.",
+      "searches": [
+        "normal extreme value maximum two populations winning probability convergence rate Mills ratio",
+        "Gaussian two group maximum heteroscedastic competition refined size correction (sigma squared minus one) loglog n / (4 log n)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest comparison ID: 2026/10/4/SCOPE-exact-heteroscedastic-size-curve-for-the-four-observation-permut--1a16c8f3b610 (heteroscedastic permutation mean test with four observations).",
+        "published-finding corpus comparison ID: 2026/10/4/SCOPE-an-exact-maximum-tie-criterion-for-leaders-in-two-dimensional-pr--996b67664456 (product-sample leader tie criterion)."
+      ],
+      "reasoning": "Neither named research result considers maxima of two growing independent Gaussian groups with distinct variances, or its \\((\\log\\log n)/(\\log n)\\) finite-size correction. These are nearby probability topics, not a table or exact database entry covering the claim; a search result cannot prove absence elsewhere.",
+      "searches": [
+        "heterogeneous Gaussian samples critical maximum winning probability two groups variance sigma squared crossover finite size extremal comparison",
+        "normal extreme value maximum two populations winning probability convergence rate Mills ratio"
+      ]
+    },
+    "rationale": "The mathematically closest full text, Zhang–Miao–Mao (arXiv:2605.21155), Theorem 1, establishes the first-order nondegenerate Gaussian two-group winner limit at the critical sample-size scale. Its Sections 2–4 give no displayed or implied coefficient for the signed \\((\\log\\log n)/(\\log n)\\) finite-size probability bias or the unique two-term correction. Gasull–Jolis–Utzet (arXiv:1308.5541) refine marginal normal maxima, while Davydov–Rotar provide general argmaximum first-order limits; neither inspected statement dominates this probability correction. Published record searches did not identify the same correction. This supports a provisional originality assessment, not independent priority certification.",
+    "residual_risks": [
+      "A classical higher-order extreme-value expansion for competing Gaussian groups could contain an equivalent coefficient without matching the title or nomenclature.",
+      "A general second-order point-process theorem, if suitably strengthened with rate hypotheses, may subsume the result.",
+      "Hall (1979) was not assessed at full-text level; its potential indirect implications were not ruled out.",
+      "The assessment is not an independent priority or correctness certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the first-order critical balance and limit \\(F\\); does not state the \\(O(\\log\\log n/\\log n)\\) bias, the constant 1/log correction, or its unique two-term sample-size cancellation.",
+        "evidence": [
+          "Theorem 1 equation (4) is a limiting Gumbel integral; equation (3) assumes asymptotic sample-size equivalence.",
+          "The proof ends with weak convergence and a first-order limit; Section 4 contains numerical experiments, not a finite-size probability expansion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.21155",
+        "material_read": "Entire available arXiv HTML text including Sections 1–4, Theorems 1–2, equations (3)–(5), proof of Theorem 1, and numerical experiments",
+        "method": "Direct primary full-text HTML inspection",
+        "title": "Asymptotic Probabilities of Attaining the Maximum in Heterogeneous Gaussian Samples",
+        "trigger": "Identical two-group Gaussian maximum event and critical sample-size scaling"
+      },
+      {
+        "assessment": "Gives refined single-sample extreme-value normalizers; a proof ingredient, not a displayed heteroscedastic competition calibration.",
+        "evidence": [
+          "The focus is the distributional approximation of a single normal maximum, not a comparison probability of two variance groups."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1308.5541",
+        "material_read": "Original 21-page PDF, sections describing Gaussian maxima norming constants, convergence-rate bounds and relevant conclusions",
+        "method": "Direct primary PDF text inspection with page visual confirmation",
+        "title": "On the norming constants for normal maxima",
+        "trigger": "Potential stronger refined asymptotics for Gaussian maxima"
+      },
+      {
+        "assessment": "Addresses heterogeneous winner/argmaximum distribution limits; no explicit \\((\\log\\log n)/(\\log n)\\) finite-size Gaussian two-group correction found.",
+        "evidence": [
+          "General winner-problem limiting statements differ in precision and normalization from the present claim."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.05967",
+        "material_read": "Available full arXiv HTML text and theorem summaries",
+        "method": "Direct primary full-text HTML inspection",
+        "title": "The Distribution of Argmaximum or a Winner Problem",
+        "trigger": "Alternative name “winner problem” for the Gaussian maximum comparison"
+      },
+      {
+        "assessment": "Establishes weak winner distributions using limiting point processes, not the explicit next-order two-Gaussian critical calibration.",
+        "evidence": [
+          "Its principal results use convergent point processes and limiting selection probabilities, not the Gaussian tail-ratio correction computed here."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2503.02473",
+        "material_read": "Complete available nine-page original paper, theorem and application sections",
+        "method": "Primary PDF full-text inspection with page visual confirmation",
+        "title": "Point Process Approach to the Winner Problem",
+        "trigger": "General point-process approach might imply higher-order winner probabilities"
+      },
+      {
+        "assessment": "Plausibly relevant general rate theory; insufficient access to exclude every possible implication.",
+        "evidence": [
+          "Hall (1979) studies rates of approximation for normal extremes; its full text was not used to establish a negative claim about coverage."
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/3212912",
+        "material_read": "Citation, publicly available bibliographic summary and abstract only",
+        "method": "Limited abstract-level assessment, not a full-text exclusion",
+        "title": "On the rate of convergence of normal extremes",
+        "trigger": "Potential foundational rates for Gaussian extreme-value convergence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d469564e-3998-4285-a0a9-89e7fa245527",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating heteroscedastic maximum problem naturally asks how to choose group sample sizes to obtain a prescribed group-winning probability. The previously known critical power/log scaling controls only the limit. The new signed bias quantifies the systematic error in the standard leading sample-size rule and gives a unique two-term adjustment that cancels all errors through order \\(1/\\log n\\). This is a nontrivial distributional refinement requiring explicit integration of normal-tail second-order terms; it is not a renaming or a table recomputation.",
+    "status": "PASS"
+  }
+}
