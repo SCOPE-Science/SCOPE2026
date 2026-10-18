@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Solving both exponential fixed-point equations gives a unique coexistence branch and, in the strong-Allee regime, two positive prey-only roots bracketing it. For the exact one-parameter family \(4<\alpha<6\), both the origin and \((2,6-\alpha)\) satisfy strictly Schur-stable multipliers. The two remaining boundary points have a complete exact classification via their triangular Jacobians, with the upper prey-only multiplier crossing \(-1\) at \(\alpha_F=(29+\sqrt{41})/8\). All inequalities are strict away from the stated transition; the package checker reconstructs the identities.
+PASS
 
-## Originality
+At a=4, b=beta=c=d=e=1, f=3/2, 4<alpha<6, positive coexistence requires H=2 and P=6-alpha>0. Prey-only equation H²-3H+alpha-4=0 has roots H_- in (0,1) and H_+ in (2,3); with origin these are all four nonnegative fixed points. Origin multipliers e^(4-alpha),e^-1 are both <1; coexistence J=[[1/3,-2/3],[(6-alpha)/6,1]], trace 4/3, determinant 1-alpha/9, Jury margins alpha/9,(6-alpha)/9,(30-alpha)/9 >0, so both sinks. At prey-only H, multipliers lambda_H=1+H(3-2H)/(1+H), lambda_P=exp((H-2)/(2(1+H))). H_- is saddle. H_+ has lambda_P>1 and lambda_H crosses -1 at H=(5+sqrt41)/4, alpha_F=(29+sqrt41)/8, giving source for alpha<alpha_F, nonhyperbolic at threshold, saddle above. Algebraic checks independently recomputed original map Jacobian, exact alpha_F and inequalities; package verify.py inspected, finite parameters corroborate not replace the analytic all-alpha proof.
 
-PASS with a disclosed literature-access risk. The motivating source explicitly restricts its detailed bifurcation analysis to weak Allee effect. A highly relevant 2023 strong-Allee study treats a different Euler cubic-Allee map, not this exponential reciprocal-Allee map. The older cited continuous/diffusive analogue may contain matching fixed-point algebra, which is not claimed as original, but available records do not establish discrete Schur bounds or the sharp boundary multiplier. Targeted exact-source, equivalence, and prior-ledger checks did not find this complete exponential-map local type window.
+## originality
 
-## Value
+PASS
 
-PASS. The theorem supplies an exact open region with simultaneous extinction and coexistence attractors and a sharp parameter-dependent change in boundary equilibrium type. The predator can invade the upper prey-only branch even while the interior coexistence state and extinction remain locally attracting, a consequential distinction for a strong-Allee ecological model.
+Read complete accessible originating Seralan et al. 2023 article §§2-5, especially exact exponential map (2.3), weak-Allee restriction stated on p.22899, and local eigenvalue Lemmas 2-3. The source analyzes alpha<a beta weak regime; for alpha>a beta the origin is a sink, whereas its weak-regime Lemma 2 says origin always saddle. Therefore its weak-region classification does not imply strong-Allee bistability, four-equilibria region, or alpha_F. Al Khabyah et al. use a different Euler-discretized strong-Allee equation; Cai et al. use a continuous diffusive counterpart (the latter was not fully accessible). Earlier Resultary Ricker source-criterion correction addresses different weak-regime stability, not this exact family.
 
-## Closest literature and limitations
+## value
 
-Al Khabyah et al. study a different Euler-discretized strong-Allee model. Cai et al. study the related continuous diffusive counterpart, and a publisher verification requirement prevented full-text comparison; this is an explicit residual originality risk. The result is local-dynamical, not a proof of globally exhaustive attractors or period-two emergence at the unit-multiplier crossing.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact local coexistence/extinction bistability and a source-to-saddle transition of the upper prey-only equilibrium resolve a natural qualitative strong-Allee regime in the same exponential ecological map. This provides all fixed points and their spectral types for a connected open parameter interval, not just one numerical witness. No global basin partition, ecological realism, or nonlinear flip bifurcation is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:10:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a=4, b=beta=c=d=e=1, f=3/2, 4<alpha<6, positive coexistence requires H=2 and P=6-alpha>0. Prey-only equation H²-3H+alpha-4=0 has roots H_- in (0,1) and H_+ in (2,3); with origin these are all four nonnegative fixed points. Origin multipliers e^(4-alpha),e^-1 are both <1; coexistence J=[[1/3,-2/3],[(6-alpha)/6,1]], trace 4/3, determinant 1-alpha/9, Jury margins alpha/9,(6-alpha)/9,(30-alpha)/9 >0, so both sinks. At prey-only H, multipliers lambda_H=1+H(3-2H)/(1+H), lambda_P=exp((H-2)/(2(1+H))). H_- is saddle. H_+ has lambda_P>1 and lambda_H crosses -1 at H=(5+sqrt41)/4, alpha_F=(29+sqrt41)/8, giving source for alpha<alpha_F, nonhyperbolic at threshold, saddle above. Algebraic checks independently recomputed original map Jacobian, exact alpha_F and inequalities; package verify.py inspected, finite parameters corroborate not replace the analytic all-alpha proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Continuous-time equilibrium root algebra may match, but Euler/discrete eigenvalue unit-disc Jury conditions and -1 crossing are not implied by continuous stability. Earlier saddle correction concerns separate parameter regimes."
+        ],
+        "reasoning": "A general abstract bifurcation/stability framework does not produce this complete specialized interval without substitutions and inequalities. Possible prior specialized strong-Allee classification not ruled out without more literature.",
+        "searches": [
+          "Cai Wang Wang diffusive predator prey additive Allee 2012 DOI:10.1142/S1793524511001659",
+          "Seralan 2023 AIMS full primary §2 local eigenvalues",
+          "Resultary same Ricker saddle criterion correction SCOPE a8011d5c3623"
+        ]
+      },
+      "checked_sources": [
+        "Seralan et al., AIMS Mathematics 8 (2023), DOI 10.3934/math.20231165, open full PDF pp.22898-22902",
+        "Al Khabyah et al., AIMS Mathematics 8 (2023), DOI 10.3934/math.2023408, abstract/model comparison",
+        "Cai et al., Int J Biomathematics 5 (2012), DOI 10.1142/S1793524511001659, abstract only",
+        "Resultary SCOPE a8011d5c3623 trace determinant stability issue in weak Ricker regime"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Seralan p.22899 restricts its aims to weak Allee; the new strong-region Jacobian gives Jury margins alpha/9,(6-alpha)/9,(30-alpha)/9, and the prey-only upper eigenvalue crosses -1 at alpha_F."
+        ],
+        "reasoning": "Original model and general equilibrium formulas are prior, but the specific strong-region extinction/coexistence simultaneous stability and prey-only source/saddle division are not directly entailed by the inspected weak-regime lemmas or distinct continuous/Euler models.",
+        "searches": [
+          "AIMS paper Eq (2.3), Lemmas 2-3, Theorem 2",
+          "Al Khabyah 2023 Euler different map",
+          "Cai 2012 continuous diffusive system abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "AIMS source equation (2.3) is exactly the exponential map; its p.22899 explicitly says main analysis is weak Allee alpha<a beta. Other strong Allee result uses different polynomial-increment Euler model."
+        ],
+        "reasoning": "Matched dynamical variables, exponential map, positivity regime and precise alpha parameter. Weak versus strong regimes are disjoint; an eigenvalue source classification proved under weak Allee is not directly the present bistable case.",
+        "searches": [
+          "Seralan Vadivel Chalishajar Gunasekaran 2023 Ricker additive Allee exact model PDF (2.3)",
+          "Resultary query strong Allee exponential Ricker predator prey bistability",
+          "Al Khabyah Ahmed Akram Akhtar 2023 Euler strong Allee"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "AIMS paper's numerical cases and weak-Allee parameter table are not the strong interval 4<alpha<6; Resultary returns exact trace-determinant saddle correction but not this complete four-point diagram."
+        ],
+        "reasoning": "No matching exact boundary constant was located in checked source text; table matching without quantified regime would be insufficient anyway.",
+        "searches": [
+          "Seralan 2023 parameter bifurcation tables",
+          "Ricker strong Allee exact threshold (29+sqrt(41))/8",
+          "Resultary semantic Ricker sources"
+        ]
+      },
+      "rationale": "Read complete accessible originating Seralan et al. 2023 article §§2-5, especially exact exponential map (2.3), weak-Allee restriction stated on p.22899, and local eigenvalue Lemmas 2-3. The source analyzes alpha<a beta weak regime; for alpha>a beta the origin is a sink, whereas its weak-regime Lemma 2 says origin always saddle. Therefore its weak-region classification does not imply strong-Allee bistability, four-equilibria region, or alpha_F. Al Khabyah et al. use a different Euler-discretized strong-Allee equation; Cai et al. use a continuous diffusive counterpart (the latter was not fully accessible). Earlier Resultary Ricker source-criterion correction addresses different weak-regime stability, not this exact family.",
+      "residual_risks": [
+        "A 2012 continuous/diffusive additive-Allee source was not inspected in full; could cover related equilibrium branches but not enough to establish identical discrete multiplier result.",
+        "Other literature treating strong Allee in this exact exponential model could exist under different parameter names."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit weak Allee main aim on printed p.22899; correct same map, but strong-Allee interval and alpha_F absent in inspected relevant sections",
+          "evidence": "Printed p.22899 eq.(2.3) and concluding sentence states weak Allee; p.22901 Lemma 2 calls origin saddle in weak regime.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2023/10/PDF/math-08-10-1165.pdf",
+          "material_read": "Complete open-access PDF (28 pages) inspected for sections 2-5 and relevant mathematical statements; pages 22898-22902 including eq. (2.3) and stability lemmas",
+          "method": "Text search plus visual page checks on PDF pages 2-5",
+          "title": "Dynamical complexities and chaos control in a Ricker type predator-prey model with additive Allee effect",
+          "trigger": "Identical original equations and exact alpha definition"
+        },
+        {
+          "assessment": "Its polynomial-increment Euler discretization is not the reviewed Ricker exponential update, and does not directly establish this alpha_F.",
+          "evidence": "Distinct update normalization is documented in reviewed source and prior citations.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2023408",
+          "material_read": "Abstract, bibliographic model description, and cited differences only; complete full text not materially read",
+          "method": "Primary source abstract comparison",
+          "title": "Stability, bifurcation, and chaos control in a discrete predator–prey model with strong Allee effect",
+          "trigger": "Closest strong-Allee discrete family"
+        },
+        {
+          "assessment": "Potentially covers continuous root branches, not established to cover discrete Jury bounds; no entire-work noncoverage asserted",
+          "evidence": "Continuous-space/time counterpart, no read proof of the exact discrete exponential map threshold.",
+          "identifier_or_url": "https://doi.org/10.1142/S1793524511001659",
+          "material_read": "Abstract and bibliographic material; entire primary inaccessible at publisher",
+          "method": "Public research discovery without bypass",
+          "title": "Dynamics of a diffusive predator–prey model with additive Allee effect",
+          "trigger": "Related strong-Allee coexistence root algebra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact local coexistence/extinction bistability and a source-to-saddle transition of the upper prey-only equilibrium resolve a natural qualitative strong-Allee regime in the same exponential ecological map. This provides all fixed points and their spectral types for a connected open parameter interval, not just one numerical witness. No global basin partition, ecological realism, or nonlinear flip bifurcation is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Local spectral classification and open local basins only; other attractors or basin boundaries not ruled out.",
+    "At alpha_F a multiplier is -1; no nonlinear flip-period-two theorem claimed."
+  ],
+  "schema_version": 1
+}
