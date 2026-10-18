@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The rational normalized map and its two-step square were explicitly differentiated. At every interior point of the neutral segment, the normal multiplier is \\(u(1-u)\\le1/4\\) and the corrected tangent coefficient simplifies exactly to \\((2u-1)^3/(u^2-u+1)\\). Uniform Taylor remainders and a geometric contraction make the error summable across \\(O(1/\\varepsilon)\\) two-step updates. The integrated ODE yields the inverse-square and logarithmic crossing law. The embedded `verify.py` performs exact rational checks and convergence experiments; the analysis is the actual proof. No boundary-uniform or near-midpoint-uniform claim is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kulenović and Merino (2009), arXiv:0905.1772, Theorems 1–3: global invariant-curve existence and basin regions under eigenvalue and monotonicity assumptions.",
+        "Kulenović, Pilav, Silić (2014), DOI 10.1186/1687-1847-2014-68: related but different quadratic-fractional recurrence with linear denominator coefficients."
+      ],
+      "reasoning": "General competitive-map invariant-curve results may describe the equilibrium stable set but do not imply the explicit time-rescaled drift. The 2014 equation has a structurally different denominator and studies stability and global attraction, not this singular continuum of two-cycles.",
+      "searches": [
+        "singular perturbation of invariant curves or periodic orbits in discrete dynamical systems",
+        "singular perturbation of continuum of two cycles for rational second order recurrence; cubic slow drift near zero quadratic coefficient",
+        "arxiv:0905.1772v1 (inspected primary source)",
+        "doi:10.1186/1687-1847-2014-68 (inspected related primary source)"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1155/2013/210846 — same recurrence, Section 5 and Theorem 14",
+      "arXiv:0905.1772v1 — invariant-manifold theorems 1–3",
+      "DOI:10.1186/1687-1847-2014-68 — different related quadratic-fractional recurrence",
+      "DOI:10.3934/dcdsb.2006.6.1141 — bibliographic comparison only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 14 of DOI 10.1155/2013/210846 derives an eigenvalue \\(-1\\) at the equilibrium and two boundary period-two attractors; its conclusion has no dependence on \\(a/b\\) tending to zero.",
+        "General normal-hyperbolicity theory explains reduction possibilities but does not determine the nontrivial rational cubic coefficient after transverse correction."
+      ],
+      "reasoning": "Known fixed-parameter basin conclusions do not imply a statement about orbit location at times proportional to \\(b/a\\). Even if abstract averaging principles guarantee an effective ODE exists, their theorems do not supply this exact ODE or integrated first-crossing constant without new model-specific calculation.",
+      "searches": [
+        "Garić Demirović Kulenović Nurkanović 2013 Theorem 14 critical 3a+b=c singular a/b→0 drift (2u-1)^3/(u^2-u+1)",
+        "linear fractional map T(u,v)=(v,u/(u+v)) near quadratic perturbation a/b critical cubic drift periodic family",
+        "doi:10.1155/2013/210846 (inspected Theorem 14)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Garić-Demirović, Kulenović, Nurkanović (2013), Theorem 14, DOI 10.1155/2013/210846: qualitative basin and boundary attractors on \\(3a+b-c=0\\).",
+        "Full displayed normalized recurrence and critical surface of the 2013 paper compared directly with the new two-step map."
+      ],
+      "reasoning": "Equivalent representations include the two-step planar map and the normalized 2013 second-order recurrence. The paper proves basin separation for fixed parameters but does not display a limit as \\(a/b\\) tends to zero, a cubic drift, or a scaled threshold time.",
+      "searches": [
+        "homogeneous second-order quadratic fractional difference equation x(n+1)=x(n-1)^2/(a*x(n)^2+b*x(n)*x(n-1)+c*x(n-1)^2) slow drift critical c=b+3a period-two continuum",
+        "linear fractional map T(u,v)=(v,u/(u+v)) near quadratic perturbation a/b critical cubic drift periodic family",
+        "Garić Demirović Kulenović Nurkanović 2013 global dynamics homogeneous quadratic fractional difference equation period-two continuum slow exit time"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2013 paper gives a parameter classification and numerical basin illustrations, with no exact table of slow-time first-crossing constants.",
+        "The arXiv invariant-manifold general result concerns qualitative curves rather than an explicit numerical or symbolic recurrence table."
+      ],
+      "reasoning": "No identified database or table encodes this parameter-dependent slow-flow equation or exact first-crossing clock. Non-detection is not a uniqueness theorem; the new formula is proved independently from the map.",
+      "searches": [
+        "two-step rational map continuum of neutral 2-cycles singular unfolding 3/16 inverse square logarithmic threshold clock",
+        "near a=0 c=b+3a quadratic fractional recurrence neutral two-cycle manifold saddle node critical log inverse square escape",
+        "homogeneous quadratic fractional difference equation a x_n^2 + b x_n x_(n-1) + (b+3a)x_(n-1)^2 slow continuum two cycles crossing time inverse square logarithm"
+      ]
+    },
+    "rationale": "An inspected full-text study of the identical recurrence (2013, Theorem 14) establishes only fixed-parameter basin topology and stability; the exact neutral-family singular limit and its first-crossing coefficient require separate calculation. Broader invariant-manifold papers and a related 2014 rational map do not logically imply that quantitative limit. Precise model/equivalence searches and comparison of mathematical claims did not expose a prior identical result. Search incompleteness and unindexed sources remain priority risks.",
+    "residual_risks": [
+      "Not all pre-2016 and recent nonlinear-difference-equation literature may be indexed; an earlier equivalent singular-limit derivation could be missed.",
+      "The 2006 competitive-system primary full article was not continuously inspected; only its summary was assessed.",
+      "General geometric singular perturbation theory offers an alternative proof framework, but no identified general theorem directly supplies the model-specific coefficients."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes known basin geometry and attracting boundary two-cycle; does not give an \\(a/b\\to0\\) compact-time limit or any passage-time coefficient.",
+        "evidence": "Article 210846, Theorem 14 and Section 5; e-publication 2013-12-04.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3867926/",
+        "material_read": "Abstract, model statement, local stability section, Section 5 basin analysis, and Theorem 14 plus its proof (HTML text mirrored in an openly viewable full-paper edition).",
+        "method": "Full-paper HTML scientific-content reading, equation and implication comparison.",
+        "title": "Global Dynamics of Certain Homogeneous Second-Order Quadratic Fractional Difference Equation",
+        "trigger": "Identical recurrence and \\(c=b+3a\\) equilibrium boundary; highest-risk source."
+      },
+      {
+        "assessment": "Qualitative global curve and basin separation, not a singularly perturbed quantitative orbit limit.",
+        "evidence": "Kulenović and Merino 2009, arXiv:0905.1772v1, Theorems 1–3.",
+        "identifier_or_url": "https://arxiv.org/html/0905.1772v1",
+        "material_read": "Abstract, introduction, theorems 1–3, and stated invariant-curve and basin consequences.",
+        "method": "Open arXiv HTML full-text section inspection.",
+        "title": "Invariant Manifolds for Competitive Systems in the Plane",
+        "trigger": "Possible dominating general planar competitive-map theorem."
+      },
+      {
+        "assessment": "The displayed family and denominators differ from the present exact homogeneous quadratic-over-quadratic map; no singular critical-parameter slow-flow result found in inspected sections.",
+        "evidence": "Kulenović, Pilav and Silić, Advances in Difference Equations 2014, article 68.",
+        "identifier_or_url": "https://doi.org/10.1186/1687-1847-2014-68",
+        "material_read": "Introduction, general recurrence display, period-two stability Section 4, global stability Section 6.",
+        "method": "Open-access Springer article HTML.",
+        "title": "Local dynamics and global attractivity of a certain second-order quadratic fractional difference equation",
+        "trigger": "Similar name, same broad class and overlapping author; potential stronger coverage."
+      },
+      {
+        "assessment": "Not used to certify noncoverage of unseen portions. Residual possibility of a more general hidden implication remains.",
+        "evidence": "Kulenović and Merino (2006), Discrete Contin. Dyn. Syst. B 6, 1141–1156.",
+        "identifier_or_url": "https://doi.org/10.3934/dcdsb.2006.6.1141",
+        "material_read": "Bibliographic title and research summary only, not complete article.",
+        "method": "Bibliographic and abstract-level comparison only.",
+        "title": "Competitive-exclusion versus competitive-coexistence for systems in the plane",
+        "trigger": "Background competitive-map global geometry."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "68597221-356d-46df-b952-a95953fd25c4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "When the critical parameter \\(a/b\\) vanishes, a continuum of neutral two-cycles appears, creating an intrinsic metastable selection problem. An explicit nonconstant cubic selection field, derived only after controlling the fast transverse response, and its exact exit-time law quantify the relaxation mechanism on the natural \\(b/a\\) scale. This adds meaningful long-time dynamical information beyond a basin classification or local multiplier sign.",
+    "status": "PASS"
+  }
+}
