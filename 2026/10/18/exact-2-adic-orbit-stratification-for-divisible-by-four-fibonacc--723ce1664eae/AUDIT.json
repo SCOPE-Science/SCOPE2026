@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For h>=2, M^2-I=cM, and det(M)=-1 imply by repeated squaring that M^(2^j)-I=2^(h+j-1)U_j with det(U_j) odd for every j>=1. Smith factors of M-I are 1 and |c|. These yield exact fixed-state counts for each dyadic iterate; differences divided by period yield integer nonnegative cycle counts and total. Boundary k<=h and k>h covered; exact executable tests corroborate 144 parameter cases but are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brent, Lemma 2 and Theorem 2 (full HTML inspected), assume Q mod 2 irreducible.",
+        "Falcón 2012 complete accessible text concerns generalized subsequences, not modular all-state orbit multiplicities.",
+        "Falcón–Plaza 2009 abstract concerns canonical k-Fibonacci period lengths; full paper was not accessible."
+      ],
+      "reasoning": "The directly applicable-looking Brent theorem does not extend its irreducibility premise to the repeated-root polynomial at even c. A direct 2-adic matrix identity is therefore supplied; the unavailable 2009 source is preserved as a residual risk, not declared to lack the result.",
+      "searches": [
+        "On the periods of generalized Fibonacci sequences Brent 1994",
+        "k-Fibonacci sequences modulo m Falcon Plaza pdf",
+        "Fibonacci Lucas recurrence companion matrix even trace divisible by four, fixed state count cycles permutation on (Z/2^k)^2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1004.5439v1",
+      "https://ccsenet.org/journal/index.php/jmr/article/view/14516",
+      "https://doi.org/10.1155/2012/464580",
+      "https://doi.org/10.1016/j.chaos.2008.02.014 (abstract only)",
+      "https://doi.org/10.1155/2013/731482 (abstract and partial excerpts)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously known classical and Pell orbit studies concern coefficients with different parity/valuation, not the family h>=2.",
+        "Brent's strongest primitive-state period theorem assumes irreducibility, whereas the current polynomial is a square modulo two.",
+        "The proof supplies a new universal formula for fixed points of every dyadic iterate and derives exact multiplicities."
+      ],
+      "reasoning": "Neither the existing Pell coefficient-two statement (h=1) nor the classical Fibonacci coefficient-one result entails the h>=2 full-cycle distribution. The direct matrix lemma supplies new information rather than merely renaming the known cases.",
+      "searches": [
+        "Smith invariant factors M^{2^j}-I for Fibonacci companion matrices c divisible 4 powers two",
+        "k Fibonacci period modulo 2 powers k divisible by 4 orbit cycles fixed points"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brent, arXiv:1004.5439v1, Sections 1–3, discusses primitive initial states under irreducible polynomial; repeated-root case excluded.",
+        "The modular recurrence is equivalent to iterating the 2-by-2 companion matrix whose characteristic polynomial is X^2-cX-1."
+      ],
+      "reasoning": "Searched arbitrary initial data, companion-matrix dynamics, cycles, and valuation formulations. None of the accessible statements proves the fixed-state counts or all orbit multiplicities for c divisible by four; absence of an indexed result is not conclusive.",
+      "searches": [
+        "complete all-state cycle spectrum x_(n+2)=c x_(n+1)+x_n mod 2^k for 4|c 2-adic valuation v2(c) exact 2^j orbit counts",
+        "cycle structure Fibonacci polynomial companion matrix powers two even coefficient divisible four"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A015134 covers classical Fibonacci orbit counts, not the varying divisible-by-four coefficient family.",
+        "The searched numerical profile for coefficient four was not located as an exact parameterized formula."
+      ],
+      "reasoning": "Numerical sequence matches alone would not establish novelty; the distinctive object is the two-parameter full orbit spectrum with a valuation cutoff.",
+      "searches": [
+        "OEIS 3 10 22 46 94 190 generalized Fibonacci orbit",
+        "cycle count generalized Fibonacci 4n mod powers of two 3 10 22 46",
+        "OEIS A015134 Fibonacci cycle length spectrum powers of two"
+      ]
+    },
+    "rationale": "The exact parameter-dependent census for 4|c (repeated-root characteristic polynomial modulo 2) was not found in the inspected primary results or indexed comparisons. Brent 1994 Lemma 2/Theorem 2 explicitly require irreducibility modulo 2, violated because X^2-cX-1 reduces to (X+1)^2. Falcón and Plaza 2009 address periods of a distinguished sequence, not a documented complete census of all initial pairs. Classical Fibonacci and Pell special cases do not imply the phase diagram for every h>=2. This is a best-knowledge assessment, not a uniqueness proof.",
+    "residual_risks": [
+      "An equivalent all-state orbit theorem may exist in unindexed literature or general finite-ring dynamical-systems literature.",
+      "The directly relevant full Falcón–Plaza 2009 paper was inaccessible after open-access attempts; its contents have not been certified as not covering.",
+      "The 2013 polynomial-modulo article and more recent fixed-period articles were not read completely; available statements do not establish decisive coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the repeated-root case; explicitly assumes irreducibility modulo two",
+        "evidence": "Lemma 2 and Theorem 2 require Q mod 2 irreducible; Q for even c becomes (X+1)^2.",
+        "identifier_or_url": "https://arxiv.org/html/1004.5439v1",
+        "material_read": "Full HTML primary text, Introduction, Lemmas 1–4, Theorems 1–4, exceptional-polynomial section",
+        "method": "Inspected theorem hypotheses and implications",
+        "title": "On the periods of generalized Fibonacci recurrences",
+        "trigger": "Closest general polynomial recurrence lifting theorem"
+      },
+      {
+        "assessment": "Studies subsequences and identities rather than power-of-two all-state orbit counts",
+        "evidence": "Section 2 constructs generalized Fibonacci subsequences; conclusion identifies inclusion of subfamilies.",
+        "identifier_or_url": "https://ccsenet.org/journal/index.php/jmr/article/view/14516",
+        "material_read": "Author-provided complete public article text available in repository display, Sections 1–3 and references",
+        "method": "Read definitions, theorem and conclusion",
+        "title": "Generalized Fibonacci Sequences Generated from a k–Fibonacci Sequence",
+        "trigger": "Natural generalized-coefficient recurrence formulation"
+      },
+      {
+        "assessment": "Specific finite-group generalized-order Lucas orbits are not the 2-adic coefficient-divisible-by-four state permutation",
+        "evidence": "Main theorem describes binary polyhedral and polyhedral group period lengths.",
+        "identifier_or_url": "https://doi.org/10.1155/2012/464580",
+        "material_read": "Full accessible HTML primary paper, introduction and main theorems for named finite groups",
+        "method": "Read primary theorem scope and group-period calculations",
+        "title": "The Generalized Order-k Lucas Sequences in Finite Groups",
+        "trigger": "Possible full orbital classification in finite groups"
+      },
+      {
+        "assessment": "Unresolved possible overlap in inaccessible material",
+        "evidence": "Public abstract discusses the distinguished k-Fibonacci sequence Pisano period; no full-text comparison was possible.",
+        "identifier_or_url": "https://doi.org/10.1016/j.chaos.2008.02.014",
+        "material_read": "Bibliographic record and abstract only; no lawful public full text could be accessed",
+        "method": "Abstract-level comparison; full-text NOT_COVERING not asserted",
+        "title": "k-Fibonacci sequences modulo m",
+        "trigger": "Closest same-coefficient modular recurrence study"
+      },
+      {
+        "assessment": "Available portions concern polynomial coefficient/exponent modular periods, not all state orbits; residual uncertainty retained",
+        "evidence": "The described Theorem 3 concerns periodicity of Fibonacci polynomial coefficient and exponent sequences.",
+        "identifier_or_url": "https://doi.org/10.1155/2013/731482",
+        "material_read": "Accessible abstract and Section 2 excerpts; complete page fetch failed",
+        "method": "Statement-level check, without whole-document exclusion",
+        "title": "On Period of the Sequence of Fibonacci Polynomials Modulo m",
+        "trigger": "Potential recurrence companion matrix power-order theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "723ce166-4eae-4d83-9fc4-3aaee914323b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete orbit multiplicities of a natural recurrence parameterized by its coefficient and modulus form an exact two-parameter number-theoretic invariant. The sharp valuation threshold k=h distinguishes involutive dynamics from an infinite tower of new dyadic periods and explains all cycle counts, rather than a finite table or routine change of notation. The reducible-mod-two regime is precisely outside a standard irreducible polynomial theory, giving a structural reason to classify it.",
+    "status": "PASS"
+  }
+}
