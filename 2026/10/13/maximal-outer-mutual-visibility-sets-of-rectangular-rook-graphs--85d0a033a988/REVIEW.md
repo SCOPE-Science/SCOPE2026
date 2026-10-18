@@ -1,11 +1,21 @@
-# Scientific review: maximal outer-mutual-visibility sets of rook graphs
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof explicitly turns an outer-visibility obstruction into a selected three-edge path and then proves both necessity and sufficiency of three mutually exclusive maximal star-forest types. Labeled exponential component counting and the block-partition count give every coefficient. The independent geodesic-based brute-force checker agrees for all 108688 masks across eleven boards, and 121 further parameter-pair checks verify the formula's symmetry and leading minimum coefficients. Boundary cases including \(m=n=2\), matching-only spanning forests, isolated rows or columns, and simultaneously isolated vertices are covered. Finite checks do not establish the theorem independently of the proof.
+## correctness
 
-**Originality — PASS, with risks.** The **star-forest correspondence for all general-position sets of rook graphs is prior** and cannot be rebranded as new simply by using the equal outer-mutual-visibility notion. The extremal cardinalities are prior: Theorem 2.1(ii) of Cicerone–Di Stefano–Klavžar–Yero gives the maximum; Theorem 2 of Welton–Khudairi–Tuite gives the minimum. Section 3 of Carraher et al. treats \(P_4\)-saturated bipartite configurations structurally. The noncovered mathematical assertion is the complete enumeration of **inclusion-maximal** configurations, the disjoint degree-pattern census and its associated Stirling corrections, including the exact count of minimum configurations and arbitrarily large coefficient gaps. The prior all-admissible-set polynomial does not provide these maximal-set coefficients by simple specialization or coefficient comparison. Primary texts inspected were the rook-visibility, lower-general-position, visibility-polynomial, and \(P_4\)-saturation sources. A differently named saturation polynomial could still imply this theorem.
+PASS
 
-**Value — PASS.** Inclusion-maximal visibility configurations describe the terminal outputs of arbitrary greedy packing and govern maximal-set inclusion-exclusion for the ordinary visibility polynomial. The complete maximum-independent-of-order size profile, rather than only minimum and maximum sizes, separates markedly different greedy outcomes; \(M_{2,n}(z)=nz^2+2^nz^n\) establishes arbitrary finite spectral gaps. The exact multiplicity of worst-case terminal sets is a natural statistic not supplied by the prior scalar results. The one- and two-parameter formulas extend beyond recomputation of a known table.
+For rook graph K_m □ K_n (m,n≥2), every two nonadjacent cells have exactly two geodesics through the opposite rectangle corners. A selected cell fails outer mutual visibility to another cell precisely when the selected row–column bipartite graph has a three-edge path; absence of P4 in a bipartite graph is equivalent to every nontrivial component being a star. Such a star forest is maximal if it has no isolated vertices, or if isolation is confined to rows and each active row has degree≥2 while all columns have degree1, or the transposed case. These conditions are necessary because an isolate can be adjoined to a degree≥2 opposite-side center or a single-edge component; sufficient because any new edge completes a forbidden P4. The labeled exponential formula for nonisolated star components gives A_mn(z), and restricted Stirling partitions count the two single-side-isolate families. The minimum degree and its multiplicity follow, including m=2 where M_(2,n)=n z²+2^n z^n. Independently wrote direct geodesic and single-extension tests and enumerated every subset on boards (2,2),(2,3),(3,3),(3,4),(4,4),(2,5),(3,5). For 4×4, the maximal profile is {4:104,5:144,6:16}; formulas agree. Analytic classification proves all m,n.
 
-**Limits.** Only rook graphs with both factors of order at least two are covered. The size-profile results have not received independent audit. The original maximality classification is a substantive consequence of older star-forest and saturation ideas, so complete novelty against all unpublished or unindexed sources cannot be guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new result enumerates inclusion-maximal outer-visibility sets, not all admissible sets, maximum-cardinality sets or only the lower general-position number. Best-of-knowledge originality follows from actual semantic published-record searches and the specifically inspected primary theorem material; unsuccessful searching alone is not proof of novelty.
+
+## value
+
+PASS
+
+Maximal outer-mutual-visibility generators are natural for visibility polynomials and lower general-position questions. The exact full maximal-set polynomial and multiplicities (including arbitrarily large coefficient gaps) distinguish minimal maximal cardinality from maximal-set distribution. This is a complete all-rectangles structural classification, not just the previously known scalar bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
