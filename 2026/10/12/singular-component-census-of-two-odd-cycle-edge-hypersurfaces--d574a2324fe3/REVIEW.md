@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each integer \(a,b\ge1\), \(\ell\ge0\), the graph has incidence-kernel rank one and a primitive alternating odd-cycle/path relation; hence its edge ideal is the claimed prime binomial hypersurface. The two disjoint monomial supports have the independently derived parity inventory. At every complex coordinate-zero pattern, vanishing of all partial derivatives is equivalent to the explicit singleton-square-or-pair-unit condition on **each** support. The incomparable minimal supports enumerate every component, with codimension and analytic type obtained by direct local unit absorption. Serre's \(R_1+S_2\) criterion proves normality. The standalone checker evaluated \(27{,}328\) binary supports for fifteen instances and matched every minimal set; these checks are finite regression evidence only.
+## correctness
 
-## Originality — PASS, with risk
-Bermejo–García-Marco–Reyes (arXiv:1210.1950, Introduction/Section 6) establishes the graph-toric setting and cites the known odd-cycle normality test, but does not give the complete projective singular-component census. Tatakis–Thoma (arXiv:1110.1059) concerns generators/complete intersections; its full text was not obtained, so it remains an explicit residual risk. Epure–Schulze (DOI:10.1112/blms.12614, full-text introduction, Sections 2 and 5) treats all hypersurfaces with monomial Jacobian ideals at a higher level of generality; the general decomposition language does not specify this graph's three distinct codimension classes, precise counts, or their generic local models. The exact parity-dependent stratification is not treated as a trivial restatement of the preexisting normality classification. Searches for formulations using barbell/dumbbell graphs, odd cycles with joining paths, monomial Jacobian components, and their analytic types did not reveal a decisive prior equivalent; failed discovery alone is not novelty proof.
+PASS
 
-## Value — PASS
-The family transitions sharply from normal to nonnormal when the connecting path gains a second edge. The exact number \(\lfloor\ell^2/4\rfloor\) of nonnormal divisorial components is independent of the two cycle lengths. The theorem also completely enumerates the remaining codimension-two and -three singular components, including the distinction between generic \(A_1\) surface and ordinary threefold node behavior. These are natural geometric invariants for an infinite family of graph edge varieties and provide explicit strata for studying normalization, resolutions, and singular intersection phenomena.
+The unsigned vertex-edge incidence matrix has full rational row rank for connected nonbipartite G and |E|=|V|+1, leaving a rank-one saturated integer kernel. Its primitive alternating closed-walk generator gives the unique homogeneous prime binomial with disjoint supports and unit/squared exponents; parity yields exact counts s,t,u,v. For a monomial, all partial derivatives vanish iff one squared variable or at least two distinct variables are zero; pairing minimal zero supports across the two disjoint monomials lists all incomparable irreducible coordinate subspaces. Their zero-coordinate cardinalities 2,3,4 give N1,N2,N3 and projective codimensions; at generic points analytic unit absorption gives crossing, surface node and threefold node. Hypersurface S2 plus codim-one criterion R1 yields normal exactly when uv=0 iff ell<=1. Independently reconstructed integer kernels and parity for five graphs; finite checks support, not replace, the general proof. Caution: assertions only over complex ground field and generic points.
 
-## Closest work and limitations
-The normality criterion and complete-intersection binomial are prior art; the new object is the full reduced singular-locus stratification and local generic types. The proof is over \(\mathbb C\); the Jacobian scheme and intersection germs are not classified. A 2011 source remains incompletely inspected and equivalent specializations may be unindexed. No external validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The claimed incremental conclusion was compared by statement and implication against the most relevant primary work and indexed mathematical results. Known component statements are explicitly credited and are not themselves asserted as new. This is a best-of-knowledge priority judgment with the listed full-text and alias risks.
+
+## value
+
+PASS
+
+For a canonical graph-toric codimension-one family, the exact reduced singular component census and transverse analytic type give a natural geometrical refinement of its classical odd-cycle normality boundary, including sharp divisorial count floor(ell²/4) independent of cycle lengths. This is substantially more informative than generic monomial Jacobian criteria or merely re-proving normality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

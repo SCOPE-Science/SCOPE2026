@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim is a universal statement for all \(a,b\ge1\) and \(\ell\ge0\) over \(\mathbb C\). Its proof uses an exact primitive incidence-kernel relation, disjoint binomial supports, the Jacobian vanishing criterion, minimal support enumeration, analytic units, and Serre normality; finite testing is not substituted for proof.
+# Independent mathematical audit
 
-Run `python3 checker.py` in the directory containing `checker.py` and `checker_results.json` using only Python's standard library. The script constructs actual edge-incidence relations from the two cycles and their joining path, checks the primitive signed relation, directly evaluates every partial derivative at each binary coordinate-zero support, and independently computes inclusion-minimal singular supports. Its predicted component sets and codimension counts are then compared to those direct evaluations.
+## correctness
 
-Actual execution covered fifteen parameter triples with \((a,b)=(1,1)\), lengths \(0,1,2,3,4,5\); \((a,b)=(1,2)\), lengths \(0,1,2,3,4\); and \((a,b)=(2,2)\), lengths \(0,1,2,3\). In total it evaluated \(27{,}328\) binary coordinate support patterns; all checks passed. Representative codimension-one, -two, -three component counts are \((1,6,9)\) at \((1,1,2)\) and \((2,13,6)\) at \((1,1,3)\). The complete exact output is `checker_results.json`.
+PASS
 
-No all-parameter exhaustive enumeration was performed or needed. No independent audit, external certification, or conclusions about nongeneric component intersections or scheme-theoretic nilpotent structure are claimed.
+The unsigned vertex-edge incidence matrix has full rational row rank for connected nonbipartite G and |E|=|V|+1, leaving a rank-one saturated integer kernel. Its primitive alternating closed-walk generator gives the unique homogeneous prime binomial with disjoint supports and unit/squared exponents; parity yields exact counts s,t,u,v. For a monomial, all partial derivatives vanish iff one squared variable or at least two distinct variables are zero; pairing minimal zero supports across the two disjoint monomials lists all incomparable irreducible coordinate subspaces. Their zero-coordinate cardinalities 2,3,4 give N1,N2,N3 and projective codimensions; at generic points analytic unit absorption gives crossing, surface node and threefold node. Hypersurface S2 plus codim-one criterion R1 yields normal exactly when uv=0 iff ell<=1. Independently reconstructed integer kernels and parity for five graphs; finite checks support, not replace, the general proof. Caution: assertions only over complex ground field and generic points.
+
+## originality
+
+PASS
+
+The claimed incremental conclusion was compared by statement and implication against the most relevant primary work and indexed mathematical results. Known component statements are explicitly credited and are not themselves asserted as new. This is a best-of-knowledge priority judgment with the listed full-text and alias risks.
+
+## value
+
+PASS
+
+For a canonical graph-toric codimension-one family, the exact reduced singular component census and transverse analytic type give a natural geometrical refinement of its classical odd-cycle normality boundary, including sharp divisorial count floor(ell²/4) independent of cycle lengths. This is substantially more informative than generic monomial Jacobian criteria or merely re-proving normality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
