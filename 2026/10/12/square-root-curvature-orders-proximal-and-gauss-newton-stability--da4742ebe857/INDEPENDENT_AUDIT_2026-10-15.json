@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T06:13:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For x with ||x||=r, the exact proximal minimizer is collinear radial with t in [0,r], giving P=min[φ(t)+(r-t)^2/(2α)]; unconstrained squared-tangent minimization yields N=F/(1+αg²/(2F)). If q=√φ is convex, its tangent is dominated on [t0,r], t0=r-2F/g>=0, and for t<t0 the distance penalty gives P>=N. If q is concave, tangent is nonnegative and majorizes q; when model minimizer t_N<0, explicit α-threshold implies P<=r²/(2α)<=N. Affine equality follows. For powers, t+αt^{p-1}=r and the p=1 soft-threshold justify sharp p=2 reversal and signed small/large α limits. Independently solved 105 scalar cases across p=1,...,7 and α from 0.001 to 100 with correct signs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The conditions and quantitative differences here are stronger in this restricted geometric class than the general method-wise bounds."
+        ],
+        "reasoning": "Existing arbitrary nonnegative convex NGN and SPP bounds are each relative to SGD and do not compare their exact envelope minima; they do not imply one another in the radial class.",
+        "searches": [
+          "Schaipp–Gower–Taylor 2026 Eq. (13), Lemma 4.2; Orvieto–Xiao 2024 Section 4",
+          "Resultary query: nonnegative Gauss Newton stability proximal Moreau envelope radial power loss square root convex concave order"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2602.09842v2",
+        "https://arxiv.org/html/2407.04358v1",
+        "Resultary semantic query: nonnegative Gauss Newton stability proximal Moreau envelope radial power loss square root convex concave order"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent radial tangent-sign analysis is genuinely required for the all-parameter classification."
+        ],
+        "reasoning": "The old quadratic equality is precisely the phase boundary, not an implication of sign reversal for p≠2. Separate upper bounds δNGN<=δSGD and δSPP<=δSGD do not determine either direction between NGN and SPP.",
+        "searches": [
+          "arXiv:2602.09842v2 Sections 4.3-4.4, Appendix A.3; arXiv:2407.04358v1",
+          "Resultary query: nonnegative Gauss Newton stability proximal Moreau envelope radial power loss square root convex concave order"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Identical model formulas appear in source, but no all-α sign criterion from convexity of √φ does."
+        ],
+        "reasoning": "Compared Moreau envelope of φ(||x||), squared tangent of √φ, Gauss–Newton/Levenberg–Marquardt model decrease, and radial p-power one-step stability under interchangeable index definitions.",
+        "searches": [
+          "Resultary NGN proximal stability query; arXiv:2602.09842v2 Sections 4.3–4.4; arXiv:2407.04358v1 Section 2",
+          "Resultary query: nonnegative Gauss Newton stability proximal Moreau envelope radial power loss square root convex concave order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Quadratic p=2 equality is known and explicitly credited; the strict nonquadratic all-step comparison and both gap limits are not tabulated."
+        ],
+        "reasoning": "Not a finite object with an enumerative database; checked published quadratic and power-loss benchmark formulas in the exact motivating paper instead.",
+        "searches": [
+          "arXiv:2602.09842v2 Appendix A.3; Resultary NGN/Moreau stability query",
+          "Resultary query: nonnegative Gauss Newton stability proximal Moreau envelope radial power loss square root convex concave order"
+        ]
+      },
+      "rationale": "Schaipp–Gower–Taylor 2026 introduces the same NGN/SPP indices but compares each to SGD and shows only quadratic equality, not the cross-model sign classification. Orvieto–Xiao 2024 derives NGN and studies convergence rather than static exact proximal envelope. The current square-root radial curvature criterion (including center-crossing case) determines the NGN/SPP relative order for every α and has two explicit asymptotic constants. Resultary proximal/stability hits treat different model comparisons.",
+      "residual_risks": [
+        "An unindexed optimization theorem could express the same square-root radial curvature ordering under a different model nomenclature.",
+        "Numerical checks support but do not establish the all-α result; the submitted analytic proof handles all cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives NGN exact index and SPP upper bound, quadratic equality; no global radial q-curvature sign comparison",
+          "evidence": [
+            "Lemma 4.2 gives δ_NGN and comparison to SGD",
+            "Equation (13) gives SPP bound and NGN formula separately",
+            "Appendix A.3 discusses quadratic specialization"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.09842v2",
+          "material_read": "Full accessible HTML Sections 1-4, especially 4.3 NGN, 4.4 SPP, Appendix A.3 quadratic examples and conclusions",
+          "method": "Compare exact stability-index formulas, model assumptions, and NGN-versus-SPP sign versus separate SGD comparisons",
+          "title": "Step-Size Stability in Stochastic Optimization: A Theoretical Perspective",
+          "trigger": "Same NGN and SPP stability indices explicitly introduced and compared"
+        },
+        {
+          "assessment": "Derives NGN step/model and analyses algorithmic convergence, not general NGN/SPP envelope ordering",
+          "evidence": [
+            "Section 2.1 Eq. (8) is square-of-affine-square-root with quadratic penalty"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.04358v1",
+          "material_read": "Complete accessible HTML Sections 2-4: method definition, square-root model, regularized minimization, convergence",
+          "method": "Compare what is derived for NGN and whether cross-model all-alpha radial ordering is asserted",
+          "title": "An Adaptive Stochastic Gradient Method with Non-negative Gauss-Newton Stepsizes",
+          "trigger": "Original NGN method and curvature modeling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The relative ordering of NGN and exact-proximal stability indices is not universal for arbitrary convex objectives. This supplies a mathematically motivated geometric sign criterion, a sharp homogeneity phase change at p=2, and quantitative asymptotic gaps in the same objective class used to motivate NGN. The negative-affine-tangent and zero-radius cases make it more than a simple monotonicity substitution; it gives precise benchmarks without claiming algorithmic convergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed optimization theorem could express the same square-root radial curvature ordering under a different model nomenclature.",
+    "Numerical checks support but do not establish the all-α result; the submitted analytic proof handles all cases."
+  ]
+}
