@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "All binary palindrome subsequences contain 0, 1, 2, or 3 marked symbols, and the proof explicitly counts all four disjoint possibilities. Three feasible rectangles for the two-one stratum yield the stated gap formula including zero boundaries; reversing covers the second outer-gap branch. For the asymptotic law, a four-region inequality bounds its quadratic form by 3z^2/16 with equality only at equal gaps, and a uniform O(z) remainder and compactness establish the sharp limit and maximizing rigidity. The nonnegative quadratic certificate was checked symbolically at its actual formula, and package-path verification returned VERIFY_OK for 5,985 exhaustive small gap tuples, 495 direct subsequence-set cases, and 300 larger randomized cases. No finite data are presented as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full HTML paper arXiv:1110.5296v1, main algorithm Sections 3 and 4, studies LCPS of two strings.",
+        "Open problem/solution for arbitrary-word distinct palindrome counting: https://leetcode.doocs.org/en/lc/730/, especially solution 1.",
+        "Palindromic complexity of trees, arXiv:1505.02695, is expressly about substrings on labeled paths and was inspected at abstract/record level."
+      ],
+      "reasoning": "More general computational algorithms and length-maximization algorithms cover evaluating particular inputs but not the explicitly evaluated four-gap enumeration or asymptotically sharp maximization across infinitely many input lengths. Tree or circular palindromic-factor counts use a different occurrence relation.",
+      "searches": [
+        "2011 palindromic subsequence complexity paper",
+        "distinct palindromic subsequences of a word counting 2008 2010 article",
+        "number of distinct palindromic subsequences 2012",
+        "maximum number distinct palindromic subsequences of fixed-weight binary words with three marked positions"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1110.5296v1 (relevant primary full text read)",
+      "https://leetcode.doocs.org/en/lc/730/ (generic DP problem/solution read)",
+      "arxiv:1505.02695 (abstract only, different object)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chowdhury et al., arXiv:1110.5296v1, counts/constructs only an LCPS length, not distinct palindrome sets.",
+        "Generic palindrome factor results, including the 2015 palindromic complexity of trees (arXiv:1505.02695), require contiguous occurrence.",
+        "Related three-marker palindromic-defect and circular-factor results quantify contiguous factors, not distinct scattered subsequences."
+      ],
+      "reasoning": "There is no implication from the number of distinct contiguous palindromic factors, or from an optimal palindrome length, to the distinct-palindromic-subsequence count: scattered insertions create many further words. The exact fixed-weight subsequence count and extremal leading coefficient are new statements relative to the compared claims.",
+      "searches": [
+        "distinct palindromic subsequences binary words exactly three occurrences of 1, sparse binary words, enumeration, maximizers",
+        "palindromic scattered subsequences distinct palindromes with k ones binary word",
+        "palindromic subsequences binary weight three extremal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chowdhury et al., arXiv:1110.5296v1, Sections 1–4, discusses longest common palindromic subsequences rather than counting distinct palindromic subsequences.",
+        "The general-palindrome counting dynamic-programming formulation in https://leetcode.doocs.org/en/lc/730/ applies to individual inputs without a fixed-weight extremal statement."
+      ],
+      "reasoning": "Changing terminology from palindrome subsequence to scattered palindrome and specializing to three marked letters did not identify an equivalent closed gap formula or extremal theorem. A general algorithm computes instances but does not itself assert the uniform symbolic identity and limiting optimizer.",
+      "searches": [
+        "distinct palindromic subsequences binary words exactly three occurrences of 1, sparse binary words, enumeration, maximizers",
+        "maximum number distinct palindromic subsequences of fixed-weight binary words with three marked positions",
+        "palindromic scattered subsequences distinct palindromes with k ones binary word"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An accessible general counting problem and recurrence at https://leetcode.doocs.org/en/lc/730/ provides sample values but no length-by-length three-one extremal table.",
+        "Targeted semantic database results concerned palindromic factors, palindromic duplication codes, deletion reconstruction, and unrelated subsequence universality."
+      ],
+      "reasoning": "No exact database or tabulation with the claimed sharp coefficient and limiting gap rigidity was found. Absence from searches is not a proof that none exists.",
+      "searches": [
+        "maximum number of distinct palindromic subsequences fixed number of ones",
+        "maximum number of distinct palindromic subsequences composition extremal word",
+        "Exact number of distinct palindromic scattered subsequences 0^a 1 0^b 1 0^c 1 0^d; extremal sharp leading 3/16 times squared number of zeros"
+      ]
+    },
+    "rationale": "Searched the exact four-gap claim, aliases (scattered palindromes, palindrome subsequences, fixed weight), extremal asymptotics, broader dynamic-programming coverage, and relevant earlier scientific claims. The closest inspected 2011 full text solves a longest-common-palindrome problem, not cardinality and extremal geometry. General arbitrary-word counting algorithms do not supply the all-parameter gap formula or the sharp 3/16 coefficient and optimizer rigidity. Related palindromic-factor theorems are contiguous rather than scattered. Equivalent unindexed literature remains possible.",
+    "residual_risks": [
+      "An older or unindexed specialized sparse-palindrome count or a general multivariate enumerator might entail the stated four-gap identity and extremal coefficient without matching words.",
+      "The third source was assessed from an abstract only, but its path-factor definition makes it inapplicable; no whole-document NOT_COVERING assertion is made for it.",
+      "Search rankings and database partitions cannot certify global uniqueness; an independent originality review is not available."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING of the four-gap counting/extremal theorem; it computes a longest *common* palindromic subsequence of two strings rather than counting all different palindromic subsequences of one sparse string.",
+        "evidence": "The abstract defines LCPS; Section 3 computes an optimal length by interval DP; Section 4 uses match-pair geometry, without a weight-three distinct-count or maximizer asymptotic.",
+        "identifier_or_url": "arxiv:1110.5296v1; https://arxiv.org/html/1110.5296v1",
+        "material_read": "Full HTML structure and substantial passages: Abstract, Introduction, preliminaries, dynamic-programming result and optimal substructure, geometrical approach, conclusion.",
+        "method": "Open HTML full text and inspect scientific statements and algorithms in Sections 1–4 and 5.",
+        "title": "Computing a Longest Common Palindromic Subsequence",
+        "trigger": "Relevant primary treatment of palindromic scattered subsequences (first public 2011-10-24)."
+      },
+      {
+        "assessment": "GENERIC_ALGORITHM, not direct coverage of the all-four-gap closed form, sharp coefficient, or asymptotic rigidity.",
+        "evidence": "The solution forms interval DP states for arbitrary input strings and returns a numeric count; no analytical fixed-composition extremal law appears in the inspected sections.",
+        "identifier_or_url": "https://leetcode.doocs.org/en/lc/730/",
+        "material_read": "Problem statement and Solution 1 (including Python dynamic-programming recurrence).",
+        "method": "Open full HTML problem description and solution code.",
+        "title": "Count Different Palindromic Subsequences (problem 730)",
+        "trigger": "Directly relevant generic counting algorithm, a plausible source of broader computational coverage."
+      },
+      {
+        "assessment": "INAPPLICABLE_ON_OBJECT: contiguous labeled path factors in trees, not scattered palindromic subsequences of a single three-one binary word.",
+        "evidence": "Abstract defines a tree language using labels of simple paths and studies distinct palindromes in that path language; no scattered subsequence claim in the available abstract.",
+        "identifier_or_url": "arxiv:1505.02695; https://arxiv.org/abs/1505.02695",
+        "material_read": "Abstract and bibliographic landing record, not the full text.",
+        "method": "Inspect arXiv record/abstract and object definition.",
+        "title": "Palindromic complexity of trees",
+        "trigger": "Potential broader literature title involving palindrome complexity and marked objects."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "547db844-a30e-45c8-9942-73c2000cb972",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The explicit infinite four-parameter classification resolves distinct scattered palindrome counts at the first nontrivial three-marker level, including the full two-one Ferrers-region geometry. The sharp 3/16 quadratic extremum and uniqueness of the limiting equispaced configuration are structural consequences not visible from generic DP or palindromic-factor results. This is a natural fixed-composition complexity invariant relevant as a baseline for sparse string reconstruction and higher weights, not an arbitrary finite slice or known-table recomputation.",
+    "status": "PASS"
+  }
+}
