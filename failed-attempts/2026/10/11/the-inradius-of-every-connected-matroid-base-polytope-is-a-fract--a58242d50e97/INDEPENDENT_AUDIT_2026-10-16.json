@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T13:47:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Correctly reconstructs Edmonds' inequality model in affine hull H_k, whose projected nonempty proper subset normal is 1_S−(|S|/n)1_E and has norm c(S)=sqrt(|S|(n−|S|)/n). Boyd–Vandenberghe's general polyhedral Chebyshev-center program specializes to maximize t with x(S)+t c(S)≤rk(S). Free center variables and x(E)=k force dual subset variables μ_S≥0 to cover every element equally with common q>0; normalization λ_S=μ_S/q gives fractional partition, and fixing ∑μ_S c(S)=1 yields the stated ratio by strong LP duality. Connectedness gives full n−1 dimension, positive radius and strong duality; x(S)≤rk(S)−ρc(S) characterizes all optimal centers. Independently solved the primal and normalized dual via scipy linprog for U_{k,n}, n=3,…,7 and 1≤k<n, recovering min(k,n−k)/sqrt(n(n−1)). This finite test is not the arbitrary-matroid proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Chebyshev LP covers all convex polytopes, strictly a broader class than connected matroid base polytopes; Ferroni provides dimension n−c(M) and hypersimplex U_{k,n} structure."
+        ],
+        "reasoning": "The combination of these two already known general facts determines the record, including exact center inequalities and ratio after routine LP dual. Broader result need not explicitly display a matroid rank-weight ratio for it to imply it.",
+        "searches": [
+          "Boyd Vandenberghe Convex Optimization p.149 §4.3 Chebyshev center",
+          "Ferroni 2024 matroid base polytopes §2.3",
+          "matroid base polytopes connected full dimension n−1"
+        ]
+      },
+      "checked_sources": [
+        "Boyd and Vandenberghe, Convex Optimization (2004) §4.3.1, eq. 4.31",
+        "Ferroni, Valuative invariants for large classes of matroids, J. London Math. Soc. 2024 §2.3",
+        "Edmonds base-polytope rank inequality theorem",
+        "Resultary connected rank-two matroid inradius 04d0301093d4",
+        "Git RESULT.md and verification manuscript"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Boyd: maximize r subject to a_i·x+r||a_i||≤b_i. Substitute a_i=orthogonal projection of 1_S, b_i=rk(S), impose x(E)=k. LP dual is min_{μ≥0} Σμrk(S)−qk subject to Σ_{S∋e}μ_S=q and Σμc(S)≥1; scale q and set λ=μ/q."
+        ],
+        "reasoning": "This explicit standard two-theorem implication yields BOTH claimed displays, as well as the uniform barycenter case. Novel wording or elementary fractional normalization is insufficient to separate a new result.",
+        "searches": [
+          "Boyd Vandenberghe book §4.3.1 equation (4.31)",
+          "Edmonds matroid base-polytope representation",
+          "Ferroni 2024 dimension n−c(M)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyd–Vandenberghe general condition a_i·x+r||a_i||≤b_i for ANY polyhedron; Edmonds B(M)={x(E)=k,x(S)≤rk(S)}."
+        ],
+        "reasoning": "Intrinsic projection of a rank normal is p_S=1_S−|S|1/n and the universal Chebyshev LP is literally the primal problem displayed in the record. Standard duality produces its objective, irrespective of terminology.",
+        "searches": [
+          "Resultary query: inradius Euclidean Chebyshev center connected matroid base polytope rank inequalities fractional partitions hypersimplex",
+          "Boyd Vandenberghe 2004 §4.3.1 Chebyshev center LP",
+          "Edmonds matroid base polytope rank inequalities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary includes the same research entry, distinct rank-two explicit inradius result, and other polytopal radius studies; the decisive source is not a numerical table but the published universal LP scheme."
+        ],
+        "reasoning": "Failure to find a matching precomputed fraction table would not establish originality when the exact statement follows from general textbook optimization.",
+        "searches": [
+          "Resultary exact matroid inradius fractional partition semantic search",
+          "Resultary rank-two matroid inradius 04d0301093d4",
+          "Boyd Chebyshev center example 2004 and Edmonds base polytope"
+        ]
+      },
+      "rationale": "The full generality is already an immediate specialization of TWO standard pre-existing results: Edmonds' exact rank-inequality description of any matroid base polytope and the general Chebyshev-center LP for ANY polyhedron (Boyd–Vandenberghe, Convex Optimization 2004, §4.3.1). Project the known normals to x(E)=k, read their squared lengths, and take the standard textbook LP dual; free x-coordinates force precisely the asserted equal element-cover constraints. Dividing by their common q is a routine dual normalization, not a new structural matroid theorem. Formula for all Chebyshev centers is exactly the general polyhedral optimal-ball feasible set, and hypersimplex barycenter computation is standard. No separate theorem beyond this mechanical combination is demonstrated. This is statement-level prior implication despite absence of the printed word 'fractional partition' in the textbook.",
+      "residual_risks": [
+        "Mathematical derivation correct but its novelty and value are defeated by the universal polyhedral Chebyshev LP combined with Edmonds, not by an inability to retrieve matching keyword phrases.",
+        "A hypothetical nontrivial matroid-specific optimizer theorem was neither proved nor presented and cannot be imputed to this claim.",
+        "General objective may have alternative dual derivations; they strengthen, not weaken, the prior implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exactly stronger generic Euclidean polyhedral inball optimization model; routine LP dual gives fractional variables",
+          "evidence": "a_i·x_c+r||a_i||≤b_i general halfspace center condition; general feasible-center inequalities",
+          "identifier_or_url": "Boyd and Vandenberghe, Cambridge University Press 2004; https://www.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+          "material_read": "Book §4.3.1, specifically Chebyshev center LP at printed pp.148–149/equations (4.30),(4.31); online author-hosted book and slides",
+          "method": "primary author's authorized full book/lecture PDF and searchable section text",
+          "title": "Convex Optimization",
+          "trigger": "Published general theorem potentially dominates claimed matroid inradius"
+        },
+        {
+          "assessment": "Supplies accepted standard matroid geometry; not an independent new inradius formula",
+          "evidence": "Base polytope convex hull of basis indicators; dimension n−number of components",
+          "identifier_or_url": "Ferroni 2024, DOI:10.1112/jlms.12984",
+          "material_read": "Open full-text HTML §2.3, Definition 2.9 and dimension n−c(M); not an inradius theorem",
+          "method": "primary published full-HTML relevant section",
+          "title": "Valuative invariants for large classes of matroids",
+          "trigger": "Edmonds rank-base-polytope structure and full intrinsic dimension"
+        },
+        {
+          "assessment": "Different optimization objective from Euclidean Chebyshev radius; not relied on for rejection",
+          "evidence": "Strength/arboricity and base modulus concern rank deficit distributions, not projected Euclidean facet norms",
+          "identifier_or_url": "arXiv:2604.11946",
+          "material_read": "Title/abstract and bibliographic description only; no full primary paper read",
+          "method": "lawful primary metadata search",
+          "title": "Base Modulus for Matroid Truncation, Strength, and Fractional Arboricity",
+          "trigger": "Possibly equivalent fractional-partition duality under matroid strength"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The record supplies no new closed form for any nonuniform rank class, no structural optimizer classification beyond the universal LP feasible set, and no new matroid-specific property beyond normal lengths elementary from cardinalities. In light of the exact general polyhedral Chebyshev LP and Edmonds constraints, the fractional-partition ratio and center set are textbook duality and a relabeling of universally available optimization data; correct reproducibility does not add independent scientific value. A motivated new effective bound, reduction, or nontrivial new matroid invariant property could have survived, but none is asserted here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For every connected matroid M on n≥2 elements, the intrinsic Euclidean inradius of its base polytope is the minimum over fractional partitions λ of (∑λ_S rk(S)−rk(E))/(∑λ_S sqrt(|S|(n−|S|)/n)); all centers satisfy x(S)≤rk(S)−ρc(S).",
+  "limitations": [
+    "Correct universal formula for connected matroids is judged covered by textbook Chebyshev LP specialization.",
+    "Disconnected matroids require smaller affine hull; no generalized disconnected formula claimed.",
+    "No novel optimizer support theorem or nonuniform closed form accompanies the formula."
+  ],
+  "schema_version": 1
+}
