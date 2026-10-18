@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T10:55:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write p=max(0,m-1)+epsilon. For m in (1,2) each of k maximum observations contributes epsilon^{m-2+epsilon}, so L diverges; for m>2 it tends to zero; for m<1 prefactor gives L~p^n prod(1-x_i)^{-1}->0. For fixed xi and p->infinity, each density tends to e^{-xi}, making positive large-p alternative. Thus boundary cannot maximize in open parameter space for any m>1 and is not even a limiting maximum for m<1 or >2. Printed observations yield two reported boundary MLEs with lower reported log-likelihood than same likelihood at p=20 (-44.4075>-49.20; -104.3629>-126.50), as derived by the source checker. Independently rederived sample endpoint trichotomy and Pr(M20>2)=0.94122822985 in reported simulation regime. m=1 and m=2 deliberately outside displayed trichotomy (zero probability under continuous model).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hirano-Porter treat nonregular endpoint estimation generally; no exact p-exponential m-2 exponent comparison was verified."
+        ],
+        "reasoning": "General theory permits unusual likelihood behavior but does not force the explicit trichotomy or specific misleading applications.",
+        "searches": [
+          "doi:10.1111/1468-0262.00451 parameter-dependent support",
+          "Resultary: bounded p exponential distribution boundary sample maximum is not maximum likelihood estimator Bakouch Salinas 2026"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3390/math14061076",
+        "https://doi.org/10.1111/1468-0262.00451",
+        "Resultary: bounded p exponential distribution boundary sample maximum is not maximum likelihood estimator Bakouch Salinas 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary statement affirms p* boundary as MLE, unlike the proposed correction.",
+          "General support-dependent estimation theory does not claim a universal formula for this family."
+        ],
+        "reasoning": "The correction is a counterexample to a specific published claim; it is consistent with but not explicitly derived as a result in earlier general nonregular estimation.",
+        "searches": [
+          "Resultary: bounded p exponential distribution boundary sample maximum is not maximum likelihood estimator Bakouch Salinas 2026",
+          "doi:10.3390/math14061076 Section 4.1",
+          "doi:10.1111/1468-0262.00451"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026 primary Section 4.1 labels p*=max(0,m-1) MLE.",
+          "p->infinity provides positive likelihood while p* boundary vanishes if m>2."
+        ],
+        "reasoning": "A limit/excluded-support distinction is not a technical equivalence of maximizing likelihood; endpoint consistency cannot repair the false MLE claim.",
+        "searches": [
+          "Resultary: bounded p exponential distribution boundary sample maximum is not maximum likelihood estimator Bakouch Salinas 2026",
+          "10.3390/math14061076 maximum likelihood estimator sample maximum support boundary",
+          "bounded p exponential parameter likelihood p->infinity endpoint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact primary numerical MLE table presents p1=2.658 with loglik -49.20, p2=6.89 with loglik -126.50.",
+          "Assigned exact observation arrays and direct loglik formula give strictly higher values at p=20, approximately -44.4075 and -104.3629."
+        ],
+        "reasoning": "This is a correction to a printed inferential table, not a recomputation of an already-correct numeric optimality result. Independent run rechecked analytic basis and source script; data arithmetic originates from inspected source list.",
+        "searches": [
+          "10.3390/math14061076 dataset1 loglik -49.20 dataset2 -126.50",
+          "Resultary: bounded p exponential distribution boundary sample maximum is not maximum likelihood estimator Bakouch Salinas 2026"
+        ]
+      },
+      "rationale": "PASS for source-specific 2026 likelihood contradiction and material numerical effect, not for generic nonregular endpoint-MLE theory. Bakouch et al present correct likelihood and assert incorrect closed-form sample-max MLE; Hirano-Porter treat general parameter-dependent-support asymptotics but do not deduce this specific three-regime boundary or contradict datasets. Resultary and targeted published correction searches did not reveal a subsequent source-specific erratum.",
+      "residual_risks": [
+        "A rapid published erratum or unindexed correction may exist.",
+        "The complete global-MLE phase portrait is not proved; some samples may have only an infinity-endpoint supremum.",
+        "Dataset-wise two exact p=20 comparisons are traced to the frozen full printed observation lists and script, not new independently retyped data in this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary explicitly claims max(0,Mn-1) universally maximizes likelihood; analytic endpoint limits contradict it.",
+          "evidence": "Source equation likelihood and boundary-MLE statement, simulation p=5.3245 n20, printed MLE/loglik table values.",
+          "identifier_or_url": "https://doi.org/10.3390/math14061076",
+          "material_read": "Open publisher text of density, support, Section 4.1 likelihood, reported endpoint MLE, and applied-data likelihood table as returned by full-text indexing; assigned package contains full printed datasets and calculations. This run did not independently download both table images.",
+          "method": "MDPI open searchable full text and direct analysis of assigned mathematical source",
+          "title": "The One-Parameter Bounded p-Exponential Distribution: Properties, Inference, and Applications",
+          "trigger": "Primary source making false closed-form MLE assertion"
+        },
+        {
+          "assessment": "General context; no verified theorem about exact bounded p-exponential sample limits or two datasets.",
+          "evidence": "General nonregular support estimation, 2003 Econometrica.",
+          "identifier_or_url": "https://doi.org/10.1111/1468-0262.00451",
+          "material_read": "Publisher bibliographic abstract on parameter-dependent-support efficiency; full paper not obtained",
+          "method": "Abstract and search record",
+          "title": "Asymptotic Efficiency in Parametric Structural Models with Parameter-Dependent Support",
+          "trigger": "Potential broader nonregular-estimation coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The false universal MLE is used centrally throughout a published simulation design and two applied model-fit comparisons, which cannot be inferred correctly from an endpoint consistency result. Explicit interior p=20 beats both printed MLE likelihoods; the problematic region affects roughly 94.1% of n=20 samples in a published p=5.3245 setting.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.3390/math14061076",
+    "https://doi.org/10.1111/1468-0262.00451",
+    "Resultary: bounded p exponential distribution boundary sample maximum is not maximum likelihood estimator Bakouch Salinas 2026"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No full characterization of true MLE for every sample.",
+    "Boundary estimator can be consistent without being an MLE.",
+    "Exceptional sample maxima m=1 or 2 not classified in displayed trichotomy.",
+    "A rapid published erratum or unindexed correction may exist.",
+    "The complete global-MLE phase portrait is not proved; some samples may have only an infinity-endpoint supremum.",
+    "Dataset-wise two exact p=20 comparisons are traced to the frozen full printed observation lists and script, not new independently retyped data in this execution."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "Primary explicitly claims max(0,Mn-1) universally maximizes likelihood; analytic endpoint limits contradict it.",
+      "evidence": "Source equation likelihood and boundary-MLE statement, simulation p=5.3245 n20, printed MLE/loglik table values.",
+      "identifier_or_url": "https://doi.org/10.3390/math14061076",
+      "material_read": "Open publisher text of density, support, Section 4.1 likelihood, reported endpoint MLE, and applied-data likelihood table as returned by full-text indexing; assigned package contains full printed datasets and calculations. This run did not independently download both table images.",
+      "method": "MDPI open searchable full text and direct analysis of assigned mathematical source",
+      "title": "The One-Parameter Bounded p-Exponential Distribution: Properties, Inference, and Applications",
+      "trigger": "Primary source making false closed-form MLE assertion"
+    },
+    {
+      "assessment": "General context; no verified theorem about exact bounded p-exponential sample limits or two datasets.",
+      "evidence": "General nonregular support estimation, 2003 Econometrica.",
+      "identifier_or_url": "https://doi.org/10.1111/1468-0262.00451",
+      "material_read": "Publisher bibliographic abstract on parameter-dependent-support efficiency; full paper not obtained",
+      "method": "Abstract and search record",
+      "title": "Asymptotic Efficiency in Parametric Structural Models with Parameter-Dependent Support",
+      "trigger": "Potential broader nonregular-estimation coverage"
+    }
+  ]
+}

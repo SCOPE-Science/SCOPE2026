@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact source likelihood has a three-regime lower-boundary limit. If the sample maximum \(m>1\), writing \(p=m-1+\varepsilon\) isolates the maximum-observation factor as a positive finite multiplier times \(\varepsilon^{m-2+\varepsilon}\); this diverges for \(1<m<2\) and vanishes for \(m>2\). If \(m<1\), the likelihood is asymptotic to a positive constant times \(p^n\) and vanishes at zero. Meanwhile \(L(p)\to\exp(-\sum_i x_i)>0\) as \(p\to\infty\). The packaged checker independently verifies the formulas and applied comparisons.
+## correctness
 
-## Originality
-PASS. The primary article explicitly labels \(\max\{0,M_n-1\}\) a boundary MLE and uses it in simulation and real-data sections. Five target-specific published-result searches, exact correction searches, and comparison with general parameter-dependent-support literature found no covering correction or stronger source-specific result.
+PASS
 
-Residual risk remains from a very recent unindexed correction and from the fact that the full global-MLE phase diagram is not classified here.
+Write p=max(0,m-1)+epsilon. For m in (1,2) each of k maximum observations contributes epsilon^{m-2+epsilon}, so L diverges; for m>2 it tends to zero; for m<1 prefactor gives L~p^n prod(1-x_i)^{-1}->0. For fixed xi and p->infinity, each density tends to e^{-xi}, making positive large-p alternative. Thus boundary cannot maximize in open parameter space for any m>1 and is not even a limiting maximum for m<1 or >2. Printed observations yield two reported boundary MLEs with lower reported log-likelihood than same likelihood at p=20 (-44.4075>-49.20; -104.3629>-126.50), as derived by the source checker. Independently rederived sample endpoint trichotomy and Pr(M20>2)=0.94122822985 in reported simulation regime. m=1 and m=2 deliberately outside displayed trichotomy (zero probability under continuous model).
 
-## Value
-PASS. The MLE is one of the article's main inferential procedures. Both real-data estimates reported as MLEs are strictly beaten by the same likelihood at \(p=20\), and the source's large-\(p\) simulation regime labels a boundary statistic as MLE on many samples where its limiting likelihood is zero. The correction therefore changes likelihood-based simulation interpretation and applied model comparison, while preserving the separate fact that the endpoint statistic can be consistent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for source-specific 2026 likelihood contradiction and material numerical effect, not for generic nonregular endpoint-MLE theory. Bakouch et al present correct likelihood and assert incorrect closed-form sample-max MLE; Hirano-Porter treat general parameter-dependent-support asymptotics but do not deduce this specific three-regime boundary or contradict datasets. Resultary and targeted published correction searches did not reveal a subsequent source-specific erratum.
+
+## value
+
+PASS
+
+PASS: The false universal MLE is used centrally throughout a published simulation design and two applied model-fit comparisons, which cannot be inferred correctly from an endpoint consistency result. Explicit interior p=20 beats both printed MLE likelihoods; the problematic region affects roughly 94.1% of n=20 samples in a published p=5.3245 setting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
