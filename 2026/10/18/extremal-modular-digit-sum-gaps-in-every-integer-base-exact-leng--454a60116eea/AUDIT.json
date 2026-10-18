@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The exact block identity and carry congruence bound runs in odd and even bases. Explicit witnesses attain those bounds; forced endpoint residues and the two possible carry patterns classify every extremal start. Fourier expansion of the digit-convolution probability proves conditional equidistribution, and a summable geometric tail yields the exact starting-point densities. Full proof in RESULT.md; verify.py checked 2,492,834 finite starting positions plus explicit witnesses in bases 2..30, without substituting finite tests for universal claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Waterloo considers decimal modulus choices 2, 7, 9 and 11, but never an arbitrary digital base b.",
+        "The published finding 2026/10/11/SCOPE-translation-stabilizers-and-exact-orbit-census-of-even-base-cant--a46c7be559be concerns finite Cantor spectrum stabilizers, not digit-sum avoidance."
+      ],
+      "reasoning": "General equidistribution of digit sums modulo b+1 by itself concerns single values, and does not determine maximal zero-free run lengths or the joint carry restrictions for extremizers. No inspected broader theorem dominates the exact parity formula and density classification.",
+      "searches": [
+        "all bases b sharp maximum consecutive n with digit sum s_b(n) nonzero modulo b+1; parity 3b-2 4b-2",
+        "exact density of maximal consecutive intervals avoiding multiples in base b digit sum mod b+1",
+        "digit sum modulo b+1 longest run 3b-2 4b-2 all bases",
+        "digit sums consecutive integers base b modulo b+1 extremal runs density",
+        "https://cemc.uwaterloo.ca/sites/default/files/documents/2024/Combined-POTM-2023-24.html"
+      ]
+    },
+    "checked_sources": [
+      "https://math.stackexchange.com/questions/4494103/what-is-the-length-of-the-longest-sequence-of-consecutive-natural-numbers-none",
+      "https://cemc.uwaterloo.ca/sites/default/files/documents/2024/Combined-POTM-2023-24.html",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-sharp-coordinate-wise-extraction-bases-for-pell-solutions--d6de3d70a94f",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/8/SCOPE082"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Waterloo October 2023 Problem 1 full solution: decimal L_10=38 at m=11, first 999981; this is a strict special case of the proposed universal length.",
+        "Mathematics Stack Exchange 4494103 July 2022: decimal m=8 result, different modulus, neither implies present theorem.",
+        "Published result 2026/10/4/SCOPE-sharp-coordinate-wise-extraction-bases-for-pell-solutions--d6de3d70a94f: Pell digit-extraction thresholds, no implication to avoidance runs."
+      ],
+      "reasoning": "The previous decimal bound cannot be lifted to all bases simply by changing numerals, since odd and even b obey different carry congruences and extremizer forms. The present claim includes necessity/sufficiency and exact asymptotics that do not follow from either inspected source without a new carry-and-density analysis.",
+      "searches": [
+        "maximum run of consecutive positive integers whose decimal digit sums avoid multiples of m, 2023 m-list 7 11",
+        "all bases b sharp maximum consecutive n with digit sum s_b(n) nonzero modulo b+1; parity 3b-2 4b-2",
+        "base b digital sum of integer consecutive maximal run divisible by b+1",
+        "https://math.stackexchange.com/questions/4494103/what-is-the-length-of-the-longest-sequence-of-consecutive-natural-numbers-none",
+        "https://cemc.uwaterloo.ca/sites/default/files/documents/2024/Combined-POTM-2023-24.html"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Watertloo Problem 1, October 2023, gives the special case b=10, modulus 11, L=38 and first start 999981.",
+        "Math Stack Exchange question 4494103 (July 16, 2022) concerns decimal modulus 8 and other fixed decimal divisors."
+      ],
+      "reasoning": "Potential aliases include m-lists, longest runs of digit sums not divisible by m, b-adic sum-of-digits zero-free intervals and maximal gaps between digit-sum congruence hits. The 2023 decimal m=11 statement is implied by the general all-base theorem, not conversely: it provides neither odd-base nor even-base uniform cases nor all extremizer densities.",
+      "searches": [
+        "decimal 11-list maximal length 38 and frequency density of longest runs 999981, arbitrary base b modulus b+1 digit sum",
+        "all bases b sharp maximum consecutive n with digit sum s_b(n) nonzero modulo b+1; parity 3b-2 4b-2",
+        "m-list sequences base b digit sum modulo b+1 extremal run starts trailing maximal digits",
+        "https://math.stackexchange.com/questions/4494103/what-is-the-length-of-the-longest-sequence-of-consecutive-natural-numbers-none",
+        "https://cemc.uwaterloo.ca/sites/default/files/documents/2024/Combined-POTM-2023-24.html"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The only identified matching exact entry is the published decimal m=11 L=38 and first start 999981 at Waterloo 2023.",
+        "The published finding 2026/9/8/SCOPE082 is an exact consecutive-prime residue-pair census to 5e7, a different arithmetic object."
+      ],
+      "reasoning": "An isolated decimal first starting point, or a table of values, does not imply the complete start classification for every integer base or closed-form density formulas. The reported decimal length and earliest point are therefore cited only as known checks.",
+      "searches": [
+        "maximum run of consecutive positive integers whose decimal digit sums avoid multiples of m, 2023 m-list 7 11",
+        "decimal 11-list maximal length 38 and frequency density of longest runs 999981, arbitrary base b modulus b+1 digit sum",
+        "exact density of maximal consecutive intervals avoiding multiples in base b digit sum mod b+1",
+        "digit sum modulo b+1 longest run 3b-2 4b-2 all bases"
+      ]
+    },
+    "rationale": "The July 2022 decimal-modulus-8 question and October 2023 Waterloo decimal-modulus-11 solution are direct predecessors; the latter already establishes decimal longest length 38 and earliest starting integer 999981. Neither inspected source states the all-base parity-dichotomous length law, every-maximizer classification, or exact densities. Targeted published-finding corpus searches for equivalences and stronger coverage revealed no matching claim, but a negative search is not proof of novelty. The original part is the simultaneous all-base structural and asymptotic classification, not the earlier decimal number.",
+    "residual_risks": [
+      "An unindexed or differently phrased general-base theorem could exist; web and semantic-search absence is not uniqueness proof.",
+      "A reader may independently generalize the Waterloo argument; originality is asserted only for the explicit combined sharp all-base classification and exact densities, not decimal m=11 maximum."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers base10 and modulus11 length/earliest start, does not state generalized b+1 parity law, all starts or densities.",
+        "evidence": "Published source heading Problem 1: October 2023 and its full solution in the linked HTML.",
+        "identifier_or_url": "https://cemc.uwaterloo.ca/sites/default/files/documents/2024/Combined-POTM-2023-24.html",
+        "material_read": "The October 2023 Problem 1 statement, solution and arguments for m=2,7,9,11 including the 38 upper bound and 999981 starting example.",
+        "method": "Opened the publicly accessible HTML primary source and inspected the complete relevant problem/solution sections.",
+        "title": "Problem of the Month 2023–2024: Problem 1, October 2023, problem and solution",
+        "trigger": "Direct decimal digit-sum avoidance with m=11 and longest run 38"
+      },
+      {
+        "assessment": "Distinct modulus 8 within decimal base, no arbitrary-base b+1 theorem, no classification/density.",
+        "evidence": "Question posted July 16 2022; answer July 17 2022; digital-sum avoidance in base ten.",
+        "identifier_or_url": "https://math.stackexchange.com/questions/4494103/what-is-the-length-of-the-longest-sequence-of-consecutive-natural-numbers-none",
+        "material_read": "Question body and July 2022 answer giving the decimal modulus 8 computation and length bound.",
+        "method": "Opened publicly available complete Mathematics Stack Exchange discussion and inspected dates, problem and answering derivation.",
+        "title": "What is the length of the longest sequence of consecutive natural numbers, none of which has a digit sum divisible by 8? What about other divisors?",
+        "trigger": "Earliest source on the same avoidance-run question; earliest public date 2022-07-16."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "454a6011-6eea-4cca-82d7-25a9a6a88bf9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The selected modulus b+1 is intrinsic: complete b-digit blocks omit exactly one residue modulo b+1. Determining longest zero-avoiding runs in every base gives an unexpected sharp parity change, a complete classification of extremizing carry patterns and exact densities (often extremely small) for infinitely many natural digital arithmetic problems. These quantify phenomena not addressed by the known decimal maximum; no arbitrary unrelated parameters or artificial cutoffs are introduced.",
+    "status": "PASS"
+  }
+}
