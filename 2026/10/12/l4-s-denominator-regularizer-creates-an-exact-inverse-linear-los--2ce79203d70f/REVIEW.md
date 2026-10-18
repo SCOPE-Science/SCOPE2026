@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source minimum-loss clamp and forgetting rule give an exact scalar ratio recursion. Under the stated source-relevant parameter range, every parameter multiplier lies strictly between zero and one, so the tracker reaches the current loss in finite time and remains locked. The post-lock reciprocal-state increment tends to a constant, proving the sharp inverse-linear loss asymptotic.
+PASS
 
-Risk: the theorem is scalar and deterministic and does not include L4Mom or L4Adam's additional moving-average states.
+With L=lambda x^2/2, v=g=lambda x and q_t=min(S_t,L_t)/L_t, the exact update is x_{t+1}=c_t x_t, c_t=1-(alpha/2)(1-gamma q_t)*(lambda^2 x_t^2)/(lambda^2 x_t^2+epsilon), 0<c_t<1. Therefore q_{t+1}=min(1,(1+1/tau)q_t/c_t^2), which reaches 1 by ceil(log(1/gamma0)/log(1+1/tau)) and stays locked. With A=alpha(1-gamma)/2>0, z=lambda^2 x^2/epsilon then z_{t+1}=z(1-Az/(1+z))^2, decreases to zero and 1/z_{t+1}-1/z_t ->2A; Stolz yields t z->1/(2A), hence tL->epsilon/[2alpha(1-gamma)lambda]. Independently checked recurrence, default tracker cap 288, and long numerical tail; source verify.py is corroboration not proof. q_t presumes initial loss L(x0)>0, thus the stated nonzero trajectory domain; x0=0 is the separate trivial stationary exception.
 
-## Originality
+## originality
 
-PASS. The defining L4 paper explicitly says it provides no theoretical guarantees and treats the denominator constant as a numerical-stability device. Its full text does not state the finite target-lock law or the resulting inverse-linear tail. Later stochastic Polyak-stepsize theory uses different target information, and the closest exact quadratic published record omits L4's practical state and additive denominator constant.
+PASS
 
-Residual risk: an equivalent regularized-Polyak calculation may exist in unindexed notes.
+The original L4 NeurIPS 2018 scheme explicitly contains the denominator epsilon and forgetting tracker but does not derive finite tracker lock or the exact inverse-linear asymptotic; existing scaled Polyak and stochastic SPS analyses have different state dynamics and no identical practical L4 theorem.
 
-## Value
+## value
 
-PASS. L4's central purpose is automatic loss-based step adaptation. The theorem shows that its adaptive minimum-loss state disappears after a finite transient on the canonical scalar quadratic, while the tiny numerical denominator constant eventually becomes the exact rate-limiting mechanism. This gives a sharp mechanistic boundary between the ideal loss-based rule and the practical implementation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines exactly how a small numerical regularizer changes the asymptotic convergence *class* from geometric to inverse-linear in a natural diagnostic quadratic of a named optimizer. Although very-late asymptotics for tiny epsilon may be practically invisible, the singular perturbation and tracker-lock law are precise reusable algorithmic facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

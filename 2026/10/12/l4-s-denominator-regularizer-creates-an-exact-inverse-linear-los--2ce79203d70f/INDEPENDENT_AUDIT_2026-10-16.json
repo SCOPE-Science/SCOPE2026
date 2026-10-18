@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:49:56.907640Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With L=lambda x^2/2, v=g=lambda x and q_t=min(S_t,L_t)/L_t, the exact update is x_{t+1}=c_t x_t, c_t=1-(alpha/2)(1-gamma q_t)*(lambda^2 x_t^2)/(lambda^2 x_t^2+epsilon), 0<c_t<1. Therefore q_{t+1}=min(1,(1+1/tau)q_t/c_t^2), which reaches 1 by ceil(log(1/gamma0)/log(1+1/tau)) and stays locked. With A=alpha(1-gamma)/2>0, z=lambda^2 x^2/epsilon then z_{t+1}=z(1-Az/(1+z))^2, decreases to zero and 1/z_{t+1}-1/z_t ->2A; Stolz yields t z->1/(2A), hence tL->epsilon/[2alpha(1-gamma)lambda]. Independently checked recurrence, default tracker cap 288, and long numerical tail; source verify.py is corroboration not proof. q_t presumes initial loss L(x0)>0, thus the stated nonzero trajectory domain; x0=0 is the separate trivial stationary exception.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original NeurIPS L4 gives the practical update, but does not state the scalar asymptotic constant.",
+          "Stochastic Polyak rates use a different stepsize target and assumptions; no L4 forgetting-state finite-lock theorem."
+        ],
+        "reasoning": "General optimizer convergence results cannot dominate this exact practical algorithm transition without deriving its state recursion; no such stronger statement found in compared papers.",
+        "searches": [
+          "Resultary semantic query: L4 practical loss based step size denominator epsilon regularizer quadratic convergence rate inverse t tracking minimum",
+          "Rolínek-Martius arXiv:1802.05074v1",
+          "Loizou et al. AISTATS2021 stochastic Polyak step size"
+        ]
+      },
+      "checked_sources": [
+        "Rolinek and Martius NeurIPS 2018 arXiv:1802.05074v1 primary full PDF",
+        "Loizou et al. AISTATS 2021 PMLR 130 abstract",
+        "Resultary Resultary semantic query: L4 practical loss based step size denominator epsilon regularizer quadratic convergence rate inverse t tracking minimum",
+        "Resultary 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly discusses practical heuristics and denominator regularizer as affecting idealized properties but supplies no 1/t limit.",
+          "The added proof requires showing q-lock and reciprocal increment convergence in the epsilon>0 regime."
+        ],
+        "reasoning": "Previous practical-update formula is an input; the claimed exact rate and finite lock require novel dynamical deductions not implied by listing parameters.",
+        "searches": [
+          "Resultary semantic query: L4 practical loss based step size denominator epsilon regularizer quadratic convergence rate inverse t tracking minimum",
+          "arXiv:1802.05074 full core and practical algorithm",
+          "SPS AISTATS 2021"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Positive epsilon creates a rational gradient factor whose linearization vanishes at the minimizer; the tracker locks at q=1.",
+          "Scaled Polyak without practical L4 minimum state or denominator epsilon follows a different update."
+        ],
+        "reasoning": "Searches for zero-order quadratic convergence and loss-based stepsize asymptotics do not yield an equivalent exact epsilon-dependent L4 limit; naming another Polyak stepsize is insufficient equivalence.",
+        "searches": [
+          "Resultary semantic query: L4 practical loss based step size denominator epsilon regularizer quadratic convergence rate inverse t tracking minimum",
+          "arXiv:1802.05074v1 Algorithms and L4-SGD rule",
+          "Resultary published SCOPE scaled Polyak objective-monotonicity frontier 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original source lists default constants; these are input values, not a published lookup table for tL asymptotics.",
+          "The resulting limit for defaults is 3.333333...e-11/lambda."
+        ],
+        "reasoning": "Exact asymptotic classification is not a recomputation of tabulated performance or a known 1/t table for this particular stateful rule.",
+        "searches": [
+          "Resultary semantic query: L4 practical loss based step size denominator epsilon regularizer quadratic convergence rate inverse t tracking minimum",
+          "original NeurIPS L4 parameter defaults α=.15 γ=.9 γ0=.75 τ=1000 epsilon=1e-12",
+          "Resultary optimizer scans"
+        ]
+      },
+      "rationale": "The original L4 NeurIPS 2018 scheme explicitly contains the denominator epsilon and forgetting tracker but does not derive finite tracker lock or the exact inverse-linear asymptotic; existing scaled Polyak and stochastic SPS analyses have different state dynamics and no identical practical L4 theorem.",
+      "residual_risks": [
+        "A scalar epsilon-regularized gradient damping 1/t law may be folklore, though not tied to practical L4 tracker in inspected sources.",
+        "The algorithm assumes x0≠0 for q_t to be defined; stationary initialization x0=0 is outside the positive-trajectory formulation.",
+        "The default epsilon tail may set in below floating-point/practical significance; this is not a practical performance prediction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE MODEL COVERAGE; no exact scalar inverse-linear asymptotic or tracker lock found",
+          "evidence": "Algorithm 1 and practical update equation near §§2-3; authors distinguish practical regularizers from idealized core guarantee",
+          "identifier_or_url": "https://arxiv.org/pdf/1802.05074v1",
+          "material_read": "Primary full paper: core rule, practical minimum-clamp, forgetting and epsilon denominator, parameter choices, discussion of theoretical guarantees; page screenshot for relevant algorithm",
+          "method": "arXiv primary PDF text and screenshot",
+          "title": "L4: Practical loss-based stepsize adaptation for deep learning",
+          "trigger": "Exact optimizer and epsilon denominator in the source algorithm"
+        },
+        {
+          "assessment": "Different SPS step rule and objective, not shown to cover practical L4 state dynamics",
+          "evidence": "SPS uses component-loss lower bounds rather than L4 optimism and forgotten running minimum",
+          "identifier_or_url": "https://proceedings.mlr.press/v130/loizou21a.html",
+          "material_read": "Abstract and online manuscript record; not represented as full-document read",
+          "method": "Open PMLR abstract and model comparison",
+          "title": "Stochastic Polyak Step-size for SGD: An Adaptive Learning Rate for Fast Convergence",
+          "trigger": "Broader theoretical convergence for loss-based learning rates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines exactly how a small numerical regularizer changes the asymptotic convergence *class* from geometric to inverse-linear in a natural diagnostic quadratic of a named optimizer. Although very-late asymptotics for tiny epsilon may be practically invisible, the singular perturbation and tracker-lock law are precise reusable algorithmic facts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For practical deterministic scalar L4-SGD on nonzero quadratic initialization, the minimum-loss tracker locks in finitely many steps, and every epsilon>0 induces tL(x_t)->epsilon/[2 alpha (1-gamma) lambda]; epsilon=0 instead gives geometric convergence or finite termination.",
+  "limitations": [
+    "Only deterministic scalar SGD choice, no momentum, noise or multidimensional generality."
+  ],
+  "schema_version": 1
+}
