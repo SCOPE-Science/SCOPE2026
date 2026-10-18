@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library.
 
-For each \(1\le m\le5\), it enumerates all vectors \(x\in\mathbb F_2^m\), vectorizes \(xx^{\mathsf T}\) in upper-triangular coordinates, and builds every translated indicator row of
-\[
-M_m(S,T)=\mathbf 1\{\operatorname{rank}(S+T)\le1\}.
-\]
-It then performs exact Gaussian elimination over \(\mathbb F_2\) using integer xor rows.
+# Independent mathematical audit
 
-The expected exact rank table is
-\[
-(1,4,28,448,13658).
-\]
-For \(m=4\) and \(m=5\), this yields kernel dimensions \(576\) and \(19110\), hence rates \(9/16\) and \(9555/16384\).
+## correctness
 
-The verifier also hashes the resulting pivot bases. The \(m=4\) digest is `561bbbb3a2857b38e78d21486b7e850bac8a2076712ee01d83fe07d4d342294f`; the \(m=5\) digest is `ade82677807e3b6ffc3bb00922de9d7c2d6a64a66d039b9343a7be18b1479906`.
+PASS
 
-Successful replay prints `VERIFY_OK`.
+Every rank≤1 symmetric matrix over F2 is xx^T for exactly one binary x, because its diagonal recovers x. Thus rows of M_m are indicators of translates of the complete 2^m support inside F2^D, D=m(m+1)/2, including x=0. A fresh independently written compiled C++ bit-Gaussian elimination reconstructed all 1024 rows for m=4 and all 32768 rows for m=5, using exact xor pivots; counted pivots respectively 448 and 13658. Also reproduced complete m=1..5 rank sequence 1,4,28,448,13658. Exhaustion is finite and complete for exactly these m, not a statistical sample. Computed rates/nullities and bicycle dims by cited identities; no general m recurrence claimed.
+
+## originality
+
+PASS
+
+Zabokritskiy defines the same matrix and asks open rank asymptotics, providing only bounds, while Barg-Zemor leave the quadratic Reed-Muller rates open (their numeric table is different BCH family). Schmidt gives characteristic-zero association-scheme eigenvalues, which do not determine rank modulo 2. Resultary semantic and exact-value searches found no binary rank table at these two cutoff parameters; best-of-knowledge PASS with priority risk.
+
+## value
+
+PASS
+
+These are first two instances m>=4 in the originally open and mathematically motivated storage-code parameter range; exact finite ranks give new calibrating benchmarks and a concrete meaningful cutoff, with no need to solve asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

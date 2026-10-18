@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The matrix is reconstructed exactly from the source definition: over \(\mathbb F_2\), rank-at-most-one symmetric matrices are precisely \(xx^{\mathsf T}\). Exhaustive xor Gaussian elimination over every row gives ranks \(448\) and \(13658\), so the kernel dimensions and rates follow exactly. Deterministic pivot-basis hashes are included in the replay.
+PASS
 
-## Originality
+Every rank≤1 symmetric matrix over F2 is xx^T for exactly one binary x, because its diagonal recovers x. Thus rows of M_m are indicators of translates of the complete 2^m support inside F2^D, D=m(m+1)/2, including x=0. A fresh independently written compiled C++ bit-Gaussian elimination reconstructed all 1024 rows for m=4 and all 32768 rows for m=5, using exact xor pivots; counted pivots respectively 448 and 13658. Also reproduced complete m=1..5 rank sequence 1,4,28,448,13658. Exhaustion is finite and complete for exactly these m, not a statistical sample. Computed rates/nullities and bicycle dims by cited identities; no general m recurrence claimed.
 
-PASS. The 2026 primary source gives the symmetric-matrix formulation and an asymptotic upper-bound method but no exact finite rank table; the original Barg--Zemor source leaves the Reed--Muller rates open. Full-text inspection of the closest symmetric-bilinear-form association-scheme source found complex eigenvalue and \(d\)-code results, not these modular ranks. Exact-number and equivalent-formulation searches found no prior table containing the two values.
+## originality
 
-## Value
+PASS
 
-PASS. These are the first two parameters in the original stated open range, and the \(m=5\) matrix has order \(32768\). The exact rates are reproducible finite benchmarks for the new open asymptotic problem and sharpen the recent general rank bounds at both parameters without extrapolating beyond the proved cutoff.
+Zabokritskiy defines the same matrix and asks open rank asymptotics, providing only bounds, while Barg-Zemor leave the quadratic Reed-Muller rates open (their numeric table is different BCH family). Schmidt gives characteristic-zero association-scheme eigenvalues, which do not determine rank modulo 2. Resultary semantic and exact-value searches found no binary rank table at these two cutoff parameters; best-of-knowledge PASS with priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+These are first two instances m>=4 in the originally open and mathematically motivated storage-code parameter range; exact finite ranks give new calibrating benchmarks and a concrete meaningful cutoff, with no need to solve asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
