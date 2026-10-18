@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled `verify.py` uses only the Python standard library. It implements the Burnside formula with exact integers and independently enumerates fixed-content words up to all rotations and reversals whenever the total word length is at most \(10\).
+# Independent mathematical audit
 
-Checks performed:
+## correctness
 
-- every pair \((d,k)\) with \(1\le d\le4\), \(1\le k\le4\), and \(dk\le10\);
-- the displayed first seven values for \(d=1,2,3\);
-- the \(d=1\) specialization \(a_1(k)=(k-1)!/2\) for \(k\ge3\), with the small cases \(a_1(1)=a_1(2)=1\);
-- integrality of the Burnside numerator in tested cases.
+PASS
 
-The exhaustive part is finite verification only; it is not used as a proof for arbitrary \(d,k\). The infinite formula is proved symbolically by Burnside's lemma in `RESULT.md`. A successful replay ends with `VERIFY_OK`.
+For each injective labeled k-tuple of distinct quotient points, a homogeneous finite separation-relation cover with fibers of size d gives an un-oriented cyclic arrangement of dk preimage points, equivalently a k-colored fixed-content bracelet. Under Simon's quotient/homogeneity hypothesis the named fiber arrangement is exactly the induced tuple-orbit invariant. Burnside: rotations with cycle length ell|d contribute phi(ell)(dk/ell)!/[(d/ell)!]^k; reflection fixed positions force even d paired colors or (odd d, k=1 or 2), yielding the displayed R cases; divide by 2dk. Independently enumerated canonical bracelets for (d,k)=(1,5),(1,6),(2,2),(2,3),(3,2),(3,3),(4,2),(5,1), matching formula. The identity term has log ~d k log k while other terms lower order for fixed d; Stirling equality-partition decomposition yields all-tuple transform. All d,k follow Burnside, not finite replay.
+
+## originality
+
+PASS
+
+Pierre Simon's full Section 6.7 constructs the finite-separation quotient family and proves its reduct property; classical combinatorics independently counts fixed-content bracelets. The distinctive step is the asserted orbit-type equivalence for this quotient and consequent growth-degree recovery. No inspected primary source or relevant Resultary hit states this model-theoretic identification. This is a best-of-knowledge pass with real risk that the equivalence is folklore; enumeration itself is expressly not claimed new.
+
+## value
+
+PASS
+
+Exact oligomorphic tuple-orbit profiles are natural invariants of Simon's canonical quotient structures. Recovering finite-cover fiber cardinality d from log orbit growth is a nontrivial structural bridge between a model-theoretic construction and enumerative fixed-content dihedral symmetry; classical bracelet enumeration alone did not answer the model-theoretic question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
