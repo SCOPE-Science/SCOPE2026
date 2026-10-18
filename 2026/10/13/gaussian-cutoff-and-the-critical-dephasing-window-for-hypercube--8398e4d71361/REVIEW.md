@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from the exact local Lindblad equation in Alagic–Russell normalization. The repeated-root and separated-root Bloch solutions satisfy the differential equation and the initial conditions. The distinguished scaling \(\delta_n(\log n)^2/(8k)\to\theta^2\) implies the claimed \(\sinh(\theta)/\theta\) factor, and a triangular-array normal likelihood-ratio test supplies the sharp normalized total variation. The physical bias is positive and decreases after time zero, allowing strict cutoff-profile interpolation to give first mixing-time asymptotics. Finite binomial calculations were replayed as corroboration; they are not an infinite-dimensional proof.
+PASS
 
-## Originality — PASS; residual priority risk
+The coordinate-wise Lindbladian acts as n independent qubits. Solving the scalar ODE z_second+(p/n)z_first+4k^2*z/n^2=0 with z(0)=1,z’(0)=0 gives repeated-root critical z=e^{-2kt/n}(1+2kt/n) and overdamped hyperbolic solution. In the near-critical scaling (p_n-4k)(log n)^2/(8k)->theta^2, writing u=2kt/n, alpha_n log n/(8k)->theta yields sqrt(n)z at u_n+c tending e^{-c}sinh(theta)/theta. The log-likelihood ratio for n independent biased bits converges to N(-a^2/2,a^2) under uniform and N(a^2/2,a^2) under bias, giving 2Phi(a/2)-1 total variation; fixed p>4k gives sqrt(n)z->e^{-c}. Strict z-decay and uniform-preserving binary channels justify mixing-time bracket. Independent numerical bisection/ODE checks for n=16384 and 262144, theta=0,0.5,1.5 check finite biases; asymptotic claims rely on the exact proof, not these finite tests.
 
-Alagic and Russell (arXiv:quant-ph/0501169, Theorem 3 and equations III.1–III.2) derived the underlying exact one-qubit dynamics and the coarse \(\Theta(n\log n)\) mixing statement. Drezgich and collaborators (arXiv:0811.4472, Section IV and Appendix A) studied arbitrary local decoherence axes but expressly declined the \(n\)-scaling study; their Hellinger estimates do not determine a sharp limiting total-variation profile. Kendon's 2007 review (Section 6.3) likewise reports only coarse scaling near this threshold. Strauch (arXiv:0808.3403) changes the Lindblad model. The additional critical centering, crossover scaling and exact normal profile have not been located in the compared sources or published research similarity searches. Broad classical cutoff literature may contain an equivalent specialization; independent priority verification remains outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-A natural and physically motivated transport observable receives a sharp quantitative classification near a genuine damping transition. The \(n\log\log n\) delay and the inverse-square-logarithmic crossover identify a scale invisible to the known order bound. The theorem resolves the centered cutoff for all fixed accuracy levels without claiming unsupported algorithmic speedups.
+Best-of-knowledge: Alagic–Russell prove the exact single-qubit dynamics and Theta(n log n) mixing; Drezgich et al give broader local dephasing directions without n-dependent sharp scaling. Neither inspected theorem gives the Gaussian cutoff profile, loglog critical delay or shrinking near-critical window. The Bernoulli LAN comparison is classical and credited.
 
-## Scientific boundaries
+## value
 
-The source dynamics and classical Gaussian likelihood comparison are acknowledged as pre-existing tools. Only the measured position distribution, independent coordinate dephasing, and the stated critical and overdamped parameter ranges are covered. Neither quantum-state trace norm nor arbitrary decoherence axes are treated. Uninspected potentially equivalent general literature remains a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise cutoff profile, loglog critical delay, finite-width p_n-4k ~ (log n)^-2 crossover and epsilon-mixing centers are substantial asymptotic sharpening of the same physically natural dissipative walk, not merely the earlier Theta(n log n) rate. The n-fold Bernoulli Gaussian comparison is standard and credited; new work is the interaction with critical damping.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

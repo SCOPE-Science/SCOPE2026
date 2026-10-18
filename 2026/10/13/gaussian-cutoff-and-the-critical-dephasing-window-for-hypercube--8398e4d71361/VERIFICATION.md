@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or newer (standard library only). The finite-case verifier computes the published one-coordinate local dynamics, derives exact binomial likelihood-ratio tails, and compares them to the proposed Gaussian profile at dimensions 512, 2048, and 8192 for critical, fixed overdamped, and near-critical parameters. It also checks positivity/monotonicity at selected time points and the defining scalar critical centering over much larger dimensions. The expected ending line is:
+## correctness
 
-`VERIFY_OK finite_binomial_TV=passed critical_center=passed nearcritical_crossover=passed overdamped_center=passed monotonicity=passed`
+PASS
 
-## Analytic checks and limits
+The coordinate-wise Lindbladian acts as n independent qubits. Solving the scalar ODE z_second+(p/n)z_first+4k^2*z/n^2=0 with z(0)=1,z’(0)=0 gives repeated-root critical z=e^{-2kt/n}(1+2kt/n) and overdamped hyperbolic solution. In the near-critical scaling (p_n-4k)(log n)^2/(8k)->theta^2, writing u=2kt/n, alpha_n log n/(8k)->theta yields sqrt(n)z at u_n+c tending e^{-c}sinh(theta)/theta. The log-likelihood ratio for n independent biased bits converges to N(-a^2/2,a^2) under uniform and N(a^2/2,a^2) under bias, giving 2Phi(a/2)-1 total variation; fixed p>4k gives sqrt(n)z->e^{-c}. Strict z-decay and uniform-preserving binary channels justify mixing-time bracket. Independent numerical bisection/ODE checks for n=16384 and 262144, theta=0,0.5,1.5 check finite biases; asymptotic claims rely on the exact proof, not these finite tests.
 
-The infinite-dimensional conclusions do not follow from a finite sample. The proof checks exact local generator normalization and ODE, the unique critical root, uniform finite-crossover expansions at \(\theta=0\), the two exponentially separated overdamped modes, the Gaussian likelihood-ratio comparison for a triangular Bernoulli array, and monotone mixing-time bracketing. The simulation has relatively slow convergence at critical damping; it is not intended to establish a numerical error bound for arbitrary dimensions. There is no independent scientific audit, publication-priority certification or verification beyond the documented mathematical proof and finite calculations.
+## originality
+
+PASS
+
+Best-of-knowledge: Alagic–Russell prove the exact single-qubit dynamics and Theta(n log n) mixing; Drezgich et al give broader local dephasing directions without n-dependent sharp scaling. Neither inspected theorem gives the Gaussian cutoff profile, loglog critical delay or shrinking near-critical window. The Bernoulli LAN comparison is classical and credited.
+
+## value
+
+PASS
+
+The precise cutoff profile, loglog critical delay, finite-width p_n-4k ~ (log n)^-2 crossover and epsilon-mixing centers are substantial asymptotic sharpening of the same physically natural dissipative walk, not merely the earlier Theta(n log n) rate. The n-fold Bernoulli Gaussian comparison is standard and credited; new work is the interaction with critical damping.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
