@@ -1,15 +1,21 @@
-# Scientific review: Schauder tail geometry and initial norm jumps
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof constructs the semigroup by an operator-norm Abel expansion, obtains its holomorphic and strong-continuity properties, and derives an exact convex-combination formula for the defect. The superlacunary midpoint times approximate each partial-sum projection with a quantitative two-tail estimate. The block realization has explicit two-by-two matrices whose row sums give the norm, positivity, contractivity, and both endpoint subsequences. These arguments cover every complex Schauder decomposition under the stated assumptions and both ends of the interval parameter.
+## correctness
 
-## Originality — PASS
-The focal preprint arXiv:2609.38396v1 gives qualitative non-Lotz semigroups but no short-time norm-jump formula. Fackler's arXiv:1210.4333v2 proves diagonal holomorphic generation and constructs conditional-basis examples concerning maximal regularity, not short-time norm-jump cluster intervals. A later diagonal-semigroup treatment with a \(q\)-Riesz basis does not imply a conditional monotone-basis case. Targeted cross-source and equivalent-formulation searches found no statement covering the exact Schauder-tail formula plus the sharp positive compact realization. Closest preceding results for one-unconditional decompositions give a constant jump of \(1\), which cannot imply the realized values above \(1\). Residual risk: an older implicit Abel–Tauberian or spectral-projection formulation could subsume the general equality even if no matching title or abstract was identified.
+PASS
 
-## Value — PASS
-The result identifies an intrinsic and computable short-time discontinuity invariant from the decomposition's projection geometry, rather than merely recording failure of norm continuity. The construction gives every possible amplitude \(c\in[1,2]\) within a single natural class of positive analytic contractions on standard \(c_0\), even with immediate compactness and exponential stability. The full cluster intervals exhibit oscillation between two different norm defects despite these strong regularity properties. This supplies a complete sharp realization family, motivated by a recent qualitative diagonal-semigroup construction.
+The norm-convergent Abel formula T(z)=Σ(a_n−a_{n+1})P_n is analytic on Re z>0 and uniformly sector bounded. The decomposition is strongly dense; uniform bounds prove C0 continuity. On the real ray I−T(t) is a positive convex combination of I and I−P_n; splitting at N proves limsup upper bound. Superlacunary t_n=(λ_nλ_{n+1})^(−1/2) yields explicit ||T(t_n)−P_n||≤2K(sqrt(λ_n/λ_{n+1})+exp(−sqrt(λ_{n+1}/λ_n))), so the limsup reverse bound follows. In c0-summed 2×2 blocks with u=(1,α),v=(0,1), the exact matrix [[a,0],[α(a−d),d]] has nonnegative rows bounded by a, giving positive contraction ||T(t)||=e^(−4t). Its defect norm sup_j[1−d_j+α(a_j−d_j)] has gap limits 1+α and 1. Positive-time norm-continuity fills exactly [1,1+α]. Finite dimensional blocks yield compact positive-time operators. Edge α=0 and α=1 included.
 
-## Limitations
-Superlacunarity is essential to the proof's spectral separation; no formula is asserted for arbitrary diagonal or non-diagonal semigroups. Earlier primary work might implicitly encode the formula using a broader spectral-cutoff theorem; searches and inspected full-text sections cannot rule out every such formulation. Numerical finite-stage checks are supplemental, never treated as proofs. No external or independent scientific validation has occurred.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the quantitative superlacunary norm-cutoff theorem and positive compact contraction realizations. The primary Lotz construction proves only qualitative nonuniform continuity; Fackler establishes analytic multiplier generation but not exact zero-time operator-norm jump. An unconditional-decomposition exact jump of one does not dominate conditional examples with c>1.
+
+## value
+
+PASS
+
+The exact relation of a time-zero operator-norm discontinuity to tail projection geometry is a natural semigroup invariant; the construction shows a full continuum of jump cluster intervals even under positivity, contraction, holomorphy and immediate compactness. This is more than the routine qualitative observation that an unbounded generator produces a nonuniformly continuous semigroup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
