@@ -1,0 +1,11 @@
+# Scientific review: ternary residue divisor-power sums
+
+**Correctness — PASS.** The divisor classification follows by splitting every divisor of \(3^tm\) according to the exponent of \(3\) and the quadratic character modulo \(3\). Each real-parameter inequality follows from a positive Euler-factor ratio when \(s<0\); divergent reciprocal-prime mass in the class \(2\pmod3\) provides positive witnesses in every mixed-sign valuation fiber. The cumulative coefficient is evaluated by absolutely convergent zeta and Dirichlet \(L\)-series. The finite checker compares a direct enumeration with an independent character-based expression; numerical regression is not mistaken for the infinite argument.
+
+**Originality — PASS, subject to literature risk.** Pongsriiam–Vaughan (2015) concern the distribution of the ordinary divisor-count function over integer progressions, which does not imply any pointwise fixed-integer classification. Pongsriiam (2021, Problem 15) explicitly proposes comparing divisor powers restricted to residue classes, but does not solve the ternary case. The published modulus-2 theorem gives a valuation-only sign rule, whereas this theorem proves simultaneous positive and negative values *within a fixed positive valuation* and obtains a character-dependent negative summatory constant. Searches for the exact fixed-modulus-3 difference and equivalent character-factor formulations did not reveal a stronger statement; an incompletely indexed earlier theorem is possible.
+
+**Value — PASS.** Modulus \(3\) is the first case where residue classes of the unit group require a nontrivial real Dirichlet character. The same-valuation mixed-sign phenomenon is absent in the known parity case, and the complete real-exponent threshold is a natural resolution of a named residue-divisor comparison question. The strictly negative mean despite infinitely many adjacent positive-to-negative reversals is a mathematically interpretable bias, not a gratuitous finite table.
+
+Limitations: this does not classify all positive-value densities or address nonnegative-exponent cumulative asymptotics. Existing literature may contain a rephrasing not detected in the completed comparisons. The primary reviewed statements are exactly those in RESULT.md.
+
+Self-review: passed. Independent audit: not yet performed.
