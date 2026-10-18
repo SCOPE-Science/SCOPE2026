@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof was reconstructed from the exact H-descriptions in the cited survey. For a facet supported on a \(k\)-set, the intrinsic normal in the affine hyperplane has norm \(\sqrt{k(n-k)/n}\), and the common barycenter has slack \(k(n-k)/2\). Hence its facet distance is \(\frac12\sqrt{nk(n-k)}\), minimized exactly at \(k=1\) or \(k=n-1\). Singleton facets give the sharp all-center bound and uniqueness for the permutahedron and associahedron. The two parallel endpoint facets give the same sharp upper bound for the parallelepiped; its complete center set follows by solving all prefix/suffix distance inequalities. Low-dimensional duplicate facet families are handled separately.
+## correctness
 
-## Originality
-PASS. The closest source, Pilaud--Santos--Ziegler's *Celebrating Loday's Associahedron*, was inspected in full at the relevant sections and page images. It gives the common affine hyperplane, the three facet descriptions, removahedron nesting, and the previously known common vertex barycenter. It contains no occurrence of “inradius,” “circumradius,” “Chebyshev,” or “radius.” Direct, exact-formula, and shared-barycenter searches found no covering metric theorem. The older center-of-gravity theorem concerns vertex barycenters and does not imply an inradius statement. Current and prior own ledgers contain no associahedron/Loday radius result.
+PASS
 
-## Value
-PASS. The literature presents these three polytopes as a canonical nested trio and calls their common vertex barycenter a surprising geometric property. The finding shows that they also share the exact inradius
-\[
-\frac{\sqrt{n(n-1)}}2
-\]
-and that the same distinguished point is an incenter in all three. It further separates their optimal-center geometry: the permutahedron and associahedron have unique incenters, while the parallelepiped has an explicit \((n-3)\)-dimensional incenter family for \(n\ge4\).
+For nonempty proper k-subset I⊂[n], its normal projected to H_n has norm sqrt(k(n−k)/n) and common barycenter slack k(n−k)/2, yielding distance d_k=(1/2)sqrt(n k(n−k)). The minimum is r_n=sqrt(n(n−1))/2, attained only for k=1,n−1. Perm and Asso retain all singleton facets; summing their center-to-singleton distances gives any inscribed radius at most r_n and forces uniform center at equality. Para retains the parallel x1=1,n supporting hyperplanes of width 2r_n. Its full max-center set is exactly the independent prefix bounds lower≤p_i≤upper; i=1,n−1 intervals collapse while middle i=2..n−2 have positive widths, dimension n−3 if n≥4. Contact facets and n=2,3 edge cases follow from k endpoints. All-dimensional derivation independently reconstructed; small n arithmetic corroborates rather than proves.
 
-## Closest literature and limitations
-The structural inputs are published and strong enough to make the metric proof short, but the metric conclusion was not located in the inspected or searched literature. A folklore or differently phrased generalized-permutahedron observation remains a residual risk. The theorem is specific to the canonical Loday realization and intrinsic Euclidean metric; other associahedron realizations are outside the claim.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The canonical Loday survey gives all three H-representations, nested removahedra, and known common vertex barycenter. Hohlweg–Lortie–Raymond 2010 proves equality of centers of gravity, not maximal inscribed balls. No inradius theorem or para incenter-locus classification was found in the inspected primary full text or targeted semantic and metric searches. The result uses published facet input but newly identifies metric optimum and nonunique center geometry; older generalized-permutahedron folklore remains risk.
+
+## value
+
+PASS
+
+These three nested canonical realizations form a standard natural trio, so exact coincidence of intrinsic inradii and their common geometric incenter is an independently useful metric invariant. The contrast between unique Perm/Asso centers and n−3-dimensional Para centers, including exact facet contacts, distinguishes genuinely different optimal-center geometries. It is not a randomly sliced numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
