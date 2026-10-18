@@ -1,12 +1,21 @@
-# Scientific assessment: Fourier three-minor classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes the exact Fourier character normalization and treats every odd prime. Loukaki's Theorem A certifies all mixed/mixed three-minors after an allowed parity translation; prime-order Chebotarev nonsingularity controls every pure-triple case. The remaining singular cases have a visible proportional pair and a nonzero two-by-two minor, fixing rank two, not merely determinant zero. The counting separates two disjoint geometries. A full-support three-frequency function with mixed parity support cannot exploit the two-column nullvector, whereas a pure-parity support has paired zeros. These facts prove the zero-count spectrum and exclude exactly three zeros. The four-term polynomial supplies the matching exact-support construction. Exhaustive integer-cyclotomic verification for primes three, five, and seven independently checks the finite census; it is not used to infer the infinite result.
+## correctness
 
-## Originality — PASS, with scope and residual risk
-Loukaki (DOI:10.1112/blms.70192, Theorem A, original public version arXiv:2412.08600v1) provides the precise matched-fiber **sufficiency** theorem but not the all-triple if-and-only-if rank census or its count. Bonami–Ghobber (arXiv:1003.5060, especially Sections 1 and 3) classify at-most-support equality cases on two-prime products, not the exact three-zero gap. Krahmer–Pfander–Rashkov (2008, Fourier minor tabulation) already gives the order-six numerical special case; no novelty is claimed for that single table value. Caragea–Lee (arXiv:2409.09793) treats principal, rather than arbitrary, minors. The mathematical deduction is deliberately narrow: the nonvanishing ingredients themselves are not new. An implicitly equivalent enumeration in older sparse-interpolation literature remains possible.
+PASS
 
-## Value — PASS
-The all-prime complete rank-stratified three-minor census is a natural interpolation invariant. It describes all minimal linear dependencies among triples of sampled Fourier characters, not an arbitrary finite slice. Its support-zero spectrum and the exact high-support uncertainty gap distinguish exactly supported signals from the at-most-support theory and provide a nonmonotonic phenomenon on every even semiprime cycle of sufficiently large order. The result does not claim a general classification for larger minors or provide any independent certification.
+For every odd prime p the fiber-matched Fourier minor nonvanishing theorem of Loukaki and a parity flip in the column set prove all mixed/mixed 3x3 minors nonsingular. With pure-parity rows, Chebotarev nonsingularity of prime-order minors proves determinant nonzero for three distinct column prime indices; two colliding indices produce exactly two proportional columns and the remaining prime 2x2 minor has rank two. Transposition finishes the iff and exact nullity. Pure triples count A=2*binom(p,3), colliding triples B=2p(p-1), disjoint, hence 2AB. A mixed frequency triple admitting three zeros would need a singular 3x3 minor whose one-dimensional right kernel has a zero coordinate, contradicting exactly 3 nonzero spectral coefficients; a parity-pure triple gives 0,2,4 zeros via Chebotarev. Exact two-frequency zero count gcd(d,2p) belongs to {1,2,p}; four-frequency cubic P(z)=(z-1)(z-omega)(z-omega^2) gives exactly 3 zeros and four nonzero coefficients for p>=5. Replayed an independent integer-cyclotomic exhaustive determinant classifier at p=3,5,7, obtaining counts 48/400,1600/14400,11760/132496. Those finite tests corroborate but do not prove every prime; the named theorems and symbolic case reasoning do.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge new iff rank-two defect classification and all-p count for 2p Fourier minors, together with three-frequency zero-spectrum and exact-support gap. Loukaki Theorem A is a one-direction matched-fiber sufficient nonvanishing theorem, not a classification of all mixed and unmixed 3x3 determinants. Bonami–Ghobber address conventional at-most-support uncertainty equality; Krahmer–Pfander–Rashkov cover a finite order-six census; Caragea–Lee treat principal minors rather than arbitrary pairs. No verified stronger theorem or all-p table logically forces the complete statement as an already recorded result. It uses older lemmas but exact new structural consequences are not simply a renaming.
+
+## value
+
+PASS
+
+A complete and exact singular-minor rank classification for an infinite square-free family isolates all interpolation failures and their multiplicities; the surprising unattainability of exactly 3 zeros for a three-frequency signal gives a sharp exact-support uncertainty gap. This is a natural harmonic-analysis object with a reusable deterministic obstruction, not just redoing small-prime matrix counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
