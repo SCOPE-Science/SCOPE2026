@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite certificate and reproduction
 
-Execute `python3 verify.py` with standard Python 3.10+. The script constructs the fifteen edges of the ten-vertex Möbius ladder, enumerates all 344 faces of its ordinary matching complex and the 284 extendible-to-perfect-matching faces, and verifies there are exactly thirteen perfect matchings.
+# Independent mathematical audit
 
-For each complex it constructs a deterministic edge-toggle discrete-Morse matching and verifies its acyclicity over every Hasse incidence (1045 for the ordinary complex and 835 for the perfect subcomplex). Removing the augmented pair containing the empty face leaves the appropriate single critical vertex. The perfect complex has two additional critical two-cells; the ordinary complex has six critical two-cells and four critical three-cells. The latter Morse boundary is explicitly recomputed and has a unit four-by-four minor.
+## correctness
 
-The script then enumerates the relative signed boundary among the thirty nonextendible triangles and thirty nonextendible tetrahedra. It checks the signed incidence decomposition into ten unit blocks and two ten-by-ten signed cycles, computes their determinants exactly (each cycle has determinant -2), and verifies a unit nine-by-nine minor in each cycle. These assertions prove the two order-two relative homology summands and, with the two homotopy classifications, the index-four inclusion.
+PASS
 
-All integers and incidence signs are exact. No random trials, timeouts, external libraries or unverifiable computational oracle are used. The claim does not extend to larger Möbius ladders. An independent audit has not been performed.
+Independent exhaustive Python exact enumeration of 15 edges, 13 perfect matchings, 344 ordinary and 284 perfect-subcomplex faces gives 30 relative 2-faces and 30 relative 3-faces. Exact integral Smith form of the relative boundary has 28 unit factors and two 2s. Independent discrete Morse Hasse acyclicity, critical cell census, and unit 4x4 Morse minor give both spaces wedge of two S². Exact LES forces the inclusion Smith factors 2,2. This proof is genuinely exhaustive for the fixed graph; no extrapolation to all ladders.
+
+## originality
+
+PASS
+
+Source-specific statement/implication searches and mathematical comparison support a distinct finding; relevant full-text access limitations and database outage are retained explicitly.
+
+## value
+
+PASS
+
+The exact integral inclusion map between two natural matching complexes with the same homotopy type exhibits two independent 2-torsion obstructions, a mathematically motivated invariant prompted by prior Möbius-ladder study. The ten-vertex case is natural and completely classified without claiming a family classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
