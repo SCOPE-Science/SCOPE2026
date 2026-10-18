@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness: PASS.** An exact partition-valued absorbing Markov chain computes each mean time by \((I-Q)t=\mathbf 1\), with a proven absorbing-chain property on connected graphs. The two witness edge effects are exact signed fractions, checked from the packaged verifier. The program exhausts all connected isomorphism classes through five vertices and all their missing edges using explicit labeled-graph generation; no numerical tolerance or finite sampling is used for minimality. The proof does not extend this classification above five vertices.
+
+**Originality: PASS under current accessible evidence.** A previously established binary-opinion graph-link slowdown result does not imply reversal of the sign when the initial opinion alphabet changes to three labels. Iwamasa and Masuda's 2014 preprint analyzes different voter update rules and optimized topologies for binary balanced initial states; the full text of its methods and results was inspected. Shi, Mucha and Durrett's 2013 article analyzes a different, coevolving multiopinion network with links rewired during the process. Targeted research-record queries and literature searches did not identify this six-agent sharp sign reversal. This is a documented comparison, not proof of global novelty: the full 2013 arXiv manuscript was not obtained, and other equivalent graph-state formulations are possible.
+
+**Mathematical value: PASS.** The finding establishes the first possible graph size at which *opinion diversity itself* reverses the effect of a fixed added contact on consensus time, a qualitative network-design boundary not supplied by results about the binary model alone. The obstruction through five vertices and explicit sharp six-vertex witness use exact finite certificates, not arbitrary model slices. No claim of broad empirical social prediction is made.
+
+Self-review: passed. Independent audit: not yet performed.
