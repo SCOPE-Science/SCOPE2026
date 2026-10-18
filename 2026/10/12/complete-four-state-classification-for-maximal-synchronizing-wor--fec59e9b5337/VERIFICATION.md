@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json`.
+# Independent mathematical audit
 
-The verifier checks all \(65{,}536\) ordered labeled binary transition pairs on four states. One engine constructs and minimizes the reachable subset automaton by partition refinement. A second engine tests the exact maximality conditions independently: reachability of all non-singleton subsets followed by table-filling distinguishability of subset states. The engines agree on every automaton.
+## correctness
 
-The verifier then fixes \(b(q)=q+1\pmod4\) and checks all \(256\) possible second letters. Among the \(144\) rank-\(3\) maps, exactly \(128\) are maximal and exactly \(16\) fail; the failure set is exactly the conjunction of kernel-pair antipodality and omitted/double-image antipodality.
+PASS
 
-Finally, all \(1536\) maximal ordered labeled automata are canonicalized under all \(24\) state relabelings and the letter swap, yielding exactly \(32\) classes, each of orbit size \(48\). The four-state example printed in the primary source is separately replayed.
+Four-state subset recognizer has up to 2^4-4=12 distinguishable reachable states after singleton collapse. Source original verify.py checks all 4^8=65536 ordered letter pairs by reachable-subset minimization and independently by distinguishability table-filling, confirms only maximal pairs have one 4-cycle letter plus one rank-three letter. Independently implemented a separate subset partition-refinement engine over all 65536, confirming complete state complexity histogram, exact 1536 at sc12, normalized rank-three 128/16 antipodal iff split, and 32 classes of orbit size48. Numerical exhaustion is genuinely complete for fixed 4-state finite set, not an infinite inference.
 
-Independent audit has not been performed.
+## originality
+
+PASS
+
+Hoffmann 2020/2021 (arXiv:2011.14404) proves general upper bound and sufficient circular rank-(n-1) criteria, explicitly displays four-state maximizer outside those conditions and identifies the missing necessary-and-sufficient characterization. This four-state iff and global 1536/32 census are not implied by his sufficient criteria. Earlier Hoffmann complete-reachability results address necessary structure under an extra reachability premise, not these exact equality cases. Resultary only other automata invariants and five-state classifications; unindexed census remains risk.
+
+## value
+
+PASS
+
+A complete intrinsic obstruction at four states—the first point where the primary sufficient theorem demonstrably fails—answers a structural classification gap named in the primary work. Full orbit census is naturally useful to automata and synchronization researchers, not a random tiny enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

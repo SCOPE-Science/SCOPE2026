@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:58:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Four-state subset recognizer has up to 2^4-4=12 distinguishable reachable states after singleton collapse. Source original verify.py checks all 4^8=65536 ordered letter pairs by reachable-subset minimization and independently by distinguishability table-filling, confirms only maximal pairs have one 4-cycle letter plus one rank-three letter. Independently implemented a separate subset partition-refinement engine over all 65536, confirming complete state complexity histogram, exact 1536 at sc12, normalized rank-three 128/16 antipodal iff split, and 32 classes of orbit size48. Numerical exhaustion is genuinely complete for fixed 4-state finite set, not an infinite inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General upper bound 2^n-n applies but does not classify equality.",
+          "Completely reachable binary automata can imply circular/rank n-1 under additional premises, not every equality characterization at n=4."
+        ],
+        "reasoning": "Published sufficient general criteria and reachability theorems do not dominate this exact iff; explicit source exceptional example establishes genuine gap.",
+        "searches": [
+          "Hoffmann 2011.14404",
+          "Hoffmann 2007.09104",
+          "Four-state binary synchronizing automata state complexity 12 all 1536 maximal pairs rank three antipodal exceptions"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2011.14404",
+        "https://arxiv.org/abs/2007.09104",
+        "Four-state binary synchronizing automata state complexity 12 all 1536 maximal pairs rank three antipodal exceptions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hoffmann Example 1 has kernel pair opposite but omitted and double-image adjacent, violating his stated sufficient conditions while reaching 12.",
+          "The new iff detects all 16 rank-three cycle-normalized antipodal exceptional maps."
+        ],
+        "reasoning": "An example showing a criterion is not necessary plus general upper bound does not logically imply a complete necessary-and-sufficient exception characterization.",
+        "searches": [
+          "Hoffmann arXiv:2011.14404",
+          "Four-state binary synchronizing automata state complexity 12 all 1536 maximal pairs rank three antipodal exceptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The subset automaton recognizes synchronized words by |δ(Q,w)|=1; sc12 iff all required subsets reachable and pairwise distinguishable.",
+          "Hoffmann circular/rank-(n-1) condition only sufficient; his displayed counterexample is included on non-antipodal side."
+        ],
+        "reasoning": "Compared state complexity of synchronizing-word language, distinguishing-subset construction, normalized transition-map antipodality, and label/state/alphabet orbit equivalence.",
+        "searches": [
+          "Four-state binary synchronizing automata state complexity 12 all 1536 maximal pairs rank three antipodal exceptions",
+          "Hoffmann arXiv:2011.14404"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned five-state avoiding thresholds and rendezvous times, not language state complexity 12 at four states.",
+          "Exact 128,16,1536,32 census not present in inspected primary text."
+        ],
+        "reasoning": "Other automata parameter databases and five-state bounds cannot replace this four-state full labeled state-complexity equality census.",
+        "searches": [
+          "Four-state binary synchronizing automata state complexity 12 all 1536 maximal pairs rank three antipodal exceptions",
+          "Resultary 2026/10/4/SCOPE-four-extremal-five-state-binary-avoiding-threshold-classes--add2e90918b8"
+        ]
+      },
+      "rationale": "Hoffmann 2020/2021 (arXiv:2011.14404) proves general upper bound and sufficient circular rank-(n-1) criteria, explicitly displays four-state maximizer outside those conditions and identifies the missing necessary-and-sufficient characterization. This four-state iff and global 1536/32 census are not implied by his sufficient criteria. Earlier Hoffmann complete-reachability results address necessary structure under an extra reachability premise, not these exact equality cases. Resultary only other automata invariants and five-state classifications; unindexed census remains risk.",
+      "residual_risks": [
+        "Unindexed small-automata exhaustive classification could contain same obstruction and exact orbit census.",
+        "Classification only for four states; no necessary-and-sufficient theorem claimed for arbitrary n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NEAREST_NOT_COVERING",
+          "evidence": "Primary source states sufficient conditions; four-state counterexample already maximal outside them; calls for finer necessary-and-sufficient analysis.",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.14404",
+          "material_read": "Full PDF and relevant example and conclusion, including explicit four-state out-of-criteria maximal automaton",
+          "method": "Full primary PDF text and screenshot of example/conclusion",
+          "title": "State Complexity of the Set of Synchronizing Words for Circular Automata and Automata over Binary Alphabets",
+          "trigger": "Same automaton model and equality threshold"
+        },
+        {
+          "assessment": "ADDITIONAL_HYPOTHESES",
+          "evidence": "Complete reachability structure does not enumerate all 1536 language-complexity optimizers.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.09104",
+          "material_read": "Abstract and theorem statements as cited in primary source, not full PDF",
+          "method": "ArXiv primary metadata / source cross-reference",
+          "title": "Completely Reachable Automata, Primitive Groups and the State Complexity of the Set of Synchronizing Words",
+          "trigger": "Potential stronger structural implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete intrinsic obstruction at four states—the first point where the primary sufficient theorem demonstrably fails—answers a structural classification gap named in the primary work. Full orbit census is naturally useful to automata and synchronization researchers, not a random tiny enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2011.14404",
+    "https://arxiv.org/abs/2007.09104",
+    "Resultary semantic query: Four-state binary synchronizing automata state complexity 12 all 1536 maximal pairs rank three antipodal exceptions"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": "Binary complete deterministic semi-automata on four states; isomorphism group state relabeling and alphabet swap only, not arbitrary state-graph automorphisms.",
+  "source_inspections": [
+    {
+      "assessment": "NEAREST_NOT_COVERING",
+      "evidence": "Primary source states sufficient conditions; four-state counterexample already maximal outside them; calls for finer necessary-and-sufficient analysis.",
+      "identifier_or_url": "https://arxiv.org/pdf/2011.14404",
+      "material_read": "Full PDF and relevant example and conclusion, including explicit four-state out-of-criteria maximal automaton",
+      "method": "Full primary PDF text and screenshot of example/conclusion",
+      "title": "State Complexity of the Set of Synchronizing Words for Circular Automata and Automata over Binary Alphabets",
+      "trigger": "Same automaton model and equality threshold"
+    },
+    {
+      "assessment": "ADDITIONAL_HYPOTHESES",
+      "evidence": "Complete reachability structure does not enumerate all 1536 language-complexity optimizers.",
+      "identifier_or_url": "https://arxiv.org/abs/2007.09104",
+      "material_read": "Abstract and theorem statements as cited in primary source, not full PDF",
+      "method": "ArXiv primary metadata / source cross-reference",
+      "title": "Completely Reachable Automata, Primitive Groups and the State Complexity of the Set of Synchronizing Words",
+      "trigger": "Potential stronger structural implication"
+    }
+  ]
+}
