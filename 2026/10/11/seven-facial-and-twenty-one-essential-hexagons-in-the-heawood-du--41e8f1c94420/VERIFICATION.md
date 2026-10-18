@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 artifacts/verify.py`. The script uses only the Python standard library and reconstructs the triangulation from the fourteen published facets. It verifies:
+# Independent mathematical audit
 
-- \(21\) edges and \(14\) triangular facets, with each edge in exactly two facets;
-- rank \(13\) for the triangle cocycle equations and rank \(6\) for vertex coboundaries;
-- exactly \(256\) cocycles and four cohomology cosets of size \(64\);
-- zero-class enumerator \(1+7t^6+21t^{10}+35t^{12}\);
-- identical nonzero-class enumerators \(7t^6+7t^8+21t^{10}+21t^{12}+8t^{14}\);
-- a connected cubic bipartite dual graph with two parts of size \(7\) and the Fano incidence property;
-- exactly \(28\) simple six-cycles, equal as edge supports to all weight-six cocycles;
-- exactly seven trivial six-cycles, equal to the seven vertex coboundaries;
-- closure of the two published generators to a facet-preserving group of order \(42\);
-- cycle-support orbit sizes \(7\) and \(21\), with the essential orbit split \(7,7,7\) among the three nonzero classes.
+## correctness
 
-Successful replay prints the exact summary stored in `artifacts/verification_output.txt`. The finite computation proves statements only for this fixed triangulation. The interpretation of nonzero dual-cycle class as essential uses standard mod-two Poincaré duality for a closed orientable surface.
+PASS
+
+From 14 published triangles, the 14x21 F2 coboundary equations have rank 13, cocycle space 256 and vertex coboundary dimension6 (64). Independent F2 reduction/enumeration reproduced W0=1+7t6+21t10+35t12 and each nonzero coset 7t6+7t8+21t10+21t12+8t14. The dual 14-vertex cubic bipartite graph is the Fano incidence Heawood graph with 28 six-cycles. Every length-six cocycle is a simple dual hexagon; 7 boundaries and 21 nontrivial cycles split 7/7/7; inspected 42-group orbit enumeration gives 7 and 21.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Köhler-Lutz provide triangulation and group, classical Heawood facts supply 28 six-cycles, but not mod-2 cohomology coset enumerators, 7/7/7 homology partition or exact 21-element essential orbit of embedding-preserving subgroup. Older regular-map literature may contain an equivalent formulation; specific risk retained.
+
+## value
+
+PASS
+
+PASS: Exact weight enumerators and shortest nonzero cohomology supports of canonical minimal torus triangulation are natural discrete systolic invariants; classification distinguishes facial from essential Heawood hexagons, and computes full symmetry-orbit distribution beyond ordinary topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
