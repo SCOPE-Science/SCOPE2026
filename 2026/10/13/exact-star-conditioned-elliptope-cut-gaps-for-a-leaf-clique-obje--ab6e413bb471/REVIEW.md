@@ -1,19 +1,21 @@
-# Review of the exact star-conditioned elliptope–cut comparison
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Permutation averaging retains the objective and every feasible convex set. The Schur-complement eigenvalues of the resulting two-parameter Gram matrix give the exact bare-SDP envelope. The four triangle inequalities on every three vertices reduce to two additional scalar bounds, producing all three sharp branches with explicit feasible constructions. The cut-polytope calculation reduces to a concave interpolation of the exact integer clique-cut profile. Its interpolation deficit is exactly \(\alpha(1-\alpha)\) on the PSD-controlled branch. The analytical argument treats every real tolerance, all dimensions, and boundary points. The bundled `verify.py` reproduced 7,804 exact-rational checks and 95 optional small linear programs; these are supplementary, not infinite proofs.
+PASS
 
-## Originality
+Leaf-permutation averaging preserves feasible convex sets and objective. A two-parameter Gram matrix has Schur complement eigenvalues 1-b and 1+(n-1)b-na^2; its maximum q is 2n*p(1-p)/(n-1), attained by a regular-simplex leaf residue, yielding R0. All metric triangles reduce to q<=2p and, when n>=3, q<=2/3, giving the exact transition at p=1/n and n=3 cap. A cut mixture is a random flipped-leaf subset with mean size <=n*epsilon and clique weight K(n-K); concave piecewise-linear interpolation and a uniform-size mixture give C sharply. The interpolation defect is alpha(1-alpha). Independently checked 198 rational (n,epsilon) pairs for n=2..12 with PSD Schur complement, triangles, cut chord and gap, including endpoints.
 
-**PASS with residual risk.** The primary September 2026 spanning-tree paper proves *exact* correlation-integrality propagation, not the support-function values under positive star tolerances. The 2026 volume comparison of the cut, metric, and elliptope bodies includes the already-known first separation at five vertices, but its results concern volumes, not this whole star-conditioned objective phase diagram. Fixed-rank MaxCut integrality bounds concern Gram rank; cardinality-constrained MaxCut concerns deterministic cut sizes, not the intersection of the cut polytope with marginal bounds. No covering statement arose in the inspected primary texts, published-result searches, or existing-claim comparisons. A full historical cut-polytope monograph was not verified, and equivalent parameterized moment inequalities remain possible. The known cut-profile formula is credited as an input, not advertised independently as new.
+## originality
 
-## Value
+PASS
 
-**PASS.** The gap under uniform near-integral star correlations is a natural quantitative refinement of exact spanning-tree integrality. Its complete all-size phase diagram identifies the precise one-leaf-flip threshold, the sharp universal additive defect \(1/4\), and the first dimension where triangle cuts fail to match the cut-polytope slice for this objective. It supplies a benchmark for semidefinite bounds at partly decided star branches. It does not claim arbitrary-graph applicability, deterministic-constraint equivalence, or improved solver run time.
+The exact positive-tolerance star-margin support values, triangle-strengthened additive gap and fractional-cardinality interpolation do not follow from the inspected spanning-tree integral-correlation theorem or general volume/ratio comparisons; the result is a parameterized slice of the elliptope/metric/cut hierarchy.
 
-## Unresolved scientific and literature limits
+## value
 
-The gap is for the **cut-polytope moment slice**, which is not an integer feasible-set hull under literal positive tolerance. The analysis does not extend automatically to nonuniform tolerances, general tree topologies, other objective weights, or stronger inequalities. General geometric separation between metric and cut polytopes is prior art, and exhaustive equivalence against historical monographs is not established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact full-parameter gap between elliptope, metric triangle strengthening, and cut-polytope feasible moments on a natural rooted star plus clique is a useful structural benchmark. It identifies the first positive-gap graph size (five vertices) and a sharp universal 1/4 additive defect within this family; neither correctness nor reproducibility alone is used as the value argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

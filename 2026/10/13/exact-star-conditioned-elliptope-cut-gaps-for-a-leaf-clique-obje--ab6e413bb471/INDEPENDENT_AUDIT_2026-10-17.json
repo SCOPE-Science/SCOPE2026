@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T11:46:22.479954Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob ffc98a2f2d00194aa7948d4dc1118320545d102a",
+        "Independent exact rational Gram/triangle/chord checks, 198 parameter pairs",
+        "Known PSD Schur complement and concave Jensen inequality, reconstructed without packaged test results"
+      ],
+      "rationale": "Leaf-permutation averaging preserves feasible convex sets and objective. A two-parameter Gram matrix has Schur complement eigenvalues 1-b and 1+(n-1)b-na^2; its maximum q is 2n*p(1-p)/(n-1), attained by a regular-simplex leaf residue, yielding R0. All metric triangles reduce to q<=2p and, when n>=3, q<=2/3, giving the exact transition at p=1/n and n=3 cap. A cut mixture is a random flipped-leaf subset with mean size <=n*epsilon and clique weight K(n-K); concave piecewise-linear interpolation and a uniform-size mixture give C sharply. The interpolation defect is alpha(1-alpha). Independently checked 198 rational (n,epsilon) pairs for n=2..12 with PSD Schur complement, triangles, cut chord and gap, including endpoints.",
+      "residual_risks": [
+        "Comparator is a convex cut-polytope slice under individual expected hub-edge marginals, not the hull of individually constrained cuts.",
+        "Uniform star tolerances and unit leaf clique weights only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mallach--Cohadari prove rank-one propagation for exactly integral tree correlations; epsilon positive is outside that exact hypothesis.",
+          "Avis--Devroye--Deza analyze volumes; de Oliveira Filho--Vallentin analyze Gram-rank integrality ratios; Makarychev et al. use deterministic cardinality constraints."
+        ],
+        "reasoning": "None of those general statements supplies exact support optima on the given marginally constrained star slice across n and epsilon.",
+        "searches": [
+          "Mallach--Cohadari On Spanning-Tree Integrality 2026",
+          "Avis--Devroye--Deza arXiv:2604.16735",
+          "de Oliveira Filho--Vallentin arXiv:1808.02346",
+          "Makarychev--Pittu--Vakilian arXiv:2507.12607"
+        ]
+      },
+      "checked_sources": [
+        "https://optimization-online.org/2026/09/on-spanning-tree-integrality-and-a-new-branching-rule-for-the-maximum-cut-problem/",
+        "https://arxiv.org/abs/2604.16735",
+        "https://arxiv.org/abs/2507.12607",
+        "https://arxiv.org/abs/1808.02346"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Epsilon=0 recovers aligned tree edges, but epsilon>0 permits PSD correlations and fractional cut mixtures.",
+          "Volume and deterministic constrained-cut theorems do not assert this marginal slice’s support function."
+        ],
+        "reasoning": "The new sharpness constructions require regular-simplex correlations on the PSD side and exchangeable randomized cuts with two neighboring integer cardinalities; this is additional analysis distinct from cited prior implications.",
+        "searches": [
+          "OptimizationOnline 2026-09-17 spanning-tree integrality result",
+          "arXiv:2604.16735 volume theorem",
+          "arXiv:2507.12607 Max-Cut with Multiple Cardinality Constraints"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No equivalent phase diagram was found in nearest semantic records; results concerned unrelated star polytopes and general MaxCut.",
+          "The object is a correlation moment slice, not an ordinary constrained deterministic-cut feasible set."
+        ],
+        "reasoning": "Aliases include anchored-correlation cut SDP, symmetric leaf-clique objective, moment-constrained MaxCut, and piecewise-linear concave closure of the cardinality cut function.",
+        "searches": [
+          "Resultary: star conditioned maxcut elliptope metric polytope cut exact additive gap hub clique",
+          "Web: star cut polytope elliptope triangle inequality correlation central vertex constrained max cut clique fractional expected cardinality",
+          "Web: MaxCut SDP elliptope with fixed vertex marginals star clique gap concave envelope cardinality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching closed formula/table for Rtriangle-C=frac(n eps)(1-frac(n eps)) found in retrieved sources.",
+          "Exact K(n-K) fixed-cardinality cut counts are classical and acknowledged, but the comparison of all three convex relaxation support values is not merely a known table."
+        ],
+        "reasoning": "Lack of an exact-table hit does not rule out equivalent polyhedral projections in older MaxCut literature.",
+        "searches": [
+          "Resultary: star conditioned maxcut elliptope metric polytope cut exact additive gap hub clique",
+          "Web: exact elliptope cut star marginals n epsilon gap 1/4",
+          "arXiv:2604.16735 rooted metric polytope volume"
+        ]
+      },
+      "rationale": "The exact positive-tolerance star-margin support values, triangle-strengthened additive gap and fractional-cardinality interpolation do not follow from the inspected spanning-tree integral-correlation theorem or general volume/ratio comparisons; the result is a parameterized slice of the elliptope/metric/cut hierarchy.",
+      "residual_risks": [
+        "The full Mallach--Cohadari and earlier polyhedral/projection papers were not all read this run; equivalences under alternate marginal notation may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact integral spanning tree case does not settle positive-tolerance correlation support values",
+          "evidence": [
+            "2026-09-17 Optimization Online published abstract states exact tree-edge integrality in SDP"
+          ],
+          "identifier_or_url": "https://optimization-online.org/2026/09/on-spanning-tree-integrality-and-a-new-branching-rule-for-the-maximum-cut-problem/",
+          "material_read": "Full accessible public abstract and posted theorem description; primary PDF content not independently downloaded in this run",
+          "method": "Public publisher-hosted research description, not full manuscript inspection",
+          "title": "On Spanning-Tree Integrality and a new Branching Rule for the Maximum Cut Problem",
+          "trigger": "Exact source motivation: integrality forced by tree-edge correlations"
+        },
+        {
+          "assessment": "Studies volume comparisons and global sizes, not the conditional star objective support value",
+          "evidence": [
+            "arXiv abstract: rooted metric, metric, cut and elliptope volume ratios"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.16735",
+          "material_read": "Accessible abstract and named theorem scope; full source PDF was not inspected this run",
+          "method": "arXiv indexed primary abstract and institutional research index",
+          "title": "On the volumes of the elliptope, metric polytope, and cut polytope",
+          "trigger": "Potential same hierarchy and five-vertex separation"
+        },
+        {
+          "assessment": "Different deterministic cardinality feasible set, cannot be presumed to imply the correlation moment slice",
+          "evidence": [
+            "Multiple cardinality constraints refer to deterministic partitions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2507.12607",
+          "material_read": "Title and public described deterministic-cardinality model, complete primary manuscript not inspected",
+          "method": "Primary bibliographic abstract and source package comparison",
+          "title": "Max-Cut with Multiple Cardinality Constraints",
+          "trigger": "Closest fixed-cardinality MaxCut formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://optimization-online.org/2026/09/on-spanning-tree-integrality-and-a-new-branching-rule-for-the-maximum-cut-problem/",
+        "https://arxiv.org/abs/2604.16735"
+      ],
+      "rationale": "An exact full-parameter gap between elliptope, metric triangle strengthening, and cut-polytope feasible moments on a natural rooted star plus clique is a useful structural benchmark. It identifies the first positive-gap graph size (five vertices) and a sharp universal 1/4 additive defect within this family; neither correctness nor reproducibility alone is used as the value argument.",
+      "residual_risks": [
+        "Not a worst-case weighted MaxCut integrality-ratio or algorithmic speedup theorem; deterministic-margin interpretation is explicitly excluded."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n>=2 leaves, epsilon in [0,1/2], maximize the unit leaf-clique cut objective over a star-conditioned correlation elliptope, over its intersection with all metric triangles, and over the cut polytope with matching marginal hub constraints. The exact three support optima are R0=n^2*eps*(1-eps), the stated piecewise Rtriangle, and C=linear interpolation of k(n-k) at n*eps; Rtriangle-C is 0 for n<=3 or eps<=1/n and otherwise frac(n*eps)*(1-frac(n*eps)), attaining 1/4.",
+  "limitations": [
+    "Publication not ready: exact original privacy-bearing operational metadata must not be copied publicly; source package and all original bytes remain unchanged.",
+    "No GitHub write, publication, certificate, or dispatcher closeout executed; originality is best-of-knowledge with explicit source-specific residual risks."
+  ],
+  "schema_version": 1
+}
