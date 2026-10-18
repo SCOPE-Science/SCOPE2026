@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Direct differentiation gives the exact coboundary \(\dot H=z^2-b^2y^2\). Compact invariance gives the stationary balance. For a nonconstant periodic orbit, \(y\) has zero mean and \(z=\dot y\), so sharp periodic Wirtinger yields \(T\ge2\pi/b\). Equality would force a first harmonic; substitution makes an affine function plus \(d\sinh u\) vanish on an interval, contradicted by its second derivative when \(d\ne0\). The packaged symbolic replay checks the algebraic identities.
+## correctness
 
-## Originality
-PASS. The primary article gives local Hopf-period asymptotics and numerical period-doubling behavior, not the global stationary balance or all-amplitude period floor. The closest published result on the exact same symmetric hyperbolic-sine family proves an \(a=d\) compact-recurrence threshold from another coboundary and does not imply a period bound. The closest published jerk period-floor theorem located is for the Genesio polynomial equation; its complete statement was inspected and does not cover this family. A generic global-Lipschitz minimum-period theorem is inapplicable because \(\sinh x\) has unbounded derivative.
+PASS
 
-## Value
-PASS. Periodic branches and period-doubling cascades are central dynamical objects in the source. The theorem gives a sharp finite-amplitude constraint on all of them, not merely a local approximation, and the exact stationary balance is a direct diagnostic for both periodic and chaotic recurrent computations. The bound is structurally tied to the printed linear velocity coefficient and to the source's Hopf edge rather than to an arbitrary parameter slice.
+PASS: For xdot=y, ydot=z, zdot=epsilon-a x-b^2 y-c z+d sinh(x), exact differentiation of H=yz+a x²/2+c y²/2-d cosh(x)-epsilon x gives Hdot=z²-b²y², independently symbolically checked. Compact invariant measures annihilate this smooth generator coboundary. A nonconstant periodic orbit has mean(y)=0 and energy identity ∫(y′)²=b²∫y²; sharp Wirtinger gives T≥2π/b. Equality would force x=x0+R cos(bt), R>0, hence F(u)=epsilon+(-a+c b²)u-c b² x0+d sinh(u) vanishes on a nondegenerate interval; F″=d sinh(u) cannot vanish there for d!=0, so strict. Hu–Sang–Wang Theorem5.3(iv) supplies actual nondegenerate Hopf cycles tending to 2π/b, establishing sharpness ONLY on branches satisfying their assumptions.
 
-## Closest literature and limitations
-The closest exact-system published result is the compact-recurrence threshold for the symmetric hyperbolic-sine jerk flow; it is complementary rather than covering. The closest structural analogue is the Genesio recurrence-balance/period-floor theorem, whose statement is system-specific. Innocenti–Tesi–Genesio treat local Hopf/harmonic-balance behavior in quadratic jerk systems. The generic Zevin minimum-period theorem uses a global Lipschitz hypothesis that fails for the full hyperbolic-sine vector field. A specialized unindexed older theorem remains a residual originality risk. The present claim does not establish periodic-orbit existence away from source-proved local Hopf branches.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: primary 27-page article contains the parameter family and Theorem5.3 local Hopf period expansion, but not the global invariant-measure derivative-energy balance nor the strict all-orbits global floor in material searched/read. Resultary found distinct same-family compact-recurrence threshold and analogues in other jerk equations; none imply the uniform b-only inequality for arbitrary epsilon, d!=0. Originality is source-relative with risk of unindexed general minimum-period theorem.
+
+## value
+
+PASS
+
+PASS: A sharp universal period constraint on every nonconstant cycle, linked to an invariant-probability energy identity and attainable as an infimum from local Hopf cycles, is a meaningful nonlinear dynamics result with global reach; it does not presume existence or assert attraction/chaos away from the local branches.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
