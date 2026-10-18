@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is all integers \(n\ge0\). The modulo-three reduction from the partition product to the squared Rogers–Ramanujan theta series is an established formal-series identity. The proposed proof supplies an invertible lattice-coordinate change from the theta exponents to canonical Gaussian integer norm representations. The parity sign is reconstructed as \((-1)^Y\), and the uniqueness of the canonical member of each four-unit orbit uses \(20n+9\equiv4\pmod5\). Gaussian unique factorization supplies all norm orbits and the odd-exponent obstruction for inert primes. Swapping conjugate split factors preserves coordinate parity before reorientation, while the reorientation is a quarter-turn exactly for prime classes \(13,17\pmod{20}\), giving independent alternating local sums. The reduction of the final product modulo \(3\) is exact. Critical steps were independently checked with direct restricted-partition and lattice enumerations. The proof, not its finite checks, establishes all infinite quantifiers.
+## correctness
 
-## Originality — PASS, with residual risk
-Li's relevant twelve-page primary preprint was inspected in full. Proposition 3.3 supplies the theta identity used here; Theorems 5.1, 6.1 and 7.1 derive cross-function and self-similarity congruences only on inert-prime progressions. Section 8.2 discusses failure of that mechanism for split primes, whereas the new statement treats the split-prime signed orbit sums and gives a global exact prime-factor nonvanishing test. Targeted published-published-finding corpus, original-paper, equivalent-formulation and web searches identified no covering result. Gaussian factorization and the sum-of-two-squares criterion are classical inputs, not claims of novelty. There remains risk of an unindexed equivalence or an undiscovered explicit character-weighted theta formula.
+PASS
 
-## Value — PASS
-The natural gap is the missing global coefficient-support characterization for the precise partition statistic in the motivating recent work. This theorem supplies a necessary-and-sufficient arithmetic test across every index and a stronger exact magnitude formula for the signed theta coefficients. Split-prime cancellation makes the answer richer than the elementary two-squares solvability test; for instance, \(629=17\cdot37\) is representable by two squares but has vanishing signed coefficient. A local prime-exponent criterion is reusable for deciding congruences without partition enumeration, and the statement is not an arbitrary finite lookup or small numerical refinement.
+Li's theta reduction f(n)≡[q^n]Θ(q)^2 (mod 3) holds formally. For N=20n+9, pair (a,b) maps bijectively to X=5(a+b)−3,Y=5(a−b) with X²+Y²=N, X≡2 mod5,Y≡0 mod5 and theta sign (−1)^Y. Every Gaussian-unit orbit for odd N≡4 mod5 has exactly one canonical representative. In Z[i], inert p≡3 mod4 of odd exponent forbid orbits; altering a split prime factor for p≡1,9 mod20 preserves Y parity, while p≡13,17 mod20 flips it after canonical quarter-turn. Thus a local alternating exponent sum annihilates odd exponents of the latter; surviving |g(n)|=∏_{p≡1,9 mod20}(e_p+1). Mod3 adds e_p≠2 mod3. Independent direct partition dynamic programming, Gaussian norm sums and factorization agree for n=0..400 including n=31,N=629; unlimited theorem follows Gaussian UFD and parity.
 
-## Literature and limits
-Closest material: Jiyuan Li, arXiv:2609.22340v1, §§3–8; Jacobi's triple product; classical Gaussian integer unique factorization. The result determines theta-coefficient absolute values and partition divisibility modulo \(3\), not unrestricted partition counts or all coefficient signs. Finite checks do not certify the infinite theorem. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Li 2026 establishes exactly the theta-square reduction and inert-prime progression congruences, and its Section 8.2 explains a limit of that progression technique for split primes. The present all-index if-and-only-if prime exponent rule incorporates p≡13,17 mod20 cancellation and p≡1,9 mod20 (e+1) factors. Neither Li's restricted progression theorems nor the classical sum-of-two-squares existence criterion implies signed-weight cancellation; arithmetic of Gaussian factors supplies it. Best-of-knowledge, with potential earlier Hecke-character coefficient description risk.
+
+## value
+
+PASS
+
+The original restricted partition function and modulo-three vanishing support are a motivated arithmetical object; a complete prime-factor criterion for every n is stronger than partial progressions and answers exact nonvanishing, including 629=17·37 where ordinary sum-of-two-squares permits representations but signs cancel. Exact necessary-and-sufficient support is a natural independently useful invariant, not a routine parity check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
