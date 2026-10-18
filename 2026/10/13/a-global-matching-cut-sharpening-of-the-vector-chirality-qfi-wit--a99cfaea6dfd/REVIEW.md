@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The argument starts from the anchor's exact pre-relaxation identity \(A_u=(n_u^2+c_u)/16\). For one complete matching, \(\sum_u c_u=2C\), where \(C\) is the number of cross-block matching edges. If the largest block has size \(m>N/2\), every cross edge consumes a distinct vertex outside that block, so \(C\le N-m\); if \(m\le N/2\), \(C\le N/2\). Optimizing the resulting piecewise expression over all block sizes gives the claimed numerator. The source's pure-state relation, QFI convexity, and generator triangle inequality then yield the stated mixed-state bound. The all-\(N\) proof is analytic; the finite verifier is only a consistency check.
+## correctness
 
-## Originality
-**PASS.** The closest source, arXiv:2609.39258v1, keeps \(c_u\) in its exact block term but then relaxes it separately via \(c_u\le n_u\), producing \(qk^2+s^2+N\). It does not impose the global largest-block matching-cut constraint or state the subtraction \(\max\{0,2k-N\}\). The classical \(k\)-producible QFI result of Hyllus et al. concerns linear one-site generators and therefore does not imply this composite-generator refinement. Focused searches for the displayed form and its largest-block/matching-cut reformulations found no stronger or equivalent published statement.
+PASS
 
-## Value
-**PASS.** The result strictly strengthens a new experimentally motivated entanglement-depth witness throughout the high-depth regime \(k>N/2\), while using no additional physical assumptions. The gain grows from a numerator subtraction of \(2\) at \(k=N/2+1\) to \(N\) at \(k=N\), where the sharpened witness recovers \(F_Q\le N^2\). It also isolates a concrete source of finite-size slack that is distinct from the anchor's separately identified odd/even recombination slack.
+Starting from the displayed local variance allocation in the actual Shimokawa source A_u=(n_u²+c_u)/16, in either of two disjoint-edge perfect matchings each crossing edge is incident to exactly two partition blocks, so sum_u c_u=2C. If largest block m>N/2, a crossing matching edge must use one of the N-m external vertices and no external vertex serves two matching edges; hence C<=N-m. For m<=N/2 use sum c_u<=N. For k>N/2, if m<=N/2 sum n_u²<=N²/2 and the numerical bound is <=f(k); if m>N/2, sum n_u²<=m²+(N-m)² and f(m)=m²+(N-m)²+2(N-m) increases for integer m>=N/2+1. With m<=k, f(k)=k²+(N-k)²+2(N-k). At k<=N/2 the existing qk²+s²+N remains. The QFI square-root triangle inequality applied to odd/even matching, followed by convexity for mixed k-producible states, gives the displayed all-k formula. Independently enumerated all integer block partitions for every even N=4..24 and all 1<=k<=N and confirmed the exact combinatorial maximum. That enumeration checks only the relaxation; the unrestricted proof depends on the combinatorial cut and source variance allocation.
 
-## Closest literature and limitations
-The primary comparison is arXiv:2609.39258v1, especially its Eqs. (19)-(29). Hyllus et al., arXiv:1006.4366, supply the standard linear-generator \(k\)-producible benchmark. The present result is not claimed tight: the inherited local covariance inequalities and final odd/even triangle step may still be improvable, and the theorem is restricted to the anchor's even periodic spin-\(1/2\) setting.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source paper proves F_Q<=qk²+s²+N for even periodic spin chains, explicitly replacing c_u<=n_u before summing, whereas the proposed global matching cut counts the c_u jointly and subtracts 2k-N for k>N/2. The general linear single-site k-producible QFI theorem of Hyllus et al does not apply to this two-site vector chirality. The improvement is a new inequality relative to these inspected sources; a different entanglement partition argument could imply it under another name, which remains a risk.
+
+## value
+
+PASS
+
+This is a physically motivated tightening of a published entanglement-depth certification threshold for the large-block regime, not an arbitrary small integer improvement. Although the bound need not be exactly attainable, the strengthened finite-size witness can certify depth in the window excluded by the older numerator. The endpoint k=N yields the natural N² estimate. The gain is limited to k>N/2 and the same local inequalities may remain loose, explicitly limiting practical effect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

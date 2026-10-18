@@ -1,0 +1,43 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T00:01:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from the displayed local variance allocation in the actual Shimokawa source A_u=(n_u²+c_u)/16, in either of two disjoint-edge perfect matchings each crossing edge is incident to exactly two partition blocks, so sum_u c_u=2C. If largest block m>N/2, a crossing matching edge must use one of the N-m external vertices and no external vertex serves two matching edges; hence C<=N-m. For m<=N/2 use sum c_u<=N. For k>N/2, if m<=N/2 sum n_u²<=N²/2 and the numerical bound is <=f(k); if m>N/2, sum n_u²<=m²+(N-m)² and f(m)=m²+(N-m)²+2(N-m) increases for integer m>=N/2+1. With m<=k, f(k)=k²+(N-k)²+2(N-k). At k<=N/2 the existing qk²+s²+N remains. The QFI square-root triangle inequality applied to odd/even matching, followed by convexity for mixed k-producible states, gives the displayed all-k formula. Independently enumerated all integer block partitions for every even N=4..24 and all 1<=k<=N and confirmed the exact combinatorial maximum. That enumeration checks only the relaxation; the unrestricted proof depends on the combinatorial cut and source variance allocation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        "Shimokawa arXiv:2609.39258v1 original vector-chirality QFI source and supplement",
+        "Hyllus et al arXiv:1006.4366 / Phys Rev A 85 022321",
+        "Resultary query vector chirality quantum Fisher information k-producible states global matching cut sharper bound periodic chain k>N/2"
+      ],
+      "rationale": "The source paper proves F_Q<=qk²+s²+N for even periodic spin chains, explicitly replacing c_u<=n_u before summing, whereas the proposed global matching cut counts the c_u jointly and subtracts 2k-N for k>N/2. The general linear single-site k-producible QFI theorem of Hyllus et al does not apply to this two-site vector chirality. The improvement is a new inequality relative to these inspected sources; a different entanglement partition argument could imply it under another name, which remains a risk.",
+      "residual_risks": [
+        "The source local covariance inequality and odd/even QFI triangle may be loose; the new bound is not shown globally sharp.",
+        "Other partition-sensitive two-body QFI witnesses might supply the same improvement under a different normalization."
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a physically motivated tightening of a published entanglement-depth certification threshold for the large-block regime, not an arbitrary small integer improvement. Although the bound need not be exactly attainable, the strengthened finite-size witness can certify depth in the window excluded by the older numerator. The endpoint k=N yields the natural N² estimate. The gain is limited to k>N/2 and the same local inequalities may remain loose, explicitly limiting practical effect.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Shimokawa arXiv:2609.39258v1 original vector-chirality QFI source and supplement",
+    "Hyllus et al arXiv:1006.4366 / Phys Rev A 85 022321",
+    "Resultary query vector chirality quantum Fisher information k-producible states global matching cut sharper bound periodic chain k>N/2"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Claims restricted to the domain and boundary cases explicitly stated in the reviewed RESULT.md; finite evidence is not an infinite proof.",
+    "Originality assessed best-of-knowledge from source comparisons with explicit risks, not exhaustive priority certification.",
+    "No independent expert or Lean attestation, and no Git/source/publication edits have occurred."
+  ],
+  "residual_risks": [
+    "The source local covariance inequality and odd/even QFI triangle may be loose; the new bound is not shown globally sharp.",
+    "Other partition-sensitive two-body QFI witnesses might supply the same improvement under a different normalization."
+  ],
+  "schema_version": 1
+}
