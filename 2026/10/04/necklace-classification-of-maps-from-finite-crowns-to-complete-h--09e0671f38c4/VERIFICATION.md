@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,29 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is structural. The computational artifact is a finite regression check, not an infinite certificate.
+# Independent mathematical audit
 
-`artifacts/verify.py` constructs the crown order and the complete height-two target, enumerates all order-preserving maps for six small parameter tuples, builds the undirected comparability graph on those maps, and counts its connected components. It compares those counts with
-\[
-1+\sum_{\ell=2}^{m-1}\frac1\ell\sum_{d\mid\ell}\varphi(\ell/d)c_d(r)c_d(s)+c_m(r)c_m(s),
-\]
-where
-\[
-c_\ell(q)=(q-1)^\ell+(-1)^\ell(q-1).
-\]
+## correctness
 
-The checked tuples and expected component counts are
-\[
-(2,2,2)\mapsto5,\quad
-(2,2,3)\mapsto13,\quad
-(3,2,2)\mapsto3,\quad
-(3,2,3)\mapsto7,\quad
-(3,3,3)\mapsto55,\quad
-(4,2,2)\mapsto7.
-\]
+PASS
 
-The script additionally checks the two boundary identities: the \(m=2\) formula agrees with the complete-height-two source boundary, and the \(r=s=2\) formula agrees with the four-point crown-target formula for several \(m\).
+Reconstructed normalization to level-preserving maps via pointwise comparable moves on crown minima/maxima. Normalized moves coincide with spur replacement of alternating closed walks in K_(r,s). Redundant spur sliding identifies nonmaximal cyclically reduced words up to rotation, while a spur-free maximal-length map has no allowable move; Burnside yields the stated totient necklace sum and the isolated count. Independently built connected components of normalized-move graphs and verified (m,r,s)=(3,3,4),(4,2,3),(4,3,3),(5,2,2),(5,2,3),(6,2,2),(6,2,3); finite tests corroborate, not replace all-m proof.
 
-Unproved by computation: all unbounded parameter values, uniqueness of the cyclically reduced core, and the fixed-length spur-sliding classification. Those points are proved in `RESULT.md`; the finite computation only stress-tests them on representative cases.
+## originality
+
+PASS
+
+Best-of-knowledge novel full crown-to-complete-height-two target finite-space homotopy component and necklace classification. Earlier crown-to-crown specialization and raw map counts are narrower or a different invariant.
+
+## value
+
+PASS
+
+Maps between natural minimal finite circle models and complete height-two finite posets have distinct homotopy components, so an exact structural necklace classification and sharp no-slack isolation boundary are useful topological invariants beyond routine map counting. The three-parameter result extends known four-point target specializations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
