@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T17:11:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source equation preceding Theorem 5.1 explicitly gives \\(\\beta_1=-0.6956435964\\lambda_1+43.44299811\\lambda_2\\) and positive scaling \\(\\bar\\beta_1=(b^4/a^3)\\beta_1\\) with \\(a=4.537776612\\times10^{-4}>0\\), \\(b=0.4552873824>0\\). Thus the first coefficient must be negative. Fresh high-precision decimal replay gives approximately \\(-319889446.9717\\), consistent with \\(-3.19889447\\times10^8\\), and the second coefficient approximately \\(1.99771214917\\times10^{10}\\). The source immediately before its Theorem 5.1 indeed prints that negative coefficient; its equation (16) alone switches to positive. The source's own saddle-node tangent is \\(-\\bar\\lambda_1+62.4500798\\bar\\lambda_2=0\\), whereas the printed positive sign would yield the opposite first-parameter tangent. Primary PDF page 3224 was visually inspected and directly establishes both discrepancies. Rounded source data certify sign and displayed precision, not hidden full-model center manifold.",
+      "risk": "Corrects one printed normal-form term only, without recalculating model equilibria, BT2 location or complete global bifurcation curves.",
+      "sources": [
+        "Wen--Liu--Lu DOI:10.3934/era.2021034 primary full PDF page 3224",
+        "Assigned RESULT.md at blob b59e42111548496e5a221dcd404c6d69691f74dc",
+        "Assigned verify.py exact Decimal script",
+        "Fresh independent Decimal calculation"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general BT normal-form theory gives generic unfolding machinery, not this numerical coefficient.",
+          "Only the source's specific center-manifold coefficient and its positive change-of-variables determine the sign."
+        ],
+        "reasoning": "No general-dynamics theorem can identify a specific mistaken coefficient without the numerical data printed by Wen et al.",
+        "searches": [
+          "Wen--Liu--Lu DOI:10.3934/era.2021034",
+          "Carrillo--Verduzco--Delgado DOI:10.1142/S0218127410026277 (theorem-level context)",
+          "Kuznetsov Elements of Applied Bifurcation Theory (general reference)"
+        ]
+      },
+      "checked_sources": [
+        "Wen--Liu--Lu DOI:10.3934/era.2021034 primary PDF full relevant section",
+        "DOI:10.1142/S0218127410026277 bibliographic context",
+        "Assigned RESULT.md and verify.py",
+        "Resultary semantic query attempted but temporarily unavailable",
+        "Targeted public DOI/erratum search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The positive scaling implies the negative first coefficient rigorously, and the paper's own saddle-node condition independently requires it.",
+          "Using the erroneous printed plus sign would reverse the tangent of the saddle-node curve, a mathematically material discrepancy."
+        ],
+        "reasoning": "The correction follows from internal source inconsistency and fixes a real claim in the prominently displayed local BT2 normal form, while preserving correctly printed later curves.",
+        "searches": [
+          "Wen--Liu--Lu original PDF page 3224, normalized beta1 and Theorem 5.1",
+          "Wen--Liu--Lu saddle-node curve in same theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent statement is that the first coefficient of \\(\\bar\\beta_1\\) must retain the sign of \\(\\beta_1\\), since the normalization factor is strictly positive.",
+          "The corresponding corrected saddle-node tangent is the positive slope already displayed in the paper."
+        ],
+        "reasoning": "Searched equivalent direct sign, scaled-parameter and saddle-node slope formulations, rather than only identical typo wording.",
+        "searches": [
+          "Wen--Liu--Lu 2021 full paper equations (14)--(16), Theorem 5.1",
+          "Search: Wen Liu Lu BT2 electromagnetic induction correction equation 16 sign erratum",
+          "Resultary query: BT2 Wen Liu Lu electromagnetic induction neuron equation 16 beta1 coefficient sign saddle node erratum (service temporarily unavailable)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original source table lists BT2 parameters and the source page already has inconsistent signs; the error is not an alternative parameter convention.",
+          "No independently accessible author-issued correction was found in the search performed."
+        ],
+        "reasoning": "The source itself documents the contradictory numbers but cannot count as a prior published *explicit repair*. An unindexed correction remains possible.",
+        "searches": [
+          "DOI:10.3934/era.2021034 primary article BT2 table, equations (15)--(16)",
+          "Targeted searches of publisher/DOI correction terminology and the slope 62.4500798"
+        ]
+      },
+      "rationale": "The source directly supplies both conflicting signs and the associated saddle-node curve, but does not explicitly issue the correction. Generic BT normal form papers do not determine the source-specific numerical coefficient. Searches by DOI, distinctive coefficient and erratum language did not locate an equivalent published corrigendum, although the dedicated published-record semantic service was temporarily unavailable. An unindexed author note is an explicit residual risk. The correction is not claimed independent of source data or a new dynamical-system bifurcation theorem.",
+      "residual_risks": [
+        "A later or unindexed author corrigendum might explicitly state this one-sign fix; none was verified here.",
+        "The broader four-dimensional neuron model and exact center-manifold derivation were not independently recomputed; only the published reduced-coefficient inconsistency was judged.",
+        "Resultary did not return successful search results because of a transient service failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INTERNAL_SOURCE_SIGN_CONTRADICTION_CONFIRMED",
+          "evidence": "Immediately before Theorem 5.1 the normalized first parameter is negative; equation (16) prints positive; the following saddle-node tangent again assumes negative.",
+          "identifier_or_url": "DOI:10.3934/era.2021034 / https://www.aimspress.com/aimspress-data/era/2021/5/PDF/1935-9179_2021_5_3205.pdf",
+          "material_read": "Complete accessible 22-page primary PDF opened; inspected BT2 unfolding derivation, equation (15), source-normalized first coefficient, Theorem 5.1 equation (16) and saddle-node curve, including rendered page 3224.",
+          "method": "Lawful publisher open full-text PDF, math extraction and high-resolution visual comparison.",
+          "title": "Firing patterns and bifurcation analysis of neurons under electromagnetic induction",
+          "trigger": "Original article with exact offending equation and numerical data."
+        },
+        {
+          "assessment": "GENERAL_PARAMETER_THEORY_NOT_SOURCE_SPECIFIC",
+          "evidence": "The generic unfolding framework cannot determine the specific sign from Wen et al.'s printed coefficients without using that source.",
+          "identifier_or_url": "DOI:10.1142/S0218127410026277",
+          "material_read": "Bibliographic/abstract-level source information only; full paper not obtained in this run.",
+          "method": "Theorem-level comparison, not whole-document coverage assertion.",
+          "title": "Analysis of the Takens--Bogdanov bifurcation on m-parameterized vector fields",
+          "trigger": "General normal-form background cited by the offending source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A wrong sign in the constant term of a displayed Bogdanov--Takens unfolding reverses its linear saddle-node orientation if that formula is reused. Correcting the mathematically material local normal form resolves a contradiction between the published theorem and its derivation, even though the source's later bifurcation curves already happen to use the correct sign.",
+      "risk": "The correction is source-specific and narrow; it does not establish a new dynamics classification or alter curves already printed with the correct sign.",
+      "sources": [
+        "Wen--Liu--Lu DOI:10.3934/era.2021034 page 3224"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In Wen--Liu--Lu's \\(BT_2\\) electromagnetic-induction neuron reduction, equation (16) must have coefficient \\(-3.19889447\\times10^8\\) rather than \\(+3.19889447\\times10^8\\) multiplying its first unfolding parameter in the constant term; all other displayed terms of that local normal form are unchanged.",
+  "limitations": [
+    "Only the printed BT2 parameter normalization and the first constant-term sign in equation (16).",
+    "Rounded input constants suffice for sign but not independent model-level high precision.",
+    "No re-derivation of 4D neuron dynamics or global bifurcation diagrams."
+  ],
+  "schema_version": 1
+}
