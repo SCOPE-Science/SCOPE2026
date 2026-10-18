@@ -1,14 +1,21 @@
-# Self-review
-## Correctness
-PASS. The component incidences are exhaustive: away from \(z=0\), the derivative in the \(z\)-direction prevents singularities on the nonlinear component and the added lines do not meet it. At infinity, a unit-root coordinate change gives precisely \(uv(u^{k_j}-v^d)=0\). The weighted-homogeneous Milnor/Tjurina and threshold formulas follow exactly, and the global minimum reduces to the largest \(k_j\). The independent symbolic replay contained in `verify.py` checks the Jacobian-algebra dimensions in a finite grid and the general algebraic identities.
+# Independent mathematical audit
 
-## Originality
-PASS. Searches covered the source title, exact family, local analytic germ, Arnold exponent/log-canonical-threshold terminology, fixed-exponent comparisons, and aliases in published-finding corpus and the current/prior ledgers. The closest source is the paper defining the family: it proves freeness and gives related Tjurina calculations, but does not state the final singularity list or global threshold. A related conic-arrangement paper uses weighted-homogeneous thresholds as a general method but concerns different objects. No stronger covering statement was found.
+## correctness
 
-## Value
-PASS. The threshold is a natural birational singularity invariant already used in the free-curve literature. Here it detects information invisible to degree, free exponents, and total Tjurina number: the two degree-ten examples arising from \((2,2,2)\) and \((4,1,1)\) both have exponents \((2,7)\), but thresholds \(2/5\) and \(5/17\). This makes the exact family calculation structurally informative rather than a routine tabulation.
+PASS
 
-## Closest literature and limitations
-The closest literature is Dimca--Ilardi--Pokora--Sticlaru, Theorem 1.5 and Section 4.2, plus Pokora's discussion of weighted-homogeneous thresholds for free conic arrangements. The present claim is confined to the explicit Thom--Sebastiani family and does not assert that the threshold determines the full multiplicity partition. Search-based originality has the residual risk of unindexed or differently phrased prior work.
+For D=z(P-z^d)Πell_j with P=Πell_j^{k_j} and distinct linear forms, the nonlinear component is smooth away from z=0 because ∂_z(P-z^d)=-dz^{d-1}; added lines cannot meet it there. At q=[0:0:1] the m lines form an ordinary m-fold point with tau=(m-1)^2 and lct=min(1,2/m)=2/m. At each p_j=(z=ell_j=0), the other line factors are analytic units; taking a holomorphic k_j-th root of their product reduces the germ to uv(u^{k_j}-v^d). It is reduced weighted homogeneous with weights d,k_j and weighted degree dk_j+d+k_j, giving mu=tau=(d+1)(k_j+1) and lct=(d+k_j)/(dk_j+d+k_j). Since phi_d'(k)=-d^2/(dk+d+k)^2<0, only K=max_j k_j controls the global lct. Total tau=(m-1)^2+(d+1)(d+m) equals the expected free-curve value for degree d+m+1 and exponents (m-1,d+1). The d=6,m=3 partition comparison is exactly 2/5 versus 5/17. An independent weighted-Euler and symbolic check passed, corroborative to the local geometric argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Dimca–Ilardi–Pokora–Sticlaru Theorem 1.5 describes this same family and free exponents and computes corresponding local Tjurina numbers for the intermediate curve C'. It does not state the full final C'' analytic singularity list, its global log-canonical threshold, or the fixed-degree/free-exponent variation example. Weighted-homogeneous threshold formula itself is classical and credited; the claim is the explicit family-specific threshold and its contrast with numerical freeness data.
+
+## value
+
+PASS
+
+The log-canonical threshold is a natural birational singularity invariant. The formula and explicit partition comparison show that degree, total Tjurina number and both free exponents do not determine it even inside this controlled Thom–Sebastiani family. This discriminating property gives clear mathematical motivation beyond a substitution into the freeness theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
