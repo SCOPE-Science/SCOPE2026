@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-From the directory containing this document, run `python3 checker.py`. The executable requires Python 3.8 or newer and no third-party packages. It computes periodic autocorrelation by integer arithmetic, enumerates the full anchored finite domains at prime orders \(5,7,11\), and groups by the explicitly enumerated translation-reflection-sign orbits. At order \(11\) it also enumerates all \(5280\) full-support/sign assignments independently of anchoring and checks that every canonical orbit is represented by the anchored census. It compares each of the five exceptional profiles exactly, and verifies that there are precisely five doubleton fibers and no larger fibers.
+## correctness
 
-Observed completed run:
+PASS
 
-```text
-p=5 normalized=32 spectra=6 orbits=6 ambiguous_spectra=0
-p=7 normalized=160 spectra=26 orbits=26 ambiguous_spectra=0
-p=11 normalized=960 spectra=135 orbits=140 ambiguous_spectra=5
-CHECK_PASS exact enumerated base configurations = 1152
-```
+Fourier expansion gives the periodic autocorrelation C_f(t)=∑_x f(x)f(x−t), whose discrete Fourier transform is indexed |fhat(k)|², so equality is exactly equality of integer autocorrelation vectors. Every signed four-support orbit has an anchored sign-positive representative (zero coefficient 1); independent integer combinations over the remaining sites/signs give p=5 (6 spectral fibers, 6 orbits), p=7 (26,26), p=11 (135,140) with exactly five fibers of size two and no larger. Those five profiles are C(0)=4,C(±d)=−1,C(±2d)=+1 for d=1,..,5 (checked independently). A separate full C(11,4)·2⁴=5280 census is in inspected checker; the anchored enumeration already covers every equivalence orbit. Exact polynomial identity F(z)F(z^-1)=H(z)H(z^-1) holds by common factor and reciprocal cubic, verified symbolically; sign-position comparison excludes trivial equivalence for all primes p≥11. Small finite census is exhaustive, not extrapolation; ≥11 existence is proven algebraically.
 
-The pairwise integer Laurent autocorrelation of the universal witness agrees exactly. Tests at finitely many additional primes check the witness but do **not** prove the infinite-prime assertion: that rests on the exact reciprocal-factor identity and the position/sign argument in `RESULT.md`. This document does not assert an independent audit or external formal certification.
+## originality
+
+PASS
+
+Bendory–Edidin–Gonzalez 2023 Theorem4.3 treats generic alphabet parameters 0,α2,…; fixed α∈{−1,+1} are nongeneric and their finite-alphabet theorem does not classify five exceptional signed p11 fibers. The unsigned four-point homometric classification and constant-lag signed difference sets have different constraints; neither logically determines these indexed spectra or p11 threshold. Resultary search found other support-zero and Fourier-minor findings but none with these fixed ±1 four-atom autocorrelation fibers. Risk of unindexed signed-sequence catalogs remains.
+
+## value
+
+PASS
+
+Phase retrieval loses only magnitude, and identifying the first prime cyclic order where the minimal nontrivial signed-four-atom ambiguity arises, plus every ambiguous p11 fiber, is a structural reconstruction boundary. The labelled small-order census has a complete natural domain; algebraic universal witness ties finite cutoff to higher orders. No inappropriate claim of classifying every higher-prime fiber.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

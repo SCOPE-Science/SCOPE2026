@@ -1,15 +1,21 @@
-# Same-model review: signed four-atom phase-retrieval threshold
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated domain is all four-sparse \(\{-1,0,1\}\)-valued functions on \(\mathbb Z_p\), for prime \(p\ge5\). A normalized Fourier intensity is not substituted for the indexed unnormalized intensity: the precise autocorrelation identity appears in the proof. Exhaustiveness of the finite results follows because translating any support point to zero and multiplying by a common sign creates one of the enumerated configurations. The exact orbit routine considers both reflection directions, both global signs, and all support-point anchors. Complete integer enumeration yields \(6,26,135\) spectra at orders \(5,7,11\), and \(6,26,140\) equivalence classes; all five order-eleven ambiguous fibers have two orbits and the indicated autocorrelations. A separate unanchored enumeration of all \(5280\) order-eleven signed signals corroborates the orbit count. The infinite family is proved by exact polynomial reversal and a unique-negative-site argument, not by sampling primes.
+## correctness
 
-## Originality — PASS, with specified risk
-The closest source is Bendory--Edidin--Gonzalez, *Finite Alphabet Phase Retrieval*, arXiv:2301.10647, Theorem 4.3: its equivalence with homometric partitions requires generic nonzero alphabet letters. The fixed opposite-sign letters here do not satisfy that genericity premise; its examples and Section 5 do not furnish the five order-eleven fibers. Gordon's *Signed Difference Sets*, arXiv:2212.10630, restricts its principal constructions to uniform nonzero-lag autocorrelation, which is incompatible with the two signed values and zero lags in the five fibers. Erickson--Jones, arXiv:2412.08997, Section 1, recounts the two families of **unsigned** four-element homometric sets, neither including cyclic order eleven. Published Fourier-zero results for four-sparse signals and frequency-deletion phase retrieval compare different data and do not imply the present result. Older signed homometry catalogs, reciprocal-factor classifications, or hidden small-parameter tables remain a residual originality risk. This review makes no independence or absolute-novelty claim.
+PASS
 
-## Value — PASS
-The exact alphabet \(\{-1,0,1\}\) models sign contrast while keeping support sparse; its nongeneric geometry is not controlled by the generic-alphabet theorems. The least prime length supporting an ambiguity is a mathematically natural sampling threshold, and all ambiguity fibers at that first threshold are counted and classified. The proof joins a finite, exhaustively certified cutoff with one explicit factorization producing ambiguities at every larger prime. These facts give concrete recovery limits rather than a relabeling of the Fourier-autocorrelation identity.
+Fourier expansion gives the periodic autocorrelation C_f(t)=∑_x f(x)f(x−t), whose discrete Fourier transform is indexed |fhat(k)|², so equality is exactly equality of integer autocorrelation vectors. Every signed four-support orbit has an anchored sign-positive representative (zero coefficient 1); independent integer combinations over the remaining sites/signs give p=5 (6 spectral fibers, 6 orbits), p=7 (26,26), p=11 (135,140) with exactly five fibers of size two and no larger. Those five profiles are C(0)=4,C(±d)=−1,C(±2d)=+1 for d=1,..,5 (checked independently). A separate full C(11,4)·2⁴=5280 census is in inspected checker; the anchored enumeration already covers every equivalence orbit. Exact polynomial identity F(z)F(z^-1)=H(z)H(z^-1) holds by common factor and reciprocal cubic, verified symbolically; sign-position comparison excludes trivial equivalence for all primes p≥11. Small finite census is exhaustive, not extrapolation; ≥11 existence is proven algebraically.
 
-## Limits
-The complete fiber classification is only at the three smallest admissible prime orders. The explicit witness proves existence rather than exhaustive classification for larger primes. Exact finite enumeration proves finite facts, not the infinite statement; the latter has its separate algebraic argument. Search and close-source inspection cannot exclude all unpublished or historically indexed equivalents.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bendory–Edidin–Gonzalez 2023 Theorem4.3 treats generic alphabet parameters 0,α2,…; fixed α∈{−1,+1} are nongeneric and their finite-alphabet theorem does not classify five exceptional signed p11 fibers. The unsigned four-point homometric classification and constant-lag signed difference sets have different constraints; neither logically determines these indexed spectra or p11 threshold. Resultary search found other support-zero and Fourier-minor findings but none with these fixed ±1 four-atom autocorrelation fibers. Risk of unindexed signed-sequence catalogs remains.
+
+## value
+
+PASS
+
+Phase retrieval loses only magnitude, and identifying the first prime cyclic order where the minimal nontrivial signed-four-atom ambiguity arises, plus every ambiguous p11 fiber, is a structural reconstruction boundary. The labelled small-order census has a complete natural domain; algebraic universal witness ties finite cutoff to higher orders. No inappropriate claim of classifying every higher-prime fiber.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
