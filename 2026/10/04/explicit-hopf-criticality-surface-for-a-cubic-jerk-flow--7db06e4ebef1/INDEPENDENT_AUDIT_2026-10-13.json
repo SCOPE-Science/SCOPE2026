@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T20:17:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/explicit-hopf-criticality-surface-for-a-cubic-jerk-flow--7db06e4ebef1/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/explicit-hopf-criticality-surface-for-a-cubic-jerk-flow--7db06e4ebef1/verify.py",
+        "doi:10.3390/math11122623 Eq.(17)"
+      ],
+      "rationale": "Reconstructed the equilibrium shift u=x+beta,v=y,w=z and the monic characteristic cubic lambda^3+lambda^2+(1+beta)lambda+1; its Routh first column (1,1,beta,1) gives three stable roots for beta>0 and two unstable for beta<0. At beta=0 the roots are -1,+/-i and implicit differentiation gives lambda'(0)=(-1+i)/4. Independently expanded the polynomial vector-field quadratic and cubic forms and checked Aq=iq, A^T p=-ip, conjugate(p)^T q=1, h11=A^{-1}B(q,qbar)=(2alpha,0,0), the resolvent term and the real normal-form contraction: Re G/2=(8alpha^2-13alpha+15gamma-1)/20. At alpha=23/10,gamma=1/20 it equals 1217/2000. The radial normal form dot r=(-beta/4)r+l1*r^3+... gives r^2=beta/(4l1)+o(|beta|) and radial derivative beta/2. The degenerate l1=0 surface is excluded, so the claim makes no unsupported higher-order Hopf assertion.",
+      "residual_risks": [
+        "Only a local bifurcation for sufficiently small beta is justified; no global cycle continuation or claim on l1=0.",
+        "The source paper Eq.(57) discretization search excerpt displays a sign inconsistent with its defining Eq.(17) in the gamma-cubic term; the audited claim is explicitly for Eq.(17), not the hardware equation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 primary source treats the model and finite positive-beta bifurcation numerics.",
+          "The 2021 source under gamma=0 covers only the associated linear stability exchange in the inspected description."
+        ],
+        "reasoning": "Qualitative bifurcation and stability descriptions do not themselves imply Re G/2=(8alpha^2-13alpha+15gamma-1)/20 for all alpha,gamma.",
+        "searches": [
+          "doi:10.3390/math11122623",
+          "doi:10.3390/math9243217",
+          "cubic jerk system first Lyapunov coefficient Hopf beta zero"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/math11122623",
+        "doi:10.3390/math9243217",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/explicit-hopf-criticality-surface-for-a-cubic-jerk-flow--7db06e4ebef1/RESULT.md",
+        "Resultary semantic search cubic jerk flow dx=y dy=z dz=-x-y-z-alpha z^2+xy-beta+gamma z^3 Hopf first Lyapunov coefficient beta=0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2023 Eq.(17) matches the audited ODE including +gamma*z^3, with positive-beta Case A and Case B.",
+          "Cubic gamma enters C_3 and l1 but not the linearized Routh polynomial."
+        ],
+        "reasoning": "The prior equilibrium and numeric attractor calculations imply neither an explicit first Lyapunov coefficient nor a stable-versus-unstable local cycle branch. The linear threshold is acknowledged prior.",
+        "searches": [
+          "doi:10.3390/math11122623 Eq.(17), Section 3 and Section 6",
+          "doi:10.3390/math9243217 precursor"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 source defining equation (17) is the exact same jerk ODE.",
+          "The 2021 precursor has gamma=0 and the same equilibrium linear threshold."
+        ],
+        "reasoning": "A forcing sign change maps the 2021 quadratic member to the zero-cubic family, but it does not directly imply the two-parameter cubic Hopf coefficient. Other indexed jerk criticality claims use different polynomial nonlinearities.",
+        "searches": [
+          "cubic jerk flow dx=y dy=z dz=-x-y-z-alpha z^2+xy-beta+gamma z^3 Hopf first Lyapunov coefficient beta=0",
+          "Vaidyanathan Azar Hameed Benkouider cubic jerk system Hopf beta zero",
+          "doi:10.3390/math11122623"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact hit is the same already-published candidate, not independent prior art.",
+          "Nearby indexed examples concern reversible quadratic, nonsmooth and other jerk systems."
+        ],
+        "reasoning": "No numerical table/database containing this entire alpha-gamma analytic surface was located; unrelated indexed system parameters and single points do not cover the universal formula.",
+        "searches": [
+          "cubic jerk flow dx=y dy=z dz=-x-y-z-alpha z^2+xy-beta+gamma z^3 Hopf first Lyapunov coefficient beta=0",
+          "published Resultary: explicit Hopf criticality surface; cone crossing reversible quadratic jerk; exact equilibrium geometry"
+        ]
+      },
+      "rationale": "The stability threshold follows from the gamma-independent linearization and is not claimed as new. The potentially new assertion is the exact two-parameter Hopf coefficient and its branch stability classification. Targeted equation-specific literature and published-Resultary searches found no stronger same-equation result in the material checked; failure to find one is not a proof of universal priority.",
+      "residual_risks": [
+        "A later unindexed same-flow center-manifold calculation could already supply the coefficient.",
+        "Full-text access to the 2021 precursor and every part of the 2023 paper was limited; no global NOT_COVERING conclusion from a snippet."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected material sets up the model and positive-beta examples without stating the claimed Hopf formula; whole-document absence not certified from snippets.",
+          "evidence": "Equation (17): dz=-x-y-z-alpha*z^2+xy-beta+gamma*z^3. Case A alpha=2.3,beta=.02,gamma=.05; Section 6 FPGA numerics.",
+          "identifier_or_url": "doi:10.3390/math11122623",
+          "material_read": "Open-access indexed full-text sections: introduction, defining Eq.(17), equilibrium derivation, Case A/B parameters, Section 6 numerical/FPGA treatment and conclusions; not an exhaustive independent page-by-page read of all sections.",
+          "method": "Publisher indexed open-access text; live publisher open gave HTTP 429",
+          "title": "Bifurcation Analysis, Synchronization and FPGA Implementation of a New 3-D Jerk System with a Stable Equilibrium",
+          "trigger": "Exact model and closest obvious prior study"
+        },
+        {
+          "assessment": "Prior stability geometry plausibly covered, cubic gamma-dependent coefficient cannot follow directly from the gamma=0 equation without a new calculation.",
+          "evidence": "2021 article investigates the quadratic jerk member and a stable equilibrium; source 2023 explicitly describes adding the cubic nonlinearity.",
+          "identifier_or_url": "doi:10.3390/math9243217",
+          "material_read": "Bibliographic abstract and accessible published descriptions of its equilibrium and parameter studies; full primary paper not independently readable in this run.",
+          "method": "Open bibliographic records, with publisher request rate-limited",
+          "title": "Dynamical Behavior of a New Chaotic System with One Stable Equilibrium",
+          "trigger": "Identified by 2023 source as the quadratic predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "doi:10.3390/math11122623 Eq.(17), Section 3",
+        "doi:10.3390/math9243217"
+      ],
+      "rationale": "A precise local Hopf criticality coefficient at the exact boundary of the studied stable-equilibrium regime distinguishes the side and stability of a newborn periodic orbit, and exposes a natural degenerate two-parameter surface. This directly answers a structural question left untouched by positive-beta numerical bifurcation plots, not a parameter renaming or bare eigenvalue table.",
+      "residual_risks": [
+        "The result is strictly local and does not address the numerical attractor basins or hardware sign discrepancy."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only a local bifurcation for sufficiently small beta is justified; no global cycle continuation or claim on l1=0.",
+    "The source paper Eq.(57) discretization search excerpt displays a sign inconsistent with its defining Eq.(17) in the gamma-cubic term; the audited claim is explicitly for Eq.(17), not the hardware equation.",
+    "A later unindexed same-flow center-manifold calculation could already supply the coefficient.",
+    "Full-text access to the 2021 precursor and every part of the 2023 paper was limited; no global NOT_COVERING conclusion from a snippet.",
+    "The result is strictly local and does not address the numerical attractor basins or hardware sign discrepancy."
+  ],
+  "schema_version": 1
+}

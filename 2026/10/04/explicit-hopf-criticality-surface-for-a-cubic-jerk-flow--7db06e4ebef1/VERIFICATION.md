@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact checker `verify.py` uses only Python's standard library. It verifies the Hopf eigenvector and adjoint eigenvector identities, the normalization \(\bar p^Tq=1\), the two linear solves entering the first-Lyapunov formula, the symbolic polynomial identity
+# Independent mathematical audit
 
-\[
-l_1=\frac{8\alpha^2-13\alpha+15\gamma-1}{20},
-\]
+## correctness
 
-and the two source-parameter substitutions \(1217/2000\) and \(1157/2000\). A successful run prints `VERIFY_OK`.
+PASS
 
-The checker is an exact algebraic replay; it is not a proof of novelty and it does not test global continuation of the local periodic branch. The mathematical proof of the parameter-uniform formula is given in `RESULT.md`, including the explicit intermediate contraction \(G\). The degenerate surface where \(l_1=0\) remains outside the nondegenerate conclusion.
+Reconstructed the equilibrium shift u=x+beta,v=y,w=z and the monic characteristic cubic lambda^3+lambda^2+(1+beta)lambda+1; its Routh first column (1,1,beta,1) gives three stable roots for beta>0 and two unstable for beta<0. At beta=0 the roots are -1,+/-i and implicit differentiation gives lambda'(0)=(-1+i)/4. Independently expanded the polynomial vector-field quadratic and cubic forms and checked Aq=iq, A^T p=-ip, conjugate(p)^T q=1, h11=A^{-1}B(q,qbar)=(2alpha,0,0), the resolvent term and the real normal-form contraction: Re G/2=(8alpha^2-13alpha+15gamma-1)/20. At alpha=23/10,gamma=1/20 it equals 1217/2000. The radial normal form dot r=(-beta/4)r+l1*r^3+... gives r^2=beta/(4l1)+o(|beta|) and radial derivative beta/2. The degenerate l1=0 surface is excluded, so the claim makes no unsupported higher-order Hopf assertion.
+
+## originality
+
+PASS
+
+The stability threshold follows from the gamma-independent linearization and is not claimed as new. The potentially new assertion is the exact two-parameter Hopf coefficient and its branch stability classification. Targeted equation-specific literature and published-Resultary searches found no stronger same-equation result in the material checked; failure to find one is not a proof of universal priority.
+
+## value
+
+PASS
+
+A precise local Hopf criticality coefficient at the exact boundary of the studied stable-equilibrium regime distinguishes the side and stability of a newborn periodic orbit, and exposes a natural degenerate two-parameter surface. This directly answers a structural question left untouched by positive-beta numerical bifurcation plots, not a parameter renaming or bare eigenvalue table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
