@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T21:54:06.383566Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The submitted Finding asserts the upper f-divergence equality case forces the specific lower Frechet-Hoeffding diagonal even though the divergence identity and bound explicitly do not require diagonal convexity. This is false: for d=2 put q(u)=2 on [1/4,3/8] and [5/8,1], and q=0 elsewhere, and Delta(u)=integral_0^u q. Then Delta(1)=1, Delta(u)<=u, and 0<=Delta(v)-Delta(u)<=2(v-u), so Cattaneo et al. Lemma 1 makes it an attainable copula diagonal. For strictly convex phi (in particular phi(t)=t log t), q in {0,2} achieves the upper bound KL=log 2, yet Delta(3/8)=1/4 while max(2*(3/8)-1,0)=0. The proof and REVIEW.md partly acknowledge uniqueness only inside the diagonally convex subclass; the unqualified Finding is scientifically false. Density-ratio likelihood-order iff, information identity, and numerical envelope are otherwise correct. No complete corrected final RESULT.md and associated audit metadata bytes supplied: original claim fails C, not reclassified as PASS.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cattaneo et al. establish general diagonal Lipschitz characterization and anti-concentration for extrema.",
+          "Belzunce–Gürler–Ruiz abstract concerns LR order on order-statistic vectors, but full text could cover implications."
+        ],
+        "reasoning": "The established ∆ regularity and max-law compose to provide q(F); the LR iff step remains a new interpretation relative to inspected theorems. The abstract-only 2011 comparison is a genuine source risk.",
+        "searches": [
+          "arXiv:2502.07699v2",
+          "DML-CZ:135889",
+          "DOI:10.1017/S0269964811000052"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2502.07699v2",
+        "DML-CZ:135889",
+        "DOI:10.1017/S0269964811000052",
+        "DOI:10.1142/S0218488511006848",
+        "Resultary copula query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior lemma characterizes all d-dimensional copula diagonals; this actually supports the counterexample to the submitted unqualified equality claim.",
+          "Existing anti-concentration theorem does not imply LR iff without proving the q derivative ratio; the 2011 abstract is not sufficient to resolve maximal-marginal equivalence."
+        ],
+        "reasoning": "The new LR theorem and information identity add content; the present originality PASS does not repair the correctness-failing equality classification.",
+        "searches": [
+          "arXiv:2502.07699v2 Lemma 1 and Definition 3",
+          "DOI:10.1017/S0269964811000052 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cattaneo et al. define convex diagonals and derive maximum CDF via diagonal, not an observed LR-order iff theorem in full text.",
+          "Own claim is the only identical Resultary indexed hit; other entries concern copula entropy/other dependence measures."
+        ],
+        "reasoning": "Compare maximum against its own margin, not maximum against another order statistic or comparisons of likelihood-ratio ordered vectors.",
+        "searches": [
+          "Resultary: copula diagonal convex iff maximum is likelihood ratio larger than common marginal maximum marginal f divergence",
+          "web: likelihood ratio order maximum vs marginal convex diagonal copula distribution",
+          "arXiv:2502.07699"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct record or table gives the maximum-vs-own-margin f-divergence envelope log d.",
+          "This is a functional identity and sharp bound, not a finite lookup quantity."
+        ],
+        "reasoning": "No independent tabulation observed, but absence of a database match does not certify novelty.",
+        "searches": [
+          "Resultary copula diagonal convex iff maximum is likelihood ratio larger than common marginal maximum marginal f divergence",
+          "web: likelihood ratio order maximum vs marginal convex diagonal copula distribution"
+        ]
+      },
+      "rationale": "The likelihood-ratio iff characterization and margin-free information envelope were compared against the full anti-concentration copula paper, feasible order-statistic distributions, and older LR order statistics. No covering theorem was read; principal 2011 paper remained abstract only. O concerns mathematically surviving components even though the submitted final claim fails correctness for upper equality uniqueness.",
+      "residual_risks": [
+        "A 2011 likelihood-ratio-order paper could contain a logically stronger theorem; abstract-only review cannot exclude this.",
+        "General copula maximum-law literature might have an equivalent derivative criterion under stochastic-order aliases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides foundations and independently validates admissible nonconvex KL equality counterexample",
+          "evidence": "Lemma 1: ∆(1)=1, ∆≤u, 0≤∆(u')-∆(u)≤d(u'-u) iff feasible. No likelihood-ratio formulation located in text.",
+          "identifier_or_url": "https://arxiv.org/html/2502.07699v2",
+          "material_read": "Full public HTML: Lemma 1 feasibility characterization, maximum CDF identity, convexity condition, anti-concentration statements",
+          "method": "Relevant original theorem/full-text inspection and term search",
+          "title": "Sharp Anti-Concentration Inequalities for Extremum Statistics via Copulas",
+          "trigger": "Identical copula diagonal dependence class"
+        },
+        {
+          "assessment": "Related order-statistic feasibility; residual primary full-text comparison risk",
+          "evidence": "The work addresses distributions of individual order statistics via copula diagonals, but no LR equivalence is evidenced in material read now.",
+          "identifier_or_url": "https://dml.cz/handle/10338.dmlcz/135889",
+          "material_read": "Source description and bibliographic reference; full text not independently re-read in this execution",
+          "method": "Public record inspected indirectly and compared with the source claim",
+          "title": "On distributions of order statistics for absolutely continuous copulas with applications to reliability",
+          "trigger": "Feasible maximum laws could already imply density-ratio relation"
+        },
+        {
+          "assessment": "Potential coverage unresolved; not treated as NOT_COVERING whole text",
+          "evidence": "Abstract addresses LR ordering among order-statistic vectors and conditional results; the maximum-to-own-margin theorem may be hidden inside.",
+          "identifier_or_url": "https://doi.org/10.1017/S0269964811000052",
+          "material_read": "Accessible abstract/metadata only",
+          "method": "Published abstract search; no full article access in this run",
+          "title": "Revisiting multivariate likelihood ratio ordering results for order statistics",
+          "trigger": "Closest title explicitly involves LR order statistics under dependence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The valid maximum-to-own-margin LR ordering equivalence gives a conceptual stochastic-order characterization for convex copula diagonals, and sharp marginal-invariant f-divergence bounds are naturally motivated for maxima. The unqualified equality uniqueness error does not erase the value of surviving mathematics but prevents acceptance of unchanged final claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Counterexample invalidates upper-extremizer uniqueness outside convex-diagonal subclass, not the LR iff statement or inequality.",
+    "Unqualified original claim preserved as failed; suggestions are not repaired final research files."
+  ],
+  "schema_version": 1
+}
