@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:16:22.543542Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every prime p, index j>=1, modulus m>=1, free integral module A=Z[X]/Phi_{p^j}(X) is rank p^r over B=Z[Y]/Phi_{p^{j-r}}(Y), Y=X^{p^r}, for 0<=r<j. Multiplication by Y-1 has cokernel B/(Y-1)=Z/p and is nonsingular over Q; hence SNF(C^{p^r}-I) has exactly p^r diagonal p entries, all remaining entries 1. Modulo m fixed points are gcd(p,m)^{p^r}; C^{p^j}=I and Mobius/telescoping gives all cycle counts. This handles p=2,j=1,m=1. Reconstructed exact small cycle decompositions with disjoint cycles, e.g. (p,j,m)=(3,1,6): three fixed points and eleven 3-cycles, (2,2,4): two fixed, one 2-cycle and three 4-cycles. Finite replay is corroboration; universal assertion follows from the integral-module/SNF proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General fixed-point/orbit inversion works for finite lattice automorphisms.",
+          "The identified general method does not supply p^r fixed-point ranks for cyclotomic prime powers."
+        ],
+        "reasoning": "General inversion becomes a proof of the assigned spectrum only after calculating the unprovided Smith invariants; no dominant result with that input identified.",
+        "searches": [
+          "Baake Neumärker Roberts DCDS 2013 DOI:10.3934/dcds.2013.33.527",
+          "Moree 2005 Witt transform DOI:10.1016/j.disc.2005.03.004"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md Git blob 6cc4bb16927afdcb331c14ee1c3deb99feac0bb8",
+        "pinned verify.py Git blob f4a949f406dc15c246a1d0ce5f305b6a16bb4b01",
+        "arXiv:2510.24882 primary PDF Conjectures 1 and 3",
+        "DOI:10.3934/dcds.2013.33.527 primary full-text reproduction",
+        "Resultary semantic search: prime power cyclotomic recurrence modulo m period counts conjugate integral Smith normal form fixed points cycle counts Pudelko"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pudelko gives conjectured formula; Baake et al supply the abstract periodic-point inversion.",
+          "The new Smith invariant from B/(Y-1)=Z/p yields F_r=g^{p^r} for all r<j."
+        ],
+        "reasoning": "The earlier statements + general Mobius inversion lack their decisive fixed-point input, so do not imply the asserted proof as an established theorem.",
+        "searches": [
+          "arXiv:2510.24882 main conjectures",
+          "DCDS 33 (2013) 527-553 orbit-count formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The conjecture in Pudelko gives the exact numerical cycle spectrum and necklace relation.",
+          "Pinned proof derives SNF(C^{p^r}-I)=diag(p repeated p^r,1 otherwise)."
+        ],
+        "reasoning": "Equivalent necklace counts for p|m were previously conjectured; the assessed theorem is a proof via integral cokernel computation rather than an independently new formula.",
+        "searches": [
+          "Resultary semantic search: prime power cyclotomic recurrence modulo m period counts conjugate integral Smith normal form fixed points cycle counts Pudelko",
+          "Pudelko arXiv:2510.24882 Conjectures 1 and 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Specific predicted counts occur in a published conjectural table and are not themselves asserted newly.",
+          "Independent small orbit counts match N_0=g and N_r=(F_r-F_{r-1})/p^r."
+        ],
+        "reasoning": "Finite tables or a conjectured numerical formula do not make a proof redundant. No exhaustive previously proven exact-cycle table for all p,j,m identified.",
+        "searches": [
+          "Resultary semantic search: prime power cyclotomic recurrence modulo m period counts conjugate integral Smith normal form fixed points cycle counts Pudelko",
+          "Pudelko Table/conjecture in arXiv:2510.24882"
+        ]
+      },
+      "rationale": "Published conjectures gave the same prime-power cycle formulas without their integral Smith-form proof. The assessed original contribution is establishing the conjectured spectrum and its SNF certificate, not inventing the conjectured numbers. General periodic-point inversion is prior work and requires the missing fixed-point input. Resultary did not retrieve an equivalent complete cyclotomic proof. A later or unindexed proof remains a best-of-knowledge priority risk.",
+      "residual_risks": [
+        "Pudelko exact formulas were expressly conjectured: novelty applies only to proof and stronger integral SNF certificate.",
+        "A separate, unindexed proof of the prime-power cyclotomic conjectures could preempt the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Formula and necklace analogy were conjectured, not proved for all moduli in inspected portion",
+          "evidence": [
+            "arXiv:2510.24882, Section 2, Conjectures 1 and 3"
+          ],
+          "identifier_or_url": "arXiv:2510.24882",
+          "material_read": "Full primary PDF: Section 2 and Conjectures 1,3, including displayed period formulas and examples",
+          "method": "Read accessible arXiv full PDF, inspected theorem/conjecture pages",
+          "title": "Modular Periodicity of Random Initialized Recurrences",
+          "trigger": "same exact index/period parameters; strong preemption candidate"
+        },
+        {
+          "assessment": "General orbit inversion prior; no exact p-adic Smith-invariant calculation found for cyclotomic companion family",
+          "evidence": [
+            "DCDS 33 (2013), Section 2.2 fixed-point/orbit identity"
+          ],
+          "identifier_or_url": "DOI:10.3934/dcds.2013.33.527",
+          "material_read": "Accessible full-text reproduction, orbit counting and explicit matrix dynamics examples",
+          "method": "Read full-text reproduction and compared matrix/parameter statements",
+          "title": "Orbit Structure and (Reversing) Symmetries of Toral Endomorphisms on Rational Lattices",
+          "trigger": "general orbit-point inversion may dominate spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact all-modulus orbit decomposition of a natural prime-power cyclotomic companion recurrence answers explicitly published recurrence-period conjectures. Its Smith-form lemma is a reusable arithmetic mechanism; this is a motivated complete all-parameter classification, not a finite numerical table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned RESULT.md Git blob 6cc4bb16927afdcb331c14ee1c3deb99feac0bb8",
+    "pinned verify.py Git blob f4a949f406dc15c246a1d0ce5f305b6a16bb4b01",
+    "arXiv:2510.24882 primary PDF Conjectures 1 and 3",
+    "DOI:10.3934/dcds.2013.33.527 primary full-text reproduction",
+    "Resultary semantic search: prime power cyclotomic recurrence modulo m period counts conjugate integral Smith normal form fixed points cycle counts Pudelko"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Each finite computation is supporting evidence, not an infinite proof.",
+    "Originality is assessed by mathematical implication and available primary materials, not by unsuccessful search alone.",
+    "Full frozen Git tree enumeration and public-file confidentiality certification were unavailable, so the publication plan is not_ready."
+  ],
+  "residual_risks": [
+    "Pudelko exact formulas were expressly conjectured: novelty applies only to proof and stronger integral SNF certificate.",
+    "A separate, unindexed proof of the prime-power cyclotomic conjectures could preempt the theorem."
+  ],
+  "schema_version": 1
+}

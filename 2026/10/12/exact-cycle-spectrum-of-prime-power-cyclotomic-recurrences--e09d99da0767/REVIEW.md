@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The map is multiplication by the cyclotomic indeterminate in the free integral quotient ring. Substitution \(Y=X^{p^r}\) decomposes that ring as \(p^r\) free copies of the smaller prime-power cyclotomic ring. The quotient by \(Y-1\) is \(\mathbb Z/p\mathbb Z\), making the full Smith diagonal explicit and yielding every modular fixed-point cardinality. Separating exact periods by telescoping verifies all boundaries, including \(p=2\), \(j=1\), and \(m=1\). Independent finite state enumeration agrees with the formula on 102 cases; the proof is not based on finite tests.
+PASS
 
-## Originality — PASS, with residual risk
+For every prime p, index j>=1, modulus m>=1, free integral module A=Z[X]/Phi_{p^j}(X) is rank p^r over B=Z[Y]/Phi_{p^{j-r}}(Y), Y=X^{p^r}, for 0<=r<j. Multiplication by Y-1 has cokernel B/(Y-1)=Z/p and is nonsingular over Q; hence SNF(C^{p^r}-I) has exactly p^r diagonal p entries, all remaining entries 1. Modulo m fixed points are gcd(p,m)^{p^r}; C^{p^j}=I and Mobius/telescoping gives all cycle counts. This handles p=2,j=1,m=1. Reconstructed exact small cycle decompositions with disjoint cycles, e.g. (p,j,m)=(3,1,6): three fixed points and eleven 3-cycles, (2,2,4): two fixed, one 2-cycle and three 4-cycles. Finite replay is corroboration; universal assertion follows from the integral-module/SNF proof.
 
-The exact counting formulas were explicitly conjectured by Pudelko, arXiv:2510.24882, Conjectures 1 and 3; they were not proved in that source. The present theorem provides the missing integral Smith-factorization proof, which additionally yields all fixed-point numbers. The general Möbius inversion from Baake–Neumärker–Roberts (2013) and necklace-counting formulas do not themselves compute these companion-matrix invariants. Searches of the indexed research records, prior ledgers, and focused literature did not find an already established identical theorem. Residual risk is an unindexed general or equivalent argument in older algebraic dynamics literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves an explicitly stated infinite-parameter conjecture, simultaneously for all prime-power cyclotomic orders, all moduli, and all exact orbit lengths. It exhibits a structural module decomposition explaining why the shorter periods are independent of the modulus beyond whether the relevant prime divides it. This is a natural complete classification rather than an arbitrary finite slice.
+Published conjectures gave the same prime-power cycle formulas without their integral Smith-form proof. The assessed original contribution is establishing the conjectured spectrum and its SNF certificate, not inventing the conjectured numbers. General periodic-point inversion is prior work and requires the missing fixed-point input. Resultary did not retrieve an equivalent complete cyclotomic proof. A later or unindexed proof remains a best-of-knowledge priority risk.
 
-## Limits
+## value
 
-The theorem makes no statement about general cyclotomic indices or Fibonacci companion matrices, and the computational tests are corroborative only. The result has not received independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact all-modulus orbit decomposition of a natural prime-power cyclotomic companion recurrence answers explicitly published recurrence-period conjectures. Its Smith-form lemma is a reusable arithmetic mechanism; this is a motivated complete all-parameter classification, not a finite numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
