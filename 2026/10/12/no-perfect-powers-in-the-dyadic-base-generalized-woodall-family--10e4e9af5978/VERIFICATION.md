@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is infinite and does not depend on computation.
+# Independent mathematical audit
 
-For even \(k\), \(y^k\equiv1\pmod8\), while \(n2^{an}-1\equiv7\pmod8\) when \(an\ge3\). The three low-\(an\) values are \(1,3,7\).
+## correctness
 
-For odd \(k\ge3\),
-\[
-T=(y^k+1)/(y+1)
-\]
-is odd and divides \(n\), hence \(T\le n\). Since \(T>3y^{k-1}/4\), one obtains \(y^k<(4n/3)^{3/2}\). For \(n\ge3\), \(n2^{an}-1>(4n/3)^{3/2}\); for \(n=1,2\), \(T\mid n\) and \(T>1\) is already impossible.
+PASS
 
-The packaged checker independently tests a finite grid and the boundary inequalities. Its output is corroborative only.
+The left side is odd so y odd. If k even and an>=3 it is 7 modulo 8 whereas odd even powers are 1 mod8; remaining (a,n)=(1,1),(2,1),(1,2) give 1,3,7. If k>=3 odd, the cofactor T=(y^k+1)/(y+1) is odd and divides n, forcing T<=n; T>3*y^(k-1)/4 for odd y>=3 implies y^k<(4n/3)^(3/2). Cases n=1,2 contradict T>1 and T|n; for n>=3, n2^(an)-1>n2^(n-1)>=(4n/3)^(3/2), contradiction. Monotonic inequality at n=3, then growth ratio >1, proves all bounds.
+
+## originality
+
+PASS
+
+No prior mathematical result located implying the all-parameter family-specific theorem; best-of-knowledge, with residual indexed/access limitations.
+
+## value
+
+PASS
+
+Perfect powers in Woodall and generalized prime-search families are a natural exponential Diophantine predicate. The clean uniform all-a,n exclusion explains why odd factors of a potential perfect power have nowhere to reside for dyadic bases; substantially more than an isolated residue check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
