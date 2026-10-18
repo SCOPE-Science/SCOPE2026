@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:53:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked exact denominator reindexing n→m=n-1 against arXiv:2603.28806v1 Theorem 2.2. S_alpha(r) is strictly increasing in radius and strictly decreasing in alpha, and diverges at r↑1 for each finite alpha; implicit differentiation yields rho'>0. T_alpha'=S_alpha, so R_alpha'=-partial_alpha T_alpha(rho)>0 without missing endpoint derivative. Put beta=1/alpha, split Σ rho^m/(m+beta)=-log(1-rho)-psi(1+beta)-gamma+o(1) using uniform absolute β/m² bound; obtain log(1/(1-rho))=a alpha/2+psi(1+1/alpha)+gamma+o(1). Absolute expansion T_alpha(1)=2/alpha-2(pi²/6-1)/alpha²+O(alpha^-3) and exponentially small endpoint truncation complete the R asymptotic. At alpha=0, rho=a/(a+2), R=a+2log(1-rho). Independent numerical quadrature at M=1, alpha=0,1,3,10 matches increasing radii and contrasting scales. This concerns guaranteed coefficient-series radii only; no extremality among all harmonic maps.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh--Vasudevarao class estimates furnish the coefficient envelope, not its fixed-M asymptotic root",
+          "Other harmonic Landau sharp radius results use different classes/boundaries"
+        ],
+        "reasoning": "A coefficient theorem may define S_alpha but does not state or directly dominate the singular two-rate stabilization.",
+        "searches": [
+          "doi:10.1007/s00605-017-1138-7 harmonic close-to-convex class coefficient bounds",
+          "harmonic Landau theorem differential alpha monotonicity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob b22960c7b16edc4770268008a1764fe964921453",
+        "Git tree 9d1263d123caa984d3ddd1963afcab5f7a478a27",
+        "arXiv:2603.28806v1 full primary HTML",
+        "doi:10.1007/s00605-017-1138-7",
+        "Resultary semantic search: harmonic Landau theorem W_H^0(alpha) large alpha univalence radius schlicht radius monotonicity asymptotic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact previous root equation is essential premise; new derivative cancellation and digamma expansion establish missing conclusions",
+          "Known alpha=0,1 cases do not imply global monotonicity or the different asymptotic rates"
+        ],
+        "reasoning": "Mathematical work beyond parameter substitution is required to pass from a positive-series implicit equation to root boundary layer and second-order covering expansion.",
+        "searches": [
+          "arXiv:2603.28806v1 Theorem 2.2 source root equation",
+          "arXiv:2603.28806v1 Corollary 2.2",
+          "Ghosh Vasudevarao 2019 coefficient estimate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary arXiv:2603.28806v1 Theorem 2.2 specifies same coefficients and radii; only alpha=0 and alpha=1 are worked out",
+          "Resultary adjacent harmonic Landau records concern different classes and parameters"
+        ],
+        "reasoning": "Equivalent forms searched under Lerch transcendent, digamma, root equation, and schlicht-radius notation; no equal comparison theorem identified.",
+        "searches": [
+          "harmonic Landau theorem W_H^0(alpha) large alpha univalence radius schlicht radius monotonicity asymptotic",
+          "arXiv:2603.28806 Theorem 2.2 alpha infinity digamma",
+          "W_H^0(alpha) Landau rho R Lerch asymptotics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source Table 2 contains only selected alpha=0,1 values, not continuum monotonicity or infinity expansion",
+          "Independent calculation found some printed table approximations inconsistent with equations; assessments use defining formulas, not table numbers"
+        ],
+        "reasoning": "The novel statement is an analytic all-parameter asymptotic, not a known exact database/table recomputation.",
+        "searches": [
+          "arXiv:2603.28806v1 Table 2 alpha zero one M Landau radius",
+          "harmonic Landau alpha infinity tabulation"
+        ]
+      },
+      "rationale": "Ahamed--Hossain arXiv:2603.28806v1 gives the general defining Lerch/coefficient-series radii and isolated alpha=0,1 examples, but no global parameter comparison or singular alpha→infinity analysis in the materially inspected full text. The earlier class paper establishes coefficient estimates, not their large-parameter geometry. The positive-series variation and two-scale asymptotics are additional nontrivial information, not a table interpolation. Prior implicit equation is fully credited. An equivalent older digamma parametrization remains possible.",
+      "residual_risks": [
+        "The claim is about series-derived guaranteed radii, not sharp geometric extremality of all bounded harmonic maps.",
+        "Some alpha=0/1 values in the source table disagree with the written root equations; mathematical assessment uses the latter.",
+        "Equivalent asymptotic results under Lerch/digamma language could be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Defines radii and alpha=0/1 examples, but no all-alpha monotonicity or two-scale limit. Source table values may have numerical inconsistencies relative to displayed equations.",
+          "identifier_or_url": "arXiv:2603.28806v1",
+          "material_read": "Complete accessible HTML at class definition, coefficient bounds, Theorem 2.2/proof, Table 2, special-parameter corollaries; searched remainder for alpha→infinity statements",
+          "method": "Direct primary full HTML mathematical reading",
+          "title": "Sharp Landau-Type Theorems and Schlicht Disc Radii for certain Subclasses of Harmonic Mappings",
+          "trigger": "Exact same class and radii"
+        },
+        {
+          "assessment": "PREMISE_ONLY",
+          "evidence": "Supplies known harmonic class and coefficients; checked material does not establish bounded-harmonic Landau asymptotics.",
+          "identifier_or_url": "doi:10.1007/s00605-017-1138-7",
+          "material_read": "Public abstract and source descriptions, no complete primary body",
+          "method": "Bibliographic/mathematical premise comparison",
+          "title": "On Some Subclass of Harmonic Close-to-convex Mappings",
+          "trigger": "Prior exact coefficient envelope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The class damping parameter alpha is intrinsic to differential harmonic mapping inequalities. The exponential convergence of the univalence guarantee versus inverse-linear convergence of covered-disc guarantee is a mathematically motivated, quantitatively sharp separation between two natural geometric radii, including second-order constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The claim is about series-derived guaranteed radii, not sharp geometric extremality of all bounded harmonic maps.",
+    "Some alpha=0/1 values in the source table disagree with the written root equations; mathematical assessment uses the latter.",
+    "Equivalent asymptotic results under Lerch/digamma language could be unindexed."
+  ],
+  "schema_version": 1
+}

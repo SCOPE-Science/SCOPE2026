@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,134 +19,24 @@
 }
 ---
 
-The source coefficient-series root is
-\[
-\frac{\pi}{4M}
-=
-2\sum_{m=1}^{\infty}
-\frac{\rho_\alpha^m}{1+\alpha m}.
-\]
-Every term is increasing in
-\[
-\rho_\alpha
-\]
-and decreasing in
-\[
-\alpha,
-\]
-which gives uniqueness and strict parameter monotonicity.
+# Independent mathematical audit
 
-For
-\[
-T_\alpha(r)
-=
-2\sum_{m=1}^{\infty}
-\frac{r^{m+1}}{(m+1)(1+\alpha m)},
-\]
-termwise differentiation on compact subdisks gives
-\[
-T_\alpha'(r)=S_\alpha(r).
-\]
-Thus
-\[
-R_\alpha
-=
-\int_0^{\rho_\alpha}
-(a-S_\alpha(t))\,dt
-\]
-and
-\[
-R_\alpha'
-=
-2\sum_{m=1}^{\infty}
-\frac{
-m\rho_\alpha^{m+1}
-}{
-(m+1)(1+\alpha m)^2
-}
->0.
-\]
+## correctness
 
-For
-\[
-\beta=1/\alpha,
-\]
-the exact decomposition
-\[
-\sum_{m=1}^{\infty}
-\frac{r^m}{m+\beta}
-=
--\log(1-r)
-+
-\sum_{m=1}^{\infty}
-r^m
-\left(
-\frac1{m+\beta}-\frac1m
-\right)
-\]
-has a uniformly summable correction because
-\[
-\left|
-\frac1{m+\beta}-\frac1m
-\right|
-\le
-\frac{\beta}{m^2}.
-\]
-At
-\[
-r=1,
-\]
-the correction is
-\[
--\psi(1+\beta)-\gamma.
-\]
-This proves
-\[
-\log\frac1{1-\rho_\alpha}
-=
-\frac{\pi\alpha}{8M}
-+
-\psi\!\left(1+\frac1\alpha\right)
-+
-\gamma
-+
-o(1).
-\]
+PASS
 
-The covering expansion follows from
-\[
-T_\alpha(1)
-=
-\frac2\alpha
--
-\frac{2}{\alpha^2}
-\sum_{m=1}^{\infty}
-\frac1{m^2(m+1)}
-+
-O(\alpha^{-3})
-\]
-and
-\[
-\sum_{m=1}^{\infty}
-\frac1{m^2(m+1)}
-=
-\frac{\pi^2}{6}-1.
-\]
-Because
-\[
-1-\rho_\alpha
-\]
-is exponentially small, replacing
-\[
-T_\alpha(\rho_\alpha)
-\]
-by
-\[
-T_\alpha(1)
-\]
-changes the expansion by less than any fixed inverse power of
-\[
-\alpha.
-\]
+Checked exact denominator reindexing n→m=n-1 against arXiv:2603.28806v1 Theorem 2.2. S_alpha(r) is strictly increasing in radius and strictly decreasing in alpha, and diverges at r↑1 for each finite alpha; implicit differentiation yields rho'>0. T_alpha'=S_alpha, so R_alpha'=-partial_alpha T_alpha(rho)>0 without missing endpoint derivative. Put beta=1/alpha, split Σ rho^m/(m+beta)=-log(1-rho)-psi(1+beta)-gamma+o(1) using uniform absolute β/m² bound; obtain log(1/(1-rho))=a alpha/2+psi(1+1/alpha)+gamma+o(1). Absolute expansion T_alpha(1)=2/alpha-2(pi²/6-1)/alpha²+O(alpha^-3) and exponentially small endpoint truncation complete the R asymptotic. At alpha=0, rho=a/(a+2), R=a+2log(1-rho). Independent numerical quadrature at M=1, alpha=0,1,3,10 matches increasing radii and contrasting scales. This concerns guaranteed coefficient-series radii only; no extremality among all harmonic maps.
 
-All arguments are infinite-series identities or dominated-convergence estimates. No finite truncation or numerical extrapolation is used as proof.
+## originality
+
+PASS
+
+Ahamed--Hossain arXiv:2603.28806v1 gives the general defining Lerch/coefficient-series radii and isolated alpha=0,1 examples, but no global parameter comparison or singular alpha→infinity analysis in the materially inspected full text. The earlier class paper establishes coefficient estimates, not their large-parameter geometry. The positive-series variation and two-scale asymptotics are additional nontrivial information, not a table interpolation. Prior implicit equation is fully credited. An equivalent older digamma parametrization remains possible.
+
+## value
+
+PASS
+
+The class damping parameter alpha is intrinsic to differential harmonic mapping inequalities. The exponential convergence of the univalence guarantee versus inverse-linear convergence of covered-disc guarantee is a mathematically motivated, quantitatively sharp separation between two natural geometric radii, including second-order constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
