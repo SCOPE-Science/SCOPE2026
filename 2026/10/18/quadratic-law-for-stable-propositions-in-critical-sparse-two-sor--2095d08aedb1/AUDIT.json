@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Every stable fixed point corresponds to a formal-concept extent by antitone Galois duality. Partition by extent/intent size: minimum side at most one contributes \\(O(n)\\); both sides at least three contribute \\(O_c(n^{3/2})\\) in expectation via rectangle first moments and geometric ratios. For one side of size two, Poisson pair-codegrees and \\(O_c(n^{3/2})\\) maximality losses give twice \\(\\Pr(\\operatorname{Poi}(c^2)\\geq3)/2\\). The exact maximal two-by-two mean is \\(\\binom n2^2p^4(1-p^2)^{2(n-2)}\\), while a rooted \\(K_{2,2}\\)/\\(K_{3,2}\\) Efron--Stein overlap argument bounds its variance by \\(O_c(n^3)\\). Together these give \\(\\mathbb E|S_n/n^2-F(c)|=O_c(n^{-1/2})\\). The separately implemented finite verifier exhausts all binary contexts through size four; it is not substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kovács 2018 equation (2.2) is a general exact expectation formula for independent incidence; it does not furnish a concentration or \\(L^1\\) bound.",
+        "Sakurai 2021 Proposition 4.1 is an exact expectation and Theorem 5.1 concerns a superpolynomial lower bound at constant-density random contexts.",
+        "Baudin--Magnien--Tabourier 2024 analyzes maximal-biclique algorithms and datasets, not an asymptotic random-frame fixed-point count."
+      ],
+      "reasoning": "A general finite expected-count identity can imply a specialized mean asymptotic after further analysis, so the expectation alone is not claimed as new. It does not imply convergence in probability, let alone the quantitative \\(L^1\\) bound. Constant-density and \\(p=c/n\\) statements do not cover the critical \\(p=c/\\sqrt n\\) scale.",
+      "searches": [
+        "web: \"random bipartite graph\" \"maximal bicliques\" expected number p",
+        "web: random concept lattices sparse random incidence p n^-1/2 maximal bicliques quadratic convergence",
+        "primary: DOI 10.18514/MMN.2018.2529 Section 2",
+        "primary: arxiv:2101.11023v1 Sections 3--5",
+        "primary: arxiv:2405.04428v1 Sections 1--6"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1809.11160v1 (Felde--Hanika, 2018)",
+      "DOI:10.3390/info11030135 (Felde--Hanika--Stumme, 2020; partial accessible material)",
+      "arxiv:2309.04115v1 (Howlader--Liau, 2023)",
+      "arxiv:2101.11023v1 (Sakurai, 2021)",
+      "DOI:10.18514/MMN.2018.2529 (Kovács, 2018)",
+      "arxiv:2405.04428v1 (Baudin--Magnien--Tabourier, 2024)",
+      "MathOverflow 473 (2009)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Howlader--Liau provides exactly the semantic correspondence, not a probabilistic limiting count.",
+        "Sakurai 2021 treats a fixed-edge-density random-context model, with expectation identities, but no quantitative \\(L^1\\) theorem for the square-root-density regime.",
+        "Kovács 2018 provides a general count expectation identity; an expectation formula alone does not establish this concentration rate."
+      ],
+      "reasoning": "Fixed-density expectation bounds and general finite first-moment identities do not imply a square-root-density \\(L^1\\) concentration theorem. The rooted K_{3,2} Efron--Stein concentration step and explicit pair-codegree partition are additional; no new semantic equivalence or general mean identity is claimed.",
+      "searches": [
+        "published-finding corpus: Sparse formal concepts count critical quadratic regime common neighbor Poisson and maximal biclique shape enumeration",
+        "primary: arxiv:2101.11023v1 Proposition 4.1 and Theorem 5.1",
+        "primary: arxiv:2309.04115v1 Sec 2.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Howlader--Liau identifies two-sorted window-modality stable propositions with formal concepts; the same stable-extents/fixed-points represent maximal incidence rectangles.",
+        "Felde--Hanika analyzes the coin-toss model and the number of intents/pseudo-intents as random-context statistics, but does not state a square-root-density \\(L^1\\) count law."
+      ],
+      "reasoning": "The equivalences between Galois fixed points, formal concepts and maximal bicliques are explicitly treated as pre-existing formulations of the objects. Their equivalence does not yield the claimed quadratic constant or concentration rate; searching only for modality terminology would miss the graph-theoretic formulation.",
+      "searches": [
+        "published-finding corpus: Two-sorted modal logic KF: number of stable fixed point propositions of a random finite bidirectional frame",
+        "published-finding corpus: Formal concept analysis: number of formal concepts in random Bernoulli incidence matrices, exact asymptotic count and law of large numbers",
+        "primary: arxiv:2309.04115v1 Sections 2.2--3",
+        "primary: arxiv:1809.11160v1 Sections 2--4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A public 2009 MathOverflow discussion states the expectation indicator-sum approach, without the critical scaling or concentration proof.",
+        "published-finding corpus nearest hits included 2026/10/4/SCOPE-near-square-stabilization-of-minimal-finite-bouquet-models--9c70658ba2d3 and 2026/10/4/SCOPE-tie-collision-phase-transition-for-ordered-boolean-full-products--902c9356c25e; they study different invariants and no displayed result covers the stated theorem."
+      ],
+      "reasoning": "No located exact table or database record presents this coefficient and quantitative concentration. A failed semantic search cannot certify uniqueness; closest returned claims were compared by objects, density regime, and implication, not title alone.",
+      "searches": [
+        "published-finding corpus: formal concept lattice number of concepts in Bernoulli bipartite graph p=c / sqrt(n) quadratic law of large numbers 2 by 2 maximal bicliques Poisson codegree",
+        "published-finding corpus: maximal bicliques in random bipartite graphs n by n with edge probability c / sqrt n asymptotic count of maximal complete rectangles",
+        "published-finding corpus: sparse formal concepts count critical quadratic regime common neighbor Poisson and maximal biclique shape enumeration",
+        "web: \"random formal context\" \"sparse\" \"sqrt\" concepts",
+        "web: \"number of maximal bicliques\" \"random\" \"bipartite\""
+      ]
+    },
+    "rationale": "The coin-toss model, two-sorted logical interpretation, exact finite mean, and maximal-biclique algorithms were verified as prior work. The claimed new content is the fixed-c square-root-density quadratic constant with a nontrivial maximal \\(2\\)-by-\\(2\\) correction and an \\(O_c(n^{-1/2})\\) \\(L^1\\) rate, including a rooted-copy variance argument; neither known mean identities nor prior \\(p\\) constant/\\(p=c/n\\) count laws imply this rate.",
+    "residual_risks": [
+      "An independently discovered equivalent formula under maximal biclique, random closure, or random concept lattice terminology may exist in unindexed literature.",
+      "Full text of the 2020 null-model publication was temporarily unavailable; its accessible abstract and inspectable preprint precursor address modeling rather than a limiting count law.",
+      "No independent expert review or external proof certification has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Coin-toss model and observed count statistics are prior; no critical square-root fixed-point L1 asymptotic",
+        "evidence": "Sections 2--4 define concept extents/intents and the coin-toss and Dirichlet models, analyzing bias rather than the quadratic limiting law.",
+        "identifier_or_url": "arxiv:1809.11160v1; https://arxiv.org/abs/1809.11160",
+        "material_read": "Accessible arXiv full-text sections 1--4 and model discussion; first-public timestamp on source page",
+        "method": "HTML text examination of definitions, model, related work, and probabilistic setup",
+        "title": "Formal Context Generation using Dirichlet Distributions",
+        "trigger": "Earliest verified public source for random formal-context coin-toss model, linked to primary MSC 03G10 formal-context literature"
+      },
+      {
+        "assessment": "Describes and benchmarks null models; no matching claim in accessible material; full-text gap remains a residual risk",
+        "evidence": "Publisher index lists 03G10;68T27, random formal-context coin-toss and Dirichlet models, with experimental evaluation.",
+        "identifier_or_url": "DOI:10.3390/info11030135; https://www.mdpi.com/2078-2489/11/3/135",
+        "material_read": "Search-indexed abstract, introduction and subject classification; full page temporarily rate-limited",
+        "method": "Publisher search-index result plus accessible 2018 preprint precursor for model assumptions",
+        "title": "Null Models for Formal Contexts",
+        "trigger": "Fuller 2020 treatment and primary MSC2020 03G10"
+      },
+      {
+        "assessment": "Defines the exact semantic object and correspondence; does not study random-frame quadratic counts",
+        "evidence": "Definition 8 interprets the two-sorted window modality; context/formal concept definitions and Section 3 relate logical and formal concepts.",
+        "identifier_or_url": "arxiv:2309.04115v1; https://arxiv.org/html/2309.04115v1",
+        "material_read": "HTML introduction, semantic definitions in Section 2.2, and relevant Section 3 description",
+        "method": "Primary arXiv HTML reading of window modality and formal-concept correspondence",
+        "title": "Two-sorted Modal Logic for Formal and Rough Concepts",
+        "trigger": "Same modal semantics and two-sorted fixed points"
+      },
+      {
+        "assessment": "Exact expected-count formula and a constant-density lower bound; neither supplies the new quantitative L1 law",
+        "evidence": "Proposition 4.1 is an expectation identity; Theorem 5.1 states superpolynomial growth at fixed half-density.",
+        "identifier_or_url": "arxiv:2101.11023v1; https://arxiv.org/html/2101.11023v1",
+        "material_read": "Full HTML through Sections 1--6, Proposition 4.1 and Theorem 5.1",
+        "method": "Primary full-text HTML reading and implication comparison",
+        "title": "On formal concepts of random formal contexts",
+        "trigger": "Random formal-context concept count and asymptotic prior results"
+      },
+      {
+        "assessment": "Exact expectation identity is prior and not claimed; quantitative concentration is not supplied",
+        "evidence": "Equation (2.2) sums the concept-event probabilities; later sections concern numerical approximation and empirical error.",
+        "identifier_or_url": "DOI:10.18514/MMN.2018.2529; https://real.mtak.hu/92004/1/2529.pdf",
+        "material_read": "PDF textual content covering definitions, Section 2 formula (2.2), Section 3 sampling, Sections 4--5 results",
+        "method": "Primary PDF page/text inspection, including formula (2.2) and conclusion",
+        "title": "Efficient approximation for counting of formal concepts generated from formal context",
+        "trigger": "More general exact finite mean identity could dominate claimed asymptotic"
+      },
+      {
+        "assessment": "Exact enumeration algorithms and output complexity for fixed graphs; does not derive probability laws for Bernoulli random frames",
+        "evidence": "Sections 3--5 develop BBK and test real datasets, not a square-root-density random model.",
+        "identifier_or_url": "arxiv:2405.04428v1; https://arxiv.org/html/2405.04428v1",
+        "material_read": "HTML abstract, Introduction, Related Work, algorithm, complexity, experiments, and conclusions",
+        "method": "Primary arXiv HTML inspection",
+        "title": "BBK: a simpler, faster algorithm for enumerating maximal bicliques in large sparse bipartite graphs",
+        "trigger": "Strongest directly relevant biclique enumeration literature"
+      },
+      {
+        "assessment": "General indicator-sum expected count, without LLN, the critical c/sqrt(n) coefficient, or L1 rate",
+        "evidence": "Answers discuss multiplying independent edge and maximality probabilities then summing over vertex subsets.",
+        "identifier_or_url": "https://mathoverflow.net/questions/473/what-is-the-expected-number-of-maximal-bicliques-in-a-random-bipartite-graph",
+        "material_read": "Question and mathematical answers describing exact expectation via rectangle maximality",
+        "method": "Read public discussion and compared mathematical content",
+        "title": "What is the expected number of maximal bicliques in a random bipartite graph?",
+        "trigger": "Potential prior exact expectation under graph aliases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2095d08a-edb1-45ba-be6a-91e9021883b3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The invariant counts semantic fixed-point propositions of the two-sorted Galois closure, or equivalently the number of formal concepts. At the natural collision crossover \\(p\\asymp n^{-1/2}\\), common neighborhoods of object pairs have nondegenerate Poisson limits, and both maximal \\(2\\)-by-\\(2\\) blocks and asymmetric rectangle classes contribute on the \\(n^2\\) scale. The explicit limit and quantitative concentration are a motivated asymptotic benchmark and structural classification, not a fixed-size census.",
+    "status": "PASS"
+  }
+}
