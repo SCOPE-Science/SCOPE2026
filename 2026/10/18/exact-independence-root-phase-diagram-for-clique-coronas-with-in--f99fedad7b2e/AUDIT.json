@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Independence-set case split gives the factored polynomial. The phase equation at z=iy>0 gives every admissible theta=(4j+3)pi/(2k), and modulus yields each exact r threshold. Q(0)=1; every axis zero is simple since Q_z=r(1-(k-1)z)/(1+z) and horizontal crossing speed equals k*y^2/[r*(1+(k-1)^2*y^2)]>0. At r=0 all roots are -1, the degree is fixed and roots are uniformly bounded on compact r intervals, so no other changes in half-plane root count are possible. Thus the exact N_+ and N_0 formulas follow for all r>0,k>=1. The extracted standard-library verifier independently checked 108748 explicit labelled vertex subsets, 940 exact rational Routh cases, and the exact r=8,k=6 boundary factorization; those finite checks corroborate, not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brown--Cameron (2018), Lemma 2.1(i), covers eventual instability for degree >4 but gives no finite parameter threshold or exact count.",
+        "Zhang--Tu (2026), Theorem 4, proves strict stability of every spider and so covers the r=1 star endpoint but not general r>=2.",
+        "Existing stability of some leaf-attached real-rooted core graph families covers a sufficient a>=1/4 scalar regime (r<=4 here), not every r."
+      ],
+      "reasoning": "The r=1 special case is already covered and not presented as new. Known qualitative and sufficient-condition results do not dominate the sharp full (r,k)-phase diagram, which includes nonstable cases and repeated root-count jumps.",
+      "searches": [
+        "independence polynomial clique corona independent leaves roots right half plane sharp threshold",
+        "stable independence polynomial double stars generalized double stars double brooms two high-degree vertices"
+      ]
+    },
+    "checked_sources": [
+      "Brown and Cameron (2018), DOI 10.37236/7280, full text pp.1–18 and relevant §2, §3 results",
+      "Hibi, Kara and Vien (2026), arXiv:2603.16695, arXiv HTML full text, §3",
+      "Zhang and Tu (2026), arXiv:2609.04694, arXiv HTML full text, §§2–3 and main theorem",
+      "Hoang, Levit, Mandrescu and Pham (2026), DOI 10.1016/j.disc.2026.115109, journal abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gutman corona identity as cited by Brown--Cameron supplies only I=(1+z)^(k(r-1))*((1+z)^k+r z); knowing this factorization does not determine the zeros' half-plane positions.",
+        "Brown--Cameron Lemma 2.1 says nonstable for sufficiently large r when k>4; neither exact r bounds nor number of nonstable roots follow.",
+        "Hibi--Kara--Vien inspect whiskering symmetry/evaluation at -1; neither implies the phase-crossing formula.",
+        "Zhang--Tu proves all spiders stable; K_r corona independent k-leaf bundles is a spider only at r=1, up to small degenerate graphs.",
+        "The Brown--Cameron multipartite examples (2018, §4) concern all-equal part sizes and one-of-each-size parts, not the exact K_{k,1,...,1} two-parameter family."
+      ],
+      "reasoning": "The new claim computes exactly 2 per passed critical value, includes every imaginary root and the strict/closed transition; it is strictly stronger than the implication of the known factorization plus asymptotic root existence. Multi-core cases cannot be deduced as special cases of spider-only theorems.",
+      "searches": [
+        "corona of complete graph with independent pendant bundles independence polynomial strict Hurwitz stability exact parameter threshold (1+z)^k + r z",
+        "graph independence polynomial K_n corona empty graph stable complex roots"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brown--Cameron (2018), Theorem 3.2, identifies the corona polynomial but not its all-parameter root-location phase diagram.",
+        "Hibi--Kara--Vien (2026), Section 3, gives a general whiskering polynomial and equivalence for symmetry, not equivalence to half-plane root count.",
+        "Zhang--Tu (2026), Theorem 4, is for spiders (trees), whereas the multi-core-vertex family contains triangles.",
+        "The same scalar polynomial is the independence polynomial of K_r joined to the edgeless k-vertex graph, equivalently complete multipartite K_{k,1,...,1}; this alias was separately searched in records and literature."
+      ],
+      "reasoning": "The scalar polynomial (1+z)^k+r z and its corona realization were both searched; neither an alias nor the equivalent trigonometric root-count phase theorem appeared in these inspected sources. The known polynomial identity is credited, not claimed as new. The complete-split-graph and multipartite aliases were explicitly checked; Brown--Cameron §4 provides other multipartite stability examples but no exact one-large-part phase spectrum.",
+      "searches": [
+        "independence polynomial K_r corona edgeless K_k left half plane imaginary roots critical r sin cos phase",
+        "independence polynomial of clique corona k independent leaves roots stability",
+        "\"x+ (1+x)^k\" \"Hurwitz\" \"r\" stable",
+        "complete split graph K_r join independent K_k independence polynomial roots stability half-plane phase threshold",
+        "complete split graph independence polynomial (1+x)^k + r x exact Hurwitz root count",
+        "independence polynomial complete multipartite graph r singleton parts one size k stability roots"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact Routh arrays computed at 900 parameter cases were compared to a finite threshold formula; these are original verification, not a preexisting published table.",
+        "Mathematical-record returns included related graph-polynomial and root-geometry results but no table of the indicated corona half-plane root counts."
+      ],
+      "reasoning": "The searches did not identify a precomputed table or database entry that would imply all thresholds. A negative search result is not asserted as proof of novelty.",
+      "searches": [
+        "root counts right half plane binomial plus linear q(z)=(1+z)^k+r z phase crossings all k and r",
+        "(1+z)^k + r z polynomial Hurwitz stability threshold root locus cos sin"
+      ]
+    },
+    "rationale": "Full-text comparisons distinguish the known corona polynomial and eventual-instability theorem (Brown--Cameron 2018), the recent general whiskering identity and symmetry classification (Hibi--Kara--Vien 2026), and spider stability (Zhang--Tu 2026) from the new all-parameter root-count and transverse-crossing formulas. Targeted mathematical-record queries found no covering statement; bibliographic priority remains uncertain and is not certified.",
+    "residual_risks": [
+      "An unindexed or differently named prior control-theoretic theorem about the scalar binomial-plus-linear polynomial may have equivalent or broader coverage.",
+      "The 2026 log-concavity article was accessible in abstract only and was not fully checked; based on its abstract the overlap risk is low but unresolved.",
+      "Search results are not a proof of novelty; independent bibliographic adjudication has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the known corona identity and eventual nonstability, but not sharp finite thresholds or all right-half-plane root counts for the scalar family.",
+        "evidence": [
+          "Theorem 3.2, p.9, states independence-polynomial corona identity attributed to Gutman.",
+          "Lemma 2.1(i), pp.4-5, treats f(x)+mx at sufficiently large m when deg f>4.",
+          "Proposition 3.1, p.8, proves the r=1 star endpoint stable.",
+          "Section 4 gives some complete multipartite stability/nonstability examples, but not the sharp single-nonsingleton-part phase classification."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v25i1p46/pdf/",
+        "material_read": "Full 18-page downloadable paper text, with detailed review of §§2–4 and the corona/instability results, plus inspection of relevant page images.",
+        "method": "Publisher PDF full-text reading, find and visual page inspection.",
+        "title": "On the Stability of Independence Polynomials",
+        "trigger": "Foundational work covers same invariant and general corona construction."
+      },
+      {
+        "assessment": "General leaf-attachment polynomial and symmetry/alternating sum conditions, no all-r,k root-plane census.",
+        "evidence": [
+          "Posted 2026-03-17; MSC 05C31 among primary classifications.",
+          "Section 3 and Theorem 3.2 classify symmetric whiskering polynomials with two leaves per core vertex.",
+          "Full text focuses on evaluation at -1 and symmetry, not Hurwitz stability."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.16695",
+        "material_read": "Accessible complete arXiv HTML text, specifically introduction, full Section 3 and referenced theorem statements.",
+        "method": "Read arXiv HTML full-text representation and search for stability/half-plane terminology.",
+        "title": "Independence polynomials of graphs",
+        "trigger": "Recent March 2026 primary work provides a general whiskering formula on precisely related objects."
+      },
+      {
+        "assessment": "Theorem 4 proves strict stability for spiders, not for generally cyclic clique-corona graphs with multiple core vertices.",
+        "evidence": [
+          "Posted 2026-09-04.",
+          "Definition 3 defines spiders as trees with a central vertex and path legs.",
+          "Theorem 4 proves all spider independence roots lie in the open left half-plane."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.04694",
+        "material_read": "Accessible complete arXiv HTML text, particularly theorem statements, Sections 2–3 and the continuation argument.",
+        "method": "Read arXiv HTML full text and compare graph-family definitions and polynomial implications.",
+        "title": "Stability of independence polynomials of spiders",
+        "trigger": "Recent direct study of stability and pendant structures potentially dominates star cases."
+      },
+      {
+        "assessment": "Abstract describes log-concavity for clique-corona W_p graphs, not Hurwitz zero counts of coronas with independent leaf bundles; cannot claim noncoverage of inaccessible full text.",
+        "evidence": [
+          "Discrete Mathematics 349(8), article 115109, August 2026.",
+          "Abstract addresses log-concavity and complete-clique attachments; does not state a half-plane root-location classification."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2026.115109",
+        "material_read": "Accessible journal abstract and publication metadata only; complete paper not inspected.",
+        "method": "Read publicly available abstract (published August 2026).",
+        "title": "Log-concavity of the independence polynomials of W_p graphs",
+        "trigger": "Similar recent terminology involving clique coronas and polynomial zeros."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f99fedad-7b2e-4be3-a797-c21c99763087",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines sharp strict and closed half-plane stability for all numbers of clique vertices and all pendant multiplicities, plus the exact number of right-half-plane conjugate pairs across every successive threshold. Nontrivial features include r=8,k=6 boundary roots and the second crossing for k>=8, which qualitative eventual-nonstability results and the known corona polynomial formula do not determine. The object is a natural infinite graph construction directly motivated by recent whiskering and independence-root literature.",
+    "status": "PASS"
+  }
+}
