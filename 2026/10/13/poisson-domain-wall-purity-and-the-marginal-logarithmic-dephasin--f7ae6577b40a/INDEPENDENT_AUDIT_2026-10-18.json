@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T14:14:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Born probabilities of symmetric open-chain MPS |ψ_{n,g}> are g^{D(x)}/[2(1+g)^{n−1}], giving independent original wall Bernoulli θ=g/(1+g). The XOR of two independent words has fair initial bit and independent wall probability h=2g/(1+g)². Pair Z_iZ_j noise multiplies off-diagonal x,y by 1−2a_{j−i} iff XOR bits at i,j differ; squaring gives exact purity E_U ∏_r |1−2a_r|^{2C_r(U)}. At g_n=λ/n, K_n~Bin(n−1,h_n)→Poisson(2λ). For each finite k, random wall positions are asymptotically separated and interior in the sense of first fixing ε>0, controlling exceptional configurations, then letting ε↓0; for distances below separation C_r=kr; for all r, C_r≤kr. At α>2, log tails ∑r^{1−α} converge giving q=∏|1−2p/r^α|^{2r}; for α<1 or 1<α≤2, a positive fraction of crossing attenuation diverges and conditional product→0 for k≥1. Averaging Poisson generating function gives exp[−2λ(1−q)]. At α=2,p_n=c/log n, ΣC_r/r²=k log n+O_k(1), log weight→−4ck, hence crossover exp[−2λ(1−e^{−4c})]. p=0, p=1/2 and nearest-neighbor finite-size checks handled. The proof needs ε→0 rather than claim fixed-ε separation has probability 1; the formulation supports that limiting argument. Inspected MPS/density-matrix verifier and independently checked C_r=kr for isolated wall small r at n=20,80; finite tests do not prove limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Originating paper develops broader mixed-state phase physics and general doubled-state mapping, but quoted exact purity case is product-state g=1 and α=0.",
+          "Older MPS critical transfer framework concerns pure states, not this mixed-state dephasing purity asymptotic."
+        ],
+        "reasoning": "Source’s broader framework does not state or directly dominate this dilute-wall parameter-dependent quantitative purity law.",
+        "searches": [
+          "arXiv:2610.00480 full HTML Sec II, App A,G,H, Sec V",
+          "arXiv:cond-mat/0512180"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md blob 7c93291628c5b7adbc979d453ecd2f8867e3ab74",
+        "Pinned verify_purity.py blob 152cbaba8766fe1d3e883b645b0764e21dbd00e7",
+        "arXiv:2610.00480v1 full HTML including Appendices",
+        "arXiv:cond-mat/0512180 background",
+        "Resultary query 4 and 12 retrieved hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exponent-two decay boundary occurs in prior linear string operator; posterior global-purity scaling needs replica/XOR-wall distribution and Poissonization.",
+          "Appendix H special g=1,alpha=0 formula is not a dominating all-param purity theorem."
+        ],
+        "reasoning": "Derivation makes nontrivial new choice of g_n and p_n; prior calculations give key analytic ingredients but do not state final claims as immediate corollaries of a theorem.",
+        "searches": [
+          "arXiv:2610.00480 Appendix G Eqs(125)–(132)",
+          "arXiv:2610.00480 Appendix H Eq(137)",
+          "Sec V.3 purity numerics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source’s MPS symmetric-boundary amplitudes are equivalent to g^{D(x)/2}; pair-dephasing is a quadratic function of XOR word crossings.",
+          "Appendix G studies linear string-order attenuation and exponent two, not global purity in rare-wall scaling."
+        ],
+        "reasoning": "Same objects and channel identified; distinction is observable (purity vs linear string correlation), scaling g_n=λ/n and marginal p_n∼1/log n.",
+        "searches": [
+          "Resultary query: Poisson dilute domain walls matrix product state pair dephasing purity power law alpha 2 logarithmic window",
+          "arXiv:2610.00480 Appendix A,G,H and Sec.V"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published plots show finite-g purity decay estimates; not an all-n product or Poisson-limit parameter table."
+        ],
+        "reasoning": "A numerical heatmap cannot imply marginal inverse-log crossover or the infinite product qα(p). No covering exact table identified.",
+        "searches": [
+          "Resultary query: Poisson dilute domain walls matrix product state pair dephasing purity power law alpha 2 logarithmic window",
+          "arXiv:2610.00480 Fig.5 and Eq.(137)"
+        ]
+      },
+      "rationale": "Fechisin et al. 2026 arXiv:2610.00480 provides precisely this MPS and dephasing map, Appendix A domain-wall representation, Appendix G power-law crossing attenuation and alpha-two summability threshold for linear string correlations, Sec.V purity numerics and Appendix H a distinct exactly solvable fixed g=1,alpha=0 case. Complete available HTML was searched/inspected; no Poisson global purity limit for g_n=λ/n and no α=2 inverse-log strength interpolation appears. These two sharp asymptotic formulas and the finite-size purity crossing identity are the surviving contribution, not generic claim that α=2 threshold was unknown.",
+      "residual_risks": [
+        "The source contains extensive statistical-mechanics mappings; an implicit specialization of a stronger unpublished analysis may reproduce the limit.",
+        "Poisson separation proof must take endpoint/separation margin ε→0 after n→∞; fixed positive ε does not give probability tending to one, but this can be handled in the argument without changing the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source gives crossing/summability background and finite-g purity numerics, not g=λ/n Poisson purity or p=c/log n interpolation.",
+          "evidence": [
+            "Appendix G power-law string-order crossing sum and alpha-two boundary; Appendix H exact purity in a separate g=1 alpha=0 benchmark; Sec V Fig.5 purity vs system size."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.00480v1",
+          "material_read": "Relevant complete mathematical source sections in accessible arXiv HTML: Sec.II equations 1,2,7,8,16,17, Sec.V.3 purity and Fig.5, Appendices A,G,H including crossing equations 125–132 and special purity 137; other results searched.",
+          "method": "Read and searched original arXiv full HTML, including appendices.",
+          "title": "Mixed-state phases induced by power-law quantum channels",
+          "trigger": "Exact same MPS and pair-dephasing model"
+        },
+        {
+          "assessment": "Pure-state MPS reference, not a dominating dephased global-purity law.",
+          "evidence": [
+            "Studies pure-state quantum phase transitions in matrix-product systems."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0512180",
+          "material_read": "Title, abstract and cited conceptual background only, not full text read for this comparison.",
+          "method": "Public bibliographic abstract comparison.",
+          "title": "Quantum phase transitions in matrix product systems",
+          "trigger": "Background on MPS state families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The weak-fugacity g_n≈λ/n scaling is a natural dilute-defect regime approaching the GHZ point, and exact nonzero global purity has direct consequences for the feasibility of measuring Rényi-2 observables. The result distinguishes summable/noisy regimes and an inverse-log marginal transition quantitatively for a motivated quantum channel; it explicitly does not prove mixed-phase persistence or state preparation at a fixed thermodynamic phase.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob 7c93291628c5b7adbc979d453ecd2f8867e3ab74",
+    "Pinned verify_purity.py blob 152cbaba8766fe1d3e883b645b0764e21dbd00e7",
+    "arXiv:2610.00480v1 full HTML including Appendices",
+    "arXiv:cond-mat/0512180 background",
+    "Resultary query 4 and 12 retrieved hits"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Special g≥0 symmetric open-chain MPS; pair noise commuting; α=1 undefined; λ,c fixed limits; no uniformity over parameters.",
+    "Nonzero purity limit does not establish mixed SPT order, phase stability, decoding advantage or controlled finite-g thermodynamic phase."
+  ],
+  "schema_version": 1
+}
