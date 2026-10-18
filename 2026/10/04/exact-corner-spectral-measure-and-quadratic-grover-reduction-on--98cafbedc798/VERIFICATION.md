@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic for every \(0<p<1\) and every integer \(d\ge1\). The critical steps are:
+# Independent mathematical audit
 
-1. Substitute the four displayed eigenfunctions into the exact \(4\times4\) probabilistic Laplacian and normalize them in the reversible measure.
-2. Apply spectral resolution to the normalized Kronecker sum to obtain the independent additive convolution at the corner.
-3. Parametrize each one-coordinate spectral value by two signs, giving at most \((d+1)^2\) sums and proving distinctness for irrational \(p\).
-4. Identify the cyclic subspace with the span of nonzero spectral projections of the corner state; the rank-one oracle preserves this span.
-5. Check that the zero spectral weight equals \(1/\operatorname{vol}(G_d)\), so the normalized zero projection is the constant initial state.
+## correctness
 
-The included `verify.py` uses only the Python standard library and exact `Fraction` arithmetic. Running
+PASS
 
-```text
-python3 verify.py
-```
+For the given reversible four-state Laplacian, direct substitution checks four eigenvalues 0,p,2-p,2 with the supplied eigenfunctions. Weighted squared eigenvector norms yield exact corner probabilities a=(1-p)/(2(2-p)) for 0,2 and b=1/(2(2-p)) for p,2-p, summing to one. Tensor-product diagonalization of the normalized d-fold Cartesian sum gives the independent-average corner law and sign-pair parametrization lambda_{S,T}=1+(pS+(2-p)T)/(2d), where S,T range over d+1 parity-constrained integers: hence <=(d+1)^2 distinct active atoms for all 0<p<1. If p irrational, equality of eigenvalues forces both integer differences zero. At p=1/2 the integers i+3j (0<=i,j<=d) run through 0..4d for d>=2, giving 4d+1 and exactly 21 for d=5. The cyclic subspace span{P_lambda e_corner} contains the constant zero eigenstate and is invariant under the rank-one oracle, yielding exact diag-minus-qq* Hamiltonian and resolvent. Independently checked one-site matrix eigendata for several rational p and analyzed the d=1 boundary and collision argument; finite script checks are supplementary.
 
-returns `VERIFY_OK`. It checks the matrix eigenpairs, corner weights, product law, moments, support counts and the source's four \(d=5\) parameter examples. These finite computations are consistency checks only; they do not certify the infinite quantified statement by enumeration.
+## originality
+
+PASS
+
+The primary paper defines precisely this four-state reversible Laplacian, Cartesian products and corner-target oracle and studies the 1024-vertex d=5 search numerically. In inspected sections it does not give the four-atom corner measure, the d-dependent quadratic support count, the p=1/2 exact 4d+1 count or the explicit reduced finite matrix. Generic Kronecker-sum/cyclic spectral theory supplies the method but not the case-specific weights and arithmetic support characterization. Best-of-knowledge originality survives with abstract spectral/Krylov alias risk.
+
+## value
+
+PASS
+
+The exact source application studies quantum search on a 1024-dimensional five-fold weighted four-vertex product. The new corner spectral measure proves an exact all-d reduction to at most (d+1)^2, and for homogeneous d=5 only 21 states, preserving the entire target amplitude. The explicit arithmetic collision structure and Green-function formula are mathematically meaningful, reusable exact invariants of a natural weighted product, not an arbitrary tiny check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

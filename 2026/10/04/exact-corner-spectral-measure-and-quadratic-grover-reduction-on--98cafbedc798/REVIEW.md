@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The quantified statement is proved from the exact four-state matrix. Direct substitution gives eigenvalues \(0,p,2-p,2\); weighted normalization gives the corner masses \(a_p,b_p,b_p,a_p\). Tensor-product spectral resolution proves the independent-sum law. The sign-pair parametrization proves the \((d+1)^2\) bound and irrational-parameter equality. Cyclic spectral projections prove invariance under the rank-one oracle and inclusion of the constant ground state. The checker is an exact-arithmetic regression test and is not used as a substitute for the proof.
+## correctness
 
-## Originality
-PASS, with residual terminology risk. The motivating paper gives the source matrix, product construction, generic Green function and \(d=5\) numerical study, but not the four-atom corner measure or the quadratic cyclic reduction. The inspected spectral-decimation paper concerns edge-substitution operators, while the inspected spatial-search paper treats standard undirected Hamming and related distance-regular graphs. Targeted searches for corner spectral measures, Cartesian-product cyclic subspaces, weighted hypercubic Grover reductions and equivalent Green-function formulas found no statement covering this weighted family and conclusion.
+PASS
 
-## Value
-PASS. The source studies a \(1024\)-state \(d=5\) corner-target problem numerically and motivates varying the dimension and non-homogeneity parameter. The exact reduction replaces the ambient \(4^d\) state space by at most \((d+1)^2\) active spectral states, and by exactly \(4d+1\) states in the homogeneous case. This is a structural simplification of the source's main numerical object, not an arbitrary finite invariant.
+For the given reversible four-state Laplacian, direct substitution checks four eigenvalues 0,p,2-p,2 with the supplied eigenfunctions. Weighted squared eigenvector norms yield exact corner probabilities a=(1-p)/(2(2-p)) for 0,2 and b=1/(2(2-p)) for p,2-p, summing to one. Tensor-product diagonalization of the normalized d-fold Cartesian sum gives the independent-average corner law and sign-pair parametrization lambda_{S,T}=1+(pS+(2-p)T)/(2d), where S,T range over d+1 parity-constrained integers: hence <=(d+1)^2 distinct active atoms for all 0<p<1. If p irrational, equality of eigenvalues forces both integer differences zero. At p=1/2 the integers i+3j (0<=i,j<=d) run through 0..4d for d>=2, giving 4d+1 and exactly 21 for d=5. The cyclic subspace span{P_lambda e_corner} contains the constant zero eigenstate and is invariant under the rank-one oracle, yielding exact diag-minus-qq* Hamiltonian and resolvent. Independently checked one-site matrix eigendata for several rational p and analyzed the d=1 boundary and collision argument; finite script checks are supplementary.
 
-## Closest literature and limitations
-The closest inspected sources are arXiv:2207.01686, arXiv:2201.05693 and arXiv:2204.04355. Generic Kronecker-sum and cyclic-subspace theory provide ingredients, so an equivalent abstract statement may exist under tensor-product Krylov or association-scheme terminology. No claim is made about the optimal search parameter, optimal time, or quantum speedup.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary paper defines precisely this four-state reversible Laplacian, Cartesian products and corner-target oracle and studies the 1024-vertex d=5 search numerically. In inspected sections it does not give the four-atom corner measure, the d-dependent quadratic support count, the p=1/2 exact 4d+1 count or the explicit reduced finite matrix. Generic Kronecker-sum/cyclic spectral theory supplies the method but not the case-specific weights and arithmetic support characterization. Best-of-knowledge originality survives with abstract spectral/Krylov alias risk.
+
+## value
+
+PASS
+
+The exact source application studies quantum search on a 1024-dimensional five-fold weighted four-vertex product. The new corner spectral measure proves an exact all-d reduction to at most (d+1)^2, and for homogeneous d=5 only 21 states, preserving the entire target amplitude. The explicit arithmetic collision structure and Green-function formula are mathematically meaningful, reusable exact invariants of a natural weighted product, not an arbitrary tiny check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

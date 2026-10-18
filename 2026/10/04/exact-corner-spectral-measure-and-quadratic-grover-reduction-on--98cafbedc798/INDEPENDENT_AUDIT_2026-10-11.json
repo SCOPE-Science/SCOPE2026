@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T18:17:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual RESULT.md blob 20d537d6699384530e9e7240e7246f803f46b5ea",
+        "actual verify.py blob bdf4cc1abbf6646cc85a3b21ae2f6eadd88c4945",
+        "independent weighted eigenvector and tensor spectral-subspace derivation",
+        "Mograby et al arXiv:2207.01686 primary full paper"
+      ],
+      "rationale": "For the given reversible four-state Laplacian, direct substitution checks four eigenvalues 0,p,2-p,2 with the supplied eigenfunctions. Weighted squared eigenvector norms yield exact corner probabilities a=(1-p)/(2(2-p)) for 0,2 and b=1/(2(2-p)) for p,2-p, summing to one. Tensor-product diagonalization of the normalized d-fold Cartesian sum gives the independent-average corner law and sign-pair parametrization lambda_{S,T}=1+(pS+(2-p)T)/(2d), where S,T range over d+1 parity-constrained integers: hence <=(d+1)^2 distinct active atoms for all 0<p<1. If p irrational, equality of eigenvalues forces both integer differences zero. At p=1/2 the integers i+3j (0<=i,j<=d) run through 0..4d for d>=2, giving 4d+1 and exactly 21 for d=5. The cyclic subspace span{P_lambda e_corner} contains the constant zero eigenstate and is invariant under the rank-one oracle, yielding exact diag-minus-qq* Hamiltonian and resolvent. Independently checked one-site matrix eigendata for several rational p and analyzed the d=1 boundary and collision argument; finite script checks are supplementary.",
+      "residual_risks": [
+        "For rational p, only general quadratic bound (except p=1/2) is claimed; not universal (d+1)^2 equality.",
+        "This gives exact active-space reduction, not optimal Grover parameters, hitting times or asymptotic speedup."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full source model is broader in algorithmic objectives but numerical for d=5 and does not state the general d dimension count.",
+          "Hamming graph results involve ordinary distance-regular products; the weighted P4 parameter changes spectral values and corner weights."
+        ],
+        "reasoning": "Generic spectral theorem applies to all Cartesian sums but obtaining a finite exact family of weights and collision ranks is a concrete specialization not supplied as a stated prior result.",
+        "searches": [
+          "Mograby et al arXiv:2207.01686 primary full text (d=5 product and search)",
+          "arXiv:2201.05693 spectral decimation of substitution graphs",
+          "Chan Godsil Tamon Xie arXiv:2204.04355 Hamming/spatial search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.01686 (full primary selected text and PDF)",
+        "DOI 10.1007/s11128-023-04212-w",
+        "arXiv:2204.04355 (scope)",
+        "arXiv:2201.05693 (source family)",
+        "GitHub SCOPE code search: Grover"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior numerical d=5 search result does not imply the symbolic all-d corner measure or rigorous active dimension.",
+          "An abstract tensor/cyclic theorem only yields the framework and must be combined with four explicit weighted one-site eigenpairs and collision analysis; no examined source reports that exact specialization."
+        ],
+        "reasoning": "The new conclusion resolves the exact reachable target sector for the specific weighted model; no inspected stronger theorem already tabulates its same-family spectral support.",
+        "searches": [
+          "Mograby 2024 Grover numerical d=5 source",
+          "generic Kronecker sum and cyclic spectral theorem",
+          "Chan et al spatial search other graph families"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tensor-additive spectral measure equals a convolution, and rank-one perturbations act within a cyclic subspace.",
+          "Mograby source supplies the underlying numerical search model, not the explicit weights/support formula in inspected primary text."
+        ],
+        "reasoning": "Compared equivalent formulations as spectral measure of corner, Krylov cyclic dimension, invariant rank-one Hamiltonian, Green function and product-walk reduction.",
+        "searches": [
+          "Attempted Resultary: weighted four-state P4 Cartesian product Grover corner spectral measure (temporarily_unavailable)",
+          "GitHub SCOPE code search: Grover (zero indexed results)",
+          "Mograby et al arXiv:2207.01686",
+          "Chan et al arXiv:2204.04355"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected table reports the exact corner active dimensions 36,21,26,36 for the motivating four p choices."
+        ],
+        "reasoning": "Exact irrational and homogeneous dimension formula is a quantified d-family result rather than a computation limited to one parameter table.",
+        "searches": [
+          "Attempted Resultary product Grover corner spectrum (incomplete query)",
+          "GitHub SCOPE indexed search: Grover",
+          "Targeted web search: P4 weighted corner spectral measure Grover dimension d"
+        ]
+      },
+      "rationale": "The primary paper defines precisely this four-state reversible Laplacian, Cartesian products and corner-target oracle and studies the 1024-vertex d=5 search numerically. In inspected sections it does not give the four-atom corner measure, the d-dependent quadratic support count, the p=1/2 exact 4d+1 count or the explicit reduced finite matrix. Generic Kronecker-sum/cyclic spectral theory supplies the method but not the case-specific weights and arithmetic support characterization. Best-of-knowledge originality survives with abstract spectral/Krylov alias risk.",
+      "residual_risks": [
+        "A targeted published-finding semantic search was attempted but returned temporarily_unavailable/search_internal_error with search_completed=false; it is not treated as evidence that no overlapping record exists. A current GitHub code-search query of the public SCOPE repository returned no match, which is also not proof of novelty.",
+        "An equivalent product-cyclic Krylov or association-scheme formula could exist in unindexed literature; no general rational-p collision classification is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MOTIVATING MODEL, NO EXPLICIT FINITE SPECTRUM IN INSPECTED SECTIONS",
+          "evidence": "Numerically treats d=5, 1024 vertices and parameter choices, without stating the audited p-dependent four-atom convolution and quadratic active-space dimension.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.01686",
+          "material_read": "Accessible arXiv full PDF and open published full-text HTML; inspected model matrix, Cartesian product and section with d=5 corner-target numerical study and Green-function discussion.",
+          "method": "Primary same-model statement/implication comparison.",
+          "title": "Quantitative approach to Grover’s quantum walk on graphs",
+          "trigger": "Same four-state weighted Laplacian, target and product Hamiltonian"
+        },
+        {
+          "assessment": "GENERIC/DIFFERENT GRAPH FAMILY; COVERAGE NOT ESTABLISHED",
+          "evidence": "The treated ordinary Hamming/distance-regular graph examples do not state weighted probabilistic P4 corner probabilities.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.04355",
+          "material_read": "Accessible paper bibliographic/abstract and topic scope concerning spatial search on symmetric regular graph families, not a full exclusion search.",
+          "method": "Scope comparison.",
+          "title": "Of Shadows and Gaps in Spatial Search",
+          "trigger": "Potential stronger generic quantum spatial-search spectral framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Mograby et al same-model numerical search",
+        "derived product corner spectral measure",
+        "cyclic rank-one invariant reduction"
+      ],
+      "rationale": "The exact source application studies quantum search on a 1024-dimensional five-fold weighted four-vertex product. The new corner spectral measure proves an exact all-d reduction to at most (d+1)^2, and for homogeneous d=5 only 21 states, preserving the entire target amplitude. The explicit arithmetic collision structure and Green-function formula are mathematically meaningful, reusable exact invariants of a natural weighted product, not an arbitrary tiny check.",
+      "residual_risks": [
+        "No optimal search-time or speedup theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "0<p<1, integer d>=1, corner target and reversible product inner product.",
+    "Full quadratic support equality only for irrational p; homogeneous 4d+1 formula for d>=2.",
+    "No claim of optimal Grover search parameter or universal rational-p collision formula."
+  ],
+  "schema_version": 1
+}
