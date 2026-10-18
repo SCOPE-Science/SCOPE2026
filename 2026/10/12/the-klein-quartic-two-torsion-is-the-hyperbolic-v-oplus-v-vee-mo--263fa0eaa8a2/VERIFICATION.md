@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The bundled `verify.py` performs exact arithmetic over \(\mathbb F_2\). It checks the paired generator group order \(168\); the unique perfect intertwining pairing between the two three-dimensional reduction factors; uniqueness of the invariant alternating form; nondegeneracy of the hyperbolic form; invariance, polarization, and \(36/28\) value split of \(q\); absence of nonzero invariant linear functionals; the full orbit decomposition \(1+7+7+21+28\); and all sixteen nontrivial ordered rows of the orbit-addition fusion table.
+# Independent mathematical audit
 
-The finite computation is exhaustive on the \(64\)-element two-torsion space. It does not attempt to certify statements about odd-order torsion, the full Jacobian outside two-torsion, or absence of equivalent formulations in unindexed literature. The published orbit lengths and invariant-theta facts are used as consistency checks rather than novelty evidence.
+## correctness
 
-Expected success line:
+PASS
 
-`VERIFY_OK group=168 module=V+Vdual pairing_space_dim=1 invariant_alt_dim=1 q_zero=36 q_one=28 orbits=1+7+7+21+28 fusion=verified`
+From explicit O=Z[α], α²−α+2=0 period lattice Λ=O³, reduction mod2 is (F₂×F₂)³, splitting J[2] into H-stable 3-dimensional factors. Independent F₂ enumeration using the given action matrices yields group 168, the dual pairing P=[[0,0,1],[1,0,0],[0,1,0]], orbit sizes 1+7+7+21+28 and the sixteen complete addition-table rows. Source finite verifier additionally checks uniqueness of invariant alternating form (2 solutions among 2^15 possibilities), no nonzero invariant covectors, unique invariant quadratic refinement q=φ(v), and its 36 zeros/28 ones. The canonical H-invariant nondegenerate Weil form must be the invariant hyperbolic form. This is an exhaustive 64-vector finite mathematical claim; no extension to odd torsion.
+
+## originality
+
+PASS
+
+Markushevich–Moreau and classic theta accounts already give period lattice, invariant theta characteristic, known orbits 7,7,21,28, and these are NOT claimed original. Novel claimed content is explicit GL(3,2)-module V⊕V^∨, the Weil/evaluation and invariant quadratic structure, intrinsic decomposition and full 16-row fusion table, which neither the source’s orbit sizes nor invariant theta alone logically supply. Related Klein representation literature may encode it under alternate terminology; Resultary no direct hit.
+
+## value
+
+PASS
+
+The hyperbolic three-plus-dual module explains the already-known four Klein-quartic orbits and supplies the precise two-torsion addition algebra. The fusion counts are usable for sums of theta/Steiner classes and are not determined by orbit cardinalities alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The argument is reconstructed from the published \(\mathcal O\)-lattice and generators. The split reduction \(\mathcal O/2\mathcal O\cong\mathbb F_2\times\mathbb F_2\) produces two invariant three-spaces. Exact generator arithmetic verifies a group of order \(168\), a unique perfect duality between those spaces, a one-dimensional invariant alternating-form space, and a unique invariant quadratic refinement. Exhaustive enumeration of all \(64\) two-torsion vectors gives the four stated nonzero orbits and verifies every addition-fusion count. The principal polarization supplies the nonzero invariant Weil form, so uniqueness identifies it with the computed evaluation pairing.
+## correctness
 
-## Originality
-**PASS.** The closest literature already contains the orbit sizes \(7,7,21,28\), the unique invariant even theta characteristic, and the even-theta split \(1+7+7+21\); these are explicitly excluded from the novelty claim. The inspected lead source gives the lattice and global Jacobian orbit/stabilizer geometry but not the explicit \(V\oplus V^\vee\) characteristic-two module, the evaluation description of the invariant forms, or the orbit-addition fusion table. Focused searches in module, theta-characteristic, Steiner-complex, and fusion-table vocabulary found no implication-equivalent statement. Residual risk is mainly older unindexed representation-theoretic literature.
+PASS
 
-## Value
-**PASS.** The module decomposition is a structural explanation of the canonical two-torsion configuration, and the fusion table captures information not present in orbit cardinalities alone. It is directly usable when adding two-torsion/Steiner classes or comparing theta-characteristic types under the Klein action.
+From explicit O=Z[α], α²−α+2=0 period lattice Λ=O³, reduction mod2 is (F₂×F₂)³, splitting J[2] into H-stable 3-dimensional factors. Independent F₂ enumeration using the given action matrices yields group 168, the dual pairing P=[[0,0,1],[1,0,0],[0,1,0]], orbit sizes 1+7+7+21+28 and the sixteen complete addition-table rows. Source finite verifier additionally checks uniqueness of invariant alternating form (2 solutions among 2^15 possibilities), no nonzero invariant covectors, unique invariant quadratic refinement q=φ(v), and its 36 zeros/28 ones. The canonical H-invariant nondegenerate Weil form must be the invariant hyperbolic form. This is an exhaustive 64-vector finite mathematical claim; no extension to odd torsion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Markushevich–Moreau and classic theta accounts already give period lattice, invariant theta characteristic, known orbits 7,7,21,28, and these are NOT claimed original. Novel claimed content is explicit GL(3,2)-module V⊕V^∨, the Weil/evaluation and invariant quadratic structure, intrinsic decomposition and full 16-row fusion table, which neither the source’s orbit sizes nor invariant theta alone logically supply. Related Klein representation literature may encode it under alternate terminology; Resultary no direct hit.
+
+## value
+
+PASS
+
+The hyperbolic three-plus-dual module explains the already-known four Klein-quartic orbits and supplies the precise two-torsion addition algebra. The fusion counts are usable for sums of theta/Steiner classes and are not determined by orbit cardinalities alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
