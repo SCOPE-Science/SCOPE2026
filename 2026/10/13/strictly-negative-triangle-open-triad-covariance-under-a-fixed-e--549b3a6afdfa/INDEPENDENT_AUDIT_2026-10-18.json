@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:10:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=4, N=n(n-1)/2, t=C(n,3), q_j=(m)_j/(N)_j. Let S count noninduced 2-stars, T triangles and W induced exactly-two-edge triples; W=S-3T. By shared-edge overlap, E(TS)=t[3q3+6(n-3)q4+(3t-3-6(n-3))q5]; E(T²)=t[q3+3(n-3)q5+(t-1-3(n-3))q6]. Subtract products and factor: Cov(T,W)=-6tq3(N-m)(N-m-1)[(n²-3n-8)m+(n-1)(n²-n-4)]/[(n+1)(n+2)(N-5)(N-4)(N-2)]. The bracket is >0 in the claimed range (n=4 gives 24-4m, m=3..4); thus strict negative iff 3<=m<=N-2, zero otherwise. As n→∞ m/N→p∈(0,1), n^-3 Cov→-p^4(1-p)^2. Substituting independent p^j gives 3t p^4(1-p)[2(n-3)-(3n-8)p]. Independently derived hypergeometric moment formulas and direct enumerated all labeled graphs n=4,5,6 to check exact covariance; finite checks through n=40 corroborate sign but all-n algebraic factor proof controls universal statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General induced-subgraph statistics and fixed-edge G(n,m) treatments potentially dominate a formula by implication; inspected Dey-Terlov theorem gives distributional approximation, not finite all-m exact sign. Janson full text inaccessible; no conclusion about its uninspected sections."
+        ],
+        "reasoning": "A general covariance overlap identity supplies a systematic method but does not automatically give the factorized sign; the present derivation does. Residual risk is that Janson or its descendants may tabulate precisely this covariance under equivalent motif names.",
+        "searches": [
+          "Janson 1990 functional limit theorem DOI 10.1002/rsa.3240010103",
+          "Dey Terlov conditional CLT Theorem 4.18",
+          "Goldschmidt Griffiths Scott 2019 moderate deviations random graphs"
+        ]
+      },
+      "checked_sources": [
+        "Dey and Terlov, arXiv:2109.09274, full PDF §4.4 Theorem 4.18",
+        "Janson, 1990, DOI 10.1002/rsa.3240010103, abstract only, institutional full text blocked",
+        "Reinert and Röllin, arXiv:0912.3425, bibliographic result",
+        "Goldschmidt, Griffiths, Scott, arXiv:1902.06830, bibliographic result",
+        "Resultary semantic search: SCOPE three-point connectivity/component-triangle covariance is a different statistic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Dey-Terlov theorem is a conditional CLT and Lemma 4.17 an asymptotic subgraph-count decomposition. No inspected exact finite sign theorem appears in the relevant theorem passages. Janson abstract mentions induced/fixed-edge subgraphs and could conceivably imply covariance by specialization."
+        ],
+        "reasoning": "The claim is not that mixed moments are novel, but that exact factorization proves sign for all finite edge counts and opposite sign regimes under G(n,p). A decisive older exact formula would defeat originality; inaccessible Janson is recorded as an unresolved material priority risk, not an automatic failure.",
+        "searches": [
+          "Dey Terlov arXiv:2109.09274 Theorem 4.18 and Lemma 4.17",
+          "Janson 1990 DOI 10.1002/rsa.3240010103 abstract",
+          "Reinert Röllin 2010 triangle wedge normal approximation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "W=S-3T relates induced open triples to ordinary wedges and triangles. Dey-Terlov §4.4 treats conditional joint wedge/triangle subgraph counts but not the displayed exact pair covariance sign."
+        ],
+        "reasoning": "Checked induced/noninduced distinction explicitly; a formula for ordinary non-induced wedges is not the theorem. Related conditional random graph subgraph covariance is the closest possible equivalence, not title equality.",
+        "searches": [
+          "triangle open-triad induced path covariance G(n,m) fixed-edge sign searches",
+          "Resultary: fixed-edge random graph triangle induced open triad covariance",
+          "Dey-Terlov arXiv:2109.09274 §4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent complete graph enumeration n=4..6 matches formula at each m, while searches return SCOPE graph component-triangle covariance with different motif statistic."
+        ],
+        "reasoning": "Finite tables validate low n but cannot imply the full parametric sign statement. No identical indexed closed formula/table found, not proof that none exists.",
+        "searches": [
+          "triangle wedge covariance coefficient tables G(n,m)",
+          "induced open triad random graph covariance exact table",
+          "Resultary graph covariance semantic search"
+        ]
+      },
+      "rationale": "Subgraph-count covariance and G(n,m) conditional central-limit theory are established. Dey-Terlov fully readable arxiv §4.4 gives joint conditional CLT involving triangle and ordinary wedge, not the finite-n sign of covariance with induced W=S-3T; Reinert-Röllin handle independent-edge asymptotics. Janson (1990) considers both fixed-edge and induced subgraph statistics and is a material plausible stronger source: full primary was inaccessible after public/OA tries and authorized institutional retrieval returned vpn_disconnected. No whole-article noncoverage claim is made; best-of-knowledge novelty concerns exact all-(n,m) negativity and G(n,p) sign reversal, not general overlap-moment techniques.",
+      "residual_risks": [
+        "Janson 1990 highly relevant full text unavailable (authorized connection vpn_disconnected); its exact tables/appendices may cover or imply covariance.",
+        "Other G(n,m) U-statistics orthogonal-decomposition literature might contain equivalent finite-covariance factorization.",
+        "Induced open-triad W and ordinary wedge S must not be conflated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conditional CLT and asymptotic wedge/triangle decomposition do not assert exact finite sign for induced open paths",
+          "evidence": "Theorem 4.18 conditional normal approximation; Lemma 4.17 expansion with triangle and wedge terms.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.09274",
+          "material_read": "Full accessible arXiv PDF, §4.4 pp.30-32, Theorem 4.18 and Lemma 4.17, plus the subgraph-count setup",
+          "method": "Read arXiv full-text section and page images",
+          "title": "Stein’s method for Conditional Central Limit Theorem",
+          "trigger": "Same fixed-edge conditional triangle/wedge statistic"
+        },
+        {
+          "assessment": "Full paper is NOT assessed as noncovering; material originality risk",
+          "evidence": "Abstract states G(n,p), G(n,m), general subgraph statistics; possible hidden exact covariance specialization.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240010103",
+          "material_read": "Publisher abstract/bibliographic content only; full primary PDF not obtained",
+          "method": "Public arXiv and lawful OA search unsuccessful, authorized institutional Oxford Download returned vpn_disconnected without full content",
+          "title": "A functional limit theorem for random graphs with applications to subgraph count statistics",
+          "trigger": "Highly relevant possible older induced/fixed-edge result"
+        },
+        {
+          "assessment": "Independent-edge asymptotic normal approximation is different from exact G(n,m) negative covariance of induced paths",
+          "evidence": "Abstract identifies multivariate ordinary subgraph count CLT, not claimed exact sign.",
+          "identifier_or_url": "https://arxiv.org/abs/0912.3425",
+          "material_read": "ArXiv abstract and source metadata; full article not materially inspected",
+          "method": "Bibliographic and theorem-purpose comparison",
+          "title": "U-statistics and random subgraph counts: Multivariate normal approximation via exchangeable pairs and embedding",
+          "trigger": "Earlier joint triangle and ordinary wedge statistics"
+        },
+        {
+          "assessment": "Plausible general framework but not established exact all-(n,m) open-triad covariance",
+          "evidence": "Treat as residual possible implication, not whole-document noncoverage.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.06830",
+          "material_read": "Abstract and source metadata only",
+          "method": "Title, abstract, and cited result comparison",
+          "title": "Moderate deviations of subgraph counts in the Erdős–Rényi random graphs G(n,m) and G(n,p)",
+          "trigger": "General fixed-edge moment methodology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The edge-conditioned versus independent-edge sign reversal is an exact structural dependence effect between canonical three-vertex graph motifs. The theorem determines every finite edge-density boundary and the dense asymptotic coefficient; these are natural quantities useful in random graph motif inference, separate from a general CLT.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "For uniform simple labeled G(n,m), n>=4 only, T and induced W; no other sampling ensembles or directed motifs.",
+    "Asymptotic statement assumes m/N→p in (0,1); finite sign holds at all admissible m."
+  ],
+  "schema_version": 1
+}
