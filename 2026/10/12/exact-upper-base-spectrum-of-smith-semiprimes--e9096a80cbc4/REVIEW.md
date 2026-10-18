@@ -1,32 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. In the stated domain \(q<B\le pq\), both prime factors are one-digit. For odd \(p,q\), writing \(pq=(a,c)_B\) makes the Smith equation exactly
-\[
-a+c=p+q.
-\]
-With \(m=B-1\), this is equivalent to
-\[
-pq-p-q=am.
-\]
-The remaining digit condition \(c\le m\) is exactly
-\[
-m^2-(p+q)m+(pq-p-q)\ge0.
-\]
-Because \(q\) lies strictly between the two positive roots, divisor complementation converts this to the claimed cutoff \(a\le\rho_-\). All boundary cases, including \(p=2\), \(pq=9\), \(p=3\), and \(p=5\), are handled explicitly. Exhaustive direct digit-sum replay agrees with the theorem.
+## correctness
 
-## Originality
-PASS, with a material historical-access risk. The named all-base invariant is the Dunckley set, so the 2001 Vella--Vella article is the most relevant comparison. Its full text could not be obtained through the inspected accessible routes, and no noncoverage conclusion is drawn from that absence. The associated A060209 record gives the all-base counting invariant and initial values but no semiprime upper-spectrum formula.
+PASS
 
-The complete accessible 2013 and 2014 Witno papers were inspected. They concern decimal Smith constructions from repunits and do not vary the base. A098837 tabulates decimal Smith semiprimes only. Statement-level searches for a fixed semiprime's Smith bases, the formula \(B=(p-1)(q-1)\), the divisor \(pq-p-q\), and one-digit-factor/two-digit-product formulations did not locate an equivalent theorem.
+When q<B≤pq the prime factors are single-digit and product has exactly two digits pq=aB+c, 1≤a<B, 0≤c<B. The Smith identity a+c=p+q gives pq-p-q=a(B-1). For p=2 this forces B=q-1 and violates B>q. For odd p,q, put K=pq-p-q>0 and m=B-1=K/a. With m≥q, a≤p-2, so c=p+q-a>0 automatically; the remaining bound c≤m is f(m)=m²-(p+q)m+K≥0. Since f(q)=-(p+q)<0 and roots positive, equivalent to m≥rho_+, or a≤rho_-=K/rho_+. This proves all divisors and no extras. Evaluating f(1) gives exception p=q=3, f(p)<0 and parity restrict p=3 to a=1 and p=5 to a∈{1,3} with 3|4q-5, q≥11. Independent direct digit-sum search agreed with formula for 190 ordered prime pairs p≤q below 70; this finite check is not used for the universal proof.
 
-A previously known fixed-base residue condition supplies only the necessity
-\[
-B-1\mid pq-p-q.
-\]
-It does not by itself imply the exact varying-base spectrum: the digit-bound inequality is essential, and the theorem derives its sharp divisor cutoff and the universal canonical base.
+## originality
 
-## Value
-PASS. The number of bases in which a fixed composite is Smith is an established named invariant rather than an arbitrary parameter slice. The theorem resolves a natural semiprime layer of that invariant exactly on the maximal range where both factors remain one-digit. It gives a finite symbolic spectrum, proves a universal existence law for every odd semiprime except \(9\), explains the even-base rigidity, and yields complete \(p=3\) and \(p=5\) layers.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Dunckley set is the natural prior all-base invariant. OEIS A060209 and original 2001 Vella–Vella citation give this definition but accessible records do not give the symbolic upper-base semiprime spectrum. The exact 2001 article and 2010 exposition remain inaccessible and are explicitly material originality risks. Later accessible Witno papers treat decimal Smith constructions, while OEIS A098837 tabulates fixed base-10 Smith semiprimes. The necessary congruence (B-1)|K does not imply the full digit bound or iff spectrum. Best-of-knowledge O passes without pretending that inaccessible work was read or that absence of an indexed hit proves novelty.
+
+## value
+
+PASS
+
+The base spectrum is a natural exact invariant already studied as Dunckley base multiplicity. Determining all admissible bases in the geometrically/arithmetically distinguished one-digit-factor and two-digit-product stratum is a complete parametric classification, with nontrivial canonical-base law, parity obstruction, p=3 uniqueness and p=5 multiplicity layer. This is a self-contained result of direct future use for studying Dunckley sets, even though its derivation is elementary and does not classify bases ≤q.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
