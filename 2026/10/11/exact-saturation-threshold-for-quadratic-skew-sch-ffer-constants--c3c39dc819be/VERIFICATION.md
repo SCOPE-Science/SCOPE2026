@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-## Mathematical checks
-The finding is an analytic if-and-only-if theorem. Its quantitative normalization is the square of the quadratic power mean of the two output norms, not their unnormalized sum. The exact lower envelope is \((1+\tau^2)(1+\alpha^2)/2\), and the contact condition is \(\tau\ge\beta/m\), where \(m\) is the maximum of a strictly concave function on \([-\alpha^2,\alpha^2]\). The proof distinguishes the Euclidean cone of both transformed outputs from the condition that each input lie on the norm-unit sphere.
+## correctness
 
-The golden-ratio branch crossing is the exact positive solution of \(\alpha^4+\alpha^2=1\). The lower and upper endpoints \(\tau=0,1\), equality at \(\tau=\tau_c\), and both sides of \(\tau=\beta\) are covered explicitly in the proof.
+PASS
 
-## Executable diagnostic
-Run `python3 verify_threshold.py` from the directory containing the accompanying file. The program uses only Python's standard library. It checks the rational case \(\alpha=4/5\) and \(\tau_c=12/25\) with `fractions.Fraction` exactly, including the active-cone tie and equality of the two sides at \(31529/31250\). For the complementary branch \(\alpha=3/5\), it verifies the threshold contact with 65-digit `decimal.Decimal` precision. Successful execution prints `SKEW_SCHAEFFER_THRESHOLD_EXACT_CHECK_OK`.
+For N(x)=max(alpha^-1|x1|,Euclidean(x)), skew parallelogram decomposition gives S_lambda(tau)^2 >= (1+tau^2)(1+alpha^2)/2. Since 1+alpha^2<2, equality must use one flat-side center (alpha,0) and one circular-arc (a,b) with |a|<=alpha^2. Equality of both output branches imposes tau(sqrt(1-a^2)+(beta/alpha)a)>=beta. Strict concavity gives maximum at a*=min(beta,alpha^2); its value yields sharp onset tau_c=sqrt(1+alpha^2)-alpha when alpha^2<=(sqrt5-1)/2 and alpha beta otherwise. For tau_c<=tau<=beta, a continuous cone-boundary witness exists and second cone inequality follows from (b-kappa a)(b+kappa a)=1-a^2/alpha^2>=beta^2; for tau>=beta choose x=(0,1),y=(alpha,0). Compactness makes every tau<tau_c strict. Independent algebra checked switch continuity and both optimizer branches at alpha=.2,.65,.9, and the exact rational threshold witness in the frozen verifier.
 
-These two instances provide useful arithmetic regression tests. They are not a proof of an infinite parameter family or strict positivity below its critical threshold; both follow from the analytical equality-case reduction.
+## originality
 
-## Scientific limits
-The theorem classifies precisely when a known lower envelope is attained, and does not determine the optimal value in the strictly subcritical range. Its originality comparison relies on accessible published mathematical statements; unindexed or unpublished equivalents cannot be excluded by a search. No independent audit has been carried out.
+PASS
+
+Best-of-knowledge PASS for exact minimum saturation onset, not for previously known sufficient range tau>=beta. Xu--Liu introduce this infimal skew constant and display equality above beta for a fixed witness; the new cone contact optimization yields strictly smaller tau_c and a golden-ratio branch switch. Chen et al study a supremal skew generalized Jordan quotient and cannot directly imply this infimal equality onset. The highly relevant Xu--Liu full primary Example 3.5 could not be accessed despite OA avenues and authorized institutional retrieval returning VPN disconnected; no whole-text exclusion is asserted and this is a substantial named priority risk, not itself grounds for false FAIL.
+
+## value
+
+PASS
+
+The exact phase boundary for equality in a natural published lower-envelope inequality is a mathematically motivated invariant, not a parameter-picked toy example. It sharpens the source sufficient threshold for every lambda>1, classifies the geometry of equality witnesses and exhibits a real golden-ratio optimizer transition. Determining full subthreshold constant is outside scope; exact onset itself is useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

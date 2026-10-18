@@ -1,15 +1,21 @@
-# Scientific review: exact skew Schäffer saturation threshold
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The conclusion is an if-and-only-if statement for every real \(\lambda>1\) and \(0\le\tau\le1\), not a finite numerical observation. The proof exhausts both flat-side and circular-arc alternatives for the unit sphere. Its lower bound follows from the skew parallelogram identity applied to the two defining quadratic branches. Since \(1+\alpha^2<2\), equality forces one input to be exactly a flat-side midpoint and the other a circular-arc point with \(|a|\le\alpha^2\). Euclidean dominance of the second output yields a necessary scalar inequality. Strict concavity computes its unique maximizer and thus the sharp threshold. The separate constructions for \(\tau_c\le\tau\le\beta\) and \(\beta\le\tau\le1\) attain equality. Compactness of the unit sphere makes the subthreshold inequality genuinely strict. Endpoints, ties and the golden-ratio branch crossing have been checked. A standard-library exact rational test and a high-precision second-branch test supplement, but do not replace, the analytic proof.
+## correctness
 
-## Originality (O) — PASS, with disclosed residual risk
-The closest inspected mathematical paper, Xu and Liu, arXiv:2610.03050v1, proves the lower envelope and its attainment only for the sufficient range \(\tau\ge\sqrt{1-\lambda^{-2}}\). Its Example 3.5 identifies this as the activation threshold **of its chosen witness**, not the smallest possible activation threshold over all pairs. The present claim optimizes all possible equality pairs and proves a strictly smaller, piecewise sharp threshold with a golden-ratio transition. Chen, Liu, Tan and Wang, arXiv:2412.11665v1, and the inspected related Ptolemy, Banach–Mazur and Euler–Lagrange results compute different, mostly supremal, quantities. Search and implication comparisons did not identify a covering result. These searches cannot rule out an unindexed equivalent or unpublished work.
+PASS
 
-## Value (V) — PASS
-This is the exact natural parameter boundary for equality in an already motivated and published sharp lower-envelope inequality, over the entire original Banaś–Frączek family. It refines the source's sufficient range for every \(\lambda>1\), characterizes the mixed flat/circular geometry needed for equality, and identifies a nonobvious optimizer transition at \(\lambda=\sqrt{(1+\sqrt5)/2}\). The mathematical object and threshold are independently motivated by the source's explicit unresolved sharpness question: the work is not merely a new label, a random slice, or a numerical approximation. The actual skew Schäffer values for \(\tau<\tau_c\) remain uncomputed; the exact onset itself is the sole accepted conclusion.
+For N(x)=max(alpha^-1|x1|,Euclidean(x)), skew parallelogram decomposition gives S_lambda(tau)^2 >= (1+tau^2)(1+alpha^2)/2. Since 1+alpha^2<2, equality must use one flat-side center (alpha,0) and one circular-arc (a,b) with |a|<=alpha^2. Equality of both output branches imposes tau(sqrt(1-a^2)+(beta/alpha)a)>=beta. Strict concavity gives maximum at a*=min(beta,alpha^2); its value yields sharp onset tau_c=sqrt(1+alpha^2)-alpha when alpha^2<=(sqrt5-1)/2 and alpha beta otherwise. For tau_c<=tau<=beta, a continuous cone-boundary witness exists and second cone inequality follows from (b-kappa a)(b+kappa a)=1-a^2/alpha^2>=beta^2; for tau>=beta choose x=(0,1),y=(alpha,0). Compactness makes every tau<tau_c strict. Independent algebra checked switch continuity and both optimizer branches at alpha=.2,.65,.9, and the exact rational threshold witness in the frozen verifier.
 
-## Closest literature and limits
-Primary: Y. Xu and Q. Liu, *Skew Schäffer Type Constants*, arXiv:2610.03050v1 (2026-10-02), Example 3.5. Additional comparison: L. Chen et al., *Skew generalized von Neumann-Jordan constant for the Banaś-Frączek space*, arXiv:2412.11665v1. Other recorded quantitative invariants of the same plane and related supremal constants do not logically imply the infimal contact threshold. Originality is supported by inspected statements, not certified by absence from a database. The proof does not extend to a full subcritical constant formula or to other powers.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for exact minimum saturation onset, not for previously known sufficient range tau>=beta. Xu--Liu introduce this infimal skew constant and display equality above beta for a fixed witness; the new cone contact optimization yields strictly smaller tau_c and a golden-ratio branch switch. Chen et al study a supremal skew generalized Jordan quotient and cannot directly imply this infimal equality onset. The highly relevant Xu--Liu full primary Example 3.5 could not be accessed despite OA avenues and authorized institutional retrieval returning VPN disconnected; no whole-text exclusion is asserted and this is a substantial named priority risk, not itself grounds for false FAIL.
+
+## value
+
+PASS
+
+The exact phase boundary for equality in a natural published lower-envelope inequality is a mathematically motivated invariant, not a parameter-picked toy example. It sharpens the source sufficient threshold for every lambda>1, classifies the geometry of equality witnesses and exhibits a real golden-ratio optimizer transition. Determining full subthreshold constant is outside scope; exact onset itself is useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
