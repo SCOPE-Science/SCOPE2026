@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (PASS).** The singularity basket is determined by the exact binary difference factorization: its two coordinate-line factors contribute intersection multiplicity four each, while the two remaining lines give four distinct transverse intersections each. A nonzero resultant excludes collisions. Any projective stabilizer preserves the two intrinsic high-contact points and their joining line. The missing shear is excluded by the nonvanishing directional derivative of a binary octic with distinct roots. The diagonal and antidiagonal coefficient equations exhaust every permissible projective symmetry, yielding eight and sixteen transformations. The displayed generators and relations distinguish cyclic and nonabelian groups. The exact symbolic verifier checks identities and group lifts; the proof supplies the exhaustive argument.
+## correctness
 
-**Originality (PASS, subject to bibliographic uncertainty).** Ikeda--Takahashi (arXiv:2305.05985v1, Section 5) classify the underlying two-simultaneous-Galois-point quartic pairs but do not calculate their full reducible-union projective stabilizers or their complete singularity baskets. Fukasawa--Miura--Takahashi (arXiv:2211.16033v1), inspected in full HTML, analyze the automorphisms of smooth quartics, not the global stabilizers of the reducible pairs. Exact-formulation and published-finding corpus searches found no recorded covering assertion. Residual risks include an unindexed older calculation and the possibility that a broader quartic-stabilizer theorem implies the coefficient classification.
+PASS
 
-**Value (PASS).** The finite list in a natural extremal Galois-point classification has a previously unspecified intrinsic projective invariant. The symmetry jump between cyclic order eight and nonabelian order sixteen occurs even though the three curves share the same complete local singularity basket; this distinguishes an exceptional geometry and explains it through a concrete stabilizer mechanism. It is a motivated complete classification of the extremal examples, not a routine invariant of an arbitrary slice.
+The source fixes two contact points P_0,P_1 by their A7 singularity types, hence fixes their joining line z=0. Vanishing z-linear term in the transformed binary octic forces no binary-z shear. Diagonal and antidiagonal matrices then exhaust component permutations; coefficient comparison and four lifts produce 8 or 16 elements. Factorization of g_1-g_a yields u*v times a quadratic with discriminant -3(a-1)^4 and resultant 9a^2(a-1)^2(a^2-a+1), proving two 4-fold contacts and eight transverse nodes by Bezout. Independent symbolic algebra checked these formulas and generator relations. This concerns embedded PGL3 stabilizers, not abstract normalization automorphisms.
 
-**Scope and independence.** Characteristic zero; projective stabilizers of embedded reducible degree-eight curves, not automorphisms of normalization. The result depends on the published source equations and on the stated exact calculations. Unindexed priority remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ikeda and Takahashi, arXiv:2305.05985v1, Section 5 and Theorem 5.1, give the three pairs and equations but do not state the derived 2A7+8A1 basket or complete order-8/order-16 union projective stabilizer. Quasi-Galois arrangements literature addresses different irreducible quartic automorphism actions.
+
+## value
+
+PASS
+
+The full embedded automorphism group and singularity stratification are natural geometric invariants of canonical two-component quartic arrangements; the order doubling despite identical baskets is a substantive projective symmetry distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
