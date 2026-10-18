@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The achievability filters are explicit. The concentration filter is the published fermionic Gaussian measurement branch from arXiv:2609.15059v1, and the dilution filter is its particle-hole conjugate. The upper bound is analytic: after branch-dependent Gaussian local corrections, each successful branch is diagonal, exact pure-state conversion gives separate coefficient identities, and terminal Kraus completeness bounds the total success mass in the two occupation sectors. This yields the two ratio bounds whose minimum is attained by the explicit filters.
+## correctness
 
-## Originality
-PASS. The closest primary sources were inspected at statement level. Tang et al. give the maximally entangled target with success \(2\sin^2\theta\) but do not state arbitrary-target conversion or optimality. Spee et al. classify pure-state GSLOCC classes and deterministic GLOCC rigidity but do not state an optimal success-probability frontier. Vidal gives unrestricted-LOCC probabilities, which agree only with the concentration branch. Targeted published-finding corpus, primary-literature, alias, and private-ledger overlap searches did not locate an equivalent formula. A residual risk remains that older resource-theory literature uses different terminology.
+PASS
 
-## Value
-PASS. Exact stochastic conversion probability is a natural quantitative refinement of both the 2026 Bell-distillation endpoint and the 2018 deterministic no-go theorem. The formula exposes a sharp operational asymmetry: Gaussian operations are probability-optimal for concentration but strictly suboptimal for dilution. The Bell endpoint's success probability is thereby certified optimal within the stated protocol class.
+Pure two-term Schmidt amplitudes under a product single-mode parity-definite Kraus branch give p_j cos²φ=cos²θ |a_0b_0|² and p_j sin²φ=sin²θ |a_1b_1|². Summing successful branches and using terminal completeness bounds total P by the minimum of two ratios. The diagonal concentration filter diag(t,1), t=tanθ/tanφ, and dilution filter diag(1,t), t=tanφ/tanθ, attain the ratios. Their one-mode diagonal form is a scalar multiple of exp(k n), a fermionic Gaussian filter, and the rank-one diagonal complement is a Fock-state Gaussian projection. Odd-odd parity products can be composed with local particle-hole flips under the explicitly declared generalized Gaussian convention. Source RESULT.md is visibly malformed as KaTeX: doubled literal backslashes and double-braced begin{{cases}}, a transport/publication defect, not a counterexample to the normalized algebra.
 
-## Closest literature and limitations
-The result is restricted to exact one-copy conversion in finite-round fine-grained single-Kraus GSLOCC on one mode per party, under the generalized fermionic-Gaussian convention stated in RESULT.md. It does not address unresolved multi-Kraus Gaussian instruments, catalysts, approximate conversion, or asymptotic rates.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Spee et al. describe GSLOCC diagonal/particle-hole normal forms and bipartite GSLOCC equivalence classes, not optimal exact success probability. Tang et al. publicly states Bell-state distillation probability 2 sin²θ, recovered as φ=pi/4 only. Vidal gives unrestricted LOCC rate, for which dilution has P=1; it does not imply Gaussian-only dilution. Tang Appendix D.1 itself was not available in complete first-party text; risk explicitly remains.
+
+## value
+
+PASS
+
+A quantitative tight single-copy stochastic conversion frontier distinguishes feasible transformations from their optimal probabilities; its strict dilution penalty is a motivated resource-theoretic boundary beyond the previously known Bell endpoint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

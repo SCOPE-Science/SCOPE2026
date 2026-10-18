@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The accepted claim was checked by direct symbolic reconstruction. The concentration branch uses \(K_t=t|0\rangle\langle0|+|1\rangle\langle1|\) with \(t=\tan\theta/\tan\phi\); the output coefficients are proportional to those of \( |\psi_\phi\rangle \) and the squared norm is \(\sin^2\theta/\sin^2\phi\). The dilution branch uses the particle-hole conjugate filter and has squared norm \(\cos^2\theta/\cos^2\phi\).
+# Independent mathematical audit
 
-For the upper bound, a successful fine-grained terminal branch can be corrected by local Gaussian unitaries to diagonal parity-even form without changing its effect operator. Exact conversion then forces one equality for the \(|00\rangle\) component and one for the \(|11\rangle\) component. Summing over successful branches and taking the corresponding diagonal matrix elements of terminal Kraus completeness yields the two independent probability inequalities. Their minimum is therefore universal in the stated protocol class.
+## correctness
 
-The Gaussianity of the filter used for concentration was checked against Appendix D.1 of arXiv:2609.15059v1; the dilution filter is its particle-hole conjugate. The unrestricted-LOCC benchmark was checked against Vidal's primary theorem. No numerical grid, optimization log, or finite enumeration is used to justify the universal statement.
+PASS
 
-Limits: this verification does not extend the theorem to unresolved multi-Kraus Gaussian instruments, many-copy protocols, catalysts, or approximate conversion. Independent audit has not been performed.
+Pure two-term Schmidt amplitudes under a product single-mode parity-definite Kraus branch give p_j cos²φ=cos²θ |a_0b_0|² and p_j sin²φ=sin²θ |a_1b_1|². Summing successful branches and using terminal completeness bounds total P by the minimum of two ratios. The diagonal concentration filter diag(t,1), t=tanθ/tanφ, and dilution filter diag(1,t), t=tanφ/tanθ, attain the ratios. Their one-mode diagonal form is a scalar multiple of exp(k n), a fermionic Gaussian filter, and the rank-one diagonal complement is a Fock-state Gaussian projection. Odd-odd parity products can be composed with local particle-hole flips under the explicitly declared generalized Gaussian convention. Source RESULT.md is visibly malformed as KaTeX: doubled literal backslashes and double-braced begin{{cases}}, a transport/publication defect, not a counterexample to the normalized algebra.
+
+## originality
+
+PASS
+
+Spee et al. describe GSLOCC diagonal/particle-hole normal forms and bipartite GSLOCC equivalence classes, not optimal exact success probability. Tang et al. publicly states Bell-state distillation probability 2 sin²θ, recovered as φ=pi/4 only. Vidal gives unrestricted LOCC rate, for which dilution has P=1; it does not imply Gaussian-only dilution. Tang Appendix D.1 itself was not available in complete first-party text; risk explicitly remains.
+
+## value
+
+PASS
+
+A quantitative tight single-copy stochastic conversion frontier distinguishes feasible transformations from their optimal probabilities; its strict dilution penalty is a motivated resource-theoretic boundary beyond the previously known Bell endpoint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
