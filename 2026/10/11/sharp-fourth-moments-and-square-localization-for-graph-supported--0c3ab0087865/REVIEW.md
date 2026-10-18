@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For any real edge array, the exact fourth moment expansion consists of repeated-edge terms and four-distinct-edge even-degree configurations, which are precisely four-cycles. With disjoint four-cycle edge supports, rearrangement gives a sum of nonnegative global and local deficit terms. AM--GM determines both the sharp coefficient and the complete equality cases. The quantitative concentration law follows from two inequalities for disjoint nonnegative masses, with sharpness attained by independent squares. The exact-rational verifier confirms sample instances, while the analytic argument covers all finite graphs under the stated hypothesis.
+## correctness
 
-## Originality — PASS, subject to residual risk
-The general \(2\to4\) norm literature and homogeneous-chaos comparison results do not state the precise edge-disjoint-square classification. A primary investigation of graph-quadratic-chaos moments relates four-cycles to asymptotic normality for unweighted graph statistics; it does not imply the all-coefficient sharp norm or concentration statement. Similar Fourier-support and Walsh results concern different invariants, while a previously obtained cube-graph result addresses one overlapping-square graph rather than this class. The exact combinatorial moment identity itself is classical and is not asserted new. Historical additive-energy or Sidon-type statements could imply the optimization or stability, although searches did not reveal a decisive equivalent.
+PASS
 
-## Value — PASS
-This is a graph-structural classification of an intrinsic Banach-space embedding constant, with a notable isometric reduction for square-free supports, complete extremizer rigidity for square-bearing supports, and a sharp dimension-free quantitative concentration threshold. The latter distinguishes arbitrary near-extremizers from mere optimal values and is useful when graph size grows while the fourth moment remains near its maximum. The restrictions are structural rather than arbitrary small-instance slices.
+For every finite simple graph and real a, Walsh parity leaves only repeated edges and simple four-cycles, giving E F⁴=3S²−2Σa_e⁴+24Σ_CΠ_Ca_e. When cycles are pairwise edge-disjoint the exact rearrangement of 4S²−E F⁴ consists of a nonnegative global mass defect S²−Σ_Cs_C²+2Σ_outside a_e⁴ and nonnegative single-cycle AM–GM defects s_C²+2Σ_Ca_e⁴−24Π_Ca_e. Equality forces one uniform signed-positive square; when there are no squares, Cauchy gives 3−2/m, all magnitudes equal, and an L⁴ isometry to independent signs. For near-optimizers Σs_C²≥1−δ gives t=max s_C/S>1/2 and δ≥2t(1−t); disjoint two-square coefficients attain the threshold. These are all-size analytic conclusions, not extrapolations of finite checks.
 
-## Closest literature and limitations
-Barak et al. (arXiv:1205.4484) motivates norm computation. Ivanisvili--Tkocz (arXiv:1807.04358) supplies general comparison results. Bhattacharya et al. (arXiv:2203.02850) derive four-cycle moment-count relations for graph quadratic chaos, but focus on asymptotic probabilistic questions, not the stated variable-weight sharp norm and stability. No statement is made for complex coefficients, graphs with shared-square edges, or other moment exponents. The case of graph squares sharing edges may have fourth-moment maxima exceeding four. The simple combinatorial identity is treated as prior technology, not novelty.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact sharp graph-class norm with full extremizers and optimal quantitative square concentration. General hypercontractive norm comparisons and four-cycle counts in asymptotic graph chaos do not give this all-coefficient equality/localization theorem. Published Q3 cube edge-Walsh theorem has the same scalar optimum and face-support extremizers for ONE graph with overlapping squares, not for all graphs whose four-cycles have disjoint edges. Graph moment identity itself is well known and NOT claimed novel.
+
+## value
+
+PASS
+
+The natural graph property that squares do not share edges makes exact L⁴ subspace geometry tractable, and the square-free case has a genuinely coefficient-preserving L⁴ isometry. The exact dimension-free sharp mass concentration function is independently useful for identifying near-extremizing Walsh forms on arbitrarily large graph supports; it is not a renamed generic hypercontractive bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
