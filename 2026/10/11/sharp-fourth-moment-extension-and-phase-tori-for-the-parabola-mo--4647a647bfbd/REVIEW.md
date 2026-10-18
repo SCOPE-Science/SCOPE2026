@@ -1,19 +1,21 @@
-# Scientific review: prime-cube parabolic fourth moments
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every odd prime \(p\), orthogonality on \((\mathbb Z/p^3\mathbb Z)^2\) identifies the normalized fourth moment with the squared norms of quadratic pair-sum fibers. Unit differences have precisely two ordered roots. Differences divisible by \(p\) produce convolution fibers indexed by unordered middle-digit pairs. The resulting exact block formula reduces by the \(\mathbb F_p\) Fourier transform to three manifestly nonnegative deficits. The sharp value \(2p-1\), equality conditions, and projective phase-torus classification follow without any limiting or enumerative step. The packaged checker cross-validates the fiber identity on random Gaussian-integer inputs and equality packets; numerical spectral checks are corroborative only.
+PASS
 
-## Originality — PASS, subject to literature limits
+Character orthogonality turns the fourth moment into exact pair-sum energy. Mixed coarse residues have two oriented representations by Hensel lifting; same-class pairs split into p² blocks with convolution over F_p. Parseval gives E_r=p⁻¹ Σ_ξ(2S_r(ξ)²−Σ_u A_{r,u}(ξ)²). Rearrangement against (2p−1)m_r² produces three explicitly nonnegative terms; equality forces one parent residue, one fine frequency, and uniform block energies, hence the entire p²-torus family. Independently enumerated all Z/27Z pair fibers on complex Gaussian-integer inputs and matched the spectral deficit against the direct convolution defect. No numerical experiment is used as the all-odd-p proof.
 
-The nearest structural reference is Hickman–Wright's treatment of Fourier restriction and wave packets over \(\mathbb Z/N\mathbb Z\), including their parabola. Its relevant statements concern scale-dependent exponent ranges and general estimates, not the specific fourth-power constant on \(\mathbb Z/p^3\mathbb Z\), all complex extremizers, or the exact three-part deficit. Mockenhaupt–Tao and González-Riquelme–Oliveira e Silva work over finite fields, which do not have the two nontrivial nilpotent scales essential here. The formulas are not obtained by substituting \(p^3\) into a prime-square result. Semantic database searches, targeted web searches for the coefficient \(2p-1\), and full-text inspection of the most relevant paper sections did not identify a covering theorem. This is evidence of an unresolved gap, not proof of absolute priority; unlocated equivalent congruence-energy statements remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Sharp finite-ring restriction is a natural problem in nonarchimedean harmonic analysis, and the first odd prime-power exponent tests interactions of two nilpotent scales. The theorem gives an exact norm for every odd prime together with a *complete* nonlinear equality classification: \(p^2\) projective \((p-1)\)-tori, rather than isolated Fourier packet lines. The exact deficit isolates the three independent obstructions to sharpness. Both the phase freedom and the positive decomposition are structural information useful for studying further prime-power levels.
+The numerical sharp norm and entire equality set are already covered by the inspected general p^k publication at k=3. The submitted main claim additionally contains an exact quantitative spectral defect decomposition on every input; no searched prior full-result theorem states that refinement. This is the strictly isolated best-of-knowledge original component.
 
-## Scope and residual limitations
+## value
 
-The theorem does not assert results for higher powers, even characteristic, or other exponents. It does not give an optimized quantitative distance coefficient. Although the principal sources and direct aliases were compared, the literature search cannot rule out an equivalent statement in older congruence-counting or \(p\)-adic wave-packet literature. The exact arithmetic tests cover selected small primes and do not replace the proof for all primes.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The exact triple defect is a substantive motivated p³ scale-by-scale stability invariant: it discriminates three independent obstructions to sharp extension and provides quantitative control for arbitrary signals. The value is not merely the previously known constant or a correctness certificate. No claim of the first proof of 2p−1 or its phase tori is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
