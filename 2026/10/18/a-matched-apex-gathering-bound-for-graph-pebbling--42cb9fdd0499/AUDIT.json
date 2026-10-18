@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Every move and case in the constructive proof was recomputed: normalized hub count H=(t+h-O)/2 and Q=O+2u<=4r, parity excludes the near-equality cases, and the exceptional all-odd case uses two legal internal matching moves to eliminate one residual pair. Exhaustive verifier replayed 754545 boundary configurations for r=1..4; the infinite result is proved by the arithmetic argument rather than extrapolated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general 2026 theorem gives stack(G)<=2|V|2^diam, i.e. 16r+8 here (diameter at most 2).",
+        "The later 2026 paper gives ASH-dependent characterizations of cycle/tree/perfectly-pebblable families, not an unconditional matched-apex hub bound.",
+        "The universal-vertex class includes K_1 join r disjoint edges, which is not a complete multipartite graph for r>=2."
+      ],
+      "reasoning": "The source theorems are either strictly weaker numerical bounds, apply to other classes, or require an unproved hypothesis. The matching-edge parity repair is not obtained by substituting parameters into an identified stronger theorem.",
+      "searches": [
+        "arXiv:2604.22341 HTML sections 1-9, search \"friendship\" and \"windmill\"",
+        "arXiv:2610.09650 full HTML sections 1-6, search \"friendship\", \"matching\", \"universal\"",
+        "web: \"stacking number\" \"diameter two\" bound 2026 graph pebbling",
+        "web: \"stacking number\" universal vertex perfect matching pebbling"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.22341 full HTML",
+      "arXiv:2610.09650 full HTML",
+      "arXiv:2609.31811 abstract",
+      "DOI:10.61091/jcmcc124-47 abstract and introduction",
+      "mathematical-index related records on friendship and windmill graph invariants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 general stack upper estimate is 2n*2^diam and its complete multipartite exact formula applies to a different graph class.",
+        "The subsequent ASH analysis treats a conjectural reduction, cycles, trees, and conditional sparse families; none implies hub gathering in friendship subgraphs."
+      ],
+      "reasoning": "For G=K_1 join rK_2, order 2r+1 and diameter two for r>=2, the old estimate is 16r+8; our 4r result is not a numerical corollary. Further edges preserve our constructive sequence, establishing a genuine graph class not covered by the stated prior families.",
+      "searches": [
+        "arXiv:2604.22341 Theorems 2.10, 8.1-8.3",
+        "arXiv:2610.09650 sections 4 and 6, ASH and perfect pebblability",
+        "web: \"graph pebbling\" \"perfect matching\" \"dominating vertex\" stack"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2604.22341 sec. 8 gives complete multipartite formulas and defines stack, but a friendship graph with >=2 triangles is not complete multipartite.",
+        "arXiv:2610.09650 sections 3-6 use Almost Stacked Hypothesis and tree/cycle families, not a perfect-matching leaf gatherer."
+      ],
+      "reasoning": "Stacking at a specified universal vertex for all t>=4r implies the usual stack upper bound. Reverse equivalence does not hold, since an optimal stack may be at another vertex. No identified equivalent formulation covers matching-apex graphs.",
+      "searches": [
+        "mathematical-index: \"Stacking and clearing in graph pebbling Soukup Csernak theorems complete multipartite friendship graph F_n triangle windmill stack upper bound 4n\"",
+        "web: \"stacking number\" \"friendship graph\" \"pebbling\"",
+        "web: \"stacking number\" \"windmill graph\" pebbling"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant returned mathematical-record entries concern other graph invariants on generalized windmills or matching complexes, with no pebbling stacking statement.",
+        "No exact table of all matched-apex stacking thresholds was located in those searches."
+      ],
+      "reasoning": "The finite obstruction values r<=4 are verification context, not a claim of a new infinite exact threshold. No searched table subsumes the proved universal upper bound.",
+      "searches": [
+        "mathematical-index: \"Pebbling stacking number on graph K_1 join disjoint n edges friendship windmill matching apex universal vertex\"",
+        "mathematical-index: \"Graph pebbling stack(G) clique bouquet friendship exact worst-case all configurations 4n\"",
+        "web: \"stacking number\" \"2n\" \"pebbling\""
+      ]
+    },
+    "rationale": "The two closely related original 2026 articles were compared by the actual implications of their theorems, including conditional versus unconditional status and graph class. No returned mathematical-index or literature item contained an equal or stronger matched-apex gathering result. Unidentified equivalent work is a residual bibliographic risk.",
+    "residual_risks": [
+      "Other terminology for the same gathering argument may exist outside searched publications.",
+      "Not all graph-pebbling literature is indexed in the searched sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_COVER asserted matched-apex 4r gathering result",
+        "evidence": [
+          "Theorem 2.10 general bound 2|V|2^diam",
+          "Theorem 8.3 exact complete multipartite formulas, not friendship K_1 join rK_2 for r>=2",
+          "No friendship/windmill section."
+        ],
+        "identifier_or_url": "arXiv:2604.22341; https://arxiv.org/html/2604.22341v1",
+        "material_read": "Full accessible arXiv HTML, in particular Introduction, definitions, Sections 2, 4, 5, 8 and 9, and references",
+        "method": "Compared definitions, statements of Theorems 2.10, 8.1-8.3, independence-number lower bound and full-text mentions of friendship or windmills",
+        "title": "Stacking and Clearing in Graph Pebbling",
+        "trigger": "Introduces exactly the stacking invariant and proves general and family-specific results"
+      },
+      {
+        "assessment": "DOES_NOT_COVER unconditional hub gathering for all universal-vertex matched-remnant graphs",
+        "evidence": [
+          "Section 4 focuses on cycles",
+          "Section 5 tree estimator",
+          "Section 6 ASH-conditional perfectly pebblable sufficient conditions and graph constructions."
+        ],
+        "identifier_or_url": "arXiv:2610.09650; https://arxiv.org/abs/2610.09650",
+        "material_read": "Full accessible arXiv HTML, Sections 1-6 including perfect-pebblability criteria and construction families",
+        "method": "Searched friendship, universal, matching; compared theorem hypotheses, class membership and ASH conditionality",
+        "title": "The Almost Stacked Hypothesis: A Conjectural Analogue of Sjöstrand’s Cover Pebbling Theorem",
+        "trigger": "Later work by original invariant authors might contain a stronger theorem"
+      },
+      {
+        "assessment": "INAPPLICABLE to universal-vertex graphs containing triangles",
+        "evidence": [
+          "Abstract restricts exact theorem to finite trees; matched-apex graphs contain triangles."
+        ],
+        "identifier_or_url": "arXiv:2609.31811",
+        "material_read": "Publication metadata and abstract, not full article",
+        "method": "Checked stated graph class and implications",
+        "title": "The stacking number of a tree",
+        "trigger": "Same named parameter, possible stronger scope"
+      },
+      {
+        "assessment": "NOT_EQUIVALENT invariant (moving guards in eternal domination, not two-for-one pebbling)",
+        "evidence": [
+          "2025 paper considers multiple guards and an eternal domination game."
+        ],
+        "identifier_or_url": "https://doi.org/10.61091/jcmcc124-47",
+        "material_read": "Accessible article abstract and introduction",
+        "method": "Compared move rules and invariant definitions",
+        "title": "Stacking numbers for eternal domination",
+        "trigger": "Identical parameter name might conceal equivalent prior result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "42cb9fdd-0499-4fa5-ad72-1d17487fc97b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "It supplies an explicit unconditional constant-factor strengthening of the general diameter-two pebbling bound (16r+8 down to 4r) for a structural graph class characterized by a universal vertex and perfect matching in the remainder. The proof gives an implementable parity-repair algorithm valid on an infinite graph family and all its edge supergraphs. It does not claim an unproved exact classification or general lower sharpness.",
+    "status": "PASS"
+  }
+}
