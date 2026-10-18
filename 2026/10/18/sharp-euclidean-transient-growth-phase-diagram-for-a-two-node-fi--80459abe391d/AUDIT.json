@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The local two-node finite-element mass/stiffness assembly, positive definiteness, \\(H=(M^{-1}K+KM^{-1})/2\\) and \\(\\det H\\) are reconstructed from explicit formulas. \\(H\\) has positive diagonals, so Sylvester gives the necessary and sufficient \\(\\Delta\\ge0\\) semigroup contractivity criterion. With \\(\\Delta<0\\), the largest eigenvector of \\(-H\\) is coordinatewise strictly positive. The quartic has exactly two simple positive roots by Descartes and exact rational sign brackets, hence the full interval classification. The \\(r\\downarrow0\\) scaled symmetric-part limit has explicit eigenvalues; the mass eigenvalues prove uniform conditioning. Standalone exact-rational local-assembly checker passed 10,623 checks; finite checking is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tatsuoka–Miyatake–Sogabe, arXiv:2603.11871v1, Sections 1–3: the Hermitian-part bounding box, mass-matrix similarity Theorem 1, generalized eigenvalue reformulation Proposition 2, and negative transformed numerical range Proposition 3; numerical tests use two-dimensional advection-diffusion.",
+        "Published full result \"Exact \\(L^p\\) contractivity phase diagram for planar triangular shears\" (2026-10-11): upper-triangular generator \\(\\begin{psmallmatrix}-a&b\\\\0&-c\\end{psmallmatrix}\\) and varying p, no consistently assembled FEM mass/stiffness or graded-mesh quartic.",
+        "Published \"Unconditional lattice positivity from backward-Euler-filtered Crank-Nicolson\" (2026-09-20): positivity of rational time-stepping kernels on uniform heat lattices, not Euclidean exact heat semigroup contractivity on graded consistent-mass FEM."
+      ],
+      "reasoning": "The source proves general transformed numerical-range control, which is stronger for physical energy decay and error bounding but not a characterization of untransformed Euclidean contractivity for nonuniform pure-heat P1 meshes. Shear work handles a different matrix class; uniform heat-lattice time-stepping work handles a different operator/time problem. These broader principles were checked for implication and do not calculate the claimed exact phase diagram.",
+      "searches": [
+        "pure diffusion consistent mass two-node FEM Euclidean logarithmic norm positive despite negative spectrum sharp mesh ratio",
+        "M inverse K finite element heat numerical range right half-plane graded mesh sharp threshold",
+        "nonuniform three-element P1 heat discretization Euclidean transient norm growth stable positive semigroup bounded mass condition number",
+        "positive semigroup mass norm dissipative Euclidean contractivity mesh asymmetry sharp graded P1 threshold"
+      ]
+    },
+    "checked_sources": [
+      "Tatsuoka, Miyatake and Sogabe, arXiv:2603.11871v1; full PDF inspected, especially Sections 1–3 and main theorems",
+      "Exact \\(L^p\\) contractivity phase diagram for planar triangular shears; complete published RESULT.md inspected",
+      "Unconditional lattice positivity from backward-Euler-filtered Crank–Nicolson; published summary compared only",
+      "Published search records for exact heat-semigroup and FEM numerical-range results; comparison does not substitute full-text review of uninspected sources"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tatsuoka–Miyatake–Sogabe, arXiv:2603.11871v1, Sections 1–3: the Hermitian-part bounding box, mass-matrix similarity Theorem 1, generalized eigenvalue reformulation Proposition 2, and negative transformed numerical range Proposition 3; numerical tests use two-dimensional advection-diffusion.",
+        "Published full result \"Exact \\(L^p\\) contractivity phase diagram for planar triangular shears\" (2026-10-11): upper-triangular generator \\(\\begin{psmallmatrix}-a&b\\\\0&-c\\end{psmallmatrix}\\) and varying p, no consistently assembled FEM mass/stiffness or graded-mesh quartic.",
+        "Published \"Unconditional lattice positivity from backward-Euler-filtered Crank-Nicolson\" (2026-09-20): positivity of rational time-stepping kernels on uniform heat lattices, not Euclidean exact heat semigroup contractivity on graded consistent-mass FEM."
+      ],
+      "reasoning": "The claimed NEW content is the exact mesh-dependent criterion for the actual FEM operator, its two positive algebraic one-parameter boundaries, the positive-coordinate witnessing of transient growth, and the unbounded numerical abscissa despite uniform mass conditioning. The motivating paper supplies the mass similarity and the statement that untransformed numerical ranges may enlarge, not the special heat-mesh formula. The published triangular-shear result is no stronger for this claim because triangularization is not Euclidean-norm preserving. Uniform lattice rational-step positivity is a different question.",
+      "searches": [
+        "arxiv:2603.11871v1",
+        "2026/10/11/SCOPE-exact-l-p-contractivity-phase-diagram-for-planar-triangular-shea--6e17594aec7a",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "2026/9/9/SCOPE008",
+        "\"two interior nodes\" \"mass matrix\" \"Euclidean\" heat semigroup contractivity threshold graded mesh"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tatsuoka–Miyatake–Sogabe, arXiv:2603.11871v1, Sections 1–3: the Hermitian-part bounding box, mass-matrix similarity Theorem 1, generalized eigenvalue reformulation Proposition 2, and negative transformed numerical range Proposition 3; numerical tests use two-dimensional advection-diffusion.",
+        "Published full result \"Exact \\(L^p\\) contractivity phase diagram for planar triangular shears\" (2026-10-11): upper-triangular generator \\(\\begin{psmallmatrix}-a&b\\\\0&-c\\end{psmallmatrix}\\) and varying p, no consistently assembled FEM mass/stiffness or graded-mesh quartic."
+      ],
+      "reasoning": "Compared field of values, logarithmic norm, matrix measure, numerical abscissa, Euclidean semigroup contraction and mass similarity formulations. Generic equivalence of dissipativity and contraction is prior knowledge; it does not derive the explicitly assembled three-element polynomial boundary, two sharp mesh thresholds or the bounded-mass singular-limit coefficient. Upper-triangular shear results do not transfer the Euclidean norm through a non-orthogonal similarity.",
+      "searches": [
+        "exact numerical abscissa positivity threshold nonuniform three-element one-dimensional linear finite element heat equation consistent mass M inverse stiffness K Euclidean numerical range",
+        "mesh grading threshold real part numerical range of mass-inverted finite element diffusion operator two interior nodes nonnormal pure heat",
+        "FEM diffusion semigroup two interior nodes transient Euclidean growth positive logarithmic norm despite mass norm contraction",
+        "\"two interior nodes\" \"mass matrix\" \"Euclidean\" heat semigroup contractivity threshold graded mesh",
+        "Tatsuoka Miyatake Sogabe An error control framework for computing the exponential of matrices arising from finite element discretization numerical range mass"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching phase polynomial, sharp algebraic mesh endpoints, or bounded-mass limit appears in the compared source theorem or in the retrieved published-claim records. A database search not finding an entry is not proof that no equivalent exists."
+      ],
+      "reasoning": "Searched for the defining quartic, approximate positive roots, finite-element structure and the extreme numerical-abscissa coefficient, rather than relying only on titles. No exact table or prior calculation was found among inspected relevant records; residual risk of an unindexed specialized calculation remains.",
+      "searches": [
+        "4 r^4 - 44 r^3 - 79 r^2 - 62 r + 1 finite element heat mesh numerical range two node",
+        "\"4r^4-44r^3-79r^2-62r+1\" consistent mass heat FEM",
+        "finite element 1D pure heat three element consistent mass matrix stiffness Euclidean transient norm growth 0.0158078 12.6570284"
+      ]
+    },
+    "rationale": "Literature-led examination of Tatsuoka–Miyatake–Sogabe (2026) found a general mass-similarity numerical-range/error control theorem but not the sharp pure-heat three-element mesh phase diagram. Published exact triangular-shear contractivity and uniform-lattice time-stepping positivity results were compared by object and implication, not titles. The new conclusion is narrower but provides complete thresholds and singular-limit coefficient absent in these examined statements. Residual risk remains from unindexed exact logarithmic-norm/graded mesh work, so this is best-knowledge originality rather than absolute proof.",
+    "residual_risks": [
+      "An equivalent complete sharp three-element FEM criterion might exist under matrix measure, dissipativity, logarithmic norm or finite-element nonnormality terminology in earlier unindexed literature.",
+      "Uniform heat-lattice time-stepping article was compared at published summary level; its full text was not inspected, though its claimed object is different."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general mass-similarity error/numerical-range framework, not the exact graded three-element pure-heat Euclidean contractivity criterion or quartic boundaries.",
+        "evidence": "Theorem 1 and Propositions 2–3 concern the mass-transformed operator; Figure 1 and Section 3 concern a two-dimensional P2 advection-diffusion test, rather than the two-interior-node \\(P_1\\) pure heat family.",
+        "identifier_or_url": "https://arxiv.org/pdf/2603.11871",
+        "material_read": "Public 15-page primary PDF; abstract, Sections 1–3, Theorem 1, Propositions 2–3, numerical examples and concluding section examined through the full-text version. Not all sentences of every section are individually quoted.",
+        "method": "Full-text PDF reading, analytic statements and equations checked against the proposed object and hypotheses.",
+        "title": "An error control framework for computing the exponential of matrices arising from the finite element discretization",
+        "trigger": "Same mass-inverted FEM generator and untransformed numerical-range phenomenon."
+      },
+      {
+        "assessment": "Upper-triangular three-parameter shear matrix with varied \\(L^p\\) norm; inapplicable to unweighted Euclidean norm under non-orthogonal diagonalization of the present irreducible FEM generator.",
+        "evidence": "Published formula for M_{a,b,c} with zero lower-left entry does not imply the graded FEM logarithmic norm or its quartic since similarities alter Euclidean numerical ranges.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-l-p-contractivity-phase-diagram-for-planar-triangular-shea--6e17594aec7a",
+        "material_read": "Complete published RESULT.md, including assumptions, closed p-threshold, proof and limitations.",
+        "method": "Full scientific result text read and matrix class/implications compared.",
+        "title": "Exact L^p contractivity phase diagram for planar triangular shears",
+        "trigger": "Potential stronger exact logarithmic-norm formula in dimension two."
+      },
+      {
+        "assessment": "Related time-stepping positivity, but not a decisive proof of noncoverage of all its full text; its available summary targets uniform lattice convolution and a Dirichlet positivity counterexample.",
+        "evidence": "The reported theorem concerns \\(C^kR^m\\) positivity and mass preservation for rational stepping, not exact Euclidean semigroup contraction of nonuniform consistent-mass FEM.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "material_read": "Public search-record abstract and summary; full text was not inspected.",
+        "method": "Published search-record claim, problem and operator comparison.",
+        "title": "Unconditional lattice positivity from backward-Euler-filtered Crank–Nicolson",
+        "trigger": "Related heat-discretization positivity and two-interior-node boundary example."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "80459abe-391d-4895-a782-f1fd4c07299a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural complete classification of the minimum nontrivial spatial P1 heat finite-element model, not an arbitrary narrow parameter substitution. It cleanly separates dissipative physical M-norm from Euclidean nodal coefficient norm, gives strict positive-data witnesses and two exact mesh geometry transitions, and shows unbounded positive numerical abscissa while \\(\\kappa_2(M)\\) stays below 2.8, directly explaining why mass transformation matters in matrix-exponential error-control geometry. Does not claim large-dimensional, runtime or time-stepping extensions. The standard mass-norm equivalence still bounds all-time Euclidean amplification by less than \\(1.67\\) in the thin-mesh family, sharply distinguishing the diverging infinitesimal numerical abscissa from large eventual transients.",
+    "status": "PASS"
+  }
+}
