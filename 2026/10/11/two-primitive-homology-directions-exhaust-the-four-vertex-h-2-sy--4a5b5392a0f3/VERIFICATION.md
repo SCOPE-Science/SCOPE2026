@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python verify.py` with the supplied file unchanged. It uses only the Python standard library.
+# Independent mathematical audit
 
-The verifier reconstructs the 12-vertex simplicial complex from all 72 published facets and obtains face vector \((12,60,160,180,72)\). It checks two explicit integer 2-cochains against every tetrahedral boundary, exhausts all 495 four-vertex sets, and verifies exactly 60 missing tetrahedra with cochain evaluations \((\pm1,0)\) or \((0,\pm1)\). The corresponding unoriented support multiplicities are 30 and 30.
+## correctness
 
-The verifier also closes two explicit vertex permutations to a group of order 240, checks every group element preserves the full facet set, and checks that the orbit of one minimum support is the complete 60-support set.
+PASS
 
-The inference from cochain evaluation to a complete integral homology classification uses the independently published premise \(K\cong S^2	imes S^2\), hence \(H_2(K;\mathbb Z)\cong\mathbb Z^2\). The finite verifier does not substitute experimental rank checks for that topological premise.
+Exact frozen facet table has 72 five-vertex facets with f-vector (12,60,160,180,72), checked independently from literal script data. A nonzero integral 2-cycle needs >=4 distinct vertices; on four vertices it must be an integer multiple of oriented tetrahedron boundary. Independent exhaustive enumeration of all C(12,4)=495 supports found exactly 60 with all 4 triangular faces present but no tetrahedron. Independently reconstructed both 20-term integral cochains and checked δc=0 on all 180 tetrahedra; all 60 boundary evaluations are ±(1,0) or ±(0,1), distribution 15,15,25,5, giving 30/30 up to sign. As published topology H2(K;Z)=Z², the induced evaluation map onto Z² is an isomorphism, so these are primitive nontrivial H2 classes. Independently closed the two literal generators to group order 240; every group element permutes all 72 facets and one missing-tetrahedron orbit has all 60 elements. Thus shortest support=4, two primitive directions, single symmetry orbit. Exact finite enumeration is exhaustive for this exact finite K, not a claim of all 12-vertex triangulations.
 
-Expected output:
+## originality
 
-`VERIFY_OK f=12,60,160,180,72 missing4=60 class_supports=30,30 cocycles=2 symmetry_group=240 support_orbit=60`
+PASS
+
+Lassmann–Sparla already construct a 12-vertex S2xS2 with automorphism group order240, integral H2 basis/intersection form, and exhibit particular 4-vertex tetrahedral-boundary spheres; hence existence of size-4 nontrivial class and known symmetry size are NOT new in isolation. The actual complete 60-support census, 30+30 split into exactly two primitive integral H2 directions, and transitivity across entire minimum layer are not given or forced by the published statements inspected; source exact exhaustive certificate supplies remaining classification.
+
+## value
+
+PASS
+
+For a canonical highly symmetric triangulation of S2xS2, smallest vertex carriers of integral middle homology form a natural simplicial systolic invariant. The exact 60 minimizers occupy only two primitive directions, all in one 240-element automorphism orbit; this compares geometric support with integral homology and symmetry. The finite complete classification is meaningful as a reusable structural benchmark; it need not generalize to every triangulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
