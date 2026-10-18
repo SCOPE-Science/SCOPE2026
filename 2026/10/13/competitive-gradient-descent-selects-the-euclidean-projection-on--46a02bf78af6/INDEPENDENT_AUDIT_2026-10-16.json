@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T13:14:52.407616Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Specialization of Schäfer–Anandkumar defining exact CGD formula to unconstrained zero-sum f=x^TCy, g=−f yields x+=(I+η²CC^T)^−1(x−ηCy), y+=(I+η²C^TC)^−1(y+ηC^Tx), every η>0. SVD gives on each σ>0 singular plane 1/(1+q²)[[1,−q],[q,1]] with q=ησ, singular norm factor (1+q²)^−1/2 and rotation arctan q. Orthogonal projections onto ker C^T and ker C are invariant; all positive singular modes vanish exponentially so iterates converge to the Euclidean projection onto Nash set for arbitrary rectangular C. Exact distance²=sum_j(a_j²+b_j²)/(1+η²σ_j²)^k; sharp worst-mode at smallest nonzero σ. C=0 is identity; approximate inner solves excluded. Independently checked rank-deficient rectangular numeric singular modes and nullspace invariants.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original theorems treat local convergence and experiments; Anagnostides–Penna spectral theorems govern other first-order dynamics."
+        ],
+        "reasoning": "Stronger local convergence in a nonsingular setting does not determine equilibrium selection on a non-singleton Nash manifold; generic resolvent norms require model-specific specialization.",
+        "searches": [
+          "Schäfer Anandkumar NeurIPS 2019 CGD full rank nonlinear local convergence",
+          "Anagnostides Penna arXiv:2010.03211 bilinear Nash convergence"
+        ]
+      },
+      "checked_sources": [
+        "Schäfer–Anandkumar arXiv:1905.12103 Algorithm 1 and experiments",
+        "Anagnostides–Penna arXiv:2010.03211",
+        "Resultary Competitive Gradient Descent bilinear zero sum rank deficient projection Nash equilibrium singular value contraction exact step",
+        "Git RESULT.md blob 7397e29984b729856a2a262c77873cbb077e1049"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "CGD algorithm and its local convergence do not state which element of ker C^T×ker C a general initial condition reaches.",
+          "The new exact SVD decomposition computes this and yields uniform η>0; generic results may be adapted but the precise source prior statement does not itself imply the explicitly selected projection without calculation."
+        ],
+        "reasoning": "A comparison based on mathematical update equations separates exact-CGD from OGDA despite both being gradient game solvers.",
+        "searches": [
+          "Competitive Gradient Descent arXiv:1905.12103 Algorithm 1 Proposition bilinear",
+          "Anagnostides Penna arXiv:2010.03211 stability OGDA"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schäfer–Anandkumar defining inverse CGD local-game update maps exactly to the two resolvents above.",
+          "Anagnostides–Penna study Optimistic Gradient Descent/Ascent or finite-memory dynamics, not identical inverse-CGD recurrence."
+        ],
+        "reasoning": "Equivalent resolvent/proximal formulations of CGD share rotation-contraction on skew singular planes; the exact starting-point projection for arbitrary rectangular singular C is the target statement.",
+        "searches": [
+          "Competitive Gradient Descent bilinear zero sum rank deficient projection Nash equilibrium singular value contraction exact step",
+          "Schäfer Anandkumar Competitive Gradient Descent 2019 Algorithm 1 bilinear rank deficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No source Resultary hit or relevant primary-source displayed table gives this all-rank explicit exact weighted sum distance identity."
+        ],
+        "reasoning": "The limiting norm/invariance is a formula, not a finite lookup; no exact CGD selection database located in inspected literature.",
+        "searches": [
+          "CGD projection Nash nullspace rank deficient closed form singular mode rate",
+          "Competitive Gradient Descent bilinear zero sum rank deficient projection Nash equilibrium singular value contraction exact step"
+        ]
+      },
+      "rationale": "The defining CGD NeurIPS 2019 Schäfer–Anandkumar article contains the matrix inverse and local exponential stability, plus a full-rank/scalar bilinear example. It does not in the inspected defining sections state the arbitrary-rank Nash-manifold orthogonal-projection selection or the exact singular-value-by-singular-value distance law. Anagnostides–Penna arXiv:2010.03211 primarily covers historical OGDA schemes and frequency-domain bilinear stability, different update. Generic resolvent spectral facts make the derivation natural but do not constitute a sourced same-CGD closed-form projection theorem; Resultary/primary searches found no decisive domination.",
+      "residual_risks": [
+        "Generic spectral resolvent theory or an unindexed CGD follow-up might contain equivalent projection-selection as an immediate corollary.",
+        "Exact inverse assumed and cost not captured; result excludes nonlinear or constrained games."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defining update algebraically matches submitted specialization; inspected theorem/experiments do not articulate rank-deficient Nash projection selection.",
+          "evidence": "Schäfer–Anandkumar arXiv:1905.12103 Algorithm 1, NeurIPS 2019",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.12103",
+          "material_read": "Original 18-page primary PDF opened, defining Algorithm 1 on p3, local convergence theorem, and bilinear experiments/interaction discussion inspected; algorithm page rendered",
+          "method": "open-access primary PDF and rendered algorithm page",
+          "title": "Competitive Gradient Descent",
+          "trigger": "Original algorithm exact same bilinear zero-sum local game"
+        },
+        {
+          "assessment": "Bilinear convergence for OGDA/historical methods; not same inverse CGD map nor projection theorem.",
+          "evidence": "Anagnostides–Penna arXiv:2010.03211",
+          "identifier_or_url": "https://arxiv.org/pdf/2010.03211",
+          "material_read": "Primary PDF opened; abstract, setup, stability framework and algorithm scope examined",
+          "method": "open-access primary arXiv PDF targeted inspection",
+          "title": "A Robust Framework for Analyzing Gradient-Based Dynamics in Bilinear Games",
+          "trigger": "Potential broader spectral convergence covering Nash subspace"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The update has a continuum of equilibria for rank-deficient games; which equilibrium is selected is a meaningful implicit-bias question not addressed by a unique-equilibrium contraction bound. The exact global all-η, all-rank selection and sharp modal rate quantify stronger-interaction stability and diagnose cost/convergence tradeoffs without demanding a nonlinear generalization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Schäfer–Anandkumar arXiv:1905.12103 Algorithm 1 and experiments",
+    "Anagnostides–Penna arXiv:2010.03211",
+    "Resultary Competitive Gradient Descent bilinear zero sum rank deficient projection Nash equilibrium singular value contraction exact step",
+    "Git RESULT.md blob 7397e29984b729856a2a262c77873cbb077e1049"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Generic spectral resolvent theory or an unindexed CGD follow-up might contain equivalent projection-selection as an immediate corollary.",
+    "Exact inverse assumed and cost not captured; result excludes nonlinear or constrained games."
+  ],
+  "schema_version": 1
+}
