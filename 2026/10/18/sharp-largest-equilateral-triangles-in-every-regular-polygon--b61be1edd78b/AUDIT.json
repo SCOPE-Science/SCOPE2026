@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The all-placement containment linear program is bounded by a nonnegative balanced-normal certificate whose orientation-dependent expression is strictly greater away from canonical alignment. Explicit trigonometric estimates establish the needed strictness for all m≡1,2 (mod 3). A support-function argument verifies sharpness and two pairs of support inequalities force the unique center. The divisible-by-three case follows by squared-norm averaging. Extracted verify.py independently reproduced 198 small-to-large shape checks and 80 orientation-specific LP checks; finite tests supplement, not replace, the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DePano–Ke–O’Rourke 1987: algorithm for arbitrary convex polygon, no accessible complete primary text.",
+        "Math Stack Exchange question 883050 includes a 2017 construction purportedly working for any regular polygon."
+      ],
+      "reasoning": "The general algorithm potentially computes the same quantity, but computational decidability alone is not an explicit uniform closed theorem; because its full text was inaccessible, it remains a material uncertainty. The 2017 geometric recipe purports to identify optimizers but lacks an all-m proof and equality count, creating a separate comparison risk.",
+      "searches": [
+        "maximum side length equilateral triangle inscribed regular m gon translated rotated exact optimum for all m",
+        "minimal regular m gon enclosing equilateral triangle arbitrary translations rotations optimal circumradius",
+        "\"finding largest inscribed equilateral triangles and squares\""
+      ]
+    },
+    "checked_sources": [
+      "R. J. Mathar, arXiv:1301.6293v1, full HTML Sections I–IV.",
+      "DePano, Ke, O’Rourke (1987), bibliography and secondary discussion only; full text unavailable.",
+      "Mathematics Stack Exchange discussion 883050, answers of 2014 and 2017.",
+      "Published mathematical result-index searches for equivalent expressions and geometric duality."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mathar Section IV explicitly notes no systematic joint translation/rotation.",
+        "1987 algorithm reference from O’Rourke 2014 Mathematics Stack Exchange answer.",
+        "August 2017 regular-polygon construction answer on the same discussion."
+      ],
+      "reasoning": "Mathar gives neither the unrestricted upper bound nor the uniqueness proof for arbitrary m, and its concentric formula can be strictly weaker. The general algorithm could imply that each instance is computable, not necessarily the displayed universal trigonometric identity. If the 2017 proposed optimizer construction were known universally valid, the formula might be derivable; it has neither supplied proof nor the classification, so treat as priority risk rather than resolved negative.",
+      "searches": [
+        "maximum side length equilateral triangle inscribed regular m gon translated rotated exact optimum for all m",
+        "Mathar Tightly Circumscribed Regular Polygons arXiv 1301.6293 translated center triangle square pentagon",
+        "\"largest equilateral triangle\" \"regular\" \"heptagon\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "R. J. Mathar, arXiv:1301.6293v1, Sections II–IV, including joint-translation limitation.",
+        "DePano–Ke–O’Rourke 1987, general equilateral-inscription algorithm (bibliographic evidence only)."
+      ],
+      "reasoning": "Inscribed equilateral triangle radius and enclosing regular-polygon radius are reciprocal by similarity. Mathar studies the inverse circumscription framing and gives particular cases but explicitly does not optimize arbitrary rotations and translations for all side counts.",
+      "searches": [
+        "maximum side length equilateral triangle inscribed regular m gon translated rotated exact optimum for all m",
+        "minimal regular m gon enclosing equilateral triangle arbitrary translations rotations optimal circumradius",
+        "Mathar Tightly Circumscribed Regular Polygons arXiv 1301.6293 translated center triangle square pentagon"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mathar arXiv:1301.6293v1, Tables 1 and Section IV provide concentrated and limited translated-center ratios; no all-m table for the unrestricted optimum was found.",
+        "Searches for regular pentagon and heptagon maxima found special images/discussion, not an exhaustive family."
+      ],
+      "reasoning": "Numerical regular-square and regular-pentagon cases are known and not treated as novel. The all-side-count exact formula plus complete equality classification does not appear as a known exact table in inspected material.",
+      "searches": [
+        "largest inscribed equilateral triangle regular pentagon exact 0.868602 1.151275",
+        "maximum equilateral triangle regular m-gon m=3q+1 m=3q+2 orientation vertex shift sharp"
+      ]
+    },
+    "rationale": "The inspected initiating 2013 paper gives concentric formulas and isolated translations, not a uniform unrestricted all-m theorem. An earlier general algorithm proves computability of optimal inscribed equilateral triangles but is not known from accessible material to imply this closed expression, and the relevant full text is inaccessible. A 2017 proposed construction is a genuine priority risk but supplies no proof or all-m optimizer-count theorem. No inspected source states an equivalent or stronger result; priority uncertainty is retained.",
+    "residual_risks": [
+      "The unavailable 1987 DePano–Ke–O’Rourke primary paper might contain a regular-polygon specialization of the same explicit theorem.",
+      "The purported 2017 construction for regular polygons may encode some of the geometric optimizer description; its validity and generality are not rigorously verified there.",
+      "Older literature using different terminology may contain the same formula or rigidity result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Concentric and separately sampled translations do not cover global simultaneous translation/orientation optimization for every m.",
+        "evidence": [
+          "arXiv:1301.6293v1, Section IV (Translated Centers); Section II Table 1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1301.6293v1",
+        "material_read": "Full open-access HTML with sections I, II, III, IV and summary, including listed numerical triangle–square and triangle–pentagon translated results.",
+        "method": "Read displayed mathematical derivations and translation limitations in the actual accessible complete text.",
+        "title": "Tightly Circumscribed Regular Polygons",
+        "trigger": "Initiating source, exactly the reciprocal circumscription problem."
+      },
+      {
+        "assessment": "Construction claims applicability to every regular polygon but supplies no rigorous proof or explicit formula/equality count. The 1987 work is cited here with bibliographic details.",
+        "evidence": [
+          "2017 enegue construction answer, 2014 Joseph O’Rourke answer and bibliography."
+        ],
+        "identifier_or_url": "https://math.stackexchange.com/questions/883050/largest-equilateral-triangle-in-a-polygon",
+        "material_read": "Full question and answers, including August 12, 2017 geometrical recipe and July 31, 2014 general algorithm reference.",
+        "method": "Read all pertinent answers and mathematical claims, not just snippets.",
+        "title": "Largest Equilateral Triangle in a Polygon",
+        "trigger": "Contains a general polygon algorithm reference and putative all-regular-polygon construction."
+      },
+      {
+        "assessment": "Not classified NOT_COVERING by unseen content; precise theorem-comparison with primary text remains a priority uncertainty.",
+        "evidence": [
+          "Bibliography in later largest-inscribed-rectangles literature; author’s 2014 citation in Mathematics Stack Exchange."
+        ],
+        "identifier_or_url": "DePano, Ke, O’Rourke, 25th Allerton Conference (1987), pp. 869–878",
+        "material_read": "Bibliographic and secondary descriptions only; complete primary text was unavailable.",
+        "method": "Searched author/title and open-access/preprint alternatives; institutional retrieval did not return text.",
+        "title": "Finding largest inscribed equilateral triangles and squares",
+        "trigger": "Potential broad prior coverage by a published algorithm for the same optimization problem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b61be1ed-d78b-4b0c-a5d5-f08c5012be98",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The largest equilateral triangle is a canonical extremal geometry invariant of each regular polygon. The proof resolves joint free translation and orientation uniformly, specifies an exact trigonometric answer in every integer side count, identifies all optimizing triangles, and gives the reciprocal tight circumscription law. It is a genuine family-wide classification, not a sampled numerical exercise.",
+    "status": "PASS"
+  }
+}
