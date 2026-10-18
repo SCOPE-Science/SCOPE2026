@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T06:18:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For c=2alpha-1>-1 and u=gamma x^theta, direct differentiation gives r_prime = theta gamma x^(theta-2)e^u Phi(u)/(e^u+c)^2 with Phi=(theta-1)(e^u+c)+theta*c*u. For theta>1,c<0 Phi is strictly convex, positive at zero and infinity; its unique interior minimum has sign c(1-theta*u*) and crosses zero exactly at c=-((theta-1)/theta)exp(1/theta). For 0<theta<1,c>0 strict concavity gives the dual threshold ((1-theta)/theta)exp(1/theta). Outside the two-root regions monotonicity is strict even at one isolated stationary tangent. theta=1 has sign(c). Numerically checked source alpha=.03,theta=2.52 lies in +,-,+ regime and pointwise theta=2 alpha=.01 and theta=.5 alpha=5 counterexamples; no extrapolation from numerics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2019 earlier distribution uses a logistic-exponential baseline, whereas the present c,theta,gamma hazard uses a power-half-logistic baseline."
+        ],
+        "reasoning": "A generic transform permitting nonmonotone hazards does not mathematically imply exact sharp phase boundaries of the present model without the derivative factor and extremum analysis.",
+        "searches": [
+          "Resultary: Marshall Olkin Power Half Logistic MOPHL hazard phase transition nonmonotone alpha theta",
+          "Mansoor et al 2019 DOI:10.1080/03610926.2017.1414254"
+        ]
+      },
+      "checked_sources": [
+        "Adlan et al Mathematics 14 (2026) 973 full article §§2, Appendix A and Figure 2",
+        "Mansoor et al 2019 DOI:10.1080/03610926.2017.1414254 (bibliographic/model context)",
+        "Resultary: Marshall Olkin Power Half Logistic MOPHL hazard phase transition nonmonotone alpha theta",
+        "Git blob RESULT edf9a8e22b185bbc14054334d224fd2b07422927"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source Appendix A deduces global sign from positive limits of strictly convex Phi or negative limits of strictly concave Phi; both implications are invalid when Phi crosses zero twice."
+        ],
+        "reasoning": "The phase-boundary theorem is a correction of a wrong inference, not a covered corollary. The exact convex/concave extremum determines full topology of the hazard derivative.",
+        "searches": [
+          "2026 source Theorem 1, Appendix A",
+          "Resultary: Marshall Olkin Power Half Logistic MOPHL hazard phase transition nonmonotone alpha theta"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source gives Phi(x) exactly but falsely asserts sign from endpoints; its published theta-only phase labels contradict alpha=.03 theta=2.52."
+        ],
+        "reasoning": "The corrected phase diagram is not equivalent to the source theorem, which is false; generic Marshall-Olkin bathtub statements do not provide these MOPHL parameter thresholds.",
+        "searches": [
+          "Resultary: Marshall Olkin Power Half Logistic MOPHL hazard phase transition nonmonotone alpha theta",
+          "DOI:10.3390/math14060973 Theorem 1 Appendix A",
+          "Marshall-Olkin logistic-exponential 2019 hazard-shape search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source includes this parameter combination and calls its hazard nonmonotonic, while Theorem 1 says monotonically increasing for theta>1."
+        ],
+        "reasoning": "The source numerical figure identifies a special contradiction but is not a complete classification table; the analytic thresholds are additional.",
+        "searches": [
+          "Resultary: Marshall Olkin Power Half Logistic MOPHL hazard phase transition nonmonotone alpha theta",
+          "Adlan-Haj Ahmad-Aboshady 2026 Figure 2 simulation alpha=.03 theta=2.52 gamma=.03"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: MOPHL 2026 originating source Appendix A prints the same derivative Phi but infers an everywhere sign from endpoint signs, an invalid inference. Its Theorem 1 explicitly claims theta>1 always increasing and theta<1 always decreasing. The corrected two-parameter thresholds, two-turning-point regions, and source-parameter diagnostic contradict that published theorem, not just illustrate a known generic Marshall-Olkin shape.",
+      "residual_risks": [
+        "No reanalysis of censoring likelihood, posterior inference, fitted data or density-shape classification.",
+        "Correction concerns MOPHL only; full text of generic 2019 baseline not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE THEOREM FALSE; DERIVATIVE CORRECT",
+          "evidence": "Theorem 1 states theta-only monotonicity; Appendix A has Phi but infers sign from endpoints; source simulations describe alpha=.03 theta=2.52 nonmonotone.",
+          "identifier_or_url": "https://www.researchgate.net/publication/401958983_The_Marshall-Olkin_Power_Half-Logistic_Distribution_for_Reliability_Modeling_of_Degradation_Data_Under_Generalized_Hybrid_Censoring",
+          "material_read": "Accessible full 26-page article text: §2 hazard/physical interpretation, Figure 2, Theorem 1, simulation parameters and complete Appendix A derivative/sign proof",
+          "method": "Primary paper hosted full text; read the relevant text rather than an abstract",
+          "title": "Adlan, Haj Ahmad and Aboshady, MOPHL reliability model",
+          "trigger": "The same distribution with contradicted hazard Theorem 1"
+        },
+        {
+          "assessment": "DIFFERENT BASELINE; NOT WHOLE-PAPER EXCLUSION",
+          "evidence": "Different logistic-exponential family; could inform generic hazard shapes but no inspected MOPHL-specific threshold.",
+          "identifier_or_url": "https://doi.org/10.1080/03610926.2017.1414254",
+          "material_read": "Citation and model-level bibliographic evidence only, not full text",
+          "method": "Abstract/model comparison",
+          "title": "Mansoor et al, Marshall-Olkin logistic-exponential distribution",
+          "trigger": "Possible stronger Marshall-Olkin hazard classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete hazard-regime classification corrects a false published theorem used to assign wear-out/early-failure interpretation in reliability modeling. Exact regime thresholds allow correct interpretation and experimental design under the source model, a substantive mathematical correction rather than a cheap derivative sign check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Adlan et al Mathematics 14 (2026) 973 full article §§2, Appendix A and Figure 2",
+    "Mansoor et al 2019 DOI:10.1080/03610926.2017.1414254 (bibliographic/model context)",
+    "Resultary: Marshall Olkin Power Half Logistic MOPHL hazard phase transition nonmonotone alpha theta",
+    "Git blob RESULT edf9a8e22b185bbc14054334d224fd2b07422927"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No reanalysis of censoring likelihood, posterior inference, fitted data or density-shape classification.",
+    "Correction concerns MOPHL only; full text of generic 2019 baseline not inspected.",
+    "Best-of-knowledge scientific assessment, not formal proof certification or verification/attestation.",
+    "No Git source modification; publication withheld due to inspected public provenance and unreviewed generated public files."
+  ],
+  "schema_version": 1
+}

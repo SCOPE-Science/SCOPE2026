@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,38 +18,25 @@
   "schema_version": 1
 }
 ---
-Put
-\[
-c=2\alpha-1,
-\qquad
-u=\gamma x^\theta.
-\]
-For the published hazard,
-\[
-r'(x)
-=
-\frac{\theta\gamma x^{\theta-2}e^u}{(e^u+c)^2}
-\Phi_{\theta,c}(u),
-\]
-where
-\[
-\Phi_{\theta,c}(u)
-=
-(\theta-1)(e^u+c)+\theta c u.
-\]
 
-For \(\theta>1\) and \(c<0\), \(\Phi\) is strictly convex. Its minimum is nonnegative exactly when
-\[
--c
-\le
-\frac{\theta-1}{\theta}e^{1/\theta}.
-\]
-For \(0<\theta<1\) and \(c>0\), \(\Phi\) is strictly concave. Its maximum is nonpositive exactly when
-\[
-c
-\le
-\frac{1-\theta}{\theta}e^{1/\theta}.
-\]
-These conditions give the complete monotonicity phase diagram.
+# Independent mathematical audit
 
-The bundled checker verifies both threshold formulas, reproduces the two turning points for the paper's \((\alpha,\theta,\gamma)=(0.03,2.52,0.03)\) simulation, and checks two simple pointwise counterexamples to the published theta-only theorem.
+## correctness
+
+PASS
+
+For c=2alpha-1>-1 and u=gamma x^theta, direct differentiation gives r_prime = theta gamma x^(theta-2)e^u Phi(u)/(e^u+c)^2 with Phi=(theta-1)(e^u+c)+theta*c*u. For theta>1,c<0 Phi is strictly convex, positive at zero and infinity; its unique interior minimum has sign c(1-theta*u*) and crosses zero exactly at c=-((theta-1)/theta)exp(1/theta). For 0<theta<1,c>0 strict concavity gives the dual threshold ((1-theta)/theta)exp(1/theta). Outside the two-root regions monotonicity is strict even at one isolated stationary tangent. theta=1 has sign(c). Numerically checked source alpha=.03,theta=2.52 lies in +,-,+ regime and pointwise theta=2 alpha=.01 and theta=.5 alpha=5 counterexamples; no extrapolation from numerics.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: MOPHL 2026 originating source Appendix A prints the same derivative Phi but infers an everywhere sign from endpoint signs, an invalid inference. Its Theorem 1 explicitly claims theta>1 always increasing and theta<1 always decreasing. The corrected two-parameter thresholds, two-turning-point regions, and source-parameter diagnostic contradict that published theorem, not just illustrate a known generic Marshall-Olkin shape.
+
+## value
+
+PASS
+
+A complete hazard-regime classification corrects a false published theorem used to assign wear-out/early-failure interpretation in reliability modeling. Exact regime thresholds allow correct interpretation and experimental design under the source model, a substantive mathematical correction rather than a cheap derivative sign check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
