@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reconstructed from the published \(242\) facets by exhaustive legal \(2\)-\(2\) flip enumeration and exact combinatorial isomorphism canonicalization. The replay discovers exactly six closed-surface classes, reproduces the six named Cervone types from valence data, and verifies every transition multiplicity and graph invariant stated in the finding.
+## correctness
 
-## Originality
-PASS. The exact-object source was inspected where it defines edge conversion and classifies the six minimal triangulations. It uses selected conversions but does not state the complete all-edge multiplicity matrix, the nine-edge quotient graph, its diameter, the unique leaf, or the self-flip census. Semantic searches, a broader irreducible-triangulation source, and the checked finding database supplied no statement that implies the complete claim.
+PASS
 
-Closest literature and limitation: Cervone is the decisive exact-object prior work; Sulanke is broader classification context. An unindexed historical computation could still contain the same finite transition table, so originality is supported but not presented as a proof of absence from all literature.
+The 242 input facet list consists of 16 triangles on eight vertices. Independently generated all legal 2-2 moves, identified isomorphism via degree-class-restricted canonical relabeling, and exhausted the breadth-first closure: exactly six closed surface types. Directed counts 242:(1133 2,161 2,323-A 2,404 1); 323-A:(1133 2,242 2,323-B 2); 404:(242 4); 161:(1133 2,161 2,242 2,323-B 2); 1133:(1133 1,161 1,242 1,323-A 1,323-B 1); 323-B:(1133 2,161 2,323-A 2). The simple quotient has nine edges, diameter three, unique leaf 404. Full finite closure proof relies on canonical invariance and complete edge enumeration, not a numerical sample.
 
-## Value
-PASS. A \(2\)-\(2\) flip is the canonical vertex-preserving bistellar move for a triangulated surface. At the minimal eight-vertex stratum, the complete transition graph records how every combinatorial Klein-bottle type is locally connected to every other type. The unique leaf \(404\), the two self-flipping types, and diameter \(3\) are structural properties of the whole minimal family.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The Cervone classification contains the six types, starting facets, and selected 2-2 conversions, but its inspected full text does not give all directed, edge-weighted conversions and loop counts. Finite all-edge incidence is not logically implied by the six-type existence classification alone.
+
+## value
+
+PASS
+
+A complete local bistellar move census for every minimal Klein-bottle triangulation establishes exact adjacency, multiplicity, self-moves and extremal diameter; these are natural combinatorial transition invariants unavailable from a mere vertex-minimal enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
