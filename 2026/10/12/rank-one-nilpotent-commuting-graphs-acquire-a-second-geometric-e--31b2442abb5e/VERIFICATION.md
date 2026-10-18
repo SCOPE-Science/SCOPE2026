@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked by rebuilding each step from the rank-one factorization \(A=u\varphi\): nilpotence is \(\varphi(u)=0\); distinct scalar classes commute exactly under the two cross-incidence conditions; and degree/common-neighbor counts reduce to the number of projective points or hyperplanes through subspaces of dimensions one, two, and three.
+# Independent mathematical audit
 
-The standalone script `artifacts/verify.py` constructs the quotient flag graph for \((n,q)=(3,2),(3,3),(4,2),(4,3),(5,2)\). For every edge it classifies whether the endpoints share a point, share a hyperplane, or form a distinct-point/distinct-hyperplane cross edge, then recomputes common-neighbor intersections directly. It verifies the formulas for the quotient degree, \(\lambda_s\), \(\lambda_c\), and their separation. It also confirms that cross edges are absent in dimension three and present in every tested higher-dimensional case.
+## correctness
 
-For \(M_4(\mathbb F_2)\), the script independently constructs all \(105\) nonzero rank-one nilpotent matrices, multiplies every pair, and verifies that matrix commutation agrees exactly with mutual point-hyperplane incidence. The recorded output ends with `VERIFY_OK`.
+PASS
 
-The computation is finite evidence only. The theorem for all prime powers and all \(n\ge4\) depends on the explicit proof in `RESULT.md`, not on extrapolation from the tested cases.
+A=u phi is rank-one nilpotent precisely when phi(u)=0 and defines an incident projective point/hyperplane flag. For distinct flags commuting cannot have equal nonzero rank-one AB and BA because that would force identical images and kernels, so both cross products vanish iff mutually incident. Degree from Q in H and K through span(P,Q) is T-1, T=a+(a-1)b. Common neighbors of adjacent same-point/hyperplane flags yield a+(b-1)b-2; cross edges yield (q+1)b+(b-q-1)c-2. Their difference q c((q-1)c+1)>0 for n>=4. Such cross edges exist only when two distinct hyperplanes can contain a given line, starting n=4. Multiplying through scalar clique size q-1 gives full matrix-graph profiles. Independent binary n=4 enumeration computed 105 flags, degree 24, and lambda_s=11 vs lambda_c=7 for 630 edges of each cross/same class; n=3 geometry argument checks no cross. Finite instance corroborates uniform proof.
+
+## originality
+
+PASS
+
+Boroja–Kokol Bukovšek–Stopar arXiv:2602.07467 Section 5/Theorem 5.1 provides 3x3 finite-field point-line compressed commuting graph and its single same-point/line adjacency. In dimension 4 the mutual point/hyperplane incidence graph has an additional cross edge absent at n=3; exact two local count strata are not implied by the n=3 theorem. Dolinar–Kuzma–Oblak study full commuting graph maximal distances, while Ou–Zhong study upper-triangular rank-one matrices; those differ from the all-rank-one nilpotent induced graph. Resultary semantic search found no exact higher-dimensional flag profile. Higher-rank flag-graph terminology remains an explicit originality risk.
+
+## value
+
+PASS
+
+The local common-neighbor distribution is a natural graph/finite-geometry invariant, and the sharp n=4 structural transition explains failure of edge-regularity after previously studied n=3 compressed graphs. The result is an all-q,n classification of a motivated induced commuting graph, not arbitrary small-case data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

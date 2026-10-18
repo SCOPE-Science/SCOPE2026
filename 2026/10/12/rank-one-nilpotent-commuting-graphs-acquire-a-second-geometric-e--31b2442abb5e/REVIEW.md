@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. A rank-one matrix has the form \(u\varphi\) and satisfies \((u\varphi)^2=\varphi(u)u\varphi\), so nilpotence is exactly the point-hyperplane incidence \(\langle u\rangle\subset\ker\varphi\). For two different flags, equality of the two nonzero rank-one products would force equal image and kernel, hence equal flags; therefore commutation reduces exactly to the two vanishing cross-incidences. The degree and common-neighbor formulas then follow by counting projective points and hyperplanes through subspaces of dimensions one, two, and three. The identity \(\lambda_s-\lambda_c=q[n-3]_q((q-1)[n-3]_q+1)\) is positive for every \(n\ge4\), while the cross type cannot exist at \(n=3\).
+## correctness
 
-The packaged checker rebuilds the flag graphs for five parameter pairs, checks every edge and common-neighbor count, and directly verifies all matrix pairs in \(M_4(\mathbb F_2)\). The general conclusion rests on the proof, not on the finite census.
+PASS
 
-## Originality
-PASS, with a stated terminology risk. The 2010 matrix-commuting-graph source uses rank-one and square-zero matrices to study distances but does not state the finite-field flag quotient or the two higher-dimensional common-neighbor classes. The 2016 upper-triangular rank-one graph uses a different coordinate-dependent vertex family. The strongest close comparison is the 2026 \(3\)-by-\(3\) compressed commuting-graph paper: it identifies rank-one nilpotent vertices with incident point-line pairs and obtains same-point/same-line adjacency, which matches the sharp \(n=3\) boundary here. Its dimension-three geometry cannot contain the new \(n\ge4\) cross-incidence edge class because two distinct projective points determine their unique line in a projective plane.
+A=u phi is rank-one nilpotent precisely when phi(u)=0 and defines an incident projective point/hyperplane flag. For distinct flags commuting cannot have equal nonzero rank-one AB and BA because that would force identical images and kernels, so both cross products vanish iff mutually incident. Degree from Q in H and K through span(P,Q) is T-1, T=a+(a-1)b. Common neighbors of adjacent same-point/hyperplane flags yield a+(b-1)b-2; cross edges yield (q+1)b+(b-q-1)c-2. Their difference q c((q-1)c+1)>0 for n>=4. Such cross edges exist only when two distinct hyperplanes can contain a given line, starting n=4. Multiplying through scalar clique size q-1 gives full matrix-graph profiles. Independent binary n=4 enumeration computed 105 flags, degree 24, and lambda_s=11 vs lambda_c=7 for 630 edges of each cross/same class; n=3 geometry argument checks no cross. Finite instance corroborates uniform proof.
 
-Searches using the phrases “rank-one nilpotent commuting graph,” “square-zero rank-one matrices commuting graph,” “projective flags mutual incidence,” and “point-hyperplane flags commuting matrices” did not reveal a source stating the dimension-four transition or the two common-neighbor formulas. The residual risk is that the same abstract flag graph may have an uncommon finite-geometry name not captured by those searches.
+## originality
 
-## Value
-PASS. Rank-one and square-zero matrices are canonical structural vertices in matrix commuting graphs. The result identifies a sharp geometric change in their local graph structure: the projective-plane case has only the familiar shared-point/shared-hyperplane edges, whereas every higher projective dimension admits cross-incidence edges with a provably different local count. This gives a natural boundary phenomenon and an explicit local invariant useful for future recognition and symmetry questions about matrix commuting graphs.
+PASS
 
-## Closest literature and limitations
-The closest direct source is the \(3\)-by-\(3\) finite-prime-field compressed commuting graph, which supplies the lower-dimensional boundary but not the higher-dimensional claim. The result does not describe the full matrix commuting graph, determine its automorphism group, or claim that the displayed local counts form a complete isomorphism invariant.
+Boroja–Kokol Bukovšek–Stopar arXiv:2602.07467 Section 5/Theorem 5.1 provides 3x3 finite-field point-line compressed commuting graph and its single same-point/line adjacency. In dimension 4 the mutual point/hyperplane incidence graph has an additional cross edge absent at n=3; exact two local count strata are not implied by the n=3 theorem. Dolinar–Kuzma–Oblak study full commuting graph maximal distances, while Ou–Zhong study upper-triangular rank-one matrices; those differ from the all-rank-one nilpotent induced graph. Resultary semantic search found no exact higher-dimensional flag profile. Higher-rank flag-graph terminology remains an explicit originality risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The local common-neighbor distribution is a natural graph/finite-geometry invariant, and the sharp n=4 structural transition explains failure of edge-regularity after previously studied n=3 compressed graphs. The result is an all-q,n classification of a motivated induced commuting graph, not arbitrary small-case data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
