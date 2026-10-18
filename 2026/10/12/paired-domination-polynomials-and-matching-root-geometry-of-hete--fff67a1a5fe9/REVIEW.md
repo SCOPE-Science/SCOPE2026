@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-All base vertices are forced because an unselected root makes any adjacent leaf either undominated or selected-and-isolated. A selected leaf must consume its root as a matching partner; consequently at most one such leaf per root can be selected, and the remaining roots must form a perfectly matchable induced subset. The reverse construction shows this criterion is sufficient. Each valid support is counted once regardless of its number of internal perfect matchings, and the weight is the product of actual leaf choices. In a graph without even cycles, the endpoint-set correspondence with matchings is one-to-one. The weighted Heilmann–Lieb theorem then gives the imaginary-axis root factorization. Boundary cases include isolated base vertices, disconnected graphs, no base edges and the even-cycle multiplicity distinction. The standalone verifier checks direct graph subsets independently; its finite coverage is not an infinite proof.
+## correctness
 
-## Originality — PASS, subject to specified risks
-The 1998 foundational paper states the **scalar** paired-domination number of an ordinary single-leaf corona. The 2021 Ohsugi–Tsuchiya and 2022 Davis–Kohl papers define and compute perfectly matchable set polynomials and prove their no-even-cycle matching correspondence, but the inspected material does not state the heterogeneous paired-domination bijection or its zero geometry. Published results about paired-domination polynomials of chain and multipartite graphs concern different graph constructions. Actual concept, equivalent-formulation, and wider-coverage searches did not locate an identical statement; the conclusion is not a uniqueness certificate. The 2016 early polynomial introduction was accessible only as an abstract, leaving material implicit-overlap uncertainty. Classical real-rootedness and the scalar minimum relation are credited as inputs and not counted as new.
+PASS
 
-## Value — PASS
-The result classifies every feasible selected set, not only minimum sets, for an arbitrary decorated base graph with independent unequal pendant multiplicities. It yields an exact weighted polynomial without counting multiple perfect matchings on one support multiple times, and proves a full nonzero-zero location theorem simultaneously for all forest bases and, more generally, all bases without even cycles. These are natural graph-polynomial and monomer-dimer invariants with usable coefficients, minimum-set multiplicities and weighted enumerations; the claimed contribution is the structural bridge and complete enumerator, not the known matching-polynomial real-rootedness theorem in isolation.
+PASS: Every base vertex v must be selected: if unselected, any of its private leaves not chosen is undominated, while selecting a leaf without v makes that selected leaf isolated in the induced selected graph. Because v can partner with only one selected private leaf in any perfect matching, at most one leaf at v can be chosen. Thus selected supports have all roots, one pendant at each root outside U and none at U; the remaining selected induced roots U require a perfect matching. Conversely every such U and one leaf choice at each excluded root gives domination and a perfect matching. The bijection yields coefficients without overcounting the several perfect matchings an induced U may possess. If G has no even cycle, two distinct matchings cannot have equal vertex endpoint support: their symmetric difference would include an even alternating cycle. Consequently sum over U is a positive weighted matching generating function, and Heilmann--Lieb real-rootedness after z=-1/x^2 places all nonzero x zeros on the imaginary axis. Boundary: isolated base vertices work by a leaf partner; the C4 matching count differs from support count and invalidates a naive unconditional matching replacement. Independently enumerated paired dominating subsets of K2 with (r1,r2)=(2,3): coefficients D=x^2+6x^4, agreeing with the theorem.
 
-## Closest literature and scientific limits
-Haynes–Slater (1998) supplies the minimum formula, Ohsugi–Tsuchiya (2021) and Davis–Kohl (2022) supply the perfectly matchable-set polynomial, and Heilmann–Lieb (1972) supplies the root theorem applied after a new counting bijection. The unweighted single-leaf formula is the specialization of the heterogeneous identity, not a separately counted finding. The no-even-cycle condition is sufficient and is not proposed as necessary. Some niche enumeration literature is not indexed or unavailable in full text; no exhaustive novelty guarantee is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): The 1998 Haynes--Slater paper introduces paired domination and establishes elementary scalar minima. Ohsugi--Tsuchiya and Davis--Kohl give the perfectly-matchable-set polynomial, and Davis--Kohl Lemma 3.2 already proves that it agrees with the matching polynomial if and only if G has no even cycle; those inputs are explicitly prior. No inspected source states the heterogeneous private-leaf paired-domination support bijection, its full coefficient transform or corresponding zero result; early paired-domination-polynomial conference publication accessible only as its single-page abstract leaves a real coverage risk. The new statement is not reducible to renaming the perfectly-matchable polynomial because it interprets actual selected sets in a decorated graph and tracks independently variable pendant multiplicities.
+
+## value
+
+PASS
+
+PASS: The natural paired-domination enumerator is computed for arbitrarily large, irregular heterogeneous pendant-corona graphs without solving the perfect-matching constraint anew in each decorated graph. The structural bijection and sharp root geometry for all base graphs without even cycles are motivated, nontrivial exact graph invariants; the familiar matched-support and Heilmann--Lieb results are credited as inputs rather than sold as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

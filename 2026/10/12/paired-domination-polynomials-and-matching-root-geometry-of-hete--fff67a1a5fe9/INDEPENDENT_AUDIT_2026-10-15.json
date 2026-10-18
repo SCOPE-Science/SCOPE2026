@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T16:50:26.665616Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Every base vertex v must be selected: if unselected, any of its private leaves not chosen is undominated, while selecting a leaf without v makes that selected leaf isolated in the induced selected graph. Because v can partner with only one selected private leaf in any perfect matching, at most one leaf at v can be chosen. Thus selected supports have all roots, one pendant at each root outside U and none at U; the remaining selected induced roots U require a perfect matching. Conversely every such U and one leaf choice at each excluded root gives domination and a perfect matching. The bijection yields coefficients without overcounting the several perfect matchings an induced U may possess. If G has no even cycle, two distinct matchings cannot have equal vertex endpoint support: their symmetric difference would include an even alternating cycle. Consequently sum over U is a positive weighted matching generating function, and Heilmann--Lieb real-rootedness after z=-1/x^2 places all nonzero x zeros on the imaginary axis. Boundary: isolated base vertices work by a leaf partner; the C4 matching count differs from support count and invalidates a naive unconditional matching replacement. Independently enumerated paired dominating subsets of K2 with (r1,r2)=(2,3): coefficients D=x^2+6x^4, agreeing with the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Davis--Kohl Section 3 Lemma 3.2: perfectly matchable support polynomial equals matching polynomial exactly for no-even-cycle bases; Haynes--Slater: paired domination number, not all coefficients.",
+          "2016 short conference abstract says coefficients of some standard graphs; does not identify any corona formula in abstract."
+        ],
+        "reasoning": "Broader existing general polynomial machinery entails the root theorem once the new corona bijection is supplied, but does not itself prove the pendant-selection classification or heterogeneity weights.",
+        "searches": [
+          "Davis Kohl arXiv 2207.14759 Lemma 3.2 perfectly matchable sets",
+          "Haynes Slater 1998 paired domination corona leaf minimum",
+          "Introduction to Paired Domination Polynomial of a Graph 2016 standard families",
+          "Resultary semantic: heterogeneous leaf coronas paired domination polynomial perfectly matchable vertex set matching polynomial real rooted"
+        ]
+      },
+      "checked_sources": [
+        "Davis and Kohl, arXiv:2207.14759 (2022), Section 3 Lemma 3.2 fully read.",
+        "Ohsugi--Tsuchiya 2021 perfectly matchable set polynomial definition, as referenced by Davis--Kohl.",
+        "Haynes and Slater, Networks 32 (1998), DOI 10.1002/(SICI)1097-0037(199810)32:3<199::AID-NET4>3.0.CO;2-F; abstract.",
+        "Alwardi--Nayaka--Puttaswamy (2016) conference abstract and author-uploaded one-page public text.",
+        "Classical Heilmann--Lieb matching-polynomial real-rootedness, credited standard theorem.",
+        "Resultary paired-domination polynomial of chain/complete multipartite graphs, noncovering classes."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No-even-cycle p(G)=m(G) and matching-polynomial root theorem are known. Those facts neither force all vertices of an arbitrary corona into every paired-dominating set nor derive the multiplicity product prod r_v."
+        ],
+        "reasoning": "The new selection bijection is a substantive motivated lemma; the root-location corollary is correctly presented as its application of classical real-rootedness, not an independent new Heilmann--Lieb theorem.",
+        "searches": [
+          "Davis Kohl arXiv 2207.14759 original PDF page 5 Lemma 3.2",
+          "1998 Haynes Slater paired domination definition and minima",
+          "2016 Alwardi Nayaka Puttaswamy paired domination polynomial abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The polynomial is a weighted reciprocal transform of the perfectly-matchable-set support enumerator, but that general enumerator is not a paired-domination polynomial for a multi-leaf corona until the forced-core bijection is established."
+        ],
+        "reasoning": "The transformation is mathematically related to Davis--Kohl p(G;z), so p(G) and its no-even-cycle matching equivalence are prior. The all-leaf selection classification is additional structural content, not a relabeling of coefficients.",
+        "searches": [
+          "\"paired domination polynomial\" \"corona\" \"perfect matching\"",
+          "\"perfectly matchable set polynomial\" \"leaf\" corona",
+          "Resultary semantic: heterogeneous leaf coronas paired domination polynomial perfectly matchable vertex set matching polynomial real rooted"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed graph-polynomial formulas cover chains, windmills and multipartite families, not arbitrary G with one or more private leaves at every vertex."
+        ],
+        "reasoning": "The exact answer is a symbolic polynomial of an arbitrary finite base graph, not a numerical table, and coincident example coefficients are not priority for this all-graph theorem.",
+        "searches": [
+          "\"heterogeneous\" \"paired domination\" \"corona\" coefficients",
+          "Resultary records paired-domination polynomial chain graphs complete multipartite graphs"
+        ]
+      },
+      "rationale": "PASS (qualified): The 1998 Haynes--Slater paper introduces paired domination and establishes elementary scalar minima. Ohsugi--Tsuchiya and Davis--Kohl give the perfectly-matchable-set polynomial, and Davis--Kohl Lemma 3.2 already proves that it agrees with the matching polynomial if and only if G has no even cycle; those inputs are explicitly prior. No inspected source states the heterogeneous private-leaf paired-domination support bijection, its full coefficient transform or corresponding zero result; early paired-domination-polynomial conference publication accessible only as its single-page abstract leaves a real coverage risk. The new statement is not reducible to renaming the perfectly-matchable polynomial because it interprets actual selected sets in a decorated graph and tracks independently variable pendant multiplicities.",
+      "residual_risks": [
+        "The 2016 introductory conference presentation/full article beyond its one-page public abstract could contain implicit overlap.",
+        "The imaginary-root theorem is conditional on no even cycle; that condition is sufficient, not asserted necessary.",
+        "Support multiplicity differs from matching multiplicity in even-cycle bases; no false general matching count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes crucial no-even-cycle matching/support correspondence as prior; not the heterogeneous pendant-corona paired-domination theorem.",
+          "evidence": [
+            "For C4, m(G;z)=1+4z+2z² while p(G;z)=1+4z+z²; Lemma 3.2 says equality iff no even cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.14759",
+          "material_read": "Primary PDF Section 3 page 5, especially definitions and Lemma 3.2 with proof, and contextual introduction.",
+          "method": "Read primary PDF and inspected rendered page 5, compared formulas at distinct C4 matching multiplicity versus support count.",
+          "title": "Perfectly Matchable Set Polynomials and h*-polynomials for Stable Set Polytopes of Complements of Graphs",
+          "trigger": "Closest existing support enumerator and matching correspondence"
+        },
+        {
+          "assessment": "Cannot exclude a heterogeneous-corona computation from unavailable underlying presentation; retain priority risk.",
+          "evidence": [
+            "Defines paired-domination polynomial and promises some standard families without specifying corona graphs."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/325108045_Introduction_to_Paired_Domination_Polynomial_of_a_Graph",
+          "material_read": "Available author-uploaded public full-text contains the one-page abstract only; no detailed theorem/proof for graph families in accessible text.",
+          "method": "Read available one-page abstract rather than treating download as full theorem inspection.",
+          "title": "Introduction to Paired Domination Polynomial of a Graph",
+          "trigger": "Early original paired-domination polynomial source, plausible direct title overlap"
+        },
+        {
+          "assessment": "Only standard minimum/definition identified, not every decorated-graph coefficient.",
+          "evidence": [
+            "Haynes--Slater 1998 introduces paired domination and standard inequalities."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/(SICI)1097-0037(199810)32:3%3C199::AID-NET4%3E3.0.CO;2-F",
+          "material_read": "Publisher abstract and references; not complete 1998 article.",
+          "method": "Read publisher abstract identifying paired-domination as existence of perfect matching in selected subgraph.",
+          "title": "Paired-domination in graphs",
+          "trigger": "Foundational graph-parameter paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The natural paired-domination enumerator is computed for arbitrarily large, irregular heterogeneous pendant-corona graphs without solving the perfect-matching constraint anew in each decorated graph. The structural bijection and sharp root geometry for all base graphs without even cycles are motivated, nontrivial exact graph invariants; the familiar matched-support and Heilmann--Lieb results are credited as inputs rather than sold as new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any finite simple base graph G with positive integer private-leaf multiplicities r_v, the paired-domination polynomial of its heterogeneous leaf corona is sum over perfectly matchable vertex supports U⊆V(G) of x^(2|V|-|U|) times prod_{v outside U} r_v; when G has no even cycle, this is a weighted matching-polynomial transform and every nonzero complex zero is purely imaginary.",
+  "limitations": [
+    "No formal root verification across arbitrary graphs is claimed; proof applies classical weighted matching-root theorem.",
+    "Prior intro conference title is plausible but only abstract was available; not a reason to fail O without a covering implication."
+  ],
+  "schema_version": 1
+}
