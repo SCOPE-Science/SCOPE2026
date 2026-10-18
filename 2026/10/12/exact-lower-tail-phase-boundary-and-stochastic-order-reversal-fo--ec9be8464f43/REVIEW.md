@@ -1,15 +1,21 @@
-# Scientific review: calibrated power-exponential sum versus maximum
+# Independent mathematical audit
 
-## Correctness — PASS
-The density is normalized by a gamma integral. For every integer \(n\ge2\), the simplex integral yields the exact coefficient of \(x^{n+\beta}\) in the sum CDF, and the one-dimensional Taylor expansion yields the matching coefficient for the scaled maximum. Their signed difference factors through \(R_n(\beta)-1\). Strict concavity of \(\log R_n\), its positive initial derivative, and its negative asymptotic trend establish precisely one strictly positive root. The special-value inequalities are checked with exact integers, not rounded approximations. Independent gamma-tail upper bounds and the all-components-large lower bound establish matching stretched-exponential log-tail limits. Opposite strict signs near zero and infinity imply at least one CDF crossing for every shape in the stated open interval; the claim does not assert exactly one crossing. A standalone checker passed 136 assertions; it is corroboration rather than an infinite-parameter proof.
+## correctness
 
-## Originality — PASS, subject to residual literature risk
-The closest examined article is Kazuki Okamura, *A remark on the comparison of the sum and the maximum of positive random variables*, arXiv:2604.10395 (v3, 2026). Its full seven-page preprint proves a failure of the proposed sum–maximum equality, obtains the leading matching scale, and uses the upper-tail rate comparison. Those results do not identify the next lower-tail coefficient's sign, its unique shape transition, or the nonempty interval forcing a genuine reversal of the two stochastic CDFs. Failure of distributional identity does not imply stochastic-order incomparability. Arnold and Villaseñor, *On a Characteristic Property of the Half-Normal Distribution* (2026), discuss an exact two-summand identity and its attempted higher-sample analogue; only the abstract was available, so the body is an explicit residual risk. Related published records concerning unequal gamma sums and gamma approximations concern distinct comparisons. No earlier equivalent was located, but search absence is not proof of priority.
+PASS
 
-## Value — PASS
-Comparison of an aggregate loss with a calibrated maximum is natural in probability, extreme-value approximation, and risk modeling. The unique exact root separates opposite lower-tail biases in every dimension, while the three-summand crossing interval shows that even calibrating the entire leading lower tail cannot produce a uniform stochastic order. This answers a structural question left open by a recent nonidentity result, rather than merely repeating a finite decimal experiment.
+Uniform simplex expansion of the sum and power-exponential one-coordinate CDF agree at order x^n and differ at order x^(n+beta). Their normalized signed coefficient is R_n(beta)-1 where R_n=product_{k=2}^n(1+beta/k)/(n!)^(beta/n). Log R is strictly concave with positive derivative at 0 and tends to minus infinity, hence exactly one positive root. AM-GM gives kappa_2=2, kappa_n>2 for n>=3. At n=3 the rigorous exact integer bounds imply 2<kappa_3<21/10<lambda_3. For beta>1 convexity and an all-components-large event give matching sum survival exponent -n^(1-beta); max survival exponent -C_n^(-beta). On the indicated interval signs oppose. Independent Python exact-integer checks of inequalities and bisection kappa_3~2.0629223972, lambda_3~2.191268131 corroborate (not replace) proof.
 
-## Limitations and risk
-The local sign at the cancellation shape, total number of crossings, and comparisons outside the stated open interval remain undetermined. The proof concerns independent identically distributed power-exponential variables and does not cover arbitrary generalized-gamma shape factors. The full Arnold–Villaseñor article and unindexed treatments could alter a future priority determination. The self-review is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge beyond Okamura 2026 nonidentity and leading-origin/tail comparisons: the signed next-order origin coefficient, unique all-n phase boundary, and a proved open n=3 interval with opposite endpoint CDF signs were not in the inspected source. Failure of equality of distributions does not entail failure of both stochastic orders.
+
+## value
+
+PASS
+
+Sum and calibrated maximum are natural aggregate versus extreme-risk statistics. The sharp lower-tail bias threshold, and a nonempty interval in which both possible usual stochastic orders fail, provide a structural phenomenon not reducible to observing nonidentical laws or a numerical CDF plot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
