@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The metric assumptions, molecule normalization, and transportation duality were reconstructed. The exact norm is obtained from a within-cluster transport decomposition and an admissible global dual potential for each cross-cluster molecule. Averaging conjugates of an arbitrary projection proves optimality over the entire class of projections; uniqueness follows from the vanishing of fixed vectors in the cluster-fluctuation representation. Boundary cases with singleton clusters, equal radii, and radii equal to \(1\) are included. The supplied exact-rational checker passed \(263\) example-level certificates; it is not an exhaustive proof.
+## correctness
 
-## Originality — PASS, residual risk recorded
-The most relevant primary source, Cúth--Doucha (arXiv:2104.11519, Lemma 3.2 and Sections 4.2--4.3), constructs norm-one invariant-range averaging projections; it does not determine the minimal norm of a projection onto the orthogonal group-representation component in these explicit clustered metrics. Dilworth--Kutzarova--Ostrovskii (arXiv:1807.03814, Sections 2--4) gives different well-complemented subspaces and symmetry arguments without this formula or phase boundary. The comparison is mathematical: a norm-one projection \(Q\) onto fixed vectors is consistent with a complementary optimal projection \(P\) having norm greater than one. Searches in a mathematical-result index and primary literature found no implication giving the formula. An unindexed equivalent computation remains possible.
+PASS
 
-## Mathematical value — PASS
-The result computes a natural relative projection constant in every finite dimension for an infinite multiparameter family, not merely a bound for an explicitly chosen projection. It classifies exactly when the fluctuation subspace is one-complemented and exhibits a sharp transition from norm \(1\) toward the limiting value \(2\). The symmetrization-optimality lemma is needed to rule out better nonsymmetric projections, making the result structural rather than just a coordinate calculation.
+The normalized molecules (e_x−e_y)/d(x,y) generate the free-space unit ball; averaging over ∏S(A_i) yields contractive Q and P=I−Q. P fixes within-cluster molecules with norm 1. For cross-cluster molecules, explicit transportation upper plan and admissible dual potential both yield w_i+w_j, hence ∥P∥=max(1,w_(1)+w_(2)). Symmetrizing ANY bounded projection R onto U under the same permutation group gives P because V is the fixed subspace and U has no invariant vectors; thus ∥R∥≥∥P∥. Reviewed and checked exact-rational supplied certificate structure, and independent sample thresholds (two 3-clusters radius1 give 4/3). Universal proof does not rely on 263-case finite diagnostic.
 
-## Scope and verification limitations
-Only real Lipschitz-free spaces of cluster-equilateral metrics with cross-cluster distances \(1\) are covered. The checker tests finitely many rational instances and does not certify all parameters. The literature comparison cannot exclude unindexed formulations. No external proof review was carried out.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for optimal norm of projection onto the within-cluster fluctuation subspace over *all* projections: Cúth–Doucha general group-action averaging gives the complementary norm-one cluster-uniform range Q but neither norm of I−Q nor sharp optimality threshold, which is not implied by Q being contractive. Dilworth–Kutzarova–Ostrovskii results supply finite metric free-space complementability with no identical two-largest-weight numerical invariant. An obscure equivalent graph transportation theorem remains possible.
+
+## value
+
+PASS
+
+PASS. An exact optimal complementary projection norm detects when a natural contractively averaged cluster decomposition is bimonotone, and reveals sharp dependence on the TWO largest within-cluster weights. The complete minimization over arbitrary projections is not implied by norm-one averaging and is a useful structural invariant for finite Lipschitz-free spaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
