@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T00:14:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md git blob 0a2d9afecca058d373c2d6f359e5c157f0fd0a6b",
+        "verify_pattern_0134.py git blob 1328a4bf37dd452d3142bc44f16d1a37f4465566",
+        "Independent SymPy polynomial determinant; root obstruction checks N<=600",
+        "arXiv:math/9511209 weight theorem"
+      ],
+      "rationale": "Computed four-variable generalized Vandermonde determinant symbolically for row exponents (0,1,3,4), independently matching Vandermonde*e2. For four distinct Nth roots a zero minor is exactly six products summing to zero. Lam--Leung weight theorem excludes six when gcd(N,6)=1; if 2|N, four distinct roots (1,t,t^2,-t) give e2=0, and if 3|N, (1,u,u^2,t) give zero. Verified index distinctness through N=600 with N>=6, plus exact residues mod 2,3,4 and d>=5 for uniformity. All-orders proof rests on theorem and constructions, not finite checks.",
+      "residual_risks": [
+        "No unsupported infinite extrapolation from finite replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lam--Leung weight 6 obstruction applies when smallest prime divisor is 5 or greater; the general full-spark paper proves divisor uniformity necessary and prime-power sufficiency, not the fixed pattern all-N classification."
+        ],
+        "reasoning": "Combining weight arithmetic and a specific e2 determinant with constructive roots creates the all-orders if-and-only-if, not a direct existing full-spark theorem.",
+        "searches": [
+          "Lam--Leung arXiv:math/9511209 main theorem",
+          "Alexeev--Cahill--Mixon arXiv:1110.3548"
+        ]
+      },
+      "checked_sources": [
+        "Git tree d6c23589a29792c09894abb4d8be56e1c33657a7; RESULT.md 0a2d9afecca058d373c2d6f359e5c157f0fd0a6b",
+        "arXiv:math/9511209",
+        "arXiv:1110.3548",
+        "arXiv:2110.10756"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Actual four-row determinant factors as Vandermonde times e2; Lam--Leung prevents six root products from summing to zero if gcd(N,6)=1; constructions for 2|N and 3|N are separate."
+        ],
+        "reasoning": "Lam--Leung alone gives only an arithmetic obstruction on vanishing sums; the cited continuous array and isolated Fourier example do not explicitly establish both directions for all N.",
+        "searches": [
+          "arXiv:math/9511209 main weight theorem",
+          "arXiv:1110.3548 N=10 example",
+          "arXiv:2110.10756 Example V.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alexeev--Cahill--Mixon show a singular N=10 minor with the same row set; Matter et al expose the same Schur/e2 factor in a continuous array problem."
+        ],
+        "reasoning": "The N=10 special case and the continuous ambiguity polynomial share objects but neither states gcd(N,6)=1 iff for all cyclic orders.",
+        "searches": [
+          "arXiv:1110.3548 row pattern 0,1,3,4 and N=10",
+          "arXiv:2110.10756 four-sensor array 0,1,3,4",
+          "Resultary Fourier full-spark fixed pattern (temporarily unavailable)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published finite example N=10 is recovered by even-order witness; all N≡2 or 10 (mod 12) supply the same divergence."
+        ],
+        "reasoning": "A single finite example/table is subsumed, not an exact all-orders database of the criterion.",
+        "searches": [
+          "Full Spark Frames arXiv:1110.3548 N=10 counterexample",
+          "GitHub SCOPE-Science search full spark 0 1 3 4 (0 indexed results)"
+        ]
+      },
+      "rationale": "Discrete all-order row-pattern iff and uniformity obstruction extend a published N=10 example and combine a published root-of-unity weight theorem with new four-row specialization and explicit converse family.",
+      "residual_risks": [
+        "Resultary search temporarily unavailable and therefore not evidence of originality.",
+        "The same Schur polynomial appears in array literature; a different statement of the discrete iff criterion could have been overlooked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPORTING_LEMMA, not the full-spark classification",
+          "evidence": "Weights of vanishing sums of Nth roots lie in additive semigroup of N prime divisors",
+          "identifier_or_url": "arXiv:math/9511209",
+          "material_read": "Introduction and main weight-semigroup theorem in full PDF",
+          "method": "Open full PDF theorem reading",
+          "title": "On vanishing sums for roots of unity",
+          "trigger": "Weight-six cyclotomic arithmetic lemma"
+        },
+        {
+          "assessment": "CLOSEST_SPECIAL_CASE_NOT_ALL_N: no N iff criterion identified",
+          "evidence": "Uniform four rows 0,1,3,4 singular in N10",
+          "identifier_or_url": "arXiv:1110.3548",
+          "material_read": "General divisor-uniformity argument and N=10 row-set example in full PDF",
+          "method": "Open full PDF, example-level comparison",
+          "title": "Full Spark Frames",
+          "trigger": "Identical N=10 Fourier row set counterexample"
+        },
+        {
+          "assessment": "SAME_POLYNOMIAL_BUT_DIFFERENT_DOMAIN: continuous ambiguities, not all discrete Nth roots",
+          "evidence": "Example V.1 uses array indices (0,1,3,4) and elementary symmetric e2",
+          "identifier_or_url": "arXiv:2110.10756",
+          "material_read": "Full PDF Example V.1 and surrounding continuous-array ambiguity discussion",
+          "method": "Open full PDF text and relevant figure/example inspection",
+          "title": "Ambiguities in Direction-of-Arrival Estimation with Linear Arrays",
+          "trigger": "Same sensor pattern and determinant polynomial"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-full-spark-criterion-for-the-four-row-fourier-pattern-0-1--de39e0486913",
+        "RESULT.md git blob 0a2d9afecca058d373c2d6f359e5c157f0fd0a6b"
+      ],
+      "rationale": "The four-row pattern is a classical composite Fourier full-spark counterexample. Classifying every order N where it is full spark and every divisor-uniform false positive identifies an infinite sharp boundary for harmonic frame construction; more than an arbitrary substitution or isolated finite count.",
+      "residual_risks": [
+        "Judgment limited to the exact stated invariant or linearized claim; no general theorem claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed rows 0,1,3,4 only, N>=5; Lam--Leung weight theorem supplies the nonvanishing direction and finite checks do not replace it. Resultary index outage leaves residual risk.",
+    "Resultary search temporarily unavailable and therefore not evidence of originality.",
+    "The same Schur polynomial appears in array literature; a different statement of the discrete iff criterion could have been overlooked."
+  ],
+  "schema_version": 1
+}

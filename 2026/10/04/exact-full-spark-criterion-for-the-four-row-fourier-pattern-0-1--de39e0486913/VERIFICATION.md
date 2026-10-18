@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked along four independent exact routes supplied by `verify_pattern_0134.py`:
+# Independent mathematical audit
 
-1. Symbolic sparse-polynomial expansion verifies the determinant factorization into the Vandermonde factor and \(e_2\).
-2. Exact residue counting verifies the divisor-uniformity criterion for every \(5\le N\le5000\).
-3. For every \(N\le120\) with \(\gcd(N,6)=1\), every normalized four-column choice is tested in finite fields containing primitive \(N\)-th roots. Several suitable primes are available so that a nonzero algebraic determinant is not misclassified because of a single modular reduction; \(2{,}693{,}520\) normalized quadruples are covered.
-4. The explicit even-order and three-divisible singular constructions are checked through \(N=500\).
+## correctness
 
-The replay ends with `VERIFY_OK`. These finite checks do not replace the infinite proof. The nonvanishing implication for arbitrary \(N\) relies on the published Lam--Leung weight theorem for vanishing sums of roots of unity; the converse uses explicit elementary witnesses.
+PASS
+
+Computed four-variable generalized Vandermonde determinant symbolically for row exponents (0,1,3,4), independently matching Vandermonde*e2. For four distinct Nth roots a zero minor is exactly six products summing to zero. Lam--Leung weight theorem excludes six when gcd(N,6)=1; if 2|N, four distinct roots (1,t,t^2,-t) give e2=0, and if 3|N, (1,u,u^2,t) give zero. Verified index distinctness through N=600 with N>=6, plus exact residues mod 2,3,4 and d>=5 for uniformity. All-orders proof rests on theorem and constructions, not finite checks.
+
+## originality
+
+PASS
+
+Discrete all-order row-pattern iff and uniformity obstruction extend a published N=10 example and combine a published root-of-unity weight theorem with new four-row specialization and explicit converse family.
+
+## value
+
+PASS
+
+The four-row pattern is a classical composite Fourier full-spark counterexample. Classifying every order N where it is full spark and every divisor-uniform false positive identifies an infinite sharp boundary for harmonic frame construction; more than an arbitrary substitution or isolated finite count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

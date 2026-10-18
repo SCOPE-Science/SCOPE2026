@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The determinant factorization was reconstructed directly and replayed symbolically. Because distinct columns make the Vandermonde factor nonzero, singularity is equivalent to a weight-six vanishing sum of \(N\)-th roots. The Lam--Leung weight theorem excludes such a sum when \(\gcd(N,6)=1\), while explicit distinct-root constructions cover every \(N\ge5\) divisible by \(2\) or \(3\). The divisor-uniformity statement follows from an exhaustive residue-count argument by divisor size.
+## correctness
 
-## Originality
-**PASS.** The closest published full-spark source gives the single order-\(10\) obstruction for these rows and states the broader composite-order problem rather than an all-order classification. A later array-ambiguity paper uses the same symmetric polynomial for a continuous problem, but it does not state the discrete order-\(N\) criterion. Targeted searches for the row pattern, the symmetric-polynomial formulation, and the weight-six formulation found no theorem implying this claim. Residual risk remains for differently phrased or unindexed work.
+PASS
 
-## Value
-**PASS.** The result converts a canonical isolated composite-order counterexample into a complete infinite classification for the same four-row pattern. It also identifies exactly when the standard divisor-uniformity test succeeds yet full spark fails, namely \(N\equiv2\) or \(10\pmod{12}\).
+Computed four-variable generalized Vandermonde determinant symbolically for row exponents (0,1,3,4), independently matching Vandermonde*e2. For four distinct Nth roots a zero minor is exactly six products summing to zero. Lam--Leung weight theorem excludes six when gcd(N,6)=1; if 2|N, four distinct roots (1,t,t^2,-t) give e2=0, and if 3|N, (1,u,u^2,t) give zero. Verified index distinctness through N=600 with N>=6, plus exact residues mod 2,3,4 and d>=5 for uniformity. All-orders proof rests on theorem and constructions, not finite checks.
 
-## Closest literature and limitations
-The supporting vanishing-sum theorem is Lam--Leung, arXiv:math/9511209. The closest full-spark special case is Alexeev--Cahill--Mixon, arXiv:1110.3548. The closest equivalent polynomial object appears in Matter--Fischer--Pesavento--Pfetsch, arXiv:2110.10756. The finite verifier does not certify the infinite theorem by enumeration; it checks the algebra and substantial finite ranges while the proof supplies the all-order argument.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Discrete all-order row-pattern iff and uniformity obstruction extend a published N=10 example and combine a published root-of-unity weight theorem with new four-row specialization and explicit converse family.
+
+## value
+
+PASS
+
+The four-row pattern is a classical composite Fourier full-spark counterexample. Classifying every order N where it is full spark and every divisor-uniform false positive identifies an infinite sharp boundary for harmonic frame construction; more than an arbitrary substitution or isolated finite count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
