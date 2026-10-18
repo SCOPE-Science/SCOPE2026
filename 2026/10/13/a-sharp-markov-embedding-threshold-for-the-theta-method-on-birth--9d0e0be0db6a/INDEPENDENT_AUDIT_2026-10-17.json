@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T00:08:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob e670c1944ae816b98a5239fb057e9916e145c381 and source artifacts/verify_embedding.py",
+        "Davies 2010 simple-negative-eigenvalue Markov-embedding obstruction",
+        "Baake, Baake, Sumner 2025 reversible Markov embedding examples",
+        "Independent checker MARKOV_THETA_PATH_PARITY_AND_EXACT_NEGATIVE_LOG_OK"
+      ],
+      "rationale": "A finite irreducible birth–death generator Q is diagonally similar to a symmetric Jacobi matrix with simple real spectrum 0,-lambda2,...,-lambdan. The theta method maps eigenvalues through strictly decreasing g=(1-(1-theta)h lambda)/(1+theta h lambda), so its spectrum is simple; a zero or simple negative eigenvalue precludes a real logarithm. With all eigenvalues positive the unique real logarithm B=log P has series coefficients c_k=[theta^k+(-1)^(k+1)(1-theta)^k]/k. At any distance-two entry Q^k has the sign (-1)^k, hence every contributing term in B_ij is nonpositive when theta<=1/2 and at least one is strictly negative (k=2 for theta<1/2, k=3 at equality); therefore no CTMC generator can embed P at any h. If theta>1/2, all c_k>0; the first nonzero distance-d term c_d h^d Q^d_ij>0 for small h, giving strictly positive dense generator off-diagonal entries. At theta>=1, B=integral_{theta-1}^theta h Q (I-s hQ)^(-1)ds has strictly positive off-diagonal entries using positive stochastic resolvents for irreducible Q, for all h>0. For n=2, the nontrivial eigenvalue r must be positive and B=[-log r/Lambda]Q is unique. Reconstructed exact 3-state Crank–Nicolson example has positive stochastic P, eigenvalues 1,3/5,1/7 and B13=(1/6)log(125/189)<0. Independent exact rational spectral/c_k and power-parity checks corroborated; general conclusions from analytical path and integral arguments.",
+      "residual_risks": [
+        "No all-step embedding classification for 1/2<theta<1, only small positive steps and spectral exclusions.",
+        "For arbitrary irreducible non-reversible Q and theta>=1 only existence of an embedding is asserted, not logarithm uniqueness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baake et al. Example 3.4 precludes embeddability of strictly tridiagonal stochastic matrices in dimension >=3, covering sparse theta=0.",
+          "The Resultary work on Crank–Nicolson resolvent-return thresholds studies entrywise positivity, which is strictly weaker than embeddability."
+        ],
+        "reasoning": "Both endpoints are credited when covered; these results do not force the sharp theta=1/2 barrier for positive but dense steps or the theta>=1 generator integral.",
+        "searches": [
+          "theta method Crank Nicolson birth death Markov embedding principal logarithm negative distance-two entries threshold theta half backward Euler all h",
+          "Baake Baake Sumner reversible Markov embedding tridiagonal transition Example 3.4",
+          "Padé approximation stochastic positivity Crank Nicolson Zappavigna Kirkland 2012"
+        ]
+      },
+      "checked_sources": [
+        "Davies arXiv:1001.1693v1 original",
+        "Casanellas–Fernández-Sánchez–Roca-Lacostena arXiv:2005.00818v2 relevant criteria",
+        "Baake–Baake–Sumner arXiv:2511.22800v1 primary",
+        "Zappavigna et al., Linear Algebra Appl. 436 (2012) 3425–3442 (Padé positivity)",
+        "Resultary query theta method Crank Nicolson birth death Markov embedding principal logarithm negative distance-two entries threshold theta half backward Euler all h"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Davies and Baake give general embedding tests; source theorem derives family-specific sign of log off-diagonal from powers Q^k and resolvent positivity.",
+          "A positivity guarantee for P does not imply the existence of a Markov generator log P."
+        ],
+        "reasoning": "General criteria are necessary tools, not a dominating result on this theta family. The nonembedding boundary and constructive all-step overimplicit counterpart require nonstandard analysis beyond substituting parameter names.",
+        "searches": [
+          "theta method Crank Nicolson birth death Markov embedding principal logarithm negative distance-two entries threshold theta half backward Euler all h",
+          "Davies Embeddable Markov Matrices 2010 real simple spectrum logarithm",
+          "Baake Baake Sumner Embedding of reversible Markov matrices 2025 Example 3.4 and Theorem 3.16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A homogeneous Markov embedding of P is equivalent for simple positive spectrum to B=log P having nonnegative off-diagonal entries and zero row sums.",
+          "Casanellas–Fernández-Sánchez–Roca-Lacostena 2020 and Davies 2010 treat general logarithm criteria."
+        ],
+        "reasoning": "The candidate actually determines the logarithm entry signs across a numerical method family, rather than merely restating the principal logarithm test.",
+        "searches": [
+          "theta method Crank Nicolson birth death Markov embedding principal logarithm negative distance-two entries threshold theta half backward Euler all h",
+          "Crank Nicolson birth death Markov chain generator logarithm distance-two negative"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit 3x3 witness has P13=2/35>0 but (log P)13<0; this is checked exactly, not used as a substitute for the all-dimension theorem.",
+          "Earlier embedding examples illustrate nonembeddable stochastic matrices but no exact universal theta-step classification."
+        ],
+        "reasoning": "A finite example/database cannot establish either the all-birth–death n>=3 no-go theorem or the theta>=1 all-step existence result; witness is a sharp dimension illustration.",
+        "searches": [
+          "theta method Crank Nicolson birth death Markov embedding principal logarithm negative distance-two entries threshold theta half backward Euler all h",
+          "three state Crank Nicolson Markov embedding positive stochastic counterexample 23 10 2 over 35",
+          "Markov matrix embedding examples 3 state reversible finite"
+        ]
+      },
+      "rationale": "Classical Markov embedding, principal-log criteria, and the sparse forward-Euler theta=0 nonembedding special case are explicitly prior. The surviving original contribution is principally the all-n sharp theta=1/2 boundary even for positive stochastic dense steps and the complementary theta>1/2 small-step dense-generator existence. The theta>=1 all-step resolvent embedding is a natural general subordination/log-resolvent consequence and is proved here without asserting the resolvent principle itself is new. The birth–death-specific sign threshold does not follow mechanically from the directly inspected general embedding or positivity results.",
+      "residual_risks": [
+        "Specialized matrix-function studies could encode equivalent theta-log sign facts under different notation.",
+        "Forward-Euler theta=0 obstruction is prior, not counted as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_CRITERIA_PRIOR_NOT_THETA_CLASSIFICATION",
+          "evidence": [
+            "General Markov embedding tests are credited; none specifies sign of the theta-method log at all distances for any birth–death chain."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1001.1693",
+          "material_read": "Primary Davies 2010 discussion of real matrix logarithms, simple negative eigenvalue obstruction and generator test",
+          "method": "Lawful arXiv primary article text and relevant sections",
+          "title": "Embeddable Markov Matrices",
+          "trigger": "Classical eigenvalue/logarithm obstruction and embedding criteria"
+        },
+        {
+          "assessment": "SPARSE_FORWARD_EULER_PRIOR_NOT_POSITIVE_DENSE_THETA",
+          "evidence": [
+            "Example 3.4 already implies nonembedding for sparse explicit Euler on three or more states; it does not determine Crank–Nicolson dense positive P or overimplicit all-step resolvent embeddings."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2511.22800",
+          "material_read": "2025 full primary PDF sections on reversible embedding, Example 3.4 tridiagonal stochastic obstruction and theorem on logarithms",
+          "method": "Full primary PDF text with rendered relevant page inspection",
+          "title": "Embedding of reversible Markov matrices",
+          "trigger": "Highly relevant newer primary source for birth–death/reversible chains and tridiagonal nonembedding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Davies 2010 general Markov embedding problem",
+        "Baake et al. 2025 reversible-chain embedding and tridiagonal obstruction",
+        "Exact theta family sign proof and independent three-state witness"
+      ],
+      "rationale": "Markov embeddability is strictly stronger than stochasticity and ensures a homogeneous CTMC interpretation of a numerical transition step. A universal sharp boundary at theta=1/2, where even positive reversible Crank–Nicolson transitions fail, distinguishes two basic integration choices; the complementary all-step theta>=1 embedding with an explicit dense generator is meaningful structural guidance. The dimension-two exception and exact 3-state counterexample make the threshold sharp and interpretable; this is not merely a routine positivity calculation.",
+      "residual_risks": [
+        "Embedding does not preserve original sparse birth–death generator structure; no stability/accuracy assertion or complete middle-step window."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "For 1/2<theta<1 only sufficiently small h are always embeddable; large-step classification remains open.",
+    "A dense generator may embed P even though P is obtained from a sparse Q.",
+    "Arbitrary irreducible generator extension at theta>=1 asserts existence but not uniqueness.",
+    "Publication plan not ready because original public metadata contains operational provenance."
+  ],
+  "schema_version": 1
+}
