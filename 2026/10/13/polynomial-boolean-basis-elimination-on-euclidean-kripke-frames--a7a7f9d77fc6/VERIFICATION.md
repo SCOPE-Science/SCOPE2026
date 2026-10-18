@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The central all-size proof consists of the explicitly proved Euclidean successor-cluster lemma, the published S5 polynomial simulation theorem, and a one-time propositional-skeleton polynomial translation. The checker `verify.py` is self-contained and uses only Python 3 standard libraries.
+# Independent mathematical audit
 
-Execute `python3 verify.py` alongside the supplied files. Expected output contains `EUCLIDEAN_COUNTS [(1, 2), (2, 7), (3, 39), (4, 306)]` and `VERIFY_OK`. The procedure enumerates every labeled relation of order at most four, selects those satisfying the Euclidean condition, checks that all successors belong to a complete common successor cluster, and for each such frame and each one-proposition valuation compares four S5 modal identities *within the scope of one initial modality*. It also finds a Euclidean nontransitive three-world relation, demonstrating the larger frame scope.
+## correctness
 
-These computations establish only the displayed finite checks. They do **not** test the published arbitrary-formula S5 translation algorithm or prove the all-size polynomial bound. The latter depends on the mathematical proof and the specified primary published theorem. No independent scientific certification has been performed.
+PASS
+
+On every Euclidean frame, if w has a successor then all its successors see one identical reflexive complete S5 cluster C. The identity R(z)=C for z in C follows by two Euclidean applications; no transitivity/seriality assumption enters. BKS 2025 Theorem 4.4 and Lemma 4.7 (verified directly in full primary PDF) supply polynomial tree-size Boolean-basis conversion on S5. Replace maximal outer modal subformulas by their S5-compiled scopes (valid at every immediate successor), and compile the purely propositional outer skeleton by standard fixed-basis balancing. The total size is bounded by the product of two fixed polynomials, uses only original variables, and preserves truth at every root including dead ends.
+
+## originality
+
+PASS
+
+Berkholz–Kuske–Schwarz 2025 covers S5, and Pfau CSL2026 Theorem 17 covers transitive symmetric frames. Neither accessible theorem dominates the full Euclidean/K5 frame class; Euclidean structures can be nontransitive and nonreflexive, and global S5 translation at the root is invalid. The novel successor-cluster and top-level skeleton transfer extends polynomial Boolean-basis elimination to the larger K5 class. Prior modal-depth-reduction literature might already imply an equivalent transfer but its primary 2017 text was inaccessible.
+
+## value
+
+PASS
+
+Identifies a mathematically natural modal frame class K5 on the polynomial side of a known exponential succinctness dichotomy and bridges a gap beyond S5/transitive-symmetric frames, with explicit scope over arbitrary infinite, nonserial Euclidean frames. It changes the classification of succinctness for a standard modal axiom, not merely formula syntax.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
