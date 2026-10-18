@@ -1,19 +1,21 @@
-# Scientific review: three-leaf star extension constant
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every real \(p\)-Banach target the leaf-value and barycenter extensions yield the two claimed universal upper bounds. The canonical free \(p\)-space provides the lower witness. Its three-spanning-tree norm is [2, Corollary 2.7], and the contractive passage to the free Banach norm excludes centers outside the affine probability simplex. Inside the simplex, the exact largest leaf distance becomes the two-largest-coordinates \(p\)-power sum, whose concavity gives the minimum and its complete equality cases. A separate argument treats \(p=1\). The analytic steps establish the continuous exponent range and exact sharpness; finite checker runs are supplementary.
+PASS
 
-## Originality — PASS, with qualification
+Upper bounds are obtained for every real p-Banach target by extending to any leaf image (constant 2) and to the arithmetic barycenter (constant 2^{1+1/p}/3) via the p-triangle inequality. In canonical free p-space over the side-two equilateral triple, the source provides exact three-spanning-tree norm formula, referenced to Cúth–Raunig Thm 2.2/Cor 2.7. Contractive comparison to the ordinary free Banach norm rules out centers with any negative barycentric coefficient for a minimizing radius ≤2. On simplex coordinates (a,b,c), sorted a≤b≤c, the maximum of three distances is 2(b^p+c^p)^{1/p}; strict concavity over the ordered simplex for 0<p<1 drives minima to the leaf vertices or the uniform barycenter. At p=1 the minimizing smallest coefficient enforces unique barycenter. Exact threshold 3^p=2 gives log2/log3, with precisely the three leaves and barycenter as minimizers at transition. Canonical embedding realizes Lipschitz constant one and gives universal sharpness. The actual verification/check.py subtree and blob were inspected: finite 4,960-point grids and p1 rational grid are diagnostic only, not proof for continuous p/all targets.
 
-The closest precise norm input [2] is explicitly used rather than claimed new. In [3], Proposition 26 gives the general free-space reduction and Theorem 30 treats a linear three-point metric with an inserted point, not an equilateral triple and a central hub; its result has different endpoint values and no closed phase law for this metric. [1] concerns geometry of free \(p\)-spaces and affine retractions. Direct statement/equivalence searches did not identify this four-point sharp constant or the four-center threshold, and recovered earlier claims concern different Lipschitz-free numerical indices, geometry, or operators. This is evidence of noncoverage, not a proof of global uniqueness; unindexed equilateral-star cases remain a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A single extra point over the smallest genuinely two-dimensional equilateral free space is a natural finite test of extension into nonlocally convex targets. The exact coefficient and global extremizers expose a sharp change in extension strategy at the nontrivial exponent \(\log2/\log3\). The result distinguishes a plateau of vertex-optimal extensions from barycentric optimality and addresses the dependence on the exponent motivated by [3]. This is a complete universal-target computation, not a numerical fit or an arbitrary parameter substitution.
+Cúth–Raunig gives the required general free p-norm via finite spanning-tree presentations, but does not explicitly solve the new center minimax/equality locus. Bíma 2402.03189 Theorem 30 uses the collinear trace N={0,1,2} and an added point 3/2, unlike equilateral leaves/star midpoint; its Banach endpoint trace 1 differs from our 4/3. Resultary also contains later separate SCOPE n≥4 star formula min(2,2(n−1)^{1/p}/n), explicitly scoped to n≥4 and crediting pre-existing n=3. The n≥4 mathematical proof can be algebraically adapted to n=3 but its stated theorem excludes this case, and neither that extension nor simple matching symbols is an earlier general published theorem covering n=3. No independently prior stronger result with the exact 3-leaf center switch located. Best-of-knowledge PASS with possible uncatalogued universal-extension formulas acknowledged.
 
-## Limits and primary sources
+## value
 
-The result is confined to the stated real metric and real target class. The full source texts used were [1] arXiv:2303.03265, [2] arXiv:2311.02920v1, and [3] arXiv:2402.03189v1 as listed in `RESULT.md`. Possible alternative published terminology could conceal equivalent coverage. Computation samples only finitely many affine points and exponent values.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Sharp universal extension constants into all real quasi-Banach p-targets for the smallest genuinely branching star provide a motivated exact benchmark, with the substantive discontinuous switch of all optimal free-space center images at p=log2/log3. The target-variable minimax, classification at a critical exponent, and sharp transition are useful to study nonlocally convex extension obstructions; this is not a normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
