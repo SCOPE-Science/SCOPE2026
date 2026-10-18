@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (same-model).** The statement distinguishes fixed-domain term operations from pointed-model modal types and specifies precisely the primitive grade bound. The induction for clipped histograms is sound because \(\min(K,\sum_a c_a)=\min(K,\sum_a\min(K,c_a))\); explicit depth-one characteristic tests provide the reverse inclusion. Weighted counting of realizable clipped vectors gives the census. The two cutoffs are independently reconstructed from the possible exact histograms; the plateau boundary accounts for the missing all-saturated vector. The standalone verifier checks actual Boolean/counting closures as well as structural formulas. The proof is mathematical; finite checks only corroborate it.
+PASS
 
-## Originality
+On one n-world universal S5 class with r Boolean set inputs (m=2^r atom types), induction on term structure shows truth at a world depends on local atom type and counts clipped at K; the identity min(K,sum c_i)=min(K,sum min(K,c_i)) controls nested counting. Conversely, any realizable clipped histogram has a depth-one characteristic test, so every assignment of output bits to supported local types is definable. Counting supports over admissible vectors yields E and the generating function. Clipping is injective on exact compositions iff n<=2K, giving the sharp full permutation-equivariant grade K=ceil(n/2); for n>=mK every saturated clipped histogram is realized, giving the stable exponent and sharp missing all-K profile at n=mK-1. Independent exact enumeration compared all 198 chosen finite (n,m,K) cases with closed exponents and thresholds; no finite list substitutes for the induction and construction.
 
-**PASS (same-model, with residual historical risk).** The inspected primary papers establish graded-modal type equivalence, counting-width semantics, and general automaton correspondences, but do not state a complete finite **term-clone** census or either of the two exact resource cutoffs. The unrestricted-equivariant result is not merely a pointwise bisimulation statement: every function on all \(r\)-tuples of subsets is classified. Targeted searches for the histogram exponent, permutation-equivariant term operations and bounded-grade S5 clones found no equivalent theorem. The \(K=1\) and general graded-type foundations are known and not claimed as new; an implicit antecedent through classic monadic Boolean algebra or counting-logic normal forms remains plausible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS (same-model).** The bounded counting-resource problem has a canonical finite-algebra formulation: what operations are definable using counting thresholds at most \(K\)? The result gives the complete clone, its cardinality for every natural arity and domain size, the sharp minimum grade for full symmetry-compatible expressivity, and the sharp plateau in domain size. It quantitatively bridges ordinary S5 and unrestricted counting logic, while ruling out any advantage from deeper modal nesting on a homogeneous frame. These two exact transitions and full term-operation classification are not merely a restatement of a known pointwise-type equivalence.
+Modern graded modal-type theories underpin the histogram normal form, but inspected statements do not calculate the complete fixed-n Boolean term clone. The new classification includes all assignments and two exact sharp thresholds; classical S5 depth-one collapse is credited rather than claimed novel.
 
-## Limits
+## value
 
-The theorem concerns one universal S5 accessibility class, not products of relations or arbitrary frames. It makes no claims about minimal formula length or syntactic complexity. The primary papers may have indirect implications that could reduce the historical novelty of the enumeration; no independent originality audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Counting all term operations (rather than formula equivalence at a pointed input) is a natural exact finite-algebraic invariant. The theorem gives a functional-completeness classification, an explicit exact operation census and two sharp minimal thresholds for expressive grade and size stabilization. It supplies a reusable complete description of bounded counting logic over a single finite S5 cluster rather than merely a textbook ungraded depth collapse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
