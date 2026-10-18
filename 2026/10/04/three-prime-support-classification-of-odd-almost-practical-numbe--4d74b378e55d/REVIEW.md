@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The final claim has one exact domain: odd integers with exactly three distinct prime factors. Stewart's divisor criterion forces the support to be \(\{3,5,7\}\). The two necessity arguments are explicit applications of that criterion: when \(a=1\), the initial divisor segment \(1,3,5,7,15\) already violates it; for \(315\), the final jump from proper-divisor sum \(309\) to \(315\) violates it. The three base cases \(945\), \(1575\), and \(2205\) are checked transition by transition, and Stewart's closure under multiplication by an already present prime covers every remaining exponent triple. The accompanying program independently replays the finite base checks and bounded stress test. The computation is corroborative, not the infinite proof.
+## correctness
 
-## Originality
-PASS, with a stated residual source-access risk. The closest full-text literature inspected is Jokar's 2022 paper, which reproduces Stewart's criterion and closure and explicitly derives only the subfamily with \(a\ge3\). It does not state the complete \(a=2\) boundary classification, and searches for the exact support/exponent theorem and its boundary values did not locate an equivalent statement. OEIS A174535 gives the sequence and the values \(945,1575,2205,\ldots\) but not the exponent classification. published-finding corpus searches for aliases and fixed-support formulations returned no equivalent or broader almost-practical theorem. The original Stewart article itself was not directly readable in this review; an equivalent corollary there remains the principal residual risk.
+PASS
 
-## Value
-PASS. Stewart's criterion shows that \(\{3,5,7\}\) is the forced support for every odd almost practical number having exactly three distinct prime factors, so this is the natural exactly-three-prime stratum rather than an arbitrary parameter slice. The result completes that stratum exactly, replacing a previously recorded sufficient range \(a\ge3\) by a necessary-and-sufficient exponent condition and isolating the unique \(a=2\) exception \(315\).
+PASS: Stewart's odd divisor-gap criterion and its prime-multiplication closure (precisely restated in Jokar Proposition 3.6 and Proposition 3.10) reduce three-support odd almost practical numbers to 3^a5^b7^c. If a=1, divisor jump 7 to 15 fails at partial sum 16; n=315=(2,1,1) fails last transition 315>307. Direct ordered-divisor gap checks establish bases 945=(3,1,1), 1575=(2,2,1), 2205=(2,1,2), and closure yields all a>=2 with a+b+c>=5. Independent reconstruction checked every 216 exponent triples 1<=a,b,c<=6 and three base sums, corroboration only.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (qualified): Jokar's full primary arXiv text contains Stewart's criterion and closure, and explicitly states the a>=3 subfamily, but does not provide the sharp a=2 boundary or exclude every a=1 case. The original 1954 Stewart paper was unavailable in full, even after authorized Oxford retrieval returned vpn_disconnected, so the possibility of an equivalent earlier boundary corollary is a named residual risk, not an automatic failure. Complete exponent-stratum classification is best-of-knowledge new.
+
+## value
+
+PASS
+
+PASS: The minimal possible odd three-prime-support family is an intrinsic classification problem; a>=2 and the unique missing 315 boundary are natural finite obstructions, and closure certifies an infinite collection without finite extrapolation. A full boundary rather than a reparameterization of the a>=3 sufficient family is mathematically reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
