@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For each full-row-rank (n-1)-by-n real Gaussian G, null(G) is a uniform real line u. Multiplication by invertible A maps null(GA)=A^{-1}null(G). The final squared coordinate u_n^2 has Beta(1/2,(n-1)/2) law; independence across K gives exact R=kappa^2/[1+(kappa^2-1) max_j T_j]. Its maximum density behaves as (K/2)(2/B_n)^K t^{K/2-1}, proving finite inverse-q moment exactly if K>2q. Monotone convergence transfers the exact cutoff to sup over contrasts. Boundary-layer integration gives single and double rates pi kappa/B_n and 8 log(kappa)/B_n^2. For n=3 sqrt(T_j) is uniform and direct integration gives sup E R=K/(K-2) for K>=3. All domains, endpoints, and limiting quantifiers are stated; a standalone verifier cross-checks rational constructions, analytic integrals and direct Gaussian row products. No finite test substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Epperly--Park--Nakatsukasa (2026) Definition 1 and Facts 5--6 use full-column-rank embeddings; Algorithm 1 uses an invertible preconditioner.",
+        "Park--Nakatsukasa (2023) Theorems 2.3 and 3.1 explicitly require sketch dimension s>=n."
+      ],
+      "reasoning": "Neither high-quality embedding guarantee extends to a rank-n-1 sketch: every such sketch annihilates a nonzero vector, and the corresponding full-space embedding lower inequality is false. No implication from those bounds gives the best-of-K moment cutoff.",
+      "searches": [
+        "sketch and solve null vector rank deficient geometric mean singular values expected Rayleigh quotient gaussian",
+        "Gaussian sketch n-1 rows minimal singular vector inverse Gaussian Cauchy expected error",
+        "Epperly Park Nakatsukasa 2026 undersampling n-1 rows missing nullspace sketch"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2602.16797v1 (primary full HTML)",
+      "doi:10.1007/s10543-023-00979-7 (primary full HTML)",
+      "doi:10.1137/090771806 (abstract only)",
+      "Published semantic research search: Gaussian undersampled nullspace sketches ... and replicated underdetermined Gaussian sketches ..."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Park--Nakatsukasa (2023) Remark 2.1 has a residual norm bound from a singular-value-preserving sketch, unavailable for rank-n-1 SA.",
+        "Epperly--Park--Nakatsukasa (2026) Fact 6 bounds a full-rank sketch-and-solve initialization; it cannot subsume the one-row-short K-replicate rule.",
+        "Halko--Martinsson--Tropp (2011) is a general randomized matrix decomposition source; only an open summary was inspected, so implication from its full text remains an explicit risk."
+      ],
+      "reasoning": "Full-rank sketching bounds concern a different quantifier domain and cannot entail a finite expectation when the sketch has a true kernel. Conversely, elementary spherical beta laws are legitimate proof ingredients; their existence does not by itself give an explicitly published numerical algorithm tradeoff. Originality may still fail if older general theorems explicitly formulate this best-of-K singular-vector rule, so independent comparison is required.",
+      "searches": [
+        "Park Nakatsukasa 2023 A fast randomized algorithm for computing an approximate null space full text arxiv",
+        "random Gaussian sketch codimension one null vector anisotropic elliptical beta prime residual distribution",
+        "Halko Martinsson Tropp Gaussian pseudoinverse p=0 oversampling expectation infinite n−1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2023 Park--Nakatsukasa paper, Sects. 2--3, treats s>=n and multiplicative perturbation bounds; its hypotheses exclude a one-row-short null sketch.",
+        "The projected-normal/central angular Gaussian framework describes inverse-elliptic random directions, but the cited metadata do not establish a published best-of-K original-residual theorem."
+      ],
+      "reasoning": "Equivalent aliases include random null direction, inverse elliptical directional law, order statistics of beta coordinates, and best-of-independent undersketched vectors. The classic directional-law components do not alone state the three-sketch minimax replication cutoff; no same-object published equivalence was found.",
+      "searches": [
+        "Gaussian undersampled nullspace sketches select best of independent rank deficient trials phase transition three sketches finite expected Rayleigh residual",
+        "replicated underdetermined Gaussian sketches minimum singular vector best of k inverse beta distribution moments",
+        "random codimension one null vector Gaussian inverse anisotropic sphere distribution singular vector beta generalized Rayleigh quotient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record searches returned several results on Haar subspace-descent moments, multistage pivoting, and spectral filters, but not a table or certificate for independent rank-deficient minimum-singular-vector trials."
+      ],
+      "reasoning": "The statement is a closed-form distribution and moment classification, not a numerical database/table record. No searched published table fixes the sharp replication count three or the dimension-three value K/(K-2).",
+      "searches": [
+        "Gaussian rank n-1 sketch null singular direction exact expected Rayleigh quotient random codimension one nullspace beta distribution spiked singular spectrum",
+        "minimum singular vector of Gaussian sketch n-1 rows underdetermined diagonal condition number expected"
+      ]
+    },
+    "rationale": "The complete accessible 2026 and 2023 primary texts assume a subspace-preserving sketch with at least n rows. The exact best-of-K null-vector sampling law for n-1 Gaussian rows and its minimal three-replicate finite-mean threshold are not stated or logically implied by those full-rank-only theorems. Direct semantic searches of published research records and external literature for null-sketch replications, beta inverse moments, and undersampling found no dominating same-object result. The classical beta and order-statistic components are prior facts, not claimed innovations. This is a bounded self-review, with a residual risk of an older, implicit equivalent computation.",
+    "residual_risks": [
+      "Classical angular-central-Gaussian and beta order-statistic results may contain an equivalent formulation; general older Gaussian sketch surveys were not exhaustively excluded.",
+      "The result concerns a natural but deliberately constructed replication protocol; no empirical runtime or general-singular-spectrum benefit is established.",
+      "One broad older survey was inspected only at metadata/abstract level, not certified as noncovering."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the exact one-row-short independent-trial selection; its embedding and preconditioner premises require a full-rank sketch.",
+        "evidence": [
+          "arxiv:2602.16797v1, Definition 1, Theorem 2, Algorithm 1, Sect. 3.1, Facts 5--6"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.16797",
+        "material_read": "Abstract, Introduction, Definition 1, Theorem 2, algorithm 1, Sect. 2.2, Sect. 3 including Facts 5--7, proofs and references",
+        "method": "Open full arXiv HTML; inspect mathematical statements and sketch dimensions",
+        "title": "Fast, high-accuracy, randomized nullspace computations for tall matrices",
+        "trigger": "Recent primary source motivating exact minimum singular vector quality at sketch rank threshold"
+      },
+      {
+        "assessment": "Exact theorem domains impose s>=n and full-column-rank embeddings; no K independent n-1-row null-sketch moment law was found in the inspected text.",
+        "evidence": [
+          "doi:10.1007/s10543-023-00979-7, Theorems 2.3 and 3.1"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10543-023-00979-7",
+        "material_read": "Introduction, Problem 2.1, Algorithm 1, Theorem 2.2, Theorem 2.3, Remark 2.1, Sect. 3 and Theorem 3.1, numerical and bibliographic sections",
+        "method": "Read full open-access publisher HTML mathematical text",
+        "title": "A fast randomized algorithm for computing an approximate null space",
+        "trigger": "Direct preceding full-length analysis of sketch-and-solve approximate smallest singular vectors"
+      },
+      {
+        "assessment": "No evidence from the abstract of exact best-of-K small-singular-vector formula; full-text coverage remains unresolved and is not certified absent.",
+        "evidence": [
+          "doi:10.1137/090771806, open bibliographic abstract"
+        ],
+        "identifier_or_url": "https://authors.library.caltech.edu/records/hy0mc-xmn26",
+        "material_read": "Open bibliographic record and abstract, not full paper",
+        "method": "Read repository metadata and abstract; full-document exclusion not attempted",
+        "title": "Finding structure with randomness: probabilistic algorithms for constructing approximate matrix decompositions",
+        "trigger": "Possible older broad Gaussian sketch and inverse-moment coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "49976f79-97f0-4b0f-a6b8-9dce7e4268d9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Independent n-1-row sketches offer a natural minimal-data null candidate but do not provide a subspace embedding, leaving exact original-residual quality unaccounted for by full-rank sketching theory. The theorem identifies a sharp, dimension-independent finite replication cutoff: the best of one/two sketches has unbounded expected relative squared residual as singular-value contrast increases, whereas three suffice; n=3 has sharp explicit constant 3 and exact finite-contrast formulas. The comparison uses an actual unsketched quality measure needed in minimum singular vector tasks and cleanly separates angular consistency from expectation control. The result does not assert runtime benefits or consequences for methods that do not use this protocol.",
+    "status": "PASS"
+  }
+}
