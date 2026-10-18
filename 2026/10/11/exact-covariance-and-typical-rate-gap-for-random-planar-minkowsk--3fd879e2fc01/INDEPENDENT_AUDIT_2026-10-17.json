@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T01:50:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The planar support-function area formula gives D_0=(π/2)Σ_{m>=2}(m²−1)(a_m²+b_m²); it is valid for nonsmooth convex bodies via W^{1,2} approximation. Independent Haar-uniform reflection axes become i.i.d. first-angle/successive-difference variables. Each m-th Fourier weight is multiplied by cos² of its projected angle, giving mean 1/2, fourth moment 3/8 and cross-mode second moment 1/4. Tonelli justifies summing countably many nonnegative finite-total weights; thus Var(D_t)=((3/8)^t−4^{-t})Q and Cov(D_s,D_t)=2^{-(t−s)}Var(D_s). Q<=D0² with equality exactly one active higher harmonic. M_t=2^tD_t is a nonnegative martingale; for each fixed mode E log(2cos²(mU))=−log2, so it decays almost surely; the limit of all remaining tail martingales has mean at most the initial discarded Fourier-tail sum and hence tends to zero. Independent 256x256 angle quadrature on three Fourier modes matched two-step mean and variance exactly to numerical tolerance, but the general statement is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coupier--Davydov, Random symmetrizations of convex bodies, arXiv:1211.1785, Section 4.2 Proposition 5",
+          "Bianchi--Gardner--Gronchi, Symmetrization in Geometry, arXiv:1603.00643 (general deterministic background)"
+        ],
+        "reasoning": "Prior work treats convergence rates and deterministic Minkowski symmetrization generally, but does not provide the particular exact time-time covariance or typical/mean discrepancy. Neither broader topic independently implies these precise fourth-moment constants without further projection calculation.",
+        "searches": [
+          "Resultary semantic: random planar Minkowski symmetrization area deficit covariance variance arcsine modes almost sure normalized",
+          "arXiv:1211.1785 full source Proposition 5 and convergence theorems",
+          "arXiv:1603.00643 symmetrization survey"
+        ]
+      },
+      "checked_sources": [
+        "Coupier--Davydov, Random symmetrizations of convex bodies, arXiv:1211.1785, Section 4.2 Proposition 5",
+        "Bianchi--Gardner--Gronchi, Symmetrization in Geometry, arXiv:1603.00643 (general deterministic background)",
+        "Bourgain--Lindenstrauss--Milman, Minkowski sums and symmetrizations, 1988 IHES preprint (background)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Coupier--Davydov, Random symmetrizations of convex bodies, arXiv:1211.1785, Section 4.2 Proposition 5"
+        ],
+        "reasoning": "The known E||h−mean||² contraction is first-order in angular projections. The submitted covariance requires cos^4=3/8 and mixed-frequency cancellation, and the almost-sure 2^t gap needs martingale convergence with Fourier-tail Fatou. These are not automatic conclusions of prior mean convergence.",
+        "searches": [
+          "Resultary semantic: random planar Minkowski symmetrization area deficit covariance variance arcsine modes almost sure normalized",
+          "arXiv:1211.1785 Section 4.2 Proposition 5 detailed proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Coupier--Davydov, Random symmetrizations of convex bodies, arXiv:1211.1785, Section 4.2 Proposition 5"
+        ],
+        "reasoning": "Compared centered support-function squared L2 energy with the isoperimetric area deficit: the latter weights each Fourier order by m²−1. Its full second-moment law has Q=Σw_m² and sharp one-frequency extremizers, which the former first-order result does not state.",
+        "searches": [
+          "Resultary semantic: random planar Minkowski symmetrization area deficit covariance variance arcsine modes almost sure normalized",
+          "Coupier--Davydov arXiv:1211.1785 Section 4.2 expected L2 contraction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Coupier--Davydov, Random symmetrizations of convex bodies, arXiv:1211.1785, Section 4.2 Proposition 5"
+        ],
+        "reasoning": "The claim is a universal formula for arbitrary planar convex bodies rather than a finite table; the checked literature has an expected L2 contraction constant but no exact D_s,D_t covariance table or frequency equality characterization.",
+        "searches": [
+          "Resultary semantic: random planar Minkowski symmetrization area deficit covariance variance arcsine modes almost sure normalized",
+          "arXiv:1211.1785 Proposition 5",
+          "Resultary random Minkowski planar covariance search"
+        ]
+      },
+      "rationale": "Best-of-knowledge: Coupier--Davydov prove expected squared centered-support contraction and general convergence of random symmetrizations, but do not state an exact Fourier-weighted intrinsic area-deficit covariance, fourth-moment equality classification or mean-normalized martingale degeneracy. These additions do not follow just from their first-moment theorem.",
+      "residual_risks": [
+        "Possible unindexed stochastic convex geometry paper could give exact isoperimetric-deficit fourth moments.",
+        "Finite trigonometric checks do not establish full-body/martingale assertions.",
+        "Pairwise zero covariance of distinct Fourier squared modes does not imply their joint independence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes factor one-half expectation contraction for centered support-function L2 and a.s. geometric convergence; not these area-deficit fourth moments, covariance kernel and mean-normalized limit.",
+          "evidence": [
+            "Coupier--Davydov, Random symmetrizations of convex bodies, arXiv:1211.1785, Section 4.2 Proposition 5"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.1785",
+          "material_read": "Full accessible author manuscript via lawful fulltext HTML mirror, focusing on the detailed Section 4.2 Proposition 5 and proof, and convergence theorems elsewhere in text.",
+          "method": "Lawful full-text HTML reading",
+          "title": "Random symmetrizations of convex bodies",
+          "trigger": "Primary paper on the identical random Minkowski symmetrization operation"
+        },
+        {
+          "assessment": "Its analytic proof is internally coherent and independent two-step Fourier quadrature agrees.",
+          "evidence": [
+            "Coupier--Davydov, Random symmetrizations of convex bodies, arXiv:1211.1785, Section 4.2 Proposition 5"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-covariance-and-typical-rate-gap-for-random-planar-minkowsk--3fd879e2fc01/RESULT.md",
+          "material_read": "Entire RESULT.md proof, weak support-function regularity, equality claims, martingale convergence and limitations; independent verifier read.",
+          "method": "GitHub connector full file read",
+          "title": "Exact covariance and typical-rate gap for random planar Minkowski symmetrization",
+          "trigger": "Assigned final theorem and all Fourier analytic steps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact time-covariance of a natural intrinsic isoperimetric statistic, sharp geometric single-harmonic variance extremizers and an almost-sure decay vastly faster than mean are distinct useful mathematical conclusions. This refines known expected contraction in a highly interpretable stochastic-geometric model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only planar Minkowski, uniform independent reflection axes and perimeter-preserving deficit; not Steiner/nonuniform/high dimensional.",
+    "Nonsmooth case relies on standard weak support-area identity; finite quadrature does not prove general theorem.",
+    "Science is evaluated at the frozen assigned Git tree only, without public publication, source edits, or external certification."
+  ],
+  "schema_version": 1
+}
