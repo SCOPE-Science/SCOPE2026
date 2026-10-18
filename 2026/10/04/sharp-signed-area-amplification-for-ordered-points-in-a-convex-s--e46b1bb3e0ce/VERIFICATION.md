@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is exact and analytic.
+# Independent mathematical audit
 
-Checks performed:
+## correctness
 
-- Base cases: the full text of arXiv:2609.21968v1, Lemma 3.3, proves \(F(P)\le\operatorname{area}(H)\) for arbitrary ordered lists with \(3\le m\le5\); applying it to the reversed list gives the absolute-value form.
-- Deletion identity: replacing the chain \(P_0,P_1,P_2,P_3,P_4\) by the chord \(P_0,P_4\) changes the shoelace sum by
-  \[
-  \frac12\bigl(P_0\times P_1+P_1\times P_2+P_2\times P_3+P_3\times P_4+P_4\times P_0\bigr),
-  \]
-  exactly the five-point shoelace expression.
-- Induction: for \(m\ge6\), the deletion identity and the five-point bound give \(C_m\le C_{m-3}+1\). With \(C_3=C_4=C_5=1\), this yields \(C_m\le\lfloor m/3\rfloor\).
-- Sign: reversal of the cyclic order negates the shoelace expression without changing the containing set.
-- Sharpness: a nondegenerate triangle traversed \(q=\lfloor m/3\rfloor\) times has signed area \(q\operatorname{area}(H)\); inserting repeated copies of a vertex pads the list by one or two entries without changing the shoelace sum.
-- Boundary cases: zero-area convex sets are collinear, so every closed shoelace expression vanishes.
+PASS
 
-Unproved limits and risks:
+For an arbitrary cyclic m-point list in convex H, Keller Lemma 3.3 proves the signed shoelace bound F≤area(H) on every 3–5 point list without simple-polygon assumptions. For m≥6 remove P1,P2,P3 to form (P0,P4,…,P_{m−1}); the exact determinant telescoping identity F(P)−F(Q)=F(P0,P1,P2,P3,P4) yields F(P)≤area(H)+F(Q). Induction gives floor(m/3)area(H); reversing the list obtains |F|. Taking an H-triangle and tracing its A,B,C loop q=floor(m/3) times, inserting r=m−3q repeated vertices, attains q area(H) exactly for every m. This also covers repeated/degenerate locations and area-zero H; the theorem is signed area, not unsigned self-intersecting lobe area. Checked the exact cancellation identity and equality construction directly from determinant algebra, not logs.
 
-- The theorem is about signed area, not unsigned lobe area.
-- Exact equality outside multiples of three uses repeated point locations; distinct-point exact attainment is not asserted.
-- The bibliographic search did not locate a prior equivalent all-length coefficient, but an older result under different terminology cannot be excluded.
+## originality
+
+PASS
+
+Keller 2026 §3.3 explicitly proves only factor one for m=3,4,5 and notes its failure at six due to twice traversing a triangle, then pursues geometric fan/chord hypotheses for factor one at longer lengths. The submitted all-m optimal unconstrained factor floor(m/3), with every residue class attained, is not in the inspected source. Fáry–Makai edge-vector convexification does not maintain vertex containment in H and therefore does not yield this area(H) coefficient.
+
+## value
+
+PASS
+
+Keller’s work makes the arbitrary-order longer-polygon failure a concrete gap; the exact all-length best universal constant and its equality mechanism supply a useful baseline separating unconditional shoelace bounds from stricter geometric hypotheses. This solves a natural complete extremal profile rather than an arbitrary numerical sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

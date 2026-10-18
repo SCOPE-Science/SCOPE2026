@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T05:53:41.208574Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an arbitrary cyclic m-point list in convex H, Keller Lemma 3.3 proves the signed shoelace bound F≤area(H) on every 3–5 point list without simple-polygon assumptions. For m≥6 remove P1,P2,P3 to form (P0,P4,…,P_{m−1}); the exact determinant telescoping identity F(P)−F(Q)=F(P0,P1,P2,P3,P4) yields F(P)≤area(H)+F(Q). Induction gives floor(m/3)area(H); reversing the list obtains |F|. Taking an H-triangle and tracing its A,B,C loop q=floor(m/3) times, inserting r=m−3q repeated vertices, attains q area(H) exactly for every m. This also covers repeated/degenerate locations and area-zero H; the theorem is signed area, not unsigned self-intersecting lobe area. Checked the exact cancellation identity and equality construction directly from determinant algebra, not logs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Keller Lemma 3.4 and 3.5 retain factor one under extra fan/separating-chord conditions; those are conditional and do not bound arbitrary order by optimal floor(m/3)."
+        ],
+        "reasoning": "General area convexification of rearranged edges changes the positions relative to H; its stronger-looking geometric result does not imply the constrained coefficient claim.",
+        "searches": [
+          "Keller Lemmas 3.3–3.5 (small polygon, fan, separating chord)",
+          "Fáry–Makai 1982 edge-vector convexification comparison from Vysotsky 2025"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2609.21968",
+        "https://doi.org/10.1016/j.spa.2024.104519"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All-m formula requires the three-point removal identity and sharp m mod3 insertion construction; the cited source supplies only base cases and failure for coefficient one."
+        ],
+        "reasoning": "The claim is not a corollary of a stronger all-m area bound in inspected source; the new recurrence closes the extension left open after m5.",
+        "searches": [
+          "Keller Lemma 3.3 and m6 counterexample",
+          "Vysotsky 2025 appendix description of Fáry–Makai signed-area convexification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original bound is coefficient one for m≤5; it explicitly fails m=6. The new coefficient floor(m/3) recovers m≤5 and matches the m6 twice-triangle witness."
+        ],
+        "reasoning": "The correct equivalent object is signed algebraic shoelace area, not geometric polygon union/total lobe area; no matching all-m coefficient was found.",
+        "searches": [
+          "Resultary query: algebraic signed area arbitrary ordered m vertices in planar convex set sharp floor(m/3) bound polygon self intersections",
+          "Keller arXiv:2609.21968 Lemma 3.3 and post-lemma discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No enumerated finite table is relevant to an unbounded m formula; all m are proved from a finite base and recurrence."
+        ],
+        "reasoning": "The formula is a global exact sequence rather than a lookup of finitely many polygons; table novelty is inapplicable for a stated mathematical reason.",
+        "searches": [
+          "Resultary search: algebraic signed area arbitrary ordered m vertices in planar convex set sharp floor(m/3) bound polygon self intersections",
+          "Keller arXiv:2609.21968 Section 3.3"
+        ]
+      },
+      "rationale": "Keller 2026 §3.3 explicitly proves only factor one for m=3,4,5 and notes its failure at six due to twice traversing a triangle, then pursues geometric fan/chord hypotheses for factor one at longer lengths. The submitted all-m optimal unconstrained factor floor(m/3), with every residue class attained, is not in the inspected source. Fáry–Makai edge-vector convexification does not maintain vertex containment in H and therefore does not yield this area(H) coefficient.",
+      "residual_risks": [
+        "An unindexed elementary winding-number/triangle-covering theorem could directly yield floor(m/3); the searched geometric and Resultary material does not certify global priority.",
+        "No stronger factor-one bound under fan/chord assumptions is claimed to be improved here; exact equality may require repeated point locations, distinct-point version only sharp as a supremum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BASE_CASES_ONLY",
+          "evidence": "Lemma 3.3 proves ≤area(H) for lists 3≤m≤5 and notes arbitrary m6 counterexample; fan/chord restrictions recover coefficient1 for certain longer configurations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.21968",
+          "material_read": "PDF §3.3 (p. 5–6) including full proof of m=3,4, reference to appendix m5, explicit m6 twice-traversal remark, Lemmas 3.4–3.5; Appendix A context",
+          "method": "lawful arXiv PDF text plus rendered page 6",
+          "title": "Improved bounds for universal convex covers of unit arcs",
+          "trigger": "initiating lemma and new range"
+        },
+        {
+          "assessment": "NOT_RESOLVED_FULL_TEXT",
+          "evidence": "Edge-vector convexification may not keep rearranged vertices in H; full exact appendix priority remains a residual risk.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spa.2024.104519",
+          "material_read": "Published source summary and referenced appendix relation as quoted in submitted RESULT.md; entire original paper not independently read",
+          "method": "published abstract/context, not full primary",
+          "title": "Isoperimetric problem for convex hulls and large deviations rate functionals of random walks",
+          "trigger": "possible Fáry–Makai dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Keller’s work makes the arbitrary-order longer-polygon failure a concrete gap; the exact all-length best universal constant and its equality mechanism supply a useful baseline separating unconditional shoelace bounds from stricter geometric hypotheses. This solves a natural complete extremal profile rather than an arbitrary numerical sample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed elementary winding-number/triangle-covering theorem could directly yield floor(m/3); the searched geometric and Resultary material does not certify global priority.",
+    "No stronger factor-one bound under fan/chord assumptions is claimed to be improved here; exact equality may require repeated point locations, distinct-point version only sharp as a supremum."
+  ],
+  "schema_version": 1
+}
