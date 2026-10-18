@@ -1,0 +1,11 @@
+# Scientific review: geometric sample range total positivity
+
+**Correctness (C): PASS.** Sorted labeled integer tuples, with a deterministic tie rule, partition the sample space bijectively. Their base value and adjacent gaps yield geometric series whose weighted descent numerator is exactly the comajor-index Eulerian polynomial. Savage–Visontai Theorem 5.4 applies at every positive parameter; its real-rootedness and positivity make the stated independent Bernoulli/geometric product valid. A Toeplitz convolution argument gives total nonnegativity. Independent direct-CDF calculations agree on 288 exact-rational coefficient/normalization checks, not used as a substitute for the general proof.
+
+**Originality (O): PASS on inspected evidence, with residual risks.** The closest motivating 2023 order-statistic article proves a different and weaker variable-level LC/ULC result; the 2013 Savage–Visontai result proves real-rootedness of the polynomial but does not identify a geometric sample-range distribution; the 2017 GEM-gaps theorem has a different random-environment sampling model. Database checks and published mathematical result comparisons found no equivalent/dominating claim after comparison of statistical implications rather than titles. Classical P-partition identities may conceal a previous presentation; this is a genuine bibliographic risk, not a uniqueness certification. The complete 2023 article PDF could not be opened sequentially; indexed scientific statements and portions were checked, leaving a specific bibliographic risk.
+
+**Value (V): PASS.** The result is the complete independent-component law for a natural sample range, implying total positivity of all orders and log-concavity. Its specificity is mathematically informative: already a two-sample range from a PF-infinity binomial parent fails PF-infinity, so there is no trivial general preservation implication. The finite-data verification is auxiliary.
+
+**Scope and limitations.** The sample is finite and iid with a nondegenerate zero-based geometric parent. Published root realness is a necessary input, not a new claim. There is no assertion about heterogeneous, dependent, or non-geometric parent laws. No independent external audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
