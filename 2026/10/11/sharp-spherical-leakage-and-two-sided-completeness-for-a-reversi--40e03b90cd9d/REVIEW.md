@@ -1,12 +1,21 @@
-# Review of exact radial geometry
+# Independent mathematical audit
 
-## Correctness — PASS
-The identical field of the cited source has \(\dot V=-2q\) with the positive-definite centered quadratic form \(q+1/3\). Completing the square and integrating over its ellipse determines the constants in the two spherical asymptotics. Uniformity of the expansions follows from \(\rho^2\le2\) on the entire projected ellipse. The proper quadratic time-bound proves non-explosion in positive time; the verified reversing symmetry proves negative-time completeness. Compact-support invariance justifies integration of Lie derivatives. Symbolic polynomial/ellipse checks were executed in the bundled checker; continuation and integral geometry were proved analytically.
+## correctness
 
-## Originality — PASS, with access and indexing risk
-The entire three-page original article (Sprott, 2014) identifies the small polar leakage qualitatively, but its numerical radial discussion does not state an exact ellipse, precise outgoing-area fraction, positive-flux asymptotic, or covariance constraint. The full seven-page 2015 Sprott article restates the system, with emphasis on symmetry and attractors, not these geometric constants. The 2019 follow-up studies Hopf-zero/KAM dynamics and hence does not immediately imply outgoing sphere flux, but full-text access could not be completed; this remains a real unresolved priority risk, rather than a claim of exhaustive exclusion. Related indexed findings concern different vector fields or distinct invariants; the reviewed statement does not follow from their reported formulas. Failure of a database search is not a novelty certificate.
+PASS
 
-## Mathematical value — PASS
-The original article explicitly motivated large-radius inward-pointing spheres punctured by small holes, without quantitatively resolving the holes. The new result determines the entire leaking region for all sufficiently large radii and exact asymptotic constants for both its area and flow. It simultaneously establishes a rigorous global non-explosion theorem for a quadratic vector field, and identities that constrain both toroidal and chaotic compact invariant measures. This is a natural geometric quantity attached to an identified mathematical question, not an arbitrary parameter slice, and is stronger than a pointwise numerical sign check. It does not resolve global boundedness or the detailed attractor-basin problem.
+Independently differentiated V=(x-1)²+y²+(z+1)² along xdot=y+2xy+xz, ydot=1-2x²+yz, zdot=x-x²-y² with sympy, getting Vdot=-2q exactly, q=x²+xy+y²-x. Completing square q=(x-2/3)²+(x-2/3)(y+1/3)+(y+1/3)²-1/3 yields ellipse E with matrix [[1,1/2],[1/2,1]] and area 2pi/(3sqrt3). On a radius-R sphere, the two z-graphs exist over E for R>=2, normal velocity -q/R, area element R/sqrt(R²-rho²), so f_R=1/(2pi R²)int_E R/sqrt(R²-rho²), and J_R=2int_E(-q)/sqrt(R²-rho²). Exact ellipse integral int_E(-q)=pi/(9sqrt3) gives coefficients. Uniform expansion on bounded E establishes the claimed error orders. q>=-1/3 implies Vdot<=2/3 and forward nonexplosion; the reversing involution (x,-y,-z) verified symbolically gives backward nonexplosion and O(sqrt(1+|t|)). Integrating derivatives of V,z against compact invariant measures yields exactly E(xy)=0 and the shifted unit circle mean square 1/4. No global orbit boundedness or attractor existence is claimed.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The complete original three-page Sprott 2014 primary article (author-hosted PDF) was inspected page by page. It explicitly notes almost inward radial orientation with small polar holes, and reports numerical simulations of invariant tori/attractors; it does not compute the ellipse, area/flux constants, two-sided global existence bound or invariant-measure moment equalities. The 2015 follow-up concerns reversibility and attractor organization. Algaba–Merino–Qin–Rodríguez-Luis 2019 publisher-accessible title, abstract, introduction, theory and conclusion concern a family embedding, Hopf-zero and KAM bifurcations, not a cited sphere-flux formula; the inaccessible remainder is a residual risk, not proof of noncoverage. Resultary related Sprott records concern different vector fields/parameters and do not mathematically dominate the exact field/radial geometry.
+
+## value
+
+PASS
+
+The original paper identifies but does not quantify spherical leakage, making exact outgoing patch area and normal flux natural numerical-to-analytic invariants. The sharp asymptotic constants resolve the geometric hole size and quantify its vanishing influence; two-sided completeness for a quadratic vector field and compact invariant-measure balance identities are independently meaningful, without inflating them to a global attracting-ball or escape-theorem claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
