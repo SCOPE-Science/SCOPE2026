@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The full-dimensional stable-set polytope is coordinatewise downward closed. An exact containment equivalence reduces Minkowski asymmetry to membership of the all-ones point in a scaled polytope. Fractional-coloring duality proves the scale exactly, and optimal dual support forces pinned center coordinates; strict slack at finitely many nonoptimal dual vertices constructs independent free directions. Exact-rational verification confirms six diverse graphs, including a fractional \(5/2\) example and two nonunique-center examples. All-size correctness is established analytically, not inferred from the checks.
+## correctness
 
-**Originality — PASS, with residual literature risk.** The closest primary work establishes Minkowski asymmetry for arbitrary convex bodies (arXiv:2112.13590v1), lattice-zonotope asymmetry (arXiv:2301.12182v1), and antiblocking/fractional-coloring duality for stable-set polytopes (arXiv:1412.2103v1). The graph-entropy literature already treats improvement directions at the all-ones fractional point. Those ingredients are credited: the claimed addition is their exact geometric synthesis with the entire center-space dimension and unique-center criterion. No inspected statement directly gives that classification; an equivalent formulation in the wider convex-corner literature is a genuine residual risk. Searches and implications, rather than titles alone, are recorded in the structured review.
+PASS
 
-**Value — PASS.** The result turns a canonical graph LP invariant, which need not be integral, into the exact affine-invariant asymmetry of a natural full-dimensional polytope family and determines not only one optimal center but the full optimal-center dimension and coordinate rigidity. The support criterion separates vertex-transitive or maximum-clique-covered graphs from graphs with unconstrained center directions; it is a structural classification across all finite graphs, not a numerical recomputation or a single graph exercise.
+Reconstructed from actual RESULT.md: stable-set polytope is coordinatewise downward-closed by thinning random independent sets. With q=(1+r)c, containment −(P−c)⊂r(P−c) means q−x∈rP for all x∈P; x=0 and x=e_i force q∈rP and q_i≥1, and downward closure proves converse. Fractional coloring gives minimum r=χ_f and q=1 feasible. Compact dual D=nonnegative weights with independent-set sums ≤1; antiblocker representation λP={z≥0:y·z≤λ ∀y∈D}. At optimum y, y·q≤λ=∑y with q≥1 forces pinned q_i=1 on optimal support. For vertices outside T, every dual vertex with y_i>0 has strict objective gap; finitely many vertices allow a small positive box in those directions, giving affine dimension n−|T|. Perfect-graph specialization uses clique polytope description; automorphism averaging gives transitive uniqueness. Independent LP finite cases and provided exact-rational verifier support examples only.
 
-**Limits.** Fractional coloring and antiblocking are established, not new. The theorem gives no efficient algorithm on arbitrary graphs; finite computations are checks rather than a proof; wider literature may use equivalent terminology.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The direct relation s(STAB(G))=χ_f(G) and dimension of its entire center space is a meaningful synthesis of known antiblocking and fractional-coloring facts. Resultary search finds parallel polymatroid/poset center descriptions but no universal simple graph stable-set result dominating this. Rezaei convex corner/entropy references could already encode the optimal-support formula; full primary chapter could not be read, so O PASS is qualified and not an absolute uniqueness claim.
+
+## value
+
+PASS
+
+This converts fractional coloring into a full affine-geometric asymmetry invariant across all finite graphs, including noninteger values, and classifies the entire center locus. The pinned/free coordinate interpretation and perfect/transitive specializations form a natural structural classification rather than a single tabulated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
