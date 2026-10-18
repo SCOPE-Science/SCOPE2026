@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact incidence-graph correspondence, two-sided domination test, cycle/leaf removability, and biconditional tree classification prove the theorem for every m,n>=2. Weighted bipartite Prüfer identity with the surjection count yields precisely the two nonoverlapping Stirling sums. Separate direct vertex-subset enumeration checked 1,413,959 subsets across nine board shapes; computation is supporting evidence, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lokshtanov–Pilipczuk–Saurabh: arbitrary-graph bound and enumeration algorithm.",
+        "ESA 2022: general minimal connected dominating set enumeration.",
+        "Mertens 2024: all dominating rook placements, without minimality or connectedness."
+      ],
+      "reasoning": "Broader graph scope for an enumeration algorithm does not imply this exact distribution; the graph-specific ordinary domination polynomial forgets the required connected/minimal filter.",
+      "searches": [
+        "arxiv:1611.00840v1",
+        "doi:10.4230/LIPIcs.ESA.2022.1",
+        "arxiv:2401.00716v1",
+        "published-record query: minimum and inclusion-minimal connected dominating sets of rook graphs Cartesian products K_m square K_n; bipartite incidence tree leaves and Stirling number enumeration formula"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1611.00840v1",
+      "doi:10.4230/LIPIcs.ESA.2022.1",
+      "arxiv:2401.00716v1",
+      "OEIS:A289196",
+      "OEIS:A360876"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The target is the exact Stirling coefficient formula plus size gaps for inclusion-minimal *connected* dominating vertex sets.",
+        "The published-finding corpus fixed-side spanning-tree record counts unrooted isomorphism classes of *all full spanning trees* in K_{d,m}; it does not impose leaf constraints or label counts."
+      ],
+      "reasoning": "No inspected prior theorem states the same claim or a stronger explicit formula whose specialization immediately yields the coefficient and gap results. These conclusions are limited to inspected material.",
+      "searches": [
+        "arxiv:1611.00840v1 theorem on counting all minimal connected dominating sets",
+        "doi:10.4230/LIPIcs.ESA.2022.1 algorithm",
+        "arxiv:2401.00716v1 ordinary domination polynomial rook",
+        "published-record query: quasipolynomial spanning-tree-type counts fixed-side complete bipartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The rook graph is the line graph of K_{m,n}; connected dominating sets correspond to connected edge dominating sets.",
+        "No identical leaf-constrained tree enumeration occurred in retrieved records; the exact graph-to-incidence equivalence is proved in RESULT.md."
+      ],
+      "reasoning": "The line-graph/connected-edge-domination alias was explicitly searched. Existing general algorithms do not give the exact incidence-tree coefficient formula.",
+      "searches": [
+        "published-record query: minimal connected edge dominating sets complete bipartite graph spanning tree leaves",
+        "web: \"minimal connected edge dominating\" \"complete bipartite\" trees count",
+        "web: \"minimal connected dominating sets\" \"line graphs of complete bipartite graphs\" count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A289196 is an all-connected-dominating total on square boards.",
+        "A360876 is an all-connected-dominating total on two-row boards.",
+        "Both descriptions allow many connected dominating sets not inclusion-minimal, and neither is a cardinality-generating polynomial for this restricted class."
+      ],
+      "reasoning": "A table of all connected dominating configurations cannot be taken as a minimal connected spectrum. Direct nine-board coefficients were independently computed and are not claimed as a uniqueness certificate.",
+      "searches": [
+        "OEIS A289196 connected dominating rook graphs",
+        "OEIS A360876 connected dominating rook graphs two rows",
+        "web: minimal connected dominating rook graph Stirling numbers coefficients"
+      ]
+    },
+    "rationale": "Direct published-finding corpus searches for rook minimal connected domination, complete-bipartite connected edge domination, Stirling formulas and bipartite tree leaves found no matching theorem. Accessible arXiv and ESA primary-text comparisons distinguish a general enumeration algorithm and an ordinary rook domination polynomial from the exact size distribution of inclusion-minimal connected sets. Existing OEIS all-connected counts cannot imply the size-by-size minimal spectrum without additional structural information. Novelty is assessed under remaining bibliographic risk, not certified uniqueness.",
+    "residual_risks": [
+      "Nonindexed or differently phrased connected-edge-domination and bipartite line-graph enumerations may exist.",
+      "The bipartite Prüfer weighted enumerator itself is standard prior mathematics, not novel here.",
+      "Finite test cases do not validate novelty or infinite theorem by themselves.",
+      "No external independent mathematical review was undertaken."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General upper bound and general algorithm do not specialize to or state exact rook-graph size distribution",
+        "evidence": "arXiv:1611.00840v1, introduction and main theorem: universal O(2^((1-epsilon)n)) bound and enumeration algorithm.",
+        "identifier_or_url": "https://arxiv.org/pdf/1611.00840",
+        "material_read": "Abstract, introduction, main general bound, central enumeration construction and selected proof sections",
+        "method": "Read accessible arXiv full-text PDF; compared theorem and graph families",
+        "title": "Below all subsets for Minimal Connected Dominating Set",
+        "trigger": "Foundational definition and all-minimal connected-domination enumeration"
+      },
+      {
+        "assessment": "Offers general enumeration methods; not a closed coefficient formula for the line graph of a complete bipartite graph",
+        "evidence": "ESA 2022 paper, theorem on algorithmic enumeration of minimal connected dominating sets; no matching specialized polynomial in examined sections.",
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2022.1",
+        "material_read": "Abstract, problem definitions, central algorithmic theorems and conclusion",
+        "method": "Read available ESA 2022 open-access full-text PDF and its theorem statements",
+        "title": "Enumerating Minimal Connected Dominating Sets",
+        "trigger": "Plausible stronger general algorithm implying enumeration of any graph"
+      },
+      {
+        "assessment": "Counts all dominating sets, not the connected inclusion-minimal subfamily; its size polynomial does not identify these subsets",
+        "evidence": "arXiv:2401.00716v1, abstract and main domination polynomial theorem.",
+        "identifier_or_url": "https://arxiv.org/pdf/2401.00716",
+        "material_read": "Abstract, definitions, main generating function, rook-board and incidence representation, derivation sections",
+        "method": "Read accessible arXiv full-text PDF; contrasted ordinary domination with inclusion-minimal connected domination",
+        "title": "Domination Polynomial of the Rook Graph",
+        "trigger": "Same exact graph, plausibly stronger counting invariant"
+      },
+      {
+        "assessment": "Counts all connected dominating sets by board order, not minimal ones by selected cardinality; cannot directly cover new polynomial",
+        "evidence": "OEIS A289196 definition explicitly says connected dominating sets.",
+        "identifier_or_url": "https://oeis.org/A289196",
+        "material_read": "Sequence definition, sample terms, formula/comments and references",
+        "method": "Inspected public OEIS sequence entry",
+        "title": "OEIS A289196",
+        "trigger": "Published database count of connected dominating sets of square rook graphs"
+      },
+      {
+        "assessment": "All connected dominating sets and specialized shape, not arbitrary rectangular inclusion-minimal counts",
+        "evidence": "OEIS A360876 description of connected dominating sets of two-row rook graphs.",
+        "identifier_or_url": "https://oeis.org/A360876",
+        "material_read": "Sequence definition and cited relationships",
+        "method": "Inspected public OEIS sequence entry",
+        "title": "OEIS A360876",
+        "trigger": "Published database count of connected dominating sets on a two-row rook graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "90d810cb-3090-485b-a025-5256da8f31e8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete cardinality distribution of inclusion-minimal connected dominating sets for all rectangles is a natural exact structural classification. It distinguishes minimum and upper connected domination, determines their optimizer multiplicities, and proves arbitrarily long forbidden internal size intervals when n>=2m; these properties are not routine readings of the ordinary rook domination polynomial.",
+    "status": "PASS"
+  }
+}
