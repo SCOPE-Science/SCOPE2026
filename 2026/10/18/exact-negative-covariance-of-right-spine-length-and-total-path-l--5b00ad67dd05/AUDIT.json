@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Root split exactly gives P=P_L+P_R+n-1 and R=1+R_R. The mixed moment recurrence is correct and its E(z) solution satisfies the generating-function ODE (checked symbolically). Coefficient extraction yields the stated harmonic formula and the strictly negative sign follows from a positive monotone sequence. Independent exhaustive permutation enumeration through n=8 and rational mixed recurrence checks through n=100 passed 46,563 exact checks. The known path-length variance and independent-record variance justify the sharp correlation asymptotic; infinite assertions are proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Corsini 2021, main theorems: first-order height and right-subtree size of record-biased random trees; no total path-length moment.",
+        "Aguech et al 2017, Theorem 4 and formulas (36)–(38): ordinary/weighted path-length and Wiener-index covariances; no right-spine/record covariance.",
+        "Bouvel–Nicaud–Pivoteau 2024 accessible abstract concerns permutation statistics, sampling and permuton limits, without stated search-tree path/spine mixed moments."
+      ],
+      "reasoning": "The broad path-length/Wiener covariance results do not dominate a right-spine covariance; asymptotic height results do not determine an exact path-length/record moment. A record-biased generating function could in principle be differentiated to recover the target, but none such stated path-length generating function was located in inspected texts. Full 2024 preprint was not reviewed, so residual implicit coverage is disclosed.",
+      "searches": [
+        "path length right branch height correlation random binary search tree record counts",
+        "Record-biased permutations and their permuton limit 2409.01692 Quicksort comparisons random BST path length",
+        "On Weighted Depths in Random Binary Search Trees covariance Wiener index spine"
+      ]
+    },
+    "checked_sources": [
+      "Corsini, arXiv:2112.05732 (full author-hosted manuscript; first posted 2021-12-10)",
+      "Aguech, Amri and Sulzbach, DOI 10.1007/s10959-017-0773-1 (full open HTML; published online 2017-07-11)",
+      "Bouvel, Nicaud and Pivoteau, arXiv:2409.01692 (abstract and journal bibliography only)",
+      "Auger et al, arXiv:1605.02905 (abstract only)",
+      "Public mathematical result: squared root split imbalance versus random-BST total path length (summary-level comparison)",
+      "Accessible current research ledger: exact claims reviewed for overlap only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Auger et al 2016 accessible abstract lists insertion sort and two min-max variants, not Quicksort/BST path length.",
+        "Corsini 2021 establishes a root decomposition for record-biased trees, but his stated height bounds do not compute mixed path length and right-spine moments.",
+        "The new proof constructs and solves the mixed moment e_n from two coupled path/spine recursions, and neither cited marginal moment determines it."
+      ],
+      "reasoning": "The previous models or moment methods suggest how to calculate the claimed statistic; they do not state or immediately imply its exact finite formula. Differentiation of the explicit unbiased covariance gives a record-bias sensitivity not resolved by a height limit. Hidden specialized formulas in earlier generating-function literature remain a nonzero priority risk.",
+      "searches": [
+        "Auger Bouvel Nicaud Pivoteau records biased permutations quicksort comparisons average complexity 2016",
+        "Exact Cov(P_n,R_n)=3n+H_n-2(n+1)H_n^(2) for total internal path length and right spine of random binary search tree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Right-spine length equals the number of strict left-to-right records in the insertion order; the usual first-pivot Quicksort comparison count equals random-BST internal path length. Corsini 2021 defines the record-biased BST model and analyzes its height.",
+        "Aguech–Amri–Sulzbach 2017 explicitly distinguishes total path length from weighted path length and identifies the ordinary marginal path-length moments."
+      ],
+      "reasoning": "The right-spine/records and internal-path-length/Quicksort dual descriptions were searched. Neither inspected source evaluates the exact covariance of these two statistics or the derivative of expected path length under record bias. The claim does not repackage a source formula for an already evaluated mixed moment.",
+      "searches": [
+        "Exact Cov(P_n,R_n)=3n+H_n-2(n+1)H_n^(2) for total internal path length and right spine of random binary search tree",
+        "Quicksort comparisons covariance number of records in random input permutation right spine exact harmonic second order",
+        "record biased binary search tree derivative mean internal path length at theta=1 decreasing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published result on squared root-split imbalance vs random-BST total path length is a different pair of random variables; it does not determine covariance with the record-defined spine.",
+        "The accessible current finite claim archive contains record-count with permutation cycles and path-length with recursive-tree leaves, but no random-BST path-length/right-spine mixed moment.",
+        "No directly matching mathematical table or exact identity emerged in the targeted searches."
+      ],
+      "reasoning": "An arbitrary finite search cannot prove uniqueness. The closest records were compared by statistic definitions and mathematical implication: root imbalance, recursive-tree attachment events, permutation cycle count and random-BST spine length are distinct, and no reviewed formula implies the proposed exact moment.",
+      "searches": [
+        "published mathematical findings: exact random BST root imbalance path length covariance",
+        "published mathematical findings: Quicksort comparison records covariance",
+        "uniform random BST spine path length exact harmonic covariance"
+      ]
+    },
+    "rationale": "Inspected full relevant 2017 path-length/weighted-Wiener article and 2021 record-biased-tree manuscript. Both study nearby marginal and multivariate objects but neither states or implies the finite joint covariance of random-BST right spine (upper records) and total path length. Relevant published mathematical results and accessible current claims treat root imbalance, record vs cycles or random recursive-tree path length, none directly implying this mixed moment. 2016 and 2024 record-bias papers were available at abstract/bibliographic level only: residual implicit prior-coverage risk is documented, not represented as conclusively excluded.",
+    "residual_risks": [
+      "A general multivariate/generating-function treatment of record-biased random BSTs might implicitly specialize to the new covariance without matching terminology.",
+      "Full text of Bouvel–Nicaud–Pivoteau 2024 and Auger et al 2016 was not examined, so an unstated strong coverage cannot be categorically excluded.",
+      "Bibliographic and mathematical searches are not an exhaustive priority proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in inspected material: height and subtrees, not total path-length/right-spine covariance.",
+        "evidence": [
+          "arXiv release 2021-12-10; manuscript classifies 60C05 as a primary MSC.",
+          "Sections 2–3 develop record-biased subtree laws and height bounds; section 4 concerns height fluctuations and generalized models, not finite path/spine mixed moments."
+        ],
+        "identifier_or_url": "arxiv:2112.05732; https://benoitcorsini.com/files/articles/corsini_2021_rbt.pdf",
+        "material_read": "Author-hosted full 17-page PDF: introduction and record-biased definitions, subtree decomposition in section 2, sections 2–3 theorem statements and height arguments, section 4 future work and references.",
+        "method": "Read material from indexed full-text manuscript and compared its random variables, hypotheses and theorem conclusions against the joint path/spine moment.",
+        "title": "The height of record-biased trees",
+        "trigger": "Same root/record-biased BST model and exact right-spine quantity"
+      },
+      {
+        "assessment": "NOT_COVERING: ordinary/weighted path length and Wiener index are combined; neither number of records nor right-spine length is paired with ordinary path length.",
+        "evidence": [
+          "First published online 2017-07-11; equation (7) gives Var(P_n) asymptotic.",
+          "Equations (36)–(38) list covariances among ordinary/weighted path lengths and Wiener indices; no spine/record statistic."
+        ],
+        "identifier_or_url": "doi:10.1007/s10959-017-0773-1; https://link.springer.com/article/10.1007/s10959-017-0773-1",
+        "material_read": "Full open-access HTML: abstract, introduction, section 2 definitions and ordinary path-length moments, section 3 main theorems, section 3.3 and covariance formulas (36)–(38), relevant proof material and bibliography.",
+        "method": "Compared all named random variables and the exact and asymptotic covariance formulas in the article.",
+        "title": "On Weighted Depths in Random Binary Search Trees",
+        "trigger": "Potential prior joint-moment theorem involving ordinary path length"
+      },
+      {
+        "assessment": "INCOMPLETE_INSPECTION: no explicitly matching path/spine covariance in accessible abstract, but the full text could contain stronger moment identities.",
+        "evidence": [
+          "Preprint first posted 2024-09-03.",
+          "Accessible descriptions concern generative processes, ordinary permutation statistics, and permuton limits, with no explicit path/spine mixed-moment formula."
+        ],
+        "identifier_or_url": "arxiv:2409.01692; doi:10.1017/S0963548326100376",
+        "material_read": "Accessible arXiv abstract, Cambridge article abstract and reference list; full mathematical body not obtained.",
+        "method": "Compared described scope and bibliographic references; no full-text NOT_COVERING conclusion.",
+        "title": "Record-biased permutations and their permuton limit",
+        "trigger": "Broad prior theory of record-biased permutation observables, potential hidden implication"
+      },
+      {
+        "assessment": "INCOMPLETE_INSPECTION: abstract lists insertion sort and two variants of min-max search, not path length.",
+        "evidence": [
+          "Public source date 2016-05-10, used solely as background, not the qualifying 2017 paper."
+        ],
+        "identifier_or_url": "arxiv:1605.02905",
+        "material_read": "Accessible arXiv abstract and secondary bibliographic information; full mathematical body not obtained.",
+        "method": "Read algorithm names and statistics summarized in abstract, tested whether they explicitly include BST/Quicksort path length.",
+        "title": "Analysis of Algorithms for Permutations Biased by Their Number of Records",
+        "trigger": "Foundational record-biased permutation model could subsume sensitivity claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5b00ad67-dd05-446b-9ece-0b3e6cde47f3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Right spine is an intrinsic search-tree shape feature and precisely the input permutation record count; internal path length is the cost of constructing the BST. Their finite mixed moment is not fixed by known marginals. Exact sign, a new linear limiting covariance, vanishing correlation with sharp constant, and the derivative of expected construction cost with respect to record bias provide nonroutine quantitative dependence and a model-sensitivity benchmark. No downstream joint limit law is claimed.",
+    "status": "PASS"
+  }
+}
