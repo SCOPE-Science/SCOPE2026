@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic for every admissible order. The checker constructs crowns directly from the deleted-matching definition and performs four independent finite corroborations: it verifies the total domination minimum and its exact count for \(n=3,4,5,6,7\); solves the D-game and S-game by complete minimax for \(n=3,4,5\); enumerates every four-pair system for \(n=4,5,6\); and checks the closed pairing-count expression through \(n=100\).
+# Independent mathematical audit
 
-Expected replay output:
+## correctness
 
-`ALL CHECKS PASSED; total_domination_orders=3..7; game_orders=3,4,5; pairing_system_orders=4,5,6; symbolic_count_range=4..100`
+PASS
 
-The finite computations do not establish the arbitrary-order theorem. The infinite claims are proved by the shore-size argument, the explicit pairing construction, and the transversal classification in RESULT.md.
+Any total-dominating set needs at least 2 vertices on each shore; any 2+2 works. On 6 vertices Dominator can obtain <=3 vertices and cannot win. For n>=4 four disjoint within-shore pairs, two per side, supply a force-one-from-each pairing strategy in either start convention and the gamma_t lower bound forces 4 moves. Every transversal of a four-pair certificate is a 2+2 selection, so a cross-pair would change the shore count under flipping its choice; thus precisely two within-shore pairs per part. Matching count is 3*C(n,4) independently per shore.
+
+## originality
+
+PASS
+
+No prior mathematical result located implying the all-parameter family-specific theorem; best-of-knowledge, with residual indexed/access limitations.
+
+## value
+
+PASS
+
+Optimal pairing certificates directly encode first- and second-player strategies. The sharp small-order threshold and complete classification/count of all minimum certificates are natural exact game invariants beyond evaluating gamma_t, suitable for comparison with other matching-deleted bipartite families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

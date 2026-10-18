@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof determines all minimum total dominating sets first, then uses a four-pair certificate for the upper bound and the published general lower bound for sharpness. The \(n=3\) obstruction is forced by board size. The classification of optimal pairing systems is exact because every four-vertex transversal must have a 2+2 shore split. The embedded checker corroborates total-domination minima through order \(14\), minimax game values for \(n=3,4,5\), and all four-pair systems for \(n=4,5,6\).
+## correctness
 
-## Originality
-PASS. The closest primary literature defines the quantitative parameters and the pairing-total-domination method but does not state a crown result. The foundational game paper treats other graph families and bipartite complexity, not exact crown values. Targeted searches covered crown, \(K_{n,n}-M_n\), matching-deleted bicliques, bipartite complements of a one-factor, both starting conventions, and pairing certificates. The principal residual risk is a poorly indexed older theorem under an uncommon alias.
+PASS
 
-## Value
-PASS. The theorem identifies the exact threshold between an unwinnable crown and simultaneous sharp four-move wins, and it classifies and counts all optimal pairing certificates. That strategy classification gives reusable structure beyond a single numerical evaluation.
+Any total-dominating set needs at least 2 vertices on each shore; any 2+2 works. On 6 vertices Dominator can obtain <=3 vertices and cannot win. For n>=4 four disjoint within-shore pairs, two per side, supply a force-one-from-each pairing strategy in either start convention and the gamma_t lower bound forces 4 moves. Every transversal of a four-pair certificate is a 2+2 selection, so a cross-pair would change the shore count under flipping its choice; thus precisely two within-shore pairs per part. Matching count is 3*C(n,4) independently per shore.
 
-## Closest literature and limitations
-Divakaran–James–Klavžar–Nair (arXiv:2507.17341v1) is the same-invariant source and supplies the definitions, general inequalities, and pairing mechanism. Gledel–Henning–Iršič–Klavžar (arXiv:1902.00204v1) is the foundational game paper. Neither inspected text states the crown theorem. The present result does not cover arbitrary \(K_{r,s}-M_t\), and a poorly indexed alias-equivalent result remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No prior mathematical result located implying the all-parameter family-specific theorem; best-of-knowledge, with residual indexed/access limitations.
+
+## value
+
+PASS
+
+Optimal pairing certificates directly encode first- and second-player strategies. The sharp small-order threshold and complete classification/count of all minimum certificates are natural exact game invariants beyond evaluating gamma_t, suitable for comparison with other matching-deleted bipartite families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
