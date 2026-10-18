@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T11:52:57.201875Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Encode uniform random permutation windows as iid continuous Xi order types; length-four one-hot H_i forms bounded stationary 3-dependent vector. Covariance Γ=Q0+Σ_{d=1}^3(Qd+Qd^T), with Qd exact counts over (4+d)! permutations minus 1/576. Independently enumerated S4..S7 and recomputed the full 24x24 rational matrix, rank exactly18 and 18-leading-minor det≡897856 mod1000003. Direct checked Γ annihilates constants plus six overlapping prefix3−suffix3 coboundaries, whose span has dimension6 (one linear redundancy); rank-nullity proves entire kernel. Telescoping gives exact finite-n endpoint formula and for n≥6 variance=2Var(g(U)); outside kernel n*cᵀΓc+O(1)>0. Standard stationary bounded 3-dependent CLT and Cramér–Wold yield 18-dimensional Gaussian. Finite enumeration certifies the finite rational matrix, while analytic dependence/CLT proves asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borga–Penaguiao cycle polytope has affine dimension 18 and six deterministic flow constraints",
+          "Janson proves general CLT and raises nondegenerate linear combination classification",
+          "Resultary later computes polytope graph degrees, not stochastic iid covariance"
+        ],
+        "reasoning": "Dimension of all feasible frequencies is only an UPPER bound on stochastic rank; it does not imply strict rank 18. Thus the independent exact covariance minor is substantial beyond broader polytope geometry and CLT.",
+        "searches": [
+          "arXiv:2106.09401 constrained pattern CLT Remark 14.2",
+          "arXiv:1910.02233 overlap graph cycle polytope dimension 18",
+          "Resultary complete local graph-degree spectrum https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-local-graph-degree-spectrum-of-the-fourth-consecutive-p--5a78dd8e7c56"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.09401",
+        "arXiv:1910.02233",
+        "DOI:10.1063/5.0132602",
+        "DOI:10.1016/j.csda.2021.107381",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-local-graph-degree-spectrum-of-the-fourth-consecutive-p--5a78dd8e7c56"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Janson provides Gaussian limiting behavior for constrained patterns, not the entire 24-coordinate kernel",
+          "Borga–Penaguiao gives universal flow constraints/dimension; Bandt studies length3 and selected length4 contrasts"
+        ],
+        "reasoning": "The six flow directions are known mathematically, but no prior result inspected shows covariance definite in the remaining 18-dimensional quotient. The 18x18 nonzero minor provides that new implication.",
+        "searches": [
+          "arXiv:2106.09401 Theorem 14.1 and Remark 14.2",
+          "Borga Penaguiao 1910.02233 cycle overlap affine dimension 18",
+          "Bandt 2023 DOI:10.1063/5.0132602"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full source states kernel is constants plus 3-prefix/3-suffix flow coboundaries",
+          "Janson 2021 Remark 14.2 asks classification of degenerate constrained-pattern linear combinations"
+        ],
+        "reasoning": "Covariance rank, zero asymptotic variance, stationary coboundaries and ordinal-pattern frequency constraints refer to same theorem. The exact no-extra-kernel conclusion is not found in inspected primary sources.",
+        "searches": [
+          "Resultary semantic consecutive ordinal permutation pattern counts length four covariance rank nullspace coboundary",
+          "ordinal pattern length four 24 category covariance singular kernel iid random permutations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The actual 24x24 scaled matrix and an explicit modular determinant were verified; no previously published complete corresponding rank and nullspace table identified"
+        ],
+        "reasoning": "Prior partial covariance entries or feasible frequency tables are insufficient to imply nondegeneracy on every unconstrained direction without a rank computation; incomplete primary comparisons remain as risks.",
+        "searches": [
+          "ordinal pattern length4 full covariance matrix rank 18 table",
+          "Weiss Marin Keller ordinal serial dependence 2022 covariance"
+        ]
+      },
+      "rationale": "Janson constrained-pattern CLT and Bandt ordinal pattern covariance formulas are prior; known flow-balance constraints and 18-dimensional affine cycle polytope do not by themselves prove that stochastic covariance has strictly positive quadratic form on every remaining direction. The explicitly computed 18-rank rational certificate excludes further asymptotic degeneracies and classifies all contrasts, not a known general CLT restatement.",
+      "residual_risks": [
+        "Weiß et al. 2022 and Bandt 2007/2023 complete primary contents not all re-read; they may have implicit all-contrast covariance ranks.",
+        "A general stochastic coboundary characterization in alternate ordinal-pattern terminology might imply the result; the exact full-rank positivity comparison has been checked against most pertinent retrieved theorems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_CLT_NOT_KERNEL",
+          "evidence": "Janson obtains asymptotic normality, discusses open degeneracy characterization; no explicit rank-18 full 24-vector nullspace.",
+          "identifier_or_url": "arXiv:2106.09401",
+          "material_read": "Primary PDF §14, Theorem 14.1, Remark 14.2 and adjacent statements, visually inspected page",
+          "method": "Lawful arXiv PDF text and page screenshot",
+          "title": "Asymptotic normality for m-dependent and constrained U-statistics, with applications to pattern matching in random strings and permutations",
+          "trigger": "Strongest plausible general constrained-pattern CLT and degeneracy claims"
+        },
+        {
+          "assessment": "COVERS_FLOW_CONSTRAINTS_ONLY",
+          "evidence": "The 18-dimensional polytope proves possible frequency geometry, not stochastic covariance full rank in its affine span.",
+          "identifier_or_url": "arXiv:1910.02233",
+          "material_read": "Primary available theorem/flow representation and affine-dimension discussion",
+          "method": "Lawful arXiv PDF text inspection",
+          "title": "The feasible region for consecutive patterns of permutations is a cycle polytope",
+          "trigger": "Potential prior exact affine dimension 18 and overlap graph balance laws"
+        },
+        {
+          "assessment": "COVERS_POLYTOPE_DIMENSION_NOT_STOCHASTIC_KERNEL",
+          "evidence": "Provides 160 vertex degree census for 18-dimensional circulation polytope; lacks iid covariance Γ and rank positivity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-local-graph-degree-spectrum-of-the-fourth-consecutive-p--5a78dd8e7c56",
+          "material_read": "FULL published RESULT.md read from GitHub",
+          "method": "GitHub connector source text and mathematical proof",
+          "title": "Complete local graph-degree spectrum of the fourth consecutive-pattern polytope",
+          "trigger": "Same full length-four overlap graph, published dimension 18"
+        },
+        {
+          "assessment": "PARTIAL_ACCESS_PRIORITY_RISK",
+          "evidence": "No claim of whole-document noncoverage made on snippets; full-length-four discussion would be valuable to inspect before publication.",
+          "identifier_or_url": "DOI:10.1063/5.0132602",
+          "material_read": "Available abstract/bibliographic material and cited specific comparison from package; full primary source not re-read this execution",
+          "method": "Public primary metadata/abstract only",
+          "title": "Statistics and contrasts of order patterns in univariate time series",
+          "trigger": "Closest length-three/selected length-four covariance source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines exactly which of the 24 natural ordinal-frequency contrasts have only bounded fluctuations, and supplies a full nondegenerate 18-dimensional Gaussian limit for all other linear tests. Full natural kernel classification answers a motivated issue in stochastic pattern analysis; no need for a longer-pattern theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2106.09401",
+    "arXiv:1910.02233",
+    "DOI:10.1063/5.0132602",
+    "DOI:10.1016/j.csda.2021.107381",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-local-graph-degree-spectrum-of-the-fourth-consecutive-p--5a78dd8e7c56"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Weiß et al. 2022 and Bandt 2007/2023 complete primary contents not all re-read; they may have implicit all-contrast covariance ranks.",
+    "A general stochastic coboundary characterization in alternate ordinal-pattern terminology might imply the result; the exact full-rank positivity comparison has been checked against most pertinent retrieved theorems.",
+    "Public metadata sanitization not prepared; no public import approved."
+  ],
+  "schema_version": 1
+}

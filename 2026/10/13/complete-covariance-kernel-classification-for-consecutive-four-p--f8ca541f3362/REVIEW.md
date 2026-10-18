@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For independent atomless observations, the twenty-four consecutive four-pattern indicators are 3-dependent and have uniform marginal probability \(1/24\). Exact joint pattern enumeration for lags 0–3 gives the rational limiting covariance \(\Gamma\). An 18-by-18 principal determinant is nonzero modulo the prime 1000003, giving a characteristic-zero rank lower bound of 18. Exact multiplication confirms six linearly independent nullspace vectors arising from the sum constraint and the five endpoint-coboundary balances, giving the upper bound. The exact finite telescoping formula, positive variance outside this kernel, and an ordinary bounded 3-dependent central limit theorem complete the proof. The extracted standalone checker also verifies 2304 finite covariance entries at orders 4–7, but those examples are not a substitute for the general proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+Encode uniform random permutation windows as iid continuous Xi order types; length-four one-hot H_i forms bounded stationary 3-dependent vector. Covariance Γ=Q0+Σ_{d=1}^3(Qd+Qd^T), with Qd exact counts over (4+d)! permutations minus 1/576. Independently enumerated S4..S7 and recomputed the full 24x24 rational matrix, rank exactly18 and 18-leading-minor det≡897856 mod1000003. Direct checked Γ annihilates constants plus six overlapping prefix3−suffix3 coboundaries, whose span has dimension6 (one linear redundancy); rank-nullity proves entire kernel. Telescoping gives exact finite-n endpoint formula and for n≥6 variance=2Var(g(U)); outside kernel n*cᵀΓc+O(1)>0. Standard stationary bounded 3-dependent CLT and Cramér–Wold yield 18-dimensional Gaussian. Finite enumeration certifies the finite rational matrix, while analytic dependence/CLT proves asymptotics.
 
-The stated claim is the **complete** nullspace of the 24-by-24 consecutive length-four covariance limit, not the familiar indicator overlap calculation or the length-three problem. Janson's constrained-pattern theory (arXiv:2106.09401, Remark 14.2) explicitly leaves degenerate linear-combination classification open. Bandt (2023, doi:10.1063/5.0132602) develops the complete length-three covariance contrasts and only two selected length-four contrasts, and calls fuller length-four analysis a next step. Crane–DeSalvo (arXiv:1509.07941) treats pattern occurrence/avoidance, while Janson–Nakamura–Zeilberger (arXiv:1312.3955) treats nonconsecutive subsequences. The full 2022 Weiß–Ruiz Marín–Keller–Matilla-García test paper and complete 2007 Bandt–Shiha text were not inspected; an implicit equivalent there remains possible. Searches cannot certify global priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Twenty-four local order-pattern counts are widely used as a joint multivariate summary. The theorem identifies precisely why their asymptotic covariance is singular, resolves its rank, classifies all bounded-variance contrasts, and supplies the correct number of Gaussian fluctuation directions for statistical calibration. The 18-dimensional positivity statement is nontrivial; it does not follow just from knowing five stationarity-balance relations.
+Janson constrained-pattern CLT and Bandt ordinal pattern covariance formulas are prior; known flow-balance constraints and 18-dimensional affine cycle polytope do not by themselves prove that stochastic covariance has strictly positive quadratic form on every remaining direction. The explicitly computed 18-rank rational certificate excludes further asymptotic degeneracies and classifies all contrasts, not a known general CLT restatement.
 
-## Scientific limitations
+## value
 
-The result is uniform-i.i.d. specific and confined to consecutive length-four windows. It does not determine the full eigenvalue list or any finite-sample chi-square distribution. All claims here have undergone only an internal mathematical review; historical priority and independent validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines exactly which of the 24 natural ordinal-frequency contrasts have only bounded fluctuations, and supplies a full nondegenerate 18-dimensional Gaussian limit for all other linear tests. Full natural kernel classification answers a motivated issue in stochastic pattern analysis; no need for a longer-pattern theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

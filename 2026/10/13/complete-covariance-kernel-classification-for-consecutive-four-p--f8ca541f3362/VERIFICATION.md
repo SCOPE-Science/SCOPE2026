@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` with `COVARIANCE_MATRIX.json` beside the script. The checker reconstructs all overlap counts in the symmetric groups of orders 4, 5, 6 and 7; verifies the entire stored integer covariance matrix; checks the exact six-dimensional annihilating subspace; computes its modular rank and the 18-by-18 principal determinant residue 897856 (mod 1000003); and checks all 24-by-24 finite covariance entries for each permutation order 4, 5, 6 and 7 by direct exact enumeration. All computations use integers and standard Python only.
+## correctness
 
-The finite matrix certificate proves the exact covariance rank/kernel because the modular minor cannot vanish as an integer. The finite exhaustive tests corroborate the full covariance formula, but the general Gaussian convergence is analytically justified by 3-dependence and Cramér–Wold, not by a finite test. Historical priority and any external or independent certification are not established by this program.
+PASS
+
+Encode uniform random permutation windows as iid continuous Xi order types; length-four one-hot H_i forms bounded stationary 3-dependent vector. Covariance Γ=Q0+Σ_{d=1}^3(Qd+Qd^T), with Qd exact counts over (4+d)! permutations minus 1/576. Independently enumerated S4..S7 and recomputed the full 24x24 rational matrix, rank exactly18 and 18-leading-minor det≡897856 mod1000003. Direct checked Γ annihilates constants plus six overlapping prefix3−suffix3 coboundaries, whose span has dimension6 (one linear redundancy); rank-nullity proves entire kernel. Telescoping gives exact finite-n endpoint formula and for n≥6 variance=2Var(g(U)); outside kernel n*cᵀΓc+O(1)>0. Standard stationary bounded 3-dependent CLT and Cramér–Wold yield 18-dimensional Gaussian. Finite enumeration certifies the finite rational matrix, while analytic dependence/CLT proves asymptotics.
+
+## originality
+
+PASS
+
+Janson constrained-pattern CLT and Bandt ordinal pattern covariance formulas are prior; known flow-balance constraints and 18-dimensional affine cycle polytope do not by themselves prove that stochastic covariance has strictly positive quadratic form on every remaining direction. The explicitly computed 18-rank rational certificate excludes further asymptotic degeneracies and classifies all contrasts, not a known general CLT restatement.
+
+## value
+
+PASS
+
+Determines exactly which of the 24 natural ordinal-frequency contrasts have only bounded fluctuations, and supplies a full nondegenerate 18-dimensional Gaussian limit for all other linear tests. Full natural kernel classification answers a motivated issue in stochastic pattern analysis; no need for a longer-pattern theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
