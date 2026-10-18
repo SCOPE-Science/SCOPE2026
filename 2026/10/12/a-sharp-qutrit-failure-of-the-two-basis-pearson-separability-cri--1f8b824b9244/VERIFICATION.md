@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible exact verification
 
-Run `python verify.py` with Python 3 and SymPy available. The code requires no downloaded data and constructs the actual \(3\)-dimensional Fourier matrix, \(9\)-dimensional bipartite density matrices and local observables from their definitions. It checks all claimed exact fractions, the mutually unbiased property, normalization and orthogonality, and the full-rank mixture's strict inequality.
+# Independent mathematical audit
 
-Actual run produced:
+## correctness
 
-`VERIFY_OK MUB=passed separable_decomposition=passed Pearson_A=17/33 Pearson_C=841/1394 excess=5449/46002 full_rank=passed`
+PASS
 
-The qubit statement is verified analytically in `RESULT.md`: the Bloch-vector variance inequality bounds both weighted covariance norms by \(1\). The checker performs **finite symbolic algebra**, not infinite-dimensional certification. The full-rank state's positivity follows from \(\rho_\varepsilon\ge\varepsilon I_9/9\), and its classical-classical nature follows from simultaneous diagonality in the indicated product basis. The document does not assert independent verification.
+The Fourier basis F is complex Hadamard, hence mutually unbiased with A=diag(-1,0,1), C=FAF†. The vectors ψ=(2,-1,0)/√5 and φ=(1,2,2)/3 are normalized and orthogonal. ρ=1/2|ψψ><ψψ|+1/2|φφ><φφ| is manifestly classical-classical. From exact local moments, Cov(A,A)=289/900 and Var(A)=187/300, Corr(A,A)=17/33; Cov(C,C)=841/2025 and Var(C)=1394/2025, Corr(C,C)=841/1394; sum 51451/46002=1+5449/46002. Independent exact Fourier/matrix arithmetic corroborated. For separable two-qubit states a Bloch decomposition makes covariance classical between bounded Bloch vectors; Cauchy–Schwarz and two orthogonal axes bound the two normalized variance sums by 1; pure local marginal gives zero covariance. Adding ε=1/100 maximally mixed identity yields full-rank classical-classical violation by continuity and explicit fractions. The result is dimension threshold, not optimum violation size.
+
+## originality
+
+PASS
+
+Maccone–Bruß–Macchiavello state the same Pearson threshold as a conjecture for arbitrary dimension, while subsequent Jebarathinam and Sadana qutrit calculations address selected noisy/entangled families. The exact classical-classical qutrit violation contradicts the conjecture. Wang–Wang–Chen 2026 concern Shannon mutual-information complementary measures, which are not logically equivalent to Pearson; their unread appendices remain a risk.
+
+## value
+
+PASS
+
+A separable false positive to a proposed two-measurement entanglement witness is an important conceptual correction. The explicit no-discord example, universal qubit protection and full-rank robustness yield a motivated sharp dimension boundary rather than an isolated numerical curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
