@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The simultaneously updated three round protocols have directly reconstructed companion matrices. One-stale characteristic z(z-(1-beta))^2-beta^2r^2 has a unique positive real root above beta=1 and a conjugate pair of exactly calculable modulus, yielding iff beta+beta^2r^2<2. Two-stale sum/difference quadratic Schur tests and current/current eigenvalues both give beta<2/(1+r). The factor ratio maximum 9/8 at r=2/7 follows from the identity 81(1+8r^2)-(7+16r)^2=8(7r-2)^2. The self-contained checker reproduced 104 identities and finite tests; universality follows from analytic roots, not the tests. Endpoints and arbitrary finite real histories are included in the necessity argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carson–Ma treats a broader family of asynchronous updates with a probabilistic rate bound, not the exact deterministic simultaneous-round thresholds.",
+        "2018 asynchronous-Jacobi improvement is a broader qualitative statement already acknowledged; 2025 full text remains inaccessible."
+      ],
+      "reasoning": "A broad *model* containing some fixed delays does not logically imply this sharp necessary-and-sufficient parameter region or maximum. Older qualitative results imply only the possibility of gains. The unavailable full 2025 paper remains the strongest unresolved potential covering result.",
+      "searches": [
+        "asynchronous Jacobi exact stability for all histories delayed message rounds overrelaxation SPD 2x2 with beta",
+        "Carson–Ma 2026 arXiv 2609.15605 Sections 2–4",
+        "Wolfson-Pou–Chow 2018 Sections III–IV",
+        "Wolfson-Pou–Chow 2025 DOI 10.1137/24M1669669 abstract"
+      ]
+    },
+    "checked_sources": [
+      "Carson & Ma (2026), arxiv:2609.15605, complete open paper",
+      "Wolfson-Pou & Chow (2018), IPDPS asynchronous-Jacobi paper, complete relevant text",
+      "Moga & Dubois (1995), technical report CENG 95-06, scanned material including key 3-state matrix",
+      "Wolfson-Pou & Chow (2025), SIAM JSC DOI 10.1137/24M1669669, abstract only",
+      "Relevant published mathematics-record matches: weighted Jacobi Euclidean damping, randomized stale Gauss–Seidel, two-coordinate GS transients"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "1995 paper contains the same 3x3 form for one delayed link, which mathematically permits computing its eigenvalues after specialization, but the source reports a particular numerical instance.",
+        "2018 work explicitly concludes that asynchronous Jacobi can converge while synchronous diverges; this is a known corollary and is excluded from the novelty assessment.",
+        "Carson–Ma 2026 gives a sufficient expectation-rate condition for a different per-commit update model."
+      ],
+      "reasoning": "The main claim is a complete if-and-only-if comparison for all coupling values and three fixed communication ages, plus a uniquely maximized gain. The generic augmented matrix and prior qualitative examples do not themselves assert a bound of 9/8, its unique coupling, or the double-stale reversal. A stronger unseen theorem could cover it, particularly in the 2025 full text; this remains explicitly unresolved.",
+      "searches": [
+        "arxiv:2609.15605 Eq. (6), Assumptions 1–2 and convergence-rate theorem",
+        "Moga–Dubois 1995 printed page 16 companion matrix",
+        "asynchronous Jacobi exact stability for all histories delayed message rounds overrelaxation SPD 2x2 with beta"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moga–Dubois (1995) printed one-directional three-state delayed matrix, a genuine algebraic representation overlap.",
+        "Wolfson-Pou–Chow (2018) uses propagation-matrix representations for asynchronous Jacobi, rather than the stated three fixed ages."
+      ],
+      "reasoning": "One-sided delay can also be written as a cubic Schur condition, a scalar lagged response, or a 3x3 companion eigenvalue test. These are formulations of the same dynamics; novelty is NOT the companion matrix or general qualitative asynchronous benefit, but the specific strict three-schedule SPD classification and attained optimal gain.",
+      "searches": [
+        "\"asynchronous Jacobi\" \"relaxation parameter\" \"one step delay\" 2x2 stability",
+        "\"delayed Jacobi\" \"overrelaxation\" \"asymmetric\" stability two variables",
+        "two-channel stale read Jacobi deterministic delay one edge versus both edges same maximum lag Schur stable overrelaxation",
+        "published-finding corpus semantic search: exact spectral radius for lambda(lambda+omega-1)^2=(omega*r)^2, weighted Jacobi asymmetric staleness"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest mathematical records analyze weighted Jacobi Euclidean one-step nonexpansion, and random delayed Gauss–Seidel mean-square rates; neither states this exact directed-message trichotomy.",
+        "A different recorded stochastic stale-coordinate theorem has an algebraically similar square-root threshold but different iteration, quantifiers, and parameters."
+      ],
+      "reasoning": "Actual searches with numeric constants, companion-polynomial aliases, and message-age patterns returned no exact table entry among inspected matches. This alone does NOT certify absence; no exact prior table was found in inspected material.",
+      "searches": [
+        "\"9/8\" \"one-sided\" \"Jacobi\" \"delay\" \"relaxation\"",
+        "asymmetric one-edge versus symmetric two-edge stale read weighted Jacobi threshold 4/(1+sqrt(1+8rho^2)) maximum gain 9/8 at rho=2/7",
+        "Semantic published-mathematics-record query: sharp one-stale Jacobi overrelaxation frontier maximum 9/8 coupling 2/7"
+      ]
+    },
+    "rationale": "After an explicit distinction from the known one-delay augmented matrix (Moga–Dubois) and known qualitative benefit (Wolfson-Pou–Chow), the assessed precise three-schedule SPD relaxation thresholds and sharp ratio maximum were not found in inspected full primary sources and recent mathematical research records. No originality is claimed for companion matrices or standard Schur criteria. A possibly relevant 2025 full paper remains inaccessible and novelty is subject to that bibliographic risk.",
+    "residual_risks": [
+      "A published earlier stability calculation may already optimize this known three-state companion matrix over SPD coupling and relaxation; no exhaustive literature uniqueness claim is made.",
+      "Full text of the closely relevant 2025 asynchronous semi-iterative paper was inaccessible; absence from the available abstract is not evidence of full-paper noncoverage.",
+      "Round-based fixed-lag update definitions are deliberately narrower than real-world arbitrary asynchronous schedules."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT COVERING the asserted theorem: updates are indexed one coordinate at a time and the key rate analysis takes uniformly random coordinates; the paper does not derive the exact three simultaneous-round thresholds or 9/8 maximizer.",
+        "evidence": [
+          "arXiv v1 public 2026-09-14, eqs. (2), (5), (6), Assumptions 1–2; Section 4 rate result."
+        ],
+        "identifier_or_url": "arxiv:2609.15605; https://arxiv.org/abs/2609.15605",
+        "material_read": "Complete public arXiv article, particularly Sections 2–4, update equations, Assumptions 1–2, and rate theorem.",
+        "method": "Read the openly accessible paper and matched update granularity, delay assumptions, and the strength of its convergence conclusions to the three deterministic recurrences.",
+        "title": "Asynchronous Jacobi and randomized Gauss–Seidel methods in shared and distributed memory: A unified convergence-rate analysis",
+        "trigger": "The new result classifies exact delay-dependent Jacobi relaxation thresholds on a two-node SPD system."
+      },
+      {
+        "assessment": "COVERS qualitative asynchronous-versus-synchronous improvement; that fact is excluded from novelty. Does not state the three sharp beta boundaries or maximize their ratio.",
+        "evidence": [
+          "2018 abstract and introduction explicitly claim asynchronous convergence where synchronous fails; Section IV develops general propagation matrices."
+        ],
+        "identifier_or_url": "https://faculty.cc.gatech.edu/~echow/pubs/IPDPS18.pdf",
+        "material_read": "Paper sections I–IV and relevant two-variable comparison discussion, with the conclusions and the update-model definitions.",
+        "method": "Compared propagation-matrix algorithm assumptions and conclusions with the exact fixed message-age SPD and relaxation-parameter phase diagram.",
+        "title": "Convergence Models and Surprising Results for the Asynchronous Jacobi Method",
+        "trigger": "Earlier qualitative claim that asynchronous Jacobi can converge even when synchronous Jacobi does not."
+      },
+      {
+        "assessment": "ALREADY COVERS the companion-matrix setup, which is credited and not claimed new. The inspected work does not state the three-protocol sharp SPD overrelaxation windows, strict contrast, or maximum 9/8 gain.",
+        "evidence": [
+          "Printed page 16 gives a 3 by 3 matrix with precisely one delayed off-diagonal message and evaluates its eigenvalues for a numerical example."
+        ],
+        "identifier_or_url": "https://ceng.usc.edu/techreports/1995/Dubois%20CENG%2095-06.pdf",
+        "material_read": "Scanned first-paper discussion, method figures and numerical example, especially printed three-state augmented matrix on printed page 16.",
+        "method": "Visually inspected relevant scanned pages, including the augmented matrix and example, and compared the matrix itself versus stated general quantitative results.",
+        "title": "Performance of Asynchronous Linear Iterations with Random Delays",
+        "trigger": "Possible older exact one-directional delay recurrence for a two-node solver."
+      },
+      {
+        "assessment": "UNRESOLVED: abstract does not establish that the exact three-schedule 9/8 SPD result is present or absent. Bibliographic risk named; no full-document noncoverage is asserted.",
+        "evidence": [
+          "Publisher record DOI 10.1137/24M1669669 and open-access author-copy discovery; institutional full-text access unavailable during inspection."
+        ],
+        "identifier_or_url": "doi:10.1137/24M1669669; https://doi.org/10.1137/24M1669669",
+        "material_read": "Publisher landing-page abstract and search-index summary; full text not accessible.",
+        "method": "Attempted arXiv and lawful open-access copies, and an authorized full-text access route; no inspectable full text was obtained.",
+        "title": "Asynchronous Semi-iterative Methods and the Asynchronous Chebyshev Method with Multigrid Preconditioning",
+        "trigger": "Could contain exact parameterized delayed Jacobi stability regions under semi-iterative relaxation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "44fb5514-eecc-4b2d-9f53-ea4c44da63bb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact directed-message comparison supplies a natural and complete stability classification for a two-node SPD communication graph. It proves that the maximum delay alone does not specify the allowable relaxation region, quantifies the maximal relative gain by a sharp attained 9/8 constant, and supplies a concrete divergence-versus-convergence witness; fixed-beta rate factors prevent false claims about runtime acceleration. The structural result is relevant to choosing deterministic synchronization policies, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
