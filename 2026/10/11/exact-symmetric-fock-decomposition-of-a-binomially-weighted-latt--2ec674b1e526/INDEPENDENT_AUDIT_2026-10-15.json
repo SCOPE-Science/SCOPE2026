@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T15:49:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/11/exact-symmetric-fock-decomposition-of-a-binomially-weighted-latt--2ec674b1e526/RESULT.md"
+      ],
+      "rationale": "Checked RESULT.md's binomially normalized orthonormal basis and degree transfer: T_k=(omega_k/omega_{k+1})(a_1+a_2)/sqrt(k+1). A unitary Hadamard rotation sends the sum of bosonic annihilators to sqrt2 a_u while transverse v-degree r is conserved; iterating yields diagonal coefficients sqrt2^n omega_q/omega_{q+n} sqrt(q!/(q+n)!) sqrt((n+s)!/s!). Orthogonal output modes s=0..q exhaust all q+1 nonzero singular values of the surjective (q+1)x(q+n+1) transfer. These are strictly increasing in s, establishing endpoints and levelwise operator norms. All omega nonzero, phases may be gauged; bounded extension iff level norms uniformly bounded. Independent finite SVD checks for q,n=(0,3),(1,1),(2,3),(4,2),(6,4) agreed at numerical precision, but the Fock derivation handles unbounded degrees analytically.",
+      "residual_risks": [
+        "The comparison to Baranov et al is abstract-level only and not a full-document priority exclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen--Wang--Zhou Hilbert singular results assume radial mu_ij=omega_{i+j}; Baranov et al target dynamical hypercyclicity criteria."
+        ],
+        "reasoning": "Neither provides the binomially nonradial exact singular values or Hadamard reducing components as stated.",
+        "searches": [
+          "arXiv:2609.34308 section4 and questions",
+          "arXiv:2312.13934"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.34308",
+        "https://arxiv.org/abs/2312.13934"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Symmetric tensor rotation and singular values follow once the specific mu-weighted lattice is correctly unitarily identified."
+        ],
+        "reasoning": "The conclusion is derivable with standard Fock tools but requires an explicit nonradial conjugacy not supplied in the radial lattice statement; novelty is best-of-knowledge and could be framed as known weighted multishift lore.",
+        "searches": [
+          "Chen--Wang--Zhou arXiv:2609.34308",
+          "Drury--Arveson symmetric Fock standard annihilator identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Annihilation-operator action is classical; the theorem identifies a nonradial lattice weighted norm with its exact orthogonal direct-sum and transfer spectra."
+        ],
+        "reasoning": "The algebraic representation uses well-known Fock creation/annihilation identities, but a general statement of those identities alone does not give all lattice transfer spectra and boundedness criterion in the model's indexing.",
+        "searches": [
+          "Chen--Wang--Zhou arXiv:2609.34308",
+          "Classical bosonic symmetric-Fock annihilation operators"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching nonradial arbitrary-q,n singular spectrum table recovered; related radial matrix tables cannot equal the weighted binomial family."
+        ],
+        "reasoning": "The exact family, not a single finite matrix recomputation, is at issue.",
+        "searches": [
+          "Resultary: canonical binomial lattice shift Fock decomposition",
+          "Chen--Wang--Zhou radial Pascal matrices"
+        ]
+      },
+      "rationale": "Bounded best-of-knowledge originality: the exact stated invariant and quantified result were compared by implication to the closest primary and published SCOPE sources; no decisive covering result found. Unread material and alternative nomenclature remain explicit, and source search is not proof of absolute novelty.",
+      "residual_risks": [
+        "Exact Fock/Drury--Arveson normalization and operator conjugacy may already be stated in classical weighted-multishift literature under different terminology.",
+        "The comparison to Baranov et al is abstract-level only and not a full-document priority exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING nonradial binomial mu_ij; source explicitly sets radial mu_ij=omega_{i+j}",
+          "evidence": "Section 4 and last further-questions section",
+          "identifier_or_url": "https://arxiv.org/abs/2609.34308",
+          "material_read": "Full accessible PDF (29 pages), section 4 radial Hilbert transfer matrices and final nonradial questions",
+          "method": "Full PDF text inspection",
+          "title": "F-transitivity of Backward Shifts on Lattice Graphs",
+          "trigger": "Same lattice operator and Hilbert singular-value questions"
+        },
+        {
+          "assessment": "General growth/hypercyclicity framework, but exclusion from full text cannot be asserted",
+          "evidence": "Abstract only",
+          "identifier_or_url": "https://arxiv.org/abs/2312.13934",
+          "material_read": "Abstract and bibliographic listing; complete text not read",
+          "method": "arXiv index",
+          "title": "Hypercyclic shifts on lattice graphs",
+          "trigger": "Prior lattice backward shifts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/11/exact-symmetric-fock-decomposition-of-a-binomially-weighted-latt--2ec674b1e526/RESULT.md",
+        "https://arxiv.org/abs/2609.34308",
+        "https://arxiv.org/abs/2312.13934"
+      ],
+      "rationale": "The binomial weighting is a canonical genuinely nonradial lattice family singled out by symmetric Fock geometry, not an arbitrary perturbation. A complete unitary component classification and every exact singular value settle a natural extension of a radial Hilbert-lattice spectral question; despite classical annihilator techniques, this translation supplies reusable nonradial spectral data.",
+      "residual_risks": [
+        "Exact Fock/Drury--Arveson normalization and operator conjugacy may already be stated in classical weighted-multishift literature under different terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For mu_ij=omega_{i+j} sqrt(binomial(i+j,i)) with nonzero complex omega, B is bounded iff sup_k |omega_k/omega_{k+1}|<infinity, norm sqrt2 times that supremum; its Hadamard-rotated components are unilateral shifts with weights sqrt2 (omega_{m+r}/omega_{m+r+1}) sqrt((m+1)/(m+r+1)); every B^n:X_{q+n}->X_q has singular values |omega_q/omega_{q+n}| 2^{n/2} sqrt(q!(n+s)!/((q+n)!s!)) for s=0..q.",
+  "limitations": [
+    "Exact Fock/Drury--Arveson normalization and operator conjugacy may already be stated in classical weighted-multishift literature under different terminology.",
+    "The comparison to Baranov et al is abstract-level only and not a full-document priority exclusion."
+  ],
+  "schema_version": 1
+}

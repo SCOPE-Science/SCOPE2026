@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact one-step coefficient ratios are
-\[
-\frac{\mu_{i,k-i}}{\mu_{i+1,k-i}}=\frac{\omega_k}{\omega_{k+1}}\sqrt{\frac{i+1}{k+1}},
-\qquad
-\frac{\mu_{i,k-i}}{\mu_{i,k+1-i}}=\frac{\omega_k}{\omega_{k+1}}\sqrt{\frac{k+1-i}{k+1}}.
-\]
-Hence \(T_k=(\omega_k/\omega_{k+1})(a_1+a_2)/\sqrt{k+1}\). The unitary Hadamard rotation sends \(a_1+a_2\) to \(\sqrt2\,a_u\) and preserves \(v\)-degree. For the channel with output \(u\)-degree \(s\), the \(n\)-step coefficient is
-\[
-\left|\frac{\omega_q}{\omega_{q+n}}\right|2^{n/2}\sqrt{\frac{q!(n+s)!}{(q+n)!s!}}.
-\]
-The channels are orthogonal, so these are the singular values. Their successive ratio is \(\sqrt{(n+s+1)/(s+1)}>1\), proving the extrema. The \(n=1\) maximum gives the exact boundedness criterion and norm.
+# Independent mathematical audit
 
-The focal source arXiv:2609.34308v1 was checked at its radial Hilbert theorem, radial hypercyclic/mixing corollary and examples, and its further question on non-radial weights. The earlier same-graph paper arXiv:2312.13934 was checked for broader growth criteria. No finite experiment is used as proof.
+## correctness
 
-No claim is made for arbitrary non-radial weights, a complete \(\mathcal F\)-transitivity classification, or perturbative stability.
+PASS
+
+Checked RESULT.md's binomially normalized orthonormal basis and degree transfer: T_k=(omega_k/omega_{k+1})(a_1+a_2)/sqrt(k+1). A unitary Hadamard rotation sends the sum of bosonic annihilators to sqrt2 a_u while transverse v-degree r is conserved; iterating yields diagonal coefficients sqrt2^n omega_q/omega_{q+n} sqrt(q!/(q+n)!) sqrt((n+s)!/s!). Orthogonal output modes s=0..q exhaust all q+1 nonzero singular values of the surjective (q+1)x(q+n+1) transfer. These are strictly increasing in s, establishing endpoints and levelwise operator norms. All omega nonzero, phases may be gauged; bounded extension iff level norms uniformly bounded. Independent finite SVD checks for q,n=(0,3),(1,1),(2,3),(4,2),(6,4) agreed at numerical precision, but the Fock derivation handles unbounded degrees analytically.
+
+## originality
+
+PASS
+
+Bounded best-of-knowledge originality: the exact stated invariant and quantified result were compared by implication to the closest primary and published SCOPE sources; no decisive covering result found. Unread material and alternative nomenclature remain explicit, and source search is not proof of absolute novelty.
+
+## value
+
+PASS
+
+The binomial weighting is a canonical genuinely nonradial lattice family singled out by symmetric Fock geometry, not an arbitrary perturbation. A complete unitary component classification and every exact singular value settle a natural extension of a radial Hilbert-lattice spectral question; despite classical annihilator techniques, this translation supplies reusable nonradial spectral data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

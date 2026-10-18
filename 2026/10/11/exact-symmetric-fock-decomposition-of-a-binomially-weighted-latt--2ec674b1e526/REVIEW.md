@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The weighted-coordinate matrix was reconstructed directly. The unitary Hadamard rotation turns the transfer into a scalar multiple of \(a_u\), so the invariant channels are orthogonal and the singular values follow exactly from the normalized monomial basis. The level norm at \(n=1\) gives the boundedness criterion and global norm. All quantifiers are proved without numerical inference.
+PASS
 
-## Originality
+Checked RESULT.md's binomially normalized orthonormal basis and degree transfer: T_k=(omega_k/omega_{k+1})(a_1+a_2)/sqrt(k+1). A unitary Hadamard rotation sends the sum of bosonic annihilators to sqrt2 a_u while transverse v-degree r is conserved; iterating yields diagonal coefficients sqrt2^n omega_q/omega_{q+n} sqrt(q!/(q+n)!) sqrt((n+s)!/s!). Orthogonal output modes s=0..q exhaust all q+1 nonzero singular values of the surjective (q+1)x(q+n+1) transfer. These are strictly increasing in s, establishing endpoints and levelwise operator norms. All omega nonzero, phases may be gauged; bounded extension iff level norms uniformly bounded. Independent finite SVD checks for q,n=(0,3),(1,1),(2,3),(4,2),(6,4) agreed at numerical precision, but the Fock derivation handles unbounded degrees analytically.
 
-PASS, with the residual risk stated below. The focal full text was inspected at its radial Hilbert-space theorem, Pascal singular-value lemma, hypercyclic/mixing corollary, examples, and further-questions section. It assumes \(\mu_{i,j}=\omega_{i+j}\) in the sharp Hilbert result and explicitly leaves non-radial weights as a further direction. The earlier general lattice-shift paper supplies growth criteria but no exact symmetric-Fock decomposition or full transfer spectrum. Targeted published-finding corpus searches under binomial-diagonal, non-radial, symmetric-Fock, annihilation, Pascal-transfer, and directed-lattice formulations found no covering statement. Current and prior owned ledgers were searched for the same source, aliases, and exact singular-value structure, with no overlap.
+## originality
 
-Residual risk: the Hadamard/annihilation diagonalization uses classical representation-theoretic technology, so an equivalent identity may exist in symmetric-Fock, Drury--Arveson, or multishift literature under different terminology; no checked source stated the lattice-graph theorem or its exact spectrum.
+PASS
 
-## Value
+Bounded best-of-knowledge originality: the exact stated invariant and quantified result were compared by implication to the closest primary and published SCOPE sources; no decisive covering result found. Unread material and alternative nomenclature remain explicit, and source search is not proof of absolute novelty.
 
-PASS. The motivating paper explicitly identifies non-radial weights as a hard next direction. The factor \(\sqrt{\binom{i+j}{i}}\) is canonical: it is exactly the normalization that turns the two-coordinate lattice lowering map into one annihilation operator. The theorem yields every singular value for every finite-level transfer and an infinite direct-sum model, enabling direct use of classical unilateral weighted-shift methods on a genuinely non-radial family.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest same-object source is arXiv:2609.34308v1, whose exact Hilbert-space analysis is radial. The closest broader source is arXiv:2312.13934 / DOI:10.1007/s13398-026-01868-8, which supplies broad growth criteria. The theorem does not classify arbitrary non-radial weights or all \(\mathcal F\)-transitivity regimes.
+The binomial weighting is a canonical genuinely nonradial lattice family singled out by symmetric Fock geometry, not an arbitrary perturbation. A complete unitary component classification and every exact singular value settle a natural extension of a radial Hilbert-lattice spectral question; despite classical annihilator techniques, this translation supplies reusable nonradial spectral data.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
