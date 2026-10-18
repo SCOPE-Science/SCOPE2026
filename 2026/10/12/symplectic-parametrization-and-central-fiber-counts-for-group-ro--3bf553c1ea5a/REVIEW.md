@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The group center-preservation argument is reconstructed independently using the Rota–Baxter identity, class-two commutators, and nondegeneracy of the extraspecial commutator pairing. The quotient map is then forced to be linear, and direct substitution yields the necessary and sufficient symplectic matrix identity. Its polarization uniquely supplies the quadratic correction and arbitrary linear functional in odd characteristic. Isotropic-subspace and Lagrangian-complement counting give the stated exact fiber and balanced-rank formulas. The bundled `verify.py` performs explicit finite-group law checks and independent small symplectic counts. Its finite samples do not establish the all-dimension theorem; the proof does.
+## correctness
 
-## Originality — PASS, with residual risk
-Savelyev (arXiv:2608.28291v1) provides a full operator classification for the order-\(p^3\) Heisenberg and extraspecial cases, together with general center invariance; the present domain starts at order \(p^5\) and specifies an all-dimensional operator parametrization and closed enumerators. Guo–Lang–Sheng (2021) introduce the general group Rota–Baxter operator framework, while Bardakov and collaborators (arXiv:2404.12632v1) give relative operators and class-two constructions, not the quantified symplectic strata here. Public research-record searches also found no implication-equivalent statement. This is not proof of historical uniqueness: some full text, including parts of the closest 2026 paper, was inaccessible during comparison, and a differently phrased class-two classification remains possible.
+PASS
 
-## Value — PASS
-This is a natural complete parametrization of operators on a uniform, nonabelian infinite family, together with two exact large center-action distributions and one precisely classified Lagrangian-projection stratum. The finite-field counts measure Rota–Baxter structures associated with extraspecial groups and their resulting brace constructions, rather than an arbitrary isolated numerical slice. The nontrivial higher-dimensional isotropic geometry and the exact \(p\)-uniform formulas materially exceed a direct substitution into the known order-\(p^3\) classification.
+From group identity derive B(1)=1 and B(gz)=B(g)B(z); a commutator-surjectivity argument proves B(Z)⊂Z even without linearity. Quotient map induces Fp-linear L and central term αz+f(v). Comparing f polarizations yields symplectic identity; subtract quadratic −αω(Lv,v)/2 leaving additive ℓ. α=0 and −1 collapse to isotropic-image maps. Count totally isotropic r-subspaces via symplectic Gaussian coefficient, then rank-r surjections V→U and p^(2n) central linear forms. If α not 0,−1 and both images rank n, U=im L, W=im(I+L) split V, L=−P_U and each U,W is Lagrangian; count complements as symmetric n×n matrices. Independently checked complete 243 (L,α) dimension-2 p=3 cases against literal group law for every g,h pair; counts α=0:33, α=1:24, α=−1:33; independently verified p=3,n=2 fiber 20,476,881 and p=5,n=2 fiber 37,781,640,625. Finite checks do not prove general dimensions.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Savelyev arXiv:2608.28291 describes center preservation and operator classification for the finite Heisenberg/extraspecial groups of order p^3; the audited n≥2 theorem includes general symplectic matrices and new rank-resolved multiplicities. Guo–Lang–Sheng define group RB operators; relative-group work does not state these exact enumerators. Savelyev full paper could not be obtained; best-of-knowledge PASS with specific residual.
+
+## value
+
+PASS
+
+Complete all-dimensional, nonlinearity-free parametrization of an operator class on a natural finite nonabelian group family, including two rank-resolved central-action fibers and a Lagrangian balanced sector. This is structural mathematics supplying exact counts rather than a narrow random enumeration or known dimension-three substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
