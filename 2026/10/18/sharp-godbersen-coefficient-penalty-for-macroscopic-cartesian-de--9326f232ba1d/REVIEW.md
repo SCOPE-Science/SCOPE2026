@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The claim assumes compact, positive-volume Cartesian factors, finite mixed-volume indices, and separately specified macroscopic limits. Fubini's product formula and the published Godbersen coefficient inequality give the finite bound; the complete convex-body equality classification identifies all maximizers, including the case where only one factor differs from a simplex. Vandermonde's identity identifies the normalized coefficient as an exact multivariate hypergeometric self-collision probability, with no missing binomial factor. Uniform Stirling expansion on \(n^{1/2+1/10}\) windows, a hypergeometric concentration inequality, the determinant lemma, and the Gaussian Riemann sum establish the infinite-dimensional limit. Exact integer coefficient checks and three-block numerical convergence were performed. The external general convex-body inequality and equality theorem are supported by the cited preprints; the numerical tests are not substitutes for proof.
+
+## Originality — PASS, with limitations
+The motivating 2026 Godbersen works establish universal componentwise bounds and equality for simplices, but do not state the sharp product-specific joint coefficient law or its explicit macroscopic asymptotic. The nearest probabilistic source, Alon--Elboim--Pach--Tardos, includes a multivariate hypergeometric collision mechanism and the same exponent in a balanced-color setting, without the full-parameter leading constant and convex-geometric equality interpretation. The earlier binomial-square generating-function paper treats log-convexity, not this coefficient collision limit. Two closely related published research records were inspected in their substantive theorem and proof sections; their Bézout two-test-body invariant and one-vertex simplex-truncation invariant are not the present reflected Godbersen coefficient. An older unindexed equivalent tensorization result remains possible.
+
+## Mathematical value — PASS
+The problem is motivated directly by the recent universal solution of Godbersen's inequality and asks what happens for a natural, non-simplex geometric product class rather than an arbitrary engineered invariant. The full finite coefficient inequality is sharp with a complete equality class for all convex factors, and the exact leading asymptotic quantifies a polynomial penalty depending structurally on the number of macroscopic factors. It distinguishes binary from ternary decomposition by a sharp change from square-root to inverse-linear decay. The probability exponent is recognized as familiar; the value resides in the exact convex-body extremal coefficient law, all-proportion sharp constant, and equality characterization.
+
+## Evidence and limits
+The analytic proof is valid for fixed factor count and interior limiting fractions only. It does not assert a uniformly sharp estimate in endpoint or increasing-factor regimes, or a new proof of the universal Godbersen theorem. Complete historical priority against unindexed work is not certified.
+
+Self-review: passed. Independent audit: not yet performed.
