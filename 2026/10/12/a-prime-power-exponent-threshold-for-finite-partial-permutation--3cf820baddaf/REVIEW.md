@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The exact problem is completion on the original finite carrier, with an explicit partial injection and a binary-encoded exponent. Each pre-existing cycle is forced; every path must occupy consecutive positions on one allowed cycle, yielding the exact packing equivalence. The 3-PARTITION reduction uses \(P=3Q\), \(L_i=3a_i+(Q-B)\); the inequalities \(P/4<L_i<P/2\) hold for every admissible source instance. Size-\(P\) cycles contain precisely three paths, size-\(P/3\) cycles precisely one path corresponding to \(a_i=B/3\); singleton exceptions appear in multiples of three and reassemble into valid original triples. The unary reduction is polynomial in the explicitly represented output size. Membership is verified via cycle decomposition. Fixed-exponent count-vector DP is polynomial for each fixed exponent. Verification replay passes 2317 six-integer reductions, 15 constructed cycle witnesses, and 5004 fixed-exponent packing comparisons. Exhaustive small cases are corroboration only.
+PASS
 
-## Originality (PASS; residual historical risk)
+Reconstructed the exact fixed-carrier equivalence between a permutation extension of a partial bijection with tau^(3^k)=id and a partition of whole directed paths into lengths 1,3,...,3^k, after checking forced cycles. In the strong-unary 3-PARTITION reduction Q is the least power of 3 at least B, P=3Q, C=Q-B and L_i=3a_i+C. Strict B/4<a_i<B/2 implies P/4<L_i<P/2, total mP. A P-cycle uses exactly 3 paths summing B; every exceptional P/3 singleton has a_i=B/3 and their count is divisible by 3, so grouped back into valid triples. All smaller allowed cycles are excluded. Polynomial NP witness and fixed-K type-count dynamic program are valid. Separately recalculated B=15 six-item positive witness (24,27,27,27,27,30) with one full and three exceptional length-27 cycles. Inspected full verify.py; bounded evidence supports but cannot prove NP-hardness.
 
-The motivating 2026 preprint allows enlargement of the carrier, studies existence of \(\Pi\)-group extensions and group-topological obstructions, and does not report the zero-added-vertex bounded-exponent NP-completeness or the fixed-exponent polynomial boundary in the inspected full-text sections. The 2003 Auinger–Steinberg article concerns existence of pseudovariety extensions, again with potentially larger carrier; only its abstract and bibliographic records were accessible, so complete exclusion of a hidden related result is impossible. Lohrey–Rosowski's 2025 cycle-type problem searches an already generated group, a different domain of choices. The classical partition-packing equivalence is an ingredient, not novel in isolation. Recorded searches of term variants, claim implications and accessible published records returned no exact covering theorem. Remaining risk: older equivalent results indexed as fixed-length cycle packing or partial injection completion.
+## originality
 
-## Value (PASS)
+PASS
 
-This distinguishes qualitative finite \(3\)-group extension existence from finite-model resource feasibility with **zero** new vertices. It gives a natural NP-completeness/tractability boundary in one-map partial-automorphism extension theory, with a restricted hardness construction and a fixed-parameter-slice decision algorithm. The power-of-three divisibility requirement and singleton \(P/3\) exceptions make a generic packing argument insufficient without the explicit reduction. The statement is not merely an isolated numerical fact.
+The search of published findings and the inspected extension-property primary source found larger-carrier finite-group completion, not zero-enlargement prescribed-exponent decision complexity. The source paper supplies no fixed-carrier NP-hardness threshold. 3-PARTITION is an acknowledged classical packing primitive; its reduction to exact 3-power cycle lengths is the asserted new application. Older partial-permutation/packing formulations may encode the same result and remain a stated risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A zero-added-vertex completion constraint is natural in permutation extension and is not interchangeable with arbitrarily large extensions. Its sharp transition from fixed exponent polynomial algorithms to binary-input NP-completeness provides a genuine structural/computational barrier, not a renamed generic packing table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
