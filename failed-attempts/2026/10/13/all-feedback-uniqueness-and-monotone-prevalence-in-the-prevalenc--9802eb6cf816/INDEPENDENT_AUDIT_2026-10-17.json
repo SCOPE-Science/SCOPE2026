@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T00:14:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For equal nonnegative feedback strengths epsilon1=epsilon2=epsilon in the specified four-equation prevalence-driven SIRCm system, solving the two stationary R,C equations gives C=alpha*I*delta*h/Delta and R=alpha*I*(beta*I+mu+gamma*h)/Delta, h=1+epsilon*I, where Delta is a positive quadratic expression. The infected balance forces S+sigma*C=(mu+alpha)/beta, and conservation becomes Phi_epsilon(I)=I[1+H(I,h)]=1-(mu+alpha)/beta. The positive-coefficient derivative expression makes Phi strictly increasing with Phi(0)=0 and Phi(I_infty)>I_infty, hence one endemic root; explicit rates keep physical coordinates positive. The exact partial derivative in h of H is negative, so increasing equal feedback moves the unique root upward. Independently checked the rational partial-h symbolic identity and 45 rational sign instances; universal proof follows the positive-coefficient algebra, not those instances. No stability theorem is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026-10-11 public result proves uniqueness for all (epsilon1,epsilon2)>=0 and strict sensitivity to epsilon1 plus nonnegative sensitivity to epsilon2. 2026-10-01 originating model paper gave only small/large or epsilon<=1 guarantees."
+        ],
+        "reasoning": "The 2026-10-11 strengthened result fully dominates the 2026-10-13 submitted diagonal statement; the weaker source article by the original model authors does not rescue originality once stronger same-model theorem exists.",
+        "searches": [
+          "Resultary 2026/10/11 all-feedback endemic uniqueness and separate monotonicity SIRCm",
+          "Ramírez-Gutiérrez Lóczi Muñoz-Moncayo Ketcheson arXiv:2610.01111 Section 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source RESULT.md/verify.py/SLOGAN.txt/AUDIT.json at assigned commit",
+        "Resultary 2026-10-11 stronger SIRCm theorem (full RESULT.md), blob 9eef353d6372df5fb3f54d7cb26d1657f10d5f02",
+        "Ramírez-Gutiérrez et al. arXiv:2610.01111v1",
+        "Independent symbolic partial-h derivative and rational checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior: for beta>mu+alpha, unique endemic equilibrium at all epsilon1,epsilon2>=0; ∂I*/∂epsilon1>0; ∂I*/∂epsilon2>=0 (strict unless sigma=1). Along epsilon1=epsilon2=epsilon, dI*/d epsilon=∂1 I*+∂2 I*>0."
+        ],
+        "reasoning": "The chain rule proves precisely the submitted diagonal uniqueness and strict monotonicity, so O FAIL and V FAIL even though C PASS. A disclaimer/certificate cannot turn this covered claim into a surviving novel theorem.",
+        "searches": [
+          "2026/10/11/SCOPE-all-feedback-endemic-uniqueness-and-separate-monotonicity-in-the--c54c540be342 full RESULT.md",
+          "Resultary same model epsilon1 epsilon2 derivatives"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Resultary result \"All-feedback endemic uniqueness and separate monotonicity in the prevalence-driven SIRCm system\" (2026-10-11) concerns the SAME four-compartment equations and epidemic-rate parameter domain, explicitly including epsilon1=epsilon2."
+        ],
+        "reasoning": "The result is not just a similar epidemic title: the RHS equations, recovery/cross-immune feedback channels, normalization, R0>1 condition and monotone prevalence derivative all agree. The old theorem has two independently variable feedbacks; this claim restricts to the diagonal subset.",
+        "searches": [
+          "Resultary prevalence-driven SIRC immune escape diagonal feedback endemic equilibrium uniqueness monotonicity epsilon",
+          "arXiv:2610.01111v1 SIRCm diagonal feedback"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A full analytical Resultary theorem, not merely numeric curve/table, provides the exact all-feedback uniqueness and analytic prevalence monotonicity signs."
+        ],
+        "reasoning": "No need for a finite numeric database: the earlier exact universal implication is decisive for all the submitted parameter values.",
+        "searches": [
+          "Resultary \"All-feedback endemic uniqueness and separate monotonicity in the prevalence-driven SIRCm system\"",
+          "arXiv:2610.01111v1 intermediate feedback uniqueness"
+        ]
+      },
+      "rationale": "Scientifically correct but fully implied by a published stronger same-model theorem; no novel diagonal remainder. The chain rule proves precisely the submitted diagonal uniqueness and strict monotonicity, so O FAIL and V FAIL even though C PASS. A disclaimer/certificate cannot turn this covered claim into a surviving novel theorem.",
+      "residual_risks": [
+        "This is a scientific originality/value rejection, not an access failure.",
+        "No independent stability or general unequal-feedback result remains in the submitted claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive mathematical prior coverage, same model and strict diagonal consequence",
+          "evidence": "Allows arbitrary independent epsilon1,epsilon2>=0; derivative in epsilon1 strictly positive, epsilon2 nonnegative; specialization proves submitted conclusion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-all-feedback-endemic-uniqueness-and-separate-monotonicity-in-the--c54c540be342",
+          "material_read": "Entire published RESULT.md including two-feedback ODEs, proof Steps 1–4, positivity factorization (3), parameter-derivative factorizations (4), and limitations",
+          "method": "Fetched full RESULT.md through GitHub at Resultary/2026, blob 9eef353d6372df5fb3f54d7cb26d1657f10d5f02",
+          "title": "All-feedback endemic uniqueness and separate monotonicity in the prevalence-driven SIRCm system",
+          "trigger": "Exact same model; stronger model parameter domain and inequalities"
+        },
+        {
+          "assessment": "Initial article does not establish all diagonal feedback strengths, but later prior already does",
+          "evidence": "arXiv:2610.01111v1, Remark 4.4 diagonal epsilon<=1 sufficient bound.",
+          "identifier_or_url": "https://arxiv.org/html/2610.01111v1",
+          "material_read": "Full arXiv HTML model (1), endemic-equilibrium Section 4, Lemma and Remark 4.4; diagonal bound",
+          "method": "Opened freely accessible arXiv HTML and read model equations and relevant uniqueness statements",
+          "title": "Compartmental epidemiological models with infection-driven immune escape",
+          "trigger": "Original SIRCm model and restricted prior uniqueness"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The original diagonal-feedback conclusion is already an immediate corollary of a **previously published stronger theorem** for the identical SIRCm equations that allows epsilon1 and epsilon2 to vary independently. In that theorem endemic uniqueness holds for every nonnegative pair and partial I*/partial epsilon1 is strictly positive; partial I*/partial epsilon2 is nonnegative (zero at sigma=1). Along the diagonal the derivative is strictly positive. Therefore the submitted diagonal specialization adds no independent mathematical classification or motivated new mechanism; correct computational repackaging does not make it valuable as a novel result.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Frozen source RESULT.md/verify.py/SLOGAN.txt/AUDIT.json at assigned commit",
+    "Resultary 2026-10-11 stronger SIRCm theorem (full RESULT.md), blob 9eef353d6372df5fb3f54d7cb26d1657f10d5f02",
+    "Ramírez-Gutiérrez et al. arXiv:2610.01111v1",
+    "Independent symbolic partial-h derivative and rational checks"
+  ],
+  "disposition": "failed",
+  "residual_risks": [
+    "This is a scientific originality/value rejection, not an access failure.",
+    "No independent stability or general unequal-feedback result remains in the submitted claim."
+  ],
+  "schema_version": 1
+}
