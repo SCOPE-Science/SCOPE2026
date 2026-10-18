@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Run `python verify.py` in an environment with NumPy and SciPy. The program directly counts vertices of planar convex hulls, independently classifies Gaussian directions through strict triangle inequalities, and compares empirical frequencies with the exact analytical expression for five anisotropic octahedra. It also checks randomly sampled shape parameters against the proven bound and checks the local quadratic coefficient along two inequivalent centered logarithmic directions.
+# Independent mathematical audit
 
-The completed package was executed with `VERIFY_OK 1527004`. The exact regular reference value was \(0.350959312184\ldots\). A symbolic computation independently expanded \(D/(abc)\) for the centered log-shape path \((t,-t,0)\) to second order and recovered \(5\sqrt2+(27\sqrt2/4)t^2+O(t^4)\).
+## correctness
 
-The proof, not random simulation, covers all positive side lengths and all isotropic plane directions. Monte Carlo error, including the loose numerical tolerance in the supplied program, means finite diagnostics are not a proof of the exact event measure, uniqueness or infinite-parameter sharp inequality. The standard trihedral solid-angle identity is the nontrivial exact geometric ingredient and is stated with a branch and denominator check in `RESULT.md`. Independent audit has not been performed.
+PASS
+
+For a Haar-uniform plane normal u, failure of projected antipodal vertex pair i is exactly |u_i|/a_i >= sum of the other two scaled absolute coordinates; the six-vertex event is a strict triangle-inequality cone in each octant. The standard trihedral solid-angle formula gives p=(4/pi)atan(2abc/D). AM--GM gives L_ab L_ac L_bc/(abc)>=2sqrt(2) and (a^2 L_bc+...)/(abc)>=3sqrt(2), with simultaneous equality iff a=b=c. Thus sharp global bound and strict equality follow. On centered log-axis line (t,-t,0), independently differentiated exact radicals give D/(abc)=5sqrt(2)+(27sqrt(2)/4)t^2+O(t^4) and p difference sqrt(2)t^2/pi; permutation symmetry makes Hessian isotropic, giving coefficient 1/(sqrt(2)pi). Scale and strict positivity hypotheses handled; no nonorthogonal claim.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty is the sharp full two-modulus octahedron shape optimization and isotropic centered-log Hessian; prior axial theorem and regular value do not logically imply it. Historical hidden equivalence remains a risk.
+
+## value
+
+PASS
+
+Random-shadow vertex counts of a natural triaxial orthogonal cross-polytope depend on two shape moduli; the result identifies the unique optimally balanced shape globally and an exact Hessian on that two-dimensional moduli space. The local rigidity supplies quantitative sensitivity not contained in knowing only the regular value. This is a motivated structural extremal statement, not a one-parameter interpolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
