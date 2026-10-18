@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact invariance of the seeded vertex and permutation symmetry reduce the piecewise-saturated dynamics to a scalar quadratic. A factorization at the proposed threshold classifies every possible limit; integration at equality provides its exact orbit, and direct quadrature yields the tied-threshold passage-time coefficient. The standard-library rational checker confirms nontrivial algebraic identities at finite test parameters but does not replace the proof.
+## correctness
 
-**Originality — PASS, subject to specified scope and risks.** The original NOD relaxation and its small-coupling equivalence away from binary ties belong to Belaustegui et al. (arXiv:2603.29214v1, Theorem 2). That hypothesis does not cover the exact threshold tie addressed here. The full source and Zhong–Leonard's alternative continuous threshold model were compared, including their update equations and cascade statements. General saddle-node slowing is already known. No checked source established this exact complete-graph threshold plus the \(\gamma^{-3/4}\) fixed-population clock. An unindexed specialization of general normal-form theory or a separate all-to-all NOD analysis could still provide overlapping coverage; title searches alone cannot settle originality.
+PASS
 
-**Mathematical value — PASS.** The theorem determines the precise parameter interval in which continuous and strict discrete contagion give different final cascade sets, proves the smallest population where that discrepancy appears, and quantifies the singular waiting time at the excluded equality case. This addresses a concrete boundary of the motivating equivalence theorem rather than merely renaming its parameters.
+At pinned RESULT.md, the seed coordinate is fixed at 1 because k=1 and mu>0. Symmetric unseeded coordinates satisfy xdot=min(1−x, x²+((n−2)gamma−2sqrt(gamma tau))x+gamma). Exact identity q=(x−sqrt(gamma))²+2sqrt(gamma)(sqrt(tau_c)−sqrt(tau))x yields global cascade for tau<tau_c; at equality x(t)=gamma t/(1+sqrt(gamma)t), and above equality the smaller positive root traps the orbit. Discrete strict LTM activates iff tau<1. At tau=1 fixed n>=3, q=(x−B)²+D², D~sqrt(n−2)gamma^(3/4), both arctangents tend to pi/2, proving T_(1/2)~pi gamma^(−3/4)/sqrt(n−2). Boundary n=2 and gamma domain verified. The finite verify.py tests only consistency, not infinite parameters.
 
-**Limitations.** One seed and a complete unit-weight graph are essential to the exact one-dimensional reduction. The asymptotic time is a first crossing of opinion \(1/2\), not time to equilibrium. No heterogeneous graph, stochastic extension, or global novelty certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared exact clipped NOD and strict LTM to the founding 2026 preprint: its Theorem 2 explicitly assumes no binary neighbor sum equals its threshold. At the exact one-seed tie its conclusion does not apply. Other continuous sigmoid cascades, generic saddle-node ghost laws, and discrete conversion-set counts neither specify the same update nor entail the present sharp all-gamma network boundary plus coefficient. Unindexed same-model expansions remain possible.
+
+## value
+
+PASS
+
+A sharp, all-parameter delineation of when a standard continuous contagion relaxation disagrees with strict binary contagion precisely at an excluded hypothesis boundary, including a critical trajectory and exact singular first-passage clock. Important for interpreting apparent versus actual cascades and finite observational horizons; not merely a normal-form restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

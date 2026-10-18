@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:05:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At pinned RESULT.md, the seed coordinate is fixed at 1 because k=1 and mu>0. Symmetric unseeded coordinates satisfy xdot=min(1−x, x²+((n−2)gamma−2sqrt(gamma tau))x+gamma). Exact identity q=(x−sqrt(gamma))²+2sqrt(gamma)(sqrt(tau_c)−sqrt(tau))x yields global cascade for tau<tau_c; at equality x(t)=gamma t/(1+sqrt(gamma)t), and above equality the smaller positive root traps the orbit. Discrete strict LTM activates iff tau<1. At tau=1 fixed n>=3, q=(x−B)²+D², D~sqrt(n−2)gamma^(3/4), both arctangents tend to pi/2, proving T_(1/2)~pi gamma^(−3/4)/sqrt(n−2). Boundary n=2 and gamma domain verified. The finite verify.py tests only consistency, not infinite parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:0807.1546 describes generic saddle-node bottleneck time and possible nonstandard exponents, a known general mechanism; no source-specific NOD/LTM mapping is part of that background.",
+          "arXiv:1909.11852 considers a different smooth signed-state sigmoid CTM."
+        ],
+        "reasoning": "The general ghost-delay exponent is antecedent theory and credited. It lacks the model-specific coefficient pi/sqrt(n−2), strict binary tie, and cascade-set separation; the broader CTM model does not directly specialize to the clipped quadratic.",
+        "searches": [
+          "exact one-seed cascade threshold complete graph clipped quadratic nonlinear opinion dynamics equality LTM tie gamma nonlinear threshold",
+          "https://arxiv.org/abs/1909.11852",
+          "https://arxiv.org/abs/0807.1546"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2603.29214v1",
+        "https://arxiv.org/abs/1909.11852",
+        "https://arxiv.org/abs/0807.1546",
+        "2026/10/4/SCOPE-minimum-k-conversion-sets-of-complete-multipartite-graphs-are-we--e04cb20d171d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Belaustegui arXiv:2603.29214v1 Theorem 2 says equivalence for sufficiently small gamma only if (A zeta)_i != tau_i for all binary zeta and i.",
+          "On a unit-weight complete graph with exactly one seed and tau=1, unseeded binary input equals 1, breaking that hypothesis; for n>=3 the new q remains strictly positive for all admissible gamma."
+        ],
+        "reasoning": "The published theorem cannot imply equality at an excluded tie; its broad qualitative discussion of subthreshold cascades does not yield the exact trichotomy or gamma^(-3/4) crossing-clock coefficient.",
+        "searches": [
+          "exact one-seed cascade threshold complete graph clipped quadratic nonlinear opinion dynamics equality LTM tie gamma nonlinear threshold",
+          "https://arxiv.org/html/2603.29214v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Belaustegui et al., arXiv:2603.29214v1, equations (1),(3),(4) define strict LTM and clipped NOD; Theorem 2 excludes ties.",
+          "The complete-network reduced quadratic is q=(x-s)^2+2s(sqrt(tau_c)-sqrt(tau))x."
+        ],
+        "reasoning": "An equivalent statement would classify the scalar saddle-node of the complete network with unseeded-to-unseeded feedback, not merely the frozen-input single-node activation threshold; the exact self-consistent formula and first-passage prefactor were not identified in the full founding paper.",
+        "searches": [
+          "exact one-seed cascade threshold complete graph clipped quadratic nonlinear opinion dynamics equality LTM tie gamma nonlinear threshold",
+          "https://arxiv.org/html/2603.29214v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest match is a discrete conversion-set enumerator for multipartite graphs, not continuous NOD trajectories.",
+          "The finding is a real-parameter phase theorem, not a finite graph-parameter lookup."
+        ],
+        "reasoning": "No checked exact database/table gave the analytic threshold; nonretrieval is not affirmative novelty proof.",
+        "searches": [
+          "exact one-seed cascade threshold complete graph clipped quadratic nonlinear opinion dynamics equality LTM tie gamma nonlinear threshold",
+          "2026/10/4/SCOPE-minimum-k-conversion-sets-of-complete-multipartite-graphs-are-we--e04cb20d171d"
+        ]
+      },
+      "rationale": "Compared exact clipped NOD and strict LTM to the founding 2026 preprint: its Theorem 2 explicitly assumes no binary neighbor sum equals its threshold. At the exact one-seed tie its conclusion does not apply. Other continuous sigmoid cascades, generic saddle-node ghost laws, and discrete conversion-set counts neither specify the same update nor entail the present sharp all-gamma network boundary plus coefficient. Unindexed same-model expansions remain possible.",
+      "residual_risks": [
+        "An unindexed appendix for the identical clipped quadratic model may have already reduced complete graphs.",
+        "Generic saddle-node ghost asymptotics cover the mechanism but not automatically the network-specific prefactor; full Kuehn paper not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Founding model and mapped single-agent bifurcation credited; its non-tie theorem does not cover exact LTM equality.",
+          "evidence": [
+            "Section III equation (1) uses strict >; Section IV equation (3) uses sat(mu z+kz²+gamma Az); Theorem 2 imposes (A zeta)_i != tau_i."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.29214v1",
+          "material_read": "Full arXiv HTML sections I–VII, definitions, equations (1),(3),(4), Proposition 1 and Theorems 1–2 including the non-tie assumption.",
+          "method": "Read full public arXiv HTML",
+          "title": "A Continuous-Time and State-Space Relaxation of the Linear Threshold Model with Nonlinear Opinion Dynamics",
+          "trigger": "Defines precisely the two models being compared"
+        },
+        {
+          "assessment": "Different signed sigmoid activation and flow; its equivalence limit does not imply clipped-quadratic exact threshold.",
+          "evidence": [
+            "Signed-state sigmoid model, rather than saturated positive NOD."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1909.11852",
+          "material_read": "Model description and cited sigmoid signed-state dynamical framework; public preprint material inspected in this execution.",
+          "method": "arXiv preprint reading",
+          "title": "A Continuous Threshold Model of Cascade Dynamics",
+          "trigger": "Plausible alternate continuous threshold relaxation"
+        },
+        {
+          "assessment": "Classical ghost law credited; model-specific coefficient not ascertained from an abstract.",
+          "evidence": [
+            "Generic saddle-node slow-passage theory establishes methodology, not the full network result."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0807.1546",
+          "material_read": "Abstract describing generic bottleneck scaling; entire paper not inspected.",
+          "method": "ArXiv abstract check",
+          "title": "Scaling of Saddle-Node Bifurcations: Degeneracies and Rapid Quantitative Changes",
+          "trigger": "Potential general passage-time theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp, all-parameter delineation of when a standard continuous contagion relaxation disagrees with strict binary contagion precisely at an excluded hypothesis boundary, including a critical trajectory and exact singular first-passage clock. Important for interpreting apparent versus actual cascades and finite observational horizons; not merely a normal-form restatement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "n>=2; one seed; complete unit-weight network; k=1, zero bias, homogeneous threshold, 0<gamma<1/(4n²), 0<tau<1/(4gamma).",
+    "Full cascade defined by convergence to 1, not merely positive opinion; first-passage asymptotic only at tau=1, fixed n>=3, gamma down to zero."
+  ]
+}
