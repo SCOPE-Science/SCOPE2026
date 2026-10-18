@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The all-\(n\) proof is the symbolic case analysis in `RESULT.md`. The standalone checker is a finite, independent consistency test: for each \(3\le n\le9\), it enumerates all nonempty vertex subsets, tests domination directly from the edge relation, tests inclusion-minimality by deleting each selected vertex, and compares the resulting family with the claimed structural criterion and coefficient formula.
+# Independent mathematical audit
 
-Replay command:
+## correctness
 
-`python verification/crown_minimal_domination_check.py`
+PASS
 
-Observed output:
+For Cr_n=K_(n,n)-M, write selected index sets P⊆[n] on A and Q⊆[n] on B. If Q=∅ then all A must be in P (and vice versa). If |Q|=1, say Q={q}, domination of the unchosen a_q forces q∈P; analogous for singleton P. Mixed-size configurations with one selected on one side and ≥2 on the other fail minimality by deleting any noncorresponding vertex. If both sizes≥2, deleting any selected when a side has size≥3 preserves domination, so minimality requires |P|=|Q|=2. Deletion of each selected vertex then destroys domination exactly when P∩Q=∅. Thus exactly 2 whole sides, n matching NONEDGE pairs {a_i,b_i} and 6*binom(n,4) disjoint-index 2+2 quadruples are the minimal dominating sets for n≥3. Hence the full polynomial is n x²+6*binom(n,4)x⁴+2x^n; upper domination Γ=n, with 2 extrema for n=3 and n≥5 and 8 for n=4. Independently enumerated every vertex subset of the actual crown adjacency graph n=3..7, testing closed domination and deletion minimality; all coefficients agreed. Proof is exact case analysis for arbitrary n, not finite interpolation.
 
-`VERIFY_OK n_range=3..9 subset_checks=349497 minimal_checks=1568 classification_checks=349497 coefficient_checks=19 enumerator=n*x^2+6*C(n,4)*x^4+2*x^n upper_domination=n oeis_total_match=A289121 max_order=18`
+## originality
 
-The finite range does not certify the theorem for larger \(n\); that scope is supplied by the proof. The database comparison at \(x=1\) confirms only the aggregate total and is not a novelty certificate.
+PASS
+
+Crown graphs are precisely two-row rook-complement graphs, so checked that alias. OEIS A289121 (2017) gives the polynomial IN n for the total number of maximal irredundant sets; A384123 (2025) tabulates minimal dominating-set totals for n×m rook complements, with column 2 equal to those crown totals. Neither display the degree-resolved crown minimal-dominating-set polynomial. Crucially A384123’s detailed four-family classification and formula are explicitly restricted to BOTH row/column counts >2, so applying it uncritically at row count 2 is invalid. Source 2015 Jothi addresses scalar crown minimal domination size, not this exact profile in accessible material. Prior total and upper domination are acknowledged, not asserted new. Exact size profile remains best-of-knowledge new with risk of an earlier unindexed refinement.
+
+## value
+
+PASS
+
+The known total n+2+6 binom(n,4) loses the minimum and maximum cardinality multiplicities and cannot alone reconstruct this three-term generating polynomial. The complete structural classification at the exceptional two-row boundary gives the exact inclusion-minimal family and sharp upper-domination multiplicities, a natural invariant of an important symmetric bipartite graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

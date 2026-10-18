@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The domination criterion is reconstructed directly from the crown adjacency relation. Every possible pair of selected-side cardinalities is then handled: a missing side forces the opposite full side; two singleton sides force a deleted-matching pair; a singleton against a larger side is never minimal; and when both sides have at least two selected vertices, minimality forces exactly two on each side with disjoint index sets. The counting step is then immediate. Exhaustive enumeration for \(3\le n\le9\) independently agrees with the classification and coefficients. The finite check is supplementary, not the proof of the infinite family.
+## correctness
 
-## Originality
-**PASS, for the structural profile as stated.** Direct published-finding corpus and literature searches covered crown, \(K_{n,n}-M\), upper domination, minimal dominating sets, size distributions, and common aliases. The strongest same-object prior located proves only existence of a cardinality-\(n\) minimal dominating set. OEIS A289121 and Graph::Maker::Crown already cover the aggregate number of minimal dominating sets, so that total is explicitly excluded from the novelty claim. No inspected source gave the three-family membership classification or the coefficient profile \(n x^2+6\binom{n}{4}x^4+2x^n\).
+PASS
 
-## Value
-**PASS.** A complete classification of inclusion-minimal dominating sets on a standard graph family is a natural structural result. It refines an existing aggregate table into exact cardinalities, explains the count combinatorially, and determines the upper-domination extremals and their multiplicities, including the exceptional tie at \(n=4\).
+For Cr_n=K_(n,n)-M, write selected index sets P⊆[n] on A and Q⊆[n] on B. If Q=∅ then all A must be in P (and vice versa). If |Q|=1, say Q={q}, domination of the unchosen a_q forces q∈P; analogous for singleton P. Mixed-size configurations with one selected on one side and ≥2 on the other fail minimality by deleting any noncorresponding vertex. If both sizes≥2, deleting any selected when a side has size≥3 preserves domination, so minimality requires |P|=|Q|=2. Deletion of each selected vertex then destroys domination exactly when P∩Q=∅. Thus exactly 2 whole sides, n matching NONEDGE pairs {a_i,b_i} and 6*binom(n,4) disjoint-index 2+2 quadruples are the minimal dominating sets for n≥3. Hence the full polynomial is n x²+6*binom(n,4)x⁴+2x^n; upper domination Γ=n, with 2 extrema for n=3 and n≥5 and 8 for n=4. Independently enumerated every vertex subset of the actual crown adjacency graph n=3..7, testing closed domination and deletion minimality; all coefficients agreed. Proof is exact case analysis for arbitrary n, not finite interpolation.
 
-## Closest literature and limitations
-The 2009 domination-polynomial paper supplies the cardinality-enumerator viewpoint but counts all dominating sets. The 2016 upper-domination paper supplies the relevant extremal definition but no crown formula in the inspected text. The 2015 crown paper proves existence of a size-\(n\) minimal dominating set, which is one of the classified families. OEIS A289121 covers the aggregate total. The residual originality risk is unindexed specialized literature; additionally, the relevant 2015 PDF was compared through parsed text because page-image retrieval was unavailable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Crown graphs are precisely two-row rook-complement graphs, so checked that alias. OEIS A289121 (2017) gives the polynomial IN n for the total number of maximal irredundant sets; A384123 (2025) tabulates minimal dominating-set totals for n×m rook complements, with column 2 equal to those crown totals. Neither display the degree-resolved crown minimal-dominating-set polynomial. Crucially A384123’s detailed four-family classification and formula are explicitly restricted to BOTH row/column counts >2, so applying it uncritically at row count 2 is invalid. Source 2015 Jothi addresses scalar crown minimal domination size, not this exact profile in accessible material. Prior total and upper domination are acknowledged, not asserted new. Exact size profile remains best-of-knowledge new with risk of an earlier unindexed refinement.
+
+## value
+
+PASS
+
+The known total n+2+6 binom(n,4) loses the minimum and maximum cardinality multiplicities and cannot alone reconstruct this three-term generating polynomial. The complete structural classification at the exceptional two-row boundary gives the exact inclusion-minimal family and sharp upper-domination multiplicities, a natural invariant of an important symmetric bipartite graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

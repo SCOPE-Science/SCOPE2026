@@ -1,0 +1,59 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T06:00:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Cr_n=K_(n,n)-M, write selected index sets P⊆[n] on A and Q⊆[n] on B. If Q=∅ then all A must be in P (and vice versa). If |Q|=1, say Q={q}, domination of the unchosen a_q forces q∈P; analogous for singleton P. Mixed-size configurations with one selected on one side and ≥2 on the other fail minimality by deleting any noncorresponding vertex. If both sizes≥2, deleting any selected when a side has size≥3 preserves domination, so minimality requires |P|=|Q|=2. Deletion of each selected vertex then destroys domination exactly when P∩Q=∅. Thus exactly 2 whole sides, n matching NONEDGE pairs {a_i,b_i} and 6*binom(n,4) disjoint-index 2+2 quadruples are the minimal dominating sets for n≥3. Hence the full polynomial is n x²+6*binom(n,4)x⁴+2x^n; upper domination Γ=n, with 2 extrema for n=3 and n≥5 and 8 for n=4. Independently enumerated every vertex subset of the actual crown adjacency graph n=3..7, testing closed domination and deletion minimality; all coefficients agreed. Proof is exact case analysis for arbitrary n, not finite interpolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        {
+          "identifier_or_url": "https://oeis.org/A384123",
+          "material_read": "Read full sequence entry, comments on set families, n>2,m>2 formula, boundary example (2,3), and column-2 crossreference",
+          "title": "OEIS A384123: minimal dominating sets in rook complement graphs"
+        },
+        {
+          "identifier_or_url": "https://oeis.org/A289121",
+          "material_read": "Full OEIS entry including formula, comments, crossrefs, and dates",
+          "title": "OEIS A289121: maximal irredundant sets in n-crown graph"
+        }
+      ],
+      "rationale": "Crown graphs are precisely two-row rook-complement graphs, so checked that alias. OEIS A289121 (2017) gives the polynomial IN n for the total number of maximal irredundant sets; A384123 (2025) tabulates minimal dominating-set totals for n×m rook complements, with column 2 equal to those crown totals. Neither display the degree-resolved crown minimal-dominating-set polynomial. Crucially A384123’s detailed four-family classification and formula are explicitly restricted to BOTH row/column counts >2, so applying it uncritically at row count 2 is invalid. Source 2015 Jothi addresses scalar crown minimal domination size, not this exact profile in accessible material. Prior total and upper domination are acknowledged, not asserted new. Exact size profile remains best-of-knowledge new with risk of an earlier unindexed refinement.",
+      "residual_risks": [
+        "A prior paper or supplementary table might have size-resolved counts without using the searched terminology.",
+        "The OEIS same-total entry is unquestionably prior-covered; only the structure, cardinality coefficients and upper-size multiplicities remain under assessment.",
+        "For n=3 polynomial terms from whole sides and nonedge pairs differ; for n=4 the x^4 term has eight sets, so boundary collisions must be handled."
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The known total n+2+6 binom(n,4) loses the minimum and maximum cardinality multiplicities and cannot alone reconstruct this three-term generating polynomial. The complete structural classification at the exceptional two-row boundary gives the exact inclusion-minimal family and sharp upper-domination multiplicities, a natural invariant of an important symmetric bipartite graph.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "identifier_or_url": "https://oeis.org/A384123",
+      "material_read": "Read full sequence entry, comments on set families, n>2,m>2 formula, boundary example (2,3), and column-2 crossreference",
+      "title": "OEIS A384123: minimal dominating sets in rook complement graphs"
+    },
+    {
+      "identifier_or_url": "https://oeis.org/A289121",
+      "material_read": "Full OEIS entry including formula, comments, crossrefs, and dates",
+      "title": "OEIS A289121: maximal irredundant sets in n-crown graph"
+    }
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A prior paper or supplementary table might have size-resolved counts without using the searched terminology.",
+    "The OEIS same-total entry is unquestionably prior-covered; only the structure, cardinality coefficients and upper-size multiplicities remain under assessment.",
+    "For n=3 polynomial terms from whole sides and nonedge pairs differ; for n=4 the x^4 term has eight sets, so boundary collisions must be handled."
+  ],
+  "residual_risks": [
+    "A prior paper or supplementary table might have size-resolved counts without using the searched terminology.",
+    "The OEIS same-total entry is unquestionably prior-covered; only the structure, cardinality coefficients and upper-size multiplicities remain under assessment.",
+    "For n=3 polynomial terms from whole sides and nonedge pairs differ; for n=4 the x^4 term has eight sets, so boundary collisions must be handled."
+  ],
+  "schema_version": 1
+}
