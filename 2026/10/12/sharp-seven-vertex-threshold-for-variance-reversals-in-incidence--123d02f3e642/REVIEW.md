@@ -1,19 +1,21 @@
-# Scientific review: sharp variance reversal in incidence-based accumulation
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim fixes deterministic incidence tables without zero rows or columns, the uniform-without-replacement sampling law, common row-occupancy multisets, and strict variance ordering at two distinct interior sample depths. The variance identity is derived from indicator covariances and independently reconstructed by direct subset enumeration. The no-go theorem is proved for one or two sites, at most two species, and three sites with at most three species. At the total-size-seven boundary, an exhaustive canonical-mask construction covers all \(42\) species-and-site relabeling classes in each admissible dimension, verifies all same-profile pairs, and returns exactly four reversing pair-orbits. Exact rational results agree between two computational methods. The standalone `verify.py` source is included and was executed successfully.
+PASS
 
-## Originality
+For fixed row-occupancy counts, indicator covariances reduce the variance differences to joint absence terms q_ij(k). For 3 sites, richness at one selected site equals c_j, at a two-site sample omitting j equals s-e_j; thus strict variance reversal iff the signed differences in sum c_j² and sum e_j² oppose. With h<=2 or s<=2 it is impossible; the supplied case analysis excludes h=3,s<=3 and remaining h+s<=6. At h+s=7, exhaustive enumeration of nonzero row masks covering all sites, all species-relabelled multisets and all S_h site permutations, gives 42 isomorphism classes each for (3,4) and (4,3). Independent exact-Fraction canonical enumeration reproduced precisely four pair orbits: (1,1,6,6)/(1,2,3,5), (1,1,6,6)/(1,2,5,5), (1,1,6,7)/(1,2,3,7), and (3,3,12)/(3,5,9). This is complete for the finite boundary; it does not enumerate all larger systems.
 
-**PASS, subject to the stated residual risk.** Ugland, Gray and Ellingsen (2003, DOI `10.1046/j.1365-2656.2003.00748.x`) provide the general conditional covariance formula for sample-based accumulation, and Colwell, Mao and Chang (2004, DOI `10.1890/03-0557`) provide the mean-curve theory and a highly relevant pair of incidence matrices with identical occupancy spectra but differing patchiness (Table 2). These prior results are fully acknowledged: neither the covariance formula nor mean-curve blindness to incidence arrangement is presented as new. Inspection of the relevant proofs, tables, and discussion did not reveal the sharp seven-vertex crossing threshold or the four complete minimal pair-orbits. Published mathematical research on iid species discoveries addresses a different site-versus-individual sampling structure. A broader unindexed small-matrix classification remains a risk, so absence from the inspected sources is not treated as a proof of global novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** Precision of sample-based species richness is meaningful for biodiversity inventories and effort planning, and identical expected accumulation curves do not determine which of two communities will have a more variable observed richness at different effort levels. The smallest possible configuration, complete classification of all its reversing examples, and exact three-site diagnostic replace an arbitrary example with a structural boundary. This is a limited but self-contained fact, not a claim about empirical prevalence or statistical confidence intervals.
+Ugland-Gray-Ellingsen already supplies the general covariance formula and Colwell-Mao-Chang already shows identical mean accumulation with different incidence pattern, but neither inspected source asserts an exact minimum seven combined vertices, crossing-variance pair-orbit census or universal three-site diagnostic. The new boundary classification is not implied solely by knowing variance depends on pair overlap.
 
-## Closest literature and limitations
+## value
 
-The nearest literature is Ugland et al. (2003), particularly Appendix I, and Colwell et al. (2004), particularly the incidence examples in Table 2 and the interpolation discussion. The former supplies the general variance formula, and the latter already demonstrates nonidentification of incidence arrangement from mean accumulation curves. Neither directly supplies the boundary classification. The claim is limited to uniformly sampled fixed binary inventories with possible species occupancy duplicates; it neither estimates unknown community richness nor handles sampling/measurement error. External independent review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A finite but natural sharp obstruction for species-richness inventory planning: two communities with identical expected discovery curves can reverse precision rankings as site effort changes. The complete minimal 7-vertex classification and structural 3-site criterion make the narrow invariant mathematically meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
