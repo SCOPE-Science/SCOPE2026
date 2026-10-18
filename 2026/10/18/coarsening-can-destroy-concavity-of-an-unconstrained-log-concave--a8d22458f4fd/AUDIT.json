@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Exact exponential hat weights certify fine optimum via all vanishing scores and global strict convexity; slopes 3,0,-1/4,-1/2 show strict concavity. For coarse family 24th-degree Taylor rational integral enclosures bound score norm by 2e-6. Centered Lebesgue Gram minors 27/80,457/7200,257/108000 prove Hessian > I/400 in radius-1/100 ball. Convexity proves unique unconstrained coarse optimum therein; jump 588249/2500000 minus 0.04 >0.195. These conditions are checked using packaged code and analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grosdos et al., https://d-nb.info/1303792095/34, Section 2 and discussion following subdivision example; open question explicitly asserts observed coarsening always concave",
+        "Robeva–Sturmfels–Uhler, arXiv:1704.01910, introduction and regular-subdivision/surjectivity statements; varying weights, not fixed-weight coarse projection"
+      ],
+      "reasoning": "The regular-subdivision surjectivity result chooses possibly different weights for different globally shape-constrained MLEs. It cannot force or rule out nonconcavity of the unconstrained coarse optimizer at the *same* weights. General tent-representation theorems impose log-concavity and hence do not predict the unconstrained coarse fit's curvature.",
+      "searches": [
+        "arXiv:2003.04840 Exact solutions in log-concave maximum likelihood estimation question 2.8 coarser subdivision concavity refinement optimal subdivision",
+        "KL information projection of strictly log-concave piecewise exponential density onto coarsened log-linear spline family non-concave",
+        "\"Geometry of Log-Concave Density Estimation\" \"subdivision\" \"weights\" every regular"
+      ]
+    },
+    "checked_sources": [
+      "Grosdos et al., https://d-nb.info/1303792095/34, Section 2 and discussion following subdivision example; open question explicitly asserts observed coarsening always concave",
+      "Robeva–Sturmfels–Uhler, arXiv:1704.01910, introduction and regular-subdivision/surjectivity statements; varying weights, not fixed-weight coarse projection",
+      "arXiv:2003.04840v1 submission 2020-03-10",
+      "Robeva et al. arXiv:1704.01910v1 2017-04-06",
+      "Grosdos et al., corrigendum DOI:10.1016/j.aam.2024.102777; bibliographic metadata only, complete correction not inspected",
+      "Relevant published database records with titles/abstracts compared at implication level"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Grosdos et al., https://d-nb.info/1303792095/34, Section 2 and discussion following subdivision example; open question explicitly asserts observed coarsening always concave",
+        "Robeva–Sturmfels–Uhler, arXiv:1704.01910, introduction and regular-subdivision/surjectivity statements; varying weights, not fixed-weight coarse projection",
+        "Grosdos et al., corrigendum DOI:10.1016/j.aam.2024.102777; bibliographic metadata only, complete correction not inspected"
+      ],
+      "reasoning": "The original article explicitly leaves the coarsening implication open and provides nonconcavity only for subdivisions incompatible with the optimum. Robeva–Sturmfels–Uhler's theorem says each regular subdivision is optimal for some positive weight vector; it does not describe reoptimizing over coarser pieces for weights chosen to realize a finer subdivision. Metadata indicates a later corrigendum and arXiv v2 correct Theorem 3.7, not the present Section-2 coarsening discussion; full corrigendum unverified.",
+      "searches": [
+        "Counterexample to conjecture that optimizing log-concave maximum likelihood on a subdivision coarser than the optimal subdivision always yields a log-concave tent function; Grosdos Heaton Kubjas Kuznetsova Scholten Sorea 2020",
+        "arXiv:2003.04840 Exact solutions in log-concave maximum likelihood estimation question 2.8 coarser subdivision concavity refinement optimal subdivision",
+        "\"Exact solutions in log-concave maximum likelihood estimation\" conjecture answered subdivision"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grosdos et al., https://d-nb.info/1303792095/34, Section 2 and discussion following subdivision example; open question explicitly asserts observed coarsening always concave"
+      ],
+      "reasoning": "Equivalent description: the information/likelihood projection of a fixed log-concave piecewise-exponential law onto a smaller log-linear spline family may be non-log-concave. The motivating open question's coarsening statement asserts the negation; its incompatible-subdivision examples do not involve actual coarsening. No equivalent earlier result located.",
+      "searches": [
+        "Counterexample to conjecture that optimizing log-concave maximum likelihood on a subdivision coarser than the optimal subdivision always yields a log-concave tent function; Grosdos Heaton Kubjas Kuznetsova Scholten Sorea 2020",
+        "constrained log concave density estimator on coarsened knots piecewise exponential unconstrained optimum loses concavity",
+        "one-dimensional log concave MLE weighted five-point sample knot deletion causing nonconcave constrained fit",
+        "\"coarser than the optimal subdivision\" \"concave\" counterexample"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full source's tabulated incompatible-subdivision fits are for the source's own five sites and give no fixed-weight strict coarsening nonconcavity; the new example has exact weights determined by integrals and the rational coarse witness."
+      ],
+      "reasoning": "No published parameter table or enumerative database reproducing the exact five-node weight vector or the coarsening statement was found. The prior published examples do not imply the present counterexample; this is not a uniqueness proof.",
+      "searches": [
+        "one-dimensional log concave MLE weighted five-point sample knot deletion causing nonconcave constrained fit",
+        "weighted sample 0 1 2 3 4 piecewise affine log-density MLE with removal of knot causes nonconcavity of unconstrained log-linear projection",
+        "\"log-concave MLE\" \"subdivision\" \"coarsening\""
+      ]
+    },
+    "rationale": "Direct explicit counterexample to the unresolved fixed-weight coarser-subdivision concavity question in the original full-text paper. Comparison with the broader regular-subdivision realizability theorem shows it neither implies nor subsumes the counterexample: it varies sample weights and studies valid concave optima. Six completed published-finding corpus semantic searches and targeted publication searches found no claim proving the exact reverse or encompassing this failure. The later correction's complete text was not available; originality is best-knowledge, not exhaustive.",
+    "residual_risks": [
+      "Unindexed prior proof of fixed-weight coarse-optimizer nonconcavity may exist.",
+      "The later 2025 corrigendum's full text could not be independently inspected; bibliography identifies it, and available revised-paper metadata says correction concerns Theorem 3.7.",
+      "A preexisting equivalent result may appear under information projection or exponential-family approximation terminology; negative searches cannot establish universal novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source states open coarsening assertion after examples with incompatible subdivisions; does not exhibit counterexample for a genuine coarsening",
+        "evidence": "Grosdos et al., https://d-nb.info/1303792095/34, Section 2 and discussion following subdivision example; open question explicitly asserts observed coarsening always concave",
+        "identifier_or_url": "https://d-nb.info/1303792095/34",
+        "material_read": "Complete original article accessible; sections 1-3, weighted MLE construction and entire Section 2 examples, including page 11 coarsening question, were materially examined",
+        "method": "Full-text reading of formulas and examples, including rendered page",
+        "title": "Exact solutions in log-concave maximum likelihood estimation",
+        "trigger": "Primary same-object paper poses the coarsening question"
+      },
+      {
+        "assessment": "Existence after varying weights does not imply fixed-weight coarse unconstrained shape preservation",
+        "evidence": "Robeva–Sturmfels–Uhler, arXiv:1704.01910, introduction and regular-subdivision/surjectivity statements; varying weights, not fixed-weight coarse projection",
+        "identifier_or_url": "https://arxiv.org/html/1704.01910",
+        "material_read": "Accessible HTML introduction, model formulation, tent-optimizer statement and subdivision-realizability theorem statement; full proof not needed for scope comparison",
+        "method": "Full-text HTML and theorem-level comparison",
+        "title": "Geometry of Log-Concave Density Estimation",
+        "trigger": "Strong general theorem that all regular subdivisions arise as MLE"
+      },
+      {
+        "assessment": "No evidence of a coarsening counterexample, but full text inaccessible; cannot certify this source noncovering",
+        "evidence": "Grosdos et al., corrigendum DOI:10.1016/j.aam.2024.102777; bibliographic metadata only, complete correction not inspected",
+        "identifier_or_url": "https://doi.org/10.1016/j.aam.2024.102777",
+        "material_read": "Bibliographic metadata and relation to the corrected arXiv theorem only; full corrigendum text not obtained",
+        "method": "Publication metadata and revised preprint-version description",
+        "title": "Corrigendum to Exact solutions in log-concave maximum likelihood estimation",
+        "trigger": "Later correction by original authors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8d22458-f4fd-424e-92d7-40d85b5f190b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This answers the paper's explicitly identified open coarsening question: a strictly log-concave MLE can yield a nonconcave unrestricted fit upon deleting a knot, so coarsening is not a valid general shape-preserving heuristic. Fixed-weight nonasymptotic exact counterexample is significant independently of computing an arbitrary invariant.",
+    "status": "PASS"
+  }
+}
