@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:46:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A direct symbolic adjacent-row subtraction establishes DQ=HD, and D maps all n-state functions onto all (n-1)-edge gradients. Rational functional calculus gives DT_h=(2R_h-I)D. Irreducible Metzler edge matrix H has a strictly positive resolvent for h>0, and is diagonally similar to a symmetric negative-definite matrix because its spectrum consists of the nonzero eigenvalues of irreducible reversible Q. Each R_h diagonal is sum_j u_ij^2/(1+h nu_j/2), strictly decreasing from one to zero. Thus all increasing gradients are preserved iff every diagonal is >=1/2, each has a unique crossing, proving exact all-rate cutoff. Direct 2x2 inversion yields displayed three-state expression. Independent Sympy exact arithmetic recreated both Q1 and Q2 CN transition matrices, both edge propagators, cutoff 2/sqrt3 and 2/sqrt7, and exact opposite ordering/nonnegative-entry witnesses. This algebraic check supports but does not replace all-dimension spectral proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chafaï–Joulin Theorem 2.1 already intertwines continuous-time gradients with auxiliary FK killed semigroups; no novel claim for DQ=HD alone.",
+          "Published Resultary resolvent-return theorem gives entrywise nonnegative CN threshold using original Q resolvent, not increasing-cone threshold using H.",
+          "Strong-stability theory imposes method-level absolute monotonicity or norm preservation, which is not the same exact rate-dependent birth-death order frontier."
+        ],
+        "reasoning": "The stronger prior on Markov positivity cannot dominate a logically independent order cone property: explicit Q1 has Markov positivity without order; Q2 order without Markov positivity.",
+        "searches": [
+          "arxiv:1011.2331 Chafaï Joulin Theorem 2.1 gradient and Feynman Kac intertwining",
+          "Resultary: 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "doi:10.1137/040612968 Higueras strong stability additive Runge–Kutta"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1011.2331 Theorem 2.1",
+        "Resultary CN positivity d475df91cd2a",
+        "DOI:10.1137/040612968 metadata",
+        "Cambridge stochastic monotonicity of birth–death processes abstract",
+        "Resultary finite birth-death Crank-Nicolson semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior gradient semigroup intertwining applies continuous-time exponential, whose killed semigroup is positive for all t; the CN rational map can cease to be positive on gradients beyond h_ord.",
+          "CN Q-resolvent positivity permits one sign-cutoff, but Q1 and Q2 show neither cutoff implies the other."
+        ],
+        "reasoning": "Known components enable a brief proof but not an already stated or mechanically identical classification of the rational edge propagator; exact three-state formula and two-sided counterexamples supply the new boundary.",
+        "searches": [
+          "arxiv:1011.2331 Theorem2.1 gradient semigroup",
+          "published Resultary CN positivity reversible chains d475df91cd2a",
+          "doi:10.1016/j.spa.2010.03.002 finite-poset stochastic versus realizable monotonicity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Increasing-function order is equivalent to entrywise positivity of the induced (n-1)x(n-1) edge difference map DT=E D since D is onto.",
+          "The map E=2(I-hH/2)^(-1)-I is a rational function of the gradient-intertwined killed generator H, not a transition matrix."
+        ],
+        "reasoning": "This is a valid equivalent formulation of the claim; must not conflate cone preservation with stochastic monotonicity unless T is also entrywise nonnegative.",
+        "searches": [
+          "Crank Nicolson discrete birth death numerical stochastic monotonicity DQ HD killed edge gradient",
+          "birth death discrete semigroup gradient intertwining Feynman-Kac positivity",
+          "Resultary: Crank Nicolson numerical scheme stochastic monotonicity birth death chains order preservation increasing functions edge gradient resolvent CFL"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No found table contains all positive birth/death rates and the separate edge-root cutoff; nearby record is same integrator but different operator positivity.",
+          "The two exact 3-state witnesses are proven rational matrices, not data from a known finite table."
+        ],
+        "reasoning": "General n threshold defined by n-1 scalar resolvent crossing roots; not a finite-data restatement. Noncoverage is based on mathematical comparison of tested property, not keyword absence.",
+        "searches": [
+          "Resultary search CN positivity and stochastic monotonicity on birth death chains; nearest 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "web: stochastic monotonicity Crank Nicolson birth death step size increasing functions monotone gradients"
+        ]
+      },
+      "rationale": "The gradient intertwining is established in Chafaï–Joulin and the Q-resolvent CN Markov positivity frontier is previously available as a different Resultary theorem. The new boundary uses the killed edge generator H to characterize preservation of the increasing-function cone and gives exact opposite three-state separations, which are not implied by the Q-positivity threshold alone. A general monotonicity-preserving rational integrator theorem might contain the same test; that literature priority risk is noted.",
+      "residual_risks": [
+        "General order-preserving rational approximation or discrete-duality literature might contain the same killed-edge resolvent positivity criterion under alternate wording.",
+        "The highly relevant Resultary CN-positivity original full file was not inspected this run; same statement could conceal additional edge-order remarks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS foundation DQ=HD in infinitesimal form; no inspected Crank–Nicolson edge-resolvent half-crossing",
+          "evidence": [
+            "Theorem 2.1: ∂u Pt f=Pu,t^Vu ∂u f, a continuous-time Feynman–Kac intertwining."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1011.2331",
+          "material_read": "Full 25-page primary PDF accessible; materially read Theorem 2.1 in Section 2 and corresponding gradient/Feynman–Kac definitions and consequences.",
+          "method": "Primary-PDF text, theorem and page visual confirmation",
+          "title": "Intertwining and commutation relations for birth–death processes",
+          "trigger": "Same discrete gradient and killed generator"
+        },
+        {
+          "assessment": "Strong relevance but criterion concerns entrywise transition positivity via Q, not increasing-function preservation via H; remaining full-source overlap risk",
+          "evidence": [
+            "Summary says finite Markov CN entrywise nonnegative iff all diagonal original Q resolvent entries >=1/2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "material_read": "Published Resultary mathematical summary and identifier returned by semantic search; original full research package NOT inspected in this turn.",
+          "method": "Resultary semantic source summary and direct operator comparison",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "Closest matching CN resolvent criterion"
+        },
+        {
+          "assessment": "Not treated as whole-paper noncoverage; possible higher generality flagged",
+          "evidence": [
+            "Absolute monotonicity/stability of methods is an adjacent framework but not verified to entail every-rate edge test."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/040612968",
+          "material_read": "Public bibliographic result and title, not full text.",
+          "method": "Citation contextual check",
+          "title": "Strong Stability for Additive Runge–Kutta Methods",
+          "trigger": "Potential broad integrator monotonicity theorem"
+        },
+        {
+          "assessment": "Investigates time evolution stochastic monotonicity for BD processes rather than specified CN end-step; no full-paper negative claim",
+          "evidence": [
+            "Abstract emphasizes stochastic increasing in physical time from an initial law."
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/abs/stochastic-monotonicity-of-birthdeath-processes/E9B0EFE152A91CD0FAAC143C3877B1C8",
+          "material_read": "Publisher abstract only; full mathematics not accessed.",
+          "method": "Public abstract read",
+          "title": "Stochastic monotonicity of birth–death processes",
+          "trigger": "Classical birth–death dual monotonicity terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For ordered Markov chains, preserving order between initial-state distributions is a distinct physical and numerical requirement from keeping rows stochastic. The theorem gives an exact sharp stability frontier across every finite nonuniform birth–death generator, not a methodwide sufficient CFL heuristic; the two opposing three-state examples show why checking one property cannot substitute for the other. Both are naturally needed to select safe numerical time steps.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any finite irreducible birth–death Q on ordered states, Crank–Nicolson T_h preserves all nondecreasing test functions iff h <= min_i h_i, where h_i is the unique half-return crossing ((I-h_i H/2)^(-1))_ii=1/2 of the adjacent-difference edge generator H; three states have explicit cutoff 4/(|a-d|+sqrt((a+d)^2-4bc)), with two opposite separations from entrywise Markov positivity.",
+  "limitations": [
+    "Finite irreducible nearest-neighbor birth–death chains with positive existing edge rates; exact arithmetic.",
+    "Threshold for order cone alone; a true stochastic monotone kernel also requires Markov-entry positivity.",
+    "General n cutoff given by well-defined roots; explicit elementary closed formula supplied only at n=3."
+  ],
+  "schema_version": 1
+}

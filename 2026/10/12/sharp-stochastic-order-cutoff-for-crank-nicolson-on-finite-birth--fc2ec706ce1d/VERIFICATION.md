@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem is proved for every finite irreducible birth–death chain in `RESULT.md` using an exact adjacent-difference intertwining and a spectral representation of the edge resolvent; no finite test substitutes for those analytical steps.
 
-The standalone Python/SymPy checker constructs both three-state generators with exact rational entries, verifies \(DQ=HD\) and the Crank–Nicolson edge transfer, and checks the closed-form rational transitions at the witness times. It verifies \(T_{3/2}(0,1,1)^{\mathsf T}=(60,49,73)^{\mathsf T}/91\) for the symmetric chain, and the negative central transition diagonal \(-1/11\) alongside an entrywise nonnegative edge propagator for the second chain. A four-state nonuniform chain also verifies the gradient indexing. The checker explicitly tests spectral discriminants giving \(h_{\mathrm{ord}}=2/\sqrt3\) and \(2/\sqrt7\).
+# Independent mathematical audit
 
-Unproved by the finite checker are all-rate and all-dimension claims; they follow from the stated generator/edge/resolvent proof. The interval endpoints are exact arithmetic thresholds, and no guarantee about finite-precision rounding near them is asserted.
+## correctness
+
+PASS
+
+A direct symbolic adjacent-row subtraction establishes DQ=HD, and D maps all n-state functions onto all (n-1)-edge gradients. Rational functional calculus gives DT_h=(2R_h-I)D. Irreducible Metzler edge matrix H has a strictly positive resolvent for h>0, and is diagonally similar to a symmetric negative-definite matrix because its spectrum consists of the nonzero eigenvalues of irreducible reversible Q. Each R_h diagonal is sum_j u_ij^2/(1+h nu_j/2), strictly decreasing from one to zero. Thus all increasing gradients are preserved iff every diagonal is >=1/2, each has a unique crossing, proving exact all-rate cutoff. Direct 2x2 inversion yields displayed three-state expression. Independent Sympy exact arithmetic recreated both Q1 and Q2 CN transition matrices, both edge propagators, cutoff 2/sqrt3 and 2/sqrt7, and exact opposite ordering/nonnegative-entry witnesses. This algebraic check supports but does not replace all-dimension spectral proof.
+
+## originality
+
+PASS
+
+The gradient intertwining is established in Chafaï–Joulin and the Q-resolvent CN Markov positivity frontier is previously available as a different Resultary theorem. The new boundary uses the killed edge generator H to characterize preservation of the increasing-function cone and gives exact opposite three-state separations, which are not implied by the Q-positivity threshold alone. A general monotonicity-preserving rational integrator theorem might contain the same test; that literature priority risk is noted.
+
+## value
+
+PASS
+
+For ordered Markov chains, preserving order between initial-state distributions is a distinct physical and numerical requirement from keeping rows stochastic. The theorem gives an exact sharp stability frontier across every finite nonuniform birth–death generator, not a methodwide sufficient CFL heuristic; the two opposing three-state examples show why checking one property cannot substitute for the other. Both are naturally needed to select safe numerical time steps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
