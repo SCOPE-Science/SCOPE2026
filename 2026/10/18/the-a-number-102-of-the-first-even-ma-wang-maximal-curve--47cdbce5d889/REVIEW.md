@@ -1,0 +1,9 @@
+# Self-review of the geometric \(a\)-number calculation
+
+**Correctness — PASS.** The exact genus is \(324\), computed from ten totally ramified places of an \(82\)-cover. Valuations at the three \(A\)-roots, six \(B\)-roots, and infinity justify all \(324\) regular differential basis vectors. Cartier permutes the \(81\) character spaces; the formula in RESULT.md yields integer binomial-coefficient matrices reduced modulo \(3\). Polynomial division and independent coefficient sums both give total rank \(222\); a complete 81-row certificate is included. Exact fourth-iterate matrix multiplication gives zero, consistent with the curve's maximality.
+
+**Originality — PASS, qualified.** Ma–Wang (arXiv:2609.19546) establishes the defining Kummer model, genus, maximality, and an automorphism subgroup, but its inspected manuscript does not calculate the Cartier rank. Elkin (arXiv:0708.0431) supplies general bounds and methods; for the current parameters the bounds are \(151\) and \(242\), not an exact value. Beelen–Montanucci (DOI:10.1112/jlms.12144) concerns odd indices. The closest same-family published record studies a Kummer deck-group normalizer. Search and implication comparisons found no already stated exact \(a\)-number \(102\). A previous unindexed specialized computation cannot be ruled out; part of the auxiliary earlier literature was not inspected in full.
+
+**Value — PASS.** The geometric \(a\)-number is a basic invariant of Jacobian \(3\)-torsion and the Ekedahl–Oort stratification. Its determination at the smallest even Ma–Wang member records genuinely new arithmetic geometry beyond genus, maximality, and automorphism structure. The exact answer \(102\) shows this supersingular Jacobian is not superspecial. The finite calculation is completely reproducible, but a general family-wide formula and the rest of the Ekedahl–Oort type remain open.
+
+Self-review: passed. Independent audit: not yet performed.
