@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The domain is the Haar-initialized two-torus, with integer \(t\ge3\) and \(q\ge2\). The core joint law follows from the unimodular change of coordinates \((x_0,x_1)\), exact unit-square strip integration, and residue reduction. The primitive-root argument proves the sharp independence criterion with no omitted composite moduli. The exact conditional entropy identity and high-resolution formula follow without asymptotics. The arbitrary-time binary statement uses independent Haar coordinate pairs and inversion symmetry. Rational-polygon checks corroborate, but do not replace, these arguments. Boundaries have measure zero.
+
+**Originality — PASS, with residual priority risk.** The closest examined mathematical literature concerns Markov rectangles and toral conjugacy invariants rather than equal vertical partitions. Standard Haar/Fourier tools are not claimed as novel. The specific full three-cylinder law, the \(q=2\) or \(q\mid t\) threshold, and the high-resolution information defect were not found in the inspected texts or targeted mathematical-result searches. A general symbolic coding or coarse-graining calculation could have yielded equivalent statements elsewhere; independent priority evaluation is still needed.
+
+**Value — PASS.** These are natural finite-resolution measurements of a chaotic yet measure-preserving dynamical system, whose one- and two-point statistics are always exactly uniform. The theorem identifies the first observation window where information can arise, a number-theoretic criterion for its complete disappearance, and an exact resolution-dependent information penalty. It distinguishes temporal dependence beyond pair correlations across an infinite family and all sensor alphabet sizes, rather than computing an arbitrary isolated parameter value.
+
+The result is limited to coordinate strips, Haar measure, and three consecutive observations for the multilevel criterion. It does not compute an entropy rate or establish a Markov property. Relevant comparisons are Siemaszko–Wojtkowski (arXiv:1007.3984) and Bakker–Rodrigues (arXiv:1102.0839). A possible overlooked treatment of non-Markov coordinate coding remains a bibliographic risk.
+
+Self-review: passed. Independent audit: not yet performed.
