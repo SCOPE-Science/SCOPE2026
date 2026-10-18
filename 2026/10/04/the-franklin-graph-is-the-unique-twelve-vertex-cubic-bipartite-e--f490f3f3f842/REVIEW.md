@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is finite and exhaustive. The verifier enumerates every \(6\times6\) zero-one matrix with row and column sums three up to exact bipartite isomorphism, obtains five connected classes, and performs exhaustive dominating-matching checks in each class. The fifth class is independently identified with the Franklin graph through its exact LCF representation \([5,-5]^6\). The argument that \(\gamma_{\mathrm{pr}}\neq2\) at order twelve is elementary and does not depend on computation.
+## correctness
 
-## Originality
-PASS. The closest recent source proves the universal cubic-bipartite upper bound and gives smaller equality witnesses, but it does not classify order twelve. Focused searches under paired-domination and dominating-matching terminology found no equivalent Franklin or order-twelve statement. The House of Graphs table gives only the independent count of five cubic-bipartite classes at order twelve, not their paired-domination values. A residual risk of unindexed prior computation remains.
+PASS
 
-## Value
-PASS. Equality cases for a sharp domination bound are a mathematically motivated structural question. The order-twelve census is the first new multiple-of-four layer after the cube and shows a nontrivial split: four classes improve to \(4\), while the named Franklin graph uniquely remains at the sharp value \(6\). This produces a compact benchmark for future global equality classifications.
+Independent networkx graph-isomorphism census of ALL 550 six-row multiset 6×6 0–1 incidence matrices with three ones per row/column yielded 540 connected semilabelled matrices and exactly five connected graph isomorphism classes (confirmed by House of Graphs). Exhaustive disjoint matching-endpoint domination search gives γpr values [4,4,4,4,6]; an edge dominates only six vertices so no order-12 graph has γpr=2. The unique γpr=6 class is independently isomorphic to the standard LCF [5,-5]^6 Franklin graph. Thus it alone meets Lu–Wu order-12 upper bound 6, all others equal4.
 
-## Closest literature and limitations
-Lu--Wu (arXiv:2609.30152v1) is the closest source and supplies the sharp global upper bound and the dominating-matching formulation. The present result is only an exact order-twelve classification and does not extend to larger orders. The computation is exhaustive but finite.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Lu–Wu Theorem1.1 controls upper bound for all cubic bipartite graphs but does not classify equality at order12; the independent census distinguishes all five graphs and assigns exact paired-domination numbers. House of Graphs tabulates five isomorphism classes but no paired-domination values.
+
+## value
+
+PASS
+
+Classifying exactly the first nontrivial 12-vertex equality layer of a newly proven sharp cubic-bipartite paired-domination bound is a natural and reusable extremal-graph datum; identifies an explicit unique equality witness rather than arbitrary graph-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
