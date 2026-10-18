@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+A canonical ordered-sum decomposition of width-two series–parallel posets has only two atomic sorts: singletons and unordered pairs of nonempty chains. The proof computes the strict predecessor/successor pairs exactly, reconstructs each atomic factor from the one- or two-point minimal-predecessor-count slice, proves later factor ranges cannot overlap, and identifies automorphism orbits from equal-chain swaps. The generating function follows from the unique normal form. The finite five-point boundary is supported by a complete canonical enumeration and direct permutation-level automorphism test through six points. Two standalone programs, with actual output records, provide independent implementation checks; the infinite theorem has a separate proof.
+
+## Originality — PASS (qualified)
+Relevant foundational work covers structural recognition of series–parallel posets (Valdes–Tarjan–Lawler; Habib–Kelly–Lebhar–Paul), undirected colour refinement and amenability (Arvind–Köbler–Rattan–Verbitsky), and indistinguishable vertices in a different class of posets (Dukes–Kitaev–Remmel–Steingrímsson). The new statement is a precise reconstruction using the **unlabeled multiset of two strict degree counts**, its consequent one-round directed counting-logic identification, and the exact first failure of orbit recovery upon increasing width. Neither the inspected portions of the primary sources nor the recorded research-index searches establish that statement or a stronger one that subsumes it. The 2007 article's full publisher text was only partly accessible; specialized earlier publications may exist. Publication priority is not independently certified.
+
+## Value — PASS
+Strict predecessor/successor counts are the first intrinsic observable of two-variable counting logic on a poset. Their complete isomorphism-reconstruction power for the natural and infinite width-two, \(N\)-free family is a structural classification, and the sharp five-point counterexample explains where local counts lose orbit information. The constructive inversion and exact generating function provide reusable canonical signatures and a natural benchmark for refinement algorithms. This does not claim a theorem for all series–parallel posets or all posets, nor that a small finite experiment proves the infinite result.
+
+## Closest literature and risks
+The series–parallel decomposition is pre-existing; the decoder and orbit boundary are the proposed contributions. The primary graph colour-refinement literature uses undirected adjacency rather than the strict directed order. The interval-order paper uses the distinct forbidden \((2+2)\) pattern and full neighborhood sets, not counts. An inaccessible or unindexed degree-sequence paper could supersede this specialized statement. The direct scientific arguments are complete within the stated hypotheses; independent novelty assessment and independent audit remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
