@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The source presentation is
-\[
-F_m=\langle x,y,a\mid (yx)^m y (yx)^{-m}x^{-1}=1,\ (x^{-1}ax)a^{-1}x^{-1}(yay^{-1})=1\rangle.
-\]
-The meridian constraint is \(x=\sigma\) for the \(B\)-family and \(a=\sigma\) for the \(G\)-family, with \(\sigma=(15432)\in A_5\).
+# Independent mathematical audit
 
-The verifier constructs \(A_5\) as the sixty even permutations of five letters. It independently computes the set of element orders as \(\{1,2,3,5}\), hence the exponent as \(30\). This proves exact period \(30\) divisibility for the parameter-dependent word.
+## correctness
 
-For each of the thirty residues, it checks all \(60^2\) assignments of the two unconstrained generators on each side. The resulting certificate has
-\[
-(N_B,N_G)=(6,1)
-\]
-for the ten residues \(1,4,7,\ldots,28\), and
-\[
-(N_B,N_G)=(1,1)
-\]
-for the other twenty residues. It then recomputes a shifted full period and the source's printed cases \(m=1\) and \(m=61\).
+PASS
 
-The replay output is:
+Primary Bais et al. PDF pp.24-26 Proposition 4.10 matches exactly the two F_m relators and meridian x vs a, and Proposition 4.11 prints only m=1 mod60. A5 has exponent 30, so relators depend on m modulo30; separately enumerated all 60 even permutations, all 30 residue classes, and 3600 assignments per fixed meridian for both knots, finding (6,1) at ten residues r=1 mod3 and (1,1) otherwise. This proves unbounded m via exact finite exponent periodicity, not numerical extrapolation. The source peripheral invariant and trace theorem support non-rel-boundary-homotopy equivalence for distinguished classes.
 
-`VERIFY_OK A5_size=60 exponent=30 residues=30 distinguished=10 pattern=m_mod_3_eq_1 source_case=true`
+## originality
 
-The finite enumeration is exhaustive because exact group periodicity has already reduced the unbounded integer parameter to these thirty cases.
+PASS
 
-The independent-audit channel has not been performed.
+The preprint primary Proposition 4.11 only handles m=1 mod60 by m=1 calculation and |A5|=60; exact 30-residue classification, and strict reduction to 1 mod3, is not stated or implied merely by its special case. Search across aliases and Resultary found only this October-4 all-residue computation, not a stronger earlier result. The source has 60-period sufficiency but does not prove impossibility of additional residues.
+
+## value
+
+PASS
+
+The A5 witness is natural because it is precisely the published peripheral finite-group obstruction for the high-dimensional same-trace knot family. Exhaustive residues classify where this witness works and enlarge certified non-equivalent exteriors from 1 in 60 to 1 in 3 parameters, a genuine factor-twenty improvement of an explicit geometric construction, not just an arbitrary modular slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

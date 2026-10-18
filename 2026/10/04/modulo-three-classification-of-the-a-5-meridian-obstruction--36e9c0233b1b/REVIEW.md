@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published presentation has only one parameter-dependent factor, a power of an element of \(A_5\). The exponent of \(A_5\) is \(30\), so the computation is exactly periodic in \(m\). The verifier exhausts all thirty residues and all remaining generator assignments for both prescribed-meridian problems. The resulting table is \((6,1)\) exactly for \(m\equiv1\pmod3\) and \((1,1)\) otherwise. The source's peripheral invariance theorem then gives the non-equivalence conclusion wherever the counts differ.
+## correctness
 
-## Originality
-PASS. The current source prints only the sufficient condition \(m\equiv1\pmod{60}\) and uses \(m=60\ell+1\) in its infinite construction. Full-text comparison and targeted literature searches found no all-residue or modulo-three classification for this family. The principal residual risks are a later revision or an unindexed short observation.
+PASS
 
-## Value
-PASS. This is the exact natural completion of the finite-group obstruction chosen by the source. It expands the certified parameter subfamily by a factor of twenty, from density \(1/60\) to density \(1/3\), and simultaneously records all residues where this particular witness is inconclusive. The improvement feeds directly into the source's infinite same-trace construction.
+Primary Bais et al. PDF pp.24-26 Proposition 4.10 matches exactly the two F_m relators and meridian x vs a, and Proposition 4.11 prints only m=1 mod60. A5 has exponent 30, so relators depend on m modulo30; separately enumerated all 60 even permutations, all 30 residue classes, and 3600 assignments per fixed meridian for both knots, finding (6,1) at ten residues r=1 mod3 and (1,1) otherwise. This proves unbounded m via exact finite exponent periodicity, not numerical extrapolation. The source peripheral invariant and trace theorem support non-rel-boundary-homotopy equivalence for distinguished classes.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The preprint primary Proposition 4.11 only handles m=1 mod60 by m=1 calculation and |A5|=60; exact 30-residue classification, and strict reduction to 1 mod3, is not stated or implied merely by its special case. Search across aliases and Resultary found only this October-4 all-residue computation, not a stronger earlier result. The source has 60-period sufficiency but does not prove impossibility of additional residues.
+
+## value
+
+PASS
+
+The A5 witness is natural because it is precisely the published peripheral finite-group obstruction for the high-dimensional same-trace knot family. Exhaustive residues classify where this witness works and enlarge certified non-equivalent exteriors from 1 in 60 to 1 in 3 parameters, a genuine factor-twenty improvement of an explicit geometric construction, not just an arbitrary modular slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
