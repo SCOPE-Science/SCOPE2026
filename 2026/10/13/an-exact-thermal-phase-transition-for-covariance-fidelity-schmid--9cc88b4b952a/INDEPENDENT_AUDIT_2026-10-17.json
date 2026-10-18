@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T15:00:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed source optimized squeeze s=(1/2)asinh(u sinh2r) (u=coth(beta/2)>1) and rationalized R_opt^2=u cosh2r (u^2-1)/(u cosh2r+sqrt(1+u^2 sinh^2 2r)). For every finite r this strictly exceeds (u^2-1)/2 and tends to that limit; <= or > 1 precisely across beta_c=log(2+sqrt3). Therefore fidelity lower bound is zero for ALL finite r if beta<=beta_c. For beta>beta_c, F_opt tends to (1-1/(sqrt2 sinh(beta/2)))^2>0; using source geometric B_k=1-tanh^(2k)(s), strict inequality and log tanh^2 s~-4 exp(-2r)/u gives certified K_fid~(u/4)[-log(1-(1-a_beta)^2)]exp(2r). Separately exp h(u exp(-2r))~e exp(2r)/(4u) via source EoF bound, so no claim of physical separability. Independently checked rationalization/limit for representative beta,r numerically; analytic proof determines all parameter values.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2013 paper and 2025 phase-space work offer broader classes of witnessing, but not universal domination/completeness of THIS bound; source EoF certificate provides a better contrasting method."
+        ],
+        "reasoning": "Broader witness families do not imply a sharp failure statement for source Eq (51) unless they explicitly analyze the same R_opt function, which the inspected material does not.",
+        "searches": [
+          "arXiv:1309.6508 Operational Gaussian Schmidt-number witnesses",
+          "arXiv:2509.02743 Entanglement Dimensionality From Phase-Space Quasi-Probabilities",
+          "arXiv:2610.03113 optimized Schmidt threshold"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03113",
+        "arXiv:1309.6508",
+        "arXiv:2509.02743",
+        "Resultary topic query TMST fidelity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source expression yields new criterion by infimum in r, and source EoF expression gives exponential growth for same covariance. Known finite-parameter fidelity bounds are prior work, explicitly credited."
+        ],
+        "reasoning": "Exact threshold follows by nontrivial rationalization/optimization of known formula; it is a new mathematical consequence of the source but not a claim of a new witness. Other witnesses do not cover this sharp method-specific limitation.",
+        "searches": [
+          "Mishra Morelli Baksová Rembold Friis arXiv:2610.03113 eqs 40 50 53",
+          "Shahandeh Sperling Vogel arXiv:1309.6508"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source optimized R and target squeezing but did not isolate beta_c as an all-r theorem in inspected text."
+        ],
+        "reasoning": "Compared exact same optimized covariance-fidelity, not merely another entanglement witness with similar thermal parameters.",
+        "searches": [
+          "Resultary semantic: two mode squeezed thermal Schmidt number covariance optimized fidelity witness beta critical log(2+sqrt3) phase transition",
+          "arXiv:2610.03113 Eq 50-54",
+          "thermal two-mode Gaussian Schmidt number fidelity witness vanishing threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact phase-line table in full source results or Resultary hits. The source depicts selective finite-parameter numerical examples."
+        ],
+        "reasoning": "Numerical parameter plots are not an exact all-squeezing certificate, and failed lookup cannot by itself prove novelty.",
+        "searches": [
+          "Resultary covariance-fidelity Schmidt number beta threshold",
+          "2610.03113 critical inverse temperature logarithm sqrt 3"
+        ]
+      },
+      "rationale": "Inspected entire accessible original arXiv 2610.03113 text and displayed equations (33),(40),(50)-(54): method and finite source expressions known, yet sharp beta threshold, all-squeezing collapse and dimension growth constant were not in inspected results. Other Gaussian covariance/phase-space witnesses are different functionals and do not imply the precise lower-fidelity conversion failure. Resultary comparison did not find direct theorem coverage.",
+      "residual_risks": [
+        "Some older Gaussian Schmidt-number results inspected only at abstract level; unindexed exact equivalent phase analysis possible",
+        "Threshold is specific to fidelity lower bound and equal-temperature TMST; does not establish physical phase transition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source derives optimized s, R, F, EoF relation, but does not state global beta_c or all-squeezing exponential-vs-zero dichotomy",
+          "evidence": [
+            "arXiv:2610.03113 Eqs 33,40,50–54, section on symmetric squeezed thermal states"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.03113",
+          "material_read": "Full accessible manuscript/HTML with equations (33),(40),(50)-(54), thermal-state examples and conclusion; relevant PDF pages visually inspected",
+          "method": "arXiv open-access PDF/HTML and equation-by-equation primary inspection",
+          "title": "Certification of high-dimensional entanglement in continuous-variable systems",
+          "trigger": "Same optimized covariance-fidelity and thermal state"
+        },
+        {
+          "assessment": "Different Gaussian witness, not a direct proof of bound on later optimized fidelity conversion",
+          "evidence": [
+            "arXiv:1309.6508 abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1309.6508",
+          "material_read": "Abstract and witness-family description, not proof of precise source fidelity threshold",
+          "method": "arXiv abstract and published bibliographic record",
+          "title": "Operational Gaussian Schmidt-number witnesses",
+          "trigger": "Earlier covariance-based witness might dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This exact threshold distinguishes a detector-specific information loss from genuine absence of high-dimensional entanglement, and supplies usable temperature selection for a published second-moment Schmidt-number protocol. It is not merely a change of variables because it proves a global all-squeezing zero region and asymptotic separation of two certificates on identical data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed finite beta>0 and real r>=0; asymptotic beta fixed as r increases. K_fid counts only the specified covariance-fidelity scheme."
+  ],
+  "schema_version": 1
+}
