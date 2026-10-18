@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T08:51:25.358826Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Summing all displayed SIRS equations cancels progression and recovery to obtain z=N-S0 with z’=-mu*z-Σdelta_j I_j. Positivity and comparison give S-S0<=c exp(-mu t), c=(N0-S0)_+. I1’=[a1(R0-1)+beta(S-S0)] I1, so exponential decay if R0<1. At R0=1 a rescaling by exp[-beta*c*(1-e^-mu*t)/mu] is nonincreasing; hence I1 tends to finite L>=0. If L>0, strictly positive delta1 forces z eventually bounded below zero by a fixed amount, implying I1 declines exponentially, contradiction. Every downstream stage and R are exponentially stable scalar linear systems with vanishing input; N->S0, S->S0. Positive R0>1 eigenvalue gives instability. Checked algebra against source equations, including n=1, all nonnegative data and δ1>0; no claim of critical Lyapunov stability or endemic equilibrium.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shuai–van den Driessche 2013 DOI:10.1137/120876642 sign condition f(x,y)>=0 is not automatic for S>S0",
+          "Guo–Li–Shuai 2012 DOI:10.1137/110827028 treats terminal removed class",
+          "Röst–Tekeli 2020 DOI:10.1016/j.amc.2020.125259 is SIS constant-population progression"
+        ],
+        "reasoning": "Broader threshold frameworks cover different state spaces or impose a nonlinear sign condition not valid for initial S>S0, so no demonstrated dominating implication.",
+        "searches": [
+          "Global Stability of Infectious Disease Models Using Lyapunov Functions SIRS remainder f(x,y)",
+          "Global Dynamics General Class Multistage Models Infectious Diseases removed class",
+          "multistage SIRS arbitrary initial n R0"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1080/17513758.2026.2728357",
+        "doi:10.1137/120876642",
+        "doi:10.1137/110827028",
+        "doi:10.1016/j.amc.2020.125259",
+        "doi:10.3934/dcdsb.2015.20.3057"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "DOI:10.1080/17513758.2026.2728357 explicitly limits analysis to n=2 and n=3 and calls general stability analysis future/conjectural",
+          "The present z=N-S0 exponential upper bound controls S-S0 for arbitrary initial N and is not provided by cited restricted-region Lyapunov sufficient statements"
+        ],
+        "reasoning": "The new bound removes both extra α/Condition A restrictions and initial total population restriction simultaneously; prior numerical experiments outside source conditions are not proof.",
+        "searches": [
+          "10.1080/17513758.2026.2728357 arbitrary stage n DFE proof",
+          "Shuai van den Driessche f(x,y) sign S>S0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "DOI:10.1080/17513758.2026.2728357, published Theorem 3 and Theorem 5 and discussion, restrict to n=2 and n=3 with auxiliary conditions"
+        ],
+        "reasoning": "Source states a more restrictive sufficient theorem; all-stage unrestricted-basin conclusion is not present. Search surfaced other compartment arrangements but no exact equivalence.",
+        "searches": [
+          "Resultary: Multistage SIRS infection stages all global disease free R0",
+          "Somnic Gasparyan Rao DFE Condition A immunity loss global extinction",
+          "stage progression SIRS only first stage infectious global disease free stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source 2026 Theorem 3 gives a two-stage alpha bound and Theorem 5 gives three-stage Condition A; its numerical figures outside sufficient range are not the unrestricted all-n proof"
+        ],
+        "reasoning": "This is a theorem/parameter-domain comparison, not a table of an enumerative invariant; no exact numerical database could by itself imply arbitrary-n nonlinear global convergence.",
+        "searches": [
+          "Somnic Gasparyan Rao 2026 Table Condition A DFE stages",
+          "Somnic 2026 Theorem 3 and 5 alpha lower bound"
+        ]
+      },
+      "rationale": "The motivating full publisher article establishes restricted n=2,3 theorems under α and Condition A, and explicitly describes arbitrary-stage and unconstrained DFE conditions as unproved. Matrix Lyapunov criteria in prior work need positivity that fails when S>S0. The exact all-stage comparison argument supplies a genuine new statement while retaining risk of other specialized epidemiological theorems.",
+      "residual_risks": [
+        "General SIRS threshold result using another theorem or an alternate nonlinear comparison could overlap; closest delayed multi-group paper not fully compared theorem-by-theorem.",
+        "At R0=1 only convergence was claimed, not separate Lyapunov stability; δ1>0 essential to this proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_THEOREMS_STRICTLY_WEAKER",
+          "evidence": "Theorem 3 requires extra α lower bound; Theorem 5 requires Condition A; conclusion explicitly says only n=2,3 covered and conditions likely not necessary.",
+          "identifier_or_url": "https://www.tandfonline.com/doi/full/10.1080/17513758.2026.2728357",
+          "material_read": "Full open publisher HTML of model, Sections 4/5 two/three-stage theorems, their auxiliary parameter restrictions, Section 6 conclusion and discussion",
+          "method": "Direct full primary web HTML theorem/hypothesis comparison",
+          "title": "Stability analysis of a multistage compartmental model of infection",
+          "trigger": "Exact same infection architecture and primary claim being strengthened"
+        },
+        {
+          "assessment": "SIGN_CONDITION_NOT_GLOBALLY_APPLICABLE",
+          "evidence": "The nonlinear remainder β(S0-S)I1 is negative for S>S0, so this theorem cannot directly prove global attraction from arbitrary large initial S.",
+          "identifier_or_url": "doi:10.1137/120876642",
+          "material_read": "Available theorem statement and model/hypothesis comparison, including f(x,y)>=0 condition; full source reading documented in source package, not independently repeated cover-to-cover in this run",
+          "method": "Read available primary theorem formulation and substitute nonlinear remainder",
+          "title": "Global Stability of Infectious Disease Models Using Lyapunov Functions",
+          "trigger": "Most plausible general framework dominating source-specific extinction"
+        },
+        {
+          "assessment": "PLAUSIBLE_MODEL_DIFFERENCE_NOT_FULLY_RESOLVED",
+          "evidence": "Multi-group with delay and relapse is not the same explicitly sequential infected stage chain; no established embedding from inspected material.",
+          "identifier_or_url": "doi:10.3934/dcdsb.2015.20.3057",
+          "material_read": "Publisher article abstract and model-class metadata, not complete theorem proof",
+          "method": "Open primary metadata/abstract comparison",
+          "title": "Global stability of a delayed multi-group SIRS epidemic model with nonlinear incidence rates and relapse of infection",
+          "trigger": "Potential broad SIRS threshold theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closing a biologically counterintuitive auxiliary waning-immunity threshold for global disease extinction across arbitrary stage counts is a motivated structural theorem resolving an explicit limitation of the primary paper, not a parameter substitution or a finite numerical increment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the source sequential-stage SIRS with δ_j>0, any nonnegative initial data converge to DFE whenever R0<=1; no additional α/Condition A, arbitrary n.",
+  "limitations": [
+    "No DFE Lyapunov stability asserted at R0=1; δ1>0 is assumed; no statement about endemic state."
+  ],
+  "schema_version": 1
+}
