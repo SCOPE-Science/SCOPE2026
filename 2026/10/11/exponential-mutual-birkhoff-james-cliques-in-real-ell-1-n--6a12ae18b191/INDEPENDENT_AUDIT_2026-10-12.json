@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T22:19:53.997139Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Git RESULT.md ddad38f57ac158799bd61944b64e5ee1f112931f and CHECK.py ee6ce8b5e541ccf613dc3f2362fadf06ab2c76d3 inspected. For nonzero ternary x, real l1 support functionals fix f_i=x_i where x_i !=0 and permit f_i in [-1,1] where x_i=0; therefore x perpendicular_B y iff abs(sum_{x_i!=0}x_i*y_i)<=sum_{x_i=0}abs(y_i). In iid ternary model probability rho/2 per sign, P(T=1)=rho^2/2, P(T=-1)=rho(2-rho)/2, P(T=0)=1-rho. Markov-Chernoff optimizing exp(u) gives theta(rho)=1-rho+rho*sqrt(rho(2-rho)); union of both signs and orientations has probability <=4theta^n. Condition on both samples nonzero (prob (1-(1-rho)^n)^2), treat repeated projective line as incompatible. Weighted clique-mass transfer (nonadjacent mass merger) proves incompatibility >=1/omega; hence omega_n >= (1-(1-rho)^n)^2/[4 theta^n]. Differentiating theta with t=1-rho, sqrt(1-t²) gives minimum t=1/sqrt2, theta=sqrt2-1/2. Ceiling and nth-root limit yield formula. Independently verified directed norm criterion against two half-step convex norm inequalities for ALL 64,676,6400 ordered ternary nonzero-vector pairs in n=2,3,4; checked optimizer rho~.292893 and exponential base~1.093836. Infinite dimension conclusion rests on analytic probabilistic proof, not pair enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2021 theorem yields dimension-dependent finite bound and some lower examples; Example3.7 achieves 2^(n-1) in l_infty, not l1; 2024 theorem recognizes dimension from projective orthodigraph clique number but does not specify l1 exponential lower base."
+        ],
+        "reasoning": "Existing universal n lower bound is asymptotically weaker; dual-space exponential example cannot be transferred to l1 orthogonality, leaving the new norm-specific construction distinct.",
+        "searches": [
+          "DOI:10.1016/j.jmaa.2021.125203 Section3 Example3.7",
+          "arXiv:2402.13416v1 Theorem1.1 and Sections1-2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md ddad38f57ac158799bd61944b64e5ee1f112931f and CHECK.py ee6ce8b5e541ccf613dc3f2362fadf06ab2c76d3",
+        "Arambasic et al JMAA 502 (2021) DOI:10.1016/j.jmaa.2021.125203 Example3.7",
+        "Guterman et al arXiv:2402.13416v1 full accessible HTML Section1-4",
+        "Springer 2022 survey chapter DOI:10.1007/978-3-031-02104-6_8 metadata only",
+        "Independent finite exhaustive ternary pair criterion checks n=2..4; calculus minimizer recomputation",
+        "Resultary unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known n-dimensional universal clique lower bound is linear; known exponential construction applies l_infty, whereas new bound is for real l1 and uses ternary support-functional balancing."
+        ],
+        "reasoning": "Neither prior statement entails an l1 clique size >=1.093836^n. The independent ternary Chernoff calculation and weighted Motzkin-Straus inequality create this additional quantitative lower bound.",
+        "searches": [
+          "Arambasic et al 2021 Section3, Example3.7",
+          "Guterman et al 2024 Theorem1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mutual projective BJ clique iff all distinct representatives satisfy both directed support-functional inequalities; l1 norming functionals yield ternary balance inequality."
+        ],
+        "reasoning": "Compared symmetric graph, directed projective orthodigraph, supporting functional, and dual l_infty language; l_infty construction is not equivalent to primal l1 clique under Banach duality.",
+        "searches": [
+          "mutual Birkhoff James orthogonality exponential cliques real ell1 n ternary vectors Chernoff [Resultary search_internal_error; search_completed=false, not a finding]",
+          "Arambasic et al 2021 Symmetrized Birkhoff-James orthogonality Section3 Example3.7",
+          "Guterman et al arXiv:2402.13416v1 Section1 projective orthodigraph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected exact l1^n clique number table or exponential lower-bound result; result claims only lower growth rate."
+        ],
+        "reasoning": "A finite table of clique numbers, even if found, would not establish all-dimensional exponential lower bound without the probability/graph argument. Search misses are not proof of novelty.",
+        "searches": [
+          "2021 Section3 examples",
+          "2024 projective orthodigraph classification",
+          "GitHub SCOPE-Science query Birkhoff James orthogonality clique [no matches]"
+        ]
+      },
+      "rationale": "PASS on bounded literature reading. The 2021 Arambasic-Guterman-Kuzma-Rajic-Zhilina full publicly presented Section 3 Example 3.7 provides 2^(n-1) mutual orthogonal directions in real/complex l_infty^n, not in l_1^n; it also proves universal linear lower bound and dimension-dependent upper bound. The 2024 Guterman-Kuzma-Singla-Zhilina primary article on orthodigraph recognition was materially read in HTML (Thm1.1 and Section1 context): it describes finite clique number/dimension classification, not this l1-specific exponential lower bound. Duality does not preserve two-sided BJ relation on primal projective lines, so the l_infty result is not a hidden l1 implication. Still, a 2022 survey chapter was only bibliographically accessible, and Resultary was unavailable.",
+      "residual_risks": [
+        "The 2022 Springer survey could contain a related l1 orthogonality graph lower bound not accessible in full.",
+        "The probabilistic bound could be superseded by a stronger known l1 construction not indexed in inspected sources; no exhaustive priority certification.",
+        "Optimized base only within one symmetric iid ternary ensemble; not clique optimum.",
+        "Resultary search unavailable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides exponential 2^(n-1) example for supremum norm; does not directly cover l1 argument in materially read portions",
+          "evidence": "Example 3.7 explicitly constructs sign vectors (1,+/-1,...,+/-1) with l_infty norm and pairwise BJ orthogonality.",
+          "identifier_or_url": "DOI:10.1016/j.jmaa.2021.125203",
+          "material_read": "Publisher openly presented abstract, definitions, Section 2, Section 3 Example 3.7 and theorem context via expanded indexed scholarly primary text; not every page",
+          "method": "ScienceDirect public textual scholarly result",
+          "title": "Symmetrized Birkhoff–James orthogonality in arbitrary normed spaces",
+          "trigger": "same symmetric projective orthogonality and extremal cliques"
+        },
+        {
+          "assessment": "Theorem1.1 establishes finite dimension iff graph clique finite, not new exponential growth base in l1",
+          "evidence": "Definition projective orthodigraph and Theorem1.1 lines 58-86.",
+          "identifier_or_url": "arXiv:2402.13416v1",
+          "material_read": "Accessible full HTML Sections1-4 including definitions and Theorem 1.1; quantitative l1 growth not located",
+          "method": "arXiv HTML primary full text, 957 indexed lines",
+          "title": "Birkhoff–James classification of norm’s properties",
+          "trigger": "potential graph-theoretic stronger coverage of clique invariant"
+        },
+        {
+          "assessment": "Potential overlap unexcluded; no whole-document noncoverage claimed",
+          "evidence": "Survey covers orthogonality graphs, so the exact exponential lower bound could conceivably appear in an uninspected subsection.",
+          "identifier_or_url": "DOI:10.1007/978-3-031-02104-6_8",
+          "material_read": "Title, abstract and bibliography only; full text unavailable",
+          "method": "Springer chapter metadata",
+          "title": "Birkhoff–James Orthogonality: Characterizations, Preservers, and Orthogonality Graphs",
+          "trigger": "2022 survey might collect norm-specific clique constructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Exponential existence of mutual Birkhoff-James orthogonal projective directions in the canonical real l1^n spaces improves dramatically on universal linear-in-n examples; it distinguishes primal l1 from known dual l_infty constructions and establishes a concrete asymptotic invariant for the natural orthodigraph. The optimized ternary Chernoff construction and weighted graph clique argument are mathematically motivated. No claim to exact omega_n, optimal exponent, or explicit complete classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md ddad38f57ac158799bd61944b64e5ee1f112931f and CHECK.py ee6ce8b5e541ccf613dc3f2362fadf06ab2c76d3",
+    "Arambasic et al JMAA 502 (2021) DOI:10.1016/j.jmaa.2021.125203 Example3.7",
+    "Guterman et al arXiv:2402.13416v1 full accessible HTML Section1-4",
+    "Springer 2022 survey chapter DOI:10.1007/978-3-031-02104-6_8 metadata only",
+    "Independent finite exhaustive ternary pair criterion checks n=2..4; calculus minimizer recomputation",
+    "Resultary unavailable"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Existential lower bound only, not exact clique number or optimal growth base; finite exact ternary tests do not prove all-n bound.",
+    "Only real scalar l1^n and projective one-dimensional subspaces, not complex or dual spaces."
+  ],
+  "residual_risks": [
+    "The 2022 Springer survey could contain a related l1 orthogonality graph lower bound not accessible in full.",
+    "The probabilistic bound could be superseded by a stronger known l1 construction not indexed in inspected sources; no exhaustive priority certification.",
+    "Optimized base only within one symmetric iid ternary ensemble; not clique optimum.",
+    "Resultary search unavailable."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Provides exponential 2^(n-1) example for supremum norm; does not directly cover l1 argument in materially read portions",
+      "evidence": "Example 3.7 explicitly constructs sign vectors (1,+/-1,...,+/-1) with l_infty norm and pairwise BJ orthogonality.",
+      "identifier_or_url": "DOI:10.1016/j.jmaa.2021.125203",
+      "material_read": "Publisher openly presented abstract, definitions, Section 2, Section 3 Example 3.7 and theorem context via expanded indexed scholarly primary text; not every page",
+      "method": "ScienceDirect public textual scholarly result",
+      "title": "Symmetrized Birkhoff–James orthogonality in arbitrary normed spaces",
+      "trigger": "same symmetric projective orthogonality and extremal cliques"
+    },
+    {
+      "assessment": "Theorem1.1 establishes finite dimension iff graph clique finite, not new exponential growth base in l1",
+      "evidence": "Definition projective orthodigraph and Theorem1.1 lines 58-86.",
+      "identifier_or_url": "arXiv:2402.13416v1",
+      "material_read": "Accessible full HTML Sections1-4 including definitions and Theorem 1.1; quantitative l1 growth not located",
+      "method": "arXiv HTML primary full text, 957 indexed lines",
+      "title": "Birkhoff–James classification of norm’s properties",
+      "trigger": "potential graph-theoretic stronger coverage of clique invariant"
+    },
+    {
+      "assessment": "Potential overlap unexcluded; no whole-document noncoverage claimed",
+      "evidence": "Survey covers orthogonality graphs, so the exact exponential lower bound could conceivably appear in an uninspected subsection.",
+      "identifier_or_url": "DOI:10.1007/978-3-031-02104-6_8",
+      "material_read": "Title, abstract and bibliography only; full text unavailable",
+      "method": "Springer chapter metadata",
+      "title": "Birkhoff–James Orthogonality: Characterizations, Preservers, and Orthogonality Graphs",
+      "trigger": "2022 survey might collect norm-specific clique constructions"
+    }
+  ]
+}

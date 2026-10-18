@@ -1,13 +1,21 @@
-## Correctness
-**PASS.** The norming-functional characterization for ternary vectors is an exact if-and-only-if condition. Independent one-coordinate sign enumeration gives the moment-generating function, and Chernoff bounds both signs and both orientations. Conditioning excludes the zero vector without assuming projective collisions are edges. A finite-graph mass-merging lemma converts an upper bound on incompatible-pair probability into a lower bound on the maximum clique. The derivative factorization verifies the unique optimal ternary-product bias. The claim is an asymptotic/exact lower bound, not an assertion of exact graph clique numbers. The exact-rational verifier checks 65,708 ordered pairs through dimension five but is not an all-dimension certificate.
+# Independent mathematical audit
 
-## Originality
-**PASS on the inspected evidence, with explicit residual risk.** The 2021 mutual-orthogonality article provides a universal linear lower bound and an exponential construction for the supremum norm, which do not logically imply an exponential lower bound in real \(\ell_1^n\). The 2024 classification paper and 2021 norm-recognition paper examine projective orthodigraph structures rather than an ell-one Chernoff clique rate. Searches for taxicab, sparse signed-support, clique and duality equivalents found no coverage among inspected results. The 2022 graph survey was accessible only as an abstract; possible unindexed stronger coverage is a remaining risk. Database absence alone has not been used as a novelty proof.
+## correctness
 
-## Mathematical value
-**PASS.** Quantitative growth of mutual Birkhoff–James cliques is an established functional-analytic graph invariant; the new bound exhibits exponential rather than merely linear growth for the canonical nonsmooth \(\ell_1\) norm. The norm-specific support-functional reduction, concentration estimate and weighted graph lemma explain this qualitative change, and optimize the exponential factor within a natural distributional family. No exact-clique or universal-extremality assertion is needed for the stated value.
+PASS
 
-## Closest literature and limitations
-Arambašić–Guterman–Kuzma–Rajić–Zhilina (2021), Theorem 3.5 and Example 3.7; Guterman–Kuzma–Singla–Zhilina (2024), Theorems 1.1–1.4; the arXiv:2109.09414v1 predecessor. The 2022 survey chapter DOI 10.1007/978-3-031-02104-6_8 could not be read in full. Computed finite cases only corroborate the analytic proof. The optimal clique growth and a deterministic extremizing construction remain unknown.
+PASS. Git RESULT.md ddad38f57ac158799bd61944b64e5ee1f112931f and CHECK.py ee6ce8b5e541ccf613dc3f2362fadf06ab2c76d3 inspected. For nonzero ternary x, real l1 support functionals fix f_i=x_i where x_i !=0 and permit f_i in [-1,1] where x_i=0; therefore x perpendicular_B y iff abs(sum_{x_i!=0}x_i*y_i)<=sum_{x_i=0}abs(y_i). In iid ternary model probability rho/2 per sign, P(T=1)=rho^2/2, P(T=-1)=rho(2-rho)/2, P(T=0)=1-rho. Markov-Chernoff optimizing exp(u) gives theta(rho)=1-rho+rho*sqrt(rho(2-rho)); union of both signs and orientations has probability <=4theta^n. Condition on both samples nonzero (prob (1-(1-rho)^n)^2), treat repeated projective line as incompatible. Weighted clique-mass transfer (nonadjacent mass merger) proves incompatibility >=1/omega; hence omega_n >= (1-(1-rho)^n)^2/[4 theta^n]. Differentiating theta with t=1-rho, sqrt(1-t²) gives minimum t=1/sqrt2, theta=sqrt2-1/2. Ceiling and nth-root limit yield formula. Independently verified directed norm criterion against two half-step convex norm inequalities for ALL 64,676,6400 ordered ternary nonzero-vector pairs in n=2,3,4; checked optimizer rho~.292893 and exponential base~1.093836. Infinite dimension conclusion rests on analytic probabilistic proof, not pair enumeration.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS on bounded literature reading. The 2021 Arambasic-Guterman-Kuzma-Rajic-Zhilina full publicly presented Section 3 Example 3.7 provides 2^(n-1) mutual orthogonal directions in real/complex l_infty^n, not in l_1^n; it also proves universal linear lower bound and dimension-dependent upper bound. The 2024 Guterman-Kuzma-Singla-Zhilina primary article on orthodigraph recognition was materially read in HTML (Thm1.1 and Section1 context): it describes finite clique number/dimension classification, not this l1-specific exponential lower bound. Duality does not preserve two-sided BJ relation on primal projective lines, so the l_infty result is not a hidden l1 implication. Still, a 2022 survey chapter was only bibliographically accessible, and Resultary was unavailable.
+
+## value
+
+PASS
+
+PASS. Exponential existence of mutual Birkhoff-James orthogonal projective directions in the canonical real l1^n spaces improves dramatically on universal linear-in-n examples; it distinguishes primal l1 from known dual l_infty constructions and establishes a concrete asymptotic invariant for the natural orthodigraph. The optimized ternary Chernoff construction and weighted graph clique argument are mathematically motivated. No claim to exact omega_n, optimal exponent, or explicit complete classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
