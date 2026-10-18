@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T13:59:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The GP(10,2) ordinary edge-matching complex contains 111375 nonempty faces with all face-size counts (1,30,375,2540,10155,24474,34805,27300,10260,1400,36). Fresh execution of inspected verify_morse.py at exact frozen SHA reproduced all 10 unique-path cancellations, 55626 acyclic matching pairs, critical cells one 0-cell, five 5-cells, 117 6-cells, 666330 Hasse incidences and a signed zero 5x117 integral boundary. The 5-skeleton is wedge5 S5, Hurewicz pi5≅H5 means all six-cell attaching maps null. The F2 code was read, not independently rerun. This establishes integral homotopy rather than just mod-2 Betti numbers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Engström 2005 Theorem 2.8 and Sections 2-3 concern claw-free independence-complex reductions and connectivity; no dodecahedral exact wedge.",
+          "Bayer–Jelić Milutinović–Vega arXiv:2411.04601 Theorem 2: matching complexes of nonempty OUTERPLANAR graphs are contractible or wedges; dodecahedron contains cycles and is 3-vertex-connected, not outerplanar."
+        ],
+        "reasoning": "Claw-free connectivity estimates and an outerplanar wedge theorem neither establish this nonouterplanar matching complex integral attaching-degree matrix nor its exact multiplicities.",
+        "searches": [
+          "arXiv:math/0512420 independence complexes of claw-free graphs line graph",
+          "arXiv:2411.04601 matching complexes outerplanar graphs",
+          "Resultary search on matching complexes and dodecahedron"
+        ]
+      },
+      "checked_sources": [
+        "GitHub: assigned exact commit RESULT.md sha 5dea8b36cc8ac9780a2324b62c775345e59d89fb; verify_morse.py sha 07f5c7dce43652e1ca68650030dec4edcfadd582; verify_independent.py sha a2869bcd9e967e44e0b1da07c0da9dd69c05950f",
+        "Resultary/2026 exact 2026/10/4 same-object RESULT.md full read",
+        "arXiv:2411.04601 PDF Theorem 2",
+        "arXiv:math/0512420 PDF Theorem 2.8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier F2 homology follows from the asserted integral wedge via coefficient reduction, but not conversely; higher attaching maps can be nontrivial with same Betti numbers.",
+          "The explicit 55626 Morse pairs, critical cells (1,5,117) and integral zero boundary eliminate that gap."
+        ],
+        "reasoning": "Only the implication from new to prior is valid; the prior F2 computation cannot imply the stronger homotopy statement.",
+        "searches": [
+          "Resultary dodecahedral homology same-object full RESULT.md",
+          "Engström 2005 complete PDF",
+          "Bayer 2024/2026 complete PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier identical graph and ordinary edge matching complex has only F2 reduced Betti ranks 5 in degree 5 and 117 in degree 6; finite list 111375 faces.",
+          "The graph-vertex independence complex of GP(10,2) is a different simplicial complex from edge matchings."
+        ],
+        "reasoning": "The primary alias M(GP(10,2))=Ind(line graph of GP(10,2)) has a known homology calculation, not its integral homotopy decomposition; Resultary same-day exact wedge item is the focal result itself.",
+        "searches": [
+          "Resultary search: homotopy type integral matching complex dodecahedral graph GP(10,2) wedge 5 117 critical cells discrete Morse",
+          "GitHub read Resultary 2026/10/4/SCOPE-mod-2-homology-of-the-dodecahedral-matching-complex--0f7a788bfafc/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published 2026/10/4 result explicitly restricts to mod-2 homology and excludes integral homology or homotopy type.",
+          "Present new finding supplies a complete acyclic matching with zero integral signed Morse boundary."
+        ],
+        "reasoning": "Exact same-object published table concerns F2 Betti numbers. No verified earlier table of integral wedge attaching maps was found; search absence alone is not novelty proof.",
+        "searches": [
+          "Resultary same-object matching complex mod-2 homology 2026/10/4 0f7a788bfafc",
+          "Resultary semantic search GP(10,2) integral wedge 5 117"
+        ]
+      },
+      "rationale": "Full signed integral discrete-Morse wedge is stronger than exact same-object earlier F2 Betti ranks. No found general matching-complex theorem or Resultary result proves both attaching maps and multiplicities. Same-day Resultary index item is this very assigned finding, not independent prior art.",
+      "residual_risks": [
+        "An unindexed integral homotopy computation under line-graph or dodecahedron terminology remains possible.",
+        "The current independent replay used the Morse script; the separate F2 script was inspected but not rerun in this run; no claim that mod-two alone proves homotopy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING integral homotopy; explicitly states no torsion/homotopy conclusion",
+          "evidence": "F2 chain boundary ranks and limitations text explicitly exclude stronger claim.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-mod-2-homology-of-the-dodecahedral-matching-complex--0f7a788bfafc/RESULT.md",
+          "material_read": "Entire RESULT.md finding, proof, verification, scope and limitations",
+          "method": "GitHub fetch_file exact result blob 2dab9f8dc616462059ae03e3a22fb443f93b57aa",
+          "title": "Mod-2 homology of the dodecahedral matching complex",
+          "trigger": "exact graph and same Betti ranks"
+        },
+        {
+          "assessment": "NOT_COVERING: requires outerplanar underlying graph",
+          "evidence": "Theorem 2 outerplanar G, unlike 3-connected dodecahedron.",
+          "identifier_or_url": "https://arxiv.org/pdf/2411.04601",
+          "material_read": "Theorem 2, hypotheses, proof reduction in full nine-page PDF",
+          "method": "open PDF, text find Theorem 2 and review scope",
+          "title": "Matching Complexes of Outerplanar Graphs",
+          "trigger": "potential broad family homotopy theorem"
+        },
+        {
+          "assessment": "NOT_COVERING exact GP(10,2) homotopy",
+          "evidence": "Connectivity bounds and general reductions do not give wedge multiplicities or integral Morse differential.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0512420",
+          "material_read": "Eight-page paper sections 2-3, Theorem 2.8, connectivity arguments",
+          "method": "open PDF and inspect theorem/reduction statements",
+          "title": "Independence complexes of claw-free graphs",
+          "trigger": "line-graph independence equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Homotopy of the ordinary matching complex of the canonical dodecahedral cubic graph is a natural exact topological invariant. Its nontrivial integral attaching-map question remained open after an exact same-object F2 Betti table; the explicit Morse model resolves this gap and may support further equivariant/generalized-Petersen comparisons. This is more than a known-table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed integral homotopy computation under line-graph or dodecahedron terminology remains possible.",
+    "The current independent replay used the Morse script; the separate F2 script was inspected but not rerun in this run; no claim that mod-two alone proves homotopy.",
+    "No independent expert attestation or Lean proof claimed.",
+    "Publication is withheld; assessment is a private scientific change-set, not an issued public certificate."
+  ],
+  "schema_version": 1
+}

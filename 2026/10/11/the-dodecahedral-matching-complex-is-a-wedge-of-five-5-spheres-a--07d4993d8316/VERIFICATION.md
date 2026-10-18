@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_morse.py` and `python3 verify_independent.py` in a directory containing the two supplied programs. Only the Python 3 standard library is required.
+## correctness
 
-The first program reconstructs the 20-vertex, 30-edge dodecahedral graph and its 111376 matching masks including the empty mask, constructs an explicit acyclic Morse matching on the ordinary 111375 nonempty faces, counts 55626 pairs, and verifies all 666330 codimension-one incidences by topological sort. It checks the complete critical vector, including the one vertex, the five five-cells and the 117 six-cells, and calculates the zero signed Morse boundary matrix \(\partial_6\) of size \(5\times117\). Each cancellation is chosen only after counting unique directed gradient paths.
+PASS
 
-The second program uses a distinct vertex-deletion recurrence for the matching polynomial and an independent full augmented mod-two simplicial boundary computation. The resulting reduced homology ranks are 5 in degree 5 and 117 in degree 6. The mod-two computation alone does not certify integral torsion-freeness or the homotopy type; those follow from the explicit acyclic matching plus signed boundary analysis.
+The GP(10,2) ordinary edge-matching complex contains 111375 nonempty faces with all face-size counts (1,30,375,2540,10155,24474,34805,27300,10260,1400,36). Fresh execution of inspected verify_morse.py at exact frozen SHA reproduced all 10 unique-path cancellations, 55626 acyclic matching pairs, critical cells one 0-cell, five 5-cells, 117 6-cells, 666330 Hasse incidences and a signed zero 5x117 integral boundary. The 5-skeleton is wedge5 S5, Hurewicz pi5≅H5 means all six-cell attaching maps null. The F2 code was read, not independently rerun. This establishes integral homotopy rather than just mod-2 Betti numbers.
 
-The computation and conclusion concern this fixed finite graph and the ordinary matching complex only. The bibliography search is not a proof of uniqueness, and an indexed prior mod-two source could not be read in full through the attempted retrieval paths. No independent audit or external certification is asserted.
+## originality
+
+PASS
+
+Full signed integral discrete-Morse wedge is stronger than exact same-object earlier F2 Betti ranks. No found general matching-complex theorem or Resultary result proves both attaching maps and multiplicities. Same-day Resultary index item is this very assigned finding, not independent prior art.
+
+## value
+
+PASS
+
+Homotopy of the ordinary matching complex of the canonical dodecahedral cubic graph is a natural exact topological invariant. Its nontrivial integral attaching-map question remained open after an exact same-object F2 Betti table; the explicit Morse model resolves this gap and may support further equivariant/generalized-Petersen comparisons. This is more than a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
