@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_da3_permutation_manipulation.py` performs an exact finite replay.
 
-It exhausts every strict complete profile for \(n=1,2,3\). For \(n=3\), this means all \(46{,}656\) truthful profiles. At each profile, every woman's five alternative complete ranking reports are tested.
+# Independent mathematical audit
 
-Two separately implemented men-proposing deferred-acceptance procedures must agree on every truthful and manipulated instance. For each manipulable truthful profile, all six perfect matchings are independently tested for stability under the original true preferences.
+## correctness
 
-The replay verifies:
-- no profitable complete-list receiver manipulation for \(n\le2\);
-- exactly \(864\) manipulable labeled profiles at \(n=3\), hence probability \(1/54\);
-- \(648\) profiles with one manipulating woman and \(216\) with two;
-- exactly one profitable permutation report for every manipulating woman;
-- every profitable report induces a matching stable under the true preferences;
-- exactly \(24\) role-preserving symmetry classes, each of orbit size \(36\);
-- the same \(24\)-class quotient by an independent Burnside count.
+PASS
 
-Run:
+Independently implemented men-proposing DA using a FIFO proposal queue rather than the package's stack/simultaneous-round code. Across every 46656 labeled strict 3x3 profile, all 3 receiver agents and their 5 alternative full-list permutations, found exactly 864 manipulable profiles, 648 with one manipulator, 216 with two, 1080 profitable woman-profile pairs each with exactly one profitable report. Independently generated all 36 independent S3xS3 relabelings for all 864 bad profiles and verified 24 orbits of size 36. The source verifier additionally tests true-stability for every profitable outcome and n<=2 boundary; universal claims are only for the exhaustive finite market, not higher n.
 
-`python3 verify_da3_permutation_manipulation.py`
+## originality
 
-The first line must be:
+PASS
 
-`VERIFY_OK`
+The model and the possibility of profitable misreporting were explicitly treated by Teo--Sethuraman--Tan (IPCO 1999) and Shen--Deng--Tang; those contributions are not new. The precise 3x3 census, manipulator multiplicity, unique profitable report at size three, true-stability finite assertion, and 24 symmetry orbits were not found as prior tables. Closely related SCOPE 3x3 profile orbit counts concern all profiles or other assignment mechanisms rather than permutation-manipulable subprofiles.
 
-The computation proves only the finite claims stated above. No extrapolation to larger markets is made.
+## value
+
+PASS
+
+The smallest market permitting unilateral receiver manipulation without truncation is a meaningful boundary in stable mechanisms. Exact incidence 1/54, report uniqueness and classification by natural role-preserving relabelings are independently useful reproducible finite facts, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

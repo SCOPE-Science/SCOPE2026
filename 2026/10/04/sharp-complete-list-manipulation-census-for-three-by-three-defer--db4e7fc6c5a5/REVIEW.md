@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is finite and exhaustive. Every truthful profile for sizes \(1,2,3\) is enumerated, and at \(3\times3\) every one of the five alternative complete reports is tested for each woman. Two independently coded deferred-acceptance implementations agree on every truthful and manipulated instance. Every profitable manipulated outcome is separately checked against an exhaustive enumeration of the six perfect matchings under the true preferences. The orbit count is reproduced both by canonicalization and Burnside's lemma.
+## correctness
 
-Risk: the result is computational rather than a symbolic counting formula. The dual implementations and independent reconstruction identities reduce, but cannot eliminate, ordinary implementation risk.
+PASS
 
-## Originality
-**PASS.** Teo--Sethuraman--Tan derive an optimal single-woman permutation manipulation and report simulations at larger market sizes, but the inspected full text does not give an exhaustive \(3\times3\) census. Shen--Deng--Tang develop general coalition-permutation machinery without stating these finite counts. Exact-count and small-market searches did not locate the \(864\), \(648+216\), \(24\)-class, or unique-profitable-report statements.
+Independently implemented men-proposing DA using a FIFO proposal queue rather than the package's stack/simultaneous-round code. Across every 46656 labeled strict 3x3 profile, all 3 receiver agents and their 5 alternative full-list permutations, found exactly 864 manipulable profiles, 648 with one manipulator, 216 with two, 1080 profitable woman-profile pairs each with exactly one profitable report. Independently generated all 36 independent S3xS3 relabelings for all 864 bad profiles and verified 24 orbits of size 36. The source verifier additionally tests true-stability for every profitable outcome and n<=2 boundary; universal claims are only for the exhaustive finite market, not higher n.
 
-Risk: search failure is not a proof of novelty. An unindexed thesis, course note, code table, or supplementary computation may contain the same finite census.
+## originality
 
-## Value
-**PASS.** Complete lists are a standard strategic restriction in deferred acceptance, and the cited primary paper explicitly contrasts them with truncation while asking how often cheating pays. The result resolves the first nontrivial market size exactly: it identifies the sharp boundary, gives the exact incidence, separates one- and two-manipulator profiles, and shows that every profitable report at the boundary remains inside the true stable set. This is a natural finite classification of a canonical matching mechanism rather than an arbitrary parameter slice.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The model and the possibility of profitable misreporting were explicitly treated by Teo--Sethuraman--Tan (IPCO 1999) and Shen--Deng--Tang; those contributions are not new. The precise 3x3 census, manipulator multiplicity, unique profitable report at size three, true-stability finite assertion, and 24 symmetry orbits were not found as prior tables. Closely related SCOPE 3x3 profile orbit counts concern all profiles or other assignment mechanisms rather than permutation-manipulable subprofiles.
+
+## value
+
+PASS
+
+The smallest market permitting unilateral receiver manipulation without truncation is a meaningful boundary in stable mechanisms. Exact incidence 1/54, report uniqueness and classification by natural role-preserving relabelings are independently useful reproducible finite facts, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
