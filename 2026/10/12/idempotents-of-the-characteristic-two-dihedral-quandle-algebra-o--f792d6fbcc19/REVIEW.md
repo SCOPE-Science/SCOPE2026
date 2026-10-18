@@ -1,11 +1,21 @@
-# Review of the characteristic-two \(R_8\) idempotent classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof first classifies the idempotents in the four-point quotient and then solves, coefficient by coefficient, the obstruction to lifting them through the two-to-one dihedral covering. In particular, the difference of two coefficient equations forces \(h=0\), after which \(t(t+1)=0\) forces precisely two even-parity quotient bases; parity translation gives the other two. The all-fields argument is algebraic. A dependency-free checker verifies all eight formal residual-polynomial identities and exhaustively compares the predicted and actual idempotent sets over \(\mathbb F_2\) and \(\mathbb F_4\).
+## correctness
 
-**Originality — PASS, with a specified residual risk.** Sangare–Ta, arXiv:2608.01550v1, Proposition \(3.11\), is for commutative quandles, whereas \(R_8\) is noncommutative; its other dihedral analysis concerns automorphisms and commutator widths. Elhamdadi–Nunez–Singh–Swain, arXiv:2204.11288v1, Theorem \(4.3\), requires a quotient with only trivial idempotents, unlike \(K[R_4]\) here. Their Corollary \(4.4\) treats the odd-half even-dihedral orders. The later integral-ring Fourier article arXiv:2609.03799v1 was available only in abstract and is a residual comparison risk; no full-text noncoverage conclusion is asserted. Relevant semantic mathematical-record searches found an \(R_3\) characteristic-three classification, not this characteristic-two \(R_8\) result.
+PASS
 
-**Value — PASS.** This is a complete, natural invariant for the first larger power-of-two dihedral quandle algebra, valid over arbitrary characteristic-two fields. More than a count, it identifies four affine irreducible set-theoretic components and gives a sharp lifting obstruction: among the \(1+2q^2\) quotient idempotents, only five admit idempotent lifts, and each of the four nonzero lift fibers has \(q^3\) members. This provides concrete structure for later quandle-algebra symmetry and covering questions. It does not imply a result for arbitrary dihedral order.
+For quandle multiplication e_i e_j=e_(2j-i mod8), the reduction pi:R8→R4 is an algebra homomorphism. The characteristic-2 kernel is a right annihilator, so zero has only zero idempotent lift. Classifying R4 idempotents by even/odd coefficient sums yields the two disjoint affine two-planes downstairs. Direct expansion of any lift in the even family gives residual coefficients E0=h(t+1)+t²+t and E2=ht+t²+t, whose difference is h; hence h=0 and t in {0,1}, and the remaining odd equation imposes one free-variable equality. Translation by one yields two odd basis lifts, four affine three-spaces W0/W1 plus zero. This is an all-characteristic-two-fields symbolic proof, independently checked by enumerating every F2^8 and F4^8 coefficient tuple (33 and 257 actual idempotents) and predicted four affine fibers.
 
-**Limitations and risks.** The argument relies on field arithmetic in characteristic two. Finite computations do not replace the displayed symbolic proof. Historical equivalent formulations remain possible, and the full 2026 Fourier article was not inspected. The review is not independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact R8 characteristic-two affine-fiber classification is not implied by the 2022 covering theorem: it assumes the quotient quandle ring has only trivial idempotents, while K[R4] has 1+2q². Its even-order corollary is for R_(2n) with odd n, not 8. Sangare–Ta characteristic-two claim assumes commutative quandles, and R8 is noncommutative. The 2026 Fourier study could still contain unadvertised characteristic-two implications; abstract-only access and Oxford VPN block remain a residual risk rather than an automatic originality failure.
+
+## value
+
+PASS
+
+This is the natural complete idempotent locus of the first nontrivial higher power-of-two dihedral quandle algebra in characteristic two. Four affine three-dimensional components and the exact failure of most R4 idempotents to lift give a meaningful covering/lifting obstruction, stronger than the finite-field number 1+4q³ alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
