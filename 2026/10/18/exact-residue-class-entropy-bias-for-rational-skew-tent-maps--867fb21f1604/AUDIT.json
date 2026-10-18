@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Uniform stationary law follows from Lebesgue invariance. Every full input cell produces exact row entropy e_s(j), and the unique straddling cell has the explicitly derived two-branch overlapping output masses u_k. The resulting finite N formula, e_s(j+s)=e_s(j), and exact N-to-N+L recurrence establish all quantifiers. Symbolic simplification of the (1,4) row probabilities gives C4=(2/25) log(32/27)>0; a one-state partition gives C1=-H∞. Exact Fraction-matrix checker independently confirms finite cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yano Theorem 4.1 (arXiv:1205.1848v2) proves limiting entropy for a broader piecewise-linear class but does not imply the explicit finite resolution phase constants without further geometry.",
+        "MacKernan and Nicolis, Phys Rev E 50 (1994), 988-999: abstract and accessible excerpt concern spectra of Perron-Frobenius operators over Markov partitions rather than independent resampling entropies."
+      ],
+      "reasoning": "The broader asymptotic theorem covers the limit H∞, which is fully credited, but no finite-N uniform identity or exact above-limit subsequence is contained in its theorem statement. Operator-spectrum and deterministic coding results have different observables.",
+      "searches": [
+        "\"piecewise linear\" \"coarse graining\" \"entropy\" \"periodic\" Markov skew tent finite",
+        "\"Yano\" \"entropy\" \"coarse graining\" \"oscillations\" tent",
+        "\"skew tent\" \"coarse graining\" \"entropy\" \"finite\" Markov chain"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1205.1848v2 (primary full text)",
+      "arxiv:1205.1848 (first-public v1 metadata)",
+      "doi:10.1103/PhysRevE.50.988 (abstract/excerpt only)",
+      "doi:10.1063/1.3491097 (index only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yano Equations (4.20)-(4.27) express entropy within a cell wholly contained in one linearity interval.",
+        "Yano Equations (4.36)-(4.37) bound all boundary cells by a vanishing asymptotic contribution; this does not determine the exact boundary-cell row masses needed for C_r.",
+        "The proof of the present finite-N recurrence explicitly counts that omitted crossing cell and uses arithmetic translation of both branch cell patterns."
+      ],
+      "reasoning": "The limiting theorem plus its complete-cell entropy formula does not state the finite-N equality. An exact finite-resolution result could be derived by additional counting using the same machinery, but it is not a special case of a stronger finite-resolution theorem identified in inspected material. Strong conceptual dependence on Yano is acknowledged.",
+      "searches": [
+        "arxiv:1205.1848 Yano Theorem 4.1 Eq 4.27 Section 5",
+        "\"Entropy of random chaotic interval map with noise\" \"rate\" convergence finite skew tent",
+        "\"coarse-graining\" \"Shannon entropy\" \"rational slope\" \"modulo\" interval map"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yano arXiv:1205.1848v2 Section 4 and Section 5 discuss N→infinity but not the exact N-modulo-(p+q) error.",
+        "The finite resolution N classes have a unique exceptional turning cell, whose exact overlap masses are absent from the limiting calculation."
+      ],
+      "reasoning": "Any equivalent result must concern the uniform-within-cell re-sampling Markov chain, not threshold symbol coding or standard deterministic entropy. The relevant primary theorem gives a limit rather than the finite-N periodic identity or the sign reversal.",
+      "searches": [
+        "skew tent map rational branches Yano finite-N entropy convergence rate residue class periodic 1/N",
+        "rational skew tent map grid entropy approach to limit from above below N modulo p+q",
+        "\"skew tent\" \"coarse-graining\" \"entropy\" corrections N"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper tabulates the limiting rational-slope entropy as a rational finite sum in Equation (5.5), but not the N-resolved table C_r.",
+        "Search results nearest in wording concern finite-cutoff zeta functions of unrelated countable maps and entropy of other coded systems, not this transition kernel."
+      ],
+      "reasoning": "Neither a known-table recomputation nor a parameter renaming: the exact resolution-dependent crossing-cell overlap and finite bias classes are new observables relative to the inspected primary tables.",
+      "searches": [
+        "Yano coarse-grained entropy skew tent maps finite N Markov entropy rational branch slopes residue periodic error overshoot",
+        "exact 1/N oscillatory finite-size Shannon entropy for rational piecewise linear interval maps and Markov resampling",
+        "\"Kouji Yano\" \"finite\" \"skew tent\" \"entropy\""
+      ]
+    },
+    "rationale": "Yano proves the fine-graining limiting entropy and computes complete-cell row entropies; the exact every-N residue recursion, explicit turning-cell mass formula, optimal 1/N error, and strictly positive above-limit congruence class are not stated in the inspected full text. Related coarse-graining spectral studies address different invariants. Residual risk of unindexed older finite-size derivations remains.",
+    "residual_risks": [
+      "Unindexed follow-up or earlier finite-grid skew-tent entropy derivations could contain the same exact residue law.",
+      "Not all potentially relevant partition-coding and coarse-graining papers had accessible full text.",
+      "The recurrence follows from additional finite-cell bookkeeping close to Yano; priority/value depend specifically on the all-resolution bias and strict overshoot, not the already known limit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes H∞ and the complete-cell formula, but not the exact N-modulo-L error or overshoot identity.",
+        "evidence": "Theorem 4.1, (4.27), (4.36)-(4.38), (5.1)-(5.5).",
+        "identifier_or_url": "https://arxiv.org/pdf/1205.1848",
+        "material_read": "Full 11-page PDF, focusing on Section 2 definition, Theorem 4.1 and proof pages 5-9, and Section 5 pages 9-10; page 5 visually checked.",
+        "method": "Read full arXiv PDF text and checked rendered mathematical page; compared definitions, finite-cell formula, boundary treatment and conclusions.",
+        "title": "Entropy of random chaotic interval map with noise which causes coarse-graining",
+        "trigger": "Identical map family and resampled Markov entropy"
+      },
+      {
+        "assessment": "Spectral and Ruelle zeta invariants for Markov partitions differ from the N-cell resampling entropy; incomplete full-text access leaves a limited priority risk.",
+        "evidence": "1994 Phys Rev E 50:988-999 abstract and introductory excerpts about Perron-Frobenius spectra.",
+        "identifier_or_url": "doi:10.1103/PhysRevE.50.988",
+        "material_read": "Abstract and publicly searchable excerpts; full article not inspected.",
+        "method": "Compared accessible abstract topic and model with the specified independently resampled Shannon transition kernel.",
+        "title": "Generalized Markov coarse graining and spectral decompositions of chaotic piecewise linear maps",
+        "trigger": "Plausible generic prior on Markov coarse-graining"
+      },
+      {
+        "assessment": "No exact finite-resampling entropy theorem established from accessible materials; priority uncertainty explicitly retained.",
+        "evidence": "Public bibliographic entry and subject classification 37B10/37E05.",
+        "identifier_or_url": "doi:10.1063/1.3491097",
+        "material_read": "Bibliographic abstract and index only; full paper not inspected.",
+        "method": "Compared scope of partition-induced deterministic symbolic dynamics against Markov resampling transition entropy.",
+        "title": "How does a choice of Markov partition affect the resultant symbolic dynamics?",
+        "trigger": "Potential overlap through partition dependence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "867fb21f-1604-44b9-bd39-2c155d728a72",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Finite-grid entropy from a previously studied dynamical-noise model has an exact arithmetic phase correction of optimal 1/N order, computable without asymptotic approximation. The correction reverses sign on two infinite residue classes for one natural rational skew tent map, so finite resolution can overshoot the zero-noise entropy. The structural result solves a motivated finite-resolution bias question across all rational two-branch parameters, not an arbitrary fixed numerical slice.",
+    "status": "PASS"
+  }
+}
