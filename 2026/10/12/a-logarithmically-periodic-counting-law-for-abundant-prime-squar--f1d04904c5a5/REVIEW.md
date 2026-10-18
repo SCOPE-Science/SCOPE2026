@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The prime-square excedent identity yields an exact abundance threshold by the parity of a prime versus a power of two; no endpoint is omitted. The exact prime-count formula separates at the cubic dyadic crossover and is evaluated through two geometric prime sums. The proof explicitly addresses uniformity in the phase and both tails. Differentiating the resulting phase function gives a strict interior minimum and matching boundary maxima. The independently computed divisor-sum regression checked all 274 admissible numbers through 250000 and exactly matched the formula. Finite enumeration supplies corroboration, not proof of the infinite asymptotic.
+## correctness
 
-## Originality — PASS
-The closely related 2015 prime-square excedent polynomial of Dean et al. is acknowledged as known. The inspected full paper does not count abundant inputs or derive any phase law. The closest published strict primitive-abundant phase result involves only 2-power times a first-power odd prime; the practical-number phase result counts a different predicate and bounds the repeated odd-prime layer as an error. Targeted semantic searches and comparisons uncovered no prior theorem implying the exact prime-square-abundance phase law. Earlier unindexed coverage remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-The natural first repeated-prime layer in an established excedent family has a different scale and a genuine phase-dependent main term. The sharp upper and lower accumulation constants describe a real fluctuation otherwise hidden by the leading first-power layer. The result neither claims a general abundant-number density law nor classifies higher odd-prime exponents.
+Sigma(2^a p^2)=(2^(a+1)-1)(p^2+p+1), and its excess above 2^(a+1)p^2 has sign equal to p<2^(a+1) for odd prime p; equality is impossible by parity. Splitting the exact prime-count formula at 2^(3a+2)=X gives a geometric sum of cutoffs 2^(a+1) and one of sqrt(X/2^a). PNT with geometric-tail uniformity yields A_2(X)=(X^(1/3)/log X)(F(s)+o(1)), F(s)=3*2^(1/3)*s^(-1/3)[2+(1+sqrt(2))*sqrt(s)], s in [1,8). Differentiation gives the stated min/max; a separate direct 200000-bound divisor-excess enumeration matched the cutoff and found 89 abundant members. Finite enumeration does not establish the asymptotic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Dean et al. analyze excedent values of structured prime-square integers but do not provide this exact sparse abundant-input phase count. The Resultary two-prime practical-number phase result is for a different predicate, and the primitive-abundant two-prime layer does not include squared odd-prime factors. The full cited Dean et al. PDF mathematical sections were inspected, and no equivalent phase law appeared in material read. An unindexed number-theoretic enumeration could preempt it.
+
+## value
+
+PASS
+
+This is the natural first repeated-odd-prime layer within the established 2^a p^b family. The exact dyadic oscillatory main term and distinct limsup and liminf quantify sparsity not recoverable from the overall abundant-number density or leading first-prime-power stratum, so the exact invariant has self-contained value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

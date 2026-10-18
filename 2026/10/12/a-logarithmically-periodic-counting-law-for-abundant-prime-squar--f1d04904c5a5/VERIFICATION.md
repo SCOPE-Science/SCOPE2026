@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-The included `verify.py` computes complete positive divisor sums through 250000 by a divisor sieve and independently compares all 274 prime-square candidates against the strict criterion. It reports exactly 98 abundant and 176 deficient candidates, no mismatches. The same program rederives exact prime-counting values at 12 larger input scales and computes the stationary phase and boundary constants.
+## correctness
 
-Observed console prefix:
+PASS
 
-`EXACT_CLASSIFICATION_OK bound=250000 tested=274 abundant=98 deficient=176 first=[18, 36, 72, 100, 144, 196, 200, 288, 392, 400, 576, 784]`
+Sigma(2^a p^2)=(2^(a+1)-1)(p^2+p+1), and its excess above 2^(a+1)p^2 has sign equal to p<2^(a+1) for odd prime p; equality is impossible by parity. Splitting the exact prime-count formula at 2^(3a+2)=X gives a geometric sum of cutoffs 2^(a+1) and one of sqrt(X/2^a). PNT with geometric-tail uniformity yields A_2(X)=(X^(1/3)/log X)(F(s)+o(1)), F(s)=3*2^(1/3)*s^(-1/3)[2+(1+sqrt(2))*sqrt(s)], s in [1,8). Differentiation gives the stated min/max; a separate direct 200000-bound divisor-excess enumeration matched the cutoff and found 89 abundant members. Finite enumeration does not establish the asymptotic.
 
-`PHASE_CONSTANTS smin=2.745166004061 liminf=16.196691106368 limsup=16.684681757896 boundary=16.684681757896/16.684681757896`
+## originality
 
-The finite tests and decimal approximations do not prove the asymptotic or originality. The unbounded mathematical step is the uniform prime number theorem combined with elementary geometric-tail estimates. No independent audit or validation has been performed.
+PASS
+
+Dean et al. analyze excedent values of structured prime-square integers but do not provide this exact sparse abundant-input phase count. The Resultary two-prime practical-number phase result is for a different predicate, and the primitive-abundant two-prime layer does not include squared odd-prime factors. The full cited Dean et al. PDF mathematical sections were inspected, and no equivalent phase law appeared in material read. An unindexed number-theoretic enumeration could preempt it.
+
+## value
+
+PASS
+
+This is the natural first repeated-odd-prime layer within the established 2^a p^b family. The exact dyadic oscillatory main term and distinct limsup and liminf quantify sparsity not recoverable from the overall abundant-number density or leading first-prime-power stratum, so the exact invariant has self-contained value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
