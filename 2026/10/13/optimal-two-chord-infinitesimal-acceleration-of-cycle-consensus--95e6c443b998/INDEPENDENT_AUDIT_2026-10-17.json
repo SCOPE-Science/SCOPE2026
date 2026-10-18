@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:52:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/optimal-two-chord-infinitesimal-acceleration-of-cycle-consensus--95e6c443b998/RESULT.md",
+        "Git RESULT.md blob 22c84ebe46a496f75ce0b41a5cab7aee8dd4cd1b",
+        "Frozen Git directory tree ff118ff6de8d41d9afbe78b2f6bfa875ad4dd02b, result Git blob 22c84ebe46a496f75ce0b41a5cab7aee8dd4cd1b"
+      ],
+      "rationale": "The isolated Fiedler eigenvalue mu=4 sin^2(pi/n) is doubly degenerate. Projection of edge incidence vectors onto its normalized sine/cosine eigenspace has squared norm (8/n)sin^2(pi d/n) and mutual absolute cosine determined by endpoint sums. Degenerate perturbation yields the smaller eigenvalue of H=xpp^T+(1-x)qq^T. The two-vector maximization is ab(1-c^2)/(a+b+2 sqrt(ab)c), with optimal x=(b+sqrt(ab)c)/(a+b+2 sqrt(ab)c). Parity of chord lengths and integer endpoint sums proves each global upper bound and attains it. The 2 mod 4 nonorthogonal upper bound is strictly smaller than the long-short orthogonal gain; for odd n maximal chords realize the closest discrete right angle. The isolated eigenspace and bounded updates give a uniform-in-choice O_n(eps^2) remainder. A rank-one single chord leaves one Fiedler eigenvector unchanged, so no gain. Independent numeric enumeration checked all unordered eligible chord pairs for n=4..17 against formulas, including S_6=4/7; infinite proof is the exact Fourier/parity argument.",
+      "residual_risks": [
+        "Independent computation n<=17 is corroboration, not an all-n proof; all-n proof rests on the inspected parity inequalities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh and Boyd, Upper Bounds on Algebraic Connectivity via Convex Optimization (2006), DOI:10.1016/j.laa.2006.03.006.",
+          "Ghosh and Boyd, Growing Well-Connected Graphs (2006), DOI:10.1109/CDC.2006.377282."
+        ],
+        "reasoning": "General SDP/greedy formulations address different cardinality constraints and do not logically give the explicit two-discrete-edge optimum without this parity optimization; existing single-edge results are strictly narrower.",
+        "searches": [
+          "Ghosh Boyd algebraic connectivity via convex optimization all candidate edges fixed total weight",
+          "optimal two edge chord placement cycle Laplacian algebraic connectivity spectral gap infinitesimal perturbation eigenspace"
+        ]
+      },
+      "checked_sources": [
+        "https://web.stanford.edu/~boyd/papers/pdf/growing_fast_graphs.pdf",
+        "https://web.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf",
+        "https://arxiv.org/abs/2605.24479",
+        "Resultary: Sharp spectral-demixed two-sensor frame bounds on finite cycles (2026-10-11)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Growing Well-Connected Graphs establishes a single rank-one update cannot lift a repeated Fiedler eigenvalue, which is acknowledged in submitted claim.",
+          "arXiv:2605.24479 addresses one chord, not two-chord minimax."
+        ],
+        "reasoning": "The old multiplicity lemma implies only that one chord is insufficient, not S_n or all maximizing pairs and weights. Source handles rank-two interaction and discrete endpoint parity.",
+        "searches": [
+          "Ghosh Boyd single edge repeated algebraic connectivity Fiedler eigenvalue cycle",
+          "optimal two edge chord placement cycle Laplacian algebraic connectivity spectral gap infinitesimal perturbation eigenspace"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghosh and Boyd, Growing Well-Connected Graphs (2006), DOI:10.1109/CDC.2006.377282, studies generic graph-edge growth and Fiedler multiplicity; source abstract/spectral sections.",
+          "Deng, Chang and Yang, Single-Chord Augmentation of Weighted Cycles, arXiv:2605.24479, single-chord objective only."
+        ],
+        "reasoning": "Under Fourier projection the problem is a 2-vector E-optimal-design max-min eigenvalue problem; the equivalence enables the exact derivation, but the inspected literature did not provide its discrete, two-chord full-cycle optimum.",
+        "searches": [
+          "optimal two edge chord placement cycle Laplacian algebraic connectivity spectral gap infinitesimal perturbation eigenspace",
+          "Ghosh Boyd Growing Well-Connected Graphs two edge cycle chord Fiedler multiplicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary, Sharp spectral-demixed two-sensor frame bounds on finite cycles, published finding 2026-10-11, distinct sampling vectors and frame conditioning objective.",
+          "Frozen package verified exact finite numerical n=4..17 cases; these are not a published full-size database."
+        ],
+        "reasoning": "A finite frame/sensor bound is not an exact table of optimal added cycle chords; numeric examples alone do not imply the all-n three-case theorem.",
+        "searches": [
+          "optimal two edge chord placement cycle Laplacian algebraic connectivity spectral gap infinitesimal perturbation eigenspace",
+          "Resultary finite cycle low-frequency two sensor optimal frame bound"
+        ]
+      },
+      "rationale": "The exact two-chord global optimizer and unique length/split parity pattern are not stated by the inspected generic algebraic-connectivity network-design papers or the recent single-chord cycle article. Theorem is not a rephrasing of the known one-edge multiplicity obstruction; it solves the minimum two-edge design. Best-of-knowledge priority only.",
+      "residual_risks": [
+        "A mathematically equivalent pair-of-chords spectral-frame theorem may exist in network optimization under different terminology.",
+        "Full article for the recent weighted-cycle preprint was not independently read, so its possible multiple-chord remarks remain unchecked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL PRIOR ONLY; no explicit two-chord C_n optimizer seen in inspected material",
+          "evidence": [
+            "Ghosh/Boyd 2006 treats added-edge selection generically and notes multiplicity obstruction."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/growing_fast_graphs.pdf",
+          "material_read": "The public full-text PDF introductory and method sections, graph-growing formulation and eigenvalue multiplicity discussion; PDF page rendering inspected",
+          "method": "lawful public PDF, webpage text and page screenshot",
+          "title": "Growing Well-Connected Graphs",
+          "trigger": "Same spectral edge-addition objective and repeated eigenvalue"
+        },
+        {
+          "assessment": "RELATED ONE-EDGE case; cannot assert absence of every two-edge remark in unread full text",
+          "evidence": [
+            "Single-chord result, 2026 arXiv:2605.24479."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.24479",
+          "material_read": "Accessible arXiv abstract and bibliographic/scope description only, not full text",
+          "method": "arXiv abstract",
+          "title": "Single-Chord Augmentation of Weighted Cycles for Algebraic Connectivity and Network Coherence",
+          "trigger": "Exactly same base graph and spectral objective but different number of added edges"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "The exact discrete chord-parity theorem in frozen RESULT.md at Git blob 22c84ebe46a496f75ce0b41a5cab7aee8dd4cd1b",
+        "Ghosh/Boyd 2006 generic edge-design comparison"
+      ],
+      "rationale": "Finding a cheapest pair of additional consensus links that first lifts a repeated Fiedler eigenvalue is a natural graph-design problem. The all-size closed form, parity-sensitive optimizer, and counterintuitive n=2 mod 4 shorter-chord superiority are exact, potentially reusable benchmarks, beyond a routine perturbation example.",
+      "residual_risks": [
+        "Only infinitesimal conductance is optimized; finite-budget optima can differ."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all n>=4, two nonedge chords of C_n with total conductance eps optimize the linear coefficient of lambda_2 exactly by three congruence cases: odd n: 4/n cos^2(pi/(2n))(1-sin(pi/(2n))); n divisible by four: 4/n; n=2 mod 4: (8/n) cos^2(pi/n)/(1+cos^2(pi/n)). In the third case the optimal orthogonal chords are a diameter and a length-n/2-1 chord with the shorter chord receiving the larger conductance share. Any one chord leaves lambda_2 unchanged.",
+  "limitations": [
+    "n>=4 only; unweighted undirected cycles, nonedge distinct chords, equal edge-conductance prices, epsilon->0.",
+    "No claim that the same pair optimizes a fixed non-small conductance budget."
+  ],
+  "schema_version": 1
+}
