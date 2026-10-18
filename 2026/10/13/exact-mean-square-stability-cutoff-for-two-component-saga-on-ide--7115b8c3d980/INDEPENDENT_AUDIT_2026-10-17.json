@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T13:59:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With f1=f2=L*x^2/2, s=eta*L, old cached table mean u and half-difference v, fresh fair sign sigma, standard SAGA has x'=(1-s)x+s*sigma*v, u'=(x+u-sigma*v)/2, v'=(v+sigma*(x-u))/2. The explicit quadratic V_s=(s+2)x^2/s+s(s+1)u^2+3s(s+1)v^2-2s*x*u is positive definite for every s>0 (leading coefficient (s+2)/s>0, x/u minor 3s+2>0, v coefficient 3s(s+1)>0). Independent exact symbolic expansion reproduces E[V_s(next)|state]-V_s(state)=(3s^2-4)x^2. For 0<s<2/sqrt(3), telescope negative drift to obtain sum_k E[x_k^2]<infty, hence E[x_k^2]->0; each cache second moment obeys half-old+half-E[x_k^2], hence also tends to zero. At s>=2/sqrt(3), energy is a nondecreasing nonnegative process in expectation, bounded below by V_s(initial)>0 for every nonzero deterministic state. Hypothetical E[x_k^2]->0 forces the cache moments and E[V_s] to zero, contradiction. This is an exact all-init mean-square iff result, not proof of almost-sure divergence. Finite algebra check independently verified the general symbolic identity; proof addresses arbitrary deterministic cache initialization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General algorithmic convergence bounds are sufficient step sizes; Loopless SVRG has a different refresh mechanism."
+        ],
+        "reasoning": "A sufficient general bound cannot determine this necessary-and-sufficient threshold at equality. Different cached-state transition rules mean neither SVRG frontier nor generic PEP bounds directly dominate the theorem.",
+        "searches": [
+          "Gazagnadou, Gower and Salmon arXiv:1902.00071",
+          "Taylor, Van Scoy, Lessard PMLR 80 (2018)",
+          "Resultary related Loopless SVRG 2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1407.0202",
+        "https://arxiv.org/abs/1902.00071",
+        "https://proceedings.mlr.press/v80/taylor18a.html",
+        "Resultary semantic search: two identical quadratics SAGA stochastic mean square stability exact stepsize 2/sqrt(3) critical Lyapunov energy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original SAGA algorithm replaces a selected stored gradient after the iterate step, essential to the recurrence; its convergence theorem gives a sufficient range."
+        ],
+        "reasoning": "The new closed quadratic drift expression (3s^2-4)x^2 and supercritical obstruction require analysis beyond the general sufficient statements, so the exact sharp claim is not a direct corollary of inspected prior theorems.",
+        "searches": [
+          "Defazio et al arXiv:1407.0202 Algorithm 1",
+          "Gazagnadou et al arXiv:1902.00071"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Identical gradients at different evaluation points remain distinct cached numbers; the update is a 3-dimensional random linear system and its second moment is controlled by a lifted linear map/Lyapunov matrix."
+        ],
+        "reasoning": "Searched under SAGA/memory-table, stochastic linear recurrences, Markov-jump dynamics, mean-square stability and quadratic Lyapunov terminology. The usual zero-variance at optimum shorthand does not eliminate the memory state.",
+        "searches": [
+          "Resultary semantic search: two identical quadratics SAGA stochastic mean square stability exact stepsize 2/sqrt(3) critical Lyapunov energy",
+          "Defazio et al arXiv:1407.0202 Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The principal SAGA papers tabulate recommended stepsizes/rates rather than the all-initialization 2/sqrt(3) equality boundary for n=2 identical quadratics."
+        ],
+        "reasoning": "No directly covering exact numeric phase diagram was located; this negative retrieval is only evidence of what was checked.",
+        "searches": [
+          "Resultary semantic search: two identical quadratics SAGA stochastic mean square stability exact stepsize 2/sqrt(3) critical Lyapunov energy",
+          "Defazio et al arXiv:1407.0202"
+        ]
+      },
+      "rationale": "Defazio–Bach–Lacoste-Julien define standard SAGA and give conservative convergence stepsizes; Gazagnadou–Gower–Salmon study optimized sufficient stepsizes for broader settings; Taylor–Van Scoy–Lessard explore general Lyapunov certificates. The present 2-component identical-quad exact 2/sqrt(3) iff threshold and conserved critical energy do not follow from those general guarantees in inspected sections. The related previously published two-client Loopless SVRG frontier is a different algorithm. A prior exact SAGA mean-square calculation in control literature remains a risk.",
+      "residual_risks": [
+        "Historical stability work may embed the same n=2 identical-component SAGA lifted-moment spectral-radius calculation under stochastic linear systems or integral-quadratic-constraint terminology.",
+        "The theorem is about mean-square convergence for exactly n=2, scalar identical quadratic, uniform i.i.d. sampling and update-after-step; it is not almost-sure instability or general nonlinear SAGA sharpness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_ALGORITHM; NO_EXACT_IDENTICAL_TWO_SAMPLE_MEAN_SQUARE_BOUNDARY_IDENTIFIED",
+          "evidence": "Algorithm records old iterate in selected table; general theorem provides sufficient stepsize rather than sharp 2/sqrt(3) iff.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.0202",
+          "material_read": "Introduction, Algorithm 1 and gradient table update order, relevant convergence/step-size assertions",
+          "method": "Full PDF accessed, algorithm page viewed, mathematical statements cross-checked",
+          "title": "SAGA: A Fast Incremental Gradient Method With Support for Non-Strongly Convex Composite Objectives",
+          "trigger": "Defines the exact algorithm and original available guarantees"
+        },
+        {
+          "assessment": "POTENTIAL_GENERAL_BOUND; FULL_TEXT_NOT_CLEARED",
+          "evidence": "The accessible abstract describes step optimization in general settings but not exact identical-two-component mean-square iff classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.00071",
+          "material_read": "Accessible abstract and descriptions of expected smoothness/mini-batch sufficient guarantees",
+          "method": "Bibliographic/abstract inspection; not a claim to having read all appendices",
+          "title": "Optimal Mini-Batch and Step Sizes for SAGA",
+          "trigger": "Most relevant subsequent broad stepsize analysis"
+        },
+        {
+          "assessment": "METHOD_RELATED_NOT_EXPLICIT_SPECIAL_CASE",
+          "evidence": "General Lyapunov methodology does not by itself state the exact cached SAGA system threshold.",
+          "identifier_or_url": "https://proceedings.mlr.press/v80/taylor18a.html",
+          "material_read": "Accessible paper landing and theorem overview relating Lyapunov witnesses and convergence",
+          "method": "Full accessible article landing/overview inspected",
+          "title": "Lyapunov Functions for First-Order Methods: Tight Automated Convergence Guarantees",
+          "trigger": "Possible dominating automated Lyapunov technique"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Even zero component heterogeneity does not equate SAGA to deterministic gradient descent, because separate cached evaluation points create stochastic memory error. The exact sharp stability interval (0,2/sqrt(3)) versus GD (0,2), and positive-definite critical energy, are nontrivial boundaries with relevance for step-size and table initialization analyses.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1407.0202",
+    "https://arxiv.org/abs/1902.00071",
+    "https://proceedings.mlr.press/v80/taylor18a.html",
+    "2026/10/13/exact-mean-square-stability-cutoff-for-two-component-saga-on-ide--7115b8c3d980/RESULT.md",
+    "Resultary semantic search: two identical quadratics SAGA stochastic mean square stability exact stepsize 2/sqrt(3) critical Lyapunov energy"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Historical stability work may embed the same n=2 identical-component SAGA lifted-moment spectral-radius calculation under stochastic linear systems or integral-quadratic-constraint terminology.",
+    "The theorem is about mean-square convergence for exactly n=2, scalar identical quadratic, uniform i.i.d. sampling and update-after-step; it is not almost-sure instability or general nonlinear SAGA sharpness.",
+    "No whole-package public semantic privacy clearance or full neutral replacement files; not publication-ready.",
+    "The completed review is an independently reconstructed best-of-knowledge C/O/V assessment, not external proof certification."
+  ],
+  "residual_risks": [
+    "Historical stability work may embed the same n=2 identical-component SAGA lifted-moment spectral-radius calculation under stochastic linear systems or integral-quadratic-constraint terminology.",
+    "The theorem is about mean-square convergence for exactly n=2, scalar identical quadratic, uniform i.i.d. sampling and update-after-step; it is not almost-sure instability or general nonlinear SAGA sharpness."
+  ],
+  "schema_version": 1
+}

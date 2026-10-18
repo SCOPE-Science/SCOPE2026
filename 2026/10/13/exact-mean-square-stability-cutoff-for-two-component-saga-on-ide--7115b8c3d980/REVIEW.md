@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Starting with the standard SAGA control-variate update and using \(f_1=f_2=Lx^2/2\), the mean/half-difference cache coordinates give an exact three-variable random linear recursion. The claimed quadratic \(V_s\) is positive definite for every positive normalized stepsize because its nontrivial principal determinant is \(3s+2>0\). Expanding the two possible random updates establishes
-\[
-\mathbb E[V_s(z_{k+1})\mid z_k]-V_s(z_k)
-=(3s^2-4)x_k^2.
-\]
-Below the threshold this telescopes to summability of the iterate's expected squares, and cached second moments converge by their exact averaging recurrences. At or above the threshold, expected positive energy cannot decay from any nonzero initialization, whereas mean-square iterate convergence would force all cached moments to zero. This establishes sharp necessity, including equality, rather than a numerical stability guess. The standalone exact-rational checker replays the algebraic identity.
+## correctness
 
-## Originality — PASS
-The foundational SAGA paper defines the update and gives broad sufficient convergence guarantees. A full later SAGA stepsize study derives tuning via expected smoothness and mini-batch choices. Neither establishes the exact two-identical-component mean-square stability threshold or the critical conserved energy in the material inspected. Equivalent-formulation searches using stochastic memory matrices, exact spectral thresholds, and identical-quadratic aliases found no dominating theorem. The main residual risks are older special-case stochastic incremental-gradient analyses or a Markov-jump spectral formulation that explicitly solves this same example under another name.
+PASS
 
-## Value — PASS
-The theorem isolates a mathematically motivated paradox in a fundamental stochastic optimizer: fully identical data nevertheless produce a genuine memory-induced stability loss. The exact boundary separates what is merely a conservative learning-rate guarantee from what is intrinsically necessary for mean-square convergence. An explicit zero-drift quadratic energy at the boundary gives a reusable diagnostic for cached-gradient algorithms. This is a structural necessary-and-sufficient classification of the smallest nontrivial table, not a routine substitution into a known SAGA guarantee.
+With f1=f2=L*x^2/2, s=eta*L, old cached table mean u and half-difference v, fresh fair sign sigma, standard SAGA has x'=(1-s)x+s*sigma*v, u'=(x+u-sigma*v)/2, v'=(v+sigma*(x-u))/2. The explicit quadratic V_s=(s+2)x^2/s+s(s+1)u^2+3s(s+1)v^2-2s*x*u is positive definite for every s>0 (leading coefficient (s+2)/s>0, x/u minor 3s+2>0, v coefficient 3s(s+1)>0). Independent exact symbolic expansion reproduces E[V_s(next)|state]-V_s(state)=(3s^2-4)x^2. For 0<s<2/sqrt(3), telescope negative drift to obtain sum_k E[x_k^2]<infty, hence E[x_k^2]->0; each cache second moment obeys half-old+half-E[x_k^2], hence also tends to zero. At s>=2/sqrt(3), energy is a nondecreasing nonnegative process in expectation, bounded below by V_s(initial)>0 for every nonzero deterministic state. Hypothetical E[x_k^2]->0 forces the cache moments and E[V_s] to zero, contradiction. This is an exact all-init mean-square iff result, not proof of almost-sure divergence. Finite algebra check independently verified the general symbolic identity; proof addresses arbitrary deterministic cache initialization.
 
-## Scope and limits
-The proof covers two equal scalar strongly convex quadratic components, uniform independent sampling, exact standard nonproximal SAGA updates, and arbitrary deterministic initial cached points. It does not assert almost-sure behavior at or beyond the threshold, nor an immediate extension to other objectives, dimensions, or sampling rules.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Defazio–Bach–Lacoste-Julien define standard SAGA and give conservative convergence stepsizes; Gazagnadou–Gower–Salmon study optimized sufficient stepsizes for broader settings; Taylor–Van Scoy–Lessard explore general Lyapunov certificates. The present 2-component identical-quad exact 2/sqrt(3) iff threshold and conserved critical energy do not follow from those general guarantees in inspected sections. The related previously published two-client Loopless SVRG frontier is a different algorithm. A prior exact SAGA mean-square calculation in control literature remains a risk.
+
+## value
+
+PASS
+
+Even zero component heterogeneity does not equate SAGA to deterministic gradient descent, because separate cached evaluation points create stochastic memory error. The exact sharp stability interval (0,2/sqrt(3)) versus GD (0,2), and positive-definite critical energy, are nontrivial boundaries with relevance for step-size and table initialization analyses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
