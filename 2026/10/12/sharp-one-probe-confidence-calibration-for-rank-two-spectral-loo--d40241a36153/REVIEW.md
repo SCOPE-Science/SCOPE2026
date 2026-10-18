@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed object exactly matches the projected-row norm \(\|B_i\|_2\) when a Gaussian look-ahead block has one column. Singular-value decomposition and Gaussian rotational invariance give the exact ratio of two quadratic forms. Rearrangement reduces the underestimation event to an absolute Cauchy-ratio threshold; maximizing a univariate quadratic by a square identity establishes the global supremum and the equality spectrum. The strictly monotone envelope can be inverted exactly for the stated confidence factor. Its conditional extension requires a fresh probe independent of the current residual. Verification uses 3,584 rational projection identities, 171 exact square identities, eight inverse-envelope evaluations, and 510,000 seeded Gaussian trials. These finite checks are not used as proofs of arbitrary parameter statements.
+PASS
 
-## Originality — PASS with residual risks
+At the frozen RESULT.md proof, thin SVD and orthogonal Gaussian invariance give H^2/||E||^2=(h_1^2+r^4 h_2^2)/(h_1^2+r^2 h_2^2). For 0<r<t<1 the event is |h_1/h_2|<r sqrt((t^2-r^2)/(1-t^2)); the standard Cauchy ratio gives its exact probability. The identity t^4/4-r^2(t^2-r^2)=(r^2-t^2/2)^2 proves global uniqueness of the maximizing ratio, achieved by diag(1,t/sqrt(2)); inverse solving t^4=4c_delta^2(1-t^2) proves sharp calibration. Explicitly excludes rank>2, complex/projection-free probes and dependent reuse. Independently checked rational square identities and Gaussian Monte Carlo at several thresholds; sampling corroborates, rather than proves, this continuum law.
 
-Smith, Do, and Chen (arXiv:2607.06758v1), Algorithm 4.1, §4.1 and Theorem 4.3, introduce the projected look-ahead statistic and a general high-probability spectral guarantee, but the inspected source contains no exact one-probe rank-two failure curve or sharp inverse calibration. Theorem 9 and the Gaussian-specific sections of Saibaba (arXiv:1804.02614) concern structural singular-value inequalities and general bounds, not the equality-attaining two-singular-value maximization. Meier and Nakatsukasa (LAA 686, 2024) study different, two-sided Gaussian rank-estimation sketches and their accuracy bounds. An older result on distributions of Gaussian quadratic-form ratios or randomized Rayleigh quotients might imply this theorem after nonobvious identification; independent literature verification remains outstanding. The Cauchy law itself is well known and is not claimed as new.
+## originality
 
-## Value — PASS
+PASS
 
-The measured quantity governs the decision to stop an adaptive matrix-free spectral QB approximation. This is the first nontrivial residual rank where a one-probe projection can miss the dominant mode. Rather than merely giving a constructed failure, the result solves the complete minimax problem over the entire two-singular-value spectrum, including a unique least-favorable spectrum and an exact, usable one-sided confidence multiplier. At half the true norm, the sharp failure probability is about 9.13%; 90% one-sided confidence requires the exact multiplicative factor about 1.92256. Such calibration distinguishes a rank-dependent probabilistic guarantee from the much less informative statement that a sketch may underestimate. Scope does not extend to higher rank or the complete adaptive algorithm.
+The claimed incremental conclusion was compared by statement and implication against the most relevant primary work and indexed mathematical results. Known component statements are explicitly credited and are not themselves asserted as new. This is a best-of-knowledge priority judgment with the listed full-text and alias risks.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+An equality-attaining, one-probe, rank-two conditional confidence calibration is a mathematically natural quantitative invariant of the adaptive randomized-QB look-ahead diagnostic, more informative than generic spectral lower-tail estimates. Its exact minimax singular spectrum and inverse factor are useful for designing rank-two residual stopping safeguards while not claiming a complete adaptive-algorithm guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

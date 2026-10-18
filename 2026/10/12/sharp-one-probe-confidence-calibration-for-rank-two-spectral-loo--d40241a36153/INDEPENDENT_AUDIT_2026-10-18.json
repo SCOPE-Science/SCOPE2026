@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T10:55:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/sharp-one-probe-confidence-calibration-for-rank-two-spectral-loo--d40241a36153/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/sharp-one-probe-confidence-calibration-for-rank-two-spectral-loo--d40241a36153/verify.py",
+        "/mnt/data/independent_scope03_checks_1038.py (private independent nonpublication workfile)"
+      ],
+      "rationale": "At the frozen RESULT.md proof, thin SVD and orthogonal Gaussian invariance give H^2/||E||^2=(h_1^2+r^4 h_2^2)/(h_1^2+r^2 h_2^2). For 0<r<t<1 the event is |h_1/h_2|<r sqrt((t^2-r^2)/(1-t^2)); the standard Cauchy ratio gives its exact probability. The identity t^4/4-r^2(t^2-r^2)=(r^2-t^2/2)^2 proves global uniqueness of the maximizing ratio, achieved by diag(1,t/sqrt(2)); inverse solving t^4=4c_delta^2(1-t^2) proves sharp calibration. Explicitly excludes rank>2, complex/projection-free probes and dependent reuse. Independently checked rational square identities and Gaussian Monte Carlo at several thresholds; sampling corroborates, rather than proves, this continuum law.",
+      "residual_risks": [
+        "Finite exact checks are bounded and are not substituted for the explicitly reconstructed infinite proof or analytic distribution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Smith–Do–Chen analyze the same projected B_i norm and a general high-probability adaptive QB bound, but do not give this attained rank-two CDF.",
+          "Saibaba supplies randomized subspace singular-value bounds; Meier–Nakatsukasa treat Gaussian two-sided numerical-rank sketches with a different estimator."
+        ],
+        "reasoning": "Neither more general rank/model coverage nor a nonsharp tail inequality logically implies equality of this exact one-probe minimax probability. Same statistic in the closest paper was checked.",
+        "searches": [
+          "arXiv:2607.06758v1 §4.1 Algorithm 4.1 Theorem 4.3",
+          "arXiv:1804.02614 Theorem 9",
+          "DOI:10.1016/j.laa.2024.01.001"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/sharp-one-probe-confidence-calibration-for-rank-two-spectral-loo--d40241a36153/RESULT.md",
+        "arXiv:2607.06758v1",
+        "arXiv:1804.02614",
+        "DOI:10.1016/j.laa.2024.01.001"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior overall pruned-output spectral guarantee uses an auxiliary probabilistic projection constant; its statement neither identifies r=t/sqrt(2) as worst-case nor yields Phi(t) with equality.",
+          "The source forward-only sketch indicator ||E Omega|| differs in scale and distribution and is not interchangeable with ||q^T E||."
+        ],
+        "reasoning": "Compared actual random-variable definitions and implication direction; the new exact diagnostic calibrator is not a formal specialization of a prior upper bound whose constants are not sharp.",
+        "searches": [
+          "arXiv:2607.06758v1 Theorem 4.3 versus exact rank-two conditional probability",
+          "Saibaba 2019 canonical angles randomized subspace iteration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rank-two SVD ratio turns the statistic into a ratio of two independent Gaussian quadratic forms; its exact lower-tail is an absolute-Cauchy event.",
+          "Relevant semantic hits concerned other randomized sketch or rank-one operator optimizations, not this exact H statistic."
+        ],
+        "reasoning": "Searched projected-block, one-probe, Cauchy-ratio and conditional-confidence aliases rather than matching titles. Generic Gaussian ratio knowledge does not itself include the threshold-optimal spectrum and inverse-confidence claim.",
+        "searches": [
+          "Resultary semantic: one probe Gaussian randomized QB projected row spectral norm rank two exact worst case Cauchy underestimation probability",
+          "rank-two Cauchy ratio normalized Gaussian projection exact spectral underestimation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is a continuum minimax over t in (0,1) and rank-two singular ratios; no finite lookup table can certify its all-t sharpness.",
+          "The source paper describes experiment and general bounds rather than a table of this exact conditional distribution."
+        ],
+        "reasoning": "An exact probability law and inverse calibration cannot be replaced by numerical probabilities at a few thresholds; no pertinent complete formula/table was found.",
+        "searches": [
+          "rank-two one-probe Gaussian Cauchy spectral projection minimax probability table",
+          "arXiv:2607.06758v1 table/Algorithm 4.1"
+        ]
+      },
+      "rationale": "The claimed incremental conclusion was compared by statement and implication against the most relevant primary work and indexed mathematical results. Known component statements are explicitly credited and are not themselves asserted as new. This is a best-of-knowledge priority judgment with the listed full-text and alias risks.",
+      "residual_risks": [
+        "Unindexed exact Gaussian ratio distribution optimization for an equivalent one-probe projected estimator remains possible.",
+        "Only fresh independent real Gaussian one-column probes at residual rank exactly two; not the stopping probability for a full adaptive QB algorithm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same indicator appears, but its exact rank-two one-column law and minimax inverse factor are not established in the inspected work",
+          "evidence": "Projected norm ||B_i||_2 with B_i=Q_i^T E_{i-1}; probabilistic factor eta in overall approximation guarantee.",
+          "identifier_or_url": "arXiv:2607.06758v1 https://arxiv.org/pdf/2607.06758",
+          "material_read": "Entire accessible 25-page primary manuscript; especially §4.1, Algorithm 4.1, Theorem 4.3 and forward-only Algorithm 4.3",
+          "method": "Read PDF text and checked relevant theorem, algorithm definitions and examples; visually inspected a PDF page",
+          "title": "Adaptive, Matrix-Free Low-Rank Approximation",
+          "trigger": "Most plausible identical projected-block estimator and rank-two source"
+        },
+        {
+          "assessment": "General singular-value bounds do not supply an equality-attaining conditional CDF",
+          "evidence": "Canonical-angle/subspace-iteration rather than one-row normalized Gaussian look-ahead.",
+          "identifier_or_url": "arXiv:1804.02614",
+          "material_read": "Published theorem description and relevant Theorem 9 role in inspected assigned literature; not a complete new full-text review",
+          "method": "Compared cited inequality with explicit statistic and conclusions",
+          "title": "Randomized Subspace Iteration: Analysis of Canonical Angles and Unitarily Invariant Norms",
+          "trigger": "Candidate broader randomized projection theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/sharp-one-probe-confidence-calibration-for-rank-two-spectral-loo--d40241a36153/RESULT.md",
+        "arXiv:2607.06758v1",
+        "arXiv:1804.02614",
+        "DOI:10.1016/j.laa.2024.01.001"
+      ],
+      "rationale": "An equality-attaining, one-probe, rank-two conditional confidence calibration is a mathematically natural quantitative invariant of the adaptive randomized-QB look-ahead diagnostic, more informative than generic spectral lower-tail estimates. Its exact minimax singular spectrum and inverse factor are useful for designing rank-two residual stopping safeguards while not claiming a complete adaptive-algorithm guarantee.",
+      "residual_risks": [
+        "Only the specific theorem and stated objects/invariant are judged, not broader downstream applications or a guarantee of publication significance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed exact Gaussian ratio distribution optimization for an equivalent one-probe projected estimator remains possible.",
+    "Only fresh independent real Gaussian one-column probes at residual rank exactly two; not the stopping probability for a full adaptive QB algorithm.",
+    "Public METADATA.json carries a scope_run_id; sanitization is a distinct transport/publication requirement, not a scientific PASS/FAIL criterion."
+  ],
+  "schema_version": 1
+}

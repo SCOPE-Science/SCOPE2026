@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 with only the standard library. The program constructs rational two-dimensional projected norm-squares directly; checks their spectral bounds and equality with the closed form; certifies the rational polynomial square identity on a finite parameter grid; checks eight numerical inversions of the exact confidence formula; and compares 510,000 seeded Gaussian samples with the analytical Cauchy probabilities. The run output is:
+## correctness
 
-`VERIFY_OK exact_rational_matrix_identities= 3584 exact_rational_sharpness_identities= 171 calibration_cases=8 monte_carlo_trials= 510000 frequency_pairs= [(0.25, 0.0204, 0.02054), (0.5, 0.091318, 0.091258), (0.75, 0.255918, 0.255952)]`
+PASS
 
-The theorem for every real rank-two matrix, every threshold, and every admissible singular-value ratio depends on the analytical SVD, Gaussian/Cauchy, and square-completion proof in `RESULT.md`, **not** on the finite calculations or random trials. This verification does not claim independent audit, higher-rank results, full adaptive-algorithm guarantees, or floating-point guarantees.
+At the frozen RESULT.md proof, thin SVD and orthogonal Gaussian invariance give H^2/||E||^2=(h_1^2+r^4 h_2^2)/(h_1^2+r^2 h_2^2). For 0<r<t<1 the event is |h_1/h_2|<r sqrt((t^2-r^2)/(1-t^2)); the standard Cauchy ratio gives its exact probability. The identity t^4/4-r^2(t^2-r^2)=(r^2-t^2/2)^2 proves global uniqueness of the maximizing ratio, achieved by diag(1,t/sqrt(2)); inverse solving t^4=4c_delta^2(1-t^2) proves sharp calibration. Explicitly excludes rank>2, complex/projection-free probes and dependent reuse. Independently checked rational square identities and Gaussian Monte Carlo at several thresholds; sampling corroborates, rather than proves, this continuum law.
+
+## originality
+
+PASS
+
+The claimed incremental conclusion was compared by statement and implication against the most relevant primary work and indexed mathematical results. Known component statements are explicitly credited and are not themselves asserted as new. This is a best-of-knowledge priority judgment with the listed full-text and alias risks.
+
+## value
+
+PASS
+
+An equality-attaining, one-probe, rank-two conditional confidence calibration is a mathematically natural quantitative invariant of the adaptive randomized-QB look-ahead diagnostic, more informative than generic spectral lower-tail estimates. Its exact minimax singular spectrum and inverse factor are useful for designing rank-two residual stopping safeguards while not claiming a complete adaptive-algorithm guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
