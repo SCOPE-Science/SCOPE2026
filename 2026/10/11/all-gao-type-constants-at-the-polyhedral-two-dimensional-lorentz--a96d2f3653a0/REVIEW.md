@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The unit ball is an octagon with eight explicit facet normals. For an arbitrary unit pair, active supporting facets give one of eight exact linear inequalities for the two midpoint norms. The dual norm calculation is exhaustive, Hölder's inequality gives the sharp lower bounds, and the remaining symmetric-facet candidate is dominated by convexity. Explicit coordinate-swapped and sign-reflected unit pairs attain the two branches. The case \(p=1\) follows from the triangle inequality.
+## correctness
 
-## Originality
-PASS. The defining 2022 Gao-type paper treats the Lorentz family for \(r\ge2\) and explicitly lists \(1\le r<2\) among the still-unknown cases. The closest classical Lorentz Gao paper's accessible statement starts at exponent \(2\). A published endpoint \(p=2\) result is only one slice of the present theorem and does not imply the all-\(p\) formula, its conjugate-exponent dependence, or its all-\(p\) extremizers.
+PASS
 
-## Value
-PASS. The result closes the natural \(r=1\) endpoint of an explicit published open range simultaneously for every finite Gao exponent. It also identifies a \(p\)-independent phase boundary at \(\omega=\sqrt2-1\), with exact extremizers on both sides.
+The stated N_w has an octagonal unit ball with exactly eight facet normals (±1,±w),(±w,±1) and dual norm max(|a|,|b|,(|a|+|b|)/(1+w)). For unit x,y set u=(x+y)/2,v=(x−y)/2. Selecting their active facets, isometry fixes the first one; exhaustive eight relative facets yield coefficient pairs (1,0),(1,δ),(k,k),(w,1),(0,1),(δ,1),(k,k),(1,w), δ=(1−w)/(1+w), k=max{(1+w)/2,1/(1+w)}. Hölder applied to αN(u)+βN(v)≥1 gives lower bound (α^{p′}+β^{p′})^{1−p}; only A=(1+δ^{p′})^{1−p}, B=(1+w^{p′})^{1−p}, and C=2^{1−p}k^{−p} can dominate. Convexity gives C≥min(A,B). δ=w exactly at w=√2−1; hence formula branches and p-independent boundary. The explicit coordinate-swapped and sign-reflected unit pairs meet equality in their respective regimes, with endpoints 0<w<1 and every p>1. For p=1 triangle inequality plus x=y gives c=1. p=2 reduces to already known quadratic Gao formula.
 
-## Closest literature and limitations
-Suzuki--Yamano--Kato supplies the archival endpoint Lorentz family. Cui--Wang addresses the classical quadratic Gao parameters in a different Lorentz exponent range. Zuo--Huang--Huang--Wang defines the generalized invariant, proves the \(r\ge2\) Lorentz formula, and explicitly leaves \(r<2\) open. The present theorem does not settle \(1<r<2\), and an obscure later equivalent endpoint computation remains a residual bibliographic risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The classical quadratic Gao constant p=2 at this polyhedral Lorentz endpoint was already computed in the 2026-10-04 published finding; the present distinct mathematical statement is its *entire p>1 generalized Gao-type profile* with the same sharp w transition. The 2022 primary article computed Lorentz only at ambient exponent r≥2 and explicitly listed 1≤r<2 as open.
+
+## value
+
+PASS
+
+A natural one-parameter family of polyhedral Lorentz normed planes has an exact generalized Gao-type invariant for every exponent, with an explicit p-independent phase transition and optimized unit-vector pairs. It fills the endpoint of a range explicitly identified as open in the motivating primary literature; not merely a re-evaluation of the known p=2 case. It is a meaningful complete invariant for this natural Banach-plane family, without requiring an unrelated global application.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
