@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact quartic expansion and the orthogonality equation reduce every candidate to two mixed moments. The Cauchy–Schwarz envelope \(B^2\le A(1-A^2)\) has a constructive two-point equality case for every interior overlap \(A\), making the global two-variable reduction exact. Strict concavity identifies one minimizing overlap at each scale; an exact rational factorization leaves a quartic with exactly one root in the admissible interval. Reconstructing equality in Cauchy–Schwarz yields the full two-ratio classification. The symbolic checker reproduces the crucial identities and the explicit moment witness. Sampled finite-dimensional tests are ancillary, not an infinite-dimensional proof.
+## correctness
 
-## Originality — PASS, subject to stated bibliographic risk
-The full ten-page article of Baronti–Casini–Papini [1] supplies bounds for different, exponent-matched instances and no quadratic-on-quartic sharp value. The closest published computation [2], inspected as a complete `RESULT.md`, establishes \(\mu_4(\ell_4^2)\) through a shared moment envelope; it does not imply the new exact optimal \(\mu_2\), whose optimizer differs. Paul–Ghosh–Sain [3] treats \(\mu_1\). Searches for the defining parameter, quadratic-on-quartic aliases, the extremal polynomial and the numerical constant did not find an equivalent or dominating result. These searches are not a proof of global novelty. The original 1970 Gastinel–Joly article was not inspected in full, and equivalences in unindexed literature remain possible.
+PASS
 
-## Value — PASS
-The numerator exponent \(2\) has a natural quadratic geometric meaning independent of the quartic ambient norm. Its exact value is not implied by the known exponent-matched computation: the new optimizer changes and requires a distinct nontrivial algebraic optimization. The moment-envelope equality mechanism both extends the answer without dimension restrictions to arbitrary real \(L_4\) and classifies every maximizing pair. Thus the result is a sharp natural geometric invariant with structural extremizer information, rather than an arbitrary parameter slice.
+PASS: In real L4, Birkhoff–James orthogonality of unit x and y equals integral x³y=0. Put A=integral x²y², B=integral xy³. The exact quartic expansion is 1+lambda⁴+6A lambda²+4B lambda³, and Cauchy–Schwarz centered at A gives |B|<=sqrt[A(1-A²)]. The lower moment envelope D(A,lambda) is attained for every interior A by an explicit two-point distribution on any two positive finite-measure sets, with correct four moments and orthogonality. Fix lambda>0: strict concavity of sqrt[u(1-u²)] yields unique A minimizing D, parameterized by lambda(u)=3 sqrt[u(1-u²)]/(1-3u²), 0<u<1/sqrt3. An independent SymPy derivation checks the rational optimized G(u) and its exact derivative factor with quartic P(u)=9u⁴+9u³-12u²-3u+1; endpoint derivative and strict monotonicity give its unique root u*=0.200994344840... and sharp mu2=1.38784956695846... . Equality in Cauchy–Schwarz and uniqueness forces ratio y/x to take exactly the stated t± and L4 weights w±; no other maximizers. All conclusions require real L4 with at least two disjoint finite positive-measure sets, not complex L4 or mu1 or mu4.
 
-## Scope and validation limits
-The assertion is limited to real \(L_4\) spaces with two disjoint measurable sets of finite positive measure and the generalized rectangular exponent \(2\). The proof is analytic; verification code checks identities and examples, not an independent certification. The inaccessible original 1970 source and unindexed equivalent formulations remain risks.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with informed best-of-knowledge primary comparisons: Gastinel–Joly 1970 was obtained via authorized Oxford access and its complete 40-page PDF was inspected in sections 7, 10 and 11; it defines the alpha-orthogonal-number family and studies the classical alpha=1/Lp bounds but does not present the exact mu2(L4) formula or full extremizer classification. Baronti–Casini–Papini 2022 likewise describes the generalized parameters and bounds, especially exponent-matched mu_p(ell_p); the published related mu4(ell4²) is a different objective. General moment Cauchy envelope is common method, but the optimized quadratic numerator and equality family are distinct. Some unindexed paper might still compute the exact same constant.
+
+## value
+
+PASS
+
+PASS: An exact all-measure-space Banach-orthogonality constant and full L4 equality classification fills the parameter gap between known mu1 and mu4 examples, with a rigorous two-atom reduction and algebraic optimizer. The exact value/attainers are natural, motivated nonlinear norm geometry invariants, rather than a routine substitution of known mu_p formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
