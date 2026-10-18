@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The output-comparison identity is proved for arbitrary words and every exact burst length. A two-distance graph decomposes at size a+b into gcd(a,b) cycles, producing an exact forest-to-cycle cutoff and a cycle-rank formula. The joint-minimum event proves necessity of the independence threshold independently of zero covariance. Centered edge products vanish on forests; additive length triples are precisely the 3-edge triangles, counted exactly. Each triangle contributes -(q-1)/q^3. Full direct-descendant enumeration in 19 alphabet/length cases checks identities and boundaries with exact rational arithmetic; the infinite result rests on the proof, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schoeny et al., arXiv:1602.06820v2, Appendix A Lemma 8, provides the binary one-variable marginal \\(2^b\binom{n-b}{i-1}\\).",
+        "Song and Cai, arXiv:2210.14006v1, §§IV–V, develop binary and nonbinary code constructions and bounds."
+      ],
+      "reasoning": "Knowing all individual binomial marginals and good code constructions does not constrain a coupled pair to be independent or dependent at an exact length. The present pairwise and triple-length laws are therefore not logical special cases of the inspected one-burst enumerators.",
+      "searches": [
+        "Joint distribution of two different fixed-length burst deletion ball sizes: pairwise covariance zero, independence if n<=a+b-gcd(a,b), dependency via cycles",
+        "Burst deletion ball sphere volume enumeration by b-spaced transition count or interleaved runs",
+        "third cumulant of random q-ary word lag mismatch counts nonzero for additive triples"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1602.06820v2",
+      "arXiv:2210.14006v1",
+      "arXiv:2305.11486v1",
+      "MSC2020:94B20"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schoeny et al., Eq. (2) and Lemma 8: known ball identity and binary marginal distribution.",
+        "Song and Cai, §V Theorem 6: construction/redundancy of a q-ary burst-correcting code, not random joint-volume independence.",
+        "Winterhof §4: worst-case correlation measures of deterministic sequences, different quantifiers and observables."
+      ],
+      "reasoning": "Our proof uses the known ball-size identity, but its new claims require the graph of TWO distances, a cycle threshold, and triangular THREE-distance interactions. None is implied by an individual-ball enumerator, a construction theorem, or a worst-case shift-correlation bound without an additional new combinatorial argument.",
+      "searches": [
+        "Codes Correcting a Burst of Deletions or Insertions arxiv 1602.06820",
+        "Non-binary Two-Deletion Correcting Codes and Burst-Deletion Correcting Codes arxiv 2210.14006",
+        "pseudorandom binary sequences quality measures correlation order 2023"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schoeny et al., arXiv:1602.06820v2, Eq. (2), represents each ball size as interleaved run changes.",
+        "Winterhof, arXiv:2305.11486, §4, studies shifted correlation measures rather than exact joint laws for random burst-ball sizes."
+      ],
+      "reasoning": "Potentially equivalent objects are Hamming lag mismatches and edge disagreements of uniform random vertex colorings. The new statement requires their two-distance joint law and the specific cycle/triangle relations. Inspected nearby results do not state a matching implication; alternate terminology remains a residual risk.",
+      "searches": [
+        "distance graph monochromatic edge counts i.i.d colors, pairwise independence threshold at a+b-gcd(a,b)",
+        "autocorrelation mismatches at offsets a and b pairwise independence if n < a+b-gcd(a,b)+1, zero covariance otherwise",
+        "Correlation independence and triangle cumulant for distinct distance-b mismatch counts in random q-ary words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Schoeny et al. Appendix A tabulates the count of centers by ONE burst length, not a two-length cross-tabulation.",
+        "The publicly available single-length burst literature includes code-size bounds; no cited table fixes all two-length independence decisions or all three-length centered moments."
+      ],
+      "reasoning": "A known marginal count is explicitly excluded from novelty. No exact published cross-length table or theorem matching the proposed statement was located in the targeted searches; lack of a hit is not itself proof of originality.",
+      "searches": [
+        "For fixed length b consecutive burst deletion outputs of q-ary word, exact cardinality 1 plus number of unequal symbols distance b, binomial distribution sphere sizes",
+        "Exact mixed third central moment for deletion burst ball sizes of lengths a b c, nonzero only when c=a+b",
+        "burst deletion ball sizes joint correlation independence lengths gcd"
+      ]
+    },
+    "rationale": "Published single-burst formulas give each marginal separately. Direct scientific implication comparison shows they do not determine the exact independence boundary of two ball-size variables, its gcd-governed joint-minimum ratio, or the additive support and magnitude of three distinct-length centered moments. Relevant 2016 and 2022 full-text sections and appendices were inspected, and targeted research-record/literature searches found no covering stronger statement. This is a same-model best-knowledge assessment, not uniqueness certification.",
+    "residual_risks": [
+      "An unindexed graph-coloring or random-lag-mismatch theorem under non-coding terminology may imply the result.",
+      "Original Levenshtein 1967 paper was cited through the 2016 full text rather than inspected in its original language.",
+      "No independent expert or external originality audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the one-length identity and binary marginal enumerator; inspected pertinent results do not give cross-length independence threshold or triangular mixed-moment claim.",
+        "evidence": [
+          "Equation (2): length-b ball is one plus sum of interleaved-run changes.",
+          "Appendix A Lemma 8: \\(N(n,b,i)=2^b\binom{n-b}{i-1}\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1602.06820",
+        "material_read": "Full-text equation (2) in §IV (PDF page 4); Appendix A, Lemma 8 (PDF page 15); model and §VIII conclusions; in-document searches for joint/covariance.",
+        "method": "Opened lawful arXiv full-text PDF, checked extracted text and relevant rendered pages.",
+        "title": "Codes Correcting a Burst of Deletions or Insertions",
+        "trigger": "Direct predecessor: exact burst ball-size identity and size enumeration"
+      },
+      {
+        "assessment": "Addresses code constructions for burst errors; no covering joint law appears in the inspected statements.",
+        "evidence": [
+          "First public version dated 2022-10-25.",
+          "§V Theorem 6 constructs q-ary burst-correcting codes, with a redundancy assertion, not random cross-length ball statistics."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2210.14006",
+        "material_read": "Abstract, §I–II burst-ball definitions, §§IV–V construction statements and §VI conclusion, references/appendix; relevant full-text search for joint/correlation/moment.",
+        "method": "Opened lawful arXiv PDF and inspected extracted full-text sections and rendered PDF pages.",
+        "title": "Non-binary Two-Deletion Correcting Codes and Burst-Deletion Correcting Codes",
+        "trigger": "2022 nonbinary burst-code research lead and eligible public source"
+      },
+      {
+        "assessment": "Different object: extremal shifted-sign correlations over a fixed sequence, not exact uniform-word ball-volume dependence.",
+        "evidence": [
+          "§4 defines a maximum over shifts and summation ranges; this is not an exact joint distribution of deletion descendants."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2305.11486v1",
+        "material_read": "HTML §4 definition and principal discussion of higher-order correlation measures and shifted products.",
+        "method": "Read accessible arXiv HTML section, compared objects and quantifiers.",
+        "title": "Pseudorandom binary sequences: quality measures and number-theoretic constructions",
+        "trigger": "Possible broader terminology via lag autocorrelation and pseudorandomness"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5d15c41d-4593-4484-9686-1ab434b9ea79",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem identifies an exact, nontrivial gcd-governed phase boundary for independence of competing fixed-length burst deletion-ball sizes, a closed-form minimum-event dependence ratio, and additive third-order interactions despite pairwise zero covariance. These address natural multi-burst-channel sphere statistics and prevent treating marginal volume laws as jointly independent. None is merely a recount of the known single-burst distribution. Scope and model limitations are explicit.",
+    "status": "PASS"
+  }
+}
