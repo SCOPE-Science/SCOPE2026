@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The valuation vector, sign characters and four-lifts theorem are independently matched to Cueto--Markwig Example 1.2. The attached exact verifier reconstructs the lower subdivision rather than assuming it, verifies all sixteen cells are unimodular, reproduces all four published sample topology/count rows, and exhausts every one of the \(2^{14}\) projective sign orthants. It checks the claimed component formula and exact census without numerical root finding or partial enumeration.
+## correctness
 
-## Originality
-**PASS.** The closest primary source gives the three lift inequalities and four sample sign choices, explicitly calling Table 2 a sample table. It does not report an exhaustive topology of all sign orthants, the \(2048,6144,6144,2048\) multiplicities, or the exclusion of empty and two-nested four-bitangent types in this chamber. Focused semantic and full-text searches found no implication-equivalent statement. Residual risk remains that an unindexed later computation could encode the same census.
+PASS
 
-## Value
-**PASS.** This is a complete classification of the natural finite sign parameter space of the source's worked tropical quartic, linking local bitangent-lift characters to global real topology. In particular, it resolves which classical four-bitangent topology occurs throughout the entire four-bitangent sign chamber, information not supplied by the bitangent count alone.
+For the explicit fifteen valuation weights of the Springer paper Example 1.3 (the submitted references incorrectly call it Example 1.2), compute all lower facets: 16 unimodular triangles filling 4Δ2. For each of 2^14 coefficient signs with s00 fixed positive, Viro patchwork in four reflected copies connects midpoints on opposite-sign edges, antipodally identifying boundary of Newton diamond. Independently reimplemented exact integer-midpoint union-find (not source code) across all 16,384 assignments: #components=1+A+B+C for every assignment. Exactly 2048 assignments realize each triple (A,B,C), giving 2048/6144/6144/2048 one-/two-/three-/four-component cases. Cueto-Markwig Table 1 necessary-and-sufficient lift conditions give count 4(1+A+B+C+AB+AC+BC)=4,8,16,28. In classical genus-three real quartic classification, two components with 8 real bitangents must be two nonnested ovals; thus excludes empty and nested-two-oval four-bitangent cases in this fixed chamber. Exhaustion proves this finite classification for specified triangulation; it does not extend to arbitrary valuations.
 
-## Closest literature and limitations
-The closest literature is Cueto--Markwig, arXiv:2004.10891 / DOI:10.1007/s00454-022-00445-1. The finding applies only to their Example 1.2 valuation vector and the near-tropical-limit Viro topology. It makes no claim for other Newton subdivisions or arbitrary coefficient valuations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cueto-Markwig 2023 explicitly provide the 3 sign conditions and 4 sample rows, not the 16,384-sign pattern/topology joint census. Geiger-Panizzut 2023 evaluated all 2^15 sign vectors over all tropical triangulations and established allowed totals, so global bitangent-count possibilities are strictly PRIOR coverage and cannot count as new. Their detailed Example 16 uses another triangulation and their published computation does not state the exact k+1 Viro topology identity, 8 pattern multiplicities or fixed Example 1.3 joint stratification. Those finite geometric statistics survive best-of-knowledge originality; code/database may contain a hidden equivalent census.
+
+## value
+
+PASS
+
+This is a complete, finite but nontrivial sign-chamber classification of a canonical explicitly published tropical quartic, combining topology and real bitangents, with a sharp exclusion of possible Plücker topological types from one tropical chamber. The invariant and finite parameter space are mathematically natural, not an arbitrary truncation; exhaustiveness and exact joint counts can be reused to test tropical-real lifting procedures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

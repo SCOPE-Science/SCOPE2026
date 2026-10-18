@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T12:19:46.258942Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the explicit fifteen valuation weights of the Springer paper Example 1.3 (the submitted references incorrectly call it Example 1.2), compute all lower facets: 16 unimodular triangles filling 4Δ2. For each of 2^14 coefficient signs with s00 fixed positive, Viro patchwork in four reflected copies connects midpoints on opposite-sign edges, antipodally identifying boundary of Newton diamond. Independently reimplemented exact integer-midpoint union-find (not source code) across all 16,384 assignments: #components=1+A+B+C for every assignment. Exactly 2048 assignments realize each triple (A,B,C), giving 2048/6144/6144/2048 one-/two-/three-/four-component cases. Cueto-Markwig Table 1 necessary-and-sufficient lift conditions give count 4(1+A+B+C+AB+AC+BC)=4,8,16,28. In classical genus-three real quartic classification, two components with 8 real bitangents must be two nonnested ovals; thus excludes empty and nested-two-oval four-bitangent cases in this fixed chamber. Exhaustion proves this finite classification for specified triangulation; it does not extend to arbitrary valuations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Geiger-Panizzut p23 explicitly evaluated all 2^15 coefficient sign vectors and found 1,2,4,7 lifting classes. Cueto-Markwig Theorem 1.2 0-or-4 real lifts and Table 2 sample selections."
+        ],
+        "reasoning": "Their broader ALL-triangulations computational coverage subsumes allowed bitangent totals in general; not the complete topology-conditioned orthant census for this one chamber. This potentially stronger computational coverage is a material originality risk, not overlooked.",
+        "searches": [
+          "Geiger-Panizzut DOI:10.37236/11099 pp22-24, theorem 14 and Example 16",
+          "Cueto-Markwig DOI:10.1007/s00454-022-00445-1"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s00454-022-00445-1 / arXiv:2004.10891",
+        "DOI:10.37236/11099 / arXiv:2112.04433",
+        "Resultary: Cueto Markwig tropical quartic Example 1.2 sign orthant Viro patchworking real bitangent 4 8 16 28 ovals classification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published inequalities already imply 4/8/16/28 bitangent counts and are credited as prior. The extra k+1 topology identity needs a full patchwork connectivity enumeration; the per-pattern 2048 count follows linear character independence."
+        ],
+        "reasoning": "The result is a proper special-chamber computation using known lift formulas. It cannot claim novelty for real bitangent possibilities; the topology and exact sign census are not stated as theorem in checked primary papers.",
+        "searches": [
+          "Cueto-Markwig Example 1.3, Tables 1-2",
+          "Geiger-Panizzut DOI:10.37236/11099 Theorem 14, Example 16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Viro edge-sign patchwork components equal ovals near tropical limit; sign lift classes correspond to 1,2,4,7 real tropical bitangent classes."
+        ],
+        "reasoning": "Geiger-Panizzut provides deformation-motif sign counts for a family of triangulations, and Cueto-Markwig provides lift conditions, but neither inspected paper states the submitted exact topology/character joint census for this valuation vector.",
+        "searches": [
+          "Resultary: Cueto Markwig tropical quartic Example 1.2 sign orthant Viro patchworking real bitangent 4 8 16 28 ovals classification",
+          "Cueto-Markwig 2023 Example 1.3 Table 1 and Table 2",
+          "Geiger-Panizzut 2023 Example 16 and polyDB"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cueto Table 2 explicitly sample sign choices; Geiger-Panizzut all-sign machinery but only qualitative all-triangulation theorem and a different Example 16 table in inspected paper."
+        ],
+        "reasoning": "A data dump or code behind polymake could yield the counts by filtering to this chamber; no inspected existing explicit table of 2048/6144/6144/2048 linked topology was found. Distinguishes published table from uninspected code database.",
+        "searches": [
+          "Geiger-Panizzut published polyDB/polymake sign-vector computations",
+          "Cueto-Markwig Springer Table 2",
+          "Resultary: Cueto Markwig tropical quartic Example 1.2 sign orthant Viro patchworking real bitangent 4 8 16 28 ovals classification"
+        ]
+      },
+      "rationale": "Cueto-Markwig 2023 explicitly provide the 3 sign conditions and 4 sample rows, not the 16,384-sign pattern/topology joint census. Geiger-Panizzut 2023 evaluated all 2^15 sign vectors over all tropical triangulations and established allowed totals, so global bitangent-count possibilities are strictly PRIOR coverage and cannot count as new. Their detailed Example 16 uses another triangulation and their published computation does not state the exact k+1 Viro topology identity, 8 pattern multiplicities or fixed Example 1.3 joint stratification. Those finite geometric statistics survive best-of-knowledge originality; code/database may contain a hidden equivalent census.",
+      "residual_risks": [
+        "Submitted wording incorrectly labels Cueto--Markwig valuation example 1.2; source uses Example 1.3. Mathematical data are explicit and match Example 1.3, but citation must be corrected before public release.",
+        "Geiger-Panizzut polyDB/software may already tabulate identical joint invariants although published paper does not display them.",
+        "Near-tropical Puiseux regime only; exact Viro topological check is a finite exhaustive algorithm, not general-valuation proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior lift classification and four example rows, not exact full sign/oval census",
+          "evidence": "Springer lines 113-129 give Example 1.3 and 3 inequalities; Table 2 is labelled sample sign choices.",
+          "identifier_or_url": "DOI:10.1007/s00454-022-00445-1 / arXiv:2004.10891",
+          "material_read": "Full open-access Springer HTML; Example 1.3, Theorem 1.2, Tables 1 and 2, related lifting discussion and topology passage",
+          "method": "Read primary full-text HTML, inspect sample/sign-rule passage",
+          "title": "Combinatorics and Real Lifts of Bitangents to Tropical Quartic Curves",
+          "trigger": "Same valuation vector and source of three lift characters"
+        },
+        {
+          "assessment": "Prior comprehensive real-bitangent count machinery, different triangulation and no explicit identical topology-conditioned counts found",
+          "evidence": "p23: all 2^15 vectors, one/two/four/seven lifting classes; Example16 specific different triangulation.",
+          "identifier_or_url": "DOI:10.37236/11099 / arXiv:2112.04433",
+          "material_read": "Full 30-page PDF opened; theorem and p23 all 2^15 sign vectors; Example 16 and table read, page image inspected",
+          "method": "Read primary PDF, page 23 screenshot",
+          "title": "A Tropical Count of Real Bitangents to Plane Quartic Curves",
+          "trigger": "Critical broader all-triangulation computational coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete, finite but nontrivial sign-chamber classification of a canonical explicitly published tropical quartic, combining topology and real bitangents, with a sharp exclusion of possible Plücker topological types from one tropical chamber. The invariant and finite parameter space are mathematically natural, not an arbitrary truncation; exhaustiveness and exact joint counts can be reused to test tropical-real lifting procedures.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1007/s00454-022-00445-1 / arXiv:2004.10891",
+    "DOI:10.37236/11099 / arXiv:2112.04433",
+    "Resultary: Cueto Markwig tropical quartic Example 1.2 sign orthant Viro patchworking real bitangent 4 8 16 28 ovals classification"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Submitted wording incorrectly labels Cueto--Markwig valuation example 1.2; source uses Example 1.3. Mathematical data are explicit and match Example 1.3, but citation must be corrected before public release.",
+    "Geiger-Panizzut polyDB/software may already tabulate identical joint invariants although published paper does not display them.",
+    "Near-tropical Puiseux regime only; exact Viro topological check is a finite exhaustive algorithm, not general-valuation proof.",
+    "The four originality checks compare theorem implications and reductions rather than matching titles. Absence of a search hit is not treated as a proof of novelty; available primary material and residual priority risks are specified per record."
+  ],
+  "schema_version": 1
+}
