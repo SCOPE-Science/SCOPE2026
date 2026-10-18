@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For four restricted character rows, tightness is exactly the identity \(M_BM_B^*=|B|I_4\). Its six off-diagonal entries vanish if and only if all six prescribed linear forms have uniform residue multiplicities. The cyclotomic minimal polynomial forces \(p\mid |B|\), while rank forces \(|B|\ge4\). Constructions realize the resulting minimum at every prime: the parity plane at \(p=2\), the displayed six-point set at \(p=3\), and a character line for \(p\ge5\). A self-contained exact-integer program enumerates all \(296{,}010\) ternary six-subsets, independently enumerates \(65{,}780\) normalized ones, and confirms the complete translation orbit; it also checks the binary count. There is no infinite-domain inference from finite testing.
+## correctness
 
-## Originality
-**PASS.** Relevant published work on whole-orbit harmonic frames, equal-cardinality exponential Riesz bases, general thin Butson matrices, and six-by-six cubic-root Hadamard matrices was inspected and compared at the level of what each statement actually implies. Those results do not count minimum **proper character-frequency subsets** for a fixed four-point affine simplex. The 27-set rigidity is stricter than Hadamard equivalence and is not the same as the full-harmonic-orbit classification. Exact aliases and frequency-size/redundancy formulations were searched; no checked source gives this labelled classification. An unindexed equivalence or adaptation of the classical six-by-six matrix theory remains possible.
+PASS
 
-## Value
-**PASS.** The four-point affine simplex is the basic rank-three nonspectral sampling set at odd prime characteristic. The theorem gives the exact least redundancy needed to replace an impossible orthogonal exponential basis by a perfectly tight frame at every prime, identifies an exceptional ternary threshold, and determines all its minimizers rather than merely exhibiting one. The rigid 27-member orbit is a concrete design invariant for reproducible Fourier subsampling; the count is neither a generic table lookup nor an arbitrary slice of unrelated parameters.
+For six differences d among sample rows, M_B M_B*=|B|I4 iff each character sum ∑_B omega^(d·b)=0. The minimal polynomial Φ_p forces each direction histogram to contain exactly |B|/p counts of every residue, hence p divides |B| and rank forces |B|≥4. Binary parity planes meet the six balanced conditions, and Fourier inversion leaves only those two supports. At p≥5, d·(1,2,3) lies in ±1,±2,3, never zero; the line has |B|=p and is tight. At p3, an independently written integer census tested every one of C(27,6)=296010 distinct six-subsets against all six exact balanced histograms; precisely 27 passed and they equal all 27 translates of the given B0, with 6 containing zero. Thus finite classification is actually exhaustive, not sampled. No claim of all minimizers p≥5 or weighted frequency designs.
 
-## Closest literature and limitations
-Marshall--Waldron count full-orbit harmonic frames up to unitary equivalence, while Ferguson--Mayeli--Sothanaphan optimize *bases* with equal sample and frequency cardinality. Banica's prime-root partial Butson enumeration treats two and three rows, not this labelled four-by-six case. The six-by-six Tao matrix is the closest matrix-theoretic precedent, but its monomial equivalence classification does not identify the 27 compatible frequency subsets of the fixed three-dimensional character group.
+## originality
 
-The classification of *all* optimal frequency sets for \(p\ge5\) is not attempted. The ternary orbit count has a complete exact finite checker; its proof of universal prime-field minimum size is algebraic. Public evidence does not constitute independent validation.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+No actual matching original labelled 4-row, 6-distinct-column Fourier-subset census was found after comparing exact statements. Marshall–Waldron counts full character-group orbit harmonic frames up to unitary equivalence; it does not select a proper six-column subset from F3³. Ferguson–Mayeli–Sothanaphan studies square Riesz bases and their conditioning, not minimum overcomplete exact tightness. Huang–Liang–Chen classifies order-six complex Hadamard matrices up to monomial equivalence, not compatible labelled four-row restrictions of the 27-character table. The current 27-count is not a direct corollary of those equivalence statements; bibliography remains best-of-knowledge.
+
+## value
+
+PASS
+
+The four-point affine simplex is a canonical minimally nontrivial sampling set and is not spectral for odd p: four p-th roots cannot sum to zero when p∤4. Finding the least redundancy required for an EXACT unweighted frame, and the exceptional prime-three complete labelled orbit of 27 optimizers, is a natural finite-field design problem whose exact invariant a future analyst may need. The finite enumeration is mathematically meaningful here and complete at its stipulated prime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

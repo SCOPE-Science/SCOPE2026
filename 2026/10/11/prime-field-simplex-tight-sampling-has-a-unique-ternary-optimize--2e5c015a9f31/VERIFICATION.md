@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,45 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem concerns \(G_p=\mathbb F_p^3\), \(A_p=\{0,e_1,e_2,e_3\}\), and **distinct** character frequencies \(B\). Let \(\omega=\exp(2\pi i/p)\) and \(M_{a,b}=\omega^{a\cdot b}\). Direct multiplication shows that every diagonal entry of \(M_BM_B^*\) is \(|B|\), and each off-diagonal entry is a root sum associated with one of
-\[
-D_p=\{e_1,e_2,e_3,e_1-e_2,e_1-e_3,e_2-e_3\}.
-\]
-The cyclotomic identity \(\Phi_p(z)=1+z+\cdots+z^{p-1}\) makes the vanishing of each such sum exactly equivalent to uniform residue counts. Therefore tightness requires \(p\mid|B|\) and \(|B|\ge4\), by rank. This is a mathematical proof for **every prime**.
+# Independent mathematical audit
 
-At \(p=2\), the two even/odd parity planes both satisfy the six balanced-difference conditions. Fourier inversion forces their uniqueness. At \(p\ge5\), the line \(\{t(1,2,3):t\in\mathbb F_p\}\) has uniform image under all six linear forms because their values on \((1,2,3)\) are nonzero mod \(p\). These prove the exact endpoints without computer enumeration.
+## correctness
 
-At \(p=3\), the representative set \(B_0=\{000,011,102,120,212,221\}\) has residue histograms \((2,2,2)\) for each of the six difference directions. Every six-frequency optimum containing zero belongs to the following **complete list**, presented as sorted triples:
+PASS
 
-```text
-000 011 102 120 212 221
-000 012 101 122 210 221
-000 012 102 121 211 220
-000 021 110 122 201 212
-000 021 112 120 202 211
-000 022 112 121 201 210
-```
+For six differences d among sample rows, M_B M_B*=|B|I4 iff each character sum ∑_B omega^(d·b)=0. The minimal polynomial Φ_p forces each direction histogram to contain exactly |B|/p counts of every residue, hence p divides |B| and rank forces |B|≥4. Binary parity planes meet the six balanced conditions, and Fourier inversion leaves only those two supports. At p≥5, d·(1,2,3) lies in ±1,±2,3, never zero; the line has |B|=p and is tight. At p3, an independently written integer census tested every one of C(27,6)=296010 distinct six-subsets against all six exact balanced histograms; precisely 27 passed and they equal all 27 translates of the given B0, with 6 containing zero. Thus finite classification is actually exhaustive, not sampled. No claim of all minimizers p≥5 or weighted frequency designs.
 
-Every row equals \(B_0-b\) for one of the six elements \(b\in B_0\). Every unnormalized optimum can be translated through zero and hence belongs to the orbit of \(B_0\). No nonzero period fixes \(B_0\), because it contains no three-point affine line. Therefore exactly \(27\) labelled frequency sets minimize the frame size.
+## originality
 
-## Standalone replay
-Run the included complete source code:
+PASS
 
-```text
-python3 verify_tetrahedron.py
-```
+No actual matching original labelled 4-row, 6-distinct-column Fourier-subset census was found after comparing exact statements. Marshall–Waldron counts full character-group orbit harmonic frames up to unitary equivalence; it does not select a proper six-column subset from F3³. Ferguson–Mayeli–Sothanaphan studies square Riesz bases and their conditioning, not minimum overcomplete exact tightness. Huang–Liang–Chen classifies order-six complex Hadamard matrices up to monomial equivalence, not compatible labelled four-row restrictions of the 27-character table. The current 27-count is not a direct corollary of those equivalence statements; bibliography remains best-of-knowledge.
 
-The script uses only the Python standard library and exact integer arithmetic. It enumerates all \(\binom{8}{4}=70\) binary candidates and all \(\binom{27}{6}=296{,}010\) ternary candidates; a second normalized enumeration independently checks all \(\binom{26}{5}=65{,}780\) six-sets containing zero. It tests each of the six difference-direction residue histograms, checks all four-by-four ternary Gram entries in the integer basis of \(\mathbb Z[\omega]\), and compares the optimizer set to the explicit translation orbit.
+## value
 
-The verified output is:
+PASS
 
-```text
-p=2: tested 70 four-frequency sets; optimizers: 2
-p=3: tested 296010 six-frequency sets; optimizers: 27
-p=3 normalized: tested 65780 six-frequency sets through zero; optimizers: 6
-p>=5: integer witness checks p=5,7,11,13 passed; general proof is symbolic.
-```
+The four-point affine simplex is a canonical minimally nontrivial sampling set and is not spectral for odd p: four p-th roots cannot sum to zero when p∤4. Finding the least redundancy required for an EXACT unweighted frame, and the exceptional prime-three complete labelled orbit of 27 optimizers, is a natural finite-field design problem whose exact invariant a future analyst may need. The finite enumeration is mathematically meaningful here and complete at its stipulated prime.
 
-These finite loops **do not** purport to prove the claim for all primes. The all-prime case follows from the cyclotomic argument and symbolic line construction. The counting invariant is about distinct subsets of the group dual, not weights, multisets, unitary-equivalence classes, or a classification for higher-dimensional simplices.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
