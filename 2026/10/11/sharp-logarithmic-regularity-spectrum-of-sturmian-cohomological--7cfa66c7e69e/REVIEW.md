@@ -1,19 +1,21 @@
-# Same-model scientific review: Sturmian transfer regularity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source's Theorem D and Proposition 6.1 give \(w=u_f-c_f\tau\) and show that the oscillation of \(\tau\) on each length-\(n\) cylinder equals the measure of that cylinder. The exact interval model identifies those measures with rotation gaps. Perturbation by a Lipschitz function changes maximal cylinder oscillation by at most \(L\theta^n\). The convergent grid-approximation upper bound \(G_n\le3/q_k\) and the disjoint-grid-arc lower bound \(G_{\lfloor q_{k+1}/4\rfloor}\ge1/(2q_k)\) when \(q_{k+1}\ge8q_k\) prove both implications for all \(0<s\le1\). The standard convergent formula yields the critical irrationality exponent. The exact-rational checker passed 1,564 finite assertions, but the infinite conclusions depend on the written proof, not on testing.
+PASS
 
-## Originality — PASS, with priority risk
+Huang–Jenkinson–Xu–Zhang Theorem D and Proposition 6.1 provide the exact canonical transfer τ with each prefix cylinder image an interval whose length equals the cylinder measure; cylinder measures equal the adjacent rotation gaps. Thus w=u_f−c_fτ with u_f Lipschitz implies |Ω_n(w)−|c_f|G_n|≤Lip(u_f)θ^n, uniform over n. Since G_n≥1/(n+1), this is a relative o(1) when c_f≠0. Convergent p_k/q_k grid perturbation gives G_n≤3/q_k for q_k≤n+1<q_{k+1}. When q_{k+1}≥8q_k, taking n=floor(q_{k+1}/4) leaves empty circular arcs of length ≥1/(2q_k) and n≥q_{k+1}/8. The two bounds prove exact q_{k+1}^s/q_k criterion and the irrationality exponent formula, including bounded-type endpoint and Liouville case. For c_f=0, transfer is Lipschitz. Finite exact-rational gap checks support indexing but do not prove irrational claims.
 
-Huang--Jenkinson--Xu--Zhang (2026), Theorem D, Proposition 6.1 and Corollary 6.4, already prove the continuous-coboundary decomposition, exact canonical cylinder images, and qualitative non-Hölder obstruction. Berthé (1996), Alessandri--Berthé (1998), and Julien--Putnam (2014/2016) already determine Sturmian factor frequencies and rotation-gap arithmetic. Those findings, including the bounded-type endpoint for maximal rotation gaps, are **not** claimed as new. The assessed claim is a quantitative, all-Lipschitz-observable cohomological oscillation law with exponentially small error, the complete sharp continuum of logarithmic exponents, and exact endpoint criterion. Inspected sources did not assert this combined transfer-function classification. Its reliance on published ingredients carries an appreciable risk that the classification has appeared as an unstated or differently formulated corollary elsewhere; independent literature priority review remains appropriate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The new result fills the precise-rate gap between the Lipschitz case and the known non-Hölder case of continuous Sturmian transfers. The quantitative invariant is natural: largest oscillation among symbolic cylinders of increasing depth, equivalently the small-scale modulus of a transfer. Its critical exponent detects the irrationality exponent, while the endpoint distinguishes badly approximable slopes from other irrationals with the same irrationality exponent. A Liouville rotation supports transfers with no positive logarithmic-power modulus. This supplies a sharp arithmetic hierarchy for a cohomological obstruction central to the motivating dynamical result, not an arbitrary finite computation.
+Primary Huang–Jenkinson–Xu–Zhang Theorem D, Proposition 6.1, and Corollary 6.4 were read in full relevant sections. They prove the decomposition, precise cylinder images and non-Hölder dichotomy, not the complete logarithmic power regularity spectrum. Older Berthé and Alessandri–Berthé papers establish known three-gap/factor frequencies, and those antecedents are explicitly credited; the claim is the all-observable quantitative cohomological oscillation classification and arithmetic endpoint. Targeted published-index searches did not show the combined rate classification. Older equivalent moduli formulations remain possible.
 
-## Limits and source comparisons
+## value
 
-The conclusion concerns one-sided Sturmian systems, centered Lipschitz observables and their continuous transfer functions. The older three-gap and factor-frequency formulas imply substantial components of the arithmetic argument and must retain priority. The novelty assessment refers only to the newly synthesized full transfer regularity theorem, not to those components. Exact tests are finite, and no outside scientific audit or broader generality is claimed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The spectrum fills a natural quantitative gap between continuous non-Hölder coboundaries and Lipschitz transfer existence in Sturmian dynamics. Its exact critical logarithmic exponent distinguishes irrationality types, and endpoint membership separates bounded type from other slopes of the same irrationality exponent. This is an infinite-family structural classification of a canonical modulus, not arbitrary finite data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

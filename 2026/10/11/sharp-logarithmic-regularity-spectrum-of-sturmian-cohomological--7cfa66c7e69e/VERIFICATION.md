@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the Sturmian transfer regularity theorem
+# Independent mathematical audit
 
-The critical source identities were checked against the complete relevant mathematical sections of arXiv:2610.03619v1: Theorem D, Proposition 6.1(ii)–(iii), and Corollary 6.4. The numerical and exact-arithmetic verification is supplemental; the proof of the infinite claim is in `RESULT.md`.
+## correctness
 
-Run the dependency-free checker from this package using `python verify.py`. In the reviewed package it returned:
+PASS
 
-`PASS: 1564 exact rational finite gap assertions across 3 continued fractions`
+Huang–Jenkinson–Xu–Zhang Theorem D and Proposition 6.1 provide the exact canonical transfer τ with each prefix cylinder image an interval whose length equals the cylinder measure; cylinder measures equal the adjacent rotation gaps. Thus w=u_f−c_fτ with u_f Lipschitz implies |Ω_n(w)−|c_f|G_n|≤Lip(u_f)θ^n, uniform over n. Since G_n≥1/(n+1), this is a relative o(1) when c_f≠0. Convergent p_k/q_k grid perturbation gives G_n≤3/q_k for q_k≤n+1<q_{k+1}. When q_{k+1}≥8q_k, taking n=floor(q_{k+1}/4) leaves empty circular arcs of length ≥1/(2q_k) and n≥q_{k+1}/8. The two bounds prove exact q_{k+1}^s/q_k criterion and the irrationality exponent formula, including bounded-type endpoint and Liouville case. For c_f=0, transfer is Lipschitz. Finite exact-rational gap checks support indexing but do not prove irrational claims.
 
-The script constructs three long rational continued-fraction approximants using exact `fractions.Fraction`, directly computes 780 finite circular partitions, and asserts the mean-gap bound and convergent-grid bound at every tested level. It additionally tests eligible large-ratio lower bounds. Rational finite orbits do not establish any claim about infinitely many convergents, transcendence, or an irrationality exponent. Their purpose is to catch arithmetic or indexing errors in the analytical lemmas.
+## originality
 
-The theorem's transfer decomposition and the cylinder-interval identity are cited mathematical premises from the source, not reconstructed by the finite script. The proof itself checks the normalization, the perturbation error, both sides of the gap equivalence, the transition to the irrationality exponent, and the endpoint classification. No independent validation has been performed.
+PASS
+
+Primary Huang–Jenkinson–Xu–Zhang Theorem D, Proposition 6.1, and Corollary 6.4 were read in full relevant sections. They prove the decomposition, precise cylinder images and non-Hölder dichotomy, not the complete logarithmic power regularity spectrum. Older Berthé and Alessandri–Berthé papers establish known three-gap/factor frequencies, and those antecedents are explicitly credited; the claim is the all-observable quantitative cohomological oscillation classification and arithmetic endpoint. Targeted published-index searches did not show the combined rate classification. Older equivalent moduli formulations remain possible.
+
+## value
+
+PASS
+
+The spectrum fills a natural quantitative gap between continuous non-Hölder coboundaries and Lipschitz transfer existence in Sturmian dynamics. Its exact critical logarithmic exponent distinguishes irrationality types, and endpoint membership separates bounded type from other slopes of the same irrationality exponent. This is an infinite-family structural classification of a canonical modulus, not arbitrary finite data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
