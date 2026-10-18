@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T03:07:43.890078Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/11/exact-dirichlet-index-of-every-generalized-lawson-band--074c622ccd32/RESULT.md Git blob e151cf5d91d04172f1ebedb7624198d8256b26fd",
+        "2026/10/11/exact-dirichlet-index-of-every-generalized-lawson-band--074c622ccd32/verify.py Git blob 65ba264a5072efeb5cb45220786d61a46b1b8868",
+        "Independent sympy L(uplus) and L(sin x)/sin x identities in independent_checks.py",
+        "Bernstein–Ketover Appendix B Proposition B.1 and Sturm–Liouville discussion"
+      ],
+      "rationale": "The source Appendix B proves even-sector nonnegativity with sole n=0 rotational null mode and that only the ground radial eigenfunction in each admissible odd sector can contribute. With H=1+(4k²−1)sin²x, independent symbolic differentiation confirmed for all symbolic positive integer k that L_{k,2k−1}(sin x)/sin x=[(2k−1)(2k+1)(4k−1)sin²x+8k²+4k−1]/H²>0. Dirichlet integration by parts makes E_{2k−1}[sin x]<0; all smaller positive odd n reduce n²/H and are negative. Independently checked L_{k,2k+1}(uplus)=0 where uplus=(1+(2k−1)sin²x)/√H is positive at endpoints, so weighted ground-state transform E_{2k+1}[f]=∫√(2H)uplus²|(f/uplus)′|²>0 for nonzero Dirichlet f, and higher odd n add positive potential. Exactly k negative odd frequencies have cosine and sine angular multiplicity two, giving index 2k; the only null is source n=0. This uses all-k algebra and genuine imported parity/nodal-domain theorems, not finite k experiments.",
+      "residual_risks": [
+        "Relies on source Appendix B restriction of admissible Fourier parity and radial eigenfunction signs; not a full independent re-proof of source lemmas.",
+        "The positive profile uplus is not Dirichlet at endpoints; strict inequality follows exactly for Dirichlet f and must not be confused with a null state."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bernstein–Ketover Appendix B all-k upper bound, not equality; threshold n<sqrt(8k²+1) only necessary",
+          "Morozov–Penskoi 2023 closed Lawson Klein-bottle index concerns periodic surface"
+        ],
+        "reasoning": "The source inequality allows additional odd frequencies and nullity3, so it does not dominate the claimed exact 2k/1 for every k. Closed-surface periodic boundary conditions are different.",
+        "searches": [
+          "Resultary semantic query (temporarily_unavailable, not completed): generalized Lawson band Dirichlet Morse index nullity 2k Bernstein Ketover Fourier Sturm Liouville",
+          "GitHub published SCOPE code search (incomplete_results:true, NOT a negative search): Lawson index",
+          "web scientific phrase search: Lawson band exact index 2k nullity generalized tau 1 2k"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00247v1",
+        "Morozov and Penskoi 2023 metadata only",
+        "Frozen RESULT.md exact mode identities and k=1,2 comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bernstein–Ketover 2610.00247v1 lines ~938–1040, particularly Proposition B.1 and odd nodal-domain ground-state reduction",
+          "New exact symbolic positive/negative threshold comparisons for all integers k"
+        ],
+        "reasoning": "The present result is not a formal corollary of the source upper bound: the sign of the n=2k−1 trial state and non-Dirichlet positive n=2k+1 Jacobi profile must be verified. The two special cases were already known and acknowledged.",
+        "searches": [
+          "Resultary semantic query (temporarily_unavailable, not completed): generalized Lawson band Dirichlet Morse index nullity 2k Bernstein Ketover Fourier Sturm Liouville",
+          "GitHub published SCOPE code search (incomplete_results:true, NOT a negative search): Lawson index",
+          "web scientific phrase search: Lawson band exact index 2k nullity generalized tau 1 2k"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bernstein–Ketover 2610.00247v1 Proposition B.1 establishes a generalized Lawson band but leaves nullity in {1,3} and index upper bound",
+          "Their k=1 and k=2 examples match the result as covered special cases"
+        ],
+        "reasoning": "Dirichlet Morse index of a nonorientable Lawson band is distinct from closed-surface Lawson Klein-bottle index and from unconstrained oriented-cover spectrum; the same parametrized band appears in source and parity reduction is genuinely shared.",
+        "searches": [
+          "Resultary semantic query (temporarily_unavailable, not completed): generalized Lawson band Dirichlet Morse index nullity 2k Bernstein Ketover Fourier Sturm Liouville",
+          "GitHub published SCOPE code search (incomplete_results:true, NOT a negative search): Lawson index",
+          "web scientific phrase search: Lawson band exact index 2k nullity generalized tau 1 2k"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary source Appendix B tabulates k=1 index2/null1, k=2 index4/null1",
+          "No full indexed table over all k was found in bounded title/formula searches"
+        ],
+        "reasoning": "The first two cases are existing calculations, but they cannot by themselves establish a universal all-k formula and odd spectral threshold.",
+        "searches": [
+          "Resultary semantic query (temporarily_unavailable, not completed): generalized Lawson band Dirichlet Morse index nullity 2k Bernstein Ketover Fourier Sturm Liouville",
+          "GitHub published SCOPE code search (incomplete_results:true, NOT a negative search): Lawson index",
+          "web scientific phrase search: Lawson band exact index 2k nullity generalized tau 1 2k"
+        ]
+      },
+      "rationale": "The initiating full primary Appendix B gives an all-k upper bound and nullity in {1,3}, and exact values only for k=1,2; its separated equation does not itself classify the last negative and first positive odd Fourier modes for each k. The new symbolic threshold strengthens the possible-index information into an exact family formula.",
+      "residual_risks": [
+        "Resultary semantic search returned temporarily_unavailable/search_completed:false; it provides no evidence of absent coverage.",
+        "Published-repository code search returned incomplete_results:true; no absence inference can be drawn.",
+        "Historical/unindexed equivalent formulations cannot be excluded from the bounded searches.",
+        "The proof imports the initial article’s nodal-domain even/odd reduction; any gap there would affect the formula.",
+        "No claim about full closed Lawson surface indices or embeddedness for k>1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS separated operator and k=1,2, but gives only a general inequality/nullity alternative for k>2; no full-k exact sign threshold stated.",
+          "evidence": "Appendix B explicitly says null_D∈{1,3}; bound ind_D+null_D≤1+2 ceil(sqrt(8k²+1)/2).",
+          "identifier_or_url": "https://arxiv.org/html/2610.00247v1",
+          "material_read": "Full Appendix B (Proposition B.1, separated operator, Sturm–Liouville parity, nodal-domain argument and exact k=1,2 computations); introductory definitions",
+          "method": "primary arXiv HTML",
+          "title": "Minimal equatorial fillings of low index",
+          "trigger": "Exact same generalized Lawson band and Dirichlet spectrum"
+        },
+        {
+          "assessment": "CANNOT EXCLUDE an equivalence from title alone, but stated object is the closed Lawson Klein bottle, not Dirichlet generalized half-band.",
+          "evidence": "Different boundary value problem; no full-document NOT_COVERING assertion.",
+          "identifier_or_url": "Russian Mathematical Surveys 78 (2023), 396–398, Morozov–Penskoi",
+          "material_read": "Title/secondary bibliographic scope only, not full research text",
+          "method": "bibliographic metadata only",
+          "title": "Index of minimal surfaces in the 3-sphere",
+          "trigger": "Plausible Lawson index alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bernstein–Ketover Proposition B.1 explicitly leaves all-k upper bound and potential nullity3",
+        "Constructive all-k positive Jacobi profile and negative trial state"
+      ],
+      "rationale": "A natural complete classification of index and nullity for the entire integer family of generalized Lawson bands removes the source’s all-k uncertainty and identifies the exact odd Fourier instability threshold. The result is structurally informative for minimal-surface stability rather than a tiny increment to known low-k computations.",
+      "residual_risks": [
+        "Depends on original source mode-reduction theorem and is limited to generalized Dirichlet bands."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For each integer k≥1 the generalized Lawson band has Dirichlet Morse index 2k and Dirichlet nullity 1; the admissible odd radial ground states are negative for n=1,3,…,2k−1 and positive for n≥2k+1.",
+  "limitations": [
+    "Does not determine Morse index of closed Lawson surfaces or twisted families.",
+    "No numerical sampling is used as infinite proof; the main identities are symbolic all-k, while parity reduction is imported."
+  ],
+  "schema_version": 1
+}

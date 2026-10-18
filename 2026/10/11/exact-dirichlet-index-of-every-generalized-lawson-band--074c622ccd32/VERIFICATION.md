@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,59 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Put
-\[
-H=1+(4k^2-1)\sin^2x.
-\]
-The separated radial operator is
-\[
-\mathcal L_{k,n}
-=
-\frac{d^2}{dx^2}
-+
-\frac{(4k^2-1)\sin x\cos x}{H}\frac{d}{dx}
--
-\frac{n^2}{H}
-+
-2+\frac{8k^2}{H^2}.
-\]
+# Independent mathematical audit
 
-The checker verifies symbolically that
-\[
-\mathcal L_{k,2k+1}
-\left(
-\frac{1+(2k-1)\sin^2x}{\sqrt H}
-\right)=0.
-\]
-It also verifies
-\[
-\frac{\mathcal L_{k,2k-1}(\sin x)}{\sin x}
-=
-\frac{
-(2k-1)(2k+1)(4k-1)\sin^2x+8k^2+4k-1
-}{
-H^2
-}.
-\]
-Both coefficients in the numerator are positive for every integer \(k\ge1\).
+## correctness
 
-The positive zero-mode gives the exact ground-state identity
-\[
-E_{2k+1}^k[f]
-=
-\int_0^\pi
-\sqrt{2H}\,
-u_+^2
-\left|
-\left(\frac f{u_+}\right)'
-\right|^2dx
-\]
-for Dirichlet \(f\). Thus this mode is strictly positive, while the displayed \(\sin x\) calculation gives a genuinely negative Rayleigh value at \(2k-1\).
+PASS
 
-The checker additionally verifies the stated unit normal and the decomposition of the ambient rotational Jacobi field \(R_{13}\), whose \(2k+1\) Fourier coefficient is the positive zero-mode.
+The source Appendix B proves even-sector nonnegativity with sole n=0 rotational null mode and that only the ground radial eigenfunction in each admissible odd sector can contribute. With H=1+(4k²−1)sin²x, independent symbolic differentiation confirmed for all symbolic positive integer k that L_{k,2k−1}(sin x)/sin x=[(2k−1)(2k+1)(4k−1)sin²x+8k²+4k−1]/H²>0. Dirichlet integration by parts makes E_{2k−1}[sin x]<0; all smaller positive odd n reduce n²/H and are negative. Independently checked L_{k,2k+1}(uplus)=0 where uplus=(1+(2k−1)sin²x)/√H is positive at endpoints, so weighted ground-state transform E_{2k+1}[f]=∫√(2H)uplus²|(f/uplus)′|²>0 for nonzero Dirichlet f, and higher odd n add positive potential. Exactly k negative odd frequencies have cosine and sine angular multiplicity two, giving index 2k; the only null is source n=0. This uses all-k algebra and genuine imported parity/nodal-domain theorems, not finite k experiments.
 
-The mode-count step uses the primary paper's proved Sturm--Liouville facts: even sectors contribute neither index nor nullity except for the \(n=0\) Jacobi field, and in each odd sector only the lowest radial eigenfunction can contribute at nonpositive energy.
+## originality
 
-Finite numerical eigenvalue checks are included only as implementation diagnostics and are not used as proof of the all-\(k\) theorem.
+PASS
+
+The initiating full primary Appendix B gives an all-k upper bound and nullity in {1,3}, and exact values only for k=1,2; its separated equation does not itself classify the last negative and first positive odd Fourier modes for each k. The new symbolic threshold strengthens the possible-index information into an exact family formula.
+
+## value
+
+PASS
+
+A natural complete classification of index and nullity for the entire integer family of generalized Lawson bands removes the source’s all-k uncertainty and identifies the exact odd Fourier instability threshold. The result is structurally informative for minimal-surface stability rather than a tiny increment to known low-k computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
