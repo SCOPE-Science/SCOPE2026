@@ -1,9 +1,21 @@
-# Scientific review: singularities of the reflection divisor
+# Independent mathematical audit
 
-**Correctness — PASS.** Over \(\mathbb C\), for every even \(d\ge4\), each of the \(4+6d\) plane sections is a smooth degree-\(d\) Fermat-type curve. The four exhaustive rank-two intersection-flat types have counts \(6,4d^2,12d,3d^2\), with exactly \(d+2,3,2,2\) incident planes. Every line intersects the Fermat surface transversely in \(d\) points. Rank-three flats lie off the surface because all nonzero coordinates would have the same \(d\)-th power. Thus the local curve branches are ordinary and pairwise transverse, yielding the proposed basket, delta sum and adjunction genus. The standalone checker reproduces the quartic incidence and polynomial computations, with the general theorem supplied by the proof, not finite enumeration.
+## correctness
 
-**Originality — PASS, with uncertainty.** Miura–Taki (arXiv:2608.25445v1) gives the twenty-eight Fermat-quartic quasi-Galois points. The stronger reflection-center classification of Miura–Takahashi (arXiv:2610.09331v1, contextual later source) gives the ambient monomial reflection geometry for all degrees. Neither inspected full text evaluates the restricted singular-curve basket. Known hyperplane-arrangement lattices already account for the ambient flat counts, which are not claimed as novel. Targeted mathematical-literature and published-finding comparisons found no exact covering claim, but older reflection/Fermat arrangement sources could conceivably encode it implicitly; incomplete inspection of some relevant material is documented in the structured review.
+PASS
 
-**Value — PASS.** The simultaneous fixed-plane sections form a geometrically canonical reduced divisor on each even-degree Fermat surface, rather than an arbitrary collection of hyperplanes. Determining that its singularities are all ordinary, locating three full strata and computing their exact multiplicities and delta invariants is a complete classification across an infinite family. The quartic gives twenty-four sixfold points, two hundred fifty-six triple points and three hundred eighty-four nodes, quantities not determined solely by the count of quasi-Galois points. The result does not address odd degrees, positive characteristic or the full log resolution.
+Each of the 4+6d plane sections is a smooth irreducible Fermat-type plane curve when d>=4 is even; their rank-two line-flat classes have counts 6,4d^2,12d,3d^2 with  d+2,3,2,2 incident planes. Restriction of sum(x_i^d) to each flat is a s^d+b t^d with positive integer coefficients, hence has d simple zeros over C. Three independent reflection hyperplanes force all nonzero coordinates in a single root-of-unity component, giving F_d=r c^d !=0, so no rank-three flat lies on S_d. Consequently ordinary basket: 6d points of multiplicity d+2, 4d^3 ordinary triple points and (12d^2+3d^3) nodes; total 7d^3+12d^2+6d; delta=18d^3+21d^2+6d; adjunction genus 21d^3+14d^2+1. The independently rebuilt Gaussian-rational d=4 line lattice has 6,64,96 flats with 6,3,2 hyperplanes and symbolic general-d counts/checks agree. Finite quartic census is corroboration; unrestricted theorem rests on exhaustive support/flat argument and transversality.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Miura--Taki identifies Fermat quartic 28 quasi-Galois centers; Miura--Takahashi studies monomial-reflection centers for Fermat varieties. Center existence and ambient reflecting hyperplanes do not in themselves calculate singularity types/counts of their restricted divisor on S_d, or prove rank-three-fiber avoidance. Best-of-knowledge no dominating basket theorem was identified by the actual semantic search; important recent primary articles were available only in partial abstract material, so priority risk is explicitly retained.
+
+## value
+
+PASS
+
+The simultaneous monomial-reflection fixed sections form a canonical divisor across infinitely many Fermat surfaces; the complete singularity basket and genus/delta calculus determine intrinsic geometry beyond the known centers. In the quartic, the 24 ordinary sixfold, 256 ordinary triple, and 384 node points give a useful exact classification of natural geometric intersections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
