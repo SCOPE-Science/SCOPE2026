@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem was checked in two independent ways: a symbolic proof by cases and an exhaustive finite replay.
+# Independent mathematical audit
 
-The proof uses only the following local facts. A black peripheral vertex in blade \(B_i\) has \(w_i\) white neighbors when the center is black and \(w_i+1\) white neighbors when the center is white. A full-white blade has no peripheral black vertex and therefore can only be cleared by the center. Once all nonfull blades have cleared, the center sees exactly \(fm\) white neighbors from the \(f\) full blades. These observations produce the exact conditions in the theorem without an unproved auxiliary lemma.
+## correctness
 
-The packaged checker constructs \(W_{r,m}\), simulates the \(\ell\)-forcing process from every subset, compares the outcome with the claimed structural criterion, compares the complete cardinality distribution with the closed polynomial, and checks the minimum size and minimum-set count. Its tested range is \(2\le r,m\le4\) and \(1\le\ell\le rm\). The replay result is:
+PASS
 
-`VERIFY_OK parameter_pairs=81 subset_checks=2312832 polynomial_checks=81 minimum_checks=81 max_order=17`
+Proved necessity and sufficiency from peripheral vertices seeing only their own blade and the center. Center black: for ell<m no blade may contain >ell white vertices; for ell>=m exactly f<=floor(ell/m) wholly white blades are permitted. Center white requires one black peripheral initiator with w_j+1<=ell. This yields the stated A_{m,ell} and (1+x)^m-1 enumerators, with ell=rm all nonempty sets. Independent direct parallel forcing simulation checked 113,280 individual initial-state/parameter cases across r=2..3, m=2..4, all 1<=ell<=rm. Infinite formulas follow structurally, not by finite tests.
 
-This finite replay does not prove the infinite theorem; it checks boundary behavior and the algebraic counting formulas against direct dynamics. The proof supplies the general argument. Literature originality remains subject to the residual access and indexing risks stated in the review.
+## originality
+
+PASS
+
+Compared implication strength across published primary same-object papers and related published-result hits; no dominating statement was found within the inspected material, with specific residual priority risks below.
+
+## value
+
+PASS
+
+Generalized windmills are standard clique-bouquet graphs, and this is a natural all-threshold/all-initial-set propagation classification rather than one scalar bound. The combinatorial generating function and exact transition at multiples of blade size permit analyses unavailable from previously known friendship-graph zero-forcing numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
