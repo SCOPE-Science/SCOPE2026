@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Two finite enumerations (interval recursion and independently encoded Dyck/stack matching) exhaust precisely \\(C_9=4862\\) noncrossing matchings. Equality or strict interleaving of chord endpoints characterizes prohibited neighbour edges. Pairwise chord-bitmask scans and forbidden-chord dynamic generation yield the same complete graph fingerprint 81631930f2db82172b1509c4f558f1933749e4b263323c00c58fdcae6eed97cb. BFS from all 4070 big-component vertices proves exactly the six eccentricity multiplicities, unique centers, radius 10 and diameter 15. Program inputs are only exact integers, and the proof establishes completeness of each finite loop. No claim extends beyond nine pairs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1403.5546 Theorems 1–3 classify the component types but not their metrics.",
+        "arXiv:1403.5546 Proposition 40 identifies maximum-degree rings but does not assert they are the center.",
+        "arXiv:2409.03579 studies an auxiliary-family-mediated edge relation and proves diameter bounds for that different graph."
+      ],
+      "reasoning": "A known connectivity/size formula and maximum degree cannot imply the exact eccentricities of all vertices: such information requires the detailed within-component adjacency geometry. Results for shorter local flips or auxiliary tree compatibility do not dominate distances for direct disjoint compatibility.",
+      "searches": [
+        "Aichholzer Asinowski Miltzow DCM_9 diameter big component disjoint compatible 18-gon",
+        "Disjoint compatibility graph DCM9 4070 large component 15 diameter 10 radius 18 convex vertices",
+        "\"disjoint compatibility graph\" \"diameter\" \"big component\"",
+        "\"DCM_9\" \"diameter\" matchings convex"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1403.5546; DOI:10.37236/4403",
+      "DOI:10.1007/s003730200038 (abstract and secondary primary comparison; full text unavailable)",
+      "DOI:10.1007/s00454-012-9466-9 (available original theorem excerpt; full text not inspected)",
+      "arXiv:2409.03579",
+      "Searches of mathematical records for disjoint compatibility graph, Dyck and Catalan link-pattern aliases, diameter, eccentricity, center, and numerical parameters."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DOI:10.37236/4403 proves one 4070-vertex big component at nine pairs but not its metric profile.",
+        "DOI:10.1007/s003730200038 treats a different two-chord local flip, with diameter eight for nine pairs.",
+        "arXiv:2409.03579 uses common auxiliary spanning-tree/caterpillar/path adjacency, not direct disjoint-compatible adjacent matchings.",
+        "DOI:10.1007/s00454-012-9466-9 proves existence of a compatible partner for even matching size."
+      ],
+      "reasoning": "No inspected prior statement, after translating objects and hypotheses and comparing logical implications, yields minimum eccentricity ten only at the two boundary rings, maximum eccentricity fifteen, or the six exact multiplicities on the 4070-state component. Different adjacency metrics cannot be substituted.",
+      "searches": [
+        "Aichholzer Asinowski Miltzow disjoint compatible graph distances diameter 2017 2024",
+        "\"Disjoint compatibility via graph classes\" arxiv 2409.03579",
+        "Graphs of non-crossing perfect matchings Hernando Hurtado Noy 2002 diameter",
+        "\"Disjoint Compatible Geometric Matchings\" Ishaque Souvaine Toth 2013"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Direct disjoint-compatible geometric perfect matchings correspond to noncrossing chord pairings, Catalan/Dyck words and Temperley–Lieb link patterns (arXiv:1403.5546, introductory section).",
+        "The two independent adjacency constructions test these equivalent encodings and agree on an exact graph fingerprint.",
+        "No relevant published mathematical-record result was returned by the targeted exact-graph/link-pattern searches."
+      ],
+      "reasoning": "The matching, Dyck-word and chord-diagram descriptions are isomorphic encodings of the same graph; search under all three did not identify an earlier eccentricity profile. The 2002 local two-edge-flip graph is not an equivalent formulation because its adjacency is different.",
+      "searches": [
+        "Disjoint compatibility graphs DCM_k of noncrossing Catalan perfect matchings convex point sets connected component diameter radius",
+        "Noncrossing chord diagram Catalan link patterns disjoint compatibility graph exact shortest path eccentricity center 18 points",
+        "geometric perfect matching disjoint compatible walk reachability 9 edges centers boundary matching",
+        "\"disjoint compatibility graph\" \"shortest paths\" convex matchings"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2015 source tables list component counts and its Proposition 41 enumerates graph edges, while no table there gives radius, diameter, center or eccentricity spectrum.",
+        "Searches of mathematical-record titles/summaries and exact web phrases for \\(\\mathrm{DCM}_9\\), diameter fifteen and two center rings returned no relevant exact table."
+      ],
+      "reasoning": "Known Catalan, component and edge counts are expressly excluded from the novelty claim. The all-eccentricities certificate cannot be inferred from those enumerations; a previously unindexed exact database remains a residual possibility.",
+      "searches": [
+        "\"DCM_9\" eccentricity matching",
+        "\"disjoint compatibility\" \"15\" \"diameter\" matching",
+        "chromatic number disjoint compatibility graph noncrossing perfect matchings convex position n"
+      ]
+    },
+    "rationale": "The exact predecessor [Aichholzer–Asinowski–Miltzow, arXiv:1403.5546] classifies component orders and ring degree extremizers but not the first stabilized big component’s eccentricities. The relevant 2002 flip theorem and 2024 auxiliary compatibility diameter theorem concern genuinely different adjacency. Actual scientific-record, source and alias searches yielded no equivalent radius/center/diameter profile. This is a best-knowledge originality judgment, not a uniqueness certificate.",
+    "residual_risks": [
+      "Unindexed or author-hosted computational appendices may contain the same finite centrality profile.",
+      "The full original 2002 and 2013 articles were not completely material-read; their publicly displayed theorems have different operations or scopes, but inaccessible sections leave a limited risk.",
+      "Search failure is not proof of absolute priority; no external independent audit or priority certification occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers known isolated/star/big component counts, maximum-degree rings and edge enumeration; does not provide the big component’s all-vertex eccentricities, radius, unique metric center or diameter. Degree extremizers do not determine eccentricity minimizers.",
+        "evidence": [
+          "Theorems 1–3 give component types and counts, including the first uniform three-class case at nine matched pairs.",
+          "Proposition 40 identifies rings as maximum-degree configurations, a distinct property from minimum eccentricity.",
+          "Proposition 41 gives an edge-count generating function, not shortest-path counts.",
+          "The conclusion emphasizes structural component enumeration rather than the metric of the big component."
+        ],
+        "identifier_or_url": "arXiv:1403.5546; DOI:10.37236/4403; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i1p65/pdf/",
+        "material_read": "Accessible 53-page full journal PDF; read main definitions/theorems in pages 1–6, relevant material on ring component at pages 45–46, and concluding results/pages 47–50; searched all PDF text for diameter, distance, and the component profile.",
+        "method": "Primary full-text web PDF and complete arXiv HTML; checked theorem statements, component-count formulas, Proposition 39–41 and conclusion.",
+        "title": "Disjoint compatibility graph of non-crossing matchings of points in convex position",
+        "trigger": "Exactly the same matchings, adjacency, parameter nine and largest component."
+      },
+      {
+        "assessment": "Their reconfiguration edge changes two selected chords, while disjoint compatibility forbids any retained chord and may switch all nine at once. The diameter \\(k-1\\) of their connected graph therefore does not imply this disconnected graph’s large-component diameter.",
+        "evidence": [
+          "Institutional abstract explicitly states the two-edge replacement formula and diameter equal to matched-pair count minus one.",
+          "The 2015 paper distinguishes that earlier local flip graph from the disjoint compatibility graph."
+        ],
+        "identifier_or_url": "DOI:10.1007/s003730200038; https://upcommons.upc.edu/entities/publication/fb856b38-6fae-4f80-b6e8-1513692c7f72",
+        "material_read": "Institutional record abstract and explicit original adjacency as restated in the 2015 full paper; primary PDF fetch returned 403, so full primary text was not read.",
+        "method": "Read publicly available institutional abstract, original stated flip operation and later journal comparison.",
+        "title": "Graphs of Non-Crossing Perfect Matchings",
+        "trigger": "Same finite vertex family and an exact diameter assertion for a different move."
+      },
+      {
+        "assessment": "Proves another compatible matching exists for even-size matchings; establishes neither the connected-component metric nor the center at the odd matched-pair parameter nine.",
+        "evidence": [
+          "Published theorem concerns the existence of an alternative compatible matching in even size.",
+          "It does not address all-pairs shortest paths on the convex nine-pair big component."
+        ],
+        "identifier_or_url": "DOI:10.1007/s00454-012-9466-9",
+        "material_read": "Accessible original theorem and abstract in publisher-mirrored introductory excerpt, plus its use in 2015 primary paper; full 43-page text not inspected.",
+        "method": "Scientific excerpt and full-paper 2015 primary-literature comparison.",
+        "title": "Disjoint compatible geometric matchings",
+        "trigger": "Direct disjoint-compatible matching existence theorem for general-position point sets."
+      },
+      {
+        "assessment": "The new graph joins two matchings if a common disjoint-compatible auxiliary tree/caterpillar/path exists; that is not the direct disjoint-compatibility relation. Its diameter at most five via trees cannot cover a big-component diameter of fifteen in the present graph.",
+        "evidence": [
+          "Section 1 explicitly defines an auxiliary drawing \\(D\\) simultaneously compatible with both matchings.",
+          "Theorems concern \\(\\operatorname{DCG}_{S}(\\mathcal H)\\), which has a different edge criterion from direct \\(\\mathrm{DCM}_9\\)."
+        ],
+        "identifier_or_url": "arXiv:2409.03579; https://arxiv.org/abs/2409.03579",
+        "material_read": "Accessible arXiv full HTML, especially definitions, introductory theorems and sections explaining the auxiliary spanning-tree adjacency.",
+        "method": "Primary arXiv full-text HTML inspection, including formal definition of mediated disjoint compatibility.",
+        "title": "Disjoint Compatibility via Graph Classes",
+        "trigger": "Newer article uses the same geometric matchings and proves diameters, requiring an exact adjacency comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "33e4c3d2-76d5-4dde-920a-6178f9e0f069",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Nine pairs form the first parameter in the stable three-type component regime established by the 2015 primary paper. The 4070-vertex big component was previously classified by size, but not by transformation distances. The exact radius, diameter, uniquely central two boundary matchings and full eccentricity spectrum answer natural reachability-efficiency questions and connect the old maximum-degree rings with a genuinely different metric extremality. This is a motivated exact natural cutoff, not an arbitrary slice or known-table recomputation; no general theorem is claimed.",
+    "status": "PASS"
+  }
+}
