@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T14:14:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "B is nonsingular with determinant 70 and every row has squared norm 29. For normalized A=B/√29, b=0, x0(t)=(-10,t,-30), and fresh uniform without-replacement β-samples per step, first-step coupling by nested subsets proves monotonic one-step expected squared error for every normalized consistent system. At horizon two all ordered sample pairs (β=1:9, β=2:9, β=3:1) have deterministic strict maximal-absolute-residual choices throughout t∈[1/2,3/2]. Independently reconstructed rational projection matrices P_i=I-b_i^T b_i/29, strict quadratic branch margins and all expected-risk coefficients: F1=4(26103t²-839010t+30675050)/219501, F2=2(43707t²-2466480t+57312850)/219501, F3=4(2836t²-170920t+3628725)/24389. Differences F1-F2=2(2833t²+262820t+1345750)/73167>0 and F3-F1=4(1983475-699270t-579t²)/219501>0 on the full closed interval. Thus F2<F1<F3 with β=3 worst, and horizon two is minimal. Unit relaxation, fixed 3x3 system and exactly two projections; not an asymptotic-rate claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Haddock–Ma convergence bounds; Nutini upper bounds; exact F2<F1<F3 values"
+        ],
+        "reasoning": "Convergence upper bounds do not order actual iterates across β, and comparison with cyclic Kaczmarz relaxation concerns a different parameter and distribution. No inspected stronger theorem subsumes the explicit reversed expected risks.",
+        "searches": [
+          "sampling Kaczmarz Motzkin larger sample size beta greedy projection worse expected squared error after two iterations nonmonotonic",
+          "https://arxiv.org/pdf/1912.03544"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1912.03544",
+        "https://www.auai.org/uai2016/proceedings/papers/77.pdf",
+        "https://arxiv.org/abs/1605.01418"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-step ordering by nested subsets; two-step F2<F1<F3 with all strict branches"
+        ],
+        "reasoning": "One-step marginal descent and rate upper bounds cannot imply the claimed two-step monotonicity; they are consistent with this reversal. The exact horizon-two counterexample requires new joint-path computation.",
+        "searches": [
+          "sampling Kaczmarz Motzkin larger sample size beta greedy projection worse expected squared error after two iterations nonmonotonic",
+          "https://arxiv.org/pdf/1912.03544"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SKM subsets chosen independently, residual max per sample; first-step coupling vs second-step exact risk"
+        ],
+        "reasoning": "Prior algorithmic performance bounds are on geometric convergence factors or individual-step progress; no equivalent finite two-step sample-size reversal found. Equivalent language includes greedy/randomized Kaczmarz, block sampling and maximal-residual selection.",
+        "searches": [
+          "sampling Kaczmarz Motzkin larger sample size beta greedy projection worse expected squared error after two iterations nonmonotonic",
+          "https://arxiv.org/pdf/1912.03544"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "19 exhaustive ordered sampling-subset paths reconstructed with rational projectors and polynomial branch margins"
+        ],
+        "reasoning": "Not a tabular natural invariant; exact rational finite-matrix calculation was independently reconstructed, and no established table or documented identical instance was found.",
+        "searches": [
+          "sampling Kaczmarz Motzkin larger sample size beta greedy projection worse expected squared error after two iterations nonmonotonic",
+          "https://arxiv.org/pdf/1912.03544"
+        ]
+      },
+      "rationale": "Haddock–Ma describe the identical SKM normalized row selection and analyze convergence-rate bounds; no theorem there establishes monotonic realized expected squared error with sample size over a fixed multi-step horizon. Nutini et al. give greedy Kaczmarz one-step benefits and multi-step upper bounds, not exact three-way ranking; De Loera–Haddock–Needell analyze related sampling feasibility scheme. A published two-row cyclic-overrelaxation finite-horizon cost concerns relaxation, not subset size. The strict reversed ranking on an explicit open parameter interval after the provably minimal two-step horizon is a non-implied counterexample.",
+      "residual_risks": [
+        "An unpublished numerical example may have previously noted β-nonmonotonicity.",
+        "No assertion of a generic asymptotic disadvantage of greedy sampling or any runtime comparison; explicit fixed matrix and two projections only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines β-sampled maximal residual; proves upper bounds rather than exact sample-size ranking at two projections",
+          "evidence": "Algorithm 1 and convergence rate statements",
+          "identifier_or_url": "https://arxiv.org/pdf/1912.03544",
+          "material_read": "Full accessible 33-page manuscript; algorithm and sampling β in §2, convergence analyses §3, experiments and conclusion",
+          "method": "Read PDF full relevant sections and comparison text",
+          "title": "Haddock and Ma, Greed Works: An Improved Analysis of Sampling Kaczmarz–Motzkin",
+          "trigger": "Exact matching algorithm and primary relevant paper"
+        },
+        {
+          "assessment": "Different cyclic two-row overrelaxation parameter; not used for any whole-text novelty exclusion",
+          "evidence": "Resultary semantic hit description",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+          "material_read": "Semantic-search title and summary, not full result",
+          "method": "Read published finding summary only",
+          "title": "Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation",
+          "trigger": "Nearest finite-horizon Kaczmarz published Resultary result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A minimal-horizon counterexample shows a genuine algorithmic tradeoff: taking MORE candidate rows and applying the largest-residual projection can produce GREATER two-step mean squared error, with the intermediate sample size best. This sharpens interpretation of sampling-rate convergence guarantees and provides an exact reproducible benchmark; not just another parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unpublished numerical example may have previously noted β-nonmonotonicity.",
+    "No assertion of a generic asymptotic disadvantage of greedy sampling or any runtime comparison; explicit fixed matrix and two projections only."
+  ]
+}

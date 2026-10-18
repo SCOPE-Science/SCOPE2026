@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The selected rows follow from the exact residuals and strict affine comparisons on \(1/2\le t\le3/2\). The projection matrices are orthogonal projectors because all integer row norms have square \(29\). The expected risks enumerate every subset-pair without replacement within each step and independently across steps, and exact polynomial subtraction certifies both strict inequalities for the whole continuum. The standalone exact-rational code checks determinant, row norms, all 22 nontrivial branch inequalities, polynomial coefficients, and positivity. The earliest-horizon assertion follows from nested uniform-subset coupling, not numerical enumeration.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The algorithm-defining analysis [1] yields size-sensitive upper convergence estimates but does not imply fixed-instance, finite-horizon pointwise ordering of true error. The multi-step greedy work [2] bounds graph-dependent rates, not the displayed exact two-step sampling-size reversal. The original SKM inequalities analysis [3] discusses size versus computational work but not this strict equality-system example. A full-text comparison of their relevant theorem and appendix sections shows no stronger statement covering this claim. Unindexed independent examples remain a priority risk; search absence alone is not novelty proof.
+PASS
 
-**Value — PASS.** The statement pinpoints a genuine structural limitation of the widely used policy of increasing sample size to intensify greed: the myopically better conditional projection can send an iterate into a less favorable geometric direction at the immediately following step. The exact three-way reversal occurs at the first feasible horizon, on a full-rank, equal-row-norm system across a continuum of starts, not at a tie or ill-posed boundary. This is a finite-time solver-design distinction, not a claim of broad runtime improvement.
+B is nonsingular with determinant 70 and every row has squared norm 29. For normalized A=B/√29, b=0, x0(t)=(-10,t,-30), and fresh uniform without-replacement β-samples per step, first-step coupling by nested subsets proves monotonic one-step expected squared error for every normalized consistent system. At horizon two all ordered sample pairs (β=1:9, β=2:9, β=3:1) have deterministic strict maximal-absolute-residual choices throughout t∈[1/2,3/2]. Independently reconstructed rational projection matrices P_i=I-b_i^T b_i/29, strict quadratic branch margins and all expected-risk coefficients: F1=4(26103t²-839010t+30675050)/219501, F2=2(43707t²-2466480t+57312850)/219501, F3=4(2836t²-170920t+3628725)/24389. Differences F1-F2=2(2833t²+262820t+1345750)/73167>0 and F3-F1=4(1983475-699270t-579t²)/219501>0 on the full closed interval. Thus F2<F1<F3 with β=3 worst, and horizon two is minimal. Unit relaxation, fixed 3x3 system and exactly two projections; not an asymptotic-rate claim.
 
-**Closest literature and limitations.** Haddock–Ma [1] is closest on the sampling rule, Nutini et al. [2] on multi-step greedy geometry, and De Loera et al. [3] on sample-size tradeoffs. Those publications and the matrix's exact results should be read together: the present counterexample is compatible with their upper bounds. The statement is confined to the displayed family, two iterations, and squared Euclidean solution error. Priority risk survives for inaccessible or unindexed documents.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Haddock–Ma describe the identical SKM normalized row selection and analyze convergence-rate bounds; no theorem there establishes monotonic realized expected squared error with sample size over a fixed multi-step horizon. Nutini et al. give greedy Kaczmarz one-step benefits and multi-step upper bounds, not exact three-way ranking; De Loera–Haddock–Needell analyze related sampling feasibility scheme. A published two-row cyclic-overrelaxation finite-horizon cost concerns relaxation, not subset size. The strict reversed ranking on an explicit open parameter interval after the provably minimal two-step horizon is a non-implied counterexample.
+
+## value
+
+PASS
+
+A minimal-horizon counterexample shows a genuine algorithmic tradeoff: taking MORE candidate rows and applying the largest-residual projection can produce GREATER two-step mean squared error, with the intermediate sample size best. This sharpens interpretation of sampling-rate convergence guarantees and provides an exact reproducible benchmark; not just another parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
