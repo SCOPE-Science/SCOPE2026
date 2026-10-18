@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the two free heptagon parameters to an exact line-intersection test inside the published hyperbola-completion theorem. The sign computation for \(t_O-t_A\) is exact, and the sufficiency step uses the source's case (0), which gives a unique convex completion rather than a numerical approximation.
+## correctness
 
-## Originality
-PASS. The primary paper explicitly leaves connectedness of \(\mathcal T_n\) as a conjecture. Its Proposition 3.2 supplies the general mechanism but not the \(n=7\) domain. Harel--Rabin give the earlier general algebraic parametrization and work out \(N=6\), not the convex heptagon topology. Targeted published-finding corpus and web searches did not locate the exact heptagon statement. Residual risk remains from unindexed elementary notes.
+PASS
 
-## Value
-PASS. The theorem settles the first two-parameter case of the published connectedness problem and identifies the entire moduli space with a contractible open half-plane after logarithmic coordinates. This is a natural complete classification, not an arbitrary numerical slice.
+PASS. From the actual RESULT.md at tree 6896f9cdbf6783d846334509601e6d0eb98abf0d, normalize P1=(0,0), P2=(1,0), P3=(0,1). Recomputed symbolic first five vertices P4=(-1-x,1+x), P5=(-x-y-xy,x+xy), x,y>0. Intersections along P1P5 are t_A=1/(x(1+y)), t_O=(xy+y-1)/(y(x+1)), and their exact difference factors as (xy-1)(xy+x+y)/(xy(x+1)(y+1)). Published Prop.3.2 case (0) gives a unique smooth strictly convex completion iff the necessary segment order t_O>t_A>0, namely xy>1; at equality the strict completion degenerates. Smooth inverse retrieves x,y from recurrence coefficients; logarithms carry D to the open half-plane u+v>0. No finite sample substituted for this existence/uniqueness theorem.
 
-## Closest literature and limitations
-Craizer--Teixeira--da Silva (arXiv:1103.2722; DOI 10.1007/s00454-012-9448-y) is the closest source: it defines the moduli spaces, proves the hyperbola-completion proposition, and poses connectedness as a conjecture. Harel--Rabin (DOI 10.1080/00029890.2003.11920000) is the closest earlier parameterization. The present theorem is only for cyclically marked strictly convex heptagons; it does not address nonconvex polygons or \(n\ge8\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of checked knowledge). The 2011/2012 convex equal-area paper’s general three-line hyperbola completion supplies a needed lemma and explicitly leaves connectedness of T_n conjectural; it neither identifies the exact xy>1 heptagon coordinate region nor establishes n=7 contractibility. Harel–Rabin’s earlier algebraic parametrization and six-gon case do not give this two-parameter convex heptagon topology. Specialization relies on the new line-order derivation, not on relabeling a proved connectedness theorem. Unindexed elementary specialization remains possible; Resultary outage is not negative evidence.
+
+## value
+
+PASS
+
+PASS. The full two-dimensional affine moduli classification of cyclically marked equal-area strictly convex heptagons addresses the first nontrivial two-parameter case of Craizer–Teixeira–da Silva’s explicit connectedness question. Obtaining a global diffeomorphic model and contractibility has substantive structural meaning; no extension beyond seven vertices claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
