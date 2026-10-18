@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification of the mathematical argument
+# Independent mathematical audit
 
-The proof is analytic and self-contained apart from standard boundary uniqueness and weak-star compactness. The following checks were performed on the stated formulas:
+## correctness
 
-- \(W(z)=(1+z)/(1-z)\) has positive real part in the disk, so the principal logarithm and the formula for \(F_c\) are unambiguous.
-- For boundary angles in \((0,\pi)\) and \((\pi,2\pi)\), respectively, the arguments of \(W\) are \(\pi/2\) and \(-\pi/2\). The moduli of \(F_c\) are therefore exactly \(c\) and \(1\).
-- The norming integral has \(L_c(F_c)=1\). For every positive odd \(k\), direct evaluation gives \(L_c(z^kF_c)=2/(\pi i k)\neq0\), proving full codimension for any \(N\).
-- For the sample \(c=0.3\), numerical complex arithmetic at six nonendpoint boundary arguments returned the correct two boundary moduli. Sample moments \(k=1,2,3,4,5\) matched the exact alternating zero/nonzero formula. These samples were not used to prove the universal theorem.
-- If \(\|h\|_\infty\leq1\) and \(L_c(h)=1\), positivity of \(1-\Re(h^*\overline{F_c^*})\) on the norming semicircle forces equality almost everywhere, and boundary uniqueness forces \(h=F_c\).
-- Finite-dimensional extreme points are strongly extreme by compactness; this is applied only after the quotient dimension and ordinary extremity have both been proved.
+PASS
 
-**Scientific limits.** This gives an existential family for each finite quotient dimension, not an infinite-dimensional quotient classification or a claim about ideals. The distance-to-inner estimate is a lower bound, not an exact distance formula. The cited 2026 preprint contains a related non-inner minimizer but does not establish the strong quotient extremity proved here. No independent audit has been performed.
+The assigned RESULT.md blob d7d36258290321c75374ce91ddfc22165156a4a7 defines F_c(z)=√c exp(i[-log c/π] Log[(1+z)/(1−z)]) for every 0<c<1. Right-half-plane W and principal branch give c≤|F_c|≤1, bounded inverse (hence outer) and unimodular radial values on lower semicircle I, modulus c on upper. L_c(g)=2∫_I g* conjugate(F_c*)dm is weak-star continuous norm≤1 and L_c(F_c)=1. E_N,c=z^(N−1)H∞∩ker L_c has exact codimension N: for any odd k≥N−1, L_c(z^kF_c)=2/(π i k)≠0, independent of N−1 Taylor kernels. If a norm≤1 representative h of F_c+E has L_c(h)=1, equality in the boundary-average disk forces h*=F_c* a.e. on I; Privalov boundary uniqueness gives h=F_c. Thus coset has norm one, unique norm minimizer, is exposed/extreme in H∞/E, and finite quotient dimension N upgrades extreme to strongly extreme by compactness. Every inner Θ has ||F_c−Θ||∞≥1−c due to upper semicircle modulus. Exact complex/Fourier computations independently checked odd/even coefficients and the boundary formula; no sampling is used for the universal analytic proof. No invariant-ideal or infinite-dimensional quotient conclusion.
+
+## originality
+
+PASS
+
+PASS on bounded comparison with Dyakonov arXiv:2603.29103 full primary Section 1: Theorem 1.3 treats ordinary quotient extremity and the final paragraph asks about strong quotient extremity with a unique inner minimizer. The stated finite-codimensional kernel construction directly disproves necessity for unrestricted weak-star closed subspaces. The related 2023 strong-extreme theorem concerns finite-codimensional SUBSPACES, not finite-dimensional QUOTIENTS. A generic exposed-point argument might have previously implied similar examples; residual priority risk is explicit.
+
+## value
+
+PASS
+
+Refuting the expressly formulated 2026 unrestricted Hardy-quotient conjecture is a concrete motivated mathematical result. The exact finite-codimensional analytic construction works in every quotient dimension, has a uniquely minimizing invertible non-inner outer representative arbitrarily far below unit boundary modulus, and clearly exposes which missing invariance assumption might be essential. An elementary construction is scientifically useful when it settles a stated natural yes/no criterion, without claiming an infinite-dimensional classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
