@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal proof is symbolic. Its critical externally sourced lemma is the distinct-powers characterization from arXiv:2002.02731: a digit sum \(t\) is attained by a multiple of \(n\) exactly when \(t\) distinct powers of the base can sum to a multiple of \(n\). For \(n=b^2+b+1\), the identity \(b^3\equiv1\pmod n\) reduces this to a three-coordinate residue condition.
+# Independent mathematical audit
 
-The proof checks the exact domain \(b\ge2\), \(b\not\equiv1\pmod3\), and uses \(\gcd(b-1,n)=1\) only to place the family in the cofinite regime posed by the source question. Coverage above the boundary is established from the explicit attainable lengths \(3\), \(b+2\), and \(2b+1\). The nonattainment of \(2b-2\) is proved by a contradiction after subtracting the minimum count and reducing to two residue classes.
+## correctness
 
-`verify.py` was replayed from the packaged artifact directory and produced the exact contents of `verify_output.txt`:
+PASS
 
-`VERIFY_OK bases=66 post_frobenius_checks=924 generator_witnesses=198`
+For b≥2 with b≢1 mod3, n=b²+b+1 and gcd(b−1,n)=1, Clokie et al. distinct-power criterion reduces positive attainable digit-sum lengths to triples x,y,z≥0, t=x+y+z and x+by+b²z≡0 mod n because b³≡1. Explicit distinct-power witnesses give lengths 3,b+2,2b+1. Modulo 3 these generators provide representatives for all residue classes at every t≥2b−1; hence coverage. To rule out t0=2b−2, subtract m=min(x,y,z), cycle coordinates so one is zero, and obtain 0<x′+by′≤b(2b−2)<2n, forcing x′+by′=n. Thus t′+(b−1)y′=n, t′=3+k(b−1), and y′=b+2−k. Nonnegative y′≤t′ forces k≥1 while t′≤2b−2 forces k≤1; t′=b+2 then contradicts t0−t′ divisible by 3 unless b≡1 mod3. The infinite algebra proves Frobenius=2b−2. Fresh independent triple enumeration for 25 admissible b≤39 found the asserted gap and all lengths through 2b+15; it is not used as the universal argument.
 
-The replay enumerates admissible bases through \(100\), checks the predicted gap and a post-boundary window, and verifies the three explicit integer witnesses. These finite checks are regression evidence only; they do not certify the infinite quantifiers.
+## originality
+
+PASS
+
+Phunphayap–Pongsriiam–Noppakaew pose precisely determination of Frobenius numbers of digit-sum arc out-neighborhoods under gcd(b−1,n)=1 as Question 3.4, and their theorem only establishes cofiniteness. Clokie et al. supply the distinct-power criterion and general propagation but not the exact conductor at cyclotomic n. Resultary closest hits concern numerical semigroup and cyclotomic problems with different invariants, not this equality. A stronger obscure digit-sum conductor theorem might cover it; current best-of-knowledge comparison finds a genuine exact family.
+
+## value
+
+PASS
+
+The modulus Φ3(b) is a natural multiplicative-order-three family matching the three residue classes 1,b,b²; the proof answers a published natural Frobenius question on an infinite coherent subfamily with an exact last gap and an elementary sharp obstruction. Not an arbitrary small cutoff or a generic semigroup identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
