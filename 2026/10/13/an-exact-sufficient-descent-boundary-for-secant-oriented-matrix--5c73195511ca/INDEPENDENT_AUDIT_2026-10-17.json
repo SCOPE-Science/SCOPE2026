@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T15:00:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From P=I-sy^T/(s^Ty)+(tI+nu yy^T)ss^T/(s^Ty) and t+nu||y||^2=1 (0<=t<=1), the symmetric 2D block is [[z(1+tq^2), q(z(1-t)-1)/2],[same,1]], q^2=m^-2-1, z=(s^Ty)/||y||^2. Sylvester's criterion gives iff Delta=z(1+tq^2)-q^2(z(1-t)-1)^2/4>0 for universal strict descent. For fixed noncollinear m any angle-only t<1 violates positivity at large z; t=1 violates it at small z. Recomputed exact SPD quadratic A=[[1,sqrt3],[sqrt3,4]]/80, b=(-5/8,0), first step alpha=64, s=(40,0), y=(1/2,sqrt3/2), m=1/2,z=20: strong Wolfe with c1=0.0001,c2=0.9; both source rho=eta=1 give t=nu=1/2, P=[[50,-sqrt3],[10sqrt3,1]], sym determinant -43/4, g1^T(-Pg1)=5/32>0. Local witness shows ascent for a permitted step, not forced convergence failure.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "MatDL general symmetric matrix descent criterion is broader in P but is not the stated specialized exact angle/scale impossibility theorem; some other parameter branches explicitly enforce descent."
+        ],
+        "reasoning": "The more general positivity principle alone does not contain the evaluated semialgebraic frontier, all-angle no-go quantifier, or concrete feasible witness as a stated corollary; the new reduction is nontrivial but avoids claiming new Sylvester criterion.",
+        "searches": [
+          "arXiv:2607.17337 matrix eigenvalue determinant conditions",
+          "Dai Liao secant strong Wolfe descent source 2001",
+          "Sugiki Narushima Yabe 2012 3 term sufficient descent"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.17337",
+        "DOI:10.1080/10556788.2017.1338288",
+        "DOI:10.1007/s10957-011-9960-x",
+        "Resultary topic query MatDL"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly separates sufficient-descent branch from secant-oriented rho/eta settings; first admissible Wolfe step directly contradicts any unconditional descent inference for those settings."
+        ],
+        "reasoning": "Earlier matrix-level positive-definiteness principles imply that a negative determinant is unsafe, but do not establish that every angle-only secant rule fails at some positive curvature pair. Conversely new theorem does not refute the source descent-oriented/ZZL branch.",
+        "searches": [
+          "From a Scalar to a Matrix Setting for the Dai--Liao Parameter equations 3.10-3.11",
+          "Zhang Zhou Li 2007 sufficient descent 3-term",
+          "Kobayashi Narushima Yabe 2017"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026 MatDL paper sections 3.2-3.3 derives general positivity and angle settings; 2017 paper studies distinct three-term CG direction"
+        ],
+        "reasoning": "Mapped m=cos(s,y), z=(s^Ty)/||y||^2, t+nu||y||^2=1 into the source P. Qualitative no-descent warning does not equal exact secant-parameter frontier or actual strong-Wolfe witness.",
+        "searches": [
+          "Resultary semantic: Matrix Dai Liao secant oriented parameter sufficient descent angle-only rule t ν sy positive curvature ascent counterexample",
+          "arXiv:2607.17337",
+          "Kobayashi Narushima Yabe descent three-term secant 2017"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-model table identified in queried Resultary responses or inspected source section; no relevant numerical database is needed for universal 2D algebra."
+        ],
+        "reasoning": "Absence of an exact table is weak negative bibliographic evidence, not proof of novelty.",
+        "searches": [
+          "Resultary MatDL descent parameter matrix exact quadratic witness",
+          "MatDL secant descent boundary exact z t angle"
+        ]
+      },
+      "rationale": "The 2026 Matrix Dai--Liao source provides the matrix and general descent conditions, but the inspected secant-setting discussion does not formulate the derived exact (m,z,t) iff boundary, universal obstruction to angle-only choices, or this admissible strong-Wolfe witness. Qualitative descent warnings about unrelated three-term CG algorithms are credited; Resultary's nearest returned topics are different descent variants. Best of knowledge, with inaccessible 2017 full text recorded.",
+      "residual_risks": [
+        "2017 journal predecessor not fully read, although it predates MatDL; possible indirect implication remains a bounded originality risk",
+        "Exact Sylvester argument proves sufficient descent for all g, but selected line searches are not forced to take displayed alpha."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms source matrix and secant setting, general descent condition, but not exact (m,z,t) boundary/no-go or explicit witness",
+          "evidence": [
+            "§3.2 general sufficient descent; §3.3 secant rho and eta variants"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.17337",
+          "material_read": "Original full text, §§3.2–3.3 and equations (3.10)-(3.11), including secant/descent parameter branches",
+          "method": "public full-text mirror with inspected relevant sections; GitHub package RESULT.md read in full",
+          "title": "From a Scalar to a Matrix Setting for the Dai--Liao Parameter",
+          "trigger": "Exact same MatDL matrix and choices"
+        },
+        {
+          "assessment": "Different three-term directions; cannot exclude an unpublished/general equivalent observation from unread full text",
+          "evidence": [
+            "2017 Optimization Methods and Software 32:1313-1329 abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/10556788.2017.1338288",
+          "material_read": "Abstract and available bibliographic description, not whole journal paper",
+          "method": "public search abstract; institutional full text unavailable",
+          "title": "Descent three-term conjugate gradient methods based on secant conditions for unconstrained optimization",
+          "trigger": "Closest qualitative secant/descent predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact if-and-only-if boundary locates a concrete safety defect in published secant-oriented optimization settings. The source-specific 2D strong-Wolfe example is a substantive boundary witness for algorithm design, not a generic caution that a matrix might be indefinite.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Applies to t,nu>=0 under source secant equation and s^Ty>0; does not claim failure of all MatDL choices, convergence results, or an obligatory line-search trajectory."
+  ],
+  "schema_version": 1
+}
