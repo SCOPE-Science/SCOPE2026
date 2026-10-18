@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T12:59:08.531526Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed from the displayed finite-n bound F<=[1-H2^-1(max(0,k-s)/max(n-s,n-k))]^t of Tang et al. with r=floor((d-3)/(q-2)), s=q max(g-r,0), t>=1. At g/n below gamma0=Delta/(q-2), s=0 and t/n approaches positive constant, giving exponential suppression. At gamma0<gamma<gamma*=gamma0+R/q, s/n approaches sigma<R and t>=1 yields uniform gap. If g/n<=gamma*-eta, either s=0 or k-s>=n*q*eta/4 asymptotically, furnishing the claimed gap and liminf bound. Endpoint regimes excluded; conditional on existence of positive-rate-distance codes. No incorrect use of finite numerics as infinite theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang bound controls any individual finite code and any fidelity, not only sequences of linear-rate-distance codes.",
+          "Tang abstract covers exact and sufficiently accurate approximate fermionic error correction."
+        ],
+        "reasoning": "A stronger finite-size upper bound implies all asymptotic special cases by continuity and monotonicity.",
+        "searches": [
+          "Fermionic Gaussian doped gate codeword fidelity vanishing-error non-Gaussian gate density Delta/(q-2) plus R/q exact preparation",
+          "https://arxiv.org/abs/2609.15059"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.15059",
+        "Fermionic Gaussian doped gate codeword fidelity vanishing-error non-Gaussian gate density Delta/(q-2) plus R/q exact preparation",
+        "2026/10/4/SCOPE-exact-single-copy-gslocc-conversion-frontier-for-two-mode-fermio--aa3a1aff346a",
+        "2026/10/4/SCOPE-the-canonical-rank-one-aqec-comparator-is-never-fixed-noise-stat--962c4cdcb0d3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set s=q(g-r)_+, t=floor((d-(q-2)min(g,r)-1)/2)>=1 in source Theorem 2.",
+          "Assuming gamma<gamma*, if g>=r then k-s approximately n(R-q(gamma-gamma0))>0; the source bound keeps F strictly below one."
+        ],
+        "reasoning": "The original Theorem 2 already forces the claimed liminf gate-density threshold for F tending to one; hence scientific originality fails.",
+        "searches": [
+          "https://arxiv.org/abs/2609.15059",
+          "Fermionic Gaussian doped gate codeword fidelity vanishing-error non-Gaussian gate density Delta/(q-2) plus R/q exact preparation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tang Theorem 2 finite-size F upper bound with r,s,t encodes arbitrary finite n,k,d,g,q.",
+          "The proposed gamma* threshold follows from k-s asymptotic positivity and t>=1."
+        ],
+        "reasoning": "The proposed density statement is a limit reparameterization of Tang finite-n theorem rather than a new obstruction.",
+        "searches": [
+          "Fermionic Gaussian doped gate codeword fidelity vanishing-error non-Gaussian gate density Delta/(q-2) plus R/q exact preparation",
+          "https://arxiv.org/abs/2609.15059"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No combinatorial table is necessary: the prior formula is closed finite-n analytic inequality.",
+          "Small numerical substitution of rates checked limits but is not a proof."
+        ],
+        "reasoning": "No parameter table can prove novelty when the source continuous inequality logically dominates the target.",
+        "searches": [
+          "Fermionic Gaussian doped gate codeword fidelity vanishing-error non-Gaussian gate density Delta/(q-2) plus R/q exact preparation",
+          "2026/10/4/SCOPE-exact-single-copy-gslocc-conversion-frontier-for-two-mode-fermio--aa3a1aff346a"
+        ]
+      },
+      "rationale": "FAIL: the exact finite-size fidelity inequality and its definitions are the main quantitative theorem in Tang et al. and already imply the submitted positive-rate asymptotic density bound by replacing k/n,d/n,g/n with limits and taking t>=1. The source abstract explicitly states the resource lower bound also for sufficiently accurate approximate fermionic QEC. This is an elementary consequence, not a new independently established limit theorem, regardless of wording.",
+      "residual_risks": [
+        "Full source arXiv PDF could not be inspected through current accessible route; authorized institutional service returned vpn_disconnected, and complete source verification remains an access limitation, not standalone reason for O rejection.",
+        "The original finite inequality was validated algebraically as presented in pinned RESULT, not against line-by-line original PDF."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract directly states approximate QEC non-Gaussian resource obstruction; finite source bound implies proposed result. No claim of full manuscript reading.",
+          "evidence": "Finite source inequality and direct limit computation",
+          "identifier_or_url": "https://arxiv.org/abs/2609.15059",
+          "material_read": "Public arXiv abstract and publication metadata plus finite-size Theorem 2 formula faithfully reproduced in pinned RESULT.md; source complete PDF unavailable",
+          "method": "ArXiv abstract and pinned mathematical reproduction; attempted authorized institutional retrieval returned vpn_disconnected",
+          "title": "Fermionic quantum error correction is never free",
+          "trigger": "Exact finite fidelity theorem from which new asymptotic follows"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: for the same exact code model the source establishes the stronger finite-n fidelity constraint. The new two-band asymptotic restatement neither identifies a new resource invariant beyond the existing bound nor improves constants or methodology; the limit is a routine consequence. Its communication usefulness does not constitute independent mathematical value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Proof is conditional on source finite-size inequality and code-family existence; no achievability above gamma*, no universal encoder theorem.",
+    "Full source arXiv PDF could not be inspected through current accessible route; authorized institutional service returned vpn_disconnected, and complete source verification remains an access limitation, not standalone reason for O rejection.",
+    "The original finite inequality was validated algebraically as presented in pinned RESULT, not against line-by-line original PDF.",
+    "Signed continuation is a sequence position, not scientific certification; no public publication until provenance sanitization."
+  ],
+  "schema_version": 1
+}
