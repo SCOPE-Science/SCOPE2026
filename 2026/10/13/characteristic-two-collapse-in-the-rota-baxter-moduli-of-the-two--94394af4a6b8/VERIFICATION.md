@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,56 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged checker `artifacts/verify.py` reconstructs the complete weight-zero Rota--Baxter system from the single bracket
-\[
-[e_1,e_1]=e_2.
-\]
 
-For
-\[
-R=
-\begin{pmatrix}
-a&b\\
-c&d
-\end{pmatrix},
-\]
-it obtains polynomial generators equivalent over a field to
-\[
-b=0,\qquad a(a-2d)=0.
-\]
+# Independent mathematical audit
 
-The checker then derives the automorphism family
-\[
-\phi_{u,v}
-=
-\begin{pmatrix}
-u&0\\
-v&u^2
-\end{pmatrix},
-\qquad u\ne0,
-\]
-and verifies the conjugation formula
-\[
-(a,c,d)
-\mapsto
-\left(a,\,
-uc+\frac{v(a-d)}u,\,
-d\right).
-\]
+## correctness
 
-Finally it exhaustively enumerates all operators and automorphism orbits over
-\[
-\mathbf F_2,\quad
-\mathbf F_3,\quad
-\mathbf F_5,\quad
-\mathbf F_7.
-\]
-The operator/orbit counts are
-\[
-(4,3),\quad(15,6),\quad(45,10),\quad(91,14),
-\]
-matching the theorem.
+PASS
 
-The checker returns `VERIFY_OK`.
+For a vector x, y, bracket [x,y]=x1y1 e2. Basis-pair RB defects yield b²=0 and a²−2ad=0 with other equations vanishing once b=0. Over any field b=0; in odd characteristic a=0 or a=2d yields two planes meeting along c, while in char2 a=0 yields one plane set-theoretically (scheme may be nonreduced). Aut fixes [e1,e1], hence phi(e1)=u e1+v e2 and phi(e2)=u² e2 (u nonzero), and conjugation sends c to uc+v(a−d)/u. Distinct a,d are orbit invariants and all c can be killed when a−d≠0. Normal forms 0,E21,D_d and H_d where char≠2 yield 2q orbits, and in char2 just q+1. Direct enumeration of all endomorphisms over F2,F3,F5,F7 reproduced 4,15,45,91 maps; orbit sizes follow from explicit action, not finite trials.
 
-Finite enumeration is a replay check and is not used in place of the arbitrary-field proof.
+## originality
+
+PASS
+
+PASS best-of-knowledge: Zhang–Li–Zheng Theorem 17 lists unquotiented solutions over C for the same cyclic Leibniz algebra, but its complex-field theorem does not establish the characteristic-two collapse or automorphism orbits over finite fields; Das–Guo gives general relative-RB infrastructure. The exact low-dimensional orbit classification is separately assessed, not prior complex raw-list novelty.
+
+## value
+
+PASS
+
+Taking the automorphism quotient of a complete raw operator classification is the natural next moduli question; char2 changes irreducible set-theoretic geometry and finite-field quotient sizes. This supplies an exact small-algebra boundary relevant to characteristic-dependent Leibniz operator moduli.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
