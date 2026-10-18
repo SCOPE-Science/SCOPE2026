@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T02:16:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a path, distance >=3 between selected vertices is exactly the packing requirement. Edgeless uncovered induced complement forces every internal gap <=4, so successive gap lengths are 3 or 4; leading/trailing unselected slack is 0,1,2. Hence p_n(z) has generating series x+zx(1+x+x^2)^2/(1-z(x^3+x^4)), including empty S on P_1. For cycles, consecutive cyclic gaps are 3 or 4, including the singleton cases C3,C4; marked cyclic compositions give c_n(z) series z(3x^3+4x^4)/(1-z(x^3+x^4)). Allowed k intervals are ceil((n-1)/4)..floor((n+2)/3) for P_n and ceil(n/4)..floor(n/3) for C_n, with C5 the only empty interval among cycles n>=3. Graphs of maximum degree <=2 are disjoint unions, so polynomial multiplicativity and interval sums prove the full theorem. Independent direct subset tests against the defining edge and closed-neighborhood conditions covered P1..P12, C3..C12, all coefficients matched; finite checks corroborate not replace the bijections.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyer et al. establish packing-isolating sets for trees, discuss C5 obstruction and general complexity, but do not provide the all-set enumerating polynomial.",
+          "Bujtás et al. cycle theorem characterizes d-distance p-packing-domination using gaps p+1..2d+1; d=p=2 permits gaps 3,4,5, so fails to imply isolation 3,4 or its counts."
+        ],
+        "reasoning": "Neither contextual general existence theorem nor the broader distance-domination parameter family implies complete packing-isolating enumeration.",
+        "searches": [
+          "Boyer Goddard Henning arXiv:2606.18172 full text Theorem 2, Section 3",
+          "Bujtás Iršič Chenoweth Klavžar Zhang arXiv:2507.18272, Theorem 3.1 open-access full text",
+          "Resultary semantic queries packing-isolating P_n C_n counts"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.18172",
+        "arXiv:2507.18272",
+        "doi:10.1007/s00010-026-01266-w",
+        "Resultary semantic searches for packing-isolating polynomial and gap formulas"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Boyer existence for all trees does not determine the numbers of such sets on P_n or C_n.",
+          "For example, the lone chosen vertex of C5 is distance-2 dominating and a packing, while its two remaining undominated adjacent vertices violate isolation."
+        ],
+        "reasoning": "Prior existence and d-distance variants do not contain the isolation restriction or reconstruct the generating series; deriving new 3/4 gap-class bijections is a distinct classification.",
+        "searches": [
+          "arXiv:2606.18172 primary full text, Theorem 2 and Section 3",
+          "arXiv:2507.18272 primary full text Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining pair (disjoint closed neighborhoods; no edge outside N[S]) is equivalent on paths/cycles to 3-or-4 gaps, not to ordinary independent domination.",
+          "Distance-2 domination with p=2 packing permits gap five, whereas isolation forbids it."
+        ],
+        "reasoning": "The derived gap-language is equivalent within degree-two graphs; stronger-sounding distance-domination and vertex-edge terminology are distinguishable by C5 or a length-five gap.",
+        "searches": [
+          "packing-isolating sets paths cycles generating polynomial C5",
+          "packing vertex-edge domination simultaneous packing isolation",
+          "Boyer Goddard Henning arXiv:2606.18172 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact full p_n/c_n coefficients or rational bivariate series identified in checked published sources; this is a priority risk rather than proof of nonexistence."
+        ],
+        "reasoning": "This is a natural infinite-family enumerator, not merely recomputing a known table of minimum cardinalities.",
+        "searches": [
+          "Resultary search \"packing-isolating\" \"paths\" \"cycles\" generating function C5",
+          "Primary Boyer arXiv:2606.18172 text search for counting and cycle formulas",
+          "Bujtás et al. DOI:10.1007/s00010-026-01266-w Theorem 3.1"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact claim after comparison of named equivalent formulations, stronger results, exact tables and prior implications; disclosed residual literature risks.",
+      "residual_risks": [
+        "An older equivalent enumeration under less obvious packing/vertex-edge domination terminology may exist; checked sources do not currently show prior dominance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_ENUMERATOR",
+          "evidence": "Gives existence/complexity and C5 but not all-subset path/cycle counts or the stated generating functions.",
+          "identifier_or_url": "arXiv:2606.18172",
+          "material_read": "Accessible full primary HTML including formal definitions, tree existence theorem, C5 observation, NP-hardness section and later results",
+          "method": "Author-uploaded complete text, read relevant sections",
+          "title": "On the Relationships between Domination, Isolation, and Packing",
+          "trigger": "Recent source introducing studied simultaneous property"
+        },
+        {
+          "assessment": "NOT_IMPLYING",
+          "evidence": "Allows cyclic gap 5 for d=p=2, whereas packing-isolating requires 3 or 4 only; C5 separates them.",
+          "identifier_or_url": "arXiv:2507.18272 / doi:10.1007/s00010-026-01266-w",
+          "material_read": "Open-access complete paper, especially Theorem 3.1 and its cyclic gap characterization",
+          "method": "Publisher open-access full text read",
+          "title": "The d-distance p-packing domination number: complexity, cycles, and trees",
+          "trigger": "Superficially broader cycle packing-domination family"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": "Ordinary independent vertex-edge domination is not identical to disjoint closed-neighborhood packing.",
+          "identifier_or_url": "Lewis et al., Utilitas Mathematica 81 (2010), 193-213",
+          "material_read": "Bibliographic record and source-package contextual description only; complete primary text not read",
+          "method": "Bibliographic terminology comparison",
+          "title": "Vertex-edge domination",
+          "trigger": "Possible terminology alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides a complete cardinality-resolved enumeration, rational bivariate generating functions and the exact forbidden-component criterion for an entire natural degree-bounded graph class, answering a recent packing-isolation motivation. Unlike a routine scalar domination computation, the gap classification captures all feasible subsets and identifies precisely the C5 obstruction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2606.18172",
+    "arXiv:2507.18272",
+    "doi:10.1007/s00010-026-01266-w",
+    "Resultary semantic searches for packing-isolating polynomial and gap formulas"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An older equivalent enumeration under less obvious packing/vertex-edge domination terminology may exist; checked sources do not currently show prior dominance.",
+    "Public source metadata contains operational provenance; publication is withheld pending authorized sanitization.",
+    "Finite checker executions are bounded; general theorems rest on reconstructed symbolic arguments and clear assumptions."
+  ],
+  "schema_version": 1
+}

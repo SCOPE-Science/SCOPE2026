@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces simultaneous packing and edge isolation to an exact geometric restriction on consecutive selected vertices. Disjoint closed neighborhoods impose gaps at least \(3\); two consecutive vertices outside their union would form an undominated edge, forcing gaps at most \(4\). Endpoints of paths contribute independent slack from \(0\) to \(2\), and cycles are counted by marked cyclic compositions. The corresponding rational generating functions and component product follow bijectively. The full spectrum and unique \(C_5\) obstruction follow from elementary interval constraints, with all small boundary cases handled.
+PASS
 
-A standalone direct-neighborhood verifier checked \(221\) graphs and \(577328\) vertex subsets, including connected paths and cycles through \(17\) vertices and all disjoint-union component profiles through \(9\) vertices. These finite computations corroborate the general proof.
+For a path, distance >=3 between selected vertices is exactly the packing requirement. Edgeless uncovered induced complement forces every internal gap <=4, so successive gap lengths are 3 or 4; leading/trailing unselected slack is 0,1,2. Hence p_n(z) has generating series x+zx(1+x+x^2)^2/(1-z(x^3+x^4)), including empty S on P_1. For cycles, consecutive cyclic gaps are 3 or 4, including the singleton cases C3,C4; marked cyclic compositions give c_n(z) series z(3x^3+4x^4)/(1-z(x^3+x^4)). Allowed k intervals are ceil((n-1)/4)..floor((n+2)/3) for P_n and ceil(n/4)..floor(n/3) for C_n, with C5 the only empty interval among cycles n>=3. Graphs of maximum degree <=2 are disjoint unions, so polynomial multiplicativity and interval sums prove the full theorem. Independent direct subset tests against the defining edge and closed-neighborhood conditions covered P1..P12, C3..C12, all coefficients matched; finite checks corroborate not replace the bijections.
 
-## Originality — PASS
+## originality
 
-The main June 2026 primary source treats exactly the same notion, proves existence for every tree, notes \(C_5\) as a counterexample, and establishes general NP-hardness. Its full text does not give the exact maximum-degree-two classification, all-solution generating functions or size distributions. The closest stronger-looking primary cycle theorem treats simultaneous distance-\(2\) domination and distance-\(2\) packing, which allows cyclic gaps \(3,4,5\). The present invariant excludes gap \(5\) and forbids \(C_5\), so that theorem does not imply this result. Database and both present/earlier-archive overlap searches did not locate a covering result. Alternate historical naming of vertex-edge packing remains a residual literature risk.
+PASS
 
-## Value — PASS
+Best-of-knowledge original exact claim after comparison of named equivalent formulations, stronger results, exact tables and prior implications; disclosed residual literature risks.
 
-This supplies a complete first nonforest classification for the newly emphasized simultaneous packing-isolation property. Beyond the already-known \(C_5\) example, it proves that this is the *only* obstruction at degree at most two, describes all admissible sets, determines their contiguous cardinality spectra, and supplies exact bivariate generating functions and disconnected multiplicativity. The invariant is motivated by the recent comparative theory, rather than a parameter chosen after a calculation.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Provides a complete cardinality-resolved enumeration, rational bivariate generating functions and the exact forbidden-component criterion for an entire natural degree-bounded graph class, answering a recent packing-isolation motivation. Unlike a routine scalar domination computation, the gap classification captures all feasible subsets and identifies precisely the C5 obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
