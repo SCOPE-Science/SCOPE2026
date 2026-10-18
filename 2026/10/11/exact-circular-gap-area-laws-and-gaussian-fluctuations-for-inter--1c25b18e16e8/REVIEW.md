@@ -1,11 +1,21 @@
-# Scientific review: circle-centered disk intersection theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The assumption \(b>1\) makes the positive radial root strictly increasing with angular distance to the nearest antipodal disk center. Polar integration over the circular Voronoi partition gives the exact gap sum. The strictly positive second derivative of the gap score proves its sharp Jensen equality case. For uniformly random angles the nearest-center distribution gives the exact expectation, and the independent exponential/Dirichlet spacing representation yields finite mixed moments, a square-integrable Taylor remainder, the constant \(360\) for cubic-gap fluctuations, and the stated delta-method Gaussian law. The standalone verifier's 60 independent radial integrations agreed within \(2.65\times10^{-8}\), supporting but not replacing the proof. The statement excludes the endpoint \(b=1\) and its different small-radius behavior.
+## correctness
 
-**Originality — PASS, subject to acknowledged historical risk.** Paouris–Pivovarov (arXiv:1510.07292, abstract and introductory main theorems) assumes bounded continuous ambient center densities, so its stochastic dominance theorems do not yield this singular uniform circumference law or its exact constants. Fejes Tóth–Fodor (2015, Theorems 1–2 and accompanying proofs) establishes broad deterministic extremal/symmetry principles for circumscribed disc-polygons; the mere existence of symmetric optimizers is prior art. Its proved statements do not include a fixed-radius-center gap identity, finite-sample boundary-random mean, or Gaussian variance constant. Fodor–Vígh (arXiv:1802.02808, Section 5) samples uniformly **inside** a hyperconvex dual, and Fodor–Papvári (arXiv:2310.18143, Sections 1–2) samples uniformly **inside** a convex disc. Their differing models and scaling laws do not cover the present perimeter-constrained boundary-sampling theorem. Uniform-spacing central limit methods are classical; an unlocated direct geometric instance cannot be excluded categorically.
+PASS
 
-**Value — PASS.** The finite-area gap formula gives a complete optimizer with its equality condition; the exact expectation quantifies random-placement performance for a natural circular coverage/intersection model; and the sharp \(m^{-5}\) area variance and Gaussian coefficient measure stochastic fluctuations at a scale missed by existing interior-point disc-polygon asymptotics. The asymptotic factor six is a parameter-independent efficiency gap between deterministic design and random selection, not an arbitrary isolated small finite computation.
+For b>1 the ray radius of the intersection is rho_b(t) for the shortest angular distance t to a nearest antipodal center, strictly increasing in t. The circular Voronoi partition and polar area identity yield A=sum F_b(gap), including coincident centers. Jensen gives the sharp regular-m-gon minimizer and b-disk coincidence maximum. Uniform i.i.d. circular angular gaps, anchored at any sampled center, have Dirichlet(1,...,1) law. Direct independent rational moment check verified Var(sum (Delta/2pi)^3)=72(m-1)(5m+11)/[(m+1)^2(m+2)^2(m+3)(m+4)(m+5)] for m=3..99. Delta method for independent exponentials gives influence E^3-18E+12 with variance 360 and thus limit 40 alpha^2 pi^6. Remainder bounded by sum gap^5 has L2 order m^-4; centering by exact expectation is justified. Theorem does not extend to interior centers or b<=1.
 
-**Closest literature and limits.** The papers listed in RESULT.md cover general ball intersections, disc-polygon optimal approximation, and interior-sampled random disc-polygons. Some general stability/spacing theory could provide another route to the Gaussian limit; no universal historical exclusion is claimed. The proof is analytic for all \(b>1\), \(m\ge2\), with the probabilistic limit for fixed \(b\) as \(m\to\infty\). No independent review has been conducted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Compared the exact claim/implications against independently searched Resultary and relevant published mathematical literature. Accepted on best-of-knowledge evidence with explicitly bounded overlap and residual risks; no claim of exhaustive bibliographic novelty.
+
+## value
+
+PASS
+
+Sharp exact finite-sample angular-gap formula, factor-six average inefficiency, and Gaussian fluctuation constant are motivated optimal-versus-random approximation results for the boundary-sampled congruent disk intersection model; nontrivial stochastic-geometric information beyond standard spacing CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
