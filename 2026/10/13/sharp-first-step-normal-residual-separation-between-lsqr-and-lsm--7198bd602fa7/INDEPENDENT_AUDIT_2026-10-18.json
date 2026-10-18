@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T17:02:05.908916Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned Git RESULT.md and verification script",
+        "Independent fractional calculations at κ=3 and spectral moment derivation",
+        "Fong Saunders LSMR SIAM article abstract and Stanford LSMR presentation",
+        "Hallman Gu LSMB reference",
+        "Resultary numerical-linear-algebra semantic search"
+      ],
+      "rationale": "Both first Krylov spaces equal span(g) with g=A^Tb and B=A^TA positive definite. Minimizing the primal residual b−tAg gives t_Q=s0/s1, while minimizing normal residual g−tBg gives t_M=s1/s2, where sj=g^TB^j g. Their squared normal residuals share determinant Δ=s0*s2−s1²: ||q_Q||²=s0Δ/s1², ||q_M||²=Δ/s2; hence if Δ>0 their ratio is sqrt(s0*s2)/s1. For eigenvalues of B in [m,M], the scalar bound λ²≤(m+M)λ−mM and endpoint optimizing mean give ratio ≤(M+m)/(2sqrt(mM))=(κ²+1)/(2κ). Cauchy–Schwarz gives lower 1. The A=diag(1,κ), g=(κ,1) example realizes upper equality. Independently rationally checked κ=3: the first-step LSQR and LSMR normal residual factors are 4/3 and 4/5, with ratio 5/3. In eigenvector case Δ=0, both methods solve the mode and the ratio is not defined; bounds are stated only for nonzero residuals.",
+      "residual_risks": [
+        "First iteration only; no later-step, damping, preconditioning, rank-deficiency or finite-precision claim.",
+        "The equality-family LSQR normal residual amplification is for its normal residual, not its primal residual."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "LSMB discusses iterations between LSQR and LSMR and a different backward-error objective; existing sharp LSQR bounds often target solution error, not normal residual compared with LSMR."
+        ],
+        "reasoning": "Potential broad CG-versus-MINRES results remain a literature risk; no inspected theorem was found asserting this exact comparison.",
+        "searches": [
+          "Hallman–Gu LSMB: Minimizing the Backward Error for Least-Squares Problems DOI:10.1137/17M1157106",
+          "Hallman sharp 2-norm error bounds for LSQR and CG",
+          "Kantorovich inequality root-mean-square to mean eigenvalue ratio"
+        ]
+      },
+      "checked_sources": [
+        "Pinned Git RESULT.md and verification script",
+        "Independent fractional calculations at κ=3 and spectral moment derivation",
+        "Fong Saunders LSMR SIAM article abstract and Stanford LSMR presentation",
+        "Hallman Gu LSMB reference",
+        "Resultary numerical-linear-algebra semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior monotonicity implies LSMR normal residual cannot increase, but does not quantify LSQR/LSMR comparative ratio or LSQR growth onset."
+        ],
+        "reasoning": "The exact formula arises by explicitly minimizing both first Krylov residuals and simplifying the common determinant; the tight envelope uses an existing Kantorovich bound, so priority is confined to that specific algorithmic application.",
+        "searches": [
+          "Fong Saunders LSMR SIAM SISC 2011 normal residual monotonicity",
+          "Kantorovich classical moment inequality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fong–Saunders explicitly states LSMR equivalent to MINRES normal equations and monotone normal residual, unlike LSQR."
+        ],
+        "reasoning": "Both methods have same initial span but optimize different residuals. The algorithm identification alone omits the exact moment quotient and attained condition-number envelope.",
+        "searches": [
+          "Resultary semantic: LSQR LSMR first iteration ratio normal residual condition number Kantorovich CG MINRES normal equations bound",
+          "Fong and Saunders LSMR arXiv:1006.0758",
+          "Paige Saunders LSQR 1982"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related numerical linear algebra records focus on projection methods, steepest descent, and different residual functionals rather than this pair of solvers."
+        ],
+        "reasoning": "This is a symbolic continuum sharp inequality in κ; finite κ=3 example corroborates but is not the primary novelty or a table-derived output.",
+        "searches": [
+          "Resultary LSQR LSMR normal residual first step spectral moment",
+          "LSQR LSMR early stopping normal equations Kantorovich"
+        ]
+      },
+      "rationale": "Classical Paige–Saunders LSQR is CG on normal equations and minimizes the first-step primal residual, while Fong–Saunders LSMR is MINRES on normal equations and minimizes the normal residual. The sharp Kantorovich RMS/mean spectral inequality itself is classical. The mathematical difference asserted here is their exact algorithm-specific first-step normal-residual ratio, a sharp attainable condition-number envelope, and precise onset κ>1+sqrt2 of LSQR normal-residual increase while LSMR decreases. The primary LSMR article and Hallman–Gu LSMB comparison address early stopping and related iterates but no exact same factor was seen in accessible portions. A hidden classical CG/MINRES first-step lemma is the main residual risk, not falsely excluded by an abstract search.",
+      "residual_risks": [
+        "The ratio is an immediate one-line Kantorovich moment calculation once the first CG/MINRES scalars are written; historical numerical-linear-algebra texts might already record precisely that first-step comparison.",
+        "Hallman–Gu full article and classical original LSQR paper were not read fully; no whole-document NOT_COVERING assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_METHOD, exact ratio not established in accessible text",
+          "evidence": "LSMR minimizes normal residual and LSQR primal residual in shared Krylov space.",
+          "identifier_or_url": "https://doi.org/10.1137/10079687X",
+          "material_read": "Published abstract and the accessible Stanford LSMR algorithm page discussing MINRES equivalence, monotone normal residual, early termination; not verified full text",
+          "method": "web search/read official Stanford and SIAM summaries",
+          "title": "LSMR: An Iterative Algorithm for Sparse Least-Squares Problems",
+          "trigger": "Direct initiating solver comparison"
+        },
+        {
+          "assessment": "PARTIAL_ACCESS; distinct backward-error measure",
+          "evidence": "An interpolating solver/backward-error result is not an explicit sharp first-step normal-residual ratio in accessible material.",
+          "identifier_or_url": "https://doi.org/10.1137/17M1157106",
+          "material_read": "Accessible summary and abstract, not full published article",
+          "method": "web bibliography and mathematical objective comparison",
+          "title": "LSMB: Minimizing the Backward Error for Least-Squares Problems",
+          "trigger": "Closest broader LSQR-versus-LSMR comparison"
+        },
+        {
+          "assessment": "CLASSICAL_ALGORITHM",
+          "evidence": "The current proof takes the LSQR minimization as a known fact.",
+          "identifier_or_url": "https://doi.org/10.1145/355984.355989",
+          "material_read": "Cited original algorithm and methodological description, not a full article read",
+          "method": "source and standard formula comparison",
+          "title": "LSQR: An Algorithm for Sparse Linear Equations and Sparse Least Squares",
+          "trigger": "Prior original LSQR first-step Krylov/primal residual formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned Git RESULT.md and verification script",
+        "Independent fractional calculations at κ=3 and spectral moment derivation",
+        "Fong Saunders LSMR SIAM article abstract and Stanford LSMR presentation",
+        "Hallman Gu LSMB reference",
+        "Resultary numerical-linear-algebra semantic search"
+      ],
+      "rationale": "The natural early-termination question is the quantitatively sharp disadvantage of LSQR versus LSMR on the stationarity/normal residual after a single iteration. The exact condition-number envelope and sharp κ=1+sqrt2 onset of LSQR residual growth give a reproducible algorithm-selection diagnostic; this precise tight solver comparison can be useful despite its short proof from classical Krylov and Kantorovich facts. No general later-step advance is claimed.",
+      "residual_risks": [
+        "Narrow single-step result; the spectral inequality and Krylov-space descriptions are classical, so significance is confined to this directly motivated exact diagnostic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Exact undamped first-step comparison, full column rank, zero initial iterate; significance limited to normal residual and sharp early-stopping diagnostic.",
+  "schema_version": 1
+}

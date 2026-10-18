@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,47 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal theorem is analytic. The checker replays exact rational instances of both first-step minimizers.
 
-For
-\[
-A=\operatorname{diag}(1,3),
-\qquad
-b=(3,1/3)^{\mathsf T},
-\]
-one has
-\[
-g=A^{\mathsf T}b=(3,1)^{\mathsf T}.
-\]
-The first LSQR and LSMR line-search coefficients are
-\[
-t_Q=5/9,
-\qquad
-t_M=1/5.
-\]
-The checker verifies
-\[
-\frac{\|A^{\mathsf T}r_Q\|_2^2}{\|A^{\mathsf T}b\|_2^2}
-=
-\frac{16}{9},
-\]
-and
-\[
-\frac{\|A^{\mathsf T}r_M\|_2^2}{\|A^{\mathsf T}b\|_2^2}
-=
-\frac{16}{25}.
-\]
-Therefore
-\[
-\frac{\|A^{\mathsf T}r_Q\|_2}{\|A^{\mathsf T}r_M\|_2}
-=
-\frac53,
-\]
-which equals the sharp condition-number factor
-\[
-\frac{3^2+1}{2\cdot3}.
-\]
+# Independent mathematical audit
 
-The checker repeats the equality-family identities for several rational \(\kappa>1\). Finite replay is corroborative only; the all-matrix upper bound follows from the spectral secant argument in `RESULT.md`.
+## correctness
 
-Unproved limits include later Krylov iterations, rank-deficient extensions, damping, preconditioning, and finite-precision loss of orthogonality.
+PASS
+
+Both first Krylov spaces equal span(g) with g=A^Tb and B=A^TA positive definite. Minimizing the primal residual b−tAg gives t_Q=s0/s1, while minimizing normal residual g−tBg gives t_M=s1/s2, where sj=g^TB^j g. Their squared normal residuals share determinant Δ=s0*s2−s1²: ||q_Q||²=s0Δ/s1², ||q_M||²=Δ/s2; hence if Δ>0 their ratio is sqrt(s0*s2)/s1. For eigenvalues of B in [m,M], the scalar bound λ²≤(m+M)λ−mM and endpoint optimizing mean give ratio ≤(M+m)/(2sqrt(mM))=(κ²+1)/(2κ). Cauchy–Schwarz gives lower 1. The A=diag(1,κ), g=(κ,1) example realizes upper equality. Independently rationally checked κ=3: the first-step LSQR and LSMR normal residual factors are 4/3 and 4/5, with ratio 5/3. In eigenvector case Δ=0, both methods solve the mode and the ratio is not defined; bounds are stated only for nonzero residuals.
+
+## originality
+
+PASS
+
+Classical Paige–Saunders LSQR is CG on normal equations and minimizes the first-step primal residual, while Fong–Saunders LSMR is MINRES on normal equations and minimizes the normal residual. The sharp Kantorovich RMS/mean spectral inequality itself is classical. The mathematical difference asserted here is their exact algorithm-specific first-step normal-residual ratio, a sharp attainable condition-number envelope, and precise onset κ>1+sqrt2 of LSQR normal-residual increase while LSMR decreases. The primary LSMR article and Hallman–Gu LSMB comparison address early stopping and related iterates but no exact same factor was seen in accessible portions. A hidden classical CG/MINRES first-step lemma is the main residual risk, not falsely excluded by an abstract search.
+
+## value
+
+PASS
+
+The natural early-termination question is the quantitatively sharp disadvantage of LSQR versus LSMR on the stationarity/normal residual after a single iteration. The exact condition-number envelope and sharp κ=1+sqrt2 onset of LSQR residual growth give a reproducible algorithm-selection diagnostic; this precise tight solver comparison can be useful despite its short proof from classical Krylov and Kantorovich facts. No general later-step advance is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
