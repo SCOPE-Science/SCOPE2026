@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T22:53:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For uniform partitions of [n], n>=1, and 1<=r<=n, marking an r-block gives a bijection between weighted pairs (partition,marked block) and (chosen r-subset,partition of complement). Thus E[X_{n,r}f(K_n)] = C(n,r)B_{n-r}/B_n * E f(1+K_{n-r}); f=1 and f(k)=k yield E X=C(n,r)B_{n-r}/B_n and Cov(K_n,X_{n,r})=EX*(1+q_{n-r}-q_n), using E K_m=q_m-1 including m=0. Bell numbers are moments of Poisson(1) (Dobinski), so strict Cauchy-Schwarz B_m^2<B_{m-1}B_{m+1} for m>=1 makes q_m strictly increase; c_n(r) strictly decreases, and at r=n equals 2-q_n<0 for n>=2 (n=1 has c=0). This supplies a unique nonpositive-first threshold t_n and strictly negative entries above it. With alpha_n e^{alpha_n}=n+1, the Bell-ratio asymptotic q_m=m/alpha_m+O(1/alpha_m) has error o(1) for m near n; derivative F'(x)=1/(1+alpha_x)+1/[alpha_x(x+1)(1+alpha_x)] and r=O(alpha_n) imply q_n-q_{n-r}=r/(alpha_n+1)+o(1) uniformly in that window. Monotonicity extends boundary signs beyond the window, t_n/(alpha_n+1)->1. Independently checked exact Bell thresholds n=2,3,5,10,20 and growth of q_m using integer recurrence. Read checker source: RGS finite enumeration n<=9 and exact Bell ratios through n=300 corroborate, do not replace the asymptotic proof. Boundary cases n=1 and r=n accounted for.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chern et al. give general shifted Bell-polynomial closure; CLT and Stam work include asymptotic alpha_n block scale."
+        ],
+        "reasoning": "The more general moment framework covers existence/form of mixed moments but not the explicit one-switch sign across all r and asymptotic t_n/(alpha_n+1)->1 as an immediate stated theorem. Typical block-size results concern distributions rather than this mixed-covariance sign.",
+        "searches": [
+          "uniform random set partition covariance number of blocks and number of blocks of size r Bell ratios Lambert W sign",
+          "Stam random partition Bell ratio",
+          "Chern CLT arXiv:1502.00938",
+          "Fristedt block count CLT"
+        ]
+      },
+      "checked_sources": [
+        "Chern--Diaconis--Kane--Rhoades, arXiv:1304.4309, Proposition 3.1 and §2",
+        "Chern--Diaconis--Kane--Rhoades, Central Limit Theorems for some Set Partition Statistics, arXiv:1502.00938",
+        "Timashev (2003), Random partitions of sets with a known number of blocks, abstract-only",
+        "Resultary search same finding and nearby set-partition entries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first-moment formulas plus marking argument yield displayed covariance, while strict Bell ratio monotonicity and uniform asymptotics yield new global sign classification."
+        ],
+        "reasoning": "The proposed theorem is not just a renaming of Chern mean identities; its covariance sign and threshold dependence require comparing n and n-r Bell ratios and a uniform local asymptotic.",
+        "searches": [
+          "uniform random set partition covariance number of blocks and number of blocks of size r Bell ratios Lambert W sign",
+          "Chern 2014 §2 and Proposition 3.1",
+          "Chern et al. central limit paper 2015",
+          "Timashev 2003 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chern et al. define both total blocks ell and X_i (number of i-blocks), §2; their shifted Bell aggregate algebra covers products."
+        ],
+        "reasoning": "A mixed-moment generating function can be derived from their setup; this is a structural alias for the first-moment combinatorics. It does not itself give the monotone sign-phase or the asymptotic boundary without additional Bell-ratio analysis.",
+        "searches": [
+          "uniform random set partition covariance number of blocks and number of blocks of size r Bell ratios Lambert W sign",
+          "uniform set partition block-size counts and number of blocks covariance",
+          "Chern Diaconis Kane Rhoades arXiv:1304.4309"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Chern Proposition 3.1 separately tabulates E K_n and E X_{n,1} and general X_i; no exact (n,r) covariance table/sign classification found by full-text search for covariance in the 34-page PDF."
+        ],
+        "reasoning": "Known shifted-Bell tables can calculate individual values but do not tabulate the global sign transition or its Lambert-W limit. Timashev conditional block-count abstract is a plausible uninspected full-text risk, not assumed absent.",
+        "searches": [
+          "uniform random set partition covariance number of blocks and number of blocks of size r Bell ratios Lambert W sign",
+          "arXiv:1304.4309 Proposition 3.1",
+          "Timashev random partitions known blocks 2003"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the combined exact size-biased Palm identity, explicit mixed covariance, unique sign switch and sharp Lambert-W location. Classical Bell generating-function machinery implies computability of mixed moments, but neither inspected Chern theorem nor its singleton examples themselves states the sign-transition theorem.",
+      "residual_risks": [
+        "Older multivariate Bell exponential generating function or conditional set partition literature may contain equivalent explicit covariance; Timashev full text not read.",
+        "Asymptotic Bell-ratio estimate is used from standard literature, with o(1) precision on a local O(log n) window."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains separate mean formulas and general algebra; did not find explicit covariance sign switch or Lambert-W location. Not asserting all possible implicit consequences absent.",
+          "evidence": "arXiv:1304.4309 pp3,5,7,8",
+          "identifier_or_url": "https://arxiv.org/pdf/1304.4309",
+          "material_read": "Opened full 34-page PDF; inspected §2 definitions for total blocks and X_i, theorem examples §2.2, Proposition 3.1 and proof §3, and typical-block-size CLT discussion; searched full text for covariance.",
+          "method": "Primary arXiv PDF with page-7 screenshot and text search",
+          "title": "Closed expressions for averages of set partition statistics",
+          "trigger": "Both K_n and X_{n,r}, possible stronger shifted Bell moment formulas"
+        },
+        {
+          "assessment": "Not decisive for coverage; retained explicitly as residual priority risk.",
+          "evidence": "A. N. Timashev, Discrete Mathematics and Applications 13 (2003), pp307-317.",
+          "identifier_or_url": "Discrete Mathematics and Applications 13 (2003), 307-317",
+          "material_read": "Bibliographic title and abstract-level accessible snippets; full paper was not obtained or read.",
+          "method": "Bibliographic/abstract search only",
+          "title": "Random partitions of sets with a known number of blocks",
+          "trigger": "Potential conditional block-count relationship close to covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete qualitative phase diagram for a natural dependence statistic: counts of small blocks correlate positively with total block count, while counts of larger blocks correlate negatively. The unique exact finite threshold and its Lambert-W asymptotic resolve a meaningful probabilistic boundary, beyond the familiar separate means and elementary block marking. The Palm identity is useful for arbitrary observables f, not just covariance; neither random-partition normality nor a first moment alone reveals a sign change.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No stochastic ordering or conditional monotonicity claim.",
+    "Finite checker n<=9 and Bell ratios <=300 are corroboration only.",
+    "Potential unexamined Timashev 2003 full text is explicitly recorded."
+  ],
+  "schema_version": 1
+}
