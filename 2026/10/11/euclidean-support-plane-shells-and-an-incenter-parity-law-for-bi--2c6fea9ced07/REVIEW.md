@@ -1,11 +1,21 @@
-# Scientific review: Euclidean geometry of bipartite-cycle root polytopes
+# Independent mathematical audit
 
-**Correctness (PASS).** The two perfect matchings give two complementary centered simplices. Their free sum has exactly \(k^2\) facets, each exposing all but one vertex from each simplex. For every possible omission pair, the normalized support equations are solved explicitly and have squared norm \(k[k-1+2d(k-1-d)]\). Independent linear algebra checks confirm this normalization in small dimensions. Cyclic symmetrization certifies the barycenter is a radius-optimal center; a sharp integer concave-quadratic maximum proves the asserted radius and contact multiplicities for all dimensions. Cyclic cancellation makes active center inequalities exact equalities, while strict inactive inequalities allow a small relative interior neighborhood. Finally a projected rank argument and, in the even case, diagonal-normal differences prove the claimed center dimensions. Boundaries \(k=2,3\) are included. The accompanying verifier passed exact norm, support, contact, and rank comparisons for \(2\le k\le14\); independent rational support solves for \(2\le k\le7\); and an optional independent convex-hull reconstruction for \(2\le k\le6\). Finite tests do not establish the all-parameter assertion: the symbolic proof does.
+## correctness
 
-**Originality (PASS, with residual risk).** The full primary sources Kálmán–Postnikov (arXiv:1602.04449), Kálmán–Tóthmérész (arXiv:2105.00960 and arXiv:2203.17127) establish general facet and lattice/dissection structures, but the inspected results do not evaluate intrinsic Euclidean support normals, a sharp ball radius, or the parity-dependent affine dimension of the set of all optimal centers. The closest published published-finding corpus oriented-cycle root result (record `e32575b66377`) gives exact Ehrhart data. The source is covered only at indexed synopsis level, not the full text; no whole-document noncoverage is claimed. Alternative aliases searched include the bipartite edge polytope, simplex free sum, support-plane shells, polar-vertex norms, and Chebyshev-center locus. Orthogonal sign change yields an equivalent edge-polytope realization; the present result is consequently not claimed to be new *because* of a renamed object. The required evaluated metric statement was not identified in the read primary sources or published search results. The strongest residual risk is an earlier exact result under equivalent edge-polytope or convex-optimization terminology.
+PASS
 
-**Value (PASS).** The Euclidean metric in the natural integer-root realization is a meaningful invariant distinct from the combinatorial face data and Ehrhart counts already known. The exact distance-shell formula is not an arbitrary parameter slice: it exposes an unexpectedly sharp parity dichotomy in the number of nearest facets and in the uniqueness of largest-ball centers. This gives a complete geometric description for a canonical infinite family, with explicit normals permitting future comparisons or geometric optimization.
+Centered roots from two perfect matchings are complementary (k-1)-simplices, with only their individual zero-sum relations, so free-sum facets omit one from each; count k² and intrinsic dim 2k-2. Solving exact facet normal equations gives x_h=-d+k1_{1<=((h-i) mod k)<=d} and y_h=x_h-1+k1_{h=i}; ||n_ij||²=k[k-1+2d(k-1-d)] and support value 1. Maximizing d(k-1-d) gives stated radius for both parities and k or 2k contacts. Cyclic center-averaging proves optimality; zero-sum contacting normals force active equalities at any optimum. For odd k, their span rank k-1; for even k the differences of adjacent contacting offset normals span ker(x-y), rank 2k-2, proving unique center. Independently reconstructed exact normals, Gram norms and rank for k=2..7; finite checks only diagnostics.
 
-**Limits.** The mathematical claim uses the alternating orientation, no edge weights, and the induced Euclidean metric. For noncontact facets the theorem concerns distance to each supporting hyperplane, not necessarily the closest point of its bounded facet. There is no independent audit. Full-text comparison for the indexed published cycle-Ehrhart record remains unavailable.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge mathematical comparison of the complete statement and stronger potential prior claims: None implies contact facet counts or affine dimension of optimal-center locus under the specified orthonormal metric.
+
+## value
+
+PASS
+
+Exhaustive facet metric shells plus contact multiplicities and exact dimension of all inball centers for a natural bipartite-cycle root-polytope family; the odd/even change in uniqueness is a substantive geometric rigidity invariant, not merely a facet count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
