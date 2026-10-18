@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T06:06:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Common strictly increasing cumulative hazard maps to independent exponentials and preserves Kendall tau. Exponential-race first spacing L is Exp(1), independent of residual mixture R; the Laplace difference kernel gives tau=E exp(-|R-Rprime|) and the exact double sum over q_i=1-p_i. Sorting p=(a,a+b,a+b+c)/(3a+2b+c), independent exact SymPy rational reconstruction verified the positive-denominator numerator is homogeneous degree 8 with all 40 nonzero coefficients positive, minimum 16, maximum 183048 and sum 1743120; it vanishes precisely b=c=0. At p=(0,1/2,1/2), tau=1/3,V=1/6 giving sharp ratio 2/5. The boundary is a limit not interior equality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published dependence dominance relates order statistics but does not give a quantitative factor in rate variance."
+        ],
+        "reasoning": "An ordering theorem could dominate the unpenalized conclusion, but it does not imply the present strict sharper bound just from order relation.",
+        "searches": [
+          "Kendall tau first second order statistics heterogeneous proportional hazards three lifetimes quadratic variance stability inequality",
+          "Kochar doi:10.1017/S0269964822000146 Theorems 3.2-3.3"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE RESULT.md blob e703976a20bcb9479ae5e70cf9c0e5199546fcab",
+        "SCOPE verify_tau.py blob 7f7ffbb8e3356121f30a0b91006d00966d229ec1",
+        "Kochar 2022 arXiv:2202.07874",
+        "Avérous Genest Kochar 2005 DOI 10.1016/j.jmva.2004.03.004",
+        "Resultary query Kendall tau first second order statistics heterogeneous proportional hazards three lifetimes quadratic variance stability inequality"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "tau<=2/5 and equal-rate tau=2/5 are prior, but do not force tau<= (2/5)(1-V)."
+        ],
+        "reasoning": "The submission proves an independent sharper inequality by nonnegative rational polynomial, and the boundary supplies best constant.",
+        "searches": [
+          "Kendall tau first second order statistics heterogeneous proportional hazards three lifetimes quadratic variance stability inequality",
+          "Kochar 2022 Theorems 3.2-3.3",
+          "Avérous Genest Kochar 2005"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kochar stronger SI dependence order yields tau<=2/5; no coefficient of V follows from SI ordering without quantitative information."
+        ],
+        "reasoning": "Unpenalized bound and its homogeneous specialization are prior and not claimed original; the exact weighted dispersion inequality is distinct.",
+        "searches": [
+          "Kendall tau first second order statistics heterogeneous proportional hazards three lifetimes quadratic variance stability inequality",
+          "Kochar arXiv:2202.07874 Theorems 3.2-3.3",
+          "Avérous Genest Kochar J Multiv Anal 2005"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table of optimal three-rate quadratic constant 2/5 or 40-term certificate was found in relevant records."
+        ],
+        "reasoning": "This is a continuous parameter inequality, not a recomputation of an existing finite data table.",
+        "searches": [
+          "Kendall tau first second order statistics heterogeneous proportional hazards three lifetimes quadratic variance stability inequality",
+          "Resultary query Kendall proportional hazards failure tau"
+        ]
+      },
+      "rationale": "Kochar (2022) SI order comparison bounds heterogeneous concordance above by homogeneous tau=2/5 but does not state or imply the numerical variance penalty 2V/5 from that order alone. Avérous Genest Kochar (2005) supplies homogeneous order-statistic Kendall moments, not the heterogeneous sharp quadratic constant.",
+      "residual_risks": [
+        "A quantitative stability result in older heterogeneous exponential lifetime literature may have an equivalent penalty under different dispersion scaling.",
+        "The result is exactly for three independent proportional-hazards lifetimes, not larger samples or dependence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shows comparison to i.i.d. proportional-hazards baseline; no exact quadratic rate-heterogeneity penalty in inspected article",
+          "evidence": "Stochastic-increasing order bound implies weaker Kendall ceiling 2/5",
+          "identifier_or_url": "https://doi.org/10.1017/S0269964822000146",
+          "material_read": "Open full primary article, especially Theorems 3.2-3.3 and their comparison assumptions",
+          "method": "Full accessible Cambridge article plus primary theorem comparison",
+          "title": "Dependence comparisons of order statistics in the proportional hazards model",
+          "trigger": "Same independent proportional-hazards order statistics"
+        },
+        {
+          "assessment": "Equal-rate endpoint covered; heterogeneous sharp penalty not demonstrated by inspected material",
+          "evidence": "Homogeneous n=3 first-second Kendall tau 2/5",
+          "identifier_or_url": "doi:10.1016/j.jmva.2004.03.004",
+          "material_read": "Available theorem statements and abstract; homogeneous moment result",
+          "method": "Publisher metadata and cited formula comparison",
+          "title": "On the dependence structure of order statistics",
+          "trigger": "Prior exact Kendall dependence for homogeneous samples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp quantitative stability refinement of the known homogeneous extremal dependence bound measures loss of adjacent failure-time concordance under rate dispersion, a motivated exact dependence invariant with optimal boundary case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE RESULT.md blob e703976a20bcb9479ae5e70cf9c0e5199546fcab",
+    "SCOPE verify_tau.py blob 7f7ffbb8e3356121f30a0b91006d00966d229ec1",
+    "Kochar 2022 arXiv:2202.07874",
+    "Avérous Genest Kochar 2005 DOI 10.1016/j.jmva.2004.03.004",
+    "Resultary query Kendall tau first second order statistics heterogeneous proportional hazards three lifetimes quadratic variance stability inequality"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A quantitative stability result in older heterogeneous exponential lifetime literature may have an equivalent penalty under different dispersion scaling.",
+    "The result is exactly for three independent proportional-hazards lifetimes, not larger samples or dependence."
+  ],
+  "residual_risks": [
+    "A quantitative stability result in older heterogeneous exponential lifetime literature may have an equivalent penalty under different dispersion scaling.",
+    "The result is exactly for three independent proportional-hazards lifetimes, not larger samples or dependence."
+  ],
+  "schema_version": 1
+}

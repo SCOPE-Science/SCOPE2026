@@ -1,18 +1,21 @@
-# Scientific review: sharp three-rate Kendall concordance stability
+# Independent mathematical audit
 
-## Correctness — PASS
-An exponential-racing representation separates the first arrival from the second gap, and direct integration of an exponential-difference density yields a finite rational expression for population tau. After sorting the normalized rates, a displayed positive denominator transforms the full continuous-domain inequality into a homogeneous polynomial with 40 strictly positive integer monomial coefficients; the included stand-alone exact symbolic checker reconstructs and verifies all coefficients and both endpoint computations. Strict interior equality and boundary sharpness follow. The theorem does not claim a stronger coefficient inside the open simplex or any empirical sample-size guarantee.
+## correctness
 
-## Originality — PASS
-Kochar (arXiv:2202.07874, Theorems 3.2–3.3) proves stronger stochastic-increasing comparison and, as a consequence, an unpenalized Kendall tau ceiling. That theorem establishes no numerical lower bound on the **concordance deficit** as a function of normalized rate dispersion and hence does not imply the exact optimal coefficient. Avérous–Genest–Kochar (2005) derive homogeneous-sample rank dependence, not three heterogeneous hazards. Kochar–Spizzichino (2023) treats exchangeably dependent time-transformed lifetimes. Genest–Kochar–Xu (2009) compare the extremes of heterogeneous samples rather than their first two order statistics and do not entail this bound. Published and mathematical-record searches on these aliases did not identify a dominating quantitative result. Priority risk remains from literature not available in full and differently parameterized formulas; an unsuccessful search is not a novelty proof.
+PASS
 
-## Value — PASS
-The first two failures are natural observables in reliability and competing-risk models. Kochar's qualitative concordance comparison does not quantify the effect of unequal rates. The exact sharp quadratic deficit gives a scale-invariant, baseline-invariant global upper envelope indexed by a canonical hazard-dispersion statistic. The coefficient is optimal and forced by an interpretable two-active-component boundary, and strict equal-rate extremality holds throughout the admissible interior. The result is restricted to three components; general multicomponent stability remains unresolved here.
+Common strictly increasing cumulative hazard maps to independent exponentials and preserves Kendall tau. Exponential-race first spacing L is Exp(1), independent of residual mixture R; the Laplace difference kernel gives tau=E exp(-|R-Rprime|) and the exact double sum over q_i=1-p_i. Sorting p=(a,a+b,a+b+c)/(3a+2b+c), independent exact SymPy rational reconstruction verified the positive-denominator numerator is homogeneous degree 8 with all 40 nonzero coefficients positive, minimum 16, maximum 183048 and sum 1743120; it vanishes precisely b=c=0. At p=(0,1/2,1/2), tau=1/3,V=1/6 giving sharp ratio 2/5. The boundary is a limit not interior equality.
 
-## Closest sources and residual risks
-- S. Kochar, *Dependence comparisons of order statistics in the proportional hazards model*, 2022, arXiv:2202.07874, Theorems 3.2–3.3 (full journal HTML inspected).
-- J. Avérous, C. Genest, S. C. Kochar, *On the dependence structure of order statistics*, 2005, doi:10.1016/j.jmva.2004.03.004 (author-hosted article PDF inspected).
-- S. Kochar and F. Spizzichino, *Dependence among order statistics for time-transformed exponential models*, 2023, doi:10.1017/S0269964823000190 (full journal HTML inspected).
-- Fuchs–Schmidt's related Kendall-order-statistics article could not be examined in complete text; its accessible description concerns parent-versus-order dependence and is not known to cover this specific sharp three-rate stability theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kochar (2022) SI order comparison bounds heterogeneous concordance above by homogeneous tau=2/5 but does not state or imply the numerical variance penalty 2V/5 from that order alone. Avérous Genest Kochar (2005) supplies homogeneous order-statistic Kendall moments, not the heterogeneous sharp quadratic constant.
+
+## value
+
+PASS
+
+A sharp quantitative stability refinement of the known homogeneous extremal dependence bound measures loss of adjacent failure-time concordance under rate dispersion, a motivated exact dependence invariant with optimal boundary case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
