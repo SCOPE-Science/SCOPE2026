@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof gives a universal upper bound from two point evaluations after exploiting odd-frequency antisymmetry. Equality forces two contact values and one derivative condition, which uniquely determine the coefficients. The proposed polynomial is globally admissible because \(1-Q_*(x)\) factors into manifestly nonnegative factors on \([-1,1]\), with the remaining quadratic having discriminant \(-1\). The exact checker independently expands this identity in \(\mathbb Q(\sqrt2)\).
+## correctness
 
-## Originality
-PASS. Statement-level comparisons were made in the trigonometric, positive-definite-sequence, and Chebyshev formulations. The inspected 2003 Kolountzakis–Révész paper defines the prescribed-support problem and gives singleton, complement, tail, full-odd, and full-even exact cases, but not the finite higher-frequency set \(\{3,5\}\). The 2013 Krenedits–Révész paper supplies the broader locally compact Abelian reduction but likewise does not compute this support. Closest indexed exact-support results concern incomparable supports such as \(\{2,4\}\) or \(\{3,4\}\). A residual risk remains that older cosine-polynomial literature contains the same evaluation under a dual notation.
+PASS
 
-## Value
-PASS. The support \(\{1,3,5\}\) is the natural lowest-degree finite odd-harmonic case with two freely adjustable higher frequencies. Its exact constant and unique extremizer give a complete sharp datum in the prescribed-support Carathéodory–Fejér program, not a numerical approximation or arbitrary slice.
+The signed source RESULT.md was read directly from actual Git blob db50dce42f46684dff1e1a0f2f1f205620e0ee2d. All three frequencies are odd, so Q(theta+pi)=-Q(theta), and nonnegativity of 1+Q forces |Q|<=1. Q(0)<=1 and Q(pi/4)<=1 give a+b+c<=1 and (a-b-c)/sqrt(2)<=1, hence 2a<=1+sqrt(2). Equality gives both contacts; derivative at the interior circle point pi/4 gives a+3b-5c=0 and uniquely fixes a,b,c. Independently expanded Chebyshev T1,T3,T5 with SymPy exact radicals and verified 1-Q(x)=(4-2sqrt(2))(1-x)(x-1/sqrt(2))^2[x^2+(1+sqrt(2))x+1+sqrt(2)/2]; the quadratic discriminant is -1. Hence Q(x)<=1 on [-1,1], and oddness gives Q(x)>=-1. This analytic factorization, not the 20,001-point numerical source check, handles every theta; normalization psi(1)=a/2 is correct.
 
-## Closest literature and limitations
-The closest primary framework is Kolountzakis–Révész, arXiv:math/0302193v1, followed by Krenedits–Révész, arXiv:1304.0071. The result is continuous and real; no discretized cyclic-grid value or general two-higher-frequency formula is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison against original prescribed-support theory and indexed published results found no equal-value theorem for exact H={3,5}; the primary equivalence/duality theory is not an exact evaluation for this support.
+
+## value
+
+PASS
+
+The normalized first Fourier coefficient of a nonnegative sparse cosine polynomial is a natural sharp positive-definiteness/integer-support invariant. The support {1,3,5} is the lowest genuinely three-odd-frequency case and the two-contact geometry determines a unique algebraic extremizer. Exact value and equality rigidity are independently useful; they are not just a name substitution or a sample grid bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

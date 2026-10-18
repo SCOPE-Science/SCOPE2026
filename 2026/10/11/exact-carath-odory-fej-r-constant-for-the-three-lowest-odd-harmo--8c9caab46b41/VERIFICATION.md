@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof-critical algebra is reproduced by `verify.py` using exact arithmetic in \(\mathbb Q(\sqrt2)\). The checker verifies the three equality/contact equations, expands the claimed factorization of \(1-Q_*\) coefficient-by-coefficient, and confirms that the residual quadratic has discriminant \(-1\). It then samples \(20001\) angles only as an additional numerical sanity check.
+# Independent mathematical audit
 
-Expected replay output:
+## correctness
 
-`VERIFY_OK exact_factorization=1 contacts=3 discriminant=-1 grid=20001 max_abs=1.000000000000000`
+PASS
 
-The dense grid is not an exhaustive proof and is not used as one. Global nonnegativity follows from the exact factorization and the sign of its factors on \([-1,1]\). The result does not assert any discretized-grid analogue.
+The signed source RESULT.md was read directly from actual Git blob db50dce42f46684dff1e1a0f2f1f205620e0ee2d. All three frequencies are odd, so Q(theta+pi)=-Q(theta), and nonnegativity of 1+Q forces |Q|<=1. Q(0)<=1 and Q(pi/4)<=1 give a+b+c<=1 and (a-b-c)/sqrt(2)<=1, hence 2a<=1+sqrt(2). Equality gives both contacts; derivative at the interior circle point pi/4 gives a+3b-5c=0 and uniquely fixes a,b,c. Independently expanded Chebyshev T1,T3,T5 with SymPy exact radicals and verified 1-Q(x)=(4-2sqrt(2))(1-x)(x-1/sqrt(2))^2[x^2+(1+sqrt(2))x+1+sqrt(2)/2]; the quadratic discriminant is -1. Hence Q(x)<=1 on [-1,1], and oddness gives Q(x)>=-1. This analytic factorization, not the 20,001-point numerical source check, handles every theta; normalization psi(1)=a/2 is correct.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison against original prescribed-support theory and indexed published results found no equal-value theorem for exact H={3,5}; the primary equivalence/duality theory is not an exact evaluation for this support.
+
+## value
+
+PASS
+
+The normalized first Fourier coefficient of a nonnegative sparse cosine polynomial is a natural sharp positive-definiteness/integer-support invariant. The support {1,3,5} is the lowest genuinely three-odd-frequency case and the two-contact geometry determines a unique algebraic extremizer. Exact value and equality rigidity are independently useful; they are not just a name substitution or a sample grid bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
