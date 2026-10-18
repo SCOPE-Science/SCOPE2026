@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses only the Python standard library and exact rational arithmetic.
 
-For exact rational parameters it checks the coexistence coordinates
-\[
-x_*=\frac{\gamma}{\delta},
-\qquad
-y_*=\frac{\alpha}{\beta},
-\]
-and the pointwise identities
-\[
-\frac{\dot x}{x}=-\beta(y-y_*),
-\qquad
-\frac{\dot y}{y}=\delta(x-x_*).
-\]
+# Independent mathematical audit
 
-It checks that the conditional-mean consequences
-\[
-\mathbb E[x]=x_*,
-\qquad
-\mathbb E[y]=y_*,
-\qquad
-\mathbb E[xy]=x_*y_*
-\]
-give exactly
-\[
-\operatorname{Cov}(x,y)=0.
-\]
+## correctness
 
-It also checks the two variance–per-capita-speed conversions and exact vanishing of both vector-field components at the coexistence equilibrium.
+PASS
 
-The stored output in `verification_output.txt` is `VERIFY_OK`.
+For compactly supported invariant measure strictly inside the positive quadrant, integrate generator of H(x) with H prime = phi(x)/x. Then E[phi(x)(alpha-beta*y)]=0 for arbitrary continuous phi, yielding E[y|x]=alpha/beta; symmetric test yields E[x|y]=gamma/delta. Means, covariance zero, both squared per-capita growth/variance identities follow. Invariant support on either variance-zero nullcline must be the unique positive equilibrium; nontrivial periodic coordinates cross each equilibrium value twice. This is analytic, not inferred from verify.py or simulations.
 
-The conditional-expectation theorem, invariant-support rigidity, and periodic crossing conclusion are analytic arguments in `RESULT.md`; they are not inferred from finite orbit sampling.
+## originality
+
+PASS
+
+Classical equilibrium time-averages and the covariance cancellation from E[dot x]=0 are already easy consequences, and are not the original core. The universal two conditional-expectation identities quantify over every compact positive stationary state and every bounded coordinate test, unlike scalar averages. Best-of-knowledge no identical weighted-mean theorem located; generic generator identity and inaccessible classical full texts are candid substantial overlap risks.
+
+## value
+
+PASS
+
+Exact mutual flat conditional regressions across every amplitude and invariant mixture in the canonical nonlinear predator–prey oscillator are a useful structural statistical fact. They explain why a dependent closed-orbit joint law nevertheless has exactly zero correlation; value rests on weighted conditional identities, not cheap covariance arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
