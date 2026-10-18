@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For every centrally symmetric regular Platonic solid, the sphere decomposes into congruent vertex normal cells and the support function on one cell is \(R\cos\theta\). The side distance satisfies \(\sin\delta=1/(2R)\) from the unit-edge chord relation. A sector decomposition of the regular spherical \(q\)-gon reduces the second support moment to an elementary antiderivative, yielding formula (9) in the result. Exact substitutions reproduce the cube, octahedron, icosahedron, and dodecahedron entries. The tetrahedron entry is the materially inspected published Finch evaluation. The bundled checker independently verifies coordinates, algebraic identities, one-dimensional sector quadrature, and direct spherical quadrature.
+## correctness
 
-## Originality
-**PASS, with residual classical-stereology risk.** Finch's full text evaluates only the tetrahedron and cube and explicitly invites analogous computations for other bodies. Kabluchko--Litvak--Zaporozhets provide a general higher-moment representation and explicit cube, simplex, and crosspolytope applications, but their full text has no dodecahedron or icosahedron occurrence. Exact-object, second-moment, projection-length, caliper/Feret, and exact-constant searches did not locate a complete Platonic table or the dodecahedral formula. Previously known or previously obtained individual entries are treated as components of the complete classification rather than re-claimed separately.
+PASS
 
-## Value
-**PASS.** The five Platonic solids are the canonical complete family of regular convex polyhedra. Completing one natural random-projection invariant on the whole family is a natural classification, not an arbitrary sister-object computation. The proof also isolates one common normal-fan formula for all four centrally symmetric cases, making the dodecahedral completion structurally reusable.
+For a centered centrally symmetric regular unit-edge polyhedron, w(u)=2h(u); each vertex-normal cell is a congruent spherical q-gon where the supporting radial vertex v has |v|=R, sinδ=1/(2R), and polar boundary tanθ_b(ψ)=tanδ/cosψ for |ψ|≤π/q. Integrating cos²θ on q sectors yields I_q=(q/3)[2π/q−2 asin(sin(π/q)cosδ)+2 sin²δ sin(π/q)cosδ / sqrt(1−sin²(π/q)cos²δ)]. The normalized moment equals N R² I_q/π. Substituting known (N,q,R) for cube, octahedron, icosahedron, and dodecahedron reproduces their exact table rows; for dodecahedron N=20, q=3, R²=3(3+√5)/8, sin(π/3)cosδ=cos(π/5), 4R²sin²δ=1, giving (3+√5)/2 + (10/π) sqrt(1+2/√5). Independently computed this exact normal-cell numeric expression 6.99919371325595 and separately integrated the actual twenty dodecahedral vertex support values in 60,000 deterministic directions to 7.4e−7. Tetrahedron is correctly separated (not centrally symmetric) and attributed to Finch exact formula. Reviewed supplied verify.py; its finite quadratures do not prove the equality outside the analytic integration.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original completion of the natural five-solid second-moment table, centered on the previously unlocated explicit dodecahedral evaluation and a uniform normal-cell calculation for the four symmetric solids. Finch fully establishes tetrahedron and cube values, while Kabluchko–Litvak–Zaporozhets establish the crosspolytope/octahedron moment framework; a distinct co-published Resultary record supplies the icosahedron alone. Those components are credited and do not imply the dodecahedron moment: its N=20,q=3 and golden-ratio angular simplification require the new argument. No prior full-table or dodecahedral constant was found in targeted width, projected-length, Feret and caliper terminology searches; this bounded negative search is not a priority proof.
+
+## value
+
+PASS
+
+An exact complete classification over the five canonical Platonic solids is a naturally motivated mathematical target, and the dodecahedral second width moment is a previously unlocated intrinsic random-projection invariant. The elementary golden-ratio expression and reusable normal-cell method close a genuine table gap. A natural self-contained exact invariant can be valuable without proving any additional general polytope theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
