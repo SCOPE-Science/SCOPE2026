@@ -1,12 +1,21 @@
-# Scientific review of the Steinberg Fourier endpoint norm
+# Independent mathematical audit
 
-## Correctness — PASS
-The central character-idempotent formula gives both endpoint norms as the representation degree times the mean absolute Steinberg character. The Steinberg character-value theorem reduces the mean to semisimple classes weighted by their centralizers' characteristic-prime parts. Rational canonical classification, explicit general-linear centralizers, the finite-polynomial Euler identity, and a standard elementary \(q\)-binomial expansion prove the formula and its parity/asymptotic consequences for every prime power \(q\ge2\) and integer \(n\ge1\). Reproducible exact rational-canonical tests cover 36 parameter pairs; exhaustive independent fixed-flag matrix enumeration covers four small groups, totaling 11,454 invertible matrices. The all-parameter claim rests on the analytic identities, not the finite tests.
+## correctness
 
-## Originality — PASS (qualified)
-Scarabotti–Tolli's general isotypic projection framework and Srinivasan's Steinberg character values do not themselves give the explicit all-parameter absolute character mean. Fulman's semisimple cycle-index calculation weights classes by reciprocal centralizer size, not by the additional centralizer \(p\)-part; Møller's equivariant Euler characteristic averages have signs, not absolute values; Fulman–Guralnick studies regular semisimple class counts. A related published Steinberg tensor-covering result concerns occurrence of irreducibles in tensor powers, not endpoint Fourier norms. Searches across Fourier-idempotent, mean absolute character, semisimple centralizer, and Euler-product formulations did not identify an implication covering the exact norm and parity plateaus. The remaining risk is an equivalent older weighted-semisimple or \(q\)-product calculation outside the inspected literature; search failure is not a proof of universal novelty.
+PASS
 
-## Mathematical value — PASS
-The Steinberg constituent is canonical for the building and regular representation of every finite general linear group. The sharp endpoint norm is a natural operator invariant with a dimension-dependent amplification scale; the exact parity plateaus and positive Euler-product limit reveal structure across all ranks, not a numerical curiosity from one small group. The characterization applies to every finite field order and every rank in the stated range.
+Central character idempotent for a finite group has constant matrix row/column absolute sum d E|chi|. For Steinberg d=q^(n(n−1)/2), the standard character theorem vanishes off semisimple elements and assigns |St(s)|=|C_G(s)|_p on semisimple classes. Rational canonical semisimple centralizers GL_m(F_{q^d}) give class weights 1/prod_{i<=m}(q^(di)−1). Expanding Euler products over irreducible monic polynomials with nonzero constant term yields Z_q(u)=(1−u)^(−1)prod_{r>=1}(1−u²q^(−(2r−1)))/(1−u²q^(−2r)). The q-binomial theorem gives A_n=sum_{j<=floor(n/2)} a_j with a_1=−1/(q+1) and ratio (q^(2j−2)−q)/(q^(2j)−1); later ratios in (0,q^(−2)). This proves two-rank plateaus, strictly decreasing even ranks, positive Euler limit and geometric tail. Independent exact rational canonical-type sums match recurrence in all 36 (q,n) cases q in {2,3,4,5}, n=0..8. Finite checks only corroborate the reconstructed all-rank proof; exhaustive small GL matrix/flag enumeration in bundled verify.py was inspected but not rerun this turn.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The natural equivalent form is a weighted absolute Steinberg character mean, not the signed character average or unweighted semisimple-matrix probability. Full primary Fulman and Møller texts plus Fulman–Guralnick regular semisimple results were compared by exact weights and quantifiers; none supplies the closed weighted q-product, rank plateaus and projector norm. Best-of-knowledge residual risk remains from an older differently presented q-series or building Euler absolute average.
+
+## value
+
+PASS
+
+Sharp projection endpoint norms and rank asymptotics are intrinsic finite-group harmonic-analysis invariants; the unexpected exact even/odd degree-normalized plateaus and explicit Euler limit answer a natural all-rank representation-theoretic question. It is neither a tiny rank table nor a routine direct substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

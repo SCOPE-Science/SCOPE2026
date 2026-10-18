@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T02:54:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Central character idempotent for a finite group has constant matrix row/column absolute sum d E|chi|. For Steinberg d=q^(n(n−1)/2), the standard character theorem vanishes off semisimple elements and assigns |St(s)|=|C_G(s)|_p on semisimple classes. Rational canonical semisimple centralizers GL_m(F_{q^d}) give class weights 1/prod_{i<=m}(q^(di)−1). Expanding Euler products over irreducible monic polynomials with nonzero constant term yields Z_q(u)=(1−u)^(−1)prod_{r>=1}(1−u²q^(−(2r−1)))/(1−u²q^(−2r)). The q-binomial theorem gives A_n=sum_{j<=floor(n/2)} a_j with a_1=−1/(q+1) and ratio (q^(2j−2)−q)/(q^(2j)−1); later ratios in (0,q^(−2)). This proves two-rank plateaus, strictly decreasing even ranks, positive Euler limit and geometric tail. Independent exact rational canonical-type sums match recurrence in all 36 (q,n) cases q in {2,3,4,5}, n=0..8. Finite checks only corroborate the reconstructed all-rank proof; exhaustive small GL matrix/flag enumeration in bundled verify.py was inspected but not rerun this turn.",
+      "status": "PASS"
+    },
+    "originality": {
+      "assessment_complete": true,
+      "broader_coverage": {
+        "evidence": [
+          "Fulman arXiv:math/0009182 derives standard semisimple conjugacy probabilities with weight 1/|C(s)|; Steinberg requires |C(s)|_p/|C(s)|.",
+          "Møller arXiv:1701.03411 works with signed equivariant building Euler characteristics and semisimple counts, not the absolute St average.",
+          "Fulman–Guralnick arXiv:1209.3345 counts regular semisimple classes, while current formula includes all semisimple multiplicities."
+        ],
+        "reasoning": "The known broader combinatorial frameworks permit a new derivation but do not, from their stated theorems alone, supply this specifically weighted all-rank absolute character moment.",
+        "searches": [
+          "finite GL n q Steinberg character absolute value average Fourier projection endpoint norm parity semisimple generating function",
+          "arXiv:math/0009182 Section 5.3 semisimple matrix probabilities",
+          "arXiv:1701.03411 Theorem 1.4 building equivariant Euler characteristic",
+          "arXiv:1209.3345 regular semisimple classes theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0701533v1",
+        "doi:10.1017/S1446788700008247",
+        "arXiv:math/0009182v2",
+        "arXiv:1701.03411v2",
+        "arXiv:1209.3345v1",
+        "Resultary query: finite GL n q Steinberg character absolute value average Fourier projection endpoint norm parity semisimple generating function"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard exact Steinberg character value determines summand, but averaging its absolute value over nonregular as well as regular semisimple classes is an additional sum evaluation.",
+          "Telescoping yields Z_q(u) and distinct normalized two-rank plateaus beyond the signed Euler and regular class-count formulas."
+        ],
+        "reasoning": "The new theorem follows only after evaluating a nonconstant centralizer p-part weight. None of the inspected prior statements implies the parity pattern without the separate weighted Euler calculation.",
+        "searches": [
+          "finite GL n q Steinberg character absolute value average Fourier projection endpoint norm parity semisimple generating function",
+          "Fulman rational canonical semisimple probability vs Steinberg absolute character weight"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scarabotti–Tolli arXiv:math/0701533 provides projector representation framework.",
+          "Srinivasan 1971 DOI 10.1017/S1446788700008247 provides standard semisimple Steinberg value theorem.",
+          "The norm is d * E|St|, distinct from E St=0 or 1 for nontrivial characters."
+        ],
+        "reasoning": "The equivalent languages are sharp endpoint convolution norms, first absolute Steinberg moment and centralizer-weighted semisimple class sum. Ingredients are classical, but their exact weighted sum is not a mere signed character orthogonality.",
+        "searches": [
+          "finite GL n q Steinberg character absolute value average Fourier projection endpoint norm parity semisimple generating function",
+          "Steinberg character GL n q mean absolute value central idempotent q product",
+          "arXiv:math/0701533 Fourier isotypic projection finite homogeneous space"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact independent computation gives A_2,2=A_3,2=2/3; A_4,2=A_5,2=28/45, and A_2,3=A_3,3=3/4.",
+          "Published regular-semismiple tables do not use the |C|_p weight.",
+          "Resultary query found current record plus different Fourier projection spectra without a prior same-object item."
+        ],
+        "reasoning": "Small values verify arithmetic but do not confer novelty. No exact earlier weighted all-rank q-series or matching table located in inspected sources.",
+        "searches": [
+          "finite GL n q Steinberg character absolute value average Fourier projection endpoint norm parity semisimple generating function",
+          "Steinberg GLn(q) Euler absolute mean exact q Pochhammer coefficient parity plateau"
+        ]
+      },
+      "rationale": "The natural equivalent form is a weighted absolute Steinberg character mean, not the signed character average or unweighted semisimple-matrix probability. Full primary Fulman and Møller texts plus Fulman–Guralnick regular semisimple results were compared by exact weights and quantifiers; none supplies the closed weighted q-product, rank plateaus and projector norm. Best-of-knowledge residual risk remains from an older differently presented q-series or building Euler absolute average.",
+      "residual_risks": [
+        "Older representation-theoretic or q-series treatments may contain the same |St| first moment under an unrecognized building-Euler/weighted-semisimple alias.",
+        "Steinberg exact character values are classical assumptions, not independently reproved by the finite checks.",
+        "Statement only covers full regular isotypic projector endpoints and fixed prime-power q asymptotics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_WEIGHT: ordinary semisimple probability is not the average absolute Steinberg character.",
+          "evidence": "Class contributions based on 1/|C(s)| differ from |C(s)|_p/|C(s)| used in the theorem.",
+          "identifier_or_url": "arXiv:math/0009182v2",
+          "material_read": "Lawful primary arXiv full PDF; Sections 2 and 5.3 and related generating-function statements.",
+          "method": "Inspected full text and page image for semisimple probabilities; compared multiplicity class weights.",
+          "title": "Finite Affine Groups: Cycle Indices, Hall-Littlewood Polynomials, and Probabilistic Algorithms",
+          "trigger": "Closest rational-canonical/semisimple generating function that might dominate the theorem"
+        },
+        {
+          "assessment": "SIGNED_EQUIVARIANT_AVERAGES not the absolute weighted GL projector endpoint norm.",
+          "evidence": "Prior paper uses signed building Euler averages; replacing signed St by |St| changes the centralizer sum.",
+          "identifier_or_url": "arXiv:1701.03411v2",
+          "material_read": "Lawful arXiv full PDF, introduction, Theorem 1.4, semisimple enumeration and relevant later statements.",
+          "method": "Read source statements with page screenshots and signed-versus-absolute comparison.",
+          "title": "Equivariant Euler characteristics of subspace posets",
+          "trigger": "Building/Steinberg Euler characteristic may encode same absolute sum"
+        },
+        {
+          "assessment": "REGULAR_ONLY; lacks nonregular semisimple multiplicities and St weighting.",
+          "evidence": "Only regular semisimple classes are counted, whereas local multiplicities m_f>=0 without restriction are essential here.",
+          "identifier_or_url": "arXiv:1209.3345v1",
+          "material_read": "Lawful arXiv full PDF, GL counting theorem and regularity definitions.",
+          "method": "Compared enumerated class family and weights.",
+          "title": "The number of regular semisimple conjugacy classes in the finite classical groups",
+          "trigger": "Potential exact known semisimple table"
+        },
+        {
+          "assessment": "FRAMEWORK_ONLY; no explicit Steinberg endpoint q-Euler product located.",
+          "evidence": "The paper develops spherical/isotypic projections, not an all-rank weighted mean of a Steinberg character.",
+          "identifier_or_url": "arXiv:math/0701533v1",
+          "material_read": "Public arXiv original full PDF opening and Section 2 framework.",
+          "method": "Compared general projector formalism to explicit GL Steinberg absolute mean.",
+          "title": "Harmonic analysis on a finite homogeneous space",
+          "trigger": "Classical general Fourier/isotypic projector framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp projection endpoint norms and rank asymptotics are intrinsic finite-group harmonic-analysis invariants; the unexpected exact even/odd degree-normalized plateaus and explicit Euler limit answer a natural all-rank representation-theoretic question. It is neither a tiny rank table nor a routine direct substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:math/0701533v1",
+    "doi:10.1017/S1446788700008247",
+    "arXiv:math/0009182v2",
+    "arXiv:1701.03411v2",
+    "arXiv:1209.3345v1",
+    "Resultary query: finite GL n q Steinberg character absolute value average Fourier projection endpoint norm parity semisimple generating function"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Older representation-theoretic or q-series treatments may contain the same |St| first moment under an unrecognized building-Euler/weighted-semisimple alias.",
+    "Steinberg exact character values are classical assumptions, not independently reproved by the finite checks.",
+    "Statement only covers full regular isotypic projector endpoints and fixed prime-power q asymptotics."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "DIFFERENT_WEIGHT: ordinary semisimple probability is not the average absolute Steinberg character.",
+      "evidence": "Class contributions based on 1/|C(s)| differ from |C(s)|_p/|C(s)| used in the theorem.",
+      "identifier_or_url": "arXiv:math/0009182v2",
+      "material_read": "Lawful primary arXiv full PDF; Sections 2 and 5.3 and related generating-function statements.",
+      "method": "Inspected full text and page image for semisimple probabilities; compared multiplicity class weights.",
+      "title": "Finite Affine Groups: Cycle Indices, Hall-Littlewood Polynomials, and Probabilistic Algorithms",
+      "trigger": "Closest rational-canonical/semisimple generating function that might dominate the theorem"
+    },
+    {
+      "assessment": "SIGNED_EQUIVARIANT_AVERAGES not the absolute weighted GL projector endpoint norm.",
+      "evidence": "Prior paper uses signed building Euler averages; replacing signed St by |St| changes the centralizer sum.",
+      "identifier_or_url": "arXiv:1701.03411v2",
+      "material_read": "Lawful arXiv full PDF, introduction, Theorem 1.4, semisimple enumeration and relevant later statements.",
+      "method": "Read source statements with page screenshots and signed-versus-absolute comparison.",
+      "title": "Equivariant Euler characteristics of subspace posets",
+      "trigger": "Building/Steinberg Euler characteristic may encode same absolute sum"
+    },
+    {
+      "assessment": "REGULAR_ONLY; lacks nonregular semisimple multiplicities and St weighting.",
+      "evidence": "Only regular semisimple classes are counted, whereas local multiplicities m_f>=0 without restriction are essential here.",
+      "identifier_or_url": "arXiv:1209.3345v1",
+      "material_read": "Lawful arXiv full PDF, GL counting theorem and regularity definitions.",
+      "method": "Compared enumerated class family and weights.",
+      "title": "The number of regular semisimple conjugacy classes in the finite classical groups",
+      "trigger": "Potential exact known semisimple table"
+    },
+    {
+      "assessment": "FRAMEWORK_ONLY; no explicit Steinberg endpoint q-Euler product located.",
+      "evidence": "The paper develops spherical/isotypic projections, not an all-rank weighted mean of a Steinberg character.",
+      "identifier_or_url": "arXiv:math/0701533v1",
+      "material_read": "Public arXiv original full PDF opening and Section 2 framework.",
+      "method": "Compared general projector formalism to explicit GL Steinberg absolute mean.",
+      "title": "Harmonic analysis on a finite homogeneous space",
+      "trigger": "Classical general Fourier/isotypic projector framework"
+    }
+  ]
+}
