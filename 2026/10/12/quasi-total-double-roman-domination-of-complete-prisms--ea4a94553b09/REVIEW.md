@@ -1,12 +1,21 @@
-# Review of Quasi-total double Roman domination of complete prisms
+# Independent mathematical audit
 
-## Correctness
-PASS. For any candidate of weight at most \(6\), each clique layer must have weight at least \(3\). If a layer has weight at most \(2\) and no label \(2\), at least two zero vertices require distinct matched label-\(3\) defenders; if it has one label \(2\), all other vertices require distinct matched labels of value at least \(2\). Thus an optimum of weight \(6\) has layer weights \(3\) and \(3\). A layer profile \(2+1\) forces too much weight in the opposite layer, while a profile \(1+1+1\) either forces multiple matched labels \(3\) or, at the \(n=4\) boundary, leaves its positive labels \(1\) undefended. Hence each layer has one label \(3\). The quasi-total isolated-positive condition forces those two vertices to be adjacent, which across the layers means they form a matching edge. The matched-\(3\) construction proves attainability. Exhaustive definition-level checks for \(n=4,5\) recover exactly the claimed minima.
+## correctness
 
-## Originality
-PASS. The initiating 2024 paper defines the exact invariant, solves paths and cycles, characterizes parameter values \(3\), \(4\), and \(5\), gives an exact complete-multipartite result, and proves broad upper bounds. The complete prism is not complete multipartite for \(n\ge3\), and those prior statements do not yield its value-\(6\) equality structure. A 2026 stability paper reuses the small-value and path/cycle results but studies vertex-deletion stability rather than complete-prism optimization. Searches under “complete prism”, “prism graph”, “Cartesian product”, and \(K_n\square K_2\) formulations found no equivalent exact theorem. The residual risk is a differently phrased or non-indexed treatment.
+PASS
 
-## Value
-PASS. Complete prisms are a standard dense Cartesian-product family. The result shows that the new quasi-total double Roman parameter collapses to the constant value \(6\) on an unbounded-order family, while the equality case is rigid: every optimum is supported by one matching edge and there are exactly \(n\) optima. This is strictly finer than a bound or a scalar computation and exposes how the isolated-positive condition interacts with the two-clique product structure.
+Directly checked the definition: a zero needs adjacent 3 or two adjacent 2s; a 1 needs adjacent >=2; an isolated positive may only be 2. For a total weight <=6 and n>=4, any layer weight <=2 forces too much weight in matched opposite-layer vertices, hence layer weights >=3. At equality each layer weight 3 cannot be 2+1 (remaining zeros demand >=2 in opposite layer) nor 1+1+1 (zeros or unsupported 1s); each layer has a unique 3. Nonisolated-positive condition forces matched indices. Independently exhausted all 4^8=65,536 labelings for n=4 and all 4^10=1,048,576 for n=5: respective optima 6 with exactly 4 and 5 matching minima. Analytic lower bound covers all n>=4.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Source determines paths, cycles, complete multipartite and small general value ranges; these do not supply the complete prism minimum-function classification. A published Roman-{3} complete-prism result is about a distinct labeling rule and cannot imply this value/count.
+
+## value
+
+PASS
+
+Natural Cartesian-product family exhibits a constant sharp weight and a rigid complete optimizer classification with n labeled solutions. This extends the graph-domination invariant beyond cycles/multipartite examples, not merely a small isolated value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

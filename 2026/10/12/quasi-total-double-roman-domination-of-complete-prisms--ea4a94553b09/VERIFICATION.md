@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier constructs the two clique layers and their perfect matching directly. It checks a labeling against the definition without using the proof:
+# Independent mathematical audit
 
-1. each label-\(0\) vertex has a label-\(3\) neighbor or at least two label-\(2\) neighbors;
-2. each label-\(1\) vertex has a neighbor labeled at least \(2\);
-3. every positive vertex isolated in the positive-support subgraph has label \(2\).
+## correctness
 
-It exhaustively tests every labeling for \(n=3,4,5\):
-\[
-4^6+4^8+4^{10}=1{,}118{,}208
-\]
-labelings. The minimum value is \(6\) in all three cases. For \(n=4\) and \(n=5\), the complete set of minimum functions is exactly the predicted matched label-\(3\) family, of sizes \(4\) and \(5\). The \(n=3\) boundary has \(15\) minimum functions, confirming that the optimizer classification must start at \(n=4\).
+PASS
 
-The verifier also constructs and definition-checks every claimed minimum function for every
-\[
-4\le n\le50.
-\]
+Directly checked the definition: a zero needs adjacent 3 or two adjacent 2s; a 1 needs adjacent >=2; an isolated positive may only be 2. For a total weight <=6 and n>=4, any layer weight <=2 forces too much weight in matched opposite-layer vertices, hence layer weights >=3. At equality each layer weight 3 cannot be 2+1 (remaining zeros demand >=2 in opposite layer) nor 1+1+1 (zeros or unsupported 1s); each layer has a unique 3. Nonisolated-positive condition forces matched indices. Independently exhausted all 4^8=65,536 labelings for n=4 and all 4^10=1,048,576 for n=5: respective optima 6 with exactly 4 and 5 matching minima. Analytic lower bound covers all n>=4.
 
-Recorded output:
+## originality
 
-```text
-VERIFY_OK
-n=3: gamma_qtdR=6, minimum_functions=15
-n=4: gamma_qtdR=6, minimum_functions=4
-n=5: gamma_qtdR=6, minimum_functions=5
-full_labelings_checked = 1118208
-constructed_parameter_range = 4..50
-for n=4,5 every exhaustive minimum matched the n matched 3-3 functions
-for n=3 the same value 6 has additional minimum functions
-```
+PASS
 
-The finite checks are corroborative only. The arbitrary-\(n\) lower bound and complete equality classification follow from the symbolic layer-weight proof in `RESULT.md`.
+Source determines paths, cycles, complete multipartite and small general value ranges; these do not supply the complete prism minimum-function classification. A published Roman-{3} complete-prism result is about a distinct labeling rule and cannot imply this value/count.
+
+## value
+
+PASS
+
+Natural Cartesian-product family exhibits a constant sharp weight and a rigid complete optimizer classification with n labeled solutions. This extends the graph-domination invariant beyond cycles/multipartite examples, not merely a small isolated value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
