@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T08:23:48.847437Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. On unit-edge cube d_H, ||f||Lip=2 max_i||D_i f||∞, D_i f=(f(+)-f(-))/2. Derivation D_i Q_A f=T_{A_i}D_i f reduces upper bound to convolution operator ℓ∞-norm E|K_i|. Fix maximizing i, define g=sgn K_i and f(x)=x_i g(x_without_i)-g(o_without_i); its edge oscillations are bounded by 2 and its i-edge oscillation attains 2, while the projected i-derivative at basepoint has modulus E|K_i|. This gives exact sharpness for arbitrary family and both real/complex scalars. Pointed translations U_y f(x)=f(xy)-f(y) diagonalize Walsh basis; averaging arbitrary projection onto the given span yields unique diagonal Q_A with norm not greater, and dual argument gives free-space minimality. For degree k shadows are degree k-1 Krawtchouk kernels; elementary symmetric walk identity gives quadratic coefficient m*binom(m-1,floor((m-1)/2))/2^{m-1}. Independent exact integer-Walsh checks exhausted all nonempty support families n=1,2,3 (1+7+127) and matched extrema. General proof, not finite testing, covers all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sup norm polynomial-space projection theorems use different ambient norm.",
+          "Group-action orbit projections use different invariant subspaces."
+        ],
+        "reasoning": "Neither theorem controls exact arbitrary Walsh spectral subspaces in Lip_0 with coupled gradients; cannot infer minimal constant without new sharp witness.",
+        "searches": [
+          "arXiv:2208.06467 Ch8",
+          "arXiv:2104.11519"
+        ]
+      },
+      "checked_sources": [
+        "Defant et al arXiv:2208.06467 Chapter 8",
+        "Defant et al arXiv:2302.00233 Thm3.1",
+        "Cúth–Doucha arXiv:2104.11519",
+        "Source RESULT.md/check.py frozen tree",
+        "Independent exact exhaustive supports n=1,2,3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior convolution norm applies individually to D_i f but is only an upper bound until global sign witness is constructed.",
+          "Averaging under pointed translations supplies minimum-norm result in Lip_0 and dual."
+        ],
+        "reasoning": "The new simultaneous extremizer and averaging step are additional and prove the full theorem, not a trivial renaming of a C-cube constant.",
+        "searches": [
+          "Defant et al Thm8.1.1 2022",
+          "Cúth–Doucha 2021 group-action projection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sup norm Walsh kernel projection norm equals L1 Walsh-kernel average in Defant et al.",
+          "Lipschitz norm is supremum of edge derivatives and shadow kernel, not global C cube kernel."
+        ],
+        "reasoning": "Sought alternative statements as Hamming cube edge seminorm, Fourier multipliers, Lipschitz-free spectral projections, and translation-averaged minimal projections; present exact coordinate-shadow reduction not identified in primary sources.",
+        "searches": [
+          "Resultary: Walsh Lipschitz shadow minimal projection constants Hamming cubes; search_internal_error (not completed)",
+          "arXiv:2208.06467, Ch8 Thm8.1.1",
+          "arXiv:2302.00233, Thm3.1",
+          "arXiv:2104.11519"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Krawtchouk coefficients/binomial moments are classical and not new as sup-norm data; no identified Lipschitz-free projection-constant table for every spectral family."
+        ],
+        "reasoning": "Exact degree-2 first moment alone is not presented as novel; mathematical contribution is structural all-family identity.",
+        "searches": [
+          "arXiv:2302.00233 Thm4.1 homogeneous layers",
+          "source degree k formula"
+        ]
+      },
+      "rationale": "PASS on material comparisons with bounded risk. Defant et al (2022/2023) give Walsh multiplier convolution norms and projection constants in C({±1}^m) with sup norm; their kernel formula is acknowledged prior. They do not provide the Lipschitz seminorm transfer/shadow optimization and globally compatible witness or adjoint free-space minimum. Cúth–Doucha group-action orbit projections are not arbitrary Walsh spectral projections. Equivalent functional-analytic presentation may be unindexed; failed Resultary is not proof of novelty.",
+      "residual_risks": [
+        "Resultary search unavailable; non-indexed semilattice/edge-multiplier formulation might predate result.",
+        "Unweighted edges crucial; no weighted metric inference.",
+        "Relative concrete ambient projection constant, not absolute Banach projection constant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "C cube sup norm L1-kernel result is prior; does not explicitly handle cube Lipschitz seminorm shadows.",
+          "evidence": [
+            "Defant et al, arXiv:2208.06467, Theorem 8.1.1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.06467",
+          "material_read": "Full primary monograph PDF materially examined at Sections 2.2–2.3, Chapter 8 theorem on Walsh-supported C cube sup norm, kernel integrals and asymptotics.",
+          "method": "Primary PDF section inspection",
+          "title": "Projection constants for spaces of multivariate polynomials",
+          "trigger": "Strongest related Walsh-spectral projection norm theorem"
+        },
+        {
+          "assessment": "Provides sup norm layer kernel/norm facts, not new sharp Hamming-Lipschitz shadow minimum.",
+          "evidence": [
+            "Defant et al, arXiv:2302.00233, Thm3.1 and Sec4"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.00233",
+          "material_read": "Primary PDF examined at Theorem 3.1 and homogeneous layer Section 4.",
+          "method": "Primary PDF targeted inspection",
+          "title": "Asymptotic insights for projection, Gordon–Lewis and Sidon constants in Boolean cube function spaces",
+          "trigger": "C cube Walsh projection norm and layer estimates"
+        },
+        {
+          "assessment": "Invariant group-orbit projections differ from generic coordinate-shadow Walsh spectral supports.",
+          "evidence": [
+            "Cúth–Doucha, arXiv:2104.11519"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.11519",
+          "material_read": "Public source introduction and related group-action results materially checked; full-document exclusion not asserted.",
+          "method": "Published preprint targeted inspection",
+          "title": "Projections in Lipschitz-free spaces induced by group actions",
+          "trigger": "Closest Lipschitz-free projection theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. An exact relative projection constant for arbitrary Walsh spectrum in Hamming Lipschitz and free spaces is a natural Banach-space geometric operator invariant. The sharp realization of a coordinate convolution bound by one globally Lipschitz function, plus minimum norm among ALL projections, provides nontrivial structural information beyond familiar sup-norm kernel identities.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Defant et al arXiv:2208.06467 Chapter 8",
+    "Defant et al arXiv:2302.00233 Thm3.1",
+    "Cúth–Doucha arXiv:2104.11519",
+    "Source RESULT.md/check.py frozen tree",
+    "Independent exact exhaustive supports n=1,2,3"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unweighted Hamming shortest-path metric only.",
+    "Real or complex scalar field, nonempty nonconstant support; no claim for absolute projection constants."
+  ],
+  "residual_risks": [
+    "Resultary search unavailable; non-indexed semilattice/edge-multiplier formulation might predate result.",
+    "Unweighted edges crucial; no weighted metric inference.",
+    "Relative concrete ambient projection constant, not absolute Banach projection constant."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "C cube sup norm L1-kernel result is prior; does not explicitly handle cube Lipschitz seminorm shadows.",
+      "evidence": [
+        "Defant et al, arXiv:2208.06467, Theorem 8.1.1"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2208.06467",
+      "material_read": "Full primary monograph PDF materially examined at Sections 2.2–2.3, Chapter 8 theorem on Walsh-supported C cube sup norm, kernel integrals and asymptotics.",
+      "method": "Primary PDF section inspection",
+      "title": "Projection constants for spaces of multivariate polynomials",
+      "trigger": "Strongest related Walsh-spectral projection norm theorem"
+    },
+    {
+      "assessment": "Provides sup norm layer kernel/norm facts, not new sharp Hamming-Lipschitz shadow minimum.",
+      "evidence": [
+        "Defant et al, arXiv:2302.00233, Thm3.1 and Sec4"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2302.00233",
+      "material_read": "Primary PDF examined at Theorem 3.1 and homogeneous layer Section 4.",
+      "method": "Primary PDF targeted inspection",
+      "title": "Asymptotic insights for projection, Gordon–Lewis and Sidon constants in Boolean cube function spaces",
+      "trigger": "C cube Walsh projection norm and layer estimates"
+    },
+    {
+      "assessment": "Invariant group-orbit projections differ from generic coordinate-shadow Walsh spectral supports.",
+      "evidence": [
+        "Cúth–Doucha, arXiv:2104.11519"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2104.11519",
+      "material_read": "Public source introduction and related group-action results materially checked; full-document exclusion not asserted.",
+      "method": "Published preprint targeted inspection",
+      "title": "Projections in Lipschitz-free spaces induced by group actions",
+      "trigger": "Closest Lipschitz-free projection theorem"
+    }
+  ]
+}
