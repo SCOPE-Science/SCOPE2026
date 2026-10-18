@@ -1,22 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Under the common low-rate scaling \(\alpha=\varepsilon a\) and \(\theta=\varepsilon b\), the exact one-step cumulative hazard is \(\varepsilon(a+c r^z)\). Hence the PMF has the fixed-index expansion
-\[
-p_z=\varepsilon(a+c r^z)+O(\varepsilon^2),
-\]
-and its log-concavity determinant has the strictly negative leading coefficient
-\[
--a c r^{z-1}(r-1)^2.
-\]
-This proves a genuine open counterexample regime. The embedded decimal checker independently confirms the explicit admissible example and the limiting normalized determinant.
+## correctness
 
-## Originality
-PASS. The target full PDF was inspected at the model definition, Theorem 1, and Appendix A. It states universal PMF log-concavity rather than the low-rate obstruction. Exact DOI, correction, PMF-curvature, survival-discretization, and equivalent-formulation searches found no correction or covering DGM result. The foundational Bagnoli–Bergstrom manuscript was inspected at its reliability-function theorems; those results concern continuous densities and integrals and do not provide the discrete first-difference implication used by the target.
+PASS
 
-Residual risk remains from an unindexed later note or a broader discrete log-concavity theorem stated in different terminology.
+For p_z=S_z-S_{z+1}, under alpha=eps*a, theta=eps*b, exact one-step hazard eps(a+c r^z) with r=e^mu>1, c=b(r-1)/mu>0, so fixed-index p_z=eps(a+c r^z)+O(eps²); the log-concavity determinant has leading term -eps²*a*c*r^(z-1)*(r-1)^2<0. For each fixed m the finite intersection of small-eps intervals proves strict log-CONVEXITY on indices 1..m; this does NOT assert a uniform infinite-prefix eps. Independent 65-digit decimal calculations from S_z=exp(-.01(z+2^z-1)) yielded p0=.01980132669, p1=.02896924881, p2=.04639200646, determinant=-.0000794058995773977, ratio=.91355988721917, verifying a genuine counterexample to the unrestricted theorem. Source checker inspected but the asymptotic is the proof, not numerical evidence.
 
-## Value
-PASS. The target elevates PMF log-concavity to a foundational structural property and uses it to motivate unimodality and convolution stability. The new result establishes a systematic low-rate failure mechanism on arbitrarily long finite prefixes and identifies why the published proof does not establish its conclusion. This is a motivated structural counterexample, not an arbitrary parameter-grid calculation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: The primary 2025 DGM paper's Theorem 1 states universal PMF log-concavity for all positive alpha,theta,mu; Appendix A computes survival-sequence curvature and incorrectly transfers it to the PMF, with its stated (A.2) not algebraically equivalent to PMF log-concavity. A derived strict negative PMF determinant is incompatible with that theorem rather than a reformulation of it; targeted Resultary/publication searches did not locate a previous published low-rate counterexample. Generic continuous reliability log-concavity results do not imply the disputed discrete first-difference assertion. A later unindexed correction remains possible.
+
+## value
+
+PASS
+
+PASS: A systematic low-rate OPEN REGION of counterexamples refutes a stated theorem used to claim PMF structural log-concavity in a recent named statistical distribution; the analytic determinant and arbitrarily long finite initial log-convex segments expose the precise invalid inference, not an unmotivated numerical quirk. Consequences for separate IFR, inferential fits or unimodality were NOT claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
