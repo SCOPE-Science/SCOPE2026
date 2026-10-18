@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T22:07:26.939971Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/12/adaplus-has-a-sharp-startup-tail-curvature-gap-on-quadratics--0b2c9af8d19e/RESULT.md",
+        "2026/10/12/adaplus-has-a-sharp-startup-tail-curvature-gap-on-quadratics--0b2c9af8d19e/VERIFICATION.md",
+        "scope_worker_08_1283_checks.py"
+      ],
+      "rationale": "The result explicitly defines the paper-form AdaPlus scalar recurrence with zero decay, h>0, 0<=beta1,beta2<1 and epsilon>0. Direct substitution at source state m0=s0=0 gives exact first-step correction (1+beta1)h*x0 and denominator sqrt(beta1^2*h^2*x0^2+epsilon/(1-beta2))+epsilon; small-x0 objective increase occurs iff a*h>2D/(1+beta1), D=sqrt(epsilon/(1-beta2))+epsilon, with equality not a strict spike. Along zero-gradient orbit second moment bias-corrected floor is epsilon/(1-beta2); linearize first-moment/state to matrix [[1-(a/D)(1-beta1^2)h,-(a/D)beta1^2],[(1-beta1)h,beta1]], plus stable second-moment eigenvalue beta2. Three exact Jury inequalities reduce to a*h<2(1+beta1)D/((1-beta1)(1+2beta1)), -1 root at equality. For beta1>0, nonempty gap and ratio (1+beta1)^2/((1-beta1)(1+2beta1)), independent defaults h_start=3.3287238528, h_tail=42.9167611023 and h=10 objective amplification 25.0831545759. Independently checked matrix determinant, eigenboundary, values and first-update formulas. The tail conclusion is only limiting local spectral stability, not global convergence. IMPORTANT: author official code AdaPlus.py lines 610-616 uses denom sqrt(s+epsilon)/sqrt(bias_correction2) WITHOUT a final +epsilon; thus exact numerical thresholds apply to the explicitly specified paper-form update, not that source implementation. Original full paper algorithm was not independently read, so a transcription mismatch remains a material model-provenance risk.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guan proposes AdaPlus and reports empirical performance; no full paper theorem of precise scalar startup/tail stability was read.",
+          "AdaBelief stability result uses different mean-state update and its Schur boundary cannot be substituted for AdaPlus.",
+          "Adaptive stepsize suppression work motivates denominator but does not state this AdaPlus startup gap."
+        ],
+        "reasoning": "Earlier general or distinct-optimizer results do not mathematically dominate this exact two-state AdaPlus matrix; full AdaPlus source article remains inaccessible and must not be claimed NOT_COVERING on abstract alone.",
+        "searches": [
+          "Guan arXiv:2309.01966v1 AdaPlus",
+          "Zhuang et al. arXiv:2010.07468v1 AdaBelief",
+          "Zhang/Niwa/Kleijn arXiv:2203.13273v1",
+          "Resultary 2026/10/4/SCOPE-exact-epsilon-curvature-local-stability-frontier-for-adabelief--5a8d43d41261"
+        ]
+      },
+      "checked_sources": [
+        "immutable assigned Git tree f8c32ec2a16e7c860af3bd288e2a7d8134183e9e and result/review/verification/metadata",
+        "author public 121-line AdaPlus.py implementation, especially update lines 582-616",
+        "Guan arXiv:2309.01966v1 published metadata/abstract, full PDF unavailable",
+        "Zhuang et al. arXiv:2010.07468v1 and Zhang et al. arXiv:2203.13273v1 public summaries",
+        "Resultary 18-hit AdaPlus stability query including comparable AdaBelief exact frontier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "AdaPlus defines algorithm and author code; AdaBelief gives separate belief denominator mechanism.",
+          "Official code inner epsilon plus no outer epsilon means it does not have the exact stated D; cannot transfer thresholds unchanged."
+        ],
+        "reasoning": "The combination and update are prior, but the two inequalities require new source-initial and limiting Jury analyses. Proven mathematics is conditional on explicit paper-form update and should not be falsely attributed to a software variant.",
+        "searches": [
+          "AdaPlus arXiv:2309.01966v1",
+          "AdaBelief arXiv:2010.07468v1",
+          "official code https://github.com/guanleics/AdaPlus/blob/main/AdaPlus.py"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary published AdaBelief epsilon local-stability frontier is for AdaBelief, with a different numerator.",
+          "Official AdaPlus.py constructs Nesterov exp_avg_bar but differs from manuscript-form denominator, omitting outer +epsilon."
+        ],
+        "reasoning": "Compare the exact recurrence rather than optimizer names: inherited epsilon-floor and Nesterov terms are known; their specific pair of sharp thresholds under the stated mathematical recurrence is not found as an equivalent prior claim.",
+        "searches": [
+          "Resultary semantic search: AdaPlus adaptive optimizer Nesterov AdaBelief quadratic startup overshoot asymptotic local stability curvature threshold",
+          "AdaBelief and Nadam and AdaPlus scalar quadratic bias correction spectral stability",
+          "author implementation guanleics/AdaPlus AdaPlus.py"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published default numbers follow exact algebraic formula; targeted searches yielded no source table with both thresholds."
+        ],
+        "reasoning": "A useful sharp stability criterion for a named recurrence, not a record-based novelty claim for the numerical decimals.",
+        "searches": [
+          "Resultary semantic search: AdaPlus adaptive optimizer Nesterov AdaBelief quadratic startup overshoot asymptotic local stability curvature threshold",
+          "Guan AdaPlus startup tail curvature thresholds 3.3287238528 42.9167611023"
+        ]
+      },
+      "rationale": "AdaPlus itself and its published empirical optimizer combination are prior. AdaBelief introduced the prediction-error squared moment; related stability analysis exists for AdaBelief (not AdaPlus), and general Nadam/AdamW momentum is prior. No equivalent two-threshold AdaPlus scalar startup-versus-asymptotic Jury phase diagram was located. Official source code is an important non-identical epsilon-placement implementation; do not claim exact source-code behavior or author implementation coverage.",
+      "residual_risks": [
+        "HIGH: Authored AdaPlus.py current official implementation differs in epsilon placement from mathematically specified paper-form algorithm. The result must not be attributed to the code path.",
+        "HIGH: Original complete AdaPlus manuscript unavailable via public full text and authorized access; printed Algorithm 1 epsilon placement independently unverified.",
+        "The linearization is limiting-time local spectral stability, not global convergence or monotone objective beyond first step."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_PROVENANCE_PARTIALLY_UNVERIFIED",
+          "evidence": "Public abstract describes combined AdamW/Nadam/AdaBelief; full printed Algorithm 1 not independently read.",
+          "identifier_or_url": "arXiv:2309.01966v1; DOI:10.1109/ICASSP48485.2024.10447337",
+          "material_read": "Accessible public title, abstract and author repository link; complete primary paper algorithm PDF unavailable",
+          "method": "abstract and linked public materials; authorized full-text attempt",
+          "title": "AdaPlus: Integrating Nesterov Momentum and Precise Stepsize Adjustment on AdamW Basis",
+          "trigger": "Identical optimizer algorithm"
+        },
+        {
+          "assessment": "IMPORTANT_NUMERIC_MODEL_DIFFERENCE",
+          "evidence": "Lines 591-595 form exp_avg_bar and residual moment; lines 610-616 have denom=(exp_avg_sq+eps).sqrt()/sqrt(bias_correction2), no final +eps. The assessed paper-form result is not the code-form exact numerical law.",
+          "identifier_or_url": "https://github.com/guanleics/AdaPlus/blob/main/AdaPlus.py",
+          "material_read": "Complete official source 121-line file, especially parameter update lines 578-616",
+          "method": "public GitHub source text",
+          "title": "AdaPlus.py official implementation",
+          "trigger": "Direct comparison of documented mathematical recurrence with author's code"
+        },
+        {
+          "assessment": "CLOSE_RELATED_BUT_DIFFERENT_UPDATE",
+          "evidence": "AdaBelief uses different numerator; its curvature ceiling is not the AdaPlus two-threshold ratio.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-epsilon-curvature-local-stability-frontier-for-adabelief--5a8d43d41261",
+          "material_read": "Full Resultary public title and indexed theorem synopsis, not underlying proof manuscript",
+          "method": "Resultary semantic hit",
+          "title": "Exact epsilon-curvature local stability frontier for AdaBelief",
+          "trigger": "Prior closely analogous optimizer local stability result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/12/adaplus-has-a-sharp-startup-tail-curvature-gap-on-quadratics--0b2c9af8d19e/RESULT.md",
+        "Resultary 18-hit AdaPlus stability query including comparable AdaBelief exact frontier"
+      ],
+      "rationale": "With the stated scalar recurrence the disagreement of startup objective descent and asymptotic Schur stability is an exact nontrivial optimizer safety frontier; the default gap ratio exceeds 12.89 and gives a motivated counterexample to trusting only local stable eigenvalues. A single scalar quadratic is the natural minimal diagnostic for a fixed optimizer, unlike arbitrary unmotivated parameter slices. It is explicitly not a theorem for the different official source-code epsilon placement, multidimensional curvature, stochastic gradients or nonlinear global convergence.",
+      "residual_risks": [
+        "HIGH: Authored AdaPlus.py current official implementation differs in epsilon placement from mathematically specified paper-form algorithm. The result must not be attributed to the code path.",
+        "HIGH: Original complete AdaPlus manuscript unavailable via public full text and authorized access; printed Algorithm 1 epsilon placement independently unverified.",
+        "The linearization is limiting-time local spectral stability, not global convergence or monotone objective beyond first step."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "HIGH: Authored AdaPlus.py current official implementation differs in epsilon placement from mathematically specified paper-form algorithm. The result must not be attributed to the code path.",
+    "HIGH: Original complete AdaPlus manuscript unavailable via public full text and authorized access; printed Algorithm 1 epsilon placement independently unverified.",
+    "The linearization is limiting-time local spectral stability, not global convergence or monotone objective beyond first step."
+  ],
+  "schema_version": 1
+}
