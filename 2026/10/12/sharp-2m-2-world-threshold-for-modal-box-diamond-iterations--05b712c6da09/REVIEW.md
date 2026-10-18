@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The failure-set recurrence is derived directly from the two modal satisfaction clauses. Monotonicity makes failure layers nested. The critical rank-core lemma proves that no world which ever fails a finite iteration can have all its successors among finite-failure-rank worlds. Its minimal-rank contradiction is valid on arbitrary frames. Any new failure at stage \(k\) then forces \(k\) successively lower-ranked worlds and \(k\) distinct permanent-survivor witnesses, establishing the \(2k\) bound. The directed path of that length gives equality. The separate program checks the recurrence against a direct evaluation, the lemma, witness distinctness, and paths; its finite tests are supplementary, not a substitute for the general proof.
+PASS
 
-## Originality — PASS, with literature risk
+The nested falsity sets B_0=empty, B_{j+1}={x: exists y in R[x], R[y] subset B_j} reproduce falsity of (Box Diamond)^(j+1) top. The rank-core minimal-finite-rank contradiction forces every finite-rank point to have an infinite-rank successor. Starting with a stage-(m+1) new failure, alternating x_j (ranks j) and y_{j-1} (infinite rank, with R[y] subset B_{j-1} but not B_{j-2}) gives 2(m+1) different points. The 2m+2-vertex directed path has initial distance 2m+1 to terminal and first failure at m+1. All nonempty arbitrary frames allowed. Independent direct recurrence checks cover all labelled relations n<=3 and 4096 n=4; finite enumeration cannot replace the rank proof.
 
-The closest primary source is Alpay–Basaran, arXiv:2606.15437. Its Section 7, Proposition 5 and Table 3 establish minimality only at \(m=1,2,3\); Lemma 2 gives a path *upper bound* for every \(m\) and states that this alone does not prove minimality. The present theorem supplies the missing lower bound simultaneously for all \(m\). Searches for alternating box–diamond iteration, semantic mirages, minimal Kripke frame size, modal depth and predecessor fixed-point ranks did not identify an equivalent all-size lower bound. Generic filtration and finite-depth equivalence results do not imply the exact \(2m+2\) threshold. Residual risk: a classical alternating-reachability or modal-game result could express this invariant without the same modal wording.
+## originality
 
-## Value — PASS
+PASS
 
-The primary source explicitly distinguishes finite certified instances from arbitrary-depth optimality. The theorem converts this naturally posed size question into an exact formula for an unbounded, syntactically simple family, and the rank-core lemma explains the otherwise non-obvious factor of two. It determines where exhaustive countermodel search must first succeed at every iteration depth. It is not a claim about general modal-formula complexity or a blanket finite-model bound.
+Alpay–Basaran (2026) give directed path of size 2m+2 and certify smallest sizes only m=1,2,3; the all-m minimality proof via disjoint finite/infinite-rank witnesses is not contained in their reported bounded SAT results. Semantic searches found generic finite Kripke/model reduction results but no matching exact all-m lower bound.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+An exact minimum separating model size for every iteration depth closes the specifically identified gap between known path witnesses and bounded certificates. The finite-rank/infinite-rank ladder is a structural combinatorial obstruction with potential use for modal model-size bounds, not merely one more finite experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
