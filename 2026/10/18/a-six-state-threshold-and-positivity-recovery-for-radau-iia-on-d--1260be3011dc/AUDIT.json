@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Exact quotient-ring polynomial identities yield each entry for cycles of orders two through six, positivity of the denominator is explicit and all numerator sign boundaries are proven including p_6,0. f has strictly positive derivative and unique positive zero; exact rational witness matches. The -z^5/108 Taylor coefficient implies negative fifth-hop entries for every n≥6 at sufficiently small steps. Discrete Fourier diagonalization and Radau L-stability prove strict large-step recovery. The 930 exact polynomial/matrix checker assertions independently verify finite algebraic certificates; no finite search is used for the infinite step quantifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zappavigna et al. 2010, author-archived full paper, presents general Padé-positivity restrictions and sampling conditions rather than the explicit six-cycle [1/2] Radau recovery interval.",
+        "Zappavigna et al. 2012, author full text, analyzes positivity losses including different diagonal Padé examples.",
+        "Numipedia lists absolute monotonicity radius zero; this gives neither exact six-cycle recovery nor the all-h positivity set."
+      ],
+      "reasoning": "General positive-system conditions concern different questions or sufficient sampling bounds; an abstract absence of absolute monotonicity does not imply existence, location, or persistence of a positive recovery window.",
+      "searches": [
+        "Radau IIA third order positive diffusion unidirectional directed cycle exact timestep all sizes",
+        "unconditional positivity stability function Radau IIA on directed circulant generator finite Markov chain",
+        "third order Radau IIA scheme cyclic Markov matrices positivity nonnegativity high order rational approximation",
+        "subdiagonal Padé approximation cyclic permutation generator positivity negative small steps Radau"
+      ]
+    },
+    "checked_sources": [
+      "https://www.unige.ch/~hairer/preprints/coimbra.pdf",
+      "https://mural.maynoothuniversity.ie/id/eprint/2195/",
+      "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+      "https://ketch.github.io/numipedia/methods/RadauIIA2.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The eight-state claim concerns an eight-state pure-birth [2/2] diagonal Padé map.",
+        "Crank--Nicolson and theta schemes have different rational stability functions and their initial interval structures do not transfer to subdiagonal Radau.",
+        "A separate directed-eight-cycle result concerns the Gauss--Legendre fourth-order [2/2] map, not the third-order Radau IIA [1/2] map.",
+        "Other recorded star, biclique, and directed eight-cycle computations concern distinct Laplacian geometries or a fourth-order stability function; they do not logically specialize to [1/2] Radau on the uniform directed six-cycle."
+      ],
+      "reasoning": "None of these has a theorem with identical stability function and directed cyclic generator. Classical A/L-stability implies eventual approach to the stationary projector but not the exact finite threshold or sharp minimal cyclic order. One cannot deduce the claim as a special case or a simple parameter substitution.",
+      "searches": [
+        "Fourth-order Radau IIA positivity Markov diffusion complete multipartite arbitrary order sharp timestep",
+        "Radau IIA third order positive diffusion unidirectional directed cycle exact timestep all sizes",
+        "Six states minimal cyclic transport Radau IIA negative fifth transition coefficient -1/108 small timestep and positivity recovered large",
+        "Padé [1/2] nonnegative matrices directed circulants cyclic Markov generator all timestep classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "R(z)=(1+z/3)/(1-2z/3+z^2/6) is recorded by the Radau IIA2 method page; the exact cyclic coefficients and quintic are not stated there.",
+        "Closest published mathematical record: Eight-state barrier for Markov positivity of the [2/2] Padé map, which concerns a pure-birth eight-state system rather than a directed cycle under Radau IIA."
+      ],
+      "reasoning": "The [1/2] Radau rational function on a uniform irreducible directed cycle is inequivalent to the [2/2] diagonal Padé function on a pure-birth chain. The previous result cannot supply a bound or exact zero for the fifth cyclic displacement of the present method.",
+      "searches": [
+        "Radau IIA third order directed cyclic Markov generator nonnegative stability matrix positivity six states",
+        "Padé [1/2] nonnegative matrices directed circulants cyclic Markov generator all timestep classification",
+        "Six states minimal cyclic transport Radau IIA negative fifth transition coefficient -1/108 small timestep and positivity recovered large"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Numipedia RadauIIA2 lists method tableau, stability rational function, radius zero, but no cycle-specific sign table.",
+        "Previously recorded undirected-star and complete-bipartite Radau classifications concern different graph Laplacian geometries and do not state the directed-cycle theorem."
+      ],
+      "reasoning": "The source tableau or generic positivity-radius entry does not tabulate cyclic-distance probabilities or identify the exact unique positive root. The two graph findings are not directed cycles.",
+      "searches": [
+        "Radau IIA third order absolute monotonicity ring state Markov chain counterexample",
+        "Optimal time step positive Runge Kutta matrices on graph Laplacians strong stability preserving Padé approximants",
+        "Matrix rational function R(z)=(1+z/3)/(1-2z/3+z^2/6) on P-I cycle positivity exact quintic"
+      ]
+    },
+    "rationale": "Full relevant comparisons with the Radau stability-function source, 2010 and 2012 positive-systems Padé papers, closest published matching-problem records and accessible catalogued research do not show the exact six-state cyclic recovery root or the all-size fifth-hop obstruction. Overlap exists at the level of rational integrators and nonpositive Padé matrices, but its logical statements do not imply this exact cycle theorem; uncertain unindexed sources remain a residual risk.",
+    "residual_risks": [
+      "Equivalent or stronger specialized cycle-specific matrix positivity result may exist in unindexed/inaccessible literature.",
+      "The exact threshold and minimality are confined to equal-rate one-way directed cycles; no unrestricted Markov-generator minimality is inferred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS_METHOD_NOT_CYCLE_CLASSIFICATION",
+        "evidence": [
+          "The third-order method uses R(z)=(1+z/3)/(1-2z/3+z^2/6); no cycle-specific matrix entrywise sign classification in inspected material."
+        ],
+        "identifier_or_url": "https://www.unige.ch/~hairer/preprints/coimbra.pdf",
+        "material_read": "Section on stability function including displayed two-stage Radau IIA formula, with surrounding discussion of stiff decay",
+        "method": "author-hosted open-access preprint; inspected rendered page and nearby extracted text",
+        "title": "Stiff differential equations solved by Radau methods",
+        "trigger": "Derive the exact stability function for the classical third-order method"
+      },
+      {
+        "assessment": "RELATED_NON_COVERING",
+        "evidence": [
+          "2010 work studies Padé positivity and sampling conditions, not the [1/2] Radau uniform directed six-cycle positivity set.",
+          "Repository explicitly records deposited 15 October 2010."
+        ],
+        "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/",
+        "material_read": "Abstract and relevant positivity conditions, examples and conclusions in the eight-page accessible PDF, with selected rendered pages inspected for formulas",
+        "method": "institutional lawful open-access PDF and repository metadata",
+        "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+        "trigger": "Closest positivity-loss work by primary authors"
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_PADE_AND_EXAMPLES",
+        "evidence": [
+          "The worked high-order small-step obstruction uses a diagonal Padé approximant and an eight-state example, not the third-order subdiagonal Radau six-state cyclic criterion."
+        ],
+        "identifier_or_url": "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+        "material_read": "Relevant positivity/counterexample sections and conclusions, with rendered pages 13–15 and extracted mathematical text elsewhere",
+        "method": "author-hosted open-access manuscript, visual page inspection and relevant section search",
+        "title": "Essentially negative news about positive systems",
+        "trigger": "Expanded highly relevant positive-system Padé analysis"
+      },
+      {
+        "assessment": "SUPPORTS_METHOD_NOT_SHARP_CYCLE_RESULT",
+        "evidence": [
+          "The stability function is exactly stated and the absolute-monotonicity radius is zero; no all-time cyclic classification is supplied."
+        ],
+        "identifier_or_url": "https://ketch.github.io/numipedia/methods/RadauIIA2.html",
+        "material_read": "Complete short method summary with Butcher tableau, rational stability function and absolute-monotonicity radius",
+        "method": "public numerical-method database web page",
+        "title": "RadauIIA2",
+        "trigger": "Method coefficients and known absolute-monotonicity radius"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1260be30-11dc-4661-a627-a4a8076a7598",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact endpoint positivity set is a central invariant of numerical Markov dynamics. The sharp transition from unconditional strict positivity for directed cycles through five states to small-step negativity plus permanent large-step recovery at six states reveals a counterintuitive structural limitation of a classical L-stable third-order method. An exact algebraic boundary and a proof of its all-larger-cycle persistence offer practical positive-time-stepping insight without claiming an unrestricted dimension theorem.",
+    "status": "PASS"
+  }
+}
