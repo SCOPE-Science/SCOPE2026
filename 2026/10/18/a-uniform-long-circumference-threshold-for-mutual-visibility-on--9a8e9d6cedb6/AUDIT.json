@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "A complete proof establishes the upper bound by convex cycle layers and the lower bound by three disjoint s-column windows. For same-window endpoints, the route has two moves of length |a-b| and is unoccupied internally. For distinct-window endpoints, the formula t-2D >=0 follows from h=floor(t/3)>=2s and 0<=r<=2, so the chosen gap-crossing arc is shortest; an empty-column vertical move removes every selected internal vertex. The actual packaged verifier checked 89 (s,t) values and 26,904 vertex pairs by both route checking and independently recomputed BFS distances. Finite checks supplement rather than replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Korže–Vesel, arXiv:2309.15201, Theorem 2.4: established 2t when s+1>=t>=6.",
+        "Cicerone–Di Stefano–Klavžar, arXiv:2112.13024, Theorem 3.2: Cartesian-product upper and lower bounds but no construction with 3s selected points in these cylinders.",
+        "Cicerone–Di Stefano–Klavžar–Zhang, DOI 10.1002/net.70074, Theorem 6.3: k>=1 fault-tolerant variant with different values."
+      ],
+      "reasoning": "The 2024 theorem concerns a disjoint aspect-ratio regime, since t>=6s and s>=3 force t>s+1. The general Cartesian-product results supply the 3s upper bound but not the needed matching lower bound. The 2026 theorem has stronger and different path-redundancy requirements (k>=1), and therefore does not entail the value of the ordinary parameter.",
+      "searches": [
+        "Korze Vesel 2024 Conjecture 2.6 path cycle product mu(P_s square C_t) equals min(3s,2t) when t>=12; proof high circumference t>=6s",
+        "2024 exact mutual-visibility of paths and cycles long circumference sparse construction 3s upper bound attained",
+        "\"mutual visibility\" \"C_t\" \"P_s\" threshold circumference height 2025 2026"
+      ]
+    },
+    "checked_sources": [
+      "Korže and Vesel (2023 arXiv/2024 journal), arxiv:2309.15201, full relevant mathematical text.",
+      "Cicerone, Di Stefano and Klavžar (2022 preprint/2023 journal), arxiv:2112.13024, relevant full-text theorem.",
+      "Cicerone, Di Stefano, Klavžar and Zhang (2026), doi:10.1002/net.70074, full HTML cylindrical section.",
+      "Published mathematical research records for direct formula and cylinder/visibility aliases, including closest metric-dimension and connected-visibility matches."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In the primary 2024 article the known sharp 2t range assumes s+1>=t>=6, while its Conjecture 2.6 asks for min{3s,2t} once t>=12.",
+        "The 2026 fault-tolerant article, Section 6.2, expressly distinguishes k=0 from the k>=1 results.",
+        "The established 3s cycle-layer upper bound follows directly from at most three mutually visible vertices on any convex cycle layer."
+      ],
+      "reasoning": "The new proof furnishes the missing matching 3s construction for every s>=3,t>=6s. No compared theorem supplies this construction or implies equality in the present regime. A special case of a published conjecture is not a previously proved corollary. No uniqueness assertion is made.",
+      "searches": [
+        "ordinary mutual-visibility number of cylindrical Cartesian graph P_s square C_t, equal 3s for t at least six times s. explicit three staggered cyclic blocks of row points.",
+        "Korze Vesel 2024 Conjecture 2.6 path cycle product mu(P_s square C_t) equals min(3s,2t) when t>=12; proof high circumference t>=6s",
+        "mutual visible vertex sets in cylindrical grid path times cycle, rowwise 3 points partition of cycle into three spaced blocks",
+        "2024 exact mutual-visibility of paths and cycles long circumference sparse construction 3s upper bound attained"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Korže–Vesel, arXiv:2309.15201, Proposition 2.1 and Conjecture 2.6: the same ordinary parameter and the predicted equality for t>=12, stated as a conjecture.",
+        "Cicerone–Di Stefano–Klavžar–Zhang, DOI 10.1002/net.70074, Section 6.2: ordinary mutual visibility is k=0 and the general cylinder equality remains described as a conjecture."
+      ],
+      "reasoning": "The equivalent notation C_t square P_s and the ordinary 0-fault-tolerant parameter give the same claim. The 2024 formula is conjectural in the present range; a conjectured formula is not a proved covering result. The 2026 work does not prove the ordinary k=0 case for all path and cycle sizes.",
+      "searches": [
+        "ordinary mutual-visibility number of cylindrical Cartesian graph P_s square C_t, equal 3s for t at least six times s. explicit three staggered cyclic blocks of row points.",
+        "mutual visible vertex sets in cylindrical grid path times cycle, rowwise 3 points partition of cycle into three spaced blocks",
+        "\"mutual visibility\" \"P_s\" \"C_t\" \"6s\" path cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Korže–Vesel, arXiv:2309.15201, Remark 2.5 and Table 1: finite data and constructions for small cycle sizes, plus reported computational agreement for 12<=t<=17.",
+        "The published finding titled “Three-point multiset bases for cylindrical grids at circumference six times the height” is about multiset metric dimension, not mutual visibility.",
+        "The published finding titled “Connected mutual-visibility in Cartesian products of high-girth graphs” imposes connectivity on the chosen set and gives a different invariant."
+      ],
+      "reasoning": "The first newly covered parameter pair has s=3,t=18, beyond the reported t<=17 computational agreement; no finite table of fixed t can establish infinitely many pairs with both dimensions unbounded. Source-search matches involving “cylinders” and 6 times height concerned inequivalent invariants or additional constraints.",
+      "searches": [
+        "Korze Vesel 2024 Conjecture 2.6 path cycle product mu(P_s square C_t) equals min(3s,2t) when t>=12; proof high circumference t>=6s",
+        "mutual visibility P4 times cycle 2024 conjecture Korze Vesel",
+        "mutual visibility of P3 cartesian Cn cylindrical three row grid mu=9 exact for t≥12",
+        "\"mutual visibility number\" \"cylinder\" \"path\" \"cycle\" 2024 2025"
+      ]
+    },
+    "rationale": "Full-text comparison with the 2023 arXiv / 2024 journal primary paper, the 2022 Cartesian-product analysis and the 2026 fault-tolerant extension distinguishes a proven complementary regime, a previously conjectured formula, and bounds from the new construction. Multiple actual record queries for direct, equivalent and high-circumference formulations found no proved covering statement; closest name/geometry matches have different invariants. A conjectural prediction does not negate the novelty of a proof on a new infinite wedge.",
+    "residual_risks": [
+      "Search does not exhaust all unindexed papers, recent talks, theses or unpublished proofs of the same high-circumference wedge.",
+      "The 2024 article conjectures a stronger formula, which could have been partially proved elsewhere without an indexed record."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves a 2t regime with s+1>=t and states a broad t>=12 formula as a conjecture; its finite data do not prove the new high-circumference infinite wedge.",
+        "evidence": [
+          "arXiv first version 2023-09-26.",
+          "Proposition 2.1 upper bound min{3s,2t}, Theorem 2.4 s+1>=t>=6, Conjecture 2.6 t>=12; Remark 2.5 about finite values."
+        ],
+        "identifier_or_url": "arxiv:2309.15201; https://link.springer.com/article/10.1007/s00025-024-02139-x",
+        "material_read": "Accessible full-text HTML, Introduction, Section 2 including Proposition 2.1, Theorem 2.4, Remark 2.5 and Conjecture 2.6, plus conclusions and references.",
+        "method": "Read relevant theorems, hypotheses, construction regimes and conjecture wording in primary full text; cross-checked earliest arXiv date.",
+        "title": "Mutual-visibility sets in Cartesian products of paths and cycles",
+        "trigger": "Direct primary source introducing the open numerical formula on exactly the path–cycle graph family."
+      },
+      {
+        "assessment": "General inequality is not exact for high-circumference cylinders and has no construction matching 3s in that region.",
+        "evidence": [
+          "Theorem 3.2 product inequalities and independent-mutual-visibility lower construction."
+        ],
+        "identifier_or_url": "arxiv:2112.13024; https://users.fmf.uni-lj.si/klavzar/preprints/2112.13024.pdf",
+        "material_read": "Author-hosted 17-page PDF, directly inspected title and the substantial introductory and Sections 2–3 text including Theorem 3.2 (pages 1–7).",
+        "method": "Reviewed page rendering and text of product theorem and proof with explicit hypotheses and direction of inequalities.",
+        "title": "On the mutual visibility in Cartesian products and triangle-free graphs",
+        "trigger": "General product bound could potentially subsume an exact long-cylinder case."
+      },
+      {
+        "assessment": "Proves exact k>=1 formulae; refers to the ordinary k=0 cylinder equality as an earlier conjecture and does not cover the submitted theorem.",
+        "evidence": [
+          "Section 6.2, opening paragraph and Theorem 6.3, k>=1 only; dated 2026-09-26."
+        ],
+        "identifier_or_url": "doi:10.1002/net.70074; https://onlinelibrary.wiley.com/doi/10.1002/net.70074",
+        "material_read": "Accessible full HTML, definition sections and complete Section 6.2 on cylindrical Cartesian products, including Theorem 6.3 and explicit discussion of k=0.",
+        "method": "Checked stated k ranges and implications of fault-tolerant results for the ordinary parameter.",
+        "title": "Fault-tolerant mutual-visibility: Complexity and solutions for grid-like networks",
+        "trigger": "Very recent follow-up studies cylinders and might contain the same ordinary theorem."
+      },
+      {
+        "assessment": "Not logically covering because it studies metric multiset resolving sets, not mutually visible vertex sets.",
+        "evidence": [
+          "Summary gives a three-landmark basis threshold at circumference at least six times height plus three; the theorem considered here selects 3s vertices with geodesic avoidance."
+        ],
+        "identifier_or_url": "published mathematical record, 2026-09-19",
+        "material_read": "Record title and summary only, not full text.",
+        "method": "Compared explicitly stated multiset metric-dimension invariant and 3-point landmark conclusion with the 3s mutual-visibility invariant.",
+        "title": "Three-point multiset bases for cylindrical grids at circumference six times the height",
+        "trigger": "Closest semantic record using both cylinders and a six-times-height threshold."
+      },
+      {
+        "assessment": "No covering implication: its connected variant can be 3 while the ordinary invariant on cylindrical grids grows with s.",
+        "evidence": [
+          "Record states connected mutual visibility equals 3 for certain Cartesian products; this is a restricted invariant."
+        ],
+        "identifier_or_url": "published mathematical record, 2026-09-19",
+        "material_read": "Record title and summary only, not full text.",
+        "method": "Compared defining connectivity restriction and conclusion with unconstrained mutual visibility.",
+        "title": "Connected mutual-visibility in Cartesian products of high-girth graphs",
+        "trigger": "Semantic overlap on mutual visibility and Cartesian products."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9a8e9d6c-edb6-4e0b-9aa2-539c86e5e86b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary 2024 study identifies exact cylindrical mutual visibility outside certain regimes as an explicit conjecture. This theorem supplies a dimension-uniform proof of sharpness in the unbounded two-parameter wedge t>=6s for s>=3, with a simple reusable three-window geodesic construction. It is a mathematically motivated exact infinite-family partial solution, not an arbitrary numerical instance or a tiny constant improvement; it does not claim the full conjecture or an optimal threshold.",
+    "status": "PASS"
+  }
+}
