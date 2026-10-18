@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has two independent checks. First, the three local closures are exactly the three perfect matchings of four boundary points. Holding the outside pairing fixed, one local matching equals it and gives two through-ball components, while each of the other two gives one four-cycle. This is an exhaustive symbolic classification, not a finite sample.
+# Independent mathematical audit
 
-Second, after localization and then scalar extension to a field, a link with \(d\) components has rank \(2^{d-1}\) by Hendricks--Lipshitz--Sarkar Proposition 6.3. The printed plus-one hypothesis would make Huang's exact sequence have ranks \(r,2r,2r,r\). If its middle map is zero as Remark 2 states, exactness requires a rank-\(r\) map to surject onto rank \(2r\) and a rank-\(2r\) map to inject into rank \(r\), both impossible.
+## correctness
 
-The verification does not assert that replacing \(+1\) with \(-1\) is sufficient to recover every localized cobordism-map formula in the remark.
+PASS
+
+Outside a skein ball, two arc components pair four boundary points as one of the three perfect matchings O; the three ordinary local pairings P yield two closed through-ball components only for P=O, and one otherwise. Consequently component count multiset is exactly {c,c,c+1} (including arbitrary exterior closed components), so if |L0|=|L1|, then |L0|=|L1|=|L|−1; the printed plus-one hypothesis is impossible. Huang v1 PDF page2 independently visibly confirms printed plus-one and exact sequence L→L1→L0→L and middle map localized zero. HLS Prop6.3 localized rank 2^(|L|−1) would yield r,2r,2r,r and impossible surjection/injection over fraction field. Does not prove any altered cobordism map under corrected condition.
+
+## originality
+
+PASS
+
+The general three-matching parity fact is classical in spirit; the original target is the source-specific vacuity and wrong sign of a newly printed Floer-skein Remark 2. The original PDF is unambiguous on +1, Theorems 1.2/1.3 and zero middle map. HLS ranks independently expose the same incompatibility. No inspected earlier item gives this precise correction.
+
+## value
+
+PASS
+
+A concrete vacuous hypothesis in a new Floer exact-triangle remark affects applications of a localized skein exact sequence, not an arbitrary cheap sign exercise: it changes which link component configurations and corresponding localized ranks can actually occur. Pairing proof plus independent rank contradiction allows a precise, scoped correction without impugning main theorems; this is a substantive correction to mathematical literature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
