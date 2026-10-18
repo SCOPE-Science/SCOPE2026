@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Exact RK-stage reconstruction yields discriminant 4 M1(M1-M2)/h^4, branch c=1/(1+sqrt(1-M2/M1)), and F_i=1+c^2 v_i(v_i-M2/M1). The weighted-average argument gives strict top-mode domination. A fixed geometric factor drives subcritical lower-mode depletion; a fixed >1 growth factor and conserved finite total energy force supercritical finite-step failure. The rational two-mode example satisfies an exact strict inequality for next-step failure. The packaged standard-library verifier passed 44509 checks but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2019 relaxation method rescales the entire Runge–Kutta increment and modifies the represented time; it does not force the same modal factor F_i for this different fixed-step coefficient perturbation.",
+        "The introducing 2024 paper proves local real-root existence under small-step hypotheses and describes computational observations, not a global finite-step obstruction for any finite oscillator sum."
+      ],
+      "reasoning": "A general theorem for a broader class would cover this claim if it yielded the exact amplification and indefinite-time trichotomy. The inspected related methods have materially different corrections or only local guarantees. Residual possibility of a more general earlier energy-preserving filter result is retained.",
+      "searches": [
+        "Energy conserving modified Runge Kutta weights quadratic energy discriminant impossibility multilevel oscillators",
+        "Najafian Vermeire relaxation free Runge Kutta high frequency mode energy pump finite time discriminant failure frequency",
+        "arXiv:1905.09847v1, sections 2 and 4.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.14508v1, original source full text, equations (2.7)–(2.15), sections 2.3–5",
+      "arXiv:1905.09847v1, sections 2 and 4.1, pages 3 and 13",
+      "Mathematical record searches using oscillator energy correction, output-weight perturbation, modal concentration, failure and equivalence terminology"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior: energy conservation and qualitative modal transfer are stated for their respective methods.",
+        "New: for all finite oscillator sums, every initial state with maximal active (h omega)^2 <=1 is forever feasible and lower frequencies decay geometrically, whereas maximal active (h omega)^2>1 forces finite-step infeasibility; a rational pair fails precisely on the second attempted step."
+      ],
+      "reasoning": "A statement that modal energies need not be individually preserved does not imply uniform eventual concentration nor finite unavoidable failure; source local solvability does not imply global loss of solvability. Prior ideas motivate the result and all common elementary identities are credited.",
+      "searches": [
+        "Relaxation-free Runge Kutta SSPRK(2,2) harmonic oscillator coupled frequencies real energy correction exact stepsize bound spectral fourth moment phase energy exchange",
+        "Najafian Vermeire relaxation free Runge Kutta high frequency mode energy pump finite time discriminant failure frequency",
+        "Energy preserving explicit Runge Kutta modified output weights high-frequency energy redistribution Rayleigh quotient modal amplification",
+        "arXiv:2401.14508v1 Sections 2.3–4; arXiv:1905.09847v1 Section 4.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The introducing paper gives the general weight-perturbation quadratic and qualitative Fourier-mode redistribution, but not the formula forcing all lower modal energies to decay geometrically under the fixed SSPRK2 near-consistent branch.",
+        "arXiv:1905.09847v1 section 4.1 studies a time-relaxed RK method rather than fixed-step output-weight modification."
+      ],
+      "reasoning": "The modal weighted-average discriminant and strict factor ordering are equivalent ways to express the present theorem, so both were compared to source equations and modal experiments. Earlier qualitative redistribution is weaker and does not imply the all-step/failure dichotomy.",
+      "searches": [
+        "Relaxation-free Runge Kutta SSPRK(2,2) harmonic oscillator coupled frequencies real energy correction exact stepsize bound spectral fourth moment phase energy exchange",
+        "Relaxation-free Runge Kutta SSPRK(2,2) modal spectral energy concentration highest oscillation frequency finite-step breakdown no real energy correction",
+        "Energy preserving explicit Runge Kutta modified output weights high-frequency energy redistribution Rayleigh quotient modal amplification",
+        "arXiv:2401.14508v1, equations (2.7)–(2.15), sections 3–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical records include an exact error-estimator resonance for a Fehlberg RK4(5) pair, concerning a different embedded error estimator rather than energy-correction solvability.",
+        "Another published mathematical record characterizes endpoint positivity of a Runge–Kutta formula on Markov generators rather than harmonic-oscillator energy correction."
+      ],
+      "reasoning": "These records do not tabulate the SSPRK2 relaxation-free energy cascade or oscillator correction failure. No exact matching table was found, but the indexed coverage is not exhaustive.",
+      "searches": [
+        "Relaxation-free Runge Kutta SSPRK(2,2) harmonic oscillator coupled frequencies real energy correction exact stepsize bound spectral fourth moment phase energy exchange",
+        "Energy conserving modified Runge Kutta weights quadratic energy discriminant impossibility multilevel oscillators",
+        "Relaxation-free Runge Kutta SSPRK(2,2) modal spectral energy concentration highest oscillation frequency finite-step breakdown no real energy correction"
+      ]
+    },
+    "rationale": "Claim-by-claim comparison against the original relaxation-free RK scheme, the earlier time-relaxed RK literature, actual published-record searches found no statement logically implying the sharp spectral cascade plus finite-step failure theorem. Method, general correction quadratic and qualitative mode redistribution are established prior work; the new finding is the quantified global dichotomy and strict next-step witness. Equivalent broader literature remains a risk.",
+    "residual_risks": [
+      "An older spectral-filter/energy-projection theorem could imply this oscillator-specific theorem under different notation; the indexed searches cannot exclude it.",
+      "Full text from every possibly relevant exponential-integration or orthogonal-projection publication was not inspected; novelty remains same-model judged, not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_BASE_METHOD_AND_QUALITATIVE_MODAL_TRANSFER; NOT_FOUND_SHARP_GLOBAL_THEOREM",
+        "evidence": [
+          "General energy correction quadratic and local small-step solvability are presented; numerical Fourier-mode examples describe energy redistribution. No general all-finite-modes exponential cascade and unavoidable finite-step failure characterization was identified in inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2401.14508v1",
+        "material_read": "Full HTML, including equations (2.7)–(2.15) and discussion in sections 2.3, 3, 4 and 5.",
+        "method": "Read actual arXiv HTML equations and adjacent proof/experiment discussion; compare the precise RK tableau and correction branch.",
+        "title": "Energy Conservative Relaxation-Free Runge-Kutta Schemes",
+        "trigger": "Direct introducing paper for coefficient perturbation, quadratic correction, modal tests and real-solvability discussion."
+      },
+      {
+        "assessment": "RELATED_MODAL_REDISRIBUTION_DIFFERENT_METHOD",
+        "evidence": [
+          "Time relaxation parameter multiplies the entire increment; analysis includes a different method and fourth-order modal experiments, not the stated quadratic branch and sharp modal spectral boundary."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1905.09847v1",
+        "material_read": "PDF sections 2 and 4.1, including pages 3 and 13, using page text and page rendering.",
+        "method": "Compare global-increment time relaxation and Fourier modal examples with fixed-step, perturbed-output-weight SSPRK2.",
+        "title": "Relaxation Runge-Kutta Methods: Conservation and Stability for Inner-Product Norms",
+        "trigger": "Closest earlier relaxation method; possible stronger prior modality theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4fe0aa7a-bade-40a4-9251-f32afde8f924",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact quadratic-energy conservation is a fundamental design objective, yet the theorem establishes a sharp spectral boundary separating global feasibility with deterministic spurious energy concentration from inevitable finite-step nonreal correction. The mode-resolved exponential bounds and rational initially-solvable failure pair permit reproducible diagnostics of a published method. The statement is structural and nontrivial relative to merely restating the general correction quadratic.",
+    "status": "PASS"
+  }
+}
