@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` embeds the complete \(100\)-tetrahedron presentation and uses only the Python standard library.
+# Independent mathematical audit
 
-Contracting a spanning tree leaves \(101\) graph-cycle generators. Integral unimodular reduction of the \(200\) triangular-face relations isolates \(99\) unit pivots. The residual block is divisible by \(3\); after dividing by \(3\), its Smith reduction is one unit pivot and one zero column. Thus
-\[
-H_1(K;\mathbb Z)\cong\mathbb Z\oplus\mathbb Z/3.
-\]
+## correctness
 
-The explicit integral cocycle gives the free coordinate and evaluates to \(1\) on \((1,5,7)\). The explicit mod-three cocycle vanishes on that free generator and evaluates to \(1\) on \((1,2,9)\), so the two evaluations give exact coordinates.
+PASS
 
-The verifier enumerates every three-vertex clique. It finds \(439\) graph triangles, \(200\) faces, and \(239\) nonfaces. None has coordinate \((0,0)\). Up to orientation the exact counts are
-\[
-\{\pm t\}:130,\qquad
-\{\pm g\}:41,\qquad
-\{\pm(g+t)\}:34,\qquad
-\{\pm(g+2t)\}:34.
-\]
+The actual verify.py embeds 100 tetrahedra, constructs 117 edges and 200 2-faces, contracts a spanning tree to 101 cycle coordinates and uses unimodular operations to exhibit 1^99,3,0 Smith factors. Its integral/free and mod-3 cocycles annihilate every facial relation and hit g and t independently, identifying H1=Z+Z/3. An independent implementation parsing only tetrahedra and cocycle coefficient tables (without executing verifier) found 439 graph triangles, 239 nonfaces, zero facial cocycle violations, witness coordinates (1,0),(0,1), and exact signed multiplicities 70,60,20,21,16,18,23,11. No zero among these 239. Since a simple cycle has >=3 edges the systole is 3; all free coordinates are ±1.
 
-Exact successful output:
+## originality
 
-`VERIFY_OK f=17,117,200,100 H1_Z=Z+Z/3 graph_triangles=439 facial3=200 empty3=239 all_empty3_nonzero=yes pure_order3=130 primitive_free_types=41,34,34 unoriented_types=t|g|g+t|g+2t smith=1^99,3,0`
+PASS
+
+Lutz establishes triangulation, face vector, and abstract homology group, not the integral class distribution among shortest graph cycles. Other published Resultary flat-manifold systole computations concern G2,G4,G6 and distinct triangulations/manifolds.
+
+## value
+
+PASS
+
+This is a complete intrinsic shortest-cycle homology census on a canonical vertex-minimal triangulation of a natural flat 3-manifold, identifying torsion and primitive free systoles in an explicit splitting; the precision can be used in discrete topology and triangulation comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
