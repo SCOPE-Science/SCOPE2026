@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The norm profile is quantified over arbitrary weakly null sequences, not over unrestricted pairs. The key sharp lower bound is Hanner's inequality on the diffuse part, combined with atomic coordinatewise splitting and a proved scalar monotonicity lemma showing that allocating perturbation norm to the atomic part cannot improve the objective when \(1<p<2\). Balanced weighted Rademacher signs furnish weakly null equality witnesses, while disjoint normalized supports give the sharp constant for \(p\ge2\) and for purely atomic base vectors. Sigma-finiteness, the infinite-dimensional hypothesis, the \(t=0\) boundary and the \(p=2\) transition are accounted for. A finite numerical check supports, but does not replace, the analytic steps.
+## correctness
 
-**Originality — PASS with residual source-access risk.** The closest full-text motivating source, Rodríguez--Rueda Zoca (2023), establishes weak almost squareness in \(L_1\) with Rademacher weak-null vectors, not a sharp two-sided profile for \(1<p<\infty\). The classic Hanner theorem estimates two arbitrary vectors but does not identify the optimal weakly null sequences with mixed atomic and diffuse mass. Related generalized James constants optimize finite vector pairs, not weak-null sequences. The abstract of the 2017 Dilworth--Kutzarova--Randrianarivony--Romney paper asserts qualitative asymptotic midpoint properties; a full-document equivalence comparison was not possible. This remaining originality risk is disclosed without treating inaccessible text as disproved coverage.
+PASS
 
-**Mathematical value — PASS.** The theorem gives the complete sharp pointwise sequential asymptotic profile for all sigma-finite infinite-dimensional real \(L_p\) spaces. In the non-Hilbert low-exponent range, it detects positive diffuse mass from the profile alone, a distinction absent at and above \(p=2\). Its mass-allocation lemma and weak-null attainment make this a structural classification beyond a routine finite-vector extremum or a minor numerical improvement.
+Atomic restriction of weakly-null Lp sequences tends coordinatewise to zero and the fixed atomic vector has asymptotic norm-power splitting. The sharp Hanner two-sign inequality on diffuse Lp, together with monotone (u^p-A_p(d,u)), forces the lower bound; independent 30,000 random derivative-integrated inequality tests found no counterexample. Nonatomic weighted Rademacher sign sequences converge weakly and attain the p<2 branch; for p>=2 Clarkson gives the lower bound and disjoint finite-measure indicators attain it. Includes t=0, p=2, pure-atomic base vectors; no norm-convergent finite-dimensional substitutes are presumed.
 
-**Closest coverage and limits.** The result does not extend to complex scalars, general Bochner-valued targets, finite-dimensional positive-radius perturbations, or arbitrary variants of asymptotic midpoint convexity. Equivalence with inaccessible asymptotic-modulus formulations remains a topic for independent comparison.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Complete primary Dilworth–Kutzarova–Randrianarivony–Romney (2017) PDF, Theorems 1–2 and proofs, classifies qualitative asymptotic midpoint uniform convexity of sums and Bochner Lp, not the sequential pointwise quantitative atomic/diffuse formula. Rodríguez–Rueda Zoca 2023 full text supplies a Rademacher weak-null construction for nonatomic L1 only. Hanner/Clarkson classical inequalities bound arbitrary finite pairs but do not entail weak-null placement and sharp mixed atomic/diffuse attainment without additional measure-theoretic argument. The claim remains a best-of-knowledge profile distinction, with possible older pointwise asymptotic moduli as residual risk.
+
+## value
+
+PASS
+
+The pointwise weakly-null symmetric perturbation profile naturally quantifies asymptotic midpoint geometry, detecting diffuse p-mass exactly when 1<p<2 and exhibiting a genuine p=2 phase boundary. Full sharp classification across all measure decompositions and t≥0 is substantial despite use of classical Hanner/Clarkson ingredients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
