@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T06:48:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md a394b9b0740b74ebd5050df11ee641549bab123d; verify.py b9122680ae827cbda338da1b0e4acae5ce6f6f74; 7 source blobs/tree identities"
+      ],
+      "rationale": "Gaussian projection KKT reduces face index to N_m(S), with H_m(S)=G0+S. At t solving m E(Z-t)_+=t, normal-tail expansion gives t^2~2 log m, lambda=m Phi_bar(t)~t^2 and lambda-2 log m=o(t). Rare-event Lyapunov for X=(N_m(t)-lambda)/t and Y=H_m(t)-t gives covariance [[1,1],[1,2]]; the root perturbation t^2(S-t)=Y-G0+o_P(1) and monotone local-count bound yield (J_m-lambda)/t=>X-Y+G0, variance 2. The checked actual McCoy–Tropp Thms 4.5 and 4.8 supply Var<=2delta and scaled exponential moments; they upgrade mean/variance convergence by uniform integrability. Independent 120 Gaussian KKT/sorted face-count checks pass but do not prove asymptotics. This claim correctly concerns conic rather than Euclidean simplex intrinsic volumes.",
+      "residual_risks": [
+        "Finite experiments are supplementary; global claim depends on the specific analytic steps in RESULT.md."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McCoy–Tropp general concentration applies but depends on unknown statistical dimension; its 2delta variance inequality is the saturated upper bound.",
+          "Earlier same-cone Resultary full RESULT proves J_m/(2logm)->P 1 and delta~2logm, and explicitly disclaims a CLT."
+        ],
+        "reasoning": "Known broader conic results and first-order same-object asymptotics subsume the mean/LLN portion. The quantitative CLT and variance sharp constant remain to be established via new threshold fluctuation analysis.",
+        "searches": [
+          "simplex vertex cone intrinsic volume central limit theorem fluctuation variance",
+          "arXiv:1308.5265 Thms 4.5,4.8",
+          "arXiv:1411.6265",
+          "Resultary ccee9e4452a7"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md a394b9b0740b74ebd5050df11ee641549bab123d",
+        "McCoy–Tropp arXiv:1308.5265 Thms 4.5/4.8",
+        "Kabluchko–Seidel arXiv:2006.09492 Theorem 2.4",
+        "Goldstein–Nourdin–Peccati arXiv:1411.6265",
+        "Resultary ccee9e4452a7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Var<=2E together with E~2logm gives only limsup Var/(4logm)<=1; saturation requires lower asymptotic variance.",
+          "A generic CLT standardized by unknown sigma_m and LLN does not give the coefficient 4 for Var."
+        ],
+        "reasoning": "The triangle-array bivariate limit and moving-threshold correction supply the nonimplied Gaussian scale. There is genuine overlap (first-order mean), explicitly credited, without domination of the final stronger finding.",
+        "searches": [
+          "simplex vertex cone intrinsic volume central limit theorem fluctuation variance",
+          "arXiv:1308.5265 variance/mgf inequalities",
+          "arXiv:1411.6265 general CLT",
+          "Resultary ccee9e4452a7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General conic CLT normalizes by unknown actual mean/variance, not the identified 2logm/4logm; the independent variance computation is essential.",
+          "Finite formulas in Kabluchko–Seidel indeed cover same cone (Gram matrix 1+delta_ij), but not the limiting stated CLT in inspected theorem."
+        ],
+        "reasoning": "Equivalent descriptions include the polar star order cone KKT active-ray count, and the r=1 equicorrelated simplex-generated cone. Those identifications do not alone entail asymptotic Gaussian variance 4logm.",
+        "searches": [
+          "simplex vertex cone intrinsic volume central limit theorem fluctuation variance",
+          "arXiv:1411.6265 Goldstein–Nourdin–Peccati general conic CLT",
+          "arXiv:2006.09492 Kabluchko–Seidel theorem 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kabluchko–Seidel compute exact finite-dimensional v_k(D_m), thus all finite tables already known.",
+          "Resultary record gives only leading index location/expectation, not standardized or explicit CLT/variance."
+        ],
+        "reasoning": "Originality cannot rest on finite volume table or 2logm mean; it rests on second-order probabilistic asymptotics not displayed in inspected table/source.",
+        "searches": [
+          "simplex vertex cone intrinsic volume central limit theorem fluctuation variance",
+          "arXiv:2006.09492 Theorem 2.4 exact conic intrinsic volume formulas",
+          "Resultary sharp logarithmic statistical dimension regular simplex cones ccee9e4452a7"
+        ]
+      },
+      "rationale": "Full relevant Kabluchko–Seidel article gives exact finite-dimensional intrinsic volumes of this cone family, and a published same-cone Resultary paper already proves J_m/(2 log m)->1 and EJ_m~2 log m; those facts are NOT novel. Goldstein–Nourdin–Peccati general CLT uses actual (unknown here) mean and variance. The explicit normal fluctuation scale and the sharp variance 4 log m, including asymptotic saturation, are additional and not implied by concentration, exact finite tabulation, or generic standardized CLT without evaluation. An unnoticed extraction of identical limits from old explicit formulas remains possible.",
+      "residual_risks": [
+        "Explicit mean asymptotic is NOT original: prior same-cone Resultary result already proves it; the accepted novel residue is explicit CLT/variance saturation.",
+        "Full Goldstein–Nourdin–Peccati primary article not read; may have an unexpectedly equivalent worked example.",
+        "An unpublished/unlocated derivation of the same r=1 finite-volume asymptotic is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PROVIDES_UNIVERSAL_UPPER_BOUND_ONLY",
+          "evidence": [
+            "Thm 4.5 Var(V_C)<=2 min(delta(C),delta(C°)); Thm 4.8 log mgf <=delta(C)(e^{2eta}-2eta-1)/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1308.5265",
+          "material_read": "Author/open-access PDF pages around Theorems 4.5 and 4.8; rendered theorem pages 6 and 8; not every section",
+          "method": "Primary PDF theorem text and page image inspection",
+          "title": "From Steiner formulas for cones to concentration of intrinsic volumes",
+          "trigger": "source of exact conic variance/mgf tools and possible stronger general CLT"
+        },
+        {
+          "assessment": "EXACT_FINITE_INTRINSIC_VOLUMES_PRIOR",
+          "evidence": [
+            "Thm 2.4 covers the r=1 simplex generator cone finite intrinsic volumes; inspected source does not display the claimed explicit m→infinity CLT."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.09492",
+          "material_read": "Accessible full article text, its cone definitions and Theorem 2.4, sections on regular simplex cones, asymptotic corollaries 4.6-4.7",
+          "method": "Read searchable full primary text and exact related theorem/section; searched explicit Gaussian fluctuation terminology",
+          "title": "Convex cones spanned by regular polytopes",
+          "trigger": "same Gram-equicorrelated vertex cone and finite volume formulas"
+        },
+        {
+          "assessment": "SAME_OBJECT_FIRST_ORDER_COVERED",
+          "evidence": [
+            "Claim already EJ~2logm, J/(2logm)->1 in probability, explicitly no CLT, no variance 4logm."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-logarithmic-statistical-dimension-of-regular-simplex-cones--ccee9e4452a7",
+          "material_read": "Entire published RESULT.md from finding through detailed KKT, concentration, mean, comparison and limitations",
+          "method": "Full source read through GitHub connector",
+          "title": "Sharp logarithmic statistical dimension of regular simplex cones",
+          "trigger": "same cone, prior sharp mean and concentration"
+        },
+        {
+          "assessment": "STANDARDIZED_CLT_ONLY_ACCESSIBLE",
+          "evidence": [
+            "General CLT centered and scaled by unknown intrinsic-volume mean/variance; full text not verified against possible special examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1411.6265",
+          "material_read": "Original primary arXiv abstract/author metadata; theorem-level description in citations; full paper not read in this execution",
+          "method": "Read accessible primary abstract and cited theorem scope",
+          "title": "Gaussian Phase Transitions and Conic Intrinsic Volumes: Steining the Steiner Formula",
+          "trigger": "generic central limit theorem potentially dominating"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md a394b9b0740b74ebd5050df11ee641549bab123d",
+        "McCoy–Tropp arXiv:1308.5265 Thms 4.5/4.8",
+        "Kabluchko–Seidel arXiv:2006.09492 Theorem 2.4",
+        "Goldstein–Nourdin–Peccati arXiv:1411.6265",
+        "Resultary ccee9e4452a7"
+      ],
+      "rationale": "The cone is a canonical simplex vertex tangent cone in high-dimensional conic integral geometry. The explicit second-order Gaussian law and limiting sharpness of the universal variance inequality supply new structural information beyond the already-known leading mean; mathematically motivated phase-transition width, not a generic rephrasing or isolated finite calculation.",
+      "residual_risks": [
+        "Explicit mean asymptotic is NOT original: prior same-cone Resultary result already proves it; the accepted novel residue is explicit CLT/variance saturation.",
+        "Full Goldstein–Nourdin–Peccati primary article not read; may have an unexpectedly equivalent worked example.",
+        "An unpublished/unlocated derivation of the same r=1 finite-volume asymptotic is possible."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the regular-simplex vertex cone D_m=pos(e0-e_i), (J_m-2 log m)/(2 sqrt(log m)) converges in law to N(0,1), EJ_m~2 log m and Var(J_m)~4 log m, saturating McCoy–Tropp Var<=2E asymptotically.",
+  "limitations": [
+    "Explicit mean asymptotic is NOT original: prior same-cone Resultary result already proves it; the accepted novel residue is explicit CLT/variance saturation.",
+    "Full Goldstein–Nourdin–Peccati primary article not read; may have an unexpectedly equivalent worked example.",
+    "An unpublished/unlocated derivation of the same r=1 finite-volume asymptotic is possible."
+  ],
+  "schema_version": 1
+}

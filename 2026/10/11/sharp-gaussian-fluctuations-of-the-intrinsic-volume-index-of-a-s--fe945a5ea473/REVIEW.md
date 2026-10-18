@@ -1,15 +1,21 @@
-# Scientific review: sharp Gaussian fluctuations of the intrinsic-volume index
+# Independent mathematical audit
 
-## Correctness — PASS
-The geometric cone and Gaussian face-count random variable are identified exactly by projection KKT conditions. The threshold is uniquely specified and its normal-tail asymptotics are explicit. A two-dimensional triangular-array Lyapunov argument gives covariance matrix \(\begin{psmallmatrix}1&1\\1&2\end{psmallmatrix}\). Monotone bracketing of the self-consistent threshold, plus a locally uniform empirical tail-count estimate, yields an explicit normal limit of variance \(2\) at scale \(t_m\). Universal conic variance and exponential-moment inequalities from McCoy–Tropp, read at their theorem statements, justify uniform integrability and hence the exact leading variance \(4\log m\). The independent finite verifier checks the KKT count representation, threshold identities and finite instances, not the infinite limit.
+## correctness
 
-## Originality — PASS, with residual historical risk
-McCoy–Tropp (2013, Theorems 4.5 and 4.8) provide the universal variance and moment bounds, but not a logarithmic normal limit for simplex vertex cones. Goldstein–Nourdin–Peccati (2014, Theorem 1.1 and Table 1) obtain general normal approximation for conic indices using their *unknown* intrinsic-volume means and variances; their examples are orthants, circular cones, positive-semidefinite cones and Weyl chambers, not this cone family. Kabluchko–Seidel (2020, Theorem 2.4) give explicit finite-dimensional cone volumes and related geometry without the present explicit centered/scaled CLT and saturation law. Existing first-order logarithmic localization, when available, is insufficient to infer a Gaussian limit or the variance coefficient. The source and alias searches did not identify a stronger covering claim; this is not a proof of absolute novelty, and a hidden equivalent asymptotic remains a risk.
+PASS
 
-## Value — PASS
-The theorem supplies an explicit Gaussian fluctuation scale for the intrinsic-volume profile of a natural geometrically defined regular-simplex cone family and shows that this noncircular family sharply saturates the optimal universal conic variance bound. These are quantitative structural additions to both exact finite formulas and general concentration bounds, with implications for widths of conic Crofton phase transitions. The result is not an arbitrary finite slice, a computational table, or only a reformulation of a general CLT.
+Gaussian projection KKT reduces face index to N_m(S), with H_m(S)=G0+S. At t solving m E(Z-t)_+=t, normal-tail expansion gives t^2~2 log m, lambda=m Phi_bar(t)~t^2 and lambda-2 log m=o(t). Rare-event Lyapunov for X=(N_m(t)-lambda)/t and Y=H_m(t)-t gives covariance [[1,1],[1,2]]; the root perturbation t^2(S-t)=Y-G0+o_P(1) and monotone local-count bound yield (J_m-lambda)/t=>X-Y+G0, variance 2. The checked actual McCoy–Tropp Thms 4.5 and 4.8 supply Var<=2delta and scaled exponential moments; they upgrade mean/variance convergence by uniform integrability. Independent 120 Gaussian KKT/sorted face-count checks pass but do not prove asymptotics. This claim correctly concerns conic rather than Euclidean simplex intrinsic volumes.
 
-## Scope and limitations
-Only the indicated regular-simplex vertex cones are addressed. Neither a Berry–Esseen rate nor a local limit theorem is claimed, and an earlier equivalent specialization might exist. The finite verifier supplements but does not establish the analytic proof.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Full relevant Kabluchko–Seidel article gives exact finite-dimensional intrinsic volumes of this cone family, and a published same-cone Resultary paper already proves J_m/(2 log m)->1 and EJ_m~2 log m; those facts are NOT novel. Goldstein–Nourdin–Peccati general CLT uses actual (unknown here) mean and variance. The explicit normal fluctuation scale and the sharp variance 4 log m, including asymptotic saturation, are additional and not implied by concentration, exact finite tabulation, or generic standardized CLT without evaluation. An unnoticed extraction of identical limits from old explicit formulas remains possible.
+
+## value
+
+PASS
+
+The cone is a canonical simplex vertex tangent cone in high-dimensional conic integral geometry. The explicit second-order Gaussian law and limiting sharpness of the universal variance inequality supply new structural information beyond the already-known leading mean; mathematically motivated phase-transition width, not a generic rephrasing or isolated finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
