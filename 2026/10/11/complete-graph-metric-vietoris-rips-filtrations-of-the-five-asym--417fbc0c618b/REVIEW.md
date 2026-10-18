@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The claim is finite and exactly replayable. Each graph is decoded from its graph6 string and independently checked to be connected, \(3\)-regular, Hamiltonian, asymmetric, and pairwise nonisomorphic. Every nonempty subset is tested at each relevant integer Rips threshold. The complete Hasse diagram is reconstructed for every asserted complex, and each staged face-poset matching is checked to be a valid acyclic matching. The resulting critical-cell sets contain only one \(0\)-cell plus the stated sphere-dimensional cells, so the claimed homotopy types follow directly from discrete Morse theory. The published count of five is used only for class exhaustion, not for any computed topology.
+# Independent mathematical audit
 
-## Originality
-PASS. The closest topology source determines Rips filtrations for Platonic-solid vertex sets, not these graph metrics. The class source identifies exactly five asymmetric cubic Hamiltonian graphs on twelve vertices but contains no Rips calculation. Exact alias, graph6, graph-power, and graph-metric searches found no checked statement equivalent to or stronger than this complete five-graph classification. The strongest residual risk is an unindexed graph-specific computation.
+## correctness
 
-## Value
-PASS. This is a natural complete classification of a literature-identified finite class rather than an arbitrary isolated graph. It gives the full Rips topology at every scale for all five classes, quantifies the variation at radii \(1\) and \(2\), and provides exact small asymmetric benchmarks complementary to the highly symmetric examples emphasized in the existing Rips literature.
+PASS
 
-## Closest literature and limitations
-Saleh--Titz Mite--Witzel treat the five Platonic solids under the same Rips convention and motivate complete finite filtrations, but do not cover these graphs. Brewer--Gregory--Jones--Florez--Narayan identify the exact five-element asymmetric cubic Hamiltonian class on twelve vertices, but do not study its Rips complexes. The verifier does not independently regenerate the entire eighty-graph ambient census, and literature searches cannot exclude unindexed prior work.
+The graph6 strings decode under the standard convention to five connected cubic 12-vertex graphs; source verifier performs exact Hamiltonian backtracking, automorphism and isomorphism search. Independent networkx graph6 decoding and bitset mod-two boundary ranks over all 4095 subsets reproduced all 15 face vectors/Betti profiles: r=1 circle ranks 6,6,5,6,4; r=2 2,1,1,1,1 second-sphere ranks; r=3 acyclic. The actual verify.py source constructs staged face-poset matchings, tests all Hasse covers and full acyclicity, yielding one critical vertex and critical cells only in one positive dimension, sufficient by Forman for asserted wedges. Distances are integral; all r>=3 stages contractible, including the r=3-to-4 interval of four diameter-4 graphs. Exhaustion depends on the published 5-of-80 count.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The complete five-class graph-distance filtration is not implied by the published count of asymmetric Hamiltonian cubic graphs, by the Platonic-solid Euclidean/graph Rips result, or by unrelated special polyhedron graphs. Search identifies other exact single-graph filtrations but no dominating theorem for these five graph6 classes. This is a best-of-knowledge finite-class claim, not novelty inferred from search failure.
+
+## value
+
+PASS
+
+A complete finite natural classification of the five smallest asymmetric cubic Hamiltonian 12-vertex graph isomorphism classes under graph shortest-path Rips topology is an exact structural invariant, not a cherry-picked parameter. The five homotopy filtrations distinguish the first graph via the double 2-sphere and quantify circle ranks; full wedge types go beyond raw Betti tables. The exact class is motivated independently by Brewer’s enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
