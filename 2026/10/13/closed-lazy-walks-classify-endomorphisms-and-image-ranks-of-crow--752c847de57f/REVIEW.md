@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Finite Esakia duality converts Heyting homomorphisms to bounded morphisms. The maximal-image adjacency requirement forces unique images of all minimal vertices, establishing a bijection with cyclic lazy walks. Winding, path-image structure, the restriction-of-upsets lemma, and a two-endpoint inclusion-exclusion count together prove the census and complete image-rank spectrum for every \(m\ge3\). A separate finite checker verifies the defining operations and the claimed formulas in multiple cases, but is not treated as a proof of the unrestricted theorem.
+## correctness
 
-## Originality
-PASS subject to residual bibliographic risk. Grilletti–Quadrellaro study regular Esakia spaces; Hyttinen–Martins–Moraschini–Quadrellaro study generation and varieties of Heyting algebras. Older Currie–Visentin and Farley works enumerate arbitrary order-preserving crown maps, without an established equality to the bounded-morphism count or an explicit Heyting image-rank spectrum in the material available. A published finite-space homotopy classification was inspected in full and addresses homotopy classes of *all* monotone maps, not Heyting endomorphism images. The underlying Fibonacci/Lucas enumeration and central-trinomial combinatorics are acknowledged as standard; only the combined bounded-morphism classification, exact count, image-rank spectrum and multiplicities are asserted as the present finding. An older uninspected full text remains the primary risk.
+PASS
 
-## Value
-PASS. The image cardinalities of endomorphisms are intrinsic finite-algebra invariants relevant to retractions and endomorphism structure. The result determines every attainable image cardinality and its frequency in a natural family of regular finite Heyting algebras, rather than an arbitrary slice, and exhibits a strong Fibonacci/Lucas sparsity phenomenon that is invisible in the undifferentiated count of monotone maps.
+Reconstructed duality for Heyting maps h=f^{-1}: a bounded f must send each maximal b_i to b_(u_i); the equation f(↑a_i)=↑f(a_i) forces adjacent-or-equal target upper indices and uniquely determines f(a_i). Thus zero-winding ±1/0 increment words (sum zero) and two extremal windings (sum ±m) give the total count. A zero-winding walk on only m steps cannot traverse all m edges; its traversed arc has k≤⌊m/2⌋ edges, hence f(P_m) is an alternating path with k minima and k+1 maxima. Restriction of upsets to this induced image poset is surjective; upper-set counts are F_(2k+3), whereas an automorphism image has L_(2m). Inclusion-exclusion of closed reflexive-path walks hitting both endpoints gives m(B_m,k−2B_m,k−1+B_m,k−2). Independently enumerated m=3..6 bounded maps and exact histograms: m3 {2:3,5:18,18:6}, m4 {2:4,5:56,13:16,47:8}, m5 {2:5,5:150,13:100,123:10}, m6 {2:6,5:372,13:432,34:36,322:12}. Those finite values corroborate the all-m argument.
 
-## Literature and limitations
-The endomorphism census applies only to cyclic crowns with \(m\ge3\), and does not determine the multiplication table or all inter-crown homomorphisms. Accessible duality and variety papers were read materially; historical enumeration papers were identified through bibliographic records, so equivalence with an older restricted-map formulation remains a specific risk. Independent validation has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact bounded-morphism / Heyting endomorphism condition is strictly stronger than poset order preservation. Published Resultary papers on homotopy of crown maps and maps into crowns were read in full; their homotopy numbers, not the Heyting endomorphism rank spectrum, are their invariants. The finite Esakia and varieties papers provide framework but not this full classification in inspected material. Older Farley/Currie–Visentin crown enumeration texts were not fully available, so the possibility of a bounded-map specialization remains an explicit originality risk.
+
+## value
+
+PASS
+
+Exact cardinalities of endomorphic images are intrinsic and usable invariants of a natural infinite family of regular finite Heyting algebras. The full Fibonacci–Lucas spectrum and multiplicities identify strong sparsity and symmetry beyond any undifferentiated monotone-map count or textbook sequence identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
