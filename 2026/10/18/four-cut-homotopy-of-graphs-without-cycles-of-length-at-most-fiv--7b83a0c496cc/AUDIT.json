@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For any graph with girth >=6 and n>=6, the Alexander dual has complete 2-skeleton, no faces of size 5, and a distinct free triangle in every connected-four-set tetrahedron. Collapsing all tetrahedra gives a simply connected two-complex with free second-homology rank binomial(n-1,3) minus the claw and induced-P4 count; integral Alexander duality gives original four-cut homology, and a full lower skeleton plus Hurewicz and Whitehead gives the wedge for n>=8 (and graph case n=6). The full proof treats n=7 only in homology. The standalone verifier checks the lemma and direct finite mod-2 chains, including all 2992 six-vertex graphs satisfying girth, and returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2304.13675v2 Proposition 6.2 covers the complete lower skeleton for all graphs of girth at least six, and Theorem 6.1 gives the Euler number, but only a top-two-degree homology restriction.",
+        "arXiv:2304.13675v2 Propositions 7.12 and 7.13 provide full results for forests and cycles; they do not classify graphs with multiple interacting cycles.",
+        "arXiv:2407.08158v1 Theorem 5.14 proves a four-cut wedge for grid graphs (four-cycles present), not all high-girth graphs."
+      ],
+      "reasoning": "The new theorem is a true strengthening of the prior all-high-girth bound and strictly generalizes the tree and cycle special cases; the separate grid theorem applies outside the high-girth scope and does not dominate it.",
+      "searches": [
+        "ordinary four-cut complex girth at least six arbitrary graph integral homology rank in terms of paths of length three and claws, Alexander dual wedge of 2 spheres",
+        "Homotopy type of ordinary 4-cut complex of any graph girth 6 or larger on n vertices, wedge of n-5 spheres",
+        "general four-cut high-girth graphs wedge of spheres induced connected four subsets",
+        "graph cut complex triangle free girth six 4 cut cohomology 2025 2026",
+        "arXiv:2304.13675v2 Theorem 6.1/Proposition 6.2/Propositions 7.12-7.13",
+        "arXiv:2407.08158v1 Theorem 5.14"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.13675v2 (relevant primary full-text sections and explicit theorem statements)",
+      "arXiv:2407.08158v1 (relevant primary full-text sections and explicit theorem statements)",
+      "arXiv:2603.23155v1 (abstract: powers-of-cycle ordinary three-cut shellability; different parameter)",
+      "published-finding corpus semantic published-record queries for ordinary four-cut high-girth, Alexander dual, degree counts and exact tables",
+      "Web searches: \"4-cut complex\" \"girth\" graph; \"cut complexes\" \"girth\" \"4\" \"homotopy\""
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 6.1: torsion-free homology in top two degrees, with a known alternating Euler difference.",
+        "Theorem 5.14: all grid four-cut complexes are wedges in their top dimension, but grids have four-cycles."
+      ],
+      "reasoning": "Theorem 6.1 plus the Euler characteristic does not determine the individual top and codimension-one ranks; two nonzero ranks could have the same alternating difference. The distinct free-triangle lemma proves the codimension-one rank zero. Forest/cycle results follow in those special cases, but do not imply the general statement.",
+      "searches": [
+        "ordinary four-cut complex girth at least six arbitrary graph integral homology rank in terms of paths of length three and claws, Alexander dual wedge of 2 spheres",
+        "Alexander dual of ordinary 4-cut complex has exactly connected four-vertex induced subgraphs as tetrahedral faces and full 2-skeleton, for graphs without 3- 4- or 5-cycles",
+        "Homotopy type of ordinary 4-cut complex of any graph girth 6 or larger on n vertices, wedge of n-5 spheres",
+        "arXiv:2304.13675v2 Theorem 6.1",
+        "arXiv:2407.08158v1 Proposition 5.13 and Theorem 5.14"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2304.13675v2 §6 states only a two-degree homology restriction for arbitrary no-short-cycle graphs; §7 gives selected families.",
+        "No returned published-finding corpus hit stated the equivalent Alexander-dual collapse with all connected induced four-sets."
+      ],
+      "reasoning": "An equivalent characterization would assert that the Alexander dual of the four-cut complex has a free-triangle collapse to a wedge of second spheres for every girth-at-least-six graph, or equivalently that the four-cut complex has no codimension-one integral homology. The inspected relevant general primary theorem establishes neither. Failure to retrieve an equivalent is not proof of global novelty.",
+      "searches": [
+        "four cut complex for high girth triangle free graph with connected induced quadruples Alexander dual two-dimensional spheres",
+        "Alexander dual of ordinary 4-cut complex has exactly connected four-vertex induced subgraphs as tetrahedral faces and full 2-skeleton, for graphs without 3- 4- or 5-cycles",
+        "\"cut complexes\" \"girth\" \"4\" \"homotopy\"",
+        "arXiv:2304.13675v2 §§6-7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Previously calculated individual Heawood value 188 is reproduced as a special case, not claimed independently.",
+        "published-finding corpus nearest exact-table hit describes Euler characteristics of squared cycles, not a homotopy classification of the present graph class."
+      ],
+      "reasoning": "The general count is not a recomputation of a fixed graph table: it is a closed degree-and-edge formula and a uniform theorem for all graph orders. The existing individual cases and complete skeleton/Euler data do not certify the missing vanishing or wedge claim.",
+      "searches": [
+        "homology rank formula 4 cut complexes girth >= 6 binomial n-1 choose 3 minus induced P4 minus claws",
+        "Connected induced four-vertex paths and claws count formula gives cut complex Betti number (n-1 choose 3) minus P4 minus K1,3",
+        "Heawood ordinary four-cut complex wedge 188 nine spheres",
+        "\"4-cut complex\" \"girth\" graph",
+        "published-finding corpus:2026/10/4/SCOPE-face-vector-and-euler-characteristic-of-the-borderline-squared-c--d8b3ff0aa754"
+      ]
+    },
+    "rationale": "The published general Euler/skeleton/two-possible-degrees theorem does not determine whether codimension-one homology vanishes; this result proves its vanishing for all girth-at-least-six graphs using one free triangle per induced connected four-set and, for n >= 8, upgrades to a wedge homotopy theorem. Existing forest, cycle, Heawood-specific and rectangular-grid calculations are not claimed as new. Exact published-source and related-result comparisons were conducted, subject to residual risk of unindexed equivalents.",
+    "residual_risks": [
+      "Other unindexed or non-English work might contain an equivalent four-cut high-girth theorem.",
+      "The published 2023 Euler and homology-bound theorem is substantial prior coverage; the originality is restricted to the proven vanishing and wedge upgrade, not the Euler formula or individual tree/cycle results.",
+      "The primary inspection was targeted to material relevant to the claim, not a guarantee against every unavailable source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides starting definitions and Euler/two-degree homology statement and special forest/cycle classification; no stated all-high-girth four-cut top-degree concentration or wedge theorem in inspected relevant results.",
+        "evidence": [
+          "Theorem 6.1 explicitly says homology occurs in at most dimensions n-k-1 and n-k-2.",
+          "Proposition 6.2 removes cycles of length at most k+1; Theorem 6.4 concerns k=2; Propositions 7.12-7.13 forests and cycles."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.13675",
+        "material_read": "Abstract/introduction and results table pp.1-2; facet and face-lattice arguments §6 pp.16-19, specifically Theorem 6.1, Proposition 6.2, Theorem 6.4; family statements §7 pp.26-27; scanned specific 4-cut occurrences and conclusion.",
+        "method": "Open-access arXiv PDF, text passage inspection and page-image confirmation.",
+        "title": "Topology of Cut Complexes of Graphs",
+        "trigger": "Primary source defining the ordinary k-cut complex and broad no-short-cycle homology bounds."
+      },
+      {
+        "assessment": "Grid four-cut wedge theorem is not a statement about girth-at-least-six graphs: rectangular grids have four-cycles. No stronger general no-short-cycle four-cut statement was seen.",
+        "evidence": [
+          "Lemma 5.10 concerns grids and k=2,4,6; Proposition 5.13 has grid-specific connected-4 count; Theorem 5.14 proves their homotopy type."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.08158",
+        "material_read": "Table of contents, introduction, §3 disjoint union formulas (pp.7-10), §5 grid results (pp.15-19), in particular Lemma 5.10, Proposition 5.13 and Theorem 5.14, and §6 representation statement.",
+        "method": "Open-access arXiv PDF, text passage inspection and page-image confirmation.",
+        "title": "Topology of Cut Complexes II",
+        "trigger": "Follow-up work treats the same ordinary cut complex and proves a 4-cut wedge theorem for grid graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7b83a0c4-96cc-42f7-8e13-c21ca94bff02",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural, unbounded graph class obtains complete topological classification of ordinary four-cut complexes, not just Euler data; arbitrary girth-at-least-six cubic graphs of the same vertex count have identical homotopy types. The degree-and-edge multiplicity links topology to induced four-vertex trees and subsumes isolated known forest, cycle, and Heawood cases. This unifies genuinely different graph structures and can guide further study of graph cut topology without requiring a downstream paper-sized application.",
+    "status": "PASS"
+  }
+}
