@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md Steps 1–3, explicit type-isolating terms and leading-coefficient calculation",
+      "verify.py; documented successful execution in VERIFICATION.md"
+    ],
+    "rationale": "Every Boolean term is a Boolean combination of the d cyclic shifts of each generator. Explicit minterms e_w detect the presence of each necklace. All supports of sizes 1 through m occur; wreath-product automorphisms identify multisets, not supports. Burnside yields N_d(q), and the leading-coefficient ratio F_n(m+1)/F_n(m)=n(m/(m+1))^m is strictly greater than one for all n>=3. At n=2 the two distinct pairs have identical full closed formulas. Finite verifier checks 77,230 assignments and 26 independent direct group Burnside instances; infinite claims rest on proof.",
+    "residual_risks": [
+      "Mixed cycle lengths are outside the quantified scope."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Campercholi et al., arXiv:2303.17017, Sections 4 and 5: general computation of isomorphism types and relation definability for finite algebras, without parameter-uniform closed forms.",
+        "Published “Sharp 2^q atom-visibility threshold for finite Boolean algebras” concerns first-order quantifier rank for unexpanded Boolean algebras, whereas the present result concerns counts of quantifier-free k-types with a named cyclic automorphism.",
+        "Published filtered-Boolean-power result assumes a countable atomless Boolean algebra and counts automorphism orbits, not the finite qf spectrum."
+      ],
+      "reasoning": "The general algorithm and quantified-rank threshold do not dominate the explicit formula or inverse classification; the source of the necklace factor itself is classical, but the logical interpretation and all-arity rigidity are additional theorems.",
+      "searches": [
+        "finite Boolean algebra automorphism uniform cycles quantifier-free type spectrum necklaces subset binomial formula",
+        "Boolean algebra automorphism qf spectrum reconstruct number and size of equal atom cycles except two atom collision",
+        "Boolean algebras with an automorphism finite cycles partial isomorphism homogeneous",
+        "Boolean algebra with automorphism homogeneous finite model theory cycles atomic"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2303.17017 (full-text substantive passages)",
+      "arxiv:1904.04637 (abstract/submission history only)",
+      "Published Exact oligomorphic profiles of filtered Boolean powers (complete result file)",
+      "Published Sharp 2^q atom-visibility threshold for finite Boolean algebras (complete result file)",
+      "Classical necklace counting formula (checked against standard reference)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 theorem characterizes qf-definable relations via generated-subalgebra isomorphisms, but does not enumerate necklace supports or analyze the asymptotic leading coefficient for uniform-cycle Boolean systems.",
+        "The 2019 paper supplies finite relational definability-complexity results, not the algebraic spectrum.",
+        "The filtered-Boolean-power result has Aut tuple-orbit count 2^{q_k-r} in an atomless structure; here Aut orbits follow a multiset count and qf types follow a bounded support count, yielding an essential difference.",
+        "The unexpanded finite-Boolean result isolates rank-q sentence equivalence, not full arity-by-arity qf counts under a named sigma."
+      ],
+      "reasoning": "Existing statements are either computational generalities or quantitatively distinct specializations. The present theorem is neither a mere numerical substitution into the cited formulas nor a consequence of any inspected stronger coverage.",
+      "searches": [
+        "arxiv:2303.17017 Theorem 1 finite algebra quantifier-free definability subisomorphisms",
+        "arxiv:1904.04637 open-definability finite relational structures 2019",
+        "published Exact oligomorphic profiles of filtered Boolean powers full RESULT.md",
+        "published Sharp 2^q atom-visibility threshold for finite Boolean algebras full RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Campercholi–Tellechea–Ventura (arXiv:2303.17017), Theorem 1 and Sections 4–6, gives the finite-algebra subisomorphism characterization and algorithms but no uniform cyclic Boolean necklace-support enumeration.",
+        "Published research result titled “Exact oligomorphic profiles of filtered Boolean powers” counts automorphism tuple orbits of countable atomless filtered Boolean powers by orbit-support subsets, not quantifier-free type classes of finite cyclic atom systems.",
+        "Earlier local finite-unary-permutation work examines quantifier-free tuples of atom elements rather than Boolean algebra elements (subsets), so its type formula does not supply the current necklace-support theorem."
+      ],
+      "reasoning": "The source generalities imply decidability of each finite instance and a broad support motif in a different atomless setting; neither directly implies the closed finite-cycle qf count, the exact m<=2 invariant-definability boundary, or the unique all-arity numerical collision.",
+      "searches": [
+        "finite Boolean algebra with distinguished automorphism each atom cycle length d, number of quantifier-free k-types equals sum binomial of necklace count",
+        "quantifier-free definable k-ary relations Boolean algebra with automorphism cyclic atom orbits wreath product necklace set versus multiset",
+        "identical quantifier-free type profiles Boolean algebra identity two atoms versus transposition",
+        "quantifier-free types finite Boolean algebras with unary automorphism cycles necklaces distinct patterns"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Standard necklace enumerations count N_d(q)=(1/d) sum_{r|d} phi(r) q^{d/r}; this is explicitly acknowledged as known.",
+        "The checked search results did not provide the truncated-binomial *quantifier-free type* formula together with the numerical inverse theorem and the m<=2 definability criterion."
+      ],
+      "reasoning": "A necklace-number table alone does not identify logical qf types with supports, distinguish them from automorphism-orbit multisets, or establish the all-arity uniqueness and two-atom exception. Search incompleteness is a residual risk, not evidence of global uniqueness.",
+      "searches": [
+        "OEIS necklace polynomial N_d(q) Burnside q colors circular words formula",
+        "quantifier-free type counts Boolean algebra cyclic automorphism OEIS binomial necklaces",
+        "complete type profiles cyclic Boolean automorphism all arities combinatorial enumeration"
+      ]
+    },
+    "rationale": "Primary 2023 finite-algebra definability text supplies a general characterization and algorithm but not a closed finite-cyclic Boolean type spectrum, homogeneity threshold, or inverse rigidity/collision. A structurally similar support result for countable filtered Boolean powers counts different orbit objects. An unexpanded finite Boolean quantifier-rank threshold does not cover named automorphism qf counts. Standard necklace numbers are background, not the novelty.",
+    "residual_risks": [
+      "An older or unindexed paper might have an equivalent finite cyclic Boolean qf-spectrum or homogeneous-expansion classification.",
+      "The 2019 abstract was not inspected at full-text depth; it treats a general relational complexity problem, so no decisive comparison is left unresolved.",
+      "The published support-set theorem is structurally analogous but differs in objects, invariant counted, and finite truncation; possible folklore specialization cannot be categorically excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General subisomorphism characterization and algorithms; no parametric enumeration of the present finite Boolean automorphism family",
+        "evidence": [
+          "Theorem 1 equates finite qf definability to preservation by subisomorphisms of generated substructures",
+          "Section 4 computes tuple-isomorphism types algorithmically; Section 5 uses merging; Section 6 uses splitting"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.17017",
+        "material_read": "Introduction; Theorem 1 and preliminaries; Sections 4–6 tuple-isomorphism and definability algorithms",
+        "method": "Accessible primary full text rendered as HTML (sections and theorem statements examined)",
+        "title": "Two algorithms to decide Quantifier-free Definability in Finite Algebraic Structures",
+        "trigger": "Directly on quantifier-free definability of finite algebras"
+      },
+      {
+        "assessment": "Relational-signature definability complexity, distinct from closed forms for algebraic expansions",
+        "evidence": [
+          "Abstract gives coNP complexity and parameterized complexity for relational vocabularies"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.04637",
+        "material_read": "Abstract and submission history; full article not inspected",
+        "method": "arXiv original record plus abstract",
+        "title": "The Complexity of Definability by Open First-Order Formulas",
+        "trigger": "Earlier general finite-model framing"
+      },
+      {
+        "assessment": "Different: countable atomless Boolean powers and automorphism orbits, not finite uniform atom cycles and quantifier-free types",
+        "evidence": [
+          "Source states orbit count 2^{q_k-r} for filtered Boolean powers; unfiltered case 2^{q_k}-1",
+          "Explicitly limits itself to countable atomless Stone spaces"
+        ],
+        "identifier_or_url": "Published record identified by exact title (2026)",
+        "material_read": "Complete RESULT.md: theorem, assumptions, proof, prior work and limitations",
+        "method": "Read complete public research-result text via repository fetch",
+        "title": "Exact oligomorphic profiles of filtered Boolean powers",
+        "trigger": "Result for orbit-support sets on Boolean powers could potentially dominate the proposed support approach"
+      },
+      {
+        "assessment": "Quantifier-rank q sentences in usual Boolean language, not quantifier-free k-ary types with automorphism",
+        "evidence": [
+          "Source theorem characterizes rank-q equivalence via min(n,2^q)",
+          "No distinguished Boolean automorphism occurs"
+        ],
+        "identifier_or_url": "Published record identified by exact title (2026)",
+        "material_read": "Complete RESULT.md: EF-game theorem, assumptions, proof and limitations",
+        "method": "Read complete public research-result text via repository fetch",
+        "title": "Sharp 2^q atom-visibility threshold for finite Boolean algebras",
+        "trigger": "Finite Boolean structures and logical distinguishability"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9458a607-7be4-4d87-9d60-e5324e1a3953",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "RESULT.md Step 3 gives inverse rigidity with exact exception",
+      "RESULT.md Step 2 distinguishes support types from wreath-product orbit multisets"
+    ],
+    "rationale": "This settles a motivated inverse distinguishability problem for an infinite natural family: counting all qf types numerically reconstructs the atom-cycle parameters except a unique smallest collision. It separately determines exactly when automorphism invariance entails qf definability, revealing a sharp m=2 versus m=3 threshold. These are nontrivial, logically motivated classifications rather than an arbitrary numerical slice or a table lookup.",
+    "residual_risks": [
+      "The result does not claim a mixed-cycle extension or a general theorem about every finite Boolean automorphism."
+    ],
+    "status": "PASS"
+  }
+}
