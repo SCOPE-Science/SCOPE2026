@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The primary formulas were reconstructed at the level of the source assumptions, inner subproblem, stopping rules, Lemmas 2.4--2.5, and Theorem 3.3. On \(f(x)=x^2/2\), central differences are exact for every positive radius. With the stated constants, \(\underline t=1/4\), Theorem 3.3(i) permits \(\Delta\leq\varepsilon/42\), and the chosen \(\Delta=\varepsilon/100\) is valid. The first FISTA update has \(d_0=-\varepsilon/2\) and exact subproblem residual zero; the outer stop fires and the returned stationarity residual is \(3\varepsilon/2\). The standalone exact-rational checker reproduces these identities.
+## correctness
 
-## Originality
-**PASS.** Exact source-title, stopping-rule, theorem-number, stationarity-residual, small-step, damping, and scalar-quadratic formulations were compared. The closest inspected predecessor, *Inexact proximal Newton methods in Hilbert spaces*, already warns that an unscaled small step can be misleading when damping is large and motivates scaling. It does not analyze the 2026 zeroth-order framework, does not state a contradiction with its Theorem 3.3, and does not imply the exact first-iteration witness satisfying the source's sampling-radius bound. No implication-equivalent published statement was found in the searched records.
+PASS
 
-Residual originality risk is therefore not zero: the general stopping-rule mechanism is known. The accepted claim is limited to the exact source-specific mismatch, its all-\(\varepsilon\) witness, and the source-native repair.
+PASS: For f(x)=x²/2,h=0 and arbitrary eps>0, central finite difference is x0=2eps exactly. H0=4, alpha=1/4 make first inner FISTA d0=−eps/2, with exact subproblem residual g+H0d0=0. The raw stop |d0|≤eps fires but the returned point has derivative 3eps/2>eps. All inequalities were independently checked with exact rational arithmetic for several positive eps and symbolically scale linearly, including Delta=eps/100≤eps/42 calculated from the quoted Theorem 3.3(i) radius bound and Lemma 2.4 step limit. Source-specific theorem conditions and algorithm printing were assessed from the assigned RESULT/REVIEW and primary abstract, but complete 2026 primary text was inaccessible; retain material risk of an omitted hypothesis or version revision; this C assessment is conditional on the literal printed source rules accurately transcribed in the audited package.
 
-## Value
-**PASS.** The issue changes the certification semantics of a newly proposed optimization method and its stated \(\varepsilon\)-stationarity guarantee. Because the counterexample uses a one-dimensional strongly convex quadratic, an exact central-difference gradient, and an exact inner solve, it separates the stopping-rule issue from zeroth-order noise or difficult geometry. Lemma 2.5 yields a direct corrected certificate rather than merely a negative example.
+## originality
 
-## Closest literature and limitations
-The closest inspected prior work is DOI:10.1007/s10589-023-00515-x. It supplies the broader warning about misleadingly small damped proximal-Newton steps. The present result is version-specific to arXiv:2605.06016v1 and does not claim failure if its raw stop is disabled or tightened. It also does not assess the source's reported experiments, which use an identity BFGS initialization.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The broad warning about misusing raw small proximal-Newton steps is known and credited. The new precise finding is a source-specific contradiction to the literal zeroth-order framework: its exact first FISTA solve meets the cited radius hypothesis and published stopping test yet violates the same-epsilon stationarity claim. No inspected broad theorem supplies this source-specific parameter-compatible counterexample.
+
+## value
+
+PASS
+
+PASS: A wrong ε-stationarity certificate for a newly proposed zeroth-order optimization algorithm is mathematically substantive even if the counterexample is scalar. Its exact first-step witness rules out finite-difference error and inner inexactness, identifies the cause, and gives the natural scaled stopping certificate from the cited Lemma 2.5. This directly corrects claimed guarantee semantics rather than merely pointing out a type issue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T18:42:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For f(x)=x²/2,h=0 and arbitrary eps>0, central finite difference is x0=2eps exactly. H0=4, alpha=1/4 make first inner FISTA d0=−eps/2, with exact subproblem residual g+H0d0=0. The raw stop |d0|≤eps fires but the returned point has derivative 3eps/2>eps. All inequalities were independently checked with exact rational arithmetic for several positive eps and symbolically scale linearly, including Delta=eps/100≤eps/42 calculated from the quoted Theorem 3.3(i) radius bound and Lemma 2.4 step limit. Source-specific theorem conditions and algorithm printing were assessed from the assigned RESULT/REVIEW and primary abstract, but complete 2026 primary text was inaccessible; retain material risk of an omitted hypothesis or version revision; this C assessment is conditional on the literal printed source rules accurately transcribed in the audited package.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pötzl et al.'s earlier inexact proximal Newton work warns about false stopping under large damping and motivates step normalization. Liu–Fan paper abstract asserts ε-stationarity complexity under zeroth-order estimates."
+        ],
+        "reasoning": "General awareness of the phenomenon is materially broader in algorithm class but does not logically disprove the exact later theorem without verifying its Hessian, gradient and radius hypotheses. The source-specific witness is a distinct application; source text access leaves nonzero risk.",
+        "searches": [
+          "https://doi.org/10.1007/s10589-023-00515-x",
+          "https://arxiv.org/abs/2605.06016"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2605.06016",
+        "https://doi.org/10.1007/s10589-023-00515-x",
+        "Published-result semantic search: zeroth order proximal Newton early termination raw step epsilon gradient stationarity theorem Liu Fan quadratic counterexample"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior known observation: damped steps need scaled optimality tests. Audited literal algorithm returns x0−eps/2 on f=x²/2, gradient residual 3eps/2, while source's Lemma2.5 supports a scaled bound (Lf+(2−γ) κbar)∥d∥+κegΔ."
+        ],
+        "reasoning": "The new counterexample supplies exact theorem-compatibility and an explicit corrected certificate. It does not claim a universal failure of proximal Newton algorithms; the primary full-text access limitation prevents an unconditional claim about all source versions.",
+        "searches": [
+          "https://doi.org/10.1007/s10589-023-00515-x",
+          "https://arxiv.org/abs/2605.06016"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Assessed source-native step ∥d0∥=eps/2, returned residual 3eps/2, and error-free finite-difference estimation, under claimed theorem-compatible Delta=eps/100; earlier broad warnings address unscaled damping."
+        ],
+        "reasoning": "Equivalent claim requires an actual counterexample to Liu–Fan 2026 Algorithm 1/2 and Theorem3.3 under its parameter constraints, not merely an informal warning that damping can hide stationarity.",
+        "searches": [
+          "https://arxiv.org/abs/2605.06016",
+          "Resultary semantic query: zeroth order proximal Newton early termination raw step epsilon gradient stationarity theorem Liu Fan quadratic counterexample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published-result index returned related step-size and acceleration counterexamples, not this first-iteration eps/42 radius-compliant example. No exact table of this new framework's counterexamples was inspected."
+        ],
+        "reasoning": "No table located is not an originality guarantee; direct source version comparison is bounded because full primary could not be retrieved.",
+        "searches": [
+          "Resultary query: zeroth order proximal Newton early termination raw step epsilon gradient stationarity theorem Liu Fan quadratic counterexample",
+          "https://arxiv.org/abs/2605.06016"
+        ]
+      },
+      "rationale": "The broad warning about misusing raw small proximal-Newton steps is known and credited. The new precise finding is a source-specific contradiction to the literal zeroth-order framework: its exact first FISTA solve meets the cited radius hypothesis and published stopping test yet violates the same-epsilon stationarity claim. No inspected broad theorem supplies this source-specific parameter-compatible counterexample.",
+      "residual_risks": [
+        "Primary arXiv full text was not retrievable (HTML unavailable, PDF access failed; full primary text remained inaccessible); input hypotheses and exact theorem wording require subsequent document-level verification.",
+        "The source-specific verdict concerns arXiv:2605.06016v1 quoted in audited package and use of same eps as stopping and stationarity target; later versions may change rules.",
+        "Initial H0=4 is permitted by quoted theory, but primary full text could alter this interpretation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FULLTEXT_UNAVAILABLE_MATERIAL_RISK",
+          "evidence": [
+            "arXiv abstract asserts ε-complexity guarantees; detailed raw stop and Theorem 3.3 are quoted in current assigned research package, not independently checked against original PDF."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.06016",
+          "material_read": "Accessible arXiv bibliographic/abstract text only; complete source algorithms and Lemmas 2.4–2.5 not independently read. Audited mathematical package transcribes them and source-native parameter requirements.",
+          "method": "Open abstract plus attempted full-text access",
+          "title": "A Unified Zeroth-Order Proximal Newton-Type Framework for Composite Optimization (Liu, Fan, 2026)",
+          "trigger": "Exact source of Algorithm 1/2 stopping test and ε-stationarity Theorem 3.3"
+        },
+        {
+          "assessment": "CONCEPTUAL_PRIOR_COVERAGE_NOT_SAME_FRAMEWORK",
+          "evidence": [
+            "Existing damped small-step caution; the exact 2026 first-iterate parameter-compliant computation not shown in material inspected."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10589-023-00515-x",
+          "material_read": "Bibliographic and related discussion only; no complete original text read in this run.",
+          "method": "Limited published comparison",
+          "title": "Inexact proximal Newton methods in Hilbert spaces (Pötzl et al., 2023)",
+          "trigger": "Known warning about damped steps and unscaled stopping tests"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A wrong ε-stationarity certificate for a newly proposed zeroth-order optimization algorithm is mathematically substantive even if the counterexample is scalar. Its exact first-step witness rules out finite-difference error and inner inexactness, identifies the cause, and gives the natural scaled stopping certificate from the cited Lemma 2.5. This directly corrects claimed guarantee semantics rather than merely pointing out a type issue.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Under the literal 2026 source Algorithm 1/2 raw stop and its stated parameter assumptions, f(x)=x²/2 with x0=2eps,H0=4,Delta=eps/100 stops at d=−eps/2 but returns 3eps/2 with residual 1.5eps>eps.",
+  "limitations": [
+    "Exact source 2026 full text could not be independently inspected: explicit material-access risk, not scientific falsification.",
+    "Claim is version-specific and conditional on literal raw stopping test and H0=4 being allowed by source.",
+    "No statement about identity-H0 experiments, tightened stopping, or disabled early stopping.",
+    "Public metadata contains an operational provenance field; dissemination is withheld until sanitized file bytes and hash guards can be verified. This is an operational publication block, not a scientific C/O/V failure."
+  ],
+  "schema_version": 1
+}
