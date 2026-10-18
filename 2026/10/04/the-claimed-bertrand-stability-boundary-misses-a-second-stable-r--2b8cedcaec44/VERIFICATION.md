@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The bundled `verifier.py` uses exact rational polynomial arithmetic. It checks the static first-order conditions and positive demands at \((3,3)\), reconstructs the polynomial entries of the diagonal-ray Jacobian, and derives
-\[
-\operatorname{tr}J(t)=2-6t+\frac12t^2,
-\qquad
-\det J(t)=1-6t+\frac{17}{2}t^2.
-\]
-It then verifies the three exact Jury-factor polynomials
-\[
-(3t-2)^2,\qquad 8t^2,\qquad \frac{t(12-17t)}2.
-\]
-It checks that \(t=2/3\) gives a multiplier \(-1\), and that \(t=7/10\) lies in the second stable interval and has exact Jury margins \(1/100\), \(98/25\), and \(7/200\).
+# Independent mathematical audit
 
-The proof of the interval characterization is symbolic algebra; the witness computation is a replay check rather than the basis for an infinite-domain inference. No nonlinear stability statement is certified at the neutral point \(t=2/3\).
+## correctness
+
+PASS
+
+At a=b/d symmetric Nash equilibrium p1=p2=3, quantity demanded is 1/2; the published 2x2 Jacobian specializes to entries 1-3t,t,t(1-3t/2),1-3t+t²/2. Direct trace/determinant algebra gives exact Schur/Jury factors (3t-2)^2, 8t², t(12-17t)/2. Thus precisely 0<t<12/17 except t=2/3 is linearly asymptotically stable. At t=7/10 all factors (1/100,98/25,7/200) are positive and the determinant is 193/200. At t=2/3 an eigenvalue is -1, not a stability interval. This disproves only the unconditional exact-boundary wording, not the source sufficient theorem.
+
+## originality
+
+PASS
+
+No prior source found proving or restating the exact disconnected stability-ray example in the 2025 model. The primary source calls its radial curve a stability boundary although its sufficient theorem and conditional corollary have different logical strength; earlier differentiated Bertrand paper uses other dynamics.
+
+## value
+
+PASS
+
+This is an exact admissible counterexample to an advertised complete stability boundary. The second stable segment changes the qualitative geometry from star-shaped to a ray cut by an isolated neutral flip and matters for correct interpretation of the model; more than an insignificant parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
