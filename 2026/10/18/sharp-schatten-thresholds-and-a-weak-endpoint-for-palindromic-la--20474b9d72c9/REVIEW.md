@@ -1,0 +1,15 @@
+# Scientific review: palindrome Hankel Schatten thresholds
+
+## Correctness — PASS
+The exact rectangular block singular values follow from disjoint palindromic completion supports. A single empty-word column rules out bounded extension at and above the fourth-root threshold. Palindrome counting proves the rational Hilbert--Schmidt norm. A contractive length-gauge pinching forces the trace-ideal threshold, while absolutely summing Schatten norms of length blocks proves sufficiency. At the nontrivial weak endpoint, mutually orthogonal length bands have exact geometric singular-value multiplicities, yielding summable Ky Fan bounds; the diagonal pinching simultaneously rules out strong membership. All exponents and endpoints are included in the proof. Finite numerical blocks were recomputed and agreed with the exact structural singular values; they are not the infinite proof.
+
+## Originality — PASS, subject to stated search limitations
+Hristov--Ilchev--Nedelcheva--Zlatanov, arXiv:2608.15185v1, Section 8, were directly examined. Their nonregular-language operator is unweighted between \(\ell^1\) and \(\ell^\infty\), and no Schatten threshold for a length-weighted Hilbert realization is asserted there. Abusaksaka--Partington, arXiv:1704.00518v1, treat integral Hankel operators on a continuous half-line, not the palindromic free-monoid kernel. Searches of the published-result index for palindrome languages, free-monoid Hankel operators, length weights, trace and weak Schatten ideals, and exact thresholds found nearby generic Hankel and weighted-shift results but no dominating theorem. Other published Schatten results considered are for analytic Hardy Hankel kernels, Rhaly matrices or free-shift resolvents; none has the reversal block multiplicities that would imply this result. The searches cannot exclude a missing or unindexed combinatorial operator theorem, or an equivalence under another terminology.
+
+## Mathematical value — PASS
+A new natural compact-regularization question is created by applying length decay to the canonical nonregular language operator from recent functional-analysis literature. The result supplies a complete, parameter-sharp ideal-membership classification simultaneously for every Schatten exponent, an exact Hilbert--Schmidt norm, a fully explicit singular-value formula for every word-length block, and weak-but-not-strong behavior at the entire nontrivial endpoint range. These distinguish compactness, trace ideals and weak ideal boundaries on an intrinsically nonregular language; they are not arbitrary finite calculations or merely a reparametrized scalar weighted shift. No broader consequence for all languages or independent historical uniqueness is asserted.
+
+## Limitations and priority risk
+Only the specified alphabet, language, and weighting are classified; full-operator singular-value asymptotics and the weak trace-class endpoint are not resolved. The exact normalization is essential. Earlier unpublished or differently indexed results could overlap; there has been no independent audit.
+
+Self-review: passed. Independent audit: not yet performed.
