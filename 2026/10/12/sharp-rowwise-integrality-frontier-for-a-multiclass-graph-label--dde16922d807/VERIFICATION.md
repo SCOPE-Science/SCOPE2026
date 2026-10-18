@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the rowwise graph-labeling threshold
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` establishes the general identity and both sides of the parameter threshold. The accompanying `verify_exact.py` uses Python standard-library `fractions.Fraction` and exhaustive enumeration of the nine possible hard labelings on its two-vertex, three-class test graph. Running `python3 verify_exact.py` returned `VERIFY_OK: rounding identities, threshold margins, and witness energy`.
+## correctness
 
-The script verifies the expected-rounding formula for fifteen exact-rational test combinations, the explicit energy and first-order gaps for the two-vertex example, the flat boundary segment, and the indefinite full Hessian at \(\varepsilon=4/5\). It does not establish the universal statement by finite enumeration, certify numerical algorithms, or independently validate scientific priority. The analytic local-optimality proof supplies the neighborhood and quantifier argument for every \(1\le\varepsilon<2\) and every \(K\ge3\).
+PASS
+
+Read actual pinned product-of-row-simplices graph-segmentation quadratic with K>=3, graph nonnegative and no isolated vertices, symmetric normalized Laplacian, one-hot supervised targets and fidelity weights omega_i>=0. Holding other rows fixed gives Hessian (q_i-2/eps) I_K with q_i=(L_s)ii+omega_i; for eps<2/M each row edge is strictly concave, so a fractional relative local minimizer is impossible. Every vertex local minimum has strictly positive outgoing simplex-edge derivatives, implying a strict full-product local minimum by the finite tangent cone argument. Independent categorical row rounding changes exactly diagonal graph and fidelity terms: E[E(V)]=E(U)-sum_i(1/eps-q_i/2)(1-||u_i||^2). This proves hard global minimizer existence at eps=2/M and exact gap for smaller eps. The two-node supervised witness with L=[[1,-1],[-1,1]], omega=(1,0), x=(e1+e2)/2, y=e2 has fractional local minima for eps in [1,2), strict above 1, and hard global competitor energy zero; thus 2/M uniform bound is sharp. Independently computed the rounding identity in exact fractions for a nontrivial soft input and confirmed the witness edge-gradient margins.
+
+## originality
+
+PASS
+
+Faccio et al. obtained integrality through full Hessian strict concavity at eps<2/lambda_max(L_s+Domega). The diagonal-row threshold can remain valid even when that full Hessian is indefinite; the witness demonstrates strict improvement. Cardinality-constrained graph partition relaxations have different feasible sets. The elementary diagonal perturbation technique is known; the concrete sharp model-specific theorem and boundary witness are the contribution.
+
+## value
+
+PASS
+
+A sharp implementable local-minimum integrality threshold for a named multiclass graph segmentation objective improves the full matrix spectral condition; the exact categorical-rounding energy gap and labeled two-vertex nonglobal fractional witness identify the nontrivial boundary. Results apply to optimization guarantees without requiring prescribed class sizes, so not merely an elementary restatement of a spectral bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

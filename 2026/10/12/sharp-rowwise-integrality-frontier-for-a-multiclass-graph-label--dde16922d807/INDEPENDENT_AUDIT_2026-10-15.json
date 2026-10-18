@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T13:01:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 77a4306119240733cb82b28ab4d7abda1e64611d",
+        "Faccio et al. primary Theorem 2.3 and Appendix C https://flore.unifi.it/retrieve/f036a66f-7cd2-4293-93ef-9e9b99a53123/2026_GFW_accepted.pdf",
+        "/mnt/data/scope_worker04_science_independent.out private exact check"
+      ],
+      "rationale": "Read actual pinned product-of-row-simplices graph-segmentation quadratic with K>=3, graph nonnegative and no isolated vertices, symmetric normalized Laplacian, one-hot supervised targets and fidelity weights omega_i>=0. Holding other rows fixed gives Hessian (q_i-2/eps) I_K with q_i=(L_s)ii+omega_i; for eps<2/M each row edge is strictly concave, so a fractional relative local minimizer is impossible. Every vertex local minimum has strictly positive outgoing simplex-edge derivatives, implying a strict full-product local minimum by the finite tangent cone argument. Independent categorical row rounding changes exactly diagonal graph and fidelity terms: E[E(V)]=E(U)-sum_i(1/eps-q_i/2)(1-||u_i||^2). This proves hard global minimizer existence at eps=2/M and exact gap for smaller eps. The two-node supervised witness with L=[[1,-1],[-1,1]], omega=(1,0), x=(e1+e2)/2, y=e2 has fractional local minima for eps in [1,2), strict above 1, and hard global competitor energy zero; thus 2/M uniform bound is sharp. Independently computed the rounding identity in exact fractions for a nontrivial soft input and confirmed the witness edge-gradient margins.",
+      "residual_risks": [
+        "Uncoupled product-row simplices, normalized Laplacian, one-hot supervised labels, fixed quadratic penalty, eps>0; no row-coupling balance constraints."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Faccio postprint Thm 2.3/Appendix C provides eps<2/lambda_max, strictly smaller when off-diagonal coupling is nonzero; Hager–Krylyuk and Holtz et al. analyze constrained class cardinalities or different quadratic objectives."
+        ],
+        "reasoning": "Prior graph partition integrality schemes explain the approach but their objectives and feasible sets do not supply the supervised two-node sharp threshold or quantitative rounding identity for this particular graph penalty.",
+        "searches": [
+          "https://flore.unifi.it/retrieve/f036a66f-7cd2-4293-93ef-9e9b99a53123/2026_GFW_accepted.pdf",
+          "doi:10.1137/S0895480199335829",
+          "doi:10.52202/079017-0182"
+        ]
+      },
+      "checked_sources": [
+        "https://flore.unifi.it/retrieve/f036a66f-7cd2-4293-93ef-9e9b99a53123/2026_GFW_accepted.pdf",
+        "doi:10.1137/S0895480199335829",
+        "doi:10.52202/079017-0182"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source sufficient spectral bound is eps<2/lambda_max; for the explicit 2-node witness eps=4/5 the full-Hessian determinant is -1/4 whereas the new per-row Hessians are negative."
+        ],
+        "reasoning": "The old spectral theorem implies one-hot minima only on its smaller domain. It cannot imply the strict extension, equality-point rounding or sharp labeled witness; standard moment rounding alone does not establish the local-minimum classification.",
+        "searches": [
+          "https://flore.unifi.it/retrieve/f036a66f-7cd2-4293-93ef-9e9b99a53123/2026_GFW_accepted.pdf",
+          "doi:10.1137/S0895480199335829"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Faccio energy (their equation (2.7)–(2.12)) has independent product-row simplices and q_i=1+omega_i; full Hessian is L_s+Domega-2I/eps."
+        ],
+        "reasoning": "Replacing global negative definiteness with every row-block negative definiteness is not an algebraically equivalent criterion; on the two-vertex example eps=4/5 lies outside the full spectral range but inside new rowwise range.",
+        "searches": [
+          "multiclass graph segmentation product of simplices rowwise concavity one-hot local minimum diagonal Hessian independent random rounding penalty threshold",
+          "https://flore.unifi.it/retrieve/f036a66f-7cd2-4293-93ef-9e9b99a53123/2026_GFW_accepted.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The threshold is analytic for an entire graph class, not a finite graph database; the two-node witness and exact gap formula are not tabulated in source Theorem 2.3."
+        ],
+        "reasoning": "Finite-graph numerical tables cannot supersede the all-instance analytic bound; no same model/parameter exact threshold table was identified.",
+        "searches": [
+          "multiclass graph segmentation product of simplices rowwise concavity one-hot local minimum diagonal Hessian independent random rounding penalty threshold",
+          "https://flore.unifi.it/retrieve/f036a66f-7cd2-4293-93ef-9e9b99a53123/2026_GFW_accepted.pdf"
+        ]
+      },
+      "rationale": "Faccio et al. obtained integrality through full Hessian strict concavity at eps<2/lambda_max(L_s+Domega). The diagonal-row threshold can remain valid even when that full Hessian is indefinite; the witness demonstrates strict improvement. Cardinality-constrained graph partition relaxations have different feasible sets. The elementary diagonal perturbation technique is known; the concrete sharp model-specific theorem and boundary witness are the contribution.",
+      "residual_risks": [
+        "General diagonal-Hessian integrality results may exist for the same unconstrained-row penalty under another title; source paper comparison strongly supports relative improvement but search is not exhaustive.",
+        "The Hager–Krylyuk and Holtz full texts were not retrieved in this run; accessible descriptions specify different constraints."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 2.3 uses lambda_max global Hessian; no identified rowwise threshold or sharp two-vertex example.",
+          "evidence": "Theorem 2.3 and Appendix C, energy formulas (2.7)–(2.12).",
+          "identifier_or_url": "arXiv:2508.09738; doi:10.1137/25M1787719; https://flore.unifi.it/retrieve/f036a66f-7cd2-4293-93ef-9e9b99a53123/2026_GFW_accepted.pdf",
+          "material_read": "Read accepted full-text Theorem 2.3, preceding energy equations, Appendix C full-Hessian argument",
+          "method": "lawful university repository postprint PDF, page/text inspection",
+          "title": "Fast and Simple Multiclass Data Segmentation: An Eigendecomposition and Projection-Free Approach",
+          "trigger": "Same quadratic graph segmentation objective and minimizer integrality"
+        },
+        {
+          "assessment": "Includes prescribed class-size/column-sum constraints and different quadratic graph cut matrix; accessible abstract alone is not a whole-document noncoverage proof.",
+          "evidence": "SIAM J Discrete Math 12:500–523, abstract describes class-size-constrained partitions.",
+          "identifier_or_url": "doi:10.1137/S0895480199335829",
+          "material_read": "Accessible journal abstract and mathematical setting; full paper not obtained in this run",
+          "method": "publisher abstract and comparison against explicit feasible-set constraints",
+          "title": "Graph Partitioning and Continuous Quadratic Programming",
+          "trigger": "Potential stronger diagonal-curvature convex partition theorem"
+        },
+        {
+          "assessment": "A cardinality-constrained exact quadratic relaxation, unlike Faccio row-simplex energy; no snippet-only definitive exclusion asserted.",
+          "evidence": "NeurIPS 2024 primary abstract states cardinality-constrained min-cut partition framework.",
+          "identifier_or_url": "doi:10.52202/079017-0182",
+          "material_read": "Public full abstract and source description; full paper not read in this run",
+          "method": "NeurIPS abstract/source comparison",
+          "title": "Continuous Partitioning for Graph-Based Semi-Supervised Learning",
+          "trigger": "Related exact-cut integrality result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://flore.unifi.it/retrieve/f036a66f-7cd2-4293-93ef-9e9b99a53123/2026_GFW_accepted.pdf",
+        "doi:10.1137/S0895480199335829",
+        "doi:10.52202/079017-0182"
+      ],
+      "rationale": "A sharp implementable local-minimum integrality threshold for a named multiclass graph segmentation objective improves the full matrix spectral condition; the exact categorical-rounding energy gap and labeled two-vertex nonglobal fractional witness identify the nontrivial boundary. Results apply to optimization guarantees without requiring prescribed class sizes, so not merely an elementary restatement of a spectral bound.",
+      "residual_risks": [
+        "Does not prove convergence of any solver, class-size-balanced extensions or real-data classification quality; instance-uniform sharpness need not be each graph exact bifurcation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uncoupled product-row simplices, normalized Laplacian, one-hot supervised labels, fixed quadratic penalty, eps>0; no row-coupling balance constraints."
+  ],
+  "schema_version": 1
+}

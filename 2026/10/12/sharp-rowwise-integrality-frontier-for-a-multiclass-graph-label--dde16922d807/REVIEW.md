@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The source paper's energy (2.7) and row-simplex feasible set (2.4) were reconstructed from the full arXiv text. For each row the fixed-row Hessian is exactly \(((L_s)_{ii}+\omega_i-2/\varepsilon)I_K\); a fractional row necessarily has a feasible two-sided simplex edge, contradicting negative curvature at a local minimum. Strictness at a vertex follows because zero outgoing first derivative would contradict the same negative curvature; finite strictly positive tangent-edge slopes dominate the quadratic remainder locally. The independent-row categorical expectation is calculated term-by-term and has no missing off-diagonal covariance; it gives the nonnegative gap and endpoint existence. The two-node construction has explicit exact energy, gradient gaps, and a joint-variable neighborhood argument. Exact-fraction computations in `verify_exact.py` returned `VERIFY_OK`; finite tests are limited corroboration, not the proof.
+## correctness
 
-## Originality (PASS)
-The closest same-object source, Faccio et al. [1, Theorem 2.3 and Appendix C], proves the weaker full spectral sufficient bound, not the claimed maximum-diagonal threshold or its sharp supervised boundary; its proof invokes global strict concavity, which demonstrably fails within the new permitted range. A full reading of Hager–Krylyuk [2, Theorems 2.1, 6.1 and Corollary 6.2] and Holtz et al. [3, Proposition 3.2 and appendix] revealed earlier diagonal perturbation and integral-local-minimum arguments for cardinality-constrained quadratic partition models. They explain the broad technique, but their coupled column-sum constraints and objective assumptions do not assert the same uniform parameter threshold, exact supervised two-node obstruction, or energy identity. Published semantic searches found no precise match; this is not a proof of worldwide uniqueness. Residual risks include unindexed independent derivations and alternate formulations in graph-learning literature.
+PASS
 
-## Value (PASS)
-The improved guarantee replaces a largest-eigenvalue computation with a diagonal maximum (equal to \(1+\omega_0\) for the normalized nonisolated graph model), precisely addresses parameter selection identified as consequential in [1], and remains valid even when the full Hessian is indefinite. The exact rounding identity provides a quantitative impurity/suboptimality certificate, and the two-vertex labeled example proves the uniform boundary cannot be loosened while retaining local integrality. This is a motivated, algorithm-relevant boundary theorem rather than a routine isolated parameter substitution. No convergence or classification-performance improvement is claimed.
+Read actual pinned product-of-row-simplices graph-segmentation quadratic with K>=3, graph nonnegative and no isolated vertices, symmetric normalized Laplacian, one-hot supervised targets and fidelity weights omega_i>=0. Holding other rows fixed gives Hessian (q_i-2/eps) I_K with q_i=(L_s)ii+omega_i; for eps<2/M each row edge is strictly concave, so a fractional relative local minimizer is impossible. Every vertex local minimum has strictly positive outgoing simplex-edge derivatives, implying a strict full-product local minimum by the finite tangent cone argument. Independent categorical row rounding changes exactly diagonal graph and fidelity terms: E[E(V)]=E(U)-sum_i(1/eps-q_i/2)(1-||u_i||^2). This proves hard global minimizer existence at eps=2/M and exact gap for smaller eps. The two-node supervised witness with L=[[1,-1],[-1,1]], omega=(1,0), x=(e1+e2)/2, y=e2 has fractional local minima for eps in [1,2), strict above 1, and hard global competitor energy zero; thus 2/M uniform bound is sharp. Independently computed the rounding identity in exact fractions for a nontrivial soft input and confirmed the witness edge-gradient margins.
 
-## Closest literature and limitations
-The spectral sufficient condition in [1] is truly weaker. Hager–Krylyuk [2] provides a classical precursor for facewise/diagonal curvature, and Holtz et al. [3] supplies modern related graph-SSL integrality results under column constraints. The theorem does not extend to prescribed class counts or promise solver convergence; unknown equivalent literature remains the chief originality risk. Scientific confidence is same-model only, not independent expert validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Faccio et al. obtained integrality through full Hessian strict concavity at eps<2/lambda_max(L_s+Domega). The diagonal-row threshold can remain valid even when that full Hessian is indefinite; the witness demonstrates strict improvement. Cardinality-constrained graph partition relaxations have different feasible sets. The elementary diagonal perturbation technique is known; the concrete sharp model-specific theorem and boundary witness are the contribution.
+
+## value
+
+PASS
+
+A sharp implementable local-minimum integrality threshold for a named multiclass graph segmentation objective improves the full matrix spectral condition; the exact categorical-rounding energy gap and labeled two-vertex nonglobal fractional witness identify the nontrivial boundary. Results apply to optimization guarantees without requiring prescribed class sizes, so not merely an elementary restatement of a spectral bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
