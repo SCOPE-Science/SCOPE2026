@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T01:14:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every competing j, vectors in positive spectral range of M_k-M_j have strictly positive score difference; vectors in nonnegative spectral range have weakly nonnegative difference. Intersect strict ranges for higher-priority j and weak ranges for lower-priority j to ensure target wins all comparisons under fixed tie priority. The orthogonal projection P onto this subspace takes any χ with p=<χ|P|χ>>0 to η=Pχ/√p, a valid target-class normalized state with overlap √p. Pullback under U† has source-defined fidelity distance 1-√p. This gives upper bound on the infimum over all target-class witnesses. An independently constructed three-outcome diagonal POVM exhibits a nonempty strict target-safe intersection and the exact p=1/2 measurement overlap. The analytic proof, not the example, handles noncommuting POVMs.",
+      "risk": "Pure-state finite-dimensional unitary and exactly known readout; derived binary projector measurement assumed available.",
+      "sources": [
+        "Frozen RESULT.md dde0bd2a7d658f36854187745c3edecdae940ed6",
+        "Independent diagonal three-outcome witness",
+        "Immutable source tree f91e353b70048f2e825fa7e077cd231983670e8a"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pairwise winner over original label does not dominate every competitor in multiclass; untargeted upper witness not a target-k witness. Binary-class robustness does not imply the all-competitor rule."
+        ],
+        "reasoning": "An uninspected appendix in Guan–Huang v2 might contain this construction.",
+        "searches": [
+          "Guan–Huang Theorem 4.7 untargeted upper certificate; Dowling et al. DOI 10.1038/s41534-025-01129-3 binary robustness context"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.11637v2 abstract and accessible section-summary material",
+        "Resultary target projector semantic query",
+        "DOI:10.1038/s41534-025-01129-3 indexed literature"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An existence guarantee for some misclassified class is logically weaker than target-k misclassification; a third class can beat k. The proposed intersection supplies exactly the missing simultaneous pairwise inequalities."
+        ],
+        "reasoning": "Does not claim optimality or prove original pairwise witness targeted.",
+        "searches": [
+          "Guan–Huang 2609.11637 accessible abstract and §4 section-level account"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Intersections of gap-positive eigenspaces are stricter than intersections of quadratic positivity cones; the proposed result uses actual invariant subspaces to guarantee all scores simultaneously."
+        ],
+        "reasoning": "No identified equivalent target-specific projector proof in inspected accessible text.",
+        "searches": [
+          "arXiv:2609.11637v2 listing and accessible section summaries §4.1–4.2; Resultary query target-safe spectral intersection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search results concerned trace-distance postselection and other quantum bounds, not a finite list or table of multi-class projector intersections."
+        ],
+        "reasoning": "No exact database table relevant; issue is general operator certificate, not enumeration.",
+        "searches": [
+          "Resultary query quantum target-specific projector gap operators"
+        ]
+      },
+      "rationale": "The primary Guan–Huang work defines pairwise gap kernels for an untargeted upper certificate; its v1 targeted language is challenged because another label may dominate, and v2 acknowledges that restriction. The reviewed intersection of priority-adjusted spectral subspaces yields a target-specific sufficient certificate not stated in the accessible primary abstract and section-summary material. No Resultary hit dominating this precise multi-competitor projector claim. This is modest, best-of-knowledge novelty with full v2 access still outstanding.",
+      "residual_risks": [
+        "Full revised Guan–Huang manuscript unavailable in this execution; an equivalent construction in an appendix remains possible.",
+        "The projector intersection is an elementary sufficiency condition and might have been observed elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_ACCESS_AND_TARGETED_GAP",
+          "evidence": "Theorem 4.7 describes pairwise untargeted witness; no confirmed primary full-text coverage of the new all-competitor construction",
+          "identifier_or_url": "arXiv:2609.11637v2",
+          "material_read": "Primary abstract, accessible v1 section-level text/structured descriptions and criticism of multiclass targeted wording; full v2 primary PDF could not be retrieved",
+          "method": "arXiv abstract plus accessible structured section account; authorized institution returned vpn_disconnected",
+          "title": "Certifying Adversarial Robustness of Quantum Classifiers under Known-Readout Query Access",
+          "trigger": "Exact original access model and pairwise kernel theorem"
+        },
+        {
+          "assessment": "BINARY_CONTEXT_NOT_DECISIVE",
+          "evidence": "No observed general multiclass known-readout all-competitor projector certificate",
+          "identifier_or_url": "DOI:10.1038/s41534-025-01129-3",
+          "material_read": "Indexed research description and original citation; no complete new article text read",
+          "method": "Abstract/context comparison only",
+          "title": "Adversarial robustness guarantees for quantum classifiers",
+          "trigger": "Potential broader quantum robustness result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source explicitly exposes a material multiclass pitfall: beating the original label pairwise need not yield a specified target label. Enforcing all comparisons simultaneously and measuring one derived projector produces a sound class-specific certificate in the same partial-information access model. Though algebraically short and only sufficient, it repairs a concrete robustness-validity gap and is useful when the safe subspace has nonzero overlap.",
+      "risk": "May be vacuous when S_k or p is zero, and is not optimal targeted robustness.",
+      "sources": [
+        "arXiv:2609.11637v2 abstract and accessible section-summary material",
+        "Resultary target projector semantic query"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Pure-state finite-dimensional unitary and exactly known readout; derived binary projector measurement assumed available.",
+    "Requires positive p, and public encoder image restrictions when applicable.",
+    "No converse and no equality with optimal targeted radius."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review of A target-safe spectral-intersection upper certificate under known-readout query access
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The spectral-support implications are exact in finite dimension. Strict positive support is used exactly for competitors that would defeat the target on a tie; nonnegative support is enough against competitors that lose a tie to the target. Their intersection therefore guarantees the target label. Orthogonal projection then gives a witness whose fidelity with the original input is exactly \(\sqrt{p_k}\), yielding the stated upper bound. No numerical experiment is used as proof.
+## correctness
 
-## Originality
-**PASS.** The current source explicitly notes that a pairwise positive-gap state need not be predicted as the named competitor in a multiclass classifier and states only an untargeted upper certificate. The closest inspected broader work treats binary quantum classifiers. Target-safe spectral intersections, equivalent score-gap formulations, and implication comparisons were searched; no checked source states the all-competitor, tie-aware projector certificate. Residual risk remains because the construction is elementary once the missing multiclass condition is recognized, and an unindexed independent observation may exist.
+PASS
 
-## Value
-**PASS.** The revised source's threat model includes targeted misclassification, while its usable spectral upper bound is untargeted. The result supplies a conservative class-specific certificate under the same known-readout projector-access assumption and makes the tie rule explicit. This is operationally meaningful for target-specific robustness auditing. The certificate can be vacuous and is not claimed optimal.
+For every competing j, vectors in positive spectral range of M_k-M_j have strictly positive score difference; vectors in nonnegative spectral range have weakly nonnegative difference. Intersect strict ranges for higher-priority j and weak ranges for lower-priority j to ensure target wins all comparisons under fixed tie priority. The orthogonal projection P onto this subspace takes any χ with p=<χ|P|χ>>0 to η=Pχ/√p, a valid target-class normalized state with overlap √p. Pullback under U† has source-defined fidelity distance 1-√p. This gives upper bound on the infimum over all target-class witnesses. An independently constructed three-outcome diagonal POVM exhibits a nonempty strict target-safe intersection and the exact p=1/2 measurement overlap. The analytic proof, not the example, handles noncommuting POVMs.
 
-## Closest literature and limitations
-Guan and Huang, arXiv:2609.11637v2, provide the pairwise gap-operator construction and untargeted projector upper bound. Dowling, West, Southwell et al., DOI 10.1038/s41534-025-01129-3, provide broader adversarial-robustness guarantees in a binary classifier setting. Neither inspected source implies the multiclass all-competitor spectral intersection. The new theorem assumes pure states, unitary hidden evolution, an exact known POVM, fixed tie priority, and availability of derived binary projector readouts; it does not claim completeness or optimality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary Guan–Huang work defines pairwise gap kernels for an untargeted upper certificate; its v1 targeted language is challenged because another label may dominate, and v2 acknowledges that restriction. The reviewed intersection of priority-adjusted spectral subspaces yields a target-specific sufficient certificate not stated in the accessible primary abstract and section-summary material. No Resultary hit dominating this precise multi-competitor projector claim. This is modest, best-of-knowledge novelty with full v2 access still outstanding.
+
+## value
+
+PASS
+
+The source explicitly exposes a material multiclass pitfall: beating the original label pairwise need not yield a specified target label. Enforcing all comparisons simultaneously and measuring one derived projector produces a sound class-specific certificate in the same partial-information access model. Though algebraically short and only sufficient, it repairs a concrete robustness-validity gap and is useful when the safe subspace has nonzero overlap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic; no finite numerical experiment or external certificate is used to establish the theorem.
+# Independent mathematical audit
 
-For each competitor \(j\neq k\), membership in the chosen spectral subspace of \(M_k-M_j\) gives exactly the score inequality required by the fixed tie rule: strict positivity when \(j\prec k\), and nonnegativity when \(k\prec j\). Because the witness lies in the intersection of all these subspaces, all inequalities hold simultaneously, so the predicted label is \(k\).
+## correctness
 
-If \(p_k=\langle U\psi|P_k|U\psi\rangle>0\), orthogonal projection gives the normalized vector \(P_kU|\psi\rangle/\sqrt{p_k}\). Its overlap with \(U|\psi\rangle\) is exactly \(\sqrt{p_k}\); unitary pullback preserves the overlap, hence the source fidelity distance is \(1-\sqrt{p_k}\).
+PASS
 
-The projector \(P_k\) is determined by the known POVM, so the probability \(p_k\) is obtainable from the derived binary readout \(\{P_k,I-P_k\}\) allowed by the source upper-bound access model.
+For every competing j, vectors in positive spectral range of M_k-M_j have strictly positive score difference; vectors in nonnegative spectral range have weakly nonnegative difference. Intersect strict ranges for higher-priority j and weak ranges for lower-priority j to ensure target wins all comparisons under fixed tie priority. The orthogonal projection P onto this subspace takes any χ with p=<χ|P|χ>>0 to η=Pχ/√p, a valid target-class normalized state with overlap √p. Pullback under U† has source-defined fidelity distance 1-√p. This gives upper bound on the infimum over all target-class witnesses. An independently constructed three-outcome diagonal POVM exhibits a nonempty strict target-safe intersection and the exact p=1/2 measurement overlap. The analytic proof, not the example, handles noncommuting POVMs.
 
-Limits checked: the theorem is conditional on \(p_k>0\); a zero target-safe intersection or zero overlap makes the certificate vacuous. No claim is made that the intersection contains every target-class state or that the bound equals the optimal targeted radius.
+## originality
+
+PASS
+
+The primary Guan–Huang work defines pairwise gap kernels for an untargeted upper certificate; its v1 targeted language is challenged because another label may dominate, and v2 acknowledges that restriction. The reviewed intersection of priority-adjusted spectral subspaces yields a target-specific sufficient certificate not stated in the accessible primary abstract and section-summary material. No Resultary hit dominating this precise multi-competitor projector claim. This is modest, best-of-knowledge novelty with full v2 access still outstanding.
+
+## value
+
+PASS
+
+The source explicitly exposes a material multiclass pitfall: beating the original label pairwise need not yield a specified target label. Enforcing all comparisons simultaneously and measuring one derived projector produces a sound class-specific certificate in the same partial-information access model. Though algebraically short and only sufficient, it repairs a concrete robustness-validity gap and is useful when the safe subspace has nonzero overlap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
