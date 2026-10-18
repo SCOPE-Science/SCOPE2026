@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The published Almeida--Cardoso theorem is taken as the literature input: under \(\sigma(N)/N=5/2\) and \(5\mid N\), it gives \(2^4\parallel N\), \(5^2\parallel N\), and \(31^2\mid N\).
+# Independent mathematical audit
 
-The bundled `verify.py` checks the new arithmetic deductions only. It recomputes \(I(2^4)I(5^2)I(31^2)=993/400\), confirms that the resulting inequality makes \(149\) the least possible additional prime, and reduces the exact quotient for \(I(u)\) at \(\nu_{31}(N)=2,3,4,5\). The corresponding denominators force a prime below \(149\), eliminating all four exponents.
+## correctness
 
-The universal conclusion is symbolic. No bounded enumeration is used as evidence for infinitely many inputs. The verifier output is stored in `verification_output.txt`.
+PASS
+
+Theorem 7 of Almeida–Cardoso supplies 2^4||N, 5^2||N and 31²|N for I(N)=5/2,5|N. For any other prime q|N, I(N)≥(993/400)(q+1)/q implies q≥142, hence prime q≥149. For c=v31(N)=2..5, the exact reduced I(u) denominators are 993,3848,190861,3697932, respectively; their small factors 3,2,11,2 force q<149 (and gcd contradiction), excluding all c<6. Independent Fraction calculations recovered all fractions. Conditional necessary conclusion only: neither existence nor attainable c=6 is shown.
+
+## originality
+
+PASS
+
+Theorem 7 fixes the 2,5 valuations and forces 31², but does not establish the stronger compulsory 31^6 layer or the universal 149 additional-prime threshold. The new deductions apply a denominator-forcing obstruction to the four intermediate exponent cases. This is a conditional necessary-condition refinement, not existence or a new characterization of the entire class.
+
+## value
+
+PASS
+
+Possible 5-divisible 5/2-perfect integers are an open constrained abundancy family in the original primary work. The simultaneous 149 minimum for unforced primes and 31-adic exponent at least six materially restrict factorization beyond 31², ruling out four entire exponent layers by exact denominator obstructions. It is a conditional structural necessary-condition lemma, not a claimed existence proof or arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
