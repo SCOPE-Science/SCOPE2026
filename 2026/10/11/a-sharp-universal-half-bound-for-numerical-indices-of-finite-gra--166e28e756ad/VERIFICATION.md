@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the graph numerical-index half bound
 
-The operator estimate is proved analytically. Its critical steps are the edge-molecule convex-hull reduction, integrality of extreme normalized graph-Lipschitz potentials, and the two-function decomposition from a directed nonnegative shortest-path problem. For each arc \(s\to t\), the edge cost is \(1+\min\{0,h(t)-h(s)\}\). Directed distances from a neutral-edge endpoint define the first Lipschitz summand; subtracting it from \(h\) defines the second. The proof checks both directed inequalities, not only experimental samples.
+# Independent mathematical audit
 
-To reproduce finite validation using only the Python standard library, from the extracted package root execute `python3 artifacts/verify.py`. The exact output is:
+## correctness
 
-`VERIFY_OK connected_labeled_graphs= 771 integer_potentials= 41463 equal_edge_decompositions= 88156 n=2..5`
+PASS
 
-The script exhausts connected labeled simple graphs of orders \(2\) to \(5\), with the base vertex fixed as \(0\). Every normalized integer \(1\)-Lipschitz potential lies in \(\{-(n-1),\ldots,n-1\}\) coordinatewise, so the checker covers that finite set exactly. The script tests both decomposition Lipschitz inequalities at each equal-valued edge. These checks do not certify infinitely many graph orders, all real potentials, or all operators; the symbolic argument supplies those cases. The equal-value decomposition is proved for every integer potential, while only extreme dual potentials need be integral for the numerical-radius argument.
+Every shortest-path normalized molecule is the average of oriented edge molecules, so edges norm any operator. An extreme normalized dual Lipschitz potential has a spanning connected tight-edge graph; otherwise a slack component could be shifted in both directions. Tight differences are \(\pm1\), forcing integral vertex values. At a neutral edge \(h(a)=h(b)\), directed costs \(c(s,t)=1+\min(0,h(t)-h(s))\in\{0,1\}\) give distance \(g(b)=0,g(a)=1\): zero-cost paths lower the integer potential strictly and cannot connect equal heights. Forward and reverse triangle inequalities imply both \(g\) and \(h-g\) are 1-Lipschitz. Normalized components norm the chosen edge with opposite signs; thus \(|h(Tm)|\le2v(T)\), and extremal dual evaluation yields the global norm inequality. The equilateral triangle equality follows from Cobollo--Guirao--Montesinos, Corollary 5.3. Independently reproduced the shortest-path splitting for all 771 labeled connected graphs on 2--5 vertices, 41,463 integer Lipschitz potentials, and 88,156 neutral-edge incidences; this finite test is corroboration only.
 
-The sharpness input is the exact three-point equilateral computation (Cobollo, Guirao and Montesinos, arXiv:2304.13183v1, Corollary 5.3), not an empirical upper bound. No independent audit has been performed.
+## originality
+
+PASS
+
+The closest complete primary source classifies only three-point spaces and their two-dimensional subspaces, not ambient numerical indices for arbitrary finite graph metrics. Earlier indexed graph-specific research referred to in the assigned package treats numerical index one on bipartite graphs and special sharp families (equilateral metrics, cycles, wheel); those statements do not dominate a universal lower bound for nonbipartite graphs. The integral-potential neutral-edge splitting is an additional all-graphs lemma. Exact independent published-finding retrieval was temporarily unavailable this execution; this is recorded as a coverage risk rather than misreported as a negative search.
+
+## value
+
+PASS
+
+A sharp dimension-independent numerical-radius estimate for all finite connected unit-edge graph free spaces closes a natural gap between index-one classifications and special nonbipartite examples. The constructive integer-potential splitting is a nonstandard structural lemma independently applicable to norming functionals; \(K_3\) proves the constant optimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,9 +1,21 @@
-# Review: a universal numerical-index half bound for graph free spaces
+# Independent mathematical audit
 
-**Correctness — PASS.** The free-space unit ball is the convex hull of oriented edge molecules because normalized nonedge molecules average edge molecules along a shortest path. A vertex of the dual Lipschitz polytope has a connected tight-edge graph and hence integral values. For any equal-value edge, oriented zero–one arc costs yield a shortest-path potential with the desired unit difference; the forward and reverse distance inequalities independently verify that both pieces are Lipschitz. Thus any extreme functional attaining the norm of an operator at an edge molecule is either already norming or splits into two norming functionals, proving the operator inequality. Sharpness is the independently published equilateral-triangle case. The checker confirms 88,156 exact edge decompositions on all connected labeled graphs through five vertices; enumeration is corroboration only.
+## correctness
 
-**Originality — PASS with residual bibliographic risk.** The primary 2023 paper proves exact values only for three-point metrics and does not give a uniform lower bound for all finite graph metrics. The closest published finite-graph result proves that numerical index one is equivalent to bipartiteness but explicitly leaves values of nonbipartite graphs open. Equilateral, wheel, and cycle papers give only proper subclasses. Those claims neither contain nor imply a dimension-free half bound on every finite connected graph. Searches also examined Arens–Eells, transportation-cost, graph-metric, integral-potential and dual-facet equivalents; no checked text supplies the exact result. An unindexed equivalent theorem remains possible.
+PASS
 
-**Value — PASS.** A dimension-independent and sharp lower bound for the numerical radius across every finite connected unit-edge graph metric closes an essential quantitative gap between the known numerical-index-one characterization and scattered nonbipartite calculations. The argument supplies a reusable constructive splitting lemma for integral metric potentials, not merely a small numerical example. The result does not purport to classify exact values for individual nonbipartite graphs.
+Every shortest-path normalized molecule is the average of oriented edge molecules, so edges norm any operator. An extreme normalized dual Lipschitz potential has a spanning connected tight-edge graph; otherwise a slack component could be shifted in both directions. Tight differences are \(\pm1\), forcing integral vertex values. At a neutral edge \(h(a)=h(b)\), directed costs \(c(s,t)=1+\min(0,h(t)-h(s))\in\{0,1\}\) give distance \(g(b)=0,g(a)=1\): zero-cost paths lower the integer potential strictly and cannot connect equal heights. Forward and reverse triangle inequalities imply both \(g\) and \(h-g\) are 1-Lipschitz. Normalized components norm the chosen edge with opposite signs; thus \(|h(Tm)|\le2v(T)\), and extremal dual evaluation yields the global norm inequality. The equilateral triangle equality follows from Cobollo--Guirao--Montesinos, Corollary 5.3. Independently reproduced the shortest-path splitting for all 771 labeled connected graphs on 2--5 vertices, 41,463 integer Lipschitz potentials, and 88,156 neutral-edge incidences; this finite test is corroboration only.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closest complete primary source classifies only three-point spaces and their two-dimensional subspaces, not ambient numerical indices for arbitrary finite graph metrics. Earlier indexed graph-specific research referred to in the assigned package treats numerical index one on bipartite graphs and special sharp families (equilateral metrics, cycles, wheel); those statements do not dominate a universal lower bound for nonbipartite graphs. The integral-potential neutral-edge splitting is an additional all-graphs lemma. Exact independent published-finding retrieval was temporarily unavailable this execution; this is recorded as a coverage risk rather than misreported as a negative search.
+
+## value
+
+PASS
+
+A sharp dimension-independent numerical-radius estimate for all finite connected unit-edge graph free spaces closes a natural gap between index-one classifications and special nonbipartite examples. The constructive integer-potential splitting is a nonstandard structural lemma independently applicable to norming functionals; \(K_3\) proves the constant optimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
