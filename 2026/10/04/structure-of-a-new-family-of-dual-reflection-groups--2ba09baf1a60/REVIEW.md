@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source embedding gives a concrete model of \(\Delta_n\) inside a cyclic-permutation semidirect product after reduction modulo \(3n\). In that model the center, commutators, exponent, and Sylow action are explicit. The two finite-abelian-group identifications use Smith normal forms \(\operatorname{diag}(1,3)\) and \(\operatorname{diag}(1,3,3n)\).
+## correctness
 
-## Originality
-PASS. The primary paper was inspected through its Delta_n construction and Lemma 6.4, and its full text was searched for the claimed invariant terminology. published-finding corpus and web searches for the exact presentation, the order \(27n^3\), abelianization, center, commutator, and likely semidirect-product aliases did not surface the same theorem. The nearest published-finding corpus record concerns a different kernel-wreath family.
+PASS
 
-## Value
-PASS. These are the basic finite-group invariants of a newly introduced infinite family of dual reflection groups, and the nilpotency criterion gives a clean structural boundary across the parameter \(n\). This is more than a parameter substitution or isolated small-order calculation.
+Buzaglo-Rogalski Lemma 6.4 identifies Delta_n as the sum-congruence subgroup of (Z/(3n))^3 rtimes C3 with coordinate rotation. Direct fixed-translation analysis gives center C_{3n}; two independent commutator translation vectors have Smith normal form diag(1,3), producing derived subgroup C_{3n} x C_n; presentation abelianization has Smith normal form diag(1,3,3n). Every nontrivial rotational element cubes to a diagonal translation; a has order 9n. The group is a 3-group iff n has no prime divisor besides 3; otherwise a Sylow 3-element rotates a nontrivial p-primary translation subgroup, excluding nilpotency. Independent SymPy Smith computations verified n=1,2,3,5,7,9,12. The proof works for every n>=1.
 
-The closest limitation is that an isomorphic group family under unrelated notation might not be found by the targeted searches; no nilpotency class is asserted for the \(3\)-power cases.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Material reading of the source embedding/order lemma and exact-presentation searches found no prior theorem giving the combined center, derived group, abelianization, exponent, metabelianity and nilpotency cutoff. The source supplies an embedding, not these invariant computations. A possible hidden isomorphic presentation remains a stated priority risk.
+
+## value
+
+PASS
+
+The invariants classify key intrinsic features of a newly introduced infinite group family, including an exact nilpotency transition. This is motivated structural group theory across all n, not a one-off small-order table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
