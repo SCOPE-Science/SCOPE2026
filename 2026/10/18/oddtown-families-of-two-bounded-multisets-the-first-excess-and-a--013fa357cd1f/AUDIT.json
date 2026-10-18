@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The initial-segment map is injective and preserves self-cardinality and min-intersection cardinality, so the F2 orthogonality upper bound is sound. Each of the ten displayed 6-coordinate words has odd sum and each of its 45 pairwise min-intersections has even sum; zero-padded disjoint blocks prove the all-n lower bound with all quantifiers. At n<=5 the compatibility graph has all (3^n-1)/2 candidate vertices, and strictly increasing clique recursion enumerates each possible admissible family once; exact exhaustive zero counts at next size prove the first-five maxima. The verifier independently checks all compatibility tests via bitmask set-intersections. Computations are finite; no unproved asymptotic exactness is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zou proves a general bound for odd/even intersections of unrestricted ordinary subsets.",
+        "Banerjee and Dewan solve the even-self-intersection Eventown case for bounded multisets."
+      ],
+      "reasoning": "The set-system theorem implies only the known 2n upper bound after expanding every symbol into two slots; it cannot by itself assert the displayed lower construction. The Eventown theorem requires even self-parity and therefore does not dominate the odd self-parity result.",
+      "searches": [
+        "multiset Oddtown theorem bounded multiplicity intersection even odd",
+        "arXiv:2606.03613 Theorem 1.5",
+        "arXiv:2610.21636 Theorem 1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.03613",
+      "arXiv:2607.23117",
+      "arXiv:2610.21636",
+      "Berlekamp (1969), On subsets with intersections of even cardinality",
+      "Published mathematical research records queried for min-intersection parity, bounded multisets and chain-order-ideal Oddtown families"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical Oddtown theorem gives only O_2(n)<=2n on the 2n-element expanded ground set.",
+        "Zou arXiv:2606.03613 concerns ordinary subsets with cardinality mod k and intersection mod k.",
+        "Shankar arXiv:2607.23117 concerns common edges of lattice paths.",
+        "Banerjee and Dewan arXiv:2610.21636 requires even-sized multiset members; every member here has odd size."
+      ],
+      "reasoning": "The accepted novelty lies exclusively in the exact small-order profile and 10-word block amplifier producing 5/3 density, not in the known Oddtown bound. Neither a change of wording nor parameter specialization of these comparable theorems gives both those assertions.",
+      "searches": [
+        "Hanlin Zou \"On the maximum size\" Oddtown ordinary subsets",
+        "Umesh Shankar \"Oddtown and eventown\" lattice paths",
+        "An Eventown Result for Multisets Banerjee Dewan 2026",
+        "Oddtown multiset bounded multiplicities min intersection even 2-bounded"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The initial-segment encoding is an equivalence between multiplicity vectors and order ideals in a disjoint union of two-element chains.",
+        "Zou arXiv:2606.03613 treats arbitrary subsets, whereas this exact claim restricts them to blockwise initial segments."
+      ],
+      "reasoning": "Equivalent formulation as an Oddtown family of ideals of n disjoint two-element chains was searched. The classical unconstrained set-system bound of 2n survives but does not furnish the construction or first-five exact values.",
+      "searches": [
+        "\"Oddtown\" \"multisets\" 2-bounded",
+        "odd town set families ideals disjoint 2-chains orthogonal odd size intersection parity",
+        "Oddtown ideals of disjoint two chains at most 2n sharp lower bound 5n/3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact finite counts arise from 1,4,13,40,121 odd candidate vectors and exhaustive compatibility-clique counts, with replayable software.",
+        "Closest returned mathematical research record describes prescribed-difference matching multisets, not this extremal problem."
+      ],
+      "reasoning": "No matching exact minimum-intersection parity table or the 6-coordinate 10-word witness appeared in searched primary full texts or records. Search absence is not conclusive uniqueness evidence.",
+      "searches": [
+        "Oddtown two-bounded multisets minimum multiplicity intersection O_2(n) six coordinate ten example",
+        "odd multiset intersection parity ten compatible vectors six coordinates",
+        "\"Oddtown\" multisets \"minimum\" intersection parity"
+      ]
+    },
+    "rationale": "A complete review of the most directly comparable 2026 full texts shows different mathematical hypotheses or object classes. The classical Oddtown theorem gives the acknowledged 2n upper bound but not the ten-vector block or complete first-five profile. Searches for equivalent min-intersection, multiset, and two-chain-ideal formulations, including the published mathematical record, yielded no implication-covering result. Exact priority remains a stated risk.",
+    "residual_risks": [
+      "Possible uncatalogued equivalent theorem for odd-orthogonal families of ideals of disjoint two-element chains.",
+      "No bibliographic-priority certification or independent mathematical review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not supply the 2-bounded min-intersection family amplifier or initial profile, but does supply ordinary-set bound.",
+        "evidence": [
+          "Theorem 1.5 is on (a,b)-town families of ordinary subsets of an n-element set.",
+          "MSC2020 05D05; initial public date 2026-06-02."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.03613",
+        "material_read": "arXiv full accessible HTML: abstract, sections 1 and 2 including definitions and constructions, main results and descriptions of Section 4",
+        "method": "full-text HTML read and inspection of theorem statements and relevant definitions",
+        "title": "On the maximum size of (a,b)-town (mod k) families",
+        "trigger": "Recent Oddtown off-diagonal bound in extremal set theory"
+      },
+      {
+        "assessment": "Different object class and common-edge intersection, no implication to coordinatewise-minimum multiset intersection.",
+        "evidence": [
+          "Theorem 1.4 counts common-edge-even path families and Theorem 1.5 concerns common-edge-odd path families."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.23117",
+        "material_read": "arXiv full accessible HTML introduction, Theorems 1.4 and 1.5, common-edge intersection definitions, Section 2 proof setup",
+        "method": "full-text HTML reading and hypothesis comparison",
+        "title": "Oddtown and eventown theorems for lattice paths",
+        "trigger": "Oddtown analogues for constrained combinatorial objects"
+      },
+      {
+        "assessment": "Analyzes even-weight families only; its main theorem cannot settle the odd-family quantity.",
+        "evidence": [
+          "Definition imposes even cardinality of every member; Theorem 1 gives E_m(n), not O_m(n).",
+          "Initial public date 2026-10-15, hence not used as cohort anchor."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.21636",
+        "material_read": "arXiv full accessible HTML abstract, definitions, Theorem 1, extremal structures and proofs",
+        "method": "full-text HTML with direct comparison of the parity assumptions",
+        "title": "An Eventown Result for Multisets",
+        "trigger": "Same multiset intersection definition; possible dominating result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "013fa357-cd1f-47cd-bca0-ba419a5ae93e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The question is the direct Oddtown analogue for bounded multiplicities with the canonical minimum-based intersection. A first strict break of the n bound at 4 coordinates and a reusable 6-coordinate block yielding asymptotic density at least 5/3 distinguish the phenomenon structurally from ordinary Oddtown. Exact first-five values identify the minimal obstruction and give a reproducible base of a natural unfinished extremal programme. The ordinary-set bound and finite counts are not inflated into a solved general maximum.",
+    "status": "PASS"
+  }
+}
