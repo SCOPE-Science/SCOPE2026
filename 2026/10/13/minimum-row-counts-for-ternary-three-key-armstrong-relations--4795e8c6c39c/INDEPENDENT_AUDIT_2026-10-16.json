@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:04:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 21ceebe7bbd500cbaa79ea3b6e454bbafad41355",
+        "Assigned verify_python.py and verify_cpp.cpp complete source inspected",
+        "Independent TERNARY_ARMSTRONG_DIAGONAL_EXHAUSTIVE_OK for m=3,5,6; independent all explicit witness check",
+        "Chee Zhang Zhang 2015/2019 f(3,3)=7 and 7-column witness"
+      ],
+      "rationale": "A table with all minimal keys the 3-sets has each distinct row pair agreeing on at most two coordinates, and every coordinate pair is exactly the agreement set of a row pair. Thus C(m,2)>=C(n,2), m>=n. At diagonal m=n, all row pairs have exactly two agreements and are bijective witnesses for the column pairs. Encoding each column by its canonical partition of m rows into <=3 values gives a mask on row pairs. Pairwise column-mask intersections must have size exactly one, and no row-pair edge lies in three masks. Exhaustive increasing-index DFS on all canonical ternary partitions for m=3,5,6 (respectively 4,40,121 possibilities) finds no m-column family; independently written direct DFS reproduces zero terminal solutions with nonidentical search-node counts. Explicit displayed 4x4, 6x5 and 7x7 row witnesses and the 3- and 6-column projections pass all exact agreement tests. The previously proved upper length f(3,3)=7 handles n>=8. Therefore minima n=3..7 are [4,4,6,7,7]. Unlike a partial search, the canonical partition enumeration and coverage of every diagonal candidate are mathematically justified.",
+      "residual_risks": [
+        "Finite impossibility is computer-exhaustive not a separate formally verified certificate; independence between two prior verifiers and a new third checker reduces implementation error risk, not logical risk in the combinatorial reduction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chee–Zhang–Zhang prove maximal n=f(3,3)=7 and provide 7-row construction, but not every n-specific minimum-row obstruction.",
+          "Katona–Sali–Schewe general inequality m>=n leaves equality undecided for n=5 and 6."
+        ],
+        "reasoning": "Knowing n<=7 and a single n=7 witness does not imply the two strict lower bounds; these require new exact diagonal obstructions.",
+        "searches": [
+          "Chee Zhang Zhang Complexity of Dependencies in Bounded Domains Armstrong Codes and Generalizations Prop 6",
+          "Katona Sali Schewe Codes that attain minimum distance in every possible direction 2008"
+        ]
+      },
+      "checked_sources": [
+        "Chee Zhang Zhang full arXiv:1906.06070",
+        "Katona Sali Schewe DOI 10.2478/s11533-008-0001-4 bibliographic/statement",
+        "Ganter Gronau Mullin 1994 bibliographic record",
+        "Resultary ternary exact-family queries and related records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior universal lower bound is m>=n.",
+          "New exact diagonal searches reject m=n at n=5 and6; explicit m=n+1 witness constructions attain the new lower bounds."
+        ],
+        "reasoning": "The added strict gaps do not follow from prior general bounds and existence at n=7; together with inherited length upper bound they yield the complete profile.",
+        "searches": [
+          "Chee Zhang Zhang arxiv:1906.06070 Propositions and example",
+          "Katona Sali Schewe 2008 general counting bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chee Zhang Zhang recast ternary minimal-key instances as Armstrong codes; the condition translates to exact row-pair agreement sets of size two.",
+          "Semantic search returned ternary perfect hash families, which demand a different row-separation condition."
+        ],
+        "reasoning": "The candidate equivalently determines minimum code size at fixed ternary length and minimum Armstrong relation rows; no identical published minimum profile identified.",
+        "searches": [
+          "ternary Armstrong code minimal keys triples agreement sets exactly column pairs",
+          "Resultary: Armstrong code ternary alphabet minimal keys all triples minimal rows 4 4 6 7 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known 7x7 table is reused and attributed as an upper-bound witness.",
+          "Orthogonal double covers concern edge-cover structures with no ternary <=3 classes constraint.",
+          "Resultary perfect hash coding is a different incidence condition and cannot directly determine these minima."
+        ],
+        "reasoning": "Known witness tables do not settle min row counts n=5 and 6; exact three-symbol partition-mask enumeration is additional work.",
+        "searches": [
+          "Chee Zhang Zhang Example 1 7x7 ternary table",
+          "Ganter Gronau Mullin On Orthogonal Double Covers of K_n 1994",
+          "Resultary exact classification of three-row ternary perfect hash families e1542e723907"
+        ]
+      },
+      "rationale": "Chee–Zhang–Zhang prove the maximum admissible ternary attribute length seven and exhibit a seven-row seven-column Armstrong code. Katona–Sali–Schewe give general coding/bounded domain lower bounds and m>=n, while older Beeri–Dowd–Fagin–Statman treat general Armstrong relation sizes. The candidate’s strict diagonal impossibility at n=5,6 and complete minimum-row function [4,4,6,7,7] are absent from the inspected principal papers. These finite exact naturally parameterized minima are not known-table repetition: n=5,6 require exhaustive partition obstructions. Residual priority risk from specialized unindexed conference appendices or orthogonal double cover enumerations.",
+      "residual_risks": [
+        "Specialized Armstrong-code or orthogonal-double-cover enumerations may contain the n=5,6 strict gaps; those possible works were not exhaustively full-text verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING",
+          "evidence": "Maximal admissible n=7 and one matching upper-bound table are known; strict n=5 and6 diagonal lower bounds and full min-row profile are not stated.",
+          "identifier_or_url": "https://arxiv.org/pdf/1906.06070",
+          "material_read": "Full 9-page authorized arXiv PDF including Proposition 6 f(3,3)=7 and the 7x7 ternary construction in Example 1",
+          "method": "ArXiv full PDF with rendered pages",
+          "title": "Complexity of Dependencies in Bounded Domains, Armstrong Codes, and Generalizations",
+          "trigger": "Most relevant primary source of same ternary three-key coding problem"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+          "evidence": "The general bound is consistent but a possible specialized exact equality classification in inaccessible portions remains priority risk; do not claim whole-paper noncoverage.",
+          "identifier_or_url": "https://doi.org/10.2478/s11533-008-0001-4",
+          "material_read": "Bibliographic record and quoted general m>=n formulation; complete 2008 text not independently retrieved",
+          "method": "Published abstract/result statements; not full text",
+          "title": "Codes that attain minimum distance in every possible direction",
+          "trigger": "General bounded-domain coding lower bounds and potential exact equality theorem"
+        },
+        {
+          "assessment": "NOT_ESTABLISHED_COVERAGE",
+          "evidence": "No inference that orthogonal double-cover feasibility with unrestricted partitions implies the <=3-symbol Armstrong row counts.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20037/volume-37-paper-19.pdf",
+          "material_read": "Bibliographic record and high-level cover theorem only; complete relevant proof not independently read",
+          "method": "Accessible publisher reference/summary",
+          "title": "On Orthogonal Double Covers of K_n",
+          "trigger": "Potential graph-design equivalent of diagonal row/column-pair incidence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chee Zhang Zhang 2015/2019 f(3,3) maximal length",
+        "Independent exhaustive diagonal search and explicit witnesses"
+      ],
+      "rationale": "Minimum row count for a small-domain table realizing every 3-column minimal key is a canonical exact database-design/coding-theory invariant, not an arbitrary slice. The strict n=5 and6 gaps provide genuinely new finite feasibility boundaries beyond the m>=n general lower bound, and the full profile through maximal n=7 is complete with explicit constructions and exhaustive obstructions. This is useful independently as a benchmark for bounded-domain Armstrong code constructions.",
+      "residual_risks": [
+        "Computer-assisted finite classification depends on correctly encoding all candidate ternary partitions; independent replay and combinatorial reasoning were used, but not formal proof verification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Computer-assisted finite classification depends on correctly encoding all candidate ternary partitions; independent replay and combinatorial reasoning were used, but not formal proof verification.",
+    "Finite impossibility is computer-exhaustive not a separate formally verified certificate; independence between two prior verifiers and a new third checker reduces implementation error risk, not logical risk in the combinatorial reduction.",
+    "Scientific review complete but publication transport not_ready due to public privacy sanitization and recursive tree verification; no GitHub writes performed.",
+    "Specialized Armstrong-code or orthogonal-double-cover enumerations may contain the n=5,6 strict gaps; those possible works were not exhaustively full-text verified."
+  ],
+  "schema_version": 1
+}
