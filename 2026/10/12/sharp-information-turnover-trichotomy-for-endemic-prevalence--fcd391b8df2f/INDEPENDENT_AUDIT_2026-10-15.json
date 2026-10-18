@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T21:08:39.733838Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from Fang--Liu--Du reduced SIRM equilibrium equation (19), with k=a/b, u1=σu0 and c=(p+μ)(R0−1)>0, the endemic equation is βI+k u1 I/(1+k u2 I)=c. Its derivative in I is β+k u1/(1+k u2 I)^2>0, so exactly one positive root exists; the partial derivative in k is u1 I/(1+k u2 I)^2>0, giving strict dI/dk<0. Clearing denominators produces βk u2 I²+[β+k(u1−cu2)]I−c=0 and the rationalized positive quadratic root. Comparing signs of d=u1−cu2 proves: d>0 gives kI→c/d; d=0 gives √k I→sqrt(c/(βu2)); d<0 gives I→(c−u1/u2)/β. Independently checked representative parameter triples, exact quadratic residual formula, monotone k values, and scaled limits at k=10^10. Assumes β,u1,u2,k>0 and R0>1; no claims about stability, finite-k eradication, or delay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fang--Liu--Du (2026) DOI 10.3934/dcdsb.2026090 obtains unique endemic equilibrium and R0 independence of information turnover.",
+          "Buonomo et al., DOI 10.1002/mma.7808 studies a different meningitis model and numerical information-induced endemic changes."
+        ],
+        "reasoning": "General endemic-equilibrium and qualitative behavioral vaccination theorems do not dominate the exact 3-regime limit at fixed vaccination strength and arbitrary k.",
+        "searches": [
+          "Fang Liu Du 2026 Dynamics of multiple time scale SIRM model equations 18 21",
+          "behavior information-dependent vaccination saturated rate endemic asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "https://www.aimsciences.org/article/doi/10.3934/dcdsb.2026090",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-information-dependent-vaccination-shifts-endemic-burden-at-a-fix--1a0e363384fb",
+        "Resultary semantic read-only search for the exact corresponding theorem and implications"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier same-model Resultary result proves monotone I with a and b and its u0 growth asymptotic only; one cannot infer whether lim_{k→∞}I is zero or positive from strict monotonicity alone.",
+          "A singular-balance calculation of coefficient u1−cu2 produces the distinct phase transition."
+        ],
+        "reasoning": "No claim of novelty in the source equation or strict a/b monotonicity; the exact saturation boundary and scaling remain independent needed information beyond prior results.",
+        "searches": [
+          "Resultary published SCOPE-information-dependent-vaccination-shifts-endemic-burden-at-a-fix",
+          "Fang Liu Du 2026 equation19 endemic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary/2026 path 2026/10/4/SCOPE-information-dependent-vaccination-shifts-endemic-burden-at-a-fix--1a0e363384fb (complete RESULT.md, blob 0c2ab2ac186603a83e30e113e1f1c77f21be123e) proves a,b monotonicity.",
+          "Its u0→∞ limit at k fixed is NOT the present k→∞ with u0 fixed; denominator saturates differently in the latter."
+        ],
+        "reasoning": "Monotonicity is directly equivalent to a previous same-equilibrium comparison and is not novel. Distinct natural singular limit, boundary exponents and positive floor survive this precise comparison.",
+        "searches": [
+          "Resultary semantic information dependent vaccination SIRM model endemic equilibrium information turnover ratio saturation asymptotic k inverse square root trichotomy",
+          "Fang Liu Du model epidemic endemic infection growth decay ratio a b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known published same-model result tabulates no three large-k asymptotic constants; no consulted table defines this k→∞ invariant."
+        ],
+        "reasoning": "The asymptotic constants and k exponents are analytic consequences of a singular positive quadratic root rather than an entry in a found database.",
+        "searches": [
+          "SIRM u1 equals c u2 inverse square root endemic decay threshold",
+          "Resultary SIRM turnover trichotomy"
+        ]
+      },
+      "rationale": "A very close published Resultary/SCOPE result, \"Information-dependent vaccination shifts endemic burden at a fixed invasion threshold\" (2026-10-04), on exactly the Fang--Liu--Du endemic equation ALREADY proves strict variation in a,b,u0,u2, including k=a/b monotonicity; the current monotonicity must not be credited as new. That result takes u0→infinity (with k fixed), finding u0 I→Cb/(aσ); its statement and full proof do NOT supply the distinct k→infinity limit at fixed u0, where the k u1/(1+k u2 I) saturation creates three qualitatively distinct behaviors separated by u1=cu2. Fang's original full SIRM paper also gives existence/uniqueness but not the sharp 1/k,1/sqrt(k),positive-floor trichotomy. Accordingly originality survives narrowly in the global information-turnover asymptotic trichotomy, not comparative statics in isolation. Exact close comparison included; specialized older results might encode the same threshold.",
+      "residual_risks": [
+        "Asymptotic trichotomy follows a routine singular quadratic classification once Fangs endemic equation is given, so novelty is only a precise mathematically motivated source-specific limit, not a new general technique; specialized existing work may contain the same constants.",
+        "Previously published same-model monotonicity is explicitly excluded from any new-priority claim; stability and delays are outside final scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_EQUILIBRIUM_NOT_ASYMPTOTIC_TRICHOTOMY",
+          "evidence": "DOI 10.3934/dcdsb.2026090 provides the starting endemic quadratic, not explicit large-a/b three-case decay and floor threshold.",
+          "identifier_or_url": "https://www.aimsciences.org/article/doi/10.3934/dcdsb.2026090",
+          "material_read": "Publisher full-text HTML of system (18), endemic equations (19)--(21), uniqueness proof and discussion of R0 and turnover; source model normalization and positivity conditions compared directly.",
+          "method": "Primary full-text publisher HTML and equation comparison",
+          "title": "Dynamics of multiple time scale SIRM model with information-dependent vaccination",
+          "trigger": "Identical motivating 2026 model and endemic equation"
+        },
+        {
+          "assessment": "COVERS_MONOTONICITY_NOT_SINGULAR_K_TRICHOTOMY",
+          "evidence": "Derives ∂I/∂a<0, ∂I/∂b>0 and I→0 for u0→∞, but does not distinguish k→∞ critical equality u1=cu2 and positive floor at small vaccination cap.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-information-dependent-vaccination-shifts-endemic-burden-at-a-fix--1a0e363384fb",
+          "material_read": "Entire published RESULT.md fetched via GitHub blob 0c2ab2ac186603a83e30e113e1f1c77f21be123e; read all assumptions, proof derivatives, limit u0→∞, relationships and limitations.",
+          "method": "Actual GitHub primary scientific file full text",
+          "title": "Information-dependent vaccination shifts endemic burden at a fixed invasion threshold",
+          "trigger": "Strong same-model prior Resultary coverage, crucial overlapping implications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Information growth-to-decay turnover is a natural physical control ratio in the motivating epidemic model, and the ratio of saturation-limited vaccination u1/u2 to endemic drive c is a genuine qualitative regime divider. Unlike a bare derivative sign, the rates and positive floor distinguish when arbitrarily rapid information response can suppress endemic prevalence to zero, when suppression slows at critical balance, and when a positive floor persists. This sharp trichotomy supplies a motivated interpretation not contained in the prior four-parameter monotonicity theorem despite elementary quadratic algebra.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Asymptotic trichotomy follows a routine singular quadratic classification once Fangs endemic equation is given, so novelty is only a precise mathematically motivated source-specific limit, not a new general technique; specialized existing work may contain the same constants.",
+    "Previously published same-model monotonicity is explicitly excluded from any new-priority claim; stability and delays are outside final scope.",
+    "Public metadata sanitation and full source-tree-object validation not completed; the scientific verdict is independent of publication transport readiness."
+  ],
+  "schema_version": 1
+}

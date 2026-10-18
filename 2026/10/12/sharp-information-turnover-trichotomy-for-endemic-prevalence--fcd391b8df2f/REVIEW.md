@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Starting from the source's endemic equation (19), substituting \(\widetilde u_1=(a/b)u_1\) and \(\widetilde u_2=(a/b)u_2\) gives the stated scalar equation. Its partial derivatives have fixed positive signs, so the unique positive root decreases strictly with \(k=a/b\). Multiplication by the denominator gives a quadratic whose positive root and three large-\(k\) asymptotic regimes follow directly. No stability conclusion is inferred from equilibrium algebra.
+## correctness
 
-## Originality
-PASS. The motivating paper proves unique endemicity and discusses information-vaccination strength and saturation numerically, but the inspected full text does not state monotonicity in \(a/b\) or the sharp \(k^{-1}\)/\(k^{-1/2}\)/positive-floor trichotomy. Searches for equivalent formulations, saturation thresholds, and information-turnover asymptotics found related behavioral-vaccination models but no implication-equivalent statement.
+PASS
 
-## Value
-PASS. The result resolves a natural question left by the source's observation that information parameters do not change \(\mathcal R_0\): it quantifies exactly how the same parameters can nevertheless change endemic burden. The threshold \(u_1/u_2=c\) separates asymptotic suppression from an unavoidable endemic floor and identifies a critical square-root slowdown, providing a structural interpretation of saturation rather than a parameter-slice computation.
+Starting from Fang--Liu--Du reduced SIRM equilibrium equation (19), with k=a/b, u1=σu0 and c=(p+μ)(R0−1)>0, the endemic equation is βI+k u1 I/(1+k u2 I)=c. Its derivative in I is β+k u1/(1+k u2 I)^2>0, so exactly one positive root exists; the partial derivative in k is u1 I/(1+k u2 I)^2>0, giving strict dI/dk<0. Clearing denominators produces βk u2 I²+[β+k(u1−cu2)]I−c=0 and the rationalized positive quadratic root. Comparing signs of d=u1−cu2 proves: d>0 gives kI→c/d; d=0 gives √k I→sqrt(c/(βu2)); d<0 gives I→(c−u1/u2)/β. Independently checked representative parameter triples, exact quadratic residual formula, monotone k values, and scaled limits at k=10^10. Assumes β,u1,u2,k>0 and R0>1; no claims about stability, finite-k eradication, or delay.
 
-## Closest literature and limitations
-The closest source is Fang, Liu and Du (2026), DOI 10.3934/dcdsb.2026090. Buonomo et al. (2022), DOI 10.1002/mma.7808, studies information-dependent vaccination in a different meningitis model and reports numerical endemic-prevalence effects. Kumar et al. (2019), DOI 10.1016/j.matcom.2018.09.024, treats information-induced vaccination with saturated treatment in a different SVIR system; only abstract-level material was reliably available for comparison. The theorem is restricted to the reduced \(\tau=0\) equilibrium equation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A very close published Resultary/SCOPE result, "Information-dependent vaccination shifts endemic burden at a fixed invasion threshold" (2026-10-04), on exactly the Fang--Liu--Du endemic equation ALREADY proves strict variation in a,b,u0,u2, including k=a/b monotonicity; the current monotonicity must not be credited as new. That result takes u0→infinity (with k fixed), finding u0 I→Cb/(aσ); its statement and full proof do NOT supply the distinct k→infinity limit at fixed u0, where the k u1/(1+k u2 I) saturation creates three qualitatively distinct behaviors separated by u1=cu2. Fang's original full SIRM paper also gives existence/uniqueness but not the sharp 1/k,1/sqrt(k),positive-floor trichotomy. Accordingly originality survives narrowly in the global information-turnover asymptotic trichotomy, not comparative statics in isolation. Exact close comparison included; specialized older results might encode the same threshold.
+
+## value
+
+PASS
+
+Information growth-to-decay turnover is a natural physical control ratio in the motivating epidemic model, and the ratio of saturation-limited vaccination u1/u2 to endemic drive c is a genuine qualitative regime divider. Unlike a bare derivative sign, the rates and positive floor distinguish when arbitrarily rapid information response can suppress endemic prevalence to zero, when suppression slows at critical balance, and when a positive floor persists. This sharp trichotomy supplies a motivated interpretation not contained in the prior four-parameter monotonicity theorem despite elementary quadratic algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
