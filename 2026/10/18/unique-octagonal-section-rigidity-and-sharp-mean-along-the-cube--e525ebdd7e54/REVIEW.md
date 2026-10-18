@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The polytope has exactly six coordinate and eight signed diagonal facets for every interior parameter. For generic central planes, counting intersected facets equals polygon vertex count. The lower and upper chamber inequalities are derived from explicit facet vertices and maximization of linear forms; the transition polytope is treated separately. All possible indicator combinations are bounded and each asserted count has an explicit strictly feasible normal for every parameter. The expectation follows from the exact edge-crossing angular probability, with independently enumerated edge types (24 plus 12 or 12 plus 24); both derivatives have a strict, analytically proved sign. The accompanying standalone checker passed 21,151 rational-parameter/integer-normal exact tests and six Gaussian expectation comparisons. The theorem does not use finite sampling to justify an infinite statement.
+
+## Originality — PASS, subject to historical priority risk
+The primary article on central combinatorial slicing [arxiv:2609.16195, full HTML read] discusses general section-vertex functions and reconstruction, but does not contain the explicit cuboctahedral 14-facet chamber laws or their Haar expectation. The 2024 article [arxiv:2412.12419, lawful full-text HTML reproduction inspected] discusses maximum section counts, missing sizes, stacked solids, and cubes, not this full interpolation family. Full published mathematical results on the identical family concern (i) tetrahedral maximum-volume determinants, (ii) ordinary illumination, and (iii) the antipodally even centro-affine spectrum: these invariants neither imply section-vertex inequalities nor its mean. The closest prior records are named and implication-compared in the structured audit. A differently phrased older catalog of cuboctahedral central sections remains a genuine residual risk; there is no claim of exhaustive historical priority.
+
+## Mathematical value — PASS
+The question is motivated by current interest in central section-vertex data. The result is a complete natural one-parameter classification rather than a single empirical solid count: it classifies every generic orientation, proves the complete attainable count spectrum with nonempty open chambers, isolates the rectification parameter by constant octagonal sections, and solves the exact Haar-mean extremal problem with a strict global maximum. The phenomenon has geometric content despite retaining the same fourteen facets throughout: the 24 vertices coalesce to 12 at the special parameter and remove all variation in the section-vertex count. This is not a minor numerical gain or a known-table recomputation.
+
+## Boundaries and independent validation
+Exceptional planes passing through vertices may have different section types. The paper does not treat affine-offset sections, dimension greater than three, or all possible octahedrally symmetric convex polytopes. The self-review is not an independent audit.
+
+Self-review: passed. Independent audit: not yet performed.
