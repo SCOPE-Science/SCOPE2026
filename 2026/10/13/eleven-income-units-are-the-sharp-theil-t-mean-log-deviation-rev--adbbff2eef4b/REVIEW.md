@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** At fixed household count \(n\) and total income \(S\), Theil \(T\) is an additive constant plus \(S^{-1}\log Q\), where \(Q=\prod_i x_i^{x_i}\). Mean log deviation is an additive constant minus \(n^{-1}\log P\), where \(P=\prod_i x_i\). Every ranking comparison therefore reduces to exact integer products. Exhaustive enumeration of every positive integer partition for all \(2\le n\le S\le11\) proves identical weak orderings through total ten and exactly three reversals at total eleven. The packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: zero incomes make mean log deviation divergent, and arbitrary real-valued incomes remove the absolute-grid interpretation.
+PASS
 
-## Originality
-**PASS.** Prior literature establishes the generalized-entropy family, the formulas for \(GE(0)\) and \(GE(1)\), decomposability, and the fact that parameter choice changes distributional sensitivity. Targeted searches using Theil \(T\), Theil \(L\), mean log deviation, \(GE(0)\), \(GE(1)\), exact profile vectors, fixed-total positive integer incomes, and ranking-reversal language did not locate the finite theorem proved here.
+For positive integer income profile x with n households and total S, direct logs give Theil T=(1/S)log∏x_i^{x_i}+log(n/S), MLD=log(S/n)−(1/n)log∏x_i. Thus signs depend exactly on integers Q=∏x_i^{x_i} and P=∏x_i with opposite direction for MLD. Enumerate all nondecreasing compositions/partitions x of S for 2≤n≤S≤11 and every within-(n,S) pair (408 total). Independent full integer census finds no even weak discrepancy for S≤10 and three strict reversals at S=11: (1,4,6)/(2,2,7), (1,5,5)/(2,2,7), (1,3,3,4)/(2,2,2,5). Independent Q and P products match given integers exactly. No float comparisons used.
 
-Risk: because the sharp layer is small, an unindexed exercise or software fixture could contain an individual witness.
+## originality
 
-## Value
-**PASS.** The two indices are canonical generalized-entropy endpoints and are used precisely because they emphasize different regions of an income distribution while retaining decomposability. The result identifies the smallest positive-integer resolution at which that difference overturns an ordinal inequality comparison and classifies the entire first layer rather than supplying an arbitrary example.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Generalized entropy endpoints, their decomposability, and rank sensitivity are classical. The finite partition-lattice smallest strict ranking-reversal threshold S=11 and three complete first-layer pairs were not implied or tabulated in available checked prior statements. This is a narrow arithmetic-granularity finding, not an allegedly new inequality measure.
+
+## value
+
+PASS
+
+Theil T and mean log deviation are canonical generalized-entropy endpoints with contrasting tail sensitivity. The exact first integer total at which their ordinal judgments conflict identifies a natural resolution boundary, and three-pair complete first layer improves on an arbitrary numerical example. Scope is mathematically finite and motivated, with no claim of absolute monetary universality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

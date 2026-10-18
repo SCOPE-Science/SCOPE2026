@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,60 +18,25 @@
   "schema_version": 1
 }
 ---
-For fixed household count
-\[
-n
-\]
-and total income
-\[
-S,
-\]
-define
-\[
-Q(x)=\prod_i x_i^{x_i}
-\]
-and
-\[
-P(x)=\prod_i x_i.
-\]
 
-Theil \(T\) satisfies
-\[
-T(x)=\frac1S\log Q(x)+\log\left(\frac nS\right),
-\]
-so its ordering is exactly the ordering of \(Q\).
+# Independent mathematical audit
 
-Mean log deviation satisfies
-\[
-L(x)=\log\left(\frac Sn\right)-\frac1n\log P(x),
-\]
-so its ordering is the reverse ordering of \(P\).
+## correctness
 
-The embedded `verify_theil_mld_boundary.py` enumerates every positive integer partition for
-\[
-2\le n\le S\le11
-\]
-and checks all
-\[
-408
-\]
-unordered within-\((n,S)\) profile pairs.
+PASS
 
-It finds no weak-order disagreement through
-\[
-S=10
-\]
-and exactly three strict reversals at
-\[
-S=11.
-\]
+For positive integer income profile x with n households and total S, direct logs give Theil T=(1/S)log∏x_i^{x_i}+log(n/S), MLD=log(S/n)−(1/n)log∏x_i. Thus signs depend exactly on integers Q=∏x_i^{x_i} and P=∏x_i with opposite direction for MLD. Enumerate all nondecreasing compositions/partitions x of S for 2≤n≤S≤11 and every within-(n,S) pair (408 total). Independent full integer census finds no even weak discrepancy for S≤10 and three strict reversals at S=11: (1,4,6)/(2,2,7), (1,5,5)/(2,2,7), (1,3,3,4)/(2,2,2,5). Independent Q and P products match given integers exactly. No float comparisons used.
 
-Run:
+## originality
 
-`python3 verify_theil_mld_boundary.py`
+PASS
 
-The first output line must be:
+Generalized entropy endpoints, their decomposability, and rank sensitivity are classical. The finite partition-lattice smallest strict ranking-reversal threshold S=11 and three complete first-layer pairs were not implied or tabulated in available checked prior statements. This is a narrow arithmetic-granularity finding, not an allegedly new inequality measure.
 
-`VERIFY_OK`
+## value
 
-No floating-point logarithm comparison is used for the cutoff or first-layer classification.
+PASS
+
+Theil T and mean log deviation are canonical generalized-entropy endpoints with contrasting tail sensitivity. The exact first integer total at which their ordinal judgments conflict identifies a natural resolution boundary, and three-pair complete first layer improves on an arbitrary numerical example. Scope is mathematically finite and motivated, with no claim of absolute monetary universality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
