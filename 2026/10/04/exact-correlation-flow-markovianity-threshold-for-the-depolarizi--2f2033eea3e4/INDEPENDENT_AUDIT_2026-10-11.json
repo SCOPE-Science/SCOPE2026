@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T18:17:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual RESULT.md blob 0ffb6c6f42f30c9bbb2750f7c3a844b4f466e5f0",
+        "actual verify_lfs_threshold.py blob 6202cfe422fb9bc1fd21080d2c6e7248aaf9ab62",
+        "independent information-derivative AM-GM and maximum reconstruction",
+        "Apollaro et al arXiv:1311.2045 primary PDF"
+      ],
+      "rationale": "For isotropic depolarizing plus one-spin Ising memory, write q=e^{-gamma*u}, r=sqrt(1-(1-z^2)*sin(u)^2), and correlation-state eigenvalues a,a,b,c with a=(1-q)/4, b=(1+q+2qr)/4,c=(1+q-2qr)/4. Their mutual information has I_q>0 by strict convexity of relative entropy in q, and I_r>=0. The key ratio I_r/(qI_q)<=2r/(1+2r^2) is EXACTLY the weighted AM-GM statement C^(1+r)>=B^(1-r) A^(2r) for A=1-q,B=1+q+2qr,C=1+q-2qr. Its bound is sharp as q->0 by quadratic expansion. On rising r branches, the rate is controlled by F_z(y)=2(1-z^2)*sqrt(y(1-y))/(3-2(1-z^2)y); differentiation yields unique maximum y*=3/(2(2+z^2)) and threshold (1-z^2)/sqrt(3(1+2z^2)). Above it all rates are nonpositive; below it repeated late rising branches with q->0 make them positive, including gamma=0 by periodicity. z=1 has r constant and threshold zero. Verified boundary z=0 gives 1/sqrt(3) and ratio to the published LPP threshold <=1. Independently evaluated a grid of the ratio and geometric maxima; the all-time iff statement follows from the AM-GM proof, not sampling.",
+      "residual_risks": [
+        "Witness-specific LFS criterion only; not CP-divisibility, RHP, BLP or other channels.",
+        "At q=1 the differentiability argument is interpreted by one-sided/continuity limits; gamma=0 handled via direct oscillation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary article gives exact RHP/BLP/LPP boundaries but states LFS was treated numerically, with universal threshold about 0.6.",
+          "A general definition of LFS or applications to dephasing/dissipative reservoirs cannot imply the precise depolarizing–Ising threshold function."
+        ],
+        "reasoning": "Source model coverage is stronger in breadth of witnesses, but not an exact analytic solution of this particular witness threshold.",
+        "searches": [
+          "Apollaro arXiv:1311.2045 same-model PDF detailed LFS discussion",
+          "Luo Fu Song PRA 86 044101",
+          "Addis et al arXiv:1402.4975 comparison of different reservoirs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1311.2045 full primary model paper",
+        "DOI 10.1103/PhysRevA.90.012310",
+        "DOI 10.1103/PhysRevA.86.044101",
+        "arXiv:1402.4975 (scope)",
+        "GitHub SCOPE code search: Markovianity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly leaves the LFS boundary without analytic treatment; the audited AM-GM inequality and sharp late-time limit supply the missing implication.",
+          "Other analytic witness thresholds cannot determine the LFS threshold because the measures are inequivalent."
+        ],
+        "reasoning": "The new analytic threshold is not a parameter change of the three existing exact source thresholds, though it is consistent with their hierarchy.",
+        "searches": [
+          "Apollaro et al 2014 paper full primary LFS numerical discussion",
+          "Luo–Fu–Song 2012 correlation-flow definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source defines the identical isotropic depolarizing plus Ising competition and numerical LFS rate.",
+          "The Luo–Fu–Song correlation witness is general and does not contain the model-specific radical threshold."
+        ],
+        "reasoning": "Compared correlation-flow/backflow rate, mutual-information derivative, dimensionless gamma=gamma_0/|J|, absolute polarization z and exact channel-specific transition.",
+        "searches": [
+          "Attempted Resultary: depolarizing Ising memory Luo Fu Song 1/sqrt3 threshold (temporarily_unavailable)",
+          "GitHub SCOPE code search: Markovianity (zero indexed results)",
+          "arXiv:1311.2045",
+          "DOI 10.1103/PhysRevA.86.044101"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected original article table contains an exact analytic gamma*(z); the source supplies only numerical plots and approximate 0.6."
+        ],
+        "reasoning": "A numeric phase diagram does not entail the exact radical boundary, sharp iff condition or equality case; failure of search is not treated as novelty proof.",
+        "searches": [
+          "Attempted Resultary exact LFS radical and 1/sqrt3 (incomplete query)",
+          "GitHub SCOPE indexed search: Markovianity",
+          "Targeted web: LFS Ising depolarizing analytic threshold 1/sqrt3"
+        ]
+      },
+      "rationale": "The same-model primary Apollaro et al paper derived analytic thresholds for other witnesses but explicitly handled the Luo–Fu–Song (LFS) correlation-flow threshold numerically and reported a universal value near 0.6. It did not give the radical threshold (1-z^2)/sqrt(3(1+2z^2)), its exact uniform max 1/sqrt(3), nor the global all-time sharpness proof. Nearby LFS references define the measure or compare different reservoir models. This is an exact solution of the source’s left-numerical threshold, original to the best of inspected evidence.",
+      "residual_risks": [
+        "A targeted published-finding semantic search was attempted but returned temporarily_unavailable/search_internal_error with search_completed=false; it is not treated as evidence that no overlapping record exists. A current GitHub code-search query of the public SCOPE repository returned no match, which is also not proof of novelty.",
+        "An unindexed follow-up could have derived the same radical expression under a different rescaled noise rate or polarization notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL AND NUMERIC THRESHOLD, NOT CLOSED-FORM LFS SOLUTION",
+          "evidence": "The authors report LFS threshold about 0.6 and say it is not obtained analytically there, while giving analytic expressions for other witnesses.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.2045",
+          "material_read": "Accessible arXiv full-PDF text including model, depolarizing specialization, LFS rate and numerical threshold discussion; relevant pages also visually inspected.",
+          "method": "Primary mathematical statement/parameter matching against exact formula.",
+          "title": "Competition between memory-keeping and memory-erasing decoherence channels",
+          "trigger": "Primary same-model source with approximate LFS threshold"
+        },
+        {
+          "assessment": "DEFINES WITNESS, NO VERIFIED SAME-MODEL FORMULA",
+          "evidence": "General LFS correlation criterion cannot by itself state the model-specific optimal depolarizing rate.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.86.044101",
+          "material_read": "Accessible bibliographic/abstract scope and identifying citation; full article not inspected in this run.",
+          "method": "Definition-level scope comparison.",
+          "title": "Quantifying non-Markovianity via correlations",
+          "trigger": "Original definition of mutual-information LFS witness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Apollaro et al numerical LFS source",
+        "reconstructed sharp threshold proof",
+        "original Luo–Fu–Song witness definition"
+      ],
+      "rationale": "Replacing an explicitly numerical and approximate Markovianity boundary in a standard open-system channel competition model with a sharp analytic iff threshold across all initial memory polarizations is a motivated mathematical gap. The weighted-AM-GM estimate and sharp late-time asymptotics provide a usable exact phase diagram and settle the strongest noise rate 1/sqrt3 rather than merely improving a decimal fit.",
+      "residual_risks": [
+        "Only this witness/channel specialization; does not resolve model-independent quantum Markovianity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "J nonzero, isotropic depolarizing, one Ising memory spin, gamma>=0 and 0<=z<=1.",
+    "Only Luo–Fu–Song non-Markovianity, not CP-divisibility.",
+    "Full primary source was read for the model; originality beyond searched sources remains best-of-knowledge."
+  ],
+  "schema_version": 1
+}
