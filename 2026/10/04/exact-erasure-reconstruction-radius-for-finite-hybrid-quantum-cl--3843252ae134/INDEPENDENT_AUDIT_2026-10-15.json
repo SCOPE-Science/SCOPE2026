@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T07:50:48.796051Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For full flagged erasure the unerased branch may apply the exact target conditional expectation, while the erased branch is any replacer state. For a sector i, complete positivity of T_i(X)=d_i Tr(X)I-X follows from Choi d_i I⊗I-|Omega_i><Omega_i| >= 0 (|Omega_i|^2=d_i). For any reference, eta_i^(RA_i) <= d_i rho_R⊗I_(A_i), hence the target block is <= S rho_R⊗(sigma_*)_i with S=sum d_i^2 and sigma_* sector weight d_i^2/S. The resulting common positive part of normalized target and replacer states weighs at least 1/S, giving diamond upper bound 2(1-1/S). For any replacer sigma with sector weights q_i, some i has q_i/d_i^2<=1/S; a maximally entangled RA_i input and binary effect |Phi_i><Phi_i|⊗I_(B_i) have ideal probability 1 versus replacer q_i/d_i^2, giving matching diamond lower bound. For flagged probability p the same witness yields 2p(1-1/S), and the upper construction is scaled by p. The argument handles arbitrary entangled references, any positive gauge m_i, S=1 and p=0,1, and uses UNHALVED diamond norm. It does not rely on a finite test or unproved general channel optimization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bény Theorem 3.1 provides general reconstruction/disturbance estimates, not an exact radius for every matrix-block algebra under total erasure.",
+          "Bény–Oreshkov studies worst-case entanglement fidelity rather than unhalved diamond distance."
+        ],
+        "reasoning": "The general bounds do not, without further exact minimax work, evaluate 2p(1-1/S); a different error metric need not imply an exact diamond result.",
+        "searches": [
+          "arXiv:0907.4207 full text Theorem 3.1 approximate correctability",
+          "arXiv:0907.5391 optimal QEC worst-case entanglement fidelity",
+          "finite hybrid quantum classical erasure conditional expectation diamond norm reconstruction radius"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0907.4207",
+        "arXiv:quant-ph/0203105",
+        "arXiv:0907.5391",
+        "2026/10/4/SCOPE-exact-erasure-reconstruction-radius-for-finite-hybrid-quantum-cl--3843252ae134",
+        "2026/10/4/SCOPE-the-canonical-rank-one-aqec-comparator-is-never-fixed-noise-stat--962c4cdcb0d3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The capacity result S=||lambda||_2^2 does not itself yield a channel distinguishability minimax.",
+          "The proof of epsilon=2p(1-1/S) uses Choi domination and an entangled sector-discrimination witness not present in the compared metric definitions."
+        ],
+        "reasoning": "The algebra decomposition and shape vocabulary were known; the new equality is not a formal corollary of that information without proving the sharp replacer radius.",
+        "searches": [
+          "arXiv:0907.4207 definition of epsilon_A and complementary-channel bounds",
+          "arXiv:quant-ph/0203105 shape p norm capacities",
+          "finite hybrid quantum classical erasure conditional expectation diamond norm reconstruction radius"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary top hit 2026/10/4/SCOPE-exact-erasure-reconstruction-radius-for-finite-hybrid-quantum-cl--3843252ae134 repeats the very claim under audit; no other high-ranked hit reported the same conditional-expectation-versus-replacer diamond norm formula.",
+          "Bény arXiv:0907.4207 defines the same algebra projector and diamond reconstruction error, but not a closed-form exact flagged erasure specialization in inspected statements."
+        ],
+        "reasoning": "Equivalent terminology could be completely bounded trace norm of a conditional expectation minus a replacer; that is the main residual risk and was searched explicitly. Self-match is not independent corroboration.",
+        "searches": [
+          "finite hybrid quantum classical erasure conditional expectation diamond norm reconstruction radius",
+          "GitHub SCOPE2026 code search: erasure conditional expectation diamond algebra",
+          "finite dimensional C-star conditional expectation replacer diamond norm sum squared block dimensions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kuperberg tabulates/classifies shape p-norms and their capacity meaning; not erasure recovery errors.",
+          "The Bény framework includes special subspace cases and general inequalities, not a table of all direct-sum erasure radii in material read."
+        ],
+        "reasoning": "The claim evaluates a new minimax channel-distance quantity rather than copying a capacity or generic-algebra table.",
+        "searches": [
+          "arXiv:quant-ph/0203105 memory shape 2-norm capacity",
+          "arXiv:0907.4207 algebra reconstruction examples"
+        ]
+      },
+      "rationale": "PASS best of knowledge, with explicit risk: Bény's full algebraic approximate-correction framework defines a diamond metric but not an exact formula for hybrid flagged-erasure replacer radius in the material inspected. Kuperberg supplies the same shape 2-norm but for communication capacity, and Bény–Oreshkov optimize a different worst-case fidelity. The exact direct-sum sector minimax and dimension-S constant-channel distance are not implied without the new CP domination and maximally entangled witness arguments.",
+      "residual_risks": [
+        "A precise completely bounded norm formula for conditional expectation minus a replacer may exist under different operator-algebra terminology outside the searched set.",
+        "Only standard flagged total erasure is proved; selective erasure, leaked side information and infinite dimensions are not treated.",
+        "The Bény–Oreshkov full mathematical body was not read; only its abstract metric comparison is used and is not represented as a comprehensive exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bounds and projector framework; no exact all-hybrid-sectors flagged erasure minimax formula identified in the inspected material.",
+          "evidence": "The source epsilon_A uses diamond norm and finite-dimensional algebra projector.",
+          "identifier_or_url": "arXiv:0907.4207; DOI:10.1007/978-3-642-10698-9_7",
+          "material_read": "Open arXiv paper abstract, introduction and sections defining the protected algebra, projector and diamond reconstruction metric; Theorem 3.1 and relevant approximate-correction discussion",
+          "method": "Authorized open arXiv PDF/text inspection of mathematical definitions and theorem",
+          "title": "Conditions for the approximate correction of algebras",
+          "trigger": "Original algebraic reconstruction error definition and conditional expectation"
+        },
+        {
+          "assessment": "Provides shape lambda=(d_i) and p-norm capacity interpretation, not worst-case diamond recovery under flagged total erasure.",
+          "evidence": "The relevant 2-norm is sqrt(sum d_i^2) but the operational quantity is communication capacity.",
+          "identifier_or_url": "arXiv:quant-ph/0203105; DOI:10.1109/TIT.2003.811917",
+          "material_read": "Open arXiv manuscript introductory model and shape p-norm capacity discussion",
+          "method": "Read mathematical model and shape/capacity statements in open full-text paper",
+          "title": "The capacity of hybrid quantum memory",
+          "trigger": "Hybrid direct-sum shape and squared 2-norm"
+        },
+        {
+          "assessment": "Optimizes worst-case entanglement fidelity rather than directly presenting the claimed diamond-norm radius in its abstract.",
+          "evidence": "Metric explicitly named worst-case entanglement fidelity in abstract.",
+          "identifier_or_url": "arXiv:0907.5391; DOI:10.1103/PhysRevLett.104.120501",
+          "material_read": "Open abstract and bibliographic/source summary only, not full mathematical body",
+          "method": "Public abstract inspection; full-text noncoverage not asserted",
+          "title": "General Conditions for Approximate Quantum Error Correction and Near-Optimal Recovery Channels",
+          "trigger": "Broader recovery optimization work involving hybrid codes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: An exact single-shot operational reconstruction cost for every finite direct-sum quantum-classical memory is a natural sharp invariant. It exposes the dimensional S=sum d_i^2 rule and gauge-independence across a large class of hybrid codes; the theorem is independently useful even without a general code recovery result for non-erasure noise.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A precise completely bounded norm formula for conditional expectation minus a replacer may exist under different operator-algebra terminology outside the searched set.",
+    "Only standard flagged total erasure is proved; selective erasure, leaked side information and infinite dimensions are not treated.",
+    "The Bény–Oreshkov full mathematical body was not read; only its abstract metric comparison is used and is not represented as a comprehensive exclusion.",
+    "Both AUDIT.json and METADATA.json retain original operational provenance; publication is not_ready pending confidential-safe transformation, irrespective of science PASS."
+  ],
+  "schema_version": 1
+}
