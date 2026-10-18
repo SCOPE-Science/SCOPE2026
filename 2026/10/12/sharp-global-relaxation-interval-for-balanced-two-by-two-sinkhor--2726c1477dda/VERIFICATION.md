@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,31 +18,25 @@
   "schema_version": 1
 }
 ---
-The main theorem is a symbolic statement about every strictly positive \(2\times2\) kernel and all strictly positive starts. Its correctness rests on exact log-ratio identities, a strictly convex coercive potential, a compact descent argument, and convergence of a scalar driven affine recursion. No finite test can replace those steps.
 
-The standalone checker replays the log-ratio algorithm for the positive kernel
-\[
-K=\begin{pmatrix}100&1\\1&100\end{pmatrix}.
-\]
-This kernel has the exact balanced coupling
-\[
-P_*=K/202.
-\]
-Its Birkhoff factor equals \(99/101\), so the general Hilbert-contractivity guarantee ends at the exact upper endpoint
-\[
-\frac{101}{100}.
-\]
-The checker confirms potential descent and projective convergence at \(\omega=19/10\), far beyond that general bound; it also checks the exact reflection identity at \(\omega=2\) numerically from several nonoptimal states.
+# Independent mathematical audit
 
-The analytic nonconvergence witness starts from the projective ratios
-\[
-x_0=\log2,\qquad y_0=0.
-\]
-The initial potential gap is exactly
-\[
-\Phi(x_0,y_0)-\Phi(0,0)
-=\log\left(\frac{3}{2\sqrt2}\right)>0.
-\]
-At \(\omega=2\) this positive gap is preserved forever, so the coupling cannot tend to \(P_*\). At \(\omega>2\) it cannot decrease, giving the corresponding exclusion without numeric approximation.
+## correctness
 
-The checker additionally tests a positive non-symmetric kernel and verifies that the normalized row and column marginal residuals approach zero. It is corroborative rather than a complete numerical certificate of the infinite theorem.
+PASS
+
+Writing x=log(u1/u2), y=log(v1/v2) yields exact successive affine omega-relaxations to x_*(y)=log(B/A), y_*(x)=log(D/C). The log-partition potential satisfies Phi(x,y)=log(2sqrt(AB))+log cosh((x-x_*)/2) and analogously for columns, so each half-step strictly decreases it for |1-omega|<1. All Kij positive make Phi strictly convex and coercive, giving unique projective limit through compact-sublevel descent. The common scaling product w follows affine recursion coefficient (1-omega)^2<1 with forcing tending to its balanced value, proving convergence of P rather than ratios alone. At omega=2 each step conserves Phi, and omega>2 never lowers Phi from a nonminimal start, so global convergence fails for each fixed K. Conditions include positive rank-one K and arbitrary positive starts, not unequal marginals.
+
+## originality
+
+PASS
+
+Lehmann et al. (2022) prove local fixed-omega convergence for the whole (0,2) range but global convergence only under omega<2/(1+Lambda(K)); their full open HTML §1-3 explicitly separates those results. Rank-one and all 2x2 balanced kernels are not given a universal global special-case theorem there. Conditional logcosh argument exploits equal two-point marginals and gives strict global improvement; residual risk from older nonlinear SOR / coordinate minimization literature.
+
+## value
+
+PASS
+
+Solves the sharp all-initializations fixed-parameter safety interval for the smallest nontrivial balanced scaling problem, replacing Birkhoff sufficient interval near one on high-contrast K with full (0,2) and demonstrating sharp endpoint conservation. This is a natural convergence question with an exact structural answer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
