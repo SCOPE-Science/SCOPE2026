@@ -1,15 +1,21 @@
-# Review of the robust angular spectral preconditioner finding
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For any real SPD \(2\times2\) matrix with two distinct eigenvalues, the inverse preconditioner is SPD whenever \(q>0\). The split-preconditioned trace and determinant follow by a direct rank-one calculation, and the exact one-step worst energy loss follows from the sharp two-point Kantorovich inequality, including explicit equality weights. Directional uncertainty reduces to the endpoints \(t=0\) or \(t=T\). Branchwise optimization is global and gives a unique multiplier for the full admissible domain. The nominal-scaling frontier and singular-spectrum asymptotics follow from exact algebra. The packaged independent matrix-level checks passed, and no infinite claim depends on simulation.
+PASS
 
-## Originality — PASS, subject to independent confirmation
+Normalize A=diag(1,r) with 0<r<1. For F_q=I+(q-1)vv^T and t=1-|u_L^Tv|^2, determinant of symmetrically preconditioned B=F_q^(1/2) A F_q^(1/2) is rq and trace is q+r+(1-q)(1-r)t. Exact first steepest-descent/PCG energy contraction maximized over error weights gives the tight Kantorovich factor 1-4 det(B)/tr(B)^2, achieved by endpoint spectral weights in inverse eigenvalue ratio. The trace as a function of t puts worst t at T for q<=1 and t=0 for q>=1; on q<=1 derivative of q/(a_T q+b_T)^2 has sole stationary q=b_T/a_T<1 iff T<1/2. For q>=1, q/(q+r)^2 strictly decreases, giving unique q=1 for T>=1/2. Algebraic substitution gives Q_star and q=r nominal threshold sqrt(r)/(1+sqrt(r))^2; small-curvature T=cr limit c/(1+c) holds. Independently checked rational case r=1/4, T=1/5: q_star=8/17, Q_star=9/34. The original verifier includes matrix eigenproblem and worst-case errors; its finite tests are supplementary.
 
-The closest identified work is Diouane et al., arXiv:2603.28969v1, Section 3; its spectral placement arguments use exact eigenvector directions. The earlier arXiv:2410.02204v1 (Section 4) defines scaled spectral inverse preconditioning on exact eigenspaces. Kahl and Rittich (2016, Section 4) treat approximate invariant spaces in projective deflated CG, not the robust finite positive rank-one multiplier tuned for first-step worst-case energy loss. The elementary steepest-descent contraction formula is prior knowledge and not a new result. The combined \(45^\circ\) minimax rule, nominal-parameter hazard threshold, and singular-spectrum accuracy scaling are not directly covered by the inspected statements. A related but inaccessible broad survey and an undiscovered equivalent angle-condition theorem remain originality risks.
+## originality
 
-## Value — PASS
+PASS
 
-Spectral preconditioning with estimated eigenvectors is a natural short-budget numerical-linear-algebra design problem. The theorem completely resolves its two-mode robust first-step variant, including a sharp point at which the best correction changes to no correction, and separates this possibility threshold from the more demanding angular scaling required for condition-number-independent contraction. These distinctions guide robust tuning and identify what cannot be certified from a coarse approximate spectral direction. The result does not establish practical high-dimensional acceleration or approximate-eigenvector estimation costs.
+Best-of-knowledge new content is the exact angle-uncertainty robust minimax design for a rank-one spectral multiplier and the two distinct sharp thresholds. Known Kantorovich one-step factor and exact spectral preconditioner construction are prior ingredients, not claimed as novel.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The closed-form unique robust multiplier explicitly identifies when approximate eigendirection information helps, a sharp 45-degree do-not-correct boundary, and a different fourth-root nominal-safety threshold. These are motivated design facts for a canonical two-mode spectral preconditioning problem, not merely a repackaging of the Kantorovich inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

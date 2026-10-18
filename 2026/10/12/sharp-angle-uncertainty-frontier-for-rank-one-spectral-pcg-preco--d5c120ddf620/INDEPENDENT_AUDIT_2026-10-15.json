@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T02:16:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize A=diag(1,r) with 0<r<1. For F_q=I+(q-1)vv^T and t=1-|u_L^Tv|^2, determinant of symmetrically preconditioned B=F_q^(1/2) A F_q^(1/2) is rq and trace is q+r+(1-q)(1-r)t. Exact first steepest-descent/PCG energy contraction maximized over error weights gives the tight Kantorovich factor 1-4 det(B)/tr(B)^2, achieved by endpoint spectral weights in inverse eigenvalue ratio. The trace as a function of t puts worst t at T for q<=1 and t=0 for q>=1; on q<=1 derivative of q/(a_T q+b_T)^2 has sole stationary q=b_T/a_T<1 iff T<1/2. For q>=1, q/(q+r)^2 strictly decreases, giving unique q=1 for T>=1/2. Algebraic substitution gives Q_star and q=r nominal threshold sqrt(r)/(1+sqrt(r))^2; small-curvature T=cr limit c/(1+c) holds. Independently checked rational case r=1/4, T=1/5: q_star=8/17, Q_star=9/34. The original verifier includes matrix eigenproblem and worst-case errors; its finite tests are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2603.28969v1 exact spectral placement analysis",
+          "https://arxiv.org/html/2410.02204v1 approximate eigenpairs used in numerical data assimilation, not this minimax one-step angular envelope"
+        ],
+        "reasoning": "Existing perturbation/error bounds and worst SD factor do not entail this unique q_star(r,T) and the T=1/2 switch; no claim that the classic one-step factor itself is new.",
+        "searches": [
+          "Kahl Rittich 2016 deflated CG perturbation angle bound",
+          "Diouane Gurol Mouhtal Orban 2026 iteration-budget spectral preconditioner",
+          "Kantorovich inequality"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2603.28969v1",
+        "https://arxiv.org/html/2410.02204v1",
+        "https://www.imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2016/imacm_16_27.pdf",
+        "Resultary semantic search: two dimensional preconditioned conjugate gradient rank one spectral preconditioner approximate eigenvector angle minimax 45 degree robust choice"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/2603.28969v1 supplies fixed-eigenspace spectral preconditioner objective",
+          "https://arxiv.org/html/2410.02204v1 discusses eigenpair approximation but does not give worst-case angle threshold"
+        ],
+        "reasoning": "The new objective quantifies and optimizes an unknown direction inside an angular cap; neither the earlier exact-eigenvector optimum nor general perturbation bounds directly determine its sharp 45-degree frontier and nominal hazard scale.",
+        "searches": [
+          "Diouane et al 2026 Section 3 2x2 spectral scaling",
+          "Diouane et al 2024 2025 Section 4",
+          "Kahl Rittich approximate deflation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2603.28969v1 discusses exact eigendirection scale and iteration-budget objective",
+          "https://arxiv.org/html/2410.02204v1 describes scaled spectral preconditioner construction and approximate eigenpairs empirically"
+        ],
+        "reasoning": "The two-mode positive spectral multiplier is not projective deflation; comparisons distinguish exact eigenvector model from an adversarial angular cap before q is chosen.",
+        "searches": [
+          "two dimensional preconditioned conjugate gradient rank one spectral preconditioner approximate eigenvector angle minimax 45 degree robust choice",
+          "rank-one inverse preconditioner approximate eigendirection angular error robust one-step PCG minimax"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related two-dimensional iterative-solver frontiers, none with the same q_star(r,T) formula",
+          "https://arxiv.org/html/2603.28969v1 uses exact-eigendirection spectral placement rather than uncertainty parameter T"
+        ],
+        "reasoning": "A finite table of numerical multipliers cannot certify a continuous two-parameter minimax theorem, and no exact covering source was identified.",
+        "searches": [
+          "Resultary two dimensional preconditioned conjugate gradient rank one spectral preconditioner approximate eigenvector angle minimax 45 degree robust choice",
+          "minimax one-step PCG 2x2 rank-one angle 45 degree"
+        ]
+      },
+      "rationale": "Best-of-knowledge new content is the exact angle-uncertainty robust minimax design for a rank-one spectral multiplier and the two distinct sharp thresholds. Known Kantorovich one-step factor and exact spectral preconditioner construction are prior ingredients, not claimed as novel.",
+      "residual_risks": [
+        "A stronger equivalence from older one-step steepest-descent or approximate-deflation theory may exist under different terminology; not all plausible primary PDFs were inspected fully.",
+        "No high-dimensional, multi-step, finite-precision claim; model is exactly 2x2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_NOT_COVERING",
+          "evidence": "Preconditioner construction and exact eigenvector spectral positioning are prior; no adversarial direction cap parameter T or minimax q_star(T).",
+          "identifier_or_url": "https://arxiv.org/html/2603.28969v1",
+          "material_read": "Full HTML abstract, Sections 2-4 on exact spectral placement and short iterations",
+          "method": "Original arXiv HTML, checking hypotheses and formula parameters",
+          "title": "A Spectral Preconditioner for the Conjugate Gradient Method with Iteration Budget",
+          "trigger": "Potential precise two-mode short-budget coverage"
+        },
+        {
+          "assessment": "PARTIAL_NOT_COVERING",
+          "evidence": "Employs approximate eigenpairs in implementation; no explicit sharp robust one-step angular minimax solution.",
+          "identifier_or_url": "https://arxiv.org/html/2410.02204v1",
+          "material_read": "Full HTML Sections 1-5 including spectral scale and approximate eigenpairs applications",
+          "method": "Original arXiv HTML with section-by-section reading",
+          "title": "An Efficient Scaled Spectral Preconditioner for Sequences of SPD Systems",
+          "trigger": "Broader approximate-eigenvector coverage"
+        },
+        {
+          "assessment": "UNRESOLVED_PLAUSIBLE_SOURCE",
+          "evidence": "Distinct projective deflation, but a two-mode corollary cannot be completely excluded without full PDF.",
+          "identifier_or_url": "https://www.imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2016/imacm_16_27.pdf",
+          "material_read": "Bibliographic identity and indexed description only, not full text",
+          "method": "Targeted title search and source identification",
+          "title": "The Deflated Conjugate Gradient Method: Convergence, Perturbation and Accuracy",
+          "trigger": "Plausible angle-perturbation precursor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The closed-form unique robust multiplier explicitly identifies when approximate eigendirection information helps, a sharp 45-degree do-not-correct boundary, and a different fourth-root nominal-safety threshold. These are motivated design facts for a canonical two-mode spectral preconditioning problem, not merely a repackaging of the Kantorovich inequality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2603.28969v1",
+    "https://arxiv.org/html/2410.02204v1",
+    "https://www.imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2016/imacm_16_27.pdf",
+    "Resultary semantic search: two dimensional preconditioned conjugate gradient rank one spectral preconditioner approximate eigenvector angle minimax 45 degree robust choice"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two-dimensional SPD, one exact-arithmetic PCG step, worst initial error and adversarial angular uncertainty; no general multidimensional guarantee.",
+    "Uninspected older perturbation literature could contain an equivalent special case."
+  ],
+  "schema_version": 1
+}

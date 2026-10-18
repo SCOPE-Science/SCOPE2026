@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification scope and reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` with NumPy installed as specified in `requirements.txt`. The code checks exact rational trace and determinant identities for the split-preconditioned matrix; independently forms symmetric matrices, diagonalizes them, constructs extremizing first-step errors, and tests the actual PCG line search against the theoretical contraction formula. It also compares alternative positive multipliers against the proposed minimax multiplier, verifies equality at the nominal-scaling angular frontier, and checks representative small-curvature limits. A deterministic random seed is used.
+## correctness
 
-Observed output:
+PASS
 
-```
-VERIFY_OK rational_matrix_and_minimax_identities= 15444
-VERIFY_OK independent_eigensystem_and_worst_PCG_cases= 2400
-VERIFY_OK robust_minimax_sample_cases= 850
-VERIFY_OK exact_nominal_safety_threshold_and_small_curvature_limits=1
-```
+Normalize A=diag(1,r) with 0<r<1. For F_q=I+(q-1)vv^T and t=1-|u_L^Tv|^2, determinant of symmetrically preconditioned B=F_q^(1/2) A F_q^(1/2) is rq and trace is q+r+(1-q)(1-r)t. Exact first steepest-descent/PCG energy contraction maximized over error weights gives the tight Kantorovich factor 1-4 det(B)/tr(B)^2, achieved by endpoint spectral weights in inverse eigenvalue ratio. The trace as a function of t puts worst t at T for q<=1 and t=0 for q>=1; on q<=1 derivative of q/(a_T q+b_T)^2 has sole stationary q=b_T/a_T<1 iff T<1/2. For q>=1, q/(q+r)^2 strictly decreases, giving unique q=1 for T>=1/2. Algebraic substitution gives Q_star and q=r nominal threshold sqrt(r)/(1+sqrt(r))^2; small-curvature T=cr limit c/(1+c) holds. Independently checked rational case r=1/4, T=1/5: q_star=8/17, Q_star=9/34. The original verifier includes matrix eigenproblem and worst-case errors; its finite tests are supplementary.
 
-Neither randomized sampling nor finite exact-rational checks establish global minimaxity by themselves. The proof in `RESULT.md` supplies the quantified trace, determinant, Kantorovich equality, unique minimax optimization, and asymptotic arguments. The calculation is exact-arithmetic mathematics; the NumPy checks necessarily introduce floating-point tolerances for corroboration.
+## originality
+
+PASS
+
+Best-of-knowledge new content is the exact angle-uncertainty robust minimax design for a rank-one spectral multiplier and the two distinct sharp thresholds. Known Kantorovich one-step factor and exact spectral preconditioner construction are prior ingredients, not claimed as novel.
+
+## value
+
+PASS
+
+The closed-form unique robust multiplier explicitly identifies when approximate eigendirection information helps, a sharp 45-degree do-not-correct boundary, and a different fourth-root nominal-safety threshold. These are motivated design facts for a canonical two-mode spectral preconditioning problem, not merely a repackaging of the Kantorovich inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
