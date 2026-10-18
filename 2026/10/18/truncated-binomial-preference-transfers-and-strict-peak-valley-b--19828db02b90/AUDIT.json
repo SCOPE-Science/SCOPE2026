@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For every positive-probability conditioning of all except a<b occupancy loads and their total, the ballot-prefix inequalities reduce exactly to r>=R for r=M_a. Each accepted occupancy multiset has n!/product(m_j!) permutations, leaving weights choose(T,r) on a terminal interval. The inequality under swapping r>s follows termwise and yields stochastic dominance. Exchangeability of preference coordinates gives peak-minus-valley as the weighted signed cubic pair-load moment; pairing occupancy vectors proves nonnegative summands, and the feasible vector with m_1=n-1 and m_n=1 has an invalid swapped vector, making the sign strictly positive. Pollak cyclic rotation preserves equality partitions of three coordinates, which alone determine the peak-plus-valley probability after exchangeability; evaluating it for iid uniforms gives p0=n(2n+1)/(6(n+1)^2). The algebra and endpoints n=2, n=3, T=0 and r=s were independently considered. The supplied standalone exact verifier passed 24269 assertions, but finite assertions are not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yin, arXiv:2112.02251, Theorem 2.7: general multi-shuffle summation for prescribed coordinate values; no monotone conditional splitting of occupancy multiplicities or peak-versus-valley comparison in the inspected text.",
+        "Bellin, arXiv:2108.08661, Theorem 1: asymptotic approximation to i.i.d. coordinates for prescribed coordinate counts, not an exact sign for every finite n.",
+        "Kenyon–Yin, arXiv:2103.17180v1, Theorem 2.2 and Section 3: exact enumeration and coordinate covariance, which do not provide the stated pair-load truncation as a theorem."
+      ],
+      "reasoning": "General multi-coordinate exact enumeration could in principle be algebraically specialized to evaluate peak probabilities. Its formulas and asymptotic bounds do not imply a universal inequality without further sign analysis. The truncation theorem conditions instead on all other occupancy counts and their two-bin sum; none of these inspected source statements dominate it.",
+      "searches": [
+        "parking function preference multiplicity pairwise monotonicity stochastic dominance two bins",
+        "uniform parking function multiplicity count coordinates exchange inequality conditional binomial ballot",
+        "parking function multi shuffle multiple coordinates exact laws",
+        "random parking function multiplicities majorization preferential first positions occupancy counts"
+      ]
+    },
+    "checked_sources": [
+      "Diaconis and Hicks (2016), arxiv:1611.09821, primary full text, ballot-prefix criterion and Section 4",
+      "Kenyon and Yin (2021), arxiv:2103.17180v1, primary full text, sections 2–3",
+      "Bellin (2021), arxiv:2108.08661, available primary full text, Theorem 1",
+      "Yin (2021), arxiv:2112.02251, available primary full text, Theorem 2.7",
+      "published-finding corpus record 2026/9/20/SCOPE-pairwise-independent-occupancy-one-moment-reduction--0c331de546b4",
+      "published-finding corpus record 2026/10/11/SCOPE-generalized-parking-function-polytopes-have-a-two-phase-euclidea--53d2c657716a",
+      "Accessible own claim e0f7e729-d464-493c-8c41-5d332f22048e (parking outcome parity)",
+      "Accessible own claim ff1433b9-a093-4198-844e-41c424565c3a (random-direction parking protocol)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical Pollak cyclic shift and Diaconis–Hicks Section 4 imply equality of equality-partition probabilities, hence the peak-plus-valley equality, but they do not determine the sign of peak minus valley.",
+        "The classical multinomial/ballot prefix criterion provides the starting data for the conditional law, but converting it to a half-binomial tail and applying the paired imbalance moment is the additional argument.",
+        "Prior own finding e0f7e729-d464-493c-8c41-5d332f22048e studies even-parity preference-induced parking outcome permutations; it does not imply a preference triple ordering law.",
+        "Prior own finding ff1433b9-a093-4198-844e-41c424565c3a studies a random-direction parking protocol; it does not imply ordinary classical parking preference patterns."
+      ],
+      "reasoning": "Conjunction of the two classical inputs does not by itself fix the sign of the joint third-order load moment; the new conditional rearrangement inequality establishes its nonnegativity and a strictly unmatched feasible profile establishes strictness. No same-object dominating probability inequality was found in inspected texts or accessible deduplication claims.",
+      "searches": [
+        "parking functions strict local peak valley inequalities probability for three preferences",
+        "parking function preference multiplicity pairwise monotonicity stochastic dominance two bins",
+        "uniform parking function multiplicity count coordinates exchange inequality conditional binomial ballot",
+        "peak valley random parking functions Diaconis Hicks strict peaks comparison",
+        "arxiv:1611.09821 Section 4 strict peaks not equidistributed",
+        "arxiv:2103.17180 Sections 3.3 3.4 coordinates covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Diaconis–Hicks, arXiv:1611.09821, Section 4: strict peaks are explicitly reported to fail ensemble equivalence, but no universal sign, truncated-binomial paired-load law, or exact signed cubic-load moment is given.",
+        "Kenyon–Yin, arXiv:2103.17180v1, Sections 3.2–3.4: first-coordinate distributions and a pair-coordinate covariance; not the distribution of preference-value loads conditioned on two-bin total.",
+        "published-finding corpus closest: 2026/9/20/SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91 concerns a three-score ordering polytope with pairwise independent continuous observations, not a random parking function."
+      ],
+      "reasoning": "Equivalences to ordering asymmetry, ballot-conditioned multinomial occupancy, or exchange inequalities were tested. Existing strict-peak nonequidistribution is weaker than the all-n signed comparison; weak-peak equivalence has a different weak-inequality event. The closest returned three-score ordering record concerns a different sampling law.",
+      "searches": [
+        "parking functions strict local peak valley inequalities probability for three preferences",
+        "parking function preference multiplicity pairwise monotonicity stochastic dominance two bins",
+        "uniform parking function multiplicity count coordinates exchange inequality conditional binomial ballot",
+        "peak valley random parking functions Diaconis Hicks strict peaks comparison",
+        "\"parking functions\" \"peak\" \"valley\" probability strict",
+        "\"parking functions\" \"peaks\" \"valleys\" Diaconis Hicks"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The actual published-finding corpus search for conditional-binomial ballot occupancy returned a nearest record 2026/9/20/SCOPE-pairwise-independent-occupancy-one-moment-reduction--0c331de546b4; its subject is pairwise independent uniform balls-in-bins and it has no parking-prefix conditioning.",
+        "The exact search for parking peaks returned unrelated polytope/geometry records, e.g. 2026/10/11/SCOPE-generalized-parking-function-polytopes-have-a-two-phase-euclidea--53d2c657716a, which concerns Euclidean inballs.",
+        "Direct classical preference-word enumerations produced n=3 peak 4, valley 3; n=4 peak 33, valley 27; n=5 peak 355, valley 305; n=6 peak 4728, valley 4190. These are computed confirmations, not claims that a comprehensive published table was excluded."
+      ],
+      "reasoning": "No exact indexed theorem or tabulation of the complete n-uniform peak/valley sign or the conditional truncated-binomial multiplicity law was found in the actual searches. Search absence is not treated as proof of global novelty; the primary-text comparison carries the evidence.",
+      "searches": [
+        "parking functions strict local peak valley inequalities probability for three preferences",
+        "parking function preference multiplicity pairwise monotonicity stochastic dominance two bins",
+        "uniform parking function multiplicity count coordinates exchange inequality conditional binomial ballot",
+        "peak valley random parking functions Diaconis Hicks strict peaks comparison",
+        "\"parking functions\" \"peak\" \"valley\" probability strict",
+        "\"parking functions\" \"peaks\" \"valleys\" Diaconis Hicks",
+        "uniform parking functions occupancy multiplicities conditional binomial stochastic ordering",
+        "parking functions strict peaks valleys probability larger than valleys random preference Diaconis Hicks"
+      ]
+    },
+    "rationale": "Diaconis–Hicks already noted that strict peaks are not ensemble-equidistributed, but did not specify their all-n signed direction, a half-binomial conditional law for arbitrary preference-value load pairs, or the exact signed occupancy identity. The remaining three close primary texts provide coordinate marginal/covariance laws, multicoordinate sums or asymptotic approximation without this complete sign statement. Actual searches of published mathematical records and accessible own research claims did not yield a dominating identical theorem; broader historical generating-function coverage remains a residual priority risk.",
+    "residual_risks": [
+      "An older multivariate generating-function treatment might implicitly encode the signed cubic moment; no universal novelty proof is possible from finite searches.",
+      "The sign direction is established by a short argument from classical inputs, so only the conditional load-transfer structural law and exact strict comparison are asserted as new; the ballot criterion, Pollak rotation, and known nonequidistribution are expressly prior work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERED INPUTS ONLY: ballot characterization, cyclic rotation, equality patterns, weak-peak equivalence, strict-peak failure; no all-n signed strict peak/valley comparison or paired conditional occupancy law",
+        "evidence": "Section 4 remarks distinguish weak peak f(1)<f(2)>=f(3), which is equidistributed, from strict peak f(1)<f(2)>f(3), which is not; Section 4 species remarks and introduction establish cyclic orbit species.",
+        "identifier_or_url": "arxiv:1611.09821; https://arxiv.org/abs/1611.09821",
+        "material_read": "Full available arXiv HTML text, Introduction, Section 2, Section 4 Theorems 10–11 and remarks near strict peaks/species/Pollak rotation",
+        "method": "Read primary paper HTML body and locate peak, equivalence, species and coordinate results",
+        "title": "Probabilizing Parking Functions",
+        "trigger": "Direct original source explicitly discussing weak and strict peaks"
+      },
+      {
+        "assessment": "DOES NOT STATE THE CLAIM: includes fixed specification, forest correspondence, one- and two-coordinate results but not all-n preference-value load swap law or strict peak-valley direction",
+        "evidence": "Introduction pages describe covariance between two coordinates, and Theorem 2.2 gives cyclic orbit count; these are logically weaker/different objects.",
+        "identifier_or_url": "arxiv:2103.17180v1; https://arxiv.org/html/2103.17180v1",
+        "material_read": "Full available arXiv HTML, Sections 1–3 especially Theorem 2.2 and Section 3 coordinate/covariance results",
+        "method": "Read original open-access HTML for fixed occupancy specification, coordinate formula, and 3.3/3.4 coverage",
+        "title": "Parking functions: From combinatorics to probability",
+        "trigger": "Potential broader enumerative and covariance treatment"
+      },
+      {
+        "assessment": "Asymptotic total variation and Kolmogorov bounds for a growing number of coordinates, not a finite positive signed contrast",
+        "evidence": "Theorem 1 gives rates in coordinate count k(n); no inequality or conditional binomial law for all n.",
+        "identifier_or_url": "arxiv:2108.08661; https://arxiv.org/abs/2108.08661",
+        "material_read": "Available arXiv manuscript HTML, introduction/main theorems and discussion of conditional random-walk representation",
+        "method": "Read paper statements and search for peak/valley/occupancy-bin claims",
+        "title": "Asymptotic behaviour of the first positions of uniform parking functions",
+        "trigger": "General estimates could dominate finite peak discrepancy"
+      },
+      {
+        "assessment": "Broader fixed-coordinate enumeration exists, but inspected theorems do not give conditional pair-load splitting or a sign inequality on all preference triples",
+        "evidence": "Theorem 2.7 is a Goncharov-polynomial multi-shuffle sum over fixed first l coordinate values; no peak or valley terms found in text.",
+        "identifier_or_url": "arxiv:2112.02251; https://arxiv.org/abs/2112.02251",
+        "material_read": "Full available arXiv HTML, main definitions, multi-shuffle construction and Theorem 2.7 with fixed-coordinate enumeration",
+        "method": "Read primary paper for same-object count formula and search peak/valley/order comparisons",
+        "title": "Parking functions, multi-shuffle, and asymptotic phenomena",
+        "trigger": "General multi-coordinate formula potentially implies proposed triple-ordering result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "19828db0-2b90-46ce-af63-c2dfc92e32cc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The strict-peak nonequidistribution highlighted by Diaconis–Hicks is an explicit natural gap: the direction and strength of finite-sample preference-ordering bias were not established there. The exact peak/valley identity gives a verifiable signed third-order statistic; the general two-bin conditional truncated-binomial law controls every earlier/later load swap and yields a full family of stochastic-order inequalities, not just a single n-specific count. The simultaneous exact equality of peak-plus-valley probabilities with an iid n+1 alphabet isolates the genuine antisymmetric dependence component. This is a structural, natural all-n theorem rather than a routine parametrized example.",
+    "status": "PASS"
+  }
+}
