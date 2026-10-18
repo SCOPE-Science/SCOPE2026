@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The proof explicitly determines the first two epidemic census values, bounds every later prevalence increment uniformly below zero, and proves a unique switching root using a strictly positive derivative bound. At the switch it derives the exact cumulative-exposure jump from the infection-recovery balance. These arguments cover infinitely many time steps and the full parameter interval; 3052 arithmetic checks are independent support, not a replacement for the proof.
+
+**Originality — PASS, with explicit priority limitation.** Ozbay, Nielsen and Nguyen already reported nonmonotone herd-immunity-at-peak curves and switching peak times in discrete SIR systems. That phenomenon and their Euler-discretized comparison are expressly prior art. Diekmann and colleagues established the exponential escape and geometric removal setting. Their mathematical statements, as examined, do not entail an exact unique peak-day switch and explicit jump size for the defined mass-conserving model and parameter range. The closest indexed discrete-SIR finding concerns a different disease-free period-two resonance. General unpublished or less-indexed theory may subsume the result; an independent priority review has not been performed.
+
+**Value — PASS.** Peak-time cumulative infection is a motivated observable whose discontinuous dependence on a transmission input makes numerical inference and scenario comparison subtle. The result identifies the only local switch throughout a nontrivial continuous transmission interval, proves that all future days are subdominant, and gives a quantitatively substantial exact jump (strictly over one quarter of the population). Its value is the sharp analytic phase boundary and magnitude, not rediscovery of qualitative nonmonotonicity.
+
+**Limitations.** The scope is one fixed initial state, recovery fraction and transmission interval in an exponential-escape map. No stochastic or policy implication is proved. The peak-time metric depends on a specified earliest-tie rule. The earlier literature anticipates the phenomenon qualitatively; residual priority risk remains.
+
+Self-review: passed. Independent audit: not yet performed.
