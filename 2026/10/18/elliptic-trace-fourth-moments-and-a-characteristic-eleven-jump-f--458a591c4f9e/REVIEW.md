@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The asserted domain is every finite field of odd characteristic at least seven, with a separate singular characteristic-eleven formula. For nonzero pair sum, the change of variables reduces the sixth-power equality to the trivial diagonal factor and a symmetric plane quartic. The overlap is removed exactly with an explicit quartic-root count. The zero-sum fiber is a power-map kernel count. Away from eleven the plane quartic lifts a conic through quadratic character weights; single-character and product-character sums identify two nonsingular genus-one traces, giving the stated complete energy and Hasse error. In characteristic eleven the curve splits into two conics with an explicit four-point intersection. Finite Fourier orthogonality gives precisely the claimed constant-input fourth moment. A standalone checker directly enumerated collision fibers over 15 finite fields, including three quadratic extensions. The proof, not those samples, establishes the infinite statement.
+
+## Originality — PASS (historical risk disclosed)
+The inspected 2002 Mockenhaupt–Tao text supplies restriction/moment methods and full moment curves, not the two-coordinate sixth-power collision census. The 2010 Koh–Shen paper supplies general plane-curve extension boundedness, not the specific exact moment, elliptic-trace formula, or exceptional characteristic-eleven component count. Howe–Leprevost–Poonen supplies general genus-three split-Jacobian context but not the additive-energy identity for this graph. The public fourth-power graph energy computation is for a different collision equation and does not imply the genus-three/exceptional-characteristic theorem; the fifth-power census in the prior research ledger is different as well. Search coverage, even with full-text inspections, is not a proof of global novelty; an older equivalent arithmetic-geometry or exponential-sum identity remains a risk.
+
+## Mathematical value — PASS
+The unit-input fourth moment is a natural exact invariant at the center of finite-field Fourier extension. Rather than a sample or arbitrary finite calculation, this is an infinite-field identity with two genus-one arithmetic traces and an exceptional prime where a genus-three collision curve becomes reducible. The exact change of leading energy from three to four times the field-size square provides motivated structural information invisible to uniform extension bounds and explains a genuine boundary of the generic character-sum reduction. No general sharp operator-norm claim is made.
+
+## Closest literature and remaining limits
+Mockenhaupt–Tao (arXiv:math/0204234), Koh–Shen (arXiv:1003.4240), Howe–Leprevost–Poonen (arXiv:math/9809210), and the published finite-field quartic-graph energy computation provide the nearest comparison points. The theorem excludes characteristics 2, 3 and 5, does not classify Fourier coefficient values, and does not obtain an arbitrary-input sharp extension constant. Priority against all unindexed historical results has not been independently established.
+
+Self-review: passed. Independent audit: not yet performed.
