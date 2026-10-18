@@ -1,0 +1,12 @@
+# Scientific review: semiprime convolution-idempotent zero sets
+
+## Correctness — PASS
+The claimed seven exact zero-set classes and all seven cardinality-weight polynomials follow from a rational cyclotomic-kernel dimension argument and the rigidity of additive zero-one matrices. Orthogonality at nonprimitive times is exactly uniformity of CRT row or column sums. The two events meet only for the empty and full masks, by coprimality of the primes. The complete count is inclusion-exclusion, with explicit disjoint cylinder subfamilies. The accompanying exact cyclotomic checker exhausts the masks at orders 6, 10, 14 and 15, verifies all zero-strata and weight coefficients, and reports `CHECK_PASS`. These finite checks support but do not prove the theorem for all distinct primes.
+
+## Originality — PASS, qualified
+Siripuram–Osgood, *Convolution Idempotents with a Given Zero-Set* (arXiv:2001.00739), §IV solves the zero-set problem for prime powers, not for semiprime lengths; its final discussion explicitly flags non-prime-power extensions. Lam–Leung, *On vanishing sums for roots of unity* (arXiv:math/9511209), Theorem 3.3, contains a stronger classical description of the *individual primitive-root cancellation* ingredient. It does not state the seven joint exact zero-set classes or their complete spectral-cardinality polynomials. The nearby published four-point semiprime Fourier-support trichotomy fixes the mask size four and therefore does not classify all sizes. The original contribution reviewed is the joint classification and enumerators, not the cyclotomic ingredient. Residual risk: older enumerations in cyclic-coding, idempotent sampling or vanishing-sum literature could be equivalent. Database searches are not a proof of uniqueness.
+
+## Value — PASS
+This is an exact solution of the natural prescribed-zero convolution-idempotent problem on all squarefree semiprime cyclic groups, including every spectral rank rather than an arbitrarily selected size. The theorem separates possible joint vanishing patterns, proves a cross-prime exclusion between row- and column-type zeros for proper masks, and counts precisely how many choices of spectral mask produce each pattern. The weighted formulas are directly useful for enumerating feasible sparse spectral sampling projections. The value does not depend on a conjectured downstream theorem.
+
+Self-review: passed. Independent audit: not yet performed.
