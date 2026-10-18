@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The final-vacancy decomposition is a bijection between trajectories and two sub-parking lists plus a binary shuffle and a final preference. Adjacent-pair sign reversal evaluates the q=-1 shuffle coefficient exactly; the parity-split convolution produces O=(zE^2)′ and E′=E^3+8zE^2E′+4z^2E^2E″. Coefficient recursion involves only preceding nonnegative coefficients and has a strictly positive E^3 contribution. This proves D_n>0 for every n; the preference-list count supplies normalization. verify.py passes 131 exact assertions across independently implemented methods through the stated finite ranges; finite checks are corroboration, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pinsky: complete pointwise outcome-permutation distribution, \\(\\Pr(\\sigma)=L(\\sigma)/(n+1)^{n-1}\\).",
+        "Stanley and Yin: multivariate enumerator of parking-function displacement, unluckiness, outcome-descents, and right-to-left maxima.",
+        "Celano et al.: preference-word inversion enumerator and expectations under coordinate permutation symmetry."
+      ],
+      "reasoning": "Pinsky is strong prior coverage: it determines the value of every event probability through summation. The present strict inequality for all dimensions and positive formal differential recurrence are new structural sign-cancellation conclusions, not given by his theorems or obtained through a direct marginal/parameter substitution. The other inspected enumerators do not track outcome inversion parity.",
+      "searches": [
+        "arxiv:2404.11529",
+        "arxiv:2306.08681",
+        "arxiv:2508.11587"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2404.11529",
+      "https://arxiv.org/html/2306.08681v1",
+      "https://arxiv.org/abs/2508.11587"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pinsky (2024), Theorem 1 gives exact probabilities of individual outcome permutations.",
+        "Stanley–Yin (2023), Theorem 2.1 gives an outcome-descent enumerator.",
+        "Celano et al. (2025), Theorem 1.1 gives the inversion polynomial of preference words."
+      ],
+      "reasoning": "An \\(n!\\)-term signed sum of Pinsky’s point masses yields the parity probability, so existence and computability of that number are already implied. The new claim is the all-n strictly positive sign of that sum with an \\(O(n^2)\\) computation and an explicit positive-coefficient formal ODE. Neither outcome-descent information nor preference-word inversion generating functions imply the same sign claim via identity of statistics.",
+      "searches": [
+        "The distribution on permutations induced by a random parking function arxiv 2404.11529",
+        "Some enumerative properties of parking functions arxiv 2306.08681",
+        "Inversions in parking functions Celano 2025 arxiv"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pinsky, arXiv:2404.11529, Theorem 1: induced permutation mass function.",
+        "Celano et al., arXiv:2508.11587, section 1: word-inversion polynomial for preferences."
+      ],
+      "reasoning": "Permutation sign, inversion-count parity, and even/odd outcome probabilities are equivalent formulations of this single claim. Inversions of the preference word are not equivalent to inversions of the output: at size four their signed counts are 5 and 11 respectively. An exact positive sign theorem is additional information to an unevaluated signed sum of point masses.",
+      "searches": [
+        "parking function \"sign\" \"parking outcome\" permutation",
+        "\"parity\" \"parking function\" \"induced\" permutation sign",
+        "\"parking functions\" \"outcome\" \"inversion\" q enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact integer checks independently produce signed imbalances 1,1,4,11,72,335,2944,19449.",
+        "The searched exact sequence and outcome parity phrasing did not reveal a matching published signed-outcome table."
+      ],
+      "reasoning": "No matching table was located in those actual searches; this non-match is only limited evidence, not a proof of novelty. The values follow independently from the proved recurrence.",
+      "searches": [
+        "\"1,4,11,72,335\" parking",
+        "\"11, 72, 335, 2944\" permutations",
+        "\"parking functions\" \"sign\" \"outcome\" inversion"
+      ]
+    },
+    "rationale": "The qualitative global parity bias, signed last-vacancy recurrence, and coefficientwise-positive formal ODE are nontrivial structural facts not stated in inspected related publications. Pinsky (2024) supplies the entire outcome mass function, so numerical parity sums are already implicitly determined and are not claimed as independently new. Stanley–Yin (2023) treat outcome descents, not sign. Celano et al. (2025) count inversions of preference words rather than inversions of outcomes. Exact comparable signed-imbalance formulas were not found in the completed searches; historical-priority risk remains.",
+    "residual_risks": [
+      "A prior signed outcome-enumeration identity may exist under q-parking or inversion-table nomenclature; the search is not exhaustive.",
+      "Pinsky’s full pointwise distribution is logically stronger than any finite event probability; novelty specifically attaches to universal signed positivity and quadratic/formal-ODE reduction, not raw computability.",
+      "No independent mathematical or historical-priority audit has yet been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strong prior pointwise mass function and final-car decomposition, but no stated output-permutation parity imbalance or positive signed recurrence in inspected material.",
+        "evidence": [
+          "Theorem 1: probability of an induced permutation is product of preceding-record-window lengths divided by (n+1)^{n-1}.",
+          "Section 4: conditioning on final unoccupied positions splits available parking intervals."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.11529",
+        "material_read": "Introduction and Theorems 1–4; Theorem 1 multiplicity equation; proof section deriving vacancy-separated counts for the final cars; text search for parity and inversion.",
+        "method": "Accessible complete arXiv rendered text, sections and equations read directly.",
+        "title": "The distribution on permutations induced by a random parking function",
+        "trigger": "Exact distribution on the identical sample space; potentially dominating earlier theorem."
+      },
+      {
+        "assessment": "Covers descents of the inverse outcome and tree inversions, neither of which equals output-permutation inversion parity.",
+        "evidence": [
+          "Section 1 defines des as the number of descents of inverse outcome.",
+          "Theorem 2.1 tracks unluckiness, displacement, descents, and right-to-left maxima."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2306.08681v1",
+        "material_read": "Introduction’s complete listed statistics and Theorem 2.1 recurrence; search for parity and inversion of outcomes.",
+        "method": "Accessible arXiv HTML full-text sections reviewed.",
+        "title": "Some enumerative properties of parking functions",
+        "trigger": "Potential joint enumerator involving the output permutation."
+      },
+      {
+        "assessment": "Inversions are defined for the preference vector as a word. The output sign statistic is different; the signed counts already differ at four cars.",
+        "evidence": [
+          "Section 1 defines inv(w) from preference-list coordinate comparisons.",
+          "Section 5 uses symmetry of preference-word coordinates to obtain total inversion moments."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2508.11587",
+        "material_read": "Introduction, definitions, Theorems 1.1 and 1.2, and Section 5 discussion.",
+        "method": "Accessible complete arXiv rendered text, specified portions inspected.",
+        "title": "Inversions in parking functions",
+        "trigger": "Post-source paper explicitly advertising parking-function inversion enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e0f7e729-d464-493c-8c41-5d332f22048e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Output-permutation sign is the simplest nontrivial character of the symmetric group and measures a natural departure from uniform parity in the known parking-induced permutation law. A global strict sign bias is not obvious from Pinsky’s factorial-size formula. The quadratic signed recurrence and positive formal differential explanation show nontrivial cancellation and permit systematic exact computation without factorial enumeration. This is a structural and probabilistic refinement, not merely recomputation of point masses.",
+    "status": "PASS"
+  }
+}
