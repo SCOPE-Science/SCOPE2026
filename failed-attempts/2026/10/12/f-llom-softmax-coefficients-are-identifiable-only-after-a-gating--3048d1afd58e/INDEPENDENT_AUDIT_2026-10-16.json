@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T23:57:54.779715Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned 2026/10/12/f-llom-softmax-coefficients-are-identifiable-only-after-a-gating--3048d1afd58e/RESULT.md and checker/verify.py read, actual source-tree Git SHA 60587ea18dd0e466ac7f4523c0bc192fdb85d251",
+        "Primary Rahmouni printed unnormalized Proposition 3, Table 1/2 normalized usage; primary Huang 2023 Proposition 1 stronger covering softmax translation."
+      ],
+      "rationale": "All M softmax logits g_m in R^(p+1) can be shifted by the same u with exp(x~^T u) cancelling from every numerator and denominator, so unconstrained likelihood is exactly constant along p+1 dimensions and not identifiable merely up to label switching. Conversely full affine rank and equality of all gate functions identifies log-odds (g_m-g_M)^T x~, making the common shift the only representation gauge. Fix g_M=0 to remove it. BIC counts 3,8,13,18 for M=1..4 match component counts 3M plus 2(M-1) rather than unconstrained all-M logits. Primary 2026 source Proposition 3 fails to explicitly state needed normalization, though its numerical table already adopts baseline gate. These claims are mathematically sound and the supplied verifier and independent cancellation algebra checked.",
+      "residual_risks": [
+        "Value is limited to documentation of a named source defect, not a novel general identifiability theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General softmax mixture-of-experts parameter equivalence holds for arbitrary component densities, including F-LLoM."
+        ],
+        "reasoning": "General theorem covers the specific F-LLoM gating quotient and baseline normalization without needing the Lomax density; special case is scientifically covered.",
+        "searches": [
+          "Huang et al 2023 full primary softmax mixture-of-experts Proposition 1 and Appendix",
+          "Jiang–Tanner 1999 generic MoE identifiability"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: frailty logistic weighted Lomax mixture regression softmax gating identifiability baseline normalization common translation",
+        "Resultary: F-LLoM Rahmouni Proposition 3 softmax gating normalization identifiable",
+        "Rahmouni AIMS Mathematics 2026 DOI 10.3934/math.2026261 Proposition 3 exact PDF",
+        "Huang et al Demystifying Softmax Gating in Gaussian Mixture of Experts 2023 Proposition 1",
+        "Jiang and Tanner On identifiability of mixtures-of-experts 1999 PMID:12662630"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying published general softmax-gauge invariance to Rahmouni gate parameters immediately yields same likelihood and nonidentifiability; log-ratio under full affine rank is standard inverse map."
+        ],
+        "reasoning": "A new erroneous application statement does not make a known general counterexample or its standard normalization original; the printed Proposition 3 omission is still a valid source-specific warning.",
+        "searches": [
+          "Huang et al 2023 Proposition 1 uniform translations preserve softmax-gated density",
+          "Rahmouni 2026 Proposition 3 unnormalized formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huang et al Proposition 1 exhibits identical softmax mixing distributions under uniform translation of all gate intercepts and covariate slopes. The submitted F-LLoM formula is precisely that invariance with Lomax experts."
+        ],
+        "reasoning": "Exact gauge action is an already established general result; repeating under a new expert density is not original just because the later model theorem omits the constraint.",
+        "searches": [
+          "Huang et al 2023 Proposition 1 PDF https://nhatptnk8912.github.io/Softmax_MoE.pdf",
+          "Jiang and Tanner 1999 identifiability of mixtures-of-experts PMID:12662630"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published F-LLoM table already sets its second baseline gate coefficients zero and BIC counts match 3M+2(M-1)."
+        ],
+        "reasoning": "No unknown new exact table is computed: integer free-parameter counts are reconstructed from existing source values and standard gauge dimension.",
+        "searches": [
+          "Rahmouni 2026 AIMS Mathematics Table 1 BIC, Table 2 baseline coefficient rows",
+          "Standard baseline-category softmax convention in general MoE papers"
+        ]
+      },
+      "rationale": "REJECT due decisive stronger published prior mathematical coverage, not mere matching vocabulary: Jiang–Tanner 1999 generic mixtures-of-experts identifiability and Huang et al 2023 softmax-gated mixture-of-experts Proposition 1 explicitly state that any common translation of ALL gate intercepts and slope vectors leaves the mixture distribution unchanged; this includes the F-LLoM gates as a direct special case. Their quotient/baseline convention also precedes 2026 F-LLoM. The identified omission in the 2026 Proposition 3 is genuine source-specific editorial/theorem-qualification feedback, but its exact obstruction and fix are already general published knowledge, mechanically specialized; under strict corollary coverage no independent original mathematical claim survives.",
+      "residual_risks": [
+        "F-LLoM full mixture identifiability beyond gate normalization is not proven by this check; only necessary gate quotient condition proved.",
+        "A later source-specific correction may exist; the rejection rests on existing general 2023 implication, not failed literature search.",
+        "Value is limited to documentation of a named source defect, not a novel general identifiability theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unconstrained identifiability claim omits reference-gate normalization; computation evidently uses normalization.",
+          "evidence": "BIC counts 3,8,13,18 imply normalized gate counts 2(M-1), absent from unrestricted claimed theorem.",
+          "identifier_or_url": "DOI:10.3934/math.2026261; https://www.aimspress.com/aimspress-data/math/2026/3/PDF/math-11-03-261.pdf",
+          "material_read": "Full open PDF inspected: softmax parameterization, Proposition 3 near page 5, baseline-zero entries of Table 2, Table 1 BIC formula and reported likelihood/BIC numbers.",
+          "method": "Opened primary lawful full PDF, inspected printed proposition, numerical tables and screenshots",
+          "title": "Frailty-Augmented Logistic-Weighted Lomax Mixture regression for survival analysis",
+          "trigger": "The exact named identifiability Proposition 3"
+        },
+        {
+          "assessment": "Directly covers uniform shifts of all softmax affine gate coefficients; dominates submitted general mathematics despite experts being Gaussian rather than Lomax.",
+          "evidence": "Huang et al Proposition 1 common intercept/slope translation is distribution-preserving; expert-family choice immaterial to cancellation.",
+          "identifier_or_url": "https://nhatptnk8912.github.io/Softmax_MoE.pdf",
+          "material_read": "Full twenty-seven-page primary manuscript inspected, especially Proposition 1 page 4 and Appendix material establishing parameter translation equivalence.",
+          "method": "Read full public PDF and its equivalence proposition",
+          "title": "Demystifying Softmax Gating in Gaussian Mixture of Experts",
+          "trigger": "Potential earlier stronger statement explicitly on affine softmax gate invariance"
+        },
+        {
+          "assessment": "Corroborating prior background; decisive mathematical coverage rests on full 2023 primary text.",
+          "evidence": "Generic experts gating invariance predates F-LLoM.",
+          "identifier_or_url": "PMID:12662630; https://pubmed.ncbi.nlm.nih.gov/12662630/",
+          "material_read": "Bibliographic and abstract/summary material only, not complete 1999 manuscript.",
+          "method": "Public bibliographic record and source comparison",
+          "title": "On the identifiability of mixtures-of-experts",
+          "trigger": "Classical original generic mixture-of-experts identifiability literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary: frailty logistic weighted Lomax mixture regression softmax gating identifiability baseline normalization common translation",
+        "Resultary: F-LLoM Rahmouni Proposition 3 softmax gating normalization identifiable",
+        "Rahmouni AIMS Mathematics 2026 DOI 10.3934/math.2026261 Proposition 3 exact PDF"
+      ],
+      "rationale": "The finding has practical source-specific value: a named published identifiability proposition omits the baseline restriction although its numerical likelihood and BIC degrees of freedom already use it; unrestricted Hessian is singular and would mislead variance inference. Value is assigned PASS for documenting this consequential scope error and reconciling published Table 1/2, notwithstanding already-covered mathematical originality. Overall disposition is failed because O fails.",
+      "residual_risks": [
+        "F-LLoM full mixture identifiability beyond gate normalization is not proven by this check; only necessary gate quotient condition proved.",
+        "A later source-specific correction may exist; the rejection rests on existing general 2023 implication, not failed literature search."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "F-LLoM full mixture identifiability beyond gate normalization is not proven by this check; only necessary gate quotient condition proved.",
+    "A later source-specific correction may exist; the rejection rests on existing general 2023 implication, not failed literature search.",
+    "Value is limited to documentation of a named source defect, not a novel general identifiability theorem."
+  ],
+  "schema_version": 1
+}
