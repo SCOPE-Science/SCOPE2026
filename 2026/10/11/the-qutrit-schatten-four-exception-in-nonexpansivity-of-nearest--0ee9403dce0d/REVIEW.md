@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The spectral difference majorization inequality and strictly convex simplex KKT conditions establish existence, uniqueness, and exponent-independent water filling. The \(p=2\) case follows from the Hilbert projection variational inequality; the trace-zero \(3\times3\) quartic identity proves the exceptional Schatten-four isometry. Two distinct constructive arguments rule out other nonexpansive cases: a nonzero norm derivative on a diagonal trace-zero \(4\times4\) perturbation, and a golden-ratio spectral derivative on a noncommuting trace-zero \(3\times3\) perturbation. The spectral divided-difference coefficient tends to one only as a limit of differentiability points, never at an unproved nonsmooth boundary. The verifier reproduces \(25+150+14\) finite checks. The analytic argument handles the full continuum of exponents and all finite dimensions; numerical checks alone would not.
+PASS
 
-## Originality — PASS, with residual risk
+PASS. Directly reconstructed spectral majorization reduction to the scalar simplex and strict-convex KKT (μ_i=(λ_i−τ)_+, trace 1), making the nearest-state map independent of 1<p<∞. On traceless 2×2 and 3×3 Hermitians the S_p norms at every p (n=2), respectively S4 alone (n=3), are proportional to S2; Hilbert projection gives constant 1, fixed distinct states make it sharp. For n≥4 derivative of ||diag(1,1,−2,0)+t diag(1,1,1,−3)||_p^p is p(2−2^(p−1)), vanishing only at 2; the three-active-coordinate threshold map removes the Z direction and produces strict expansion. For n=3 independently differentiated the noncommuting Y=[[1,0,1],[0,−1,0],[1,0,0]], Z=diag(1,1,−2): (1/p) derivative of ||Y+tZ||_p^p equals (φ^(p−3)+φ^(3−p))/√5−1 and vanishes only at 2,4. At the simple-spectrum Aδ the divided-difference derivative converges to Y. Independent numerical derivatives agree at nine exponents; 80 random-projection checks and six finite expansive witnesses corroborate but do not prove the universal bounds. The theorem proves only qualitative strict expansion; no exact expansive constants or endpoints.
 
-The 2014 Cheung–Drusvyatskiy–Li–Pelejo–Wolkowicz text (including the projection algorithms and Euclidean assumption in Section 2) does not state the Schatten phase diagram. The relevant 2025 Johnston–Li theorem concerns approximation **from an already-positive state** to a rank-constrained nonconvex subset, not the operator studied here. Previously known scalar simplex spectral clipping is conceded, not claimed as original. Searches for spectral-water-filling aliases, trace-zero Hermitian \(3\times3\) Schatten-four Hilbertian geometry, and nonexpansivity of qutrit state projection did not identify a covering theorem; non-detection is not proof of uniqueness. Historical quantum tomography and matrix analysis may contain an equivalent statement under other terminology.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem settles the complete sharp nonexpansivity classification for a natural state-repair map throughout the trace-normalized Schatten scale, and identifies the surprising and structurally explained non-Hilbert qutrit exception. This is a stability/robustness result relevant to projecting nonpositive trace-one estimators onto physical states, not a routine restatement of spectral clipping. It supplies genuine strict-expansion witnesses, not merely upper bounds. This classification is qualitative; no claim about sharp expansive Lipschitz constants is made.
+PASS. Matrix spectral clipping and water filling are known, but the exact ambient-trace-one nonexpansivity phase diagram, especially the exceptional noncommuting qutrit (3,4), is not implied by the inspected published Frobenius quantum-channel feasibility work or universal unitarily invariant low-rank approximation theorem. The latter starts from positive input density matrices and a nonconvex rank cap; for k=n the projection is the identity, so it cannot encode expansion of trace-one indefinite Hermitian inputs. Distinguishing Schatten4 on the traceless affine difference subspace from globally Hilbertian norms matters. Mathematically stronger coverage was sought in Resultary and web aliases, not found; this is not a novelty guarantee.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS. A full dimension/exponent nonexpansivity classification for a canonical convex quantum-state projection, with an exceptional non-Hilbert Schatten exponent and sharp local expansion mechanisms, answers a motivated stability question for spectral thresholding, not merely a change of notation or routine numerical calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
