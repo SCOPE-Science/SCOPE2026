@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite-element mass and stiffness matrices are standard and are reconstructed directly. For one and two interior nodes, positivity follows exactly. For three interior nodes, simultaneous sine diagonalization gives all entries of the semigroup matrix in closed form. Every entry except the first-to-third-node coupling is manifestly positive. The remaining entry reduces to a strictly convex two-exponential scalar function whose unique positive zero gives the exact reappearance time. The package checker independently verifies the matrices, algebraic eigenpairs, sign formulas, and a high-precision bracket for the threshold.
+## correctness
 
-## Originality
-PASS with stated residual risk. The inspected finite-element positivity literature already contains the broad phenomenon: consistent-mass standard Galerkin heat semidiscretizations can lose positivity for small positive time and can become positive again after a threshold. That prior work is not claimed as new. Searches for one-dimensional uniform meshes, consistent mass, exact threshold equations, three interior nodes, and minimal-node positivity did not locate the specific classification \(N\le2\) always positive versus \(N=3\) transiently negative, nor the closed threshold equation. The principal residual risk is an older positive-semigroup or finite-element note carrying out the same small-matrix calculation under different terminology.
+PASS
 
-## Value
-PASS. The result gives the smallest possible uniform one-dimensional benchmark for the consistent-mass positivity defect and replaces a qualitative eventual-positivity statement by an exact dimensionless threshold. Because the counterexample is a single coordinate impulse and the threshold scales exactly as \(h^2\), it is directly usable as a regression test for finite-element implementations, positivity limiters, mass-lumping choices, and time-integration studies. The two-node impossibility result makes the three-node example a natural finite boundary rather than an arbitrary small matrix.
+Uniform P1 consistent-mass and stiffness matrices M=hT/6,S=K/h give H=h²M^-1S=6T^-1K. N=1 gives e^(-3τ)>0; N=2 generator −H Metzler irreducible, giving strictly positive matrix exponential. At N=3 independently verified H has diagonal (51/14,30/7,51/14), adjacent −18/7 and corner +9/14, with eigenvalues (30±18sqrt2)/7 and 3. Sine spectral projectors yield E13=(e^(−λ1τ)+e^(−λ3τ))/4−e^(−3τ)/2; nearest couplings (sqrt2/4)(e^(−λ1τ)−e^(−λ3τ))>0, diagonals positive. Sign of E13 equals sign of g(τ)=exp((3−λ1)τ)+exp(−(λ3−3)τ)−2: g(0)=0,g'(0)<0,g''>0, g→∞; unique positive crossing τ*=0.212811776921..., so failure precisely (0,τ*h²) and strictly positive after. Independently checked exact rational matrices/SymPy eigenvalues, scipy exponentials and high-precision root. No extrapolation to N≥4.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Standard consistent-mass Galerkin failure at small times and eventual positivity were shown by Thomée and collaborators. The inspected open primary subdiffusion paper states general phenomena and gives higher-dimensional numerical thresholds, not the exact minimal uniform one-dimensional N=3 classification or explicit τ*. Closely relevant 2015 CMAM source could not be read in full; residual risk explicitly preserved. A Resultary indexed three-spectral-level positivity barrier is broader abstractly but does not fix this FE matrix or provide the least interior-node threshold.
+
+## value
+
+PASS
+
+Provides a uniquely minimal, fully explicit one-dimensional consistent-mass heat semigroup example and exact scale-free positivity return time, useful as a reproducible benchmark for schemes, mass lumping and positive semigroup tests. This is a motivated sharp finite boundary rather than an arbitrary small-matrix curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

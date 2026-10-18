@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T14:18:47.877074Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform P1 consistent-mass and stiffness matrices M=hT/6,S=K/h give H=h²M^-1S=6T^-1K. N=1 gives e^(-3τ)>0; N=2 generator −H Metzler irreducible, giving strictly positive matrix exponential. At N=3 independently verified H has diagonal (51/14,30/7,51/14), adjacent −18/7 and corner +9/14, with eigenvalues (30±18sqrt2)/7 and 3. Sine spectral projectors yield E13=(e^(−λ1τ)+e^(−λ3τ))/4−e^(−3τ)/2; nearest couplings (sqrt2/4)(e^(−λ1τ)−e^(−λ3τ))>0, diagonals positive. Sign of E13 equals sign of g(τ)=exp((3−λ1)τ)+exp(−(λ3−3)τ)−2: g(0)=0,g'(0)<0,g''>0, g→∞; unique positive crossing τ*=0.212811776921..., so failure precisely (0,τ*h²) and strictly positive after. Independently checked exact rational matrices/SymPy eigenvalues, scipy exponentials and high-precision root. No extrapolation to N≥4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorems cover small-time failure for nondiagonal mass, eventual positivity under suitable inverse positivity, and multidimensional numerical cases. The indexed generic three-spectral-value result only controls abstract positivity-time structure."
+        ],
+        "reasoning": "Those broader results do not directly identify dimension-three as the least eligible one-dimensional uniform FE model or calculate its specific explicit root. Potential uninspected 2015 journal calculations remain a named risk.",
+        "searches": [
+          "arXiv:1510.02825",
+          "DOI 10.1515/cmam-2015-0018",
+          "Resultary three-spectral-value barrier"
+        ]
+      },
+      "checked_sources": [
+        "one dimensional finite element consistent mass heat equation positivity threshold three interior nodes semigroup",
+        "Thomée On Positivity Preservation in Some Finite Element Methods for the Heat Equation 2015",
+        "Chatzipantelidis Horvath Thomee 2015 CMAM 15 positivity",
+        "Resultary three spectral value barrier gaps positivity times self-adjoint semigroups"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General nonpositive-short-time and eventual-positive-large-time statements provide existence but not location of first failing uniform 1D N or the exact single off-diagonal crossing."
+        ],
+        "reasoning": "The source is an explicit refinement of qualitative and dimensional results, not a claim to invent failure/recovery itself.",
+        "searches": [
+          "arXiv:1510.02825 sections heat semidiscretization and threshold",
+          "Thomée 2015 positivity preservation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both sources consider E(t)=exp(-M^-1 S t) and nodal positivity for standard Galerkin."
+        ],
+        "reasoning": "The specific statement is an exact N=1,2,3 size and sign classification for the 1D uniform Dirichlet stencil, not a general phenomenon of eventual positivity.",
+        "searches": [
+          "one dimensional finite element consistent mass heat equation positivity threshold three interior nodes semigroup",
+          "arXiv:1510.02825 consistent mass Galerkin semidiscrete positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent calculation of exact H3, eigenvalues and τ root agrees with source; earlier numerical examples concern 2D meshes."
+        ],
+        "reasoning": "An earlier unindexed one-dimensional table could report the same root; no such numerical table was established by the literature actually read.",
+        "searches": [
+          "one dimensional finite element consistent mass heat equation positivity threshold three interior nodes semigroup",
+          "0.212811776921 consistent mass 1D Galerkin heat positivity"
+        ]
+      },
+      "rationale": "Standard consistent-mass Galerkin failure at small times and eventual positivity were shown by Thomée and collaborators. The inspected open primary subdiffusion paper states general phenomena and gives higher-dimensional numerical thresholds, not the exact minimal uniform one-dimensional N=3 classification or explicit τ*. Closely relevant 2015 CMAM source could not be read in full; residual risk explicitly preserved. A Resultary indexed three-spectral-level positivity barrier is broader abstractly but does not fix this FE matrix or provide the least interior-node threshold.",
+      "residual_risks": [
+        "The highly relevant 2015 CMAM full paper was not materially read in full; same one-dimensional example could be present there.",
+        "An earlier small-matrix computation in finite-element or eventual-positivity literature may be identical.",
+        "General three-spectral-level positivity theorem is relevant but does not derive the exact mesh example without its matrix-specific calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes general positivity phenomena; does not state the exact one-dimensional three-node threshold in examined material",
+          "evidence": [
+            "Matrix H=M^-1S, theorem on failure at short times and eventual positivity under inverse positivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.02825",
+          "material_read": "Open-access PDF especially semidiscrete matrix framework, relevant small-time/eventual-positivity theorems and numerical examples",
+          "method": "Read PDF extracted text and page screenshot",
+          "title": "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations",
+          "trigger": "Broad rigorous standard Galerkin semidiscrete positivity theory"
+        },
+        {
+          "assessment": "No whole-document noncoverage conclusion made: uninspected source is a residual originality risk",
+          "evidence": [
+            "2015 title and abstract cover consistent-mass standard Galerkin positivity broadly."
+          ],
+          "identifier_or_url": "https://doi.org/10.1515/cmam-2015-0018",
+          "material_read": "Abstract, bibliographic information, and available search snippet; full article not read in this execution",
+          "method": "Read available metadata/snippets; full text inaccessible within current run",
+          "title": "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+          "trigger": "Highly relevant 2015 original heat semidiscretization theory"
+        },
+        {
+          "assessment": "Generic three-level self-adjoint positivity-time structure is related but insufficient by itself to compute Galerkin H3 threshold; full-text implication risk noted",
+          "evidence": [
+            "Indexed claim about at most three spectral levels having {0}∪[τ,∞) positivity times."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-three-spectral-value-barrier-for-gaps-in-positivity-times-of-s--da21753d4271",
+          "material_read": "Semantic search title and summary only, not primary full-text",
+          "method": "Resultary semantic hit read as indexed abstract",
+          "title": "A three-spectral-value barrier for gaps in positivity times of self-adjoint semigroups",
+          "trigger": "Relevant published broad semigroup spectral threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides a uniquely minimal, fully explicit one-dimensional consistent-mass heat semigroup example and exact scale-free positivity return time, useful as a reproducible benchmark for schemes, mass lumping and positive semigroup tests. This is a motivated sharp finite boundary rather than an arbitrary small-matrix curiosity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned Git RESULT.md, REVIEW.md, METADATA.json, AUDIT.json, VERIFICATION.md and actual checker, commit 08119bf33b93101414034e23c1f90b0d9c5f9592",
+    "one dimensional finite element consistent mass heat equation positivity threshold three interior nodes semigroup",
+    "Thomée On Positivity Preservation in Some Finite Element Methods for the Heat Equation 2015",
+    "Chatzipantelidis Horvath Thomee 2015 CMAM 15 positivity",
+    "Resultary three spectral value barrier gaps positivity times self-adjoint semigroups"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only consistent mass on uniform 1D P1 Dirichlet mesh, N<=3; not an all-mesh classification.",
+    "At τ=τ* the matrix is nonnegative but not strictly positive; for τ>τ* strictly positive.",
+    "The highly relevant 2015 CMAM full paper was not materially read in full; same one-dimensional example could be present there.",
+    "An earlier small-matrix computation in finite-element or eventual-positivity literature may be identical.",
+    "General three-spectral-level positivity theorem is relevant but does not derive the exact mesh example without its matrix-specific calculation."
+  ],
+  "schema_version": 1
+}
