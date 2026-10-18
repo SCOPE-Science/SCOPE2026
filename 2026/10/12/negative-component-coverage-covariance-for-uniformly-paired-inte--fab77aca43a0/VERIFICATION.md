@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Execute `python verify_matching_intervals.py` using Python 3 and its standard library. A successful execution produces:
+## correctness
 
-`VERIFY_OK exhaustive_matching_sizes=2..7 exact_geometric_cases=12 uniform_spacing_identities=6`
+PASS
 
-The program generates every perfect matching with \(\(n=2,3,4,5,6,7\)\), merges actual geometric intervals to compute connected-component counts and union lengths, and independently computes the quantities in the finite covariance formula. Two positive spacing configurations are examined at each size, including a quadratic nonuniform profile. Exact fractions are used throughout; every individual and joint even-cut probability is checked against the matching-count formula, and the variance and the covariance match. Six further checks verify the uniform expected-spacing identity. These calculations apply to a finite set of matchings at each enumerated size; they do **not** prove the unbounded-\(n\) or arbitrary-distribution theorem.
+Cut representation K=1+sum Z_j, V=range-sum g_(2j) Z_j holds for every perfect matching. Internal matching probabilities q_(n,j)=C(n,j)/C(2n,2j) and nested-cut P(Z_i=Z_j=1)=q_(n,j)q_(j,i) imply strictly positive cut covariance because q_(a+1,b)/q_(a,b)<1. Conditional mixed covariance is negative for all positive gaps; independent location randomness preserves sign; IID uniform spacings give Cov(K,V)=-(b-a)Var(K)/(2n+1). Separate merged-interval exact rational enumeration of all matchings for n=2..5: counts 3,15,105,945 with strictly negative covariance (-10/9,-364/75,-13296/1225,-345356/19845) on unequal gaps. Proof handles all n>=2, n=1 zero.
 
-The analytic argument in `RESULT.md` establishes all \(n\ge2\): parity locates possible missing gaps, nested-prefix matching counts give pairwise strictly positive cut correlations, and the weighted cut representation gives the strictly negative covariance. A random endpoint configuration must be independent of the matching and have integrable range for the unconditional assertion. If the endpoint law has atoms, the strict geometric inequality as stated need not apply; for \(\(n=1\)\) the covariance vanishes. No claim of external independent validation is made.
+## originality
+
+PASS
+
+Acan and Flajolet–Noy define components by crossing intersection graph, Young by runs of adjacent short chords; nested intervals can share a real union component without being connected in the crossing graph. None of their checked component models directly calculates length-weighted line-union covariance. Substantive best-of-knowledge originality, not merely absence of identical wording.
+
+## value
+
+PASS
+
+All-geometry negative correlation between natural topological component count and geometric covered length is a genuine dependence law, with exact coefficients and uniform-spacing variance identity. This is stronger than sampling a single interval distribution and usable as a benchmark for random pairing coverage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

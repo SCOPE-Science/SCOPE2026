@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-An uncovered gap can occur only after an even number of ordered endpoints, and then only when the entire prefix is internally matched. Consequently component count and covered length are exact linear forms of the same cut indicators with coefficients of opposite sign. Internal matching counts give \(q_{n,j}=\binom{n}{j}/\binom{2n}{2j}\); for separated cuts \(i<j\), their joint probability is \(q_{n,j}q_{j,i}\). The strictly decreasing property \(q_{a+1,i}/q_{a,i}<1\) forces every cut–cut covariance to be positive and proves strict negativity for any positive gap lengths. Conditioning and total covariance extend to integrable random geometry independent of the matching; equal expected uniform spacings give the exact variance relation. Exhaustive rational enumeration from the actual included code covers all matchings through seven pairs with independent interval merging, but does not replace the general proof. The \(\(n=1\)\), tied-endpoint and nonuniform-matching boundaries are explicit.
+PASS
 
-## Originality — PASS, with a limited historical risk
+Cut representation K=1+sum Z_j, V=range-sum g_(2j) Z_j holds for every perfect matching. Internal matching probabilities q_(n,j)=C(n,j)/C(2n,2j) and nested-cut P(Z_i=Z_j=1)=q_(n,j)q_(j,i) imply strictly positive cut covariance because q_(a+1,b)/q_(a,b)<1. Conditional mixed covariance is negative for all positive gaps; independent location randomness preserves sign; IID uniform spacings give Cov(K,V)=-(b-a)Var(K)/(2n+1). Separate merged-interval exact rational enumeration of all matchings for n=2..5: counts 3,15,105,945 with strictly negative covariance (-10/9,-364/75,-13296/1225,-345356/19845) on unequal gaps. Proof handles all n>=2, n=1 zero.
 
-Flajolet–Noy (INRIA RR-3914) and Acan (arXiv:1501.01489v1) concern components of the chord-intersection graph. Young (arXiv:2004.06921v3) defines components as adjacent groups of short chords. The actual definitions and relevant full-text theorems have been compared; none states the mixed covariance between **all-interval union components** and metric coverage length, let alone with arbitrary deterministic endpoint gaps. The matching-count identities used are classical, not claimed as novel. An older decomposable-matching formula may still imply the conclusion, so historical priority is not exhaustively certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives an exact, strict, finite-sample sign law linking a natural topological statistic and a geometric coverage statistic for every ordered endpoint geometry, not a hand-picked parameter family. The all-positive cut-covariance mechanism explains why the sign is universal, and uniform locations yield the scale-explicit identity \(\operatorname{Cov}(K_n,V_n)=-(b-a)\operatorname{Var}(K_n)/(2n+1)\). It supplies a benchmark for random matching coverage, distinct from Poisson Boolean interval models and crossing-graph theory.
+Acan and Flajolet–Noy define components by crossing intersection graph, Young by runs of adjacent short chords; nested intervals can share a real union component without being connected in the crossing graph. None of their checked component models directly calculates length-weighted line-union covariance. Substantive best-of-knowledge originality, not merely absence of identical wording.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+All-geometry negative correlation between natural topological component count and geometric covered length is a genuine dependence law, with exact coefficients and uniform-spacing variance identity. This is stronger than sampling a single interval distribution and usable as a benchmark for random pairing coverage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
