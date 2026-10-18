@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "The unit-cell matrix kernel differs from the continuous Hardy-phase commutator by a uniformly Hilbert–Schmidt operator (the j,k cell squared error is summable). The logarithmic unitary identifies a finite causal convolution with explicit rational Fourier multiplier. The finite Gram/compressed full-line Gram difference is positive trace class with uniformly bounded trace; cyclic-kernel integration proves every fixed trace moment. Uniform Hilbert–Schmidt discretization error changes finite trace moments by o(log N). Compact-support weighted moment convergence yields fixed-positive-level counts. The quartic roots and Fourier-measure normalization were independently checked; 70 standalone finite checks passed. No finite test is used to infer an infinite limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bellavita–Stylogiannis arXiv:2609.09453v1 gives a generic sampled-ratio Mellin calculus and Schatten-2 product defects.",
+        "Widom 1989 treats Toeplitz singular-value asymptotics, and Rogozhin 2006 treats finite block Toeplitz sections."
+      ],
+      "reasoning": "Generic singular-value distribution results supply techniques, but the inspected statements are about Toeplitz/continuous convolution sections rather than this discrete, nonuniform Cesàro-phase commutator. Uniform HS comparison and the nontrivial quartic superlevel evaluation are supplied here, while broader implication by unexamined general theorems remains possible.",
+      "searches": [
+        "Szegő limit for finite sections of discrete Mellin convolution with oscillatory modulation",
+        "A discrete Mellin calculus in the Toeplitz algebra arxiv 2609.09453",
+        "The Singular Value Behavior of the Finite Sections of Block Toeplitz Operators Rogozhin"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1006.1520",
+      "https://arxiv.org/abs/2609.09453",
+      "https://acta.bibl.u-szeged.hu/14062/1/math_026_fasc_001_002_125-137.pdf",
+      "https://doi.org/10.4171/ZAA/350",
+      "https://doi.org/10.1137/S0895479804441973",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-phase-velocity-thresholds-for-ces-ro-commutators-with-oscillator--b2f67a1e1e7a",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/19/SCOPE-zeta-trace-cesaro-mellin-defects--b8e60639c683"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 discrete Mellin calculus covers the sampled-ratio operator modulus and essential-norm framework, which would subsume an essential-norm-only claim: that candidate was not retained.",
+        "The phase-velocity Cesàro commutator result gives compactness and Hilbert–Schmidt thresholds for a continuous operator with a different coordinate model.",
+        "The existing finite Cesàro singular-moment and bulk-spectrum results concern the unmodulated matrix rather than its oscillatory commutator."
+      ],
+      "reasoning": "An essential-norm or ordinary spectrum claim could be a corollary of prior Mellin calculus; instead the final theorem asserts a logarithmic-density singular-value count at every positive threshold, an exact band-splitting criterion, and all fixed even moments. These are not consequences of essential norm alone or of unmodulated Cesàro moments. A general Szegő theorem can prove part of the argument once the new comparison is supplied, so no novelty is attached to that general theorem.",
+      "searches": [
+        "discrete Cesàro matrix commutator with diagonal n^{i tau}; essential norm piecewise formula 4 tau/(1+tau^2) and 2 saturation",
+        "Hardy operator commutator with imaginary-power multiplier x^{it} Mellin convolution Fourier multiplier",
+        "logarithmic singular-value distribution of finite Cesàro commutator with diagonal n^{iω}; closed superlevel counting and two-band Mellin spectral transition",
+        "asymptotic counting of singular values of N by N commutator Hardy averaging and logarithmic frequency"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The commutator becomes a finite Wiener–Hopf convolution with multiplier ω/((1/2+iξ)(1/2+i(ξ+ω))).",
+        "Classical continuous singular-value distribution theorems treat finite Toeplitz/Wiener–Hopf sections; the discrete oscillatory commutator requires an explicit uniform trace-ideal transfer."
+      ],
+      "reasoning": "Mellin-logarithmic and Wiener–Hopf reformulations were compared directly. The Fourier symbol itself is elementary and is not offered as new; the asserted discrete normalized positive-level count and split bands are stronger information than the multiplier norm.",
+      "searches": [
+        "logarithmic singular-value distribution of finite Cesàro commutator with diagonal n^{iω}; closed superlevel counting and two-band Mellin spectral transition",
+        "Szegő limit for finite sections of discrete Mellin convolution with oscillatory modulation",
+        "finite Cesaro commutator Mellin frequency singular distribution log n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact numeric table is used.",
+        "Direct root density was checked by Fourier grid integration for 30 parameter/threshold pairs with standard-library arithmetic."
+      ],
+      "reasoning": "The claim is a continuum of formulas for every fixed nonzero real ω and t>0; matching a few tabulated finite cases would not dominate it. Search results found no exact finite-section table stating the limiting singular-value count.",
+      "searches": [
+        "logarithmic singular-value distribution of finite Cesàro commutator with diagonal n^{iω}; closed superlevel counting and two-band Mellin spectral transition",
+        "asymptotic counting of singular values of N by N commutator Hardy averaging and logarithmic frequency",
+        "discrete Hardy matrix commutator multiplication n^it singular values asymptotic counting"
+      ]
+    },
+    "rationale": "The specific normalized singular-value superlevel count and exact one/two-band transition for oscillatory finite Cesàro commutators are absent from the inspected relevant prior statements. The closely related operator norm and Mellin multiplier calculus are acknowledged as preexisting and explicitly excluded from the novelty claim. General Toeplitz/Wiener–Hopf trace asymptotics and earlier Cesàro singular-energy laws do not by their statements alone specify this discrete commutator and the displayed threshold density. Historical special-case priority remains a genuine residual risk.",
+    "residual_risks": [
+      "Unindexed or historical finite Cesàro commutator spectral distribution under alternate Mellin/GLT terminology.",
+      "A broad existing continuous Wiener–Hopf/Toeplitz theorem may imply the leading moment limit after a transfer argument; this general part is not claimed new.",
+      "Only abstracts of some plausible generic finite Toeplitz references were accessible; not asserted as whole-document noncoverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Classical Cesàro operator spectral theory; does not state the oscillatory finite-section threshold density.",
+        "evidence": [
+          "A. Brown, P. R. Halmos, A. L. Shields (1965), Acta Sci. Math. 26, 125–137."
+        ],
+        "identifier_or_url": "https://acta.bibl.u-szeged.hu/14062/1/math_026_fasc_001_002_125-137.pdf",
+        "material_read": "The thirteen-page original article, particularly definition, norm and spectral analysis.",
+        "method": "Open-access primary PDF full-text and page inspection.",
+        "title": "Cesàro operators",
+        "trigger": "Foundational primary treatment of the precise discrete averaging matrix."
+      },
+      {
+        "assessment": "No positive-level log-count finite oscillatory matrix commutator theorem; first day-resolved source dated 2010-06-08.",
+        "evidence": [
+          "arXiv:1006.1520v1, first public submission 2010-06-08; main source primary MSC 47B38."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1006.1520",
+        "material_read": "Original open-access preprint including operator definitions and main norm/spectrum results.",
+        "method": "arXiv open-access full text and publication metadata.",
+        "title": "Cesaro operators on the Hardy spaces of the half-plane",
+        "trigger": "Pre-2016 source explicitly classified under MSC 47B38; Cesàro semigroup and continuous models."
+      },
+      {
+        "assessment": "Covers Mellin quantization modulo Hilbert–Schmidt and essential norm ideas; does not directly assert the finite-section singular-value superlevel density or its quartic band transition. Essential norm alone is not claimed as new.",
+        "evidence": [
+          "C. Bellavita and G. Stylogiannis, arXiv:2609.09453v1 (2026-09-08)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.09453",
+        "material_read": "Open-access preprint text including principal sampled-ratio calculus, Toeplitz and Schatten conclusions.",
+        "method": "arXiv full text and primary theorem comparison.",
+        "title": "A discrete Mellin calculus in the Toeplitz algebra",
+        "trigger": "Closest contemporary broad theorem for the classical discrete Cesàro operator and Mellin convolution."
+      },
+      {
+        "assessment": "Different continuous real-variable operator: compactness/Hilbert–Schmidt phase-velocity thresholds, not discrete finite-section logarithmic singular-value counting.",
+        "evidence": [
+          "Published source result record b2f67a1e1e7a."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-phase-velocity-thresholds-for-ces-ro-commutators-with-oscillator--b2f67a1e1e7a",
+        "material_read": "Complete RESULT.md statement, assumptions, proof, limitations and references.",
+        "method": "Published primary repository full-text retrieval.",
+        "title": "Phase-velocity thresholds for Cesàro commutators with oscillatory multipliers",
+        "trigger": "Nearest published semantic search result for oscillatory Cesàro commutators."
+      },
+      {
+        "assessment": "Trace-class lattice convolution defects and zeta traces; different operator expression and no positive-level finite commutator spectral density.",
+        "evidence": [
+          "Published record b8e60639c683."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/19/SCOPE-zeta-trace-cesaro-mellin-defects--b8e60639c683",
+        "material_read": "Complete RESULT.md proof and literature comparison.",
+        "method": "Published repository full-text retrieval.",
+        "title": "Trace-class Mellin semigroup defects and zeta traces for Cesàro powers",
+        "trigger": "Closest published discrete sampled-ratio Mellin trace-ideal theorem."
+      },
+      {
+        "assessment": "General Toeplitz singular-value theory; exact special-case applicability cannot be excluded from abstract alone.",
+        "evidence": [
+          "Harold Widom (1989), Z. Anal. Anwend. 8, 221–229."
+        ],
+        "identifier_or_url": "https://doi.org/10.4171/ZAA/350",
+        "material_read": "Publisher abstract, dated bibliographic description and scope; complete text not retrieved.",
+        "method": "Publisher abstract inspection.",
+        "title": "On the Singular Values of Toeplitz Matrices",
+        "trigger": "Possible generic stronger singular-value finite-section theorem."
+      },
+      {
+        "assessment": "Discusses ordinary finite Toeplitz sections, not directly the nonuniform Cesàro phase matrix; no whole-document noncoverage claim.",
+        "evidence": [
+          "A. Rogozhin (2006), SIAM J. Matrix Anal. Appl., DOI:10.1137/S0895479804441973."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0895479804441973",
+        "material_read": "Publisher abstract, stated k-splitting theorem and bibliography only.",
+        "method": "Publisher abstract inspection.",
+        "title": "The Singular Value Behavior of the Finite Sections of Block Toeplitz Operators",
+        "trigger": "Related generic block Toeplitz singular-value finite-section limits."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8b8cd7b8-37b4-496d-9953-6aafa0495ca1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact number of singular values above every fixed positive threshold grows as a computable constant times log N; this captures effective rank and finite-section approximation costs, rather than a single norm. A genuine splitting of the nonzero superlevel region appears at |ω|=1, with an exact transition interval in threshold t and a one-parameter continuum of explicitly testable coefficients. The phenomenon is motivated by unitary phase modulation of canonical Cesàro smoothing; its full moment law and density do not follow from operator norms alone.",
+    "status": "PASS"
+  }
+}
