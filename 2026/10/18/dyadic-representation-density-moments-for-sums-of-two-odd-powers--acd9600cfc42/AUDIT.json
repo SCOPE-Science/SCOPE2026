@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For every odd exponent k>=3 the power map is a unit-group permutation mod 2^n. Splitting input parities gives exact counts, and even-even scaling contributes exactly 2^(2k-2) lifts. Iterating the normalized recurrence gives a stable valuation formula for all nonzero targets, and Haar valuation masses give the necessary and sufficient q(k-2)<k moment bound. Cubic mean and variance follow from finite moment equations. Exhaustive independent finite counting checked 36 modulus/exponent pairs, 4088 residues, 1,398,096 input pairs and 180 further stabilization tests; infinite statements depend on the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf (Theorem 18 and Section 4 explicitly count represented residue classes)",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL6/Broughan/broughan25.pdf (Theorem 3.3 evaluates the fraction of represented residues)",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-two-adic-semigroup-decomposition-proves-the-parity-conjecture--0ca1ebb777b3 (Waring-exception semigroups, distinct invariant)"
+      ],
+      "reasoning": "The retrieved broad finite-field and modular Waring results address support size or other forms and do not provide a stronger result from which exact characteristic-two fiber multiplicities and all real q-moments follow. General p-adic singularity theory could imply parts; no specific all-parameter exact theorem covering this distribution was established.",
+      "searches": [
+        "\"p-adic\" \"representation density\" \"x^3+y^3\" \"variance\"",
+        "\"x^k+y^k\" \"p-adic distribution\" 2",
+        "Dyadic power sums x^3+y^3 residues representation multiplicity, 2-adic density of fibers and moments"
+      ]
+    },
+    "checked_sources": [
+      "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL6/Broughan/broughan25.pdf",
+      "https://oeis.org/A004999",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-complete-two-sum-spectrum-of-the-finite-field-fifth-power-graph--f9410cde2e91",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-two-adic-semigroup-decomposition-proves-the-parity-conjecture--0ca1ebb777b3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf (Theorem 18 gives alpha(p^n), number of attainable target classes)",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL6/Broughan/broughan25.pdf (Theorem 3.3 gives delta(m), fraction of attainable classes)",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-complete-two-sum-spectrum-of-the-finite-field-fifth-power-graph--f9410cde2e91 (a different two-coordinate graph over odd fields)"
+      ],
+      "reasoning": "Knowing alpha(2^n)=2^n does not determine R_{k,n}(r), since distributions with the same support can have arbitrary unequal fibers. The finite-field graph sums are not one-dimensional sums of two kth powers over 2-power rings. Therefore no inspected named result directly implies the new theorem. The reverse implication to full representability holds.",
+      "searches": [
+        "Exact 2-adic representation counts for x^k+y^k with odd k, local-density distribution, moments and variance",
+        "Dyadic power sums x^3+y^3 residues representation multiplicity, 2-adic density of fibers and moments",
+        "\"number of solutions\" \"x^3+y^3\" \"modulo 2^n\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf (Sections 2, 4; image cardinality)",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL6/Broughan/broughan25.pdf (Section 3; modular existence)",
+        "The identity x^k+y^k=(x+y)Q(x,y) for odd k does not make kth powers a bijection on even residues."
+      ],
+      "reasoning": "Interpret representation counts as the convolution of two push-forwards of Haar by kth powering. The finite dyadic counts determine its full density, a finer invariant than solvability and equivalent to the theorem as given. The odd-unit bijection alone does not settle singular even input pairs, which cause the heavy tail.",
+      "searches": [
+        "\"x^k+y^k\" \"2-adic\" \"local density\" number of solutions",
+        "\"local density\" \"x^k+y^k\" \"moments\"",
+        "Exact 2-adic representation counts for x^k+y^k with odd k, local-density distribution, moments and variance",
+        "\"binary diagonal forms\" \"local density\" moments p-adic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://oeis.org/A004999 (ordinary sums of nonnegative cubes)",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf (mentions sequence A002804, not a table of full dyadic representation-count spectra)"
+      ],
+      "reasoning": "The inspected referenced sequences and modular-support tables record distinct quantities. No table was identified for the full valuation-by-valuation density law or its sharp moment threshold. This is a bounded search, not proof of table absence.",
+      "searches": [
+        "\"number of solutions\" \"x^3+y^3\" \"modulo 2^n\"",
+        "site:oeis.org \"number of solutions\" \"x^3+y^3\" \"2^n\"",
+        "site:oeis.org \"2-adic\" \"representation\" \"sum of two cubes\" variance"
+      ]
+    },
+    "rationale": "The full accessible text of the primary 2023 diagonal-power-sum study concerns the cardinality of the image, not fiber-by-fiber counts or limiting density moments. The inspected 2003/2004 Broughan cube work likewise concerns existence of representations and modular obstructions. The exact finite dyadic multiplicity recurrence, valuation distribution, cubic variance 3/4 and integrability threshold are not implied by mere support-cardinality formulas. Related general local-zeta machinery presents a legitimate residual coverage risk.",
+    "residual_risks": [
+      "General p-adic local-zeta/pushforward-density literature could contain a dominating representation-density theorem not found in inspected references.",
+      "A separately published or unindexed modular two-power multiplicity table could overlap with the recursion.",
+      "Some unindexed mathematical literature may contain equivalent dyadic fiber-density formulas; this possibility is not ruled out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its alpha counts solvable target classes; it does not state a fiber-multiplicity distribution or dyadic moment threshold.",
+        "evidence": "Introduction p.2 and Section 4 pp.8-10, Theorem 18; primary MSC 11A07 and Aug 28 2023 date p.17.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf",
+        "material_read": "17-page full document sections 1-7, including abstract, Section 2, Sections 4-5, proofs and references",
+        "method": "Read full searchable PDF text and inspected original page images for notation and relevant propositions.",
+        "title": "Counting Integers Representable as Sums of k-th Powers Modulo n",
+        "trigger": "Same diagonal polynomial and 2-power modulus; primary literature comparison."
+      },
+      {
+        "assessment": "Determines existence and image fractions, not the number of solutions for each 2-adic target or their moment law.",
+        "evidence": "Section 3, pp.3-5, especially definition delta(N) and Theorem 3.3.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL6/Broughan/broughan25.pdf",
+        "material_read": "Seven-page full article, including Theorems 2.1, 3.2, 3.3 and Section 4",
+        "method": "Read full PDF text and inspected original pages for modular counts and theorem formulations.",
+        "title": "Characterizing the Sum of Two Cubes",
+        "trigger": "Potential stronger cubic modular characterization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "acd9600c-fc42-4f6e-a6e7-4761959d310f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The originating publication studies which residue classes are sums of powers; for every odd exponent all dyadic classes are representable, making support size blind to their sharply unequal multiplicity. An exact full-fiber law for all odd exponents is a natural quantitative invariant. The exact critical moment k/(k-2), finite cubic variance 3/4, and infinite fifth-and-higher variance provide a structural boundary tied to the singular scaling near zero, with potential use in local distribution and congruence comparison.",
+    "status": "PASS"
+  }
+}
