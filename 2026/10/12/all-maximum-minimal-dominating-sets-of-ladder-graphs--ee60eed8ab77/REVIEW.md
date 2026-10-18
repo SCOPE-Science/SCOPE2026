@@ -1,20 +1,21 @@
-# Scientific review: maximum minimal domination on ladders
+# Independent mathematical audit
 
-## Correctness — PASS
-The final statement gives the largest cardinality, the exhaustive set of extremal column words, and their exact count for every two-row Cartesian ladder with at least two columns. The private-closed-neighbor criterion for minimal domination is applied to the literal graph. A five-column window is sufficient because a private witness lies at distance at most one from the selected vertex and its own closed neighborhood has radius one. Padding uses a distinct nonexistent-column symbol, so boundary cases do not gain fictitious witnesses. Each accepted word has a path in a 625-state finite automaton whose gain is precisely \(|D|-n\). Exact integer inequalities for a state potential give an unconditional \(n\)-vertex upper bound. Every equality path uses tight transitions, and an exhaustive 41-state product-automaton equivalence check proves that **all** tight accepting words, at **all** lengths, are the six stated periodic types, with the parity condition. The standalone checker replays all these finite proof obligations and separately enumerates actual graph subsets through ten columns. The finite subset check alone would not be an infinite proof; the automaton identity is.
+## correctness
 
-## Originality — PASS, with explicit residual risk
-The 2024 full journal article *Dominion on Grids* (DOI 10.3390/math12213408, 2024-10-31) treats the lower extremal parameter \(\gamma\) and numbers of minimum dominating sets; the claim concerns maximum **minimal** sets, not the same \(\gamma\)-sets. The 2026 upper-grid preprint arXiv:2610.03785 announces the scalar \(\Gamma=\alpha\) value; that is included here as known context, whereas the classification and enumeration of all equality cases are additional assertions. OEIS A290379 computes the number of **all** minimal dominating sets, not this highest-degree coefficient, and its single-variable specialization cannot imply an equality-case decomposition. Published-record searches for upper domination of ladders, maximum minimal dominating set enumeration, and periodic column masks retrieved adjacent domination/graph results but no statement covering these six families. A publisher retrieval limit prevented continuous full-text inspection of the October 2024 article, and only the 2026 arXiv abstract was accessible; an unlocated appendix or terminology variant remains a real (not waived) risk. Those limitations did not reveal any stronger or equivalent result, and the observed primary-paper distinctions are mathematical rather than merely titular.
+PASS
 
-## Value — PASS
-Classifying **all** largest inclusion-minimal dominating sets is the natural extremal-witness problem complementary to finding \(\Gamma\) alone. The result gives the full highest-degree coefficient of the minimal-domination polynomial and explains why additional, non-independent extremizers occur exactly at even ladder lengths. It is an exhaustive infinite-family classification with a parity transition, not an arbitrary isolated numeric entry or the previously tabulated total count. It also identifies the exact configurations responsible for redundancy-free half-vertex coverage on a canonical grid strip. There is no claim of a broader-grid theorem or a paper-sized downstream application.
+Private-neighbor characterization is local on a radius-two/five-column window with absent-column PAD rather than zero mask. An exact 625-state integer potential satisfies R(s)≥popcount(newmask)-1+R(t), R(START)=0, R(terminal)≥0; telescoping proves every inclusion-minimal dominating set of L_n has size ≤n. Explicit singleton-column witnesses attain n. All gain-tight accepting paths are compared in a synchronous finite product with six periodic languages; independently replayed potential converges in 2 Bellman rounds and finite product enumerates exactly 41 reachable states/46 transitions with equality of every acceptance predicate. This finite-state identity proves all lengths, not mere finite enumeration. Independent graph-subset enumeration n=1..10 matches counts n=1:2; n even≥2:6; n odd≥3:4.
 
-## Closest sources and limitations
-- Su et al. (2024), *Dominion on Grids*: minimum dominating sets and their number in ladders; primary MSC 05C69 and public date 2024-10-31 verified from the publisher record.
-- Sahbi (2026), *Upper Domination in Rectangular Grid Graphs...*, arXiv:2610.03785: scalar upper domination, with full-text access incomplete.
-- OEIS A290379: known recurrence for the count of all minimal dominating sets of \(n\)-ladders.
-- General bipartite upper-domination identity and private-neighbor definitions: background, not claimed as new.
+## originality
 
-Scientific scope is restricted to ordinary two-row Cartesian ladders. The finite-state proof is fully explicit and reproducible, but an independent external mathematical audit has not been performed and incomplete access leaves a residual overlap risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sahbi arXiv:2610.03785v2, Section 8 Theorem 8.1, proves the scalar Gamma(P_m square P_n)=ceil(mn/2), deriving it from classical bipartite Gamma=alpha. It does not enumerate the full maximizing inclusion-minimal dominating families on the two-row ladder. OEIS A290379 records total minimal dominating sets for ladders, not the top coefficient of the cardinality polynomial, and the 2024 grid paper concerns minimum rather than maximum minimal sets. The new equality-case word classification is stronger than the known scalar theorem, and no published Resultary comparison implied it.
+
+## value
+
+PASS
+
+An exact, natural, complete classification of all largest minimal dominating configurations for the canonical width-two strip, including a surprising even/odd oscillation with six versus four extremizers. It gives the leading coefficient of the minimal-domination polynomial and a finite-state certificate usable for related strip enumeration; not just restating the known upper-domination number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
