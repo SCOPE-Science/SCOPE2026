@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "Coprime normalization preserves gcd. The Bézout identity gives two complementary nonnegative candidate witnesses with exactly one parity admissible; unimodular inverse transport has correct normalization. Six possible F2 states exhaust the Bézout parity constraint and split into three 2-cycles for even k or two 3-cycles for odd k. Checks: 68,094 modular inverse recalculations, 58,782 period comparisons, 9,269 complete small integer solution enumerations, 2,640 normalized noncoprime cases. Scope and finite verification limits explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arachchi et al. Theorem 1.1 gives a per-pair modular-inverse criterion but not the recurrences of both inverse witnesses.",
+        "The 2025 problems paper asks for formulas for further recurrences and general seed dependence.",
+        "The 2025 survey Section 3 treats arbitrary seeds of additive Fibonacci recurrences; the 2026 generalization handles other targets and Fibonacci settings."
+      ],
+      "reasoning": "A general single-pair criterion is background and does not itself state or establish the transport recurrence or the universal two/three-period law. No inspected broader theorem subsumes the full claim.",
+      "searches": [
+        "Γ(a,b) gcd-normalized Diophantine equations recurrence k b-a parity Bezout transform finite field six states",
+        "arXiv:2512.12681, Problems 1.6 and 2.3",
+        "arXiv:2309.04488, Theorem 1.1",
+        "arXiv:2509.01781, Section 3",
+        "arXiv:2609.08728, Introduction and Section 3",
+        "midpoint two Diophantine equations ax+by=(a-1)(b-1)/2, recurrence a(n+2)=k a(n+1)-a(n), arbitrary seeds, alternating period 2 even k and period 3 odd k",
+        "balancing Lucas-balancing equations unique nonnegative solutions, modular inverse pair affine transport, subtractive Chebyshev recurrence universal periodicity"
+      ]
+    },
+    "checked_sources": [
+      "Davala 2023 DOI 10.7546/nntdm.2023.29.3.495-502",
+      "Arachchi et al. arXiv:2309.04488v1",
+      "Chu, Miller and Tresch arXiv:2512.12681v1",
+      "Chu et al. arXiv:2509.01781v1",
+      "Chu et al. arXiv:2609.08728v1",
+      "Published mathematical-result semantic searches; closest returned Lucas period-equality and cyclotomic interpolation records not covering"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Davala provides solutions for balancing and Lucas-balancing prescribed pairs, including u(n+2)=6u(n+1)-u(n).",
+        "Arachchi et al. Theorem 5.2 gives even-k constant, odd-k triple-run patterns for the plus-sign recurrence.",
+        "This theorem yields strict alternation for even-k and three-cycle for odd-k in the minus-sign recurrence."
+      ],
+      "reasoning": "The strict k=6 balancing subcase is covered by Davala and excluded from novelty. Changing the recurrence sign changes the parity operator, so the additive classification cannot be invoked as the desired period dichotomy without new work. The claimed inverse-pair transformation and its complete parity orbit proof supply the missing argument.",
+      "searches": [
+        "On a Pair of Diophantine Equations Arachchi Chu Miller Γ(a_n,a_{n+1}) for sequences U_{n+2}=k U_{n+1}-U_n; period 2 3 modular inverse",
+        "cyclotomic midpoint Diophantine equation ax+by=(a-1)(b-1)/2 recurrence Chebyshev balancing period mod 2 alternating triple pattern",
+        "Γ(a,b) gcd-normalized Diophantine equations recurrence k b-a parity Bezout transform finite field six states",
+        "Davala DOI 10.7546/nntdm.2023.29.3.495-502",
+        "arXiv:2309.04488 Section 5",
+        "midpoint two Diophantine equations ax+by=(a-1)(b-1)/2, recurrence a(n+2)=k a(n+1)-a(n), arbitrary seeds, alternating period 2 even k and period 3 odd k",
+        "balancing Lucas-balancing equations unique nonnegative solutions, modular inverse pair affine transport, subtractive Chebyshev recurrence universal periodicity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In Arachchi et al. Section 5, the recurrence is u(n+2)=k*u(n+1)+u(n), rather than the minus-sign recurrence here.",
+        "Davala Theorem 2.1 uses balancing seeds and k=6."
+      ],
+      "reasoning": "Comparison under gcd-normalization and replacement of the modular inverse witnesses found no equivalent arbitrary-seed subtractive classification. The already-known balancing case is a strict specialization; the plus-sign recurrence yields a different equation pattern.",
+      "searches": [
+        "On a Pair of Diophantine Equations Arachchi Chu Miller Γ(a_n,a_{n+1}) for sequences U_{n+2}=k U_{n+1}-U_n; period 2 3 modular inverse",
+        "cyclotomic midpoint Diophantine equation ax+by=(a-1)(b-1)/2 recurrence Chebyshev balancing period mod 2 alternating triple pattern",
+        "midpoint two Diophantine equations ax+by=(a-1)(b-1)/2, recurrence a(n+2)=k a(n+1)-a(n), arbitrary seeds, alternating period 2 even k and period 3 odd k",
+        "balancing Lucas-balancing equations unique nonnegative solutions, modular inverse pair affine transport, subtractive Chebyshev recurrence universal periodicity",
+        "arXiv:2309.04488v1",
+        "10.7546/nntdm.2023.29.3.495-502"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest mathematical-result hits concerned Lucas sequence period equality and matrix shift-equivalence, which do not enumerate midpoint Diophantine solutions.",
+        "Davala 2023 presents explicit tables for prescribed balancing pairs, not the entire coefficient and initial-seed family."
+      ],
+      "reasoning": "No exact record containing a table or theorem covering all k>=2 and all ordered seeds was returned by the actual searches. The particular k=6 published tables remain previously known.",
+      "searches": [
+        "On a Pair of Diophantine Equations Arachchi Chu Miller Γ(a_n,a_{n+1}) for sequences U_{n+2}=k U_{n+1}-U_n; period 2 3 modular inverse",
+        "Γ(a,b) gcd-normalized Diophantine equations recurrence k b-a parity Bezout transform finite field six states",
+        "midpoint two Diophantine equations ax+by=(a-1)(b-1)/2, recurrence a(n+2)=k a(n+1)-a(n), arbitrary seeds, alternating period 2 even k and period 3 odd k",
+        "balancing Lucas-balancing equations unique nonnegative solutions, modular inverse pair affine transport, subtractive Chebyshev recurrence universal periodicity",
+        "10.7546/nntdm.2023.29.3.495-502"
+      ]
+    },
+    "rationale": "The closest balancing result (Davala 2023) is a fixed k=6 family and is explicitly excluded from novelty; Arachchi et al. (2023) treat the opposite recurrence sign with different periods. The 2025 problems paper motivates arbitrary recurrence classifications. In these full-text comparisons and targeted published record queries no statement implying the arbitrary-seed subtractive transport, explicit witnesses, and least-period dichotomy was identified; implicit/unindexed overlap remains possible.",
+    "residual_risks": [
+      "Unindexed or later work might independently contain an equivalent uniform theorem.",
+      "The general per-pair modular-inverse theorem can make the new orbit classification a short consequence when combined with the new Bézout transport, but that transport and the sharp cycle assertion were not found explicitly in examined results.",
+      "Some historical non-current ledgers were inaccessible for full overlap checks; only accessible histories were compared."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known k=6 balancing specializations are covered, but arbitrary k and arbitrary ordered seeds and both parities are not proved",
+        "evidence": [
+          "Online First 15 July 2023; Theorem 2.1 and subsequent prescribed balancing/Lucas-balancing families."
+        ],
+        "identifier_or_url": "https://nntdm.net/papers/nntdm-29/NNTDM-29-3-495-502.pdf",
+        "material_read": "Abstract and mathematical results/theorem statements and proofs on pages 495-502, including the adjacent balancing family",
+        "method": "Read the legally open publisher PDF and examine statements and proofs, comparing hypotheses and implied cases",
+        "title": "Solution to a pair of linear, two-variable, Diophantine equations with coprime coefficients from balancing and Lucas-balancing numbers",
+        "trigger": "Exactly same midpoint equations and negative-sign balancing recurrence"
+      },
+      {
+        "assessment": "Single-pair inverse criterion and additive-sign recurrence; different from arbitrary-seed subtractive case",
+        "evidence": [
+          "Theorem 5.2 has u(n+2)=k*u(n+1)+u(n); even k constant and odd k triple runs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.04488",
+        "material_read": "Introduction, Theorem 1.1, full Section 5 theorem, proof, and future problems",
+        "method": "Inspected full HTML article, especially Theorem 5.2 and Corollary 5.3",
+        "title": "On a Pair of Diophantine Equations",
+        "trigger": "Identical pair of midpoint equations and a general recurrence theorem"
+      },
+      {
+        "assessment": "Additive Fibonacci recurrence, not general subtractive u(n+2)=k*u(n+1)-u(n)",
+        "evidence": [
+          "Section 3 defines t(n)=t(n-1)+t(n-2); Section 2.3 reproduces Davala balancing cases."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.01781",
+        "material_read": "Full Section 2.3 balancing cases and Section 3 general-seed Fibonacci constructions",
+        "method": "Inspected article HTML statements, proofs, and scope",
+        "title": "A Survey on a Pair of Diophantine Equations",
+        "trigger": "Provides explicit arbitrary-initial-seed formulas for the midpoint equation problem"
+      },
+      {
+        "assessment": "Generalized targets and selected Fibonacci cases, not the claimed arbitrary-seed subtractive recurrence theorem",
+        "evidence": [
+          "Sections 2-3 study complementary target m and Fibonacci pairs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.08728",
+        "material_read": "Abstract, introduction theorem statements, Sections 2-3 and reference list",
+        "method": "Inspected HTML source for recurrence sign and stated generality",
+        "title": "Generalizing a Pair of Diophantine Equations",
+        "trigger": "Current closely titled work on the exact midpoint pair and other targets"
+      },
+      {
+        "assessment": "Asks for other recurrence families and formulas rather than proving the present uniform subtractive classification",
+        "evidence": [
+          "Problem 1.6 and Problem 2.3 request recurrence and initial-value investigations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2512.12681",
+        "material_read": "Introduction, problem formulations, and sections discussing recurrences and seed dependence",
+        "method": "Read available full HTML rendering",
+        "title": "Problems Regarding a Pair of Diophantine Equations",
+        "trigger": "Later statement of unsolved directions for the exact equations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1ce3e945-b24a-4d71-8513-7ea23766e2bf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Diophantine midpoint pair and the dependence of solvable equations on recurrence families are published mathematical questions. The arbitrary initial pair and coefficient k>=2 obtain a sharp, contrasting period law plus explicit unique integer coordinates at every index; this extends only restricted balancing cases, distinguishing additive and subtractive companion dynamics. The new theorem solves a natural full recurrence family, not an arbitrary sample or mere computational census.",
+    "status": "PASS"
+  }
+}
