@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T05:09:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/invariant-leaf-dissipation-threshold-and-hamiltonian-period-grow--286907dafee6/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/invariant-leaf-dissipation-threshold-and-hamiltonian-period-grow--286907dafee6/verify.py",
+        "S. Jafari and J. C. Sprott 2013 DOI:10.1016/j.chaos.2013.08.018",
+        "Jafari and Sprott 2015 erratum DOI:10.1016/j.chaos.2015.05.002"
+      ],
+      "rationale": "Reconstructed the exact vector field dx=y, dy=-x+yz, dz=-y-a*x*y-b*x*z. Differentiation gives d[x+z+a*x^2/2]/dt=-b*x*z; for b=0 every level reduces to dy=-x+(C-x-a*x^2/2)y. In y>-1 the proper nonnegative H=x^2/2+y-log(1+y) has dH=(C-a*x^2/2)y^2/(1+y), yielding compact forward trapping under a>=0,C<=0 and LaSalle convergence to (0,0) unless (a,C)=(0,0). The invariance check is essential: on y=0, dy=-x, and on x=0, dx=y, so no other trajectory remains in the zero set. At the center a=C=0, v=log(1+y) makes xdot=e^v-1, vdot=-x with convex coercive W=e^v-v-1; small energies give period 2*pi. Quadrature T=sqrt(2)*integral dv/sqrt(h-W(v)), negative turning point v_-=-h-1+o(1), and positive interval negligible at scale sqrt(h) give T/sqrt(h)->2*sqrt(2). For y<-1 at C=0, H_-=x^2/2+y-log(-1-y) is conserved and y~-x^2/2; dt=dx/y is integrable towards both spatial ends. For a=0,C!=0, H is strictly monotone between crossings, y<-1 drifts x strictly left, y=-1 has dy=-C, preventing recurrence. Compact invariant measures are mixtures of equilibrium and periodic-orbit laws by Poincare recurrence/ergodic decomposition. Checked finite-symbolic identities from inspected verify.py without treating optional quadratures as proof.",
+      "residual_risks": [
+        "The nonpositive C and nonnegative a sector is essential: the proof does not classify b!=0, a<0, C>0, or y<=-1 generally.",
+        "Global long-time dynamics uses analytic LaSalle/recurrence arguments, not computer certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Resultary nearest non-self hits address Sprott J or a different four-dimensional line-equilibrium model.",
+          "Different vector fields and parameter restrictions cannot specialize to the LE2 b=0 leaf equation."
+        ],
+        "reasoning": "Hamiltonian/Lyapunov principles are known general machinery, but do not furnish this LE2 first integral and exact parameter threshold without model-specific work.",
+        "searches": [
+          "Jafari Sprott LE2 flow b=0 invariant leaves convergence Hamiltonian potential e^v-v-1 period square-root energy",
+          "Jafari Sprott 2013 chaos line equilibria and 2015 erratum",
+          "Resultary Sprott J Hamiltonian foliation"
+        ]
+      },
+      "checked_sources": [
+        "Jafari Sprott LE2 flow b=0 invariant leaves convergence Hamiltonian potential e^v-v-1 period square-root energy",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/invariant-leaf-dissipation-threshold-and-hamiltonian-period-grow--286907dafee6/RESULT.md",
+        "https://sprott.physics.wisc.edu/pubs/paper409.pdf",
+        "https://sprott.physics.wisc.edu/pubs/paper444.pdf",
+        "Resultary related Sprott J and 4D line-equilibrium records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2013 full paper establishes equations and numerical dynamics, not a global b=0 Lyapunov theorem.",
+          "The Darboux-integrability discussion applies to LE1, with a different third equation, not the LE2 field."
+        ],
+        "reasoning": "The first integral C is verified by direct differentiation from the correct LE2 equations; it is not a corollary of published LE1 nonintegrability.",
+        "searches": [
+          "Jafari Sprott LE2 equation b parameter original 2013 2015",
+          "Jalal Amen Sulaiman 2020 Darboux LE1 versus LE2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2013 paper treats the LE2 flow at positive b parameter examples, not the derived b=0 Hamiltonian integral.",
+          "At b=0, the LE2 reduction gives W(v)=e^v-v-1 and large-energy T~2sqrt(2h); this is more specific than the generic center theorem."
+        ],
+        "reasoning": "Equivalence demands identical reduced ODE and period normalization, not only a chaotic-flow or oscillator title.",
+        "searches": [
+          "Jafari Sprott LE2 flow b=0 invariant leaves convergence Hamiltonian potential e^v-v-1 period square-root energy",
+          "\"LE2\" b=0 first integral Lyapunov Hamiltonian period",
+          "\"e^v-v-1\" oscillator period sqrt energy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact assigned record is the top self-hit in Resultary, not independent evidence of earlier coverage.",
+          "Numerical chaotic examples in the original paper occur in another parameter regime."
+        ],
+        "reasoning": "Neither a numerical flow catalogue nor the same finding entry preempts a new analytical global statement.",
+        "searches": [
+          "Resultary LE2 first integral large energy period asymptotic",
+          "2013 Jafari Sprott LE2 numerical examples"
+        ]
+      },
+      "rationale": "Best-of-knowledge original boundary classification for the exact LE2 field, rather than claims about the known chaotic parameter examples. The 2013 LE2 primary paper/2015 correction identify the equations, but their numerical phase portraits do not supply this b=0 global foliation, Hamiltonian h->infinity period asymptotic or invariant-measure classification. Nearby Sprott J / 2022 line-equilibrium results concern different vector fields. An equivalent treatment of the exp-potential oscillator could exist under another name; this risk remains explicit.",
+      "residual_risks": [
+        "Potential unindexed LE2 boundary analysis or equivalent e^v-v-1 oscillator asymptotic.",
+        "LE1 comparison was not read in complete primary full text.",
+        "Historical chronology of the original online-first publication is uncertain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_PREMISE_ONLY",
+          "evidence": "The 2013 LE2 entries specify the three-dimensional field and numerical examples, but the presented example parameter b is not the zero-coupling boundary.",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper409.pdf",
+          "material_read": "Primary six-page PDF, field table, equations, example parameters and discussion of chaotic cases",
+          "method": "Primary full PDF read and visual check of equation table",
+          "title": "Simple chaotic flows with a line equilibrium",
+          "trigger": "Original model and possible covering results"
+        },
+        {
+          "assessment": "MODEL_CORRECTION",
+          "evidence": "Erratum confirms the vector-field definition relevant to the first-integral calculation.",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper444.pdf",
+          "material_read": "Short full erratum, corrected vector-field table and page image",
+          "method": "Primary full PDF read, including corrected table",
+          "title": "Erratum to Simple chaotic flows with a line equilibrium",
+          "trigger": "Corrected LE2 equations"
+        },
+        {
+          "assessment": "DIFFERENT_LE1_SYSTEM_ACCESS_LIMITED",
+          "evidence": "The studied LE1 third component starts with -x, whereas assigned LE2 uses -y.",
+          "identifier_or_url": "DOI:10.1016/j.chaos.2020.109712",
+          "material_read": "Public abstract and available model identification; full paper not inspected",
+          "method": "Abstract/model comparison only",
+          "title": "Darboux integrability of the simple chaotic flow with a line equilibria differential system",
+          "trigger": "Plausible integrability predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/invariant-leaf-dissipation-threshold-and-hamiltonian-period-grow--286907dafee6/RESULT.md",
+        "2013 LE2 primary equations"
+      ],
+      "rationale": "The b=0 coupling-removal parameter is a natural boundary of a named quadratic flow. A polynomial integral splits the full system into invariant leaves and leads to a sharp damping versus conservative threshold, an exact large-energy period-growth constant, and an invariant-measure/finite-time-blowup division across y=-1. These independently useful global properties go well beyond a routine coordinate substitution, numerical trajectory plot or trivial equilibrium check.",
+      "residual_risks": [
+        "No classification outside the stated sign sector or of the published chaotic parameter range."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The nonpositive C and nonnegative a sector is essential: the proof does not classify b!=0, a<0, C>0, or y<=-1 generally.",
+    "Global long-time dynamics uses analytic LaSalle/recurrence arguments, not computer certification.",
+    "Potential unindexed LE2 boundary analysis or equivalent e^v-v-1 oscillator asymptotic.",
+    "LE1 comparison was not read in complete primary full text.",
+    "Historical chronology of the original online-first publication is uncertain.",
+    "No classification outside the stated sign sector or of the published chaotic parameter range."
+  ],
+  "schema_version": 1
+}
