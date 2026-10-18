@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T10:18:41.047775Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed 40 exact listed Lutz tetrahedra; f=(11,51,80,40), 51 graph edges. Binary chain ranks give dim Z1=41, rank B1=40, H1(F2)=F2; explicit listed 17-edge cocycle vanishes on each of 80 face boundaries and is not a vertex coboundary. All 55 nonfacial graph triangles pair to 1. Independently used fundamental-cycle parity on each induced graph for all 2^11=2048 subsets, confirming image nonzero iff the subset contains one of the 55 generator triangles. Support counts (55,242,442,462,330,165,55,11,1) in sizes 3..11, independence polynomial 1+11t+55t²+110t³+88t⁴+20t⁵, 20 exceptional 5-sets and all 462 6-sets support. Frozen verifier additionally checks 48-element automorphism group closure and orbits 3,4,12,12,24 / 8,12; no generalization beyond exact complex.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tightness and σ-vector theory aggregate induced Betti numbers and give injectivity criteria, not the specific image-to-global-H1 support of all 2048 subsets."
+        ],
+        "reasoning": "No theorem in inspected broader framework implies the exact 20 missing five-sets, six-set cutoff, 55 generators and five orbit sizes. Distinguish inclusion injectivity from surjectivity/nonzero-image.",
+        "searches": [
+          "Bagchi 2014 tightness criterion pages 1–3",
+          "Lutz combinatorial manifolds arXiv:math/0506372 exact facet section"
+        ]
+      },
+      "checked_sources": [
+        "Git tree 806ea167d07b79c2ba286573774e858de7e26178",
+        "Frozen RESULT.md e47c7033b7246b78978c82bb1347c76eb251be46",
+        "Frozen verify.py 867d986aa08b2518742b0db61aa06d30f625876e",
+        "https://arxiv.org/pdf/math/0506372",
+        "https://arxiv.org/pdf/1406.4299",
+        "Independent F2 fundamental-cycle/2048 subsets /mnt/data/audit_independent_checks.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing H1(F2)=1 and 48 symmetries does not determine which of 462 induced six-subcomplexes support the class or which 20 five-subsets fail."
+        ],
+        "reasoning": "The exact 55 witnesses/20 exceptions require explicit F2 chain/cocycle and subset enumeration, not a direct consequence of published f-vector or group order. Unknown previous private code remains a priority risk.",
+        "searches": [
+          "Lutz primary exact RP3_11 section",
+          "Bagchi arXiv:1406.4299 general definition and criteria"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "H1(RP3;F2)=F2, generator triangles are missing cliques with nonzero cocycle pairing; subset support equivalent to nonzero inclusion-induced map."
+        ],
+        "reasoning": "Compared RP^3_11, Walkup minimal 11-vertex space, F2 1-homology generator, induced-support hypergraph/independence polynomial. Exact profile not present in inspected source text.",
+        "searches": [
+          "Lutz arXiv:math/0506372 RP3_11 facet list and automorphism group",
+          "Bagchi arXiv:1406.4299 induced-subcomplex homology",
+          "Resultary RP3 support query failed"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary paper prints facets, f=(11,51,80,40), automorphism group order 48."
+        ],
+        "reasoning": "The source facet and group data are reused, but complete support-count and independence-polynomial tables are newly computed from all 2048 subsets rather than copied from the source.",
+        "searches": [
+          "Lutz arXiv:math/0506372 40 tetrahedra and automorphism generators, PDF page 18"
+        ]
+      },
+      "rationale": "Lutz arXiv:math/0506372 primary paper prints the same forty facets, face vector and 48-element automorphism group. Bagchi tightness framework identifies induced-subcomplex maps as natural invariants but no exact 55-triangle generator hypergraph or sharp 6-vertex support cutoff was found in the inspected relevant statements. These statistics are not merely H1 or face vector lookup: they measure each subset inclusion image, 2048 cases, including precise exceptions and orbits. Unindexed previous enumeration possible; Resultary inaccessible.",
+      "residual_risks": [
+        "Resultary semantic queries [five topics, 2026-10-12] returned search_internal_error; search_completed=false (not evidence of absence)",
+        "An older unindexed computation of the Lutz 11-vertex induced support data could exist.",
+        "The assertion is over F2 and this particular 40-facet triangulation, not arbitrary RP3 triangulations or integral classes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS object, facet list, f-vector and 48 symmetry; not seen full induced-support hypergraph",
+          "evidence": "Complete 40 tetrahedra and 3 permutation generators, group order 48; f=(11,51,80,40).",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0506372",
+          "material_read": "RP3_11 exact-object subsection and complete forty tetrahedron list, PDF page 18; adjacent automorphism group description",
+          "method": "Read relevant primary full-text PDF pages and accompanying theorem/data sections",
+          "title": "Triangulated Manifolds with Few Vertices: Combinatorial Manifolds",
+          "trigger": "Exact RP3_11 object, forty facet list and automorphism group"
+        },
+        {
+          "assessment": "GENERAL FRAMEWORK; not specific inclusion-image support enumeration of Lutz RP3",
+          "evidence": "Tightness concerns H_*(K[S];F)->H_*(K;F) being injective for every S; claim instead asks when the image is nonzero.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.4299",
+          "material_read": "Abstract, definition of induced subcomplex, tightness, and preliminary main criteria on PDF pp1–3",
+          "method": "Read relevant primary full-text PDF pages and accompanying theorem/data sections",
+          "title": "A tightness criterion for homology manifolds with or without boundary",
+          "trigger": "General induced-homology injection framework and possible stronger structural result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the canonical minimal eleven-vertex RP3 triangulation and its unique nontrivial mod-two H1 class, the least induced support size and full hypergraph of minimal witnesses are natural local-to-global invariants. The sharp fact every six-vertex induced complex maps nontrivially, versus precisely 20 exceptional five-vertex sets, together with the symmetry orbit decomposition, is an independently reusable exact finite classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree 806ea167d07b79c2ba286573774e858de7e26178",
+    "Frozen RESULT.md e47c7033b7246b78978c82bb1347c76eb251be46",
+    "Frozen verify.py 867d986aa08b2518742b0db61aa06d30f625876e",
+    "https://arxiv.org/pdf/math/0506372",
+    "https://arxiv.org/pdf/1406.4299",
+    "Independent F2 fundamental-cycle/2048 subsets /mnt/data/audit_independent_checks.py"
+  ],
+  "disposition": "passed",
+  "limitations": "Finite exact labelled RP3_11; no claim for other triangulations, coefficient fields or arbitrary vertex dimensions.",
+  "residual_risks": [
+    "Resultary semantic queries [five topics, 2026-10-12] returned search_internal_error; search_completed=false (not evidence of absence)",
+    "An older unindexed computation of the Lutz 11-vertex induced support data could exist.",
+    "The assertion is over F2 and this particular 40-facet triangulation, not arbitrary RP3 triangulations or integral classes."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS object, facet list, f-vector and 48 symmetry; not seen full induced-support hypergraph",
+      "evidence": "Complete 40 tetrahedra and 3 permutation generators, group order 48; f=(11,51,80,40).",
+      "identifier_or_url": "https://arxiv.org/pdf/math/0506372",
+      "material_read": "RP3_11 exact-object subsection and complete forty tetrahedron list, PDF page 18; adjacent automorphism group description",
+      "method": "Read relevant primary full-text PDF pages and accompanying theorem/data sections",
+      "title": "Triangulated Manifolds with Few Vertices: Combinatorial Manifolds",
+      "trigger": "Exact RP3_11 object, forty facet list and automorphism group"
+    },
+    {
+      "assessment": "GENERAL FRAMEWORK; not specific inclusion-image support enumeration of Lutz RP3",
+      "evidence": "Tightness concerns H_*(K[S];F)->H_*(K;F) being injective for every S; claim instead asks when the image is nonzero.",
+      "identifier_or_url": "https://arxiv.org/pdf/1406.4299",
+      "material_read": "Abstract, definition of induced subcomplex, tightness, and preliminary main criteria on PDF pp1–3",
+      "method": "Read relevant primary full-text PDF pages and accompanying theorem/data sections",
+      "title": "A tightness criterion for homology manifolds with or without boundary",
+      "trigger": "General induced-homology injection framework and possible stronger structural result"
+    }
+  ]
+}

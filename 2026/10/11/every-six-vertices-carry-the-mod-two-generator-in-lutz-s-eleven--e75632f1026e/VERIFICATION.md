@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py`. The verifier contains the forty tetrahedra from the cited primary source and uses only exact bit-vector linear algebra over \(\mathbf F_2\).
+# Independent mathematical audit
 
-It checks:
+## correctness
 
-- face vector \( (11,51,80,40) \);
-- \(\dim H_1(K;\mathbf F_2)=1\);
-- the explicit 17-edge cocycle vanishes on every triangular boundary and is not a coboundary;
-- exactly 55 empty triangles occur and every one pairs nontrivially with that cocycle;
-- all 2048 vertex subsets by both cocycle evaluation and a quotient-rank computation of their image in global \(H_1\);
-- equivalence between nonzero global image and containment of a generator triangle;
-- the complete support and independence counts;
-- closure of the three published automorphism generators to 48 facet-preserving permutations, and the stated orbit sizes.
+PASS
 
-The finite exhaustive verifier proves only the stated complex and coefficient field. It does not extrapolate to other triangulations or coefficient systems.
+Reconstructed 40 exact listed Lutz tetrahedra; f=(11,51,80,40), 51 graph edges. Binary chain ranks give dim Z1=41, rank B1=40, H1(F2)=F2; explicit listed 17-edge cocycle vanishes on each of 80 face boundaries and is not a vertex coboundary. All 55 nonfacial graph triangles pair to 1. Independently used fundamental-cycle parity on each induced graph for all 2^11=2048 subsets, confirming image nonzero iff the subset contains one of the 55 generator triangles. Support counts (55,242,442,462,330,165,55,11,1) in sizes 3..11, independence polynomial 1+11t+55t²+110t³+88t⁴+20t⁵, 20 exceptional 5-sets and all 462 6-sets support. Frozen verifier additionally checks 48-element automorphism group closure and orbits 3,4,12,12,24 / 8,12; no generalization beyond exact complex.
 
-Expected terminal output:
+## originality
 
-`VERIFY_OK f=11,51,80,40 H1=1 generator_triangles=55 support=3:55,4:242,5:442,6:462,7:330,8:165,9:55,10:11,11:1 independent=0:1,1:11,2:55,3:110,4:88,5:20 aut=48 gen_orbits=3,4,12,12,24 exceptional5_orbits=8,12`
+PASS
+
+Lutz arXiv:math/0506372 primary paper prints the same forty facets, face vector and 48-element automorphism group. Bagchi tightness framework identifies induced-subcomplex maps as natural invariants but no exact 55-triangle generator hypergraph or sharp 6-vertex support cutoff was found in the inspected relevant statements. These statistics are not merely H1 or face vector lookup: they measure each subset inclusion image, 2048 cases, including precise exceptions and orbits. Unindexed previous enumeration possible; Resultary inaccessible.
+
+## value
+
+PASS
+
+For the canonical minimal eleven-vertex RP3 triangulation and its unique nontrivial mod-two H1 class, the least induced support size and full hypergraph of minimal witnesses are natural local-to-global invariants. The sharp fact every six-vertex induced complex maps nontrivially, versus precisely 20 exceptional five-vertex sets, together with the symmetry orbit decomposition, is an independently reusable exact finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
