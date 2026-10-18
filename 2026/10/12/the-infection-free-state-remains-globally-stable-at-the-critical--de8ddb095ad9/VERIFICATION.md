@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,35 +18,25 @@
   "schema_version": 1
 }
 ---
-The critical endpoint theorem is analytic.
 
-Let
-\[
-a=d_2+pC_0>0,
-\qquad
-b=d_3+qA_0>0.
-\]
-At \(\mathcal R_0=1\), the infection characteristic equation is
-\[
-F(z)=(z+a)(z+b)-ab e^{-z\tau}.
-\]
-Then
-\[
-F(0)=0,
-\]
-and
-\[
-F'(0)=a+b+ab\tau>0.
-\]
-Hence zero is a simple characteristic root.
+# Independent mathematical audit
 
-The bundled checker replays these identities with exact rational arithmetic for a positive witness and verifies the invariant-set chain
-\[
-T=T_0\text{ and }\dot T=0\Longrightarrow V=0,
-\]
-followed by
-\[
-V=0\text{ and }\dot V=0\Longrightarrow I=0.
-\]
+## correctness
 
-The finite checker does not establish the delay-system convergence. Global asymptotic stability follows from the source Lyapunov derivative together with the invariant-set proof in `RESULT.md`.
+PASS
+
+Reconstructed all five model equations, positive coefficients, nonnegative bounded histories, R0, and source Lyapunov derivative. At R0=1 the V term vanishes; every other term is nonpositive, and equality forces T=T0,C=C0,A=A0. On the largest invariant set T’=-beta*T0*V forces V=0, followed by V’=r*d2*I forcing I=0. With bounded positive invariant histories, LaSalle yields global attraction and Lyapunov stability. The infected characteristic equation (z+a)(z+b)-ab exp(-z*tau)=0 has F(0)=0 and F’(0)=a+b+ab*tau>0: a simple critical zero root, so no exponential-stability claim. This analytically establishes the endpoint rather than extending by continuity. Remaining technical assumption: the primary theorem’s compactness/positivity hypotheses must match the stated invariant state region; full primary article not independently retrieved this run.
+
+## originality
+
+PASS
+
+The published source states R0<1; the exact equality-case invariant-set argument is an additional result for that five-equation recruited dual-immune model. Comparisons of threshold theorems in other viral systems do not by themselves imply this source-specific E0 theorem. Originality best-of-knowledge, with the inaccessible complete primary text and general immune-delay Lyapunov literature retained as risks.
+
+## value
+
+PASS
+
+Closing a nonhyperbolic reproduction-number threshold is mathematically consequential: it turns a strict eradication criterion into a closed exact threshold requiring LaSalle instead of linearization; this is a natural boundary question, not an arbitrary special parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

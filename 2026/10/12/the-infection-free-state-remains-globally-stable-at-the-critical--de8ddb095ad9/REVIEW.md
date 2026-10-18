@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The primary source's Lyapunov derivative remains nonpositive at \(\mathcal R_0=1\). Its zero set forces \(T=T_0\), \(C=C_0\), and \(A=A_0\); invariance then gives \(V=0\) from the target-cell equation and \(I=0\) from the virus equation. Thus the largest invariant subset is exactly the infection-free equilibrium. The infection characteristic equation has a simple zero root at equality because \(F(0)=0\) and \(F'(0)=a+b+ab\tau>0\).
+PASS
 
-## Originality
+Reconstructed all five model equations, positive coefficients, nonnegative bounded histories, R0, and source Lyapunov derivative. At R0=1 the V term vanishes; every other term is nonpositive, and equality forces T=T0,C=C0,A=A0. On the largest invariant set T’=-beta*T0*V forces V=0, followed by V’=r*d2*I forcing I=0. With bounded positive invariant histories, LaSalle yields global attraction and Lyapunov stability. The infected characteristic equation (z+a)(z+b)-ab exp(-z*tau)=0 has F(0)=0 and F’(0)=a+b+ab*tau>0: a simple critical zero root, so no exponential-stability claim. This analytically establishes the endpoint rather than extending by continuity. Remaining technical assumption: the primary theorem’s compactness/positivity hypotheses must match the stated invariant state region; full primary article not independently retrieved this run.
 
-PASS. Global Lyapunov methods for delayed virus models are established and are not claimed as new. The accepted result is the exact closure of the motivating article's strict infection-free theorem at its omitted equality, together with the nonhyperbolic endpoint diagnosis. Searches by DOI, exact title, equality terminology, critical-threshold terminology, and correction terminology did not locate a published source-specific statement with this implication.
+## originality
 
-## Value
+PASS
 
-PASS. The source presents the global dynamics as reproduction-number controlled, so whether the eradication side is \(\mathcal R_0<1\) or \(\mathcal R_0\le1\) is a natural threshold question. The equality cannot be obtained by simply extending a Hurwitz calculation, because a characteristic root is exactly zero there. The nonlinear invariant-set argument therefore closes a genuine critical boundary.
+The published source states R0<1; the exact equality-case invariant-set argument is an additional result for that five-equation recruited dual-immune model. Comparisons of threshold theorems in other viral systems do not by themselves imply this source-specific E0 theorem. Originality best-of-knowledge, with the inaccessible complete primary text and general immune-delay Lyapunov literature retained as risks.
 
-## Closest literature and limitations
+## value
 
-Ji and Liu analyze a different delayed viral-infection model with nonlinear immune response by Lyapunov-LaSalle methods. Elaiw and Raezah develop a broader threshold framework for delayed virus models. Neither inspected record states the critical equality theorem for the exact recruited cellular-and-antibody system studied here.
+PASS
 
-The result does not supply a sharp decay rate at equality and does not reanalyze the source's supercritical endemic equilibrium or numerical experiments. An unindexed author note remains a residual literature risk.
+Closing a nonhyperbolic reproduction-number threshold is mathematically consequential: it turns a strict eradication criterion into a closed exact threshold requiring LaSalle instead of linearization; this is a natural boundary question, not an arbitrary special parameter.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
