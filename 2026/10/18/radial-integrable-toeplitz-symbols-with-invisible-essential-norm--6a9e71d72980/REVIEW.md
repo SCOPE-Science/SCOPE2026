@@ -1,0 +1,23 @@
+# Scientific review: radial integrable Toeplitz symbols with invisible essential norm
+
+## Correctness — PASS
+
+The proof is reconstructible from the displayed definitions with no external lemma beyond standard Bergman kernel identities, gamma integration, elementary unimodal Riemann sums, and diagonal compactness. Gamma integration makes the eigenvalue formula exact: the integer-indexed eigenvalues are nonnegative sums of \(\Phi_N\) profiles. Geometric scale separation bounds the entire sum uniformly and ensures eigenvalues at \(K_j-1\) are at least one. The \(L^1\) norms sum to at most \(1/(30M)\), so the polynomial Toeplitz form is legitimate and extends to the bounded positive diagonal operator. The beta-integral estimate yields a summable uniform bound on each individual compact building block's Berezin transform; interchange with the symbol follows from convergence in \(L^1\) and the fact that each fixed normalized reproducing kernel is bounded. This proves vanishing at the disk boundary without requiring operator-norm convergence of the compact summands. The exact finite rational checker passed 333 assertions; it supplements rather than establishes the infinite estimates.
+
+## Originality — PASS, with specified priority risk
+
+Looi (arXiv:2608.09131, posted August 10, 2026), introduction and Sections 4–5, proves failure of the Berezin compactness test for \(L^1\) Toeplitz operators and provides an explicitly positive, real-symbol example. These facts and the general phenomenon are not claimed here. In its radial discussion the paper expressly distinguishes the radial \(L^1\) case as not addressed, and the final operators are built using nonradially arranged/transplanted blocks. The new proposition adds a radial **symbol**, a genuine diagonal moment formula, and arbitrary small \(L^1\) norm at fixed nonzero essential norm.
+
+Zorboska (2002), especially Theorem 0.4 and its preceding discussion, supplies a sufficient oscillation criterion for radial \(L^1\) symbols and explicitly notes the unresolved general unbounded-symbol situation. Korenblum–Zhu (1995) treats bounded radial symbols, and Suárez (2007) the norm-closed bounded-symbol Toeplitz algebra; those stronger regularity assumptions cannot dominate this example. The related radial counterexample of Looi (arXiv:2603.10879) concerns **positive Berezin liminf not implying essential positivity** for bounded real radial symbols, a logically different implication. Li–Wang (arXiv:2608.23733) explicitly requires bounded symbols. An older general \(L^1\) compactness statement in the Agbor preprint is in tension with Looi's established nonradial counterexample and supplies no radial negative construction.
+
+Scientific search comparisons covered radial/integrable/Berezin/compactness formulations, diagonal moment realization, Korenblum–Zhu Tauberian conditions, radial Toeplitz-algebra equivalents, and published counterexamples. No directly equivalent radial \(L^1\), vanishing-Berezin, positive-noncompact construction was located in the inspected material. Residual risk: earlier unpublished or differently indexed radial moment/interpolation examples may imply the same result. This is a self-review, not a comprehensive independent priority certification.
+
+## Mathematical value — PASS
+
+The exact object is the natural signed radial \(L^1\) Toeplitz-symbol class singled out in the motivating paper's explicit limitation and in earlier Tauberian/oscillation criteria. Radiality substantially strengthens the existing nonradial counterexamples: despite diagonalization and positivity of the operator, kernel-diagonal averages still miss a fixed essential norm. The inverse-Laplace mechanism and summable peaked eigenvalue profiles provide a reusable structural construction, and the additional bound \(\|f\|_{L^1}<\varepsilon\) proves extreme instability of detecting operator compactness from the integrable symbol mass. This is neither a finite computational curiosity nor a mere substitution into the earlier nonradial construction.
+
+## Scientific limits and nearest references
+
+The construction addresses only the unweighted disk and signed real radial integrable symbols. It does not address nonnegative radial symbols, all dimensions or weights, or stronger localization criteria. Looi, arXiv:2608.09131 (Sections 1, 4–5); Zorboska, DOI:10.1090/S0002-9939-02-06691-1 (Theorem 0.4); Korenblum–Zhu, Journal of Operator Theory 33 (1995), 353–361; Looi, arXiv:2603.10879 (radial essential positivity); Li–Wang, arXiv:2608.23733 (bounded symbols); Suárez, arXiv:0710.0797 (bounded-symbol algebra). A fully independent specialist search and audit remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
