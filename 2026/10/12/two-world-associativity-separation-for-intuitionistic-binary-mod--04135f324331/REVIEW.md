@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The two persistence clauses are reconstructed from the binary-modal semantics in Kaminski (2026), Definition 2. The six-row normal form for admissible ternary relations follows from the two distinct coordinate monotonicities. Exhaustive verification tests all 256 ternary relations, all three persistent truth sets, all 27 associativity triples, and all 16 relational quadruples, yielding the exact 32/11/24 partition. The two separating relations are explicitly given and semantically evaluated. This is a complete finite proof for the stated two-world scope, not an extrapolation from samples.
+## correctness
 
-## Originality
-**PASS, subject to literature-indexing risk.** The central 2026 article's full Definition 2 and concluding discussion treat the same ternary semantics and open associative extension, but do not state the sharp two-world separation or the 67/32/11/24 partition. Kaminski (2024) analyzes associative binary-modal logic without this two-operation finite comparison. Searches for equivalent labels (ternary relation associative versus complex Heyting-algebra associative, finite residuated frames, two-world intuitionistic binary modalities) found no decisive covering source. A differently indexed finite-algebra census remains a residual risk; negative search results alone are not a proof of priority.
+PASS
 
-## Value
-**PASS.** The numerical invariant is the full classification on the smallest possible non-Boolean Heyting truth-set algebra, not a selected arbitrary subset of relations. The source explicitly singles out associative binary-modal semantics for further work. The two strict gaps separate validity of the two association schemes from ordinary ternary associativity, and show that the latter is not a necessary *frame-by-frame* condition on this base. The result does not claim to settle undecidability or strong completeness of the full theory.
+On W={0<1}, persistence forces R_1={(v,w):R(1,v,w)} to be an upper set of the 2x2 square, with R_1 empty implying R_0 empty, and R_0 union R_1 an upper set. There are six upper sets, with admissible count 1+10+12+12+16+16=67. Independently enumerated all 256 ternary relation masks, filtering both persistence clauses verbatim; truth sets are empty,{1},W, and existential/universal modalities were computed on 3^2 pairs and tested all 27 associativity triples plus 16 quadruples for relational associativity. Exactly 32 relations were relationally and jointly modal associative, 11 jointly modal associative but not relational, 24 only existential associative. No additional outcomes; witness relation bitmasks 160 (existential only) and 173 (both modalities but relation nonassociative) independently checked. One-world/trivially ordered two-world bases cannot exhibit separation by Boolean complement duality, so two-chain is minimal. Bounded census is exhaustively complete for 2^8 candidates but makes no all-frame assertion.
 
-## References and limitations
-The closest full-text sources are Kaminski (2026), DOI 10.1007/s00153-026-01025-3, particularly §§2–3 and 6, and Kaminski (2024), DOI 10.1007/s00153-024-00921-w, particularly the relational associativity sections. The exact count is specific to the fixed two-world chain; equivalence of operators across different relations and larger posets are not classified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Structured searches compared exact claims and implications; see named checks and inspection evidence. Best-of-knowledge only; residual literature-priority risks remain.
+
+## value
+
+PASS
+
+This answers a natural finite semantic boundary of an open associative extension of an intuitionistic binary-modal logic, separating ternary relational associativity, joint modal associativity and existential associativity on the smallest non-Boolean persistent valuation algebra. The exact classification and minimal witnesses matter for frame correspondence and finite countermodels; it does not purport to prove or refute strong completeness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
