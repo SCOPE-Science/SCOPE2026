@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The two parameterizations are complete and one-to-one modulo rotation: 65536 nonsingular feedback functions filtered to one Hamiltonian orbit, and anchored Euler tours in the 4-bit overlap graph. Exact polynomial divisibility and independent Berlekamp–Massey yield the same linear complexity; prefix ranges and full interval enumeration yield the same discrepancy. Both independent 2048-row censuses agree on every joint cell.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2407.17367 Theorem 1 gives the minimum discrepancy for each order",
+        "arxiv:2408.01794 Theorem 3.11 gives divisibility for max-complexity counts"
+      ],
+      "reasoning": "Existence of a minimally discrepant sequence and divisibility of all maximum-linear-complexity sequence counts do not determine their intersection or all joint cell values; these statements address different quantifiers.",
+      "searches": [
+        "2024 Chang Wang de Bruijn maximum linear complexity reverse complement balanced run distribution joint"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2407.17367",
+      "arxiv:2408.01794",
+      "arxiv:2005.01638",
+      "2026/9/8/SCOPE080 (semantic-search near-neighbor, unrelated pair code)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Established separate discrepancy counts (224,688,912,224) at values 5..8",
+        "arxiv:2408.01794 Sec. 3 establishes congruences for gamma(31,5)",
+        "new exact joint count 92"
+      ],
+      "reasoning": "One-dimensional marginal counts and congruence constraints are insufficient to determine the intersection cardinality; no cited prior theorem supplies a coupling law that fixes N_{31,5}=92 or the other cells.",
+      "searches": [
+        "joint distribution cyclic discrepancy and linear complexity binary de Bruijn sequences order five 2048 cycles",
+        "2024 Chang Wang de Bruijn maximum linear complexity reverse complement balanced run distribution joint"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2407.17367 Sec. 1: cyclic factor-imbalance definition",
+        "arxiv:2408.01794 Sec. 3: binary linear complexity and gamma(c,n)"
+      ],
+      "reasoning": "Compared discrepancy under cyclic complement-balanced intervals, linear span/minimal feedback recurrence, and maximal-complexity cycle frequencies; none of the inspected sources conditions complexity on discrepancy.",
+      "searches": [
+        "joint distribution cyclic discrepancy and linear complexity binary de Bruijn sequences order five 2048 cycles",
+        "de Bruijn order five discrepancy 5 6 7 8 linear complexity 21 23 24 25 26 27 28 29 30 31 joint"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2005.01638 Sections 1.2, 6, Appendix A: discrepancies of specified constructions",
+        "arxiv:2408.01794 Sec. 3: no complete order-five joint table identified"
+      ],
+      "reasoning": "Checked the plausible table locations for complete binary order-five joint metric counts; available tabulations concern discrepancy of named construction families and complexity-related divisibility, not the simultaneous distributions. An unindexed exact table remains a residual risk.",
+      "searches": [
+        "de Bruijn order five discrepancy 5 6 7 8 linear complexity 21 23 24 25 26 27 28 29 30 31 joint"
+      ]
+    },
+    "rationale": "The complete 11-by-4 joint distribution, and especially the 92 jointly optimal cycles, are not implied by separate discrepancy and linear-complexity marginals or by the inspected construction, existence, and divisibility theorems. No same-result coverage was found in the identified closest primary full texts or searchable record index. An unindexed or inaccessible earlier equivalent remains possible.",
+    "residual_risks": [
+      "An unindexed table or older thesis combining full de Bruijn linear-complexity and discrepancy counts could exist.",
+      "Literature evaluation is source-limited; result is not asserted independent expert validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover joint complexity-conditioned enumerations",
+        "evidence": [
+          "Sec. 1, Theorem 1: existence/algorithm for minimal discrepancy for all binary orders",
+          "Sec. 3: de Bruijn graph and discrepancy"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.17367v1",
+        "material_read": "Abstract, statement of results, Theorem 1, paper structure and graph correspondence",
+        "method": "Primary full-text HTML, inspected relevant theorem and sections",
+        "title": "De Bruijn Sequences with Minimum Discrepancy",
+        "trigger": "Exact discrepancy minimum and candidate existence theorem"
+      },
+      {
+        "assessment": "Max-complexity divisibility and CR symmetry but no discrepancy-conditioned spectrum",
+        "evidence": [
+          "Section 3 Theorem 3.11: gamma(2^n-1,n) divisible by 16",
+          "Section 3 Lemma 3.7: invariance among certain CR constructions"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2408.01794v1",
+        "material_read": "Introduction, nonsingular-feedback formalism, Section 3 including Lemma 3.7 and Theorem 3.11, conclusion",
+        "method": "Primary full-text HTML, relevant proofs and table search",
+        "title": "Efficient generation of odd order de Bruijn sequence with the same complement and reverse sequences",
+        "trigger": "Nearest primary source about max linear complexity of odd-order de Bruijn sequences"
+      },
+      {
+        "assessment": "Presents discrepancy for specified constructions, not order-five full joint enumerator",
+        "evidence": [
+          "Sec. 1 items 1-4: selected constructions and primitive-polynomial LFSR discrepancy",
+          "Sec. 1.2 Table 1 starts at n=10, not 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2005.01638v2",
+        "material_read": "Abstract, introduction and methods in Sec. 1, table and construction targets in Sec. 1.2",
+        "method": "Primary full-text HTML, sections/appendix structure and tables inspected",
+        "title": "Investigating the discrepancy property of de Bruijn sequences",
+        "trigger": "Original extensive discrepancy analysis including LFSR-generated cycles"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "737c7243-0083-4af3-bca9-2b02ea3fa43f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two objective functions evaluate complementary constraints on pseudorandom cyclic sequences: local bias and recurrence predictability. At the first nontrivial finite case with both distributions spanning several values, the exact 92-cycle Pareto corner and complete joint distribution distinguish simultaneous optimization from marginal attainment; neither implication nor mere renaming of known counts.",
+    "status": "PASS"
+  }
+}

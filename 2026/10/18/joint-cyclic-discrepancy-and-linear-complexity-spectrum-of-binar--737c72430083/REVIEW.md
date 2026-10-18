@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** A bijection between rotation classes and successful nonsingular four-bit feedback functions makes the 65536-function search exhaustive. A separate rooted Euler-circuit enumeration covers exactly the same 2048 cycles without relying on this encoding. The discrepancy formula follows from balanced prefix sums; linear complexity follows from cancellation of the period-32 generating-series denominator, independently checked by Berlekamp–Massey. The independently calculated joint tables agree in every entry.
+
+**Originality: PASS, with residual priority risk.** Álvarez et al. (arXiv:2407.17367, Theorem 1) establish the sharp minimum discrepancy in every binary order, rather than linear-complexity-conditioned counts. Chang and Wang (arXiv:2408.01794, Section 3, Theorem 3.11) establish divisibility properties of maximum-linear-complexity counts and CR constructions rather than the joint table. Gabrić and Sawada (arXiv:2005.01638, Sections 1 and 6) analyze imbalance of selected constructions including LFSR constructions. A previously established 224/688/912/224 marginal discrepancy distribution is credited as existing work; neither marginal implies the 92-element intersection. Published and searchable records examined did not reveal a complete matching joint table. Priority remains uncertain outside inspected material.
+
+**Mathematical value: PASS.** Linear complexity and local symbol imbalance are distinct, motivated measures of pseudorandom-sequence quality. The complete joint table at order five answers the natural simultaneous-optimization problem exactly, with 92 joint optima; only 23/56 of the minimally discrepant cycles have maximal complexity, below the unconditional proportion 1/2. This is a natural finite classification, not a claim of asymptotic behavior or a general theorem at other orders.
+
+**Closest literature and scope.** The references in RESULT.md specify the primary mathematical comparisons. Results are for binary order five, modulo rotation only. An unindexed equivalent remains a residual scientific risk; independent validation has not been undertaken.
+
+Self-review: passed. Independent audit: not yet performed.
