@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed from the definitions for the finite faithful semisimple setting. The critical steps checked were: coordinate decomposition of submodules; direct verification of the prime-submodule criterion; computation of \(V(N)\) from colon-ideal inclusion; equivalence of adjacency with disjoint full-coordinate support; exact false-twin classes; quotient automorphism rigidity; recovery of \(a_i\) from the cell \(C_{[r]\setminus\{i\}}\); and the converse construction of an isomorphism from a coordinate permutation preserving the \(a_i\).
+# Independent mathematical audit
 
-The included `verify_semisimple_zariski.py` exhaustively checks the defining prime condition and graph construction for two small mixed/product examples, verifies twin-cell multiplicities for several signatures, exhaustively counts quotient automorphisms in ranks two and three, and confirms that both \(\mathbb F_2^3\) and \(\mathbb F_{13}^2\) have exactly \(15\) proper subspaces. The computations are finite checks only; the theorem for arbitrary finite fields and dimensions rests on the proof in `RESULT.md`.
+## correctness
 
-Literature verification inspected the foundational publisher metadata/abstract, the full 2018 related paper, and the full later sequel. The foundational 2014 full text was not available in the inspected lawful route, so originality retains the specific residual risk stated in `AUDIT.json` and `REVIEW.md`.
+PASS
+
+For R=∏_i F_{q_i}, faithful M=⊕_i V_i, prime submodules have exactly one deficient coordinate: two deficiencies violate the prime axiom via idempotents and field scaling proves the converse. A submodule full-coordinate support S determines its colon ideal; V(N) is the union of prime families indexed outside S. Proper vertices have nonempty proper S and edges exactly between disjoint supports. The cell C_S has size ∏_{i∉S} a_i; distinct cells have different open neighborhoods distinguished by singleton supports. The support-disjointness quotient has Aut=S_r by degrees and singleton-neighborhood recovery; codimension-one supports recover a_i and yield iff isomorphism plus semidirect aut formula. Independently checked quotient disjointness, cell sizes and F2^3 versus F13^2 proper-subspace counts both 15, giving K_15,15; this is corroboration of the algebraic proof, not a universal enumeration.
+
+## originality
+
+PASS
+
+No inspected prior result proved the exact submitted mathematical conclusion; comparisons evaluate statements and implications rather than titles, with bounded source-access and bibliographic uncertainties retained.
+
+## value
+
+PASS
+
+The complete automorphism group and iff isomorphism criterion determine exactly how much coordinate algebraic data is preserved by a natural graph construction. The nonisomorphic F2^3/F13^2 collision demonstrates a real reconstruction limit, not just a renamed invariant; these are structural, meaningful mathematical answers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

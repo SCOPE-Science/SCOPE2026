@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the coordinate decomposition of submodules over a product of fields, proves the prime-submodule classification directly, derives \(V(N)\) from colon-ideal inclusion, and obtains adjacency as disjointness of full-coordinate supports. False-twin classes and quotient automorphisms are then determined without an unproved classification theorem. The verifier independently checks the defining conditions in small cases and the stated collision.
+## correctness
 
-## Originality
-PASS with a stated literature-access risk. The 2014 foundational source introduces the graph and the later full-text sequel treats decomposition, bipartiteness, clique/chromatic behavior, and localization, but the inspected material does not state the support-cell false-twin decomposition, the full automorphism group, or the exact isomorphism signature. The 2018 annihilating-submodule paper similarly treats direct-product structure and coloring rather than graph isomorphism classification.
+PASS
 
-## Value
-PASS. The theorem identifies exactly what algebraic information this graph functor retains on a natural semisimple class and exactly what it forgets. The automorphism formula and if-and-only-if graph-isomorphism criterion turn an implicit module construction into an explicit invariant, while the \(\mathbb F_2^3\) versus \(\mathbb F_{13}^2\) collision gives a sharp structural boundary rather than a routine numerical invariant.
+For R=∏_i F_{q_i}, faithful M=⊕_i V_i, prime submodules have exactly one deficient coordinate: two deficiencies violate the prime axiom via idempotents and field scaling proves the converse. A submodule full-coordinate support S determines its colon ideal; V(N) is the union of prime families indexed outside S. Proper vertices have nonempty proper S and edges exactly between disjoint supports. The cell C_S has size ∏_{i∉S} a_i; distinct cells have different open neighborhoods distinguished by singleton supports. The support-disjointness quotient has Aut=S_r by degrees and singleton-neighborhood recovery; codimension-one supports recover a_i and yield iff isomorphism plus semidirect aut formula. Independently checked quotient disjointness, cell sizes and F2^3 versus F13^2 proper-subspace counts both 15, giving K_15,15; this is corroboration of the algebraic proof, not a universal enumeration.
 
-## Closest literature and limitations
-The closest inspected sources are the 2014 foundational Zariski topology-graph paper, the 2018 annihilating-submodule paper, and the 2021 full-text sequel. The foundational full text was not lawfully available in the inspected route, so an unindexed equivalent statement remains a residual originality risk. No claim is made outside the finite faithful semisimple full-spectrum setting.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected prior result proved the exact submitted mathematical conclusion; comparisons evaluate statements and implications rather than titles, with bounded source-access and bibliographic uncertainties retained.
+
+## value
+
+PASS
+
+The complete automorphism group and iff isomorphism criterion determine exactly how much coordinate algebraic data is preserved by a natural graph construction. The nonisomorphic F2^3/F13^2 collision demonstrates a real reconstruction limit, not just a renamed invariant; these are structural, meaningful mathematical answers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
