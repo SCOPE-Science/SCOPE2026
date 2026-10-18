@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Every normalized open-chain eigenmode has exact parameter QFI theta^{-2}Var(j), because differentiating each amplitude gives (j-mean j)/(2theta) times the amplitude. At theta=exp(u/(N+1)) fixed-u limits reduce to e^{uy}sin²(pi my) for fixed edge mode m and tilted uniform e^{uy} for all indices whose distance from both spectrum edges tends to infinity; the oscillatory weighted sum has a uniform O(1/r_N) bound by Abel summation. Partition integrals and their twice-differentiated logarithms give V_m=Vinf+2(u²-(2pi m)²)/(u²+(2pi m)²)². A one-variable strict derivative inequality shows m=1 uniquely dominates all other finite modes if |u|>2pi; otherwise diverging modes attain the limiting optimum, proving the threshold. A subsequence argument upgrades this to eventual exact endpoint argmax for |u|>2pi and divergence of every argmax below. Replayed verify.py yields 2716 independent finite diagnostic comparisons. The equality regime has no claimed finite-size optimizer.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2603.10614: QFI per input flux in a scattering-matrix formalism with resonant poles and local density of states, different channel and normalization.",
+        "https://www.nature.com/articles/s41467-020-19090-4: coupled non-Hermitian lattice driven scattering output, exponentially amplified boundary signal, not a normalized individual right eigenstate family."
+      ],
+      "reasoning": "Scattering-matrix metrology bounds and coherent-signal amplification do not imply an all-index maximum for the pure normalized open-chain eigenstates considered here. No encompassing general result with the same parameter normalization was identified in the examined literature.",
+      "searches": [
+        "Fisher information quantum metrology Hatano Nelson state sin(m pi j/(N+1)) exponential tilt optimizing energy eigenmode",
+        "Fundamental Limits of Non-Hermitian Sensing from Quantum Fisher Information Wiersig Rotter 2026",
+        "Non-Hermitian quantum metrology tilted sine eigenstates maximum Fisher information high versus low frequency modes"
+      ]
+    },
+    "checked_sources": [
+      "https://www.nature.com/articles/s41467-026-73507-0: full main manuscript, Theorem 2 and Hatano–Nelson equation (6).",
+      "https://arxiv.org/abs/2508.07150: preprint submission history and date 2025-08-10.",
+      "https://inspirehep.net/files/c391930897e4d6b303670fe2e513209e: full 15-page main + Appendix C including QFI formulas.",
+      "https://arxiv.org/abs/2311.12756: original preprint lineage and DOI 10.1088/1367-2630/ad5c95.",
+      "https://arxiv.org/abs/2603.10614: 2026 scattering metrology abstract.",
+      "https://www.nature.com/articles/s41467-020-19090-4: 2020 distinct driven non-Hermitian quantum sensor.",
+      "Literature-index searches listed above gave no same-object match; coverage is incomplete."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://www.nature.com/articles/s41467-026-73507-0: eq. (6) and Theorem 2 give existing eigenstate and position measurement results, no maximization over m.",
+        "https://inspirehep.net/files/c391930897e4d6b303670fe2e513209e: Appendix C equations (C.6)-(C.13) provide general finite-chain QFI and discuss order N², not exact coefficient across arbitrary mode-index sequences.",
+        "https://arxiv.org/abs/2603.10614: output-state scattering QFI does not dominate a fixed-mode pure-state QFI calculation."
+      ],
+      "reasoning": "Our all-index optimization is not a corollary of an existing stronger all-mode theorem. Although known explicit eigenvectors and sums permit deriving the expression, the strict dominance and subsequence proof across unbounded mode indices is extra mathematical content. The closest predecessor supplies input formulas rather than a stated optimized phase diagram.",
+      "searches": [
+        "Quantum Estimation with State Symmetry-Induced Optimal Measurements Liu Shi Wu Yu 2026 Hatano Nelson equation 6 full text",
+        "Critical non-Hermitian topology induced quantum sensing Appendix C Fisher eigenmode asymptotic mode m full paper",
+        "Fundamental limits of non-Hermitian sensing from quantum Fisher information 2026 non-Hermitian scattering"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://inspirehep.net/files/c391930897e4d6b303670fe2e513209e: Appendix C equations (C.6)-(C.13) derive mode-dependent QFI but do not compare maximizing m against m growing with N.",
+        "https://www.nature.com/articles/s41467-026-73507-0: equation (6) gives eigenstate amplitudes and Theorem 2 gives optimal position measurement, not a spectral-mode selection transition."
+      ],
+      "reasoning": "Both the published exact mode-dependent expression and the real-coefficient state reduction were checked for equivalent statements. The optimization over all eigenmodes for a bias scaling inversely with length is an additional uniform-limit/maximization problem; a rephrasing of known QFI does not by itself yield the sharp 2pi threshold.",
+      "searches": [
+        "Hatano Nelson quantum sensing maximal Fisher information across all eigenstates tilted sine square distribution asymmetry lambda exp(u/N)",
+        "quantum Fisher information normalized asymmetric hopping eigenstate position distribution e^{uy} sin^2(pi m y) maximizer mode crossover",
+        "Sarkar 2024 Critical non-Hermitian topology induced quantum sensing Appendix C (C.6)-(C.13)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published semantic research records for these concrete queries returned unrelated phase-boundary, harmonic-sampling, and Fisher-themed results; the closest inspected summaries treat different functions and parameter geometries, not the Hatano–Nelson eigenfamily.",
+        "Other accessible published summaries with quantum metrology terminology concern different systems and parameters."
+      ],
+      "reasoning": "No exact published table or database entry giving the length-normalized all-mode Fisher optimum or its 2pi switch was found; index coverage is incomplete, and absence of search hits is not a novelty proof.",
+      "searches": [
+        "Sharp Hatano–Nelson eigenstate-mode selection threshold |u|=2π in critical scaling J_R/J_L=e^{u/(N+1)} Fisher information variance",
+        "quantum critical sensing all Hatano Nelson open chain modes optimally selected Fisher information asymmetry 2pi",
+        "Hatano Nelson chain quantum Fisher information eigenmode m optimization theta eigenstates N 2pi"
+      ]
+    },
+    "rationale": "The specific new proposition is a sharp optimization and selection transition across all normalized right-eigenstate modes in a critical N^{-1} bias window. Sarkar et al. (2024) Appendix C already derives these eigenstates, a general finite-m mode-dependent QFI expression, and quadratic scaling, so none of that is claimed anew. Liu et al. (2026) independently prove optimal position measurement for real-amplitude states and apply it to the same eigenstates; they do not state or prove the sharp mode switch. Wiersig–Rotter (2026) use QFI of scattering outputs, which does not subsume this single-right-eigenstate normalized-chain optimization. Exact semantic searches of published results yielded no same-object crossover or equivalent statement. The 2024 general expression makes the numerical answer derivable in principle, but does not state the all-mode optimization (including diverging indices), nor the eventual exact extremal mode selection. Residual risk: possible earlier implicit/unindexed derivation.",
+    "residual_risks": [
+      "Although the 2024 Appendix C general formula does not state the optimized phase transition, its sums can be further manipulated to derive this theorem; additional unindexed work may have carried out that optimization.",
+      "The 2026 Liu et al. supplementary material was not materially inspected; the examined main article contains no same-object mode-selection result.",
+      "The 2026 Wiersig–Rotter manuscript was compared at abstract level because its scattering-matrix objects differ; this is not a full-text exclusion certificate.",
+      "External publication priority, independent audit and experimental realism of eigenstate selection have not been established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Full main-text comparison identifies existing eigenstate and optimal position measurement, not a critical-window argmax over all modes.",
+        "evidence": "Nature Communications 17:7898 (2026), Theorem 2 and equation (6); arXiv:2508.07150 initially posted 2025-08-10, revised 2026-03-09.",
+        "identifier_or_url": "https://www.nature.com/articles/s41467-026-73507-0",
+        "material_read": "Complete main manuscript text, including abstract, central theorems, Hatano–Nelson example, figures, references and discussion; ancillary supplementary file not materially inspected.",
+        "method": "Lawful open-access publisher main text and its PDF, cross-compared with preprint submission history.",
+        "title": "Quantum Estimation with State Symmetry-Induced Optimal Measurements",
+        "trigger": "Same Hatano–Nelson eigenstate and fixed-basis quantum Fisher objective in paper equation (6)."
+      },
+      {
+        "assessment": "Derives mode-dependent finite QFI and proves quadratic scaling; does not state or optimize all modes in N^{-1} parameter window or identify |u|=2pi selection threshold.",
+        "evidence": "New Journal of Physics 26 (2024) 073010, doi:10.1088/1367-2630/ad5c95, Appendix C pages 10–11, equations (C.6)-(C.13).",
+        "identifier_or_url": "https://inspirehep.net/files/c391930897e4d6b303670fe2e513209e",
+        "material_read": "Full open-access 15-page manuscript including Appendix C original derivation and equations (C.1)-(C.13), with page image of Appendix C first page.",
+        "method": "Open-access PDF with full-text inspection and relevant page screenshots.",
+        "title": "Critical non-Hermitian topology induced quantum sensing",
+        "trigger": "Older paper explicitly studies same right-eigenstates, QFI and critical scaling: strong possible coverage."
+      },
+      {
+        "assessment": "Studies QFI of scattering-matrix outputs per incident flux and resonant pole behavior, not single normalized right eigenstates or their all-index optimization.",
+        "evidence": "arXiv:2603.10614, Reports on Progress in Physics 89, 067501 (2026), abstract.",
+        "identifier_or_url": "https://arxiv.org/abs/2603.10614",
+        "material_read": "Abstract and published descriptive summary; full manuscript not materially examined.",
+        "method": "arXiv record and peer-reviewed bibliographic summary.",
+        "title": "Fundamental Limits of Non-Hermitian Sensing from Quantum Fisher Information",
+        "trigger": "2026 QFI/non-Hermitian broad-sounding results could dominate the candidate objective."
+      },
+      {
+        "assessment": "Different driven doubled-chain scattering signal and parameter; no evidence of exact eigenmode selection crossover.",
+        "evidence": "Nature Communications (2020), discussion of quadrature amplification and exponentially growing signal-to-noise ratio.",
+        "identifier_or_url": "https://www.nature.com/articles/s41467-020-19090-4",
+        "material_read": "Open-access publisher introductory text and central amplified-scattering construction; not a full-document exhaustive comparison.",
+        "method": "Publisher article and search in the open main text.",
+        "title": "Exponentially-enhanced quantum sensing with non-Hermitian lattice dynamics",
+        "trigger": "Earlier metrology enhancement with Hatano–Nelson-type lattices might subsume the eigenmode optimization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "65c3b9f9-e278-41fa-a293-6e38b5760251",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is a physically motivated sensing eigenfamily: the key design question is which measurable right eigenstate provides the greatest information about the asymmetric hopping ratio at criticality. The exact optimizer is qualitatively different across the explicit |u|=2pi threshold: high/interior modes dominate close to symmetry, whereas m=1 and m=N are eventually the unique exact finite-chain optimizers outside. The result supplies the complete leading Heisenberg-scale constant after maximization over all N modes, including n-dependent frequency choices, rather than a textbook variance computation for a single fixed state or a merely numerical observation. No broad downstream theorem is claimed; omitted preparation costs and equality finite-size effects are explicit boundaries.",
+    "status": "PASS"
+  }
+}
