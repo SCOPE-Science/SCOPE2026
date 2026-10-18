@@ -1,12 +1,21 @@
-# Review of Outer-independent double Italian domination of half graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof converts every matched pair into a baseline contribution \(1\) plus a nonnegative surplus. The two leaf ends each force surplus at least \(2\) across their adjacent two pairs; for \(n\ge4\) those blocks are disjoint, so every feasible function has weight at least \(n+4\). At equality, the only possible one-unit leaf exceptions are eliminated by the next constrained vertex and outer independence. This forces all interior pair sums to equal \(1\), after which the Ferrers adjacency order makes the zeros a prefix-suffix staircase. The endpoint constraints leave exactly two choices at each end. Direct exhaustive computation on \(H_4\) and \(H_5\) agrees with the proof and with the exact counts \(12\) and \(16\).
+## correctness
 
-## Originality
-PASS. The closest direct primary theorem gives \(\gamma_{oidI}(K_{n,n})=n+2\) for balanced complete bipartite graphs, but a half graph is not complete multipartite and the statement does not imply either the \(n+4\) value or the staircase optimizer family. The inspected 2021 full text contains no “half” or “chain” occurrence. Later same-parameter sources focus on tree bounds, complexity and extreme-value characterizations, or graph products. Searches under half-graph, chain-graph, Ferrers-graph, and OIDIDF formulations did not locate an equivalent theorem. The inaccessible full text of the graph-products source is retained as a residual literature risk rather than treated as negative evidence.
+PASS
 
-## Value
-PASS. Half graphs are canonical chain/Ferrers graphs whose nested neighborhoods make them a standard stress test for domination parameters. The result is structural rather than a numerical recomputation: it identifies a sharp two-unit gap from the complete-bipartite value and completely classifies all minima by a single staircase breakpoint and two endpoint choices. The exact count \(4(n-1)\) exposes the equality geometry of the parameter on a natural infinite family.
+For H_n (edges a_i b_j iff i≤j), n≥4, write x_i=f(a_i), y_i=f(b_i) and s_i=x_i+y_i−1≥0 by zero-independence on each matched edge. The left leaf and its successor enforce s1+s2≥2; reflected right endpoint enforces s(n−1)+s_n≥2, giving total weight≥n+4. Equality eliminates one-surplus leaf exceptions, forces each interior pair to be (1,0) or (0,1), and Ferrers zero-independence gives one threshold t. Two legal endpoint pairs on each side yield exactly 4(n−1) optimizers. An independent direct definition-level 4^(2n) enumeration checked all assignments of weight≤n+4 on H4 and H5 (1,114,112 candidates before weight pruning), recovering 12 and 16 and no other minima. n2,n3 excluded from classification.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Volkmann primary source proves gamma_oidI(K_n,n)=n+2; H_n is a sparse Ferrers spanning subgraph, not complete multipartite, so that prior theorem does not determine the increased n+4 or all staircases. Other 2022 tree/2023 extremal/graph-product sources involve different families; accessible sources do not give this half-graph equality classification. Unread relevant graph-product full text kept as risk.
+
+## value
+
+PASS
+
+Half/chain graphs are the canonical nested-neighborhood bipartite family. The sharp two-unit gap to complete-bipartite domination and complete 4(n−1) threshold+endpoint classification are natural infinite-family invariants with explicit equality structure; not a bare normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,39 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs \(H_n\) directly from
-\[
-a_i b_j\in E(H_n)\quad\Longleftrightarrow\quad i\le j.
-\]
+# Independent mathematical audit
 
-For every labeling it checks both defining conditions without using the proof:
-1. the zero-labeled vertices form an independent set;
-2. every vertex labeled \(0\) or \(1\) has closed-neighborhood weight at least \(3\).
+## correctness
 
-The exhaustive portion checks every labeling for \(H_4\) and \(H_5\), a total of
-\[
-4^8+4^{10}=1{,}114{,}112
-\]
-labelings. It finds the exact optima \(8\) and \(9\), respectively, and verifies that the complete minimum sets have sizes \(12\) and \(16\), exactly the stated \(4(n-1)\).
+PASS
 
-The construction portion generates every theorem-predicted minimum function for each
-\[
-4\le n\le50
-\]
-and directly verifies feasibility, weight \(n+4\), and the count \(4(n-1)\).
+For H_n (edges a_i b_j iff i≤j), n≥4, write x_i=f(a_i), y_i=f(b_i) and s_i=x_i+y_i−1≥0 by zero-independence on each matched edge. The left leaf and its successor enforce s1+s2≥2; reflected right endpoint enforces s(n−1)+s_n≥2, giving total weight≥n+4. Equality eliminates one-surplus leaf exceptions, forces each interior pair to be (1,0) or (0,1), and Ferrers zero-independence gives one threshold t. Two legal endpoint pairs on each side yield exactly 4(n−1) optimizers. An independent direct definition-level 4^(2n) enumeration checked all assignments of weight≤n+4 on H4 and H5 (1,114,112 candidates before weight pruning), recovering 12 and 16 and no other minima. n2,n3 excluded from classification.
 
-Recorded output:
+## originality
 
-```text
-VERIFY_OK
-n=4: gamma_oidI=8, minimum_functions=12
-n=5: gamma_oidI=9, minimum_functions=16
-full_labelings_checked = 1114112
-constructed_parameter_range = 4..50
-all exhaustive minima matched the threshold classification
-all constructed threshold functions satisfied the definition
-```
+PASS
 
-The finite checks do not prove the arbitrary-\(n\) lower bound or uniqueness. Those follow from the symbolic endpoint-surplus and staircase argument in `RESULT.md`.
+Volkmann primary source proves gamma_oidI(K_n,n)=n+2; H_n is a sparse Ferrers spanning subgraph, not complete multipartite, so that prior theorem does not determine the increased n+4 or all staircases. Other 2022 tree/2023 extremal/graph-product sources involve different families; accessible sources do not give this half-graph equality classification. Unread relevant graph-product full text kept as risk.
+
+## value
+
+PASS
+
+Half/chain graphs are the canonical nested-neighborhood bipartite family. The sharp two-unit gap to complete-bipartite domination and complete 4(n−1) threshold+endpoint classification are natural infinite-family invariants with explicit equality structure; not a bare normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
