@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T09:20:56.728265Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact E_3 distance coefficients follow from the Johnson J(n,3) intersection-number eigenvector recurrence; applying P_j(d) gives four rational eigenvalues for K=E_3∘E_3. The n−7 substituted cubic numerators and exact rational gap factors are strictly positive for every integer n≥7, making K positive definite; since all other E_j∘E_j are positive semidefinite, the full Cesàro mixing matrix has rank binom(n,3). At n=6 complement pairs force rank≤10; K has positive modes of multiplicities 1+9=10, hence exactly rank10. Inspected RESULT.md and verify.py; checked exact symbolic identities and positivity logic independent of finite n=6,7,8 matrix examples. Conventions: unweighted adjacency Hamiltonian, continuous-time infinite Cesàro average, n≥6, no assertion for higher k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coutinho–Guo phrase full rank for general primitive distance-regular graphs as an open problem.",
+          "Burcroff diagonalizes all Johnson adjacency-algebra matrices, permitting specialized eigenvalue calculation after f_d are known."
+        ],
+        "reasoning": "The general Johnson eigenvalue calculus is broader on matrices but does not assert the nonnegativity-to-strict-positivity transition of E3∘E3. Remains possible that the special inequalities appear implicitly elsewhere.",
+        "searches": [
+          "arxiv:2404.02236 Open Problem 4.1",
+          "Burcroff 2017 Johnson schemes Theorem 1.1 Corollary 7.5",
+          "Johnson J(n,3) average mixing full rank Schur square spectral idempotent positivity"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1103.2578",
+        "https://arxiv.org/abs/1709.03591",
+        "https://arxiv.org/abs/2404.02236",
+        "https://math.uchicago.edu/~may/REU2017/REUPapers/Burcroff.pdf",
+        "RESULT.md and verify.py at checked record #1 git snapshot"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The projectors and Schur-product theorem reduce positivity to four eigenvalue inequalities; the specific rational eigenvalues and sign factors are independently reconstructed in the audited source."
+        ],
+        "reasoning": "The prior projective decomposition plus Burcroff gives an algorithm for specialized eigenvalues; under a broad computational notion this makes the calculation accessible, but explicit rank classification and quantitative sharp positivity are not presented as a listed prior consequence.",
+        "searches": [
+          "Godsil 2011 average mixing projector identity",
+          "Burcroff 2017 Johnson scheme general spectrum",
+          "Coutinho Guo 2024 open problem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Average mixing is the sum of Schur squares of distinct eigenspace projectors; positive-definite E3∘E3 forces full rank.",
+          "At n=6 complement-pair symmetries force a ten-dimensional row space."
+        ],
+        "reasoning": "Rephrased as strict positivity of a Krein/Schur-square matrix in the Johnson association scheme; general average-mixing identities do not themselves prove its strict positivity for all n≥7.",
+        "searches": [
+          "Johnson J(n,3) average mixing full rank Schur square spectral idempotent positivity",
+          "arxiv:1103.2578",
+          "arxiv:1709.03591"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching explicit n=6/rank10 and all n≥7/full-rank table in checked Resultary hits; the Johnson scheme has standard spectral tables."
+        ],
+        "reasoning": "Generic Johnson eigenvalue tables are insufficient to infer an all-n rank threshold without the strict sign estimates; absence of a matching hit is not priority proof.",
+        "searches": [
+          "Resultary semantic search Johnson J(n,3) full rank mixing",
+          "arxiv:2404.02236"
+        ]
+      },
+      "rationale": "The standard average-mixing Schur-square identity and complete Johnson association-scheme eigenmatrix are acknowledged prior work, not novel results. The audited contribution is the exact sharp rank switch and a single-projector strict-positive lower-bound certificate specialized to J(n,3). Searches and inspected general treatments did not yield this all-n strict-positivity corollary. Risk: a general Krein-positive result, e.g. one implicit in Johnson scheme linearization formulae, may yield the same fact.",
+      "residual_risks": [
+        "Burcroff general Johnson formula may implicitly derive the exact K spectrum and rank classification; direct PDF retrieval timed out during this run.",
+        "No assertion that numerical n≤8 checks prove the all-n positivity; the rational factorization is essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_COVERING_ONLY",
+          "evidence": [
+            "The infinite time average discards unequal eigenfrequency cross terms and equals Σ_j E_j∘E_j."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1103.2578",
+          "material_read": "Abstract and the foundational cited projector/Schur-square relation as presented in inspected mathematical source and indexed paper records",
+          "method": "arXiv public index plus direct proof reconstruction",
+          "title": "Average Mixing of Continuous Quantum Walks",
+          "trigger": "Foundational identity and definitions"
+        },
+        {
+          "assessment": "NO_EXPLICIT_JOHNSON_TRIPLE_CLASSIFICATION",
+          "evidence": [
+            "The broader primitive distance-regular full-rank problem is posed, not solved."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.02236",
+          "material_read": "Open Problem 4.1 and text framing primitive distance-regular full-rank question; source-index search",
+          "method": "arXiv public record and inspected secondary cross-reference",
+          "title": "Selected Open Problems in Continuous-Time Quantum Walks",
+          "trigger": "General full-rank question"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_POSSIBLE_IMPLICIT_COVERAGE",
+          "evidence": [
+            "A general Johnson adjacency-algebra eigenvalue formula is earlier; precise strict positivity corollary not verified in inaccessible complete PDF."
+          ],
+          "identifier_or_url": "https://math.uchicago.edu/~may/REU2017/REUPapers/Burcroff.pdf",
+          "material_read": "Theorem 1.1/Corollary 7.5 cited statement and reduction from inspected package; attempted primary PDF retrieval timed out, so no full-text noncoverage assertion",
+          "method": "primary PDF retrieval attempted; limited cross-check by theorem citation",
+          "title": "Johnson Schemes and Certain Matrices with Integral Eigenvalues",
+          "trigger": "Broad Johnson adjacency-algebra spectrum could dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp infinite-family boundary n=6 versus n≥7 for the quantum-average-mixing rank addresses a meaningful explicit family of the open primitive-distance-regular-graph rank problem. The strictly positive lower bound is a quantitative spectral stability certificate, beyond an isolated numerical rank computation; it need not solve the general open problem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1103.2578",
+    "https://arxiv.org/abs/1709.03591",
+    "https://arxiv.org/abs/2404.02236",
+    "https://math.uchicago.edu/~may/REU2017/REUPapers/Burcroff.pdf",
+    "RESULT.md and verify.py at checked record #1 git snapshot"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Burcroff general Johnson formula may implicitly derive the exact K spectrum and rank classification; direct PDF retrieval timed out during this run.",
+    "No assertion that numerical n≤8 checks prove the all-n positivity; the rational factorization is essential."
+  ],
+  "schema_version": 1
+}

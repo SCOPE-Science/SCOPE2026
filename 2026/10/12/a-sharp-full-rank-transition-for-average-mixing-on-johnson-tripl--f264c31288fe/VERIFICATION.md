@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Exact verification and limits
+# Independent mathematical audit
 
-Run `python verify.py` using `requirements.txt`. The checker is self-contained except for its declared SymPy dependency; there are no external data files. It reconstructs all four Johnson adjacency eigenvalues symbolically, verifies every distance recurrence for the lowest spectral projector and every eigenvalue identity for its Hadamard square, and establishes the relevant rational inequalities from exact polynomial identities.
+## correctness
 
-For \(n=6,7,8\), it independently builds the unweighted adjacency matrix from three-subsets and the lowest eigenspace projector as a Lagrange polynomial in this adjacency matrix, verifying its idempotence, trace, eigenvalue equation and all \(4,761\) rational matrix entries. For the boundary \(n=6\), it builds all four projectors and checks the rank \(10\) of the complete average-mixing matrix. This is genuinely exact rational arithmetic, not floating-point sampling.
+PASS
 
-Expected exact terminal line:
+The exact E_3 distance coefficients follow from the Johnson J(n,3) intersection-number eigenvector recurrence; applying P_j(d) gives four rational eigenvalues for K=E_3∘E_3. The n−7 substituted cubic numerators and exact rational gap factors are strictly positive for every integer n≥7, making K positive definite; since all other E_j∘E_j are positive semidefinite, the full Cesàro mixing matrix has rank binom(n,3). At n=6 complement pairs force rank≤10; K has positive modes of multiplicities 1+9=10, hence exactly rank10. Inspected RESULT.md and verify.py; checked exact symbolic identities and positivity logic independent of finite n=6,7,8 matrix examples. Conventions: unweighted adjacency Hamiltonian, continuous-time infinite Cesàro average, n≥6, no assertion for higher k.
 
-`VERIFY_OK symbolic_projector_recurrence=4 symbolic_mode_eigenvalues=4 positivity_polynomials=3 exact_matrix_sizes=20,35,56 exact_projector_entries=4761 boundary_rank=10/20`
+## originality
 
-The computation is finite; validity for every \(n\ge6\) comes from the explicit polynomial identities and the analytic proof in `RESULT.md`. It does not certify journal priority or provide independent mathematical review.
+PASS
+
+The standard average-mixing Schur-square identity and complete Johnson association-scheme eigenmatrix are acknowledged prior work, not novel results. The audited contribution is the exact sharp rank switch and a single-projector strict-positive lower-bound certificate specialized to J(n,3). Searches and inspected general treatments did not yield this all-n strict-positivity corollary. Risk: a general Krein-positive result, e.g. one implicit in Johnson scheme linearization formulae, may yield the same fact.
+
+## value
+
+PASS
+
+A sharp infinite-family boundary n=6 versus n≥7 for the quantum-average-mixing rank addresses a meaningful explicit family of the open primitive-distance-regular-graph rank problem. The strictly positive lower bound is a quantitative spectral stability certificate, beyond an isolated numerical rank computation; it need not solve the general open problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
