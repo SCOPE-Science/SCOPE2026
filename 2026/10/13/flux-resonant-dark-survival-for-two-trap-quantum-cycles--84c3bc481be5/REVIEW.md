@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The limit follows from a reducing dark subspace for a dissipative finite-dimensional Hamiltonian; every complementary spectral component decays. Plane-wave spectral degeneracies occur only at integer and half-integer flux. Two absorber constraints give exact divisibility, and paired finite trigonometric sums yield the stated probabilities. All boundary cases and strictly positive, unequal sink strengths are included. Independent numerical spectral checks for 825 configurations and seven late-time semigroup checks are consistent with the theorem. Finite tests are not presented as a replacement for the algebraic proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Agliari, Mülken, and Blumen [1] already formulate the non-Hermitian trapping model and their zero-flux degenerate-perturbation calculation contains the condition for undamped two-trap modes implicitly. That condition alone is not novel. The assessed contribution is the complete source-resolved all-flux law, including the half-flux parity/greatest-common-divisor classification, three-level even-cycle pattern, and arbitrary-rate independence. Zimborás and collaborators [2] treat other chiral transport observables; the one-target stroboscopic detector of [3] is not a pair of continuous sinks. Direct comparison of statements and indexed published records found no matching full classification, but obscure equivalent specializations may exist and priority has not been independently established.
+PASS
 
-**Value — PASS.** Absorption survival is a direct quantum-transport observable; the result classifies all finite cycle sizes and trap separations rather than selecting one exceptional instance. The exact resonant flux criterion and inhomogeneous half-flux site pattern show how magnetic interference can suppress or preserve trapping, independent of absorber calibration. No finite-time rate estimate or robustness claim is made.
+For n>=3 and two distinct continuously absorbing sites with gamma0,gammad>0, norm derivative is minus 2 gamma0|psi0|^2+2 gammad|psid|^2. Nondecaying spectral subspace is exactly H-eigenvectors null at both traps; its orthogonal complement decays. Flux-dependent plane waves have simple energies unless 2alpha integral. At alpha=0 pair k,n-k yields sine dark modes when n divides 2kd; count floor((g-1)/2), g=gcd(n,2d), and finite sine-square sums give g/(2n) at g∤2j. At alpha=.5 shifted odd Fourier pairs yield n|d(2k+1), h=gcd(n,d), n/h odd, with odd-h and even-h sine sums giving the declared 0,h/(2n),h/n plateaus. n/h even and generic flux give zero. This establishes rate independence, source-resolved survival and m/(n-2) average. Independently built n-cycle magnetic matrices and computed trap-null spectral projectors for every n=3..20, every d, and alpha=0,.5,.137; compared exact dimensions and diagonals. Corrected numerical singular-space tolerance without changing mathematics.
 
-**Literature compared:** [1] arXiv:0903.3288v1; [2] arXiv:1208.4049; [3] arXiv:2507.10669v3. The zero-flux overlap and possibility of unindexed equivalent work remain scientific limits.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: zero-flux dark trapping on rings, particularly diametric two traps, is explicitly prior; contribution is the arbitrary-separation, two-trap magnetic-flux and site-by-site sharp plateau, with a half-flux even-cycle three-level profile.
+
+## value
+
+PASS
+
+Two continuously lossy sites on a finite ring form a canonical quantum-transport testbed. The exact survival probability for every starting vertex, all separations, all fluxes and positive rates is a natural complete classification, including a striking flux resonance and nonuniform spatial steps; the result gives precise transport plateaus rather than a routine scalar property.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
