@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled `verify_fork_preorder.py` checks the finite combinatorial consequences independently of the proof text.
+# Independent mathematical audit
 
-It exhaustively enumerates every state vector in \(V^{\binom{k}{2}}\) for \(1\le k\le4\), where \(V\) is the fork \(0<+,0<-\). It verifies:
+## correctness
 
-- mutual reachability in the product order is equality;
-- the rank distribution is the coefficient sequence of \((1+2q)^{\binom{k}{2}}\);
-- the number of ordered comparable pairs is \(5^{\binom{k}{2}}\);
-- the number of directed covers is \(2\binom{k}{2}3^{\binom{k}{2}-1}\) for \(k\ge2\);
-- every comparable interval has Möbius value \((-1)^{r(y)-r(x)}\).
+PASS
 
-It also computes Stirling numbers by recurrence and checks the displayed all-tuple formulas and first seven values for the strong-orbit, comparable-pair, and cover sequences.
+For any ordered tuple, injectivity of a bimorphism fixes its equality partition, and orientation-preserving homomorphism can only change a missing edge to a chosen directed edge. Conversely each coordinatewise fork extension is a finite injective homomorphism, extended globally by Coleman's MB-homogeneity theorem for the countable generic oriented digraph. Mutual forward reachability is therefore finite induced-pattern equality. Products of V={0<+,0<-} have 3^N elements, 5^N ordered comparable pairs, 2N3^(N-1) covers, rank (1+2q)^N, and Boolean intervals with mu=(-1)^rankdiff. Summation over Stirling-number equality partitions proves all formulas for n>=1. Independent finite tuple-pattern enumeration checks the fork interval counts; the global extension relies on the published theorem, not code.
 
-The finite checker does not certify the infinite extension step. That step uses the published theorem that the generic digraph without 2-cycles is MB-homogeneous, meaning that every finite monomorphism extends to a bimorphism.
+## originality
+
+PASS
+
+The theorem is an explicit one-way orbit-reachability POS﻿ET and its exact rank/cover/Mobius formulas; Coleman's generic-digraph MB-homogeneity and Coleman--Evans--Gray's strong-orbit characterizations are credited prior ingredients. None of the inspected primary statements explicitly provides the forward product order or its complete enumeration. This simple deduction may be unindexed folklore, retained as a risk.
+
+## value
+
+PASS
+
+A full strong-orbit preorder for an oligomorphic transformation monoid is a natural structural invariant (strictly richer than automorphism orbit counts); the answer gives every arity and exact poset enumeration. Its short proof does not make the invariant arbitrary or a mere numerical substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

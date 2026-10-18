@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The key implication is exact in both directions. A bimorphism is injective and relation-preserving, so it fixes the equality pattern and can only change a nonarc into an oriented arc; it cannot remove or reverse an existing arc. Conversely, every coordinatewise fork extension defines a finite injective homomorphism, and the published MB-homogeneity of the generic digraph extends that monomorphism to a global bimorphism. The enumerative formulas then follow from direct product-poset counting.
+## correctness
 
-## Originality
-PASS with a folklore caveat. The primary sources establish MB-homogeneity and the general language of forward/strong orbits, but the inspected material does not state the three-state fork-product reachability order or the resulting formulas. Targeted equivalent-formulation, broader-coverage, exact-sequence, and implication searches found adjacent automorphism-orbit work but no source covering this statement.
+PASS
 
-## Value
-PASS. The result identifies the complete finite-arity reachability geometry of a natural oligomorphic permutation monoid, rather than merely counting automorphism orbits. It converts qualitative MB-homogeneity into an explicit ranked product poset, making comparable-pair counts, cover counts, and Möbius inversion immediate and uniform in arity.
+For any ordered tuple, injectivity of a bimorphism fixes its equality partition, and orientation-preserving homomorphism can only change a missing edge to a chosen directed edge. Conversely each coordinatewise fork extension is a finite injective homomorphism, extended globally by Coleman's MB-homogeneity theorem for the countable generic oriented digraph. Mutual forward reachability is therefore finite induced-pattern equality. Products of V={0<+,0<-} have 3^N elements, 5^N ordered comparable pairs, 2N3^(N-1) covers, rank (1+2q)^N, and Boolean intervals with mu=(-1)^rankdiff. Summation over Stirling-number equality partitions proves all formulas for n>=1. Independent finite tuple-pattern enumeration checks the fork interval counts; the global extension relies on the published theorem, not code.
 
-The main scientific limitation is that the deduction is elementary after the MB-homogeneity theorem, so an uncatalogued folklore formulation may exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The theorem is an explicit one-way orbit-reachability POS﻿ET and its exact rank/cover/Mobius formulas; Coleman's generic-digraph MB-homogeneity and Coleman--Evans--Gray's strong-orbit characterizations are credited prior ingredients. None of the inspected primary statements explicitly provides the forward product order or its complete enumeration. This simple deduction may be unindexed folklore, retained as a risk.
+
+## value
+
+PASS
+
+A full strong-orbit preorder for an oligomorphic transformation monoid is a natural structural invariant (strictly richer than automorphism orbit counts); the answer gives every arity and exact poset enumeration. Its short proof does not make the invariant arbitrary or a mere numerical substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
