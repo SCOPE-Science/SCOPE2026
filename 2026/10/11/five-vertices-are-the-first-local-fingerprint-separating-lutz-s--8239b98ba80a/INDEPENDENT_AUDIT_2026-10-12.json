@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T23:18:44.162986Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frozen RESULT.md cf7cad5053159a237e7ed7c2320c6eb4fefb21f6, verify.py 820da3f232a5125a876c7d52da200850b445175c inspected. The 38 tetrahedra are reconstructed from Lutz Table2 and two 37-facet balls by deleting 2457 versus 34610. Independently rewrote entire combinatorial calculation in JS (not a replay of verify.py): for every vertex subset S of sizes 1 through 5, generated induced faces from the actual facets, computed f-vector and GF2 boundary-map ranks of all nonempty faces, Betti numbers and histogram Phi_k. Exhaustive counts 12,66,220,495,792 subsets for k=1..5; histograms equal through k=4 (distinct profiles 1,2,5,14), and first differ at k=5 (each 38 distinct profiles). Exactly six profile keys differ, each by one: A-B +1 at ((5,10,4),(1,2,0)),((5,8,1),(1,3,0)),((5,9,4),(1,1,0)), and -1 at ((5,10,5),(1,1,0)),((5,8,2),(1,2,0)),((5,9,2),(1,3,0)). No probabilistic sampling; this is a complete finite proof for all 792 relevant five-vertex subsets and all lower sizes under the explicit induced-complex definition. Global f-vector equality alone would not imply profile equality for k<=4, which was separately computed and verified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original pair known nonisomorphic although boundary isomorphic; Benedetti-Lutz studied collapsibility/evasiveness and seven-vertex retained homology."
+        ],
+        "reasoning": "Neither more general theorem in inspected source provides the sharp first separating k=5 histogram for this specific pair; the finite calculation genuinely adds the localized distinction.",
+        "searches": [
+          "Lutz math/0309149v1 lines100–113",
+          "Benedetti Lutz 2013 p8 homology after five deleted vertices",
+          "Local induced subcomplex f-vector homology fingerprints distinguish two Lutz nonconstructible simplicial 3 balls 12 vertices"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0309149v1, https://arxiv.org/html/math/0309149v1",
+        "arXiv:1303.2070v2, https://arxiv.org/pdf/1303.2070",
+        "Resultary semantic query (actual): Local induced subcomplex f-vector homology fingerprints distinguish two Lutz nonconstructible simplicial 3 balls 12 vertices",
+        "Source package RESULT.md blob cf7cad5053159a237e7ed7c2320c6eb4fefb21f6 and checker blob 820da3f232a5125a876c7d52da200850b445175c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior nonisomorphism and boundary-isomorphism do not fix the least k for a chosen local invariant; prior 792 runs delete five vertices from another complex and do not compare two histograms."
+        ],
+        "reasoning": "New cutoff and six shifts do not follow merely from global f-vector equality or old evasiveness computation, without a distinct exhaustive induced-face/homology comparison.",
+        "searches": [
+          "Lutz 2003 Theorem2",
+          "Benedetti-Lutz 2013 Section3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both sources concern same parent B12,38 or the two 37-facet deletions, but existing computed homology involves 7 retained vertices in B12,38 only."
+        ],
+        "reasoning": "An induced 5-vertex fingerprint of the paired 37-facet balls is a different statistic than non-evasiveness of one 38-facet ball and cannot be inferred from the cited 792 deletion result.",
+        "searches": [
+          "Local induced subcomplex f-vector homology fingerprints distinguish two Lutz nonconstructible simplicial 3 balls 12 vertices",
+          "Lutz arXiv:math/0309149v1 Table2 Theorem2",
+          "Benedetti-Lutz arXiv:1303.2070v2 Sec3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lutz table describes facets only; no Phi_k multiplicity table. Resultary self-hit is the present claim and cannot prove novelty."
+        ],
+        "reasoning": "Simple computability from an old facet table is not evidence that the exact derived six-entry histogram was already published; independent full enumeration is reproducible but not novelty by itself.",
+        "searches": [
+          "Lutz Table2 38 facet listing",
+          "Resultary 2026/10/11/SCOPE-five-vertices-are-the-first-local-fingerprint-separating-lutz-s--8239b98ba80a"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Lutz 2003 constructs the exact pair, equal face vectors and boundary-isomorphism, but does not give first local induced-f/Betti histogram distinction. A highly relevant Benedetti-Lutz 2013 full source computes mod2 homology after deleting five vertices from the PARENT 38-facet ball (thus retaining seven vertices) for evasiveness; this is not an equality/distinction comparison of five-vertex induced profiles for two 37-facet balls. Resultary found homology fingerprints for different Lutz spaces but no dominating result for this pair.",
+      "residual_risks": [
+        "This is for one labelled canonical pair up to label-free multiset equality, not a universal isomorphism-test bound.",
+        "No claim that local f/Betti profile is complete for all triangulations or all 3-balls."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Introduces B12,38 and both B12,37a,b by deleting tetrahedra 2457 and 34610; establishes equal f-vectors and isomorphic boundaries, not minimal induced-profile distinguishing cutoff.",
+          "evidence": "Line113 explicitly gives f=(12,58,84,37) and pair nonisomorphic although boundaries isomorphic.",
+          "identifier_or_url": "arXiv:math/0309149v1, https://arxiv.org/html/math/0309149v1",
+          "material_read": "Entire short primary arXiv HTML, especially Table 2, Theorem 2 and proof lines 100–120, including facet deletions read.",
+          "method": "full primary arXiv HTML",
+          "title": "Small Examples of Non-Constructible Simplicial Balls and Spheres (Lutz)",
+          "trigger": "same explicit two 12-vertex 37-tetrahedron balls"
+        },
+        {
+          "assessment": "Computes homology for all 792 deletions of FIVE vertices from the PARENT B12,38 (i.e. induced complexes on seven retained vertices), to establish evasiveness; not the joint 5-vertex induced f/Betti histograms of the two B12,37 balls.",
+          "evidence": "Section3 lines 365–388 says 792 deletions, three exceptional subsets; does not present pairwise profile histogram or k=5 separating threshold.",
+          "identifier_or_url": "arXiv:1303.2070v2, https://arxiv.org/pdf/1303.2070",
+          "material_read": "Full 25-page primary PDF indexed and Sections 1–3, especially pp.6-9 and all-792-five-vertex deletion discussion, materially read; page 1 image inspected.",
+          "method": "primary arXiv PDF",
+          "title": "Knots in Collapsible and Non-Collapsible Balls (Benedetti, Lutz)",
+          "trigger": "closely related 12-vertex knotted ball, vertex-deletion homology and local certificate search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. For the classic pair of nonisomorphic balls whose boundaries and global f-vectors agree, the smallest vertex subset size at which the complete label-free local face-plus-homology distribution distinguishes them is a natural sharp combinatorial invariant. The exact cutoff 5 and six one-count shifts furnish a reproducible local recognition benchmark beyond known global/boundary data; a narrow finite classification can be scientifically useful without generalizing to all 3-balls.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:math/0309149v1, https://arxiv.org/html/math/0309149v1",
+    "arXiv:1303.2070v2, https://arxiv.org/pdf/1303.2070",
+    "Resultary semantic query (actual): Local induced subcomplex f-vector homology fingerprints distinguish two Lutz nonconstructible simplicial 3 balls 12 vertices",
+    "Source package RESULT.md blob cf7cad5053159a237e7ed7c2320c6eb4fefb21f6 and checker blob 820da3f232a5125a876c7d52da200850b445175c"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The calculated profiles use reduced? Defined nonreduced H0 and H1/H2 as in package; no higher Betti at k<=5 for this data.",
+    "Does not assert minimal separating graph-only statistic."
+  ],
+  "residual_risks": [
+    "This is for one labelled canonical pair up to label-free multiset equality, not a universal isomorphism-test bound.",
+    "No claim that local f/Betti profile is complete for all triangulations or all 3-balls."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Introduces B12,38 and both B12,37a,b by deleting tetrahedra 2457 and 34610; establishes equal f-vectors and isomorphic boundaries, not minimal induced-profile distinguishing cutoff.",
+      "evidence": "Line113 explicitly gives f=(12,58,84,37) and pair nonisomorphic although boundaries isomorphic.",
+      "identifier_or_url": "arXiv:math/0309149v1, https://arxiv.org/html/math/0309149v1",
+      "material_read": "Entire short primary arXiv HTML, especially Table 2, Theorem 2 and proof lines 100–120, including facet deletions read.",
+      "method": "full primary arXiv HTML",
+      "title": "Small Examples of Non-Constructible Simplicial Balls and Spheres (Lutz)",
+      "trigger": "same explicit two 12-vertex 37-tetrahedron balls"
+    },
+    {
+      "assessment": "Computes homology for all 792 deletions of FIVE vertices from the PARENT B12,38 (i.e. induced complexes on seven retained vertices), to establish evasiveness; not the joint 5-vertex induced f/Betti histograms of the two B12,37 balls.",
+      "evidence": "Section3 lines 365–388 says 792 deletions, three exceptional subsets; does not present pairwise profile histogram or k=5 separating threshold.",
+      "identifier_or_url": "arXiv:1303.2070v2, https://arxiv.org/pdf/1303.2070",
+      "material_read": "Full 25-page primary PDF indexed and Sections 1–3, especially pp.6-9 and all-792-five-vertex deletion discussion, materially read; page 1 image inspected.",
+      "method": "primary arXiv PDF",
+      "title": "Knots in Collapsible and Non-Collapsible Balls (Benedetti, Lutz)",
+      "trigger": "closely related 12-vertex knotted ball, vertex-deletion homology and local certificate search"
+    }
+  ]
+}
