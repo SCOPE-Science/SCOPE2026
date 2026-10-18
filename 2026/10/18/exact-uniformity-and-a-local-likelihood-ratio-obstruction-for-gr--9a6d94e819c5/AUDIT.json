@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For every fixed maximal independent set of a cycle, the priority-order certificate is proved in both directions. Conditioning on marks of selected vertices factors all unselected-vertex requirements across gaps of distances 2 and 3, with factors 1-min(s,t) and (1-s)(1-t). Integrating internal selected marks gives G(s,t)>=2H(s,t), because the central expected factor is 2/3 while E[(1-Z)^2]=1/3; shared exterior contributes a common nonnegative factor. The wraparound n=6 case takes t=s. Every n>=8 admits a common exterior of 2/3 gaps; small uniform cycles are transitive on their maximal independent sets. All quantifiers and boundaries checked; a standard-library rational-DP verifier agrees with direct permutation enumeration for n<=8 and checks all cycles n<=15. Finite tests are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fairfax-Ball, arXiv:2610.02276v1, Theorem 1.1 explicitly restricts exact uniformity classification to finite trees; Theorem 1.2 treats mixed spiders.",
+        "Fairfax-Ball §3 describes Kryven et al. Proposition 3.8 as a sufficient regular-independent-set condition, not a converse; its abstract describes sampling under local constraints."
+      ],
+      "reasoning": "Trees and cycles are disjoint graph classes, and a sufficient condition for uniformity does not classify nonuniform cycles. An inaccessible full text is identified as residual risk, not treated as inspected or as affirmative proof of noncoverage.",
+      "searches": [
+        "Random greedy independent set distribution on vertex-transitive graphs; complete classification of cycle graph uniformity",
+        "Well-covered cycles C3 C4 C5 C7; greedy random sequential adsorption distribution uniform iff cycle is well-covered; probability ratios",
+        "Greedy Uniformity on Trees: Exact Obstruction and Near-Uniform Spiders arXiv 2610.02276; what known for cycle graphs and unicyclic graphs",
+        "\"Kryven\" \"Versendaal\" \"de Vries\" \"uniform\" \"cycle\" maximal independent"
+      ]
+    },
+    "checked_sources": [
+      "Fairfax-Ball, Greedy Uniformity on Trees: Exact Obstruction and Near-Uniform Spiders, arXiv:2610.02276v1, sections 1–5 (full HTML).",
+      "Krivelevich–Mészáros–Michaeli–Shikhelman, Greedy maximal independent sets via local limits, doi:10.1002/rsa.21200 (open full article introduction and examples).",
+      "Kryven–Versendaal–de Vries, Unified framework for asymptotically uniform iterative construction of generalised random graphs with local constraints, arXiv:2608.07239v1 (abstract and secondary discussion only).",
+      "Published mathematical finding summaries: Exact random-greedy maximal-independent-set law on chain graphs; Exact random-greedy independent-set law on threshold graphs; Sharp variance of random greedy maximal independent sets on complete multipartite graphs.",
+      "Primary-literature keyword searches for cycle terminal-set probability, permutation fibres, random sequential adsorption, and well-covered cycles."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Krivelevich et al. doi:10.1002/rsa.21200 analyze density and local limits; this does not imply exact equiprobability or a local pairwise ratio.",
+        "Fairfax-Ball arXiv:2610.02276v1 supplies the first-choice recurrence and priority certificate, but its results are specific to trees."
+      ],
+      "reasoning": "The first-choice recurrence and random priorities are background, used here to derive a new cycle-specific gap factorization and comparison. A well-covered cycle is not, merely by definition, known to have a uniform greedy law; the all-length converse requires the six-edge argument.",
+      "searches": [
+        "Random greedy maximal independent set selection on cycle graphs C_n; uniform output distribution over maximal independent sets, classify n with equal permutation fibers",
+        "Random-greedy maximal independent sets on cycles, local gap 222 vs 33, ratio >= 2 exact probabilities",
+        "\"random sequential adsorption\" \"cycle\" \"maximal independent sets\" probability uniform",
+        "\"random greedy\" \"cycles\" \"uniform\" \"maximal independent\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Random arrival-priority, random sequential adsorption, parking, permutation-fibre and greedy MIS are equivalent descriptions of the same finite procedure (Fairfax-Ball, arXiv:2610.02276v1, §2).",
+        "Published finding summaries in the overlap database address chain graphs and threshold graphs, not the 6-edge gap replacement in cycles."
+      ],
+      "reasoning": "The claim compares individual terminal-set probabilities for fixed cycles. Process equivalences were considered explicitly; sources on counts of maximal independent sets or greedy output size alone cannot yield the pairwise likelihood ratio or uniformity obstruction without new work.",
+      "searches": [
+        "Random greedy maximal independent set selection on cycle graphs C_n; uniform output distribution over maximal independent sets, classify n with equal permutation fibers",
+        "Random sequential adsorption parking process on cycles, non-uniformity of full terminal independent set law versus uniform maximal independent set ensemble",
+        "Random greedy independent set distribution on vertex-transitive graphs; complete classification of cycle graph uniformity",
+        "Permutation fiber counts for maximal independent sets of a cycle, cyclic patterns gap lengths 2 and 3, compare 2+2+2 versus 3+3 under random greedy vertex ordering",
+        "\"random greedy maximal independent\" \"cycles\" \"uniform\" \"seven\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record searches returned findings on chain, threshold and complete multipartite graphs as nearest procedure matches, none reporting the cycle sequence \\(3,4,5,7\\) or ratio \\(2\\).",
+        "A direct exact enumeration was independently performed for cycle sizes \\(3\\) through \\(15\\), not a transcription of a literature table."
+      ],
+      "reasoning": "Cycle maximal-independent-set counts and well-covered-cycle classifications enumerate possible outputs, but do not determine their probabilities under uniform random priority. No published exact table for the sought fixed-output probability comparison was identified.",
+      "searches": [
+        "Cycle C_n random greedy maximal independent sets equal probabilities precisely n=3,4,5,7; 222 versus 33 local six-vertex replacement and likelihood ratio at least two",
+        "Exact greedy terminal independent set uniformity of cycles C3 C4 C5 C7; uniformity criterion and local 222-to-33 rearrangement",
+        "\"uniformity\" \"cycle\" \"greedy\" \"maximal independent sets\"",
+        "\"uniform maximal independent\" \"cycles\" iterative process"
+      ]
+    },
+    "rationale": "The initiating source proves tree-only rigidity and spider formulas, not cycle laws. The density/local-limit source lacks fixed-output cycle probability comparisons. Targeted comparisons to published random-greedy laws on chain, threshold and multipartite graphs reveal different graph classes and observables. Neither published records nor web keyword searches exposed the cycle classification or the six-edge pointwise likelihood-ratio lemma. This supports bounded best-knowledge originality, not a claim of exhaustive worldwide priority.",
+    "residual_risks": [
+      "The full 2026 Kryven–Versendaal–de Vries manuscript was not accessible; it might contain a more specialized relevant result not visible in the abstract/quoted comparison.",
+      "Unindexed literature in random sequential adsorption and parking processes could state an equivalent cycle classification even though targeted searches did not locate one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Tree obstruction and spider near-uniformity; cycle classification and 222-to-33 local likelihood-ratio comparison are not among these claims.",
+        "evidence": [
+          "Theorem 1.1 states uniformity for trees exactly K1 and K2; Theorem 1.2 treats the mixed spider family.",
+          "Section 3 discusses iterative sampling and explicitly labels the relevant general criterion sufficient rather than necessary."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.02276v1",
+        "material_read": "HTML abstract, Sections 1–5 including Theorems 1.1–1.2, order certificate, novelty boundary and tree proof.",
+        "method": "Direct full-text HTML reading of the relevant theorem and proof sections.",
+        "title": "Greedy Uniformity on Trees: Exact Obstruction and Near-Uniform Spiders",
+        "trigger": "Closest emerging exact-uniformity question under identical random-order greedy procedure."
+      },
+      {
+        "assessment": "Focus is expected independence ratio and asymptotics, not labeled terminal-set equality on cycles.",
+        "evidence": [
+          "The introduction defines the random-order greedy MIS algorithm; the statements concern density under local graph convergence."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.21200",
+        "material_read": "Accessible article introduction and discussions of the model, density, local limits and example families.",
+        "method": "Direct open-access HTML article inspection.",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "Identical random greedy MIS process, potentially stronger distributional results."
+      },
+      {
+        "assessment": "The visible claims concern configuration-space graph sampling and sufficient/structural uniformity criteria. Full text remains an access risk.",
+        "evidence": [
+          "The abstract describes 2-uniformity and a classification of auxiliary graph sampling spaces.",
+          "The initiating paper describes Proposition 3.8 as a sufficient uniformity condition, not a converse."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.07239",
+        "material_read": "Search-retrieved abstract plus its specific discussion in Fairfax-Ball Section 3; the paper PDF/HTML was unavailable.",
+        "method": "Abstract-level and secondary-text comparison only; no claim of full-text inspection.",
+        "title": "Unified framework for asymptotically uniform iterative construction of generalised random graphs with local constraints",
+        "trigger": "An earlier paper develops a 2-uniformity notion that may cover exact greedy sampling."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9a6d94e8-19c5-46b8-8cd0-05fbb3e6b374",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Uniformity of output over maximal independent sets is a natural sampling-quality question distinct from greedy set size or mere maximal-set counts. Cycles are the canonical vertex-transitive test family, yet have a nontrivial exception C7. The complete classification for every simple cycle and a scale-independent factor-two local probability obstruction constitute a structural result with potential utility for assessing random-priority graph samplers, not a routine table recomputation.",
+    "status": "PASS"
+  }
+}
