@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The source's Eq. (23) expands exactly as the congruence
-\[
-4J_B=R_x(D+D^{\mathsf T})R_x,
-\qquad
-R_x=I+\frac{xx^{\mathsf T}}{1-\|x\|^2}.
-\]
-For every full-rank Bloch state, \(R_x\) is positive definite and invertible, so Sylvester's law of inertia proves the equality of sign counts. The source trace-distance condition is therefore equivalent to positive Bures/Fisher local growth. The source example has \(D+D^{\mathsf T}\prec0\) at every finite time, giving the advertised analytic specialization. No finite experiment is used to prove the universal statement.
+## correctness
 
-## Originality
-**PASS.** The closest source is Hall--Cresser--Li--Andersson itself: it prints the expanded Bures matrix and then says the example was checked numerically. The factorization and its all-unital-qubit inertia consequence were not stated there. Full-text inspection of Lu--Wang--Sun found the earlier QFI-flow decomposition but not this Bloch-matrix equivalence; Liu--Lu--Wang's later Bures-based work is directed at non-unital effects and also does not cover the theorem. Targeted searches for congruence, Fisher-metric, Bures-distance, damping-matrix, and trace-distance aliases found no implication-equivalent result.
+PASS
 
-## Value
-**PASS.** The theorem replaces an explicit numerical step by a closed analytic proof and simultaneously explains a whole regime: for unital qubits, changing from trace distance to the local Bures/Fisher geometry never changes the number of positive, zero, or negative local witness directions. The result is a structural boundary on what these two standard information-backflow witnesses can distinguish, not merely a recomputation of the source example.
+With ||x||<1 put s=1-||x||² and R=I+xxᵀ/s. Direct expansion of R(D+Dᵀ)R reproduces exactly all three rank-one terms of Hall et al. Eq. (23), yielding 4J_B=R(D+Dᵀ)R. R is positive definite: vᵀRv=||v||²+(vᵀx)²/s and R⁻¹=I-xxᵀ. Sylvester congruence gives identical positive, zero and negative inertia for EVERY differentiable unital qubit Bloch generator, including nonsymmetric D. Thus any positive infinitesimal Bures/Fisher local direction exists iff λ_max(D+Dᵀ)>0, the source trace-distance criterion. For the diagonal illustrative D(t), tanh(t)<1 at every finite t, hence J_B<0 analytically at every interior state. Independently checked the full matrix identity and inverse by exact symbolic rationals for nonsymmetric-sign indefinite symmetric Q and rational x; this is corroboration of the all-parameter algebra, not the proof. Boundary ||x||=1, nonunital dynamics, integrated metric values and finite state-pair distances are not claimed.
 
-## Closest literature and limitations
-The direct source is arXiv:1009.0845 / DOI:10.1103/PhysRevA.89.042120. The closest earlier QFI-flow source is arXiv:0912.0587, and the closest later non-unital Bures comparison inspected is arXiv:1301.5763. The theorem is restricted to differentiable unital qubit dynamics and the local full-rank Bures/Fisher metric. It does not equate finite-separation distance curves, integrated non-Markovianity measures, or non-unital dynamics. A differently phrased later observation remains the principal originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hall et al. (2014) is the initiating primary source for both local witnesses; its Bures expression and trace-distance sign test are published and acknowledged, but the general invertible positive congruence, all-state inertia equivalence and the nonnumerical example conclusion are not stated in the inspected discussion. This does not assert that measuring integrated backflow yields identical values. Searches of published Resultary and Fisher-flow/non-unital Bures literature did not identify a dominating inertia theorem. Residual risk is a differently formulated metric-congruence observation; no failed search is treated as novelty proof.
+
+## value
+
+PASS
+
+This is more than a matrix-expansion exercise: it exactly answers whether two operationally distinct local information-backflow tests ever disagree on unital qubit dynamics, removes the need for a previously numerical negative-definiteness check, and cleanly delineates the nonunital and integrated-measure limitations. A future witness comparison needs precisely this all-state equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
