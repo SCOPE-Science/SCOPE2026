@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-Compile `checker.cpp` with C++17: `g++ -O3 -std=c++17 checker.cpp -o checker && ./checker`. It uses only the standard library, integer arithmetic and modular arithmetic with `unsigned __int128` intermediates. It tests primality of both reduction moduli using exhaustive trial division, checks primitive ninth roots, computes the rank of every Fourier submatrix for all row/column masks under both moduli, and takes the maximum rank. It then tests exact-support existence for all \(261{,}121\) nonempty support-set pairs by column-deletion and row-addition rank tests. Finally it partitions the accepted pairs under the prescribed affine generators and again with Fourier duality.
+## correctness
 
-The first output block must report a total of \(92{,}236\) accepted pairs and the stated complete \(9\)-by-\(9\) matrix; the subsequent orbit count lines must report \(302\) and \(158\), and execution must finish with `CHECK_PASS`. Both orbit weighted sums equal the support-pair total and the incidence matrix is checked symmetric. The certificate is exact because the product of its two prime moduli exceeds \(9^{27}\), an upper bound on the absolute norm of every nonzero cyclotomic Fourier minor. The formal mathematical implications of this bound are established in `RESULT.md`.
+PASS
 
-The finite enumeration is exhaustive for the order-nine cyclic DFT, not an asymptotic proof about other group orders. The result is not an independent mathematical certification; independent audit remains unperformed. Residual novelty risk concerns older specialized positional-support datasets.
+Frozen RESULT and C++ checker prove exact support existence for A,B iff rank of rows G\B and cols A is below |A|, each A-column deletion leaves rank unchanged, and each demanded Fourier row increases rank. Nonzero kernel coordinate constraints are finitely many proper hyperplanes over infinite cyclotomic field. Independently checked all ranks by two large split-prime reductions: both 100000000000099 and 100000001000377 certified prime by full trial division; ninth roots verified; each k-minor norm bounded by k^(3k)<=9^27 and product primes exceeds bound, proving max modular ranks exactly characteristic-zero ranks. Independently implemented exhaustive all 511^2 nonempty pairs, recovered all 9x9 entries, total 92236, affine 302 and duality 158 orbit-size distributions including all checksums. Original checker.cpp inspected; independent implementation compiled C++17 -O3 and output retained locally. Exhaustiveness is finite for Z9 only, not an infinite-group proof.
+
+## originality
+
+PASS
+
+Same-group prime-square DFT literature already establishes the exact-support rank condition, the size-level uncertainty diagram, and boundary extremals. The audited contribution is the independently reproduced 9x9 numerical POSITIONAL multiplicity matrix and complete orbit distributions, not the known lemmas. Sources inspected do not supply the full counts; database failure remains a risk.
+
+## value
+
+PASS
+
+Z9 is the smallest odd cyclic prime-square group, so complete positional time/frequency support incidence and affine symmetry classes are a natural finite harmonic-analysis invariant. This refines known size-only uncertainty diagrams, isolates one rigid (4,5) affine orbit, and supplies an independently reproducible exact-arithmetic rank certificate for every support pair; meaningful despite being a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

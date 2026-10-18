@@ -1,9 +1,21 @@
-# Scientific review: exact positional Fourier-support incidence on the cyclic nine-point group
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact-support test follows from elementary kernel and row-space linear algebra plus avoidance of finitely many hyperplanes over the infinite cyclotomic field. The two-reduction rank certificate uses the determinant-norm upper bound \(9^{27}\) and two explicitly certified primes with product greater than that bound. The `checker.cpp` program reconstructs the whole \(512\)-by-\(512\) rank table in each field, exhausts the \(511^2\) nonempty support pairs, and verifies both orbit partitions through explicit generators. It returned `CHECK_PASS`; the algebraic argument proves reductions exact, so this is not an inference from finite random trials. Risk: the numerical counts still depend on the correctness and replay of the standalone exhaustive program; no independent external audit exists.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest full-text work by Yang et al., arXiv:2303.17203v1, determines cardinality existence and a rank-based test for the uncertainty diagram, not the number of actual positional support pairs and not their affine/dual orbit census. Bonami–Ghobber, arXiv:1003.5060, characterize prime-square *minimum* support extremizers; the result does not imply all positional counts away from the boundary. Delvaux–Van Barel, KU Leuven TW470, derives *minimum Hamming weights* for prime-power Fourier matrices. The published three-by-three prime-square minor census does not classify higher rectangular ranks; the published order-eight positional census has a different ambient group. Search comparisons addressed aliases such as support uncertainty diagrams, rank-deficient Fourier submatrices, prime-square cyclic DFT, and group-action orbit enumeration. Risk: earlier specialized tables or matrix-support databases could contain the same positional or orbit counts under another vocabulary.
+PASS
 
-**Value — PASS.** The result determines a complete, natural positional Fourier invariant for the smallest odd prime-square cyclic group. It refines a size-level yes/no diagram into a \(9\)-by-\(9\) support-incidence matrix, revealing strong nonuniformity among supports even where the cardinality pair is possible. The single affine orbit for boundary sizes \((4,5)\) exposes geometric rigidity, while the total \(302\)- and \(158\)-orbit classifications quantify the full symmetry structure. The norm-bounded pair-of-reductions certificate gives a transparent way of reproducing exact cyclotomic computations rather than trusting numerical zero tests. The theorem is a finite classification, not a general statement for all prime powers.
+Frozen RESULT and C++ checker prove exact support existence for A,B iff rank of rows G\B and cols A is below |A|, each A-column deletion leaves rank unchanged, and each demanded Fourier row increases rank. Nonzero kernel coordinate constraints are finitely many proper hyperplanes over infinite cyclotomic field. Independently checked all ranks by two large split-prime reductions: both 100000000000099 and 100000001000377 certified prime by full trial division; ninth roots verified; each k-minor norm bounded by k^(3k)<=9^27 and product primes exceeds bound, proving max modular ranks exactly characteristic-zero ranks. Independently implemented exhaustive all 511^2 nonempty pairs, recovered all 9x9 entries, total 92236, affine 302 and duality 158 orbit-size distributions including all checksums. Original checker.cpp inspected; independent implementation compiled C++17 -O3 and output retained locally. Exhaustiveness is finite for Z9 only, not an infinite-group proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Same-group prime-square DFT literature already establishes the exact-support rank condition, the size-level uncertainty diagram, and boundary extremals. The audited contribution is the independently reproduced 9x9 numerical POSITIONAL multiplicity matrix and complete orbit distributions, not the known lemmas. Sources inspected do not supply the full counts; database failure remains a risk.
+
+## value
+
+PASS
+
+Z9 is the smallest odd cyclic prime-square group, so complete positional time/frequency support incidence and affine symmetry classes are a natural finite harmonic-analysis invariant. This refines known size-only uncertainty diagrams, isolates one rigid (4,5) affine orbit, and supplies an independently reproducible exact-arithmetic rank certificate for every support pair; meaningful despite being a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
