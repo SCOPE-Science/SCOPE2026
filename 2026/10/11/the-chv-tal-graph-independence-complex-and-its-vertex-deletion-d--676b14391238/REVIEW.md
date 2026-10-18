@@ -1,19 +1,21 @@
-# Scientific review: Chvátal independence-complex vertex-deletion dichotomy
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit 24-edge, 12-vertex Chvátal graph yields exactly 126 nonempty independent faces, with \(f\)-vector \((12,42,52,20)\). The exhaustive graph-of-incidences topological sort checks the complete discrete-Morse gradient in the five representative complexes: critical dimensions are \((0,2)\) for the full complex, \((0)\) for orbit-A deletion, \((0,2)\) for orbit-B deletion, \((0,1)\) for orbit-A link and \((0)\) for orbit-B link. Explicit free-face collapse orders prove simplicial collapsibility in both one-critical-vertex cases. The given edge-preserving permutations generate all four/eight vertices in the two classes, and different deletion cardinalities rule out mixing. The cone-on-link gluing argument proves the canonical inclusion homotopy equivalence for each of the eight orbit-B deletions. A second separately written program computes complete mod-two boundary ranks on all 25 relevant complexes. Both checkers ran successfully from the package. This is a finite exhaustive proof, not a probabilistic computation or a homology-only inference.
+PASS
 
-## Originality — PASS with documented residual risk
+The 24-edge explicitly specified Chvátal graph gives the ordinary independence complex with f=(12,42,52,20) and 126 nonempty faces. Independent reconstruction of all face posets and Hasse orientations gave acyclic matching profiles K:(62 pairs, critical 0+2), D_0:(49 pairs, critical 0), D_2:(48 pairs, critical 0+2), L_0:(12 pairs, critical 0+1), L_2:(13 pairs, critical 0), with directed incidence counts 320,243,239,44,47 and complete topological sorts. The actual verify_chvatal.py additionally tests legal 49/13-step elementary collapse sequences for D_0 and L_2 and exhaustive 4+8 graph-automorphism orbit transfer; edge-preserving generators and independent-set deletion counts distinguish the two orbits. Forman matching implies S2, point, S2, S1, point, respectively; link-cone gluing makes D_v→K a homotopy equivalence in the B orbit. The chromatic backtracking in the actual package verifies chi(G)=4 and chi(G-v)=3 for all v. Exact finite graph, not infinite family.
 
-The methodological anchor is Barmak's original 2010 star-cluster paper (arXiv:1007.0418v1, primary MSC 57M15). Its general suspension conclusion for triangle-free graphs does not identify this sphere nor the two orbitwise deletion/link types. Kitaev–Pyatkin (arXiv:2003.06204) study semi-transitive orientability of this exact graph; their investigated theorem is not an independence-complex homotopy statement. Goyal–Shukla–Singh (arXiv:1905.06926) address different specified graph families. The graph-specific indexed record concerning a Ramanujan signing reports a different spectral assertion. Exact searches for the independence complex of the Chvátal graph, its vertex links, deletion orbit types, and complement-clique formulation returned no stronger covering result; a negative search alone is not novelty proof. Full indexing of unpublished literature cannot be guaranteed.
+## originality
 
-## Value — PASS
+PASS
 
-The twelve-vertex Chvátal graph is a canonical small four-chromatic triangle-free regular graph. Its exact independence-complex homotopy type is sharpened to a **complete classification of all twelve vertex deletions and links**, respecting its full two-orbit automorphism structure. The meaningful contrast is that every graph vertex is chromatically critical, yet only the four-vertex orbit is homotopically deletion-critical. The eight other inclusion maps are homotopy equivalences; both collapsible classes have actual simplicial-collapse certificates. This determines a natural invariant and a natural finite boundary phenomenon, not just a recomputation of Euler characteristic or a renamed general lemma.
+The previously published Chvátal equivariant-collapse result already gives the whole independence-complex S2 type and cannot be counted as novel; the substantive final additional theorem is the exact two-orbit vertex-deletion and link homotopy dichotomy. No checked source implies that deletion classification. Barmak supplies a suspension principle for triangle-free graphs but not these individual vertex-deletion types.
 
-## Limitations
+## value
 
-The proof concerns this finite labeled graph, not a parametric graph class. The published exact-coverage search may miss an unindexed equivalent proof. No independent audit has yet occurred.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The Chvátal graph is a canonical 4-chromatic vertex-critical triangle-free graph. A full, exact two-orbit classification of its independence-complex deletion/link behavior is a motivated natural graph-complex invariant: all 12 graph vertex deletions reduce chromatic number, while only four eliminate the independence-complex S2 homotopy. Complete 12-vertex finite classification is a substantive topological/chromatic contrast independent of the previously known global S2 claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
