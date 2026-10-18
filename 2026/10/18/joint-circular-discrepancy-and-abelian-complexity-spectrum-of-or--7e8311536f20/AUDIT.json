@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The precise domain comprises all directed Euler circuits of the four-bit de Bruijn graph modulo rotation. Every tour induces exactly one of 2^16 bijective local incoming/outgoing pairings; the single-cycle predicate is necessary and sufficient. The fixed all-zero edge yields a unique root. An entirely separate unused-edge DFS yields the identical 2048 cycles. For each cycle, brute-force circular factors and the prefix-walk range yield the same discrepancy; full Parikh sets and independent sliding extrema yield the same peak Abelian complexity. All 2048 cases and eight cells are accounted for; reversal/complementation orbit counts and totals are exact. Limits: finite proof only at order 5, no extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Álvarez et al. (arXiv:2407.17367v1, Theorem 1) produce a cycle of discrepancy n at every binary order.",
+        "Gabrić and Sawada (arXiv:2005.01638, sec. 1.2 and 7) analyze particular constructions and explicitly raise all-cycle distributions as future work."
+      ],
+      "reasoning": "All-order existence of a minimum-discrepancy cycle establishes only the minimum value 5 here, not the 224 minimizing cycles, seven other frequency cells, joint Abelian peaks, or orbit allocation. Selected-construction estimates cannot dominate a complete population census.",
+      "searches": [
+        "de Bruijn sequences with minimum discrepancy 2024 all orders",
+        "Investigating discrepancy property de Bruijn sequences 2020 section 7",
+        "\"de Bruijn\" \"discrepancy\" \"distribution\" all"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0911.2914v1",
+      "arxiv:2005.01638",
+      "arxiv:2407.17367v1",
+      "https://debruijnsequence.org/db/props",
+      "semantic mathematical-record searches for the exact order-five joint spectrum and synonyms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2009 arXiv article treats Abelian complexity of infinite words and minimal subshifts, not the finite de Bruijn population.",
+        "The 2024 minimum-discrepancy theorem fixes only the endpoint value. The 2020/2022 discrepancy article asks for a distribution over all de Bruijn sequences, rather than providing it."
+      ],
+      "reasoning": "There is no statement-level implication from these general bounds, selected samples, or abstract definitions to the eight frequencies and size-two/size-four orbit counts; the present proof requires exhaustive enumeration and full invariant calculation.",
+      "searches": [
+        "binary de Bruijn cycles order five discrepancy distribution minimal 5 maximal 8",
+        "Abelian complexity of minimal subshifts Richomme Saari Zamboni",
+        "de Bruijn sequences discrepancy order 5 2048 probability distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Richomme, Saari and Zamboni (arXiv:0911.2914v1, sec. 1) define Abelian complexity via distinct Parikh vectors.",
+        "Gabrić and Sawada (arXiv:2005.01638, sec. 1.3) give the prefix-walk range formulation of circular discrepancy."
+      ],
+      "reasoning": "These equivalences were explicitly applied when comparing claims: peak Abelian complexity can be described as one plus maximum cyclic sliding-window weight spread; discrepancy is the circular prefix-walk range. Neither equivalent formulation appears with the exact eight-cell order-five joint counts in the inspected sources.",
+      "searches": [
+        "de Bruijn Abelian complexity maximum Parikh profiles all cycles order 5",
+        "\"de Bruijn\" \"Abelian complexity\" \"2048\"",
+        "binary de Bruijn sequence discrepancy spectrum finite order five minimal local balance 2048"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "debruijnsequence.org/db/props, sections Discrepancy and selected algorithm/feedback-register tables, accessed 2026-10-17 UTC.",
+        "Gabrić–Sawada 2021 preprint, Table 1, lists construction values at order 10 and above rather than frequencies over the 2048 cycles at order five."
+      ],
+      "reasoning": "The inspected exact reference tables concern named constructions or feedback-register subclasses and do not state a complete order-five frequency histogram. Exact-search matches did not reveal the joint eight-cell array; that negative search is a limited observation, not a historical uniqueness proof.",
+      "searches": [
+        "debruijnsequence.org \"discrepancy\" \"2048\" distribution",
+        "site:debruijnsequence.org/db \"discrepancy\" dataset",
+        "OEIS \"de Bruijn\" \"discrepancy\" \"224\"",
+        "\"de Bruijn\" \"discrepancy\" \"224\" \"688\""
+      ]
+    },
+    "rationale": "The checked primary sources define the two invariants or establish construction-specific/optimal-value results, but do not supply the eight-cell joint population census or its orbit multiplicities. The 2022 discrepancy study identifies population-wide discrepancy distributions as a future direction. Actual semantic and exact-term searches of research records and identified prior scientific statements found no equivalent result. Absence from search alone is not taken as proof of priority.",
+    "residual_risks": [
+      "An unindexed earlier computation or supplementary table could contain one or more frequencies; search does not certify global historical uniqueness.",
+      "The full paper on odd-order reverse/complement symmetry classes cited in the online properties page (2025) was not inspected; its symmetry results could overlap the orbit column in isolation. It has not been shown to contain the joint discrepancy/Abelian-frequency allocation.",
+      "Independent human audit of finite enumeration code and historical priority is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "establishes the invariant but no de Bruijn order-five joint census",
+        "evidence": "Definitions of abelian-equivalent words and Abelian complexity, pp. 1–3; full-text search returned no de Bruijn occurrence.",
+        "identifier_or_url": "arxiv:0911.2914v1",
+        "material_read": "abstract, introduction, definitions and central statements in the full 20-page preprint; searched complete text for de Bruijn",
+        "method": "full-text PDF and page-image inspection of the accessible open preprint",
+        "title": "Abelian Complexity in Minimal Subshifts",
+        "trigger": "earliest archival framework for the Parikh-vector invariant; primary MSC 68R15 in journal record"
+      },
+      {
+        "assessment": "contains prefix-walk formula and particular-construction discrepancy tables; item 6 in the conclusion proposes studying population distributions; no eight-cell order-five census",
+        "evidence": "Section 1.3 explains range-of-prefix-sums computation; Table 1 concerns constructions at n=10..25; §7 lists distribution of discrepancy over all de Bruijn sequences as future work.",
+        "identifier_or_url": "arxiv:2005.01638",
+        "material_read": "abstract, introduction, §§1.2–1.3, table 1, sections on constructions and §7 future directions; targeted complete-text inspection",
+        "method": "open preprint PDF with searchable text and inspected page image",
+        "title": "Investigating the discrepancy property of de Bruijn sequences",
+        "trigger": "most directly overlapping discrepancy problem and potential full distribution"
+      },
+      {
+        "assessment": "proves attainment of discrepancy n in all binary orders, not multiplicities or joint Abelian complexity",
+        "evidence": "Theorem 1 constructs minimum discrepancy n; searches for 2048 and order 5 returned no matching text.",
+        "identifier_or_url": "arxiv:2407.17367v1",
+        "material_read": "abstract, §1 theorem, proof structure, sections on graph methods, analysis/table of contents and code appendix; targeted searches for 2048 and order 5",
+        "method": "accessible PDF text and inspected pages of the primary preprint",
+        "title": "De Bruijn Sequences with Minimum Discrepancy",
+        "trigger": "all-order sharp minimum could dominate the claimed endpoint"
+      },
+      {
+        "assessment": "reports ranges and selected construction values, not a census by all rotation classes",
+        "evidence": "Discrepancy section contrasts CCR, PCR, LFSR and weight-range algorithms and gives their reference tables.",
+        "identifier_or_url": "https://debruijnsequence.org/db/props",
+        "material_read": "entire accessible properties page, discrepancy descriptions, table descriptions and references",
+        "method": "retrieved HTML full page",
+        "title": "De Bruijn Sequence and Universal Cycle Constructions — Properties",
+        "trigger": "plausible authoritative online discrepancy table/database"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7e831153-6f20-4373-ad0d-f456987f83c2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gabric–Sawada explicitly motivates the distribution of discrepancy across all de Bruijn sequences as a research direction. This complete 2048-cycle benchmark, at the first binary order with a sizable family, determines the exact chance of minimum discrepancy (224/2048), full joint local-balance/Abelian-complexity behavior and symmetry-reduced frequency classes; it shows Abelian peak does not determine circular discrepancy. The eight-cell distribution is neither a renaming of the known minimum theorem nor an arbitrary sample; it is an exact natural finite classification with a reproducible generator. Higher-order distributions remain open.",
+    "status": "PASS"
+  }
+}
