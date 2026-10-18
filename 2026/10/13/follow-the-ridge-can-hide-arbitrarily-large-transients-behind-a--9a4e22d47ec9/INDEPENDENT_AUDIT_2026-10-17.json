@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T21:17:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed h,c>0 and variable b, f_b(x,y)=1/2(h-b^2/c)x^2+bxy-1/2 c y^2 has follower Hessian -c and leader Schur complement h>0, so unique strict minimax (0,0). Substitution of the exact source FR correction and ridge error e=y-(b/c)x gives e^+=q e and x^+=p x-eta_x b e, p=1-eta_x h, q=1-eta_y c. Explicit upper-triangular matrix powers yield divided difference (p^t-q^t)/(p-q), or Jordan t r^(t-1) when p=q=r. Fixed |p|,|q|<1 gives asymptotic convergence for each b. At matched steps and z0=(0,1), x1=-(1-r)b/h, y1=r-(1-r)b^2/(hc), so squared Euclidean gain grows like (1-r)^2 b^4/(h^2 c^2) while both eigenvalues fixed r. The original paper example -3x^2+4xy-y^2 has h=c=2, b=4 and is resonant for equal steps. Independent matrix-column computations checked exact gain and repeated eigenvalue across b=1,4,13,40,100. Linear scaling makes transient equally possible arbitrarily close to minimax.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing full FR convergence theory assumes spectral radius <1, allows nonnormal matrices, and proves asymptotic convergence, not a uniform finite-step gain bound. Generic stable Jordan examples do not by themselves specialize to the FR Hessian parametrization."
+        ],
+        "reasoning": "A general matrix-power formula logically permits further derivation of the gain with work; no prior theorem in inspected FR source bounds/allows arbitrary Euclidean amplification with fixed modal eigenvalues across this family. Strong generic nonnormality literature limits conceptual novelty.",
+        "searches": [
+          "Wang 2019 ar5iv full Sections 3-4 and Appendix C",
+          "HessianFR arxiv 2205.11030 abstract",
+          "Resultary generic stable Jordan transient interval"
+        ]
+      },
+      "checked_sources": [
+        "https://ar5iv.labs.arxiv.org/html/1910.07512",
+        "https://arxiv.org/abs/2205.11030",
+        "https://github.com/Resultary/2026/tree/main/2026/9/9/SCOPE008"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General upper triangular FR Jacobian explicitly contains the off-diagonal term b, but paper concludes absence of strong rotational imaginary eigenvalues; the 1-step b^4 divergence with all eigenvalues identically r requires the family construction h,c fixed as b varies."
+        ],
+        "reasoning": "The original theorem entails spectral convergence and permits nonnormal behavior but does not imply a **uniform transient bound**; our claim proves such a bound cannot exist in ordinary Euclidean norm. Source-form consequence is mathematically informative rather than merely a renamed example.",
+        "searches": [
+          "Wang 2019 Theorem 1 real spectrum and illustrative quadratic f=-3x^2+4xy-y^2",
+          "Resultary SCOPE008 stable nonnormal transient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang Theorem 1 and Remark 1 give similarity to block-upper-triangular Jacobian with real diagonal modes; the off-diagonal b persists. Standard Jordan algebra yields t r^(t-1)."
+        ],
+        "reasoning": "The antecedent includes the exact algebraic mechanism, so the new finding is not a new spectral decomposition; the fixed-rate, arbitrarily large Euclidean transient parameter family and example identification were not explicitly established by that source.",
+        "searches": [
+          "Wang Zhang Ba 2019 Follow-the-Ridge original full text theorem 1",
+          "Resultary: Follow-the-Ridge Jordan nonnormal transient",
+          "generic Jordan block transient growth"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary SCOPE008 describes large transients of unrelated stable Toeplitz Jordan blocks; no table of fixed-h,c FR coupling gains found."
+        ],
+        "reasoning": "This is a theorem about a continuum of couplings rather than an exact finite database lookup; the table check reduces to inspecting existing operator transient examples and noting the model distinction.",
+        "searches": [
+          "Resultary: Follow-the-Ridge FR minimax quadratic Jordan nonnormal transient fixed real eigenvalues",
+          "Resultary: stable Jordan spectral transient quantitative records"
+        ]
+      },
+      "rationale": "PASS best of knowledge for explicit nonnormal transient unboundedness at a fixed FR spectrum and identifying resonance of the original paper example; the source itself already proves the general triangular Jacobian and real eigenvalues. New conclusion is an explicit quantitative family, not a claim to the triangular identity.",
+      "residual_risks": [
+        "Direct derivation from already published upper-triangular Jacobian limits novelty; previously implicit special case may be considered routine by some.",
+        "No stochastic, nonlinear or coupling-uniform conditioning claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Real eigenvalue spectrum and exact upper triangular similarity already prior; no fixed-spectrum b^4 Euclidean spike theorem detected",
+          "evidence": [
+            "Theorem 1; Remark 1; Appendix C Proposition 6; Figure 1"
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1910.07512",
+          "material_read": "Full ar5iv-rendered primary article: introduction Figure 1, FR iteration, Theorem 1, Remark 1, Appendix C preconditioned upper-triangular proof; searched for transient",
+          "method": "complete online primary text, including relevant main body and appendices",
+          "title": "On Solving Minimax Optimization Locally: A Follow-the-Ridge Approach",
+          "trigger": "same optimizer, same quadratic displayed example and Jacobian"
+        },
+        {
+          "assessment": "Conditioning improvements on different iteration; possible relevant transient discussion not ruled out",
+          "evidence": [
+            "abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.11030",
+          "material_read": "abstract/metadata only",
+          "method": "arxiv abstract",
+          "title": "HessianFR: An Efficient Hessian-based Follow-the-Ridge Algorithm for Minimax Optimization",
+          "trigger": "stronger FR-conditioned method"
+        },
+        {
+          "assessment": "A generic stable Jordan transient result predates model specialization",
+          "evidence": [
+            "record summary"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/9/SCOPE008",
+          "material_read": "Resultary published record summary",
+          "method": "semantic record",
+          "title": "Certified finite-horizon transient-peak intervals for Hurwitz-stable T_n=-I+2N",
+          "trigger": "generic sharp nonnormal transient precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit counterexample addresses a specific interpretive gap in a standard minimax optimizer: strictly real locally stable eigenvalues do not protect Euclidean optimization iterates against arbitrarily large finite transients. It is not just the generic Jordan phenomenon because the parameter family preserves follower curvature, Schur complement, learning rates, strict local minimax, and spectrum while varying only game coupling; the defining paper’s own toy model is resonant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://ar5iv.labs.arxiv.org/html/1910.07512",
+    "https://arxiv.org/abs/2205.11030",
+    "https://github.com/Resultary/2026/tree/main/2026/9/9/SCOPE008"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact deterministic 1D leader/follower quadratic, Euclidean norm.",
+    "Coupling-dependent weighted norm could behave differently; no typical-case claim.",
+    "Generic nonnormal matrix facts and FR triangular formula prior, originality limited to identified quantitative parameter family."
+  ],
+  "residual_risks": [
+    "Direct derivation from already published upper-triangular Jacobian limits novelty; previously implicit special case may be considered routine by some.",
+    "No stochastic, nonlinear or coupling-uniform conditioning claim."
+  ],
+  "schema_version": 1
+}
