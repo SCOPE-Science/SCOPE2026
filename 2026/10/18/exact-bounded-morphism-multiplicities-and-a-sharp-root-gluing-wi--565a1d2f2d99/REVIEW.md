@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The finite-frame principal-upset definition forces nonroot images into single target arms, and the exact count of order-preserving onto-terminal-segment maps is obtained from positive integer compositions. The root's bounded-morphism condition is exactly the simultaneous full-coverage event. Inclusion–exclusion gives the multiplicity and defect polynomial, and factorial moments give the Poisson limit. The accompanying independent finite enumeration passed 319 full-map and 319 defect-profile comparisons. The analytic proof, not those finite tests, supplies the asymptotic conclusion.
+
+**Originality — PASS, with residual uncertainty.** The most direct source, Adam-Day et al. (2021), §6.1, proves qualitative existence of bounded morphisms between starlike frames, but does not give their numbers, the complete gluing-defect distribution, or its weighted sharp threshold. Published related enumeration of continuous maps between finite spaces concerns different map conditions; standard coupon-collector limit laws cover the probabilistic limit after a reduction but not the frame-specific exact weights and global root characterization. No equivalent result was found in the searched accessible literature and mathematical-result records. An older equivalent under another terminology, including in less accessible theses, remains possible.
+
+**Mathematical value — PASS.** Jankov–Fine semantics of starlike intermediate logics uses bounded-morphism existence as a qualitative witness of a logical reduction. The present classification measures the actual multiplicity of witnesses and quantifies when individually admissible arm maps cohere into genuine global morphisms, for arbitrary heterogeneous arm lengths. The full defect distribution and the sharp threshold describe the quantitative stability of such witnesses; these are motivated structural invariants, not an arbitrary slice of a finite table.
+
+**Limits.** The target has at least two nonempty arms, all maps are on labelled finite frames, and the sharp asymptotic window holds at fixed positive arm lengths. The classical coupon-collector theorem is acknowledged as prior input. Independent external validation is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
