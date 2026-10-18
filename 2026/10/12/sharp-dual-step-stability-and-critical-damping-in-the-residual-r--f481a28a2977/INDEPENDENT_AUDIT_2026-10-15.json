@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T19:10:46.321849Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/sharp-dual-step-stability-and-critical-damping-in-the-residual-r--f481a28a2977/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/sharp-dual-step-stability-and-critical-damping-in-the-residual-r--f481a28a2977/VERIFICATION.md",
+        "/mnt/data/scope_worker_08_independent_checks_1253.py (private reproduced exact arithmetic, not a public evidence claim)"
+      ],
+      "rationale": "The exact deterministic N=1, f=0, B=0, theta=1 specialization of b-ASADMM retains the residual-reduction correction -(beta/2)x_k in the x first-order condition, yielding (a+beta)x+= (a+beta/2)x+lambda and lambda+=lambda-(2x+-x)/sigma. With r=(a+beta/2)/(a+beta) and u=1/[sigma(a+beta)], its state matrix has trace 1+r-2u and determinant r-u. Independently verified characteristic and Jury identities symbolically: 1-T+D=u>0, 1-D=1-r+u>0, and 1+T+D=2+2r-3u>0 precisely for sigma>3/(4a+3beta). At equality the eigenvalue -1 obstructs asymptotic convergence, below it a real root less than -1 exists. The discriminant 4u²-4ru+(1-r)² and r>1/2 give a unique spectral minimum at u+=(r+sqrt(2r-1))/2, sigma*=2/[a+beta/2+sqrt(a(a+beta))], rho*=1/2[1-sqrt(a/(a+beta))]. Exact source-coupled sigma=2/beta rate follows by substitution, optimal only for a/beta=1/8, with rho_src→1 for large a/beta and rho*∼beta/(4a). The proof covers this decoupled deterministic scalar mode only; it does not assert universal b-ASADMM convergence.",
+      "residual_risks": [
+        "No claim covers stochastic errors, theta<1, coupled nonzero B, higher-dimensional singular spectra or fixed-step behavior outside the scalar model.",
+        "Generic linear systems root-locus results cover the elementary method, but do not by themselves identify the b-ASADMM source-specific recurrence or tuning."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "He–Yuan balanced ALM uses matrix-preconditioned dual updates, different from the cited b-ASADMM residual-reduction half-step.",
+          "The 2025 correction method adds a prediction/correction map and different spectral object."
+        ],
+        "reasoning": "Their convergence results do not logically supply the characteristic polynomial, precise sigma stable interval or unique minimizer of this specific algorithm. General stochastic convergence guarantees are incomparable with this exact deterministic tuning.",
+        "searches": [
+          "b-ASADMM residual reduction scalar stability optimal dual step critical damping sigma",
+          "b-ASADMM scalar residual reduction exact step sigma stability criterion 3/(4a+3beta)",
+          "2026 Zhang Yang Shao Algorithm 2.1 Remark 2.1 sigma 2/beta",
+          "He Yuan balanced augmented Lagrangian convergence exact sigma"
+        ]
+      },
+      "checked_sources": [
+        "10.4208/nmtma.oa-2025-0132",
+        "arXiv:2108.08554",
+        "10.1007/s10915-025-02935-9",
+        "2026/10/4/SCOPE-critical-damping-ratio-for-scalar-least-squares-primal-dual-line--f8268fe426bc",
+        "2026/10/4/SCOPE-exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published source connects sigma to inverse dual step and uses sigma=2/beta in convergence derivation.",
+          "A source sufficient coupling does not imply the exact if-and-only-if interval or unique rate optimum, proved here with explicit roots."
+        ],
+        "reasoning": "The submitted result strictly quantifies the source coupling performance on a permitted deterministic mode; unrelated PDHG optimum formulas do not imply this source-specific metric-ratio 1/8 conclusion.",
+        "searches": [
+          "b-ASADMM residual reduction scalar stability optimal dual step critical damping sigma",
+          "b-ASADMM scalar residual reduction exact step sigma stability criterion 3/(4a+3beta)",
+          "2026 Zhang Yang Shao Algorithm 2.1 Remark 2.1 sigma 2/beta",
+          "b-ASADMM published sigma=2/beta proof condition vs true stable sigma 3/(4a+3beta)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang–Yang–Shao 2026 Algorithm 2.1 and Remark 2.1 specify extrapolated dual residual and residual-reduction prior iterate term; the exact matrix and sigma coupling were derived from them.",
+          "Resultary critical-damping scalar PDAL/PDHG and scalar PDHG records use different state transitions."
+        ],
+        "reasoning": "The scientific novelty is specific identification and optimization of the actual b-ASADMM two-state map, not the general 2-by-2 Jury criterion or repeated-root technique itself.",
+        "searches": [
+          "b-ASADMM residual reduction scalar stability optimal dual step critical damping sigma",
+          "b-ASADMM scalar residual reduction exact step sigma stability criterion 3/(4a+3beta)",
+          "2026 Zhang Yang Shao Algorithm 2.1 Remark 2.1 sigma 2/beta",
+          "balanced augmented Lagrangian residual correction half previous primal residual scalar sigma"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No encountered published source or indexed mathematical record tabulates sigma*=2/[a+beta/2+sqrt(a(a+beta))] for this residual-reduction recurrence.",
+          "The formula follows analytic minimization, not lookup of the source numerical examples."
+        ],
+        "reasoning": "No matching exact table found for the method-specific boundary; lack of a database hit is not proof of historical novelty.",
+        "searches": [
+          "b-ASADMM residual reduction scalar stability optimal dual step critical damping sigma",
+          "b-ASADMM scalar residual reduction exact step sigma stability criterion 3/(4a+3beta)",
+          "2026 Zhang Yang Shao Algorithm 2.1 Remark 2.1 sigma 2/beta",
+          "10.4208 nmtma OA-2025-0132 optimal sigma critical damping scalar table"
+        ]
+      },
+      "rationale": "Best-of-knowledge new statement/implication after source-specific primary comparison and targeted published-record searches; residual priority and access risks are itemized below.",
+      "residual_risks": [
+        "No claim covers stochastic errors, theta<1, coupled nonzero B, higher-dimensional singular spectra or fixed-step behavior outside the scalar model.",
+        "Generic linear systems root-locus results cover the elementary method, but do not by themselves identify the b-ASADMM source-specific recurrence or tuning."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_ALGORITHM_ESTABLISHED_NO_EXACT_SCALAR_FRONTIER",
+          "evidence": "The x subproblem contains a half prior-residual correction; the dual step uses 2x_new-x_old. The paper reports general convergence but does not give the claimed critical damping closed form.",
+          "identifier_or_url": "DOI:10.4208/nmtma.oa-2025-0132",
+          "material_read": "Actual primary-paper full-text reproduction, Algorithm 2.1 x-surrogate and dual update, Remark 2.1 interpreting 1/sigma, and the convergence-derivation coupling.",
+          "method": "Readable primary full-text article reproduction, algorithm equations and parameter passages",
+          "title": "Stochastic ADMM with Balanced Augmented Lagrangian Method for Nonconvex and Nonsmooth Finite-Sum Optimization",
+          "trigger": "Identical algorithm and dual residual correction"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_ITERATION",
+          "evidence": "The predecessor uses a different dual preconditioning and does not display b-ASADMM half-prior-residual update.",
+          "identifier_or_url": "arXiv:2108.08554",
+          "material_read": "Abstract, algorithm description and mathematical comparison available through accessible source summary; not a full-paper exclusion.",
+          "method": "Public abstract/primary listing and explicit update-type comparison",
+          "title": "Balanced Augmented Lagrangian Method for Convex Programming",
+          "trigger": "Plausible prior balanced-ALM scalar analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "10.4208/nmtma.oa-2025-0132",
+        "arXiv:2108.08554",
+        "10.1007/s10915-025-02935-9",
+        "2026/10/4/SCOPE-critical-damping-ratio-for-scalar-least-squares-primal-dual-line--f8268fe426bc",
+        "2026/10/4/SCOPE-exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208"
+      ],
+      "rationale": "An exact stability frontier, unique damping optimum and arbitrarily large rate gap for the actual residual-reduction core provide a quantitative algorithm-tuning benchmark missing from a general sufficient convergence proof. The source proof coupling is shown rate-optimal only at one metric/penalty ratio, a meaningful diagnosis rather than a mere parameter renaming.",
+      "residual_risks": [
+        "No claim covers stochastic errors, theta<1, coupled nonzero B, higher-dimensional singular spectra or fixed-step behavior outside the scalar model.",
+        "Generic linear systems root-locus results cover the elementary method, but do not by themselves identify the b-ASADMM source-specific recurrence or tuning."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim covers stochastic errors, theta<1, coupled nonzero B, higher-dimensional singular spectra or fixed-step behavior outside the scalar model.",
+    "Generic linear systems root-locus results cover the elementary method, but do not by themselves identify the b-ASADMM source-specific recurrence or tuning.",
+    "Current completed assessment is best-of-knowledge, not an external certification or logical novelty consequence of failed searches.",
+    "No full public-metadata sanitization, no GitHub or dispatcher writes, and historical ledger defects remain preserved."
+  ],
+  "schema_version": 1
+}
