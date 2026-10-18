@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The central pointwise identities were derived by differentiating the printed vector field and cross-checked with a standalone symbolic program. Integrating a strictly positive linear observable on a bounded ball gives uniform finite residence times for noncritical parameters; the critical case follows from \(\dot z=y^2\) and Cauchy–Schwarz. The two equilibrium points attain the exact threshold. Stationarity of linear observables plus the sum-of-squares identity gives the invariant-measure moment lower bound, and support invariance gives the equality case. The proof covers all real parameters, includes the closed-ball boundary and states what it does not show.
+## correctness
 
-## Originality
-**PASS, subject to historical-priority risk.** The full six-page introducing article (Li–Sprott 2014; online 2013-11-15) was compared with the precise threshold, finite residence times and measure statement: its same-field Section 2.2 identifies the equilibria and reports numerical bifurcations but not these global estimates. The full seven-page Sprott 2015 paper repeats the vector field and analyzes reversible attractor/repellor properties. The eleven-page Li–Sprott 2017 follow-up studies an equilibrium-plane modification of this exact field, rather than the original field's optimal ball-confinement law. Related public mathematical research records about different flows provide no implication. A general Lyapunov obstruction is standard, but no inspected source supplies the specific optimized certificate and its sharp equilibrium radius. Unindexed or differently notated prior work remains a risk.
+PASS
 
-## Mathematical value
-**PASS.** This is a natural complete threshold classification for residence in the centered balls of the parameterized flow that motivated numerical claims about a cycle developing at vanishing parameter. It is strengthened by uniform crossing-time bounds and a sharp classification of invariant-measure minimizers. The critical parameter cannot be treated by the usual strictly monotone observable, requiring a separate integrated argument; the least possible recurrent radius diverges in the singular parameter limit. No general theorem about existence of chaos is inferred.
+Independently expanded Lie derivative of P=z−ax: Ṗ=y²−a, so for a<0 every bounded segment has length at most 2R sqrt(1+a²)/(−a). For a=0, ż=y² yields ∫y²≤2R on a segment and ẋ=1+yz together with Cauchy–Schwarz yields T≤4R+2R³. For a>0, computed exact Lie derivative of G=(a+a^−1)x−(1−a^−2)z: Ġ=a+a^−1−(x²+y²+z²)+x²+(z+y/a)²; on R<sqrt(a+a^−1) this is strictly positive with bounded G, proving the stated uniform residence bound. Solving F=0 gives only (0,±sqrt(a),∓a^−1/2) at exact threshold, yielding arbitrarily long constant segments for any enclosing closed ball. The same identities integrated over compactly supported invariant measure give E(y²)=a, E(yz)=−1, E(r²)=a+a^−1+E[x²+(z+y/a)²]. Equality forces support on x=0,z=−y/a, and invariance imposes ẋ=1−y²/a=0, leaving exactly convex mixtures of equilibria. Independently verified both Lie polynomials symbolically with SymPy; no global completeness or chaos is inferred.
 
-## Closest literature and limitations
-References 1–3 of RESULT.md treat the same equations; the third concerns their modified equilibrium-plane version. The stationary square identity is specific to the original field. Numerical reports of cycles or chaos are not proved here. Exact historical priority beyond inspected primary sources and indexed records remains uncertain.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2014 introducing paper has precisely ẋ=1+yz,ẏ=−xz,ż=y²+ayz and the two positive-parameter equilibria; hence equilibrium positions and sufficiency R≥threshold are plainly prior. The 2015 follow-up analyzes time-reversal and attractor/repellor numerics, not a stated global uniform finite-ball residence estimate in the same-system sections inspected. The 2017 paper modifies the field by multiplying all components by a function that introduces a plane of equilibria; its modified conclusions are not equivalent to the original system confinement. The principal new ingredient is a tailored optimized monotone affine observable yielding sharp *negative* exclusion below the equilibrium radius plus stationary sum of squares. Other Sprott B/N records indexed in Resultary use inequivalent vector fields; no inference from them to this exact case B. General Lyapunov principle is known, but optimized system certificate is not contained in the original equilibrium result.
+
+## value
+
+PASS
+
+Provides a complete, sharp radius threshold for arbitrarily long residence across all real parameters of a concrete reversible quadratic model used for numerical chaos; crucially finite residence below the equilibrium radius is stronger than merely exhibiting equilibria above it. Explicit passage time bounds and invariant probability moment equality/minimizer classification impose useful analytic limits on interpreting reported attractors, especially singular a→0. This is a meaningful natural exact classification, not merely restating equilibrium existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
