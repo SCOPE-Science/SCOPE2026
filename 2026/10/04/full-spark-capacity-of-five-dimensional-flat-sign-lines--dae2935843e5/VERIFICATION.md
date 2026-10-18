@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The finite domain consists of the sixteen projective representatives
-\[
-(1,\varepsilon_2,\varepsilon_3,\varepsilon_4,\varepsilon_5),\qquad \varepsilon_j\in\{-1,1\}.
-\]
-The bundled `verify.py` uses exact integer arithmetic throughout. It computes all \(\binom{16}{5}=4368\) five-line determinants by the Bareiss algorithm, tests all \(\binom{16}{7}=11440\) seven-line subsets and all \(\binom{16}{6}=8008\) six-line subsets for full spark, and constructs all \(2^4\cdot5!=1920\) projective signed-coordinate-permutation actions.
+# Independent mathematical audit
 
-A successful replay prints:
+## correctness
 
-`VERIFY_OK projective_lines=16 max_full_spark=6 full_spark_6sets=1088 symmetry_group=1920 orbits=5 orbit_sizes=16,160,192,240,480`
+PASS
 
-`WITNESS (0, 1, 2, 4, 8, 15) DETS 16,16,-16,16,-16,-48`
+There are exactly 2^4=16 projective real flat sign lines after normalizing coordinate one. Independently coded fraction-free integer Bareiss determinants for every C(16,5)=4368 five-line set, checked all C(16,6)=8008 six-line sets and C(16,7)=11440 seven-line sets; 1088 six-line sets are full spark and zero seven-line sets, with an explicit six-line witness. A separate generator-orbit traversal using coordinate sign flips and adjacent swaps yielded five orbits of sizes 16,160,192,240,480, summing to 1088. Completeness follows because any >=7 full-spark set contains a 7-subset. The published Theorem 3.8 then forbids eight flat vectors as minimal weak phase retrieval in R5; does not rule out nonflat frames.
 
-The exact finite verification establishes the capacity, count and orbit decomposition only for the flat sign-line configuration. The statement that eight flat vectors cannot perform weak phase retrieval additionally uses the published theorem that a real weak-phase-retrieval family of minimal size \(2n-2\) must be full spark. No finite experiment is used as a substitute for that analytic theorem.
+## originality
+
+PASS
+
+No independent complete all-sign R5 full-spark capacity and five-orbit census found in primary weak phase retrieval sources or semantic and alias searches; exact finite result and meaningful first-open-dimension obstruction survive.
+
+## value
+
+PASS
+
+The exact projective all-sign capacity is a natural full-spark invariant for the constrained frame construction used in dimensions 3 and 4. Showing this strategy fails in dimension five addresses the first dimension singled out by a published open weak-phase-retrieval construction problem. The complete maximizer and symmetry-orbit census adds reusable structure beyond an isolated failed example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
