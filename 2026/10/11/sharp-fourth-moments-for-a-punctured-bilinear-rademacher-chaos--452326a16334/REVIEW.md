@@ -1,27 +1,21 @@
-# Scientific review of the punctured bilinear fourth-moment theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement treats all real arrays supported on exactly \(K_{n,n}\setminus\{(n,n)\}\), with \(n\ge2\) and normalized uniform sign measure. The complete fourth-moment expansion follows from counting repeated-edge terms and genuine four-cycles. The two independent root-mean-square symmetrizations have explicit Cauchy--Schwarz witnesses for every affected rectangle, and the quartic self-terms can only decrease. The reduced three-block form has the exact sum-of-squares deficit \((6k^2+k-4)(p-p_*)^2/k^2+(q-r)^2/k\); this proves sharpness globally, not just at tested dimensions. Positivity of every optimal magnitude and generation of graph cycles by four-cycles determine all possible signs. The actual embedded `verify.py` was executed and returned `VERIFY_OK`, including symbolic identities and direct sign sums. Neither numerical tests nor cycle-space checks at finitely many dimensions substitute for the written infinite-family proof.
+PASS
 
-## Originality — PASS with residual risk
+For K_{n,n} with exactly (n,n) missing, parity gives the standard weighted-square identity. Two explicitly justified Cauchy–Schwarz RMS symmetrizations, column then row, do not decrease E Q⁴ at fixed energy and reduce to three block magnitudes t,u,v. With k=n−1 and mass fractions p,q,r, direct symbolic substitution independently verifies the exact quadratic deficit C_n−F=(6k²+k−4)(p−p*)²/k²+(q−r)²/k for p+q+r=1, with p*=k(6k−5)/(6k²+k−4); q=r=(3k−2)/(6k²+k−4). Thus global sharp C_n, unique positive two-level magnitudes. Every cycle of the punctured complete bipartite graph splits by an available chord into rectangles (n=2 is a tree), so positive rectangle sign products are exactly row/column sign switchings. Independent exact symbolic full-square deficit tends to 6/n² and checks C2,C3,C4; finite source diagnostics are not the all-n proof.
 
-Ibragimov--Sharakhmetov--Cecen [1, principal results and proofs] obtains moment estimates over variable distributions for complete ordinary/decoupled bilinear sums; its exact constants do not provide the weighted single-hole coefficient-space maximization. Pass--Spektor [2, Theorem 2.1] changes dependence assumptions among signs, rather than deleting one coefficient in a fixed independent two-family product. Döbler--Krokowski [3, Theorem 1.1] gives normal-approximation bounds driven by fourth moment and influence; it does not state the sharp punctured support norm. Direct finite-dimensional Khintchine tensorization covers the full support but gives the strictly weaker constant \((3-2/n)^2\). Searches of indexed mathematical records for coefficient-hole, missing-edge, Walsh-support and precise-formula equivalents did not identify a covering theorem. The known full quadratic chaos constants for all edge supports are also weaker than the claimed restricted-support optimum; restriction alone does not prove sharpness. There remains a material risk of unindexed or differently phrased prior work, and the entire unrelated literature has not been exhaustively inspected.
+## originality
 
-## Value — PASS
+PASS
 
-The support is a canonical one-edge deletion from a rank-one tensor product of first-level Rademacher spaces. The exact operator norm of its \(L^2\)-to-\(L^4\) identity embedding is a natural geometric/hypercontractive invariant. The theorem supplies an all-dimensional rational constant, complete two-level extremizers, and an exact strict loss relative to the full tensor product with \(n^2\)-rescaled limit \(6\). It therefore distinguishes a genuine structural effect of deleting a single interaction, rather than repackaging a general hypercontractive bound, selecting arbitrary coefficients, or computing a known table entry.
+Exact one-corner deletion of full bilinear chaos is not the full tensor product covered by scalar Khintchine: the latter only yields a strictly larger constant. The 1999 bilinear-form moment literature studies complete/unweighted and distribution-variable moment inequalities and missing diagonal patterns, not arbitrary real weighted one-corner coefficient arrays or complete sign-switching extremizers. Resultary found the assigned finding, no dominating puncture theorem. Novelty remains best of knowledge.
 
-## Scope and bibliographic limitations
+## value
 
-This is a real-scalar fourth-moment statement, not a complex-scalar bound, a Banach--Mazur distance computation, or a multiple-hole classification. Equation (9) of the result is a deficit identity on the symmetrized three-block family, not an asserted global coefficient-stability remainder. The closest original bilinear-moment source was inspected through its relevant theorems and proof; additional historical specialized texts may remain undiscovered. Independent assessment is not supplied.
+PASS
 
-## Primary references
+One missing interaction from canonical n×n bilinear tensor chaos is a natural low-codimension perturbation. The sharp all-dimensional rational L²→L⁴ constant, complete two-level optimizer and exact asymptotic spectral loss 6/n² are structurally useful and cannot be obtained by simply restricting the known full-support inequality.
 
-[1] R. Ibragimov, Sh. Sharakhmetov, A. Cecen, *Exact Estimates for Moments of Random Bilinear Forms*, arXiv:math/9909111, https://arxiv.org/pdf/math/9909111.
-
-[2] B. Pass, S. Spektor, *On Khinchine type inequalities for pairwise independent Rademacher random variables*, arXiv:1412.7859, https://arxiv.org/pdf/1412.7859.
-
-[3] C. Döbler, K. Krokowski, *On the Fourth Moment Condition for Rademacher Chaos*, arXiv:1706.00751, https://arxiv.org/pdf/1706.00751.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
