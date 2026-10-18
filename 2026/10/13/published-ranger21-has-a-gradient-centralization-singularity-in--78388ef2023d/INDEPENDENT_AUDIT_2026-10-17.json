@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T21:06:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the actual Algorithm 4, whose GC operation removes the mean of the current gradient and whose stable-decay/Norm-Loss vector divides eta_t*lambda by sqrt(mean(vhat_t)) with NO epsilon while the adaptive update has positive epsilon. For a d-coordinate row, d>=2, f(theta)=0.5||theta-b1||^2, theta_delta=c1+delta q with q centered unit vector, clipping inactive under |c-b|<tau|c|, the centered first gradient is delta q and first bias-corrected second-moment mean is delta^2/d. The norm of the regularization displacement after the update is eta_1^2*lambda*sqrt(d)*abs(||theta_delta||-1)/abs(delta). This grows as a nonzero constant /|delta| if eta_1,lambda>0 and |c|sqrt(d)!=1; at delta=0 denominator vanishes with nonzero numerator. The adaptive step tends to zero because its eps guard is positive and numerator O(delta), so cannot cancel. Symbolic independent check for d=2,c=2 returned lim(delta*displacement)=sqrt(2)*eta_1^2*lambda*(2sqrt(2)-1). Assumptions ensure nonzero scheduled first rate; default code implementations with explicit guard are not accused.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/2106.13731",
+          "https://arxiv.org/abs/2011.11152",
+          "First-party Flax Ranger21"
+        ],
+        "reasoning": "Generic Adam/weight-decay safeguards and modern Flax implementation use nonzero epsilon and avoid the failure; they are not stronger prior theorems about the published Algorithm 4 without that safeguard. Other optimizer epsilon-floor stability papers are algorithm-specific and not the same model.",
+        "searches": [
+          "Resultary semantic: Ranger21 gradient centralization stable weight decay norm loss epsilon divide zero second moment singularity",
+          "Ranger21 arXiv:2106.13731 Algorithm 4 PDF",
+          "Stable Weight Decay arXiv:2011.11152",
+          "First-party Flax Ranger21 numerical safeguard"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2106.13731",
+        "https://arxiv.org/abs/2011.11152",
+        "https://arxiv.org/abs/2103.06583"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2106.13731",
+          "arXiv:2011.11152"
+        ],
+        "reasoning": "Source Algorithm 4 supplies the singular denominator and GC mechanism but does not establish a strongly convex test family, nonclipped open neighborhood, exact blow-up rate, or that the adaptive update stays bounded; these require the submitted algebra. Published safe implementations would remove, not entail, the observed mathematical failure.",
+        "searches": [
+          "Resultary semantic: Ranger21 gradient centralization stable weight decay norm loss epsilon divide zero second moment singularity",
+          "Ranger21 arXiv:2106.13731 Algorithm 4 PDF",
+          "Stable Weight Decay arXiv:2011.11152",
+          "First-party Flax Ranger21 numerical safeguard"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2106.13731",
+          "Resultary: Ranger21 gradient centralization zero vhat stable norm loss"
+        ],
+        "reasoning": "A zero processed-gradient moment yields a zero stable-decay denominator, but not necessarily nonzero numerator. The construction independently ensures nonunit row norm and clipping inactivity on a strongly convex objective, yielding an actual nonzero divided-by-zero and nontrivial limit.",
+        "searches": [
+          "Resultary semantic: Ranger21 gradient centralization stable weight decay norm loss epsilon divide zero second moment singularity",
+          "Ranger21 arXiv:2106.13731 Algorithm 4 PDF",
+          "Stable Weight Decay arXiv:2011.11152",
+          "First-party Flax Ranger21 numerical safeguard"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/pdf/2106.13731",
+          "Resultary semantic query: Ranger21 epsilon singularity quadratic"
+        ],
+        "reasoning": "The numerical witness is not asserted as a new measured performance table. Source default clipping parameters and first-step equations are matched directly; no prior exact singular-witness table identified.",
+        "searches": [
+          "Resultary semantic: Ranger21 gradient centralization stable weight decay norm loss epsilon divide zero second moment singularity",
+          "Ranger21 arXiv:2106.13731 Algorithm 4 PDF",
+          "Stable Weight Decay arXiv:2011.11152",
+          "First-party Flax Ranger21 numerical safeguard"
+        ]
+      },
+      "rationale": "Ranger21 original arXiv Algorithm 4 was read in its printed mathematical form; it does not state this strongly convex one-step failure or inverse-distance blowup, while its denonimator omission is visibly real. The original Stable Weight Decay source and later first-party Flax version include numerical safeguards and therefore need not fail. Resultary related optimizer stability results concern different algorithms/normalizations and do not imply the published Ranger21 row-gradient-collapse singularity.",
+      "residual_risks": [
+        "A later first-party implementation guards the denominator, so do not generalize to maintained code.",
+        "Failure is first-step, one-row paper algorithm under theta row norm nonzero not one, lambda>0, eta_1>0, and clipping inactive; no empirical learning benchmark claim.",
+        "A prior bug report or code review might have described zero moment in less mathematical language."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithm 4 line18 divides by sqrt(mean(vhat)) with no eps, after centralization line10 and vhat lines 13-15; line16 has adaptive eps, line19 multiplies dt by eta again. The stated singularity applies to this paper-form algorithm only.",
+          "evidence": "Algorithm 4 lines 10, 13-19, PDF p.7",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.13731",
+          "material_read": "Full 10-page preprint available; inspected Section 2 components, Algorithm 4 on printed page 7 (PDF p.7), and explicit epsilon placement",
+          "method": "full original PDF and page-image inspection",
+          "title": "Ranger21: A Synergistic Deep Learning Optimizer",
+          "trigger": "exact named source algorithm"
+        },
+        {
+          "assessment": "Earlier stable decay defines safeguarded adaptive decay and is not proof of the unsafeguarded Ranger21-specific failure.",
+          "evidence": "arXiv:2011.11152",
+          "identifier_or_url": "https://arxiv.org/abs/2011.11152",
+          "material_read": "Available metadata and comparator equation as quoted in Ranger21 and current assignment; original full PDF not inspected",
+          "method": "arXiv abstract and cited equation context",
+          "title": "On the Overlooked Pitfalls of Weight Decay and How to Mitigate Them: A Gradient-Norm Perspective",
+          "trigger": "source of stable weight decay"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A reproducible strongly convex smooth counterexample exposing unbounded/undefined first updates in a published, widely referenced optimizer equation—and distinguishing it from corrected implementations—is a motivated analysis of a concrete well-definedness defect. Its inverse-distance asymptotic is stronger than a bare 0/0 check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A later first-party implementation guards the denominator, so do not generalize to maintained code.",
+    "Failure is first-step, one-row paper algorithm under theta row norm nonzero not one, lambda>0, eta_1>0, and clipping inactive; no empirical learning benchmark claim.",
+    "A prior bug report or code review might have described zero moment in less mathematical language."
+  ]
+}
