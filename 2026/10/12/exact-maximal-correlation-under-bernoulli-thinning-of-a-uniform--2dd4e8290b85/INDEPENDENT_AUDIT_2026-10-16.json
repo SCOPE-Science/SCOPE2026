@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T06:18:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fixed-size channel K=k has maximal-correlation square k(n-m)/(m(n-k)) by Chang-Chen Theorem 1.6. Since K is visible from S and independent of uniform T, the squared conditional-expectation norm of any centered unit-variance f(T) averages over k. A single normalized coordinate indicator is extremal simultaneously for every k, so this average is exact, not just an upper bound. h(k)=k/(n-k) convex and h(k)<=k/(n-m) give the stated p(n-m)/(n-mp) and p bounds, including p=0,1. With m/n->a in (0,1), bounded convergence yields p(1-a)/(1-ap). Theorem 1.5 yields marked correlation max(R(S,T),max r_j); conditional Bernoulli retention bounds r_j by sqrt(p) and constant coefficients attain equality. Independent singular-value norms of full finite joint tables matched for (n,m,p)=(4,2,.3),(5,3,.7),(6,1,.4),(6,4,.2).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.5 reduces marked correlation to R(S,T) and coordinate constants, leaving dependent Bernoulli S subset T correlation unsolved; Theorem 1.6 only treats fixed k."
+        ],
+        "reasoning": "A more general theorem in the primary work is reduction, not a closed-form evaluation of the needed dependent subset norm.",
+        "searches": [
+          "Resultary: maximal correlation independent Bernoulli thinning uniform m subset n random subset marked subvectors",
+          "arXiv:2411.17109 Theorem 1.5 (arbitrary S,T marked subvectors)"
+        ]
+      },
+      "checked_sources": [
+        "Chang-Chen arXiv:2411.17109 primary full text Theorems 1.5-1.6 §§5.2-5.3",
+        "Csáki-Fischer 1963 cited by Chang-Chen (bibliography only)",
+        "Resultary: maximal correlation independent Bernoulli thinning uniform m subset n random subset marked subvectors",
+        "Git blob RESULT f79052020109e24c0786e5eefbbab5a612b1c9f7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.6 plus conditioning proves an upper bound; saturation requires verifying one f is maximizer for all k. Theorem 1.5 plus incidence Cauchy-Schwarz gives marked sqrt(p)."
+        ],
+        "reasoning": "The random-size equality is an additional argument using common eigenfunctions; the marked consequence, though fairly direct, is not claimed as independently major novelty.",
+        "searches": [
+          "Chang-Chen Theorems 1.5-1.6 and §5.3",
+          "Resultary: maximal correlation independent Bernoulli thinning uniform m subset n random subset marked subvectors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-k nested subset squared norm = k(n-m)/(m(n-k)); Bernoulli K is observed and independent of T. The first coordinate indicator attains all k simultaneously."
+        ],
+        "reasoning": "Johnson-scheme or inclusion-matrix eigenvalues for each k do not by themselves identify the norm of the direct-sum binomial mixture; common extremality supplies equality. No exact equivalent located in checked texts.",
+        "searches": [
+          "Resultary: maximal correlation independent Bernoulli thinning uniform m subset n random subset marked subvectors",
+          "Chang-Chen arXiv:2411.17109 §1.3 Theorems 1.5-1.6 and §5.3",
+          "Johnson-scheme hypergeometric inclusion-matrix alias search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier fixed-size hypergeometric maximal correlation is tabulated/formulated by k, but no binomially mixed all-n,m,p exact expression found."
+        ],
+        "reasoning": "This is a functional stochastic invariant rather than a numerical catalogue; the nearest exact source is fixed-size theory, not a table covering the random-size statement.",
+        "searches": [
+          "Resultary: maximal correlation independent Bernoulli thinning uniform m subset n random subset marked subvectors",
+          "Csaki-Fischer (1963) multivariate hypergeometric spectral theory; Chang-Chen cited theorem"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: source Theorem 1.6 is for a fixed deterministic nested k, not observed binomial K; the nontrivial equality for the mixture uses common first-order extremizer, rather than averaging maxima without justification. Source Theorem 1.5 gives general marked-subvector reduction but not R(S,T) for dependent Bernoulli nesting. Its generality alone does not calculate the formula. Earlier Csaki-Fischer hypergeometric spectrum underlies the k-fixed case. The marked sqrt(p) consequence follows readily from source 1.5 once the mixture bound is known; novelty is chiefly the exact random-size subset formula and its matched equality.",
+      "residual_risks": [
+        "A mathematically equivalent direct-sum or inclusion-matrix spectral calculation in older association-scheme literature remains possible.",
+        "No analogous claim for dependent/heterogeneous thinning, varying parent size, or dependent marks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FIXED-SIZE COVERAGE, MIXTURE NOT STATED",
+          "evidence": "Theorem 1.6 gives k(n-m)/(m(n-k)) and proof uses indicator; Theorem 1.5 gives max reduction; neither text supplies Bernoulli mixture norm.",
+          "identifier_or_url": "https://arxiv.org/abs/2411.17109",
+          "material_read": "Full accessible arXiv HTML, specifically Introduction Theorems 1.5-1.6, proofs §§5.2-5.3 and fixed-size extremal coordinate statistic",
+          "method": "Read primary full-text theorem/proof and compare statements",
+          "title": "Chang and Chen, On the maximal correlation of some stochastic processes",
+          "trigger": "Same exact nested-subset HGR coefficient and general marked-subvector theorem"
+        },
+        {
+          "assessment": "RESIDUAL PRIORITY RISK",
+          "evidence": "Earlier multivariate hypergeometric eigenvalues could yield an equivalent spectral formulation; not claimed wholly noncovering.",
+          "identifier_or_url": "https://real.mtak.hu/201421/",
+          "material_read": "Bibliographic description and citations in Chang-Chen, not complete primary 1963 text",
+          "method": "Citation-level contextual comparison",
+          "title": "Csáki and Fischer, On the general notion of maximal correlation",
+          "trigger": "Potential hypergeometric/association scheme antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact maximal-correlation coefficient is a natural strong-dependence invariant for a canonical uniform-sampling/erasure channel; mixture operator norms cannot generally be obtained by naively averaging fixed-size norms. A compact explicit law and marked consequence are useful benchmarks for stochastic dependence and randomized data release, beyond renaming a fixed-size expression.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Chang-Chen arXiv:2411.17109 primary full text Theorems 1.5-1.6 §§5.2-5.3",
+    "Csáki-Fischer 1963 cited by Chang-Chen (bibliography only)",
+    "Resultary: maximal correlation independent Bernoulli thinning uniform m subset n random subset marked subvectors",
+    "Git blob RESULT f79052020109e24c0786e5eefbbab5a612b1c9f7"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A mathematically equivalent direct-sum or inclusion-matrix spectral calculation in older association-scheme literature remains possible.",
+    "No analogous claim for dependent/heterogeneous thinning, varying parent size, or dependent marks.",
+    "Best-of-knowledge scientific assessment, not formal proof certification or verification/attestation.",
+    "No Git source modification; publication withheld due to inspected public provenance and unreviewed generated public files."
+  ],
+  "schema_version": 1
+}

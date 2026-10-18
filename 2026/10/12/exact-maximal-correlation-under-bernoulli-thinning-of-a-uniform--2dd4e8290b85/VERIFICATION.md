@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The final claim was checked from its definitions and from the cited fixed-size theorem. For each realized retained size \(K=k\), the conditional channel is the uniform nested \(k\)-inside-\(m\) channel with squared maximal correlation \(k(n-m)/(m(n-k))\). Since \(K\) is visible from \(S\) and independent of \(T\), conditional expectation decomposes orthogonally across \(k\). The centered indicator of one parent-set coordinate attains the fixed-size norm for every \(k\), establishing equality after averaging.
+# Independent mathematical audit
 
-For the marked-subvector statement, the coordinate constant in the source reduction is at most \(\sqrt p\) by Cauchy--Schwarz and exactly \(\sqrt p\) for constant coefficient families. The set-level formula gives \(R(S,T)\le\sqrt p\), hence the marked vectors have maximal correlation exactly \(\sqrt p\).
+## correctness
 
-Finite-table singular-value calculations at several small parameter triples matched the formula to numerical precision, but no finite computation is used to prove the general theorem. The result does not establish analogous formulas for heterogeneous or dependent thinning.
+PASS
+
+The fixed-size channel K=k has maximal-correlation square k(n-m)/(m(n-k)) by Chang-Chen Theorem 1.6. Since K is visible from S and independent of uniform T, the squared conditional-expectation norm of any centered unit-variance f(T) averages over k. A single normalized coordinate indicator is extremal simultaneously for every k, so this average is exact, not just an upper bound. h(k)=k/(n-k) convex and h(k)<=k/(n-m) give the stated p(n-m)/(n-mp) and p bounds, including p=0,1. With m/n->a in (0,1), bounded convergence yields p(1-a)/(1-ap). Theorem 1.5 yields marked correlation max(R(S,T),max r_j); conditional Bernoulli retention bounds r_j by sqrt(p) and constant coefficients attain equality. Independent singular-value norms of full finite joint tables matched for (n,m,p)=(4,2,.3),(5,3,.7),(6,1,.4),(6,4,.2).
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: source Theorem 1.6 is for a fixed deterministic nested k, not observed binomial K; the nontrivial equality for the mixture uses common first-order extremizer, rather than averaging maxima without justification. Source Theorem 1.5 gives general marked-subvector reduction but not R(S,T) for dependent Bernoulli nesting. Its generality alone does not calculate the formula. Earlier Csaki-Fischer hypergeometric spectrum underlies the k-fixed case. The marked sqrt(p) consequence follows readily from source 1.5 once the mixture bound is known; novelty is chiefly the exact random-size subset formula and its matched equality.
+
+## value
+
+PASS
+
+Exact maximal-correlation coefficient is a natural strong-dependence invariant for a canonical uniform-sampling/erasure channel; mixture operator norms cannot generally be obtained by naively averaging fixed-size norms. A compact explicit law and marked consequence are useful benchmarks for stochastic dependence and randomized data release, beyond renaming a fixed-size expression.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
