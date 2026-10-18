@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The generator and Lyapunov drift on total occupancy imply a unique positive-recurrent law with finite second moments. Its three stationary mean/factorial/mixed balances form a nonsingular linear system, whose exact solution reduces to both stated variance expressions. Exact differentiation identifies the clearing derivative as a strictly positive factor times a strictly decreasing cubic, with positive value at zero and negative value at the death rate; this proves a unique global optimum. The strictly positive hopping derivative and limits follow from the same rational formula. Conditional mean closure establishes the time-lag covariance identity. A 68-assertion standalone program checked symbolic identities and independent finite-chain approximations; the finite-chain checks are not the infinite-state proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mandjes--Starreveld--Bekker (2018), Section 3.3 gives factorial-moment recursion under blocked links; its generator does not have site-wide clearing.",
+        "Grange (2023), Section 5 computes stationarity of mean occupations in an extensive-network limit."
+      ],
+      "reasoning": "The most plausible broader treatments either involve link-state-modulated individual routing, a single population with binomial catastrophe, or infinitely many fitness sites with first-moment closure. None of these assumptions maps directly to independent simultaneous deletion of every particle at just one of two mutually coupled sites; hence their displayed conclusions do not imply the full present covariance-and-optimum theorem.",
+      "searches": [
+        "Two connected open infinite-server queues with two independent server catastrophes clearing all jobs at either station. Exact steady-state variance and covariance matrix, strictly positive cross-correlation, optimal catastrophic failure rate.",
+        "\"network\" \"infinite-server queues\" \"catastrophes\" \"covariance\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2311.12414, primary preprint and relevant local-reset/mean sections",
+      "https://www.eurandom.tue.nl/reports/2015/006-report.pdf, catastrophe-moment preprint Sections 7.1--7.3",
+      "https://doi.org/10.1007/s10955-018-2036-7, open-access network-queue article Sections 2, 3.3 and 5",
+      "Four targeted semantic searches for two-site migration, catastrophic clearing, queueing aliases and stationary cross covariance."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Grange (2023) describes the same class of local site resets but supplies steady occupation means, not mixed second moments.",
+        "Kapodistria et al. (2015), Section 7.3 has one changing population modulated by a Markov background, not two coupled independent occupancy populations.",
+        "Mandjes et al. (2018), Section 3.3 treats independent-particle service under random link outages, not bulk site clearing."
+      ],
+      "reasoning": "A scalar stationary mean formula is insufficient to imply cross covariance. General moment methodologies allow a new derivation but do not state the all-parameter sign, invariant ratio, strict hopping monotonicity or unique maximizer. Exact overlap remains a residual risk if a general catastrophe-network theorem is located.",
+      "searches": [
+        "Two-node particle migration independent Poisson mass-extinction at each site induced overdispersion and covariance-to-Fano universal ratio",
+        "Two connected open infinite-server queues with two independent server catastrophes clearing all jobs at either station. Exact steady-state variance and covariance matrix, strictly positive cross-correlation, optimal catastrophic failure rate.",
+        "\"two sites\" local resetting independent random walkers covariance stationarity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grange, arXiv:2311.12414, Section 5 Eq. (44): first moments on extensive fitness network.",
+        "Kapodistria--Phung-Duc--Resing, Eurandom 2015006, Section 7: one population and environmental modulation."
+      ],
+      "reasoning": "Aliases considered include two-node migration, coupled infinite-server queues with disasters, population catastrophes, local resetting zero-range and joint factorial moments. Their cited statements do not assert the positive cross covariance, variance-excess ratio, and one optimal reset rate for independently cleared coupled occupancy counts.",
+      "searches": [
+        "Exact positive intersite stationary covariance of two-site independent immigration death migration processes with local stochastic catastrophes resetting site populations to zero; unique resetting-rate maximizer",
+        "Two-node particle migration independent Poisson mass-extinction at each site induced overdispersion and covariance-to-Fano universal ratio",
+        "Two site zero range process local resetting no birth constant injection migration cross correlations analytical covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant primary sources state moment equations or single-site generating functions rather than a tabulation of the two-site cross-covariance optimum."
+      ],
+      "reasoning": "The claimed result is an analytic all-parameter polynomial sign classification, not a finite table entry; searches of exact formulas, synonyms and parametrizations found no table covering it.",
+      "searches": [
+        "Exact positive intersite stationary covariance of two-site independent immigration death migration processes with local stochastic catastrophes resetting site populations to zero; unique resetting-rate maximizer",
+        "Two site zero range process local resetting no birth constant injection migration cross correlations analytical covariance",
+        "\"two-site\" \"catastrophe\" \"migration\" \"covariance\" stochastic"
+      ]
+    },
+    "rationale": "The direct source analyzes local whole-site resets in a large mean-field zero-range network and gives first occupation moments, whereas the current claim determines a finite two-site joint covariance, its positive sign, injection-independent excess-variance ratio, and a unique internal reset-rate maximizer. Single-population catastrophe factorial-moment recursions and faulty-link queueing-network higher moments are structurally distinct. Four targeted scientific semantic searches, primary full-text comparisons, and comparison with accessible prior claims found no covering statement; this is a best-knowledge priority assessment rather than proof of global novelty.",
+    "residual_risks": [
+      "A more general multitype queue with batch catastrophes might implicitly specialize to the same rational expressions and monotonic optimum, even if the searches did not identify it.",
+      "The finite two-site homogeneous non-reproducing case is mathematically tractable and may have been computed informally without indexed publication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Local-clear and hopping mechanisms are established, but stationary two-site cross covariance, overdispersion ratio, and a unique reset-rate covariance optimum are not stated; infinite-network mean-field density is not an implication of the finite-two-site joint fluctuation law.",
+        "evidence": [
+          "arXiv:2311.12414, abstract and Sections 2--5, Eq. (44), Appendices A--C."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2311.12414",
+        "material_read": "Accessible 28-page manuscript: abstract, contents, model and local reset definitions, Sections 2--5 mean-density closure and equations, and Appendix A--C topics; relevant passages inspected in detail.",
+        "method": "Compare the exact finite two-site joint moment equations and optimum polynomial with its extensive-network fitness-dependent mean-occupation treatment.",
+        "title": "Local resetting in non-conserving zero-range processes with extensive rates",
+        "trigger": "Same independent site clearing, particle hopping and stationary occupations as the two-site problem."
+      },
+      {
+        "assessment": "Covers single-population binomial catastrophes and phase-modulated population laws, not the stationary cross moment of two actively migrating populations with separate site-specific reset clocks; does not yield the displayed two-site polynomial without new coupling analysis.",
+        "evidence": [
+          "Eurandom Report 2015006, Eq. (7.4) univariate factorial moments; Section 7.3 environment has one population count and a finite phase."
+        ],
+        "identifier_or_url": "https://www.eurandom.tue.nl/reports/2015/006-report.pdf",
+        "material_read": "Accessible 29-page preprint: abstract, Sections 7.1--7.3 and stationary factorial moment formulas; these relevant passages were inspected in detail.",
+        "method": "Inspect single-population factorial recursions and the random-environment extension against simultaneous two-site, two-dimensional migration and independent local clearing.",
+        "title": "Linear birth/immigration-death process with binomial catastrophes",
+        "trigger": "Potentially stronger formula for exact stationary second moments with catastrophic loss."
+      },
+      {
+        "assessment": "Faulty links affect transfers of individual customers; there is no independent transition clearing every current occupant at one node, so its recursions do not imply the specific cross covariance or its unique clearing-rate optimum.",
+        "evidence": [
+          "Mandjes, Starreveld and Bekker (2018), Sections 2, 3.3, 5."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10955-018-2036-7",
+        "material_read": "Open-access full-text page: model assumptions, Section 3.3 higher moments and Section 5 extensions examined in detail.",
+        "method": "Compare its fluctuating link availability and customer-loss-upon-blockage generator to a full-site population clearing at independent Poisson epochs.",
+        "title": "Queues on a Dynamically Evolving Graph",
+        "trigger": "Finite networks of immigration, particle transfers and exact second-moment recursions might dominate the present calculation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0b940b65-e050-4529-a47e-264b85023d14",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This exact two-site problem is directly motivated by independent catastrophic site clearing coupled to hopping, as studied in local-reset zero-range particle physics. The stationary product-Poisson benchmark has zero instantaneous cross covariance; independent local catastrophe clocks instead produce a strict positive cross covariance, measurable overdispersion, and an injection-independent amplitude ratio. A unique optimal reset-rate window below the individual-death rate distinguishes the competition between synchronization through migration and depletion through clearing. The exact physical dependence is not a mere relabeling of a single-site moment formula; it resolves a naturally defined cross-fluctuation question absent from the inspected mean-field analysis.",
+    "status": "PASS"
+  }
+}
