@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact count follows from two independently checked structural facts: a nonscalar two-dimensional matrix is cyclic with a two-dimensional commutative centralizer, and all nonscalar matrices of a prescribed quadratic characteristic polynomial form one similarity class. For each allowable first diagonal entry, the determinant identity forces a nonzero off-diagonal product and yields exactly \(q-1\) choices. The finite-field-size bound uses only the sizes of the forbidden set and the quadratic root set. The characteristic-two family covers all diagonal values using forbidden pairs and roots; the five-element example was checked arithmetically. Independent direct finite-field conjugation enumeration in `verify.py` corroborates every tested count. Risk: the computation is finite, but the argument is symbolic for all finite fields and tuple lengths.
+PASS
 
-## Originality — PASS, with residual historical risk
+Every nonscalar 2x2 matrix is cyclic, and its matrix centralizer is span{I,A}; each commuting nonscalar family member therefore has a unique u_j I+v_j A, v_j!=0. Any nonscalar conjugate has entries (a,b;c,t-a), with bc=a(t-a)-d; all offdiagonals nonzero iff a not in Z and all diagonal shifts nonzero iff a not in E. For each eligible a, precisely q-1 nonzero (b,c) products occur, giving N=(q-1)(q-|E union Z|). Centralizer-orbit division establishes the change-of-basis count. The q=2^m obstruction partitions field into pairs {s,s+1}; q=5 pair has E={0,1,2,4}, Z={3}. Independent exhaustive matrix quadruple enumeration over F5 found zero admissible common conjugates and exactly eight per individual member.
 
-The inspected arXiv:2608.21154v1 Theorem 3.1 and its remark address an individual matrix, while its simultaneous theorem concerns quaternionic operators and cannot imply the finite-field result. Sharma's arXiv:1409.2698 and 2016 journal version classify simultaneous *similarity classes* of commuting tuples, with no full-support constraint. Bodine–McDonald (DOI:10.1080/03081087.2011.591395) concerns a single characteristic polynomial realized by a full nonzero pattern. Targeted published mathematical-record searches produced no covering exact joint counting/threshold result. Risk: the Bodine–McDonald full text was not available in the consulted sources, and older simultaneous prescribed-pattern formulations could exist. Search absence alone is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The result resolves a genuine obstruction in simultaneous basis selection. Unlike single-matrix full-support existence, the \(\mathbb F_5\) pair and infinitely many characteristic-two tuples have individually admissible bases but no common admissible basis. The exact count yields a decision procedure, success probability, uniform field-size guarantee, and sharp boundary for a natural infinite family. The result does not rely on arbitrary numeric cutoffs or a table-only enumeration.
+A scalar orbit parameterization turns published one-matrix fully-nonzero existence into an exact simultaneous count and detects obstruction to combining individually eligible bases. Marcoux et al. abstract covers individual fields and some quaternionic simultaneous results, not a finite-field commuting-tuple counting law in accessible text. The full recent paper could not be read through public or authorized access; maintain explicit possible covering theorem risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For a canonical commuting two-dimensional finite-field problem, the exact count and the threshold q>2k+2 decide simultaneous full-support feasibility; concrete q=5 and infinite even-characteristic obstructions show a mathematically meaningful difference between individual and joint similarity that single-matrix existence cannot reveal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
