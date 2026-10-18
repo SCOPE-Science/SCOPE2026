@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Every order-five binary de Bruijn rotation class corresponds bijectively to a 32-cycle among the successor permutations induced by sixteen local bijective incoming-to-outgoing edge matchings. A six-letter Abelian square at an entering edge ax and outgoing edge xb is equivalent to a+sum(x[0:2])=sum(x[2:4])+b. Thus an explicit local integer score sums over all 16 vertices. The standalone verifier tests all 65,536 matchings and finds exactly 2,048 one-cycle cases; it independently generates 2,048 circuits by edge-disjoint DFS, recomputes all cyclic factors, and verifies the exact distribution and group orbits. The search space is mathematically exhaustive rather than sampled. The 2,048 total matches the known binary de Bruijn count 2^(2^4-5). Finite limits and conventions are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Richmond-Shallit 2009 abstract counts Abelian squares over unrestricted words, not cycles with the de Bruijn constraint.",
+        "Fici-Mignosi-Shallit 2017 full arXiv HTML establishes richness and regularity results for Thue-Morse/Sturmian infinite words.",
+        "Gabric-Sawada-Williams-Wong 2018 available abstract discusses construction by joining cycles and successor rules."
+      ],
+      "reasoning": "Counts over all six-letter words and algorithms generating de Bruijn cycles do not determine how many length-six Abelian squares each constrained 32-letter de Bruijn cycle contains, still less the full nine-cell histogram and symmetry orbits.",
+      "searches": [
+        "Counting Abelian Squares Richmond Shallit 2009",
+        "Abelian-Square-Rich Words Fici Mignosi Shallit 2017",
+        "A framework for constructing de Bruijn sequences via simple successor rules 2018"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1701.00948",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v16i1r72",
+      "https://research.mpu.edu.mo/en/publications/a-framework-for-constructing-de-bruijn-sequences-via-simple-succe/",
+      "https://oeis.org/A268084"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Related published order-five de Bruijn cycle statistics report discrepancy values 5 through 8, palindrome lengths 7 through 15, and linear complexity values; none provides per-cycle Abelian-square numbers.",
+        "The length-six Abelian-square number depends on equal-Parikh outgoing continuation choices, whereas discrepancy, palindrome length and linear recurrence complexity summarize other features."
+      ],
+      "reasoning": "Even matching the same 2,048-cycle domain does not establish logical implication: knowing other scalar histograms or a pairing construction does not supply the weighted switch-count histogram or its dihedral-symbol orbit breakdown. Direct re-evaluation of the distinct invariant is required.",
+      "searches": [
+        "binary order-five de Bruijn cyclic symbol discrepancy distribution",
+        "binary order-five de Bruijn longest palindrome distribution",
+        "order-five de Bruijn linear complexity discrepancy joint distribution",
+        "de Bruijn Euler tour successor rules Abelian square"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The arXiv HTML full text of Fici-Mignosi-Shallit, Sections 3-6, treats Abelian-square counts for rich infinite words, Thue-Morse, and Sturmian words; no de Bruijn cycle parameters were located.",
+        "The new statistic is identical to counting equal-Parikh adjacent triples and to a weighted incoming/outgoing Euler-tour switch statistic; these reductions are explicitly verified."
+      ],
+      "reasoning": "Searching both Abelian squares and cyclic adjacent-Parikh equivalences found no same-object exact distribution. The primary 2017 paper studies different word families; a coincidentally matching table in unindexed sources remains possible.",
+      "searches": [
+        "de Bruijn sequences abelian square statistics enumeration",
+        "binary de Bruijn sequences abelian square count factors",
+        "de Bruijn abelian squares counting cyclic statistic",
+        "arxiv:1701.00948"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The OEIS result A268084 concerns minimum occurrences of Abelian squares among unrestricted binary words of each length, not the de Bruijn order-five cycle histogram.",
+        "Targeted web and mathematical research-record queries returned no matching six-letter cycle histogram."
+      ],
+      "reasoning": "The published database result uses a different optimization domain and cannot subsume counts across all 2,048 cyclic order-five words. Unsearched/hidden specialist tabulations remain a residual novelty risk.",
+      "searches": [
+        "\"32\" \"96\" \"288\" \"384\" \"448\" \"416\" \"224\" \"128\" \"32\" \"de Bruijn\"",
+        "\"de Bruijn\" \"abelian squares\" \"order 5\"",
+        "de Bruijn abelian square count histogram table",
+        "OEIS minimum number occurrences of abelian squares binary word"
+      ]
+    },
+    "rationale": "A complete full-text comparison against arXiv:1701.00948 locates its assertions about Abelian-square-rich infinite words (not distribution of Abelian-square counts across de Bruijn rotation classes). Existing generic counts of Abelian squares and de Bruijn successor construction do not imply the new weighted 32-cycle census. Actual searchable published results about binary order-five de Bruijn cycles concerned maximum discrepancy, longest palindrome, or linear complexity, which do not logically determine this local equal-Parikh statistic. No equivalent histogram or symmetry classification was found in the searches; unindexed specialized results remain a real risk. Abstract-only relevant sources are flagged rather than asserted full-text NOT_COVERING.",
+    "residual_risks": [
+      "No guarantee that an unindexed or differently titled de Bruijn Abelian-square census has not already published the same table.",
+      "The Richmond-Shallit 2009 and Gabric et al. 2018 original full PDFs were not inspected; observed abstracts alone cannot establish full-document noncoverage.",
+      "Finite enumeration is limited to binary order-five cycles, and no infinite-family generalization is proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different objects and quantifiers; no order-five de Bruijn cycle distribution stated in inspected text",
+        "evidence": [
+          "Proposition 1 counts asymptotically possible factors in unconstrained words; Theorem 11 concerns a 2-regular factor-count function for Thue-Morse; Theorem 24 concerns Sturmian richness.",
+          "No occurrence of de Bruijn in full HTML search."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1701.00948",
+        "material_read": "Full accessible arXiv HTML text, including introduction, definitions, Section 3, Thue-Morse Section 4, Sturmian Section 5 and conclusions",
+        "method": "Read arXiv HTML full text and searched for de Bruijn; compared Proposition 1, Theorem 11 and Theorem 24 domains",
+        "title": "Abelian-Square-Rich Words",
+        "trigger": "Primary modern treatment of distinct Abelian squares and factor-count functions"
+      },
+      {
+        "assessment": "Visible abstract counts unrestricted Abelian powers rather than a de Bruijn cycle-by-cycle distribution; full-text exclusion not claimed",
+        "evidence": [
+          "Abstract describes general counting identities and asymptotic estimates for Abelian powers; no cycle-conditioned histogram shown in accessible material."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v16i1r72",
+        "material_read": "Journal abstract, bibliography and title; not complete PDF",
+        "method": "Read journal HTML abstract, compare counting universe to fixed constrained cyclic classes",
+        "title": "Counting Abelian Squares",
+        "trigger": "Generic enumeration of Abelian squares may dominate a narrow factor count"
+      },
+      {
+        "assessment": "Published method constructs de Bruijn sequences from successor rules; its visible content does not give an Abelian-square spectrum, but uninspected body remains an access risk",
+        "evidence": [
+          "2018 Discrete Mathematics 341:2977-2987 abstract gives several efficient construction rules, not a local Parikh-balance histogram."
+        ],
+        "identifier_or_url": "https://research.mpu.edu.mo/en/publications/a-framework-for-constructing-de-bruijn-sequences-via-simple-succe/",
+        "material_read": "University bibliographic page and journal abstract; not complete publisher text",
+        "method": "Read publisher-index abstract and compare the advertised results",
+        "title": "A Framework for Constructing de Bruijn Sequences via Simple Successor Rules",
+        "trigger": "The Euler-tour switch encoding might be subsumed by universal-cycle successor constructions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3a32aa12-83e5-4636-b701-fa7e1d58b689",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "All length-five factors of an order-five binary de Bruijn cycle occur exactly once, but first extensions to length six are not fixed. Counting equal-Parikh adjacent triples is a canonical Abelian-repetition statistic exactly at this first unconstrained factor length. The theorem completely classifies its attainable values, sharp extrema, multiplicities and complement-reversal symmetry orbits across all 2,048 cycles, and reduces the statistic to a structural 16-switch Euler-tour score. This nonconstant nine-value distribution and orbit refinement answer a precise natural finite question; the contribution is not merely a checker, a textbook deduction from the de Bruijn count, or a random subset sample.",
+    "status": "PASS"
+  }
+}
