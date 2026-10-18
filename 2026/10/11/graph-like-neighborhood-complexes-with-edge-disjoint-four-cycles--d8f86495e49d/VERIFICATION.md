@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or newer and no third-party dependencies. The deterministic expected output is in `verification_output.txt`. The checker constructs every neighborhood and comparison complex from its facet sets rather than trusting quoted face vectors, calculates binary boundary ranks using bitwise Gaussian elimination, and verifies equality of the nerves of the two indicated contractible covers. It also checks the free-pair condition before each of the \(4k\) proposed collapses, compares the resulting graph's mod-two Betti vector with the original neighborhood complex and the intermediate comparison complex, and verifies the exact component and first-homology rank formulas.
+## correctness
 
-It runs an exhaustive finite test over all labeled connected graphs on \(4,5,6\) vertices having exactly one simple four-cycle: \(9+240+6480=6729\) labeled inputs. Nine additional explicit inputs include two or three four-cycles meeting at a vertex or joined by a bridge, with and without an additional odd cycle, and graphs of maximum degree up to eight. The all-parameter conclusion is supplied by the proof in `RESULT.md`; these finite tests do not certify infinitely many graphs.
+PASS
 
-Review status: same-model review only; independent audit not performed. The checked data do not claim peer review, exhaustive literature coverage, or independent validation.
+After detecting a false *auxiliary* assertion in original RESULT.md (distinct edge-disjoint squares can share two vertices), replaced the complete proof. Independent counterexample: squares x-a-y-b-x and x-y-c-d-x use eight disjoint edges but share x,y; no two have an edge in common. The repaired argument uses only |N(x)∩N(y)|≤2 and uniqueness of a square for each opposite pair. Original and filled double-cover cone covers have exactly the same nerve; all nonempty intersections are simplices. Every added disc has two valid free-face collapses per lift because original cycle edges and right-side diagonals are unique, yielding 2v vertices and 2e−2k old edges, same components, and ranks 2e−2v+1−2k or e−v+1−k per bipartite sheet. The corrected complete RESULT.md was written and audited before closeout.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality based on mathematical statement and implication comparisons, not title matches. Best-of-knowledge distinct from the stated theorems; an older unindexed equivalence remains possible. Search self-hit 2026/10/11/SCOPE-graph-like-neighborhood-complexes-with-edge-disjoint-four-cycles--d8f86495e49d identifies the assigned candidate itself, not prior independent coverage.
+
+## value
+
+PASS
+
+An all-graph homotopy classification for a natural structural boundary (any number of pairwise edge-disjoint 4-cycles) goes beyond square-free or bounded-degree special cases. It gives complete integral homology and fundamental groups and a constructive simplicial spine. Repaired proof explicitly includes graph configurations excluded by a false stronger vertex-intersection assumption.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

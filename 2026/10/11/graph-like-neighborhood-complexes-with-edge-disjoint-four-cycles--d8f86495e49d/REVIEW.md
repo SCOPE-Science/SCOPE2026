@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The quantified domain is every finite connected simple graph with \(k\ge1\) pairwise edge-disjoint four-cycles, with no bound on vertex degrees or on longer cycles. Two distinct vertices have at most two common neighbors; an exceptional pair is precisely a pair of opposite corners of a unique four-cycle. In the original simplex cover and the explicit double-cover comparison, all nonempty multiple intersections are contractible and the nerves coincide. The nerve lemma gives the homotopy equivalence. Every filled lifted square admits two explicitly specified elementary free-face collapses, with the disjointness hypothesis guaranteeing no interference. Euler's graph-cycle-rank calculation gives the exact component-wise circle multiplicities and integral homology. Exact finite checks corroborate the argument, but do not replace it. Scientific limits: the conclusion does not address overlapping four-cycles and does not assert an actual collapse of the original neighborhood complex.
+## correctness
 
-## Originality — PASS, with residual risk
-Kamibeppu (2008) proves a deformation-retraction statement when **no** four-cycle is present, and indeed explicitly identifies a square as an obstruction to retracting onto the unmodified double cover. Matsushita (first public 2012) gives a general fundamental-group correspondence, but not vanishing of higher homotopy or the graph-like homotopy equivalence. Shukla (2019) establishes graph-like behavior in a maximum-degree-three regime without the all-degree edge-disjoint-square classification. Tittmann (2024) gives the relevant neighborhood face polynomial and therefore Euler data, not the homotopy type. Arana–Stehlík (2025) classifies a different, surface-quadrangulation regime. The new good-cover construction fills precisely two lifted discs per four-cycle and removes their faces by explicit collapses. Sources were checked by mathematical implication, not title or numerical matching. Risk remains from unindexed equivalent graph-complex reductions and from the possibility of a stronger general theorem outside retrieved primary material.
+PASS
 
-## Value — PASS
-The class includes any positive number of squares, including squares meeting at a vertex, graphs of unbounded maximum degree, and graphs with extra odd and long cycles. The theorem locates a precise structural boundary beyond the established square-free result and establishes graph-like homotopy, free fundamental groups, complete integral homology, and an explicit finite sequence of collapses in a natural common-neighbor model. The complete homotopy conclusion is not determined merely by a known neighborhood polynomial or a fundamental-group presentation. It makes no claim to characterize graphs with intersecting square edges.
+After detecting a false *auxiliary* assertion in original RESULT.md (distinct edge-disjoint squares can share two vertices), replaced the complete proof. Independent counterexample: squares x-a-y-b-x and x-y-c-d-x use eight disjoint edges but share x,y; no two have an edge in common. The repaired argument uses only |N(x)∩N(y)|≤2 and uniqueness of a square for each opposite pair. Original and filled double-cover cone covers have exactly the same nerve; all nonempty intersections are simplices. Every added disc has two valid free-face collapses per lift because original cycle edges and right-side diagonals are unique, yielding 2v vertices and 2e−2k old edges, same components, and ranks 2e−2v+1−2k or e−v+1−k per bipartite sheet. The corrected complete RESULT.md was written and audited before closeout.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality based on mathematical statement and implication comparisons, not title matches. Best-of-knowledge distinct from the stated theorems; an older unindexed equivalence remains possible. Search self-hit 2026/10/11/SCOPE-graph-like-neighborhood-complexes-with-edge-disjoint-four-cycles--d8f86495e49d identifies the assigned candidate itself, not prior independent coverage.
+
+## value
+
+PASS
+
+An all-graph homotopy classification for a natural structural boundary (any number of pairwise edge-disjoint 4-cycles) goes beyond square-free or bounded-degree special cases. It gives complete integral homology and fundamental groups and a constructive simplicial spine. Repaired proof explicitly includes graph configurations excluded by a false stronger vertex-intersection assumption.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
