@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact reconstruction from the six cyclic tetrahedron generators gives \(f=(15,105,180,90)\) and \(\dim_{\mathbf F_2}H_2=3\). Every vertex subset of size at most seven is exhaustively checked. No subset of size at most six carries nonzero ambient \(H_2\); exactly sixty seven-subsets do. Each of those induced complexes is independently checked to have \(f=(7,21,14)\), edge degree two, no tetrahedra, and a consistent global orientation, hence is a torus. The four ambient class counts and the full affine symmetry orbit are exact.
+## correctness
 
-## Originality
-PASS. The exact-object literature already supplies the lattice construction, face vector, homology, cyclic generators, and affine symmetry; those are treated as prior. Focused semantic searches and the inspected full later source did not state the sixty induced seven-vertex tori, their minimum-support characterization, or the \(15,15,15,15\) distribution among four ambient classes. The 1984 historical primary article was available only by abstract through the inspected open route, so possible overlap there remains an explicit residual risk.
+PASS
 
-## Value
-PASS. This computes the complete minimum-support layer of middle-dimensional homology in the classical fifteen-vertex three-torus. The fact that every minimizer is itself a vertex-minimal torus, while the whole family is one symmetry orbit but occupies four distinct ambient homology classes, gives a natural and reusable structural invariant.
+From the six cyclic tetrahedron generators there are 90 tetrahedra, 180 triangles, all 105 edges and 15 vertices. Independent full GF(2) elimination gave rank ∂2=88, rank ∂3=89, hence dim H2=3. The independent exhaustive computation checked every vertex subset of size ≤7: none of cardinality ≤6 supports nonzero ambient H2, exactly 60 of cardinality 7 do; all sixty induced surfaces have (7,21,14), no tetrahedra, each edge in exactly two triangles and orientable torus links. Four homology quotient vectors each occur 15 times, with independent basis representatives and affine translations acting transitively; no infinite extrapolation was involved.
 
-## Closest literature and limitations
-The closest same-object literature is Kühnel--Lassmann's 1984 construction and Brehm--Kühnel's later exact generator description. The closest owned same-object result concerns primitive \(H_1\) one-systoles and does not imply any degree-two support statement. The new result is mod-two and does not classify larger supports or integral normal vectors.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The newly retrieved complete 1984 Kühnel–Lassmann primary article explicitly describes TWO seven-vertex two-torus level sets (its printed page 71, section 3.3), so existence of seven-vertex subtori IS prior art and must not be claimed new. It does not give the full 60 induced carriers, exhaustivity among supports≤7, four class multiplicities or single affine orbit. Independent Resultary search located other torus H1 systole but not this H2 census. The genuine novel remainder is the complete minimum support/classification rather than existence.
+
+## value
+
+PASS
+
+The vertex-minimal homology carriers of a canonical highly symmetric triangulation are a motivated natural finite invariant. The exhaustive 60-carrier census and precise four-class distribution distinguish geometric realizations of H2, beyond the known existence of seven-vertex surfaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
