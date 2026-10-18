@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Rank collapse gives x1*y1=bd and a monotone scalar recurrence with exact fixed point; this determines the zero-parameter global basin line. The saddle Jacobian has eigenvalues 0 and B/b>1, permitting a smooth parameter-dependent local stable manifold. Its one-step preimage has transverse derivative B/(A+y)>0 along the line, so compactwise implicit-function theory constructs the graph. Invariance plus the equilibrium normalization uniquely yields u=(b+y)/(qB) and v=q(y-q)/(d B^3(A+y)); v''=-2bq/[dB^3(A+y)^3]<0. The embedded SymPy checker verifies all rational identities and four independent high-precision shooting estimates. The uniform C2 remainder follows from smooth parameter dependence, not numerical experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Garić-Demirović et al. (2009), Theorems 1.7, 1.9, 2.3: existence and graphical structure of a stable manifold in a competitive map.",
+        "Lugo and Palladino (2012), arXiv:1203.0703 abstract: general invariant-curve criteria, applications to other rational systems."
+      ],
+      "reasoning": "Broad invariant manifold theorems guarantee regular curves locally but contain neither the special rank-one one-step geometry nor the explicit quadratic coefficient. Their existence statements do not logically entail the asserted rational parameter response without the new calculation; unseen applications remain a residual risk.",
+      "searches": [
+        "unstable saddle stable manifold second-order parameter unfolding inverse image of equilibrium rational planar map",
+        "On competitive discrete systems in the plane. I. Invariant Manifolds arxiv 1203.0703",
+        "\"competitive rational\" \"second order\" \"stable curve\" perturbation"
+      ]
+    },
+    "checked_sources": [
+      "Camouzis et al., DOI 10.1080/10236190802125264, system (14,21).",
+      "Garić-Demirović et al., DOI 10.1155/2009/153058, Theorems 1.7, 1.9, 2.3; Remark 2.4.",
+      "Lugo-Palladino, arXiv:1203.0703, abstract."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2009 Theorem 2.3 excludes equality gamma2 A1=alpha2; Remark 2.4 handles equality through a one-dimensional reduction but does not vary gamma2 A1-alpha2 to compute local stable-manifold curvature.",
+        "Exact source equation x_{n+1}=beta1 x_n/(A1+y_n), y_{n+1}=(alpha2+gamma2 y_n)/x_n covers the same domain."
+      ],
+      "reasoning": "The straight stable line and scalar iteration at equality are inexpensive deductions of prior art and expressly not defended as independent novelty. The central statement compares nonzero detunings uniformly and provides a strictly signed second-order curvature law. Neither the scalar critical map nor qualitative existence implies that numerical coefficient without a parameter-dependent manifold and invariant-graph computation.",
+      "searches": [
+        "Camouzis Kulenovic Ladas Merino system (14,21) rational difference beta x/(A+y), (alpha+gamma y)/x stable separatrix perturbation alpha=A gamma second-order curvature",
+        "Global Behavior of Four Competitive Rational Systems rank-one degenerate gamma2 A1 = alpha2 stable manifold curvature expansion basin boundary",
+        "\"Global Behavior of Four Competitive Rational Systems\" rank-one degenerate gamma2 A1 = alpha2 stable manifold curvature expansion basin boundary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Garić-Demirović et al. (2009), DOI 10.1155/2009/153058, Section 2 Theorem 2.3/Remark 2.4; scalar map given on rank-one line, but no parameter curvature coefficient.",
+        "Camouzis et al. (2009), DOI 10.1080/10236190802125264, system (14,21), Open Problem 2."
+      ],
+      "reasoning": "An equivalent formulation would give the second detuning derivative of the stable curve or its second y-derivative, not only the fixed-parameter basin split. The inspected primary results stop at qualitative existence/monotonicity and an exact reduction at equality.",
+      "searches": [
+        "Camouzis Kulenovic Ladas Merino system (14,21) rational difference beta x/(A+y), (alpha+gamma y)/x stable separatrix perturbation alpha=A gamma second-order curvature",
+        "Global Behavior of Four Competitive Rational Systems rank-one degenerate gamma2 A1 = alpha2 stable manifold curvature expansion basin boundary",
+        "\"gamma_2 A_1\" \"alpha_2\" \"separatrix\" threshold rational system"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2009 system inventory and follow-up article table identify the same system but report no table of separatrix parameter-curvature coefficients.",
+        "Relevant indexed mathematical research results concerned other families, including the rational Rulkov map and unrelated planar stable manifolds."
+      ],
+      "reasoning": "The claimed object is a smooth parameter-dependent stable-set graph, not a finite table; the system index and located publications do not tabulate the two Taylor coefficients. No exact-value match was located.",
+      "searches": [
+        "competitive rational map Jacobian singular determinant zero straight separatrix deforms quadratically concave stable manifold",
+        "\"b-A\" \"2b-A\" \"separatrix\" rational difference",
+        "\"rational systems in the plane\" \"stable manifold\" \"curvature\" Camouzis"
+      ]
+    },
+    "rationale": "The 2009 primary paper poses system (14,21); the 2009 follow-up proves qualitative global stable-manifold separation for nondegenerate parameters and its Remark 2.4 explicitly states the rank-one scalar reduction. These are prior art. No inspected statement computes the first and second parameter derivatives of the separatrix, the nonzero negative second-order curvature, or uniform C2 compact-segment asymptotics. The latter are the sole claimed new quantitative conclusion; generic invariant-curve existence does not imply their explicit coefficients.",
+    "residual_risks": [
+      "No mathematical literature search can establish priority absolutely; unindexed older work may calculate this coefficient.",
+      "The 2012 general invariant-manifold work was checked at abstract level only, although its stated applications are other rational systems.",
+      "The compact-segment Taylor theorem does not address global asymptotics of the separatrix at large y."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces problem; does not state a detuning curvature expansion.",
+        "evidence": [
+          "Published online 2009-02-16; Journal of Difference Equations and Applications 15 (2009), 303–323."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/10236190802125264",
+        "material_read": "Relevant open-problem and system-inventory passages, full text HTML where available; original online publication metadata.",
+        "method": "Compared equation (14,21), exact hypotheses, and open global-dynamics question.",
+        "title": "Rational systems in the plane",
+        "trigger": "Original formulation and earliest public date for system (14,21)."
+      },
+      {
+        "assessment": "Remark 2.4 already gives scalar rank-one reduction. Theorem 2.3 yields global stable separating curve for epsilon≠0. Neither provides a Taylor expansion of the curve or the negative quadratic curvature coefficient.",
+        "evidence": [
+          "Theorem 2.3 excludes gamma2 A1=alpha2; Remark 2.4 displays scalar recurrences at equality, PDF p. 10."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2009/153058",
+        "material_read": "Open-access PDF, introduction and Section 2 through Theorem 2.5 including Theorems 1.7/1.9, Theorem 2.3 and Remark 2.4, mathematical statements and hypotheses.",
+        "method": "Read primary PDF text and page renderings; compared parameter equality, map reduction, basin result and exact reported regularity.",
+        "title": "Global Behavior of Four Competitive Rational Systems of Difference Equations in the Plane",
+        "trigger": "Decisively closest paper: same recurrence, stable-curve theorem, exceptional equality."
+      },
+      {
+        "assessment": "Generic stable-curve existence, two different rational applications; unexamined full text remains a priority risk.",
+        "evidence": [
+          "2012 abstract describes existence of stable invariant curves for competitive maps, not coefficient at rank-one equality."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1203.0703",
+        "material_read": "Bibliographic record and full abstract only; full source not relied on to certify absence.",
+        "method": "Compared abstract hypotheses and named applications to explicit formula.",
+        "title": "On competitive discrete systems in the plane. I. Invariant Manifolds",
+        "trigger": "Possible broader invariant-curve coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6215bc82-4cb1-4175-9e20-6fce49516415",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The determinant-zero slice is a natural boundary between rank-one collapse and invertible competitive dynamics, and the 2009 qualitative global-separatrix theorem does not quantify its parameter-dependent geometry. The first-order shift is affine, while the first true bending is the explicit, strictly negative second-order term on each compact interval for either detuning sign. This is a motivated sharp geometric response law, not a known-table recount or a parameter substitution.",
+    "status": "PASS"
+  }
+}
