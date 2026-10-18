@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T17:45:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob e7ca9bfa20ebee968a0437780da63cb4b91a3b56",
+        "arXiv:2607.21477v1 Theorem 1.1, Proposition 7.1, Remark 7.3",
+        "Independent local deterministic optimization script scope09_independent_checks_20261018_1729.py"
+      ],
+      "rationale": "Reconstructed the two-parameter optimization from the frozen RESULT.md and source Remark 7.3: a=1-σ>0, x=√ε1, y=√ε2; on x+y≤2a the derivative of h(x)=x-x²+x⁴ is 1-2x+4x³>0 for x≤1/√2. On x+y≥2a, monotonicity of the exact product-test rejection R allows reduction to x+y=2a. With x=a+z,y=a-z the exact first-branch defect is 2z²(1-6a²-z²)>0 unless z=0 because a²≤1/8. This proves a unique symmetric maximum, and the improvement over Proposition 7.1 is a²(1-2a²)/4>0. Independently evaluated grid maxima for a=.08,.20,1/(2√2); finite grids corroborate but do not prove the continuum optimum.",
+      "residual_risks": [
+        "Claim concerns the exact maximum of a published upper bound, not operational tightness of all QMA(2) protocols.",
+        "Restriction a≤1/(2√2) ensures the applicable product-test rejection branch."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Harrow–Montanaro DOI:10.1145/2432622.2432625 proves reduction from k Merlins to two using a product test.",
+          "The 2026 source proves the exact product-test curve and uniform Proposition 7.1 bound, not the evaluated Remark 7.3 optimum."
+        ],
+        "reasoning": "Broad foundational QMA conversion and all-overlap product-test curve yield an optimization problem, not the claimed optimized closed form without the additional argument.",
+        "searches": [
+          "Harrow Montanaro Testing Product States QMA(k) QMA(2) 2013",
+          "An Optimal Analysis of the Product Test Section 7 2026"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.21477v1",
+        "DOI:10.1145/2432622.2432625",
+        "Resultary semantic search: exact high-soundness two-merlin QMA conversion product test optimize square root epsilon1 epsilon2 Remark 7.3 upper bound"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source obtains 1-(1-σ)^2/4 via a uniform linear lower bound on product-test rejection.",
+          "Remark 7.3 requires coupled optimization with the minimum of 1 and σ+(√ε1+√ε2)/2."
+        ],
+        "reasoning": "The stronger exact curve does not by mere substitution prove the optimum at ε1=ε2; the monotonicity and boundary defect calculation supplies that missing implication.",
+        "searches": [
+          "arXiv:2607.21477 Proposition 7.1 versus Remark 7.3",
+          "full exact product-test curve k Merlin soundness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2607.21477v1 Remark 7.3 displays the maximization without solving for ε1=ε2; its Proposition 7.1 states a uniform quadratic bound.",
+          "The semantic index ranked unrelated analysis and numerical radius claims, not this QMA soundness maximization."
+        ],
+        "reasoning": "Compared the exact quartic expression and optimizer under the aliases product-test rejection, ε1/ε2 continuity, one-shot Merlin soundness; no actually inspected covering expression. Search non-detection is not a novelty proof.",
+        "searches": [
+          "exact high-soundness two-merlin QMA conversion product test optimize square root epsilon1 epsilon2 Remark 7.3 upper bound",
+          "arXiv:2607.21477v1 Remark 7.3 QMA soundness and quartic correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claimed result is a continuum optimization over two real parameters, not retrieval of a numerical table.",
+          "The source gives an unevaluated displayed maximum, not a table containing this formula."
+        ],
+        "reasoning": "Finite-index or table coincidence is inapplicable as an exhaustive classification concern; checked exact source-specific expressions and found no matching tabulated maximum.",
+        "searches": [
+          "exact high-soundness two-merlin QMA conversion product test optimize square root epsilon1 epsilon2 Remark 7.3 upper bound",
+          "(1-a^2+a^4/?) QMA soundness product-test exact quartic"
+        ]
+      },
+      "rationale": "The exact product-test theorem provides the nontrivial two-parameter upper bound but does not optimize it in its discussion of QMA conversion; the frozen result supplies a closed analytic high-soundness optimizer. The Harrow–Montanaro reduction is prior and uses only earlier product-test estimates. The Resultary semantic comparison did not disclose an equivalent prior closed-form maximum; this is a bounded novelty assessment, not priority certification.",
+      "residual_risks": [
+        "A separately published optimization under altered notation could cover the polynomial closed form.",
+        "No claim that upper-bound optimality implies exact operational QMA soundness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct paper supplies objective and exact curve; inspected portions do not give symmetric optimizer or quartic corrected parameter.",
+          "evidence": "Proposition 7.1 uniform 1-a²/4; Remark 7.3 retains two epsilon variables.",
+          "identifier_or_url": "arXiv:2607.21477v1",
+          "material_read": "Accessible full-text source sections around Theorem 1.1, Proposition 7.1, Remarks 7.2–7.3 and Section 8 context.",
+          "method": "Read openly accessible text and compared displayed formulas and quantifiers.",
+          "title": "An Optimal Analysis of the Product Test",
+          "trigger": "Original same-object primary theorem and exact source of Remark 7.3"
+        },
+        {
+          "assessment": "Foundational QMA reduction; predates exact rejection curve and this closed expression.",
+          "evidence": "2013 product-state testing provides all-regimes estimates and QMA(k)=QMA(2).",
+          "identifier_or_url": "DOI:10.1145/2432622.2432625",
+          "material_read": "Publisher abstract/bibliographic record and later source discussion of the reduction.",
+          "method": "Abstract and linked-source comparison, not a claim of reading whole older paper.",
+          "title": "Testing Product States, Quantum Merlin-Arthur Games and Tensor Optimization",
+          "trigger": "Prior introduction of product-test Merlin reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2607.21477v1, Theorem 1.1, Proposition 7.1, Remark 7.3",
+        "DOI:10.1145/2432622.2432625"
+      ],
+      "rationale": "The analytic closed form improves the central QMA(k)→QMA(2) application for every σ=1-1/q (integer q≥3), giving rejection 1/(2q²)-1/(2q⁴) instead of 1/(4q²), doubling its leading coefficient. This is a mathematically motivated optimization of the main source, not an arbitrary tiny instance.",
+      "residual_risks": [
+        "Only 1-1/(2√2)≤σ<1.",
+        "No lower-soundness branch optimization or matching protocol witness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For 1-1/(2√2)≤σ<1, the exact Remark 7.3 QMA(k)-to-QMA(2) soundness upper-bound maximum equals 1-[(1-σ)^2-(1-σ)^4]/2, uniquely optimized at ε1=ε2=(1-σ)^2.",
+  "limitations": [
+    "Only 1-1/(2√2)≤σ<1.",
+    "No lower-soundness branch optimization or matching protocol witness."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source's exact Remark 7.3 objective is reconstructed with \(a=1-\sigma\), \(x=\sqrt{\varepsilon_1}\), and \(y=\sqrt{\varepsilon_2}\). In the unsaturated region, \(x-R(x^2)\) is strictly increasing because \(1-2x+4x^3>0\) on the required interval. In the saturated region, monotonicity of \(R\) moves any optimum to \(x+y=2a\). On that boundary the exact first branch \(R(x^2)=x^2-x^4\) applies, and the defect from the symmetric point factors as \(2z^2(1-6a^2-z^2)\), which is strictly positive under \(a^2\le1/8\). Substitution gives the claimed bound. No finite optimization is used as the proof.
+## correctness
 
-## Originality
-PASS. The anchor explicitly displays the full-curve two-variable maximization but leaves it unevaluated, while Proposition 7.1 records only the uniform linear-curve consequence. Harrow--Montanaro predates the exact all-regimes product-test curve. Targeted semantic-index and web searches over the exact source, Remark 7.3, QMA soundness, the two epsilon parameters, and the final quartic formula found no equivalent closed form. The owned prior same-anchor result concerns a generalized three-qubit W-state frontier and does not overlap the Section 7 complexity optimization.
+PASS
 
-## Value
-PASS. The theorem applies to every high-soundness parameter \(\sigma=1-1/q\) with integer \(q\ge3\), the regime explicitly used in the source's collapse-constant discussion. It improves the rejection probability from \(1/(4q^2)\) to \(1/(2q^2)-1/(2q^4)\), doubling the leading constant. The finding therefore sharpens a named complexity-theoretic application of the exact product-test theorem rather than merely improving a decorative estimate.
+Reconstructed the two-parameter optimization from the frozen RESULT.md and source Remark 7.3: a=1-σ>0, x=√ε1, y=√ε2; on x+y≤2a the derivative of h(x)=x-x²+x⁴ is 1-2x+4x³>0 for x≤1/√2. On x+y≥2a, monotonicity of the exact product-test rejection R allows reduction to x+y=2a. With x=a+z,y=a-z the exact first-branch defect is 2z²(1-6a²-z²)>0 unless z=0 because a²≤1/8. This proves a unique symmetric maximum, and the improvement over Proposition 7.1 is a²(1-2a²)/4>0. Independently evaluated grid maxima for a=.08,.20,1/(2√2); finite grids corroborate but do not prove the continuum optimum.
 
-## Closest literature and limitations
-The closest source is arXiv:2607.21477v1 itself: Remark 7.3 supplies the exact optimization and Proposition 7.1 supplies the weaker closed-form uniform parameter. The foundational comparison is Harrow--Montanaro, DOI 10.1145/2432622.2432625. The present result evaluates only the source's upper-bound expression, only for \(1-1/(2\sqrt2)\le\sigma<1\), and does not establish operational tightness or solve the lower-soundness piecewise problem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact product-test theorem provides the nontrivial two-parameter upper bound but does not optimize it in its discussion of QMA conversion; the frozen result supplies a closed analytic high-soundness optimizer. The Harrow–Montanaro reduction is prior and uses only earlier product-test estimates. The Resultary semantic comparison did not disclose an equivalent prior closed-form maximum; this is a bounded novelty assessment, not priority certification.
+
+## value
+
+PASS
+
+The analytic closed form improves the central QMA(k)→QMA(2) application for every σ=1-1/q (integer q≥3), giving rejection 1/(2q²)-1/(2q⁴) instead of 1/(4q²), doubling its leading coefficient. This is a mathematically motivated optimization of the main source, not an arbitrary tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
