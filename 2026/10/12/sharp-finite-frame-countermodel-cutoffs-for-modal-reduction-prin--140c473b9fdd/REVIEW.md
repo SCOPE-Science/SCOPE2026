@@ -1,9 +1,21 @@
-# Scientific review of the finite-frame cutoff theorem
+# Independent mathematical audit
 
-**Correctness: PASS.** The equivalence between modal validity and relational inclusion is shown by a countervaluation, rather than assumed. For a repeated vertex, the positive closed-walk length divides \(\operatorname{lcm}(1,\ldots,n)\), allowing exact insertion of the prescribed length increment. Seriality supplies a closed walk based at the end of a Hamiltonian-length walk when no vertex repeats. Functional path, tail-loop, and cycle frames establish every claimed lower bound sharply. The complete C++17 source exhaustively checks the boundaries for labeled graphs through four worlds. The arbitrary-parameter statement rests on the proof, not the tests. Risks: code can verify only finite instances; no claim of external certification.
+## correctness
 
-**Originality: PASS, with residual risk.** The closest 2025 primary paper by Knudstorp concerns the finite model property and does not state the unrestricted/serial minimum frame sizes. Classical Boolean matrix-power results give eventual equality and general period bounds, not this exact one-sided inclusion cutoff and its serial one-step gain. Queries under minimal Kripke counterframes, relational powers, Boolean matrix inclusions, path inflation, and serial functional frames did not identify a matching theorem in the inspected literature. Risk: a classical cycle-pumping or Boolean-matrix statement may imply the formula under translation, even if not found in this literature review; lack of a search hit is not novelty proof.
+PASS
 
-**Value: PASS.** The natural modal-logic parameter family has a fully determined *least failing finite-frame size*, with explicit smallest deterministic examples in both unrestricted and serial semantics. The distinction is not an arbitrary numerical improvement: seriality shifts exactly the transient obstruction, while period obstructions remain fixed. Thus the theorem supplies a sharp finite-model testing threshold and an infinite family of strict \(\mathbf K\)/\(\mathbf{KD}\) separations. It does not solve the finite-model property question for arbitrary formulas, and does not claim that the cycle-pumping mechanism is new.
+For rho_{m,k}=Box^{m+k}p -> Box^m p, frame validity is exactly the Boolean relation inclusion R^m subset R^{m+k}, witnessed conversely by a valuation true on all (m+k)-successors. For every n-world frame with m>=n and lcm(1,...,n)|k, any m-walk repeats a vertex and insertion of k/ell copies of a closed segment extends its length by k. In serial frames, at m=n-1 a simple spanning walk can be extended to a terminal-based closed cycle of length <=n. An r-cycle with r∤k and directed dead-end or terminal-loop paths furnish exact obstructions. Consequently b_K=min(m+1,d(k)) and b_KD=min(m+2,d(k)), including n=1 and all m,k>=1. Independent enumeration through three worlds corroborated both quantified criteria but is not the infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The sharp minimum size of a frame countermodel, including the exact serial one-world difference, was not covered by the inspected nearby sources. Knudstorp proves finite-model property for logics axiomatized by reductions, not least falsifying-frame cardinality for one axiom. Boolean-matrix eventual equality is logically distinct from optimal one-sided inclusion R^m subset R^{m+k}; standard cycle-pumping is known, so older automata/Boolean-matrix formulations could overlap.
+
+## value
+
+PASS
+
+A natural modal reduction family has a fully determined finite countermodel cutoff for arbitrary m,k, with exact serial/unrestricted separation and deterministic sharp witnesses. This is a meaningful finite test boundary rather than a mere special numeric calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

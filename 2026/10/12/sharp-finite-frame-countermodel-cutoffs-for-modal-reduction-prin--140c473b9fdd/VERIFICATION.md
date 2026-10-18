@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Compile the adjacent `verify.cpp` with any conforming C++17 compiler, for example:
+## correctness
 
-```sh
-g++ -std=c++17 -O2 -Wall -Wextra verify.cpp -o verify
-./verify
-```
+PASS
 
-Expected result: `VERIFY_OK frames=66066 serial=50978 graph_parameter_tests=4756752 families=4; m=1..6 k=1..12`.
+For rho_{m,k}=Box^{m+k}p -> Box^m p, frame validity is exactly the Boolean relation inclusion R^m subset R^{m+k}, witnessed conversely by a valuation true on all (m+k)-successors. For every n-world frame with m>=n and lcm(1,...,n)|k, any m-walk repeats a vertex and insertion of k/ell copies of a closed segment extends its length by k. In serial frames, at m=n-1 a simple spanning walk can be extended to a terminal-based closed cycle of length <=n. An r-cycle with r∤k and directed dead-end or terminal-loop paths furnish exact obstructions. Consequently b_K=min(m+1,d(k)) and b_KD=min(m+2,d(k)), including n=1 and all m,k>=1. Independent enumeration through three worlds corroborated both quantified criteria but is not the infinite proof.
 
-The program enumerates every labeled binary accessibility relation on sets of one through four worlds (including loops), filters serial relations without losing unrestricted ones, constructs Boolean reachability for path lengths up to 18, and checks the asserted universal frame-validation criteria for \(m\) from 1 to 6 and \(k\) from 1 to 12. It checks all four boundary families: unrestricted and serial, predicted-valid and predicted-invalid. This confirms those finite instances only. The proof in `RESULT.md` uses cycle insertion and explicit witnesses for all positive parameters, without depending on the enumeration. No independent audit was performed.
+## originality
+
+PASS
+
+The sharp minimum size of a frame countermodel, including the exact serial one-world difference, was not covered by the inspected nearby sources. Knudstorp proves finite-model property for logics axiomatized by reductions, not least falsifying-frame cardinality for one axiom. Boolean-matrix eventual equality is logically distinct from optimal one-sided inclusion R^m subset R^{m+k}; standard cycle-pumping is known, so older automata/Boolean-matrix formulations could overlap.
+
+## value
+
+PASS
+
+A natural modal reduction family has a fully determined finite countermodel cutoff for arbitrary m,k, with exact serial/unrestricted separation and deterministic sharp witnesses. This is a meaningful finite test boundary rather than a mere special numeric calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
