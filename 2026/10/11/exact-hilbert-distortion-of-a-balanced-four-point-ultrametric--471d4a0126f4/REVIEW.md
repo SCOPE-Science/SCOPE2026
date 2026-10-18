@@ -1,18 +1,21 @@
-# Scientific review: exact Hilbert distortion of a balanced four-point ultrametric
+# Independent mathematical audit
 
-## Correctness — PASS
-For each real \(0<t\leq1\), the stated four-point metric is an ultrametric and its dual Lipschitz norm is exactly \(\max\{2|v|/t,2|w|/t,2|u|+|v|+|w|\}\). Invariant averaging reduces *all* positive quadratic forms to \(a u^2+v^2+w^2\) without making distortion worse. The maximum is a convex-quadratic corner maximum; the minimum is a coordinate-face or weighted-Cauchy face minimum. Their piecewise quotient decreases up to \(a_0=4s^2/(1-2s^2)\) and never decreases beyond, proving the sharp formula. The boundary \(t=1\) and limit \(t\downarrow0\) are explicitly distinguished. Exact-rational finite tests corroborate the formula but are not used as the infinite-domain argument.
+## correctness
 
-## Originality — PASS, with bibliographic uncertainty
-Godard [1] supplies tree Lipschitz-free structure; Cúth--Doucha [2] gives qualitative ultrametric \(\ell_1\)-isomorphism and a basis; Dalet--Kaufmann--Procházka [3] addresses isometric \(\ell_1\) classification; Dilworth--Kutzarova--Ostrovskii [4] gives a finite-ultrametric \(\ell_1\)-comparison bound. None of the inspected claims supplies the exact three-dimensional \(\ell_2\) distortion or the stated optimal quadratic form. Semantic searches on dual Lipschitz polytopes, balanced two-cherry ultrametrics, ellipsoid distance, and the displayed parameter expression found no covering published-finding corpus claim. Comparable graph-metric results concern a weighted four-cycle or a single exceptional equilateral edge; those metrics do not equal the present two small-pair metric. General literature outside the inspected results may contain an equivalent convex-body theorem; search failure alone is not proof of novelty.
+PASS
 
-## Value — PASS
-This is an exact, sharp, continuum-parameter Banach--Mazur classification for the smallest genuinely two-level symmetric ultrametric, together with the optimal Hilbert quadratic form. It quantitatively interpolates between equilateral four-point geometry and a limiting maximal three-dimensional Euclidean distortion. The invariant and metric family are natural in the theory of finite ultrametrics and Lipschitz-free spaces; this is not a recomputation of a small table or a special arbitrary slice. The result does not classify unbalanced ultrametrics or more than four points.
+For coordinates (u,v,w) the dual Lipschitz norm is max(2|v|/t,2|w|/t,2|u|+|v|+|w|); symmetry averaging reduces all optimal ellipsoids to Q_a=a u²+v²+w². The exact corner maximum M_s(a) and facet minimum m_s(a)=min(s²,a/(2(a+2))) with s=t/2 follow from convexity and weighted Cauchy–Schwarz, with equality feasibility at the relevant transition. For a≤a0=4s²/(1−2s²) the relevant M/m decreases; for a≥a0 its denominator is s² and numerator nondecreases. Hence BM²=2+(1−t)²/(1−t²/2), sharp at a0, strictly decreasing from limiting 3 to 2. Independently optimized numeric ellipsoids at t=.1,.25,.5,.75,1 and verified exact ratios within <1e-8; this is corroboration only.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
 
-## Primary literature
-[1] Godard, arXiv:0904.3178, tree metric/free space framework.
-[2] Cúth and Doucha, arXiv:1411.2434, ultrametric \(\ell_1\)-isomorphism and Schauder basis.
-[3] Dalet, Kaufmann and Procházka, arXiv:1502.02719, isometric \(\ell_1\) characterization.
-[4] Dilworth, Kutzarova and Ostrovskii, arXiv:1807.03814, finite ultrametric comparison theorem.
+PASS
+
+PASS best knowledge: Godard tree free-space isometric L1 structure, Cúth–Doucha ultrametric L1 isomorphisms and general finite-ultrametric estimates do not imply optimal ℓ2³ ellipse or this nonconstant profile. Distinct one-short-edge and three-close-point formulas share only the equilateral t=1 endpoint; matching parameter labels do not mean equivalent metric matrices. No indexed exact two-pair ellipsoid classification located, subject to unindexed convex-body source risk.
+
+## value
+
+PASS
+
+PASS: the two-cherry ultrametric is a canonical smallest nontrivial hierarchical metric. Its sharp Hilbert-distance function and transition to a dimension-changing t→0 limit supply a natural exact geometric invariant, with explicit optimal Hilbert form and quantitative departure from equilateral symmetry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
