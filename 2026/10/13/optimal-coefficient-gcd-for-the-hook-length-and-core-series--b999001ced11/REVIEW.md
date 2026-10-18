@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For the whole domain \(t\ge2\), the proof derives the coefficient content from two formal-series facts: the characteristic-\(p\) Frobenius congruence and integral lifting of \(p\)-th powers. In the prime-power case, reduction of \(E(x)^{p^a}/E(x^{p^a})\) modulo \(p^2\) forces its first \(p\)-adic defect at degree \(p^{a-1}\), establishing both universal divisibility by \(p^{a+1}\) and failure of the next power at an explicit coefficient. In the non-prime-power case, direct Frobenius reduction yields the first nonzero coefficient modulo each prime dividing \(t\); \(d_t(1)=-t^2\) excludes all other primes. The argument covers \(p=2\) and every exponent \(a\ge1\). The finite exact checker independently tests 39 parameter values and six direct Euler-product comparisons.
+## correctness
 
-**Originality — PASS, with residual literature risk.** The October 2026 primary article (arXiv:2610.01422v1, Sections 1–5) gives modulo \(t\) for prime powers and the stronger \(p^2\) only when \(t=p\); it does not establish the sharp modulus \(p^{a+1}\), the first failed coefficient at degree \(p^{a-1}\), or the common content of the two series. Its non-prime-power obstruction is used with attribution. Han–Ono (arXiv:0805.2461) treat zero-set coincidence for \(t=3\). Published-record searches for sharp Euler-product lifts, equivalent core series, and optimal coefficient gcds found no stronger covering claim. Unindexed literature remains a real residual uncertainty.
+PASS
 
-**Value — PASS.** The natural question of how far the coefficientwise hook-length/core congruence lifts is resolved with a globally optimal modulus for **every** integer \(t\ge2\), a complete arithmetic dichotomy, and the least coefficient forcing the prime-power upper bound. This is an exact infinite-parameter invariant rather than a computation of isolated congruences or a non-sharp numerical improvement. The sharpness boundary makes the refinement substantive even though the underlying lifting mechanism is elementary.
+The formal Euler ratio is R=F_t/C_t=E(x)^{t^2}/E(x^t)^t. If t=p^a, H=E(x)^{p^a}/E(x^{p^a}) lies in 1+pZ[[x]] by Frobenius, so R=H^{p^a} lies in 1+p^{a+1}Z[[x]]. Mod p^2 the least coefficient of H-1 not divisible by p^2 occurs at x^{p^{a-1}} with residue -p, via lifting Frobenius E(x)^{p^{a-1}} congruent E(x^{p^{a-1}}) mod p. Therefore the corresponding difference coefficient is -p^{a+1} mod p^{a+2}, while all earlier ones vanish at that precision. For t=p^a m with p∤m and m>1, reduce R mod p to E(y)^{m²}/E(y^m)^m, y=x^{p^{2a}}, whose first nonconstant coefficient is -m². Since d_t(1)=-t², these witnesses determine the complete integer gcd. All formal power series, including p=2, are justified.
 
-**Limits.** Finite tests cannot prove the theorem, and this result does not classify the valuations of all individual coefficient differences. The closest historical and modern primary literature was inspected at the relevant definitions/results; equivalent unindexed work cannot be ruled out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sharma 2026 proves coefficient congruence modulo t precisely for prime powers, and modulo p² at t=p; the full t=p^a optimal p^{a+1} modulus, earliest sharp index p^{a-1}, and integer content formula for all t are not supplied by the inspected full preprint. The non-prime-power first-failure logic is partly present in Sharma and explicitly credited. Han–Ono proves specialized zero-set statements for t=3, not this gcd. A generic p-adic lifting theorem could subsume the argument, retained as a residual risk.
+
+## value
+
+PASS
+
+The coefficient content is a canonical integer invariant of a pair of naturally studied partition q-series. Its exact modulus and first obstruction sharpen the prime-power dichotomy, distinguish universal coefficient congruence from isolated numerical matches, and give an explicit finite witness to optimality without claiming a classification of all coefficient valuations. The prime-power exponent is not inferred from the earlier modulo-t statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

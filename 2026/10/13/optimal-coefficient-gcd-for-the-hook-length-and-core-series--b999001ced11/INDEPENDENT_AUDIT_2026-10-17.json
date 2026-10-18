@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:24:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The formal Euler ratio is R=F_t/C_t=E(x)^{t^2}/E(x^t)^t. If t=p^a, H=E(x)^{p^a}/E(x^{p^a}) lies in 1+pZ[[x]] by Frobenius, so R=H^{p^a} lies in 1+p^{a+1}Z[[x]]. Mod p^2 the least coefficient of H-1 not divisible by p^2 occurs at x^{p^{a-1}} with residue -p, via lifting Frobenius E(x)^{p^{a-1}} congruent E(x^{p^{a-1}}) mod p. Therefore the corresponding difference coefficient is -p^{a+1} mod p^{a+2}, while all earlier ones vanish at that precision. For t=p^a m with p∤m and m>1, reduce R mod p to E(y)^{m²}/E(y^m)^m, y=x^{p^{2a}}, whose first nonconstant coefficient is -m². Since d_t(1)=-t², these witnesses determine the complete integer gcd. All formal power series, including p=2, are justified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source Proposition 2 for t=p^a proves only p^a congruence; special case a=1 proves p². The present formula is strictly stronger for a>=2. Han–Ono concerns the t=3 zero sets rather than all-coefficient gcd."
+        ],
+        "reasoning": "Neither known source implies the exact larger modulus plus first index at p^{a-1} without an additional sharp lifting calculation.",
+        "searches": [
+          "arXiv:2610.01422v1 Sections 3–4, Proposition 2",
+          "Han–Ono arXiv:0805.2461",
+          "search: generic Euler product freshman dream lift first coefficient"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.01422v1, Sections 1–6",
+        "arXiv:0805.2461",
+        "Han Nekrasov–Okounkov refinement Annales Institut Fourier 2010",
+        "Resultary published-record semantic search, five independently worded exact-object queries on 2026-10-17; indexed nearest-hit titles/implications screened rather than treating a failed search as proof of novelty.",
+        "Pinned repository source tree, RESULT.md, METADATA.json, AUDIT.json opening material, and verifier source at Git commit 40d46a820f74fdf355c691812bdc426ec204bde7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prime-power iff-t congruence is weaker: t=p^a permits gcd p^a but does not force an extra factor p; the a=1 case p² alone cannot establish exponent a+1 uniformly. Non-prime-power p-obstruction is inherited."
+        ],
+        "reasoning": "The current contribution requires p-adic lifting of a specific Euler ratio and computation of its FIRST nonzero modulo p^{a+2} coefficient; original already covers only some consequences.",
+        "searches": [
+          "arXiv:2610.01422v1 main theorem and Section 4",
+          "arXiv:0805.2461 Han and Ono"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sharma uses a_t(n)−b_t(n) and prime-power t; the question of the gcd of every coefficient is equivalent to its largest uniform modulus. It proves modulo t, not modulo p^{a+1} for all a."
+        ],
+        "reasoning": "The universal coefficient gcd rephrases the modulus question, but the stronger exact exponent and earliest sharp witness are mathematically new relative to that source.",
+        "searches": [
+          "search: Euler eta function Dwork congruences p-adic prime-power product content",
+          "Resultary semantic: generalized hook-length t-core coefficient gcd p to a+1",
+          "arXiv:2610.01422v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact content table or prime-power first-obstruction classification was found in the queried published finding corpus."
+        ],
+        "reasoning": "Tables of small t or q-coefficients do not establish the unbounded all-t all-n statement; independent truncated expansions serve only as checks.",
+        "searches": [
+          "Resultary hook-length t-core content query",
+          "OEIS/search: coefficients Euler-power and t-core congruence gcd"
+        ]
+      },
+      "rationale": "Sharma 2026 proves coefficient congruence modulo t precisely for prime powers, and modulo p² at t=p; the full t=p^a optimal p^{a+1} modulus, earliest sharp index p^{a-1}, and integer content formula for all t are not supplied by the inspected full preprint. The non-prime-power first-failure logic is partly present in Sharma and explicitly credited. Han–Ono proves specialized zero-set statements for t=3, not this gcd. A generic p-adic lifting theorem could subsume the argument, retained as a residual risk.",
+      "residual_risks": [
+        "An unindexed generic Euler-product congruence with exact leading valuation could subsume the arithmetic statement.",
+        "No individual n-adic coefficient law beyond first sharp witness is proved; limited direct computation cannot replace formal infinite series argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE_NOT_SHARP",
+          "evidence": [
+            "Main theorem modulo t iff prime power; special prime t=p modulo p²; no all-a optimal p^{a+1} and first sharp p^{a-1}. Nonprime-power obstruction substantially covered and credited."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.01422",
+          "material_read": "Entire publicly available arXiv HTML including Introduction, theorem, prime-power and non-prime-power Sections 3–4, consequences and references",
+          "method": "complete primary arXiv HTML inspection",
+          "title": "A Prime-Power Dichotomy for Nekrasov–Okounkov Hook Lengths and t-Core Partitions",
+          "trigger": "Same two generating series and claimed modulus, highest-priority source"
+        },
+        {
+          "assessment": "COVERS_DIFFERENT_ZERO_SET",
+          "evidence": [
+            "Zero sets at t=3 are not the all-n divisibility content theorem for arbitrary t."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0805.2461",
+          "material_read": "Abstract, theorem summary and cited identity/zero-set specialization; complete original 7-page PDF not re-inspected in current run",
+          "method": "primary arXiv metadata and mathematical citation comparison",
+          "title": "Hook Lengths and 3-Cores",
+          "trigger": "Same q-series at t=3, plausible stronger older identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coefficient content is a canonical integer invariant of a pair of naturally studied partition q-series. Its exact modulus and first obstruction sharpen the prime-power dichotomy, distinguish universal coefficient congruence from isolated numerical matches, and give an explicit finite witness to optimality without claiming a classification of all coefficient valuations. The prime-power exponent is not inferred from the earlier modulo-t statement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Formal integer coefficient content for the particular hook-length and t-core q-series; not all coefficient valuations or zero-set equivalence for general t.",
+    "An unindexed generic Euler-product congruence with exact leading valuation could subsume the arithmetic statement.",
+    "No individual n-adic coefficient law beyond first sharp witness is proved; limited direct computation cannot replace formal infinite series argument."
+  ]
+}
