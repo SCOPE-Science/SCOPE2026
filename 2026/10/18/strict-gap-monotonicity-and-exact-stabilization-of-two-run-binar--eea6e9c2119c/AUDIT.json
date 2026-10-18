@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The exact two-state carry matrices and geometric tail give the whole rational carry PGF. Its gap difference reduces to a positive finite convolution. The interval convolution changes by at most one per coefficient, giving the uniform lower bound 2/9 before scaling; the negative-index case proves plateau. Density limits follow from geometric carry survival. A standalone checker makes 972 exact transition checks and 45 separate residue-class checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2411.07779 Sections 5.3 and 6.1, Conjecture 13",
+        "arXiv:2606.23398 Theorem 1.1"
+      ],
+      "reasoning": "The general 2024 expression gives all correlation coefficients and lower bounds for two runs, but does not prove the derivative-sign relation across g or eventual exact constancy. The 2026 global positivity bound is weaker in this direction and does not compare different shifts.",
+      "searches": [
+        "binary digit sums sum of digits under addition of shifted blocks separation monotonicity convergence exact",
+        "Decomposing the sum-of-digits correlation measure changing block lengths 2024",
+        "Cusick first exit proof 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1509.08623 (2015 archival primary)",
+      "arXiv:2005.07167 (2020)",
+      "arXiv:2411.07779 (2024 first post, 2025 v2)",
+      "arXiv:2606.23398 (2026)",
+      "Published semantic research-index searches for block gap monotonicity and density"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation (38) establishes c_t>5/9 for two-block shifts, not pointwise gap comparison",
+        "Conjecture 13 proposes extremal behavior under general block changes; the proof here establishes only the two-run gap component"
+      ],
+      "reasoning": "Individual exact evaluations mathematically encode the answer but require an additional rational generating-function subtraction and convolution positivity inequality; a lower bound on each c_g does not force c_(g+1)>c_g or a finite sharp plateau. The current theorem neither subsumes nor claims the full general conjecture.",
+      "searches": [
+        "arXiv:2411.07779 Section 5.3 Eq (38)",
+        "arXiv:2411.07779 Section 6.1 Conjecture 13",
+        "arXiv:1509.08623 transfer recurrences"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2015 arXiv:1509.08623 digital carry equivalence",
+        "2024 arXiv:2411.07779 Section 5.3 two-block formula"
+      ],
+      "reasoning": "By Legendre/Kummer the digit-sum bias is a carry-count tail. The 2024 exact correlation decomposition supplies a way to evaluate each c_t, but no explicit gap-by-gap positive increment plus sharp threshold was located. Reversal symmetry of the two runs does not imply monotonicity.",
+      "searches": [
+        "cusick digit sum binary bias probability s_2(n+t)>=s_2(n) two blocks of consecutive ones separated by zeros gap increases until weight sum stabilization",
+        "two run of ones t=(2^r-1)+2^(r+g)(2^s-1) exact Cusick constant monotonic in gap",
+        "2015 SIAM digit-sum correlation transfer recurrences",
+        "2024 Sobolewski Spiegelhofer Eq 30 Eq 38"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact finite gap-monotonicity tabulation identified in these searches",
+        "Independent exact arithmetic checks of 972 parameter transitions"
+      ],
+      "reasoning": "Numerical identities are not novelty certificates; no relevant index or table was identified as stating this uniform all-parameters monotonic-and-plateau theorem.",
+      "searches": [
+        "cusick digit sum binary bias probability s_2(n+t)>=s_2(n) two blocks of consecutive ones separated by zeros gap increases until weight sum stabilization",
+        "two run of ones t=(2^r-1)+2^(r+g)(2^s-1) exact Cusick constant monotonic in gap",
+        "site:oeis.org \"Cusick\" \"two blocks\" \"density\"",
+        "site:oeis.org \"c_t\" \"sum of digits\" two runs"
+      ]
+    },
+    "rationale": "An exact strict gap increment, its sign, and the sharp finite stabilization cutoff are not stated in the inspected two-block results; the 2024 full decomposition and 2015 recurrence machinery are explicitly credited as antecedents. Residual risk is an unindexed equivalent or a straightforward algebraic extraction from the 2024 general formulas.",
+    "residual_risks": [
+      "The 2024 exact two-block expression may yield the current inequalities by an unrecorded symbolic simplification; mathematical priority requires independent assessment.",
+      "Searches cannot rule out unindexed published work with equivalent gap-monotonicity statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General density setting and known transfer framework, no stated sharp monotonic two-run gap plateau",
+        "evidence": [
+          "arXiv:1509.08623 abstract and Sections 1–2; see also SIAM 2016 primary MSC 11A63"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1509.08623",
+        "material_read": "Main theorem, preliminary distribution formulas, and relevant digital block expressions in full-text PDF",
+        "method": "Opened 27-page primary PDF and examined theorem/recurrence sections and relevant text searches",
+        "title": "On a Conjecture of Cusick Concerning the Sum of Digits of n and n + t",
+        "trigger": "Archival primary 11A63 source defining the correlation density and recurrences"
+      },
+      {
+        "assessment": "Addresses number of one-blocks and Gaussian approximation; not a theorem about sharp two-block gap cutoff",
+        "evidence": [
+          "arXiv:2005.07167, Theorem 1.1, introduction and Section 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2005.07167",
+        "material_read": "Abstract, main theorems, block terminology and inspected relevant proofs/text searches",
+        "method": "Opened 27-page primary PDF, inspected several sections and searched for two-run gap claim",
+        "title": "The binary digits of n+t",
+        "trigger": "General theorems on dependence of correlation density on digit blocks"
+      },
+      {
+        "assessment": "Very close prior: full exact evaluation machinery and c>5/9 for two-run shifts; does not explicitly assert/prove strict gap monotonicity or finite plateau. Formula may implicitly entail result after nontrivial further algebra",
+        "evidence": [
+          "arXiv:2411.07779, Section 5.3 equations (38) and Section 6.1 Conjecture 13"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2411.07779",
+        "material_read": "Sections 1–2, full detailed two-block Section 5.3, and Section 6.1; general exact formulas (5), (30), (38), (39)",
+        "method": "Opened 31-page author preprint and read formulas and nearby proofs on pages 3–4 and 20–23",
+        "title": "Decomposing the sum-of-digits correlation measure",
+        "trigger": "Directly analyzes shifts with at most two runs of ones and changes of zero-block lengths"
+      },
+      {
+        "assessment": "Global positivity c_t>1/2 and a stopped-tree cutoff, not monotonic change in block-separation parameter",
+        "evidence": [
+          "arXiv:2606.23398 Theorem 1.1 and Section 7"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.23398",
+        "material_read": "Introduction, main theorem, closing discussion of finite stopped-tree stabilization",
+        "method": "Opened 16-page full PDF and inspected main theorem, Section 6 and Section 7",
+        "title": "A first-exit proof of Cusick's sum-of-digits conjecture",
+        "trigger": "Newest general lower bound for all digit-sum biases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eea6e9c2-119c-4fc1-afdd-12d7195779af",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The dependence on the separation between exactly two binary one-runs is a natural arithmetic parameter highlighted by the published two-block analysis. The result proves an exact strict sign rule and optimal finite saturation point, not a routine individual residue evaluation. This explains a sharp finite range of interaction between two blocks and gives a concrete special case of proposed block-length behavior.",
+    "status": "PASS"
+  }
+}
