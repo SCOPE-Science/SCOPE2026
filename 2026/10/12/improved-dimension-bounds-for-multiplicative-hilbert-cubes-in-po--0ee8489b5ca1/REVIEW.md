@@ -1,22 +1,21 @@
-# Review of Improved dimension bounds for multiplicative Hilbert cubes in positive shifted powers
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is proved from the stated subset-product hypothesis without relying on finite enumeration. The key positive-shift lemma follows from the exact identity
-\[
-(xz+n)(yw+n)-(xw+n)(yz+n)=n(y-x)(w-z),
-\]
-integer spacing between distinct \(k\)-th powers, and positivity of \(n\). Substituting the first five ordered generators plus the remaining tail yields the strict upper bound
-\[
-X<k^{-k/(k-2)}n^{k/(k-2)}.
-\]
-The empty subset independently forces \(n+1=q^k\) and hence every \(a_i\) with \(i\ge2\) to exceed \(kn^{(k-1)/k}\). Comparing exponents gives the stated thresholds. Boundary cases and quantifiers were checked explicitly. The verifier is only a transcription check and is not treated as proof of the infinite claim.
+## correctness
 
-## Originality
-PASS with residual literature risk. The direct source proves only \(|A|\le9\) for all \(k\ge3\) and explicitly says that its bound was not optimized. Its proof uses a five-element tail after invoking a signed-shift corollary that is formulated only in a larger-dimension setting. The present positive-shift identity removes that auxiliary size condition and supports two- or three-element tails, producing new stated ceilings \(7\) and \(6\). Searches for equivalent formulations, stronger coverage, exact database entries, and implication from the closest papers found no source stating these bounds. The closest related full texts were inspected, including the direct Tsang–Yip article and Croot–Yip's broader product-set paper. A differently worded prior observation in uninspected literature remains a residual risk.
+PASS
 
-## Value
-PASS. The object and invariant are directly motivated by a published question on the maximum dimension of multiplicative Hilbert cubes in shifted perfect powers. The source itself flags its constant \(9\) as unoptimized. The refinement covers the full natural higher-exponent range \(k\ge4\), lowers the uniform ceiling by two or three generators, and isolates a reusable positive-shift gap lemma. It is not a cosmetic reparameterization or an arbitrary finite slice.
+Checked RESULT.md at the exact frozen blob 762aeddf8c4da73a0857f3b2e88c5f262f153731. Expanding the four shifted products gives n(y-x)(w-z); the gap between distinct integer kth powers is at least kV^(k-1), proving yw>k^k(xz)^(k-1)/n^k. With x=a1*a5*X, y=a2*a5*X, z=a3, w=a4, strict ordered-element comparisons give X<k^(-k/(k-2))*n^(k/(k-2)). The empty subset forces n+1=q^k and each a_i (i>=2)>k*n^((k-1)/k). For tail r=d-5, r(k-1)/k>=k/(k-2) holds at r=3 for k=4,5, at r=2 for k>=6, with positive constants already giving strict contradiction. Independently verified the identity and boundary exponent inequalities. No claim of optimal dimensions or negative shifts.
 
-The closest literature establishes the general \(9\) bound, the signed-shift gap principle, and broader robust-product-set results. The present theorem does not claim optimality, does not improve \(k=3\), and does not address negative shifts.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Same mathematical objects, parameters, quantifiers, and prior implications were compared using the identified primary material and a fresh published-findings semantic query. No covering prior theorem was identified in the material read; the listed residual risks limit this best-of-knowledge assessment.
+
+## value
+
+PASS
+
+The positive-shift refinement is a substantive reduction from the published uniform nine-generator ceiling to seven or six generators under exactly the same natural all-subset Diophantine hypothesis. The shorter-tail gap uses essential positivity and may be useful for subsequent sharp dimension searches; the result is not merely a formatting change or a recomputation of a known bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
