@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:02:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Baslingker–Virág Theorem 5 already proves the exact directed-cycle Fourier variational representation of B_K under equal marginals. For t active coordinate frequencies each has energy ≥sin²(π/K), so t≥3 has quotient ≤1/(t sin²(π/K)). For exactly two, sin²(a+b)=sin²a+sin²b+2sin(a)sin(b)cos(a+b), bounding quotient by 2cos²(π/K) for K≥4 with equality from two K-cycles. Thus B2=B3=B4=1, B5=(3+√5)/4, B6=3/2. For K≥4, principal angles δ_i∈[α,π/2], α=π/K, satisfy sin²δ_i/δ_i≥sin²α/α; the nearest-to-π signed sum s≤Σδ_i yields B_K≤α/sin²α * max_{0≤s≤π/2}sin²s/s. The maximum occurs at unique τ∈(0,π/2) solving tanτ=2τ. Taking n=floor(τK/π) unit-frequency K-cycles attains the limiting slope sin²τ/(πτ). Independent numerical direct evaluations at K=5,6 agree; finite checks do not prove the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baslingker–Virág 2026 Theorem 5 gives a dimension-free finite-support bound B_K≤K/2, which is strictly weaker than B5≈1.309 and B6=1.5, and has asymptotic slope 0.5 rather than proved 0.2306509575."
+        ],
+        "reasoning": "A variational characterization does define B_K exactly implicitly, but does not provide the explicit thresholds and asymptotic optimizations without further argument. Avoid falsely claiming the formula itself new.",
+        "searches": [
+          "Efron Stein inequality identically distributed pairs support K sharp constant cycle Fourier asymptotic",
+          "The Efron-Stein inequality for identically distributed pairs Theorem 5",
+          "Efron Stein finite cycle sharp rho k bound K/2"
+        ]
+      },
+      "checked_sources": [
+        "Baslingker–Virág arXiv:2605.05388v1 Theorem 5 and proof",
+        "Aldous–Fill §4.6.3",
+        "Resultary semantic query: Efron Stein inequality identically distributed pairs support K sharp constant cycle Fourier asymptotic",
+        "https://www.alphaxiv.org/abs/2605.05388v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Baslingker–Virág Theorem 5 provides ∑ sin²(πu_i/m_i) denominator and sin²(πΣu_i/m_i) numerator; its stated K/2 bound does not imply matching c*.",
+          "The independent-resampling Efron–Stein theorem and product-chain Poincaré bounds impose different pair/exchangeability conditions."
+        ],
+        "reasoning": "Previously available upper K/2 cannot imply the exact small-K plateau threshold or a matching smaller linear coefficient. The same-object variational formula makes improvement clear but is fully credited.",
+        "searches": [
+          "Efron Stein inequality identically distributed pairs support K sharp constant cycle Fourier asymptotic",
+          "Baslingker Virág arxiv 2605.05388 Proposition 3 Theorem 5",
+          "Aldous Fill section 4.6 product Markov variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original arXiv:2605.05388 Theorem 5 defines the same exact supremum of the sine Fourier quotient, which is credited as prior.",
+          "No discovered independent exact evaluations of that supremum for K=5,6 or asymptotic coefficient."
+        ],
+        "reasoning": "The new equality statements evaluate the known variational problem, not a new differently normalized inequality; equivalence with Fourier quotient is explicitly conceded as published.",
+        "searches": [
+          "Efron Stein inequality identically distributed pairs support K sharp constant cycle Fourier asymptotic",
+          "Baslingker Virag 2605.05388 rho k exact 5 6 Fourier cycles",
+          "finite-support Efron-Stein K=4 K=5 optimal factor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At K=2,3,4 the sharp constant is 1; at K=5,6 it is (3+√5)/4 and 3/2, obtained from two active frequencies; no matching published five-size table appeared in primary study."
+        ],
+        "reasoning": "No exact previously published small-support values in materially read Theorem 5; a spectral scan alone is not proof, but analytic t-bound and two-active extremal furnish complete certificates.",
+        "searches": [
+          "Efron Stein inequality identically distributed pairs support K sharp constant cycle Fourier asymptotic",
+          "Efron Stein nonexchangeable support 2 3 4 5 6 constants numerical table",
+          "rho K Fourier cycle extremal values"
+        ]
+      },
+      "rationale": "The 2026 Baslingker–Virág primary paper supplies exactly the finite-circulation cycle reduction and Fourier extremal formula, plus B_K≤K/2; those results are credited and are NOT claimed original. In its materially read complete theorem/proof the explicit first nontrivial finite-support values and exact large-K asymptotic coefficient are not evaluated. A separate optimization of the same published variational expression is the new finding; an unindexed follow-up or an existing trigonometric extremal calculation may have solved it already.",
+      "residual_risks": [
+        "A later note optimizing Baslingker–Virág’s exact cycle sine quotient might cover the same first finite constants and c*; search results are not historical proof of absence.",
+        "Exact B_K for every finite K≥7 and fixed-coordinate asymptotics are not claimed; nonconstructive all-coupling characterization relies on published cycle reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 5 supplies EXACT cycle Fourier supremum and K/2 upper bound; inspected text does not derive the claimed first five support values or sharp high-K slope.",
+          "evidence": [
+            "Baslingker–Virág arXiv:2605.05388v1 (2026 May), Theorem 5, proof, explicit max_i k_i/2 estimate"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.05388v1",
+          "material_read": "Full seven-page arXiv paper HTML, including intro, Lemma 4, Theorem 5, derivation and surrounding proof",
+          "method": "lawful OA complete arXiv HTML source (and independent abstract/index cross-check)",
+          "title": "The Efron–Stein inequality for identically distributed pairs",
+          "trigger": "Exact same problem, definitions, potentially dominating theorem"
+        },
+        {
+          "assessment": "Different variance/coordinate-resampling quantity; no sharp synchronized two-endpoint telescoping constant.",
+          "evidence": [
+            "Aldous–Fill §4.6.3 Corollaries 4.46–4.47"
+          ],
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch4.S6.html",
+          "material_read": "Section 4.6.3 and named product-chain variance corollary context",
+          "method": "online book primary source material",
+          "title": "Reversible Markov Chains and Random Walks on Graphs",
+          "trigger": "Potential broader Poincaré inequality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The optimal error factor determines whether the standard telescoping inequality survives without exchangeability. Identifying support size five as the first obstruction and the sharp asymptotic cost for large support provides directly interpretable structural thresholds, not a routine restatement of the original K/2 upper bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Baslingker–Virág arXiv:2605.05388v1 Theorem 5 and proof",
+    "Aldous–Fill §4.6.3",
+    "Resultary semantic query: Efron Stein inequality identically distributed pairs support K sharp constant cycle Fourier asymptotic",
+    "https://www.alphaxiv.org/abs/2605.05388v1"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A later note optimizing Baslingker–Virág’s exact cycle sine quotient might cover the same first finite constants and c*; search results are not historical proof of absence.",
+    "Exact B_K for every finite K≥7 and fixed-coordinate asymptotics are not claimed; nonconstructive all-coupling characterization relies on published cycle reduction."
+  ],
+  "residual_risks": [
+    "A later note optimizing Baslingker–Virág’s exact cycle sine quotient might cover the same first finite constants and c*; search results are not historical proof of absence.",
+    "Exact B_K for every finite K≥7 and fixed-coordinate asymptotics are not claimed; nonconstructive all-coupling characterization relies on published cycle reduction."
+  ],
+  "schema_version": 1
+}

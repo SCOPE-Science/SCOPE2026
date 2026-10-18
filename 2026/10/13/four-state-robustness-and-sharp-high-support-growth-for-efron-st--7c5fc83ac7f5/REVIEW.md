@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument explicitly reduces equal-marginal finite joint laws to balanced directed-cycle flows; independent coordinate products preserve the convex decomposition. Fourier orthogonality gives the sharp finite-phase quotient, with a real cosine witness. A two-phase trigonometric identity bounds the only relevant nontrivial active counts for \(K\le6\). A monotonicity analysis of \(\sin^2s/s\), principal angles and a matching family of growing directed cycles establish both directions of the unrestricted asymptotic limit. The proof treats zero denominators, arbitrary coordinate counts and the real/complex Fourier distinction. Reproducible finite scans and direct expectation checks passed; they are not substituted for proof.
+PASS
 
-## Originality — PASS
+Baslingker–Virág Theorem 5 already proves the exact directed-cycle Fourier variational representation of B_K under equal marginals. For t active coordinate frequencies each has energy ≥sin²(π/K), so t≥3 has quotient ≤1/(t sin²(π/K)). For exactly two, sin²(a+b)=sin²a+sin²b+2sin(a)sin(b)cos(a+b), bounding quotient by 2cos²(π/K) for K≥4 with equality from two K-cycles. Thus B2=B3=B4=1, B5=(3+√5)/4, B6=3/2. For K≥4, principal angles δ_i∈[α,π/2], α=π/K, satisfy sin²δ_i/δ_i≥sin²α/α; the nearest-to-π signed sum s≤Σδ_i yields B_K≤α/sin²α * max_{0≤s≤π/2}sin²s/s. The maximum occurs at unique τ∈(0,π/2) solving tanτ=2τ. Taking n=floor(τK/π) unit-frequency K-cycles attains the limiting slope sin²τ/(πτ). Independent numerical direct evaluations at K=5,6 agree; finite checks do not prove the limit.
 
-The closest source is Baslingker–Virág (2026), arXiv:2605.05388v1, Theorem 5. It states the exact but unevaluated finite Fourier optimization and bounds it by \(K/2\). It does not prove that the factor remains one for four-point supports, determine the five- and six-point values, or establish the limiting coefficient \(0.2306509575\ldots\). Theorem 5's reduction and variational formula are expressly credited. Aldous–Fill's product-chain variance inequality controls a different one-coordinate replacement quantity and does not imply the stated telescoping constant. Targeted published mathematical searches yielded no covering statement; a differently described or unindexed equivalent trigonometric optimization remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The least finite-support constant directly measures how far equal marginals alone can replace exchangeability in a central square-difference inequality. Four-point robustness and the minimal five-state obstruction are structural, not arbitrary parameter slices. The sharp large-support slope eliminates an asymptotic factor exceeding two from the published \(K/2\) estimate, while allowing coordinate dimension to grow with support size. This is a quantitative improvement of a natural optimal invariant defined in the lead work, not a rebranding of its existing result.
+The 2026 Baslingker–Virág primary paper supplies exactly the finite-circulation cycle reduction and Fourier extremal formula, plus B_K≤K/2; those results are credited and are NOT claimed original. In its materially read complete theorem/proof the explicit first nontrivial finite-support values and exact large-K asymptotic coefficient are not evaluated. A separate optimization of the same published variational expression is the new finding; an unindexed follow-up or an existing trigonometric extremal calculation may have solved it already.
 
-## Scope and risks
+## value
 
-The exact constants are given only for support sizes two through six, with an all-size asymptotic and explicit upper bound. The analysis does not cover distributions of unbounded support, fixed-dimension sharp asymptotics, or all equality cases. Unindexed earlier equivalent Fourier bounds remain possible; no claim of independent verification is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The optimal error factor determines whether the standard telescoping inequality survives without exchangeability. Identifying support size five as the first obstruction and the sharp asymptotic cost for large support provides directly interpretable structural thresholds, not a routine restatement of the original K/2 upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
