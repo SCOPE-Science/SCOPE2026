@@ -1,0 +1,15 @@
+# Mathematical review: rational period-area spectrum in a translated cone exchange
+
+## Correctness — PASS
+
+The stated cone geometry gives, in the translated horizontal coordinate, three exact branches on \([0,1+\lambda-s)\), where \(s=Cy\). Each branch agrees with the first return of rotation by \(\lambda\) on the circle of circumference \(1+\lambda\): the middle interval requires two rotation steps and the other two require one. This identification handles every permitted \(s\) in \((0,\lambda)\). For reduced rational \(\lambda=p/q\), the full circle orbit has \(p+q\) points, and deletion of \(\lfloor q(s+r)\rfloor\) points leaves one induced cycle of the claimed length. Exact two-dimensional integration over the height/residue rectangle supplies the two half-weight endpoint strata and interior full-weight strata; no exhaustive finite computation is substituted for the proof. The exact-rational standalone checker passed 6,530 sample orbit checks, 3,572 clipped polygon area checks, and 207,445 original-coordinate action comparisons. Boundary assignments are explicitly excluded from the planar measure result.
+
+## Originality — PASS, with residual priority uncertainty
+
+The closest paper is Cockram–Ashwin–Rodrigues, arXiv:2312.17412v1, Section 3, which identifies the maximal invariant set and writes its horizontal three-interval exchanges explicitly. It notes a Rauzy first return on the *upper boundary* but neither states the all-height first-return identification nor calculates the rational least-period strata and their exact two-dimensional areas and limiting distribution. Theorem 4.5 therein analyzes distinct polygonal invariant curves of a different rotational family. The 2018 embedding paper (arXiv:1805.00245) studies general embedding criteria, and the 2024 renormalization article (DOI:10.1080/14689367.2024.2378297) treats a different mechanism; neither inspected account contains the same period-area classification. The first-return technique itself is classical, and the formula from the originating work is essential prior input. A previously unpublished, differently formulated, or implicit corollary may still exist.
+
+## Mathematical value — PASS
+
+The originating article presents a geometrically natural trapezoid interpolating between two different rotations, but its qualitative interval-exchange description leaves unresolved the primitive-period distribution throughout the two-dimensional region. The formula resolves all possible periods, quantifies exactly how much *area* carries each one, exhibits the transversely varying two-period staircase, and gives a normalized high-denominator law that is independent of the cone angles. The area weights and the singular rational/irrational dichotomy are natural invariants of the particular construction, not arbitrary numeric slices or a simple instance of counting a single orbit. The result is confined to the stated identity-cone subfamily and trapezoid; it is not a classification of all translated cone exchanges or boundary orbits.
+
+Self-review: passed. Independent audit: not yet performed.
