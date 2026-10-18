@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:54:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/exact-moments-and-the-universal-fano-limit-for-two-sample-poisso--918e94e78ac2/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/exact-moments-and-the-universal-fano-limit-for-two-sample-poisso--918e94e78ac2/VERIFICATION.md"
+      ],
+      "rationale": "Represent the order statistics M,A=(S∓|D|)/2, S=X+Y, D=X−Y. The symmetric Skellam pmf, telescoping k I_k(z)=z(I_{k-1}−I_{k+1})/2 and I0/I1 derivatives give d=E|D|=2λq, d'(λ)=2r. Differentiate the joint Poisson series: Cov(S,|D|)=λ d'=2λr. Since Var(S)=Var(D)=2λ and Var(|D|)=2λ−d², bilinear expansion gives claimed variances. Standard fixed-order Bessel expansion yields q=(πλ)^(-1/2)(1−1/(16λ)+O(λ^-2)), r=(2√(πλ))^-1(1+1/(16λ)+O(λ^-2)); expansion proves both Fano corrections. Independently double summed all joint Poisson cells 0..89 at λ=0.5,3,9 to 35-digit accuracy for four moments. Exact proof not finite extrapolation.",
+      "residual_risks": [
+        "Scope restricted to two independent equal-intensity Poisson counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Badiella–del Castillo–Puig, Statistics & Probability Letters 201 (2023), 109900, full HTML Corollary 1: Var(order statistic)<E(order statistic) for any Poisson sample size.",
+          "No explicit two-observation Bessel moments or 1−1/π limit occurs in inspected theorem/proof."
+        ],
+        "reasoning": "Qualitative underdispersion is broader in sample size but logically does not yield the quantitative identities or opposite corrections, even for n=2.",
+        "searches": [
+          "Ultra log-concavity of discrete order statistics Badiella del Castillo Puig 2023",
+          "Poisson order statistics universal underdispersion variance over mean"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1016/j.spl.2023.109900",
+        "https://hdl.handle.net/11586/141891",
+        "https://arxiv.org/abs/1708.04018"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gan–Kolaczyk concerns difference law and approximations, not extremal order-statistic Fano factors.",
+          "Badiella establishes only Var<E; Resultary Poisson-binomial Gini balancing studies different objects."
+        ],
+        "reasoning": "Prior results provide ingredients and qualitative constraints; a nontrivial score covariance plus exact Bessel derivatives and expansions are needed to imply the joint paired finite-intensity and asymptotic formulas.",
+        "searches": [
+          "Gan Kolaczyk approximation difference of two Poisson-like counts arxiv 1708.04018",
+          "Badiella del Castillo Puig Poisson order statistics underdispersion",
+          "Resultary SCOPE-exact-pair-balancing-law-for-gini-dispersion-of-poisson-binomial--bd2c764a90dd"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "M=(S−|D|)/2 and A=(S+|D|)/2 translate to Skellam absolute-moment plus a Poisson score covariance; Gan–Kolaczyk arXiv:1708.04018 supplies Skellam difference law.",
+          "Resultary hit SCOPE-uniform-maximizes-three-point-minmax-correlation--92f0f4188ee4 treats two observations of a finite three-atom law, not Poisson."
+        ],
+        "reasoning": "The equivalent Skellam/absolute-difference formulations were checked; knowing E|D| alone does not determine Cov(S,|D|), both variances, or the Fano correction, whereas differentiation supplies that extra step.",
+        "searches": [
+          "min max two iid Poisson Skellam Bessel variance Fano 1-1/pi",
+          "exact covariance and variance of min max of two iid Poisson variables Skellam Bessel Fano dispersion 1-1/pi"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Manca–D'Uggento–Girone, 2015 institutional abstract hdl:11586/141891 explicitly treats Poisson Gini mean difference; full post-print restricted.",
+          "The Skellam mean E|X−Y|=2λq can therefore be known; no accessible table found containing both variances and ± Fano corrections."
+        ],
+        "reasoning": "A Gini-table formula for E|X−Y| is insufficient for covariance of X+Y with |X−Y| and hence for both exact variances. Restricted full text leaves a named residual risk; search nonmatch is not novelty certification.",
+        "searches": [
+          "Poisson pair min max exact Bessel I0 I1 variance table",
+          "The mean difference of discrete distribution models Manca D'Uggento Girone Poisson 2015",
+          "Resultary exact covariance and variance min max Poisson Skellam"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty assessment compares identical mathematical statements and implications, not titles or a lack of search hits. The joint quantitative formula is absent from inspected Skellam, qualitative Poisson order-statistic and Gini sources. Comparison risks remain explicitly recorded; noncoverage is not asserted from abstracts of unread whole papers.",
+      "residual_risks": [
+        "Manca et al. 2015 full Gini paper unavailable; the E|X−Y| ingredient may be published already.",
+        "Exact order-statistic moment identities could occur in an unindexed probability handbook or elementary exercise; novelty is best-of-knowledge, not certified.",
+        "Scope restricted to two independent equal-intensity Poisson counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes universal qualitative underdispersion, not exact Fano formula",
+          "evidence": "Corollary 1 proves Poisson order statistics strictly underdispersed via ultra log-concavity; equations 1–3.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2023.109900",
+          "material_read": "Full publisher HTML introduction, recursive theorem, Corollary 1 and proof, remarks",
+          "method": "Primary publisher full HTML read",
+          "title": "Ultra log-concavity of discrete order statistics",
+          "trigger": "Same Poisson order-statistic underdispersion"
+        },
+        {
+          "assessment": "May contain E|X−Y| Bessel expression; no defensible whole-paper noncoverage statement",
+          "evidence": "2015 abstract lists Poisson Gini mean difference; deposited post-print marked nonpublic.",
+          "identifier_or_url": "https://hdl.handle.net/11586/141891",
+          "material_read": "Author institutional English/Italian abstracts and file access notice; full PDF NOT read (restricted)",
+          "method": "Institutional bibliographic material",
+          "title": "The mean difference of discrete distribution models",
+          "trigger": "Same Poisson |X−Y| ingredient"
+        },
+        {
+          "assessment": "Supports Skellam difference law; residual risk for broader order-statistic application",
+          "evidence": "Skellam pmf from difference of independent Poisson counts, no observed min/max Fano claim.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.04018",
+          "material_read": "Primary arXiv title, abstract/indexed description and candidate formula; full paper not claimed read",
+          "method": "arXiv primary abstract/bibliographic comparison",
+          "title": "Approximation of the difference of two Poisson-like counts by Skellam",
+          "trigger": "Same Skellam difference distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://doi.org/10.1016/j.spl.2023.109900",
+        "https://hdl.handle.net/11586/141891",
+        "https://arxiv.org/abs/1708.04018"
+      ],
+      "rationale": "This is a motivated sharp quantitative answer to the Poisson order-statistic underdispersion question: exact finite-intensity noise for both extremes and a nontrivial universal asymptotic deficit 1/π and first-order direction. It is more than a rewording of the generic ultra-log-concavity theorem; n=2 is the first nontrivial paired-extreme case.",
+      "residual_risks": [
+        "Scope restricted to two independent equal-intensity Poisson counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For two iid Poisson(λ) counts, λ>0, let q=e^{-2λ}(I0(2λ)+I1(2λ)), r=e^{-2λ}I0(2λ). The min/max means are λ(1∓q), variances λ(1∓r−λq²), and both Fano factors tend to 1−1/π with respective ±((1/2−1/π)/√π)λ^{-1/2} corrections.",
+  "limitations": [
+    "Manca et al. 2015 full Gini paper unavailable; the E|X−Y| ingredient may be published already.",
+    "Exact order-statistic moment identities could occur in an unindexed probability handbook or elementary exercise; novelty is best-of-knowledge, not certified.",
+    "Scope restricted to two independent equal-intensity Poisson counts."
+  ],
+  "schema_version": 1
+}

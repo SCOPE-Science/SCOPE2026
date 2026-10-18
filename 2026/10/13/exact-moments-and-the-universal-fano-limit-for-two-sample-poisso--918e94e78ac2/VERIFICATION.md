@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic verification uses four identities valid for every \(\lambda>0\):
+# Independent mathematical audit
 
-1. The symmetric Skellam mass function for \(D=X-Y\).
-2. The telescoping Bessel recurrence, which gives \(\mathbb E|D|=2\lambda q_\lambda\).
-3. The Poisson score identity \(\operatorname{Cov}(X+Y,f(X-Y))=\lambda\,d\mathbb Ef(X-Y)/d\lambda\).
-4. The Bessel derivative identity giving \(d\mathbb E|D|/d\lambda=2r_\lambda\).
+## correctness
 
-Substitution yields the displayed exact means and variances without truncation. Fixed-order Hankel expansions for \(I_0\) and \(I_1\) then yield the Fano limit and its first correction.
+PASS
 
-The accompanying Python checker was replayed from the finalized package path. For \(\lambda\in\{0.1,1,5,20\}\), independently truncated double-Poisson sums agreed with the Bessel formulas to the stated numerical tolerance. It also checked the scaled large-\(\lambda\) Fano corrections at \(\lambda=100,400,1600\), approaching \(\pm(1/2-1/\pi)/\sqrt\pi\). These finite checks detect algebraic or transcription errors but do not establish the infinite identities or asymptotic theorem.
+Represent the order statistics M,A=(S∓|D|)/2, S=X+Y, D=X−Y. The symmetric Skellam pmf, telescoping k I_k(z)=z(I_{k-1}−I_{k+1})/2 and I0/I1 derivatives give d=E|D|=2λq, d'(λ)=2r. Differentiate the joint Poisson series: Cov(S,|D|)=λ d'=2λr. Since Var(S)=Var(D)=2λ and Var(|D|)=2λ−d², bilinear expansion gives claimed variances. Standard fixed-order Bessel expansion yields q=(πλ)^(-1/2)(1−1/(16λ)+O(λ^-2)), r=(2√(πλ))^-1(1+1/(16λ)+O(λ^-2)); expansion proves both Fano corrections. Independently double summed all joint Poisson cells 0..89 at λ=0.5,3,9 to 35-digit accuracy for four moments. Exact proof not finite extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty assessment compares identical mathematical statements and implications, not titles or a lack of search hits. The joint quantitative formula is absent from inspected Skellam, qualitative Poisson order-statistic and Gini sources. Comparison risks remain explicitly recorded; noncoverage is not asserted from abstracts of unread whole papers.
+
+## value
+
+PASS
+
+This is a motivated sharp quantitative answer to the Poisson order-statistic underdispersion question: exact finite-intensity noise for both extremes and a nontrivial universal asymptotic deficit 1/π and first-order direction. It is more than a rewording of the generic ultra-log-concavity theorem; n=2 is the first nontrivial paired-extreme case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

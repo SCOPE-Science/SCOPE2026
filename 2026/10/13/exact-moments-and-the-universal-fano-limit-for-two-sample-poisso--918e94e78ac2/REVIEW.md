@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is derived from an exact Skellam representation, a telescoping Bessel recurrence, an exact Poisson score identity, and standard Bessel asymptotics. The quantifiers cover every \(\lambda>0\). The numerical checker is supplementary and is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The closest inspected primary source gives the Skellam difference law, while the closest order-statistic source proves only qualitative underdispersion. Searches across equivalent min/max, Skellam, absolute-difference, Bessel, and Fano formulations did not locate the paired variance formulas or the \(1-1/\pi\) limit with opposite first-order corrections. The publicly inaccessible 2015 Poisson Gini-mean-difference paper is retained as a specific overlap risk for the intermediate mean formula, not treated as ruled out.
+PASS
 
-## Value
-PASS. The result quantitatively resolves the simplest Poisson order-statistic underdispersion problem, gives exact moments usable at finite intensity, and identifies a universal asymptotic noise reduction together with a directional min/max split.
+Represent the order statistics M,A=(S∓|D|)/2, S=X+Y, D=X−Y. The symmetric Skellam pmf, telescoping k I_k(z)=z(I_{k-1}−I_{k+1})/2 and I0/I1 derivatives give d=E|D|=2λq, d'(λ)=2r. Differentiate the joint Poisson series: Cov(S,|D|)=λ d'=2λr. Since Var(S)=Var(D)=2λ and Var(|D|)=2λ−d², bilinear expansion gives claimed variances. Standard fixed-order Bessel expansion yields q=(πλ)^(-1/2)(1−1/(16λ)+O(λ^-2)), r=(2√(πλ))^-1(1+1/(16λ)+O(λ^-2)); expansion proves both Fano corrections. Independently double summed all joint Poisson cells 0..89 at λ=0.5,3,9 to 35-digit accuracy for four moments. Exact proof not finite extrapolation.
 
-## Closest literature and limitations
-Gan and Kolaczyk (arXiv:1708.04018) provide the Skellam law but not order-statistic moments. Badiella, del Castillo and Puig (2023) prove Poisson order statistics are underdispersed but do not quantify the deficit. The result is restricted to two iid Poisson observations and does not claim a larger-sample analogue.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty assessment compares identical mathematical statements and implications, not titles or a lack of search hits. The joint quantitative formula is absent from inspected Skellam, qualitative Poisson order-statistic and Gini sources. Comparison risks remain explicitly recorded; noncoverage is not asserted from abstracts of unread whole papers.
+
+## value
+
+PASS
+
+This is a motivated sharp quantitative answer to the Poisson order-statistic underdispersion question: exact finite-intensity noise for both extremes and a nontrivial universal asymptotic deficit 1/π and first-order direction. It is more than a rewording of the generic ultra-log-concavity theorem; n=2 is the first nontrivial paired-extreme case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
