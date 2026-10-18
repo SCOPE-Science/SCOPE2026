@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 construct.py` and `python3 independent_optimality.py` using Python 3.9 or later. Both files are complete, standalone, and use only the Python standard library; each prints `VERIFY_OK` only after its asserted calculations finish.
+## correctness
 
-`construct.py` checks \(3\le n\le14\), creates each admissible overlap graph, adds every explicit balancing path, checks the source-to-sink endpoint bijection, produces an Euler tour, checks its edge count, and directly scans every cyclic length-\(n\) factor and every wraparound triple. `independent_optimality.py` independently enumerates the restricted graphs for \(3\le n\le13\), obtains shortest surplus-to-deficit paths by BFS, and solves the minimum perfect matching by a separate Hungarian algorithm; its values equal the stated Fibonacci optimum. The \(n=2\) base is explicitly the cyclic word `0011`.
+PASS
 
-The first test covers constructed optima and direct admissibility; the second checks optimal extra traversals by a distinct graph algorithm. Finite checks do not prove the infinite statement. The algebraic source-to-endpoint bijection, path length lower bound, and Fibonacci coefficient argument in RESULT.md establish the full quantifiers. No independent external audit has been conducted.
+For n>=3, overlap de Bruijn graph has edge set U_n and strongly connected vertices of admissible (n-1)-words. Supply-imbalance sources have differing first pair/equal final pair; any balancing path from s to sink must traverse at least d(s), first later equal-pair index. Appending opposite bits for exactly d(s) steps reaches a sink, and the last equal-pair position in the endpoint recovers s uniquely; this bijects all sources and sinks. An Euler circuit of the augmented graph gives an admissible cyclic cover with exactly sum d(s)=2F_(n-1)-2 extra edges; Fibonacci recurrence yields M_n. n=2 handled separately by 0011. Independent independent-overlap graph BFS plus exact assignment calculation for n=3..10 gave M_n=6,12,20,34,56,92,150,244 and matching extra counts, without using finite testing as the all-n proof.
+
+## originality
+
+PASS
+
+The exact minimum repeated-edge cover length and optimal source-to-sink flow for the entire no-triple word family are not stated by accessible primary papers. Moreno-Matamala minimum means lexicographic ordering among exact-once cycles over circularly admissible dictionaries; Tan-Shallit study arbitrary factor-dictionary shortest witnesses with general bounds; Chee et al maximize nonrepeated constrained cycles. No compared theorem implies the exact Lucas formula for the *freely admissible* U_n. Residual older/unknown restricted-language postman special case possible.
+
+## value
+
+PASS
+
+The full natural run-length-limited binary dictionary has a meaningful shortest universal cyclic covering length; the result gives exact all-n length, unavoidable duplication, constructive optimum and a sharp graph-theoretic flow classification, rather than a small example or trivial transfer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

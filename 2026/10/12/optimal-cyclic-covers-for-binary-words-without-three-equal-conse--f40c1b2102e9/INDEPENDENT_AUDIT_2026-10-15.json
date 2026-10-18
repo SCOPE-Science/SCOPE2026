@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T13:52:45.801602Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3, overlap de Bruijn graph has edge set U_n and strongly connected vertices of admissible (n-1)-words. Supply-imbalance sources have differing first pair/equal final pair; any balancing path from s to sink must traverse at least d(s), first later equal-pair index. Appending opposite bits for exactly d(s) steps reaches a sink, and the last equal-pair position in the endpoint recovers s uniquely; this bijects all sources and sinks. An Euler circuit of the augmented graph gives an admissible cyclic cover with exactly sum d(s)=2F_(n-1)-2 extra edges; Fibonacci recurrence yields M_n. n=2 handled separately by 0011. Independent independent-overlap graph BFS plus exact assignment calculation for n=3..10 gave M_n=6,12,20,34,56,92,150,244 and matching extra counts, without using finite testing as the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tan-Shallit give general shortest-circular-witness bounds and structural discussion.",
+          "Chee et al study maximum nonrepeating run-length-limited cycles, opposite extremal objective."
+        ],
+        "reasoning": "Neither broader generic framework supplies the sharp weighted Euler augmentation cost for U_n. General directed Chinese postman supplies method, not these specific optimum values.",
+        "searches": [
+          "arXiv:1304.3666",
+          "arXiv:2403.01454",
+          "Resultary:minimum length cyclic de Bruijn covering word binary avoid 000 and 111"
+        ]
+      },
+      "checked_sources": [
+        "Moreno-Matamala arXiv:0711.1695 (full text)",
+        "Tan-Shallit arXiv:1304.3666 (full text)",
+        "Chee et al arXiv:2403.01454 (full text)",
+        "Resultary published sequence/code searches with no direct equivalent"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Traditional de Bruijn Euler tours require balanced restricted overlap graph, which generally fails for freely admissible U_n.",
+          "The distinct sources do not derive the all-n source-sink injection or minimum flow cost."
+        ],
+        "reasoning": "The presented strict exact covering cost is not a corollary of stated known numerical bounds or the maximum nonrepetition problem; deriving it requires proving a nontrivial optimal pairing.",
+        "searches": [
+          "arXiv:0711.1695",
+          "arXiv:1304.3666",
+          "arXiv:2403.01454"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Moreno-Matamala use circularly admissible language and lexicographic least exact-once de Bruijn sequence, not this repeated-cover minimum.",
+          "Tan-Shallit formulate shortest witness for a prescribed factor set but do not give this all-n exact special family formula in inspected full text."
+        ],
+        "reasoning": "The different dictionary (linear versus circular admissibility) and objective (shortest repeated cover versus lexicographic smallest Euler cycle) prevent false same-title priority.",
+        "searches": [
+          "Resultary:minimum length cyclic de Bruijn covering word binary avoid 000 and 111 Fibonacci Lucas 2(L_n-1) shortest universal cycle RLL",
+          "arXiv:0711.1695",
+          "arXiv:1304.3666"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No returned indexed mathematical record lists 2(L_n-1) as the minimum cover length for these freely admissible length-n dictionaries.",
+          "Published abstract/general results are not exhaustive prior-work coverage."
+        ],
+        "reasoning": "Exact-value table claims were checked by problem definition; no covering value table was identified, with unindexed enumeration residual.",
+        "searches": [
+          "Resultary:minimum length cyclic de Bruijn covering word binary avoid 000 and 111 Fibonacci Lucas",
+          "arXiv:1304.3666",
+          "arXiv:0711.1695"
+        ]
+      },
+      "rationale": "The exact minimum repeated-edge cover length and optimal source-to-sink flow for the entire no-triple word family are not stated by accessible primary papers. Moreno-Matamala minimum means lexicographic ordering among exact-once cycles over circularly admissible dictionaries; Tan-Shallit study arbitrary factor-dictionary shortest witnesses with general bounds; Chee et al maximize nonrepeated constrained cycles. No compared theorem implies the exact Lucas formula for the *freely admissible* U_n. Residual older/unknown restricted-language postman special case possible.",
+      "residual_risks": [
+        "Older not indexed restricted-language shortest covering walk computation might coincide, but inspected named primary results do not imply the formula.",
+        "No uniqueness/minimizer count is claimed; only exact shortest length and constructive existence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "not covering present shortest repeated-edge complete U_n cover",
+          "evidence": "Its minimum refers to lexicographic de Bruijn cycle and circularly admissible language.",
+          "identifier_or_url": "arXiv:0711.1695",
+          "material_read": "Full accessible 9-page arXiv primary paper; opening definitions and Theorem 1 reviewed including page image",
+          "method": "read open-access PDF and inspected defining pages",
+          "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+          "trigger": "Identical words minimum and forbidden subwords"
+        },
+        {
+          "assessment": "general problem framework but no target Lucas law",
+          "evidence": "It discusses arbitrary prescribed factor sets and general minimum witness bounds.",
+          "identifier_or_url": "arXiv:1304.3666",
+          "material_read": "Full accessible 12-page arXiv PDF with shortest-witness definitions and bounds (pages 1 and 8 visually inspected)",
+          "method": "open-access full document read with targeted pages",
+          "title": "Sets Represented as the Length-n Factors of a Word",
+          "trigger": "General shortest circular witness potentially dominates"
+        },
+        {
+          "assessment": "different maximum-length nonrepeating objective",
+          "evidence": "Constrained max trails not repeated-edge shortest complete factor cover.",
+          "identifier_or_url": "arXiv:2403.01454",
+          "material_read": "Primary arXiv paper accessed, defining objective and main-results pages read",
+          "method": "OA PDF/text + page inspection",
+          "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+          "trigger": "Same forbidden runs and de Bruijn graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full natural run-length-limited binary dictionary has a meaningful shortest universal cyclic covering length; the result gives exact all-n length, unavoidable duplication, constructive optimum and a sharp graph-theoretic flow classification, rather than a small example or trivial transfer.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all n>=2, the shortest cyclic binary word covering every length-n word free of 000 and 111 while itself avoiding these cyclicly has length M_n=2(L_n-1); exactly 2F_(n-1)-2 repeated cyclic factors are unavoidable and attained by explicit optimal balancing paths.",
+  "limitations": [
+    "Older not indexed restricted-language shortest covering walk computation might coincide, but inspected named primary results do not imply the formula.",
+    "No uniqueness/minimizer count is claimed; only exact shortest length and constructive existence."
+  ],
+  "schema_version": 1
+}
