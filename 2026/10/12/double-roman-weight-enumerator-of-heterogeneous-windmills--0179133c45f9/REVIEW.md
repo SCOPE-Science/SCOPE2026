@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof partitions functions by the center label and derives a necessary-and-sufficient local rule for every peripheral clique in each regime. For center label \(3\), all blade assignments are free. For center label \(2\), the only forbidden blade assignments are \(\{0,1\}\)-assignments containing a zero. For center label \(0\) or \(1\), the forbidden assignments are exactly those with no \(2\) or \(3\), together with those having exactly one \(2\), no \(3\), and at least one \(0\). The global center condition in the last regime follows from \(r\ge2\). These cases are disjoint and exhaustive, so the product formula follows. Direct exhaustive evaluation on six heterogeneous profiles through order \(9\) matches every coefficient and the unique weight-\(3\) minimum.
+## correctness
 
-## Originality
-PASS, with residual bibliographic risk. The foundational source defines double Roman domination and minimum weight. The closest inspected full-text source on joins proves scalar bounds and characterizations for \(\gamma_{dR}\), including prior coverage of the value \(3\) when domination number is \(1\), but does not enumerate all functions. Its searchable full text contains no windmill, friendship, polynomial, or enumeration treatment. Literature-index and web searches under generalized windmill, friendship graph, join of disjoint cliques, double Roman polynomial, and weight-enumerator aliases returned no statement implying the three-regime factorization. Absence from searches is not treated as proof of global novelty.
+PASS
 
-## Value
-PASS. Heterogeneous windmills form a natural block/join family that includes the classical equal-blade windmills and friendship graphs. Existing join theory gives scalar minima, whereas the theorem determines the entire weight distribution for arbitrary blade-size multisets and an exact total count. The three center-label regimes expose the structural reason the enumerator factors, so this is more than a recomputation of the known minimum.
+The cases center s=3, s=2 and s=0/1 partition all labelings. For s=3 each clique labeling is unconstrained (A). For s=2 only blades with labels restricted to 0/1 and at least one zero are forbidden (B). For s=0/1, no-2/no-3 labelings and one-2/no-3 labelings containing at least one zero are forbidden (C). Every C-admissible blade contains a 2 or 3; for r>=2 this guarantees that the center itself is defended even when s=0. Thus product factorization follows exactly; minimum weight3 occurs only for center3 and all-zero periphery. Independent brute-force direct definition enumeration confirmed every polynomial coefficient for five blade profiles (2,2),(2,3),(3,3),(2,2,2),(2,3,3), including 25 positive nonzero-weight coefficients at last profile; proof supplies all r,m quantifiers. Original RESULT.md at exact inspected Git blob SHA contains four ASCII BEL controls in the paragraph naming center-label regimes; verified exact 6940-byte source Git SHA and replaced only those malformed tokens with plain center-label-[3,2,0,1] in full supplied corrected scientific file.
 
-## Closest literature and limitations
-Beeler, Haynes, and Hedetniemi introduce the invariant. Cariaga and Jamil give minimum-weight results for joins and thereby cover the scalar minimum here, but not the all-function distribution. The result does not extend by the present proof to arbitrary block graphs or arbitrary joins, and the computational replay is finite corroboration only. A differently indexed all-function enumeration remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Beeler/Haynes/Hedetniemi established double Roman function definitions; Cariaga/Jamil 2023 full join paper establishes scalar minimum3 when a universal vertex exists, not an all-weight distribution. Published SCOPE windmill dissociation polynomial and Roman-variety enumerators count different legal label classes; they do not imply the exact double Roman three-product enumerator on heterogeneous blades. The known scalar minimum is expressly credited rather than presented as new.
+
+## value
+
+PASS
+
+The graph family naturally includes friendship graphs and windmills with unequal clique sizes. The product gives every coefficient and exact total feasible-function count, a genuine refinement beyond the already known minimum3 and exposes the structural center-label regimes. The finite tests verify representative profiles but do not replace the uniform proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

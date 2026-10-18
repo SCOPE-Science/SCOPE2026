@@ -65,7 +65,7 @@ Every assignment counted by \(C_m(x)\) contains at least one blade vertex labele
 \]
 Adding the three disjoint center-label regimes proves the formula.
 
-For the minimum, the center-63 regime contains the function with center label \(3\) and all peripheral labels \(0\), of weight \(3\). In the center-62 regime each blade must have weight at least \(2\), and in the center-60 or center-61 regimes each blade must have weight at least \(3\). Since \(r\ge2\), no other function has weight \(3\), proving uniqueness. Substituting \(x=1\) into the three blade factors gives the displayed total count.
+For the minimum, the center-label-3 regime contains the function with center label \(3\) and all peripheral labels \(0\), of weight \(3\). In the center-label-2 regime each blade must have weight at least \(2\), and in the center-label-0 or center-label-1 regimes each blade must have weight at least \(3\). Since \(r\ge2\), no other function has weight \(3\), proving uniqueness. Substituting \(x=1\) into the three blade factors gives the displayed total count.
 
 ## Verification
 The accompanying program `artifacts/verify.py` independently constructs the graph and tests the double Roman definition directly, without using the structural criterion from the proof. It exhaustively enumerates all \(4^{|V|}\) labelings for six heterogeneous blade profiles through order \(9\), compares every weight coefficient with the closed product formula, and checks that the unique minimum function has weight \(3\). The finite replay is corroborative only; the universal theorem rests on the symbolic case analysis above.
