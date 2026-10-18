@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** For the uniform morphism \(1\mapsto10^{q-2}1\), \(0\mapsto0^q\) (integer \(q\ge3\)), the gap after the \(m\)-th one has length \((q-2)q^{\nu_2(m)}\). Explicit valuation identities on the two sides of the central gap establish the exact possible palindrome radii for every center type. The proof shows disjointness and exhaustiveness, gives a finite sum for each length, and proves the upper bound three. An independent digit-based construction and a morphic construction agree in the packaged finite checker through 560 test cases. The older factor-complexity result is not required for the proof.
+
+**Originality: PASS against checked sources, with stated risk.** Glen et al. expressly identify richness of the ordinary Cantor word, and Lü et al. determine its ordinary factor complexity; combined with Bucci et al. they already imply the classical \(q=3\) palindromic complexity. The classical specialization is not considered new. The new contribution is the complete scale-interval formula for every \(q\ge4\) and every factor length, and the precise gap-center classification. Bulgakova et al. treat minimum *prefix palindromic concatenation length*, rather than counts of distinct palindromic factors. Morfonios et al. describe local symmetry axes numerically for the ternary Cantor lattice, without the general formula. No matching all-base claim was found in actual targeted searches of the accessible sources and mathematical-record database. A differently phrased or inaccessible prior formula remains possible.
+
+**Value: PASS.** The generalized Cantor family is a standard non-uniformly recurrent automatic-word family. A complete closed exact palindrome-factor profile across all substitution lengths is a natural structural invariant. The theorem explains both parity dichotomy (odd and even bases behave differently) and scale-dependent windows, and bounds complexity uniformly by three. This is more than a small isolated computation or a consequence of classical richness alone.
+
+The theorem makes no claim about arbitrary substitutions, occurrence frequencies, or minimal palindromic prefix partitions. The result has not received independent scientific review.
+
+Self-review: passed. Independent audit: not yet performed.
