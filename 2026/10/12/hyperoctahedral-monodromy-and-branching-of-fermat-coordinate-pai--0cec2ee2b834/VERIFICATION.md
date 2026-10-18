@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The theorem is proved symbolically by a cyclotomic critical-point parametrization, elementary polynomial monodromy, geometric irreducibility of the Fermat base-change fibers, and a wreath-product stabilizer computation. No finite calculation is treated as proof for all degrees.
+# Independent mathematical audit
 
-Reproducible exact arithmetic: from a directory containing the embedded file `checks/verify.py`, run `python checks/verify.py`. It requires Python 3 and SymPy; it checks exactly each integer degree \(4\le d\le25\). Its verified outputs include the degree \(m-1\) and squarefreeness of the discriminant of \(p_d(U)-v\), regularity at \(v=2\), and the explicit degree count for \(p_d\). Success prints `VERIFY_OK`. The standalone program does not certify infinite degrees or independently establish the geometric monodromy theorem.
+## correctness
 
-The relevant primary published texts are Miura--Taki, arXiv:2608.25445v1, and Takahashi, DOI:10.4171/RSMUP/135-3. The 24 Fermat-quartic point locations and the plane quintic dihedral case are prior results, not newly asserted independent classifications. No independent audit has been performed.
+PASS
+
+Reconstructed p_d(U)=2 sum binom(d,2r)U^r and p_d(T^2)=v. Derivative critical roots correspond inversion-pairs of nontrivial (d-1)-st roots of unity, excluding -1; exactly m-1 distinct simple critical points, with distinct critical values 2^d/(1+r)^(d-1), all !=2. Morse polynomial monodromy S_m; simple ramification at U=0/v=2 flips a single sign and conjugation yields the full C2^m kernel, so C2 wr S_m. Smooth projective Fermat generic fiber for n>=2 makes C(v) algebraically closed in C(z_1,...,z_n), preserving Galois closure under regular base change. Sheet-stabilizer normalizer yields deck group C2. For d odd center lies on hypersurface, degree d-1=2m. Verified d=4..11 critical-value discriminant squarefree and regular v=2 independently; finite checks do not prove general case.
+
+## originality
+
+PASS
+
+The point locations and d=5 plane quintic D4 are old, but the uniform binomial-Morse all-degree proof, wreath normal closures for every d>=4 and n>=2, and explicit full cycle portrait extend beyond inspected prior results. General p(T^2) wreath theorem is standard; credit only family-specific critical-value hypothesis and resulting classification. Unread Miura–Taki quartic full text and unpublished companion preserve best-of-knowledge risk.
+
+## value
+
+PASS
+
+Provides a complete exact Galois-closure and ramification classification for an infinite natural Fermat family, separates projection deck C2 from much larger normal closure, and determines closures at 24 geometrically classified quartic centers. The family-specific proof of Morse property is needed to invoke general wreath principles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

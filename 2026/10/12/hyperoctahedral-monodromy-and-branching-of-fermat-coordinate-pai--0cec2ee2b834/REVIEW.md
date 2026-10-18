@@ -1,11 +1,21 @@
-# Scientific review: Fermat coordinate-pair projection monodromy
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit projection polynomial, root-of-unity parametrization of all critical points, distinctness of critical values, sign-flip monodromy at the regular value, and regular Fermat base change form a complete infinite argument. At the boundary \(d=4\), the group is the order-eight dihedral group; odd degrees reduce the geometric projection degree by one. The finite exact checker through \(d=25\) is supplementary, not a substitute for the proof.
+## correctness
 
-**Originality — PASS, with a named residual risk.** Miura--Taki, arXiv:2608.25445v1, classify 24 non-Galois coordinate-pair centers on the Fermat quartic but do not compute their Galois-closure groups. Takahashi, DOI:10.4171/RSMUP/135-3, already proves the Fermat **plane quintic** \(D_4\) case; its ordinary higher-dimensional base changes in degree five are acknowledged as covered. The present all-degree \(C_2\wr S_m\) formula and finite branch-cycle portrait are not consequences of those special results alone. A Fermat projective-lifting manuscript listed as in preparation in Miura--Taki was not available for comparison; another earlier generic-composition theorem could also conceal an equivalent formulation. The source search and no-covering conclusion are appropriately qualified.
+PASS
 
-**Mathematical value — PASS.** This identifies full normal closures at natural marked projection centers, where the visible deck group is only \(C_2\). It exhibits a systematic all-degree hyperoctahedral family, explicit branch-cycle classes, and a verified monodromy gap at all 24 marked Fermat quartic centers. The scope is deliberately restricted to the displayed centers over \(\mathbb C\), and the theorem does not classify arbitrary quasi-Galois centers in higher degree.
+Reconstructed p_d(U)=2 sum binom(d,2r)U^r and p_d(T^2)=v. Derivative critical roots correspond inversion-pairs of nontrivial (d-1)-st roots of unity, excluding -1; exactly m-1 distinct simple critical points, with distinct critical values 2^d/(1+r)^(d-1), all !=2. Morse polynomial monodromy S_m; simple ramification at U=0/v=2 flips a single sign and conjugation yields the full C2^m kernel, so C2 wr S_m. Smooth projective Fermat generic fiber for n>=2 makes C(v) algebraically closed in C(z_1,...,z_n), preserving Galois closure under regular base change. Sheet-stabilizer normalizer yields deck group C2. For d odd center lies on hypersurface, degree d-1=2m. Verified d=4..11 critical-value discriminant squarefree and regular v=2 independently; finite checks do not prove general case.
 
-**Scientific limitations.** Positive characteristic, arbitrary centers, and the geometry of the normalization of the total Galois cover are not treated. The \(d=5\) plane-curve case is known. The in-preparation reference remains an originality risk. The computations are finite checks only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The point locations and d=5 plane quintic D4 are old, but the uniform binomial-Morse all-degree proof, wreath normal closures for every d>=4 and n>=2, and explicit full cycle portrait extend beyond inspected prior results. General p(T^2) wreath theorem is standard; credit only family-specific critical-value hypothesis and resulting classification. Unread Miura–Taki quartic full text and unpublished companion preserve best-of-knowledge risk.
+
+## value
+
+PASS
+
+Provides a complete exact Galois-closure and ramification classification for an infinite natural Fermat family, separates projection deck C2 from much larger normal closure, and determines closures at 24 geometrically classified quartic centers. The family-specific proof of Morse property is needed to invoke general wreath principles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
