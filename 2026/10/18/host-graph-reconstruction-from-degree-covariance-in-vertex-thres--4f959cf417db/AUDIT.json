@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "All-graph proof reconstructs independent/shared/disjoint Bernoulli edge-pair laws, obtains Cov(Y)=(I+B^T B)/12, then Sigma=(Q+Q²)/12; PSD Q implies the exact principal-square-root inverse. The Sylvester spectral-separation argument gives the Frobenius constant 12, and all boundary cases including empty hosts follow. Exact-rational verification independently compares direct edge-pair sums and polynomial covariance for every simple graph of order at most five (1,099 hosts).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fox–Luo–Pham, arXiv:2207.13651v1, Theorem 2.1 bounds the variance of a fixed-degree frequency count for regular hosts",
+        "Reilly–Scheinerman, DOI:10.37236/219, complete-host distribution",
+        "Pal–Makowski, arXiv:1710.11064, asymptotic empirical degree distribution of homogeneous threshold networks"
+      ],
+      "reasoning": "The complete-host model is a special case, and its known full distribution covers special-case consequences. The regular-host degree-frequency bound controls different observables and does not imply an exact covariance-to-adjacency inversion on all irregular hosts without new calculation. Generic pair-moment theorems could imply the formula after specialization, creating a disclosed historical-priority risk.",
+      "searches": [
+        "random subgraph fixed graph vertex latent probability degree covariance polynomial signless Laplacian",
+        "graphon percolation fixed base graph covariance degrees signless laplacian reconstruction covariance matrix",
+        "Fox Luo Pham random irregular subgraph vertex labels edge threshold degree covariance full matrix recover host",
+        "population second moments of degrees recover adjacency matrix threshold percolation"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2207.13651v1 (complete primary HTML, with focused Sections 1 and 2)",
+      "doi:10.37236/219 (publisher PDF)",
+      "arxiv:1710.11064 (public full text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fox–Luo–Pham §2, Theorem 2.1: variance of count of vertices with given degree; no displayed labeled-degree covariance matrix or matrix inversion",
+        "Reilly–Scheinerman: known law on complete host only; every complete-host corollary is treated as covered rather than novel",
+        "Pal–Makowski: asymptotic law of degree distributions, not all-host labeled covariance inversion"
+      ],
+      "reasoning": "For an arbitrary host, the prior degree-frequency variance bounds and complete-host distribution do not by themselves determine the off-diagonal labeled-degree covariance as a polynomial of the host signless Laplacian. Conditioning on an edge-pair shared label supplies an exact incidence identity; solving its positive-semidefinite quadratic identifies adjacency. Such calculations might be implicitly available from more general moment theory, which is retained as a substantive risk rather than concealed.",
+      "searches": [
+        "Full arXiv:2207.13651v1 §1–§3 and in-text search: covariance; matrix; Laplacian",
+        "Full Reilly–Scheinerman 2009 PDF: random threshold definition, degree/spectral discussion",
+        "Full arXiv:1710.11064: introduction and threshold-model degree distribution sections",
+        "threshold-induced edge percolation degree covariance identifies graph from second moments signless Laplacian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fox–Luo–Pham, arXiv:2207.13651v1, model in §1 and degree-frequency second moments in §2",
+        "Reilly–Scheinerman, DOI:10.37236/219, full random-threshold-graph model restricted to complete hosts"
+      ],
+      "reasoning": "Tested aliases include latent vertex weights, irregular random subgraphs, threshold graphs, signless Laplacians, unsigned incidence, and graph identification from covariance. The exact host-recovery claim is not equivalent to the cited degree-frequency results or to an incidence covariance for permutation inversions. The signless Laplacian itself is classical; the model-dependent inversion is the assessed claim.",
+      "searches": [
+        "random threshold graphs signed incidence signless Laplacian quadratic covariance degree vector",
+        "identify deterministic host graph from random subgraph degree covariance vertex threshold model",
+        "degree covariance Q squared graph random threshold",
+        "thresholded vertex iid weights covariance degree vector graph signless Laplacian reconstruction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No source located with an all-host threshold degree-covariance inversion table or theorem"
+      ],
+      "reasoning": "The result gives a symbolic all-graph identity, not a new row in a graph enumerative table. Relevant existing claims about degree histograms, connectivity under independent-edge percolation, and spectral graph incidence do not subsume the latent-vertex mechanism.",
+      "searches": [
+        "node-weight threshold percolation independent labels edge indicator correlations and graph spectral covariance",
+        "host graph reconstruction from degree covariance in vertex-threshold subgraphs"
+      ]
+    },
+    "rationale": "A full-text reading of the exact same model in Fox–Luo–Pham (2022) finds concentration and second moments of degree-frequency counts, not the complete covariance of labeled degree magnitudes or a host-recovery inversion. Complete random threshold graphs in Reilly–Scheinerman are a covered special case, not claimed as independently novel. Pal–Makowski examines asymptotic degree distributions, not all-host inversion. Primary-literature and published-claim searches found no dominating result, though an earlier generic graphon/latent-variable moment identity could contain it implicitly.",
+    "residual_risks": [
+      "An earlier latent-variable graph / graphon U-statistic result may implicitly contain the covariance-polynomial identity and consequently the inversion; no universal negative-coverage certification is asserted.",
+      "Known full law of random threshold graphs includes the complete-host special case.",
+      "Historical priority and generalization to nonuniform labels or an unknown threshold are not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same probability mechanism; theorem addresses concentrations of degree frequencies on regular hosts, not covariance-vector inversion for arbitrary hosts",
+        "evidence": [
+          "arXiv:2207.13651v1, 2022-07-27, §§1–2, Theorems 1.3 and 2.1, Lemma 2.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2207.13651v1",
+        "material_read": "HTML Introduction; full Section 2 and its degree-frequency second-moment argument; inspected Sections 3 and searched entire HTML for covariance, matrix and Laplacian",
+        "method": "Primary full-text HTML, including theorem and proof statements",
+        "title": "On random irregular subgraphs",
+        "trigger": "Exact same model: independent uniform vertex weights and retention when endpoint sum exceeds one"
+      },
+      {
+        "assessment": "The complete-host probability law is prior coverage for that special case, but does not state identification of an arbitrary fixed host from random labeled degree covariance",
+        "evidence": [
+          "Reilly and Scheinerman, Electronic J. Combin. 16 (2009), R130, DOI:10.37236/219"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v16i1r130/pdf/",
+        "material_read": "PDF introduction and model definition; inspected degree and spectral sections and searched for covariance discussion",
+        "method": "Public publisher PDF rendered and parsed with page inspection",
+        "title": "Random Threshold Graphs",
+        "trigger": "The complete-host specialization uses precisely the same threshold condition"
+      },
+      {
+        "assessment": "Asymptotic degree-frequency subject; not a statement of finite arbitrary-host labeled covariance or square-root inversion",
+        "evidence": [
+          "Pal and Makowski, arXiv:1710.11064, posted 2017-10-30; introductory remarks note preliminary material from 2015"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1710.11064",
+        "material_read": "Full accessible arXiv text; focused on introduction, threshold-network counterexample and degree-frequency asymptotic statements",
+        "method": "Primary arXiv full-text inspection and topical term search",
+        "title": "Asymptotic degree distributions in large (homogeneous) random networks: A little theory and a counterexample",
+        "trigger": "Random threshold graph degree dependence may dominate any proposed covariance result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4f959cf4-17db-459b-86f8-135a09abb965",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact covariance map identifies the full labeled topology of any unknown host from replicated vertex degrees alone; marginal means supply only host degrees. The explicit principal-root inverse is stable (Frobenius constant 12), supports deterministic exact edge recovery under a quantitative covariance error condition, and implies almost-sure recovery for repeated independent observations. It characterizes all nonzero covariance modes and detects bipartite components from nullity. This is a complete motivated inverse result for a natural correlated-edge network model, not arbitrary small-count computation.",
+    "status": "PASS"
+  }
+}
