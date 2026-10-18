@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the exact crown closed neighborhoods and separates the first cross-side move. A switch after one heavy-side vertex terminates within four moves; after at least two heavy-side vertices, the first light-side vertex leaves at most its matched heavy-side vertex undominated. Equality forces the four listed sequence types. The counting is disjoint and the independent verifier agrees for \(5\le n\le7\).
+## correctness
 
-## Originality
-PASS. The closest own/published-finding corpus theorem enumerates maximum Grundy sequences for complete multipartite graphs, but crown graphs with \(n\ge3\) are not complete multipartite. The 2023 full-text equality-class paper can cover scalar phenomena such as \(\alpha=\gamma_{\mathrm{gr}}\) but does not enumerate crown extremizers; exact searches found no “crown” or “perfect matching”. The 2026 uniqueness paper is qualitative and likewise contains no crown occurrence. Residual risk from unindexed wording remains.
+PASS
 
-## Value
-PASS. The four-type classification gives a complete and reusable description of all extremizers in a standard highly symmetric graph family, together with exact maximum-set and ordered-sequence counts. It records how a deleted perfect matching changes the extremal-sequence geometry relative to complete multipartite graphs, rather than merely recomputing a known scalar invariant.
+For crown Cr_n=K_(n,n)−M_n, n≥5, N[a_i]={a_i}∪(B\{b_i}) and symmetrically for b_i. A full one-side ordering is legal and has length n. In a mixed sequence with only one heavy-side vertex before its first opposite-side vertex, at most four moves can be legal (<n). After at least two from one side, the first opposite-side vertex dominates every remaining heavy-side vertex except possibly its matched partner; at most one subsequent heavy-side vertex and one terminal second light-side vertex can be legal. These constraints bound the sequence length by n and force exactly four equality patterns: (n,0,0),(n−1,1,1),(n−2,2,1),(n−2,2,0), up to swapping sides, with corresponding order restrictions. Disjoint choice counts give exactly 2+n(n−1)(2n−1) maximum sets and 4n n! ordered sequences. Independent closed-neighborhood dynamic programming over all n-subsets for n=5,6,7 gave (sets,sequences) (182,2400),(332,17280),(548,141120), and verified the four patterns; not an infinite proof.
 
-## Closest literature and limitations
-The theorem is restricted to \(n\ge5\) and ordinary closed-neighborhood Grundy domination. Small crowns have additional exceptional types. The finite checker is a stress test only; the infinite result rests on the symbolic proof. The literature search cannot rule out a non-indexed equivalent statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new classification concerns all ordered longest closed-neighborhood Grundy sequences and their underlying sets for the non-complete-multipartite crown Cr_n. Best-of-knowledge originality follows from actual semantic published-record searches and the specifically inspected primary theorem material; unsuccessful searching alone is not proof of novelty.
+
+## value
+
+PASS
+
+Enumerating all extremal Grundy sequences, not just their maximum length, is a natural exact graph invariant. The crown graph is a basic matching-deleted bipartite regular family, and four set-pattern strata plus distinct factorial order counts give reusable structural and combinatorial information unavailable from the generic inequality α=γ_gr alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

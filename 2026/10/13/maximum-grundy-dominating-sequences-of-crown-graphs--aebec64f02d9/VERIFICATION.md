@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The package includes `verify.py`, which constructs each crown graph directly from the deleted-matching definition and independently recomputes closed neighborhoods. For each \(n\in\{5,6,7\}\), it performs two checks.
+# Independent mathematical audit
 
-First, a global dynamic program over covered and used vertices computes the maximum length of a legal closed-neighborhood sequence and confirms that it equals \(n\).
+## correctness
 
-Second, every \(n\)-vertex subset is examined. A dynamic program over internal orderings counts exactly how many legal dominating orders that fixed set has. The result is compared with the four structural types in RESULT.md, including the forced versus two-way terminal order in the two-light-side cases. Aggregate maximum-set and maximum-sequence counts are then checked against
-\[
-2+n(n-1)(2n-1)
-\]
-and
-\[
-4n\,n!.
-\]
+PASS
 
-A successful replay prints `VERIFY_OK n_range=5..7 maximum_sets=1062 maximum_sequences=160800 max_order=14`.
+For crown Cr_n=K_(n,n)−M_n, n≥5, N[a_i]={a_i}∪(B\{b_i}) and symmetrically for b_i. A full one-side ordering is legal and has length n. In a mixed sequence with only one heavy-side vertex before its first opposite-side vertex, at most four moves can be legal (<n). After at least two from one side, the first opposite-side vertex dominates every remaining heavy-side vertex except possibly its matched partner; at most one subsequent heavy-side vertex and one terminal second light-side vertex can be legal. These constraints bound the sequence length by n and force exactly four equality patterns: (n,0,0),(n−1,1,1),(n−2,2,1),(n−2,2,0), up to swapping sides, with corresponding order restrictions. Disjoint choice counts give exactly 2+n(n−1)(2n−1) maximum sets and 4n n! ordered sequences. Independent closed-neighborhood dynamic programming over all n-subsets for n=5,6,7 gave (sets,sequences) (182,2400),(332,17280),(548,141120), and verified the four patterns; not an infinite proof.
 
-The finite replay does not certify the theorem for arbitrary \(n\); the proof in RESULT.md establishes the general statement.
+## originality
+
+PASS
+
+The new classification concerns all ordered longest closed-neighborhood Grundy sequences and their underlying sets for the non-complete-multipartite crown Cr_n. Best-of-knowledge originality follows from actual semantic published-record searches and the specifically inspected primary theorem material; unsuccessful searching alone is not proof of novelty.
+
+## value
+
+PASS
+
+Enumerating all extremal Grundy sequences, not just their maximum length, is a natural exact graph invariant. The crown graph is a basic matching-deleted bipartite regular family, and four set-pattern strata plus distinct factorial order counts give reusable structural and combinatorial information unavailable from the generic inequality α=γ_gr alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
