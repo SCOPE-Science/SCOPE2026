@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the delay-spread extinction criterion
+# Independent mathematical audit
 
-The finite checker `verify.py` uses only the Python standard library to verify the *rational input certificate*: the positive and ordered fitness bounds, triangular row-stochastic mutation matrix, absence of backward mutation, positive unequal delays, and \(NM(b-a)=21/50\). It also checks the exact strict bound \(e^{-21/50}\geq29/50>2/5\) via \(e^{-u}\geq1-u\).
+## correctness
 
-Run `python3 verify.py` in the same directory. Output must be `VERIFY_OK`.
+PASS
 
-The **infinite-time theorem** is proved in RESULT.md by invariant-simplex dynamics, a differential-inequality comparison across asynchronous delays, and a scalar retarded supersolution. The checker does not certify that analysis automatically. The scalar decay rate is mathematically the unique positive root of \(\lambda=m(c-qe^{\lambda b})\), since its defining function is continuous, strictly decreasing, initially positive and eventually negative. Equality in the criterion, backward mutation into the master, and models lacking a uniform lower fitness bound are outside the claimed result. An independent audit has not been performed.
+Sum x_j obeys S’=Phi(1−S) and stays 1; nonnegative method-of-steps gives global bounded solutions and x_j’≥−NM x_j. Common earlier time t−b yields x_j(t−tau_j)≥exp(−NM(b−a))x_j(t−b), so asynchronous total mass≥c and Phi≥cf0. Scalar retarded comparison gives x0(t)≤K exp(−lambda(t−b)) for unique lambda=m(c−q exp(lambda b))>0. Verified exact three-class q=2/5, M=7/5, span 1/10, c≥29/50 and strict fitness/one-way mutation; analytic DDE proof, not a numerical long-time simulation.
+
+## originality
+
+PASS
+
+Closest published three-class paper imposes equal delays for extinction; checked 2-class equal-delay dynamics and generalized backward-mutation periodic existence do not imply quantified all-history N-class heterogeneous delay-spread extinction. Best-of-knowledge originality survives full-text limitations.
+
+## value
+
+PASS
+
+Cross-time sampling destroys equal-lag normalized delayed-mass identity; restoring a quantitative common-time floor isolates biologically meaningful dispersion rather than absolute lag. Yields genuinely infinite-time nonautonomous robust extinction and explicit rate across an open parameter class, with conservative condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
