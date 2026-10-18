@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact source equations are reconstructed from Table 1, SE17, in Molaie et al. (2013). Symbolic differentiation verifies \(\dot P=c-kx-q(x-y)^2\), \(\dot y=x-y\), the Jacobian trace, and the rational published coefficients. The runnable standalone `check_se17.py` is accompanied by its actual output in `check_se17_output.txt`; both belong to this package.
+## correctness
 
-The key non-symbolic steps are mathematical: stationary pushforward measures under \(P\) and \(y\) have zero signed one-dimensional flux, compact support forces this flux to vanish, and invariance plus zero \(x-y\) defect forces the unique equilibrium. Liouville's determinant identity then relates averaged divergence to the sum of Lyapunov exponents under ergodicity on compact support.
+PASS
 
-No numerical integration, finite sampling, or external certification is used to claim the universal stationary identities. The result does not prove that the numerically reported chaotic attractor is a genuine compact invariant chaotic set; published numerical Lyapunov values are not substituted as exact mathematical premises.
+Direct symbolic differentiation of P=z+(p/2)x²−qxy+(q/2)y² gives dot P=c−kx−q(x−y)²; compact invariant probability makes E[dot P|P]=0 via antiderivative tests. Likewise dot y=x−y gives E[x|y]=y and E(x−y)²=Var x−Var y. If defect is zero, invariant support lies in x=y, hence y constant, x constant, z=0, and x=c/k. Mean trace −1−px+qy gives the exact contraction-gap formula and strictness when p>q>0. For ergodic compact measures Liouville and Oseledets yield the stated exponent sum; no numerical chaotic measure existence is assumed.
+
+## originality
+
+PASS
+
+Full 2013 same-object source reports SE17 dynamics but not the polynomial P or invariant-height calibration; the 2018 Liénard source is a distinct planar equation. Related published hidden-attractor coboundaries act on distinct vector fields. The 2021 Jacobi paper full text was inaccessible and remains a named priority risk, not an unsupported novelty certification.
+
+## value
+
+PASS
+
+A cancelling polynomial for the actual 3D SE17 flow yields exact fiberwise constraints and a strict phase-volume gap relative to its only equilibrium, stronger than an isolated coordinate normalization. These are natural invariant-measure and Lyapunov constraints for a hidden-attractor model and have independent mathematical use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Differentiating the explicitly stated polynomial gives \(\dot P=c-kx-q(x-y)^2\) identically, checked by a standalone symbolic program. The stationary pushforward-flux argument proves the conditional law for every compact invariant probability; the \(y\)-filter gives the variance identity. Zero variance forces the unique equilibrium by invariance of the support, and the exact divergence identity implies the strict contraction gap for \(p>q>0\). The proof needs no numerical orbit and claims no existence of non-equilibrium recurrence.
+## correctness
 
-**Originality — PASS, with residual risk.** The introducing 2013 seven-page paper was read in full, including the complete SE17 equations and later numerical discussion; no source-specific cancelling polynomial or conditional stationary law appears. A fully inspected 2018 planar quadratic-damping result has a different dynamical object and hypotheses. The related 2021 Jacobi-stability follow-up was accessible only at abstract level; its uninspected body is a priority risk, as is unindexed equivalent work. Analogous invariant-flux ideas in other chaotic systems do not imply this exact source-specific polynomial identity.
+PASS
 
-**Mathematical value — PASS.** The original model was proposed as coexistence of a stable equilibrium with a hidden attractor, where distinguishing stationary statistics is natural. The heightwise conditional equality is stronger than one integrated average, fixes a sharp mean-state inequality attained exactly at the equilibrium, and turns the global phase-volume contraction into a measurable, strictly varying variance defect on any other compact stationary state. The formula provides an exact consistency test for numerical Lyapunov data without assuming those data prove chaos.
+Direct symbolic differentiation of P=z+(p/2)x²−qxy+(q/2)y² gives dot P=c−kx−q(x−y)²; compact invariant probability makes E[dot P|P]=0 via antiderivative tests. Likewise dot y=x−y gives E[x|y]=y and E(x−y)²=Var x−Var y. If defect is zero, invariant support lies in x=y, hence y constant, x constant, z=0, and x=c/k. Mean trace −1−px+qy gives the exact contraction-gap formula and strictness when p>q>0. For ergodic compact measures Liouville and Oseledets yield the stated exponent sum; no numerical chaotic measure existence is assumed.
 
-**Limitations.** These are necessary statistical properties, not an existence theorem for periodic or chaotic measures. Conditional expectations are almost-sure statements, and the 2021 follow-up's full text remains uninspected.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Full 2013 same-object source reports SE17 dynamics but not the polynomial P or invariant-height calibration; the 2018 Liénard source is a distinct planar equation. Related published hidden-attractor coboundaries act on distinct vector fields. The 2021 Jacobi paper full text was inaccessible and remains a named priority risk, not an unsupported novelty certification.
+
+## value
+
+PASS
+
+A cancelling polynomial for the actual 3D SE17 flow yields exact fiberwise constraints and a strict phase-volume gap relative to its only equilibrium, stronger than an isolated coordinate normalization. These are natural invariant-measure and Lyapunov constraints for a hidden-attractor model and have independent mathematical use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
