@@ -1,11 +1,21 @@
-# Scientific review — a shift-invariant harmonic trace
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses a published exact all-order interrupter identity to establish positivity at zero shift. A finite-compression boundary-flux equality is derived directly from triangular matrix entries, and its limit is a controlled Riemann integral with a uniform tail \(O_m(R^{-1})\). The resulting harmonic integral is exact; positivity converts the finite diagonal sum into a trace-class proof. A separate, summably small row estimate proves every shift perturbation is trace class, after which trace cyclicity gives the invariant. The trace-norm equality criterion follows from Ma's full parameter classification, not an unproved numerical extrapolation. Risk: the positivity and nonhyponormality inputs are cited existing theorems, rather than reproved.
+## correctness
 
-**Originality — PASS (with residual risk).** The closest directly relevant papers are Ma's arXiv:2610.00193v1, which proves hyponormality and bounds for the self-commutator, and Le–Rhaly's 2018 all-order diagonal interrupter theorem. Their inspected results do not compute trace-class membership or the harmonic trace independent of the real shift. A related published trace formula for Cesàro Mellin-product defects involves a different operator defect and the values \(\zeta(m)\), not the present self-commutator. Relevant generalized Cesàro and compact-commutator literature was searched. An older implicit spectral-area derivation or a poorly indexed self-commutator trace formula remains possible; absence from search results is not proof of universal novelty.
+PASS
 
-**Value — PASS.** The self-commutator trace and its trace norm are canonical invariants in Hilbert-space operator theory. The exact rational harmonic sequence for every integer order is a natural classification, and its invariance under all non-Hilbert–Schmidt operator shifts contrasts sharply with the hyponormality transition. The result quantifies trace-class cancellation in operators whose own Hilbert–Schmidt norms diverge. It is not a parameter substitution or a finite truncation calculation.
+The Le--Rhaly interrupter gives unshifted \(D_{0,m}=A^*(I-P_m)A\ge0\). Finite coordinate compressions satisfy exact cancellation \(\operatorname{Tr}(E_N D_{0,m}E_N)=\sum_{j\le N,n>N}|A_{nj}|^2\). The large-n scaling \(N A_{nj}\to (m/u)(1-v/u)^{m-1}\), uniform on compact \(u\in[1,R],v\in[0,1]\), yields a double Riemann integral; the remaining tail is O(1/R) uniformly in N. After substitution the limit is \(m^2\int_0^1\int_0^1(1-vw)^{2m-2}dvdw=m^2H_{2m-1}/(2m-1)\). Positivity plus bounded trace of increasing compressions proves actual trace class. For each fixed shift, \(K=M_{\alpha,m}-M_{0,m}\) has entries O(n^-2) per n-th row, whose \(\ell^2\) norms are O(n^-3/2), giving a trace-class row decomposition. All terms in \(D_\alpha-D_0\) are trace class and cancel in trace by cyclicity; Ma's hyponormality iff \(\alpha\ge0\) identifies the trace-norm equality boundary. Independently evaluated the harmonic values m=1:1, m=2:22/9, m=3:411/100, m=4:1452/245; finite flux checks were corroborative and not substituted for the trace-class proof.
 
-**Scope of inspection.** The 2026 focal paper and Le–Rhaly's full accessible text were examined for the formula, relevant adjoint-defect claims, and possible dominance; related older and published recent results were compared by implication. A claim buried in unindexed work cannot be excluded by the material consulted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ma gives the exact positivity/hyponormality parameter classification for the same two-parameter generalized Cesàro matrices but no trace-class formula. Le--Rhaly supplies positivity via an unshifted diagonal interrupter but no harmonic trace evaluation and no invariance under negative or positive shifts. Earlier order-by-order results concern hyponormality/posinormality; the related Cesàro Mellin product-defect trace is a different operator. The boundary-flux and nuclear perturbation arguments provide a new natural Schatten invariant. Possible Berger--Shaw trace-area identities and unindexed Hausdorff operator sources remain residual risks.
+
+## value
+
+PASS
+
+An exact, parameter-invariant Schatten-1 trace for a natural two-parameter nonnormal matrix family is a meaningful infinite-dimensional operator invariant. The boundary-flux proof and summable row perturbation explain why the trace survives loss of hyponormality, yielding the precise trace-norm equality phase boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

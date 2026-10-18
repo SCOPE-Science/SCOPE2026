@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T17:11:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Le--Rhaly interrupter gives unshifted \\(D_{0,m}=A^*(I-P_m)A\\ge0\\). Finite coordinate compressions satisfy exact cancellation \\(\\operatorname{Tr}(E_N D_{0,m}E_N)=\\sum_{j\\le N,n>N}|A_{nj}|^2\\). The large-n scaling \\(N A_{nj}\\to (m/u)(1-v/u)^{m-1}\\), uniform on compact \\(u\\in[1,R],v\\in[0,1]\\), yields a double Riemann integral; the remaining tail is O(1/R) uniformly in N. After substitution the limit is \\(m^2\\int_0^1\\int_0^1(1-vw)^{2m-2}dvdw=m^2H_{2m-1}/(2m-1)\\). Positivity plus bounded trace of increasing compressions proves actual trace class. For each fixed shift, \\(K=M_{\\alpha,m}-M_{0,m}\\) has entries O(n^-2) per n-th row, whose \\(\\ell^2\\) norms are O(n^-3/2), giving a trace-class row decomposition. All terms in \\(D_\\alpha-D_0\\) are trace class and cancel in trace by cyclicity; Ma's hyponormality iff \\(\\alpha\\ge0\\) identifies the trace-norm equality boundary. Independently evaluated the harmonic values m=1:1, m=2:22/9, m=3:411/100, m=4:1452/245; finite flux checks were corroborative and not substituted for the trace-class proof.",
+      "risk": "Uses exact published diagonal interrupter and Ma hyponormality for signs; does not calculate the negative-shift trace norm, only strict inequality.",
+      "sources": [
+        "Le--Rhaly DOI:10.1007/s00013-017-1128-y Theorem 2.1",
+        "Ma arXiv:2610.00193v1 Theorem 1.1",
+        "Assigned RESULT.md at Git blob e6bc4b496aad04f0ea91b9d592290bed2bd18bcc"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma classifies hyponormality iff alpha>=0 but does not imply the value or finite trace.",
+          "Le--Rhaly gives \\(AA^*=A^*P_m A\\); positivity alone says neither trace class nor trace equal to a harmonic number."
+        ],
+        "reasoning": "The known broad hyponormality criteria and diagonal-interrupter identity are genuine premises but do not logically determine the trace, whose infinite flux and shift invariance need proof.",
+        "searches": [
+          "Ma arXiv:2610.00193v1 Theorem 1.1 and Sections 1--2",
+          "Le--Rhaly DOI:10.1007/s00013-017-1128-y Theorem 2.1",
+          "Berger--Shaw trace-area framework, literature query"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00193v1",
+        "DOI:10.1007/s00013-017-1128-y",
+        "arXiv:1701.00425 bibliographic context only",
+        "Assigned RESULT.md",
+        "Resultary attempted but temporarily unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The positive diagonal identity permits but does not evaluate a potentially infinite trace.",
+          "The shift parameter changes the matrix and can destroy positivity; the nuclear difference of shifts is essential to prove trace invariance.",
+          "Trace-norm equality follows after the exact trace is independently proved, using Ma's known sharp sign classification."
+        ],
+        "reasoning": "There is a nonroutine trace-class and limit computation between the older positivity results and this theorem.",
+        "searches": [
+          "Ma 2026 Theorem 1.1",
+          "Le--Rhaly 2018 Theorem 2.1",
+          "Assigned boundary-flux and trace-class perturbation proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The positive self-commutator is sometimes called hyponormal defect; the exact trace-class defect is a separate Schatten-1 property.",
+          "The full Ma HTML text search gives no trace invariant, while Le--Rhaly derives a positive factorization without evaluating the total trace."
+        ],
+        "reasoning": "Self-commutator, hyponormal defect and cyclic-trace/area formulations were compared; none of the inspected exact primary sources states the shift-invariant harmonic formula.",
+        "searches": [
+          "Ma arXiv:2610.00193v1",
+          "Le--Rhaly DOI:10.1007/s00013-017-1128-y",
+          "Fresh semantic query: generalized Cesàro matrices self commutator trace class trace harmonic number order m shift alpha hyponormality (Resultary temporarily unavailable)",
+          "Web search generalized Cesàro selfcommutator trace harmonic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The harmonic numbers \\(1,22/9,411/100,1452/245\\) follow from the present formula but are not printed in the compared source theorems.",
+          "An earlier Cesàro Mellin multiplicative-defect zeta trace concerns another operator."
+        ],
+        "reasoning": "A table of small rational traces, even if known, would not imply the all-order and all-shift trace-class theorem.",
+        "searches": [
+          "Targeted web search: trace generalized Cesaro matrix self commutator order harmonic number H 2m-1 trace class",
+          "Ma arXiv:2610.00193v1 search for trace",
+          "Le--Rhaly full text search for trace",
+          "Related earlier Cesàro Mellin-semigroup trace mentioned in assigned literature review"
+        ]
+      },
+      "rationale": "Ma gives the exact positivity/hyponormality parameter classification for the same two-parameter generalized Cesàro matrices but no trace-class formula. Le--Rhaly supplies positivity via an unshifted diagonal interrupter but no harmonic trace evaluation and no invariance under negative or positive shifts. Earlier order-by-order results concern hyponormality/posinormality; the related Cesàro Mellin product-defect trace is a different operator. The boundary-flux and nuclear perturbation arguments provide a new natural Schatten invariant. Possible Berger--Shaw trace-area identities and unindexed Hausdorff operator sources remain residual risks.",
+      "residual_risks": [
+        "An implicit Berger--Shaw area argument or older Hausdorff/Cesàro operator theory could determine the same exact trace under different language.",
+        "Some candidate compact-operator commutator trace literature was available only as bibliographic context and was not used for a whole-document NOT_COVERING judgment.",
+        "Resultary failed temporarily, so no successful exact indexed novelty search is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_HYPONORMALITY_BOUNDARY_NOT_TRACE",
+          "evidence": "Theorem 1.1 characterizes hyponormality in alpha but does not give membership of the commutator in Schatten-1 or a numeric harmonic trace.",
+          "identifier_or_url": "arXiv:2610.00193v1 / https://arxiv.org/html/2610.00193v1",
+          "material_read": "Full accessible primary HTML read for definitions, Theorem 1.1, statements and proof context; searched full text for trace.",
+          "method": "Lawful open arXiv full-text HTML inspection.",
+          "title": "Hyponormality of generalized Cesàro matrices of every positive integer order",
+          "trigger": "Exact same integer-order shifted matrices and positivity criterion."
+        },
+        {
+          "assessment": "STRUCTURAL_POSITIVITY_PRECURSOR_NOT_HARMONIC_TRACE",
+          "evidence": "Theorem 2.1 proves \\(AA^*=A^*P_m A\\); the paper does not supply the submitted all-m/shift trace-class computation.",
+          "identifier_or_url": "DOI:10.1007/s00013-017-1128-y / author-upload full text",
+          "material_read": "Accessible author-upload full primary text examined for Theorem 2.1 and its positive diagonal factorization; searches for self-commutator trace.",
+          "method": "Lawful public author-upload primary inspection.",
+          "title": "Coposinormality of the Cesàro matrices",
+          "trigger": "Source of unshifted all-order diagonal interrupter identity."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact, parameter-invariant Schatten-1 trace for a natural two-parameter nonnormal matrix family is a meaningful infinite-dimensional operator invariant. The boundary-flux proof and summable row perturbation explain why the trace survives loss of hyponormality, yielding the precise trace-norm equality phase boundary.",
+      "risk": "Negative-shift trace norm magnitude is left open; the result uses published positivity machinery.",
+      "sources": [
+        "Ma arXiv:2610.00193v1",
+        "Le--Rhaly DOI:10.1007/s00013-017-1128-y"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every positive integer \\(m\\) and real \\(\\alpha>-1\\), the generalized Cesàro matrix \\(M_{\\alpha,m}\\) on \\(\\ell^2(\\mathbb N_0)\\) has trace-class self-commutator \\(D=M^*M-MM^*\\) with \\(\\operatorname{Tr}D=\\frac{m^2}{2m-1}H_{2m-1}\\), independent of \\(\\alpha\\), and \\(\\|D\\|_1=\\operatorname{Tr}D\\) exactly when \\(\\alpha\\ge0\\).",
+  "limitations": [
+    "Integer orders m>=1, shift alpha>-1 on complex ℓ²(N0) only.",
+    "No exact Schatten-1 norm for -1<alpha<0, only strict excess above trace.",
+    "No claim for arbitrary fractional order or unrelated sequence spaces."
+  ],
+  "schema_version": 1
+}
