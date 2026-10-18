@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the angular-return rigidity theorem
+# Independent mathematical audit
 
-The proof is analytic: the radial-power derivative along oriented angle is the linear scalar equation \(dv/ds=2p(\lambda+Fv)/G\). Explicit integrating factors give \(P(v)=\rho v+B_\lambda\) on every positive-radius section; \(\rho\in(0,1)\) and \(B_\lambda>0\). Integration of \(d(\log r)/ds\) on the unique fixed graph yields the physical-time period. Linearization of this exact section map gives \(\rho=e^{-2p\lambda T}\), establishing the universal exponent and the exact relaxation per revolution.
+## correctness
 
-Execute `python3 check.py` using only the Python standard library. It numerically integrates the exact angular equation for noncircular cubic cases with distinct anisotropies and a distinct linear-growth coefficient. It compares the affine return, physical-time period, transverse multiplier and the same-time-and-multiplier anisotropy property, printing `CHECK_OK` if they agree to the stated numerical tolerance. The finite calculations do not establish the general theorem; the proof does.
+PASS
 
-A complete text of Bendjeddou–Llibre–Salhi (2013) was unavailable. Consequently, the literature comparison cannot rule out an earlier equivalent quantitative argument. No independent review has been carried out.
+For λ>0, Q homogeneous of odd degree 2p+1, f(θ)=⟨u,Q(u)⟩<0 and sign-definite g(θ)=⟨Ju,Q(u)⟩≠0, positive radial solutions are globally forward bounded and cannot touch r=0. With oriented s=sgn(g)θ and v=r^(2p), dv/ds=(2p f/|g|)v+2pλ/|g|. The integrating factor yields exact P(v)=ρv+B, 0<ρ<1 and B>0. Thus unique fixed positive graph and all-turn contraction, no other nonzero periodic orbit. Integrating dlog r/ds over the graph gives λT=−∫ f/|g| dθ in original physical time, and logρ=−2pλT; the transverse Poincaré derivative is ρ and tangential multiplier 1. Cubic Q=−[a r²+ε(x²−y²)]z+ωr²Jz (a>|ε|, ω>0) has f=−a−εcos2θ, g=ω, yielding T=2πa/(λω), ρ=exp(−4πa/ω), noncircular for ε≠0. Analytic generality is independent of the finite RK4 illustrative check.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty is the coefficient-independent *original-physical-time* exponent and global radial-power affine return, not previously known existence/uniqueness. Strongest inspected star-node works give classification and sign criteria; full 2013 integrability proof remained inaccessible; no decisive coverage was seen, and the access gap is explicitly a residual risk.
+
+## value
+
+PASS
+
+The coefficient-independent physical-time transverse Lyapunov exponent is a structural rigidity across an infinite class of noncircular periodic orbits. Exact global per-revolution relaxation strengthens qualitative attraction, and a deformable anisotropic cubic family gives nontrivial isoperiodic/isostable dynamics. These are motivated quantitative dynamical invariants, not merely the known cycle-existence fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
