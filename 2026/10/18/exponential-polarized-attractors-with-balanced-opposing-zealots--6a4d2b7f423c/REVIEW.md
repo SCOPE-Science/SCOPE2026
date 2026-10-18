@@ -1,0 +1,19 @@
+# Scientific review: Exponential polarized attractors with balanced opposing zealots
+
+## Correctness — PASS
+The strict squared-distance margins \(1<\delta<4\) justify locally uniform convergence of the smooth vector field **and its derivative** around every sign pattern. The explicit limiting Jacobian is similar to a symmetric negative-definite matrix, so each binary configuration persists as an attracting equilibrium. The leading correction follows by solving the numerator linearization against the opposite-zealot/edge leakage. The central state is an exact equilibrium with a strictly stable limiting Jacobian. The one-persuadable proof excludes all other positive scalar roots by uniform limits, monotonicity near the outer endpoint, and the positive derivative at every transition-layer root. The scalar sign diagram proves the stated exact basins. The packaged checker supplements this proof with 324 tested hyperbolic graph configurations, fifteen finite-precision scalar cases, and twelve high-precision scalar cases. No finite computation replaces an all-graph or all-large-parameter argument.
+
+## Originality — PASS, with residual risk
+The closest source, Brooks–Chodrow–Porter, arXiv:2209.07004 (first public 2022-09-15), introduces exactly this normalized logistic opinion model, treats path and balanced-exposure graphs, and proves stability for the central equilibrium. It gives a necessary sigmoid-to-HK limit and explicitly asks for reverse approximation in Conjecture 1; neither statement yields all binary polarized equilibria for arbitrary persuadable graphs. Relevant full texts on nonlinear consensus (arXiv:2008.12022) and tunable-sensitivity opinions (arXiv:2009.04332) employ different interaction equations. Targeted literature and research-record searches found no theorem logically covering the exponential all-binary lower bound, exact block-Laplacian leading term and minimal-case basin classification together. The proof uses standard hyperbolic continuation, which is prior mathematical knowledge; priority could be affected by obscure equivalent literature. The claim is an explicit special-family partial answer, not a solution to the source's full conjecture.
+
+## Value — PASS
+An arbitrary, even complete, persuadable network can exhibit exponentially many attracting sign configurations under two universally accessible opposite zealots. The count gives a structural lower bound rather than merely an isolated illustrative graph. The asymptotic displacement tracks both cross-camp degree and within-camp graph Laplacians and supplies a quantitative prediction for finite steepness. The smallest system's complete basin and unstable-separatrix law makes the coexistence of neutrality and polarization dynamically explicit. The result is limited to deterministic, fixed finite, undirected unweighted graphs, with \(1<\delta<4\) and large steepness; it does not classify all larger-network equilibria.
+
+## Closest literature and limits
+- H. Z. Brooks, P. S. Chodrow, M. A. Porter, *Emergence of polarization in a sigmoidal bounded-confidence model of opinion dynamics*, arXiv:2209.07004, Sections 2, 4–6, https://arxiv.org/html/2209.07004v2 .
+- M. Homs-Dones, K. Devriendt, R. Lambiotte, *Nonlinear consensus on networks: equilibria, effective resistance and trees of motifs*, arXiv:2008.12022, https://arxiv.org/abs/2008.12022 .
+- A. Bizyaeva, A. Franci, N. E. Leonard, *Nonlinear Opinion Dynamics with Tunable Sensitivity*, arXiv:2009.04332, https://arxiv.org/abs/2009.04332 .
+
+The computed steepness threshold is not uniform in graph size, the higher-dimensional state count is a lower bound, and a previously unindexed equivalent construction cannot be ruled out by search alone. Independent review would need to reconstruct the strict-margin convergence, all-parameter scalar root exclusion, and literature implications.
+
+Self-review: passed. Independent audit: not yet performed.
