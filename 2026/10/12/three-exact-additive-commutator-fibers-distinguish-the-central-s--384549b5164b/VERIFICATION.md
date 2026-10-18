@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The standalone `artifacts/verify.py` uses Python 3 with no third-party dependencies. Run from the extracted directory by `python3 artifacts/verify.py`; a successful complete execution prints `VERIFY_OK`.
+## correctness
 
-Over \(\mathbb F_2\) and \(\mathbb F_3\), the program multiplies two explicit \(4\times4\) upper-triangular matrices for every ordered pair, constructs the full commutator histogram, and compares every derived target fiber with the formulas. For \(\mathbb F_4\) and \(\mathbb F_5\) it exhaustively traverses all \(q^6\) first operands, derives the linear adjoint image from their matrix columns, enumerates every image and its kernel size, accumulates the complete fiber histogram, and checks all targets and predicted ranks. The \(\mathbb F_4\) arithmetic uses the irreducible polynomial \(t^2+t+1\).
+PASS
 
-One complete replay produced the following zero-target counts: for field sizes \(2,3,4,5\), respectively, \(1024,41553,557056,4140625\). It also checked that the number of ordered pairs was \(q^{12}\) in each field and that the target image was all of \([N,N]\). These exhaustions cover their stated small fields only; the general prime-power assertion uses the analytic rank and Fourier proof in `RESULT.md`.
+Writing X=(a,b,c,d,e,f), Y=(A,B,C,D,E,F) gives bracket coordinates (aB−bA,bC−cB,aE−eA+dC−cD). For dual functional (alpha,beta,gamma) the alternating form has rank 0 at zero, rank 2 for gamma=0 and (alpha,beta)≠0, rank 4 for gamma≠0; in characteristic two alternating still has even rank. Double additive character sums are q^{12−rank}, Fourier inversion over the 3D target gives exactly the three closed fiber counts. Their multiplicity-weighted sum equals q^12; positivity proves image entire [N,N], and factor-two nonzero central/generic ratio detects the third lower central term. Fresh finite-field direct bracket enumeration verified every target for q=2 and q=3 (64² and 729² pairs). The rank/Fourier proof supplies every prime power, not the finite check.
 
-The result has undergone self-review but not independent audit.
+## originality
+
+PASS
+
+General finite bilinear-map character summation and commuting-probability formulas are known, and zero-fiber alone is nonnovel. The supplied target-specific three-value nonzero-fiber profile and central-line detection in this class-three nilpotent algebra are not implied by the inspected Eberhard/Soffer zero-fiber and asymptotic work, or by Resultary unrelated Heisenberg and filiform subalgebra commutativity degrees.
+
+## value
+
+PASS
+
+The first strictly upper triangular algebra with a nontrivial third lower-central layer has a sharp center-versus-noncenter fiber jump, an exact motivated distributional invariant not read from commuting probability alone; useful as a benchmark distinguishing nilpotency layers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
