@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For p∤b, the normalized digit pair is an independent digit sum. Its step vectors (1,1),(b,b^{-1}) generate precisely the index-p^min(a,v_p(b²−1)) subgroup; the integer-digit Fourier transform contracts every nontrivial character on repeated independent steps. This rigorously proves exponential convergence, normalization and every fixed-modulus probability. For p|b, two disjoint leading/trailing h=ceil(a/v_p(b)) blocks yield exact independent divisibility; a leading-digit p-adic count proves the displayed finite-length formula. Subtracting successive tails yields the valuation distribution. The actual embedded verifier passed ten exact brute-force comparisons, twelve exact group-image comparisons, and four convergence tests, which are corroborative and not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Banks–Hart–Sakata, arXiv:math/0405056v1, abstract, pp. 1–3, and the listed main theorems deal with the thin set of palindromic integers; unrestricted (n, reverse(n)) pairs are not their sampling object.",
+        "Dartyge et al., arXiv:2309.11380v1, Theorem 1.4 states a binary joint squarefree counting formula; Section 1.3 and Lemma 5.1 use squarefree sieve moduli and the special 3-adic factor. The factor 22/27 at the prime 3 is compatible with the a=2 case, and hence a particular local consequence is already covered."
+      ],
+      "reasoning": "The global binary squarefree theorem is a stronger count in another direction and covers isolated local factors, but no inspected theorem gives a uniform subgroup for every p^a in every base b or the exact p|b finite-length law. The present main statement is not a formal corollary of their stated squarefree theorem alone. An unspelled implication of the supporting exponential-sum estimates is acknowledged as residual risk.",
+      "searches": [
+        "uniform joint residues of integer and digit reversal modulo p^a p divides b^2-1",
+        "simultaneous residues of digit reversal modulo p^k, singular moduli b+1 and b-1",
+        "Banks Hart Sakata almost all palindromes composite congruence classes 2004",
+        "Dartyge Martin Rivat Shparlinski Swaenepoel reversible primes squarefree joint reversal 2023"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A055483",
+      "https://oeis.org/A161825",
+      "https://arxiv.org/pdf/math/0405056",
+      "https://arxiv.org/pdf/2309.11380",
+      "Finite-resultant correction for coprime values of homogeneous binary forms (published mathematical result; differing setting)",
+      "Exact Euler factors for the k-variable gcd-map density (published mathematical result; differing setting)",
+      "Prime-power digit factorization in modular Laplacian dynamics (published mathematical result; differing setting)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 reversible-prime squarefree sieve gives local information at squarefree moduli and the binary prime-square 3 correction, but fixes b=2 and does not state general valuations.",
+        "A published theorem on finite-resultant gcd densities concerns homogeneous binary polynomial values rather than the non-polynomial digit-reversal map.",
+        "A published theorem on a tuple-based gcd map and a published prime-power modular-Laplacian result concern different objects and assumptions."
+      ],
+      "reasoning": "None of the closest indexed or primary scientific statements contains a claim whose quantifiers and conclusions dominate the full theorem: each fixed b,p,a, uniformity on S, the formula for p|b, and p-adic phase transition. Certain base-two squarefree special cases are explicitly conceded as prior consequences, so originality is restricted to the complete local classification.",
+      "searches": [
+        "digital reversal gcd n and reverse(n) p-adic valuation exact distribution for all primes base b",
+        "uniform joint residues of integer and digit reversal modulo p^a p divides b^2-1",
+        "reversible primes joint congruence gcd valuation of reversed digits, p-adic obstruction",
+        "digit reversal gcd valuation prime power densities and congruence correlations in base b",
+        "OEIS A055483",
+        "arxiv:math/0405056v1",
+        "arxiv:2309.11380v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A055483 (https://oeis.org/A055483) explicitly defines gcd(n,reverse(n)), gives a decimal table and the implication 3|n => 3|gcd and 9|n => 9|gcd.",
+        "OEIS A161825 (https://oeis.org/A161825) is the binary version, but its visible description and table give no local prime-power limiting law."
+      ],
+      "reasoning": "Exact equality of the underlying gcd invariant was discovered and acknowledged; the claimed theorem concerns a new sort of object, the asymptotic prime-power distribution and entire joint congruence support, not the gcd sequence itself. Neither inspected sequence entry states or logically implies the full formula across arbitrary bases and prime powers.",
+      "searches": [
+        "digital reversal gcd n and reverse(n) p-adic valuation exact distribution for all primes base b",
+        "reversible primes joint congruence gcd valuation of reversed digits, p-adic obstruction",
+        "\"gcd(n, reverse(n))\" digit reversal density",
+        "OEIS A055483; OEIS A161825"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A055483 (https://oeis.org/A055483), first entry dated 2000-06-27, defines the same decimal gcd and has a 50,000-term linked table; the entry's known divisibility formula concerns 3 and 9.",
+        "OEIS A161825 (https://oeis.org/A161825), original date 2009-06-20, defines the binary gcd and lists values and code."
+      ],
+      "reasoning": "The exact invariant and selected small congruence properties are known and not claimed original. A list of particular gcd values does not establish an all-bases limit law, the uniform joint residue support at each p^a, or the sharp finite-length stabilization theorem.",
+      "searches": [
+        "site:oeis.org gcd n reverse digits decimal gcd reversal",
+        "site:oeis.org gcd(n, reverse(n)) sequence",
+        "OEIS A055483",
+        "OEIS A161825"
+      ]
+    },
+    "rationale": "OEIS A055483 (2000) and A161825 (2009) directly predate and tabulate the decimal and binary gcd invariants; no originality is claimed for defining them or for the base-ten 3/9 divisibility implications. Banks–Hart–Sakata 2004 studies palindromic integers, not arbitrary reversal pairs. Dartyge et al. 2023 proves binary reversible-prime and squarefree-pair counts and includes local p=3² consequences, but its checked theorem and squarefree sieve do not dominate the all-base prime-power subgroup law and exact p|b stabilization. The checked published comparisons did not reveal an equivalent full statement. Hidden implicit coverage remains a stated risk.",
+    "residual_risks": [
+      "An unpublished, unindexed, or differently described proof could establish the same fixed-prime-power result.",
+      "The 2023 Fourier machinery might imply additional special cases beyond those explicitly stated, even though its principal joint-squarefree theorem does not state the present classification.",
+      "A 1969 paper on reversing digits was identified bibliographically but not read in full; its documented focus is reversal multiples, not local asymptotic gcd laws."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXACT_OBJECT_ALREADY_KNOWN; theorem on limiting prime-power congruences not stated",
+        "evidence": "Original author E. Friedman 2000-06-27; decimal gcd values and 3/9 divisibility implications are present.",
+        "identifier_or_url": "https://oeis.org/A055483",
+        "material_read": "complete visible OEIS page including author date, description, table, formula, comments, references and programs",
+        "method": "web page text read",
+        "title": "OEIS A055483: gcd of n and its digit reversal",
+        "trigger": "exact match of the arithmetic invariant and tabulated values"
+      },
+      {
+        "assessment": "EXACT_OBJECT_BINARY_CASE; neither limit nor general-base subgroup present in inspected entry",
+        "evidence": "L. Quet 2009-06-20, gcd(n,binary-reversal(n)) and example 70 ↦ 49.",
+        "identifier_or_url": "https://oeis.org/A161825",
+        "material_read": "visible sequence description, full shown terms, example, code and original author date",
+        "method": "web page text read",
+        "title": "OEIS A161825: binary gcd with digit reversal",
+        "trigger": "same invariant in the special base two"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT: palindromic integers, not unrestricted integers jointly with reversals",
+        "evidence": "arXiv:math/0405056v1 2004-05-04; Corollary 4.5 concerns palindrome residues modulo q coprime to b(b²−1).",
+        "identifier_or_url": "https://arxiv.org/pdf/math/0405056",
+        "material_read": "19-page PDF: abstract, introduction pp. 1–3, principal theorem descriptions, and selected preliminary estimate statements",
+        "method": "PDF full-text inspection of named sections and theorem statements",
+        "title": "Almost All Palindromes Are Composite",
+        "trigger": "overlapping b²−1 exceptional moduli, prime divisibility of symmetric decimal digits"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: binary squarefree distribution and some small local factors, not the all-base prime-power theorem as stated",
+        "evidence": "Theorem 1.4 gives 66/π^4 binary odd-endpoint squarefree-pair constant; Section 1.3 computes 22/27 at prime 3; Lemma 5.1 assumes a squarefree modulus d.",
+        "identifier_or_url": "https://arxiv.org/pdf/2309.11380",
+        "material_read": "38-page PDF: abstract, section 1.2, Theorem 1.4, section 1.3, section 5 Lemma 5.1, relevant proof in section 7.2",
+        "method": "PDF full-text inspection of relevant theorem and sections with page-image verification",
+        "title": "Reversible primes",
+        "trigger": "direct joint divisibility of binary integers and their digit reversals"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "094a313a-caaa-4239-ad15-f49162475ce5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The gcd of an integer and its digit reversal is a standard enumerated arithmetic invariant (OEIS A055483). The theorem provides its complete local p-adic limiting law in every base, identifies a sharp singularity and change of geometric decay at primes dividing b²−1, proves exactly which joint residue pairs occur asymptotically, and establishes finite-length stabilization at primes dividing the base. These structural local factors are independently relevant to reversible-prime and squarefree-pair sieves (Dartyge et al. 2023), and are not a trivial normalization or a table lookup. The result claims neither a global gcd distribution nor growing-modulus uniformity.",
+    "status": "PASS"
+  }
+}
