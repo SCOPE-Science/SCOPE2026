@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+Each proper face of the regular cross-polytope is specified by a set of coordinate axes and their signs. The section face count is the exact number of original faces whose projected vertex heights straddle the affine offset. Counting the forbidden sign patterns yields the binomial face-vector expression at every rank, and directly enumerating 945 small-dimensional cases agrees. The invariant hitting-plane measure weights each normal by the width, so the correct law uses *expected spacings divided by expected maximum*, not a uniform choice of Gaussian rank. Polar decomposition of a Gaussian vector proves that ratio, and integrated binomial order-statistic identities give explicit one-dimensional integrals. For each fixed rank, Gaussian maximum asymptotics and binomial concentration give the shared exponent \(j+2-U^2\) under the correctly width-size-biased law. Numerical checks are corroborative only.
+
+## Originality — PASS relative to inspected evidence
+The full accessible text of Ambrus's 2012 preprint establishes mean-width extremal inequalities and Gaussian maximum identities, not a face-vector law for random affine sections. Liu and Tkocz's 2019 full-text theorem section and its proofs address maximal section volumes and lengths, not the complete distribution of face counts. The closest recorded central-section results for cubes and simplices, and the affine-simplex random vertex-exponent result, concern different polytopes and do not logically imply the cross-polytope's all-rank binomial stratification. Searches for equivalent formulations (cross-polytope sections, positive/negative signed supports, half-normal thresholds, full face vectors) found no exact coverage. Residual historical priority and later unpublished work remain risks; no independent originality certification is claimed.
+
+## Value — PASS
+The formula is a *complete* probability law for the entire section face vector in each dimension, rather than a single expected count or a tabulation of one solid. It identifies exactly \(d-1\) statistically realized strata and their weights, with an explicit efficient integral for every probability. Its joint nondegenerate power-law limit shows that all fixed face ranks respond to one common asymptotic random threshold, which has a geometric interpretation in terms of affine offsets passing Gaussian coordinate heights. The distinction from central sections, whose combinatorial complexity is nearly deterministic, is substantive. The observed coincidence of some face vectors does not justify claiming complete face-lattice classification.
+
+## Closest literature and limits
+G. Ambrus, arXiv:1208.5923; R. Liu and T. Tkocz, arXiv:1910.06993; H. König, arXiv:2002.10743; Padrol and Pfeifle, arXiv:1404.2443. Some broader polytope-section literature may contain equivalent calculations under different terminology. The asymptotic theorem concerns fixed face ranks and logarithmic scales; it supplies no numerical convergence rates. The correctness arguments are mathematical, with reproducibility code supplementary.
+
+Self-review: passed. Independent audit: not yet performed.
