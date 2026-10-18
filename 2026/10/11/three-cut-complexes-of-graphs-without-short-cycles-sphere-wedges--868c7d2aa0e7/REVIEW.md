@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The dual-complex construction follows directly from the definition of ordinary three-cut facets. Every connected triple is a two-edge path and each such path has a unique nonedge between its endpoints; two distinct middle vertices for one endpoint pair would form a forbidden four-cycle. Therefore each triangle collapses over its own free edge. This gives the exact integral first cohomology of the dual and, by integral Alexander duality, the entire homology of the original complex. The complete lower skeleton and \(n\ge7\) allow the Hurewicz–Whitehead argument proving the wedge homotopy type. Signed path chains inject into the complete-graph cycle space, and the ambient orientation character in equivariant Alexander duality establishes the claimed group-character formula. The standalone direct-face verifier completes 374 signed-Lefschetz comparisons and six complete mod-two rank checks.
+PASS
 
-## Originality — PASS, with stated residual risk
+For any simple n≥7 graph with no C3,C4, reconstruct X=Alexander dual of the ordinary Δ3. Its full complete-graph one-skeleton, induced 2-edge path triangles, and absence of tetrahedra follow from every connected induced triple having exactly two edges and edge-count forcing a forbidden C4 on four vertices. Each path triangle has its endpoint nonedge as private free edge since a second common neighbor forms C4; independent collapses yield connected graph with binom(n,2)−p edges, cycle rank b=binom(n−1,2)−Σ_v binom(deg(v),2)≥0. Integral Alexander duality leaves only free H_{n−4}=Z^b. The full (n−5)-skeleton plus vanishing H_{n−5} yields (n−5)-connectivity for n−4≥3; Hurewicz and Whitehead establish wedge b S^{n−4}, including b=0 contractible. Equivariant chain exact sequence 0→signed Q[path triangles]→∧²Aug(Q^V)→H1(X;Q)→0, trace exterior-square identity and ambient orientation sign ε(g) give χ_{n−4}(g)=ε(g)((f(g)^2−f(g²))/2−f(g)+1−τ(g)). Neither equivariant wedge nor shellability claimed.
 
-The closest original source, Bayer et al., *Topology of Cut Complexes of Graphs* (arXiv:2304.13675), Theorem 6.1 and Proposition 6.2, already determines the codimension-one skeleton and an Euler-characteristic expression under the girth hypothesis; these ingredients and the isolated cycle/tree calculations are **not** presented as new. The later *Topology of Cut Complexes II* (arXiv:2407.08158) treats selected graph families and group representations. The hexagonal-grid result (arXiv:2512.21755) gives a specialized shellable subfamily. None of these inspected texts determines the complete automorphism character uniformly for all graphs without triangles or four-cycles, and the first source's general skeleton theorem alone does not imply vanishing of its permitted lower-degree homology. Residual risk: an equivalent general theorem in unlocated literature, possibly formulated through an Alexander dual of a partial two-dimensional clique complex, would cover part or all of the finding; absence from searches is not definitive novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The conclusion is a natural all-graph topological classification rather than a finite case or routine restatement of an Euler characteristic. The private opposite-edge collapse mechanism solves the previously undetermined lower homology uniformly, while the short exact sequence of signed path chains provides the full rational group representation of each graph's automorphism group. The formula treats disconnected graphs and high-symmetry examples with the same proof, including the Petersen graph as a consistency case, and yields a reusable template for equivariant cut-complex calculations. The exact nontrivial representation information is not implied by total Betti numbers alone.
+General all-girth≥5 integral wedge and full signed automorphism module are not shown to be covered by the close primary cut-complex articles; the numerical Euler term and certain family homotopies are already known and discounted. The related later Resultary theorem about C4-free graphs with triangles explicitly excludes the present triangle-free class and supplies no module character. This is best-of-knowledge, not an absence-of-literature certification.
 
-## Boundaries
+## value
 
-The homotopy equivalence is not claimed to respect graph symmetries. Graphs with triangles or four-cycles, and graphs on fewer than seven vertices, are outside the statement. The finite program is a verifier of examples, not a proof for infinitely many graphs. No shellability statement follows merely from the sphere-wedge result. Published equivalences not located remain possible.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+A uniform homotopy classification for all short-cycle-free graphs and a full symmetry character are natural topological/combinatorial structural invariants, not merely reprinting an Euler characteristic. The signed fixed-path correction distinguishes automorphisms with equal vertex traces, useful for equivariant homology/representation comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
