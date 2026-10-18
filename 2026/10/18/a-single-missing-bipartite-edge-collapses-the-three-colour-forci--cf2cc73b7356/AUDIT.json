@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For t=0, a first forced vertex requires two colours across its full neighbourhood, leaving the initially incomplete opposite side unforceable, so a whole n-side must be seeded. For t>0, 0-2 seeds cannot finish; from any successful 3 seeds the two different colours on one side compel the third seed on the other side to repeat one colour, and properness forces the repeated colour across a deleted matched nonedge. The converse forces all but two opposite-side vertices, then remaining near-side vertices, then the last opposite-side vertex; n>=4 ensures available witnesses. Count t*3*2*2*(n-1)=12t(n-1). Package-local exhaustive checks over n=4..7,t>=1 and intact n=4..6 agree; no finite-to-infinite inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The complete-bipartite theorem assumes every cross-edge is present, so the t>0 case is not a corollary.",
+        "The degree-two theorem has no coverage for n>=4: every G_{n,t} then has minimum degree n-1>=3.",
+        "Farr states general definitions/complexity and lambda=2 bipartite formulas but no t>0 lambda=3 exact classification."
+      ],
+      "reasoning": "Checked whether known general results or larger domain of parameters mathematically imply the 3-seed threshold; all named close results have incompatible graph/palette hypotheses.",
+      "searches": [
+        "partial three colouring forcing seed number complete bipartite graph with a matching deleted K_{n,n} minus t matching edges minimum seeds",
+        "single edge deletion complete bipartite graph minimum forcing partial 3 colouring seeds drops from n to three",
+        "2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+        "2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.17108v1 (full public HTML)",
+      "2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69 (full RESULT.md)",
+      "2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd (full RESULT.md)",
+      "2026/10/4/SCOPE-neighborhood-parity-odd-colorings-of-crown-graphs--fe94e840e8ec (summary only)",
+      "2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb (summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The complete-bipartite polynomial implies only the explicitly credited t=0 part; removing a matching changes every uncoloured vertex neighbourhood and the forcing proof.",
+        "The degree-two formulas cover C6 at n=3 but cannot imply unrestricted n>=4 with degrees >=3.",
+        "The new conclusion includes necessity and sufficiency of exactly the deleted matched-pair seed patterns."
+      ],
+      "reasoning": "Implication comparisons rule out subsumption by named closest works; the new threshold and exact count genuinely depend on the missing adjacency, not relabelling.",
+      "searches": [
+        "2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+        "2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+        "partial three colouring forcing seed number complete bipartite graph with a matching deleted K_{n,n} minus t matching edges minimum seeds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The seed number is the first exponent of the 3-colour forced-colouring polynomial at zero (Farr, arXiv:2609.17108v1).",
+        "No queried result gave a crown/matching-deletion coefficient or an equivalent three-seed pattern; strongest forcing matches concern intact bicliques."
+      ],
+      "reasoning": "Compared forcing number, chromatic completion of partial assignments, defining sets and coefficient of the forced-colouring polynomial rather than only matched titles.",
+      "searches": [
+        "forced three colouring chromatic forcing polynomial crown graph K n n minus perfect matching 2026",
+        "crown graph deleted perfect matching forced 3-coloring polynomial partial coloring forcing",
+        "forcing process crown graph three colors exact seed polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A same-graph non-CIS record counts disjoint maximal-clique/stable-set pairs, not forcing partial 3-assignments.",
+        "The intact-biclique result has first coefficient 6(2^n-2) at degree n; it does not table matching-deletion cases."
+      ],
+      "reasoning": "No search evidence of a table or existing formula giving 12t(n-1) for n>=4,t>0; finite custom verifier separately checks without implying priority.",
+      "searches": [
+        "forced three coloring polynomial coefficient p cubed K n n minus matching 12 t (n-1) seeds",
+        "crown graph deleted perfect matching forced 3-coloring polynomial partial coloring forcing",
+        "2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb"
+      ]
+    },
+    "rationale": "The new statement is a rigidity classification and exact minimum-seed count for K_{n,n} with a nonempty matching deleted; known exact results on the intact biclique (t=0) are not re-claimed. Exact comparison with the full primary three-colour forced-colouring paper, complete-bipartite public theorem, degree-two theorem and semantic record searches yielded no dominating statement. Residual risk: priority in unindexed equivalent literature.",
+    "residual_risks": [
+      "The available semantic search and published-source inspection cannot rule out an unindexed theorem phrased as precolouring completion or propagation on edge-deleted bicliques.",
+      "The neighbourhood-parity crown article and non-CIS matching-deleted record were compared from result summaries only, not full proofs; their invariants are distinct.",
+      "No independent priority validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines invariant and supports interpretation, but does not yield the new matching-deleted three-colour threshold or count.",
+        "evidence": [
+          "arXiv:2609.17108v1; sections on definition of forcing, polynomial coefficients and bipartite graph results."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.17108",
+        "material_read": "Full openly accessible HTML sections covering forcing definitions, polynomial, first exponent, all stated examples, bipartite two-colour result, complexity and future directions.",
+        "method": "Read primary public HTML text in detail and compared theorem hypotheses and implications.",
+        "title": "The forced colouring function of a graph",
+        "trigger": "Primary initiating definition and potential general theorem"
+      },
+      {
+        "assessment": "Covers t=0 baseline, not the t>0 claim.",
+        "evidence": [
+          "States FC3(K_{m,n};p)=3(2^m-2)p^m(1-2p)^n+3(2^n-2)p^n(1-2p)^m+6p^{m+n} and expressly limits scope to intact complete bipartite graphs."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+        "material_read": "Full RESULT.md: theorem, construction, proof, verification, limitations and references.",
+        "method": "Read public repository RESULT.md using read-only repository fetch; compared exact graph domain and full proof.",
+        "title": "Forced three-colouring polynomial of complete bipartite graphs",
+        "trigger": "Closest exact forcing-polynomial result on intact bicliques"
+      },
+      {
+        "assessment": "No domain overlap for the main theorem n>=4.",
+        "evidence": [
+          "Applies to graphs of maximum degree at most two. Here minimum degree is n-1>=3."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+        "material_read": "Full RESULT.md: all path and cycle formulas, proof, limitations and references.",
+        "method": "Read public repository RESULT.md and verify n>=4 minimum graph degree exceeds two.",
+        "title": "Exact forced 3-colouring polynomials at maximum degree two",
+        "trigger": "Possibly covers matching-deleted bicliques as paths/cycles"
+      },
+      {
+        "assessment": "Neighbourhood-parity colouring is not Farr local three-colour forcing; no direct implication established.",
+        "evidence": [
+          "Search record describes odd neighbourhood parity and count of minimum ordinary colourings, not partial-assignment propagation."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-neighborhood-parity-odd-colorings-of-crown-graphs--fe94e840e8ec",
+        "material_read": "Ranked result title and full abstract-style summary; not the full primary proof.",
+        "method": "Semantic record comparison only; no unsupported whole-document absence claim.",
+        "title": "Neighborhood-parity odd colorings of crown graphs",
+        "trigger": "Same graph family and a superficially similar 12n(n-1) number"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cf2cc73b-7356-4f89-9181-c30a78921cb3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A one-edge perturbation of the dense regular bipartite graph changes the smallest successful three-colour seed set from n to 3 for arbitrary n>=4, exposing a nonlocal sharp instability of the recently introduced forcing polynomial. The theorem additionally classifies every minimum forcing assignment and gives the exact coefficient 12t(n-1) over the entire matching-deletion family, a structural prediction not supplied by the intact-biclique or degree-two results.",
+    "status": "PASS"
+  }
+}
