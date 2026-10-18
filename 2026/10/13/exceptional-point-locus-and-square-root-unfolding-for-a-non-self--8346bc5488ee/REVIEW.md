@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source determinant is reduced exactly to a quadratic in \(\eta=\zeta(z)\). Its discriminant gives the coalescence locus. The source inversion lemma makes \(z(\eta)\) one-to-one and locally conformal at every admissible root. Algebraic multiplicity is identified with characteristic-determinant zero order by the finite-rank Krein resolvent and contour-trace identity, yielding multiplicity two at and only at a repeated quadratic root. The source's geometric-multiplicity theorem then separates the semisimple decoupled family from defective coalescences. The transverse Puiseux coefficient follows by differentiating the explicit inverse \(z(\eta)\).
+## correctness
 
-## Originality
-PASS. The closest source, arXiv:2205.05005, contains the quadratic eigenvalue equation and a geometric-multiplicity classification but states only finiteness of algebraic multiplicity; the inspected text does not classify Jordan defect, exceptional points, or the local square-root unfolding. arXiv:1705.04833 treats regular complex potentials and weak coupling rather than this singular point interaction. arXiv:2502.00480 develops a later general graph boundary-triple framework; searches of its full text found no occurrences of “algebraic multiplicity”, “exceptional”, or “Jordan” relevant to this claim. Targeted published-result searches found no statement implying the full algebraic/defective classification.
+PASS
 
-## Value
-PASS. Exceptional points are the natural degeneracies of non-self-adjoint spectra. Here the general coupling matrix has two possible isolated eigenvalues, so determining exactly where they coalesce, whether the double point is semisimple or defective, and how they split is the complete local degeneracy classification for the model. The result distinguishes a genuine exceptional locus from the source's decoupled multiplicity-two family and from its non-discrete spectral-flooding regime.
+PASS: Heriban–Tušek characteristic determinant equals (i/2η)[αη²+i(det A−4)η/2+δ], so for α≠0 its quadratic discriminant equals −[(det A−4)²+16αδ]/4. The repeated η*=−i(det A−4)/(4α) must obey the source inverse ζ admissibility (η nonreal and prescribed sign). z=m(η²+1)/(η²−1) is locally conformal there because z′=−4mη/(η²−1)²≠0. Analytic Krein/Birman–Schwinger determinant logarithmic-derivative trace and Riesz projection identify zero order with eigenvalue algebraic multiplicity, not just geometric multiplicity. The source geometric-multiplicity theorem isolates A=diag(α,−4/α) as semisimple double; all other admissible repeated roots are defective Jordan EP2. Expanding exact quadratic roots along Δ′≠0 gives coefficient −mη*/[α*(η*²−1)²] sqrt(−Δ(s)). α=0 otherwise linear unless excluded flooding. Exact checker reconstructed discriminant and two rank examples.
 
-## Closest literature and limitations
-The primary paper supplies the model, determinant, admissibility map and geometric multiplicity. The regular-potential work of Cuenin--Siegl is broader in perturbation shape but does not dominate the singular coupling-matrix statement. The later graph paper supplies a more general extension-theory framework but no inspected exceptional-point classification. Residual originality risk is that the determinant-order/Jordan consequence may have been recorded in unindexed notes using “multiple pole”, “defective eigenvalue”, or “spectral singularity” terminology. The theorem is local to the massive one-point model and does not address pseudospectra or regular approximants.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: Heriban–Tušek formulate the identical operator and characteristic equation and characterize geometric multiplicity, but the inspected complete paper states only finite algebraic multiplicity, not a complete algebraic/defective locus and transverse Puiseux coefficient. Later graph boundary-triple and regular complex-potential papers offer general machinery, not a stated all-coupling explicit degeneracy classification of this one-point model.
+
+## value
+
+PASS
+
+PASS: A closed exceptional-point/diabolic locus plus local eigenvalue-square-root coefficient is a natural spectral classification for non-self-adjoint point interactions; it distinguishes algebraic versus geometric coalescence and clarifies the source flooding exclusion, without requiring a general perturbation theory extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
