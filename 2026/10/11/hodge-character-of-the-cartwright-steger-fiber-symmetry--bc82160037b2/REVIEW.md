@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof fixes the generator convention from the primary source: three fixed points on the genus-\(19\) fiber have tangent multiplier \(\omega^2\), and the quotient has genus \(6\). Invariant holomorphic forms therefore have dimension \(6\). Holomorphic Lefschetz gives trace \(\omega^2\) on \(H^{1,0}\), forcing multiplicities \(6,6,7\). Complex conjugation then gives homology multiplicities \(12,13,13\). The resulting homological trace \(-1\) independently matches the source's ordinary Lefschetz computation. No finite experiment is used to infer an infinite statement.
+## correctness
 
-## Originality
-**PASS.** Full-text inspection of arXiv:2610.01467v1 found the fixed-point data, quotient genus, and the scalar trace \(-1\), but no statement of the full homology characteristic polynomial, no \(H^{1,0}\) eigenspace decomposition, and no Prym Hodge signature. The older arXiv:1412.4137 establishes the genus and fixed-point geometry but likewise does not state this character calculation. Targeted searches for the characteristic polynomial, the \(6,6,7\) Hodge decomposition, the Prym interpretation, and generic genus-\(19\) triple-cover formulations found no equivalent claim. A related recent result about Cartwright–Steger critical values concerns arithmetic on the elliptic base, not the fiber homology representation.
+PASS
 
-## Value
-**PASS.** The \(6,6,7\) Hodge character is a natural invariant of the newly studied order-three symmetry, not an arbitrary parameter slice. It identifies the entire rational \(C_3\)-module on first homology and the dimension/signature data of the Prym part. These data constrain equivariant homology and Hodge-theoretic analyses of the monodromy problem that the source leaves open, and are strictly stronger than the source's single trace value.
+For a genus-19 invariant curve F with quotient genus6 under C3, invariant holomorphic differentials have d0=6 and d1+d2=13. Holomorphic Lefschetz for exactly three points with tangent multiplier omega^2 yields 1-conj(tr_H10)=3/(1-omega^2)=1-omega; hence tr_H10=omega^2. Since tr=6+d1*omega+d2*omega^2 and omega^2=-1-omega, this gives d1=6,d2=7. Complex-conjugate H01 contributes eigenvalue multiplicities (6,7,6), so H1 multiplicities (12,13,13), characteristic polynomial (t-1)^12(t²+t+1)^13. Its degree 38 and trace -1 agree with genus and ordinary Lefschetz; Riemann–Hurwitz: 36=3*10+3*2, checks quotient genus. Prym dimension=19-6=13, Hodge multiplicities 6/7. This is an exact symbolic argument conditional on quoted generator/local-multiplier convention, not an invented verification of the unavailable primary passage.
 
-## Closest literature and limitations
-The closest source is Akhmedov–Yeung, arXiv:2610.01467v1, because it supplies exactly the rotation data and quotient genus used here. Cartwright–Koziarz–Yeung, arXiv:1412.4137, is the geometric predecessor. The result does not determine the integral module structure or Prym polarization. Residual originality risk remains that a general cyclic-cover reference may encode the same eigenspace dimensions without mentioning the Cartwright–Steger fiber explicitly.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The Cartwright–Steger and Akhmedov–Yeung papers supply surface/fiber geometry, quotient genus and Lefschetz-trace inputs, but no located published result states the full H^{1,0} character or the associated Prym Hodge multiplicities. General holomorphic Lefschetz/Chevalley–Weil is precisely the standard tool applied here; it does not by itself publish the values for this special fiber without branch/genus inputs. Best-of-knowledge PASS with serious residual risk due inaccessible 2026 primary full text and the directness of the corollary.
+
+## value
+
+PASS
+
+The exact Eisenstein Hodge signature of a natural 13-dimensional Prym in a well-studied ball-quotient fibration is an identifiable representation-theoretic invariant potentially needed for polarization, deformation and monodromy comparisons. It refines merely knowing genus19, quotient genus6 and total H1 trace. This is a narrow natural exact invariant, not a claim to solve integral lattice or handle-return monodromy problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
