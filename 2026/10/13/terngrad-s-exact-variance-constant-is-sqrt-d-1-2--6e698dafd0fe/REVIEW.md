@@ -1,38 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Source-form TernGrad gives the exact moment identity
-\[
-\mathbb E\|Q(g)\|_2^2=\|g\|_\infty\|g\|_1.
-\]
-A sharp Cauchy--Schwarz reduction proves that
-\[
-\sup_{g\ne0}
-\frac{\|g\|_\infty\|g\|_1}{\|g\|_2^2}
-=
-\frac{\sqrt d+1}{2},
-\]
-with a complete equality family. This yields the minimal variance parameter and the exact isotropic-quadratic one-step factor. Direct finite-distribution replay agrees with every displayed formula.
+PASS
 
-Scientific risk: the optimization consequence is deliberately limited to one deterministic isotropic quadratic step.
+The exact source-form ternary rounding gives E Q(g)=g and E||Q(g)||²=||g||∞||g||1, hence E||Q(g)−g||²=M||g||1−||g||². Normalize one |g_i|=M=1; with S=sum other magnitudes and R=sum their squares ≥S²/(d−1), the ratio ≤(1+S)/(1+S²/(d−1)), maximized at S=√d−1 with all other magnitudes 1/(√d+1), giving sharp (√d+1)/2 and variance parameter ω*=(√d−1)/2. d=1 zero variance separately. For f=L||x||²/2 with h=ηL and only source-form TernGrad randomness, worst expected one-step factor exactly 1−2h+[(√d+1)/2]h². Thus descent iff 0<h<4/(√d+1), unique minimax h*=2/(√d+1), factor (√d−1)/(√d+1); h=1 neutral at d9 and adverse for d≥10 on equality direction. Independently checked extremizers numerically for several dimensions; all-dimensional assertion is analytic.
 
-## Originality
+## originality
 
-PASS. The defining TernGrad paper exposes the mixed norm quantity but does not optimize it. A later compression-theory table assigns ternary quantization the sufficient parameter
-\[
-\sqrt d-1,
-\]
-while the accepted result proves the minimal value
-\[
-\frac{\sqrt d-1}{2}.
-\]
-Focused comparisons found no implication-equivalent sharp constant, equality classification, or exact TernGrad quadratic stepsize frontier.
+PASS
 
-Residual risk: an unindexed mathematical note may contain the same sharp norm inequality outside the compression literature.
+The original TernGrad paper fixes this quantizer but does not in its inspected analysis give the global sharp 1/2-improved compressor variance parameter. The later unbiased-compression comparison table explicitly lists sufficient ω=√d−1, not the minimum. This finding optimizes the same model and adds an exact quadratic one-step stability frontier; the earlier sufficient table alone does not imply sharpness.
 
-## Value
+## value
 
-PASS. Compressor variance is a central parameter in convergence guarantees for compressed optimization. The factor-two sharpening is exact in every nontrivial dimension, identifies the worst gradient shape, and yields a natural complete stepsize classification on the isotropic quadratic.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Optimal variance constants affect mathematically meaningful compressor guarantees; halving the conventional sufficient parameter and obtaining an attained dimension-dependent descent boundary provide quantitative design insight, even though the one-step quadratic model is deliberately limited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:47:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact source-form ternary rounding gives E Q(g)=g and E||Q(g)||²=||g||∞||g||1, hence E||Q(g)−g||²=M||g||1−||g||². Normalize one |g_i|=M=1; with S=sum other magnitudes and R=sum their squares ≥S²/(d−1), the ratio ≤(1+S)/(1+S²/(d−1)), maximized at S=√d−1 with all other magnitudes 1/(√d+1), giving sharp (√d+1)/2 and variance parameter ω*=(√d−1)/2. d=1 zero variance separately. For f=L||x||²/2 with h=ηL and only source-form TernGrad randomness, worst expected one-step factor exactly 1−2h+[(√d+1)/2]h². Thus descent iff 0<h<4/(√d+1), unique minimax h*=2/(√d+1), factor (√d−1)/(√d+1); h=1 neutral at d9 and adverse for d≥10 on equality direction. Independently checked extremizers numerically for several dimensions; all-dimensional assertion is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General compressor theory gives parameter-dependent convergence bounds and source-form inequality, not a dimension-wise attained variance constant and exact isotropic-quadratic step envelope for this rule."
+        ],
+        "reasoning": "The current extremal ratio is a sharp refinement rather than an automatic corollary of a table whose entry is explicitly non-minimal.",
+        "searches": [
+          "Safaryan et al. 2022 uncertainty principle compression Table 1",
+          "TernGrad 2017 NeurIPS quantitative analysis"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 748339c8f401322b3db560e878164c2c11828d01",
+        "Open full arXiv:1705.07878v1 quantizer section",
+        "Open full arXiv:2002.08958v1 compressor table",
+        "Resultary semantic TernGrad sharp variance",
+        "Independent direct equality-direction dimension checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The underlying variance identity permits the present one-variable maximization; the cited parameter ω=√d−1 cannot certify the sharp ω*=(√d−1)/2 or its equality directions."
+        ],
+        "reasoning": "Present proof supplies exact Cauchy–Schwarz optimizer; isotropic quadratic expected descent frontier uses the sharp ratio and is not asserted as a generic multi-worker convergence bound.",
+        "searches": [
+          "Wen et al. TernGrad Bernoulli quantization moments",
+          "Safaryan et al. class U(ω) and sufficient ω"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "TernGrad defines E||Q(g)||²=M||g||1; table classifies ternary quantizer with valid ω=√d−1 but does not state its optimality or this equality family."
+        ],
+        "reasoning": "Source-form TernGrad quantization has equivalent descriptions via unbiased compression, but a sufficient variance bound is not the exact supremum.",
+        "searches": [
+          "TernGrad arXiv:1705.07878 quantizer Bernoulli infinity norm",
+          "Safaryan–Shulgin–Richtárik arXiv:2002.08958 Table 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search retrieved tangential norm-geometry and optimization results but not TernGrad exact one-bucket half-size parameter; prior compression table records only √d−1."
+        ],
+        "reasoning": "Published table is relevant but only an upper bound; exact extremizing vectors need independent derivation.",
+        "searches": [
+          "Resultary semantic: TernGrad exact tight relative variance parameter (sqrt(d)-1)/2 quantizer infinity one norm ratio",
+          "Safaryan compressor table"
+        ]
+      },
+      "rationale": "The original TernGrad paper fixes this quantizer but does not in its inspected analysis give the global sharp 1/2-improved compressor variance parameter. The later unbiased-compression comparison table explicitly lists sufficient ω=√d−1, not the minimum. This finding optimizes the same model and adds an exact quadratic one-step stability frontier; the earlier sufficient table alone does not imply sharpness.",
+      "residual_risks": [
+        "The one-variable norm ratio might already appear as an unindexed known extremal inequality or independent TernGrad sharpening.",
+        "Optimization corollary is one-step isotropic quadratic only; does not certify global stochastic or distributed training convergence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms quantizer but not in inspected portion the sharp global variance constant",
+          "evidence": [
+            "Q_i=M sign(g_i) B_i with P(B_i=1)=|g_i|/M is the exact model."
+          ],
+          "identifier_or_url": "arXiv:1705.07878v1",
+          "material_read": "Open complete PDF quantizer definition and exact coordinate-wise Bernoulli scaling (relevant equations and surrounding analysis)",
+          "method": "arXiv open-access PDF text with page image",
+          "title": "TernGrad: Ternary Gradients to Reduce Communication in Distributed Deep Learning",
+          "trigger": "Same ternary quantization scheme and moments"
+        },
+        {
+          "assessment": "Lists sufficient TernGrad ω=√d−1, no minimality certificate for that entry",
+          "evidence": [
+            "An attained lower exact ω*=(√d−1)/2 is a nontrivial refinement of the stated table bound."
+          ],
+          "identifier_or_url": "arXiv:2002.08958v1; doi:10.1093/imaiai/iaab006",
+          "material_read": "Public full-text ar5iv Table 1 and nearby U(ω) definitions",
+          "method": "lawful open-access full text",
+          "title": "Uncertainty Principle for Communication Compression in Distributed and Federated Learning and the Search for an Optimal Compressor",
+          "trigger": "Most plausible existing exact unbiased compressor parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Optimal variance constants affect mathematically meaningful compressor guarantees; halving the conventional sufficient parameter and obtaining an attained dimension-dependent descent boundary provide quantitative design insight, even though the one-step quadratic model is deliberately limited.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 748339c8f401322b3db560e878164c2c11828d01",
+    "Open full arXiv:1705.07878v1 quantizer section",
+    "Open full arXiv:2002.08958v1 compressor table",
+    "Resultary semantic TernGrad sharp variance",
+    "Independent direct equality-direction dimension checks"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The one-variable norm ratio might already appear as an unindexed known extremal inequality or independent TernGrad sharpening.",
+    "Optimization corollary is one-step isotropic quadratic only; does not certify global stochastic or distributed training convergence."
+  ],
+  "schema_version": 1
+}
