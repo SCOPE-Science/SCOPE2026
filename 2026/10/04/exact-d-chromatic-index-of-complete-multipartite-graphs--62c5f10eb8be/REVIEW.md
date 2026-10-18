@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For disjoint edges in a complete multipartite graph, the D-condition applies exactly when their four endpoints are not contained in the same two multipartition classes. Therefore the edge-conflict graph is the complete join of \(L(K_{n_i,n_j})\) over all unordered part-pairs. Chromatic number is additive under graph join, while each factor has chromatic number \(\max\{n_i,n_j\}\) by an explicit cyclic edge coloring and the degree lower bound. The algebraic comparison with the conjectured bound is exact. The finite verifier independently reconstructs the conflict graph and optimum on every multipartite type through order \(7\), while larger constructive checks test the stated coloring.
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:2606.06831v1, was inspected in full. It introduces D-coloring, states the general conjecture, and covers the complete-bipartite endpoint through the diamond-free observation and the complete-graph endpoint through sharpness, but it does not state an arbitrary complete-multipartite theorem; its full text contains no occurrence of “multipartite.” The later same-invariant paper arXiv:2609.01875v1 was also inspected in full and likewise contains no occurrence of “multipartite”; its theorem is a general asymptotic upper bound. Focused searches for exact formulas, complete-tripartite aliases, the conflict decomposition, and dominating bounds found no covering result. Residual risk is limited to poorly indexed or unpublished material.
+PASS
 
-## Value
-PASS. Complete multipartite graphs are a standard dense test family for edge-coloring conjectures. The result does more than verify an upper bound: it identifies the exact D-conflict graph, pinpoints precisely where color reuse is possible, and decomposes the optimum into bipartite-cut palettes. It proves the central conjectured bound on an infinite family with unbounded maximum degree and determines all equality cases inside that family.
+From Wang's exact diamond conflict criterion, two disjoint edges must differ in color exactly when at least three connector edges are present. For complete multipartite graphs, disjoint edges lying in different unordered part-pairs have at least three connectors, whereas distinct disjoint edges in one fixed bipartite cut have precisely two. Therefore the entire edge-conflict graph is the graph join of L(K_{n_i,n_j}) across unordered part pairs. Chromatic numbers add over a join; bipartite cut K_{a,b} has ordinary chromatic index max(a,b), shown by a proper cyclic modulo max(a,b) coloring and the max-degree lower bound. Sorting parts gives sum_{i<j}max(n_i,n_j)=sum_{i<r}(r-i)n_i. With s=r-1 and Delta=sum_{i=1}^s n_i, the difference from Delta(Delta+1)/2 is >=(Delta-s)(Delta-s+1)/2; equality forces all parts singleton. Inspected verifier reconstructs adjacency via all four connectors, uses exact coloring on isomorphism types up to 7 vertices (37 types) and explicit valid colorings through 10 (128 types); these are finite checks only.
 
-## Closest literature and limitations
-Wang’s introducing preprint supplies the exact D-coloring definition and conjecture. The bipartite and complete-graph endpoint cases are not claimed as new; the new content is the arbitrary multipartite decomposition and exact value. The theorem does not settle the universal conjecture. The computational checks are finite stress tests, not a substitute for the analytic proof.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for arbitrary-part complete multipartite graph join decomposition and exact D-chromatic formula, while acknowledging that the complete-bipartite r=2 endpoint is routine ordinary edge coloring and the all-singleton complete-graph equality case is already in Wang. The new content is their simultaneous arbitrary-multipartite extension; a related unindexed theorem remains a risk.
+
+## value
+
+PASS
+
+The exact D-chromatic index for every complete multipartite graph is a natural global classification that resolves a general conjectured quadratic bound on a nontrivial infinite graph family. The join decomposition provides a structural description of exactly when colors can be reused; not merely a small numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

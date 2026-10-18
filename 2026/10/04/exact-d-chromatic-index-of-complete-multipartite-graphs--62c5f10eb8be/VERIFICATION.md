@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof has three independently checkable steps. First, two disjoint edges of a complete multipartite graph fail to see each other in the D-sense exactly when both join the same unordered pair of parts. Second, this makes the D-conflict graph the complete join of the line graphs \(L(K_{n_i,n_j})\). Third, \(K_{n_i,n_j}\) has a proper edge coloring with \(\max\{n_i,n_j\}\) colors by the modular rule \(a+b\pmod{\max\{n_i,n_j\}}\), matching the degree lower bound.
+## correctness
 
-`verify.py` reconstructs the edge-conflict graph from the connector definition rather than from the theorem. It exactly computes the conflict-graph chromatic number by backtracking for every complete multipartite type of order at most \(7\), compares those optima with the formula, checks the structural characterization on every disjoint edge pair encountered, verifies the explicit palette construction through order \(10\), and checks the conjectured inequality/equality condition on a finite box of part sizes.
+PASS
 
-Recorded replay output:
+From Wang's exact diamond conflict criterion, two disjoint edges must differ in color exactly when at least three connector edges are present. For complete multipartite graphs, disjoint edges lying in different unordered part-pairs have at least three connectors, whereas distinct disjoint edges in one fixed bipartite cut have precisely two. Therefore the entire edge-conflict graph is the graph join of L(K_{n_i,n_j}) across unordered part pairs. Chromatic numbers add over a join; bipartite cut K_{a,b} has ordinary chromatic index max(a,b), shown by a proper cyclic modulo max(a,b) coloring and the max-degree lower bound. Sorting parts gives sum_{i<j}max(n_i,n_j)=sum_{i<r}(r-i)n_i. With s=r-1 and Delta=sum_{i=1}^s n_i, the difference from Delta(Delta+1)/2 is >=(Delta-s)(Delta-s+1)/2; equality forces all parts singleton. Inspected verifier reconstructs adjacency via all four connectors, uses exact coloring on isomorphism types up to 7 vertices (37 types) and explicit valid colorings through 10 (128 types); these are finite checks only.
 
-`ALL CHECKS PASSED; exact_types=37; exact_edges=388; structural_disjoint_pairs=1088; constructive_types=128; constructive_edges=2926; bound_cases=456`
+## originality
 
-The finite verification does not prove the statement for arbitrary orders; that role is supplied by the analytic proof in `RESULT.md`. No independent external audit has been performed.
+PASS
+
+Best-of-knowledge PASS for arbitrary-part complete multipartite graph join decomposition and exact D-chromatic formula, while acknowledging that the complete-bipartite r=2 endpoint is routine ordinary edge coloring and the all-singleton complete-graph equality case is already in Wang. The new content is their simultaneous arbitrary-multipartite extension; a related unindexed theorem remains a risk.
+
+## value
+
+PASS
+
+The exact D-chromatic index for every complete multipartite graph is a natural global classification that resolves a general conjectured quadratic bound on a nontrivial infinite graph family. The join decomposition provides a structural description of exactly when colors can be reused; not merely a small numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

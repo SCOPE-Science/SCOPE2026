@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T06:52:59.309402Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-d-chromatic-index-of-complete-multipartite-graphs--62c5f10eb8be/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-d-chromatic-index-of-complete-multipartite-graphs--62c5f10eb8be/verify.py"
+      ],
+      "rationale": "From Wang's exact diamond conflict criterion, two disjoint edges must differ in color exactly when at least three connector edges are present. For complete multipartite graphs, disjoint edges lying in different unordered part-pairs have at least three connectors, whereas distinct disjoint edges in one fixed bipartite cut have precisely two. Therefore the entire edge-conflict graph is the graph join of L(K_{n_i,n_j}) across unordered part pairs. Chromatic numbers add over a join; bipartite cut K_{a,b} has ordinary chromatic index max(a,b), shown by a proper cyclic modulo max(a,b) coloring and the max-degree lower bound. Sorting parts gives sum_{i<j}max(n_i,n_j)=sum_{i<r}(r-i)n_i. With s=r-1 and Delta=sum_{i=1}^s n_i, the difference from Delta(Delta+1)/2 is >=(Delta-s)(Delta-s+1)/2; equality forces all parts singleton. Inspected verifier reconstructs adjacency via all four connectors, uses exact coloring on isomorphism types up to 7 vertices (37 types) and explicit valid colorings through 10 (128 types); these are finite checks only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2606.06831",
+          "https://arxiv.org/abs/2609.01875"
+        ],
+        "reasoning": "Wang proves a universal coarser quadratic upper bound and conjectures a sharper universal one; Tian–Wang improves a sufficiently-large-degree bound. A general bound does not imply this exact multipartite value and structure. The triangle-free bipartite endpoint is already classical.",
+        "searches": [
+          "D coloring diamond rainbow complete multipartite graph exact D chromatic index sum largest parts"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.06831",
+        "https://arxiv.org/abs/2609.01875",
+        "D coloring diamond rainbow complete multipartite graph exact D chromatic index sum largest parts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2606.06831",
+          "https://arxiv.org/abs/2609.01875",
+          "König edge-coloring theorem for complete bipartite graphs"
+        ],
+        "reasoning": "Wang’s conjecture implies only an upper bound; his complete-graph extremizer and the diamond-free bipartite edge coloring solve two endpoints only. Neither implies the r>=3 mixed-size join decomposition or the exact sum.",
+        "searches": [
+          "D coloring diamond rainbow complete multipartite graph exact D chromatic index sum largest parts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2606.06831",
+          "Wang’s cross-connector equivalence for nonincident edges",
+          "Resultary same-record exact formula; unrelated multipartite coloring search hits"
+        ],
+        "reasoning": "Converting Wang’s connector condition into a conflict graph yields the join of line graphs of all bipartite cuts, a stronger structural equivalent than a numerical coloring formula. Neither inspected original theorem states this full graph-join identity.",
+        "searches": [
+          "D coloring diamond rainbow complete multipartite graph exact D chromatic index sum largest parts",
+          "\"D-chromatic index\" \"complete multipartite\" graph formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact match is the assigned record itself; other hit titles concern majority, rainbow domination, and different multipartite color notions."
+        ],
+        "reasoning": "No independent exact multipartite D-chromatic index table was located. Only a finite verifier-generated table appears in the assigned package; search noncoverage is not novelty proof.",
+        "searches": [
+          "D coloring diamond rainbow complete multipartite graph exact D chromatic index sum largest parts"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for arbitrary-part complete multipartite graph join decomposition and exact D-chromatic formula, while acknowledging that the complete-bipartite r=2 endpoint is routine ordinary edge coloring and the all-singleton complete-graph equality case is already in Wang. The new content is their simultaneous arbitrary-multipartite extension; a related unindexed theorem remains a risk.",
+      "residual_risks": [
+        "Tian–Wang full text/appendix not exhaustively inspected; the abstract-level broader bound is not sufficient to certify whole-paper noncoverage.",
+        "Other sources may have equivalent graph join decomposition under edge-conflict language."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Contains the definitions/general bound and complete-graph equality, but no arbitrary complete multipartite exact formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.06831",
+          "material_read": "Accessible full preprint HTML, introduction, definition, connector equivalence, main bound and conjecture",
+          "method": "Compared exact hypotheses, theorem statements, proof mechanisms, and logical implications rather than titles.",
+          "title": "Proper edge coloring with rainbow diamonds",
+          "trigger": "Introduces D-coloring and the diamond/connector criterion"
+        },
+        {
+          "assessment": "PARTIAL_RISK",
+          "evidence": "As described gives sufficiently-large-Delta general upper bound, not an exact multipartite index; appendix/full text remains unchecked.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.01875",
+          "material_read": "Available abstract and theorem description; full original PDF was not obtained and not claimed read",
+          "method": "Compared exact hypotheses, theorem statements, proof mechanisms, and logical implications rather than titles.",
+          "title": "A stronger upper bound on the D-chromatic index",
+          "trigger": "Potential broader dominating bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.06831",
+        "https://arxiv.org/abs/2609.01875"
+      ],
+      "rationale": "The exact D-chromatic index for every complete multipartite graph is a natural global classification that resolves a general conjectured quadratic bound on a nontrivial infinite graph family. The join decomposition provides a structural description of exactly when colors can be reused; not merely a small numerical improvement.",
+      "residual_risks": [
+        "Scope is bounded to the exact natural object class and invariant stated, not a general extension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Tian–Wang full text/appendix not exhaustively inspected; the abstract-level broader bound is not sufficient to certify whole-paper noncoverage.",
+    "Other sources may have equivalent graph join decomposition under edge-conflict language."
+  ],
+  "schema_version": 1
+}
