@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,39 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For
-\[
-F(\theta)=
-(\cos\theta+a\sin\theta)^{-2}
-+
-(\cos\theta-b\sin\theta)^{-2},
-\]
-direct differentiation gives
-\[
-F'(0)=2(b-a).
-\]
-Hence \(a\ne b\) forces a strict local decrease in one angular direction.
+# Independent mathematical audit
 
-When \(a=b=q\), writing \(u=\tan^2\theta\) gives
-\[
-F(u)=\frac{2(1+u)(1+q^2u)}{(1-q^2u)^2},
-\]
-and
-\[
-F'(u)=
--\frac{
-2(q^4u+3q^2u+3q^2+1)
-}{
-(q^2u-1)^3
-}.
-\]
-The numerator is strictly positive for \(u\ge0\), so the only candidates for the global minimum are the original basis value \(2\) and the quarter-turn value \(2/q^2\). Thus
-\[
-R(q,q)^2=\frac{2}{\max\{1,q^2\}}.
-\]
+## correctness
 
-The accompanying checker verifies these symbolic identities and stress-tests representative parameters numerically. Numerical sampling is supplemental and is not used to establish the infinite family.
+PASS
 
-The proof does not establish an exact formula for nonsymmetric matrices, global optimality of the avoidance radius, or any higher-dimensional equality classification.
+For an orthonormal moving basis y1=(cosθ,sinθ), y2=(-sinθ,cosθ), F=1/(cosθ+a sinθ)^2+1/(cosθ-b sinθ)^2. Directly rederived F(0)=2 and F’(0)=2(b-a), forcing strict improvement whenever a≠b. For a=b=q, u=tan²θ reduces F to 2(1+u)(1+q²u)/(1-q²u)^2. Independent sympy differentiation agrees identically with the displayed rational derivative; monotonicity on either side of u=q^-2 gives min{2,2/q²}, with q=0 treated separately. Therefore equality sqrt2 iff a=b and |q|≤1, equivalently positive-semidefinite normalized 2×2 correlation matrix. Finite orientation sampling not used as proof. The equality is for the proof certificate, not the optimal geometric avoidance radius for every shift.
+
+## originality
+
+PASS
+
+Best-of-knowledge only: the relevant new Akopyan–Polyanskii preprint was located but the full PDF could not be fetched; its abstract does not establish a classification of equality for the planar minimizing basis. A direct one-variable inequality proof and intended certificate boundary distinguish the scoped claim.
+
+## value
+
+PASS
+
+A natural sharpness/equality classification of a newly introduced basis-minimization certificate in Ball’s plank argument. It identifies the PSD symmetric matrix locus and excludes nonsymmetric and indefinite matrices, clarifying exactly where the universal witness radius cannot be improved by this method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

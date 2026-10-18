@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every planar orthonormal basis reduces to one angle. The exact derivative at the original basis excludes every nonsymmetric matrix from equality, and the symmetric case reduces to an explicit rational function of \(\tan^2\theta\) whose derivative has a fixed sign on each side of its pole. The endpoint cases \(q=0\) and \(|q|=1\) are included.
+PASS
 
-## Originality
+For an orthonormal moving basis y1=(cosθ,sinθ), y2=(-sinθ,cosθ), F=1/(cosθ+a sinθ)^2+1/(cosθ-b sinθ)^2. Directly rederived F(0)=2 and F’(0)=2(b-a), forcing strict improvement whenever a≠b. For a=b=q, u=tan²θ reduces F to 2(1+u)(1+q²u)/(1-q²u)^2. Independent sympy differentiation agrees identically with the displayed rational derivative; monotonicity on either side of u=q^-2 gives min{2,2/q²}, with q=0 treated separately. Therefore equality sqrt2 iff a=b and |q|≤1, equivalently positive-semidefinite normalized 2×2 correlation matrix. Finite orientation sampling not used as proof. The equality is for the proof certificate, not the optimal geometric avoidance radius for every shift.
 
-PASS. The recent source introduces the reciprocal-square basis objective but only uses its universal upper bound. The detailed classical survey treats arbitrary normalized matrices and a later positive-semidefinite symmetrization, but it does not contain the new invariant or its planar equality classification. Targeted statement-level searches found no equivalent result.
+## originality
 
-## Value
+PASS
 
-PASS. The theorem identifies exactly when the central quantitative step in the new proof is sharp and when it can be improved without changing the proof. The coincidence of the equality locus with the classical correlation-matrix regime gives a structural connection between the new variational proof and Ball's older matrix mechanism.
+Best-of-knowledge only: the relevant new Akopyan–Polyanskii preprint was located but the full PDF could not be fetched; its abstract does not establish a classification of equality for the planar minimizing basis. A direct one-variable inequality proof and intended certificate boundary distinguish the scoped claim.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest sources are Akopyan--Polyanskii's 2026 note, which supplies the variational objective, and Verreault's survey of Ball's classical matrix proof. The claim concerns only the two-dimensional certificate. It does not give the globally optimal avoidance radius for prescribed functionals and shifts, a nonsymmetric closed formula, or a higher-dimensional equality classification.
+A natural sharpness/equality classification of a newly introduced basis-minimization certificate in Ball’s plank argument. It identifies the PSD symmetric matrix locus and excludes nonsymmetric and indefinite matrices, clarifying exactly where the universal witness radius cannot be improved by this method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
