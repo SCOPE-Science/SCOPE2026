@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-On the stated finite reversible trait ladder, the pulse propagator has an adjoint fitness weight with positive adjacent differences: its gradient satisfies a cooperative tridiagonal equation with a strictly positive forcing whenever the translated contact profile is nonzero. Mutation preserves the sign of initial adjacent density differences. The exact Dirichlet identity then assigns a strict sign to the derivative of terminal infected mass with respect to the pulse start. A second proof treats the Neumann continuum by the strong parabolic maximum principle and integration by parts. The two-trait exponential formula supplies an independent closed-form sign witness. No numerical census is treated as an infinite proof. The model is explicitly linearized and the observation is finite-horizon infected mass.
+PASS
 
-## Originality — PASS within the stated model
+Reconstructed factorization M(a)=exp(-mu T) f^T H_a rho0, since mutation after the pulse preserves mass. Finite edge-gradient matrix B irreducible Metzler, with positive forcing u(s)(lambda_{i+1}-lambda_i) f_i>0 during positive-measure pulse; hence Df>0. Symmetric H_a preserves sign of initial D rho0; identity M'(a)=-exp(-mu T) sum_i c_i (Df)_i(DH_a rho0)_i determines strict sign. Continuum derivative solves Dirichlet parabolic PDE with nonnegative source and strong positivity; Neumann p' sign persists. Independently checked finite identity, 2-state exact formula and sign for a=.2 and b=1. Same conclusion not claimed in nonlinear susceptible-depleting epidemics.
 
-Lamata-Otín, Arenas, Gómez-Gardeñes and Soriano-Paños (2026, arXiv:2603.18801v1/v2) introduce the relevant evolving-infectivity epidemic equation and investigate duration-dependent, nonlinear control outcomes, but their main text and supplementary notes do not give a translation-order theorem for one fixed contact window and monotone initial infectivity profiles. Patil, Ahmed, Viossat and Noble (2025) examine stochastic multitype cancer evolutionary-rescue treatment timing, not this linear reflected mutation–selection comparison. Ballard, Bean and Ross (2017) discuss stochastic SIR intervention timing without diffusion in a transmissibility trait. The prior evolving-infectivity SIR final-size domain result concerns susceptibility exhaustion with nonlinear depletion and does not entail the present finite-horizon timing comparison. The tools of positive semigroups, Dirichlet forms and time-ordered evolutions are established mathematics, not claimed as inventions here. Residual risk: a broad semigroup rearrangement theorem may already contain the result as an unnamed special case; no uniqueness or independent originality certification is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives a complete, all-contact-strength direction criterion for positioning a fixed window of possible contact relative to mutation: low-infectivity-enriched infected populations make a later window maximize terminal linearized burden, while high-infectivity-enriched populations make an earlier window maximize it. Uniform initial trait density is exactly indifferent. This identifies a natural and experimentally interpretable dependence of optimal contact-window placement on the infected trait distribution, for every ladder size and the bounded reflecting continuum. The claim does not extrapolate to whole-epidemic policy without susceptible-depletion dynamics.
+Earlier evolving-infectivity SIR literature gives trait mutation equations and interventions, with nonlinear endpoints, not an exact all-amplitude fixed-horizon monotone-profile pulse translation theorem in symmetric mutation semigroup. Classical heat-kernel positivity and Dirichlet forms are acknowledged as established methods. Best-of-knowledge positive after full accessible Lamata-Otín source comparison.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Proves an exact sign reversal of optimal timing controlled solely by initial trait ordering, without a weak-selection assumption. This is a motivated structural comparison for epidemic invasion and continuous trait-diffusion control; an exact two-trait witness and continuum theorem show it is not merely an arbitrary small model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The analytic finding is proved in `RESULT.md` using a symmetric mutation generator, its positive edge-gradient semigroup, strict positivity of the pulse adjoint weight, and a Dirichlet-form differentiation identity. The reflecting continuum follows from Dirichlet gradient positivity and integration by parts. These steps establish strict inequalities for every admissible dimension and contact intensity, not merely a finite enumeration.
+## correctness
 
-Run `python verify.py` with Python 3.9 or newer (standard library only). It checks 81 exact-rational instances of all three essential finite-dimensional algebraic identities (mutation-edge gradient intertwining, adjoint pulse forcing, and weighted Dirichlet integration by parts). It then evaluates the closed two-trait formula for a fully specified positive rational parameter choice and reports `VERIFY_OK`. The floating-point evaluation illustrates the exact symbolic formula; it is not used to prove positivity. The script does not test or validate the nonlinear susceptible-depletion model.
+PASS
 
-Self-review checked the formal domain, strictness, endpoint cases, recovery normalization, the time-reversal of the pulse adjoint and the limits of extrapolation. Independent audit and independent validation have not been performed.
+Reconstructed factorization M(a)=exp(-mu T) f^T H_a rho0, since mutation after the pulse preserves mass. Finite edge-gradient matrix B irreducible Metzler, with positive forcing u(s)(lambda_{i+1}-lambda_i) f_i>0 during positive-measure pulse; hence Df>0. Symmetric H_a preserves sign of initial D rho0; identity M'(a)=-exp(-mu T) sum_i c_i (Df)_i(DH_a rho0)_i determines strict sign. Continuum derivative solves Dirichlet parabolic PDE with nonnegative source and strong positivity; Neumann p' sign persists. Independently checked finite identity, 2-state exact formula and sign for a=.2 and b=1. Same conclusion not claimed in nonlinear susceptible-depleting epidemics.
+
+## originality
+
+PASS
+
+Earlier evolving-infectivity SIR literature gives trait mutation equations and interventions, with nonlinear endpoints, not an exact all-amplitude fixed-horizon monotone-profile pulse translation theorem in symmetric mutation semigroup. Classical heat-kernel positivity and Dirichlet forms are acknowledged as established methods. Best-of-knowledge positive after full accessible Lamata-Otín source comparison.
+
+## value
+
+PASS
+
+Proves an exact sign reversal of optimal timing controlled solely by initial trait ordering, without a weak-selection assumption. This is a motivated structural comparison for epidemic invasion and continuous trait-diffusion control; an exact two-trait witness and continuum theorem show it is not merely an arbitrary small model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
