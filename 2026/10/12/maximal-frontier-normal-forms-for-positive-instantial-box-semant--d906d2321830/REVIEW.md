@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is a finite nonempty poset, and the only allowed neighbourhoods and modal valuations are upsets. Every element of an upset lies below a maximal ambient point of that upset; this finite extension property is the critical lemma. An inclusion-smaller neighbourhood with the same maximal frontier preserves every positive witness intersection because both intersections can be lifted to the same maximal points. Conversely, the depth-one test that scopes to \(U\) and takes singleton maximal upset witnesses exactly recognizes the downward presence of a neighbourhood in the matching frontier fibre. Antichain counting is therefore a bijective census, not an extrapolation from experiments. The bundled checker independently exhausts all labelled posets of sizes one through three and all local neighbourhood families on them. Infinite carriers, the separate diamond operation, and general model classification are not proved.
+## correctness
 
-## Originality — PASS with stated literature limits
-Das–Khanra–Sardar (arXiv:2606.08083, 2026) supplies the newly developed positive-upset instantial semantics. Its accessible abstract and indexed passages describe syntax, two-sided persistent semantics, algebraic completeness and canonical representations but do not report this finite maximal-frontier quotient or its fibre-antichain census. The motivating preprint's complete PDF was not available, so its unread sections are explicitly a residual risk rather than being declared non-covering. Hansen–Poiger (CALCO 2025, Example 8, DOI:10.4230/LIPIcs.CALCO.2025.9) establish separating instantial operations with unrestricted Boolean powerset valuations; that stronger apparent separation is inapplicable to positive-upset valuations because those cannot distinguish same-frontier neighbourhoods. Previously available finite-set witness-arity results already cover discrete sharpness, which is cited as context rather than novelty. Targeted equivalence, broad-coverage and exact-enumeration searches found no decisive published implication of the poset-fibre formula. A differently indexed equivalent statement remains possible.
+PASS
 
-## Mathematical value — PASS
-The source's change from arbitrary Boolean valuations to positive persistent upsets creates a natural information-loss problem: which neighbourhoods are semantically observable? The theorem answers it exactly by a canonical minimal-frontier normal form, a finite distinguishability cutoff, and a uniform enumeration across arbitrary finite posets. The counts include a Boolean-lattice antichain/Dedekind-number specialization, reflecting genuine order structure rather than an arbitrary finite slice. The result supplies an explicit finite data type for comparing positive instantial operators and a sharp boundary against unrestricted classical neighbourhood separation. It does not purport to give a full positive modal completeness theorem.
+For finite P and upward-closed valuations, every upset U has each element below some m∈μ(U)=U∩Max(P). If V⊆U is an upset with the same μ, then every upset witness B meeting U meets V via a maximal m, so same-frontier fibre-minimal representatives dominate. Conversely, for any U with μ(U)=M, the test with scope A=U and singleton maximal upset witnesses {m}, m∈M, recognizes precisely whether N contains a V⊆U with μ(V)=M, including k=0 and U=∅. These tests recover the minimal antichain in each fibre; the product of fibre-antichain counts follows by independence of the fibres. Chain, discrete and star counts follow, and sharpness uses the full vs full-minus-whole neighbourhood on discrete n points. This is a local box operation theorem; worldwise taking cores need not preserve persistence. Inspected verify.py exhaustively enumerates small finite posets only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the narrow final statement, not a general absence certificate. The positive-upset maximal-frontier quotient/count survives known Boolean separation and the published foundational semantics, with inaccessible full text named as risk.
+
+## value
+
+PASS
+
+The exact quotient of positive neighbourhood presentations by local observable tests is a motivated semantic normal form. Its fibrewise antichain enumeration and sharp bounded-arity reconstruction distinguish ordered persistent valuations from classical unrestricted Boolean testing, with usable finite semantic census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

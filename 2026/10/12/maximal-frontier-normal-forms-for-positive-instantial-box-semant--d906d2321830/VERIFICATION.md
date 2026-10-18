@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and no external packages. The program constructs every labelled order of sizes one through three, every upset, every local neighbourhood family and every ordered list of upsets as scope and witnesses of arity at most the carrier size. It evaluates the instantial box clause directly and independently computes the proposed minimal-frontier core. It checks that the direct semantic equivalence classes agree exactly with core equality and that their number equals the product of antichain counts in the frontier fibres.
+## correctness
 
-Observed outputs include `VERIFY_OK: exhaustive full ordered-witness semantic comparison {1: (1, 4), 2: (3, 32), 3: (19, 928)}`. The script also checks chain and discrete formulas for sizes one through four; explicit star examples with zero through three minima; and lower-bound witness-arity examples for discrete sets of sizes one through four. These are finite tests rather than certification of the general finite-order theorem, which follows from the symbolic frontier-dominance and reconstruction lemmas in RESULT.md.
+PASS
 
-All source citations are bibliographic. Independent audit has not been performed. The main preprint's full PDF was not available, and no unread material is certified as non-overlapping.
+For finite P and upward-closed valuations, every upset U has each element below some m∈μ(U)=U∩Max(P). If V⊆U is an upset with the same μ, then every upset witness B meeting U meets V via a maximal m, so same-frontier fibre-minimal representatives dominate. Conversely, for any U with μ(U)=M, the test with scope A=U and singleton maximal upset witnesses {m}, m∈M, recognizes precisely whether N contains a V⊆U with μ(V)=M, including k=0 and U=∅. These tests recover the minimal antichain in each fibre; the product of fibre-antichain counts follows by independence of the fibres. Chain, discrete and star counts follow, and sharpness uses the full vs full-minus-whole neighbourhood on discrete n points. This is a local box operation theorem; worldwise taking cores need not preserve persistence. Inspected verify.py exhaustively enumerates small finite posets only.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the narrow final statement, not a general absence certificate. The positive-upset maximal-frontier quotient/count survives known Boolean separation and the published foundational semantics, with inaccessible full text named as risk.
+
+## value
+
+PASS
+
+The exact quotient of positive neighbourhood presentations by local observable tests is a motivated semantic normal form. Its fibrewise antichain enumeration and sharp bounded-arity reconstruction distinguish ordered persistent valuations from classical unrestricted Boolean testing, with usable finite semantic census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
