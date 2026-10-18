@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For the witness F=X^4+X^3Y+Y^3Z-Z^4, the displayed partial derivatives have no common geometric projective zero: X=0 forces Y=Z=0; X nonzero forces Y=Z=2X but F_Z=X^3 nonzero. Its 11 rational points yield 11 normalized tangent lines covering all 31 projective points. For each d=1,2,3, unique first-nonzero-coefficient normalization exhausts exactly (5^N-1)/4 classes with N=3,6,10, namely 31,3906,2441406. Exact derivative-and-line-incidence checking returns zero tangent-filling forms in each degree. The complete C++17 program and a separate NumPy cubic enumeration were executed; there is no extrapolation from partial enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "In arXiv:2302.13420v2 Theorem 1.1 requires p>=4(d-1)^2(d-2)^2; for d=3 the right side is 16>5. Theorem 1.2 has a much higher q threshold. Theorem 1.3 requires q>=11.",
+        "The same paper Remark 1.4 states its particular q-1 formula fails to be tangent-filling at q=5.",
+        "arXiv:2307.03072 abstract studies the strictly stronger property of containing every rational point."
+      ],
+      "reasoning": "The earlier numerical hypotheses do not specialize to the target field. An existence theorem for smooth plane-filling curves in degree q+2 does not constrain the tangent-filling optimum q=5 except to give a weaker upper bound. A characteristic-5 counterexample to the earlier displayed construction is not an exclusion of every degree-four quartic.",
+      "searches": [
+        "arXiv:2302.13420v2 Theorems 1.1 1.2 1.3",
+        "arXiv:2307.03072 plane-filling curves of small degree",
+        "2024 2025 2026 tangent filling plane curves small finite fields F5 cubic quartic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.13420v2, full accessible HTML",
+      "arXiv:2307.03072, abstract",
+      "DOI:10.1017/S0004972723000382, bibliographic metadata",
+      "Related exact finite-field tangent classifications in orders 2,3,4 (different fields)",
+      "Targeted scholarly-web and mathematical-record searches for q=5 cubic/quartic equivalents"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2302.13420v2 explicitly asks the minimum possible degree for each field (Question 1.5) and provides construction only q>=11.",
+        "Earlier classifications in fields of orders 2, 3 and 4 pertain to distinct finite projective planes."
+      ],
+      "reasoning": "Neither a general high-field example nor a different-field exact classification logically implies that F5 admits a smooth degree-four tangent-filling curve, much less the exclusion of all 2,441,406 cubic projective equations. The new theorem gives both bounds at q=5.",
+      "searches": [
+        "arXiv:2302.13420 Question 1.5 Remark 1.4",
+        "Tangent-filling plane curves over finite fields 2023 full text",
+        "plane curves over finite fields tangent-filling cubic characteristic five",
+        "Plane-filling curves of small degree over finite fields arXiv:2307.03072"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2302.13420v2 definition and Question 1.5: all rational points must lie on rational tangent lines",
+        "The dual blocking-set formulation in its Section 1 concerns the same incidence property"
+      ],
+      "reasoning": "The exact statement also says that rational tangent lines of the quartic form a blocking set in the dual projective plane and that no cubic has this property. The identified source defines this equivalence but supplies no q=5 optimum or explicit displayed quartic; naming a dual blocking set alone does not imply the computed bound.",
+      "searches": [
+        "arXiv:2302.13420v2 Section 1 tangent-filling dual blocking set",
+        "tangent-filling q=5 quartic",
+        "Asgarli Ghioca tangent-filling degree F5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact q=5 table or this polynomial was identified in the accessed bibliographic searches.",
+        "The main relevant primary text notes the failure at q=5 of its own specific polynomial but does not tabulate all cubics over q=5."
+      ],
+      "reasoning": "The current 2,441,406-equation computation is a new finite census with an explicit four-monomial witness, not a recomputation from a known retrieved table. Absence of an indexed table is not proof of novelty; unindexed tables remain a risk.",
+      "searches": [
+        "smallest degree tangent-filling plane curve over F_5 quartic examples",
+        "tangent-filling F_5 quartic",
+        "x4+x3y+y3z-z4 tangent filling",
+        "2024 2025 2026 tangent filling plane curves small finite fields F5 cubic quartic"
+      ]
+    },
+    "rationale": "Asgarli--Ghioca arXiv:2302.13420 (first public 2023-02-26) asks this minimum-degree question, states a q-1 construction for q>=11, and explicitly says its own polynomial fails at q=5; it does not determine q=5. The new result replaces that failure by a smooth four-monomial quartic and proves a sharp cubic obstruction. Relevant known q=2,3,4 exact classifications and the distinct plane-filling q+2 bound do not imply the F5 theorem. Targeted searches returned no covering table or publication; residual risk of unindexed computation remains.",
+    "residual_risks": [
+      "A nonindexed thesis, code archive, or unpublished table could contain the same small-field minimum-degree computation.",
+      "No independent external mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover q=5 sharp minimum; its particular q-1 construction fails at q=5.",
+        "evidence": [
+          "Question 1.5 asks the minimum degree.",
+          "Theorem 1.3 assumes q>=11.",
+          "Remark 1.4 states the displayed example is not tangent-filling when q=5."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.13420v2",
+        "material_read": "Full accessible arXiv HTML, especially Introduction/Question 1.5, Theorems 1.1--1.3, Remarks 1.4 and 3.7, and Sections 2--3.",
+        "method": "Full-text examination of arXiv HTML and statement-implication comparison.",
+        "title": "Tangent-filling plane curves over finite fields",
+        "trigger": "The primary source posed the minimum-degree question, proved large-field bounds, and explicitly discussed q=5."
+      },
+      {
+        "assessment": "The abstract describes plane-filling, a stronger different property; its smooth minimum q+2 cannot determine the tangent-filling minimum.",
+        "evidence": [
+          "The abstract defines plane-filling by C(F_q)=P^2(F_q) and states smooth minimum degree q+2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.03072",
+        "material_read": "Primary arXiv title, metadata, and abstract only.",
+        "method": "Primary abstract comparison, not a full-document noncoverage claim.",
+        "title": "Plane-filling curves of small degree over finite fields",
+        "trigger": "Related extremal plane-curve notion might dominate the tangent condition."
+      },
+      {
+        "assessment": "Same paper as arXiv:2302.13420; no independent source or broader theorem.",
+        "evidence": [
+          "Publisher identifies Asgarli/Ghioca, DOI 10.1017/S0004972723000382, primary MSC 14H50."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/bulletin-of-the-australian-mathematical-society/article/abs/tangentfilling-plane-curves-over-finite-fields/9A02D31361C382D120526B765D592D05",
+        "material_read": "Publisher bibliographic page, title, abstract, primary MSC and publication metadata; detailed mathematics taken from arXiv full text.",
+        "method": "Publisher page and arXiv version cross-identification.",
+        "title": "Tangent-filling plane curves over finite fields (journal publication)",
+        "trigger": "Check journal identity and primary MSC/related statements."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6ace102a-44f4-40b8-b980-a56215e3aa77",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem answers a named extremal question of Asgarli--Ghioca for the natural first odd prime field omitted by their general q>=11 construction. It supplies a smooth four-monomial witness even though their q-1 example fails for q=5 and establishes exact impossibility of all smaller degrees, including reducible and singular equations. Sharp finite-field existence/nonexistence is a natural mathematical boundary rather than an arbitrary table entry.",
+    "status": "PASS"
+  }
+}
