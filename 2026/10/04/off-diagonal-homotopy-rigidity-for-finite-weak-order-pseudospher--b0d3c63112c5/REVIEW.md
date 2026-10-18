@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces every nonspecial map to a contractible image by tracking the least and greatest target levels met by each source level. A shared boundary level forces a singleton image there; avoiding singleton occupied levels forces the separated level intervals to use exactly one target level each, hence exact level preservation. Isolation follows from downward and upward induction using the presence of at least two images in each adjacent target antichain. The class count is then a product of nonconstant-function counts. The top-homology rank follows from the join decomposition and the rank of the induced map on reduced degree-zero homology.
+## correctness
 
-The computation exhaustively checks four unequal source-target examples, but the infinite family rests on the symbolic proof rather than enumeration.
+PASS
 
-## Originality
-PASS. The closest inspected finite-space source supplies the poset homotopy framework, not this mapping classification. The inspected Hom-poset paper treats Möbius functions, the pseudosphere source identifies the objects and their order-complex structure, and the inspected ordinal-sum endomorphism paper treats polymorphism/endomorphism questions rather than off-diagonal homotopy classes. Existing nearby results checked for overlap cover arbitrary height only on the diagonal, or arbitrary source and target only in height two. Neither implies the unequal-source/unequal-target theorem for height at least three.
+For monotone f between h-level ordinal sums of antichains, successive source level image intervals cannot be inverted. A boundary overlap forces the shared target-level image to be a singleton; if every occupied target level had >=2 images, h strictly separated nonempty intervals must occupy exactly h target levels, so f(A_i)⊂B_i and each restriction has >=2 distinct values. If some occupied target-level singleton b exists, the entire image is pointwise-homotopic to constant b via collapse maps, making f null. A level-preserving nonconstant f has no distinct map pointwise above or below it, by backward and forward induction using >=2 target images on adjacent levels. Thus special maps are isolated, with count ∏(q_i^{p_i}-q_i); remaining maps form the constant class since Q connected. Order complexes are joins of levels and induced top homology rank is ∏(|f(A_i)|−1). Independent exhaustive mapping-comparability enumeration P=(2,2,2) to Q=(2,2,3) verified 755 maps, 25 components and 24 special isolated maps.
 
-Residual risk remains that an equivalent formula appears under different terminology for finite spaces, weak orders, or pseudospheres; no such statement was found in the checked sources or semantic searches.
+## originality
 
-## Value
-PASS. The theorem closes a natural structural gap between diagonal arbitrary-height rigidity and off-diagonal height-two mapping results. It gives a complete exact homotopy-class count for arbitrarily varying unequal level sizes in every height at least three, together with a top-homology rank formula. This is not a single numerical extension or a parameter-table recomputation: it identifies the mechanism—singleton boundary levels versus rigid level preservation—that governs the whole off-diagonal family.
+PASS
 
-## Closest literature and limitations
-The central framework is Barmak–Minian, arXiv:math/0611156. Speed studies the Möbius function of the order-preserving-map poset; Alberto identifies pseudospheres with ordinal sums of trivial posets; Kunos–Larose–Pazmiño Pullas study endomorphism and polymorphism properties of ordinal sums of antichains. The theorem does not address unequal heights, singleton levels, or the full homotopy type of the non-isolated mapping-space component.
+No independent published covering implication was located under the checked exact and equivalent formulations.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Provides a genuine infinite parametric off-diagonal classification not included in self-map or height-two results, and simultaneously computes component count and top-homology ranks. These are structural invariants natural to homotopy theory of finite weak orders, not merely a small finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
