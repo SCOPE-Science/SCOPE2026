@@ -1,0 +1,185 @@
+{
+  "correctness": {
+    "rationale": "Every non-overlapping word is unbordered hence primitive, and two codewords from one rotation orbit would share a nonempty proper suffix/prefix. All weight-three imprimitive words are exactly the n/3 triple-repetitions when 3 divides n. This yields floor((n-1)(n-2)/6) primitive orbits. For each n>=4 the construction with 1s at (1,a,b), 2<=a<=floor((n+2)/3), a+1<=b<=n-floor((n+2)/3)+1 has no matching suffix/prefix: a suffix beginning at the second 1 has two 1s versus all three in the equally long prefix, while a suffix beginning at the third 1 has one versus at least two. Other suffixes begin with zero versus prefix one. The exact sum of constructions equals orbit upper bound for every residue mod 3; n=3 is empty. check.py checked all ordered overlaps and exhaustive primitive necklace coverage for each 3<=n<=30, but proof is analytic for all n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blackburn (2013), unrestricted Theorems 1–2, Construction 2 and Theorem 4 (arXiv:1303.1026).",
+        "Stanovnik et al. (2024), unrestricted maximum S(q,n) and tables (doi:10.1007/s10623-023-01344-z).",
+        "Stanovnik et al. (2025), epsilon-balanced constraints and small balanced instances (doi:10.1007/s40314-024-03055-0)."
+      ],
+      "reasoning": "Unrestricted maximum S(2,n) does not determine the maximum of a weight-three slice, and generic q-ary upper bounds are too weak to yield its exact quadratic optimum. The balanced paper studies weight intervals symmetrical around half the length, not a single low weight across every length; neither its maximality criteria nor tables provide the constructive saturation claimed here. Blackburn alphabet-partition constructions do not directly supply the displayed family: the binary one-letter partitions require different endpoint symbol and a single forbidden-prefix pattern, while our independent 1/a/b thresholds are tuned to fixed weight.",
+      "searches": [
+        "Blackburn non-overlapping codes 1303.1026 weight three cyclic necklaces",
+        "Stanovnik Moskon Mraz 2024 maximum non-overlapping codes constant weight 3",
+        "Levenshtein codes without overlaps constant weight 3 maximal",
+        "\"non-overlapping\" \"constant weight\" \"binary\" codes synchronization",
+        "\"fixed weight\" \"mutually uncorrelated codes\" code"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1112.3168v1 (2011-12-14): https://arxiv.org/pdf/1112.3168",
+      "arXiv:1209.0236v2: https://arxiv.org/pdf/1209.0236",
+      "arXiv:1303.1026v3: https://arxiv.org/pdf/1303.1026",
+      "arXiv:1401.4650v1: https://arxiv.org/pdf/1401.4650",
+      "arXiv:2309.08915v1: https://arxiv.org/pdf/2309.08915",
+      "Stanovnik et al. (2024): https://doi.org/10.1007/s10623-023-01344-z",
+      "Stanovnik et al. (2025): https://doi.org/10.1007/s40314-024-03055-0",
+      "2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+      "2026/10/4/SCOPE-blackburn-optimality-for-length-six-non-overlapping-codes-from-a--b22c7f7b76c9",
+      "2026/10/4/SCOPE-ternary-length-five-extremizers-cannot-use-shorter-codewords--82ffa6f9370a",
+      "2026/9/17/SCOPE-stationary-occupancy-variable-length-nonoverlap--effa1409f1ac",
+      "2026/10/4/SCOPE-exact-length-six-non-overlapping-code-maxima-at-alphabet-sizes-7--205ee3a62200",
+      "2026/9/20/SCOPE-exact-weight-three-two-cover-free-families--c72f7a3b70a2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bilotta et al. (2011), Dyck-word code sizes and non-expandability, arXiv:1112.3168.",
+        "Chee et al. (2012), generalized Fibonacci code construction, arXiv:1209.0236.",
+        "A pre-existing weight-three unbordered-rotation enumeration determines the numbers of unbordered shifts within words, not joint overlap-freedom among representatives.",
+        "Closest published indexing: 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a and 2026/9/20/SCOPE-exact-weight-three-two-cover-free-families--c72f7a3b70a2."
+      ],
+      "reasoning": "The cyclic orbit bound only gives A_3(n) at most the number of primitive weight-three necklaces; it does not imply that every orbit can be simultaneously represented by an overlap-free word. Prior counting of unbordered rotations does not impose cross-word compatibility. The explicit thresholds on second and third one positions yield a simultaneous transversal and establish equality, a conclusion not deduced by the compared results.",
+      "searches": [
+        "arxiv 1112.3168 Bilotta Pergola Pinzani nonexpandable cross bifix fixed weight three",
+        "arxiv 1209.0236 Chee Kiah cross bifix optimal fixed weight",
+        "primitive weight-three binary necklaces cross-bifix-free cyclic transversal construction",
+        "Exact distribution of unbordered cyclic shifts of binary words with three ones using unequal zero gaps C0 C2 C3",
+        "Sharp constant-weight-three non-overlapping binary frame synchronization code size floor((n-1)(n-2)/6) primitive necklaces"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Blackburn (2013), §1 defines the non-overlapping/cross-bifix equivalence; arXiv:1303.1026.",
+        "Bernini et al. (2014), §§1–3 describe trace-partitioned enumeration of a different family; arXiv:1401.4650.",
+        "Indexed close hits include 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a and 2026/10/4/SCOPE-blackburn-optimality-for-length-six-non-overlapping-codes-from-a--b22c7f7b76c9."
+      ],
+      "reasoning": "Exact domain is binary weight exactly 3 under pairwise prefix/suffix non-overlap. Synonyms include cross-bifix-free, strongly regular, mutually uncorrelated and comma-free with the stronger prefix/suffix rule. A transversal of primitive weight-three necklaces need not be overlap-free merely by choosing one rotation of each orbit, so necklace enumeration and Gray order are not equivalent to the claimed construction.",
+      "searches": [
+        "non-overlapping cross bifix free codes binary constant weight 3 maximum cardinality fixed length",
+        "binary cross-bifix-free codes with exactly three 1 symbols in each codeword one per aperiodic cyclic orbit",
+        "binary sparse synchronization codeweight three prefix suffix non-overlap necklace transversal",
+        "cross-bifix-free code supports at positions 1,a,b where a <= ceil(n/3), b <= 2n/3",
+        "\"cross-bifix-free\" \"constant weight\"",
+        "\"non-overlapping codes\" \"primitive necklaces\"",
+        "perfect cyclic necklace transversal for non-overlapping words with three 1s fixed weight length n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Stanovnik et al. (2024), optimized tables concern unrestricted S(q,n).",
+        "Stanovnik et al. (2025), Table 1 concerns polarity-balanced codes for particular small n.",
+        "The constant-weight distance-code tables use minimum Hamming distance constraints, a different predicate from prefix/suffix non-overlap.",
+        "Indexed nearby fixed-parameter results: 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a; 2026/10/4/SCOPE-exact-length-six-non-overlapping-code-maxima-at-alphabet-sizes-7--205ee3a62200."
+      ],
+      "reasoning": "No inspected database or table gives the natural A_3(n) optimal non-overlapping code size. Unrestricted small-n tables and minimum-distance constant-weight tables cannot be read as a complete all-length fixed-weight-three synchronization-capacity table; the formulas and constructions have different quantifiers.",
+      "searches": [
+        "explicit maximum constant-weight-three cross-bifix-free code floor (n-1)(n-2)/6",
+        "non-overlapping constant-weight-three binary code all lengths necklace primitive",
+        "\"weight three\" \"non-overlapping code\" binary",
+        "\"weight 3\" \"cross-bifix-free\" necklace",
+        "\"constant weight\" \"cross-bifix-free\" \"three\" code",
+        "maximum cardinality of cross-bifix-free binary codewords with precisely three ones for all n one per primitive necklace",
+        "exact bound floor((n-1)(n-2)/6) non overlapping code three ones"
+      ]
+    },
+    "rationale": "The exact binary fixed-weight-three all-length maximum and explicit primitive-necklace transversal are not entailed by the inspected Dyck, run-restricted, generalized alphabet, unrestricted-size, balanced, or non-expandability results. Index searches using the same concepts, aliases, formula and source identifiers yielded no direct covering finding. The primitive orbit upper bound is standard and by itself does not prove attainability; the attaining prefix/suffix-compatible code is the substantive new step. This is a best-evidence originality judgment subject to unindexed-priority risk.",
+    "residual_risks": [
+      "A mathematically equivalent theorem might exist under an unindexed terminology or in a paper not inspected.",
+      "A general enumeration/classification of cross-bifix-free constant-composition codes could imply this specialized optimum even if its abstract and main titles do not mention weight three.",
+      "No independent human priority search or independent proof validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Constructed families are Dyck-path families with weight tied to block length, and the results address non-expandability, not the exact maximum restricted to three 1 symbols at every length.",
+        "evidence": [
+          "arXiv:1112.3168v1, pp. 1–4, Definition in Section 2 and Proposition 3.1–3.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1112.3168 (arXiv:1112.3168v1)",
+        "material_read": "Abstract and introduction, definitions and unbordered-word examples, Section 3 Dyck-path construction and its non-expandability propositions; page 4 figure and proposition examined.",
+        "method": "Open-access PDF text and rendered page inspected.",
+        "title": "A new approach to cross-bifix-free sets",
+        "trigger": "Earliest public binary cross-bifix construction directly relevant to sparse-word codes."
+      },
+      {
+        "assessment": "The constructions use leading runs of zeros, a final nonzero symbol, and generalized Fibonacci enumeration; no exact optimization under the all-length fixed weight-three restriction appears in the examined results.",
+        "evidence": [
+          "arXiv:1209.0236v2, pp. 1–3, construction and Corollary 3.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1209.0236 (arXiv:1209.0236v2)",
+        "material_read": "Abstract, introduction, definitions, Section III construction, its Theorem 3.2 and Corollary 3.1 on construction size; rendered PDF page 3 inspected.",
+        "method": "Open-access PDF text and rendered page inspected; full-text searched for weight, primitive and necklace.",
+        "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+        "trigger": "Canonical binary/general-alphabet near-optimal constructions and upper-bound comparisons."
+      },
+      {
+        "assessment": "Unrestricted q-ary upper bounds and the alphabet-partition family do not imply an exact optimum for the binary weight-three layer. The simple cyclic-class upper bound can be adapted to that layer, but attainability needs an additional construction absent from the inspected claims.",
+        "evidence": [
+          "arXiv:1303.1026v3, Theorems 1, 2 and 4; Construction 2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1303.1026 (arXiv:1303.1026v3)",
+        "material_read": "Introduction and non-overlap definition; Section 2 Theorems 1–2 on unrestricted codes; Section 3 Construction 2 and Theorem 4; pages 1, 4 and 7 examined.",
+        "method": "Open-access PDF text, rendered figure/page inspection and whole-document term searches.",
+        "title": "Non-overlapping codes",
+        "trigger": "Strongest plausible source with an all-length upper bound and general code constructions."
+      },
+      {
+        "assessment": "The paper orders a known cross-bifix-free code family in Gray-code order; its trace means replacing zeros/nonzeros, not a maximum constant-weight-three transversal of all primitive binary necklaces.",
+        "evidence": [
+          "arXiv:1401.4650v1, Sections 1–3, especially the defining four conditions of the enumerated code."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1401.4650 (arXiv:1401.4650v1)",
+        "material_read": "Introduction, Sections 2–3 defining the enumerated family and trace partition, and rendered PDF page 2.",
+        "method": "Open-access PDF text and rendered page inspected.",
+        "title": "A Gray Code for cross-bifix-free sets",
+        "trigger": "Trace-partitioned enumeration could conceal a fixed-weight subclass construction."
+      },
+      {
+        "assessment": "Studies when alphabet-partition constructions are non-expandable and adds word families; no exact weight-three all-length maximum statement or transversal in the inspected material.",
+        "evidence": [
+          "arXiv:2309.08915v1, Sections 1 and 3, Theorem 3.2 and Constructions 3.4–3.5."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.08915 (arXiv:2309.08915v1)",
+        "material_read": "Abstract, introduction, Theorem 3.2 on non-expandability and Constructions 3.4–3.5, including rendered page 5.",
+        "method": "Open-access PDF text and rendered page inspected; whole-document term search for weight.",
+        "title": "On non-expandable cross-bifix-free codes",
+        "trigger": "Later constructions enlarge classical non-overlapping codes and may subsume the candidate."
+      },
+      {
+        "assessment": "The objective S(q,n) optimizes over all q-ary words without a fixed Hamming-weight restriction. Its small-parameter tables do not establish an all-length maximum inside the weight-three subset.",
+        "evidence": [
+          "Stanovnik et al. (2024), Definitions 1–4, Constructions 1–6, Sections 4–6."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+        "material_read": "Open-access full HTML, abstract and introduction, Sections 2–3 construction definitions, description of optimization, table-related discussion and conclusions.",
+        "method": "Primary open-access article full-text search and sectional inspection.",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Relevant 2024 work on maximality, maximum sizes and exact computational tables."
+      },
+      {
+        "assessment": "Constrains weights to a symmetric interval around half-length, with exact searches for small balanced instances; no all-length theorem for the single weight-three layer. Its general maximality characterization is not an explicit optimum or transversal for this layer.",
+        "evidence": [
+          "Stanovnik et al. (2025), Sections 2–3 (epsilon-balance; Proposition 10) and 7."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s40314-024-03055-0 (arXiv:2410.18458)",
+        "material_read": "Open-access full HTML, abstract, Section 2 epsilon-balance definition, fixed-balance constructions and Section 3 optimality/maximality claims; conclusions.",
+        "method": "Primary open-access article full-text search and theorem/construction inspection.",
+        "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+        "trigger": "Strongest constraint-aware source, potentially covering fixed composition via a balanced-code parameter."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "40e973a7-de88-4041-979f-429e244353c5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural weight-three synchronization capacity is fully determined at every length and an explicit maximum code is given. Constraining weight to three is a motivated sparse-frame constraint; the exact count is the full primitive necklace orbit bound, not just a minor finite improvement. Saturation of that bound requires the nontrivial simultaneous prefix/suffix compatibility established by the construction. The result can be used directly for enumerating and generating optimal sparse synchronization codebooks, without claiming error correction, uniqueness, or larger-weight generality.",
+    "status": "PASS"
+  }
+}
