@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T02:08:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two-distance requirement is d_H((x,p(x)),(y,p(y)))>=3 for all distinct x,y and >=5 for opposite message parity. For a one-coordinate flip, the check-word difference must have weight >=4; when r=4 each edge forces the unique all-ones difference and two-coordinate flips violate data-distance three, so r>=5 at k>=2. At r=5 the k neighbors around any x have distinct check images among only six words in the radius-one ball around complement p(x), forcing k<=6. For k=6 all six edge increments are J and J+e_j, one of each at every vertex. The square XOR identity and distinct adjoining edge colors force opposite edges equal, so each coordinate direction's increment is constant: p(x)=b+sum_i x_i(J+e_{pi(i)}) with pi a permutation. All such maps satisfy the distances by checking message-weight cases 1,2,3 and >=4, and the map b/pi is injective, yielding 2^5*6!=23040. Independent finite enumeration confirmed all 30 possible admissible square colorings and the 720 zero-offset permutations; it is not substituted for the proof over the full hypercube. Cases k=1 (four checks), 2..6 (five), and k>=7 (>five) are kept separate.",
+      "risk": "No classification of all subcritical k<6 maps or the exact optimal redundancy when k>=7; nonsystematic/unrelated protected functions excluded.",
+      "sources": [
+        "Frozen RESULT.md blob 63d25b367432912e97f4e0ce541370edf077969f",
+        "Frozen verify.py db1fe730081b267b19c871a223a48b5ec2522d85",
+        "Independent exact square and permutation checker"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older unequal-error protection linear separation vector (5,3,3,3,3,3) concerns existence among linear maps, whereas the result excludes all nonlinear maximizers."
+        ],
+        "reasoning": "Linear feasibility or general bounds cannot imply a universal classification of arbitrary maps; unpublished broader nonlinear classifications remain plausible.",
+        "searches": [
+          "function correcting codes data protection binary parity systematic redundancy five check bits six bits affine rigidity",
+          "van Gils 1982 linear UEP report, Appendix A citation"
+        ]
+      },
+      "checked_sources": [
+        "Rajput et al., arXiv:2511.18420 primary PDF",
+        "C. Rajput et al., arXiv:2603.01049 (related sequel, not read in full)",
+        "W. J. van Gils 1982 unequal-error protection table (bibliographic pointer; complete document not independently inspected)",
+        "Resultary query function correcting codes data protection binary parity systematic redundancy five check bits six bits affine rigidity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lower bound r>=5 and existence at smaller k are true for many incompatible nonlinear p; square-edge integrability is the additional decisive ingredient."
+        ],
+        "reasoning": "Neither the earlier necessary redundancy bound nor a construction forces universal affine rigidity at k=6.",
+        "searches": [
+          "function correcting codes data protection binary parity systematic redundancy five check bits six bits affine rigidity",
+          "arXiv:2511.18420 Theorem 4, Example 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Function-correcting codes with data protection are precisely Hamming separation constraints on systematic encoders; nonlinear p is allowed in the candidate."
+        ],
+        "reasoning": "Renaming the separation parameters (t_f=2,t_d=1) reproduces the known lower bound but not rigidity of all optimizers.",
+        "searches": [
+          "function correcting codes data protection binary parity systematic redundancy five check bits six bits affine rigidity",
+          "arXiv:2511.18420 Theorem 4 and Example 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The four-bit example and an eleven-length six-dimensional linear separation vector provide parameters or representatives but no labeled nonlinear six-bit optimizer census."
+        ],
+        "reasoning": "A matching length, distance pair or table of linear examples does not imply 23040 is a full arbitrary-map count.",
+        "searches": [
+          "function correcting codes data protection binary parity systematic redundancy five check bits six bits affine rigidity",
+          "arXiv:2511.18420 Example 10",
+          "van Gils Appendix A index"
+        ]
+      },
+      "rationale": "The general redundancy bound of Rajput et al. is prior art and gives r>=5; the four-bit parity construction is also known. The older linear separation-vector feasibility result (van Gils, 1982) means six-bit linear existence is not novel. The claim that all arbitrary nonlinear systematic maps at the saturated six-direction boundary necessarily become affine, with 23040 labeled maps, is not implied by those bounds/existence results in the inspected primary text. Best-of-knowledge novelty only, with unindexed nonlinear unequal-protection work retained as a risk.",
+      "residual_risks": [
+        "Equivalent nonlinear function-correcting code/unequal-error-protection classifications may have been published with different terminology; van Gils full report and Rajput 2026 sequels not fully re-inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general lower bound and one construction, not an inspected universal nonlinear six-coordinate rigidity theorem",
+          "evidence": [
+            "Theorem 4 r>=2t_f+t_d; Example 10 parity construction"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2511.18420",
+          "material_read": "Complete accessible primary PDF, definitions, Theorem 4 and Example 10 (particularly the five-bit bound and four-bit parity example)",
+          "method": "Public arXiv PDF read with text and page inspection",
+          "title": "Function-Correcting Codes With Data Protection",
+          "trigger": "same two-distance function/data protection model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the known minimum five-bit redundancy, the maximum systematic message dimension and all boundary maps form a natural rigidity and encoder-design question. The result rules out any nonlinear equality alternatives instead of only giving one code; the enumeration is a structural consequence, not a random small search.",
+      "risk": "No direct general redundancy formula above six message coordinates; value is a sharp boundary classification, not a new general code bound.",
+      "sources": [
+        "Rajput et al. Theorem 4 and Example 10",
+        "Exact hypercube edge-color proof"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No classification of all subcritical k<6 maps or the exact optimal redundancy when k>=7; nonsystematic/unrelated protected functions excluded.",
+    "No direct general redundancy formula above six message coordinates; value is a sharp boundary classification, not a new general code bound.",
+    "Equivalent nonlinear function-correcting code/unequal-error-protection classifications may have been published with different terminology; van Gils full report and Rajput 2026 sequels not fully re-inspected."
+  ],
+  "schema_version": 1
+}
