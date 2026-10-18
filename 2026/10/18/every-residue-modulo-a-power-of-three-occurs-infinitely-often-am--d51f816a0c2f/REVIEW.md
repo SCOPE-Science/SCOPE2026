@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The integer factorial quotient gives exact separated-block multiplicativity in \(\mathbb Z_3\); the two exceptional factors in the product for \(B(3^R)\) multiply to one modulo nine; the resulting units have full order modulo \(3^k\). Kummer's carry count provides a seed of every valuation. An infinite pigeonhole subsequence of repeated primitive-root factors then covers every unit coset in each valuation stratum; finally the exact Catalan/central-binomial identity transfers surjectivity at indices divisible by \(3^k\). All quantifiers, including infinitely many witnesses for every residue and exponent, follow from this argument, not finite enumeration.
+
+**Originality — PASS, with limitations.** The closest foundational work is Krattenthaler--Müller (2013), whose Section 12 gives power-of-three coefficient congruences, and Rowland--Yassawi (2013/2015), which explicitly records this question as open (Question 3.6). The additional 2022 Rampersad--Shallit paper was inspected at the Catalan section; Burns' 2017 prime-modulus theorem covers primes \(p\ge5\), not \(3^k\). Mathematical-results and literature searches did not identify a covering result. An unindexed prior solution or an uninspected implicit reachability proof is a residual originality risk; search absence does not certify novelty.
+
+**Value — PASS.** The classification rules out every forbidden residue modulo every power of three, resolving a concrete published open question. Infinitely many occurrences are proved rather than merely a computational spectrum for finitely many moduli. The elementary block-separation argument may be reusable in other 3-adic recurrence problems. It does not provide natural densities or efficient least-index bounds.
+
+Self-review: passed. Independent audit: not yet performed.

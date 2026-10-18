@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Exact factorial splitting for ternary-separated indices; Kummer carries of (3^t+1)/2 give valuations t; B(3^R)=2 mod9 makes each block factor a primitive root at all 3-power levels; infinite repeated-subsequence powers cover every valuation shell; C_{N-1}=B(N)/(2(2N-1)) and N divisible 3^k transfers all residues. Finite standalone checker validates illustrative cases, not the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krattenthaler and Müller give generating-function expansions for Catalan coefficients modulo any power of 3, with explicit results modulo 9 and 27, but the inspected Section 12 does not characterize which output residues appear for every exponent.",
+        "Rowland--Yassawi note no 3-power forbidden residues and pose the existence question.",
+        "Burns covers primes at least five, not prime powers of three.",
+        "Rampersad--Shallit section 4 examines Catalan congruence patterns modulo primes and states such emphasis in the conclusion."
+      ],
+      "reasoning": "Algorithms to compute terms modulo a fixed prime power do not by themselves establish the theorem uniformly for every prime-power modulus; nevertheless an automaton-construction result could imply it via additional reachability analysis not present in the inspected statements.",
+      "searches": [
+        "arXiv:1308.2856v1 section 12 Theorems 37--39",
+        "arXiv:1310.8635v1 Catalan section Open Question 3.6",
+        "arXiv:1703.02705 introduction abstract",
+        "DOI:10.37236/10799 sections 1,4,5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1308.2856v1 Section 12",
+      "arXiv:1310.8635v1 Open Question 3.6",
+      "DOI:10.37236/10799 Catalan section",
+      "arXiv:1703.02705 abstract",
+      "published-finding corpus semantic searches of 3-power Catalan surjectivity and central-binomial 3-adic density"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The foundational primary paper expressly treats absence of forbidden residues for any 3-power as an open question.",
+        "The 2013 Section 12 method constructs algebraic series expansions; it does not assert universal reachability of each residue.",
+        "The 2022 primary paper explicitly focuses on residues modulo primes, not arbitrary powers of three."
+      ],
+      "reasoning": "The new theorem settles the exact existential statement from Open Question 3.6, rather than restating published coefficient-by-coefficient congruences. These are mathematically different quantifiers; a potential hidden consequence of some general coefficient theorem remains a residual risk.",
+      "searches": [
+        "arXiv:1308.2856v1 Theorem 37, 38, Corollary 39, section 12",
+        "arXiv:1310.8635v1 question 3.6",
+        "DOI:10.37236/10799 section 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rowland and Yassawi 2013 arXiv:1310.8635 Open Question 3.6 explicitly asks if a forbidden residue exists modulo any 3^alpha.",
+        "published-finding corpus top hits for both queries concerned generalized Domb sums and prime-base binomial congruences, not Catalan 3-power surjectivity."
+      ],
+      "reasoning": "The proposed claim is universal surjectivity and infinitely many realizations for each residue, equivalent to 3-adic density of the Catalan values. No direct previously indexed equivalent was found; this search alone is not a novelty proof.",
+      "searches": [
+        "published-finding corpus: Catalan numbers every residue modulo powers 3, 3-adic density, Rowland Yassawi Question 3.6 central binomial primitive roots",
+        "published-finding corpus: Central binomial coefficients surjective modulo 3^k, all 3-adic residue classes, Kummer valuation lacunary blocks",
+        "web: Catalan numbers all residues modulo powers of 3 no forbidden residue 3-adic 2024 2025 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No all-exponent forbidden-residue census was identified in mathematical research records queried.",
+        "Rowland--Yassawi automata explicitly cover Catalan modulo 3 and are constructible at each power, but are not a complete infinite table of all powers."
+      ],
+      "reasoning": "Finite tables for moduli 3,9,27 or per-modulus automatic construction do not imply simultaneous surjectivity for all 3^k without verification at every k. An unindexed table may exist.",
+      "searches": [
+        "published-finding corpus: Catalan numbers every residue modulo powers 3, 3-adic density, Rowland Yassawi Question 3.6 central binomial primitive roots",
+        "published-finding corpus: Central binomial coefficients surjective modulo 3^k, all 3-adic residue classes, Kummer valuation lacunary blocks",
+        "web: Catalan numbers no forbidden residue modulo powers of three Rowland Yassawi Question 3.6 solved",
+        "web: every 3 adic integer limit Catalan numbers dense modulo powers of 3"
+      ]
+    },
+    "rationale": "An explicit 2013/2015 published question asks whether forbidden Catalan residues exist modulo powers of three. Primary power-of-three generating-function reductions and later prime-modulus results do not state this all-exponent surjectivity theorem in the inspected material; remaining risks include hidden broader implications and unindexed literature.",
+    "residual_risks": [
+      "General automated-congruence results could implicitly imply some surjectivity consequences despite no explicit covering statement in inspected sections.",
+      "Burns 2017 full text not inspected, although its documented prime scope excludes 3.",
+      "Unindexed manuscripts or inaccessible papers may contain an equivalent proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for inspected claims: generating-function congruence method without all-residue theorem",
+        "evidence": [
+          "PDF arXiv:1308.2856v1 lines 4001--4085; equations (12.1)--(12.3); intro lines 108--120."
+        ],
+        "identifier_or_url": "arXiv:1308.2856v1",
+        "material_read": "Introduction pages 1--3 and Section 12 pages 36--37, including Theorems 37 and 38 and Corollary 39.",
+        "method": "Full-text PDF text inspection and theorem comparison",
+        "title": "A method for determining the mod-3^k behaviour of recursive sequences",
+        "trigger": "Same prime powers and Catalan sequence; broad possible coverage"
+      },
+      {
+        "assessment": "EXPLICIT_OPEN_QUESTION on existence of forbidden residues mod 3^alpha",
+        "evidence": [
+          "Journal PDF page 17 (PDF zero-index 16), Open Question 3.6; arXiv first posted 2013-10-31."
+        ],
+        "identifier_or_url": "arXiv:1310.8635v1",
+        "material_read": "Introduction and Catalan subsection, especially full PDF page 17/Open Question 3.6.",
+        "method": "Full-text PDF text and page-image inspection",
+        "title": "Automatic congruences for diagonals of rational functions",
+        "trigger": "Explicit source of the forbidden-residue research question"
+      },
+      {
+        "assessment": "NOT_COVERING: stated results concern prime moduli and pattern properties rather than all three-power residues",
+        "evidence": [
+          "Published 2022, PDF lines 380--535, especially section 4 and conclusion."
+        ],
+        "identifier_or_url": "DOI:10.37236/10799",
+        "material_read": "Abstract, introduction and sections 4--5, with Catalan automata and conclusions.",
+        "method": "Full-text OA PDF text search and section read",
+        "title": "Congruence Properties of Combinatorial Sequences via Walnut and the Rowland--Yassawi--Zeilberger Automaton",
+        "trigger": "Later primary source plausibly treating Catalan modular reachability"
+      },
+      {
+        "assessment": "STRICTLY_DIFFERENT_SCOPE: primes p>=5 and no three-power assertion; document-inspection limitation disclosed.",
+        "evidence": [
+          "arXiv:1703.02705 abstract states all residues for primes p>=5."
+        ],
+        "identifier_or_url": "arXiv:1703.02705",
+        "material_read": "Public abstract and theorem scope; full primary text was not obtained in this run.",
+        "method": "ArXiv abstract inspection",
+        "title": "The Catalan numbers have no forbidden residue modulo primes",
+        "trigger": "Closest named surjectivity theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d51f816a-0c2f-49cf-9cf7-04c764944b7d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Closes the specific forbidden-residue existence question 3.6 at every exponent by proving every residue attained infinitely often; motivated global classification over natural Catalan sequence, beyond routine small finite tables.",
+    "status": "PASS"
+  }
+}
