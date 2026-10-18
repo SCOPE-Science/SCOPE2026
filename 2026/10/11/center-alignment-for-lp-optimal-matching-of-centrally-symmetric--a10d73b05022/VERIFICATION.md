@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,43 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For centered centrally symmetric bodies,
-\[
-g(u)=h_{QA}(u)-h_B(u)
-\]
-is even. A residual translation \(z\) changes the support-function difference to
-\[
-g(u)+z\cdot u.
-\]
-Antipodal pairing gives
-\[
-\frac12\left(
-|g(u)+z\cdot u|^p+
-|g(u)-z\cdot u|^p
-\right).
-\]
-Strict convexity of
-\[
-x\mapsto|x|^p
-\]
-for \(p>1\) makes this at least
-\[
-|g(u)|^p,
-\]
-with equality exactly when
-\[
-z\cdot u=0.
-\]
-For nonzero \(z\), this fails only on a great subsphere of measure zero, so the integrated inequality is strict.
+# Independent mathematical audit
 
-The checker supplies two independent regression layers. It verifies the paired inequality on deterministic grids for several real exponents greater than \(2\), including nonintegral exponents. It also numerically integrates an even trigonometric function plus several nonzero linear translation modes around the circle and verifies strict increase relative to zero translation.
+## correctness
 
-For \(p=4\), the checker additionally verifies the exact polynomial identity
-\[
-(r+s)^4+(r-s)^4-2r^4
-=
-12r^2s^2+2s^4.
-\]
-These finite checks are not used as a proof of the continuum statement.
+PASS
+
+For any d>=2 and p>2, recenter A,B at a,b. Their support functions and g(u)=h_{Q(A-a)}(u)-h_{B-b}(u) are even. Residual translation z=Qa+t-b contributes the odd term z·u. Antipodal pairing writes the pth-power objective as integral of (|g+z·u|^p+|g-z·u|^p)/2. Strict convexity of |.|^p makes this >=|g|^p, with strict inequality wherever z·u≠0. For z≠0 the equatorial zero set has sphere measure zero; hence the unique minimum for each fixed Q is z=0 and every globally optimal rigid motion aligns symmetry centers. Does NOT imply unique Q, and p=2 is not claimed new.
+
+## originality
+
+PASS
+
+The source 2009 paper defines the Lp support-function metric and optimal isometries and discusses the Steiner point for p=2, but its existence theorem is not a center-alignment theorem for arbitrary finite p>2 restricted to centrally symmetric bodies. A Resultary-indexed negative result for a selector on the full class is compatible: it does not disprove restricted center alignment. Best-of-knowledge novelty is the restricted selector property and per-orientation uniqueness, not the classical strict-convexity inequality.
+
+## value
+
+PASS
+
+The 2009 Lp-associated-selector question specifically motivates the exponent range p>2. The full isometry-invariant centrally symmetric subclass is natural and geometrically broad; the theorem rigorously isolates the parity condition that forces optimal translation independent of all other shape parameters. It is a structural partial answer rather than a routine arbitrary numerical slice; does not purport to solve the unrestricted selector problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,24 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** After subtracting the two symmetry centers, both support functions are even. For a fixed orthogonal map, every residual translation contributes the odd linear term
-\[
-u\longmapsto z\cdot u.
-\]
-Pairing antipodal directions reduces the comparison with the centered translation to
-\[
-|r+s|^p+|r-s|^p\ge2|r|^p.
-\]
-Strict convexity gives strict inequality whenever \(s\ne0\). For nonzero \(z\), the equality set
-\[
-\{u:z\cdot u=0\}
-\]
-has spherical measure zero, so integration is strictly larger. This proves the unique translation and therefore forces center alignment for every globally optimal isometry. The bundled checker independently exercises the paired inequality and numerical antipodal integration but is not needed for the universal proof.
+## correctness
 
-## Originality
-**PASS, with a folklore/unindexed-literature residual risk.** The closest primary paper defines the same \(L_p\) support-function metric and associated-selector notion, proves existence of optimal isometries, and recalls the \(p=2\) Steiner-point theorem. The accompanying published Problem 13 asks for an associated selector when \(p>2\). Material inspection did not find the centrally symmetric center-alignment statement. Searches under the equivalent formulations “center of symmetry,” “optimal translation,” “centrally symmetric bodies,” “support-function \(L_p\) metric,” and “selector associated with optimal isometries” did not locate a covering theorem. The \(p=2\) consequence is prior-covered and is explicitly excluded from the novelty claim.
+PASS
 
-## Value
-**PASS.** Centrally symmetric convex bodies form a basic, high-dimensional, isometry-invariant class rather than an arbitrary parameter slice. The result gives a complete translation theorem for every pair and every orientation, and it supplies a canonical positive subclass answer to a published selector problem. The parity-plus-strict-convexity mechanism also cleanly separates the translational and rotational parts of \(L_p\) shape matching.
+For any d>=2 and p>2, recenter A,B at a,b. Their support functions and g(u)=h_{Q(A-a)}(u)-h_{B-b}(u) are even. Residual translation z=Qa+t-b contributes the odd term z·u. Antipodal pairing writes the pth-power objective as integral of (|g+z·u|^p+|g-z·u|^p)/2. Strict convexity of |.|^p makes this >=|g|^p, with strict inequality wherever z·u≠0. For z≠0 the equatorial zero set has sphere measure zero; hence the unique minimum for each fixed Q is z=0 and every globally optimal rigid motion aligns symmetry centers. Does NOT imply unique Q, and p=2 is not claimed new.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The source 2009 paper defines the Lp support-function metric and optimal isometries and discusses the Steiner point for p=2, but its existence theorem is not a center-alignment theorem for arbitrary finite p>2 restricted to centrally symmetric bodies. A Resultary-indexed negative result for a selector on the full class is compatible: it does not disprove restricted center alignment. Best-of-knowledge novelty is the restricted selector property and per-orientation uniqueness, not the classical strict-convexity inequality.
+
+## value
+
+PASS
+
+The 2009 Lp-associated-selector question specifically motivates the exponent range p>2. The full isometry-invariant centrally symmetric subclass is natural and geometrically broad; the theorem rigorously isolates the parity condition that forces optimal translation independent of all other shape parameters. It is a structural partial answer rather than a routine arbitrary numerical slice; does not purport to solve the unrestricted selector problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
