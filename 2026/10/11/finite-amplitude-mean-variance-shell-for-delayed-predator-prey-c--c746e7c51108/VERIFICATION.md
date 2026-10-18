@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was reconstructed directly from the printed scaled equations. The critical checks are:
+# Independent mathematical audit
 
-1. For a positive periodic orbit, integrating \(d(\log x)/dt=1-x-y\) over one period gives \(\bar x+\bar y=1\).
-2. Periodicity gives \(\int_0^T x(t-\tau)y(t-\tau)\,dt=\int_0^T x(t)y(t)\,dt\), so the predator balance gives \(\overline{xy}=x_*\bar y\).
-3. Integrating the prey equation gives \(\overline{x^2}=\bar x-\overline{xy}\), which simplifies to \(\operatorname{Var}_T(x)=(\bar x-x_*)(1-\bar x)\).
-4. Substitution yields \(\operatorname{Cov}_T(x,y)=-\operatorname{Var}_T(x)\).
-5. A nonconstant positive periodic orbit cannot have constant \(x\). Hence prey variance is positive, forcing \(x_*<\bar x<1\). Cauchy–Schwarz yields \(\operatorname{Var}_T(y)\ge\operatorname{Var}_T(x)\); equality would force \(x+y\equiv1\), and hence \(\dot x\equiv0\), contradicting nonconstancy.
+## correctness
 
-The accompanying checker verifies the algebraic identities and the source-parameter numerical value at \(\tau=81\). It does not numerically integrate the delay equation and is not used as a substitute for the analytic proof.
+PASS
 
-Limit: no claim is made about nonperiodic invariant measures or chaotic time averages in this package.
+Integrating (log x)'=1-x-y over one positive period yields meanx+meany=1. Periodicity of the delayed product yields mean(x y)=s exp(sτ) meany/Y=x_* meany. Integrating xdot=x-x²-xy gives E[x²]=(1+x_*)meanx-x_*. Thus Varx=(meanx-x_*)(1-meanx)=meany(1-x_*-meany) and Cov(x,y)=-(Varx). If x(t) constant then prey equation forces y(t) constant, so nonconstant cycle has Varx>0 and x_*<meanx<1 (hence x_*<1). Cauchy–Schwarz yields Vary≥Varx, equality forcing y-mean y=-(x-mean x), so x+y identically 1 and xdot=0, impossible for nonconstant cycle. Exact source parameters give exp(81/50)/30≈0.16843634388546225. All statements are integral identities, no trajectory sampling as proof.
+
+## originality
+
+PASS
+
+The Fan–Wolkowicz primary full preprint exhibits the precise delay equations and two coexisting cycles at τ=81; existence/bifurcation/period information does not imply quantitative period-moment identities in the published statements. The Li–Lin–Wang broader Holling-I delayed Lotka–Volterra context establishes global Hopf branches, not a known moment identity. Resultary hits for 'finite-amplitude mean variance' concern distinct models/functional forms; matching generic predator-prey/delay vocabulary is insufficient. A simple full-period integration could have been rediscovered unindexed; that risk is explicit.
+
+## value
+
+PASS
+
+The original model has different stable periodic predator–prey cycles at one delay, so an exact delay-dependent fluctuation/mean shell valid across all amplitudes is a motivated diagnostic. It quantifies systematic mean-prey rise and mean-predator fall relative to coexistence equilibrium and the exact covariance/strict relative variance. An exact law for THIS biologically natural delay model is valuable despite short algebra; does not claim a general predator–prey existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

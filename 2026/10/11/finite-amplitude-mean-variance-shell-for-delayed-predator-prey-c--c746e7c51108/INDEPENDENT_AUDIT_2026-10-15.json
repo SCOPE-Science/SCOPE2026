@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T04:53:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Integrating (log x)'=1-x-y over one positive period yields meanx+meany=1. Periodicity of the delayed product yields mean(x y)=s exp(sτ) meany/Y=x_* meany. Integrating xdot=x-x²-xy gives E[x²]=(1+x_*)meanx-x_*. Thus Varx=(meanx-x_*)(1-meanx)=meany(1-x_*-meany) and Cov(x,y)=-(Varx). If x(t) constant then prey equation forces y(t) constant, so nonconstant cycle has Varx>0 and x_*<meanx<1 (hence x_*<1). Cauchy–Schwarz yields Vary≥Varx, equality forcing y-mean y=-(x-mean x), so x+y identically 1 and xdot=0, impossible for nonconstant cycle. Exact source parameters give exp(81/50)/30≈0.16843634388546225. All statements are integral identities, no trajectory sampling as proof.",
+      "risks": [
+        "Strictly positive nonconstant T-periodic orbit in source-scaled variables; delay-shift step uses integration over exactly full period."
+      ],
+      "sources": [
+        "2026/10/11/finite-amplitude-mean-variance-shell-for-delayed-predator-prey-c--c746e7c51108/RESULT.md",
+        "2026/10/11/finite-amplitude-mean-variance-shell-for-delayed-predator-prey-c--c746e7c51108/REVIEW.md",
+        "2026/10/11/finite-amplitude-mean-variance-shell-for-delayed-predator-prey-c--c746e7c51108/verify.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fan–Wolkowicz arXiv:2007.16140v1 exact delay equations and τ=81 cycles; no statement of exact variance identity.",
+          "Nearby Resultary semantic hits describe different vector fields, coefficient choices, or entropy settings; no single stronger theorem at matching objects/parameters."
+        ],
+        "reasoning": "Global Hopf-branch results do not entail finite-amplitude moment laws; generic related results use different equations.",
+        "searches": [
+          "Fan Wolkowicz delayed predator prey model mean variance covariance periodic average equilibrium bistability",
+          "delay Holling I predator prey Fan Wolkowicz periodic mean variance law coexistence",
+          "source_id:arXiv:2007.16140v1; DOI:10.3934/dcdsb.2020263",
+          "source_id:DOI:10.3934/dcdsb.2014.19.747"
+        ]
+      },
+      "checked_sources": [
+        "Frozen delayed-predator-prey RESULT.md + verify.py",
+        "Fan–Wolkowicz arXiv:2007.16140v1 full OA preprint",
+        "Li–Lin–Wang DOI:10.3934/dcdsb.2014.19.747 available metadata/abstract",
+        "Independent period-integral proof",
+        "Resultary semantic query pair for delay model"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fan–Wolkowicz arXiv:2007.16140v1 exact delay equations and τ=81 cycles; no statement of exact variance identity.",
+          "A parent result giving equations/existence/local bifurcation or semiconjugacy does not algebraically state the final all-states invariant; independent proof establishes a further quantified conclusion."
+        ],
+        "reasoning": "Existence of multiple stable periodic cycles at τ=81 is compatible with arbitrary means, and does not imply this exact variance relation.",
+        "searches": [
+          "Fan Wolkowicz delayed predator prey model mean variance covariance periodic average equilibrium bistability",
+          "delay Holling I predator prey Fan Wolkowicz periodic mean variance law coexistence",
+          "source_id:arXiv:2007.16140v1; DOI:10.3934/dcdsb.2020263",
+          "source_id:DOI:10.3934/dcdsb.2014.19.747"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fan–Wolkowicz arXiv:2007.16140v1 exact delay equations and τ=81 cycles; no statement of exact variance identity."
+        ],
+        "reasoning": "Period means, prey variance and covariance are different invariants from delay-Hopf existence and stable cycle multiplicity.",
+        "searches": [
+          "Fan Wolkowicz delayed predator prey model mean variance covariance periodic average equilibrium bistability",
+          "delay Holling I predator prey Fan Wolkowicz periodic mean variance law coexistence",
+          "source_id:arXiv:2007.16140v1; DOI:10.3934/dcdsb.2020263",
+          "source_id:DOI:10.3934/dcdsb.2014.19.747"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact numeric table or profile of the complete claim in inspected closest parent theorem; this is NOT inferred from failed search alone."
+        ],
+        "reasoning": "No tabulated cycle periods or means are the claimed theorem; τ=81 numeric example is not the proof.",
+        "searches": [
+          "Fan Wolkowicz delayed predator prey model mean variance covariance periodic average equilibrium bistability",
+          "delay Holling I predator prey Fan Wolkowicz periodic mean variance law coexistence",
+          "source_id:arXiv:2007.16140v1; DOI:10.3934/dcdsb.2020263",
+          "source_id:DOI:10.3934/dcdsb.2014.19.747"
+        ]
+      },
+      "rationale": "The Fan–Wolkowicz primary full preprint exhibits the precise delay equations and two coexisting cycles at τ=81; existence/bifurcation/period information does not imply quantitative period-moment identities in the published statements. The Li–Lin–Wang broader Holling-I delayed Lotka–Volterra context establishes global Hopf branches, not a known moment identity. Resultary hits for 'finite-amplitude mean variance' concern distinct models/functional forms; matching generic predator-prey/delay vocabulary is insufficient. A simple full-period integration could have been rediscovered unindexed; that risk is explicit.",
+      "residual_risks": [
+        "Earlier or unindexed periodic-average calculations may contain the elementary same-model shell; available broader delay-model article not reread in full this execution.",
+        "Variance ordering only in scaled model and only periodic solutions; cannot infer stability or existence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior establishes orbit existence and bistability, but does not give exact periodic mean/variance/covariance shell or strict predator variance dominance.",
+          "evidence": [
+            "Fan and Wolkowicz arXiv:2007.16140v1 scaled equation: prey x(1-x-y), predator -s y+Y exp(-sτ) xτ yτ.",
+            "At s=.02,Y=.6,τ=81 published paper reports two stable cycles, with distinct periods."
+          ],
+          "identifier_or_url": "arXiv:2007.16140v1; DOI:10.3934/dcdsb.2020263",
+          "material_read": "Full public preprint searchable text: scaled delayed model, coexistence equilibrium, Hopf/bistability and reported two stable periodic solutions at τ=81; checks of mean/variance formulations",
+          "method": "arXiv full-text preprint article sections and model/figure inspection",
+          "title": "Chaotic dynamics in a simple predator-prey model with discrete delay",
+          "trigger": "Exact printed Holling-I delayed predator–prey equations, bistability at τ=81"
+        },
+        {
+          "assessment": "Studies global Hopf branches and multiple limit cycles; available material does not entail exact variance, covariance and mean-shift law. Full-paper unread is a bounded risk.",
+          "evidence": [
+            "Li, Lin, Wang (2014) DOI:10.3934/dcdsb.2014.19.747 relates delayed Lotka–Volterra limit-cycle existence and branching."
+          ],
+          "identifier_or_url": "DOI:10.3934/dcdsb.2014.19.747",
+          "material_read": "Available metadata and paper-level abstract; detailed full article not reread independently in this execution",
+          "method": "Published DOI and exact-family relevance comparison",
+          "title": "Global Hopf branches and multiple limit cycles in a delayed Lotka-Volterra predator-prey model",
+          "trigger": "Broader Holling-I predator–prey family might imply source result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The original model has different stable periodic predator–prey cycles at one delay, so an exact delay-dependent fluctuation/mean shell valid across all amplitudes is a motivated diagnostic. It quantifies systematic mean-prey rise and mean-predator fall relative to coexistence equilibrium and the exact covariance/strict relative variance. An exact law for THIS biologically natural delay model is valuable despite short algebra; does not claim a general predator–prey existence theorem.",
+      "risks": [
+        "Earlier or unindexed periodic-average calculations may contain the elementary same-model shell; available broader delay-model article not reread in full this execution.",
+        "Variance ordering only in scaled model and only periodic solutions; cannot infer stability or existence."
+      ],
+      "sources": [
+        "Frozen delayed-predator-prey RESULT.md + verify.py",
+        "Fan–Wolkowicz arXiv:2007.16140v1 full OA preprint",
+        "Li–Lin–Wang DOI:10.3934/dcdsb.2014.19.747 available metadata/abstract",
+        "Independent period-integral proof",
+        "Resultary semantic query pair for delay model"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen delayed-predator-prey RESULT.md + verify.py",
+    "Fan–Wolkowicz arXiv:2007.16140v1 full OA preprint",
+    "Li–Lin–Wang DOI:10.3934/dcdsb.2014.19.747 available metadata/abstract",
+    "Independent period-integral proof",
+    "Resultary semantic query pair for delay model"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Earlier or unindexed periodic-average calculations may contain the elementary same-model shell; available broader delay-model article not reread in full this execution.",
+    "Variance ordering only in scaled model and only periodic solutions; cannot infer stability or existence.",
+    "Strictly positive nonconstant T-periodic orbit in source-scaled variables; delay-shift step uses integration over exactly full period."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "Prior establishes orbit existence and bistability, but does not give exact periodic mean/variance/covariance shell or strict predator variance dominance.",
+      "evidence": [
+        "Fan and Wolkowicz arXiv:2007.16140v1 scaled equation: prey x(1-x-y), predator -s y+Y exp(-sτ) xτ yτ.",
+        "At s=.02,Y=.6,τ=81 published paper reports two stable cycles, with distinct periods."
+      ],
+      "identifier_or_url": "arXiv:2007.16140v1; DOI:10.3934/dcdsb.2020263",
+      "material_read": "Full public preprint searchable text: scaled delayed model, coexistence equilibrium, Hopf/bistability and reported two stable periodic solutions at τ=81; checks of mean/variance formulations",
+      "method": "arXiv full-text preprint article sections and model/figure inspection",
+      "title": "Chaotic dynamics in a simple predator-prey model with discrete delay",
+      "trigger": "Exact printed Holling-I delayed predator–prey equations, bistability at τ=81"
+    },
+    {
+      "assessment": "Studies global Hopf branches and multiple limit cycles; available material does not entail exact variance, covariance and mean-shift law. Full-paper unread is a bounded risk.",
+      "evidence": [
+        "Li, Lin, Wang (2014) DOI:10.3934/dcdsb.2014.19.747 relates delayed Lotka–Volterra limit-cycle existence and branching."
+      ],
+      "identifier_or_url": "DOI:10.3934/dcdsb.2014.19.747",
+      "material_read": "Available metadata and paper-level abstract; detailed full article not reread independently in this execution",
+      "method": "Published DOI and exact-family relevance comparison",
+      "title": "Global Hopf branches and multiple limit cycles in a delayed Lotka-Volterra predator-prey model",
+      "trigger": "Broader Holling-I predator–prey family might imply source result"
+    }
+  ]
+}

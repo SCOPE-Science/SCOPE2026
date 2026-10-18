@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof closes exactly by three period integrations. Positivity permits \(\log x\); periodicity makes the delayed product have the same full-period integral; the resulting first and second moments give the variance and covariance identities. Nonconstancy makes prey variance positive, and the equality case of Cauchy–Schwarz rules out equality of predator and prey variances except for the equilibrium.
+## correctness
 
-## Originality
-PASS. The motivating Fan–Wolkowicz full text was inspected at the statement level, including its model, equilibrium, persistence, Hopf, bistability, period-doubling, and chaos sections. It does not state the mean–variance or covariance laws. The closest broader same-family paper by Li, Lin, and Wang was also inspected in full: its Holling-I specialization contains the same reaction structure, but its results concern stability switches and global Hopf branches, not exact finite-amplitude time averages. Targeted semantic searches for aliases and equivalent implications found no covering result. A residual risk remains that an older differently worded source contains the elementary period-average calculation.
+PASS
 
-## Value
-PASS. The source exhibits multiple stable periodic orbits at one delay and a sequence of large-amplitude cycles. The exact shell constrains all such cycles with no small-amplitude assumption and converts fluctuation size directly into mean displacement from the coexistence equilibrium. The strict predator-variance dominance is an additional finite-amplitude prediction in the source's nondimensional variables.
+Integrating (log x)'=1-x-y over one positive period yields meanx+meany=1. Periodicity of the delayed product yields mean(x y)=s exp(sτ) meany/Y=x_* meany. Integrating xdot=x-x²-xy gives E[x²]=(1+x_*)meanx-x_*. Thus Varx=(meanx-x_*)(1-meanx)=meany(1-x_*-meany) and Cov(x,y)=-(Varx). If x(t) constant then prey equation forces y(t) constant, so nonconstant cycle has Varx>0 and x_*<meanx<1 (hence x_*<1). Cauchy–Schwarz yields Vary≥Varx, equality forcing y-mean y=-(x-mean x), so x+y identically 1 and xdot=0, impossible for nonconstant cycle. Exact source parameters give exp(81/50)/30≈0.16843634388546225. All statements are integral identities, no trajectory sampling as proof.
 
-## Closest literature and limitations
-The closest inspected literature is Li, Lin, and Wang (2014), DOI 10.3934/dcdsb.2014.19.747, which studies a broader delayed Lotka–Volterra family and multiple global Hopf branches. It does not imply the accepted quantitative statement as a published theorem. The present result does not prove existence, stability, or period of cycles and does not automatically extend to arbitrary chaotic trajectories without hypotheses guaranteeing the relevant long-time averages.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The Fan–Wolkowicz primary full preprint exhibits the precise delay equations and two coexisting cycles at τ=81; existence/bifurcation/period information does not imply quantitative period-moment identities in the published statements. The Li–Lin–Wang broader Holling-I delayed Lotka–Volterra context establishes global Hopf branches, not a known moment identity. Resultary hits for 'finite-amplitude mean variance' concern distinct models/functional forms; matching generic predator-prey/delay vocabulary is insufficient. A simple full-period integration could have been rediscovered unindexed; that risk is explicit.
+
+## value
+
+PASS
+
+The original model has different stable periodic predator–prey cycles at one delay, so an exact delay-dependent fluctuation/mean shell valid across all amplitudes is a motivated diagnostic. It quantifies systematic mean-prey rise and mean-predator fall relative to coexistence equilibrium and the exact covariance/strict relative variance. An exact law for THIS biologically natural delay model is valuable despite short algebra; does not claim a general predator–prey existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
