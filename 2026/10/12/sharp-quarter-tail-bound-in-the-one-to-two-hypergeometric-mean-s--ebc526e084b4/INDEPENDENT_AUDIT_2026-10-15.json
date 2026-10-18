@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T15:12:07.972123Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/12/sharp-quarter-tail-bound-in-the-one-to-two-hypergeometric-mean-s--ebc526e084b4/RESULT.md @c7c0446d6cf9967fb0518d1aa78290c3896f5bab",
+        "2026/10/12/sharp-quarter-tail-bound-in-the-one-to-two-hypergeometric-mean-s--ebc526e084b4/check.py"
+      ],
+      "rationale": "For n>=4k,k>=2 and 1<ik/n<=2, crossing the mean means event H>=2. Monotone marked-set coupling and adding unmarked population reduce to (n,i)=(rk-1,r), r=floor(n/k)+1>=5. The order-five integer Bonferroni minorant L5(h)=sum_{j=2}^5(-1)^j(j-1)C(h,j) is <=1_{h>=2} at every integer h; factorial moments give B5. k=2,3,4 have displayed strictly positive rational 4P-1. For k,r>=5, independently expanded Q=120(N)_5(B5-1/4), N=rk-1, in x=r-5,y=k-5, and reproduced the complete 6x6 positive-coefficient matrix (minimum coefficient 1, constant 12528000). Degree <=5 in each variable plus exact 6x6 interpolation is a polynomial identity, not merely finite enumeration; every nonnegative x,y yields Q>0. Sequence k=2,n=2i-1 yields P=i/[2(2i-1)] -> 1/4.",
+      "residual_risks": [
+        "The proof depends on an exact fifth-degree polynomial identity; independently expanded coefficients, but no independent formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ai–Pelekis k/n bound is <=1/8 at n>=8k.",
+          "Greenberg–Mohri Theorem 2.1 P(Bin>=EBin)>1/4 requires Bernoulli independence."
+        ],
+        "reasoning": "Neither broader domain theorem covers exact stronger hypergeometric constant at n=4k. A coupling comparison of these binomial and hypergeometric tails is not generally in the direction needed.",
+        "searches": [
+          "Ai–Pelekis arXiv:2601.09485v2 Theorem 1.1 and quarter-tail discussion",
+          "Greenberg–Mohri arXiv:1306.1433v3 §2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2601.09485v2",
+        "https://arxiv.org/html/1306.1433v3",
+        "Resultary semantic search: Resultary: hypergeometric tail exceeding mean 1<mu<=2 n>=4k probability >= 1/4 Ai Pelekis quarter tail",
+        "Pinned assigned Git package, 2026/10/12/sharp-quarter-tail-bound-in-the-one-to-two-hypergeometric-mean-s--ebc526e084b4/RESULT.md @c7c0446d6cf9967fb0518d1aa78290c3896f5bab"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "n>=8k and conclusion >=k/n (Ai–Pelekis).",
+          "with-replacement quarter lower bound (Greenberg–Mohri)."
+        ],
+        "reasoning": "A weaker constant in smaller domain and a different sampling law do not imply the new strip. Exact Bonferroni polynomial positivity fills the missing mathematical implication.",
+        "searches": [
+          "arXiv:2601.09485v2 Theorem 1.1",
+          "arXiv:1306.1433v3 Theorem 2.1",
+          "Resultary: hypergeometric tail exceeding mean 1<mu<=2 n>=4k probability >= 1/4 Ai Pelekis quarter tail"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ai–Pelekis define exactly H~Hyp(n,i,k) and bound P(H>=EH)>=k/n under n>=8k.",
+          "Greenberg–Mohri analyze X~Bin(m,p), iid draws with replacement."
+        ],
+        "reasoning": "Same-event alias mean-exceedance includes the hypergeometric variable, but earlier precise n>=8k weaker conclusion doesn't give quarter in larger 4k range; Binomial theorem is not an implication for negative dependent sampling.",
+        "searches": [
+          "Resultary: hypergeometric tail exceeding mean 1<mu<=2 n>=4k probability >= 1/4 Ai Pelekis quarter tail",
+          "arXiv:2601.09485v2 §§1–3",
+          "arXiv:1306.1433v3 Theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual certificate: bidegree-five 36-coefficient positive matrix, 6x6 interpolation; limiting k=2 exact rational i/(2(2i-1)).",
+          "Resultary query did not retrieve exact hypergeometric two-hit table."
+        ],
+        "reasoning": "A binomial quarter probability and a general hypergeometric table are not the sharp *uniform* infinite-strip bound with proof; no directly matching previously established table inspected.",
+        "searches": [
+          "Resultary: hypergeometric tail exceeding mean 1<mu<=2 n>=4k probability >= 1/4 Ai Pelekis quarter tail",
+          "hypergeometric two hit probability quarter boundary r k-1 exact formula"
+        ]
+      },
+      "rationale": "Best-of-knowledge original sharp uniform result for hypergeometric *without replacement* in the full 1<mu<=2 strip at population/sample ratio >=4. Earlier Ai–Pelekis only guarantees k/n when n>=8k; binomial quarter bound is different dependent model.",
+      "residual_risks": [
+        "Possible older finite-population tail inequality expressed with factorial moments may imply this special strip under another name.",
+        "The proof depends on an exact fifth-degree polynomial identity; independently expanded coefficients, but no independent formal verification.",
+        "No statement about means >2 or the full n>=4k conjecture."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not present sharp 1/4 for the 1<mu<=2 hypergeometric strip",
+          "evidence": [
+            "Theorem 1.1: n>=8k, P>=k/n; discusses prospective n>=4k extension."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.09485v2",
+          "material_read": "Primary full HTML §§1–3, Theorem 1.1, discussion of four-to-one conjecture and numerical quarter bound",
+          "method": "Primary full-text HTML reading",
+          "title": "On lower bounds for hypergeometric tails",
+          "trigger": "Most relevant same distribution, conjectural four-to-one ratio"
+        },
+        {
+          "assessment": "Theorem treats independent binomial Bernoulli trials; not interchangeable with hypergeometric no-replacement model",
+          "evidence": [
+            "Theorem 2.1 gives >1/4 whenever m p>1; sample has X~Bin(m,p)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1306.1433v3",
+          "material_read": "Full HTML §2 Theorem 2.1 and §3 proof including binomial mass, derivative and Camp–Paulson step",
+          "method": "Primary full-text reading",
+          "title": "Tight Lower Bound on the Probability of a Binomial Exceeding its Expectation",
+          "trigger": "Exactly the quarter constant and mean-event, potential alternative equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/12/sharp-quarter-tail-bound-in-the-one-to-two-hypergeometric-mean-s--ebc526e084b4/RESULT.md",
+        "https://arxiv.org/html/2601.09485v2",
+        "https://arxiv.org/html/1306.1433v3"
+      ],
+      "rationale": "The discontinuity immediately above mean one is a delicate natural boundary of the proposed n>=4k hypergeometric mean-tail conjecture. Proving an entire infinite parameter strip with sharp constant 1/4 is a meaningful partial result, not a random finite example; higher mean values remain open.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Possible older finite-population tail inequality expressed with factorial moments may imply this special strip under another name.",
+    "The proof depends on an exact fifth-degree polynomial identity; independently expanded coefficients, but no independent formal verification.",
+    "No statement about means >2 or the full n>=4k conjecture.",
+    "Source METADATA.json and AUDIT.json contain public-inappropriate operational scope_run_id; the scientific verdict is complete but publication is withheld.",
+    "No external certification or expert/Lean verification is asserted; VERIFY_OK is not O or V evidence."
+  ],
+  "schema_version": 1
+}

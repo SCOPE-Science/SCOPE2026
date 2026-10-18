@@ -1,17 +1,21 @@
-# Scientific assessment: sharp hypergeometric quarter tail
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is exactly \(n\ge4k\), \(k\ge2\), \(1<ik/n\le2\), with a uniform hypergeometric sample. The stochastic monotonicity reduction brings all admissible parameters to the just-above-one boundary \(n=rk-1\), \(r\ge5\). A pointwise fifth-order Bonferroni minorant yields an exact factorial-moment expression. The small-sample rational identities are strictly positive; for \(r,k\ge5\), the displayed 36 strictly positive coefficients of an exact bivariate polynomial imply global positivity. Its bidegree bound plus exact interpolation, not finite statistical simulation, proves the symbolic identity. The extremal sequence \(k=2\), \(n=2i-1\) tends to \(1/4\).
+PASS
 
-The packaged `check.py` passed 28,288 exact assertions, including the coefficient identity, so the nonstandard arithmetic step was reproduced before acceptance. The remaining steps are combinatorial couplings and a pointwise finite binomial identity.
+For n>=4k,k>=2 and 1<ik/n<=2, crossing the mean means event H>=2. Monotone marked-set coupling and adding unmarked population reduce to (n,i)=(rk-1,r), r=floor(n/k)+1>=5. The order-five integer Bonferroni minorant L5(h)=sum_{j=2}^5(-1)^j(j-1)C(h,j) is <=1_{h>=2} at every integer h; factorial moments give B5. k=2,3,4 have displayed strictly positive rational 4P-1. For k,r>=5, independently expanded Q=120(N)_5(B5-1/4), N=rk-1, in x=r-5,y=k-5, and reproduced the complete 6x6 positive-coefficient matrix (minimum coefficient 1, constant 12528000). Degree <=5 in each variable plus exact 6x6 interpolation is a polynomial identity, not merely finite enumeration; every nonnegative x,y yields Q>0. Sequence k=2,n=2i-1 yields P=i/[2(2i-1)] -> 1/4.
 
-## Originality — PASS, residual risk disclosed
+## originality
 
-Ai–Pelekis arXiv:2601.09485v2, Theorem 1.1, obtains the weaker right side \(k/n\) under the stronger restriction \(n\ge8k\). Its introductory discussion (Sections 1–3) expressly leaves the \(4k\) regime open and describes a related universal one-quarter lower bound as numerical evidence. The present theorem supplies an analytic, sharp one-quarter estimate in a structurally motivated subregion \(1<\mu\le2\) while retaining the proposed \(4k\) ratio. Greenberg–Mohri arXiv:1306.1433v3, Theorem 2.1, covers binomial trials with replacement, not finite-population samples. Searches for hypergeometric two-hit quarter bounds, rare-success crossing aliases, analogous factorial-moment bounds, and mathematical records did not identify a statement implying this one. Search absence is not proof of absolute priority; older equivalent tail bounds may exist.
+PASS
 
-## Value — PASS
+Best-of-knowledge original sharp uniform result for hypergeometric *without replacement* in the full 1<mu<=2 strip at population/sample ratio >=4. Earlier Ai–Pelekis only guarantees k/n when n>=8k; binomial quarter bound is different dependent model.
 
-The discontinuity immediately above expected count one is a genuinely delicate edge of the proposed \(n\ge4k\) hypergeometric/MMS-extremizer inequality: Gaussian approximations do not apply there and a \(1/4\) bound is asymptotically best possible. The theorem settles that entire infinite strip simultaneously for all sample sizes, populations and marked counts, and strengthens \(k/n\) to a sharp constant. It is a meaningful boundary result, not an isolated tabulation or a restatement of the binomial theorem. It does not settle higher expectation strips or the complete MMS problem.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The discontinuity immediately above mean one is a delicate natural boundary of the proposed n>=4k hypergeometric mean-tail conjecture. Proving an entire infinite parameter strip with sharp constant 1/4 is a meaningful partial result, not a random finite example; higher mean values remain open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
