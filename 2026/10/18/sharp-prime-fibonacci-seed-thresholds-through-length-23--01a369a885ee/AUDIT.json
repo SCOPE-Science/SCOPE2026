@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Every ordered pair of distinct odd primes at most 4919 is scanned (656*655=429680 pairs), and both a trial-division recurrence and sieve-factor memoized recurrence agree on every stopping length. The finite threshold minimum follows because every smaller prime ceiling was examined; unique (4007,4919) witness is explicitly checked. No inference from sampled to infinite parameters is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alm and Herald, arXiv:1507.04807, prove unbounded attainable lengths but furnish no sharp initial ceiling for a fixed length.",
+        "Guy, Khovanova, and Salazar, arXiv:1207.5099, Section 1: successor is the sum divided by its least prime factor when composite, unlike taking the least odd prime divisor of the sum."
+      ],
+      "reasoning": "The existence of arbitrarily long trajectories does not imply a numerical least-seed threshold or uniqueness. The subprime cycle/closure results concern a genuinely different transition map, so cannot imply the stated optimal initial seed parameters.",
+      "searches": [
+        "\"prime Fibonacci sequences\" \"length\" \"initial primes\" computed",
+        "\"prime Fibonacci sequence\" \"maximal length\" 4919",
+        "Conway subprime Fibonacci vs prime Fibonacci distinct dynamics minimal stop depth tables"
+      ]
+    },
+    "checked_sources": [
+      "Alm and Herald (2015), arXiv:1507.04807, complete HTML source",
+      "Guy–Khovanova–Salazar (2012/2014), arXiv:1207.5099, source Sections 1–2",
+      "Keyword and numeric-seed searches of indexed number-theory literature, including distinct-odd-prime ordered pair formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1507.04807 states termination of every distinct-odd-prime trajectory and arbitrary attainability via left extension, without locating first-seed extremizers.",
+        "arXiv:1207.5099 uses a distinct recurrence and does not restrict the least odd prime factors of consecutive prime sums."
+      ],
+      "reasoning": "Neither known unrestricted result logically supplies the exact 22-value extremal threshold table; the new finite checks provide 429680 exact comparisons and a uniqueness certificate for the endpoint.",
+      "searches": [
+        "\"prime Fibonacci sequences\" \"starting\" \"minim\" \"length\"",
+        "Prime Fibonacci sequences Alm Herald 2015 minimal initial largest prime maximal trajectory length 23 4919 thresholds 2015 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alm and Herald, arXiv:1507.04807, Definition 1.1 and Theorems 2.1–2.2: qualitative termination and backward extension; no survival-depth seed threshold statement.",
+        "The source recurrence is iterated on ordered pairs, so optimal seed ceilings are equivalently the first parameter values where the corresponding bounded pair graph has height at least a given depth."
+      ],
+      "reasoning": "The claimed quantitative invariant is not the earlier existence or termination theorem, nor a graph relabeling: it specifies exact least starting prime ceilings and a unique 23-term seed. The full primary source was checked for the matching invariant.",
+      "searches": [
+        "prime Fibonacci sequences smallest odd prime divisor sum termination length sharp least maximum initial seed first 23 thresholds 4919 Alm Herald",
+        "bounded ordered pairs of distinct odd primes prime Fibonacci recurrence length maximum 22 for seeds below 4919 unique length 23 seed 4007 4919"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No trajectory-length threshold table appears in the inspected entire original arXiv:1507.04807 text.",
+        "The related arXiv:1207.5099 table counts eventual cycles in a different recurrence, not prime-Fibonacci stopping lengths."
+      ],
+      "reasoning": "Named numerical values and equivalent record-bound queries returned no exact matching table in accessible indexed literature. Search absence alone does not establish originality; the source-by-source implication check is controlling.",
+      "searches": [
+        "\"prime Fibonacci sequences\" \"length 23\" \"4919\"",
+        "\"prime Fibonacci\" \"2381\" \"2333\" sequence",
+        "smallest starting prime pair prime Fibonacci sequence length at least 23 4919 4007 2015"
+      ]
+    },
+    "rationale": "The inspected 2015 defining paper has qualitative termination/unbounded-length results but no precise least-seed threshold values. The second major neighboring paper concerns the different subprime transition rule. Actual targeted semantic and web queries of the recurrence, equivalences, depth 23, and numeric witness yielded no dominating formula or table; identical unpublished enumeration remains a documented risk.",
+    "residual_risks": [
+      "An unpublished, obscure, or differently indexed exhaustive computer table may already contain these numerical thresholds.",
+      "No independent replication outside the supplied two implementations has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the recurrence and proves termination and arbitrarily long sequences, but gives no least seed ceiling versus length and no 23-term extremizer classification",
+        "evidence": [
+          "arXiv:1507.04807, Definition 1.1, Theorems 2.1 and 2.2, Corollary 2.3, Section 3."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1507.04807v1",
+        "material_read": "Complete available HTML article (Definition 1.1, Theorems 2.1–2.2, reversed sequences and concluding discussion)",
+        "method": "Read mathematical statements and numerical examples in complete accessible article and compare their quantified implications",
+        "title": "A Note on Prime Fibonacci Sequences",
+        "trigger": "Exact defining recurrence and possible stronger seed-size results"
+      },
+      {
+        "assessment": "Uses quotient by least prime factor, not least odd prime factor; tables count cycles of a different process and cannot dominate the threshold claim",
+        "evidence": [
+          "arXiv:1207.5099, Sections 1–2 and Table 1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1207.5099",
+        "material_read": "Original article HTML introduction, Section 2 node/periodic-cycle classification, Table 1 and examples",
+        "method": "Compared exact recurrence maps, state spaces, and table meanings",
+        "title": "Conway's Subprime Fibonacci Sequences",
+        "trigger": "Plausible similar-named Fibonacci prime-factor iteration and finite tables"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "01a369a8-85ee-42eb-88a5-b3d556e30faf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a prime-Fibonacci trajectory, the smallest possible maximal starting prime required to sustain a chosen number of prime terms is an intrinsic extremal quantity, directly quantifying a previously qualitative assertion of arbitrarily long trajectories. Computing the complete first 22 threshold values and unique first depth-23 extremizer gives sharp reference values for future complexity bounds and recurrences; the result does not rely on claiming a general asymptotic or solving unrelated conjectures.",
+    "status": "PASS"
+  }
+}
