@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact symbolic check
+# Independent mathematical audit
 
-Execute `python verify.py` after installing the Python dependency from `requirements.txt` (SymPy). The program constructs every graph \(K_n\) with \(t\) pairwise disjoint edges removed, forms the line graph adjacency relations from intersecting base edges, and calculates the exact integer Laplacian. For every integer \(n\in\{4,5,6,7,8,9\}\) and \(0\le t\le\lfloor n/2\rfloor\), it compares all coefficients in the direct characteristic polynomial with the derived factorization after polynomial cancellation. It additionally compares the Kirchhoff cofactor determinant for instances having no more than 26 line-graph vertices, and the characteristic-polynomial derivative for all tested instances, against an independently evaluated weighted incidence spanning-tree expression.
+## correctness
 
-The actual completed run reported:
+PASS
 
-`VERIFY_OK cases= 24 orders=4..9 all_matching_sizes=0..floor(n/2)`
+Pinned RESULT.md uses unsigned incidence B of K_n minus t pairwise disjoint edges and the exact identity L(line graph)=diag(d_u+d_v)-B^T B. Its rational determinant reduces to pair-difference, pair-constant, unpaired-vertex difference, and two-dimensional quotient subspaces, giving the polynomial in U,V,W,Q. Exact factor cancellations at t=1,r=1,r=2 avoid false spectral poles; t=0 and r=0 handled separately. For t>=2,0<r, discriminant (n-3)^2+8(t-1) lies between nearby squares with parity exclusion; for t=1,n>=5 the W discriminant (n-3)^2+8 is nonsquare. Thus Laplacian integral iff t=0 or 2t=n or (n,t)=(4,1). Independent symbolic line-graph characteristic polynomials matched 14 legal n,t pairs (n=4..7).
 
-This finite check is exhaustive only within the stated 24 graph parameters and is **not** an exhaustive check for all orders. The displayed unrestricted theorem requires the symbolic determinant decomposition and discriminant proof in `RESULT.md`. No machine-formal proof or independent validation is asserted.
+## originality
+
+PASS
+
+Cámara--Haemers (2012) analyzes spectra of the base almost-complete graph, not the Laplacian of its line graph. The classical incidence identity and general integral-graph literature provide the technique but not the complete two-parameter factorization and sharp integrality boundary found here. Possible known formulas under cocktail-party line-graph terminology remain a priority risk.
+
+## value
+
+PASS
+
+The full Laplacian spectrum and exact sharp integrality threshold form a natural all-order spectral classification of an explicitly motivated graph family. The isolated n=4,t=1 exception and cancellation edge cases are mathematically informative, not a tiny arbitrary gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

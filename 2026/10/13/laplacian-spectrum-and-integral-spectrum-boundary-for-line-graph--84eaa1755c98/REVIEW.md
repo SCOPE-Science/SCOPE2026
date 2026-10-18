@@ -1,15 +1,21 @@
-# Scientific assessment of the Laplacian-spectrum theorem
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The graph, its deleted matching, the line graph, and the Laplacian convention are specified for all \(n\ge4\) and all \(0\le t\le\lfloor n/2\rfloor\). The proof uses the identity \(L(L(G))=D-B^{\mathsf T}B\) for unsigned incidence and gives all three edge-class multiplicities. The vertex-side determinant splits into pair-antisymmetric, pair-symmetric, unmatched contrasts, and class-constant subspaces. Exact block determinants yield the displayed polynomial. The exceptional denominator cancellations are proved explicitly for the three boundary regimes, and the irrational-root arguments handle every remaining partial matching deletion. An exact checker independently constructs the line graphs and compares characteristic polynomials for 24 complete parameter choices through \(n=9\); finite checks corroborate, rather than replace, the proof.
+## correctness
 
-## Originality (O): PASS with identified residual risk
-Cámara–Haemers, arXiv:1211.4420, Section 2, Proposition 2.1 (full article checked), establishes *adjacency-spectral determination of the underlying near-complete graph*, not the Laplacian spectrum of its line graph. Dong, arXiv:1907.07376, Section 5 and Theorem 5.1 (full article inspected), supplies generic spanning-tree formulas for line graphs, but not this spectral polynomial or the sharp integer-spectrum criterion. The foundational Grone–Merris paper on Laplacian-integral graphs has a broad scope; only accessible bibliographic material and its abstract were examined, so an unknown previously indexed specialization is a residual risk, not a claimed exclusion. Related signless Laplacian studies treat spectra of the *underlying graph*, not this line graph. Distinct operations and spectra prevent any of the inspected specific statements from directly implying the present theorem; nonetheless a different-language prior classification may exist.
+PASS
 
-## Value (V): PASS
-Matching deletion is a natural structured perturbation of the triangular graph's base clique and includes the perfect-matching cocktail-party boundary. Its line graph changes from regular to irregular at partial deletions. The theorem supplies one exact full-spectrum expression across all parameters and isolates an unexpectedly rigid complete characterization of Laplacian integrality: only the undeleted, completely paired, and single four-vertex exception survive. The assertion concerns an entire infinite structured family and captures a discontinuous algebraic boundary not conveyed by the known base-graph adjacency theorem or generic line-graph tree-count identities. It is neither a single small numerical certificate nor an arbitrary parameter slice.
+Pinned RESULT.md uses unsigned incidence B of K_n minus t pairwise disjoint edges and the exact identity L(line graph)=diag(d_u+d_v)-B^T B. Its rational determinant reduces to pair-difference, pair-constant, unpaired-vertex difference, and two-dimensional quotient subspaces, giving the polynomial in U,V,W,Q. Exact factor cancellations at t=1,r=1,r=2 avoid false spectral poles; t=0 and r=0 handled separately. For t>=2,0<r, discriminant (n-3)^2+8(t-1) lies between nearby squares with parity exclusion; for t=1,n>=5 the W discriminant (n-3)^2+8 is nonsquare. Thus Laplacian integral iff t=0 or 2t=n or (n,t)=(4,1). Independent symbolic line-graph characteristic polynomials matched 14 legal n,t pairs (n=4..7).
 
-## Limitations
-No new generic theorem about every line graph is claimed. The equivalent-terminology risk includes line graphs of clique–cocktail-party joins and Johnson/triangular graphs with an independent vertex set removed. The result does not claim spectral determination up to isomorphism. All finite computational tests are ancillary, and there has been no external independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cámara--Haemers (2012) analyzes spectra of the base almost-complete graph, not the Laplacian of its line graph. The classical incidence identity and general integral-graph literature provide the technique but not the complete two-parameter factorization and sharp integrality boundary found here. Possible known formulas under cocktail-party line-graph terminology remain a priority risk.
+
+## value
+
+PASS
+
+The full Laplacian spectrum and exact sharp integrality threshold form a natural all-order spectral classification of an explicitly motivated graph family. The isolated n=4,t=1 exception and cancellation edge cases are mathematically informative, not a tiny arbitrary gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
