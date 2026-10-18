@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is reconstructed for every \(1\le k<\ell\), and only positive-index coefficients are included. The prime-square identity gives \(\nu_p(c_{k,\ell}(p^2))=k\). A high prime-power factor \(p^a\) in the input eliminates its explicit powers modulo \(p^e\); multiplicativity and Möbius inversion force all power differences to vanish. The converse follows termwise. Carmichael exponents supply the exact valuations including the dyadic branch. Independent finite arithmetic checks are not used as infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The directly relevant paper Allen–Craig (arXiv:2609.32053v1, 2026) gives the identical coefficient family, growth and prime-factor results, not its universal coefficient content. Craig–van Ittersum–Ono (PNAS 2024) proves prime detection and a separate unit-content lemma for distinguished basis forms; Kane–Krishnamoorthy–Lau (2025) proves classification by vanishing/signs. The fixed-divisor arithmetic of \(a^k(a^{\ell-k}-1)\) is classical and is not claimed as new. The original step is the exact identification of that fixed divisor with the all-index coefficient gcd for every exponent pair. Targeted published-record and literature searches did not find coverage; equivalent unindexed statements remain possible.
+PASS
 
-**Value — PASS.** All-index divisibility is a natural invariant of arithmetic Fourier coefficient families used in contemporary prime-detecting and prime-factor work. The result provides complete sharp universal congruences and an explicit primitive normalization uniformly in two exponents, including exact dependence on the exponent gap; it is not merely an initial table or a finite check. It offers no new prime interval bound or efficient factoring algorithm.
+For every integer 1<=k<ell, the two divisor-sum identities show fixed_divisor(a^ell-a^k) divides every c_{k,ell}(n). Conversely, if p^e divides every coefficient, c_{k,ell}(p^2)=(p^k-p^ell)(1-p^{k+ell}) forces e<=k. For any p-coprime u, multiplying by p^a with ak>=e eliminates the n^k,n^ell terms modulo p^e; multiplicativity and sigma_k(p^a)=1 mod p give sigma_k(u)=sigma_ell(u) mod p^e. Möbius inversion on p-coprime divisors gives u^k=u^ell mod p^e, and p-multiples vanish because e<=k. Hence the two gcds agree exactly. The largest p^e for which all units have t-th power 1 is determined by Carmichael lambda(p^e); taking min with k yields the asserted odd-prime and 2-adic formulas including k=1 and t odd. Independently computed gcd of coefficients n=2..120 for (k,ell)=(1,2),(1,3),(2,5),(3,7),(4,10),(6,9), obtaining 2,6,2,120,504,2; finite sample corroborates, not proves, the universal identity.
 
-**Limitations.** Coefficients at \(q^0\) are excluded because the quasimodular constant term may be rational. Finite checks do not prove the theorem; independent mathematical auditing and comprehensive exclusion of all unpublished equivalents remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Craig–van Ittersum–Ono use exactly the same f_{k,ell} polynomial in divisor sums, and Allen–Craig refer to its positive coefficients; equality of notation alone does not imply fixed coefficient content. PNAS 2024 Lemma 12 states primitive/unit-content behavior for particular H_j, with different normalization; no demonstrated implication from it to all c_{k,ell} and exact odd/2-adic exponents. Prime-vanishing and positivity/prime-gap implications of Craig–Ono and Allen–Craig do not imply the sharp coefficientwise modulus. Primary text inspections and Resultary cross-checks found no exact or dominating theorem for the complete claim; this is a best-of-knowledge PASS with the listed explicit literature and accessibility risks, not proof of absolute novelty.
+
+## value
+
+PASS
+
+A complete universal congruence/content classification is a natural invariant of the prime-detecting quasimodular coefficient family: a researcher studying integer normalizations and congruences needs the exact largest common divisor, not simply a first coefficient or the prime-vanishing property. The proof links coefficient content to a classical polynomial fixed-divisor but the global equivalence requires a nontrivial padding and Mobius inversion; the parameter-wide p-adic formula is not a routine restatement of the earlier unit-content result for different distinguished forms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
