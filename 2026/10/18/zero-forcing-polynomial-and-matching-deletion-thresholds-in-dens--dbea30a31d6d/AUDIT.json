@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Every white side of cardinality >=3 is invariant under forcing because each opposite blue vertex misses at most one white neighbor; pairs of unmatched whites are likewise frozen. A separate completion lemma proves all cases with at most one white in a part, including the a=3 exception. With two whites on both sides the initial move exists precisely when matched index sets differ. Counting allowable white occupancy pairs gives five coefficients and exact number threshold. The standalone graph-simulation verifier exhausts 407040 subsets in 130 boards plus 60824 selected large-board subsets, but infinite correctness rests on proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2023 arXiv:2306.01138v1 Section 4.2, Proposition 4.3 states scalar Z_q values for undeleted complete bipartite graphs.",
+        "published-finding corpus 2026/10/4/SCOPE-zero-forcing-polynomials-of-chain-graphs-with-no-singleton-twin--df002fdf9e33 imposes at least two vertices per twin class; the t=1 graph has singleton neighborhood classes and t>=2 is not a chain graph.",
+        "published-finding corpus 2026/10/4/SCOPE-all-k-forcing-sets-of-complete-multipartite-graphs--21dd3de55bd1 treats different graph class, t=0 only."
+      ],
+      "reasoning": "The known full polynomial for complete bipartite graphs covers the t=0 edge only. A deleted matching of at least two edges produces an induced 2K2, so the graphs lie outside chain graphs; a single deleted edge creates singleton twin classes and violates the displayed chain-graph hypothesis. Neither result supplies positive-t coefficients by implication.",
+      "searches": [
+        "Exact zero forcing number or zero forcing polynomial of complete bipartite graphs minus a matching, crown graphs and complementary prism graphs",
+        "Zero forcing number of crown graph K_n cross K_2, complete bipartite minus perfect matching",
+        "published-finding corpus: Zero-forcing polynomials of chain graphs with no singleton twin class (id df002fdf9e33)",
+        "published-finding corpus: All k-forcing sets of complete multipartite graphs (id 21dd3de55bd1)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1801.08910v1, 2018-01-26, accessible HTML inspected",
+      "arXiv:2306.01138v1, 2023-06-01, accessible HTML inspected",
+      "published-finding corpus zero forcing polynomial of bridge barbells, id 5431b532d7f2, semantic summary compared",
+      "published-finding corpus zero forcing polynomials of chain graphs with no singleton twin class, id df002fdf9e33, semantic summary compared",
+      "published-finding corpus all k-forcing sets of complete multipartite graphs, id 21dd3de55bd1, semantic summary compared",
+      "published-finding corpus matching-deleted biclique non-CIS pair count, id fb55fa5d8edb, semantic summary compared"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyer et al Theorem 1 gives generic z(G;N-2) and Section 5 exhibits z(K_{a,b};N-2)=ab; these entail the present top coefficients and the t=0 polynomial only.",
+        "Fallat et al Proposition 4.3 gives Z_q(K_{a,b}) for undeleted graph; no positive-t all-set enumeration.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb studies the same graph family but an unrelated maximal-clique/stable-set invariant."
+      ],
+      "reasoning": "The actual new assertion is classification for t>0 and exact counts of z^(N-3) and z^(N-4) plus three-stage drop of Z. These statements do not follow from general z^(N-2) or from scalar undeleted K_{a,b} formulas; the proof uses a new matched-index deadlock criterion. Prior t=0 and two high coefficients are acknowledged as previously covered.",
+      "searches": [
+        "Zero forcing polynomial of K_{a,b} with t disjoint independent cross-edges removed, with coefficients z^{a+b-3} and z^{a+b-4}, and zero forcing threshold depending on t",
+        "Zero forcing number of crown graph K_n cross K_2, complete bipartite minus perfect matching",
+        "web: \"zero forcing\" \"almost complete bipartite\" matching",
+        "arXiv:1801.08910v1 sections 3, 4, 5",
+        "arXiv:2306.01138v1 section 4.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1801.08910v1 Sections 3-5 defines ordinary zero-forcing-set polynomial; its K_{a,b} expression equals our t=0 endpoint.",
+        "No searched source presenting the crown-graph z^(N-4) coefficient or matching-deletion transition was found."
+      ],
+      "reasoning": "Equivalent formulations include a zero-forcing initial-set enumerator, the generating polynomial for complements of successful initial white sets, or the hitting-set enumerator of fort hypergraphs. The general fort result in the 2018 paper is an inequality, not the complete matching-deleted classification. The t=0 endpoint is explicitly covered and excluded from novelty.",
+      "searches": [
+        "Zero forcing polynomial, minimum zero forcing sets, and complete zero forcing sets of crown graphs, complete bipartite graphs with deleted matchings or almost complete bipartite graphs",
+        "Zero forcing polynomial of K_{a,b} with t disjoint independent cross-edges removed, with coefficients z^{a+b-3} and z^{a+b-4}, and zero forcing threshold depending on t",
+        "web: \"zero forcing\" \"crown graph\" polynomial",
+        "web: \"zero forcing polynomial\" \"bipartite\" \"matching\" deleted"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches returned zero-forcing polynomial of bridge barbells (id 5431b532d7f2), fan graphs (id f3b2c94da283), friendship graphs (id b77605779c1b), and chain graphs (id df002fdf9e33), but no exact matching-deleted biclique polynomial.",
+        "The 2018 full text contains a K_{a,b} formula but its search for crown or matching-deletion yielded no such family result."
+      ],
+      "reasoning": "Related formulas have a superficially similar short polynomial shape but are for nonisomorphic graph families or restricted t=0. The current coefficients depend on matched-index intersections, absent from those graph families. This is negative search evidence, not a proof that no independent table exists.",
+      "searches": [
+        "Zero forcing polynomial, minimum zero forcing sets, and complete zero forcing sets of crown graphs, complete bipartite graphs with deleted matchings or almost complete bipartite graphs",
+        "Matchings deleted from complete bipartite graphs: all initial blue zero forcing sets with at most two white vertices in each part; exact enumeration and crown graph coefficient",
+        "web: \"zero forcing polynomial\" \"crown graphs\" OR \"matching-deleted\"",
+        "web: \"zero forcing\" \"K_{n,n}\" \"minus\" matching"
+      ]
+    },
+    "rationale": "2018 foundational work proves the undeleted biclique polynomial and graph-general high coefficients, but not the t>0 classification or the z^(N-3), z^(N-4) coefficients. 2023 work treats q-analogue scalar numbers for undeleted bicliques, not all zero-forcing sets after matching deletion. published-finding corpus semantic checks found related invariant/family results but no implication covering positive-matching deletion. Residual unindexed bibliographic risk remains.",
+    "residual_risks": [
+      "Indexed and unindexed third-party exact enumerations may exist but were not identified; database partition cannot prove uniqueness.",
+      "A general theorem on all bipartite graphs with matching deletion could contain this as a corollary, but none appeared in checked literature.",
+      "Comparisons to published-finding corpus items were based on searchable summaries unless identified as full-text inspected; no claim those files were read fully."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS t=0 and general top coefficients, NOT_COVERING asserted t>0 exact coefficients in inspected relevant sections",
+        "evidence": [
+          "Definition 1 defines the zero forcing polynomial",
+          "Theorem 1 gives first three coefficients",
+          "Section 5 example z(K_{a,b})=z^N+Nz^(N-1)+abz^(N-2)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1801.08910v1",
+        "material_read": "Introduction and definition; Section 3 high coefficients; Section 4 class formulas; Section 5 bipartite polynomial example, forts, and final conclusions",
+        "method": "Accessible HTML full-text traversal and searches for bipartite, crown, matching, thresholds",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Foundational exact same invariant and undeleted graph family"
+      },
+      {
+        "assessment": "NOT_COVERING: studies scalar q-analogue in undeleted K_{a,b}, not Z polynomial after matching deletion",
+        "evidence": [
+          "Proposition 4.3 gives Z_q(K_{a,b})=min(a,b) for q=0 and a+b-2 for q>=1",
+          "No t-deleted family in that section"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2306.01138v1",
+        "material_read": "Introduction rules for Z versus Z_q, Section 4.1 Cartesian product results and Section 4.2 complete bipartite graph formulas",
+        "method": "Accessible arXiv HTML full text navigation to relevant sections",
+        "title": "The q-Analogue of Zero Forcing for Certain Families of Graphs",
+        "trigger": "Same zero-forcing terminology and complete bipartite graph family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dbea30a3-1d6d-46f3-acb8-40e96b74e519",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural three-parameter perturbation of the classical K_{a,b} zero-forcing polynomial, a graph invariant introduced for counting initial controllability/propagation configurations. The full polynomial and all successful sets, including the perfect matching-deleted crown boundary, are determined by a sharp two-whites-per-part structural theorem. The phase transition Z=N-2,N-3,N-4 exposes why the first two matching deletions change propagation capacity and later deletions do not; positive-t coefficients are not implied by the known undeleted formula. Exact counts of minimum sets enable comparison of robustness of initial placements.",
+    "status": "PASS"
+  }
+}
