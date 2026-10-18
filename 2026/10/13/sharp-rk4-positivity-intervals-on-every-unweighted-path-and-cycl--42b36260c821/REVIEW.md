@@ -1,19 +1,21 @@
-# Self-review: RK4 heat-step positivity on paths and cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-With unit-rate graph Laplacian \(L\), the completed RK4 map is the exact matrix polynomial \(R(-hL)\). Row sums are one; each diagonal is positive because \(R(-x)>0\) for \(x\ge0\), as follows from Taylor's integral remainder. A finite-radius walk calculation covers all possible off-diagonal entries of order at most four. Seven nearest-neighbor cubics and five distance-two quadratics have strictly positive Bernstein coefficients for \(0<h\le2/3\). Distance-three coefficients provide sharp, permanently negative entries beyond the cutoffs for all paths from four vertices and cycles from six vertices. On the five exceptional small graphs, exact cubics with strictly negative derivative give unique positive roots and remaining off-diagonal entries have positive discriminant-free quadratic factors. No numerical search substitutes for this all-size argument. The standalone pure-Python checker independently reconstructs the short-walk coefficient catalogues and checks 245752 rational entries on 57 graphs.
+PASS
 
-## Originality — PASS, with residual risk
+For R(z)=1+z+z²/2+z³/6+z⁴/24, the claimed matrix is T_G(h)=R(−hL_G). Taylor integral remainder gives R(−x)>0 for x>=0, hence all diagonal entries stay positive. Four-step walk locality reduces every path/cycle distance-one and -two entry to seven cubics/five quadratics; their Bernstein coefficients on [0,2/3] are positive. The enumerated distance-three coefficients vanish at 2/3,4/7,1/2 for large enough paths/cycles and become strictly negative thereafter. P2,P3,C3,C4,C5 have an explicitly checked unique positive cubic root with other off-diagonal entries nonnegative globally. Independent exact rational matrix-power enumeration of paths and cycles through n=12 corroborated every exceptional and stable cutoff; the infinite classification follows from walk locality, not those tests.
 
-Comparison of the actual statements distinguishes the all-size exact RK4 finished-step theorem from general positivity/absolute-monotonicity theory, two-stage heat methods, RK4 applied to advection and flux-limited semidiscretizations, and previously published positivity results for other rational time integrators or directed pure-birth Markov chains. Horváth (2005) treats Dirichlet heat stencils but examines other methods and invariant cones rather than these endpoints. The specific all-path/all-cycle cutoffs and their nonmonotonic small-cycle behavior were not covered by inspected primary text or relevant published-result queries. An overlooked earlier specialization in numerical-PDE literature remains a priority risk; this is not a claim of exhaustive historical uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-A sharp orthant-preservation timestep for explicit RK4 on the canonical one-dimensional finite-difference heat discretizations is a practically motivated invariant, especially because classical RK4 has zero general RK positivity radius and end-step positivity can still hold for these restricted systems. The result gives complete size-dependent necessary-and-sufficient bounds, including nonmonotonic cycle-size behavior and a universal large-size bound. It is not merely a small table or an unmotivated numerical census: one infinite theorem covers every connected undirected unit-weight graph of maximum degree two.
+PASS best-of-knowledge: complete necessary-and-sufficient endpoints for every unweighted finite path and cycle under classical RK4, including nonmonotone cycle sizes, extend beyond general SSP positivity-radius and unrelated numerical schemes. Fekete–Ketcheson–Lóczi Section6.2 handles a periodic heat stencil via two-stage methods, not this exact 4-stage classification.
 
-## Closest sources and limitations
+## value
 
-Fekete–Ketcheson–Lóczi, arXiv:1610.00228, Section 6.2: periodic heat stencil with two-stage explicit schemes and general semidiscrete criteria; no classical RK4 all-size path/cycle cutoffs. Khalsaraei, DOI:10.1016/j.asej.2015.05.018: explicit fourth-order Runge–Kutta positivity in flux-limited/advection settings. Horváth 1998, DOI:10.1016/S0168-9274(98)00050-6, Section 5 and Example 1: zero classical RK4 general-stage positivity radius. Horváth 2005, DOI:10.1016/j.apnum.2004.08.026, Section 4 and Table 1: Dirichlet heat equation with theta, Lobatto, and Radau tests; no exact RK4 result here. Restrictions: completed RK4 step only, unit weights, degree at most two, exact arithmetic. Priority remains subject to external historical verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp timestep regions for a standard fourth-order integrator on fundamental diffusion graphs matter for positivity preservation. The complete family threshold and genuine cycle-size nonmonotonicity (C5>C4, C7>C6) distinguish the exact result from generic sufficient SSP guarantees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

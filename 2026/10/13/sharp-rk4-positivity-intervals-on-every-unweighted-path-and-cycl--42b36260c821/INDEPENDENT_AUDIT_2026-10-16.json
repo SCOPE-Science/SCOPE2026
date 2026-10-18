@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T17:10:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For R(z)=1+z+z²/2+z³/6+z⁴/24, the claimed matrix is T_G(h)=R(−hL_G). Taylor integral remainder gives R(−x)>0 for x>=0, hence all diagonal entries stay positive. Four-step walk locality reduces every path/cycle distance-one and -two entry to seven cubics/five quadratics; their Bernstein coefficients on [0,2/3] are positive. The enumerated distance-three coefficients vanish at 2/3,4/7,1/2 for large enough paths/cycles and become strictly negative thereafter. P2,P3,C3,C4,C5 have an explicitly checked unique positive cubic root with other off-diagonal entries nonnegative globally. Independent exact rational matrix-power enumeration of paths and cycles through n=12 corroborated every exceptional and stable cutoff; the infinite classification follows from walk locality, not those tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Fekete–Ketcheson–Lóczi paper studies general convective schemes and second-order heat systems; universal nonpositivity for arbitrary semidiscretizations does not exclude a positivity interval on restricted symmetric graph Laplacians."
+        ],
+        "reasoning": "Sufficient SSP radii and nonexistence results for other semidiscretizations cannot imply the exact necessary cutoffs for a fixed restricted path/cycle operator family.",
+        "searches": [
+          "arXiv:1610.00228 Proposition8 and Section6.2",
+          "Horváth 1998 DOI 10.1016/S0168-9274(98)00050-6",
+          "Horváth 2005 DOI 10.1016/j.apnum.2004.08.026"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1610.00228",
+        "https://doi.org/10.1016/S0168-9274(98)00050-6",
+        "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "Resultary: classical RK4 positivity nonnegativity transition matrix graph Laplacian paths cycles sharp time step"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The compared heat analysis specifically writes two-stage ERK(2,2) polynomials P_-2..P_2; RK4 R is degree four, with distance-three sign obstruction absent there."
+        ],
+        "reasoning": "One cannot deduce the exact RK4 cutoff classification by replacing the RK stability polynomial inside a different theorem without new four-step walk and exceptional-size sign checks.",
+        "searches": [
+          "arXiv:1610.00228 Section6.2 pp16–18",
+          "Resultary published exact CN/Pade Markov-positivity findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "End-step preservation of the nonnegative orthant is equivalent to nonnegativity of every entry of the RK4 stability polynomial in the graph generator."
+        ],
+        "reasoning": "Reformulated as a Markov transition polynomial, not confused with SSP stage positivity; exact graph-by-graph thresholds absent from the compared original.",
+        "searches": [
+          "Resultary: classical RK4 positivity nonnegativity transition matrix graph Laplacian paths cycles sharp time step",
+          "arXiv:1610.00228 §§1,6.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected sources discuss polynomial positivity criteria but do not list the unusual cycle endpoints C4,C5,C6,C7 nor n-dependent path sequence."
+        ],
+        "reasoning": "This is a full natural graph-family table whose nonmonotone short-cycle behavior makes it more than a trivial tabulation, but unindexed numerical PDE tables remain a residual risk.",
+        "searches": [
+          "Resultary same RK4 query (distinct Padé/CN/BDF2 papers returned)",
+          "arXiv:1610.00228 local heat stencil analysis"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: complete necessary-and-sufficient endpoints for every unweighted finite path and cycle under classical RK4, including nonmonotone cycle sizes, extend beyond general SSP positivity-radius and unrelated numerical schemes. Fekete–Ketcheson–Lóczi Section6.2 handles a periodic heat stencil via two-stage methods, not this exact 4-stage classification.",
+      "residual_risks": [
+        "An older RK4 heat-discretization table in unindexed PDE literature could recover the short-cycle endpoints.",
+        "Classification is end-step, unit edge weights and maximum degree two only; not intermediate stages or arbitrary weighted graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analyzes ERK(2,2) heat semidiscretization and general 4th-order obstructions on different semidiscretizations; not an exact classical RK4 path/cycle list",
+          "evidence": "Section 6.2 equation (38) and displayed ERK(2,2) local step polynomials; RK4 mentioned in other nonpositivity setting.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.00228",
+          "material_read": "Full primary PDF relevant abstract, positivity limitations, §6.2 pages 17–18 and p16 neighboring setting; page image of §6.2 read",
+          "method": "arXiv lawful open-access PDF",
+          "title": "Positivity for convective semi-discretizations",
+          "trigger": "Directly relevant explicit RK positivity paper, same 1D heat-stencil objects"
+        },
+        {
+          "assessment": "Unresolved specialization risk, no negative whole-document determination",
+          "evidence": "1998 primary work addresses generic RK positivity; its path/cycle-specific contents have not been verified.",
+          "identifier_or_url": "https://doi.org/10.1016/S0168-9274(98)00050-6",
+          "material_read": "Bibliographic title/abstract and DOI search context; full source not obtained or read in this execution",
+          "method": "journal metadata/search",
+          "title": "Positivity of Runge–Kutta and diagonally split Runge–Kutta methods",
+          "trigger": "Possible universal positivity-radius coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp timestep regions for a standard fourth-order integrator on fundamental diffusion graphs matter for positivity preservation. The complete family threshold and genuine cycle-size nonmonotonicity (C5>C4, C7>C6) distinguish the exact result from generic sufficient SSP guarantees.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No claim about nonlinear problems, intermediate-stage nonnegativity, arbitrary graph weights or higher-degree graph topologies.",
+    "General RK positivity literature not exhausted, including full 1998 and 2005 journal sources."
+  ]
+}
