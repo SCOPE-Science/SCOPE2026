@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For any finite periodic ring, the Glauber generator acts on the sum of spins as multiplication by \(-\lambda\), proving the conditional-mean trajectory without a thermodynamic limit. The nonlattice renewal-age theorem applies to continuous Pareto intervals with \(\alpha>1\); the explicit age density normalizes, and its monotone change of variable yields the complete stationary law. Differentiating its logarithm determines every possible interior critical point and the sharp \(b=\alpha\) boundary. A coupling with the explicitly collapsed short-age sector proves exact TV, while stochastic dominance and the identity 1-Lipschitz witness prove exact \(W_1\). The extracted standalone verifier completed 210 finite numerical checks; these corroborate but are not the continuum proof.
+## correctness
 
-## Originality — PASS, with prior-implication risk
-The 2026 model paper provides the Pareto waiting time, deterministic Glauber relaxation, long-age density, and its cutoff-atom approximation (arXiv:2602.15495, equations (5)–(10)); none is claimed here as new. The general renewal framework of Eule–Metzger 2016 and a 2026 Lévy diffusion article already provide the exact stationary age identity, so the unaggregated density is a straightforward transformation of known mathematics. The **narrow original finding** is the sharp, explicit metric effect of replacing the physical short-age continuous sector by the particular Ising cutoff atom, together with the exact modal boundary of the resulting unaggregated law. The inspected sources do not state these comparisons. Earlier implicit derivations are possible and broad renewal theory supplies most proof ingredients; priority is not independently certified. Relevant published mathematical records searched by physical model, cutoff, aliases, atom, and metric terms returned no equivalent claim; absence of search hits is not a proof of originality.
+PASS
 
-## Value — PASS
-The 2026 Ising study interprets its stationary cutoff atom as the second magnetization peak. Reinstating the physically required continuous short-age sector is not merely a normalization check: it changes whether a second finite peak exists, with the exact, adjustable boundary \(\lambda\tau_0=\alpha\). Moreover, a fixed macroscopic total-variation discrepancy can coexist with vanishing \(W_1\), clarifying exactly which observables can tolerate the coarse approximation. These are model-specific, motivated accuracy and structural results, not a general claim about all resetting models.
+PASS: Directly recovered generator identity L(sum_j s_j)=-(1-gamma)sum_j s_j on every finite periodic ring, giving conditional mean m0 exp(-lambda a), with no single-spin or thermodynamic-limit inference. The continuous Pareto renewal process has mean alpha*tau0/(alpha-1) for alpha>1; equilibrium age density is survival(a)/EW, constant below tau0 and Pareto above, with masses (alpha-1)/alpha and 1/alpha. The monotone transformation a=log(m0/m)/lambda gives the complete density and no atom. Its log density derivative in age coordinates is lambda below tau0 and lambda-alpha/a above: the cusp max exists iff lambda*tau0<alpha; at equality derivative zero at the joining point but no max. Collapsing A<tau0 generates a singular point mass p=(alpha-1)/alpha, hence TV=p; the monotone shared-age coupling is W1 optimal by mean difference and yields the formula. All parameters lambda>0, tau0>0 and m0>0 observed. The 210 finite numerical checks in verify.py corroborate, not replace, this infinite-parameter derivation.
 
-## Scope and risks
-Only the stationary law of conditional ensemble-mean magnetization is treated, not the discrete finite-volume single-realization magnetization or the full stochastic finite-time distribution. The proof is analytic, but the result specializes strong general renewal theory and could have been derived implicitly in earlier literature; publication priority remains open. No external audit or experimental validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the narrowly delimited metric and modal consequences of an explicit published Ising approximation. The model, mean-relaxation law, equilibrium-age formula, and the exact change of variable are established ingredients. Direct full-text inspection of V K–Nagar Eq. (5)-(10) reveals the collapsed short-age sector; its interpretation as an atom does not itself compute TV/W1 or the corrected atomless modal phase. These consequences are not located in the inspected source. Prior implicit derivation from standard renewal theory is an explicit residual priority risk; search absence alone would not establish novelty.
+
+## value
+
+PASS
+
+PASS: The very same cutoff atom interpreted as a peak in the motivating study is replaced by a continuous shoulder in the exact observable. The existence of a finite interior mode has a nontrivial sharp parameter boundary; total variation remains macroscopic while W1 tends to zero linearly as b decreases. These two precise diagnostics characterize when the cutoff approximation is qualitatively and quantitatively misleading, providing a motivated model correction rather than a routine normalization test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
