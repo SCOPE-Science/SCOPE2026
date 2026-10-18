@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T22:53:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claim is S(q,6)=max_{1<=l<=q-1} l^5(q-l) for every integer q>=10, relying on the published SQN integer-program equivalence for ALL maximum non-overlapping codes. Swapping x,y permits a=x1<=b=y1 and a+b=q; the x5/y5 term is maximized at x5=T5, y5=0. Direct expansion of the recurrence produces F=a^4b^2+3a^2b^2u-a^2u^2+2ab^2v-2auv+b^2u^2+(b^2-2u)w-u^3-v^2 with 0<=u<=ab,0<=v<=T3,0<=w<=T4. The w optimum is T4 if 2u<=b^2 and zero otherwise. In the T4 branch, differentiating in v independently gives dF/dv=b^2(a+b)-2bu-2v and d^2F/dv^2=-2; its endpoint v=T3 equals H(u) as printed. On the interior-vertex branch, an independent symbolic substitution gives dF/dz=-2x^3+2x^2z+2x^2-8xz+x+3z^2+2z-1, convex in z with second derivative 6; the two endpoint derivatives exactly equal 5(x-1)(4x^2-x+1)/(4(x-2)^2), -3x^2+3x-1 (z=x), and -(8x^3-12x^2+12x-3)/4 (z=1/2), all nonpositive in their used domains. In the endpoint branch, stationary z satisfies 3z^2-6z+(1-x)(1+3x)=0; the derivative in x along that curve is -2B/(1+x)^7, with B positive after the z<13/50 and positive increasing-cubic bounds. In w=0 branch the bound <=q^6/16 follows the displayed R(x) positivity for x>=1/2. Thus all a<=q/5 contribute <=ab^5, and all a>=q/5 contribute <=Kq^6 (K=1024/15625). For q>=10 choose c=floor(q/5), c/q in [1/7,1/5] and h(t)=t(1-t)^5 >=h(1/5)=K; the Blackburn construction meets every upper bound. Independently evaluated the reduced exact SQN optimizer at q=6,7,8,9,10,11,12,17,23; it recovers the q=9 exception 33872>33614 and agrees with Blackburn for tested q>=10. These finite checks do not prove the infinite claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blackburn proves construction optimal for n|q, which includes q multiples of 6 only; Stanovnik gives a universal finite integer program, not its solution for q>=10."
+        ],
+        "reasoning": "The n|q subclass is strictly smaller than all q>=10. A general SQN formulation is an optimization starting point, not a closed optimum by itself; the proof evaluates that program globally for this one length.",
+        "searches": [
+          "length six non overlapping codes q alphabet optimal Blackburn construction sufficiently large Stanovnik Moskon Mraz",
+          "Stanovnik arXiv:2307.12593 §4 SQN",
+          "Blackburn arXiv:1303.1026 Theorems"
+        ]
+      },
+      "checked_sources": [
+        "S. R. Blackburn, Non-overlapping codes, arXiv:1303.1026; DOI 10.1109/TIT.2015.2456634",
+        "L. Stanovnik, M. Moškon, M. Mraz, In search of maximum non-overlapping codes, arXiv:2307.12593; DOI 10.1007/s10623-023-01344-z",
+        "Resultary same-work and q=7..9 exact length-six record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2013 conjecture asserts eventual Blackburn optimality, not a proof. 2024 SQN general result reduces the problem to polynomial constraints without solving their global length-six optimum."
+        ],
+        "reasoning": "The claimed tail solves a nontrivial fixed-length case of the conjecture, while known n|q values, q<=9 tables, and SQN are inputs or strict subsets; no earlier statement was found logically implying all q>=10.",
+        "searches": [
+          "length six non overlapping codes q alphabet optimal Blackburn construction sufficiently large Stanovnik Moskon Mraz",
+          "Blackburn 2013 Conjecture 1",
+          "Stanovnik SQN Theorem/Proposition 7",
+          "Resultary full query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blackburn arXiv:1303.1026, Conjecture 1, for fixed n sufficiently large q; Stanovnik--Moškon--Mraz arXiv:2307.12593, SQN objective and equivalence."
+        ],
+        "reasoning": "Terminologies cross-bifix-free/non-overlapping and maximum code size were compared; neither primary text states exact length-six formula on every q>=10.",
+        "searches": [
+          "length six non overlapping codes q alphabet optimal Blackburn construction sufficiently large Stanovnik Moskon Mraz",
+          "\"S(q,6)\" \"q>=10\" codes",
+          "Blackburn Conjecture 1",
+          "Stanovnik SQN 2024"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Stanovnik/Moškon/Mraz tables compute small alphabets through q=6 for lengths up to 16. Distinct Resultary entry gives q=7,8,9 and q=9 non-Blackburn 33872."
+        ],
+        "reasoning": "Finite exact tables end below the q>=10 interval and cannot dominate an unbounded-alphabet formula. The q=9 exception is compatible with the claimed cutoff.",
+        "searches": [
+          "length six non overlapping codes q alphabet optimal Blackburn construction sufficiently large Stanovnik Moskon Mraz",
+          "Stanovnik exact small (q,n) tables",
+          "Resultary 2026-10-04 q=7..9 length six"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: an infinite exact tail q>=10 in code length six, not merely a known Blackburn construction, rounding table, or fixed small-q instance. Source papers describe SQN but leave this particular tail conjecture open.",
+      "residual_risks": [
+        "The proof depends on the published correctness/completeness of the SQN representation; priority may exist in recent/unindexed follow-up to Blackburn conjecture.",
+        "The script scans q<=80 only; exact symbolic inequalities are the all-q proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conjecture states sufficient-large-q construction; proves some cases incl n divides q, not the entire q>=10 length-six tail.",
+          "evidence": "arXiv:1303.1026 §4 Conjecture 1",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.1026",
+          "material_read": "Opened complete 14-page arXiv PDF, read definition, construction, optimality discussion and Conjecture 1 on page 11; page images consulted.",
+          "method": "Primary arXiv PDF text and pages",
+          "title": "Non-overlapping codes",
+          "trigger": "Original conjecture and construction"
+        },
+        {
+          "assessment": "Gives same integer feasible set for global maximum but no closed q>=10 optimum; computed small-alphabet values do not cover the new tail.",
+          "evidence": "arXiv:2307.12593 §3.2, §4, §6",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.12593",
+          "material_read": "Opened full 24-page arXiv PDF; read §3 maximal characterization (Proposition 7), §4 SQN formulation and symmetry (Proposition 12), table scope and §6 comparison; inspected page 6 image.",
+          "method": "Primary arXiv PDF text and screenshot",
+          "title": "In search of maximum non-overlapping codes",
+          "trigger": "Exact SQN optimizer equivalence, competing tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines a natural infinite family of an unsolved extremal coding function with an explicit sharp threshold q=10, rather than recomputing a finite table. Settles a length-six instance of Blackburn eventual-optimality conjecture and separates the exceptional q=9 regime; future coding constructions and bounds can use the exact function for arbitrary alphabets. Does not claim maximum-code classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No length>=7 statement, no uniqueness/classification of maximum codes.",
+    "Proof uses a nontrivial published SQN equivalence, not self-contained reproof of that theorem."
+  ],
+  "schema_version": 1
+}
