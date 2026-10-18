@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof fixes the two spine labels and reduces each page to a four-by-four finite local state calculation. The only cross-page constraints are the two color-coverage conditions created by empty spine labels; ordinary inclusion-exclusion yields the displayed grouped contributions. Their sum is the claimed polynomial for every \(n\ge1\). The total count follows by evaluation at \(x=1\), and the minimum layers follow from the lowest degrees of the proved polynomial.
+## correctness
 
-The standalone verifier gives an independent consistency check: direct graph-definition enumeration for \(1\le n\le4\) and a color-union state dynamic program for \(1\le n\le10\) both match every coefficient. The computation is supporting evidence rather than the infinite proof.
+PASS
 
-## Originality
-**PASS.** The claim assessed here is the full \(2\)-rainbow weight enumerator of \(B_n\), equivalently the ordinary domination polynomial of \(K_{1,n}\mathbin{\square}C_4\). Searches were made under the invariant name, the book-graph name, and the equivalent Cartesian-product formulation. The 2005 and 2007 foundational sources supply the invariant and prism correspondence; the 2007 abstract advertises exact minimum numbers, not an all-function polynomial. The closest published-finding corpus all-function theorem concerns complete multipartite graphs, a class that does not contain \(B_n\) for \(n\ge2\).
+For every n>=1, fix the two spine labels and count the n independent pages. When a spine label is empty, its missing-colour condition is imposed by inclusion-exclusion. The five exhaustive spine-label types yield precisely A0^n - 4(1+x)A1^n + 6x^(2n) + 4x B1^n + 6x^2 B2^n + 4x^3 B3^n + x^4(1+x)^(4n). An independent literal-label enumeration confirmed all coefficients for n=1..4, with minimum pairs (2,4),(3,4),(4,5),(4,1). For n>=4, other contributions have degree >=5 and x^4 (1+x)^(4n) gives unique degree-4 term. The finite enumerations corroborate but do not establish all n; the spine-case proof does.
 
-The full text of the especially relevant 2007 paper was not readable through the available public route, so a family-specific scalar overlap is a residual risk. Such an overlap would not imply the coefficientwise enumerator, which is the originality-bearing statement. No inspected source or database result implied that enumerator.
+## originality
 
-## Value
-**PASS.** This is a complete exact distribution for a natural infinite family and a classical domination invariant. By the fiber bijection it also solves an ordinary domination-polynomial problem for \(K_{1,n}\mathbin{\square}C_4\). The result is structurally motivated by the two-spine decomposition and includes an exact total count and minimum-layer transition, rather than an isolated numerical value.
+PASS
 
-## Closest literature and limitations
-The closest conceptual source is Brešar and Kraner Šumenjak's 2007 prism-equivalence paper. The closest same-invariant all-function published-finding corpus result is for complete multipartite graphs and does not specialize to square book graphs. The main literature limitation is incomplete access to the 2007 full text; an unindexed enumeration remains possible.
+The existing rainbow/prism bijection transforms the claim into the ordinary domination polynomial of K_{1,n} square C_4. The full published complete-multipartite two-rainbow enumerator does not cover B_n for n>=2: nonadjacent vertices a1 and a2 on different pages have different neighborhoods {s,b1} and {s,b2}, unlike any nonadjacent pair in a complete multipartite graph. Inspected foundational sources give minima/definitions, not every coefficient on this graph family; no checked broader theorem directly implies the all-n expression. An older unindexed prism-domination enumerator remains possible.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Counting all rainbow dominating functions of square book graphs by weight is a natural finer enumerative invariant than their minimum domination number. The common-spine interaction yields a seven-term exact all-order polynomial and sharp low-weight transition at four pages. Researchers can use the full polynomial or equivalent K1,n square C4 domination polynomial independently of any global classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
