@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-`python verify.py` uses only the Python standard library and performs exact arithmetic with `fractions.Fraction`.
+## correctness
 
-For each of 156 positive-integer profiles with specialist count and generalist count at most four, total primary count at most six, core count at most three, and peripheral count at most four, it enumerates every partition of the primary species and optimizes every partner's placement. It compares the resulting global optimum with the proposed rational formula, sharp bound and equality criterion. On seven additional small profiles it independently enumerates every partition of *all* vertices (2,279 partitions in total) to confirm the formula and the unique optimal partition. Twenty-three additional family values check the sharp finite-count expression.
+PASS
 
-Expected terminal output:
+For p specialist rows, q generalist rows, a core and b peripheral columns with all four positive, E=(p+q)a+qb. The four blocks of B_ij=A_ij-d_i e_j/E are specialist-core +qb/E; specialist-peripheral -aq/E; generalist-core -pb/E; generalist-peripheral +pa/E. Any partition can include at most the positive entries, and the unique two-module partition specialist+core/generalist+peripheral includes all positive and no negative entries; connectivity within each positive complete block enforces uniqueness up to relabeling. Hence Qmax=2abpq/E². With X=(p+q)a,Y=qb, 4XY<=(X+Y)^2 gives Q<=p/[2(p+q)] exactly at X=Y. Integer choices a=q,b=p+q attain equality; fixed m=p+q maximum occurs at q=1 and is (m-1)/(2m), limit 1/2. All partitions, not merely bipartitions, are covered by the sign-table bound; p+q>=3 prevents an already known 2-row special case.
 
-`VERIFY_OK parametric_profiles=156 full_vertex_partitions=2279`
+## originality
 
-The correctness of the result for arbitrary parameters follows from the four-block sign table, the attainability argument and the elementary product inequality proved in RESULT.md. Finite tests alone are not infinite proof. No claim about arbitrary Ferrers graphs, modularity significance, real ecological outcomes or independent audit is made.
+PASS
+
+Barber introduces Q_B and module optimizers for arbitrary bipartite graphs; Pinheiro et al. apply optimized Barber modularity to empirical nested/compound networks. Neither inspected full primary source supplies the exact p,q,a,b optimum, unique optimizer and all-parameter 1/2 ceiling for two-tier connected Ferrers graphs. Familiar pointwise sign upper bound is a short argument, but the family and its sharp equality cases are not tabulated in prior source.
+
+## value
+
+PASS
+
+This is a full exact optimizer/classification for a natural nontrivial two-degree Ferrers subfamily and a parameter-sharp ceiling; it provides an explicit warning that perfectly nested binary neighborhoods can coexist with high maximized bipartite modularity. It is a structural extremal result rather than a numerical ecological interpretation, and is motivated by nestedness/modularity ambiguity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

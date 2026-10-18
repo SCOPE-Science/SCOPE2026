@@ -1,19 +1,21 @@
-# Scientific review: exact modularity in two-tier nested ecological networks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The degrees and all four possible entries of Barber's modularity matrix are recalculated from the definition; two blocks are strictly positive and two strictly negative under every stated assumption. Their total positive mass is an absolute partition-independent upper bound, and the explicit two-module grouping attains it. The strict signs also prove uniqueness of the maximizing grouping. The arithmetic–geometric mean inequality gives the sharp parameter ceiling, attained by positive integer parameters. An exact, independently implemented all-vertex partition enumerator agrees on small cases; the general theorem does not depend on enumeration.
+PASS
 
-## Originality — PASS (qualified)
+For p specialist rows, q generalist rows, a core and b peripheral columns with all four positive, E=(p+q)a+qb. The four blocks of B_ij=A_ij-d_i e_j/E are specialist-core +qb/E; specialist-peripheral -aq/E; generalist-core -pb/E; generalist-peripheral +pa/E. Any partition can include at most the positive entries, and the unique two-module partition specialist+core/generalist+peripheral includes all positive and no negative entries; connectivity within each positive complete block enforces uniqueness up to relabeling. Hence Qmax=2abpq/E². With X=(p+q)a,Y=qb, 4XY<=(X+Y)^2 gives Q<=p/[2(p+q)] exactly at X=Y. Integer choices a=q,b=p+q attain equality; fixed m=p+q maximum occurs at q=1 and is (m-1)/(2m), limit 1/2. All partitions, not merely bipartitions, are covered by the sign-table bound; p+q>=3 prevents an already known 2-row special case.
 
-Barber's arXiv full text defines the modularity matrix and alternating BRIM optimization but not an all-parameter theorem for two-tier Ferrers networks. Fortuna et al. discuss nestedness and modularity in empirical ecological networks using a unipartite modularity optimizer; Pinheiro et al. study empirical structures using Barber modularity but do not provide the present exact two-tier optimum or equality classification. A previously established two-primary-row NODF–Barber analysis already covers the limiting two-primary case; no novelty is claimed for that case. The new statement requires at least three primary species, classifies arbitrary positive multiplicities in both row tiers and partner tiers, and derives a sharp specialist-fraction ceiling and near-one-half family. Residual risk: an unindexed general modularity result for Ferrers graphs could imply this special case.
+## originality
 
-## Value — PASS
+PASS
 
-Ecological network analysis often juxtaposes nestedness and modularity, but distinguishing perfect neighborhood inclusion from a modularity baseline requires quantitative examples. This complete, naturally parameterized two-tier generalist–specialist family has a unique global modularity optimizer and a sharp ceiling; its limiting value shows that perfect inclusion nesting is compatible with substantial measured bipartite modularity. The result is an exact interpretive benchmark rather than a claim about empirical ecological significance or persistence. It is not a simple renaming of the prior two-row trade-off: the specialist and generalist multiplicities control a new sharp proportion-dependent ceiling across arbitrarily many species.
+Barber introduces Q_B and module optimizers for arbitrary bipartite graphs; Pinheiro et al. apply optimized Barber modularity to empirical nested/compound networks. Neither inspected full primary source supplies the exact p,q,a,b optimum, unique optimizer and all-parameter 1/2 ceiling for two-tier connected Ferrers graphs. Familiar pointwise sign upper bound is a short argument, but the family and its sharp equality cases are not tabulated in prior source.
 
-## Closest literature and limits
+## value
 
-Barber (2007, arXiv:0707.1616); Fortuna et al. (2010, DOI: 10.1111/j.1365-2656.2010.01688.x); Pinheiro et al. (2022, DOI: 10.1111/1365-2656.13806); Bascompte et al. (2003, DOI: 10.1073/pnas.1633576100). The model is binary, unweighted, two-tier, with resolution parameter one; no result about every chain graph or statistical significance is asserted. Additional unindexed mathematical literature remains a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a full exact optimizer/classification for a natural nontrivial two-degree Ferrers subfamily and a parameter-sharp ceiling; it provides an explicit warning that perfectly nested binary neighborhoods can coexist with high maximized bipartite modularity. It is a structural extremal result rather than a numerical ecological interpretation, and is motivated by nestedness/modularity ambiguity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T23:48:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p specialist rows, q generalist rows, a core and b peripheral columns with all four positive, E=(p+q)a+qb. The four blocks of B_ij=A_ij-d_i e_j/E are specialist-core +qb/E; specialist-peripheral -aq/E; generalist-core -pb/E; generalist-peripheral +pa/E. Any partition can include at most the positive entries, and the unique two-module partition specialist+core/generalist+peripheral includes all positive and no negative entries; connectivity within each positive complete block enforces uniqueness up to relabeling. Hence Qmax=2abpq/E². With X=(p+q)a,Y=qb, 4XY<=(X+Y)^2 gives Q<=p/[2(p+q)] exactly at X=Y. Integer choices a=q,b=p+q attain equality; fixed m=p+q maximum occurs at q=1 and is (m-1)/(2m), limit 1/2. All partitions, not merely bipartitions, are covered by the sign-table bound; p+q>=3 prevents an already known 2-row special case.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barber full HTML analyzes modularity definition/BRIM and real networks; Pinheiro full HTML analyzes 142 binary networks with optimized Barber but no p,q,a,b theorem."
+        ],
+        "reasoning": "General bipartite modularity optimization and nested compound network analyses use the same objects at greater graph generality but offer spectral heuristics or empirical module optimization, not an exact all-vertex-partition formula for the 2x2 block Ferrers model.",
+        "searches": [
+          "Resultary: Barber bipartite modularity exact Ferrers two tier perfectly nested specialist generalist networks optimal partitions",
+          "\"Modularity and community detection in bipartite networks\" exact Barber optimum nested Ferrers",
+          "\"Hierarchical compound topology\" Barber nested ecological optimization"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0707.1616v3",
+        "DOI:10.1111/1365-2656.13806",
+        "DOI:10.1073/pnas.1633576100",
+        "Resultary semantic Ferrers modularity search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Check p=m-1,q=1,a=1,b=m gives Q=(m-1)/(2m) and every graph connected Ferrers."
+        ],
+        "reasoning": "The original Barber modularity formula is a necessary input but does not itself state the maximal partition or equality case for every four-parameter family; the source algorithm is heuristic, not an exact solution. Pinheiro modularity-vs-nestedness empirical relationships do not logically imply a nested sequence attaining Q→1/2.",
+        "searches": [
+          "Resultary: Barber bipartite modularity exact Ferrers two tier perfectly nested specialist generalist networks optimal partitions",
+          "\"Modularity and community detection in bipartite networks\" exact Barber optimum nested Ferrers",
+          "\"Hierarchical compound topology\" Barber nested ecological optimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barber Eq (7), (15) exactly Q_B=sum(A-kd/E)*same_module / E; no NODF premise."
+        ],
+        "reasoning": "Two-neighborhood-level Ferrers/chain bipartite graphs are also described as perfectly nested matrices with specialist and generalist row classes. Unlike tie-penalizing NODF, nestedness means set-inclusion of neighborhoods; Barber Q_B is not a unipartite projection statistic.",
+        "searches": [
+          "Resultary: Barber bipartite modularity exact Ferrers two tier perfectly nested specialist generalist networks optimal partitions",
+          "\"Modularity and community detection in bipartite networks\" exact Barber optimum nested Ferrers",
+          "\"Hierarchical compound topology\" Barber nested ecological optimization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search leading hits on complete multipartite graphs concern other invariants, not Barber Q_B."
+        ],
+        "reasoning": "Empirical tables of modularity/nestedness are not exact formula tables for arbitrary multiplicities. All-positive-entry sign bound attains the global objective for this block structure; no Resultary exact two-tier Ferrers modularity hit found.",
+        "searches": [
+          "Resultary: Barber bipartite modularity exact Ferrers two tier perfectly nested specialist generalist networks optimal partitions",
+          "\"Modularity and community detection in bipartite networks\" exact Barber optimum nested Ferrers",
+          "\"Hierarchical compound topology\" Barber nested ecological optimization"
+        ]
+      },
+      "rationale": "Barber introduces Q_B and module optimizers for arbitrary bipartite graphs; Pinheiro et al. apply optimized Barber modularity to empirical nested/compound networks. Neither inspected full primary source supplies the exact p,q,a,b optimum, unique optimizer and all-parameter 1/2 ceiling for two-tier connected Ferrers graphs. Familiar pointwise sign upper bound is a short argument, but the family and its sharp equality cases are not tabulated in prior source.",
+      "residual_risks": [
+        "Perfectly nested is used in neighborhood-inclusion (Ferrers) sense; not maximal tie-sensitive NODF.",
+        "Closed-form proof is short once 4-block sign pattern noticed; older implicit or unindexed Ferrers modularity derivations remain possible.",
+        "Tree SHA from assignment not independently recomputed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original objective and spectral heuristic prior; no exact two-tier Ferrers equality classification",
+          "evidence": "Barber Eq (7), (15) matches analyzed normalized sum",
+          "identifier_or_url": "https://arxiv.org/html/0707.1616v3",
+          "material_read": "Full open arXiv HTML, sections I–III including Eq (7), Eq (15), module algorithm and results",
+          "method": "Read complete relevant definition and optimization discussion",
+          "title": "Modularity and community detection in bipartite networks",
+          "trigger": "Exact modularity definition and possible coverage"
+        },
+        {
+          "assessment": "Empirical optimization on 142 binary networks, no sharp connected two-class Ferrers theorem",
+          "evidence": "Author distinguishes high-level vs low-level nestedness",
+          "identifier_or_url": "https://doi.org/10.1111/1365-2656.13806",
+          "material_read": "Full Wiley open HTML abstract, methods 2.2, results and discussion; Barber-modularity implementation and NODF analyzed",
+          "method": "Compared measured topology and optimization scope",
+          "title": "Hierarchical compound topology uncovers complex structure of species interaction networks",
+          "trigger": "Strongest pertinent ecological nestedness/modularity study"
+        },
+        {
+          "assessment": "Defines/motivates nestedness but no Barber Q_B optimizer (modularity introduced 2007)",
+          "evidence": "Source predates Barber modularity",
+          "identifier_or_url": "https://doi.org/10.1073/pnas.1633576100",
+          "material_read": "Bibliographic abstract/background as cited by later full primary; not complete paper",
+          "method": "Compared conceptual nestedness object",
+          "title": "The nested assembly of plant-animal mutualistic networks",
+          "trigger": "Foundational ecological nested-neighborhood graph pattern"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a full exact optimizer/classification for a natural nontrivial two-degree Ferrers subfamily and a parameter-sharp ceiling; it provides an explicit warning that perfectly nested binary neighborhoods can coexist with high maximized bipartite modularity. It is a structural extremal result rather than a numerical ecological interpretation, and is motivated by nestedness/modularity ambiguity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0707.1616v3",
+    "DOI:10.1111/1365-2656.13806",
+    "DOI:10.1073/pnas.1633576100",
+    "Resultary semantic Ferrers modularity search"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Perfectly nested is used in neighborhood-inclusion (Ferrers) sense; not maximal tie-sensitive NODF.",
+    "Closed-form proof is short once 4-block sign pattern noticed; older implicit or unindexed Ferrers modularity derivations remain possible.",
+    "Tree SHA from assignment not independently recomputed."
+  ],
+  "schema_version": 1
+}
