@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Exact absorbing-interval Laplace transforms give the image-series fluxes. The leading images, the complementary-error-function expansion and the \\(c_N\\) normalization yield the two limiting intensities \\(e^{-y}\\) and \\(e^{-2\\theta-y}\\). Differentiated fluxes yield the normalized and factorized marked Gumbel density. IID renewal with episode durations tending to one on the \\(b/\\log N\\) scale yields the geometric total-time law. A two-scale exit-survival bound ensures \\(\\mathbb E[(\\log N)T_N/b]\\to1\\), providing the mean identity. The standalone numerical checker evaluates 12 parameter/population pairs, 36 centered distribution-function values, four exact midpoint symmetries and three Laplace-transform identities. It does not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Biswas, Majumdar and Pal (2026), equation (7), proves the general finite-N renewal mean, while equations (44)–(49) discuss fixed-ratio large-population asymptotics and endpoint limits.",
+        "Biswas, Majumdar and Pal (2025), supplemental S7 derives finite-N diffusion MFPT and S8 describes first-passage density in other parameter regimes."
+      ],
+      "reasoning": "Earlier finite-population renewal identities are attributed to their authors. They do not state the moving-boundary marked Gumbel race or the normalized discrete geometric completion limit. Broad renewal theory supplies the second conclusion only after proving the model-specific near-balanced critical-window input, which is not a direct fixed-parameter substitution.",
+      "searches": [
+        "Biswas Majumdar Pal collective threshold resetting critical boundary x0/L approaches one half at speed 1/log N: logistic success probability, discrete geometric first passage time after scaling by log N.",
+        "arxiv:2603.25338 §§II–III, eqs. (1)–(8) and (44)–(49)",
+        "arxiv:2504.13501 supplemental §§S7–S8"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2603.25338 (full text HTML relevant §II, §III, appendix)",
+      "https://arxiv.org/abs/2504.13501 (HTML main and supplementary S7/S8)",
+      "https://arxiv.org/abs/2110.11277 (full text §2, §3.1)",
+      "https://arxiv.org/abs/1004.5042 (main claims and intro)",
+      "Published semantic research-record searches for endpoint competition, moving-window Brownian extremes and geometric restart laws; no covering high-similarity match found."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The present claim simultaneously asserts logistic endpoint selection, a jointly independent marked Gumbel time, and a geometric distributional limit after renewal, with explicit limit for the mean.",
+        "The 2026 source provides an exact finite-N renewal expression and fixed-u mean asymptotics; the 2021 source gives fixed-exponent extreme-hit asymptotics without renewal."
+      ],
+      "reasoning": "At fixed unequal distances the minority exit probability tends to zero; in the moving critical window both exit types retain positive limiting probability and a factorized marked-time law is resolved. The 2026 exact renewal expression and the 2021 fixed-ratio theorem do not themselves assert this joint critical-window result. Its first part is required before the restarted geometric limit follows.",
+      "searches": [
+        "Sharp 1/log N window for global threshold resetting by N independent Brownian searchers: geometric first passage completion time scaled log N and logistic target success.",
+        "arxiv:2603.25338, Sections II, III and Appendix C",
+        "arxiv:2110.11277, Theorem 3 and section 3.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Linn and Lawley (2021), Theorem 3: a minority-target asymptotic is derived with fixed strictly separated exponential rates \\(C_1>C_0\\).",
+        "Their §3.1, equation (22), uses a fixed target-distance ratio greater than one."
+      ],
+      "reasoning": "The moving distance ratio 1+theta/log N has limiting ratio one. A fixed-ratio minority probability asymptotic is not uniform in this regime, and does not itself establish the nondegenerate logistic mark, independent marked Gumbel law or restarted geometric completion time.",
+      "searches": [
+        "Logistic crossover probability left versus right exit for N independent Brownian motions in finite interval with near-center initial point at distance difference order one over log N, Gumbel extreme exit time and geometric restarting completion time.",
+        "First exit race of independent diffusions to two equally close targets, exponentially tilted Gumbel marks, large system joint extreme time and destination, restart number geometric.",
+        "arxiv:2110.11277, §2 and §3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Krapivsky, Majumdar and Rosso (2010) give exact many-walker exit probabilities and a maximum-distance density, not a tabulated double limit at \\(L_N=d(2+\\theta/\\log N)\\).",
+        "The present theorem determines an infinite-population law, not a pre-existing finite numerical lookup table."
+      ],
+      "reasoning": "Exact finite-population exit probabilities are an important source of coverage risk, but an exact formula for all parameters is not the same stated result as the joint asymptotic crossover and geometric restarted completion law. No identical specialized table or result was found in the inspected sources.",
+      "searches": [
+        "Brownian extreme first exit two boundaries critical window logarithm walkers probability sigmoid logistic large N",
+        "Poisson rare-event two-color marked extreme value process diffusive Brownian exit, targets separated O(1/log N), Gumbel winner-mark law.",
+        "arxiv:1004.5042, exact hypercube exit probability"
+      ]
+    },
+    "rationale": "The principal 2026 model paper has general finite-N renewal laws and fixed-distance asymptotics. The 2021 rigorous extreme-hitting theorem presupposes strictly distinct fixed large-deviation exponents, and the 2010 exact box-exit formula does not state the moving-threshold joint time/mark and geometric restarted completion limit. Targeted published scientific search uncovered no equivalent or stronger covering theorem. Existing finite-N formulae and extreme theory remain explicitly credited; unindexed or implicit derivations are a residual risk.",
+    "residual_risks": [
+      "General marked extreme-value point-process theory might contain an implicit corollary equivalent to the joint endpoint/time limit.",
+      "Krapivsky et al. (2010) and Biswas et al. (2026) supply broad exact formulas from which some new expressions might be derivable with additional asymptotic work; absence of an explicitly stated limit does not prove global novelty.",
+      "The most directly related 2026 paper was read in available HTML representation; no independent auditor has evaluated the novelty comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers finite-N renewal mean and fixed-threshold-ratio asymptotics; no stated near-balanced window, marked extreme distribution or geometric distributional completion limit.",
+        "evidence": [
+          "First public version 2026-03-26",
+          "Sections II and III, eqs. (7), (44)–(49)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.25338",
+        "material_read": "Accessible full-text HTML: introduction; Sections II and III, including renewal equations (1)–(8), asymptotic equations (44)–(49), and discussion of the no-threshold Appendix C.",
+        "method": "Direct examination of paper text, definitions, claims and asymptotic parameter ranges.",
+        "title": "Optimal threshold resetting in collective diffusive search",
+        "trigger": "Identical ensemble and instantaneous collective threshold reset protocol, most plausible direct coverage."
+      },
+      {
+        "assessment": "General renewal methods and exact finite-population mean first-passage time are prior. No statement of the marked two-boundary Gumbel race under \\(L_N-2d=\\theta d/\\log N\\), or of its geometric completion-time law.",
+        "evidence": [
+          "First public version 2025-04-18",
+          "Supplement §S7 eq. (S83), §S8 first-passage analysis"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2504.13501",
+        "material_read": "Accessible full-text HTML main article plus supplement S7 (diffusion mean) and S8 (first passage distribution); parameter and limiting cases identified.",
+        "method": "Direct inspection of principal and supplemental paper text, including relevant formulae.",
+        "title": "Target Search Optimization by Threshold Resetting",
+        "trigger": "Original generic renewal framework and supplementary treatment of diffusive search."
+      },
+      {
+        "assessment": "Fixed strictly unequal target distances yield asymptotic minority-target decay; no uniform moving-ratio result or repeated global-reset completion law.",
+        "evidence": [
+          "Theorem 3 requires \\(C_k>C_0\\) as fixed short-time exponents",
+          "§3.1 equation (22), fixed \\(\\beta>1\\)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2110.11277",
+        "material_read": "Accessible full-text HTML Sections 2 and 3.1, Theorems and fixed distance ratio asymptotics including equation (22).",
+        "method": "Compared fixed-ratio assumptions and conclusions of Theorem 3 and one-dimensional interval example.",
+        "title": "Extreme hitting probabilities for diffusion",
+        "trigger": "Closest rigorous extreme-target selection results for independent diffusions."
+      },
+      {
+        "assessment": "Exact exit probability and extreme-distance tails provide relevant prior coverage; inspected statements do not supply the critical two-color marked time law and repeated-reset completion limit.",
+        "evidence": [
+          "2010 abstract and introduction, equation (6)",
+          "Box exit event in §I"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1004.5042",
+        "material_read": "Accessible full-text introduction and statements of exact box-exit probability and maximum-distance asymptotics, equations (1)–(6).",
+        "method": "Direct comparison of exact finite-population exit observable with new joint asymptotic and restart-time distribution.",
+        "title": "Maximum of N Independent Brownian Walkers till the First Exit From the Half Space",
+        "trigger": "Potential stronger exact exit-probability formula for identical finite walker configuration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "778459f1-7fef-4864-8484-6d406ed1495e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The absorbing boundaries compete on the natural \\(O(1/\\log N)\\) displacement scale not resolved by fixed unequal-distance asymptotics. The theorem establishes a nondegenerate logistic target-selection transition, the jointly independent Gumbel endpoint mark, a geometric normalized completion-time law and its exact leading mean coefficient for a physical collective-reset protocol. This explains a qualitative change in the distributional form and a sharp parameter sensitivity, rather than recalculating an arbitrary finite integral.",
+    "status": "PASS"
+  }
+}
