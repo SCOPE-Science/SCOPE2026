@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T11:13:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For one Bell-pair block a selected subsystem retains 0/1/2 endpoints and contributes purity 1,1/2,1; selecting one endpoint has combinatorial multiplicity 2. Hence the contribution after weighting by purity has local polynomial 1+x+x², proving mean m-subsystem purity [x^m](1+x+x²)^K/binom(2K,m). For m=K, the coefficient is the central trinomial T_K∼sqrt(3)3^K/(2sqrt(pi K)), while binom(2K,K)∼4^K/sqrt(pi K), yielding sqrt(3)/2(3/4)^K. The ratio to 2^-K grows as (3/2)^K and Scott Q_K tends to 1; K≥2 states factor into entangled two-qubit blocks and have depth 2. Independently enumerated K≤8 subsets; the asymptotic follows analytically, not from finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A generic purity measure definition gives no evaluated purity on a pair-product state until the subsystem intersection combinatorics are computed.",
+          "A four-qubit generalized global entanglement example uses a different average than uniform size-m subsets."
+        ],
+        "reasoning": "Broader entanglement-potential theory sets the benchmark but does not logically imply the claimed central-trinomial expression or limit on its own.",
+        "searches": [
+          "Facchi Statistical mechanics multipartite entanglement arXiv:0803.4498",
+          "Scott PhysRevA.69.052330 Q_m definition",
+          "Bell-pair product average subsystem purity central trinomial coefficient Facchi Scott Q_m"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0803.4498 (Facchi et al complete paper)",
+        "DOI:10.1103/PhysRevA.69.052330 / arXiv:quant-ph/0310137 (Scott abstract/full-text attempt)",
+        "arXiv:quant-ph/0507253 (known qualitative pair-product warning)",
+        "Resultary search: Bell-pair product average subsystem purity central trinomial coefficient Facchi Scott Q_m"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Facchi full text defines balanced H and lower bound 2^-K; Scott abstract/formula background defines uniform-subset quantities. Prior Bell-pair-product examples assess different generalized entanglement measures."
+        ],
+        "reasoning": "The original definitions and known qualitative counterexample leave the complete all-m purity distribution and asymptotic gap unevaluated in the read sources.",
+        "searches": [
+          "Facchi et al arXiv:0803.4498 full nine-page pdf",
+          "Scott 2004 Phys. Rev. A 69 052330 manuscript open discovery",
+          "Bell-pair product average subsystem purity central trinomial coefficient Facchi Scott Q_m"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Facchi arXiv:0803.4498 defines averaged balanced purity H; the author manuscript/source mathematical definitions do not give the Bell-pair coefficient identity in inspected sections.",
+          "The qualitative pair-product counterexample was already described by de Oliveira et al."
+        ],
+        "reasoning": "Identical states appear as EPR pairs, Bell pairs and disjoint matching graph states. The searched aliases did not recover the full all-size coefficient and balanced asymptotic.",
+        "searches": [
+          "Bell-pair product average subsystem purity central trinomial coefficient Facchi Scott Q_m",
+          "product of EPR pairs average subsystem purity (1+x+x^2)^K central trinomial",
+          "Scott Q_m Bell pair tensor product"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Central trinomial coefficients are classically tabulated but no inspected table identifies their normalized ratio with this balanced multipartite entanglement potential."
+        ],
+        "reasoning": "The combinatorial sequence is old; its exact identification with a natural quantum-state purity invariant and asymptotic quantitative contrast is the tested contribution.",
+        "searches": [
+          "Bell-pair product average subsystem purity central trinomial coefficient Facchi Scott Q_m",
+          "OEIS central trinomial Bell pair entanglement purity",
+          "Scott EPR pair purity central trinomial table"
+        ]
+      },
+      "rationale": "Facchi et al. define the balanced purity potential and universal lower bound; Scott defines normalized average-subsystem purity. Prior de Oliveira–Rigolin work already points out that Bell-pair products can lack genuine multipartite entanglement despite high global-entanglement values, so that qualitative point is not counted as new. Exact all-m coefficient profile and central-trinomial asymptotic are distinct from a four-qubit generalized average under a different convention. No equivalent profile was located in targeted searches.",
+      "residual_risks": [
+        "An exact Bell-pair coefficient may already occur in poorly indexed generalized entanglement or quantum-code work.",
+        "Scott full primary article could not be read this run; it could contain an equivalent special-case formula.",
+        "Normalized Q approaching 1 does not imply perfect MMES or genuine multipartite entanglement; indeed ratio to ideal purity diverges."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_POTENTIAL_WITHOUT_READ_BELL_PAIR_EVALUATION",
+          "evidence": "The paper averages balanced reduction purities and places ideal minimum 2^-K, but does not supply the central-trinomial Bell-product profile in its inspected calculations.",
+          "identifier_or_url": "arXiv:0803.4498 / DOI:10.1088/1751-8113/42/5/055304",
+          "material_read": "Full nine-page public preprint inspected, including average-purity definition, pure-subsystem purity limits, multipartite entanglement statistical-mechanics framework.",
+          "method": "Public arXiv PDF https://arxiv.org/pdf/0803.4498 and rendered equation pages",
+          "title": "Statistical mechanics of multipartite entanglement",
+          "trigger": "The primary source of balanced potential H and purity lower bound"
+        },
+        {
+          "assessment": "FULL_TEXT_ACCESS_RISK",
+          "evidence": "The abstract gives average bipartite entanglement and code weight-distribution formulas, not an observable Bell-product claim; full text not independently reviewed.",
+          "identifier_or_url": "arXiv:quant-ph/0310137 / DOI:10.1103/PhysRevA.69.052330",
+          "material_read": "Public abstract and author-manuscript repository metadata accessed; full text unavailable through attempted arXiv/Griffith open links.",
+          "method": "Public research-repository description and DOI abstract; no whole-PDF noncoverage inference",
+          "title": "Multipartite entanglement, quantum-error-correcting codes, and entangling power of quantum evolutions",
+          "trigger": "Primary Scott normalization and possible matching state family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a closed benchmark for a natural structured multipartite state family at every subsystem size, with a sharp exponential separation from the balanced minimum and a precise warning about interpreting normalized purity saturation as high entanglement depth. The full exact object-specific invariant and scale law survive despite the previously known qualitative example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0803.4498 (Facchi et al complete paper)",
+    "DOI:10.1103/PhysRevA.69.052330 / arXiv:quant-ph/0310137 (Scott abstract/full-text attempt)",
+    "arXiv:quant-ph/0507253 (known qualitative pair-product warning)",
+    "Resultary search: Bell-pair product average subsystem purity central trinomial coefficient Facchi Scott Q_m"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An exact Bell-pair coefficient may already occur in poorly indexed generalized entanglement or quantum-code work.",
+    "Scott full primary article could not be read this run; it could contain an equivalent special-case formula.",
+    "Normalized Q approaching 1 does not imply perfect MMES or genuine multipartite entanglement; indeed ratio to ideal purity diverges."
+  ],
+  "residual_risks": [
+    "An exact Bell-pair coefficient may already occur in poorly indexed generalized entanglement or quantum-code work.",
+    "Scott full primary article could not be read this run; it could contain an equivalent special-case formula.",
+    "Normalized Q approaching 1 does not imply perfect MMES or genuine multipartite entanglement; indeed ratio to ideal purity diverges."
+  ],
+  "schema_version": 1
+}
