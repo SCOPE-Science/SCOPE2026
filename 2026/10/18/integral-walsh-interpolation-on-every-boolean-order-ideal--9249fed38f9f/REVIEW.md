@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The normalization is the unnormalized binary Walsh pairing. For any downward-closed family, the principal Fourier matrix factors as \(Z\operatorname{diag}((-2)^{|C|})Z^{\mathsf T}\) with integral unitriangular \(Z\), proving the complete Smith chain, determinant, inertia, and explicit inverse. The modular kernel count follows directly from the invariant factors; direct exact computations corroborate the formula. The proof treats the empty face and all cardinalities and does not extrapolate from finite experiments.
+
+**Originality (PASS, with limitations).** Comparisons considered equivalence via Boolean Möbius inversion, signed face-incidence congruence, Sylvester-Hadamard subdeterminants, known Smith forms of selected Hadamard designs, and the unweighted simplicial-complex counting matrix. The identified literature establishes closely related tools or restricted cases, but none of the checked claims states or logically implies the full uniform Smith/inverse/inertia/modular Fourier conclusion for *every* downward-closed family. This comparison is not a uniqueness certificate: some related full texts were inaccessible and the elementary zeta argument makes rediscovery possible.
+
+**Value (PASS).** Downward-closed supports encode arbitrary simplicial complexes and hierarchical sparse interaction models. For this natural entire class, the result settles not only complex Fourier uniqueness but the exact integer obstruction groups and the number of ambiguities at every binary precision; it also gives a closed reconstruction formula and real spectral signature. It is a structural all-family statement, not an isolated numerical computation or a routine one-parameter increment. Its strength is algebraic sampling rather than Euclidean conditioning.
+
+The 2012 Hadamard-minor analysis, 2013 selected-design Smith classification, and 2019 unweighted counting-matrix work are the closest sources; alternate equivalent treatments remain a literature risk. Unrestricted supports and numerical stability are not settled. Reproducible finite checks are not a replacement for the general proof.
+
+Self-review: passed. Independent audit: not yet performed.
