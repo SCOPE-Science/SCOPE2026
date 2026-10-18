@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone `verify.py` runs with ordinary Python 3 and standard-library modules only. Run `python verify.py`. Successful replay prints `VERIFY_OK_PARABOLIC_SQUARE_ZERO` followed by the number of exhaustive cases and five rank distributions.
+## correctness
 
-The checker directly enumerates entries in all three rectangular blocks for each tested \((a,b,c,q)\), computes \(AB=0\) with independent finite-field arithmetic, constructs the full matrix, and performs Gaussian elimination to obtain rank. It compares the resulting rank histogram with an independently implemented triple-sum formula. The tested fields are \(\mathbb F_2\), \(\mathbb F_3\), \(\mathbb F_4\) (represented as \(\mathbb F_2[t]/(t^2+t+1)\)), and \(\mathbb F_5\). The test suite includes forty-one parameter tuples with \(a,b,c\) from one to three and at most forty thousand candidate matrices each. It also checks the one-sum total count and that ranks form the predicted complete interval.
+PASS
 
-In particular, the complete distributions for \((a,b,c)=(2,2,2)\) are \(1+81T+630T^2+216T^3\) over \(\mathbb F_2\) and \(1+608T+19344T^2+13824T^3\) over \(\mathbb F_3\). These cases have respectively \(928\) and \(33777\) valid square-zero matrices.
+The exact source theorem quantifies over every positive a,b,c and every prime-power q and counts individual full three-block radical matrices. Direct multiplication gives X^2=0 iff AB=0. Rank i of A has R_q(a,b,i) choices; rank j of B factoring through ker A has R_q(b-i,c,j) choices. The map C -> pi C|ker(B), targeting Hom(ker B,F_q^a/im A), is surjective with constant fiber q^[ac-(a-i)(c-j)], and rank X=i+j+rank(pi C|ker B), giving the displayed three-sum polynomial and all empty-target boundaries. The independent one-sum count q^ac sum_i R_q(a,b,i)q^[c(b-i)] follows by freely choosing B and C. The bound min(floor((a+b+c)/2),a+b,a+c,b+c) follows from X^2=0 and block supports; a matching on complete tripartite coordinate parts realizes every rank up to the bound, with X^2=0. Independently written exhaustive q=2/3 block enumeration corroborates the formula, including P_222^(2)=1+81T+630T^2+216T^3; tests do not prove all q.
 
-These finite tests do not prove the formula for arbitrary field size and block dimensions. The proof is the dimension argument and matching construction stated in `RESULT.md`. No external independent audit has been performed.
+## originality
+
+PASS
+
+The exact arithmetic rank distribution of an entire square-zero parabolic nilradical differs from established counts of unrestricted upper-triangular square-zero matrices, the fixed-adjacent-rank geometry of complexes AB=0, and complex parabolic orbit classifications. Actual primary texts were inspected; no finite-field total-rank polynomial follows from their stated results without further orbit arithmetic. An equivalent formulation hidden in finite classical-group orbit literature remains possible. Best of knowledge PASS.
+
+## value
+
+PASS
+
+The full finite-field rank distribution of square-zero endomorphisms in a standard three-step parabolic nilradical is a natural structural and arithmetic invariant, motivated independently by complexes and nilpotent orbit stratifications. This theorem supplies a complete all-dimension q-polynomial with sharp support, not merely small-field data; the C-fiber explains a non-obvious total-rank refinement not captured by adjacent differential ranks. Exact results may support later orbit, probability, and representation calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
