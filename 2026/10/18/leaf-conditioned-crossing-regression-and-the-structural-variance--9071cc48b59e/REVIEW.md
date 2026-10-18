@@ -1,0 +1,19 @@
+# Scientific review: leaf-conditioned crossings in uniform Cayley trees
+
+## Correctness
+
+**PASS.** The theorem is proved for every integer \(n\ge4\), with all admissible leaf counts. Fixing a tree shape and relabeling vertices makes each vertex-disjoint edge pair cross with probability \(1/3\). The Prüfer degree formula identifies the number of incident edge pairs with an iid-word collision count. Merging two code positions gives the displayed Stirling ratio conditional on the number of occupied symbols. Lieb's strong log-concavity theorem, together with the Stirling recurrence, proves strict regression ordering. Mixed covariance is obtained by summing the exact covariance of an equal-symbol pair and an empty-symbol indicator. Pairwise uncorrelated collision indicators give the exact structural variance. A separate calculation gives the exact variance of the leaf count; the stated limits then follow, using the previously established total-crossing variance asymptotic. All assumptions, index boundaries and limiting normalizations have been checked. The standalone exact-rational verifier exhausts all Prüfer words through eight vertices; finite tests are not substituted for the proof.
+
+## Originality
+
+**PASS within the inspected scope, with residual risk.** Prior work on randomly ordered fixed trees already determines the expectation from degree moments, and the 2023 fixed-graph theory covers that fact in greater generality. Prior work on uniformly random Cayley-tree crossings supplies the leading variance and central limit theorem. Therefore the fixed-graph mean, Prüfer code, leaf-count law and Stirling log-concavity are explicitly *not* claimed as new. The comparison target is the complete leaf-conditioned regression, its strict decrease throughout the leaf spectrum, its exact mixed covariance, and the asymptotic separation between structural and geometric crossing variation with a limiting \(1/[2(e-2)]\) linear explanatory fraction. Those conclusions were not identified in the examined full texts or targeted searches. It remains possible that earlier degree-conditioned crossing results or occupancy-moment identities imply an equivalent specialization; no comprehensive historical priority claim is made.
+
+## Value
+
+**PASS.** Crossings mix topology (tree shape) and embedding order, while leaf number is an interpretable coarse shape descriptor. The result separates these two fluctuation sources exactly, giving a full conditional calibration across all leaf counts, not merely the unconditional expectation. The fact that leaves explain asymptotically about \(69.6\%\) of *linearly predictable shape-induced mean variation* while shape accounts for order \(n^{-2}\) of total crossing variance is a nontrivial and motivated structural contrast. It supports conditional randomization baselines and identifies how much of the structural mean can be predicted without knowing the full shape. The result does not establish conditional stochastic dominance or nonlinear optimal prediction.
+
+## Closest literature and limitations
+
+Ferrer-i-Cancho (arXiv:1305.4561) covers the crossing mean under random ordering of a fixed tree. Arizmendi–Cano–Huemer (arXiv:1902.05223) study crossing asymptotics in random labeled trees. Arenas-Velilla–Arizmendi (arXiv:2209.09431) sharpen crossing moment calculations, and Arenas-Velilla–Arizmendi–Paguyo (arXiv:2308.11570) develops the general randomly embedded fixed-graph theory. Lieb (1968) supplies strong Stirling log-concavity. No inspected source states the leaf-conditioned regression or the linear structural-information limit. The possibility of an older implicit equivalent result is the principal residual originality risk. The scope is exclusively uniform labeled trees in strict convex position and exact conditional means; all external validation remains unperformed.
+
+Self-review: passed. Independent audit: not yet performed.

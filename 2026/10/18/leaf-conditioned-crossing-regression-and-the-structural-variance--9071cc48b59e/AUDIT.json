@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "For n>=4, the conditional crossing mean given unlabeled tree shape equals one third the number of disjoint edge pairs, which is (binom(n-2,2)-J)/3 for the number J of repeated Prüfer-symbol pairs. Merging two specified code positions preserves the occupied-symbol count, proving S(m-1,k)/S(m,k). Lieb strong row log-concavity proves all strict inequalities. Summing exact indicator covariances yields Cov(X,L)=-binom(m,2) q^(m-1)/(3n). The equality indicators are pairwise uncorrelated, giving Var(E[X|shape])=binom(m,2)(n-1)/(9n^2). The leaf variance follows from zero-box indicators; all asymptotics use verified expansions and the cited Var(X)~n^3/45. A package-local verifier independently enumerates all 262144 Prüfer codes at n=8 and all smaller n, producing 280562 exact assertions. Boundaries and n>=4 domain are explicit; no finite experiment is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2308.11570 Theorem 3.1 gives a general expected crossing count for a fixed graph under random embedding.",
+        "arXiv:2209.09431 studies exact crossing moments and the asymptotic variance of uniform labeled trees.",
+        "arXiv:1902.05223 proves the asymptotic normality and leading first two moments of crossings in uniform labeled trees."
+      ],
+      "reasoning": "The broader fixed-graph theorem dominates only the conditional-on-full-shape expectation, not a statement of how crossings depend across the complete leaf-count spectrum under the Cayley law. Previously derived unconditional second moments do not imply a unique leaf correlation. There remains a possible earlier derivation by combining established ingredients.",
+      "searches": [
+        "random tree expected crossings fixed number of leaves convex position",
+        "uniform Cayley tree convex polygon crossing count number of wedges cherry degree second moment covariance expected crossing conditioned tree shape",
+        "https://arxiv.org/abs/2308.11570",
+        "https://arxiv.org/abs/2209.09431",
+        "https://arxiv.org/abs/1902.05223"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2308.11570",
+      "https://arxiv.org/abs/2209.09431",
+      "https://arxiv.org/abs/1902.05223",
+      "https://arxiv.org/abs/1305.4561",
+      "https://doi.org/10.1016/S0021-9800(68)80057-2",
+      "https://www.matpic.com/essays/a-random-tree-is-one-part-in-e-leaves/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ferrer-i-Cancho gives expectation conditional on a specified tree, from degree moments.",
+        "Lieb (1968) establishes strong log-concavity for the Stirling rows.",
+        "The 2023 fixed-graph crossing paper considers random embeddings and even random graph mixtures, but the inspected theorems do not give the leaf-conditioned profile or the 69.6-percent correlation-squared limit."
+      ],
+      "reasoning": "The exact new regression follows after a specialized Prüfer-symbol collision identification and a merged-position conditional count; the strict monotonicity then uses established log concavity. The limit combines three independently analyzed fluctuation scales. Because these deductions are accessible from prior ingredients, novelty is claimed narrowly at the combined structural calibration, not at component lemmas, and implicit priority remains a material risk.",
+      "searches": [
+        "Random labelled tree expected crossings given leaf count and degree multiset, conditional mean",
+        "Stirling numbers of second kind strict log concavity Lieb 1968",
+        "https://arxiv.org/abs/2308.11570",
+        "https://arxiv.org/abs/1305.4561",
+        "https://doi.org/10.1016/S0021-9800(68)80057-2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ferrer-i-Cancho (2013) expresses the random-order fixed-tree crossing mean by degree second moments, a stronger statement for that building block.",
+        "Arenas-Velilla–Arizmendi–Paguyo (2023) expresses fixed-graph crossing moments by subgraph counts, but the inspected results do not condition a Cayley tree on its number of leaves."
+      ],
+      "reasoning": "A fixed-graph expectation is not equivalent to the conditional Stirling-ratio profile without coupling it with the conditional occupancy law for uniform Prüfer words. Those ingredients can be combined, so some claims might have implicit coverage. The specific all-leaf-level calibration and structural 1/[2(e-2)] variance decomposition were not located in the inspected works.",
+      "searches": [
+        "random labelled tree crossings conditional on number of leaves Prüfer Stirling numbers second kind",
+        "Random labelled tree expected crossings given leaf count and degree multiset, conditional mean",
+        "https://arxiv.org/abs/1305.4561",
+        "https://arxiv.org/abs/2308.11570"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1902.05223 tabulates crossing counts by tree order, not leaf-conditioned crossing regressions.",
+        "Standard Stirling-number tables give the leaf-count distribution and conditional occupancy counts but do not explicitly identify the crossing regression and limiting explained-variance constant."
+      ],
+      "reasoning": "The finding is not a recomputation of any identified exact table entry; it supplies an all-n parameter family with proofs and an asymptotic statistical decomposition. A hypothetical exhaustive existing bivariate table could imply it and remains an unexcluded risk.",
+      "searches": [
+        "random labelled tree crossings conditional on number of leaves Prüfer Stirling numbers second kind",
+        "random Cayley trees crossing count leaf count covariance and fraction variance leaf",
+        "https://arxiv.org/abs/1902.05223",
+        "random labelled trees n 7 leaf-count distribution Prüfer Stirling numbers"
+      ]
+    },
+    "rationale": "The fixed-graph crossing expectation and general crossing moments, random-tree leading crossing variance, Prüfer degree/leaf formulas, and strict Stirling log-concavity are established prior results. The assessed result is their newly specialized leaf-conditioned regression over every possible leaf count, its strict ordering, the exact leaf-crossing covariance, and the 69.6-percent limiting fraction of linear shape-mean variance explained by leaf count, juxtaposed with the n^{-2} structural fraction of total crossing variance. Available relevant texts and targeted searches did not identify these combined statements. Non-exhaustive historical priority is a residual risk, not a proof of uniqueness.",
+    "residual_risks": [
+      "An earlier conditional-on-leaf-count enumeration or an implicit consequence of fixed-graph crossing generating functions may cover the combined claim.",
+      "The full generality of all historical mathematical literature cannot be exhaustively checked; absence from the sources inspected is not a proof of global novelty.",
+      "The qualitative strict regression is proved for the conditional mean only, not the conditional distributions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes broad fixed-graph baseline, not the all-leaf-conditioned Cayley-tree regression or structural-information limit in examined material.",
+        "evidence": [
+          "Theorem 3.1 gives expected crossings as one third the disjoint-edge-pair count.",
+          "The submission history lists 2023-08-22 as v1, and MSC lists 60C05 first."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.11570",
+        "material_read": "Preprint theorem statements and proof discussion on fixed-graph crossing mean/variance and examples; arXiv metadata including 2023 first-submission date and primary MSC.",
+        "method": "Accessible arXiv full-text/PDF inspection, including crossing expectation theorem and applications",
+        "title": "Central limit theorem for crossings in randomly embedded graphs",
+        "trigger": "Identical crossing statistic and broader random-embedding framework"
+      },
+      {
+        "assessment": "Supplies leading crossing variance and stronger unconditional moment results; leaf-conditioned regression is not reported in inspected material.",
+        "evidence": [
+          "Total crossing variance is asymptotic to n^3/45.",
+          "Unconditional crossing mean equals (n-1)(n-2)(n-3)/(6n)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.09431",
+        "material_read": "Accessible arXiv preprint results for exact mean and variance and Gaussian convergence, with main statements and formulas.",
+        "method": "Primary full-text PDF inspection of main results and cross-check against exact finite enumerations",
+        "title": "Convergence Rate for the Number of Crossings in a Random Labelled Tree",
+        "trigger": "Same random-tree crossing variable and required variance normalization"
+      },
+      {
+        "assessment": "Asymptotic Gaussian law and mean/variance coverage but no inspected conditional-on-leaf-count statement.",
+        "evidence": [
+          "Theorem 1.1 states first-order mean n^2/6 and variance n^3/45.",
+          "Table data for crossing counts is indexed by vertex number, not leaf number."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1902.05223",
+        "material_read": "Accessible arXiv full text: introduction, Theorem 1.1, preliminary combinatorics, crossing-count tables and section on cumulants.",
+        "method": "Full-text section inspection and relevant-term search",
+        "title": "On the number of crossings in a random labelled tree with vertices in convex position",
+        "trigger": "Foundational direct model and potential tables of crossing counts"
+      },
+      {
+        "assessment": "Directly covers fixed-tree expected crossing count; credited rather than relabeled as novel. No leaf-conditioned Cayley mixture formula identified.",
+        "evidence": [
+          "The expectation under randomized vertex order is determined by the number of disjoint edge pairs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1305.4561",
+        "material_read": "Accessible open arXiv full text: random ordering of a fixed tree, degree-moment formula and its derivation.",
+        "method": "Primary PDF section and equation inspection",
+        "title": "Random crossings in dependency trees",
+        "trigger": "Potential stronger fixed-tree expected-crossing identity"
+      },
+      {
+        "assessment": "Lemma is prior established mathematics; no new Stirling theorem claimed.",
+        "evidence": [
+          "Lieb (1968) shows both Stirling arrays strongly logarithmically concave in the second index."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0021-9800(68)80057-2",
+        "material_read": "Verified journal bibliographic record and author abstract establishing strong logarithmic concavity of Stirling rows; applied statement and its elementary ratio consequence.",
+        "method": "Scholarly bibliographic full abstract plus proof-level reduction from lemma to desired ratio monotonicity",
+        "title": "Concavity properties and a generating function for Stirling numbers",
+        "trigger": "Critical nonstandard log-concavity lemma in strict monotonicity proof"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9071cc48-b59e-482e-8bd9-6c77c0046672",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "It is motivated to know how a readily observable tree feature controls crossing statistics under random labeling, rather than only crossing means conditional on an entire shape. The formula answers the calibration question at every attainable leaf count and provides strict ordering, an exact cross-covariance, and a quantitative separation of structural from embedding-order variation. In particular the roughly 69.6-percent limiting linear explanatory fraction among shape means contrasts with the order n^-2 share of crossing variance attributable to shape. This is substantive dependence information, not a new name for a known table or a finite numerical gain.",
+    "status": "PASS"
+  }
+}
