@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:56:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each alternating word (a,b,c,d) has precisely deletion descendants (c,d),(a,d),(a,b), at most three in X×Y, so covering mn pairs needs >=ceil(mn/3) words. For nondegenerate a!=c,b!=d each word is a 3-edge P4 in K_{m,n}. A 3×t block partitions into exactly t paths by decomposing t columns into 2 and 3, using direct 3×2 and 3×3 word tilings. Full finite bases (2,2),(2,3),(2,4),(3,3),(4,4), transposes and (3,4)/(4,3) checked independently. For m>=5 split off three rows, apply induction to the remainder and add exactly n paths; else split three columns, add m. Ceiling compatibility ceil((m−3)n/3)+n=ceil(mn/3) proves all m,n>=2. Independently reconstructed construction, verified distinct codewords, exactly three descendants per word, cover of all mn pairs and optimal count on ALL 1156 rectangles with 2<=m,n<=35. The tests check seeds/replay; unrestricted theorem follows from induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xie–Sun–Ge 2026 considers general nonbinary burst deletion covering and binary special cases; the source identifies a weaker asymptotic nonbinary bound (q^4/(8 floor(q/2)^2)) at length4.",
+          "Lenz–Rashtchian–Siegel–Yaakobi 2021 treat insertion/deletion covering in broader channels; Teypaz–Rapine exact P4 partition iff 3|mn."
+        ],
+        "reasoning": "General channel bounds and the cited P4 decomposition result do not logically give the sharp overlap cases m*n modulo3 nonzero. Their binary special case is explicitly included in prior work, not asserted novel.",
+        "searches": [
+          "length four consecutive two deletion covering code alternating alphabets complete bipartite graph cover P4 paths ceiling mn over three",
+          "https://arxiv.org/abs/2606.15379",
+          "https://arxiv.org/abs/1911.09944",
+          "https://cahiersleibniz.g-scop.grenoble-inp.fr/wp-content/uploads/2019/05/Cahier165.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://cahiersleibniz.g-scop.grenoble-inp.fr/wp-content/uploads/2019/05/Cahier165.pdf",
+        "https://arxiv.org/abs/2606.15379",
+        "https://arxiv.org/abs/1911.09944",
+        "Resultary prior record 2026/10/4/SCOPE-exact-length-three-single-deletion-covering-number-for-odd-alpha--9607d49b27ed",
+        "Resultary scientific search: length four consecutive two deletion covering code alternating alphabets complete bipartite graph cover P4 paths ceiling mn over three",
+        "Resultary scientific search: complete bipartite graph K(m,n) edge cover minimum 3-edge paths P4 when mn mod 3 nonzero adjacent burst deletion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Teypaz–Rapine Theorem4.1: P4-decomposition iff 3|mn and min(m,n)>1.",
+          "When 3 does not divide mn no partition exists, but a cover with ceil(mn/3) overlapping P4 paths is constructed by exact finite bases and induction.",
+          "Published odd-q length-three single-deletion formula concerns descendants of triples, not rectangular alternating four-symbol blocks."
+        ],
+        "reasoning": "Known divisible cases and binary q=2 are credited. Neither a partition iff theorem nor a weaker general covering upper bound yields the exact nondivisible optimum, and the identically numbered other deletion problem is structurally distinct.",
+        "searches": [
+          "https://cahiersleibniz.g-scop.grenoble-inp.fr/wp-content/uploads/2019/05/Cahier165.pdf",
+          "https://arxiv.org/abs/2606.15379",
+          "https://arxiv.org/abs/1911.09944",
+          "length four consecutive two deletion covering code alternating alphabets complete bipartite graph cover P4 paths ceiling mn over three",
+          "complete bipartite graph K(m,n) edge cover minimum 3-edge paths P4 when mn mod 3 nonzero adjacent burst deletion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Deleting positions(1,2),(2,3),(3,4) gives pairs (c,d),(a,d),(a,b); these edges form a 3-edge simple path in K_{m,n} when a!=c,b!=d.",
+          "Teypaz–Rapine call exact edge partitions P4-decompositions, not minimum number of possibly overlapping P4 edge covers."
+        ],
+        "reasoning": "The graph equivalence is exact and checks the channel; a decomposition requires edge-disjointness while the present cover does not. An old decomposition theorem covers only 3|mn, not the remaining residues.",
+        "searches": [
+          "length four consecutive two deletion covering code alternating alphabets complete bipartite graph cover P4 paths ceiling mn over three",
+          "complete bipartite graph K(m,n) edge cover minimum 3-edge paths P4 when mn mod 3 nonzero adjacent burst deletion",
+          "https://cahiersleibniz.g-scop.grenoble-inp.fr/wp-content/uploads/2019/05/Cahier165.pdf",
+          "https://arxiv.org/abs/2606.15379"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source package gives explicit base covers with sizes 2 for 2x2, 3 for 2x4, and 6 for 4x4; all were reproduced by independent exact construction.",
+          "Resultary prior finding 'Exact length-three single-deletion covering number for odd alphabets' proves a numerically equal ceil(q²/3) in a DIFFERENT codeword length and one-symbol deletion channel."
+        ],
+        "reasoning": "The all-integer rectangular family is derived by induction, not read from a preexisting table. Shared numbers for a distinct channel are not automatic statement implication.",
+        "searches": [
+          "length four consecutive two deletion covering code alternating alphabets complete bipartite graph cover P4 paths ceiling mn over three",
+          "complete bipartite graph K(m,n) edge cover minimum 3-edge paths P4 when mn mod 3 nonzero adjacent burst deletion",
+          "minimum P4 edge covering complete bipartite graph K_mn number ceiling mn/3"
+        ]
+      },
+      "rationale": "Teypaz–Rapine Theorem4.1 classifies EDGE-DISJOINT P4 PARTITIONS of Kmn, iff 3 divides mn and both parts>1; those divisible congruence classes are acknowledged prior work. Nondivisible congruence classes require overlapping exact covers rather than partitions, supplied by new base seeds and three-row/column induction. Xie–Sun–Ge (2026) treats general q-ary two-burst deletion covering with a weaker q-ary existence bound and the special binary perfect case; its abstract and identified theorems do not establish the rectangular exact invariant, though the whole paper was not lawfully read here. Published Resultary length-three single-deletion cover for odd q has the same numeric ceiling but different received channel/triangular hypergraph, with no immediate logical implication to this P4 cover.",
+      "residual_risks": [
+        "Full Xie–Sun–Ge and Lenz original texts were not obtained; exact short-length overlap may exist in appendix or equivalent path-cover literature. Abstract evidence cannot certify whole paper NOT_COVERING.",
+        "The established 3|mn partition case and binary q=2 case are credited, not claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact edge partition when 3 divides mn, no optimum overlap result when 3 does not divide mn",
+          "evidence": [
+            "Theorem4.1 equivalence 3|mn and min{m,n}>1, result PDF lines439–460."
+          ],
+          "identifier_or_url": "https://cahiersleibniz.g-scop.grenoble-inp.fr/wp-content/uploads/2019/05/Cahier165.pdf",
+          "material_read": "Original 19-page primary PDF; §4 Theorem4.1 on PDF p9 and proof through decompositions of K3,2 and K3,3; inspected text and screenshot",
+          "method": "primary PDF text and visually inspected p9",
+          "title": "Graph decomposition into paths under length constraints",
+          "trigger": "Same K_{m,n} and length-three P4 geometry"
+        },
+        {
+          "assessment": "General q-ary two-burst covering constructions and binary perfect cases are prior scope; exact rectangular q-ary optimality not established from accessible material",
+          "evidence": [
+            "Abstract confirms binary perfect two-burst deletion and explicit nonbinary covering constructions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.15379",
+          "material_read": "Original arXiv abstract and paper metadata accessible; full PDF/HTML requested via lawful arXiv/OA but could not be fetched; source RESULT.md identifies SectionVI TheoremVI.1/VI.4 and its published bound",
+          "method": "primary abstract / lawfully attempted full text; source theorem metadata inspected but not independently checked full PDF",
+          "title": "New bounds for covering codes under insertions or deletions",
+          "trigger": "Potential stronger burst-deletion result with identical length parameters"
+        },
+        {
+          "assessment": "Different or more general unconstrained deletion channels and quantitative estimates; possible unindexed short-length overlap remains a risk",
+          "evidence": [
+            "IEEE Trans. Inf. Theory 67(2021), 3376–3388; arXiv 1911.09944."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1911.09944",
+          "material_read": "Bibliographic and scope information and citations in primary Xie/source package; direct full paper not re-read this run",
+          "method": "arxiv metadata/citation comparison",
+          "title": "Covering codes using insertions or deletions",
+          "trigger": "Prior broader insertion/deletion covering construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact optimal size for every m,n>=2 of the natural length-four adjacent-two-deletion covering problem, including all q-ary diagonal cases, with an explicit uniform construction. It solves nondivisible cases where known decompositions cannot apply, and the exact small redundancy 0/1/2 is informative for short synchronization codes. This is a natural complete classification, not just another finite table or arbitrary alphabet slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only exactly two adjacent deleted positions out of four, no unique decoding or arbitrary deletion patterns.",
+    "Literature overlap risk with inaccessible primary 2026 text and unindexed graph path-cover papers; full Git subtree guard not independently confirmed."
+  ],
+  "schema_version": 1
+}

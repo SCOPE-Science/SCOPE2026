@@ -1,15 +1,21 @@
-# Scientific review: sharp adjacent-pair deletion covers
+# Independent mathematical audit
 
-## Correctness — PASS
-For a word \((a,b,c,d)\), removing two consecutive coordinates yields exactly the candidate pairs \((c,d)\), \((a,d)\), and \((a,b)\). The three-output lower bound holds even for degenerate words. The construction maps three-edge paths in a complete bipartite graph to codewords, supplies exact finite base covers for all residual side lengths two through four, and adds three rows or columns by a perfect three-edge-path tiling. The inductive size identities hold for all integers \(m,n\ge2\). Running the included standard-library verifier checked all rectangular instances through side length 50, including cardinalities and every received pair. No finite run substitutes for the induction.
+## correctness
 
-## Originality — PASS, with stated literature risks
-Xie, Sun and Ge, arXiv:2606.15379v1, Section VI, give a binary perfect two-burst covering construction and a nonbinary upper bound; those statements do not imply the exact nonbinary \(\lceil q^2/3\rceil\) length-four number. Their \(q=2\) special case is not claimed as new. Teypaz and Rapine, *Graph decomposition into paths under length constraints*, Theorem 4.1, already determine edge-disjoint path decompositions of complete bipartite graphs whenever \(3\) divides the edge count. That covers the divisible-by-three part of the edge-cover identity. Their theorem does not determine the minimum number of *overlapping* paths when the edge count is not divisible by three; the explicit short-residue covers and uniform completion of the sharp capacity formula provide the additional content. An earlier exact length-three *single*-deletion covering formula for odd alphabets happens to have the same numerical expression but uses triangular directed-edge coverage and does not imply this length-four consecutive-two-deletion path-cover theorem for all alphabets. Lenz et al., arXiv:1911.09944, treat general insertion/deletion covering and do not state this burst-constrained exact invariant. Searches of published mathematical records and literature under both coding and graph-theoretic equivalents found no more encompassing statement, but a prior unindexed path-cover theorem remains possible. A relevant complete-bipartite-multigraph decomposition article was not available in full.
+PASS
 
-## Value — PASS
-The exact number covers a natural channel invariant, not an arbitrarily selected code family: any received pair must have an extension surviving a burst of two adjacent deletions. The result solves the sharp number for every pair of nontrivial alphabet sizes, including nonmultiples of three where an edge decomposition is impossible. For one alphabet of size \(q\), its exact size has leading term \(q^2/3\) versus the \(q^2/2\) leading coefficient of the 2026 general nonbinary construction specialized to this blocklength. It supplies explicit optimal codes with essentially one or two repeats in every nondivisible case.
+Each alternating word (a,b,c,d) has precisely deletion descendants (c,d),(a,d),(a,b), at most three in X×Y, so covering mn pairs needs >=ceil(mn/3) words. For nondegenerate a!=c,b!=d each word is a 3-edge P4 in K_{m,n}. A 3×t block partitions into exactly t paths by decomposing t columns into 2 and 3, using direct 3×2 and 3×3 word tilings. Full finite bases (2,2),(2,3),(2,4),(3,3),(4,4), transposes and (3,4)/(4,3) checked independently. For m>=5 split off three rows, apply induction to the remainder and add exactly n paths; else split three columns, add m. Ceiling compatibility ceil((m−3)n/3)+n=ceil(mn/3) proves all m,n>=2. Independently reconstructed construction, verified distinct codewords, exactly three descendants per word, cover of all mn pairs and optimal count on ALL 1156 rectangles with 2<=m,n<=35. The tests check seeds/replay; unrestricted theorem follows from induction.
 
-## Scope and limitations
-The theorem applies only to length four, one burst of two adjacent deletions, and alphabets of sizes at least two. The known graph-decomposition subcases must be credited separately. It is not a claim of optimum for longer lengths, unconstrained deletion positions, or simultaneous error correction. Some equivalent graph-cover literature might escape the searches described in the structured review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Teypaz–Rapine Theorem4.1 classifies EDGE-DISJOINT P4 PARTITIONS of Kmn, iff 3 divides mn and both parts>1; those divisible congruence classes are acknowledged prior work. Nondivisible congruence classes require overlapping exact covers rather than partitions, supplied by new base seeds and three-row/column induction. Xie–Sun–Ge (2026) treats general q-ary two-burst deletion covering with a weaker q-ary existence bound and the special binary perfect case; its abstract and identified theorems do not establish the rectangular exact invariant, though the whole paper was not lawfully read here. Published Resultary length-three single-deletion cover for odd q has the same numeric ceiling but different received channel/triangular hypergraph, with no immediate logical implication to this P4 cover.
+
+## value
+
+PASS
+
+Exact optimal size for every m,n>=2 of the natural length-four adjacent-two-deletion covering problem, including all q-ary diagonal cases, with an explicit uniform construction. It solves nondivisible cases where known decompositions cannot apply, and the exact small redundancy 0/1/2 is informative for short synchronization codes. This is a natural complete classification, not just another finite table or arbitrary alphabet slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
