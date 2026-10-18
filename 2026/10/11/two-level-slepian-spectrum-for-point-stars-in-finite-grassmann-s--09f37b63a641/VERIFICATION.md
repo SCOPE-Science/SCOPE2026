@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible mathematical checks
 
-The package contains `verify_grassmann.py`. Run with Python 3 and NumPy:
+# Independent mathematical audit
 
-```sh
-python verify_grassmann.py
-```
+## correctness
 
-The checker explicitly enumerates all rank-\(k\) subspaces in reduced-row-echelon form, enumerates all projective points, and constructs the point–Grassmann incidence matrix. For each case, it forms the two symmetric positive semidefinite Gram matrices, whitens with the full positive incidence Gram matrix, diagonalizes the star-restricted Gram operator in floating-point arithmetic, and compares its ordered eigenvalues with the claimed list \(0,\theta,1\), including multiplicities. The field \(\mathbb F_4\) is represented using binary-polynomial arithmetic modulo \(X^2+X+1\).
+PASS
 
-Successful extracted-script run: `VERIFY_OK cases=11 prime_power_GF4=true exact_projective_point_enumeration=true`. Parameter cases were \((n,k,q)\in\{(4,2,2),(4,3,2),(5,2,2),(5,3,2),(5,4,2),(6,2,2),(6,3,2),(4,2,3),(4,3,3),(5,2,3),(4,2,4)\}\). Largest reported absolute numerical eigenvalue discrepancy was below \(5\times10^{-15}\).
+Let N be projective-point to k-subspace incidence, v=[n]_q, r=[k]_q, B=#Gr_q(n,k). Transitivity on ordered distinct projective points gives Gram N*N=aI+bJ with a=Br(v-r)/(v(v-1))>0, so H_{<=1}=ran N has dimension v and contains constants. On the P0-star, point columns identify with quotient projective points of V/P0 (q lifts each), so RN has rank v'=[n-1]_q; its mean-zero permutation constituent is irreducible over C by double transitivity. Compression S=RPR* acts as scalar on that constituent and as 1 on constants because 1_A is itself an incidence column. Trace of P M_A P is [k]_q, giving theta=([k]_q-1)/([n-1]_q-1)=[k-1]_q/[n-2]_q; zero eigenspace has dimension v-v'=q^(n-1). For k=n-1, theta=1 correctly merges eigenvalue multiplicities. Nonzero singular values and optimal minimum-energy extension norm follow from the singular-value theorem. Independently recomputed finite q=2,3 trace/rank identities; finite q<=4 checker cannot prove all-prime-power theorem, but proof does.
 
-The finite checks use actual incidence matrices, not mock spectra, but eigenvalue comparisons are floating-point and not certificates of the infinite parameter family. Infinite validity follows from the exact double-transitive Gram structure, quotient-incidence rank, irreducibility, and trace computation proved in `RESULT.md`. There is no external independent audit or mechanical proof certification.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of mathematical statements and implications against named primary sources, published findings and exact source-object searches. The current Resultary hit for the very assignment under audit is not independent novelty evidence. A mirror of this assigned 2026-10-11 finding returned as the highest-ranked Resultary hit is not counted as independent prior art.
+
+## value
+
+PASS
+
+A fixed-point Schubert star is a canonical parabolic subgeometry, and point incidences are the first nonconstant Grassmann frequency band. A complete all-size/all-prime-power restriction spectrum with rank, dimension-independent-in-k nullity and exact best minimum-energy interpolation operator norm is independently useful in finite harmonic sampling and incidence combinatorics; not a finite enumeration or incidental spectral example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

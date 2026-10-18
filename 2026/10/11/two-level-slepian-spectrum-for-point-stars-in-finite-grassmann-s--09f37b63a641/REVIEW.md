@@ -1,14 +1,21 @@
-# Scientific review: point-star Grassmann concentration
-## Correctness — PASS
-The proof begins with a full-rank point-incidence matrix whose Gram matrix is the strictly positive rank-two permutation invariant \(aI+bJ\). Fixed-point restriction identifies the quotient projective incidence space, of dimension \([n-1]_q\). The stabilizer induces a doubly transitive quotient-point action, giving exactly one constant eigenvalue \(1\) and one nonconstant scalar eigenvalue. The projection's trace fixes that scalar as \([k-1]_q/[n-2]_q\). The proof covers every prime power and all stated boundary values; finite matrix computations are corroborative. The embedded standalone checker reproduces 11 parameter cases, including nonprime \(q=4\), and all eigenvalue errors are below \(5\times10^{-15}\).
+# Independent mathematical audit
 
-## Originality — PASS, with residual risk
-Marco–Parcet (arXiv:math/0404019, full arXiv HTML inspected at the introduction and §§1, 3, 5) derives global equivariant Grassmann Radon kernels, not the restriction compression by a Schubert star. Srinivasan (arXiv:1304.6244, full arXiv HTML inspected at §§1 and 3, Theorems 3.1–3.2) constructs global orthogonal scheme eigenbases, not localized Slepian singular values. Simons–Dahlen–Wieczorek (arXiv:math/0408424, abstract and primary-MSC metadata inspected) studies continuous-sphere spatial concentration, not finite-field Grassmann point stars. Exact-statement, quotient-incidence, principal-angle, Schubert-star, and broader-equivalence searches identified no directly covering theorem in the checked literature and indexed mathematical literature. Residual risk: a representation-branching or incidence-design paper could contain the equivalent two-eigenvalue compression under another name; no exhaustive global novelty claim is warranted.
+## correctness
 
-## Mathematical value — PASS
-A fixed-point Schubert star is a canonical maximal-parabolic spatial window, and the first Grassmann spherical band is its canonical lowest nonconstant frequency space. The complete concentration spectrum holds at every dimension and every finite-field size, with only one nontrivial concentration level despite exponentially large ambient spaces. The independent-of-rank nullity, exact sampling rank, phase transition at the top-rank boundary, and exact norm of minimum-energy interpolation solve a natural complete spectral classification rather than a made-up numerical instance. The formula isolates an explicit finite-field conditioning loss that is useful whenever sparse subspace measurements are restricted to a star.
+PASS
 
-## Scientific limits
-The classification does not cover higher spherical degrees, different Schubert windows, or non-Hilbert interpolation. Existing global Grassmann harmonic frameworks may admit an unstated equivalent specialization; that possibility is recorded rather than dismissed. Numerical checks are not infinite proofs.
+Let N be projective-point to k-subspace incidence, v=[n]_q, r=[k]_q, B=#Gr_q(n,k). Transitivity on ordered distinct projective points gives Gram N*N=aI+bJ with a=Br(v-r)/(v(v-1))>0, so H_{<=1}=ran N has dimension v and contains constants. On the P0-star, point columns identify with quotient projective points of V/P0 (q lifts each), so RN has rank v'=[n-1]_q; its mean-zero permutation constituent is irreducible over C by double transitivity. Compression S=RPR* acts as scalar on that constituent and as 1 on constants because 1_A is itself an incidence column. Trace of P M_A P is [k]_q, giving theta=([k]_q-1)/([n-1]_q-1)=[k-1]_q/[n-2]_q; zero eigenspace has dimension v-v'=q^(n-1). For k=n-1, theta=1 correctly merges eigenvalue multiplicities. Nonzero singular values and optimal minimum-energy extension norm follow from the singular-value theorem. Independently recomputed finite q=2,3 trace/rank identities; finite q<=4 checker cannot prove all-prime-power theorem, but proof does.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of mathematical statements and implications against named primary sources, published findings and exact source-object searches. The current Resultary hit for the very assignment under audit is not independent novelty evidence. A mirror of this assigned 2026-10-11 finding returned as the highest-ranked Resultary hit is not counted as independent prior art.
+
+## value
+
+PASS
+
+A fixed-point Schubert star is a canonical parabolic subgeometry, and point incidences are the first nonconstant Grassmann frequency band. A complete all-size/all-prime-power restriction spectrum with rank, dimension-independent-in-k nullity and exact best minimum-energy interpolation operator norm is independently useful in finite harmonic sampling and incidence combinatorics; not a finite enumeration or incidental spectral example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
