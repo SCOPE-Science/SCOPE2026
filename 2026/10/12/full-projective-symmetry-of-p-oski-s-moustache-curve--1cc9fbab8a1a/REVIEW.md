@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The projective-stabilizer proof is exhaustive. Preservation of irreducible components forces preservation of the pencil \\(W=\\langle y^2+xz,x^2\\rangle\\); its unique rank-one member forces \\(x\\) to scale. Coefficient comparison then reduces every stabilizer element to an affine permutation of \\(\\{{1,\\ldots,m\\}}\\), whose only possibilities are identity and reflection by the centroid and second-moment argument. The four projective lifts are exactly \\(U_tR_m^k\\). The packaged symbolic verifier checks the identities independently of the prose derivation. Finite enumeration in the verifier is supplemental and is not used as an infinite proof.
+## correctness
 
-## Originality — PASS
-The closest source, Pokora Example 4.2, states the same equation, one-singularity structure, \\(\\operatorname{{mdr}}=1\\), freeness, and combinatorial supersolvability, but not the projective stabilizer or its semidirect-product structure. Cheltsov's broader treatment of even Płoski curves records GIT semistability but does not give this explicit isotropy calculation. Targeted searches under automorphism, projective-stabilizer, conic-pencil, additive-symmetry, and Jacobian-syzygy formulations located only different curves and arrangements. Residual risk remains that older literature may encode the same calculation under a different normal form or terminology.
+PASS
 
-## Value — PASS
-The full projective stabilizer is a natural invariant of a named free-curve family rather than an arbitrary finite computation. The positive-dimensional subgroup explains geometrically why a linear Jacobian syzygy is present, while the order-four extension determines the exact discrete symmetry of the conic configuration. This adds structural information that is not recoverable from the source's freeness and singularity data alone.
+For C_m=union of q_j=y²+xz+jx², m>=2, each q_j is irreducible smooth and distinct. A projective stabilizer must permute components, hence preserve the conic pencil <q_0,x²>. The rank-one member x² is its unique singular pencil element, forcing x_prime=a*x. Write y_prime=b*x+c*y,z_prime=e*x+f*y+g*z; requiring q_0 pullback in pencil gives c²=ag and af+2bc=0, so the induced parameter map on j is affine. Any affine permutation of {1,...,m} has slope ±1 by preserving nonzero centered second moment, hence identity or reflection. Normalizing a=1 and solving c²=±1 yields exactly U_t R_m^k, k=0..3. Independent SymPy substitution verified q_j(U_t)=q_j, q_j(R_m)=-q_(m+1-j), R^4=1, R U_t R^-1=U_(it), and the infinitesimal syzygy x∂_yQ-2y∂_zQ=0. All m>=2 follows symbolically rather than finite experiments.
 
-## Closest literature and limitations
-The result is specific to the displayed arithmetic parameter set \\(\\{{1,\\ldots,m\\}}\\) over \\(\\mathbb C\\). It does not classify arbitrary even Płoski curves, nor abstract automorphisms not induced by the plane. The closest inspected literature is Pokora, arXiv:2303.08584 / DOI:10.1007/s11565-023-00481-6, and Cheltsov, DOI:10.1007/s12220-017-9762-y.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pokora 2024 Example 4.2 already uses exactly Q_m and states its freeness and mdr(Q_m)=1; those facts do not give the full projective stabilizer, the nonreductive one-parameter subgroup, component reflection and lifted order-four extension. Cheltsov treats even Płoski curves in GIT/stability context without the submitted group description on inspected material. Related published projective-stabilizer results concern other arrangements. Best-of-knowledge PASS with terminology and special-curve isotropy risks.
+
+## value
+
+PASS
+
+The full projective stabilizer is a natural structural invariant of a named family of free plane curves. Proving Ga⋊μ4 distinguishes continuous shear symmetries from a finite reflection lift, and exhibits a geometric explanation for a known Jacobian syzygy. This is a complete all-m classification of actual projective symmetries, not just a negative computer test or routine reassignment of a numerical invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

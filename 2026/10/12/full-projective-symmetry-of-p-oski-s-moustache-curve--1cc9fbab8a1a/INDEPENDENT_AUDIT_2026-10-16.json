@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T18:54:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 08fdc3094fb719cf15979398c148215527667daf",
+        "Read verify.py blob 9e5c66fb933bf2c64ff9bd3fd7b928fdc7a74639",
+        "Independent SymPy exact matrix and polynomial checks for symbolic m,t,lambda"
+      ],
+      "rationale": "For C_m=union of q_j=y²+xz+jx², m>=2, each q_j is irreducible smooth and distinct. A projective stabilizer must permute components, hence preserve the conic pencil <q_0,x²>. The rank-one member x² is its unique singular pencil element, forcing x_prime=a*x. Write y_prime=b*x+c*y,z_prime=e*x+f*y+g*z; requiring q_0 pullback in pencil gives c²=ag and af+2bc=0, so the induced parameter map on j is affine. Any affine permutation of {1,...,m} has slope ±1 by preserving nonzero centered second moment, hence identity or reflection. Normalizing a=1 and solving c²=±1 yields exactly U_t R_m^k, k=0..3. Independent SymPy substitution verified q_j(U_t)=q_j, q_j(R_m)=-q_(m+1-j), R^4=1, R U_t R^-1=U_(it), and the infinitesimal syzygy x∂_yQ-2y∂_zQ=0. All m>=2 follows symbolically rather than finite experiments.",
+      "residual_risks": [
+        "Describes only PGL3(C), not abstract curve automorphisms; m=1 deliberately excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pokora examines freeness/AD(E) singularities of conic arrangements; Cheltsov proves GIT semistability for a broad extremal family; different Resultary projective-stabilizer computation gives S3 for two conics and three lines."
+        ],
+        "reasoning": "None supplies the exact additive-by-mu4 stabilizer of this arithmetic m-conic pencil even though one source gives the same curve equation.",
+        "searches": [
+          "Pokora arXiv:2303.08584 Example 4.2 Płoski moustache",
+          "Cheltsov Worst Singularities of Plane Curves of Given Degree even Płoski GIT",
+          "Resultary stabilizer unique free two-conic three-line arrangement"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.08584 Example 4.2",
+        "DOI:10.1007/s11565-023-00481-6",
+        "DOI:10.1007/s12220-017-9762-y",
+        "Resultary published 5f6d49c915dc distinct free arrangement stabilizer",
+        "Resultary semantic Ploski projective symmetry query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A linear Jacobian syzygy may indicate a vector field but does not alone prove that all projective automorphisms have only four disconnected components. The new pencil argument excludes other stabilizers."
+        ],
+        "reasoning": "The complete group Ga⋊μ4 is not entailed by merely knowing one singularity, freeness, mdr=1 or GIT semistability.",
+        "searches": [
+          "arXiv:2303.08584 free arrangements of conics Example 4.2",
+          "DOI:10.1007/s12220-017-9762-y even Ploski curve semistability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same problem can be described as stabilizer of an arithmetic collection of smooth conics in a rank-one-degenerate pencil. Pokora names exactly this collection but gives Jacobian degree one instead of isotropy classification."
+        ],
+        "reasoning": "Full PGL3 stabilizer of this union is stronger than an mdr=1 syzygy; the latter does not fix component permutation group.",
+        "searches": [
+          "Resultary Ploski moustache conic arrangement projective automorphism group Ga semidirect mu4",
+          "conic pencil y^2+xz+lambda x^2 finite arithmetic stabilizer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Pokora Example 4.2 records mdr(Q_m)=1 and freeness, not a stabilizer group table or conic-component reflection."
+        ],
+        "reasoning": "The discrete component action and positive-dimensional additive stabilizer are not entries in an inspected table; there is no known exact enumeration for this claim.",
+        "searches": [
+          "\"Ploski\" \"moustache\" \"automorphism\" PGL3",
+          "\"y^2+xz\" \"mu_4\" conic symmetry",
+          "\"Płoski\" \"stabilizer\" projective"
+        ]
+      },
+      "rationale": "Pokora 2024 Example 4.2 already uses exactly Q_m and states its freeness and mdr(Q_m)=1; those facts do not give the full projective stabilizer, the nonreductive one-parameter subgroup, component reflection and lifted order-four extension. Cheltsov treats even Płoski curves in GIT/stability context without the submitted group description on inspected material. Related published projective-stabilizer results concern other arrangements. Best-of-knowledge PASS with terminology and special-curve isotropy risks.",
+      "residual_risks": [
+        "Older conic-pencil automorphism classifications may imply the special arithmetic case using a different normal form.",
+        "The provided markdown contains duplicated heading and extra TeX escaping, but mathematical expressions were decoded before assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_NOT_GROUP_THEOREM",
+          "evidence": [
+            "Example 4.2 states one-singularity structure and freeness, not explicit PGL3 automorphism group."
+          ],
+          "identifier_or_url": "arXiv:2303.08584 / DOI:10.1007/s11565-023-00481-6",
+          "material_read": "Example 4.2 including Q_m=prod(xz+jx²+y²) and minimal degree of Jacobian relations mdr=1",
+          "method": "Read matching primary example and surrounding geometric discussion",
+          "title": "On free and nearly free arrangements of conics admitting certain ADE singularities",
+          "trigger": "Exact same curve equation, strongest plausible coverage"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": [
+            "GIT semistability alone does not calculate the projective stabilizer of the explicit arithmetic family."
+          ],
+          "identifier_or_url": "DOI:10.1007/s12220-017-9762-y",
+          "material_read": "Definition and theorem statements of even Płoski curves and GIT semistability",
+          "method": "Read accessible primary thematic statements, not claim all appendices inspected",
+          "title": "Worst Singularities of Plane Curves of Given Degree",
+          "trigger": "Potential broader classification of even Płoski curves"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pokora Example 4.2",
+        "Cheltsov GIT study"
+      ],
+      "rationale": "The full projective stabilizer is a natural structural invariant of a named family of free plane curves. Proving Ga⋊μ4 distinguishes continuous shear symmetries from a finite reflection lift, and exhibits a geometric explanation for a known Jacobian syzygy. This is a complete all-m classification of actual projective symmetries, not just a negative computer test or routine reassignment of a numerical invariant.",
+      "residual_risks": [
+        "The group is for this normal form over C and does not automatically extend to abstract curve automorphisms or arbitrary parameter choices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "m>=2, complex field, arithmetic j set and PGL3 only.",
+    "Possible older pencil-stabilizer aliases.",
+    "Privacy-blocked public metadata."
+  ],
+  "schema_version": 1
+}
