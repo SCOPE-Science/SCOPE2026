@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,69 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let
-\[
-K=
-\begin{pmatrix}
-1&0\\
-0&0
-\end{pmatrix},
-\qquad
-F=\{e_1\}.
-\]
-For every
-\[
-x=(x_1,x_2),
-\]
-\[
-\sum_{f\in F}|\langle x,f\rangle|^2
-=
-|x_1|^2
-=
-\|K^*x\|^2.
-\]
-Thus \(F\) is Parseval relative to \(K\).
+# Independent mathematical audit
 
-Its frame operator is
-\[
-S=KK^*=
-\begin{pmatrix}
-1&0\\
-0&0
-\end{pmatrix}.
-\]
-Hence the eigenvalues are \(1\) and \(0\). The total frame energy is
-\[
-\sum_{f\in F}\|f\|^2=1.
-\]
-For the standard eigenbasis,
-\[
-2\|K^*e_1\|^2=2,
-\qquad
-2\|K^*e_2\|^2=0.
-\]
-This exactly contradicts both parts of Proposition 2.2.
+## correctness
 
-In general, for an orthonormal eigenbasis of
-\[
-S=KK^*,
-\]
-\[
-\lambda_k=\|K^*e_k\|^2
-\]
-and
-\[
-\sum_j\|f_j\|^2
-=
-\operatorname{tr}(S)
-=
-\sum_k\lambda_k.
-\]
-The source's eigenvectorwise equality for every \(k\) is therefore equivalent to all \(\lambda_k\) being equal, which is equivalent to
-\[
-KK^*=cI.
-\]
+PASS
 
-The target proposition, its complete proof, and its immediate consequence were inspected in the open primary full text. All mathematical checks are exact and require no numerical experiment.
+Verified source Definition 2.2 and Remark 2.1 exactly: Parseval K-frame means Σ_j|<x,f_j>|²=||K*x||² so S=KK*. In C², K=diag(1,0), F={e1} has equality for all x; S has spectrum {1,0}, energies Σ||f_j||²=1, while 2||K*e1||²=2 and 2||K*e2||²=0, contradicting both printed claims. Spectral trace gives Σ_j||f_j||²=tr(KK*)=Σ_k||K*e_k||² for every ON eigenbasis; simultaneous equality to n times each eigenvalue iff all eigenvalues coincide (KK*=cI). Strict positivity iff K* injective. Exact finite operator computation, no probabilistic or formal-checker assumptions.
+
+## originality
+
+PASS
+
+Bounded corrective novelty: the target published paper explicitly states general S=KK* and warns a K-frame operator need not be invertible, yet Proposition 2.2 separately asserts universally positive eigenvalues and an unsupported eigenvectorwise formula. The audited contribution is the *specific published-proposition correction*, minimal witnessing projection and sharp equality criterion, not novelty of the standard trace identity or spectral theorem. Related Resultary correction to the same paper concerns distinct Theorem 3.3 and its noncanonical subspace map, not Proposition 2.2; no indexed prior formal correction of the latter located.
+
+## value
+
+PASS
+
+A pinpointed refutation of a citable published proposition and its immediate published equal-norm consequence prevents reuse of a false eigenvaluewise equality; the replacement trace formula and exact flat-spectrum criterion delimit valid downstream applications. Its mathematical content is elementary and should not be inflated into a broad new K-frame theorem; the concrete literature error and affected consequence supply the substantive motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

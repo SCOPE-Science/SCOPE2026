@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The rank-one projection example is an exact Parseval \(K\)-frame and gives frame-operator spectrum \(\{1,0\}\). Its total frame energy is \(1\), whereas the published eigenvectorwise quantities are \(2\) and \(0\). The corrected trace identity and the criterion
-\[
-KK^*=cI
-\]
-follow directly from the spectral theorem.
+## correctness
 
-## Originality
-PASS. Exact-source, proposition-number, eigenvalue-positivity, kernel, trace, and scalar-\(KK^*\) formulations were searched. The closest indexed findings have different objects and implications.
+PASS
 
-The same source appeared previously for a later correspondence theorem, but that claim concerns dependence on a unitary choice and does not imply the independent spectral failure in Proposition 2.2. The target proposition and its proof were inspected in the primary full text.
+Verified source Definition 2.2 and Remark 2.1 exactly: Parseval K-frame means Σ_j|<x,f_j>|²=||K*x||² so S=KK*. In C², K=diag(1,0), F={e1} has equality for all x; S has spectrum {1,0}, energies Σ||f_j||²=1, while 2||K*e1||²=2 and 2||K*e2||²=0, contradicting both printed claims. Spectral trace gives Σ_j||f_j||²=tr(KK*)=Σ_k||K*e_k||² for every ON eigenbasis; simultaneous equality to n times each eigenvalue iff all eigenvalues coincide (KK*=cI). Strict positivity iff K* injective. Exact finite operator computation, no probabilistic or formal-checker assumptions.
 
-## Value
-PASS. The proposition is used immediately to infer an equal-norm identity, yet it is already false for a rank-one Parseval \(K\)-frame on \(\mathbb C^2\). The repair identifies the correct invariant, total trace energy, and exactly characterizes the flat-spectrum case in which the published formula becomes true.
+## originality
 
-## Limitations
-The result does not automatically invalidate every later theorem that cites Proposition 2.2; downstream uses require separate hypothesis checks. An unindexed correction remains a literature risk.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Bounded corrective novelty: the target published paper explicitly states general S=KK* and warns a K-frame operator need not be invertible, yet Proposition 2.2 separately asserts universally positive eigenvalues and an unsupported eigenvectorwise formula. The audited contribution is the *specific published-proposition correction*, minimal witnessing projection and sharp equality criterion, not novelty of the standard trace identity or spectral theorem. Related Resultary correction to the same paper concerns distinct Theorem 3.3 and its noncanonical subspace map, not Proposition 2.2; no indexed prior formal correction of the latter located.
+
+## value
+
+PASS
+
+A pinpointed refutation of a citable published proposition and its immediate published equal-norm consequence prevents reuse of a false eigenvaluewise equality; the replacement trace formula and exact flat-spectrum criterion delimit valid downstream applications. Its mathematical content is elementary and should not be inflated into a broad new K-frame theorem; the concrete literature error and affected consequence supply the substantive motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

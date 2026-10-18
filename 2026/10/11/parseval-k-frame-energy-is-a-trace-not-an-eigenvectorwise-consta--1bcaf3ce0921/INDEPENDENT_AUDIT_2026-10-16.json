@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T01:44:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned snapshot: https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/parseval-k-frame-energy-is-a-trace-not-an-eigenvectorwise-consta--1bcaf3ce0921",
+        "https://link.springer.com/article/10.1186/s13660-022-02862-5",
+        "https://arxiv.org/abs/2104.11656"
+      ],
+      "rationale": "Verified source Definition 2.2 and Remark 2.1 exactly: Parseval K-frame means Σ_j|<x,f_j>|²=||K*x||² so S=KK*. In C², K=diag(1,0), F={e1} has equality for all x; S has spectrum {1,0}, energies Σ||f_j||²=1, while 2||K*e1||²=2 and 2||K*e2||²=0, contradicting both printed claims. Spectral trace gives Σ_j||f_j||²=tr(KK*)=Σ_k||K*e_k||² for every ON eigenbasis; simultaneous equality to n times each eigenvalue iff all eigenvalues coincide (KK*=cI). Strict positivity iff K* injective. Exact finite operator computation, no probabilistic or formal-checker assumptions.",
+      "residual_risks": [
+        "Source phrase orthonormal basis can sound unrestricted; counterexample refutes both eigenbasis and arbitrary-basis interpretation",
+        "Scope is finite-dimensional Parseval K-frame only"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same paper earlier says S may not be invertible, but its later Proposition 2.2 asserts it is positive definite; the indexed Resultary theorem 3.3 counterexample addresses choice of unitary factorization, not eigenvectorwise energies"
+        ],
+        "reasoning": "Existing S=KK* and spectral theorem mathematically imply trace and allow projection examples; they do not identify or remedy the source’s specific self-contradictory Proposition 2.2 in indexed errata found. Do not represent trace identity alone as novel.",
+        "searches": [
+          "Resultary semantic query: Sadri Rahimlou Proposition 2.2 Parseval K frame eigenvalues positive n norm K star eigenvector constant trace counterexample",
+          "https://link.springer.com/article/10.1186/s13660-022-02862-5",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-rank-one-partial-isometry-makes-the-parseval-k-frame-grassmann--a8dfe1f29c17"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1186/s13660-022-02862-5",
+        "https://arxiv.org/abs/2104.11656",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-rank-one-partial-isometry-makes-the-parseval-k-frame-grassmann--a8dfe1f29c17"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published Proposition 2.2 contradicts the paper’s own preceding noninvertibility warning and S=KK* equality; Section 2 immediately derives equal-norm identity using it"
+        ],
+        "reasoning": "Counterexample is a textbook deduction from existing framework but as a correction identifies an actual false published inference and supplies precise missing flat-spectrum hypothesis. Avoid claiming a standalone novel theorem beyond the correction.",
+        "searches": [
+          "Resultary semantic query: Sadri Rahimlou Proposition 2.2 Parseval K frame eigenvalues positive n norm K star eigenvector constant trace counterexample",
+          "https://link.springer.com/article/10.1186/s13660-022-02862-5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Remark 2.1 states S=KK*; spectral decomposition gives λk=||K*ek||² and tr S=Σ||fj||²"
+        ],
+        "reasoning": "Fully acknowledged these standard equivalent formulations as prior ingredients; the potentially new finding is that Proposition 2.2 makes an invalid inference, with explicit counterexample and corrected necessary/sufficient hypothesis.",
+        "searches": [
+          "Resultary semantic query: Sadri Rahimlou Proposition 2.2 Parseval K frame eigenvalues positive n norm K star eigenvector constant trace counterexample",
+          "https://link.springer.com/article/10.1186/s13660-022-02862-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independently indexed erratum/correction to Proposition 2.2 located in targeted Resultary or source searches; related same-article correction is for different theorem"
+        ],
+        "reasoning": "No numerical database relevant: the exact question is a named false universal proposition and its rank-one witness, not an invariant census; checked explicit indexed corrections instead.",
+        "searches": [
+          "Resultary semantic query: Sadri Rahimlou Proposition 2.2 Parseval K frame eigenvalues positive n norm K star eigenvector constant trace counterexample",
+          "https://arxiv.org/abs/2104.11656",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-rank-one-partial-isometry-makes-the-parseval-k-frame-grassmann--a8dfe1f29c17"
+        ]
+      },
+      "rationale": "Bounded corrective novelty: the target published paper explicitly states general S=KK* and warns a K-frame operator need not be invertible, yet Proposition 2.2 separately asserts universally positive eigenvalues and an unsupported eigenvectorwise formula. The audited contribution is the *specific published-proposition correction*, minimal witnessing projection and sharp equality criterion, not novelty of the standard trace identity or spectral theorem. Related Resultary correction to the same paper concerns distinct Theorem 3.3 and its noncanonical subspace map, not Proposition 2.2; no indexed prior formal correction of the latter located.",
+      "residual_risks": [
+        "Extremely elementary rank-one projection example; uncatalogued errata, informal remarks or classroom notes could already explicitly flag Proposition 2.2",
+        "General trace and scalar-eigenvalue criteria already follow trivially from published Remark 2.1; do not overclaim independent novelty"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly confirms source claim λk>0 and n||K*ek||²=Σ||fj||², faulty proof inference and downstream identity",
+          "evidence": [
+            "Definition 2.2; Remark 2.1; Proposition 2.2 and proof; subsequent displayed equal-norm formula"
+          ],
+          "identifier_or_url": "DOI:10.1186/s13660-022-02862-5",
+          "material_read": "Full open-access journal HTML Definition 2.2, preceding noninvertibility warning, Remark 2.1, complete Proposition 2.2 and proof, immediately following equal-norm consequence",
+          "method": "Primary full journal article, materially read lines 195–276 and checked displayed equations",
+          "title": "Equal-norm Parseval K-frames in Hilbert spaces with a new inequality",
+          "trigger": "Exact published proposition being corrected"
+        },
+        {
+          "assessment": "Targets different Theorem 3.3, no eigenvalue claim; does not prove a prior correction to Proposition 2.2",
+          "evidence": [
+            "Resultary record title and summary"
+          ],
+          "identifier_or_url": "Resultary:2026/10/11/SCOPE-a-rank-one-partial-isometry-makes-the-parseval-k-frame-grassmann--a8dfe1f29c17",
+          "material_read": "Full indexed claim summary and original proposition location",
+          "method": "Resultary semantic search summary, not full-body paper exclusion",
+          "title": "A rank-one partial isometry makes the Parseval K-frame Grassmannian map choice-dependent",
+          "trigger": "Other known correction to same primary paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "assigned mathematical result https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/parseval-k-frame-energy-is-a-trace-not-an-eigenvectorwise-consta--1bcaf3ce0921",
+        "https://link.springer.com/article/10.1186/s13660-022-02862-5",
+        "https://arxiv.org/abs/2104.11656"
+      ],
+      "rationale": "A pinpointed refutation of a citable published proposition and its immediate published equal-norm consequence prevents reuse of a false eigenvaluewise equality; the replacement trace formula and exact flat-spectrum criterion delimit valid downstream applications. Its mathematical content is elementary and should not be inflated into a broad new K-frame theorem; the concrete literature error and affected consequence supply the substantive motivation.",
+      "residual_risks": [
+        "Corrective value is narrow and driven by a demonstrable published error, not generalization of frame theory"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For finite-dimensional Parseval K-frames, S=KK* need not have positive eigenvalues and total frame energy is tr(KK*), not n times each individual eigenvalue; rank-one K=diag(1,0) on C², F={e1}, refutes both claims of Sadri–Rahimlou Proposition 2.2; all-eigenvector equality holds iff KK*=cI.",
+  "limitations": [
+    "Source phrase orthonormal basis can sound unrestricted; counterexample refutes both eigenbasis and arbitrary-basis interpretation",
+    "Scope is finite-dimensional Parseval K-frame only",
+    "Extremely elementary rank-one projection example; uncatalogued errata, informal remarks or classroom notes could already explicitly flag Proposition 2.2",
+    "General trace and scalar-eigenvalue criteria already follow trivially from published Remark 2.1; do not overclaim independent novelty",
+    "Corrective value is narrow and driven by a demonstrable published error, not generalization of frame theory"
+  ],
+  "schema_version": 1
+}
