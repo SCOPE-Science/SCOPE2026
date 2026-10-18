@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T10:12:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonzero linearly independent g1,g2 let a,b>0, rho∈(−1,1), H=GᵀG. Source Aligned-MTL has uniform d=(sigma_min(G)/2)G H^(−1/2)1, so (g1·d,g2·d)=(sigma_min(G)/2)H^(1/2)1. The exact positive-definite 2×2 square root is (H+ab sqrt(1−rho²)I)/sqrt(tr H+2ab sqrt(1−rho²)). Its two component signs are those of a+b(rho+sqrt(1−rho²)) and b+a(rho+sqrt(1−rho²)). When rho≥−1/sqrt2 both are positive; otherwise tau=−rho−sqrt(1−rho²)∈(0,1), and both positive iff tau<a/b<1/tau, with exact neutrality/harm at boundaries. For a=b,rho≤0 the all-ones Gram eigenvector belongs to sigma_min, so d=(g1+g2)/2; when rho>0 the scalar is sqrt((1−rho)/(1+rho)). Independently evaluated exact rho=−4/5, tau=1/5 and q=1/10,1/5,1,5,10 to confirm full sign transitions; source eigenvalue verifier inspected. This is instantaneous original-task first-order descent only, not whole optimization convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Quinton–Rey broader theorem of non-universal conflict-free behavior is true; it does not state which independent gradients are harmed.",
+          "The original paper works on linearly independent gradients but only states aligned-column behavior."
+        ],
+        "reasoning": "Broader qualitative failure cannot entail sharp necessary-and-sufficient norm ratios under a specified cosine, especially neutral endpoints.",
+        "searches": [
+          "Resultary semantic: Aligned MTL task gradient full-rank norm imbalance negative gradient dot uniform weighting conflict threshold Gram square root",
+          "Jacobian Descent for Multi Objective Optimization Quinton Rey Aligned MTL non conflicting",
+          "Senushkin Independent Component Alignment Multi Task Learning"
+        ]
+      },
+      "checked_sources": [
+        "Pinned Git RESULT.md SHA ff39240f731f6ab80d4c8b536250b792a571e751",
+        "verify.py SHA b6584fcee28f0c3cabdbc4bf5110e8eb95711b1c",
+        "arxiv:2305.19000",
+        "arxiv:2406.16232",
+        "Resultary semantic: Aligned MTL task gradient full-rank norm imbalance negative gradient dot uniform weighting conflict threshold Gram square root"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original method gives G H^(−1/2) sigma_min, which algebraically implies the new formula if a new square-root and sign calculation is carried out.",
+          "Quinton–Rey proves existence of conflicts without identifying safe q interval for rho near −1."
+        ],
+        "reasoning": "The method definition is prior, but solving a distinct original-gradient interference question to an exact phase boundary is not itself a named prior theorem or a direct restatement. Risk remains that a concise equivalent derivation exists elsewhere.",
+        "searches": [
+          "Resultary semantic: Aligned MTL task gradient full-rank norm imbalance negative gradient dot uniform weighting conflict threshold Gram square root",
+          "Senushkin et al. 2023 gramian SVD MTL formula",
+          "Quinton Rey 2024 rank deficient counterexample"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original gradient alignment modifies columns to equal singular values, but its stated goal does not establish sign(g_iᵀd) for all full-rank g_i.",
+          "Quinton–Rey has a prior counterexample using rank-deficient matrix; not a two-task full-rank interval or neutrality."
+        ],
+        "reasoning": "The general negative guarantee failure is covered, but an exact rank-2 safe/descent window and balanced-norm identity are stronger specialized quantitative claims.",
+        "searches": [
+          "Resultary semantic: Aligned MTL task gradient full-rank norm imbalance negative gradient dot uniform weighting conflict threshold Gram square root",
+          "arxiv:2305.19000 Aligned MTL equation sigma min uniform sum",
+          "arxiv:2406.16232 Appendix non-conflicting Aligned MTL"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published method diagrams and empirical tables do not contain tau(rho)=−rho−sqrt(1−rho²) or its inverse as an exact table.",
+          "Resultary hits concern other optimization methods."
+        ],
+        "reasoning": "This is a continuous analytic parameter locus, not a known finite invariant database; no exact line/surface formula was found in inspected texts.",
+        "searches": [
+          "Resultary semantic: Aligned MTL task gradient full-rank norm imbalance negative gradient dot uniform weighting conflict threshold Gram square root",
+          "Aligned MTL gradient interference threshold acos negative full rank",
+          "Resultary aligned MTL norm-imbalance phase interval"
+        ]
+      },
+      "rationale": "Senushkin et al. (2023) introduced the SVD isotropization with uniform weights, including the aligned column norm/orthogonality objective, but do not give this original-gradient full-rank sign phase diagram. Quinton–Rey (2024/25) prove Aligned-MTL not universally non-conflicting using an explicitly rank-deficient example; that wider negative claim is credited and does not imply the full-rank quantitative threshold and symmetry identity. Resultary semantic search returned other MTL/normalization entries with different algorithms and metrics. The exact two-task formula requires an explicit Gram square-root and solving both original derivatives.",
+      "residual_risks": [
+        "Equivalent two-task Gram-square-root sign observation might already be embedded in an unindexed MTL analysis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Alignment of transformed columns is prior; no exact original-task sign boundary in inspected discussion",
+          "evidence": "sigma_min(G) G(GᵀG)^(−1/2), uniform averaging; claims equal column norm/orthogonality.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.19000",
+          "material_read": "Full primary paper method description, Gram/SVD scale formula, uniform weights and convergence/intended alignment discussion",
+          "method": "Read primary text and original formula in relevant sections",
+          "title": "Independent Component Alignment for Multi-Task Learning",
+          "trigger": "Defining same Aligned-MTL operator and weighting"
+        },
+        {
+          "assessment": "Prior proves non-conflicting failure via rank-deficient witness; quantitative full-rank transition not supplied",
+          "evidence": "Counterexample has vanishing singular value, excluded by rank-two positive-definite hypothesis here.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.16232",
+          "material_read": "Primary manuscript and relevant appendix on Aligned-MTL non-conflicting behavior and scale linearity",
+          "method": "Read relevant primary comparison and counterexample construction",
+          "title": "Jacobian Descent for Multi-Objective Optimization",
+          "trigger": "Direct later challenge to original algorithm conflict-free claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Full-rank conflict is a natural and practical boundary for a method designed to resolve task-gradient interference. A sharp threshold in both cosine and norm imbalance, including neutral endpoint classification and a surprising no-change regime at equal norms, is a substantive motivated diagnostic beyond generic non-conflict failure. No unsupported multi-task global trajectory claim.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned Git RESULT.md SHA ff39240f731f6ab80d4c8b536250b792a571e751",
+    "verify.py SHA b6584fcee28f0c3cabdbc4bf5110e8eb95711b1c",
+    "arxiv:2305.19000",
+    "arxiv:2406.16232",
+    "Resultary semantic: Aligned MTL task gradient full-rank norm imbalance negative gradient dot uniform weighting conflict threshold Gram square root",
+    "Pinned METADATA.json blob 23ec3ca453b507c2f0181a7805ee92576d0f53f0",
+    "Pinned AUDIT.json blob fbace82194f22eb940ed6e1ce326b9a92e4f4574"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only two nonzero linearly independent task gradients, uniform task weights and source sigma_min scaling.",
+    "Descent refers to infinitesimal original-task directional derivatives, not long-term training."
+  ],
+  "schema_version": 1
+}
