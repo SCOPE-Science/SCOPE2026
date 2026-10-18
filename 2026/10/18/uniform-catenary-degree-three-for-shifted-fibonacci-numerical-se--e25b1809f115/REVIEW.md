@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The six explicitly listed carry/split identities (plus the \(a=3\) base case) preserve each integer and involve at most three atoms. The lexicographic potential (number of positive Fibonacci offsets, negative squared-size sum) strictly decreases along oriented moves, proving termination. Every terminal factorization is the unique Zeckendorf expansion of its residue modulo \(F_a\), with uniquely determined copies of \(F_a\); this proves global connectivity. The element \(3F_a\) has exactly two disjoint-support factorizations with distance three. All quantifiers and small cases are explicit. The independent executable finite cross-check is supporting evidence, not the infinite proof.
+
+**Originality — PASS within the inspected corpus.** The primary 2022/2023 paper explicitly gives minimal generators, Apéry sets, Frobenius number and genus, not the catenary degree. The 2025 follow-up gives pseudo-Frobenius numbers and type under a reindexing, not a distance-three factorization theorem. Targeted searches for shifted Fibonacci semigroups, catenary degree, bounded-degree presentations, and Zeckendorf moves in the literature and mathematical records returned no equivalent claim. In particular, published catenary-degree work on three-generator/telescopic numerical semigroups does not cover this unbounded-embedding-dimension family. Residual risk: an unindexed result or an implicit consequence of a general bounded-degree presentation theorem could cover it.
+
+**Mathematical value — PASS.** Exact catenary degree is a natural factorization-theoretic invariant not addressed by the Frobenius/genus/type results. The constant value for unbounded embedding dimension is structurally notable; the proof supplies a uniform constructive normal-form algorithm and a sharp witness, rather than a small or arbitrary parameter calculation.
+
+**Limitations and source proximity.** First public arXiv posting was 2022-10-03. The source's generator and Zeckendorf descriptions are credited rather than claimed new. The 2025 follow-up is a strong nearby source; the conclusion concerns only classical Fibonacci shifts. No independent audit.
+
+Self-review: passed. Independent audit: not yet performed.
