@@ -1,15 +1,21 @@
-# Review of the cuboctahedral intrinsic Čech persistence classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite graph and all 12 distance profiles are rebuilt from the 12 edges of the three-cube. The graph Čech facet formula is quoted with its precise intrinsic-ball and closed-ball conventions. Direct enumeration produces the claimed face vectors: at scale two, \( (12,60,104,60,12) \); at scale three, \( (12,66,212,354,300,132,24) \). A complete Hasse-diagram acyclicity check validates 120 and 547 explicit matching pairs, leaving respectively one vertex and seven degree-two critical cells, and one vertex and five degree-three critical cells. Discrete Morse theory yields the two integral wedges without extra attaching-map assumptions. The antipode argument proves the boundary-sphere and simplex stages. Independent mod-two boundary-rank calculations support the counts. Full persistence follows because consecutive positive-degree homology groups occupy distinct dimensions. The attached verifier prints `VERIFY_OK`.
+## correctness
 
-## Originality — PASS, with residual risk
-The precise nearest construction, Adams--Shukla--Singh's intrinsic graph Čech nerve, treats the cube itself but does not give a homotopy type for its line graph. Previte's even-scale D-neighborhood construction and Matsushita's closed-neighborhood complexes overlap definitions, yet inspected proofs and explicit examples do not determine this graph. Goyal--Shukla--Singh's line-graph clique complexes are different simplicial objects. The closest same-polyhedron published computation treats the Euclidean Vietoris--Rips filtration, whose metric, complexes, thresholds, and sphere dimensions differ. Searches of published mathematical findings using named objects, equivalent descriptions, and proposed ranks found no covering theorem. No search proves absolute novelty; an unindexed equivalent remains a risk.
+PASS
 
-## Value — PASS
-This supplies a complete integral homotopy and persistence classification for the cuboctahedral graph, the canonical twelve-vertex line graph of the cube. The changes from seven two-spheres to five three-spheres to a ten-sphere are structural, natural finite-scale effects and differ from the Euclidean chordal Rips filtration of the same polyhedron. The result includes exact finite certificates for every nontrivial homotopy type, not simply numerical Betti numbers. Both non-shellability consequences are motivated by these homotopy classifications.
+For line graph L(Q3), explicitly build 12 edge-vertices, 24 adjacency edges and intrinsic vertex distances. Adams–Shukla–Singh Lemma 2.2 gives the full even/odd simplicial generators for each integer r and constancy on [r,r+1). Verified complete face sets at r2 (f-vector 12,60,104,60,12) and r3 (12,66,212,354,300,132,24). Independently rebuilt ordered greedy acyclic matchings r2:120 pairs/one 0-cell and seven 2-cells, all 732 Hasse incidences acyclic; r3:547 pairs/one 0-cell and five 3-cells, all 4644 incidences acyclic. Forman implies integral wedges of 7 S2 and 5 S3. r0 12 points, r1 cycle rank 24−12+1=13. Each vertex has a distinct unique antipode at distance three, hence r4 boundary of 11-simplex S10 and r5 full 11-simplex. Degrees disjoint at consecutive scales determine integral persistent barcode. Pure r2/r3 dimensions 4/6 with homology below top give non-shellability.
 
-## Scope and integrity
-The mathematical conclusion is for the intrinsic metric on unit-length graph edges and closed balls centered at the vertices; it does not address continuous point-cloud vertices or equivariant persistence. Results are mathematical computations and standard theorems, not externally independently certified. An unindexed prior equivalent or stronger theorem cannot be ruled out by the available literature comparisons.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the complete intrinsic Čech homotopy filtration of the cuboctahedral line graph. The universal Čech-neighborhood parity generators were known, but no inspected primary theorem states/implies the explicit r2/r3 acyclic Morse wedges and integral barcode. Euclidean cuboctahedron Vietoris–Rips results concern a distinct metric and construction. Report unresolved index risk honestly.
+
+## value
+
+PASS
+
+The cuboctahedral graph is a canonical Archimedean graph/line graph of the cube; determining all intrinsic graph Čech homotopy types, including non-shellable scales and integral barcodes, answers a natural finite but nontrivial topological-classification question that is not reduced to an unmotivated single numerical slice. Discrete Morse certificates give meaningful exact reproducibility, but exactness alone is not the sole value argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
