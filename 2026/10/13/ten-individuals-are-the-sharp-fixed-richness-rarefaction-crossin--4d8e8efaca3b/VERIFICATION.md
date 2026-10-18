@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,77 +18,25 @@
   "schema_version": 1
 }
 ---
-For a positive integer abundance profile
-\[
-n=(n_1,\ldots,n_S)
-\]
-with total
-\[
-N,
-\]
-the expected richness after drawing \(m\) individuals uniformly without replacement is
-\[
-R_m(n)
-=
-\sum_{i=1}^{S}
-\left[
-1-
-\frac{\binom{N-n_i}{m}}{\binom{N}{m}}
-\right].
-\]
 
-The embedded `verify_rarefaction_crossing_boundary.py` performs a complete finite check through
-\[
-N=10.
-\]
+# Independent mathematical audit
 
-It independently generates every abundance multiset in two ways and requires the generated sets to coincide for every fixed richness.
+## correctness
 
-It then checks every unordered same-\((N,S)\) pair at every interior sample size and verifies:
+PASS
 
-\[
-N\le9:
-\]
-no strict rarefaction crossing;
+For integer partitions into strictly positive species abundances at fixed N,S, reconstructed hypergeometric R_m=Σ[1-C(N−n_i,m)/C(N,m)]. Independent exact Fraction enumeration of every same-richness unordered partition pair, all N=2..10 and interior m, found no strict sign reversal for N≤9 and one pair for N=10: (6,2,2) versus (5,4,1), S=3. Verified R2=73/45<74/45, R3=61/30<41/20, R4=163/70>242/105; the full m=2..9 signs reverse between m=3,4. R2=2−Σ n_i(n_i−1)/(N(N−1)); R_{N−1}=S−f1/N. Completeness relies on enumerating all integer partitions, not numerical sampling or unchecked logs.
 
-\[
-N=10:
-\]
-exactly one unordered crossing pair,
-\[
-(6,2,2)
-\quad\text{and}\quad
-(5,4,1).
-\]
+## originality
 
-It also checks all exact witness values, the sign change between
-\[
-m=3
-\]
-and
-\[
-m=4,
-\]
-and the identities
-\[
-R_2
-=
-2-
-\frac{\sum_i n_i(n_i-1)}{N(N-1)}
-\]
-and
-\[
-R_{N-1}
-=
-S-\frac{f_1}{N}.
-\]
+PASS
 
-Run:
+Classical rarefaction literature already knows curve crossing and abundance-distribution effects; neither the inspected abstracts nor Resultary hits supplied the complete smallest fixed-(N,S) strict-crossing layer N=10 and its unique witness. Best-of-knowledge novelty is limited to this finite exact cutoff and classification, not crossings as such.
 
-`python3 verify_rarefaction_crossing_boundary.py`
+## value
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+The first strict rank reversal at common census and species richness is a natural sharp boundary in abundance-comparison and rarefaction design, pinpointing how singleton structure and Simpson concentration disagree. It is an independently useful exact minimum with one classified witness, not an arbitrary isolated small calculation.
 
-All expectations and comparisons use exact rational arithmetic.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

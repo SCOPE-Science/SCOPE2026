@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The individual-based expectation is reconstructed directly from the hypergeometric miss probability. Every strictly positive abundance multiset through \(N=10\) is generated in two independent ways, and every unordered pair at common \((N,S)\) is compared for every interior sample size using exact fractions. No crossing occurs through \(N=9\), while \(N=10\) has exactly one unordered crossing pair, \((6,2,2)\) versus \((5,4,1)\). The package independently checks all witness values and the endpoint identities \(R_2=2-\sum_i n_i(n_i-1)/(N(N-1))\) and \(R_{N-1}=S-f_1/N\).
+## correctness
 
-Risk: the theorem changes if the sampling convention or comparison domain changes; incidence rarefaction, unequal richness, unequal census size, and extrapolation are excluded.
+PASS
 
-## Originality
-**PASS.** Existing ecological literature establishes that species-accumulation and rarefaction curves can cross and explains abundance-shape mechanisms behind such crossings. The closest checked sources do not state the smallest fixed-\((N,S)\) positive-integer census, do not exclude every crossing through \(N=9\), and do not classify the unique \(N=10\) first-layer pair. Exact witness searches and semantic database searches also did not locate this finite boundary.
+For integer partitions into strictly positive species abundances at fixed N,S, reconstructed hypergeometric R_m=Σ[1-C(N−n_i,m)/C(N,m)]. Independent exact Fraction enumeration of every same-richness unordered partition pair, all N=2..10 and interior m, found no strict sign reversal for N≤9 and one pair for N=10: (6,2,2) versus (5,4,1), S=3. Verified R2=73/45<74/45, R3=61/30<41/20, R4=163/70>242/105; the full m=2..9 signs reverse between m=3,4. R2=2−Σ n_i(n_i−1)/(N(N−1)); R_{N−1}=S−f1/N. Completeness relies on enumerating all integer partitions, not numerical sampling or unchecked logs.
 
-Risk: one older closely related article was available here through bibliographic and abstract material rather than inspected article body, and an unindexed pedagogical example or software test could contain the same ten-individual pair without asserting the minimality theorem.
+## originality
 
-## Value
-**PASS.** Rarefaction is specifically used to compare richness at standardized sampling effort, and prior literature warns that sampling curves can cross. Fixing both observed richness and total abundance removes the most immediate comparison confounders. The sharp first crossing identifies the smallest possible finite community in which the chosen rarefaction depth alone can reverse a biodiversity ranking, while the endpoint formulas give a transparent ecological mechanism: pairwise evenness favors one profile early, but the singleton tail favors the other near census completion.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classical rarefaction literature already knows curve crossing and abundance-distribution effects; neither the inspected abstracts nor Resultary hits supplied the complete smallest fixed-(N,S) strict-crossing layer N=10 and its unique witness. Best-of-knowledge novelty is limited to this finite exact cutoff and classification, not crossings as such.
+
+## value
+
+PASS
+
+The first strict rank reversal at common census and species richness is a natural sharp boundary in abundance-comparison and rarefaction design, pinpointing how singleton structure and Simpson concentration disagree. It is an independently useful exact minimum with one classified witness, not an arbitrary isolated small calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
