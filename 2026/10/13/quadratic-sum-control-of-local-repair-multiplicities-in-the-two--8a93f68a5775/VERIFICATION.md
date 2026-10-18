@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic proof is the authority for the all-dimension theorem. The executable check is a finite consistency test of the defining-set identities and the local formula.
+# Independent mathematical audit
 
-`verify.py` reconstructs the two class-(a)/(b) trinomials over exact polynomial-basis models of \(\mathbb F_{2^m}\) for \(m=5,7,9\). It checks that the punctured images coincide and have cardinality \(2^{m-1}\). For every coordinate \(d\) in that common image, it directly counts pairs \(y,y+d\) that stay in the defining set, evaluates
-\[
-G_4(d)=\sum_y(-1)^{\operatorname{Tr}(y^{17}+dy^3)},
-\]
-and verifies
-\[
-8\rho(d)=2^m-G_4(d).
-\]
-It also checks the global count
-\[
-A_3(C_D^\perp)=\frac{2^m(2^m-2)}{48}
-\]
-and confirms that every nonzero computed quadratic sum has a magnitude allowed by a radical dimension in \(\{1,3,5,7\}\).
+## correctness
 
-A replay from the packaged verifier produced:
+PASS
 
-`m=5 n=16 A3=20 repair={0: 1, 4: 15}`
+Nondegenerate absolute-trace pairing makes weight-three C_D dual words exactly triples d+y+z=0. Ordered pair intersection N_d=|D∩(D+d)| has involution y->y+d so rho=N_d/2. With |D|=q/2, Boolean autocorrelation A_f(d)=4N_d-q. The source exact Walsh identity W_f(a)=W_Q(a^(17/3)) with Q(x)=Tr(x^3) and odd m makes the Walsh square 2^(m+1) when Tr(a^(17/3))=1, else zero; Fourier inversion and a=y³ give A_f(d)=-G4(d), hence rho=(q-G4)/8. Polar radical satisfies z^256+d^16 z^32+d^8 z^8+z=0, r odd <=7 and quadratic sums zero or magnitude 2^((m+r)/2). Source A3=q(q-2)/48 implies sum rho=3A3=2^(m-3)(2^(m-1)-1) and mean=(2^(m-1)-1)/4 noninteger, hence no 1-design or transitivity. For m>=9 worst possible subtraction 2^((m+1)/2)<2^(m-3). Independent finite-field code independently reconstructed m=5 and m=7 distributions, corroboration only.
 
-`m=7 n=64 A3=336 repair={14: 22, 16: 28, 18: 14}`
+## originality
 
-`m=9 n=256 A3=5440 repair={60: 72, 64: 129, 68: 54, 72: 1}`
+PASS
 
-`VERIFY_OK`
+Wang et al. primary proof already provides both source Walsh identity and the global dual weight-three count, plus similar quadratic sums for a distinct family, but no coordinatewise recovery-pair count or non-1-design/nontransitivity deduction. Ahmadi--Shafaeiabr treats the Singer difference sets and other trinomial classes, not this local dual support invariant. New local autocorrelation combination is a natural refinement of known global spectrum; overlap with unindexed Dillon--Dobbertin code work possible.
 
-The computation does not enumerate infinitely many dimensions and does not establish the symbolic Walsh or quadratic-form lemmas by experiment. Those steps are proved in `RESULT.md` from the stated source identity and standard finite-field Fourier and quadratic-form arguments.
+## value
+
+PASS
+
+Weight-three dual supports are the minimum two-helper local recovery witnesses of these trace codes. A precise coordinatewise count and nonuniformity obstruction distinguish local repair geometry not determined by the usual Hamming enumerator. The fact that every coordinate gains recovery at odd m>=9 is a motivated uniform-locality conclusion; no complete multiplicity distribution for arbitrary m is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

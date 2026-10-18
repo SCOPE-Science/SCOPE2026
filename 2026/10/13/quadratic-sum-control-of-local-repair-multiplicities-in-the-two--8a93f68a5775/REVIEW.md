@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The final claim follows from four independently checkable steps: weight-three dual words are exactly zero-sum triples of distinct defining-set elements; their replication number is half an additive self-intersection size; the published Gold-Walsh identity converts that self-intersection into \(-G_4(d)\); and the quadratic radical equation controls the possible nonzero values. The total incidence count agrees with the published Pless-moment value of \(A_3(C_D^\perp)\). The bundled verifier checks the exact identity for every coordinate at \(m=5,7,9\).
+## correctness
 
-## Originality
-PASS. The closest primary sources establish the Singer difference-set property, the global three-weight distribution, dual distance three, the total number of weight-three dual words, and the required Walsh/quadratic identities. They do not state or imply the coordinatewise formula without the new autocorrelation argument. Focused searches by source, aliases, support-incidence language, recovery terminology, Walsh/autocorrelation formulation, and exact quadratic sum found no prior statement of the final claim. The principal residual risk is an unindexed equivalent specialization in older difference-set or projective-code literature.
+PASS
 
-## Value
-PASS. The claim determines a natural local invariant of the two most recently resolved trinomial code classes. It exposes unavoidable heterogeneity in their minimum dual-check geometry, gives a precise quadratic-sum parameterization of that heterogeneity, and yields concrete design, automorphism, and locality consequences. This goes beyond a routine recomputation of the source's global weight enumerator.
+Nondegenerate absolute-trace pairing makes weight-three C_D dual words exactly triples d+y+z=0. Ordered pair intersection N_d=|D∩(D+d)| has involution y->y+d so rho=N_d/2. With |D|=q/2, Boolean autocorrelation A_f(d)=4N_d-q. The source exact Walsh identity W_f(a)=W_Q(a^(17/3)) with Q(x)=Tr(x^3) and odd m makes the Walsh square 2^(m+1) when Tr(a^(17/3))=1, else zero; Fourier inversion and a=y³ give A_f(d)=-G4(d), hence rho=(q-G4)/8. Polar radical satisfies z^256+d^16 z^32+d^8 z^8+z=0, r odd <=7 and quadratic sums zero or magnitude 2^((m+r)/2). Source A3=q(q-2)/48 implies sum rho=3A3=2^(m-3)(2^(m-1)-1) and mean=(2^(m-1)-1)/4 noninteger, hence no 1-design or transitivity. For m>=9 worst possible subtraction 2^((m+1)/2)<2^(m-3). Independent finite-field code independently reconstructed m=5 and m=7 distributions, corroboration only.
 
-## Closest literature and limitations
-The closest source is arXiv:2609.37093v1, which supplies the exact Walsh identity and the global value \(A_3(C_D^\perp)\) but not local incidence. arXiv:2108.10042v1 gives the earlier Singer-difference-set and partial coding results. The theorem does not classify the multiplicities of all allowed \(G_4\)-values for arbitrary odd \(m\), and the finite verifier is illustrative rather than an infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wang et al. primary proof already provides both source Walsh identity and the global dual weight-three count, plus similar quadratic sums for a distinct family, but no coordinatewise recovery-pair count or non-1-design/nontransitivity deduction. Ahmadi--Shafaeiabr treats the Singer difference sets and other trinomial classes, not this local dual support invariant. New local autocorrelation combination is a natural refinement of known global spectrum; overlap with unindexed Dillon--Dobbertin code work possible.
+
+## value
+
+PASS
+
+Weight-three dual supports are the minimum two-helper local recovery witnesses of these trace codes. A precise coordinatewise count and nonuniformity obstruction distinguish local repair geometry not determined by the usual Hamming enumerator. The fact that every coordinate gains recovery at odd m>=9 is a motivated uniform-locality conclusion; no complete multiplicity distribution for arbitrary m is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
