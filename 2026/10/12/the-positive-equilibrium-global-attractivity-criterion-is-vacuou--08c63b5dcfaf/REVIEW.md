@@ -1,33 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The first Theorem 7 inequality forces
-\[
-bU_1^y<r_0-d.
-\]
-The exact theorem definitions give
-\[
-bU_1^y-(r_0-d)
-=
-bhm+
-\frac{bh-a}{a}(r_0-d)+
-b(h+1)\varepsilon.
-\]
-The second theorem inequality implies \(bh>a\), and the first implies \(r_0-d>0\). Every term is therefore positive, yielding the opposite strict inequality. The bundled symbolic checker verifies the identity independently.
+PASS
 
-## Originality
+PASS: Original full publisher article Theorem 7 imposes (1+k U_y)(d+b U_y)<r0<=d+1 and (1+a)/b<h<=1, with U_x=(r0-d)/a+epsilon and U_y=h(m+U_x)+epsilon, all a,b,h,k,m>0,epsilon>0. The first condition forces D=r0-d>b U_y>0; the second yields bh>1+a>a. Exact identity bU_y-D=bhm+(bh-a)D/a+b(h+1)epsilon has all strictly positive terms, contradicting bU_y<D. Independent SymPy identity expansion verified. This is an impossible pair of sufficient hypotheses, NOT a claim the positive equilibrium is never globally attracting or a corrected theorem.
 
-PASS. The source notes only that its sufficient conditions are too strict for its numerical example. The accepted result proves the stronger source-specific statement that no positive parameter set can satisfy them. Exact source, theorem-number, correction, implication, and historical-overlap searches found no equivalent published statement.
+## originality
 
-## Value
+PASS
 
-PASS. Theorem 7 is the paper's coexistence global-attractivity theorem. Showing that its admissible set is empty means the published criterion cannot certify any biological or mathematical parameter instance, which is a substantive correction rather than a numerical tightening.
+PASS best-of-knowledge: Publisher full article labels its numerical example as merely failing overly strict conditions, but does not derive that *all* positive parameters fail them. The 2021 predecessor has different map and thresholds. Targeted source DOI, theorem-seven and erratum queries and Resultary source/alias search found no earlier identified structural incompatibility; no global novelty certification is asserted.
 
-## Closest literature and limitations
+## value
 
-Earlier discrete fear-effect predator–prey work proves global stability under different equations and sufficient inequalities. It does not contain or imply the contradiction in the later theorem.
+PASS
 
-The result does not determine the true global-attractivity region and does not infer which printed inequality, if any, should be changed.
+PASS: This is the principal printed sufficient criterion for global attractivity of the positive equilibrium in a biological map; it certifies no possible instance. An exact algebraic incompatibility explains why the numerical example cannot instantiate it and delineates a real logical failure that matters for future global-stability proofs, rather than a trivial small-example sign test.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
