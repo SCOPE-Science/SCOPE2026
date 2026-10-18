@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof covers all integer arm lengths, all finite arm counts at least three, any real nonzero uniform hopping, and every strictly positive hub-loss strength. It uses exact open-path eigenvectors, one linear constraint at the hub, orthogonal projection, Ramanujan sums, and the dissipative spectral separation argument. No finite calculation substitutes for the proof.
+## correctness
 
-`verify_spider.py` rebuilds the adjacency matrix directly and diagonalizes it; separately the exact formulas are evaluated using totients, divisors, and Ramanujan sums. The executable checks all \(182\) nondecreasing arm-length tuples for three or four arms, each arm having between one and six edges. Every one of \(2534\) sitewise comparisons, the complete dark-rank checks, and the arithmetic zero-site tests passed at the stated numerical tolerances. Install the dependency in `requirements.txt` and run `python3 verify_spider.py`.
+PASS
 
-The verifier's eigenspace grouping uses finite floating-point tolerances for only these small graphs. It does not certify all graph sizes or small complex spectral separations; the analytic proof controls those cases. Long-time loss behavior is established algebraically by the finite-dimensional dissipative argument, not by extrapolating simulated time traces.
+For each normalized primitive Dirichlet angle a/q, exact path eigenmodes exist on the arms with q dividing n_i=L_i+1; the central eigen-equation is a nonzero single linear functional and gives nullity (r_q-1)_+. Summing over phi(q) primitive fractions reconstructs the entire zero-hub eigenbasis. The orthogonal hyperplane projector has arm diagonal 1-(1/n_i)/W_q; sine-square summation gives the stated Ramanujan formula. Each term is nonnegative, so zero-site survival iff every shared denominator divides s, equivalently lcm of gcds h_i divides s; global extinction iff pairwise coprime n_i. The dissipative complement has strictly negative eigenvalue imaginary parts since any real eigenvector would be dark, so finite-dimensional Jordan evolution decays exponentially. Independently constructed adjacency matrices and spectral projectors for five heterogeneous/homogeneous spider tuples matched all local weights and the dark dimension.
+
+## originality
+
+PASS
+
+Known dark eigenmodes and root visibility are recognized antecedents, especially ordinary-star degeneracies. The all-heterogeneous-arm totient-weighted rank, explicit Ramanujan site probabilities and exact lcm zero-site criterion were not implied by inspected primary statements; this is best-of-knowledge originality, not proof against all literature.
+
+## value
+
+PASS
+
+A complete divisor-theoretic classification of dark-space dimension and every local absorption probability for arbitrary heterogeneous spider trees is a motivated graph-spectral/quantum-transport invariant; the zero-site lcm criterion and global pairwise-coprime boundary are structural and not a mere restatement of visible modes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

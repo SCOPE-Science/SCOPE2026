@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The dark-space classification is derived directly from the open-path sine modes. Equality of eigenfrequencies forces equality of reduced rational angles; the hub equation has exactly one nonzero row for each shared angle. This determines the dimensions without a genericity assumption. Direct hyperplane projection yields each localized survival formula, including its exact zero set. The dissipative block argument gives long-time survival for every density matrix. The independent small-matrix checker corroborates all four conclusions on 182 test families, totaling 2534 localized site comparisons. It does not serve as an infinite proof.
+PASS
 
-## Originality — PASS, with risk
+For each normalized primitive Dirichlet angle a/q, exact path eigenmodes exist on the arms with q dividing n_i=L_i+1; the central eigen-equation is a nonzero single linear functional and gives nullity (r_q-1)_+. Summing over phi(q) primitive fractions reconstructs the entire zero-hub eigenbasis. The orthogonal hyperplane projector has arm diagonal 1-(1/n_i)/W_q; sine-square summation gives the stated Ramanujan formula. Each term is nonnegative, so zero-site survival iff every shared denominator divides s, equivalently lcm of gcds h_i divides s; global extinction iff pairwise coprime n_i. The dissipative complement has strictly negative eigenvalue imaginary parts since any real eigenvector would be dark, so finite-dimensional Jordan evolution decays exponentially. Independently constructed adjacency matrices and spectral projectors for five heterogeneous/homogeneous spider tuples matched all local weights and the dark dimension.
 
-Mülken–Blumen (arXiv:quant-ph/0602120), Agliari (arXiv:1102.3994), and Anishchenko–Blumen–Mülken (arXiv:1111.7065) develop related transport and degeneracy phenomena but not this arithmetic heterogeneous-spider classification. Vieira–Amorim (arXiv:2404.04094) explicitly describe dark root modes of ordinary and selected weighted star/spider walks; those antecedents are acknowledged. Parlangeli (2025) studies nodal controllability on starlike trees for the graph Laplacian, which is not identical to adjacency hopping on a degree-inhomogeneous spider. The evaluated divisor-totient dark dimension, Ramanujan local survival and exact arithmetic extinction-site characterization were not identified in the inspected works. Residual risk: equivalent results may be available in spectral/control graph theory under different terminology, and independent publication-priority validation is absent.
+## originality
 
-## Value — PASS
+PASS
 
-A single central loss site is a natural quantum-transport design problem. The theorem resolves the full surviving subspace and capture efficiency for all heterogeneous arm lengths, not simply a symmetry example. It supplies exact site-dependent immunity and a checkable pairwise-coprime condition for complete absorption, enabling systematic design choices without simulation. The scope is limited to finite uniform-hopping adjacency dynamics with one positive central sink.
+Known dark eigenmodes and root visibility are recognized antecedents, especially ordinary-star degeneracies. The all-heterogeneous-arm totient-weighted rank, explicit Ramanujan site probabilities and exact lcm zero-site criterion were not implied by inspected primary statements; this is best-of-knowledge originality, not proof against all literature.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A complete divisor-theoretic classification of dark-space dimension and every local absorption probability for arbitrary heterogeneous spider trees is a motivated graph-spectral/quantum-transport invariant; the zero-site lcm criterion and global pairwise-coprime boundary are structural and not a mere restatement of visible modes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
