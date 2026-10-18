@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** The characterization proves both directions for every positive finite arity. Necessity uses information-order monotonicity and the common all-unknown value. Sufficiency constructs two formulas from the upward closures \(U=\uparrow D\) and \(V=U\setminus D\), verifies that \(V\) is an upset, and compares the outputs in all three cases: inside \(D\), inside \(V\), and outside \(U\). The infectious conditional is explicitly term-definable. The fixed-arity probability spectrum is derived from arbitrary-size upsets and an unavoidable all-unknown agreement point. Independent executable checks verify the complete one- and two-variable cases, and an interval-based exhaustive count verifies the reported three-variable cardinality. Enumeration is not used as a proof of the general theorem.
+
+## Originality
+**PASS, subject to the historical-priority risk below.** Petrukhin (arXiv:2610.08293) provides the defining three-valued semantics and conditional eliminability; it is not a classification of exact-value agreement sets. Cardó (arXiv:2604.08446) defines probabilistic equational spectra and computes general consequences under particular algebraic hypotheses, not this three-valued term algebra. Berman--Mukaidono's classical enumeration of free Kleene term functions concerns functions rather than loci where pairs of functions agree. Relevant prior work on *classical positive Boolean* disagreement convexity is not a theorem about the three-valued information cube with negation. Searches for these equivalences and stronger formulations in the accessible literature and research records did not uncover domination. This is a scoped positive originality judgment, not a proof of priority.
+
+## Value
+**PASS.** Exact agreement rather than designated consequence gives a natural structural question for a recently studied pair of three-valued logics. The result completely describes which datasets of ternary valuations distinguish formulas, gives the exact probabilities in every arity, and identifies the first forbidden shape at arity three. The independently enumerated three-variable count supplies a finite benchmark. Its force is the order-theoretic classification and constructive representation, not merely small truth-table enumeration.
+
+## Closest prior work and limitations
+Petrukhin (2026) motivates the semantics and proves the relevant conditional is a term of the De Morgan fragment. Cardó (2026) motivates the equational spectrum but does not supply this instance. The older Berman--Mukaidono (1984) fuzzy-switching article is the main residual priority concern: its abstract and known free-algebra counts were accessible, but its full text was not, so the possibility of an implicit earlier equality-locus result is explicitly retained. The theorem excludes truth constants, extra independent connectives, designatedness-only equivalence, and nonuniform input laws. The exhaustive three-variable count is a finite auxiliary fact, not a closed all-arity counting formula.
+
+Self-review: passed. Independent audit: not yet performed.
