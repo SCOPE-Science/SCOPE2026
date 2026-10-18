@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The result is an analytic theorem requiring no external computer certificate. The proof has been reconstructed by substituting \(x=Re_1\), \(y=rv\), and \(c=\langle e_1,v\rangle\) into the exact Bregman definition, checking the supporting-line inequality and the two explicit angle choices. Because the two angular deficits lie in \([0,2]\) for all sufficiently large radii, unit vectors with exactly those cosines exist in every dimension at least two.
+## correctness
 
-Independent numerical sanity check on \(h(r)=-\sqrt{1-r^2}\) used \(r=1-10^{-k}\) for integers \(2\le k\le9\). The exact formula \(D=A(r)+2\) agrees with direct substitution to floating precision and the radial error \(A(r)\) decreases from approximately \(0.07088812\) to \(0.0000223607\). Finite numerical tests check the algebra but are not used to establish the infinite-dimensional quantifiers or asymptotic assertions.
+PASS
 
-Scope: \(R>0\), finite continuous strictly convex radial profile, differentiability on \([0,R)\), \(h'(0)=0\), dimension a positive integer. No inference about convergence of a numerical optimizer, no claim on nonradial geometries, and no external independent audit.
+Writing x=Re1 and y=rv with c=<e1,v>, direct differentiation gives D_phi(x,y)=A(r)+R h_prime(r)(1-c), A(r)=h(R)-h(r)-h_prime(r)(R-r). The supporting-line inequality yields 0<=A(r)<=h(R)-h(r)->0. In dimension one every interior boundary approach is eventually radial and D->0. If h_prime is bounded, the gradient norm is bounded and D->0 for any approach in every dimension. In dimensions >=2 and h_prime->infinity, for any a>=0 choose c=1-a/(R h_prime) to obtain D=A+a; for divergent limit choose c=1-1/sqrt(h_prime), which gives D=A+R sqrt(h_prime)->infinity. Both cosine choices are admissible and yield y->x. The bounded-domain sublevel condition is automatic because y lies in the ball. Independent concrete Hellinger-style and quadratic radial identities were verified, not taken as a universal numerical proof.
+
+## originality
+
+PASS
+
+Ou–Latafat–Themelis, Assumption 2.4 and Example 2.5, explicitly distinguish the one-dimensional Hellinger example from higher-dimensional failure, but not all radial finite-boundary convex profiles or their entire extended boundary cluster sets. The exact necessary-and-sufficient radial-slope threshold and all finite attainable limits refine that example; no direct broader source coverage identified. Residual risk of an equivalent earlier convex analysis limit lemma remains.
+
+## value
+
+PASS
+
+The classification answers a natural analytic kernel-eligibility question: under finite closed-ball boundary values, whether every interior approach has vanishing Bregman divergence. It identifies the exact radial steepness/dimension threshold and not just a negative example; the full continuum of attainable boundary defects reveals the magnitude and geometry of failure. This can guide use of sufficient Bregman-zone hypotheses without falsely claiming optimizer divergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

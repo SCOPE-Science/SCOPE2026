@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The radial–angular decomposition \(D_\Phi(Re_1,rv)=A(r)+Rh'(r)(1-c)\) follows directly from the gradient formula. Supporting-line convexity gives \(0\le A(r)\le h(R)-h(r)\to0\). This isolates the only possible failure in an angular defect. In one dimension the angle is eventually zero, while bounded limiting slope uniformly bounds the gradient in any dimension. When the slope diverges and a transverse direction exists, admissible angles realize any fixed nonnegative defect and a divergent one. There are no unproved limit interchanges, nonstandard lemmas, or extrapolations from finite computation. Domain, orientation of the Bregman distance, and both boundary and interior cases were checked.
+PASS
 
-## Originality — PASS
+Writing x=Re1 and y=rv with c=<e1,v>, direct differentiation gives D_phi(x,y)=A(r)+R h_prime(r)(1-c), A(r)=h(R)-h(r)-h_prime(r)(R-r). The supporting-line inequality yields 0<=A(r)<=h(R)-h(r)->0. In dimension one every interior boundary approach is eventually radial and D->0. If h_prime is bounded, the gradient norm is bounded and D->0 for any approach in every dimension. In dimensions >=2 and h_prime->infinity, for any a>=0 choose c=1-a/(R h_prime) to obtain D=A+a; for divergent limit choose c=1-1/sqrt(h_prime), which gives D=A+R sqrt(h_prime)->infinity. Both cosine choices are admissible and yield y->x. The bounded-domain sublevel condition is automatic because y lies in the ball. Independent concrete Hellinger-style and quadratic radial identities were verified, not taken as a universal numerical proof.
 
-The closest source is Ou–Latafat–Themelis, Example 2.5: a single radial Hellinger kernel and one divergent approach. The stated classification ranges over **all** finite, continuous strictly convex radial profiles, proves an iff criterion including finite slopes, and determines **all** attainable extended boundary values, not only a divergent witness. Solodov–Svaiter define the zone property but do not deduce this radial classification in the inspected sections. Bauschke–Borwein treat one-dimensional kernels, product extensions, and a distinct nonradial higher-dimensional example. Targeted searches of the published mathematical record found no matching result; this is evidence of screening, not a uniqueness certificate. Residual risk: older or poorly indexed work could give an equivalent radial limit classification.
+## originality
 
-## Value — PASS
+PASS
 
-The complete radial dichotomy answers a natural kernel-selection question for Bregman proximal methods on Euclidean-ball constraints, where finite-boundary Legendre mirrors might otherwise be presumed to inherit one-dimensional behavior. The complete boundary cluster set distinguishes failure by bounded nonzero defects from arbitrarily large defects, not a mere change of an example's exponent. It explains geometrically why the scalar and separable constructions behave differently from nonseparable radial kernels. The result does **not** assert algorithmic divergence when a sufficient convergence hypothesis fails.
+Ou–Latafat–Themelis, Assumption 2.4 and Example 2.5, explicitly distinguish the one-dimensional Hellinger example from higher-dimensional failure, but not all radial finite-boundary convex profiles or their entire extended boundary cluster sets. The exact necessary-and-sufficient radial-slope threshold and all finite attainable limits refine that example; no direct broader source coverage identified. Residual risk of an equivalent earlier convex analysis limit lemma remains.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The classification answers a natural analytic kernel-eligibility question: under finite closed-ball boundary values, whether every interior approach has vanishing Bregman divergence. It identifies the exact radial steepness/dimension threshold and not just a negative example; the full continuum of attainable boundary defects reveals the magnitude and geometry of failure. This can guide use of sufficient Bregman-zone hypotheses without falsely claiming optimizer divergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

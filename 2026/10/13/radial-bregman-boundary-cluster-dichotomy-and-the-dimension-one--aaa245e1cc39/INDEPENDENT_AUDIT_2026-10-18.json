@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T01:11:00.721748Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/13/radial-bregman-boundary-cluster-dichotomy-and-the-dimension-one--aaa245e1cc39/RESULT.md @ 40d46a820f74fdf355c691812bdc426ec204bde7",
+        "Ou–Latafat–Themelis arXiv:2508.01353, Assumption 2.4 and Example 2.5",
+        "independent_1793_checks.py"
+      ],
+      "rationale": "Writing x=Re1 and y=rv with c=<e1,v>, direct differentiation gives D_phi(x,y)=A(r)+R h_prime(r)(1-c), A(r)=h(R)-h(r)-h_prime(r)(R-r). The supporting-line inequality yields 0<=A(r)<=h(R)-h(r)->0. In dimension one every interior boundary approach is eventually radial and D->0. If h_prime is bounded, the gradient norm is bounded and D->0 for any approach in every dimension. In dimensions >=2 and h_prime->infinity, for any a>=0 choose c=1-a/(R h_prime) to obtain D=A+a; for divergent limit choose c=1-1/sqrt(h_prime), which gives D=A+R sqrt(h_prime)->infinity. Both cosine choices are admissible and yield y->x. The bounded-domain sublevel condition is automatic because y lies in the ball. Independent concrete Hellinger-style and quadratic radial identities were verified, not taken as a universal numerical proof.",
+      "residual_risks": [
+        "Hypotheses demand h continuous finite at R and C1 radial on [0,R), h_prime(0)=0; no barrier kernels with infinite boundary values or arbitrary nonradial domains.",
+        "Failure of the zone condition does not imply failure of any optimization algorithm."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original zone hypothesis concerns boundary continuity and bounded sublevels; it does not itself imply this dimension-sensitive classification.",
+          "Resultary prior result 2026/10/4 exact Hellinger B-adaPG boundary trajectory concerns a one-ray algorithm, not all radial divergence boundary limits."
+        ],
+        "reasoning": "The general definitions and unrelated convergence results are broader frameworks, not stronger theorems logically establishing the universal radial cluster set.",
+        "searches": [
+          "Ou–Latafat–Themelis arXiv:2508.01353 full paper Sections 2 and 5",
+          "Solodov–Svaiter 2000 definition of Bregman-with-zone",
+          "Bauschke–Borwein 1997 Legendre functions cited by source"
+        ]
+      },
+      "checked_sources": [
+        "Ou–Latafat–Themelis arXiv:2508.01353, Assumption 2.4 and Example 2.5 (full primary PDF inspected)",
+        "Solodov–Svaiter 2000, definition cited in the primary source; not read in full independently",
+        "Resultary related Hellinger boundary-trajectory result (summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For finite h(R), convexity forces A(r)->0; angular term determines limits.",
+          "Prior paper explicitly notes n=1 vs n>=2 distinction only in a selected Hellinger kernel."
+        ],
+        "reasoning": "The known example does not imply the all-profile iff in either direction, nor supply all finite limits. Standard convex identities are credited as the elementary proof ingredients.",
+        "searches": [
+          "Ou–Latafat–Themelis 2025 Assumption 2.4, Example 2.5",
+          "Bauschke–Borwein 1997 radial/Legendre literature as cited by source"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source Hellinger example has divergent boundary path for n>=2 but n=1 continuity.",
+          "Present result gives cluster set [0,infinity] for every strictly convex radial finite-boundary steep profile."
+        ],
+        "reasoning": "The Hellinger example is a special case, not an equivalent theorem; the general radial/angular identity implies the special example, while the single example does not determine the universal criterion.",
+        "searches": [
+          "Resultary semantic query: radial Bregman divergence boundary cluster values essential smooth convex Euclidean ball dimension one Hellinger",
+          "Ou–Latafat–Themelis arXiv:2508.01353, Example 2.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known counterexample provides at least one divergent path; it is not a list or table of all cluster values."
+        ],
+        "reasoning": "The claim is an analytic all-dimension/all-profile classification, not a finite numerical table.",
+        "searches": [
+          "ArXiv 2508.01353 Example 2.5",
+          "Resultary Hellinger B-adaPG boundary trajectory 2026/10/4"
+        ]
+      },
+      "rationale": "Ou–Latafat–Themelis, Assumption 2.4 and Example 2.5, explicitly distinguish the one-dimensional Hellinger example from higher-dimensional failure, but not all radial finite-boundary convex profiles or their entire extended boundary cluster sets. The exact necessary-and-sufficient radial-slope threshold and all finite attainable limits refine that example; no direct broader source coverage identified. Residual risk of an equivalent earlier convex analysis limit lemma remains.",
+      "residual_risks": [
+        "An uncatalogued general convex-analysis lemma on radial Bregman boundary cluster sets could duplicate the simple angular formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Example 2.5 is one finite Hellinger-type radial failure and one-dimensional success; does not state universal slope/cluster classification.",
+          "evidence": "Assumption 2.4 boundary condition and Example 2.5 explicit gradient-induced divergence.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.01353",
+          "material_read": "44-page primary PDF with Assumption 2.4, Example 2.5 and surrounding Section 2, relevant Section 5 discussion",
+          "method": "full PDF parsed text plus page screenshot",
+          "title": "Linesearch-free adaptive Bregman proximal gradient for convex minimization under local relative smoothness",
+          "trigger": "Same kernel, same zone assumption, n=1 and n>=2 behavior"
+        },
+        {
+          "assessment": "Different claim about a specific algorithm trajectory, not a universal all-direction Bregman boundary cluster classification; full paper not read.",
+          "evidence": "Summary describes an exact one-dimensional recursion for one boundary-active quadratic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-cumulative-step-boundary-law-for-b-adapg-on-an-invariant-h--6eb2c5b9c996",
+          "material_read": "Resultary title and published result summary only",
+          "method": "Resultary semantic-index search",
+          "title": "Exact cumulative-step boundary law for B-adaPG on an invariant Hellinger ray",
+          "trigger": "Semantic search returned same named Hellinger radial example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ou–Latafat–Themelis arXiv:2508.01353 Assumption 2.4 and Example 2.5"
+      ],
+      "rationale": "The classification answers a natural analytic kernel-eligibility question: under finite closed-ball boundary values, whether every interior approach has vanishing Bregman divergence. It identifies the exact radial steepness/dimension threshold and not just a negative example; the full continuum of attainable boundary defects reveals the magnitude and geometry of failure. This can guide use of sufficient Bregman-zone hypotheses without falsely claiming optimizer divergence.",
+      "residual_risks": [
+        "The result is restricted to radial finite-boundary Euclidean-ball generators; geometric extension to nonradial convex bodies not proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The complete claim is only for finite closed-ball radial profiles; conditions at domain boundary and one-dimensional rays are essential."
+  ],
+  "schema_version": 1
+}
