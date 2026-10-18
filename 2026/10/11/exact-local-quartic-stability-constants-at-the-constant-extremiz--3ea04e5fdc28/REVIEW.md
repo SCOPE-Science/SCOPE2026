@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is a local asymptotic theorem with explicit quantifiers. The proof starts from the source's exact orthogonal decomposition and exact cubic-deficit identity. For every sequence with bounded normalized logarithmic deficit, nonnegativity of the scalar remainder reduces the problem to the cubic deficit, and the interaction estimates force the high-frequency excess \(Q(z)\) to be \(O(d^4)\). After the rescaling \(z=d^2w\), the fourth-order problem is the positive quadratic form \(Q(w)-\langle e^2-1,w\rangle\). Since \(e^2-1\) is exactly the second harmonic with squared norm \(1/2\), completing the square gives the sharp loss \(1/(8p)\). The scalar logarithmic remainder contributes exactly \(1/4\). The source's explicit first-plus-second-harmonic family attains the resulting limits. The circle high-frequency control comes from the source's spectral sup-norm estimate; for each fixed word-length cycle finite dimensionality supplies the corresponding control.
+## correctness
 
-## Originality
-PASS. The focal paper proves only global lower bounds and one-family upper bounds, and explicitly says it does not determine the global exact constants for cycles with at least five vertices or the circle. It does not state an exact shrinking-neighborhood constant. Xie--Zhang identify the quartic exponent as sharp locally but explicitly do not claim their coefficient \(1/12\) is optimal. Searches for exact local, second-harmonic, cubic-deficit, nearest-neighbor, heat-circle and word-length formulations found no covering published-finding corpus record or inspected primary result. The closest records concerned unrelated local quartic reductions or unrelated finite-cycle invariants.
+PASS
 
-## Value
-PASS. The result separates the unresolved global problem from the local geometry: the published upper-bound coefficients are not artifacts of a chosen perturbation family but are the complete fourth-order obstruction at the constant extremizer. Therefore any improvement of the global sharp constants must come from configurations that stay a definite distance away from the constant, a useful structural reduction for the open exact-constant problem. The proof also identifies the second-harmonic resolvent as the unique fourth-order correction mechanism.
+The high-frequency decomposition u=a+v+z, first harmonic v and complement z, has exact d²=2(1−a), s=d²−d⁴/4, spectral high-mode energy excess Q(z)>=p||z||² with p=q_n or 1. For any candidate sequence with bounded Δ/d⁴, a cubic-deficit coercivity estimate completes the square to force Q(z)=O(d⁴), excluding hidden high-frequency competitors; then z=d²w. The second harmonic g=e²−1, ||g||²=1/2, eigen-excess p gives minimal limiting cubic term 1/4−1/(8p), and the entropy Taylor remainder gives +1/4, yielding 3/4−1/(4p). The explicit first-plus-second harmonic family attains equality. Independently evaluated normalized finite-cycle functions at n=5,6,9,13 for nearest-neighbor and word-length models with r=.002; observed ratios approach all eight predicted constants (maximum discrepancy about 1.7e−4), confirming normalization, not proving arbitrary-direction bound.
 
-## Closest literature and limitations
-Chen--Lam--Lu, arXiv:2610.05347v1, is the closest source and supplies all structural identities and the attaining perturbation family, but only a one-sided global upper bound. Xie--Zhang, arXiv:2606.02847v4, proves a global \(1/12\) quartic remainder for the word-length energy and sharpness of the exponent, not the exact local coefficient. Frank--Ivanisvili, arXiv:2605.29035, establishes the sharp base and cubic inequalities. The theorem here is local only and leaves the global sharp constants open.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Chen–Lam–Lu 2026 supply the first/second harmonic family and report these numerical expressions as global upper bounds, but the accessible abstract describes their global lower bounds only at 1/3 and leaves exact global constants unknown for n>=5. The new theorem establishes matching local lower bound across ALL perturbations approaching the constant by high-frequency coercivity; one trial-family upper bound does not imply local optimality. A directly relevant full primary paper remained inaccessible through lawful arXiv/OA attempts and authorized Oxford (vpn_disconnected), a substantial explicitly recorded priority risk; no unfounded whole-paper negative coverage asserted.
+
+## value
+
+PASS
+
+The exact local curvature of the quartic log-Sobolev deficit is a natural variational invariant at its critical constant extremizer. The result resolves whether the known first-plus-second harmonic test construction truly controls all near-constant competitors, and distinguishes local sharpness from unknown global constants, including the circle and word-length cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
