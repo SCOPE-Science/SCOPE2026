@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,42 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof in `RESULT.md` is analytic and covers every integer \(n\ge1\), every unit isosceles-orthogonal pair, and every scalar parameter.
 
-For \(N=4n\) and \(\alpha=\pi/N\), the central identity is
-\[
-\|x+\lambda y\|
-=
-\frac{\cos d(\theta+\delta)}
-{\cos d(\theta)\cos\delta},
-\qquad
-\delta=\arctan\lambda.
-\]
-Writing
-\[
-\theta+\delta=2m\alpha+\varepsilon,
-\qquad
-\theta,\varepsilon\in[-\alpha,\alpha],
-\]
-reduces the continuum problem to three analytic cases according to \(m\). Each case is bounded below by
-\[
-D_0=\frac{2\cos\alpha}{1+\cos\alpha},
-\]
-and the \(m=0\) configuration
-\[
-\theta=\delta=\frac{\alpha}{2}
-\]
-attains \(D_0\). The published identity \(D(X)DW_S(X)=2\) then yields
-\[
-DW_S(X_{4n})=1+\sec\alpha.
-\]
+# Independent mathematical audit
 
-`verify.py` numerically reconstructs the regular-polygon norm for several representative values of \(N\) and checks the equality configuration and a dense deterministic sample of the lower bound. It also uses symbolic simplification for the algebraic identity
-\[
-1+\cos\alpha-2\cos2\alpha
-=
-(1-\cos\alpha)(4\cos\alpha+3).
-\]
-The computation is a reproducibility aid only; finite sampling is not used as proof of the infinite theorem.
+## correctness
 
-No independent audit or independent validation has been performed.
+PASS
+
+For all n≥1, the inradius-one regular 4n-gon has R(θ)=sec d(θ) with normals at multiples of 2α (α=π/(4n)). Its quarter-turn symmetry and Fu–Xie–Li Lemma 2.9 characterize every unit isosceles partner as ±90° rotation. Consequently the full minimization D(X)=inf||x+λy|| equals inf cos d(θ+δ)/[cos d(θ)cos δ], δ=arctan λ. The RESULT.md trigonometric case split m=0, ±1, |m|≥2 supplies lower bound 2cosα/(1+cosα), attained at θ=δ=α/2. Fu–Xie–Li Proposition 2.1 establishes D·DW_S=2, giving DW_S=1+secα. I independently tested all angular regions for N=4,8,12,16,20,28,40,64 and their sharp equality witness; the analytic proof controls all n and continuum of θ,δ.
+
+## originality
+
+PASS
+
+Fu–Xie–Li 2023 introduces the invariant and proves the conversion identity and general upper bound, and already explicitly notes that l∞² (a square) attains 1+√2. Therefore the n=1 endpoint is PRIOR COVERED, not separately original. The all-n 4n-gon exact secant interpolation (particularly n≥2) survives; the primary full text examines l_p and affine-hexagon examples but does not supply the regular 4n-gon sequence. Related polygonal James/von-Neumann–Jordan constants are different invariants.
+
+## value
+
+PASS
+
+This computes a natural metric geometry invariant for an entire classical family of regular symmetric Minkowski planes, interpolating from the known square endpoint to Hilbert-plane limit with an explicit strict rate. The mathematical content is the full angular optimization, not the already known n=1 special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
