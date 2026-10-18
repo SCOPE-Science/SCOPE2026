@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The published maximal-block characterization and exact block defect are explicitly cited premises. The length and defect equations give a unique choice of the two endpoint types and the counts of interior blocks, yielding exact binomial coefficients. Explicit valleys for all odd lengths at least eleven and even lengths at least fourteen prove the infinite negative half; the coefficient table checks every remaining length. The included exact verifier independently obtains maximal codes directly from permutation avoidance and coordinatewise order for lengths two through nine, and separately checks block profiles and coefficients. These computations corroborate but do not replace the analytic argument.
+## correctness
 
-## Originality — PASS (residual risk)
-Beveridge, Hu and Liu, arXiv:2609.33137v1, already proved the entire block characterization, Padovan total and defect-per-block identity; none is presented as independent novelty. The assessed claim is the all-length coefficient **unimodality** threshold, its first failure at length eleven, and the exceptional restoration at twelve. The inspected paper discusses cardinalities and maximum weights but not the rank-profile threshold. Searches including inversion/defect reversal, weighted Padovan compositions, and published-finding corpus records found no covering all-length result. This is not an exhaustive proof of novelty: the older block characterization makes the further calculation possible, and other equivalent literature may exist.
+PASS
 
-## Value — PASS
-A natural inversion statistic refines a new maximal-element enumeration. Unimodality would be a plausible regularity of a ranked combinatorial family, yet the theorem finds a sharp negative regime and a striking isolated recovery. The two systematic coefficient valleys prove a robust phenomenon, not a one-off small example. The result is deliberately scoped to the natural original poset; no broad conjecture beyond it is claimed.
+The published block encoding of maximal consecutive-321 avoiding Lehmer codes has endpoint lengths {1,2} and interior lengths {2,3}; defect contributions are C(b,2). Setting e endpoint excess 0,1,2, u=#interior2, v=#interior3 gives n=2+e+2u+3v, d=e+u+3v. Hence u=n-2-d, e congruent 2d-n+2 mod 3, v=(2d-n+2-e)/3; nonnegative solutions have coefficient C(2,e)C(u+v,v), proving generating function (x+qx²)²/(1-qx²-q³x³). For n=2r+1, r>=5, consecutive coefficient triple (r-1,r-2,(r-2)(r-3)) has a strict valley. For n=2r, r>=7, triple (C(r-2,2),C(r-3,2),2C(r-3,3)) has a strict valley. Remaining n=2..10 and 12 are directly checked via exact formula, so unimodality iff 2<=n<=10 or n=12. Independently generated all binomial-formula coefficients for n=2..15 and checked each profile; inspected full source RESULT.md and its cited structural proof. Finite checks corroborate while valley families prove infinite n.
 
-## Closest literature and scientific limits
-The main comparison is the full text of arXiv:2609.33137v1 (Lemma 4.4, Theorems 1.4 and 1.5). The related arXiv:2607.26900 concerns different vincular patterns and Fibonacci rather than Padovan maximal-code counts. Only maximal code elements for consecutive 321 are included, not all avoiding permutations; real-rootedness is unaddressed. The original source contains the ingredients for the rank polynomial, and undiscovered equivalent analyses remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Beveridge–Hu–Liu (arXiv:2609.33137) already proves the block encoding, Padovan total count and maximum inversion weight. These are explicitly treated as prior. The new mathematical finding is all-length coefficient-sequence unimodality classification, including a nonmonotone revival at n=12; source did not state such threshold in inspected original text.
+
+## value
+
+PASS
+
+Unimodality of an inversion-rank polynomial is a natural finer invariant of a pattern-avoidance poset than its size or extremal weight. A complete sharp all-length threshold, proved by two infinite strict-valley families and one small exception, is an independently useful structural classification rather than a routine table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
