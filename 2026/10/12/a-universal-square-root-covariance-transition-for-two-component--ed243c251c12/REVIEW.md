@@ -1,19 +1,21 @@
-# Review: two-size covariance transition in weighted Cayley forests
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The rooted-forest partition function is obtained by the weighted Matrix-Tree theorem on a complete graph with one added hub. Counting labeled rooted components on prescribed disjoint subsets yields exact means and pair moments. For any feasible pair the sign reduces to the quotient \(R_{n;k,\ell}(t)-1\). Strict convexity of the reciprocal function proves the quotient decreases in fugacity; strict log-convexity of rooted Cayley weights proves its lower-fugacity endpoint exceeds one. A crossed second difference of a gamma-function expression, with an explicit uniform trigamma expansion, yields the limiting square-root critical fugacity. The \(m=0\) and infeasible regimes are handled separately. Independent Prüfer enumeration across 15 rational parameter cases confirms every partition function and distinct-size pair moment; this does not replace the proof for arbitrary sizes.
+PASS
 
-## Originality — PASS, qualified
+Using the weighted Matrix–Tree theorem, rooted Cayley-forest normalizer Phi_j(t)=t(j+t)^{j−1}, Phi0=1. Choosing two disjoint distinguished components yields exact E Z_k and E Z_k Z_l and their ratio R_{n;k,l}. For feasible k+l≤n, d log R/dt=−(t+1)[(t+n)^{−1}+(t+m)^{−1}−(t+n−k)^{−1}−(t+n−l)^{−1}]<0 by strict convexity of reciprocal. The t→0+ ratio exceeds 1 by strict log-convexity of j^{j−1}/j!, t→∞ tends to a strictly subunit factorial ratio, proving exactly one zero. Infeasible pairs have product count zero. Crossed second derivative of H_t(x)=(x−1)log(x+t)−logGamma(x+1) and uniform trigamma expansion give n² H_{c sqrt(n)}''→3/2−c², so t*/sqrt(n)→sqrt(3/2) for fixed k<l. Independently checked n3 k1 l2 ratio equation gives t*=3/sqrt(2); inspected exact independent Prüfer enumeration verifier for n≤6.
 
-Pitman (1996) supplies classical rooted-forest enumeration, Avena–Gaudillière (2013) establish the general rooted-forest fugacity model and root-set determinantal machinery, and D'Achille–Enriquez–Melotti (2024 preprint) give single-component shape distributions and a local limit for the complete graph. These predecessor results have been read where available and compared by their mathematical implications: existing one-point component laws do not imply two-size covariances, and a root-set determinantal process is not a process of component-size counts. The present claim is the explicit cross-size sign transition for every feasible pair, with a shared nontrivial square-root limiting constant, not model construction or basic enumeration. General multivariate generating-function methods might implicitly encode the finite covariance; the available sources did not state or immediately imply the unique-sign and universal-scale theorem. The 1996 report's full body was not read, which is a substantive remaining historical coverage risk.
+## originality
 
-## Value — PASS
+PASS
 
-Covariance signs across different cluster-size classes describe whether two local component populations cooperate or compete under component-penalized random forest sampling. Unlike a single moment table, the result gives a global phase diagram over all feasible pairs, proves the unique reversal, and discovers a common \(\sqrt n\) transition scale with the explicit size-independent constant \(\sqrt{3/2}\). The complete classification also resolves the boundary where simultaneous components cannot fit. This is a motivated probabilistic dependence phenomenon, not a mere substitution in a standard enumerative identity.
+Pitman, Avena–Gaudillière and D’Achille–Enriquez–Melotti provide the root-weighted complete-graph forest measure, component counts and one-root local component laws; these are acknowledged rather than claimed new. The new claim is the sharp sign-reversal and universal square-root location of the covariance of *two distinct component-size counts*. Full current 2026 D’Achille article concerns one-component distribution/local limits, not a covariance theorem; any implicit consequence of more general forest partition formula remains a historical risk.
 
-## Closest literature and residual limits
+## value
 
-Avena–Gaudillière (2013), Definitions 1.1 and Sections 3 and 6, establishes the exact law and root-subset identities. D'Achille–Enriquez–Melotti (2024), Theorem 1.1, gives a single-component geometry law. Pitman's 1996 archival abstract is available, but his full older report was not inspected. The sign and scaling theorem may be implicit in less-visible enumerative analyses; this uncertainty warrants independent literature review. The mathematical proof is restricted to complete-graph rooted forests and fixed sizes in the asymptotic regime.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sign of correlations between two natural component-count observables changes exactly once as component fugacity varies. A universal sqrt(n) crossover constant independent of the fixed component sizes is a substantive structural phase diagram relevant to random labeled forests, even without CLT or arbitrary-graph generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
