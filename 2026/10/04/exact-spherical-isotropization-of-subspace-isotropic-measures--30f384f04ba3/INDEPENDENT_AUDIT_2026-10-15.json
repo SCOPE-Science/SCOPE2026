@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T14:56:49.195489Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For source X on the unit sphere inside r-plane U with second moment P_U/r, every coupling to spherical-tight Y satisfies E||X−Y||²=2−2 E<X,P_UY> >=2−2sqrt(r/d) by Hilbert-space Cauchy–Schwarz, using E||X||²=1 and E||P_U Y||²=r/d. For r<d, choose independent centered spherical tight Z in U-perp, set Y=sqrt(r/d)X+sqrt((d−r)/d)Z; then ||Y||=1 pointwise, EYY^T=I/d (including mixed terms), and cost exactly the lower bound. Equality in Cauchy–Schwarz forces P_UY=sqrt(r/d)X a.s.; its orthogonal component has constant norm and target tightness iff EZZ^T=P_Uperp/(d−r) and EXZ^T=0. Edge cases r=d cost zero and r=1 allow arbitrarily biased antipodal source; no mean-zero assumption. Entire argument analytic, not a finite experiment.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cheng–Okoudjou optimal canonical push-forward requires positive definite/full rank and is not a sphere-constrained rank-deficient lift.",
+          "Chen–Schmoll matrix bound includes PSD continuous extension but does not automatically give spherical attainment.",
+          "Maslouhi–Loukili section 4 Theorems 4.3 (existence) and 4.4 (upper bound via source mean, equality for delta_a) cover an r=1 POINT MASS endpoint; general arbitrary subspace-isotropic r and coupling classification not stated in material read."
+        ],
+        "reasoning": "Previously known spherical point-mass r=1 special case is fully acknowledged as covered; broader arbitrary r, biased measures and ALL optimal couplings remain unestablished by that result. The precise original Theorem 4.4 is an upper bound dependent on ||mean||, not a universal equality for r>1.",
+        "searches": [
+          "Chen Schmoll Probabilistic frames and Wasserstein distances arXiv 2501.02602",
+          "Cheng Okoudjou canonical tight probabilistic frame optimal transport arXiv 1705.03437",
+          "Maslouhi Loukili 2018 spherical closest tight frame DOI 10.1016/j.acha.2018.06.003"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md analytical proof and normalization r=1/d endpoints",
+        "Maslouhi–Loukili 2019 ScienceDirect scientific section4 text and precise Theorems 4.3-4.4",
+        "Chen–Schmoll arXiv:2501.02602 full text relevant frame bound",
+        "Cheng–Okoudjou arXiv:1705.03437 and Clemson dissertation 3677 abstract",
+        "Resultary semantic same-object search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2019 source exactly proves existence for spherical target and an upper estimate sharp on point sources; its mean-zero exact formula is for the unconstrained Euclidean target section 3.",
+          "Chen–Schmoll give same frame-operator lower bound, no inspected arbitrary singular spherical attaining construction."
+        ],
+        "reasoning": "The audited all-rank spherical equality and characterization is not a corollary of the cited theorems without building the lift. Nevertheless if Chen 2024 uninspected dissertation explicitly has the lift, its implication could cover this; preserve risk.",
+        "searches": [
+          "DOI:10.1016/j.acha.2018.06.003 section4 Theorems 4.3 4.4",
+          "arXiv:2501.02602 frame operator inequality",
+          "Clemson All Dissertations 3677 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bures/Gelbrich frame-operator lower bound at Gamma_mu=P_U/r and Gamma_nu=I/d numerically equals 2−2sqrt(r/d) (Chen–Schmoll).",
+          "The audited statement also exhibits spherical-support attainment and classifies optimal couplings for any source mean."
+        ],
+        "reasoning": "The frame-operator lower bound is an equivalent numeric lower estimate, not the existence/equality characterization of a W2 coupling with both marginals constrained to the unit sphere; the latter is the substantive increment.",
+        "searches": [
+          "Resultary subspace isotropic spherical tight frames closest Wasserstein singular rank deficient",
+          "probabilistic Parseval sphere moment Bures projection optimum sqrt r/d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Maslouhi–Loukili 2019 section4 has value 2−2/sqrt(d) for Dirac delta (Theorem 4.4), a covered endpoint.",
+          "Chen 2024 dissertation abstract reports existence and a lower bound but no retrieved exact r/d equality for every subspace source."
+        ],
+        "reasoning": "Existing exact r=1 point-mass table/value and general lower bounds do not contain the complete general rank-family classification; inaccessible dissertation full text remains genuine priority risk.",
+        "searches": [
+          "\"2-2 sqrt(r/d)\" spherical frame Wasserstein",
+          "I(mu,S) subspace isotropic closest frame exact distance",
+          "Clemson dissertation 3677 spherical tight frame nearest lower bound"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level comparison against original and broader sources, with explicit covered components and material-access residual risks. A failed search is not proof of novelty.",
+      "residual_risks": [
+        "Maslouhi–Loukili Theorem4.4 already establishes Dirac point-mass endpoint r=1 with deterministic biased law; this component is prior art, do not claim it new.",
+        "Full Clemson 2024 thesis inaccessible and a matching general rank-deficient spherical attainment result could be inside.",
+        "Oxford attempt for full Maslouhi source returned vpn_disconnected; indexed Section4 exact text was inspected instead; no claim of complete PDF reading."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERED_POINT_MASS_ONLY_IN_READ_MATERIAL",
+          "evidence": "Section 4 Theorem 4.3 proves spherical optimum existence; Theorem 4.4 I(mu,S)<=2−2||m_mu||/sqrt(d) with equality for mu=delta_a; does not display arbitrary r rank-isotropic equality/all-optimal-couplings in material read.",
+          "identifier_or_url": "DOI:10.1016/j.acha.2018.06.003",
+          "material_read": "Full indexed ScienceDirect scientific text: Section 3 Euclidean theorem scope and Section 4 spherical setup, Theorems 4.3 and 4.4 and proofs/exact point-mass endpoint",
+          "method": "Open indexed publisher page text; authenticated Oxford full PDF attempt status vpn_disconnected (not read)",
+          "title": "Probabilistic tight frames and representation of Positive Operator-Valued Measures",
+          "trigger": "Identical spherical minimization I(mu,S)"
+        },
+        {
+          "assessment": "NUMERICAL_LOWER_BOUND_KNOWN",
+          "evidence": "The lower bound specializes to 2−2sqrt(r/d); sphere-preserving sharpness and ALL equality couplings not supplied by cited matrix bound alone.",
+          "identifier_or_url": "arXiv:2501.02602",
+          "material_read": "Primary full arXiv PDF, theorem on frame operator W2 lower bound and operator metric extension to singular PSD",
+          "method": "Lawful arXiv PDF relevant theorems",
+          "title": "Probabilistic frames and Wasserstein distances",
+          "trigger": "Frame operator Bures lower bound dominates numerical part"
+        },
+        {
+          "assessment": "POSSIBLE_UNREAD_EQUIVALENT",
+          "evidence": "Abstract does not establish or deny full isotropic-subspace case or all equality couplings; priority residual risk retained.",
+          "identifier_or_url": "Clemson University dissertation 3677 (2024)",
+          "material_read": "Full dissertation abstract and host metadata describing spherical minimizer existence and lower bound; full downloadable dissertation PDF returned access error and was not read",
+          "method": "Lawful Clemson open-host abstract; full PDF inaccessible",
+          "title": "Probabilistic Frames and Concepts from Optimal Transport",
+          "trigger": "Plausible thesis with same spherical tight frame problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This computes exactly a natural optimal-transport distance to spherical Parseval/tight probabilistic frames for the entire rank-deficient subspace-isotropic family, including nonzero mean and every rank, and characterizes ALL optimum couplings. The spherical-support constraint makes attainment nontrivial because the generic frame-operator/Bures bound need not be achieved on the sphere. Natural boundary family to the published general open spherical problem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Maslouhi–Loukili Theorem4.4 already establishes Dirac point-mass endpoint r=1 with deterministic biased law; this component is prior art, do not claim it new.",
+    "Full Clemson 2024 thesis inaccessible and a matching general rank-deficient spherical attainment result could be inside.",
+    "Oxford attempt for full Maslouhi source returned vpn_disconnected; indexed Section4 exact text was inspected instead; no claim of complete PDF reading.",
+    "Publication not_ready is metadata/confidentiality transport, not scientific rejection or external expert/formal attestation."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim is verified analytically rather than by finite enumeration.
+# Independent mathematical audit
 
-For the lower bound, any admissible coupling \((X,Y)\) satisfies \(\|X\|=\|Y\|=1\), \(X\in U\), and \(\mathbb E[YY^{\mathsf T}]=I_d/d\). Therefore
-\[
-\mathbb E\|X-Y\|^2=2-2\mathbb E\langle X,P_UY\rangle
-\ge 2-2\sqrt{\mathbb E\|X\|^2\,\mathbb E\|P_UY\|^2}
-=2-2\sqrt{r/d}.
-\]
+## correctness
 
-For attainment when \(r<d\), choose a centered spherical tight \(Z\) in \(U^\perp\), independent of \(X\), and set
-\[
-Y=\sqrt{r/d}\,X+\sqrt{(d-r)/d}\,Z.
-\]
-Orthogonality gives \(\|Y\|=1\), and direct second-moment expansion gives \(\mathbb E[YY^{\mathsf T}]=I_d/d\). The achieved correlation is \(\sqrt{r/d}\).
+PASS
 
-For the equality case, equality in Hilbert-space Cauchy--Schwarz is equivalent to \(P_UY=cX\) almost surely with \(c\ge0\). Its \(L^2\) norm fixes \(c=\sqrt{r/d}\). Decomposing the remaining orthogonal component and comparing the diagonal and mixed blocks of \(I_d/d\) yields exactly the two stated moment conditions on \(Z\).
+For source X on the unit sphere inside r-plane U with second moment P_U/r, every coupling to spherical-tight Y satisfies E||X−Y||²=2−2 E<X,P_UY> >=2−2sqrt(r/d) by Hilbert-space Cauchy–Schwarz, using E||X||²=1 and E||P_U Y||²=r/d. For r<d, choose independent centered spherical tight Z in U-perp, set Y=sqrt(r/d)X+sqrt((d−r)/d)Z; then ||Y||=1 pointwise, EYY^T=I/d (including mixed terms), and cost exactly the lower bound. Equality in Cauchy–Schwarz forces P_UY=sqrt(r/d)X a.s.; its orthogonal component has constant norm and target tightness iff EZZ^T=P_Uperp/(d−r) and EXZ^T=0. Edge cases r=d cost zero and r=1 allow arbitrarily biased antipodal source; no mean-zero assumption. Entire argument analytic, not a finite experiment.
 
-No numerical experiment, timeout result, or partial enumeration is used to justify the universal statement. The theorem does not address sources whose second moment is not \(P_U/r\).
+## originality
+
+PASS
+
+Best-of-knowledge statement-level comparison against original and broader sources, with explicit covered components and material-access residual risks. A failed search is not proof of novelty.
+
+## value
+
+PASS
+
+This computes exactly a natural optimal-transport distance to spherical Parseval/tight probabilistic frames for the entire rank-deficient subspace-isotropic family, including nonzero mean and every rank, and characterizes ALL optimum couplings. The spherical-support constraint makes attainment nontrivial because the generic frame-operator/Bures bound need not be achieved on the sphere. Natural boundary family to the published general open spherical problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
