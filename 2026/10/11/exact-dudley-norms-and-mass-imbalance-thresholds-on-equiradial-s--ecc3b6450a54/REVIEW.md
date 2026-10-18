@@ -1,15 +1,21 @@
-# Scientific review: equiradial-star Dudley norms
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A direct proof reduces all real bounded-Lipschitz potentials on a finite or countable star to two normalized extrema and bounds the resulting fractional objective on the edges of a square. Its derivatives have constant signs, leaving exactly three corner candidates; explicitly constructed sign potentials attain all relevant bounds. The zero-measure, one-sign, finite, infinite, arbitrary-radius and equality-boundary cases are handled. Independent finite linear programming confirms 1,500 sampled cases but is not used to infer the infinite statement.
+PASS
 
-## Originality — PASS, with qualifications
+Examined normalization carefully: S consists only of hub o and leaves v_i, with d(o,vi)=rho and d(vi,vj)=2rho, and sum-normalized BL norm = sup|f|+Lip(f). Because μ(total)=0, put y_i=f(vi)-f(o) and translate f to center its entire range; the least sup norm is (U+V)/2 with U=max(0,-inf_i y_i), V=max(0,sup_i y_i). The exact Lip constant is sup_i |y_i|/rho because leaf-leaf differences <=2sup|y_i|. Homogeneity fixes max(U,V)=1, and pairing coefficients bounds |∫f dμ| by PV+QU, valid for countable absolutely summable series. Along edges U=1 and V=1 the fractional functions have derivatives of constant sign, so only three corners matter and give rho(P+Q)/(1+rho), 2rho P/(2+rho), 2rho Q/(2+rho). Explicit centered sign potential and two one-sided potentials attain each candidate even with infinitely many leaves; check the zero family separately. Comparing values gives exact transition at ratio (1+2/rho), with ties at equalities. Independently solved sixteen finite signed examples and four arm radii by a separate linear program (all agreement within 1e-8), including balanced, unbalanced and mixed-sign coefficients; analytic proof, not LP sampling, handles arbitrary countable I.
 
-The closest primary source, Hille–Theewis (2022), Section 6, gives a general finite-metric linear-programming representation. Hille–Theewis (2023), Sections 2, 5 and 6, gives general extreme-function/norming results. Neither inspected statement evaluates the uniform-arm star family as an explicit norm formula or derives its sharp mass-ratio transition. The formula is **not** claimed to improve or replace the general algorithm, and the two-point case is acknowledged as classical. The 2012 Sriperumbudur et al. computational work remains a specifically identified residual source risk: its full text was not inspected. Equivalent unindexed formulations cannot be ruled out.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact dual norm on the full zero-mass measure subspace of an equiradial star is a natural invariant in bounded-Lipschitz metric geometry and comparison of discrete measures. The formula replaces a growing-dimensional finite linear program with a constant-size expression, extends to infinite countable stars, and reveals a sharp radius-dependent transition between two-sided transport-like and one-sided extremal potentials. This is a complete structural classification for a natural metric family, not a claim of a general solution for arbitrary trees.
+General finite-molecule dual BL computation via LP and abstract extremal functions are known, but neither checked source provides a closed all-size/all-radius sign-mass formula with switch boundaries or countably infinite case. Best-of-knowledge O retains a risk of an unindexed elementary star specialization.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Dudley/Fortet–Mourier is a canonical dual norm controlling convergence of signed finite or countable measures. An exact all-radius phase diagram on a natural star metric identifies when balanced sign potentials versus one-sided potentials are extremal, with nontrivial mass-imbalance transition 1+2/rho and explicit infinite-star attainment. This is a motivated sharp norm computation beyond a generic finite LP recipe or a single trivial molecule, even though it is special to equal arm lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

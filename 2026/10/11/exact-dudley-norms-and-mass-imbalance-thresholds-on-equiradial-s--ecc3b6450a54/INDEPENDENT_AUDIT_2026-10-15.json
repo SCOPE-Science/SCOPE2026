@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T05:39:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md sha:a72edf7a6dc49e842e0c4f90c3816be96fede166",
+        "checks/test_star_lp.py sha:455c148edd24c7198224eecace5b95a13f1aa8bf",
+        "Hille-Theewis arXiv:2206.12234 Section 6 Lemma 6.1"
+      ],
+      "rationale": "Examined normalization carefully: S consists only of hub o and leaves v_i, with d(o,vi)=rho and d(vi,vj)=2rho, and sum-normalized BL norm = sup|f|+Lip(f). Because μ(total)=0, put y_i=f(vi)-f(o) and translate f to center its entire range; the least sup norm is (U+V)/2 with U=max(0,-inf_i y_i), V=max(0,sup_i y_i). The exact Lip constant is sup_i |y_i|/rho because leaf-leaf differences <=2sup|y_i|. Homogeneity fixes max(U,V)=1, and pairing coefficients bounds |∫f dμ| by PV+QU, valid for countable absolutely summable series. Along edges U=1 and V=1 the fractional functions have derivatives of constant sign, so only three corners matter and give rho(P+Q)/(1+rho), 2rho P/(2+rho), 2rho Q/(2+rho). Explicit centered sign potential and two one-sided potentials attain each candidate even with infinitely many leaves; check the zero family separately. Comparing values gives exact transition at ratio (1+2/rho), with ties at equalities. Independently solved sixteen finite signed examples and four arm radii by a separate linear program (all agreement within 1e-8), including balanced, unbalanced and mixed-sign coefficients; analytic proof, not LP sampling, handles arbitrary countable I.",
+      "residual_risks": [
+        "The point set excludes interior points of edges; replacing by a full real-tree star requires its own proof.",
+        "The sum-normalized BL norm must not be silently exchanged for max-normalized Fortet-Mourier convention."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2022 paper provides a general finite-dimensional constrained optimization recipe; 2023 paper gives extremal/norming BL-function theory. Neither checked relevant main statement specifies the equal-radius star and its mass-imbalance phase threshold. 2012 paper provides empirical general metric method (only metadata/cited context read)."
+        ],
+        "reasoning": "An algorithm accepting arbitrary metric inputs does not directly imply the complete all-rho symbolic formula or countably infinite norm attainment; it is general contextual prior art rather than a closed-form covering theorem.",
+        "searches": [
+          "Hille Theewis arXiv:2206.12234 Section 6 Lemma 6.1",
+          "Hille Theewis arXiv:2305.08500 Sections 2,5,6",
+          "Sriperumbudur et al DOI:10.1214/12-EJS722"
+        ]
+      },
+      "checked_sources": [
+        "Hille-Theewis arXiv:2206.12234v2 Section 6",
+        "Hille-Theewis arXiv:2305.08500v1 Sections 2,5,6",
+        "Resultary star Dudley and star Lipschitz-free semantic queries",
+        "Sriperumbudur et al DOI:10.1214/12-EJS722 metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier finite LP can numerically yield any fixed finite instance given a_i and rho; it neither outputs a uniform max of two functions of P,Q nor handles countably many leaves. The abstract norming result identifies candidates without this three-corner optimizer transition."
+        ],
+        "reasoning": "The current analytic two-edge fractional maximization and explicit infinite-star bounded witnesses supply nontrivial extra conclusions, while the two-point subcase is background and not claimed alone as new.",
+        "searches": [
+          "arXiv:2206.12234 Section 6 and Lemma 6.1",
+          "arXiv:2305.08500 Proposition 5.3",
+          "Resultary similar equiradial metric findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hille–Theewis formulate finite-molecular Dudley norm/dual Fortet-Mourier distance via linear program and norming potentials. Those formulations optimize the same unit ball but do not symbolically eliminate all potentials on equiradial stars."
+        ],
+        "reasoning": "Compared precisely sum-normalized sup+Lip with max-normalized alternatives; generic equivalent LP is a method, not the displayed closed parameter expression. Countable absolutely summable extension is not a finite LP statement.",
+        "searches": [
+          "Resultary: equal arm star Dudley Fortet Mourier distance norm zero mass threshold mass imbalance exact closed formula",
+          "arXiv:2206.12234 Dudley distance finite molecular measure dual BL norm",
+          "arXiv:2305.08500 bounded Lipschitz norming extreme functions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary retrieved the same clone and unrelated exact Lipschitz-free norm/operator, distortion and facet formulas on stars, but no independent tabulation of this dual sum-normalized star norm for general coefficients."
+        ],
+        "reasoning": "Other star-space invariants live in different dual/primal Banach objects and their numbers do not compute the dual BL distance of arbitrary signed molecular measures.",
+        "searches": [
+          "Resultary: Dudley norm mass imbalance star metric Fortet Mourier",
+          "Resultary: exact Dudley norms and mass imbalance thresholds equiradial stars"
+        ]
+      },
+      "rationale": "General finite-molecule dual BL computation via LP and abstract extremal functions are known, but neither checked source provides a closed all-size/all-radius sign-mass formula with switch boundaries or countably infinite case. Best-of-knowledge O retains a risk of an unindexed elementary star specialization.",
+      "residual_risks": [
+        "General prior BL linear programming may have an unindexed elementary specialization equivalent to the displayed formula.",
+        "The 2012 empirical-metric method was not inspected full text; no false whole-paper negative asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_LP_NOT_CLOSED_STAR_FORMULA",
+          "evidence": "Finite general LP includes fixed star instances but does not state all-rho/all-cardinality closed P,Q phase diagram in inspected sections.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.12234",
+          "material_read": "Primary full PDF relevant Section 6 and Lemma 6.1, plus normalization and computational setup read (pages approximately 14-16).",
+          "method": "Primary PDF theorem text and sum-norm/finite LP mathematical comparison",
+          "title": "Explicit expressions and computational methods for the Fortet–Mourier distance to finite weighted sums of Dirac measures",
+          "trigger": "Directly same norm for finite signed molecular measures"
+        },
+        {
+          "assessment": "GENERAL_NORMING_NOT_EXACT_EVALUATION",
+          "evidence": "Extremal/norming function descriptions do not themselves evaluate countable equiradial signed masses or sharp (1+2/rho) transition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.08500",
+          "material_read": "Primary full PDF relevant Sections 2,5 and 6 including Proposition 5.3 read; no all-stars explicit max formula in inspected relevant results.",
+          "method": "Primary theorem-level PDF comparison",
+          "title": "Norming and dense sets of extreme points of the unit ball in spaces of bounded Lipschitz functions",
+          "trigger": "General norming functions might already imply same formula"
+        },
+        {
+          "assessment": "UNINSPECTED_RESIDUAL_RISK",
+          "evidence": "No whole-document exclusion justified; computational generic method is relevant comparison but cannot automatically be equated with an exact star formula.",
+          "identifier_or_url": "https://doi.org/10.1214/12-EJS722",
+          "material_read": "Bibliographic details and role as a cited empirical computation method, no full article text inspected.",
+          "method": "Secondary bibliographic/source-context check only",
+          "title": "On the empirical estimation of integral probability metrics",
+          "trigger": "Possible preexisting Fortet–Mourier computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Natural bounded Lipschitz metric for probability/measure comparison",
+        "sharp coefficient sign imbalance phase transition",
+        "finite-and-countable exact analytic corner classification"
+      ],
+      "rationale": "Dudley/Fortet–Mourier is a canonical dual norm controlling convergence of signed finite or countable measures. An exact all-radius phase diagram on a natural star metric identifies when balanced sign potentials versus one-sided potentials are extremal, with nontrivial mass-imbalance transition 1+2/rho and explicit infinite-star attainment. This is a motivated sharp norm computation beyond a generic finite LP recipe or a single trivial molecule, even though it is special to equal arm lengths.",
+      "residual_risks": [
+        "No unequal-arm version, nonzero-mass extension, or general tree metric formula asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For finite or countably infinite equal-arm star metric with arm length rho>0 and real absolutely summable zero-total-mass coefficient sequence a_i, the dual sum-normalized bounded-Lipschitz norm is max{rho(P+Q)/(rho+1),2rho max(P,Q)/(rho+2)}, with exact sharp switch of optimizers at P=(1+2/rho)Q or Q=(1+2/rho)P.",
+  "limitations": [
+    "Sum normalization and real functions are essential; countable I requires absolutely summable coefficients.",
+    "Some broader prior literature not fully accessible or read, specifically the older empirical-metric paper, hence best-of-knowledge originality only."
+  ],
+  "schema_version": 1
+}

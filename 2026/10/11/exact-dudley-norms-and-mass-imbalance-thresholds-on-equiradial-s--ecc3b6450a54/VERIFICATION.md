@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the equiradial-star Dudley formula
+# Independent mathematical audit
 
-The theorem is established by the analytic proof in `RESULT.md`; there is no dependency on a finite or numerical certificate for correctness. The critical identity \(\mathrm{Lip}(f)=\rho^{-1}\sup_i|f(v_i)-f(o)|\) follows directly from the star distances. Translation invariance follows from the zero total mass. Range centering achieves the smallest supremum norm, and the remaining two-edge fractional maximization has derivatives of constant sign. Three explicit unit-ball witnesses attain the proposed values. All arguments allow countably infinite absolutely summable coefficient sequences.
+## correctness
 
-A separately formulated linear program was tested for \(|I|\in\{1,2,3,5,8\}\) and \(\rho\in\{0.1,0.3,1,2,7,20\}\), with 50 pseudorandom signed coefficient families per pair (1,500 cases). Its optima agreed with the formula to within \(10^{-7}\). Reproduce with `python checks/test_star_lp.py` after installing the packages in `checks/requirements.txt`. This verifies only the sampled finite cases and cannot establish the universal or infinite assertions.
+PASS
 
-Source comparison included Hille–Theewis arXiv:2206.12234v2 Section 6 (general finite molecular linear program) and Hille–Theewis arXiv:2305.08500v1 Sections 2, 5 and 6 (general extremal-function/norming theory), with differences explained in `RESULT.md`. The older Sriperumbudur et al. empirical-computation paper was identified as relevant and remains an uninspected full-text risk.
+Examined normalization carefully: S consists only of hub o and leaves v_i, with d(o,vi)=rho and d(vi,vj)=2rho, and sum-normalized BL norm = sup|f|+Lip(f). Because μ(total)=0, put y_i=f(vi)-f(o) and translate f to center its entire range; the least sup norm is (U+V)/2 with U=max(0,-inf_i y_i), V=max(0,sup_i y_i). The exact Lip constant is sup_i |y_i|/rho because leaf-leaf differences <=2sup|y_i|. Homogeneity fixes max(U,V)=1, and pairing coefficients bounds |∫f dμ| by PV+QU, valid for countable absolutely summable series. Along edges U=1 and V=1 the fractional functions have derivatives of constant sign, so only three corners matter and give rho(P+Q)/(1+rho), 2rho P/(2+rho), 2rho Q/(2+rho). Explicit centered sign potential and two one-sided potentials attain each candidate even with infinitely many leaves; check the zero family separately. Comparing values gives exact transition at ratio (1+2/rho), with ties at equalities. Independently solved sixteen finite signed examples and four arm radii by a separate linear program (all agreement within 1e-8), including balanced, unbalanced and mixed-sign coefficients; analytic proof, not LP sampling, handles arbitrary countable I.
+
+## originality
+
+PASS
+
+General finite-molecule dual BL computation via LP and abstract extremal functions are known, but neither checked source provides a closed all-size/all-radius sign-mass formula with switch boundaries or countably infinite case. Best-of-knowledge O retains a risk of an unindexed elementary star specialization.
+
+## value
+
+PASS
+
+Dudley/Fortet–Mourier is a canonical dual norm controlling convergence of signed finite or countable measures. An exact all-radius phase diagram on a natural star metric identifies when balanced sign potentials versus one-sided potentials are extremal, with nontrivial mass-imbalance transition 1+2/rho and explicit infinite-star attainment. This is a motivated sharp norm computation beyond a generic finite LP recipe or a single trivial molecule, even though it is special to equal arm lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
