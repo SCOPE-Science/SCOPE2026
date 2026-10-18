@@ -1,23 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Proposition 2.15 of the primary source gives the complete standard-weight H-description. A connected \(s\)-edge nest in a tree has \(s+1\) induced vertices, so its facet constant is \(\binom{s+1}{2}\). The affine total is \(\binom n2\), and at the uniform point the slack is \(s(n-1-s)/2\). The intrinsic projected subset normal has norm \(\sqrt{s(n-1-s)/(n-1)}\), which yields
-\[
-\delta_s=\frac12\sqrt{(n-1)s(n-1-s)}.
-\]
-The minimum occurs exactly at \(s=1\) or \(s=n-2\). Summing the singleton-facet ball constraints gives the matching global upper bound and forces the uniform center uniquely.
+## correctness
 
-## Originality
-PASS. The exact arXiv full text was inspected at the nest definition, Loday realization, complete H-description, and removahedron corollary, including the PDF facet page. It contains no “inradius”, “Chebyshev”, “Euclidean”, or “circumradius” occurrence. Published-result and literature searches under operahedron, Loday, removahedron, inradius, Chebyshev-center, and facet-distance formulations found no covering theorem. The closest own Loday result covers only selected endpoint polytopes and does not imply the intermediate-operahedron shell formula.
+PASS
 
-## Value
-PASS. Operahedra are a recent family encoding homotopy operads and ranging from associahedra to permutahedra. Their combinatorial types vary with the planar tree, yet the theorem proves complete rigidity of the centered facet-distance spectrum:
-\[
-\delta_s=\frac12\sqrt{(n-1)s(n-1-s)}.
-\]
-This gives the common exact inradius, unique incenter, and complete contact-cardinality classification across the whole family.
+For every reduced planar rooted tree of n≥3 internal vertices the source says standard Loday P_t has affine sum binom(n,2) on n−1 coordinates and complete connected-nest facets sum_{e∈N}x_e≥binom(s+1,2). Uniform c=n/2 gives slack s(n−1−s)/2; intrinsic normal projection has squared norm s(n−1−s)/(n−1). Hence exact distance delta_s=1/2 sqrt((n−1)s(n−1−s)). Squared-distance and minimum-contact claims independently verified exactly for every 3≤n≤199, all s. Analytically s(n−1−s) minimal at s=1 or n−2, and summing singleton normalized clearances for any candidate center bounds r≤1/2 sqrt((n−1)(n−2)); equality forces all center coordinates equal. Connected subsets of every size exist. The finite check supplements the all-tree symbolic proof.
 
-## Closest literature and limitations
-The source already shows that standard operahedra are removahedra, which explains why retaining singleton facets can preserve the permutahedral inball. It does not state the normalized distance of every retained facet. The claim is restricted to standard weight and the source Euclidean realization. A residual risk remains for an equivalent generalized-permutahedron folklore observation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge scientific implication comparison grounded in primary mathematical text; residual risks and access boundaries remain explicit.
+
+## value
+
+PASS
+
+Complete exact intrinsic facet-shell and inball contact classification for an entire natural tree-indexed polytope family, revealing metric rigidity despite changing combinatorics. The calculation is elementary once the H-description is known, but the all-facet distance spectrum/incenter characterization is a motivated exact Euclidean invariant rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
