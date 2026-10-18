@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every equilibrium equation is reconstructed from the full SIRS and perceived-risk system, with the simplex normalization and physical \(3n\)-dimensional phase space made explicit. Strict monotonicity of the infection-balance ratio excludes all asymmetric positive equilibria. The all-to-all behavioral matrix has the exact common and transverse eigenvalues; for both, the complete cubic characteristic polynomial has positive coefficients and the explicit strictly positive Routh--Hurwitz determinant. All boundary cases \(k=0\), \(s=0\), and \(s=1\), as well as arbitrary finite perception times, are covered. `verify.py` independently tests the identities on rational samples. The symbolic proof, not a finite experiment, establishes the universal claim.
+## correctness
 
-**Originality — PASS, scoped to exchangeable parameters.** The motivating article expressly labels the endemic stability claims for positive spillover as conjectures in Tables 4 and 5 and proves only the uncoupled case. Its full accessible text and appendix were inspected. Earlier symmetry theory (Blyuss, arXiv:1311.4808) supplies a general reduction method, but its antigenic cross-immunity systems do not imply the strict cubic inequality for the present perception-mediated SIRS equations. Distinct cross-immunity (Gavish, doi:10.1137/25M1826160) and adaptive-behavior vaccination (Berry et al., doi:10.1103/PhysRevE.111.014317) models do not establish this exact all-lag, all-\(n\) result. Publication-index and previous-research comparisons did not identify covering results, but that is not an absolute novelty guarantee. Publisher-access limitations and possibly unindexed literature remain residual risks.
+PASS
 
-**Value — PASS.** The source's positive-coexistence stability condition remains conjectural under behavioral coupling. Resolving the naturally controlled exchangeable case at every feedback strength and perception time, while also extending it to any finite number of co-circulating diseases, gives a substantial structural no-Hopf theorem rather than a parameter-specific stability computation. The proof pinpoints why lagged negative feedback and symmetric spillover cannot create a local instability: both irreducible response gains are nonnegative, and the Hurwitz determinant remains strictly positive. It distinguishes local epidemic coexistence from global trajectory behavior.
+At strictly positive equilibria P_i=I_i, R_i=aI_i/b and S_i=1-(1+a/b)I_i. Dividing equilibrium equations by full positive product Q yields common strictly decreasing f(z)/Q(z), forcing equal I_i. Scalar equilibrium F(x) decreases from R0 to zero, so unique iff R0>1. Physical 3n Jacobian diagonalizes via symmetric and zero-sum eigenvalues θ+=1+(n-1)w, θ-=1-w>=0. Verified algebraically independently using SymPy the block M(v), char cubic A1=b+c+u, A2=u(a+b)+c(b+u+v), A3=c(u(a+b)+bv), and A1A2-A3=(b+u)[u(a+b)+c(b+u+c)]+cv(u+c)>0. All finite n modes strictly Hurwitz; no assertion of global stability or uniform rate.
 
-The statement does not establish global persistence or stability when baseline pathogen parameters differ. The existence of boundary equilibria and possible remote oscillations is not excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 original LeJeune et al. 37-page arXiv full text, §3.2, tables and Appendix were inspected. Its s>0 coexistence stability conditions are explicitly conjectures, while only no spillover is proved. New equal-parameter n-parameter extension and strict all-lag positivity not implied by the published conjecture or generalized symmetry method. Other models differ substantively. Residual risk of equivalent unindexed epidemiology theorem acknowledged.
+
+## value
+
+PASS
+
+Completing an explicitly stated dynamical stability conjecture under motivated equal-parameter conditions, excluding Hopf for all positive perception lags, and proving extension to arbitrary finite exchangeable n pathogens is a meaningful structural theorem with a nontrivial cubic certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

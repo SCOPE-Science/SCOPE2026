@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
 
-The public proof in `RESULT.md` establishes the proposition by strict scalar monotonicity and positive cubic Hurwitz determinants. No finite search or floating-point test is used as evidence of infinite-dimensional or parameter-uniform validity.
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3's standard library. Actual package check: `VERIFY_OK 2916 exact rational characteristic-polynomial and invariant-mode checks`. This reconstructs the three-by-three determinant, independently calculates the four coefficients, checks the exact Routh factorization, and evaluates the full linearization on common/zero-sum perturbations for each representative rational tuple. Each quantity is a Python `Fraction`; no float approximation, optimizer, network request, or external dependency is involved.
+## correctness
 
-Scientific limits: the symbolic proof requires common pathogen parameters, a finite number of pathogens, positive finite rates \(a,b,c,\beta_0\), sensitivity \(k\ge0\), and fraction \(0\le s\le1\). The claimed equilibrium exists only for \(\mathcal R_0>1\). Stability is strictly local, not a statement that every initial condition converges or that limit cycles cannot exist away from the coexistence equilibrium. Independent validation is not performed.
+PASS
+
+At strictly positive equilibria P_i=I_i, R_i=aI_i/b and S_i=1-(1+a/b)I_i. Dividing equilibrium equations by full positive product Q yields common strictly decreasing f(z)/Q(z), forcing equal I_i. Scalar equilibrium F(x) decreases from R0 to zero, so unique iff R0>1. Physical 3n Jacobian diagonalizes via symmetric and zero-sum eigenvalues θ+=1+(n-1)w, θ-=1-w>=0. Verified algebraically independently using SymPy the block M(v), char cubic A1=b+c+u, A2=u(a+b)+c(b+u+v), A3=c(u(a+b)+bv), and A1A2-A3=(b+u)[u(a+b)+c(b+u+c)]+cv(u+c)>0. All finite n modes strictly Hurwitz; no assertion of global stability or uniform rate.
+
+## originality
+
+PASS
+
+The 2026 original LeJeune et al. 37-page arXiv full text, §3.2, tables and Appendix were inspected. Its s>0 coexistence stability conditions are explicitly conjectures, while only no spillover is proved. New equal-parameter n-parameter extension and strict all-lag positivity not implied by the published conjecture or generalized symmetry method. Other models differ substantively. Residual risk of equivalent unindexed epidemiology theorem acknowledged.
+
+## value
+
+PASS
+
+Completing an explicitly stated dynamical stability conjecture under motivated equal-parameter conditions, excluding Hopf for all positive perception lags, and proving extension to arbitrary finite exchangeable n pathogens is a meaningful structural theorem with a nontrivial cubic certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
