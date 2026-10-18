@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Translation reduces the individualised root to the group identity. The finite-abelian classification gives exactly the 20 listed group types below order sixteen. Every undirected Cayley generator set is a subset of inversion classes; the complete 821 cases are each accompanied by automorphism permutations covering every stable refinement class. The independent stdlib checker reconstructs all 821 graphs and validates all 4936 individual permutations against the full adjacency matrix and their root/target constraints. A separate exact sixteen-vertex checker confirms the strongly regular parameters and separates the nine nonneighbours by adjacency of their two common neighbours with the root. This is a complete finite proof, not a statistical extrapolation.
+
+**Originality — PASS, with residual specialized-census risk.** The 2015 Arvind–Köbler–Rattan–Verbitsky framework concerns amenability/refinability and individualization in general, not the minimum for abelian Cayley groups. Kluge's 2022 Lemma 38 handles prime-order circulants and its later construction supplies a sixteen-vertex counterexample, but does not prove that no smaller **abelian** Cayley graph fails. The found 16-vertex example is explicitly acknowledged as prior art. The novel assertion is the closed lower cutoff at sixteen across all abelian groups and connection sets. Targeted searches of publication records and a research index disclosed no stronger coverage. A specialized earlier classification may exist, and priority has not been independently certified.
+
+**Value — PASS.** The precise first failure is a motivated boundary for one-point individualization in a natural vertex-transitive graph family, sharpened beyond the existing prime-order theorem. A complete finite group-and-generator census, with independently replayable automorphism witnesses, makes the threshold reproducible rather than an isolated example. It does not require a larger asymptotic theorem to be useful.
+
+**Limitations.** The result does not extend the first-failure classification to arbitrary nonabelian groups, all graph orders, or multi-point individualization. Publication priority remains subject to external literature review.
+
+Self-review: passed. Independent audit: not yet performed.
