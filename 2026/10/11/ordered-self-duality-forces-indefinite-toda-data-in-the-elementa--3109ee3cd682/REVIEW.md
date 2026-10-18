@@ -1,29 +1,21 @@
-# Review of Ordered self-duality forces indefinite Toda data in the elementary Askey–Wilson family
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The fixed-locus equation is an exact solution of the four linear exponent-duality equations in the primary source. The norming-sign count is reconstructed from the source's two cases for \\(\\epsilon_j^\\pm\\): in either sector the number of negative signs is exactly \\(\\lceil n_-/2\\rceil\\). Substitution of the source parameter relations then gives
-\\[
-\\kappa_-
-=
-A+\\mathbf 1_{\\{P+Q\\text{ is odd}\\}}
-\\]
-on the fixed locus.
+PASS
 
-The tau-zero statement is also exact. The source's complete product formula shows that at \\(x=0\\) the only vanishing factor is \\((1-q^x)^A\\), so the order is exactly \\(A\\). No inference from numerical sampling is used.
+Solving the displayed ordered dual exponent transformation of the discrete family gives the single exact constraint A=P+B+Q, including the trivial all-zero point and all nonnegative integers. The source sign-index combinatorics on each positive/negative sector is proved by splitting the initial block and parity-alternating tail: number negative =ceil(n_-/2). On the fixed locus n_-^+=A+B, n_-^-=A-B=P+Q, so κ_-=ceil((A+B)/2)+ceil((A-B)/2)=A+1_{P+Q odd}. The stated full tau-factorization has at x=0 exactly one vanishing factor (1-q^x)^A for 0<q<1, hence exact order A; other integer and half-integer factors are nonzero there. This relies on the quoted source parameter/sign/tau formulas, whose full original primary text was not independently accessible this execution; those formulas were reconstructed from the immutable package and algebraically checked, not treated as newly primary-verified.
 
-## Originality
+## originality
 
-PASS. The primary paper states the duality map, sign configurations, Toda specialization, and tau product separately, but does not state the fixed-locus classification or the negative-norming index on that locus. Its text contains no self-dual fixed-point theorem of this form.
+PASS
 
-Published-finding searches under ordered-duality, fixed-parameter, reflectionless-Toda, and negative-norming formulations found no implication-equivalent result. Older inverse-scattering and Askey--Wilson-duality sources provide the general frameworks but not this discrete four-parameter signature calculation.
+The 2026 van Diejen–Kirillov paper provides the discrete four-parameter duality map, Toda norming-sign structures, and tau factorization as ingredients. The special fixed-locus consequence and quantified indefinite index are not evident from abstract-level primary material; therefore do NOT claim original-paper full-text absence. Resultary search found only the assigned matched finding, with broader Askey–Wilson duality and earlier reflectionless work not explicitly computing this constrained index. Best-knowledge originality is accepted with a material risk that the full source itself or older special-function literature already records the immediate specialization.
 
-A residual risk is that the same short fixed-locus calculation could exist in older special-function literature under another parameterization. A second limitation is that self-duality only up to the source's \\(D_4\\) parameter symmetries is a broader problem and is not claimed here.
+## value
 
-## Value
+PASS
 
-PASS. Duality is one of the principal structural features of the Askey--Wilson function, while positivity of norming constants is the standard reflectionless-scattering condition singled out by the source for smooth real Toda data. Their intersection is therefore a natural structural question.
+The intersection of two independently natural structures from the elementary Askey–Wilson spectral theory—bispectral fixed parameters and positive reflectionless Toda scattering—is mathematically motivated. It has a complete sharp answer within the discrete chamber: only the free wave has positive norming/zero-free tau, whereas every other ordered fixed point has a computable negative index and exact central tau zero. This is a concrete structural incompatibility, although relatively direct once the primary formulas are available.
 
-The result shows that these two desirable structures are maximally incompatible in the new elementary family: the only ordered-duality fixed point in the positive, zero-free chamber is the free wave. The exact negative index quantifies how far every nontrivial fixed point lies into indefinite spectral data, rather than giving only a yes/no obstruction.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
