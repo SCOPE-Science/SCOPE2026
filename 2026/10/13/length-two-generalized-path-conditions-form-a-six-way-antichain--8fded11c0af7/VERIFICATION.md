@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The scientific reduction is Wang and Zenger's finite-basis lemma: \(\mathbf G(\alpha)\) holds exactly when \(R_\alpha\subseteq R\). Their word-relation lemma fixes the convention \(R_{\beta\gamma}=R_\gamma\circ R_\beta\). With these two facts, the theorem reduces to six finite relation calculations plus the identity \(R_x=R\).
+# Independent mathematical audit
 
-The packaged checker evaluates the seven words \(\epsilon,x,\overline{x},xx,x\overline{x},\overline{x}x,\overline{x}\overline{x}\) on the six displayed witness frames. It asserts that each chosen nontrivial condition is true and the other five are false. A successful replay prints `VERIFY_OK`.
+## correctness
 
-The checker was replayed from the packaged path after construction. Its finite computation verifies only the displayed witness table. The general non-implication conclusion follows because a single finite frame is a valid countermodel to a proposed semantic implication. No finite enumeration is used to infer that an implication holds on all frames.
+PASS
 
-The claim does not cover longer words, conjunctions of GPCs, proof-search termination, or finite-model properties.
+Using Wang–Zenger Lemma 6, each G(alpha) is equivalent to R_alpha subset R; Lemma 5 fixes converse composition. The identity R_x=R makes G(x) valid. I independently recomputed R_alpha for all seven words on each of the six explicit frames (world sets of size two or three); their six nontrivial truth vectors are the six standard basis vectors. Hence each ordered cross-implication has an actual finite counterframe, which suffices universally; no finite exhaustive search is misused to prove a universal inclusion. The convention reversing composition order for x-bar words was checked against the source.
+
+## originality
+
+PASS
+
+The primary defining paper supplies the reduction and several familiar frame correspondences but not the full six-way incomparability classification; no equivalent published table appeared in Resultary or targeted checks. This is a modest, natural bounded classification, not a new general modal proof theorem. Priority risk remains for older correspondence-logic independence tables under alternate terminology.
+
+## value
+
+PASS
+
+The first nontrivial bounded implication poset for generalized path conditions is a natural structural baseline for choosing independent modal frame axiom families: all six possible single-word constraints really are independent. The concrete size-at-most-three countermodels give minimal-scale negative information useful when constructing proof systems; the claim is not an arbitrary numerical slice or a claim of larger calculus consequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

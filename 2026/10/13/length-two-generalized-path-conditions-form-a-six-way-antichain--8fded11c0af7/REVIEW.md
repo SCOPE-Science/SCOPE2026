@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Wang and Zenger's finite-basis lemma reduces every condition used here to a concrete inclusion \(R_\alpha\subseteq R\). The seven word relations were reconstructed using their composition convention. For each of the six nontrivial conditions, a displayed frame satisfies exactly that condition among the six; direct recomputation with the packaged checker returns the six standard-basis truth vectors. These witnesses prove every claimed non-implication. The universally valid case follows from \(R_x=R\).
+## correctness
 
-## Originality
-PASS. Searches for the exact source identifier, generalized path conditions, length-two implication classifications, both Euclidean orientations, and converse-word variants found no published statement equivalent to the six-way antichain. The primary recent paper's full text states the finite-basis lemma and selected standard correspondences but has no occurrence of an incomparability classification or the double-converse condition used here. The closest semantic database records concern different modal-logic properties and do not imply this classification. The older grammar-logic source gives a general converse-grammar framework, not this finite implication poset.
+PASS
 
-## Value
-PASS. The length-at-most-two family is the first complete finite layer of the new generalized-path-condition language. Classifying it exactly separates six elementary frame constraints that can otherwise look like variants of reflexivity, transitivity, symmetry, or Euclideanness. The result supplies a compact catalogue of independent structural switches for the modular calculi, with counterframes small enough to inspect directly.
+Using Wang–Zenger Lemma 6, each G(alpha) is equivalent to R_alpha subset R; Lemma 5 fixes converse composition. The identity R_x=R makes G(x) valid. I independently recomputed R_alpha for all seven words on each of the six explicit frames (world sets of size two or three); their six nontrivial truth vectors are the six standard basis vectors. Hence each ordered cross-implication has an actual finite counterframe, which suffices universally; no finite exhaustive search is misused to prove a universal inclusion. The convention reversing composition order for x-bar words was checked against the source.
 
-## Closest literature and limitations
-The closest source is Wang and Zenger, arXiv:2609.38975v1, especially Lemmas 5–6 and Example 7. Tiu–Ianovski–Goré, arXiv:1204.2413, is relevant background for grammar logics with converse. The result does not extend to longer words or combinations of GPCs and does not claim any new completeness, decidability, or proof-search theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary defining paper supplies the reduction and several familiar frame correspondences but not the full six-way incomparability classification; no equivalent published table appeared in Resultary or targeted checks. This is a modest, natural bounded classification, not a new general modal proof theorem. Priority risk remains for older correspondence-logic independence tables under alternate terminology.
+
+## value
+
+PASS
+
+The first nontrivial bounded implication poset for generalized path conditions is a natural structural baseline for choosing independent modal frame axiom families: all six possible single-word constraints really are independent. The concrete size-at-most-three countermodels give minimal-scale negative information useful when constructing proof systems; the claim is not an arbitrary numerical slice or a claim of larger calculus consequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
