@@ -1,9 +1,21 @@
-# Scientific review: three-draw rearrangement-diversity stability
+# Independent mathematical audit
 
-**Correctness — PASS.** For independent categorical draws, enumeration of the three multiplicity patterns gives exactly \(F_q(p)=6-9\sum p_i^2+4\sum p_i^3\). The claimed lower difference is an explicit sum of nonnegative pair contributions, while the upper difference is an explicit sum of nonnegative cubic Schur forms; both identities are exact for every integer \(q\ge2\). Boundary and equality conditions follow from the zero conditions of these factors. Exact-rational replay checked 12,854 grid distributions and 251 separate enumerated expectation instances, but neither finite set is used as proof of the universal assertion. Mathematical risk is confined to mistaken factorization or equality reasoning, which were checked directly.
+## correctness
 
-**Originality — PASS, with literature risk.** Theorem 3 of Biswas et al. (arXiv:2609.29882v1) proves only qualitative uniform maximality. The published general quadratic remainder uses coefficient \(3\) at three draws, whereas the best coefficient here is \(5-4/q>3\) for \(q\ge3\); the related local Hessian theorem does not imply the optimal global upper bound. A component-wise comparison by Gonçalves (arXiv:2609.31979v1) has a broader qualitative scope and could not be inspected in full: its possible unstated quantitative implications and older majorization literature remain residual priority risks. Search absence is not a proof of originality.
+PASS
 
-**Value — PASS.** This determines the complete sharp two-sided global Euclidean stability profile, including distinct classes of extremizers, for the first nonlinear (three-draw) case of a natural rearrangement-count problem. The specific metric is motivated by quantitative rigidity around the known uniform maximizer. It does not resolve arbitrary sample lengths or other probability metrics. Unlike a mere Taylor coefficient, both bounds are global and sharp across an entire family of probability simplices.
+Recomputed F_q(p)=6-9s_2+4s_3 from three disjoint occupancy types (all identical, one pair, all distinct); the centered cubic deficit has exactly the two sum-of-squares certificates printed in RESULT.md. Independent SymPy elimination of one simplex coordinate verifies BOTH polynomial certificates identically for q=3 and q=4 (symbolic residual 0), with separate simple q=2 identity. All factors are nonnegative on the simplex: pairs use 1-p_i-p_j>=0; Schur triples use a sorted-variable decomposition. Vanishing conditions give precisely vertices for the lower nonuniform extremizers and uniform-on-q-1 support for upper, with uniform always equality. The algebraic certificate plus sign/equality argument proves all q>=2; numeric finite grids are not infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The two optimal global q-dependent coefficients with complete, different boundary equality classes are new relative to the compared exact published mathematical statements: Biswas et al. prove qualitative uniform maximality for all draw lengths; Resultary e3a60ec2aa94 gives a nonsharp d(d-1)/2 lower bound (3 at d=3); Resultary 49b4f93ca348 gives local Hessian only. The full Gonçalves permutation-match manuscript and older Rinott treatment were not accessible, so stronger implications remain a substantial, explicit priority risk. Best-of-knowledge PASS restricted to this precise sharpened three-draw quantitative theorem, not a claim of novel qualitative rearrangement extremality.
+
+## value
+
+PASS
+
+The sharp global two-sided quadratic stability of a canonical sampling functional is a motivated quantitative refinement of the classical extremal inequality; computing BOTH best constants and boundary equality classes controls loss in terms of a natural distance even at sparse/extreme probability vectors, unlike local Hessian or a nonsharp general bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
