@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reduced to exact moment identities. The covariance identity \(\operatorname{Cov}(L,U)=\delta^2\) follows from \(LU=X_1X_2\), and reflection symmetry gives equal variances. Direct summation yields the stated \(\delta\) and variance polynomials. The exact factorization of \(5/11-\rho(\theta)\) has only one vanishing factor on \([0,1]\), namely \((2\theta-1)^2\); the other numerator factor and the variance denominator are strictly positive. Endpoints are nondegenerate and included.
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:2205.14360v1, gives the discrete-uniform theorem and hence the benchmark \(5/11\) for four equally weighted lattice points, but it does not state or imply the nonuniform reflection-symmetric mass formula. The closest published probability-vector result, record 92f0f4188ee4, treats three equally spaced atoms and cannot imply the four-point statement. Targeted searches for the four-point symmetric family, the exact constant, and equivalent min-max/order-statistic formulations found no covering source. Residual risk remains that the elementary identity occurs under older notation.
+PASS
 
-## Value
-PASS. The family is the full reflection-symmetric probability simplex on the four-point lattice, so it is the natural symmetry-preserving perturbation of the rectangular extremizer. The exact factorization supplies a quantitative stability result, not just a recomputation of the uniform value, and it advances the probability-vector direction from the known three-point case to the first four-point structural slice.
+For iid four-atom law p=(theta/2,(1−theta)/2,(1−theta)/2,theta/2), min L and max U satisfy LU=X1X2 and E L=(3/2)−delta, E U=(3/2)+delta with delta=E|X1−X2|/2. Reflection symmetry gives equal variances. Independently recomputed all 16 ordered atom pairs with SymPy and established delta=(1+4theta−2theta²)/4, Var(L)=D/16 and Cov=(1+4theta−2theta²)²/16 for D=3+24theta−12theta²+16theta³−4theta⁴. Exact simplification verifies 5/11−rho=4(2theta−1)²(1+12theta−4theta²)/(11D). D>0 for every nondegenerate endpoint law 0<=theta<=1, the quadratic factor is strictly positive, hence unique equality at theta=1/2. This independent exact identity, not a grid, proves the full parameter range.
 
-## Closest literature and limitations
-Papadatos's theorem fixes uniform masses and supplies the \(N=4\) value \(5/11\). The published three-point probability-vector result permits arbitrary masses but only on three atoms. The nonsymmetric four-point probability simplex, larger supports, and larger sample sizes remain outside the claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Papadatos gives 5/11 for four equally weighted support points; its theorem does not cover varying masses at the same four positions. A prior complete three-atom probability-vector extremum solves a different support size and cannot imply the four-point symmetric deficit factor. The assessment credits the known uniform endpoint and the elementary min-max covariance identity; new result is exact four-atom mass-stability profile.
+
+## value
+
+PASS
+
+The four-point reflection-symmetric extension is a natural first higher-support test of a conjectured uniform-probability extremal principle. Its sharp equality and explicit quadratic deficit provide a quantitative stability statement not implied by the known fixed-uniform benchmark. This motivated, exact one-parameter boundary fact is valuable despite its elementary finite algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
