@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Multinomial coefficient identity for all integer n>=mh, with nulls; independent proof that truncated Poisson coefficient sequences are log-concave and Toeplitz-TP2, including h=1, m=2, p0=0; strict minor using minimal support s0=(m-2)h; resulting strictly increasing conditional label odds for every p_i<p_j and all n>=mh. Initial uniformity follows from the unique quota-count vector at n=mh; fixed-weight tail follows from an exponentially small missing-quota probability conditional on h-1 appearances of the completing label. Exact-rational test checks 37 full-word enumerations and 87 independent consecutive odds inequalities. No use of finite checks as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Neal 2008 journal description concerns normalized unlabelled completion-time limits.",
+        "Mahmoud--Smythe 2012 journal abstract describes numbers of occupancy classes, not identity of a terminal quota-completing type.",
+        "Myers--Wilf 2003 full Section 3 uses uniform coupon probabilities; Anceaume et al. 2014 full text treats heterogeneous probabilities but a single-copy quota."
+      ],
+      "reasoning": "Neither result covers heterogeneous weights, arbitrary shared quota and null draws while identifying the final type; the strict conditional ordering is not a corollary of a published labeled stronger theorem found in these sources. The asymptotic coupon-time limits do not imply a finite-sample LR order.",
+      "searches": [
+        "coupon collector last missing coupon conditional waiting time type order statistics",
+        "last coupon label number draws monotone likelihood ratio nonuniform p probabilities",
+        "generalized coupon collection last missing symbol stochastic ordering completion time independent exponential maximum",
+        "P. Neal (2008) generalized coupon collector"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0304229v1, full HTML Sections 1, 3, 4: uniform quota-time probabilities and singleton counts; no nonuniform last-label ordering",
+      "arxiv:1402.5245v1, full HTML Sections 1-3: nonuniform/null unlabelled completion-time distribution and moments; no labelled terminal likelihood-ratio order",
+      "doi:10.1239/aap/1339878719, abstract, marked as limited: occupancy multiplicities and their joint asymptotics, not a full last-label inspection",
+      "P. Neal, The generalized coupon collector problem (2008), journal abstract, marked limited: unlabelled asymptotic completion law",
+      "Publicly indexed reset-coupon research abstract, limited: reset dynamics rather than uninterrupted quotas"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Present claim compares P(N=n,L=i)/P(N=n,L=j) at consecutive n.",
+        "Myers--Wilf (2003), equations (31)-(35), provide P(N=n) in the uniform multi-quota case.",
+        "Anceaume--Busnel--Sericola (2014), Theorem 2, provides P(T>k) for heterogeneous weights with optional null coupon and one-copy quotas.",
+        "Indexed research on balanced nonuniform reset coupons concerns reset-run probabilities and rates, a different stopping rule."
+      ],
+      "reasoning": "Marginal completion distributions sum over the terminal identity and therefore cannot directly imply pairwise conditional likelihood-ratio ordering. A general TP2 theorem provides a proof tool but its application to the label-specific quota-completion coefficients is the nontrivial content. Reset collection is not equivalent to uninterrupted collection. Residual risk from unlocated unlabeled-to-labeled reductions is retained.",
+      "searches": [
+        "unequal probability coupon collector terminal last unseen type posterior likelihood ratio monotonic completion time",
+        "last coupon identity given exact draw count strictly increasing odds rarity null coupon TP2 convolution",
+        "generalized coupon collection last missing symbol stochastic ordering completion time independent exponential maximum",
+        "discrete coupon collection completion last label negative association with coupon rate fixed n",
+        "arxiv:1402.5245v1",
+        "arxiv:math/0304229v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Myers--Wilf 2003 Section 3 derives uniform multi-quota stopping-time generating functions but does not distinguish terminal coupon labels.",
+        "Anceaume--Busnel--Sericola 2014 Theorem 2 gives unlabeled collection-time tails for unequal probabilities, including a null symbol."
+      ],
+      "reasoning": "A conditional likelihood-ratio comparison concerns the two-variable law of terminal label and discrete completion count; the inspected unlabeled marginal identities erase the label. Their expressions do not state the pairwise strict TP2 comparison. An independent-exponential reverse-hazard description might offer another route, but an equivalent all-quotas *discrete-draw-count* ordering was not located.",
+      "searches": [
+        "unequal probability coupon collector terminal last unseen type posterior likelihood ratio monotonic completion time",
+        "generalized coupon collection last missing symbol stochastic ordering completion time independent exponential maximum",
+        "arxiv:math/0304229v1 Section 3",
+        "arxiv:1402.5245v1 Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct check of exact-rational joint probabilities in verify_coupon.py; classical papers report different tables/formulas."
+      ],
+      "reasoning": "No inspected published database or table specifies the order for every finite number of types, quota, heterogeneous probability vector and completion count. Small-instance exact calculations are verifications, not originality arguments.",
+      "searches": [
+        "last coupon identity given exact draw count strictly increasing odds rarity null coupon TP2 convolution",
+        "discrete coupon collection completion last label negative association with coupon rate fixed n",
+        "last coupon nonuniform probabilities finishing identity 2015 theorem"
+      ]
+    },
+    "rationale": "The strict all-times pairwise likelihood-ratio ordering for the joint last-label/completion-time law is not stated or implied as an explicit consequence of the inspected unlabelled completion laws: the decisive strict inequality requires a separate Toeplitz TP2 argument and covers all fixed common quotas, heterogeneous positive weights and null draws. Classic generating functions, first-order time distributions and the monotone hazard intuition are acknowledged. An equivalent total-positivity or reliability presentation remains a residual possibility.",
+    "residual_risks": [
+      "Older reliability literature may encode the result as a reverse-hazard or total-positivity theorem under Poissonization; no equivalent discrete multi-quota posterior statement was found.",
+      "Some journal full texts were not read; abstract-level comparisons cannot exclude their unstated sections.",
+      "Search non-coverage is not a proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected Sections 3–4 address equal-weight, unlabeled collection statistics and do not state a heterogeneous terminal-label likelihood-ratio ordering. Residual risk remains in uninspected material and equivalent formulations.",
+        "evidence": [
+          "Section 3 defines equal-probability h-fold coupon collection and derives P(T=n).",
+          "Section 4 handles count of singleton coupons at completion, rather than the final label under unequal weights."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0304229v1",
+        "material_read": "Introduction and results; all of Section 3 and Section 4, including equations (31)-(35), (45)-(49)",
+        "method": "Accessible author preprint full HTML, direct section-by-section reading",
+        "title": "Some New Aspects of the Coupon-Collector’s Problem",
+        "trigger": "Foundational multiple-quota coupon collector generating function"
+      },
+      {
+        "assessment": "The inspected results give marginal collection-time distributions and moments under unequal weights with a null draw; they do not state an ordering of terminal labels conditioned on completion time.",
+        "evidence": [
+          "Theorem 2 is a sum over state subsets for P(T_{c,n}>k); terminal label is absent.",
+          "Section 3 provides first and second moments of collection times, not label/time pairwise order."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1402.5245",
+        "material_read": "Full accessible HTML introduction, Sections 2–6, including Theorem 2 and its derivation",
+        "method": "Accessible arXiv HTML reading",
+        "title": "New results on a generalized coupon collector problem using Markov chains",
+        "trigger": "Same unequal-weight collection model with optional null draw"
+      },
+      {
+        "assessment": "No conclusion about whole-paper absence; abstract addresses asymptotic unlabeled completion time. Limited residual risk.",
+        "evidence": [
+          "Describes asymptotic distribution of the number of draws until all coupons are seen; terminal coupon identity not mentioned in abstract."
+        ],
+        "identifier_or_url": "https://research.lancaster-university.uk/en/publications/the-generalized-coupon-collector-problem/",
+        "material_read": "Published abstract and bibliographic information only; full article not inspected",
+        "method": "Accessible institutional bibliographic description",
+        "title": "The generalized coupon collector problem",
+        "trigger": "General unequal-weight coupon-collection asymptotics"
+      },
+      {
+        "assessment": "No whole-document NOT_COVERING assertion; the described joint occupancy multiplicity laws are different from terminal-label LR ordering",
+        "evidence": [
+          "Abstract discusses counts of coupons appearing r times at sampling phases and multivariate CLTs."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/on-the-joint-behavior-of-types-of-coupons-in-generalized-coupon-collection/6EA3B354E8AC065BCB89AB1705DAF2A3",
+        "material_read": "Journal abstract and classification only, not full text",
+        "method": "Published abstract review",
+        "title": "On the Joint Behavior of Types of Coupons in Generalized Coupon Collection",
+        "trigger": "Potential joint coupons-related coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "49ad21f7-1f59-424b-a6ce-25c58ea4bc98",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finding gives a sharp total order, in the likelihood-ratio sense, for how completion time updates the identity of the last quota-completing coupon. This is motivated by inference from a stopping time and unequal coupon rarity; the order holds nonasymptotically over all heterogeneous probabilities, common quotas and null-draw rates. The uniform posterior at minimal time, strict rarity preference afterwards and exponential odds at long times are scientifically meaningful boundary and rate effects not fixed by unlabelled completion-time marginal moments.",
+    "status": "PASS"
+  }
+}
