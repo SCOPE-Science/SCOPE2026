@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker implements the signed double Italian definition directly. For \(T_4\) and \(T_5\) it enumerates every assignment from \(\{-1,1,2,3\}\) to all vertices and checks every vertex condition from scratch.
+# Independent mathematical audit
 
-A second exact method generates all feasible arm states from the local defining inequalities, then performs dynamic programming over support-label sums and positive support mass. This method checks every \(q\) from \(4\) through \(60\) and compares both the optimum value and the full number of optimum assignments with the closed formulas.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-full_label_bruteforce_q = 4,5
-direct_labelings_checked = 4456448
-exact_arm_state_DP_q = 4..60
-all optimum values matched q+ceil(q/4)+1
-all optimum counts matched the residue-class formula
-```
+The source defines signed double Italian functions on labels {-1,1,2,3}; leaf and support constraints force minimum arm weight 1 only for (-1,2) when center z>=1, and weight-2 improving arm (3,-1). Center closed-neighborhood sum yields r>=ceil(q/4), ceil((q-1)/4), or ceil((q-2)/4) as z=1,2,3; center -1 forces arm weight >=2. Comparison for every q>=4 gives q+ceil(q/4)+1 and the residue-one center-2 tie. Equality forces the stated binomial optimizer counts. Inspected bundled verify.py, which independently derives arm states and DP q=4..60; did not execute the exhaustive brute-force script. Full foundational Proposition 2 confirms the q=4k upper bound only.
 
-The finite computations are corroborative only. The theorem for every \(q\ge4\) follows from the center-case proof.
+## originality
+
+PASS
+
+Primary Almulhim Proposition 2 (2023) explicitly constructs f of weight 5k+1 for T_{4k} and gives only gamma_sdI<=5k+1; no matching lower bound or optimal-label count in that proposition. The general tree bounds and exact formulas for stars/paths/cycles do not imply the once-subdivided family equality. Subsequent specialized literature could contain it; Resultary attempt was unavailable.
+
+## value
+
+PASS
+
+The exact optimum and complete minimizer classification for a natural tree family close a concrete open inequality in its foundational paper and distinguish signed Italian from signed Roman domination. The q mod 4 two-type change is a genuine structural feature, not merely parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

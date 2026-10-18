@@ -1,12 +1,21 @@
-# Review of Exact signed double Italian domination of once-subdivided stars
+# Independent mathematical audit
 
-## Correctness
-PASS. The leaf and support constraints are reduced exactly to feasible two-vertex arm states for each center label. For positive center labels, an arm with support \(-1\) has minimum weight \(1\), while any arm whose support is not \(-1\) costs at least one extra unit and can contribute at most four additional units to the support sum. This converts the center closed-neighborhood condition into sharp lower bounds for center labels \(1,2,3\). A center labeled \(-1\) makes every arm cost at least \(2\). Comparing the four cases proves the value, and equality forces the claimed two arm states and exact number of exceptional arms. Direct brute force for \(q=4,5\) and exact dynamic programming through \(q=60\) agree with both the value and count.
+## correctness
 
-## Originality
-PASS. The primary 2023 paper itself introduces the exact family \(T_{4k}\) but uses it only as a witness construction, proving \(\gamma_{sdI}(T_{4k})\le5k+1\) while showing the signed double Roman number is larger. Its exact-family results concern paths, stars, and cycles, while the double-star section gives lower bounds. Targeted semantic and exact-phrase searches found no equality for \(T_{4k}\), no all-\(q\) once-subdivided-star formula, and no minimum-function count. A later survey likewise summarizes paths, stars, and cycles as the exact named families.
+PASS
 
-## Value
-PASS. The result closes the exact value on the very family chosen by the defining paper to demonstrate strict separation from signed double Roman domination. It converts a one-sided construction into an equality theorem, extends it to every arm count, and identifies every optimizer with a residue-class-sensitive count. That is a natural structural completion of an explicit literature construction rather than an arbitrary new slice.
+The source defines signed double Italian functions on labels {-1,1,2,3}; leaf and support constraints force minimum arm weight 1 only for (-1,2) when center z>=1, and weight-2 improving arm (3,-1). Center closed-neighborhood sum yields r>=ceil(q/4), ceil((q-1)/4), or ceil((q-2)/4) as z=1,2,3; center -1 forces arm weight >=2. Comparison for every q>=4 gives q+ceil(q/4)+1 and the residue-one center-2 tie. Equality forces the stated binomial optimizer counts. Inspected bundled verify.py, which independently derives arm states and DP q=4..60; did not execute the exhaustive brute-force script. Full foundational Proposition 2 confirms the q=4k upper bound only.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Primary Almulhim Proposition 2 (2023) explicitly constructs f of weight 5k+1 for T_{4k} and gives only gamma_sdI<=5k+1; no matching lower bound or optimal-label count in that proposition. The general tree bounds and exact formulas for stars/paths/cycles do not imply the once-subdivided family equality. Subsequent specialized literature could contain it; Resultary attempt was unavailable.
+
+## value
+
+PASS
+
+The exact optimum and complete minimizer classification for a natural tree family close a concrete open inequality in its foundational paper and distinguish signed Italian from signed Roman domination. The q mod 4 two-type change is a genuine structural feature, not merely parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
