@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The full orthogonal spectral decomposition is elementary and exhaustive; group averaging makes the invariant optimum globally valid. For fixed spoke weight, clique weight can null its eigenspace and cycle-edge weight is uniquely balanced between the two extreme rim modes; the balancing point is feasible for all m>=4. A one-dimensional minimax has a unique crossing-or-hub-budget solution. The exact residual clique interval proves the global support transitions by nonnegative averaging; asymptotics follow from cosine endpoints. The current package path verify.py ran 3929 cross-checks, including exact rational calculations, direct full-matrix spectral comparisons, and independent linear programming on 370 graph sizes. Finite checks do not replace the family proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd, Diaconis, Parrilo, Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries, arXiv:0709.0955v1, Section 5.4.3, https://arxiv.org/abs/0709.0955 proves a symmetry reduction and the one-hub wheel formula.",
+        "Jafarizadeh, Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs, arXiv:2501.02421, Section 3, Theorem 1, https://arxiv.org/abs/2501.02421 (journal version 2020) Theorem 1 establishes clique-lift/base SLEM equivalence for arbitrary stationary distributions."
+      ],
+      "reasoning": "The strongest plausible dominating theorem is the clique-lift reduction. Its conclusion is equivalence to a separate nonuniform reversible-base optimization, rather than a closed-form solution of that optimization. The explicit minimizer, complete invariant optimizer interval, and mandatory/optional clique-edge support transitions require the new minimax analysis and are not direct stated corollaries of the checked results. Standard SDP formulations guarantee numerical computability but not these exact formulas.",
+      "searches": [
+        "fastest mixing symmetric Markov chain on join of complete graph clique and cycle K_k vee C_m multiple universal hubs hub saturation transition",
+        "multiwheel double wheel generalized wheel fastest mixing transition probabilities optimal SLEM spectral gap",
+        "\"fastest mixing\" \"wheel graph\" \"stationary distribution\"",
+        "\"clique lifted\" \"wheel graph\" \"fastest\""
+      ]
+    },
+    "checked_sources": [
+      "Boyd, Diaconis, Parrilo, Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries, arXiv:0709.0955v1, Section 5.4.3, https://arxiv.org/abs/0709.0955",
+      "Jafarizadeh, Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs, arXiv:2501.02421, Section 3, Theorem 1, https://arxiv.org/abs/2501.02421 (journal version 2020)",
+      "Boyd, Diaconis, Xiao, Fastest Mixing Markov Chain on a Graph, SIAM Review 46 (2004), https://web.stanford.edu/~boyd/papers/fmmc.html",
+      "Public mathematical research records: wheel symmetric-edge-polytope Löwner ellipsoid; tetrahedral orbit-polytope spectral stability; balanced-spider coupling; path quantum average mixing (title-level records, not complete-paper exclusion inspections)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd, Diaconis, Parrilo, Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries, arXiv:0709.0955v1, Section 5.4.3, https://arxiv.org/abs/0709.0955 derives the wheel result for one universal hub, with no core-clique edge.",
+        "Jafarizadeh, Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs, arXiv:2501.02421, Section 3, Theorem 1, https://arxiv.org/abs/2501.02421 (journal version 2020) describes reduction for clique lifts, and separately treats path, star, windmill, and friendship topologies rather than a nonuniform wheel.",
+        "Boyd, Diaconis, Xiao, Fastest Mixing Markov Chain on a Graph, SIAM Review 46 (2004), https://web.stanford.edu/~boyd/papers/fmmc.html provides convex spectral optimization, not an explicit family classification."
+      ],
+      "reasoning": "The present claim includes k>=2, a sharp three-regime optimal support law, and an exact interval of all invariant core-clique probabilities. The k=1 wheel cannot specialize to a graph with core-clique edges; the clique-lift result entails a new weighted-wheel problem but does not evaluate it. The published methods are used and credited rather than relabeled as discoveries.",
+      "searches": [
+        "Exact globally fastest mixing symmetric stochastic Markov chain on K_k join C_m complete-clique hub cycle with optimal hub-to-rim rim-edge and hub-clique transition masses SLEM phase",
+        "fastest mixing symmetric Markov chain on join of complete graph clique and cycle K_k vee C_m multiple universal hubs hub saturation transition",
+        "Cartesian join clique cycle Markov SDP eigenvalues rim Fourier two-edge probabilities",
+        "\"Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs\" wheel cycle hub"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd, Diaconis, Parrilo, Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries, arXiv:0709.0955v1, Section 5.4.3, https://arxiv.org/abs/0709.0955 gives the uniform single-hub wheel.",
+        "Jafarizadeh, Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs, arXiv:2501.02421, Section 3, Theorem 1, https://arxiv.org/abs/2501.02421 (journal version 2020) maps clique lifts to an associated weighted base graph but presents no explicit nonuniform wheel solution."
+      ],
+      "reasoning": "The natural equivalences are fastest-mixing reversible chains with uniform stationary law, minimizing the spectral radius on the mean-zero subspace, and the clique lift of a wheel with stationary mass k/(k+m) at its base hub. The cited wheel formula assumes a single hub with a uniform vertex distribution. The general lift theorem transforms but does not evaluate the remaining weighted-base minimax; no checked equivalent states both activation thresholds or the optimal interval.",
+      "searches": [
+        "Exact globally fastest mixing symmetric stochastic Markov chain on K_k join C_m complete-clique hub cycle with optimal hub-to-rim rim-edge and hub-clique transition masses SLEM phase",
+        "Optimal edge transition probability distribution for generalized wheel graph with multiple universal hubs and inner complete clique graph spectral mixing",
+        "\"fastest mixing\" \"double wheel\" Markov chain",
+        "\"fastest mixing\" \"K_k\" \"cycle\" join"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public research record: The exact Löwner ellipsoid and exponential edge-weight stabilization for wheel symmetric edge polytopes. It optimizes a geometric volume invariant, not Markov SLEM.",
+        "Public research record: Sharp quadratic spectral stability for tetrahedral orbit polytopes. Its parameterized random walk is not a clique–cycle join.",
+        "Public research records: Explicit coupling-tail mixing concentration for lazy simple random walk on balanced spiders, and Uniform average mixing on the eight-vertex path. The graph families and objectives differ."
+      ],
+      "reasoning": "No relevant exact answer table, indexed claim, parameter cell, or exact clique–cycle-join classification was recovered. Search absence alone is not taken as a proof of originality; the substantive primary-source statement comparisons are given separately.",
+      "searches": [
+        "Exact globally fastest mixing symmetric stochastic Markov chain on K_k join C_m complete-clique hub cycle with optimal hub-to-rim rim-edge and hub-clique transition masses SLEM phase",
+        "Optimal edge transition probability distribution for generalized wheel graph with multiple universal hubs and inner complete clique graph spectral mixing",
+        "Sharp hub-clique transition activation threshold k/m half and one for fastest mixing clique cycle join",
+        "fastest mixing Markov chain generalized wheel graph double wheel K_2 join cycle"
+      ]
+    },
+    "rationale": "Primary full-text comparison separates the published one-hub wheel optimum and the general clique-lift reduction from the new exact all-parameter clique–cycle solution, entire invariant optimizer interval, two core-edge support boundaries, and two-branch size-ratio law. Dedicated research-record and literature searches did not find a statement implying those results, though an unindexed analytic specialization remains a genuine risk.",
+    "residual_risks": [
+      "An unindexed thesis or specialized nonuniform-wheel FMRMC derivation may state an equivalent closed-form answer.",
+      "The general clique-lifting theorem sharply reduces novelty scope; the claim must be understood as an explicit solved base-case family and new transition classification, not as a novel lift principle."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers k=1 wheel and symmetry machinery; does not state the k>=2 optimum or classify mandatory core-clique edge transitions.",
+        "evidence": "Section 5.4.3, pages 813–814, treats a single hub and n-cycle and displays p*=1/n.",
+        "identifier_or_url": "arxiv:0709.0955v1; https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Full-text Introduction, symmetry statements, Sections 3 and 5.4.3 including wheel block decomposition, equation (5.9), and exact wheel optimality formulas.",
+        "method": "Read author-hosted full-text PDF and compare the graph, transition parameters, spectral list, and optimum equations.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Directly solves the one-hub wheel and is the strongest classical candidate for covering the join family."
+      },
+      {
+        "assessment": "The lift theorem is relevant and stronger than a simple symmetry reduction, but it leaves optimization of the nonuniform wheel base unresolved in its stated examples; it does not provide the three transition-support regimes.",
+        "evidence": "Theorem 1 equations (8a)–(9) give SLEM-preserving base/lift reduction; the displayed solved topologies are path, star, windmill and friendship.",
+        "identifier_or_url": "arxiv:2501.02421; https://arxiv.org/abs/2501.02421",
+        "material_read": "Full-text Introduction, Sections 2 and 3 (Definition 1, Theorem 1, proof and lifting formulas), and the listed topology-specific applications and conclusions.",
+        "method": "Read openly accessible arXiv full-text HTML and trace the lift theorem to the nonuniform wheel base problem.",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+        "trigger": "A general clique-lift equivalence could imply the proposed result under nonuniform base stationary masses."
+      },
+      {
+        "assessment": "Framework credited as known; no whole-document not-covering claim is made from an abstract. Specific graph comparison rests on the two full-text inspections.",
+        "evidence": "The author page describes the general symmetric-stochastic fastest-mixing optimization and semidefinite-program representation.",
+        "identifier_or_url": "doi:10.1137/S0036144503423264; https://web.stanford.edu/~boyd/papers/fmmc.html",
+        "material_read": "Original author-hosted article landing page abstract and formulation; not a full-text exclusion inspection.",
+        "method": "Read author page and its explicitly described objective, convexity and formulation.",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "General SDP and convex formulation are mathematical prerequisites; possible generic domination."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "854c199f-6f10-4252-aee6-f937cf13efbb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete infinite two-size family with an explicit optimal random walk and all invariant optimizers is a natural problem beyond the standard wheel. Sharp thresholds show when internal core edges are structurally forbidden, optional, or indispensable even without imposing symmetry, and limit to the nontrivial core-to-rim size ratios 1/2 and 1. These precise support-allocation and asymptotic facts motivate the computation and are not routine evaluation of one small graph.",
+    "status": "PASS"
+  }
+}
