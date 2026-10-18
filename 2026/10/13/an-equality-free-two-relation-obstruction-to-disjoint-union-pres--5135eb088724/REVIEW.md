@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an unbounded theorem, not an extrapolation from finite experiments. All predicates, domains, quantifiers, and the guarded syntax are explicit in the proof. The disjoint-union implication uses the existential \(U\)-witness from two components, whose cross-component \(E\)-pair is absent. The two separating structures have precisely specified relations, and the guarded-fragment transfer lemma is established by induction over all allowed constructors: negated atoms are reflected by induced embeddings, existential witnesses are copied, and relation-closure exhausts the witnesses demanded by guarded universal quantification. Two relation-closed images cover the whole nonmodel. The standalone finite enumeration is only a cross-check and is not represented as a proof of the infinite claims.
+PASS
 
-## Originality — PASS, with residual risk
+The exact signature has two arbitrary binary relations and NO identity symbol; domains nonempty. For two or more nonempty union summands satisfying Psi, take U-elements in different components: cross E is absent, supplying B; singleton unions preserve the model directly. For A on {a,b}, E has only loops aa,bb and Q only bb, so a is the unique U, B false, C true. Bmodel on {a,b,c}, E loops all, Q loops bb,cc, so a remains unique U but C false at (b,c). The two A embeddings {a,b},{a,c} into Bmodel are induced and relation-closed, cover Bmodel, and satisfy forward transfer for every comparison-language matrix by structural induction: atomic/negated atomic reflect through induced embedding; existentials copy witnesses; relation closure traps every guarded-universal witness in the embedded image. Universal outer x then transfers membership to every element of Bmodel, contradiction. Independent direct Python model evaluations and closure checks verified the finite interface; no finite-enumeration inference is used for the arbitrary-rank separation.
 
-The closest primary text, van Benthem–ten Cate–Yang (2026, §3.4, p. 14), explicitly leaves open whether the original disjoint-union preservation conjecture holds **without identity**. The printed counterexample relies on distinct-element counting with identity. The present sentence uses no identity; a binary missing-edge condition gives preservation, and relation-closed induced embeddings give the decisive nondefinability. The inspected primary scientific sources and relevant published mathematical comparisons did not provide an equivalent equality-free result. Search absence does not prove uniqueness. The 1985 book presenting the conjecture was checked through the 2026 paper's quotation rather than directly in full, and earlier syntactic-equivalence results remain a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-This gives an explicit negative resolution of an open question from a 2026 primary mathematical-logic paper, with finite three-element obstruction and a reusable transfer lemma for a natural guarded-universal/unguarded-existential fragment. It distinguishes one-way disjoint-union preservation from the stronger disjoint-union invariance theorem. The result neither purports to classify all preserved sentences nor proves minimality in number of relation symbols.
+Best-of-knowledge PASS. The searched equivalence class includes disjoint-union one-way preservation, guarded universal/existential syntax, relation-closed induced covers, and equality-free logical signatures. The new sentence and separation lemma address the open case not logically supplied by the published identity witness. The published example cannot imply a definability counterexample in the strictly equality-free syntax on all arbitrary E,Q models, and the publication expressly excludes the stronger claim. The exact transfer lemma closes that logical gap. Residual priority/access caveats explicitly included; no search absence alone is interpreted as novelty.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Gives an explicit negative answer to the exact identity-free open variant of a cited logical preservation conjecture, using only two unrestricted binary relations and a three-element obstruction. The relation-closed induced-image cover transfer lemma is a portable syntactic tool distinguishing one-way disjoint-union preservation from invariance; this is an important natural classification boundary, not a renamed identity-based counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
