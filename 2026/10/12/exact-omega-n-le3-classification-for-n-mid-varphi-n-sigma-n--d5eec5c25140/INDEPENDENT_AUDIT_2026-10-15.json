@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T03:11:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p^a, phi(p^a)sigma(p^a)=p^(a-1)(p^(a+1)-1), so v_p=a-1. For squarefree pq with p<q, reducing modulo q forces q|p^2-1 and hence consecutive primes (2,3); for pqr the largest prime cannot divide any other (r_i^2-1) because all smaller ±1 factors are less than it (the sole equality would imply consecutive 2,3, impossible with three ordered primes). For p^2 q, n|phi sigma iff p|q^2-1 and q|(p-1)(p^2+p+1). If q<p this forces p=q+1 -> 18. If q>p then q|Phi_3(p); setting Phi_3(p)=qt and using q≡±1(mod p), the + branch yields 0<t<p+1, t≡1 -> t=1; the minus branch for odd p yields t=p-1 even against odd Phi_3(p). Thus exact classification and converse hold for all n with Omega<=3; no inference from finite tests is required.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2013 Theorem 1 studies phi(n)sigma(n)=(n-a)^2 for fixed a and bounds n<=2a^3; Theorem 2 counts attainable a.",
+          "Its central equation is a perfect-square constraint, not n|phi sigma."
+        ],
+        "reasoning": "The square-value hypothesis and claims do not imply a complete n-divisibility classification.",
+        "searches": [
+          "Broughan Ford Luca On square values of the product of Euler totient sum of divisors 2013",
+          "phi(n)sigma(n)=m^2 normalized Euler product"
+        ]
+      },
+      "checked_sources": [
+        "https://oeis.org/A056100",
+        "https://oeis.org/A062354",
+        "doi:10.4064/cm130-1-11",
+        "Resultary query: integer divisibility n divides Euler phi(n) sigma(n) classification Omega(n) <= 3 p squared times cyclotomic p squared plus p plus 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nearby Resultary record concerns 5|sigma and another record common Phi_3 divisors, not n|phi(n)sigma(n) on Omega<=3.",
+          "The 2013 source normalizes phi sigma/n^2 but does not analyze n|phi sigma."
+        ],
+        "reasoning": "No inspected prior conclusion dominates all shapes and both exception values; a negative search alone is not priority certification.",
+        "searches": [
+          "Resultary integer divisibility n divides Euler phi(n) sigma(n) classification Omega(n) <= 3 p squared times cyclotomic p squared plus p plus 1",
+          "Resultary SCOPE-exact-5-divisibility-criterion-for-the-sum-of-divisors-function",
+          "DOI 10.4064/cm130-1-11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A056100 gives residue for every n; exact residue one agrees with n|phi(n)sigma(n) but does not classify Omega<=3.",
+          "The theorem imposes multiplicity and identifies exceptional n and Phi_3(p) prime values."
+        ],
+        "reasoning": "A known sequence encoding the predicate is not an equivalently quantified low-multiplicity theorem.",
+        "searches": [
+          "OEIS A056100 residue one of (sigma(n)*phi(n)+1) mod n",
+          "n divides Euler totient times sum of divisors low Omega p squared q cyclotomic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A056100 is the exact residue sequence and A062354 the exact product, both older than the assignment.",
+          "Neither inspected OEIS entry supplies the necessity/sufficiency of q=Phi_3(p) for Omega<=3."
+        ],
+        "reasoning": "The database contains raw arithmetic facts, not the new structural classification.",
+        "searches": [
+          "OEIS A056100",
+          "OEIS A062354"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact restricted statement. The natural residue-one form of OEIS A056100 and exact product A062354 are prior data, not a theorem classifying all n with at most three prime factors. Broughan–Ford–Luca 2013 treat equality phi(n)sigma(n)=m^2 and n-m=a via Pell-type techniques; that hypothesis neither states nor implies n|phi(n)sigma(n) in the Omega<=3 range. Source searches for aliases p^2 q and Phi_3(p) found no covering infinite family; absence from search is not proof of priority.",
+      "residual_risks": [
+        "An unindexed elementary number-theory observation could already state this low-Omega result.",
+        "No inference about infinitely many primes p with p^2+p+1 prime; higher Omega unclassified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING: perfect-square locus and gap variable a do not impose n|phi sigma.",
+          "evidence": [
+            "Theorem 1: if phi(n)sigma(n)=(n-a)^2 then n<=2a^3; Theorem 2 bounds count of such a."
+          ],
+          "identifier_or_url": "doi:10.4064/cm130-1-11;https://www.impan.pl/shop/en/publication/transaction/download/product/86919",
+          "material_read": "Original 12-page PDF: pages 127-129 title/abstract/Thms 1-2/Pell setup, later proof sections and the tail of the paper; source text read with page-0 and page-1 screenshots.",
+          "method": "Directly compared exact equations and main theorem quantifiers.",
+          "title": "On square values of the product of the Euler totient and sum of divisors functions",
+          "trigger": "Same exact product phi(n)sigma(n) and natural possible stronger coverage"
+        },
+        {
+          "assessment": "RELATED TABLE, no matching quantified classification.",
+          "evidence": [
+            "(sigma(n)phi(n)+1) mod n is 1 exactly when n divides phi(n)sigma(n)."
+          ],
+          "identifier_or_url": "https://oeis.org/A056100",
+          "material_read": "Complete indexed OEIS entry including formula, sample values and references.",
+          "method": "Identify precise predicate and check whether a low-Omega theorem is tabulated.",
+          "title": "OEIS A056100",
+          "trigger": "Exact encoded predicate as residue-one"
+        },
+        {
+          "assessment": "NOT COVERING low-multiplicity divisibility classification.",
+          "evidence": [
+            "A062354 records sigma(n)phi(n), not the necessity/sufficiency for Omega<=3."
+          ],
+          "identifier_or_url": "https://oeis.org/A062354",
+          "material_read": "Complete OEIS entry including comments and prime-power formula.",
+          "method": "Compare raw sequence with classification theorem.",
+          "title": "OEIS A062354",
+          "trigger": "Exact product and possible stronger known formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: n|phi(n)sigma(n) is a natural arithmetic divisibility property, and Omega(n)<=3 is the first nontrivial low-prime-multiplicity classification with both a finite exceptional set and a cyclotomic-prime family. The theorem excludes entire squarefree and prime-power shapes and leaves open higher Omega and infinitude; it is not an arbitrary numerical cutoff or an unsupported extrapolation from a table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed elementary number-theory observation could already state this low-Omega result.",
+    "No inference about infinitely many primes p with p^2+p+1 prime; higher Omega unclassified."
+  ]
+}

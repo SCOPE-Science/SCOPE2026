@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,38 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof in `RESULT.md` is unrestricted.
+# Independent mathematical audit
 
-The attached `verify.py` checks every integer
-\[
-2\le n\le3{,}000{,}000
-\]
-with
-\[
-\Omega(n)\le3.
-\]
-It computes the exact factorization, \(\sigma(n)\), and \(\varphi(n)\), then tests
-\[
-n\mid\varphi(n)\sigma(n).
-\]
+## correctness
 
-The theorem predicate is checked independently from the direct divisibility:
-\[
-n=6,
-\qquad
-n=18,
-\]
-or
-\[
-n=p^2(p^2+p+1)
-\]
-with both factors prime.
+PASS
 
-The verified hit set is
-\[
-\{6,18,28,117,775,88723,2896363\}.
-\]
+For p^a, phi(p^a)sigma(p^a)=p^(a-1)(p^(a+1)-1), so v_p=a-1. For squarefree pq with p<q, reducing modulo q forces q|p^2-1 and hence consecutive primes (2,3); for pqr the largest prime cannot divide any other (r_i^2-1) because all smaller ±1 factors are less than it (the sole equality would imply consecutive 2,3, impossible with three ordered primes). For p^2 q, n|phi sigma iff p|q^2-1 and q|(p-1)(p^2+p+1). If q<p this forces p=q+1 -> 18. If q>p then q|Phi_3(p); setting Phi_3(p)=qt and using q≡±1(mod p), the + branch yields 0<t<p+1, t≡1 -> t=1; the minus branch for odd p yields t=p-1 even against odd Phi_3(p). Thus exact classification and converse hold for all n with Omega<=3; no inference from finite tests is required.
 
-The finite replay is corroborative only. Exhaustiveness follows from the factorization-shape proof.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact restricted statement. The natural residue-one form of OEIS A056100 and exact product A062354 are prior data, not a theorem classifying all n with at most three prime factors. Broughan–Ford–Luca 2013 treat equality phi(n)sigma(n)=m^2 and n-m=a via Pell-type techniques; that hypothesis neither states nor implies n|phi(n)sigma(n) in the Omega<=3 range. Source searches for aliases p^2 q and Phi_3(p) found no covering infinite family; absence from search is not proof of priority.
+
+## value
+
+PASS
+
+PASS: n|phi(n)sigma(n) is a natural arithmetic divisibility property, and Omega(n)<=3 is the first nontrivial low-prime-multiplicity classification with both a finite exceptional set and a cyclotomic-prime family. The theorem excludes entire squarefree and prime-power shapes and leaves open higher Omega and infinitude; it is not an arbitrary numerical cutoff or an unsupported extrapolation from a table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
