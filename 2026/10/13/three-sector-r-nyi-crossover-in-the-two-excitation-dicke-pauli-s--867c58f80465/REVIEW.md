@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The complete labelled Pauli spectrum follows from excitation-number conservation under Pauli flips, real-state parity cancellation for odd Y count, and direct finite combinatorial sums for \(r=0,2,4\). Exact multiplicities produce a moment identity at every finite \(n\). The fourth moments and the Gaussian central-limit/uniform-integrability argument yield the exact rational order-two purity, both off-critical regimes, and the three-term critical-window limit. The embedded standard-library verifier directly enumerates cases \(4\le n\le8\) and independently checks rational moments through \(n=30\); the analytic argument, not enumeration, proves the arbitrary-size assertions.
+## correctness
 
-**Originality (PASS; residual risk).** The closest manuscript, Salazar et al., arXiv:2608.14798v1, develops an encompassing moment-generating framework but its materially read formalism, examples, and supplement do not state a two-excitation Dicke full spectrum or its three-sector crossover. The known Dicke Shor–Laflamme weight enumerator determines only the squared Pauli expectations aggregated by Pauli weight, not the complete magnitude distribution, all-order moments, or the critical-window constants. The fermionic Gaussian \(\alpha=2\) freezing theorem concerns a different stochastic ensemble with distinct extensive asymptotics. Published-source and semantic-index comparisons produced no dominating statement, but an overlooked Dicke-specific analytic formula or specialization of an earlier general moment theorem could cover the result; search failure is not a proof of priority.
+PASS
 
-**Value (PASS).** The two-excitation Dicke family is a natural, permutation-symmetric low-excitation resource family. The complete moment spectrum resolves the exact competition of three qualitatively different Pauli supports. Their simultaneous leading-order contribution at a sharp \(1/\log n\) window is not determined by a weight-two sector-length table or by a generic partition-function definition. The explicit constants and crossover give a reusable benchmark for analytic magic diagnostics, without requiring a downstream quantum-computational advantage claim.
+For the normalized two-excitation Dicke state, a phase-free Hermitian Pauli string preserves Hamming weight two only for r=0,2,4 X/Y flips; odd Y parity cancels. The 0-flip signed Krawtchouk numerator, 2-flip exterior occupancy signs, and 4-flip six occupied-pair amplitudes give all labelled magnitude branches. Independently enumerating every 4^n Pauli string for n=4,5,6 from computational-state actions exactly reproduced each integer-scaled expectation and the formula T2(n)=4(91n^2-427n+492)/(n^3(n-1)^3). The all-real-alpha moment sum follows the exact flip-sector multiplicities. Binomial Rademacher CLT with subgaussian uniform integrability gives sector scalings n^(-2alpha), n^(2-3alpha), n^(4-4alpha); competition yields index-two three-sector crossover and n^4T_(2+s/log n)->60e^(-2s)+192e^(-3s)+112e^(-4s). Independence of asymptotic proof from finite checks is explicit. Domain n>=4, alpha>1.
 
-**Limitations.** The theorem covers pure symmetric two-excitation states and pure-state stabilizer Rényi parameters strictly above one; it does not address extensive excitation density, experimental noise, or finite-sample efficiency. The published literature comparison includes explicit access and indexing risks recorded in the structured audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A general Pauli partition-function framework (Salazar et al. 2026) provides computation methodology, not in inspected accessible summary an explicit all-size two-excitation Dicke sector law; full manuscript unavailable, risk retained. Miller et al. 2023 Appendix D gives earlier Dicke Shor–Laflamme weight-resolved sums of **squares**, which cannot alone determine general 2alpha moments for arbitrary alpha. Turkeshi et al. study different random Gaussian states and a distinct index-two phenomenon. Exact three-sector Dicke magnitudes and logarithmic crossover coefficient are therefore best-of-knowledge noncovered, with plausible uninspected full-spectrum formula risk.
+
+## value
+
+PASS
+
+The complete Pauli magnitudes are natural quantum-state invariants and determine stabilizer Rényi measures; the exact transition in dominating Pauli sectors and three explicit coefficients form a genuine finite-to-asymptotic classification of the symmetric fixed-two-excitation family. The index dependence and critical 1/log n window are nontrivial and potentially reusable in nonstabilizerness/magic analyses; no distillation guarantee is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
