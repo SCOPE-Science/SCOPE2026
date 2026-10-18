@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-Reproduce finite regression checks by running `python3 artifacts/check.py` from the package root using Python 3, with no third-party dependencies. The checker verifies the two rational quadratic constructions over \(3\le d\le300\) and the totient minimization predicted by the number-field threshold over \(3\le d\le2000\). The source of correctness for arbitrary \(d\) is the symbolic argument in `RESULT.md`, not these finite checks.
 
-Independent symbolic Gröbner-basis spot checks using SymPy separately confirmed both opposite lex initial ideals for sample \(3\le d\le15\) in which the rational constructions exist; SymPy is **not** a package dependency and those samples are not a proof.
+# Independent mathematical audit
 
-The polynomial obstruction is checked in characteristic zero only. There is no claim of automatic extension to characteristic \(p\) where inseparability can invalidate the double-root argument.
+## correctness
+
+PASS
+
+For characteristic-zero K and d≥3, equality of weighted Hilbert functions of (x²,y^d) and (x^d,y²) forces weight u=v; opposite lex degree-two terms force f=Ax²+Bxy+Cy² with A,C≠0. Pure last-degree initial generators and colength give I=(f,x^d), y^d∈I. Degree-d quotient identifies with K[t]/(A+Bt+Ct²), and t^d scalar implies distinct nonzero roots α,β in characteristic zero with (α/β)^d=1 and trace ζ+ζ⁻¹∈K. Conversely g=t²−(ζ+ζ⁻¹)t+1 (ζ≠−1), or t²−1, constructs the edge. Rational traces yield orders 2,3,4,6, so rational iff 2|d or 3|d; real traces exist for all d. For odd d the smallest prime p|d minimizes φ(m)/2 to (p−1)/2 and Q(ζ_p+ζ_p⁻¹) attains it. Traces are exact, not numerical. The standard-library checker was read: finite cases do not establish universal statement.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS. Hering–Maclagan Example 2.11 already gives the d=5 real-versus-rational phenomenon. Maclagan–Silversmith Example 2.3 gives a sufficient degree-two-factor condition, and Silversmith Theorem 5.11 describes complex edge components. The assessed unrestricted necessity for K-rational edges and sharp number-field degree for every d go beyond these inspected geometric/sufficient statements.
+
+## value
+
+PASS
+
+PASS: the arithmetic obstruction and optimal field degree solve a natural rationality problem of coordinate-torus 1-orbits between two fixed Hilbert-scheme monomial points, explaining and classifying the previously known d=5 discrepancy for every d, rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
