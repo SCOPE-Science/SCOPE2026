@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For \\(A=\\lambda P\\), each exact Nyström approximation is \\(\\lambda\\) times an orthogonal projector, hence its spectral function is \\(c\\) times that projector. Conditionally on all but one Gaussian columns, the held-out residual energy is chi-square with \\(d=r-k+1\\) degrees of freedom. Conditionally on all but two columns, the two held-out energies reduce to independent standard Gaussian radii and the squared-direction cosine in dimension \\(q=d+1\\); its beta moments give \\(\\operatorname{Cov}(X_i,X_j)=2d/(d+3)\\). Exact unbiasedness, variance, sample-indicator mean and rank-plus-one exactness follow algebraically. Standalone code checks moment identities with exact rationals, projector geometry on rational instances, and direct seeded Gaussian simulations. None of the infinite-parameter claims relies on finite testing. The proof covers one probe, for which the posterior indicator is undefined, and any ambient dimension at least the rank.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Madhavan–Alexanderian–Saibaba bound bias/MSE by expected funNyström approximation errors for general matrices, not by an exact flat-spectrum closed-form covariance.",
+        "Epperly–Tropp–Webber give Gaussian XNysTrace variance bounds and a general correlation-based posterior calibration, plus a distinct normalized-probe variant.",
+        "Hallman studies normalized XTrace, rotations and Krylov-enhanced deflation; no stated exact Gaussian XNysTrace rank/budget variance law was found in inspected material."
+      ],
+      "reasoning": "The prior results dominate generality of matrix classes and give structural bounds, but they do not logically give the explicit equal-eigenvalue correlation and factor without the angular moment evaluation. A normalized variant can be deterministic for scalar multiples of identity, but it is not the unnormalized Gaussian FlexTrace estimator analyzed here. Those benefits are acknowledged, not represented as a new algorithm.",
+      "searches": [
+        "arxiv:2603.05721v1 Theorems 3.2-3.5 and low-rank Nyström sections",
+        "arxiv:2301.07825 Sections 2.3, 3.1 and 5.3",
+        "arxiv:2512.02316v1 Section 1, Sections 3-4",
+        "\"FlexTrace\" \"flat\" \"variance\" leave-one-out"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.05721v1 (Algorithm 3.1 and Theorems 3.1-3.5)",
+      "arxiv:2301.07825 (XTrace/XNysTrace definition, normalized variant, Proposition 2, Proposition 5)",
+      "arxiv:2512.02316v1 (XTrace variants)",
+      "Targeted web literature and indexed mathematical result searches as specified in the four comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior 2023 Proposition 2 describes the expected-indicator to squared-risk ratio via \\((1-\\rho)/(1+(k-1)\\rho)\\), but does not evaluate \\(\\rho\\) for this flat-spectrum Gaussian family.",
+        "The present spherical-moment calculation gives \\(\\rho=1/(r-k+4)\\) exactly, hence the underestimation factor \\((r-k+3)/(r+3)\\), including the asymptotic rank-saturation loss.",
+        "The function estimator reduces to a scalar exchangeable Nyström trace estimator for a spectrum supported on zero and one positive eigenvalue."
+      ],
+      "reasoning": "The theorem is a specialization of prior estimator definitions, but not a stated corollary of the published numerical bounds alone. The essential new evaluation is the nonzero pair covariance of Gaussian leave-one-out residual norms; existing normalized-probe constructions have different stochastic outputs, so their zero-variance possibility does not imply the unnormalized risk vanishes.",
+      "searches": [
+        "arxiv:2301.07825 Proposition 2 error estimate and Proposition 5 XNysTrace error",
+        "arxiv:2603.05721v1 Algorithm 3.1 Theorems 3.3 and 3.5",
+        "\"exchangeable trace estimator\" \"full rank\" \"variance\" Gaussian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "FlexTrace uses a difference of the full and leave-one-out Nyström matrix functions; XNysTrace uses the exact full-matrix residual.",
+        "On \\(A=\\lambda P\\) with \\(f(0)=0\\), the spectral function of every Nyström matrix is a scalar multiple of it, and at a sketch budget at least the rank the full Nyström matrix is exact.",
+        "Epperly–Tropp–Webber Proposition 2 gives the indicator-to-risk identity in terms of unspecified pair correlation; it does not state the explicit flat-spectrum correlation \\(1/(r-k+4)\\)."
+      ],
+      "reasoning": "The flat-spectrum function estimator is exactly a rescaled exchangeable Nyström trace estimator on the stated object. The generic correlation-identity prior theorem alone does not supply the pair covariance, all-k risk, or rank-saturation calibration without a separate Gaussian-angle computation. The estimator and generic identity are explicitly credited as prior work.",
+      "searches": [
+        "arxiv:2603.05721v1 Algorithm 3.1 and equations (3.1)-(3.2)",
+        "arxiv:2301.07825 XNysTrace equations (8)-(9), Proposition 2",
+        "\"XNysTrace\" \"correlation\" \"rank\" \"Gaussian\" exact",
+        "Gaussian flat-spectrum FlexTrace XNysTrace moment law first second covariance of leave-one-out residuals rank saturation exact variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of indexed mathematics findings and web research did not identify a record with the exact pair correlation, risk formula and calibrated indicator for this estimator.",
+        "The closest sources located were the 2023 exchangeable XNysTrace formulation, its posterior-error identity, and the 2026 FlexTrace bounds."
+      ],
+      "reasoning": "These are actual targeted searches for the exact object and function-equivalence, not merely matching titles. The lack of a matching retrieved record is not treated as proof of novelty; the positive mathematical comparison is to what the primary cited results state.",
+      "searches": [
+        "FlexTrace leave-one-out exact Gaussian isotropic identity variance full sketch n probes residual projections correlation chi-square",
+        "exact variance formula XNysTrace FlexTrace for identity matrix rank r Gaussian k probes f(A) flat spectrum",
+        "rank-saturation transition leave-one-out Gaussian Nyström trace estimator variance floor k=rank and zero k>=rank+1",
+        "XNysTrace exact variance identity projector matrix Gaussian flat spectrum rank r leave-one-out"
+      ]
+    },
+    "rationale": "The principal source introduces function-Nyström FlexTrace and general error bounds; 2023 XNysTrace gives the estimator and a posterior calibration expression in terms of unspecified pair correlation. The computed exact correlation \\(\\rho=1/(r-k+4)\\), closed-form squared risk, flat-spectrum indicator expectation and sharp rank-plus-one zero-risk threshold were not identified in the primary material inspected. The result is a special-case analysis, with prior generic identities and normalized-probe improvements explicitly acknowledged. Search gaps and potentially unindexed equivalent specializations remain residual risks.",
+    "residual_risks": [
+      "An unindexed exact Gaussian flat-spectrum XNysTrace moment calculation may predate this analysis.",
+      "The arXiv 2026 paper was materially inspected at the relevant algorithm and theorem passages; no claim of exhaustive reading of every ancillary appendix or future revision is made.",
+      "The 2023 Proposition 2 reduces the calibration problem to one correlation, which makes this an exact specialization rather than a fundamentally new general error-estimator principle."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces method and general error bounds. No exact flat-spectrum pair-covariance or sample-error calibration is present in the inspected passages; additional uninspected material remains a modest overlap risk.",
+        "evidence": [
+          "Algorithm 3.1 forms a leave-one-out Nyström matrix function and adds a held-out quadratic form of the difference of full and leave-one-out matrix functions.",
+          "Theorems 3.3 and 3.5 display expected approximation-error bounds rather than equality for the flat-spectrum covariance."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.05721 (arxiv:2603.05721v1)",
+        "material_read": "Abstract; introduction/related work; definitions of f and Nyström; Algorithm 3.1; equations (3.1)-(3.2); Theorems 3.1-3.5 and their displayed bias/MSE statements.",
+        "method": "Open-access arXiv HTML, inspecting mathematical formulas and algorithm lines.",
+        "title": "FlexTrace: Exchangeable Randomized Trace Estimation for Matrix Functions",
+        "trigger": "The introduced raw Gaussian function-Nyström leave-one-out estimator is the exact object studied."
+      },
+      {
+        "assessment": "Strongest relevant prior: provides estimator, covariance decomposition and general posterior-error ratio. Does not explicitly evaluate the flat-spectrum Gaussian pair correlation or the all-k closed form; normalized variant is distinct and eliminates a length fluctuation.",
+        "evidence": [
+          "Equations (8)-(9) XNysTrace; equation (16) posterior error estimate.",
+          "Proposition 2 expresses ratio through correlation; Proposition 5 upper-bounds variance using Nyström residual norms.",
+          "Section 2.3 recommends residual normalization and shows a different estimator."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2301.07825 (arxiv:2301.07825)",
+        "material_read": "Sections 1.2.2, 2.2-2.3, 3.1, 5.3, including definitions, normalized implementation alternative, Proposition 2 and Proposition 5, and displayed proofs/bounds.",
+        "method": "Open-access full-text HTML and comparison of exact formulas.",
+        "title": "XTrace: Making the most of every sample in stochastic trace estimation",
+        "trigger": "The 2023 XNysTrace estimator is algebraically equivalent to the flat-spectrum FlexTrace specialization, and defines a posterior error indicator."
+      },
+      {
+        "assessment": "Works on normalized XTrace variants and better deflation; no identified exact unnormalized Gaussian function-Nyström flat-spectrum posterior covariance law.",
+        "evidence": [
+          "The displayed algorithms use orthonormal bases and normalized held-out probes; an enlarged deflation space uses both matrix products and original probes.",
+          "The paper's listed contributions are rotation averaging and enlarged Krylov spaces."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.02316 (arxiv:2512.02316v1)",
+        "material_read": "Abstract, Section 1.1/1.2, XTrace and XTrace-Full Algorithms 1-2, discussion of normalization, rotation averaging, and expanded Krylov space.",
+        "method": "Open-access arXiv HTML mathematical reading.",
+        "title": "Two Variations on the XTrace Algorithm",
+        "trigger": "A subsequent paper on variants and optimality of exchangeable trace estimators might subsume a special-case risk law."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "691c9453-181a-4c4d-8760-4c1302e99a54",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finite-rank flat-spectrum model is the natural rank-saturation and equal-eigenvalue benchmark for an exchangeable Nyström trace estimator. It exposes a nontrivial high-rank behavior: at exactly the rank in unnormalized Gaussian probes, the full approximation is exact while the trace estimator retains squared risk approaching \\(c^2/2\\), and the standard leave-one-out squared-error indicator shrinks to zero in expectation. The exact factor supplies a mean-unbiased risk diagnostic for this benchmark, while the rank-plus-one boundary separates exact full-matrix recovery from estimator saturation. The model is motivated and not an arbitrary coordinate slice. The known normalized-probe workaround and absence of generic claims are disclosed.",
+    "status": "PASS"
+  }
+}
