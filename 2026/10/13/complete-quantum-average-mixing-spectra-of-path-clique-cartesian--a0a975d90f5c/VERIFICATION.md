@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,9 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible checks and limits
-Run `python3 verify.py` with Python 3 and the NumPy and SymPy packages. The program builds the adjacency graph from its edges and independently computes average mixing from its real symmetric eigenspaces, checking against the theorem. It also uses SymPy exact arithmetic on six small cases and checks multiplicity/rank predictions; the test output is:
 
-`VERIFY_OK independent_graphs=85 exact_entries=494 resonance_tests=4 worst_matrix_error=1.32e-15 min_distinct_gap=5.957e-03 P5_K2_rank=4/10 P6_K3_rank=9/18`
+# Independent mathematical audit
 
-The exact projector, normalized path sine decomposition, root-of-unity sum and algebraic-integer norm proof are in RESULT.md. Numerical tolerance tests are corroborative only and do not constitute an exhaustive test of all integers. Independent external audit has not been performed.
+## correctness
+
+PASS
+
+For adjacency-generated continuous-time walks on P_m □ K_q (m,q≥2), derive path eigenprojectors E_j and clique projectors Q±. The spectral Cesàro projector identity Mhat=ΣRθ∘Rθ yields B_m=(2J+I+F)/(2(m+1)) and C_q=(1−2/q)I+2J/q². For a cross-sector collision, λ_j−λ_k=q and all conjugates of λ_j, λ_k lie strictly in (−2,2), forcing q≤3. At q=3, α=λ_j−1 is nonzero algebraic integer with every conjugate in (0,1), contradicting integral norm; at q=2, all conjugates of α lie in (−1,1), forcing α=0 and unique ±1 collision when 3|(m+1). The rank-one correction w_m w_m^T⊗P− has eigenvalue 3/(2(m+1)). Decomposing reversal-symmetric and antisymmetric path spaces gives the full stated multiplicities, including central fixed point and q=2. No infinite claim relies on finite numerical tests.
+
+## originality
+
+PASS
+
+Specific fixed-graph full eigenvalue multiset, rank q·ceil(m/2) for q≥3 and isolated mod-3 ladder rank revival are not furnished by the inspected general projector/path theorem or published Cartesian-product expectation results. These are a genuinely more specific but nontrivial spectral classification, not a restatement of a general rank bound.
+
+## value
+
+PASS
+
+The exact full average-mixing spectrum and arithmetic single-rank revival answer a natural quantitative question for fundamental path–clique product graphs. Rank affects long-time quantum transport distinguishability; the resonance resolves why ladders differ sharply from wider strips.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

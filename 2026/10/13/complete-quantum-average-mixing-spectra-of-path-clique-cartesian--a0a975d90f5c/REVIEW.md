@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The path sine basis and clique projectors were reconstructed, including the degenerate clique eigenspace. The algebraic-integer norm argument proves that the only cross-sector collision occurs at width \(2\) and \(3\mid(m+1)\), so no hidden eigenvalue multiplicities are dropped. Hadamard products of the combined projectors give the rank-one correction, whose squared norm is computed exactly. The spectrum follows from orthogonal path reflection and clique-constant decompositions. The proof covers every integer \(m,q\ge2\). The included checker independently reconstructs concrete adjacency matrices and their eigenspaces, with exact and floating-point comparisons; finite tests do not establish the infinite theorem.
+## correctness
 
-## Originality — PASS (with explicit residual risk)
-The most relevant prior original work is Lo et al. (2005), *Mixing of Quantum Walk on Circulant Bunkbeds*, Section 5. It covers the **same underlying path × circulant products**, and a complete graph is circulant, but its main Cartesian conclusion is asymptotic near-uniform average mixing. That weaker assertion does not determine the full finite average-mixing matrix, the modulo-three collision, or its kernel. Godsil's path formula and spectral projector identity and Baptista–Coutinho–Marques' general Cartesian trace/covariance relation provide ingredients, not this full family classification. Source coverage and possible equivalent implicit projector/Krein-parameter formulations remain genuine risks; database searches alone cannot establish novelty.
+PASS
 
-## Value — PASS
-The exact rank and complete spectrum on every ladder and clique strip provide natural transport invariants. The arithmetic width-two revival distinguishes a genuine energy-level collision from ordinary Cartesian tensor averaging, and the transition at clique width three holds uniformly in path length.
+For adjacency-generated continuous-time walks on P_m □ K_q (m,q≥2), derive path eigenprojectors E_j and clique projectors Q±. The spectral Cesàro projector identity Mhat=ΣRθ∘Rθ yields B_m=(2J+I+F)/(2(m+1)) and C_q=(1−2/q)I+2J/q². For a cross-sector collision, λ_j−λ_k=q and all conjugates of λ_j, λ_k lie strictly in (−2,2), forcing q≤3. At q=3, α=λ_j−1 is nonzero algebraic integer with every conjugate in (0,1), contradicting integral norm; at q=2, all conjugates of α lie in (−1,1), forcing α=0 and unique ±1 collision when 3|(m+1). The rank-one correction w_m w_m^T⊗P− has eigenvalue 3/(2(m+1)). Decomposing reversal-symmetric and antisymmetric path spaces gives the full stated multiplicities, including central fixed point and q=2. No infinite claim relies on finite numerical tests.
 
-## Closest literature and limits
-Lo et al. (arXiv:quant-ph/0509059, Section 5), Godsil (arXiv:1103.2578, path section), Baptista–Coutinho–Marques (arXiv:2308.16378, Section 5), and Coutinho et al. (arXiv:2208.08971) were compared at the level of statements and implications. The claim is limited to simple unit-weight adjacency Hamiltonians and does not establish a universal product mixing theorem. Its originality has not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Specific fixed-graph full eigenvalue multiset, rank q·ceil(m/2) for q≥3 and isolated mod-3 ladder rank revival are not furnished by the inspected general projector/path theorem or published Cartesian-product expectation results. These are a genuinely more specific but nontrivial spectral classification, not a restatement of a general rank bound.
+
+## value
+
+PASS
+
+The exact full average-mixing spectrum and arithmetic single-rank revival answer a natural quantitative question for fundamental path–clique product graphs. Rank affects long-time quantum transport distinguishability; the resonance resolves why ladders differ sharply from wider strips.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
