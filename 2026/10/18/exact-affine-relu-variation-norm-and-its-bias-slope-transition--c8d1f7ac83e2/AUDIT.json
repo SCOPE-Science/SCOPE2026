@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For any signed representing measure, projection onto the input slope gives a scalar unit-disk measure of no larger TV. Splitting by slope sign and pushing to kink locations yields signed measures with integrable weighted first moments. The affine second derivative forces opposite kink measures; the slope/intercept give exact total mass and first moment. The Euclidean triangle inequality yields cost at least min_c |c|+2sqrt(s^2+(b-c)^2). Its convex minimizer is explicit, and normalized antipodal ReLU atoms plus an optional constant atom attain equality. Boundary cases and the minimal atom count follow. The supplied checker verifies finite evaluations but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yang–Shi Proposition 2.4 establishes precisely the zero-intercept linear restriction, with total-variation norm equal to twice the Schatten-one norm.",
+        "Their Definition 2.1 has joint Euclidean bias/weight unit-ball constraint, but its reviewed main theorem and proof do not identify the affine two-branch norm."
+      ],
+      "reasoning": "A homogeneous-linear theorem cannot bound the exact cost after adding a nonzero intercept: the minimizer may introduce a constant atom, and the claimed atom-count transition requires additional signed-kink analysis. No dominating theorem with equivalent parameters found.",
+      "searches": [
+        "published-finding corpus: Affine linear maps variation norm using vector-valued ReLU ridge measures, relation to Schatten 1 trace norm with bias and exact infimal convolution",
+        "Yang–Shi arXiv:2606.01244v2 §2.2 Proposition 2.4 and Appendix D",
+        "Web: \"Barron norm\" \"affine\" \"bias\" exact formula"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.01244v2, relevant primary full-text sections including Appendix D",
+      "arXiv:2006.05982v2, §§2 and 4.1 primary HTML",
+      "JMLR 25 (2024), variation-spaces multi-output abstract",
+      "COLT/PMLR 99 (2019), Savarese et al abstract",
+      "published-finding corpus semantic searches with aliases/parameter variants",
+      "Accessible own claim/title ledger for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yang–Shi linear formula yields the b=0 case as an exact special case, acknowledged as prior.",
+        "E–Wojtowytsch weighted-BV equivalence controls univariate Barron spaces but gives no sharp norm for the Euclidean bias/slope penalty.",
+        "JMLR 2024 abstract emphasizes multi-output representer and compression theory rather than this all-input affine norm."
+      ],
+      "reasoning": "The claimed b>0 branches do not follow from the zero-bias identity, abstract variation-space existence, or a two-sided norm equivalence. An unpenalized affine skip would make such a formula false, so such models are not comparable by direct implication.",
+      "searches": [
+        "Yang–Shi arXiv:2606.01244v2 §§1,2.2, Appendix D",
+        "E–Wojtowytsch arXiv:2006.05982v2 §§2.3, 4.1",
+        "Shenouda–Parhi–Lee–Nowak JMLR 2024 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no direct match; its closest item, a block-nuclear regularization result identified by record suffix c32011de94a1, concerns quadratic neural-network regularization, not this ReLU space.",
+        "E–Wojtowytsch Remark 4.2 describes a norm equivalent to a weighted BV expression, not an exact piecewise affine ReLU total-variation formula."
+      ],
+      "reasoning": "The signed-kink moment reduction is compatible with the known BV representation, but norm equivalence with unspecified constants does not imply an exact cost, switch point, or support count. Searches covered the names Barron norm, variation norm, affine ridge representation, penalized bias and hinge cancellation.",
+      "searches": [
+        "published-finding corpus: Exact ReLU variation norm of scalar affine functions ax+b on R with augmented unit-ball weights, phase transition at offset/slope ratio and atomic decomposition",
+        "published-finding corpus: Affine ReLU variation norm optimal two opposite hinge neurons plus constant neuron and kink-cancellation measure",
+        "Web: \"variation norm\" \"ax+b\" \"ReLU\" norm",
+        "E–Wojtowytsch arXiv:2006.05982v2 §4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest results concerned unrelated Banach-space polygon norms or quadratic network norm penalties; no matching exact affine ReLU formula.",
+        "Own accessible ledger claim/title comparisons did not identify a matching Euclidean ReLU parameter-ball affine norm."
+      ],
+      "reasoning": "No known published numerical table or database record encodes the exact formula or phase boundary. This absence alone cannot establish uniqueness.",
+      "searches": [
+        "published-finding corpus: ReLU Barron variation norm affine hyperplane on Hilbert space exact formula 2sqrt(||a||^2+b^2) if |b|<=||a||/sqrt3 else |b|+sqrt3||a||",
+        "published-finding corpus: Sharp bias versus slope phase transition of Euclidean-homogeneous ReLU measure total-variation norm for an affine function",
+        "Own research ledger 2026-10_week2 part 0001 generation 000072: prior claim/title matching ReLU, Barron, variation, affine Hilbert"
+      ]
+    },
+    "rationale": "The closest 2026 primary work proves the zero-bias linear Schatten-one formula, whereas the present claim has a strict bias/slope threshold and a support-size transition. The older weighted-BV Barron norm is only equivalent, rather than the exact specified variation norm; other retrieved work uses different penalties or free skips. Source sections covering definitions and linear results were materially inspected; no published implication covering the new formula identified. Residual priority risk: unknown differently worded exact affine formula.",
+    "residual_risks": [
+      "An earlier differently named exact all-line biased ReLU variation norm may exist in literature not retrieved by the queries; no novelty search proves uniqueness.",
+      "Only the available abstract, not the full text, was inspected for the 2024 JMLR and 2019 COLT sources.",
+      "The exact claim depends on the joint Euclidean bias/weight penalty and pointwise equality on the whole input Hilbert space."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the present norm and explicitly covers b=0 linear case; no exact b≠0 piecewise profile in materially inspected relevant sections",
+        "evidence": [
+          "Definition 2.1 §2.2 specifies signed measures and total variation on the joint unit ball.",
+          "Proposition 2.4 and Appendix D provide the zero-bias Schatten-one norm proof, not the strict affine threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.01244",
+        "material_read": "Full accessible HTML extraction: introduction, Definition 2.1, Proposition 2.4, and Appendix D, including the proof of the homogeneous linear formula; searched within converted text for affine terms",
+        "method": "Read rendered extracted full-text sections and compare theorem hypotheses and consequences",
+        "title": "Variation Spaces for Encoder–Decoder Neural Operators: Approximation and Generalization",
+        "trigger": "Same augmented real Hilbert parameter ball and exact homogeneous linear variation norm"
+      },
+      {
+        "assessment": "Supplies relevant signed-measure decomposition and a norm equivalence, not the proposed exact affine equality",
+        "evidence": [
+          "Remark 4.2 gives equivalence to |f(0)|+|f prime(0)|+weighted-TV(f double prime), without an exact equality factor.",
+          "Section 4.1 uses signed kink pushforward, an antecedent of the proof method."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2006.05982v2",
+        "material_read": "Full HTML Sections 2.1–2.3 and 4.1, especially Example 4.1 and Remark 4.2; discussion of representations and weighted BV norms",
+        "method": "Read full-text proof and compare its equivalence to the exact Euclidean penalty",
+        "title": "Representation formulas and pointwise properties for Barron functions",
+        "trigger": "Possible stronger scalar univariate norm characterization"
+      },
+      {
+        "assessment": "No covering exact affine formula identified in available abstract; priority uncertainty remains",
+        "evidence": [
+          "JMLR abstract emphasizes multi-output variation spaces, representer theorem, weight decay and network compression."
+        ],
+        "identifier_or_url": "https://www.jmlr.org/beta/papers/v25/23-0677.html",
+        "material_read": "Abstract, bibliographic record, description of representer theorem and regularization model; not complete full text",
+        "method": "Read JMLR abstract and compare claims",
+        "title": "Variation Spaces for Multi-Output Neural Networks: Insights on Multi-Task Learning and Network Compression",
+        "trigger": "Potential broadly encompassing vector-valued ReLU variation results"
+      },
+      {
+        "assessment": "Its abstract specifies an unregularized bias in its parameter norm; the current threshold need not carry over",
+        "evidence": [
+          "2019 PMLR abstract explicitly states the bias term is unregularized, unlike the present joint unit-ball penalty."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v99/savarese19a.html",
+        "material_read": "PMLR abstract and bibliographic description; full text not inspected",
+        "method": "Compare the norm convention stated in abstract with the joint bias-penalized Euclidean norm",
+        "title": "How do infinite width bounded norm networks look in function space?",
+        "trigger": "Sharp earlier one-variable ReLU norm formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c8d1f7ac-83e2-4bd9-875e-700f8ebc2d22",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Bias size is a natural scalar invariant for the newly defined ReLU variation regularizer, and the original linear Schatten-one theorem leaves its influence open. The exact optimal norm on all affine functionals identifies a nontrivial boundary |b|=||a||/sqrt(3), a dimension-free phase transition between two and three optimal atoms, and a sharp regularization cost. This complete classification has direct intrinsic modeling value without claiming a broad downstream theorem.",
+    "status": "PASS"
+  }
+}
