@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The doubleton distance lemma is valid for n>=5; support intersection identity partitions all probes; all fixed-union counts follow from explicit matchings; exact all-four-set LP constraints are tight against uniform 1/4 weights. Breadth-first-search checks verify 99,753 edge pairs for n=5..9 but infinity follows from the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yi 2021 §3 lists trees, cycles, Petersen, wheels, complete multipartite graphs and grids; no all-n Kneser family.",
+        "Goshi et al. study symmetry and worked examples of friendship graphs, some circulants and hypercubes."
+      ],
+      "reasoning": "An encompassing symmetry theorem reduces an edge-transitive instance to minimum neighborhood size; it does not establish the extremal cardinality four or the full polynomial. Existing special cases cannot dominate the new census. Some other, possibly unindexed work could still cover it.",
+      "searches": [
+        "fractional edge dimension Kneser graph KG(n,2) general formula fractional edge metric dimension",
+        "KG(n,2) Kneser graph fractional edge metric dimension n(n-1)/8 minimum edge resolving neighborhood four vertices",
+        "A Combinatorial Approach to the Computation of the Fractional Edge Dimension of Graphs 2021 graph edge transitive"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2103.07375",
+      "https://arxiv.org/pdf/2103.07375",
+      "https://doi.org/10.3390/math9192364",
+      "https://ideas.repec.org/a/gam/jmathe/v9y2021i19p2364-d641687.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known KG(5,2) Petersen value 5/2 agrees with the formula and is not new.",
+        "The transitive-graph formula edim_f(G)=|V|/min |R(e,f)| gives a scalar only once the minimum is known; no multivariate or size enumerator follows from that identity.",
+        "Related findings on Kneser graph parameters do not involve fractional edge-metric resolution."
+      ],
+      "reasoning": "The precise new statement is the all-n neighborhood size spectrum together with a structural classification and tight four-support dual witness. Yi implies the n=5 scalar corollary only, and Goshi general symmetry cannot imply the explicit per-support census without this computation.",
+      "searches": [
+        "KG(n,2) Kneser graph fractional edge metric dimension n(n-1)/8 minimum edge resolving neighborhood four vertices",
+        "two-subset Kneser graph edge-resolving neighborhood spectrum 4 6 8 10 11 12 pairwise graph edges",
+        "complement of triangular graph fractional edge metric dimension Petersen graph generalization n>=5",
+        "On the edge dimension and fractional edge dimension of graphs Yi 2103.07375 Proposition 3.5",
+        "Complete spectrum generating polynomial of pairwise edge resolving neighborhoods of Kneser graph KG(n,2) complement triangular graph; fractional edge metric dimension n(n-1)/8",
+        "Edge-resolving neighborhood distribution Kneser graph on two-subsets size 4 6 8 10 11 12, Petersen graph fractional edge dimension"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yi 2021, arXiv:2103.07375v1, Proposition 3.5 gives the Petersen KG(5,2) scalar case.",
+        "Goshi et al., Mathematics 9 (2021), 2364 gives a transitive-graph symmetry reduction."
+      ],
+      "reasoning": "The two-subset Kneser family is the complement of the triangular graph T(n). The n=5 scalar instance is prior work, but neither source supplies the six-term all-pair resolving-neighborhood enumerator. The generic transitivity theorem alone does not specify its minimum support or six spectral multiplicities.",
+      "searches": [
+        "KG(n,2) Kneser graph fractional edge metric dimension n(n-1)/8 minimum edge resolving neighborhood four vertices",
+        "complement of triangular graph fractional edge metric dimension Petersen graph generalization n>=5",
+        "fractional edge metric dimension of Kneser graph Petersen 2021 Yi"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct rank-50 semantic research-record searches returned related fractional edge-dimension papers about complete multipartite graphs and friendship graphs, not a KG(n,2) table.",
+        "Other recoverable findings about KG(n,2) concern forts, paired domination, or dissociation, not the edge-resolving spectrum."
+      ],
+      "reasoning": "The proposed coefficients count all unordered pairs of graph edges, not a sample or a scalar parameter table. Searches did not locate any exact database/table furnishing these coefficients, but search incompleteness remains a risk.",
+      "searches": [
+        "two-subset Kneser graph edge-resolving neighborhood spectrum 4 6 8 10 11 12 pairwise graph edges",
+        "two-subset Kneser graph edge resolving neighborhoods six possible sizes cardinalities",
+        "fractional edge dimension KG(6,2) KG(7,2) edge pair counting",
+        "Complete spectrum generating polynomial of pairwise edge resolving neighborhoods of Kneser graph KG(n,2) complement triangular graph; fractional edge metric dimension n(n-1)/8",
+        "Edge-resolving neighborhood distribution Kneser graph on two-subsets size 4 6 8 10 11 12, Petersen graph fractional edge dimension"
+      ]
+    },
+    "rationale": "Exact new six-term all-edge-pair resolving-neighborhood polynomial and an explicit support classification for KG(n,2), with a tight primal-dual proof; neither inspected primary source or recoverable prior claim implies these coefficients. Prior Petersen scalar and the generic symmetry reduction are expressly excluded from novelty. Bibliographic uncertainty recorded.",
+    "residual_risks": [
+      "Full publisher PDF of Goshi et al. could not be inspected despite available indexed excerpts.",
+      "Unindexed or inaccessible equivalent Kneser family work might cover some/all of the size-spectrum statement.",
+      "A general symmetry reduction already covers the scalar after the needed minimum neighborhood size is independently proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_SPECIAL_CASE_ONLY: KG(5,2) scalar; no general two-subset Kneser support census.",
+        "evidence": [
+          "arXiv:2103.07375v1, initially public 2021-03-12, primary MSC 05C12",
+          "Section 3 lists trees, cycles, Petersen, wheels, complete multipartite graphs and grids."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2103.07375",
+        "material_read": "Full 14-page primary preprint, including sections 1–3 and Proposition 3.5; visually cross-checked PDF title page and relevant section pages.",
+        "method": "Open primary preprint, read definitions, theorem statements, section 3 graph classes and the Petersen proposition.",
+        "title": "On the edge dimension and fractional edge dimension of graphs",
+        "trigger": "Same graph invariant and the special Petersen instance"
+      },
+      {
+        "assessment": "KNOWN_GENERAL_REDUCTION, NOT_FULL_TEXT_EXCLUSION: an applicable transitive-graph theorem, with remaining risk from unavailable complete publisher PDF.",
+        "evidence": [
+          "Published 2021-09-23; Mathematics 9(19), 2364.",
+          "Describes fractional edge dimension for vertex- and edge-transitive graphs and worked friendship/circulant/hypercube cases."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math9192364",
+        "material_read": "Abstract, searchable indexed article passages and bibliographic body describing the symmetry calculation and worked graph families; publisher PDF retrieval was not available.",
+        "method": "Read DOI-associated publication metadata and indexed text; attempted publisher PDF retrieval.",
+        "title": "A Combinatorial Approach to the Computation of the Fractional Edge Dimension of Graphs",
+        "trigger": "Potential broad vertex-edge-transitive family implication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ec9d5d36-60f3-4c7c-a641-33d6a1c5ac9d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The six-term exact census describes the complete combinatorial spectrum of all edge-pair resolution ambiguities for an infinite canonical graph family; the LP exact value and explicit tight dual constraint averaging are intrinsically motivated by the edge-location invariant. The previously known Petersen scalar alone would not satisfy the originality/value claim.",
+    "status": "PASS"
+  }
+}
