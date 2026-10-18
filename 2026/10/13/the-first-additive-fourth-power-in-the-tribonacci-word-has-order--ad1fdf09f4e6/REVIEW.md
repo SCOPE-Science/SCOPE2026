@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For orders \(1\) through \(6\), all relevant factors have lengths \(4,8,12,16,20,24\). The certified Tribonacci prefix contains exactly \(9,17,25,33,41,49\) distinct factors at those lengths, matching the published totals \(2m+1\), so the lists are exhaustive. Direct four-block symbol-sum tests give counts \(0,0,0,0,0,1\). The unique order-\(6\) factor has block sums \(4,4,4,4\).
+## correctness
 
-## Originality
-PASS. The direct 2024 paper gives exact square and cube results, then explicitly reports that the analogous \(k=4\) computation requires much more memory and poses the general order-characterization problem. The earlier direct presentation also stops at additive cubes. Exact, alias, witness, database, and later-literature searches found no published minimum-order-\(6\) statement or unique shortest factor.
+PASS
 
-Residual risk remains for an unindexed or unpublished computation.
+The prefix sigma^8(0) of length 149 of the Tribonacci fixed point gives distinct factor totals 9,17,25,33,41,49 at lengths 4,8,12,16,20,24. The published exact complexity p(m)=2m+1 of the infinite Tribonacci word attains those totals, so these observed sets are the complete global sets—not a potentially incomplete prefix sample. Testing all complete factors for equality of the four consecutive length-n integer symbol sums produces 0,0,0,0,0,1 factors at n=1..6. The sole length-24 witness 102010102010010201010201 splits as 102010|102010|010201|010201, sums 4 each; first occurs at prefix index 76. Independently constructed morphism prefix and recalculated six exhaustive factor sets, counts, and uniqueness. This proves the minimum exactly six for the infinite word, contingent on the established complexity identity.
 
-## Value
-PASS. The source singles out \(k=4\) as the first computational barrier. Determining the exact onset and complete shortest equality layer is a natural finite boundary for that explicit open direction, not an arbitrary cutoff.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Popoli–Shallit–Stipulanti FSTTCS 2024 Theorem 37 classifies *additive cube orders* using a 4927-state automaton; Problem 38 asks for arbitrary additive k-power orders and notes the fourth-power automaton is computationally expensive. This does not state the order-six minimum or unique 24-symbol witness. The k-binomial-complexity literature gives the factor-complexity counting theorem used as certificate, not the additive-fourth minimum. Scoped web/Resultary queries did not locate a prior exact minimum.
+
+## value
+
+PASS
+
+The smallest occurrence and complete equality layer at that order form a natural sharp finite cutoff inside an explicitly studied difficult open characterization of additive higher powers in the Tribonacci word. The exhaustive factor-complexity certificate is mathematically meaningful even though it does not solve the entire open problem. It is not merely a random substring enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
