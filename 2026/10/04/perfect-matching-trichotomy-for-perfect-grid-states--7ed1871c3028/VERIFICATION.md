@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was reconstructed from the primary definitions rather than inferred from search snippets.
+# Independent mathematical audit
 
-For the column case, a grid state selects one matrix entry in each row and column. The source's bound \(A'(x)\le\mathcal C\) is equality exactly when every selected entry is a column minimum. Hence column-perfect states are exactly perfect matchings of the bipartite graph of column-minimal entries. The row case is identical. When \(\mathcal C\le\mathcal R\), perfect means column-perfect; when \(\mathcal R<\mathcal C\), perfect means row-perfect.
+## correctness
 
-If two perfect matchings exist, their symmetric difference is a nonempty union of alternating even cycles. Conversely, toggling an alternating cycle in one perfect matching creates another. It follows that a perfect state is unique exactly when there is no alternating cycle in the appropriate minimizer graph. Comparing the source's Definition 2.1 with this cycle shows that its matrix loops are the same alternating cycles for column-perfect states.
+PASS
 
-The bundled script `artifacts/verify_matching_trichotomy.py` exhaustively checks every binary matrix of sizes \(1\) through \(4\). It compares direct enumeration of all grid-state permutations against enumeration of perfect matchings in the selected minimizer graph and verifies the zero/one/multiple classification.
+For a state permutation p, A′(x)=−Σ_j M_{p(j),j}≤C=−Σ_j min_i M_{ij} and ≤R=−Σ_i min_j M_{ij}. With C≤R, equality to min{C,R} holds iff all chosen values are column minima, yielding a perfect matching in BC(M); the row case is symmetric, with C=R handled. A matching is unique iff there is no matching-alternating cycle because toggling a cycle yields another and the symmetric difference of two distinct matchings decomposes into alternating cycles. Directed cycle detection after finding one matching gives a polynomial algorithm. Independently enumerated ALL binary matrices of sizes n=1,2,3,4 (2,16,512,65536 matrices); direct grid-state permutation counts matched graph minimizer matchings at every case, including 4160 no-state matrices at n=4, 15432 unique and 45944 multiple. This finite test corroborates, but is not the universal proof.
 
-The finite replay is not used as a proof of the universal statement. The independent-audit channel has not been performed.
+## originality
+
+PASS
+
+The precise fixed-diagram minimizer bipartite-graph equivalence and zero/one/many classifier resolve a decision ambiguity explicitly noted by the source; only standard combinatorial matching theory is reused.
+
+## value
+
+PASS
+
+The exact zero/unique/multiple fixed-diagram decision procedure closes an explicit ambiguity in a recent grid-knot state algorithm, is reusable for all winding matrices, and yields explicit alternating-cycle witnesses; this is mathematically motivated despite using classical matching theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

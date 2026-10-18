@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T03:18:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/04/perfect-matching-trichotomy-for-perfect-grid-states--7ed1871c3028/RESULT.md",
+        "2026/10/04/perfect-matching-trichotomy-for-perfect-grid-states--7ed1871c3028/VERIFICATION.md"
+      ],
+      "rationale": "For a state permutation p, A′(x)=−Σ_j M_{p(j),j}≤C=−Σ_j min_i M_{ij} and ≤R=−Σ_i min_j M_{ij}. With C≤R, equality to min{C,R} holds iff all chosen values are column minima, yielding a perfect matching in BC(M); the row case is symmetric, with C=R handled. A matching is unique iff there is no matching-alternating cycle because toggling a cycle yields another and the symmetric difference of two distinct matchings decomposes into alternating cycles. Directed cycle detection after finding one matching gives a polynomial algorithm. Independently enumerated ALL binary matrices of sizes n=1,2,3,4 (2,16,512,65536 matrices); direct grid-state permutation counts matched graph minimizer matchings at every case, including 4160 no-state matrices at n=4, 15432 unique and 45944 multiple. This finite test corroborates, but is not the universal proof.",
+      "residual_risks": [
+        "Other unindexed code/revisions might already implement the graph reduction.",
+        "Does not decide maximal states failing to attain row or column bound or broad fibered-knot conjecture."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Itzlinger gives loops enabling a second equal-grading state and a peeling necessary-condition recursion.",
+          "The source expressly says stalled peeling cannot distinguish no column-perfect state from multiple such states."
+        ],
+        "reasoning": "Classical perfect-matching algorithms are broad graph tools, but original source does not present the exact minimizer-graph reduction nor an exact decision trichotomy for fixed grid matrices.",
+        "searches": [
+          "grid diagram winding matrix perfect grid states perfect matching alternating cycles uniqueness fibered knots",
+          "Itzlinger Grid Diagrams of Fibered Knots Lemma 2.3 loops peeling no versus multiple"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2602.02642v1",
+        "Lovász–Plummer Matching Theory, 1986",
+        "Resultary query grid diagram winding matrix perfect grid states perfect matching alternating cycles uniqueness fibered knots"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original loop lemma proves a loop implies a second equally graded state; it does not provide the converse or classify empty matching case.",
+          "Standard theorem any two perfect matchings have symmetric-difference alternating cycles proves the exact converse once equivalence to perfect states is established."
+        ],
+        "reasoning": "Prior matching theory plus the explicit matrix-to-graph identification proves a short but useful new corollary; the cited source alone does not give a complete algorithm after stalled peeling.",
+        "searches": [
+          "grid diagram winding matrix perfect grid states perfect matching alternating cycles uniqueness fibered knots",
+          "Itzlinger Definition 2.1 loops and Lemma 2.3 column perfect uniqueness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A grid state is a permutation selecting one entry per row and column; perfection attains the row/column-minimum sum bound.",
+          "For chosen tighter minimum, entrywise equality holds iff each selected entry is minimizing along its row/column; thus exactly a perfect matching of the minimizer bipartite graph."
+        ],
+        "reasoning": "Matched the original grid-state winding convention and negative grading sign explicitly. Difference between a perfect state and a merely maximal nonperfect state preserved.",
+        "searches": [
+          "grid diagram winding matrix perfect grid states perfect matching alternating cycles uniqueness fibered knots",
+          "row column winding matrix minimizers grid state assignment optimal permutation",
+          "perfect matching alternating cycle uniqueness theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite predefined table of matrices computes or replaces the all-n perfect-matching equivalence.",
+          "Independently checked all binary n×n matrices n≤4: counts by size n 2,16,512,65536; matched explicit grid-state enumerations exactly."
+        ],
+        "reasoning": "This is a symbolic complete decision criterion for arbitrary n, not a finite pattern catalogue.",
+        "searches": [
+          "grid diagram winding matrix perfect grid states perfect matching alternating cycles uniqueness fibered knots",
+          "grid diagrams perfect states perfect matching winding matrix c_j r_i"
+        ]
+      },
+      "rationale": "The precise fixed-diagram minimizer bipartite-graph equivalence and zero/one/many classifier resolve a decision ambiguity explicitly noted by the source; only standard combinatorial matching theory is reused.",
+      "residual_risks": [
+        "Other unindexed code/revisions might already implement the graph reduction.",
+        "Does not decide maximal states failing to attain row or column bound or broad fibered-knot conjecture."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_LEMMA_ONE_DIRECTION_ONLY",
+          "evidence": [
+            "Itzlinger states loop gives another equal-grading state, and recursive peeling may stall in both none and multiple cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.02642v1",
+          "material_read": "Full accessible arXiv HTML: Definitions for winding matrix, Section 2.1 loop construction and Lemma 2.3, discussion of no-vs-many ambiguity",
+          "method": "read theorem/proof/sections in full arXiv HTML",
+          "title": "Grid Diagrams of Fibered Knots",
+          "trigger": "Same winding matrix, perfect grid-state definition, loops and documented algorithm gap"
+        },
+        {
+          "assessment": "PRIOR_MATCHING_FACTS_ACKNOWLEDGED",
+          "evidence": [
+            "Two distinct perfect matchings differ along a nonempty union of alternating even cycles."
+          ],
+          "identifier_or_url": "https://www.elsevier.com/books/matching-theory/lovasz/978-0-444-87916-2",
+          "material_read": "Standard symmetric-difference theorem invoked; bibliographic reference read from package, monograph not independently read",
+          "method": "classical known theorem, not new",
+          "title": "Matching Theory",
+          "trigger": "Classical perfect matching/symmetric difference algorithms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2602.02642v1",
+        "Lovász–Plummer Matching Theory, 1986"
+      ],
+      "rationale": "The exact zero/unique/multiple fixed-diagram decision procedure closes an explicit ambiguity in a recent grid-knot state algorithm, is reusable for all winding matrices, and yields explicit alternating-cycle witnesses; this is mathematically motivated despite using classical matching theory.",
+      "residual_risks": [
+        "Other unindexed code/revisions might already implement the graph reduction.",
+        "Does not decide maximal states failing to attain row or column bound or broad fibered-knot conjecture."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Other unindexed code/revisions might already implement the graph reduction.",
+    "Does not decide maximal states failing to attain row or column bound or broad fibered-knot conjecture."
+  ],
+  "schema_version": 1
+}
