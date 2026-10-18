@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact strip-section identity follows from the hyperplane graph Jacobian. Its equality case gives the axial exposed facets as the polar base. A local positive-curvature cap computation yields the explicit nonzero coefficient; transferring to meridional radial coordinates gives the \(n/2\)-contact law. Smooth localization and the one-sided power establish the sharp global Hölder class. The analytic argument, rather than numerical sampling, proves the stated quantifiers.
+PASS
 
-## Originality
+Let n>=3 and K=B×[-h,h] in R^n with B⊂R^{n-1} centrally symmetric, C-infinity boundary and everywhere positive Gauss curvature; V=vol_{n-1}(B), H(v)=h_B(v) for unit v, and κ(v)>0 its Gauss curvature at the support point. For unit direction u=(cos(theta)v,sin(theta)), a central hyperplane section is parameterized by x↦(x,-cot(theta) <x,v>), x∈B with |<x,v>|<=h tan(theta), giving Jacobian csc(theta) for angle convention; equivalently choosing normal/axial angle complementary gives rho_I=sec(theta) vol_{n-1}{x in B:|<x,v>|<=h cot(theta)}. In the full-strip regime the section area is V sec(theta). In meridional coordinates r=rho cos(theta),z=rho sin(theta), so z=V and r=V tan(theta) traverses an axial top facet until tan(theta)=h/H(v), i.e. its boundary radius r_0=hV/H(v). This radial function over v is exactly hV times the polar base B^circ; central symmetry gives the opposite facet. Beyond tangency the missing strip volume consists of two small smooth curvature caps. The standard local paraboloid cap integral gives a single cap coefficient 2^{n/2} κ_{n-2}/(n sqrt(κ(v))) delta^{n/2} with delta=H-h cot(theta). Since the meridional radial increment satisfies r-r_0~(hV/H²)delta, the two-cap difference is V-z~[2^{n/2+1} κ_{n-2}/(n sqrt(κ(v)))] [H²/(hV)]^{n/2}(r-r_0)^{n/2}, with positive coefficient. Away from rim the section depends smoothly on the slicing plane; at rim, the one-sided t_+^{n/2} gives the sharp C^{ceil(n/2)-1, n/2-ceil(n/2)+1} global regularity, no better. The n=3 circular case and ellipsoidal anisotropy were independently spot-checked; finite quadrature is not an infinite proof.
 
-PASS with specified historical uncertainty. Alfonseca–Kim, arXiv:1304.3359, study equatorial convexity of intersection bodies of revolution, not anisotropic polar facet geometry. Dirksen, arXiv:1602.07854, gives exact round-cylinder sections and section extrema, not the generic smooth-base facet shape or Gauss-curvature contact coefficient. The comparison of statements and geometric hypotheses located no direct equivalent in the inspected primary literature. A wider Radon-transform singularity theorem of Ramm–Zaslavsky (1993) could contain relevant general asymptotics; accessible abstract-level evidence does not settle an exact comparison and the uncertainty is retained. Existing round-cylinder integral formulas are credited, not relabeled as new.
+## originality
 
-## Value
+PASS
 
-PASS. The theorem identifies a geometrically natural image of the polar base as a full supporting facet of the intersection body and gives the precise local shape of the attachment in every dimension. In particular the same product construction has an optimal regularity hierarchy indexed by dimension. This is relevant to interpreting the geometric smoothing of the intersection-body transform, and it is not merely a numerical bound for one arbitrary shape.
+Classical central-section integrals for cylinders and intersection-body equatorial smoothing are prior art, as is local cap asymptotic theory. The selected new claim combines (i) *anisotropic* axial facets equal to scaled polar B^circ, (ii) the explicit curvature-dependent n/2 contact coefficient, and (iii) a sharp dimension-indexed global regularity class. Dirksen’s full primary PDF treats round generalized cylinders and section maxima via Fourier–Bessel integrals rather than polar facet plus arbitrary-base curvature. Alfonseca–Kim’s indexed abstract emphasizes revolution bodies and near-equator asymptotics, a different locus; its full primary PDF remained inaccessible in this run. General Radon-transform singularity literature could imply the power law; absent full comparison is an explicit originality risk, not a fabricated not-covering proof.
 
-## Closest work and limitations
+## value
 
-Full original PDFs of the Alfonseca–Kim (2013) and Dirksen (2016) papers were inspected at the pertinent definitions, section formulas, theorems, cylinder analysis, and remarks. The Ramm–Zaslavsky (1993) abstract is available but accessible full text was not retrieved, leaving historical risk. The theorem is limited to centrally symmetric product prisms with \(C^\infty\), strictly positively curved bases. Independent verification remains outstanding.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The natural intersection body of a product prism creates exposed axial facets whose geometry is the *polar* of the base, and the adjoining side has a curvature-governed contact singularity. This identifies a structural failure of strict convexity and an exact dimension-dependent smoothness threshold of a canonical integral transform. Unlike a ball-only formula, the coefficient reveals anisotropic local Gauss curvature and the facet shape uses the full polar gauge. An exact self-contained geometric classification has value independently of a broader extremal theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

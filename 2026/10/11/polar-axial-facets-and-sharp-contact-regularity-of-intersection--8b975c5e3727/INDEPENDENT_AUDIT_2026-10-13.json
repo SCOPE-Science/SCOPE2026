@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T18:59:59Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md blob 3d98e57c3b41922f469dfdfbc5f255be83fc889b, VERIFICATION.md blob 8d0ba0eb13e9f238a745bb18b18954722fe72125, and source verify.py blob 4b69e791db231c04e4be5acb93d7f3fee8fd71e4 (source inspected).",
+        "Independent high-precision disk calculation at n=3,R=h=1 gave contact ratios (V-z)/(C(r-r0)^1.5) 1.082638 at theta-theta0=.001, 1.025675 at .0001, 1.008074 at .00001, consistent with convergence as theta->theta0 but not a proof."
+      ],
+      "rationale": "Let n>=3 and K=B×[-h,h] in R^n with B⊂R^{n-1} centrally symmetric, C-infinity boundary and everywhere positive Gauss curvature; V=vol_{n-1}(B), H(v)=h_B(v) for unit v, and κ(v)>0 its Gauss curvature at the support point. For unit direction u=(cos(theta)v,sin(theta)), a central hyperplane section is parameterized by x↦(x,-cot(theta) <x,v>), x∈B with |<x,v>|<=h tan(theta), giving Jacobian csc(theta) for angle convention; equivalently choosing normal/axial angle complementary gives rho_I=sec(theta) vol_{n-1}{x in B:|<x,v>|<=h cot(theta)}. In the full-strip regime the section area is V sec(theta). In meridional coordinates r=rho cos(theta),z=rho sin(theta), so z=V and r=V tan(theta) traverses an axial top facet until tan(theta)=h/H(v), i.e. its boundary radius r_0=hV/H(v). This radial function over v is exactly hV times the polar base B^circ; central symmetry gives the opposite facet. Beyond tangency the missing strip volume consists of two small smooth curvature caps. The standard local paraboloid cap integral gives a single cap coefficient 2^{n/2} κ_{n-2}/(n sqrt(κ(v))) delta^{n/2} with delta=H-h cot(theta). Since the meridional radial increment satisfies r-r_0~(hV/H²)delta, the two-cap difference is V-z~[2^{n/2+1} κ_{n-2}/(n sqrt(κ(v)))] [H²/(hV)]^{n/2}(r-r_0)^{n/2}, with positive coefficient. Away from rim the section depends smoothly on the slicing plane; at rim, the one-sided t_+^{n/2} gives the sharp C^{ceil(n/2)-1, n/2-ceil(n/2)+1} global regularity, no better. The n=3 circular case and ellipsoidal anisotropy were independently spot-checked; finite quadrature is not an infinite proof.",
+      "residual_risks": [
+        "Only smooth strictly positive-curvature bases; no arbitrary non-product polytope result; smoothness away from rim uses transverse slicing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alfonseca–Kim (2015) published abstract: intersection bodies of revolution near equator.",
+          "Dirksen primary round generalized-cylinder Fourier integral and 3D extremal section results.",
+          "Ramm–Zaslavsky (1993) abstract presents broad tangency singularity subject; detailed specialization not checked."
+        ],
+        "reasoning": "Broader Radon asymptotics plausibly dominate the exponent alone; neither checked primary result explicitly dominates the joint polar facet / curvature coefficient / all smooth prism bases statement. Full unavailable sources not declared excluded.",
+        "searches": [
+          "Alfonseca Kim On local convexity of intersection bodies of revolution equator",
+          "Dirksen Hyperplane Sections of Cylinders 2016 Theorem1 section formula",
+          "Ramm Zaslavsky singularities of Radon transforms tangent hypersurfaces 1993"
+        ]
+      },
+      "checked_sources": [
+        "Dirksen arXiv:1602.07854v1 primary original PDF section formula and extrema",
+        "Alfonseca–Kim 2015 DOI:10.4153/CJM-2013-039-4 publisher abstract only",
+        "Ramm–Zaslavsky arXiv:math/9301215v1 abstract only",
+        "Resultary query for polar axial facets, smooth prisms and sharp contact regularity",
+        "Frozen verify.py source plus independent direct disk-cap quadrature"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section formula and cap asymptotic are standard ingredients and explicitly credited.",
+          "Novel joint claim requires moving to radial coordinates and deriving facet identification plus sharp global regularity."
+        ],
+        "reasoning": "Existing exact integrals for a round base do not imply the arbitrary positive-curvature anisotropic facet-shape statement by parameter substitution. A broader singularity theorem might cover cap exponents, residual comparison acknowledged.",
+        "searches": [
+          "Dirksen 2016 generalized cylinder Theorem1 and central sections",
+          "Alfonseca Kim 2015 equatorial convexity abstract",
+          "Ramm Zaslavsky 1993 Radon transform singularities abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Round-cylinder section identities exist, but no exact anisotropic B^circ facet theorem in returned matches.",
+          "Polar h_B(v)^{-1} rim and Gauss cap coefficient are natural aliases."
+        ],
+        "reasoning": "Equivalent geometric coordinates (axial facet support, polar radial gauge and strip tangency) were compared against the section literature, not title strings alone.",
+        "searches": [
+          "Resultary: intersection bodies cylinders prism polar axial facets curvature cap contact smoothness",
+          "Web: intersection body prism polar axial facet curvature cap smoothness n/2",
+          "Radon transform tangency caustic n/2 regularity product cylinder"
+        ]
+      },
+      "evidence": [
+        "Dirksen arXiv:1602.07854v1 primary 17-page PDF introduction Theorems1–3 and Section2: generalized round cylinder section formula and extrema.",
+        "Alfonseca–Kim arXiv:1304.3359, Can J Math 67 (2015) 3-27 publisher abstract explicitly concerns equator of bodies of revolution.",
+        "Resultary prism polar facet curvature contact query returned the identical current record; no comparable anisotropic theorem in listed neighbors."
+      ],
+      "exact_database_or_table": {
+        "evidence": [
+          "No database/table exact-value source; analysis is analytic.",
+          "The round B=ball specialization can be integrated exactly and is consistent with classical formulas."
+        ],
+        "reasoning": "A classical round-cylinder table does not identify a noncircular polar facet or its Gaussian curvature coefficient.",
+        "searches": [
+          "Resultary prism polar facet smoothness query",
+          "Dirksen Theorem1 general cylinder section formula",
+          "Alfonseca Kim cylindrical example"
+        ]
+      },
+      "rationale": "Classical central-section integrals for cylinders and intersection-body equatorial smoothing are prior art, as is local cap asymptotic theory. The selected new claim combines (i) *anisotropic* axial facets equal to scaled polar B^circ, (ii) the explicit curvature-dependent n/2 contact coefficient, and (iii) a sharp dimension-indexed global regularity class. Dirksen’s full primary PDF treats round generalized cylinders and section maxima via Fourier–Bessel integrals rather than polar facet plus arbitrary-base curvature. Alfonseca–Kim’s indexed abstract emphasizes revolution bodies and near-equator asymptotics, a different locus; its full primary PDF remained inaccessible in this run. General Radon-transform singularity literature could imply the power law; absent full comparison is an explicit originality risk, not a fabricated not-covering proof.",
+      "residual_risks": [
+        "Classical Ramm–Zaslavsky or general Radon microlocal theory might already imply the exponent and curvature coefficient; full text not inspected.",
+        "Alfonseca–Kim complete paper and examples were inaccessible; abstract-level differentiation is not proof of absence in its body.",
+        "Numerical checks complement, not replace, uniform arbitrary-n and arbitrary-B proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS round-cylinder section formulas and extrema; does not in examined content assert polar facet geometry for arbitrary smooth bases or curvature-controlled rim regularity.",
+          "evidence": "Dirksen Theorem1 Fourier-Bessel formula, Theorem3 maximal truncated ellipse/rectangle for m=1, n=2.",
+          "identifier_or_url": "arXiv:1602.07854v1 ; https://arxiv.org/pdf/1602.07854",
+          "material_read": "Original 17-page PDF abstract and Section1 introduction Theorems1–4, Section2 Fourier section derivation and 3D maxima statements",
+          "method": "Read full relevant primary theorem/section and inspect p2 page image",
+          "title": "Hyperplane Sections of Cylinders",
+          "trigger": "Same hyperplane-section functional on cylindrical bodies"
+        },
+        {
+          "assessment": "Abstract addresses equatorial behavior for bodies of revolution; FULL-DOCUMENT exclusion not established.",
+          "evidence": "Author abstract describes equator asymptotics and local convexity, not a stated polar axial facet formula.",
+          "identifier_or_url": "arXiv:1304.3359v1 ; DOI:10.4153/CJM-2013-039-4",
+          "material_read": "Publisher abstract, bibliographic references and detailed stated subject only; primary full PDF unavailable in this execution",
+          "method": "Read publisher Cambridge Core abstract and scope; open preprint PDF attempted, DisabledError",
+          "title": "On the Local Convexity of Intersection Bodies of Revolution",
+          "trigger": "Same intersection-body transformation and boundary convexity"
+        },
+        {
+          "assessment": "Potentially covers n/2 singularity in a general theorem; exact polar facet/curvature law unresolved.",
+          "evidence": "Listed as open residual risk, not counted as a negative whole-paper inspection.",
+          "identifier_or_url": "Ramm–Zaslavsky 1993 ; arXiv:math/9301215v1",
+          "material_read": "Abstract/metadata only, no full text",
+          "method": "Scientific subject and potential implication comparison",
+          "title": "Singularities of Radon Transforms",
+          "trigger": "Plausible broader microlocal tangency asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Round-cylinder section literature motivates measuring the geometry of the intersection body, beyond maximizing one section.",
+        "Positive curvature yields a strictly positive cap coefficient, proving sharpness rather than a loose upper regularity bound."
+      ],
+      "rationale": "The natural intersection body of a product prism creates exposed axial facets whose geometry is the *polar* of the base, and the adjoining side has a curvature-governed contact singularity. This identifies a structural failure of strict convexity and an exact dimension-dependent smoothness threshold of a canonical integral transform. Unlike a ball-only formula, the coefficient reveals anisotropic local Gauss curvature and the facet shape uses the full polar gauge. An exact self-contained geometric classification has value independently of a broader extremal theorem.",
+      "residual_risks": [
+        "General singularity machinery may reduce the novelty of the contact-exponent ingredient; combination with full polar facet still merits qualified value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "For n>=3 only, B C-infinity strictly positive Gauss curvature centrally symmetric, h>0.",
+    "Alfonseca-Kim and Ramm-Zaslavsky primary full text unavailable; named as exact residual coverage risks."
+  ],
+  "schema_version": 1
+}
