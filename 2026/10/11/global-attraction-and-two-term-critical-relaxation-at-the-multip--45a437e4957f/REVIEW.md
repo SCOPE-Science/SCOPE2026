@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact coefficient matching in the printed planar vector field gives the center jet through quartic order. Positivity and an exact population bound give precompact forward dynamics. At the critical equality there is no positive equilibrium, so planar index excludes interior cycles; Poincaré–Bendixson and local attraction force every nonnegative orbit to the disease-free state. The strong stable manifold is the boundary \(I=0\), and the transformed variable \(I^{-2}\) yields the two-term algebraic law. The packaged exact checker replays the algebra.
+## correctness
 
-## Originality
-PASS. The closest source, DOI 10.3390/sym16060688, already states the cubic coefficient, and that part is not claimed as new. Its analytic treatment does not state the quartic physical-coordinate coefficient, an analytic global-attraction theorem at the exact disease-free codimension-two equality, or the two-term critical relaxation. Searches against older nonlinear-incidence and backward-bifurcation literature found broader or analogous results, but no implication that supplies this combined exact statement. The closest 2007 predecessor was available only at abstract level through the inspected open route, so a residual indexing/access risk remains.
+PASS
 
-## Value
-PASS. This is the singular disease-free boundary emphasized by the motivating bifurcation study. The theorem upgrades a local cubic degeneracy to a global extinction result and gives sharp prevalence decay, including the first subleading constant. That information is useful for interpreting and numerically validating long critical transients and is structurally tied to the model rather than to an arbitrary numerical parameter choice.
+Rebuilt the translated two-dimensional polynomial vector field independently; coefficient matching gives center graph h(I)=-(rho/d)I+0*I^2+[rho^3(d-rho)/(A^2d^2)]I^3+O(I^4), hence Iprime=-(rho^3/A^2)I^3+[rho^4(d-rho)/(A^3d)]I^4+O(I^5). Invariance of the nonnegative quadrant and Nprime=A-dS-rho I<=A-dN bounds every trajectory. The critical positive-equilibrium equation is proportional to I^2, excluding any interior equilibrium; an interior periodic orbit would enclose one, contradicting its index. Planar compact omega-limit analysis plus local attracting E0 gives global convergence. Strong stable manifold lies on I=0, so interior trajectories have center asymptotics. From W=I^-2, Wprime=2c-2q I+O(I^2), integration and inversion yield the explicit two terms and O(t^-3/2 log t), including S via the graph. Boundary solutions decay exponentially, and no interior formula is claimed there.
 
-## Closest literature and limitations
-The 2024 source supplies the exact system and cubic center term and numerically illustrates global phase portraits nearby. The 2000 and 2007 nonlinear-incidence papers establish backward/transcritical and richer bifurcation mechanisms in related models; the 2016 paper proves global stability for another nonlinear-incidence class. None of the inspected statements provides the quartic coefficient and two-term critical law here. The result is exact-boundary only and does not classify nearby endemic cycles or transient outbreak maxima.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Li–Ma 2024 Theorem 2 explicitly prints the leading cubic center term and labels the degeneracy, which is prior art. Inspection of its model, proof and phase-portrait statements did not find the quartic physical-coordinate term, an analytic global-boundary theorem or the two-term critical relaxation; related nonlinear-incidence model theorems have different hypotheses.
+
+## value
+
+PASS
+
+The singular disease-free codimension-two threshold is structurally and epidemiologically motivated, and converting its published local cubic degeneracy into global extinction and exact leading/subleading time profiles supplies a useful, model-specific critical benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

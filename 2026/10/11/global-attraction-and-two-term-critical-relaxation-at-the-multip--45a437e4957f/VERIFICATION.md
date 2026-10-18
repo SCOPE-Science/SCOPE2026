@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-The verification target is the exact disease-free codimension-two boundary of the printed multiple-exposure planar epidemic system.
+# Independent mathematical audit
 
-Checks performed:
+## correctness
 
-1. Reconstructed the translated vector field directly from the printed equations at \(\beta_1=d\rho/A\) and \(\beta_0=d\rho^2/A^2\).
-2. Solved the center-manifold invariance equations through cubic graph order and obtained \(a_1=-\rho/d\), \(a_2=0\), and \(a_3=\rho^3(d-\rho)/(A^2d^2)\).
-3. Substituted the graph into the infection equation and checked the cubic coefficient \(-\rho^3/A^2\) and quartic coefficient \(\rho^4(d-\rho)/(A^3d)\).
-4. Checked that the endemic-equilibrium polynomial reduces to a positive multiple of \(I^2\), so no positive equilibrium exists at the exact boundary.
-5. Checked the algebra converting the reduced coefficients into the leading and subleading time-asymptotic constants.
-6. Rechecked boundedness from \(\dot S+\dot I=A-dS-\rho I\le A-d(S+I)\).
+PASS
 
-The global convergence step is an analytic planar-dynamics argument, not a finite computation. The checker verifies the algebraic premises but does not substitute for the Poincaré–Bendixson/index proof. No independent audit has been performed.
+Rebuilt the translated two-dimensional polynomial vector field independently; coefficient matching gives center graph h(I)=-(rho/d)I+0*I^2+[rho^3(d-rho)/(A^2d^2)]I^3+O(I^4), hence Iprime=-(rho^3/A^2)I^3+[rho^4(d-rho)/(A^3d)]I^4+O(I^5). Invariance of the nonnegative quadrant and Nprime=A-dS-rho I<=A-dN bounds every trajectory. The critical positive-equilibrium equation is proportional to I^2, excluding any interior equilibrium; an interior periodic orbit would enclose one, contradicting its index. Planar compact omega-limit analysis plus local attracting E0 gives global convergence. Strong stable manifold lies on I=0, so interior trajectories have center asymptotics. From W=I^-2, Wprime=2c-2q I+O(I^2), integration and inversion yield the explicit two terms and O(t^-3/2 log t), including S via the graph. Boundary solutions decay exponentially, and no interior formula is claimed there.
+
+## originality
+
+PASS
+
+Li–Ma 2024 Theorem 2 explicitly prints the leading cubic center term and labels the degeneracy, which is prior art. Inspection of its model, proof and phase-portrait statements did not find the quartic physical-coordinate term, an analytic global-boundary theorem or the two-term critical relaxation; related nonlinear-incidence model theorems have different hypotheses.
+
+## value
+
+PASS
+
+The singular disease-free codimension-two threshold is structurally and epidemiologically motivated, and converting its published local cubic degeneracy into global extinction and exact leading/subleading time profiles supplies a useful, model-specific critical benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
