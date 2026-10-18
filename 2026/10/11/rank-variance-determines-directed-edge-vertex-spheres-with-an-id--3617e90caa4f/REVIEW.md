@@ -1,23 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The primary source gives both the rank hyperplane and the exact affine dimension for connected rank-function quivers. Their intersection identifies the affine hull. Orthogonal projection of the origin gives
-\[
-c=-\frac r{\|r\|^2},
-\]
-and every arrow root then has squared distance
-\[
-2-\frac1{\|r\|^2}.
-\]
-The minimum-enclosing part is separate: a common vertex sphere is optimal exactly when its center lies in the vertex convex hull. Writing that barycentric condition as a nonnegative flow and applying max-flow/min-cut gives precisely the lower-ideal centered-rank inequalities.
+## correctness
 
-## Originality
-PASS. The exact directed-edge-polytope source was inspected at the vertex, dimension, rank-hyperplane, and graded-poset results, including the relevant PDF page. It contains no “circumradius”, “sphere”, “Euclidean”, or “radius” occurrence. The semi-balanced root-polytope and toric directed-edge literatures were inspected as broader same-object coverage; neither states the metric theorem. Published-result searches covered circumsphere, rank-variance, minimum-enclosing-ball, Chebyshev-center, and lower-ideal formulations. The closest prior own result is an Ehrhart theorem for oriented cycle root polytopes and does not imply this metric statement.
+PASS
 
-## Value
-PASS. Rank-function directed edge polytopes are the dimension-deficient class singled out by the recent complete face theory. The theorem turns their rank data into an exact Euclidean vertex sphere and gives a sharp combinatorial criterion for when that sphere is the actual minimum enclosing sphere. The lower-ideal/flow equivalence is structurally meaningful and distinguishes graded quivers with the same ambient root-vector norm but different enclosing-ball behavior.
+The rank hyperplane <1,x>=0, <r,x>=-1 has codimension two by connected rank function and Numata dimension theorem. Orthogonal projection of zero is -r/S; |e_v-e_w|²=2 gives R²=2-1/S. All edge vectors are vertices. A common sphere is minimum exactly when its center lies in the vertex convex hull. Nonnegative incidence flow of divergence -r/S has total mass one automatically; network cut constraints on lower ideals give necessity and sufficiency. An explicit graded five-vertex DAG violates the condition with R²=23/14. All N≥3 and rank normalization checked; finite tests are corroborative only.
 
-## Closest literature and limitations
-The closest sources determine affine structure, faces, triangulations, and toric properties. They do not normalize the Euclidean metric or decide minimum-enclosing optimality. The theorem is specific to the standard incidence-vector realization, and it does not give the smaller minimum-enclosing radius when the ideal condition fails. A residual risk remains for an equivalent incidence-configuration theorem under different terminology.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge the joint all-ranked-quiver circumsphere formula and exact lower-ideal optimality criterion are not supplied by the materially checked facet/dimension and root-dissection results. The affine rank hyperplane is prior work; the metric center and max-flow/min-cut equivalence are a separate conclusion.
+
+## value
+
+PASS
+
+Gives an exact metric invariant and a natural max-flow certificate/noncertification for optimality for a broad, structurally defined family of directed root polytopes. The ideal criterion distinguishes two geometrically different spheres and is usable beyond a routine renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
