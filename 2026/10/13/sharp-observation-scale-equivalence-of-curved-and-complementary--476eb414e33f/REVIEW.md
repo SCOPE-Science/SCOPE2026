@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact triad gap has its maximum at two cooperators and equals a constant times \((2/3)^\gamma\). Every agent's normalized payoff increment is nonnegative and in one common interval, so a logistic derivative estimate gives the stated transition-kernel total variation bound. Maximal path coupling, the Bernoulli KL–chi-square inequality and Pinsker, and an explicit all-vertices mutation event prove the finite-path, information, and stationary assertions. The four-agent witness and midpoint testing show the statistical exponential sample-scale is sharp. An exact four-agent argument establishes the exponent's optimality. The standalone checker enumerated a witness instance and returned `VERIFY_OK`; the general theorem does not depend on finite simulation. The proof does not conflate model mutation with arbitrary changes to the source dynamics.
+## correctness
 
-**Originality — PASS, narrowly scoped.** The Tang–Rao article contains both game payoffs and numerical evidence of qualitatively similar transitions; a pointwise payoff limit is therefore covered and explicitly excluded from the claimed novelty. The checked sections do not establish quantitative finite-population Fermi path-law, relative-entropy and sample-detection threshold, invariant-law convergence or a matching witness. Hauert et al. treat qualitative nonlinear public-goods outcomes, and classical Markov-chain stability and information inequalities contain the generic methods but not this specific hypergraph model comparison, sharp statistical sample scale and exponent. Related threshold-game work uses different payoff specifications. This is a self-review, not independent confirmation of exhaustiveness. Residual risks are full-text-access gaps for some comparator articles and potentially unindexed applications of classical perturbation results.
+PASS
 
-**Value — PASS.** The source treats two different collective-production mechanisms that look similar in simulation. This theorem supplies a sharp, directly measurable exponential cutoff for repeated-trajectory distinguishability, valid without assumptions about random hypergraphs or topology, and separately controls long-run stationary statistics under mutation. A four-player witness prevents an unjustified faster universal exponential rate. It identifies a finite-population equivalence mechanism, not merely an arithmetic rewriting or one special graph computation. The constants are conservative in places and stationary bounds may be numerically loose for large populations.
+For S=0,1,2,3 the nonnegative payoff discrepancy is zero at 0 and 3 and bounded by 3 alpha r theta (2/3)^gamma; all agents share that nonnegative interval, so an imitation payoff difference changes by at most its width. The Fermi logistic derivative is at most 1/4 and independent flip mutation multiplies probability differences by |1-2mu|. The resulting sharper one-row bound delta/2 implies the stated delta, T-step maximal coupling and KT bounds. With 0<mu<=1/2, Bernoulli KL<=chi-square, common (i,j) sampling, data processing and Markov KL chain rule prove KL<=KT(delta/2)^2/[mu(1-mu)], then Pinsker. Prescribing each focal exactly once and mutation to a specified target yields a valid N-step minorization epsilon=(2mu/N)^N and stationarity perturbation <=Ndelta/epsilon. The two-triad four-agent initial witness has a nonzero Bernoulli gap c(2/3)^gamma+o(...); K independent resets give matching exponent via midpoint testing. These are fixed-finite-N, fixed-sampling-kernel claims; no infinite-population phase transition or universal prefactor optimality is implied.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Tang–Rao supply the two reward formulas and demonstrate qualitatively related simulated cooperative transitions; local convergence of the rewards is therefore not novel. Generic finite Markov coupling, KL, hypothesis-testing and Doeblin results are prior tools. The conjunction of explicit uniform gamma-dependence for this normalized Fermi-flip chain, a sharp exponential one-step witness, and a matching repeated-restart detection threshold was not found as a prior statement or immediate source-paper corollary. This is a best-of-knowledge specialist synthesis, not originality of generic perturbation theory.
+
+## value
+
+PASS
+
+There is a mathematically motivated identifiability gap: simulations of two differently motivated higher-order game benefits may become hard to distinguish as curvature increases. Explicit trajectory, information and stationary bounds quantify that ambiguity on finite networks, and the restart witness identifies exactly which exponential observation budget can resolve it. That is more than a pointwise payoff limit, while remaining deliberately finite-population.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
