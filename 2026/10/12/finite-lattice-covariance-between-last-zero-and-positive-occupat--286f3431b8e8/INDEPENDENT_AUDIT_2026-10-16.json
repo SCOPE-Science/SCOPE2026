@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T01:17:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on L_{2n}=2k leaves the first 2k increments a bridge (future survival is independent) and makes the zero-free suffix sign symmetric. For the bridge the expected strict-positive count is k+1/2-1/(2u_{2k}), using E nonzero times and exact convolution sum_{r=0}^k u_{2r}u_{2k-2r}=1; suffix contributes n-k. Summation with P(L=2k)=u_{2k}u_{2n-2k}, sum_{r<=n}u_{2r}=(2n+1)u_{2n}, and sum r u_{2r}=n/3 sum u gives Cov(L,A)=-n(2n+1)u_{2n}/6 and normalized asymptotic -1/(12 sqrt(pi n)). Direct independent exhaustive ±1 path enumeration for n=1..6 matched all conditional means and covariances with rational arithmetic; the proof, not the enumeration, covers all n>=1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pitman–Yor addresses Brownian/stable excursion quantities and distributional context, which does not determine exact discrete finite-n covariance.",
+          "Csáki 1994 public abstract mentions joint excursion distributions, but does not expose theorem statements."
+        ],
+        "reasoning": "Broader continuous-time arcsine results do not imply lattice-order correction. The inaccessible plausible Csáki theorem retains priority risk; no false assertion that all its results are excluded.",
+        "searches": [
+          "Pitman and Yor Arcsine Laws and Interval Partitions Derived from a Stable Subordinator 1992",
+          "Csáki Some joint distributions in Bernoulli excursions 1994",
+          "Chao and Slivka 1987 last one-sided deviations"
+        ]
+      },
+      "checked_sources": [
+        "Git assigned source tree 16acce1c99f9f4940c0f6d16ac81304e377a85a4, RESULT.md/REVIEW.md/checker.py name and checker log",
+        "Resultary semantic query fixed-horizon last-zero positive occupation",
+        "Pitman–Yor DOI:10.1112/plms/s3-65.2.326",
+        "Chao–Slivka DOI:10.1016/0304-4149(87)90018-4",
+        "Csáki DOI:10.2307/3214959 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Marginal last-zero and occupation laws hold separately but do not fix Cov(L,A).",
+          "Bounded-variable and stopping-boundary differences prevent direct substitution of the Chao–Slivka statements for fixed L_{2n}."
+        ],
+        "reasoning": "None of the materially inspected theorem statements entails this formula; a full inaccessible excursion joint-distribution article might, and its ambiguity is retained as residual risk.",
+        "searches": [
+          "Pitman–Yor 1992 arcsine paper",
+          "Chao–Slivka 1987 nonzero linear-boundary exit variables",
+          "Csáki 1994 Cambridge article abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary’s related maximum–endpoint covariance concerns terminal position rather than the last zero.",
+          "Csáki’s abstract concerns joint excursion-local variables, but its full statements are not accessible."
+        ],
+        "reasoning": "No actually inspected source establishes the same fixed-horizon last-zero/strict-positive occupation conditional mean or covariance. Csáki remains a bounded explicit uncertainty, not a declaration of whole-paper noncoverage.",
+        "searches": [
+          "Resultary semantic: simple symmetric random walk joint last zero positive occupation covariance discrete arcsine",
+          "Csáki 1994 some joint distributions Bernoulli excursions",
+          "Chao Slivka last deviation exit time simple random walk"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source proves two return-probability coefficient identities with U(z)=(1-z)^-1/2; no checked table of joint (L,A) values gives the covariance."
+        ],
+        "reasoning": "Discrete arcsine marginal distributions are not an exact database of this cross-moment. No exact prior table coverage established; this is not a novelty proof by itself.",
+        "searches": [
+          "Resultary semantic joint last zero positive count",
+          "random-walk arcsine tables finite horizon strict positive occupation"
+        ]
+      },
+      "rationale": "PASS best of knowledge. The fixed-even-horizon covariance between last zero and strict-positive count is not a direct corollary of the marginal discrete arcsine laws: it involves a non-stopping last-zero split, nonzero bridge occupancy, and tail sign. The Pitman–Yor continuous excursion laws do not give its finite-lattice correction; Chao–Slivka studies nonzero sloped-boundary deviation/exit counts; Csáki 1994 is potentially close but only its abstract was accessible, leaving a material priority risk. This is bounded source uncertainty rather than reason for automatic failure.",
+      "residual_risks": [
+        "Csáki 1994 full article could contain a dominating excursion joint-functional theorem; institutional access was blocked (vpn_disconnected).",
+        "A historically unindexed joint arcsine identity may encode the same covariance.",
+        "Independent finite enumeration covers n<=6 only; unrestricted result relies on exact bridge/generating argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INACCESSIBLE PLAUSIBLE SOURCE; no whole-article noncoverage claim",
+          "evidence": "Abstract states joint exact/asymptotic distributions for variables defined on excursions; not enough to decide coverage of last-zero/occupation covariance.",
+          "identifier_or_url": "https://doi.org/10.2307/3214959",
+          "material_read": "Cambridge abstract, authors, year, keywords, cited references; no theorem-level full text",
+          "method": "Public Cambridge indexed article and lawful OA search; authorized institutional attempt returned vpn_disconnected",
+          "title": "Some joint distributions in Bernoulli excursions",
+          "trigger": "Plausible close historical source for joint excursion functionals"
+        },
+        {
+          "assessment": "Continuous-time context, not verified direct coverage of the exact discrete covariance",
+          "evidence": "The present n-dependent covariance decays as n^-1/2 when normalized, an intrinsically discrete correction.",
+          "identifier_or_url": "https://doi.org/10.1112/plms/s3-65.2.326",
+          "material_read": "Publicly indexed bibliographic metadata and abstract-level contextual material, not a complete theorem-by-theorem reading",
+          "method": "Open-access and journal indexed search",
+          "title": "Arcsine Laws and Interval Partitions Derived from a Stable Subordinator",
+          "trigger": "Canonical joint arcsine and excursion context"
+        },
+        {
+          "assessment": "Variables are deviations from a nonzero sloped boundary, not proved to imply fixed-horizon strict positive occupation and last zero",
+          "evidence": "No scientific implication found from its identified objects and scope.",
+          "identifier_or_url": "https://doi.org/10.1016/0304-4149(87)90018-4",
+          "material_read": "Abstract-level descriptive material from package comparison; complete article not independently reread in this execution",
+          "method": "Bibliographic and source-package cross-comparison",
+          "title": "Some exact distributions of the number of one-sided deviations and the time of the last such deviation in the simple random walk",
+          "trigger": "Closest named joint deviation/time statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Last zero and positive occupation are two natural, canonical discrete-arcsine functionals; exact conditional regression and a strictly negative finite-horizon covariance with vanishing normalized 1/sqrt(n) scale quantify a dependence invisible in the continuum limiting arcsine margins. The conditioning split and generating-function cancellation supply genuinely interpretable fluctuation structure rather than a routine arbitrary finite slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git assigned source tree 16acce1c99f9f4940c0f6d16ac81304e377a85a4, RESULT.md/REVIEW.md/checker.py name and checker log",
+    "Resultary semantic query fixed-horizon last-zero positive occupation",
+    "Pitman–Yor DOI:10.1112/plms/s3-65.2.326",
+    "Chao–Slivka DOI:10.1016/0304-4149(87)90018-4",
+    "Csáki DOI:10.2307/3214959 abstract"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Csáki 1994 full article could contain a dominating excursion joint-functional theorem; institutional access was blocked (vpn_disconnected).",
+    "A historically unindexed joint arcsine identity may encode the same covariance.",
+    "Independent finite enumeration covers n<=6 only; unrestricted result relies on exact bridge/generating argument."
+  ],
+  "schema_version": 1
+}

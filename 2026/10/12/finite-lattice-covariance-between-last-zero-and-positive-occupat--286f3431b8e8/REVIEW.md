@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The proof explicitly conditions on the last zero, computes strict-positive bridge occupation from exact return probabilities, and averages with two generating-function identities. The all-\(n\) argument is analytic. Exact exhaustive enumeration through \(n=9\) verifies 153 finite identities without being used as a substitute for proof.
+# Independent mathematical audit
 
-## Originality
-PASS. The closest fully inspected discrete source, Chao–Slivka (1987), studies counts and last exits over nonzero linear boundaries on an infinite horizon. It does not use the fixed-horizon last-zero variable in this finding. Pitman–Yor (1992) supplies the continuous arcsine/excursion context rather than the finite covariance. Csáki (1994) remains a bounded residual risk because only its abstract and bibliography were available; its stated scope is excursion-local joint distributions. Published-record searches and the previously checked occupation/endpoint identity do not imply the present claim.
+## correctness
 
-## Value
-PASS. The result couples two canonical arcsine-related random-walk functionals and exposes a finite-lattice dependence invisible in the Brownian limit. The exact conditional regression and the sharp normalized covariance scale \(-1/(12\sqrt{\pi n})\) give a structurally interpretable finite-horizon correction.
+PASS
 
-## Closest literature and limitations
-The closest exact discrete literature located concerns one-sided boundary deviations and last boundary-exit times, which are different variables. The theorem is limited to the simple symmetric nearest-neighbor walk, even horizons, and strict-positive occupation. Historical-literature coverage cannot be ruled out globally; the specific unresolved risk is the inaccessible full text of the 1994 Bernoulli-excursion paper.
+Conditioning on L_{2n}=2k leaves the first 2k increments a bridge (future survival is independent) and makes the zero-free suffix sign symmetric. For the bridge the expected strict-positive count is k+1/2-1/(2u_{2k}), using E nonzero times and exact convolution sum_{r=0}^k u_{2r}u_{2k-2r}=1; suffix contributes n-k. Summation with P(L=2k)=u_{2k}u_{2n-2k}, sum_{r<=n}u_{2r}=(2n+1)u_{2n}, and sum r u_{2r}=n/3 sum u gives Cov(L,A)=-n(2n+1)u_{2n}/6 and normalized asymptotic -1/(12 sqrt(pi n)). Direct independent exhaustive ±1 path enumeration for n=1..6 matched all conditional means and covariances with rational arithmetic; the proof, not the enumeration, covers all n>=1.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best of knowledge. The fixed-even-horizon covariance between last zero and strict-positive count is not a direct corollary of the marginal discrete arcsine laws: it involves a non-stopping last-zero split, nonzero bridge occupancy, and tail sign. The Pitman–Yor continuous excursion laws do not give its finite-lattice correction; Chao–Slivka studies nonzero sloped-boundary deviation/exit counts; Csáki 1994 is potentially close but only its abstract was accessible, leaving a material priority risk. This is bounded source uncertainty rather than reason for automatic failure.
+
+## value
+
+PASS
+
+PASS. Last zero and positive occupation are two natural, canonical discrete-arcsine functionals; exact conditional regression and a strictly negative finite-horizon covariance with vanishing normalized 1/sqrt(n) scale quantify a dependence invisible in the continuum limiting arcsine margins. The conditioning split and generating-function cancellation supply genuinely interpretable fluctuation structure rather than a routine arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
