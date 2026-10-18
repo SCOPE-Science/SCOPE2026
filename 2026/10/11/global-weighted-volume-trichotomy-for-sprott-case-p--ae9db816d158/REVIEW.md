@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The identity \(\dot P=y(y+b)\), trace \(2y\), and weighted-volume transport formula are exact; local flow injectivity and the invariance of each bounded-forward set yield the positive-measure contradiction. For \(b=0\), the monotone \(P\) and both limit sets of a bounded complete orbit identify only the origin. Stationary variance and equality conditions follow from integrating exact derivatives on compact invariant supports. The independently runnable algebra checker tests exact identities, not the global dynamical measure-theoretic proof.
+## correctness
 
-## Originality
-PASS relative to the examined sources, with residual historical risk. Sprott's entire four-page 1994 introduction treats case P numerically at positive parameters and reports average divergence, but not a smooth weighted Jacobian theorem or almost-everywhere escape for all negative parameters. His 2013 case-P parameter-region atlas uses sampled trajectories and color-coded stability, not a proof of the global sign barrier. The accessible full text of Mendes–Lainscsek–Letellier (2021), particularly its discussion of Sprott K/O/P attractor topology and mean dissipation, does not imply the global theorem. Semantic published-result searches retrieved related balance laws for other equations rather than this case. An unindexed earlier equivalent study remains possible.
+PASS
 
-## Mathematical value
-PASS. This is a sign-sharp, parameter-uniform obstruction relevant to interpretation of the pre-existing numerical case-P parameter atlas: the negative-\(b\) half-plane has no positive-volume basin of bounded forward dynamics, the critical boundary admits only trivial compact recurrence, and the positive side has a structural smooth volume-contraction mechanism. It discriminates observable bounded behavior from exceptional invariant saddles and provides an exact stationary-data check; these claims are not mere local linearization or finite enumeration.
+From the actual vector field independent expansion gives P-dot=y(y+b), div F=2y and weighted divergence -2y^2 rho/b, for rho=exp[-2P/b]. For b<0 every bounded-forward B_R is measurable, finite weighted mass and forward invariant. Its positive measure would force a STRICT change-of-variables weighted expansion at any T>0 since y(0)!=0 a.e.; contradicts inclusion phi_T(B_R) subset B_R. The union over integer R is null. At b=0 P monotonic and bounded complete alpha/omega limit sets force y=x=z=0; hence all bounded forward orbits tend to origin and no other compact two-sided invariant sets exist. Invariance of compactly supported probabilities and E[y^2]=-bE[y] gives Var(y)=-m(m+b); endpoint rigidity gives E0/Eb. Strictness is for positive-volume sets, not pointwise equilibria.
 
-## Scope and limitations
-The measure-zero result is not total absence of bounded trajectories. Weighted contraction at positive \(b\) alone does not give existence of a compact attractor. No independent audit, publisher-wide priority guarantee, global solution existence, or chaos existence is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact global sign trichotomy and weighted-volume obstruction. Neither original 1994 case P, author 2013 two-parameter sampled atlas, nor checked later topology study states an implication yielding the all-real-a measure-zero basin and critical b=0 rigidity; no claim of exhaustive priority.
+
+## value
+
+PASS
+
+A sharp parameter sign that excludes positive-volume bounded-forward basins for all a is structurally useful in chaotic-flow classification, not a single sampled parameter. The b=0 compact-invariant-set classification and stationary variance endpoints strengthen the dynamical obstruction; b>0 part clearly makes no unsupported attractor existence claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

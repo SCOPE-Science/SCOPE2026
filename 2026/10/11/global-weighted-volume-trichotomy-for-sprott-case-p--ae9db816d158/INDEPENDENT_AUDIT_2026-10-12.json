@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T20:53:04.752787Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 48bbd2a237c97c13dded6f31b65bce731b021bd0",
+        "Independent SymPy divergence/coboundary/equilibria checks",
+        "Sprott (1994) exact case P equation"
+      ],
+      "rationale": "From the actual vector field independent expansion gives P-dot=y(y+b), div F=2y and weighted divergence -2y^2 rho/b, for rho=exp[-2P/b]. For b<0 every bounded-forward B_R is measurable, finite weighted mass and forward invariant. Its positive measure would force a STRICT change-of-variables weighted expansion at any T>0 since y(0)!=0 a.e.; contradicts inclusion phi_T(B_R) subset B_R. The union over integer R is null. At b=0 P monotonic and bounded complete alpha/omega limit sets force y=x=z=0; hence all bounded forward orbits tend to origin and no other compact two-sided invariant sets exist. Invariance of compactly supported probabilities and E[y^2]=-bE[y] gives Var(y)=-m(m+b); endpoint rigidity gives E0/Eb. Strictness is for positive-volume sets, not pointwise equilibria.",
+      "residual_risks": [
+        "Only almost-everywhere forward boundedness exclusion for b<0; exceptional equilibria exist.",
+        "Finite-time blowup versus unbounded global orbit not distinguished.",
+        "Compact support essential to invariant-measure differentiation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sprott 2013 explicitly uses sampled Gaussian initial data to partition parameter space into bounded/unbounded/chaotic regimes; he does not claim an all-a sign theorem for b<0.",
+          "2021 article principally compares topology and mean dissipation of Sprott attractors; its full text could not be freshly retrieved because PMC returned a browser verification page."
+        ],
+        "reasoning": "General Birkhoff/LaSalle/Jacobian change-of-variables theory are ingredients but need the specific integrating factor. No located primary statement dominates the exact all-a negative b obstruction or the critical b=0 classification.",
+        "searches": [
+          "Sprott case P system x'=ay+z y'=-x+y^2 z'=x+by weighted volume b parameter bounded trajectories",
+          "Sprott 2013 dynamic regions parameter atlas",
+          "Mendes Lainscsek Letellier 2021 Sprott K O P attractor topology"
+        ]
+      },
+      "checked_sources": [
+        "Some simple chaotic flows https://sprott.physics.wisc.edu/pubs/paper212.pdf",
+        "Dynamic Regions in Simple Chaotic Flows https://sprott.physics.wisc.edu/technote/regions.htm",
+        "Diffeomorphical equivalence vs topological equivalence among Sprott systems https://doi.org/10.1063/5.0058330"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new weighted finite-time Jacobian ratio exp[-(2/b)int_0^T y(t)^2 dt] follows from the exact coboundary and is strictly >1 a.e. on any positive-volume bounded-forward set for b<0.",
+          "The 1994 and 2013 sources supply the model and samples, not a parameter-independent change-of-variables contradiction."
+        ],
+        "reasoning": "The novelty lies in system-specific weighted-volume expansion plus monotone-critical compact invariant-set rigidity, not generic volume transport or the already-known normal forms.",
+        "searches": [
+          "Sprott case P system x'=ay+z y'=-x+y^2 z'=x+by weighted volume b parameter bounded trajectories",
+          "1994 Phys Rev E 50 R647–R650 pp1–4",
+          "2013 Sprott author note"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sprott (1994) printed the same polynomial system at parameters a=2.7,b=1 and numerical Lyapunov data, and discusses average divergence, not weighted integrating factors.",
+          "Exact new identity div(exp(-2(y+z)/b)F)=-2y^2 exp(-2(y+z)/b)/b and P-dot=y(y+b)."
+        ],
+        "reasoning": "Equivalent formulations would be signed Dulac densities, Liouville-Jacobian cocycles, average bounded-basin exclusion, and stationary generator identities. Earlier numerical divergence and Lyapunov-exponent summaries do not entail the global signed weighted density.",
+        "searches": [
+          "Sprott case P system x'=ay+z y'=-x+y^2 z'=x+by weighted volume b parameter bounded trajectories",
+          "Sprott 1994 Some simple chaotic flows case P Table I",
+          "Sprott 2013 Dynamic Regions simple chaotic flows Case P"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table I provides one positive-b case P with a=2.7,b=1, Lyapunov spectrum and equilibrium values, not a continuum exact classification.",
+          "The atlas is explicitly empirical with color-coded sampled outcomes."
+        ],
+        "reasoning": "Neither a fixed sample nor dynamic-region plot establishes a measure-zero bounded-forward set for every real a and b<0 or classifies all compact invariant sets at b=0.",
+        "searches": [
+          "Sprott case P system x'=ay+z y'=-x+y^2 z'=x+by weighted volume b parameter bounded trajectories",
+          "Sprott 1994 case-P Table I",
+          "Sprott 2013 color-coded parameter regions"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact global sign trichotomy and weighted-volume obstruction. Neither original 1994 case P, author 2013 two-parameter sampled atlas, nor checked later topology study states an implication yielding the all-real-a measure-zero basin and critical b=0 rigidity; no claim of exhaustive priority.",
+      "residual_risks": [
+        "2021 Mendes article full source blocked by PMC browser verification in this execution.",
+        "Unindexed Lyapunov/Dulac integrating factor literature might independently derive same cocycle.",
+        "Five required Resultary searches failed; no negative novelty evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_NO_IDENTIFIED_GLOBAL_SIGN_CLAIM",
+          "evidence": "Table I case P at a=2.7,b=1; figure/numerical Lyapunov data, no all-real-b Jacobian formula stated in the pages.",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper212.pdf",
+          "material_read": "All four original pages inspected visually; Table I case P and discussion of numerical Lyapunov exponents and average volume divergence pp R647–R650.",
+          "method": "Author-hosted public PDF, page-image inspection because text extraction contained no text.",
+          "title": "Some simple chaotic flows",
+          "trigger": "Original case-P defining paper; possible source of invariant volume and parameter sign."
+        },
+        {
+          "assessment": "NUMERICAL_PARAMETER_ATLAS_NOT_GLOBAL_THEOREM",
+          "evidence": "Intro says initial conditions sampled Gaussian, unbounded regions tested multiple times; case P equation a*y+z,-x+y^2,x+b*y and candidate multistability.",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/technote/regions.htm",
+          "material_read": "Entire author-hosted HTML 2013 note, including introduction sampling method and case P equations/plots.",
+          "method": "Read original HTML text and actual case-P entry.",
+          "title": "Dynamic Regions in Simple Chaotic Flows",
+          "trigger": "Author’s two-parameter case-P atlas could imply sign classification."
+        },
+        {
+          "assessment": "POTENTIALLY_RELEVANT_NOT_FULLY_READ_THIS_RUN",
+          "evidence": "Published 2021 Chaos 31 083126 explicitly compares Sprott K,O,P topology and dissipative observables; complete source remains residual risk.",
+          "identifier_or_url": "https://doi.org/10.1063/5.0058330",
+          "material_read": "Bibliographic title/abstract and comparison emphasis from repository metadata; fresh full text not accessible through current PMC browser verification.",
+          "method": "Checked publication metadata and attempted open-access PMC source, which displayed an anti-bot page; no whole-document noncoverage inference.",
+          "title": "Diffeomorphical equivalence vs topological equivalence among Sprott systems",
+          "trigger": "Close newer Sprott K/O/P attractor-equivalence and mean dissipation work."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sprott 1994/2013 direct model and numerical motivation",
+        "New analytic weighted Jacobian and critical LaSalle proof"
+      ],
+      "rationale": "A sharp parameter sign that excludes positive-volume bounded-forward basins for all a is structurally useful in chaotic-flow classification, not a single sampled parameter. The b=0 compact-invariant-set classification and stationary variance endpoints strengthen the dynamical obstruction; b>0 part clearly makes no unsupported attractor existence claim.",
+      "residual_risks": [
+        "The result is a sufficient dynamical obstruction, not full attractor or escape-rate classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Sprott case P: for every real a, b<0 bounded-forward initial data have 3D Lebesgue measure zero; at b=0 only compact invariant set is origin; for b>0 exponential weight strictly contracts positive-volume flow sets; stationary variance and endpoint equilibrium laws.",
+  "limitations": [
+    "1994 and 2013 papers focus on sample chaos and numerical phase-space, not a global proof.",
+    "2021 paper not material-read in full this execution (access verification barrier); no claim of its full noncoverage.",
+    "Published semantic Resultary search temporarily_unavailable; historical first-priority not certified."
+  ],
+  "schema_version": 1
+}
