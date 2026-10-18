@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The theorem is proved by preserving the truth values of every subformula at every retained world. The critical implication case has two directions: root falsity has a material counterexample among the selected witness worlds, while root truth excludes material counterexamples globally; at a nonroot world a false implication is witnessed by the root-selected counterexample and a true implication receives an empty row. Induction on formula structure completes the unrestricted argument. Closed axiom validity transfers because a closed formula has no atomic truth choices. NP membership uses a bound of one plus the number of distinct implication subformulas, and hardness reduces 3-SAT by requiring exactly one positive/negative literal atom of each pair to hold at the universally reflexive root.
+# Independent mathematical audit
 
-The provided `verify_fmt.py` program runs with unmodified Python 3 using only the standard library. Its finite test output was:
+## correctness
 
-```
-CHECK_OK compression_cases=1150 max_random_retained_worlds=4 distinct_witness_worlds=4 dualrail_instances=360
-```
+PASS
 
-The code checks the actual recursive semantics and compressed truth tables rather than simply comparing pre-recorded counts. Its random cases and finite dual-rail tests do not prove statements about arbitrary-size or infinite models; the proof supplies those quantifiers. No independent audit or external theorem certification is claimed. The 1992 original pure-necessitation full text and a full paper underlying Tominaga's 2026 abstract were unavailable for complete-text comparison; this leaves residual historical-priority uncertainty, not a gap in the stated induction.
+The universal root accesses every material counterexample: if an implication fails at any world it fails at the root. Retaining the root and at most one global counterexample per root-false syntactic implication, and replacing nonroot implication rows by empty or singleton rows depending on original truth, yields a simultaneous structural induction preserving all chosen subformulas at every retained world. Closed formulas are valuation-independent, so frame validation of fixed closed negative X transfers. Model size/relations are polynomial in input length; the dual-rail 3-SAT reduction uses root reflexivity to exclude inconsistent literal pairs, proving NP hardness for designated-root semantic satisfiability. The actual verify_fmt.py source was read; its reported random checks are not an infinite-model proof.
+
+## originality
+
+PASS
+
+Kurahashi–Noguchi's original FMT frame theorem proves a finite frame property using saturated tableaux, not the exact 1+|I(Γ)| world-retaining witness-star normal form nor a designated-root NP-completeness theorem. A recent modal pure-necessitation NP meeting abstract could overlap on complexity only; a syntactic translation between logics is not automatically an equivalence of these exact satisfaction problems.
+
+## value
+
+PASS
+
+A linear bound on original worlds while preserving truth at all retained points plus an explicit universal witness-star form and complexity classification materially sharpens finite frame existence and can support subsequent decision procedures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
