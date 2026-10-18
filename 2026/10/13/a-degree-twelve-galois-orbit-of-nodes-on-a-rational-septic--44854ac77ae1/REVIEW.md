@@ -1,15 +1,21 @@
-# Scientific review: arithmetic node orbit of a rational septic
+# Independent mathematical audit
 
-## Correctness — PASS
-The rational parametrization and its degree-seven implicit equation are connected by an exact resultant. The discriminant \(\operatorname{disc}_{x}(E)=3125y^4D(y)^2\), nonzero discriminant of \(D\), and the three Jacobian congruences establish precisely twelve finite ordinary nodes with distinct ordinates in characteristic zero and at every asserted good prime. The point at \(y=0\) is smooth; the infinity preimages give one ordinary node and one \((2,5)\) cusp. Irreducibility follows from a complete modular criterion modulo seven (not merely a sample factorization). The accompanying verifier replays the critical exact calculations. The proof states characteristic and rationality conventions explicitly.
+## correctness
 
-## Originality — PASS, with residual risk
-The originating paper proves nonextendability of the order-five Galois action and supplies the parametrization; it does not give the node-field polynomial, the irreducible degree-twelve Galois orbit, or the uniform reduction formula. Nearby literature on extension of Galois-point automorphisms concerns a different question. The assertion here excludes any claim of novelty for the already derivable geometric singularity basket. Searches for the exact polynomial, coordinate formula, node splitting field and finite-field form revealed no equivalent coverage. Search incompleteness and possible unindexed arithmetic calculations remain risks.
+PASS
 
-## Value — PASS
-These are natural arithmetic invariants of an established nonextendable Galois-point example. The result determines the residue field and entire Galois orbit of every noncentral node, settles whether any such node is rational over \(\mathbb Q\), and gives a single finite-degree polynomial test for all good-prime rational singular counts. The discriminant also gives an explicit, geometrically meaningful list of excluded characteristics. This is a complete field-of-definition statement for the reduced noncentral node scheme, not an arbitrary sample or a mere restatement of the genus formula.
+The original normalization nu([u:v])=[u v^6-u^7:u^5(u^2+v^2):v^5(u^2+v^2)] yields in chart Z=1 the resultant E(x,y)=x^5(y^2+1)+5x^4(y^3-y)+10x^3(y^4-y^2)+5x^2(2y^5-y^3+y)+5x(y^6+y^2)+y^7-y. Independently computed resultant verifies this equation with correct sign. Exact symbolic discriminant wrt x is 3125 y^4 D(y)^2, D(y)=y^12+15y^10+71y^8+84y^6+9y^4-3y^2-1, and disc(D)=-2^36*5^18*821^2. The polynomial D is irreducible mod7 by actual factorization (degree12), hence irreducible over Q; the package verifier independently supplies a Rabin gcd certificate over F7. With r(y)=y(17y^10+254y^8+1193y^6+1371y^4+134y^2-1)/40, independently reduced E(r,y), E_x(r,y), E_y(r,y) all to 0 modulo D, giving 12 ordinary double points forming one rational Galois orbit. The parameter-line unibranch singularity at Q of type (2,5) contributes delta=2; P and twelve noncentral nodes contribute 13, saturating rational septic arithmetic genus 15, so no additional geometric singularities. Away from characteristic 2,5,821, the same separability and local-intersection conditions persist: rational ordinary nodes count 1 plus roots(D mod p), including p=7 giving 1 and p=11 giving 3. No unclaimed splitting Galois group or exceptional-characteristic classification is inferred.
 
-## Closest literature and limitations
-Abouelsaad, arXiv:2302.00324v1, Theorem C/Lemma 5.2; Miura, arXiv:2302.00870v1, Sections 1–5. No full Galois closure group or prime-density table is asserted. Characteristics \(2,5,821\) are outside scope. An unindexed source or unpublished overlap is possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Abouelsaad arXiv:2302.00324v1 and the Glasgow Mathematical Journal full article state the rational septic parametrization and the Galois-point nonextension phenomenon (Theorem C and Lemma 5.2). The paper discusses bounds on singular-point multiplicity, not the explicit rational twelve-node arithmetic orbit, irreducible discriminant factor, nor the rational point counts over finite fields. These latter statements require a new discriminant/normalization calculation and irreducibility certificate; the original parametrization itself is credited. Search and relevant related SCOPE results concern different explicit curves and do not dominate this fixed-septic arithmetic description. Historical unindexed computations of this same septic remain possible.
+
+## value
+
+PASS
+
+The degree-12 orbit is a concrete exact arithmetic invariant of a natural nontrivial parametrized septic from Galois-point geometry. It identifies rational versus nonrational nodes and yields an exact finite-field rational-node counting law for all but three characteristics; the invariant is motivated independently of its polynomial computational complexity, and full splitting densities are not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
