@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For all integers \\(a,b\\ge2\\), the known transfer-current determinantal theorem gives covariance entries from \\(K=B^{\\mathsf T}L^+B\\). Decomposing the bipartite vertex Laplacian into its left/right zero-sum and partition-contrast eigenspaces gives \\(K_{(i,j),(k,\\ell)}=\\mathbf1_{\\{i=k\\}}/b+\\mathbf1_{\\{j=\\ell\\}}/a-1/(ab)\\). Directly squaring its off-diagonal entries yields four covariance orbits. Exact orthogonal row/column/interaction projectors reproduce the entire operator, giving its rank, eigenvalues, all-weight variance, linear-degree projection residual, and sharp bounds. The proof checks the boundary \\(a=b=2\\) and dimension/multiplicity accounting. A standalone rational verifier exhausts six parameter cases (4657 trees; 597 covariance entries and 2388 projector checks), not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Burton–Pemantle: finite-graph transfer-current determinant implies all pairwise edge inclusion probabilities but does not state the K_{a,b} spectral diagonalization or sharp ANOVA variance bounds.",
+        "Klee–Stamps Theorem 3: complete-multipartite tree enumerator when edge weight is vertex-factorized \\(x_i x_j\\), not the cost-variance quadratic form for arbitrary independent edge-cost coordinates.",
+        "Rapoport: general random-tree edge and degree correlation formulation, but reviewed accessible introduction emphasizes degree fields and complete-graph/lattice examples."
+      ],
+      "reasoning": "General transfer-current and weighted-matrix-tree formulas are stronger as computation frameworks but do not assert a graph-parameter explicit four-mode eigenspectrum or all-cost sharp bounds. The evaluated spectral classification is not inferred merely by substituting a scalar or changing the name of a general theorem. General degree-field formulas do not identify the edge-array interaction eigenspace.",
+      "searches": [
+        "Edge-inclusion determinantal point process in complete bipartite graph: transfer current covariance K Hadamard (I-K), spectral diagonalization and condition number.",
+        "https://arxiv.org/abs/math/0404048",
+        "https://arxiv.org/abs/1903.03575",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12535553/"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0404048",
+      "https://sites.cs.ucsb.edu/~omer/DOWNLOADABLE/multipartite94.pdf",
+      "https://arxiv.org/abs/1903.03575",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12535553/",
+      "2026/10/11/SCOPE-balanced-anomaly-in-the-minkowski-asymmetry-of-complete-bipartit--d8f52c73c4c4",
+      "2026/10/11/SCOPE-laplacian-spectrum-and-tree-complexity-of-complete-bipartite-sym--3feaadaf9c02",
+      "2026/10/4/SCOPE-quasipolynomial-spanning-tree-type-counts-for-fixed-side-complet--b5a027c78a65"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Burton–Pemantle proves a determinant formula for all finite-graph edge events; the present proof uses it, then derives a new explicit projector identity.",
+        "Eğecioğlu–Remmel section 4 evaluates weights tracking vertex degrees and a multipartite enumerator, not independent edge costs or their full covariance eigenspaces.",
+        "Klee–Stamps applies the matrix-tree theorem to factorized edge weights; its multivariate degree generating formulas are not a direct formula for the spectral extrema of arbitrary edge-cost weights.",
+        "Rapoport furnishes general degree fields; no matching evaluated complete-bipartite covariance spectrum appears in the accessible inspected material."
+      ],
+      "reasoning": "The known DPP kernel strictly covers individual edge-membership marginals, which are therefore excluded from the originality claim. All-size spectral eigenvalues and the sharp condition-number/projection statements require a model-specific representation-theoretic decomposition of the resulting covariance matrix, rather than a direct restatement of a prior numerical table. Coverage through a less accessible paper remains possible and is recorded as a risk.",
+      "searches": [
+        "https://arxiv.org/abs/math/0404048",
+        "https://sites.cs.ucsb.edu/~omer/DOWNLOADABLE/multipartite94.pdf",
+        "https://arxiv.org/abs/1903.03575",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12535553/",
+        "Random spanning tree bipartite variance of weighted sum of selected edges exact ANOVA decomposition and equality cases."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Burton–Pemantle section 4 gives determinants of transfer-current submatrices for edge-set probabilities, with a general finite-graph argument; it does not evaluate this specific covariance spectrum.",
+        "The four explicit eigenspaces distinguish a variance operator on the ab individual edge indicators from the a+b vertex Laplacian eigenvalues.",
+        "Exact-phrase spectrum searches yielded no directly matching K_{a,b} edge-indicator eigenvalue table."
+      ],
+      "reasoning": "The quadratic form of all deterministic costs is an equivalent formulation of the edge-indicator covariance spectrum. A general edge probability determinant is not an evaluated spectrum or sharp classification of all costs; evaluating and diagonalizing the Hadamard-square edge kernel is required. A coincidentally named Laplacian spectrum of another graph is not the same object.",
+      "searches": [
+        "Uniform spanning tree of complete bipartite graph K_{a,b}: exact eigenvalues of covariance matrix of all edge-incidence indicators, multiplicities (a-1)(b-1), a-1,b-1, sharp variance of additive tree edge costs and row-column interactions.",
+        "Edge-inclusion determinantal point process in complete bipartite graph: transfer current covariance K Hadamard (I-K), spectral diagonalization and condition number.",
+        "\"spanning tree\" \"covariance matrix\" \"spectrum\" \"bipartite\"",
+        "https://arxiv.org/abs/math/0404048"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus hit 2026/10/11/SCOPE-balanced-anomaly-in-the-minkowski-asymmetry-of-complete-bipartit--d8f52c73c4c4 concerns Minkowski asymmetry of the complete-bipartite spanning-tree polytope, not covariance of random edge membership.",
+        "Closest published-finding corpus hit 2026/10/11/SCOPE-laplacian-spectrum-and-tree-complexity-of-complete-bipartite-sym--3feaadaf9c02 concerns Laplacian spectrum of a symmetric edge polytope, not the covariance of a sampled spanning tree.",
+        "Closest published-finding corpus hit 2026/10/4/SCOPE-quasipolynomial-spanning-tree-type-counts-for-fixed-side-complet--b5a027c78a65 counts unlabeled tree types at a fixed small bipartite side, not covariance spectra or cost-variance bounds."
+      ],
+      "reasoning": "Exact model, statistic, and implication were compared for accessible closest entries. None of these retrieved records supplies the eigenvalue table for the covariance operator of the ab edge indicators, nor a stronger all-cost variance identity. An index search cannot establish uniqueness.",
+      "searches": [
+        "Uniform spanning tree of complete bipartite graph K_{a,b}: exact eigenvalues of covariance matrix of all edge-incidence indicators, multiplicities (a-1)(b-1), a-1,b-1, sharp variance of additive tree edge costs and row-column interactions.",
+        "Edge-inclusion determinantal point process in complete bipartite graph: transfer current covariance K Hadamard (I-K), spectral diagonalization and condition number.",
+        "Random spanning tree bipartite variance of weighted sum of selected edges exact ANOVA decomposition and equality cases.",
+        "2026/10/11/SCOPE-balanced-anomaly-in-the-minkowski-asymmetry-of-complete-bipartit--d8f52c73c4c4",
+        "2026/10/11/SCOPE-laplacian-spectrum-and-tree-complexity-of-complete-bipartite-sym--3feaadaf9c02",
+        "2026/10/4/SCOPE-quasipolynomial-spanning-tree-type-counts-for-fixed-side-complet--b5a027c78a65"
+      ]
+    },
+    "rationale": "The assessed claim is the fully evaluated four-eigenspace covariance spectrum for edge membership in uniform bipartite spanning trees, and the resulting sharp variance and degree-linear-projection geometry for every cost matrix. Pairwise transfer-current covariance identities and vertex-degree generating functions are attributed and not asserted as new. Exact statement/implication comparisons of accessed principal sources found no asserted identical or dominating evaluated all-weight spectrum. Possible implicit historical derivations remain a residual risk.",
+    "residual_risks": [
+      "A general transfer-current formula makes the evaluated result derivable with additional computation; an earlier explicit diagonalization may have been published without matching searchable keywords.",
+      "The accessible Rapoport material was not inspected cover to cover; it cannot support a global assertion that the full article omits the result.",
+      "Priority and scientific validation beyond this self-review have not been independently established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides foundational edge-event determinant used in the proof; no evaluated complete-bipartite edge covariance eigenspectrum was found in inspected sections.",
+        "evidence": [
+          "Theorem 1.1 transfer current for finite graph; section 4 theorem and corollary 4.4 on inclusion and exclusion events; section 4 finite-graph treatment."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0404048",
+        "material_read": "Full accessible HTML introduction and theorem 1.1, section 4 transfer-impedance derivation and corollary 4.4, finite-graph discussion.",
+        "method": "Read the primary open preprint HTML and locate the determinantal statement, finite-graph extension, and explicit examples.",
+        "title": "Local Characteristics, Entropy and Limit Theorems for Spanning Trees and Domino Tilings via Transfer-Impedances",
+        "trigger": "Primary transfer-current theorem determining all finite-graph UST edge inclusion marginals."
+      },
+      {
+        "assessment": "Counts multipartite spanning trees and gives degree-weight generating functions; no arbitrary-edge-cost covariance diagonalization occurs in the inspected relevant section.",
+        "evidence": [
+          "Introduction equation (1); weight-generating section 4 and degree generating specialization around pages 10–11."
+        ],
+        "identifier_or_url": "https://sites.cs.ucsb.edu/~omer/DOWNLOADABLE/multipartite94.pdf",
+        "material_read": "Pages 1–2 visually and parsed introduction/weight-generating section 4 on pages 8–11, including the degree-generating specialization.",
+        "method": "Read primary PDF text with relevant rendered page screenshots, comparing exact weighted observables.",
+        "title": "A Bijection for Spanning Trees of Complete Multipartite Graphs",
+        "trigger": "Same complete-bipartite and more general complete-multipartite spanning-tree models; potential degree-statistic coverage."
+      },
+      {
+        "assessment": "Weights on graph edges have special form \\(x_i x_j\\), tracking vertex degrees; exact edge-indicator spectral variance for arbitrary fixed edge cost arrays is not stated in inspected main theorem.",
+        "evidence": [
+          "Introduction lines declaring the x_i x_j restriction; Theorem 3 complete multipartite tree enumerator."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1903.03575",
+        "material_read": "Accessible arXiv full HTML introduction, weighted matrix-tree theorem, section 2 and Theorem 3.",
+        "method": "Read primary HTML, inspect weight factorization and scope of Theorem 3.",
+        "title": "Linear algebraic techniques for weighted spanning tree enumeration",
+        "trigger": "Closest multivariate matrix-tree enumerator on complete multipartite graphs."
+      },
+      {
+        "assessment": "Treats the general edge/degree field through fermionic identities; no directly matching bipartite all-edge covariance spectrum in material read, but unseen sections remain priority risk.",
+        "evidence": [
+          "Introduction and stated degree-field aims; Theorems 3.7/4.2 descriptions; complete graph and lattice example descriptions."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12535553/",
+        "material_read": "Accessible PMC HTML abstract and detailed introduction, including identified Theorems 3.7 and 4.2; not a full-document exclusion inspection.",
+        "method": "Read available open journal HTML introduction and scope of joint degree results.",
+        "title": "Correlations in Uniform Spanning Trees: a Fermionic Approach",
+        "trigger": "Recent stronger general UST edge and degree correlation formalism."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "10dc2302-8543-4756-9a1a-b8ede8171655",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sample-dependent cost of a uniform spanning tree is a fundamental linear network statistic. The theorem evaluates its variance for every real cost array, shows exactly which uncertainties are visible to vertex degree counts and what remains orthogonal, and provides sharp optimal/worst-case variance directions. The spectral condition number separates balanced from highly unbalanced bipartite networks, giving interpretable structural information rather than a generic pairwise probability or an arbitrary small numeric special case.",
+    "status": "PASS"
+  }
+}
