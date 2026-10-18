@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and SymPy 1.14. All entries in the degree-one through degree-four coefficient matrices of the Jacobian map are computed exactly in \(\mathbb Q[t]\), then separated by parity and reduced to Smith normal form. The printed nonunit invariant factors are asserted against the supplied complete factor list, including zero-diagonal multiplicities; because Smith row and column transformations are unimodular over \(\mathbb Q[t]\), they preserve rank under every complex parameter specialization. The code also checks two explicit Jacobian relations, all four line-restriction discriminants, and conic passage through the square vertices. The independent geometry argument counts every singularity by pairwise component intersections and Bézout. No numerical sampling is substituted for the parameter-uniform rank proof.
+## correctness
 
-For the generic fiber, the relation spaces in degrees \(1,2,3,4\) have dimensions \(0,0,0,4\). For \(t=8\), they have dimensions \(0,0,3,8\). For \(t=16\), they have dimensions \(0,1,3,8\). These dimensions and the geometry establish the claimed minimal Jacobian degree and Tjurina values; the published near-free criterion is an external mathematical theorem, not proved by the checker.
+PASS
 
-The calculation is over characteristic zero. It does not address the reducible quadratic at \(t=0\), arbitrary conic deformations, or the exhaustion of the world literature.
+For every complex t≠0 the line restrictions have discriminant 8(t−8), finite vertices lie on the conic only at t=16, and the conic misses line intersections at infinity. Bézout and local analytic singularity normal forms therefore give generic 14A1 (τ=14), t=8 6A1+4A3 (τ=18), t=16 2A1+4D4 (τ=18). An independently built Q[t] coefficient matrix for the Jacobian maps in degrees 1–4 was Smith-reduced by four exponent-parity blocks: d=2 exceptional t−16; d=3 exceptional t−8/t−16; d=4 generic kernel dimension four and only these additional specializations for t≠0. This certifies mdr 4/3/2 uniformly, not from finite t-samples. Applying Gałecka Theorem 3.2 yields exactly t=8,16 nearly-free and no free member. The t=0 reducible-conic boundary is explicitly excluded.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality is the complete smooth concentric-square pencil classification including a second nearly-free tacnodal fiber t=8 and uniform generic mdr=4, not the Gałecka t=16 fiber or her near-free numerical criterion. The inspected original §5.4 presents the latter single special member. The independent Smith-specialization proof supplies the genuinely missing family statement. An unindexed historical computation remains possible.
+
+## value
+
+PASS
+
+An exhaustive classification of the near-free locus in a geometrically canonical concentric conic pencil is structurally motivated: the inscribed tangential conic and the circumscribed triple-point conic are distinct degenerations with different syzygy orders. The uniform classification eliminates every other smooth member and distinguishes free from nearly-free; it is not a bare substitution of the known example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

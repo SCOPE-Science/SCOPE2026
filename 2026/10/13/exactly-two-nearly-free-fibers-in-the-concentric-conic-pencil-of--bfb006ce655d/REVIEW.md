@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The scope is the reduced complex degree-six curve of one fixed smooth conic and four fixed lines, with all parameters \(t\ne0\). Restriction to each line has discriminant \(8(t-8)\), and the four finite line vertices lie on the conic exactly at \(t=16\). The distinct line intersections and all eight line–conic intersections are exhausted by this calculation and Bézout; the resulting singularity baskets have total Tjurina numbers \(14,18,18\). Exact Smith normal forms of all four homogeneous Jacobian maps through degree four, computed over \(\mathbb Q[t]\), prove uniformly that the minimal relation degree is \(4,3,2\) off and at the two special points. The standalone exact checker rederives the source matrices, tests all nonunit factors and both explicit syzygies. Applying Gałecka's quoted degree-six numerical characterization yields near freeness at precisely \(8,16\), and the standard free-curve exponent/Tjurina constraints exclude freeness. No generic-specialization shortcut, finite sampling, or unchecked degree range substitutes for a proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Gałecka's primary full text, §5.4, already states the \(t=16\) arrangement, its four triple points and two nodes, minimal relation degree two, and near freeness: none of that is claimed separately as a new special-case result. The new full-pencils theorem additionally identifies the other, tacnodal near-free fiber at \(t=8\) with exponents \((3,3)\), the 14-node complement, and the complete parameter-uniform Jacobian jump set. The other inspected primary literature gives general freeness results, not an implication covering the whole pencil. Semantic searches of published mathematical records with the formula, incircle/circumcircle aliases, singularity counts and syzygy degrees found no equivalent statement; comparisons against nearby conic-line records show different component degrees/configurations. Search failure is not proof of priority. Unindexed thesis material and calculations not exposed in abstracts or searchable text remain genuine risks, but no uncovered dominating theorem has been identified.
+PASS
 
-## Value — PASS
-The two exceptional parameter values are forced by an intrinsic and motivated square geometry: the inradius and circumradius correspond to two different local singularity mechanisms, but both give the same Tjurina number and distinct minimal syzygy degrees and exponents. Classifying the entire smooth pencil answers whether Gałecka's previously exhibited near-free configuration is isolated inside this deformation; it is not, yet there are exactly two special fibers. The full rank-jump calculation also identifies the generic non-nearly-free region and excludes further near-free parameters, more than a single isolated or numerically accidental example.
+For every complex t≠0 the line restrictions have discriminant 8(t−8), finite vertices lie on the conic only at t=16, and the conic misses line intersections at infinity. Bézout and local analytic singularity normal forms therefore give generic 14A1 (τ=14), t=8 6A1+4A3 (τ=18), t=16 2A1+4D4 (τ=18). An independently built Q[t] coefficient matrix for the Jacobian maps in degrees 1–4 was Smith-reduced by four exponent-parity blocks: d=2 exceptional t−16; d=3 exceptional t−8/t−16; d=4 generic kernel dimension four and only these additional specializations for t≠0. This certifies mdr 4/3/2 uniformly, not from finite t-samples. Applying Gałecka Theorem 3.2 yields exactly t=8,16 nearly-free and no free member. The t=0 reducible-conic boundary is explicitly excluded.
 
-## References and boundaries
-Primary: A. Gałecka, arXiv:2204.13969, §§2–3 and 5.4; DOI 10.1007/s40590-022-00461-4. Secondary: A. Dimca and P. Pokora, DOI 10.1007/s10801-022-01116-3. Verification: embedded `verify.py`, exact polynomial identities and Smith invariant factors. The claim is characteristic zero, excludes the reducible-conic parameter \(t=0\), and does not classify arbitrary conic-line arrangements. The originality conclusion retains risk from unindexed prior calculations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality is the complete smooth concentric-square pencil classification including a second nearly-free tacnodal fiber t=8 and uniform generic mdr=4, not the Gałecka t=16 fiber or her near-free numerical criterion. The inspected original §5.4 presents the latter single special member. The independent Smith-specialization proof supplies the genuinely missing family statement. An unindexed historical computation remains possible.
+
+## value
+
+PASS
+
+An exhaustive classification of the near-free locus in a geometrically canonical concentric conic pencil is structurally motivated: the inscribed tangential conic and the circumscribed triple-point conic are distinct degenerations with different syzygy orders. The uniform classification eliminates every other smooth member and distinguishes free from nearly-free; it is not a bare substitution of the known example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
