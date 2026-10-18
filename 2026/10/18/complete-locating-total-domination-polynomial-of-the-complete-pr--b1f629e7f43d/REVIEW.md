@@ -1,0 +1,11 @@
+# Scientific review: complete-prism locating-total domination
+
+**Correctness (PASS).** The proof starts from the explicit matched-clique adjacency, checks every open-neighborhood signature and total-domination boundary for zero, one, or at least two selected vertices per layer, and derives an if-and-only-if characterization. That characterization gives the generating polynomial by represented-column counting, two provably disjoint correction families when \(n\ge4\), and exact small-order evaluations. The minimum size and multiplicities follow from a sharp one-empty-column argument. A standalone graph-based enumerator has checked \(349{,}520\) subsets for \(2\le n\le9\); no finite check is presented as an infinite proof.
+
+**Originality (PASS, with residual risk).** The 2012 founding study discusses locating-total domination and the triangular-prism special case; the 2022 source proves a general cobipartite upper bound rather than this exact labeled-set distribution. The 2019 graph-operations treatment does not give this matched-prism formula in the relevant accessible sections. A 2026 article's abstract claims a generating function for graph joins, while the complete prism is not a nontrivial join for \(n\ge3\). Its inaccessible full text is a named bibliographic risk. Closest mathematical records on the same graph concern Roman domination, mixed metric dimension, or the Morse complex; none establishes this locating-total polynomial. Searches and comparisons are evidence against known coverage, not absolute uniqueness guarantees.
+
+**Value (PASS).** This is a natural exact enumerator for the line graph of \(K_{2,n}\), with a complete structural code classification, all cardinalities, a sharp minimum threshold at width five, and exact counts of optimal monitoring sets. The full distribution is not implied by the previously available half-order bound or by a single minimum-value calculation.
+
+**Scientific limits.** The general Cartesian product of two complete graphs with both factors larger than two is not treated. The finite verifications do not certify the quantified proof, and equivalent inaccessible or unindexed publications cannot be ruled out. This is not independent scientific validation.
+
+Self-review: passed. Independent audit: not yet performed.
