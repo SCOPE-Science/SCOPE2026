@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Computational verification and proof limits
+# Independent mathematical audit
 
-The standalone `verify.py` uses only Python 3 and the standard library. Running `python3 verify.py` in the containing directory produced exactly:
+## correctness
 
-```text
-VERIFY_OK dual_faces=6426 dual_rotations=186 mod2_betti=12 direct_cut_actions=42
-```
+PASS
 
-It enumerates all Alexander-dual faces for \(p=2,3,4\) and four consecutive allowed vertex counts beginning at \(n=6p-3\); calculates signs of invariant oriented faces for all nonidentity rotations; computes \(H^1\) ranks by independent exact mod-two boundary elimination; and checks top-homology Lefschetz numbers directly from **ordinary** three-cut simplices for \((n,p)=(9,2),(10,2),(11,2),(12,2)\). It also checks rational character arithmetic for \(2\le p\le6\) and eighteen consecutive valid vertex counts for each value of \(p\).
+Using the ordinary disconnected-triple definition, the Alexander dual is exactly the complex of subsets with at most one nonneighbor per vertex. Published shellability gives β=1+n(n−4p−1)/2 and concentration at n−4; equivariant Alexander duality supplies permutation sign. For rotations of order ≥3, an orbit provides two nonneighbors beyond p (including m=4); the half-turn fixes only antipodal edges, each contributing +1 to the Lefschetz count. Formula and rational induced decomposition follow. Independently constructed dual faces for n=9,10,11 p=2 give β=1,6,12 and half-turn trace -4 for n=10. All parameter and orientation edge cases checked.
 
-Finite checks support the claimed formula only for the tested cases and are not a proof for arbitrary parameters. The universal proof in `RESULT.md` uses an explicit all-order orbit argument, the equivariant Alexander-dual sign, and the published non-equivariant shellability result [arXiv:2603.23155v1, Theorem 1.4]. It does not provide an integral-lattice decomposition, a dihedral reflection character, or an independent replication of the source's lengthy shelling proof.
+## originality
+
+PASS
+
+Novelty assessed as the cyclic character over all p≥2 and n≥6p−3, not the previously established wedge count or isolated p=2 topology. Primary theorems used as inputs and closest unpowered equivariant results were checked by exact graph/parameter matching.
+
+## value
+
+PASS
+
+Full cyclic representation for an infinite natural family is a substantive refinement of nonequivariant sphere multiplicity, with the exceptional half-turn correction and induced rational summand useful for equivariant topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
