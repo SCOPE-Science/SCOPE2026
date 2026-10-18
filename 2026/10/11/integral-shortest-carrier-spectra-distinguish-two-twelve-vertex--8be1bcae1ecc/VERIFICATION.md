@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,37 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` embeds the two complete \(66\)-facet presentations and uses only the Python standard library.
+# Independent mathematical audit
 
-For each complex it reconstructs
-\[
-f=(12,57,148,165,66).
-\]
-Unimodular reduction of the integral triangle-to-edge boundary map yields rank \(46\), leaving a rank-\(102\) integral \(2\)-cycle lattice. Expressing tetrahedral boundaries in that lattice and reducing again gives a primitive rank-\(100\) sublattice, so
-\[
-H_2\cong\mathbb Z^2.
-\]
+## correctness
 
-Every four-vertex subset is then exhausted. Exactly \(72\) induced tetrahedral boundaries are missing three-simplices in each complex, and all \(144\) boundaries across the pair have nonzero primitive integral coordinates.
+PASS
 
-Up to sign, the exact integral spectra are
-\[
-33,33,3,3
-\]
-for \(\mathbb{CP}^{2}\#\mathbb{CP}^{2}\), and
-\[
-33,33,6
-\]
-for \(\mathbb{CP}^{2}\#-\mathbb{CP}^{2}\).
+Both exact labelled 12-vertex facet sets have face vector (12,57,148,165,66). Independently executed inspected verify.py: integral boundary d2 rank 46 with unimodular identity reduction; 102 integral 2-cycle coordinates, d3 rank 100 with unit diagonal and zero remainder, hence H2=Z^2. All binomial(12,4)=495 four-vertex supports enumerated for each triangulation; exactly 72 induced missing tetrahedral boundary spheres give primitive nonzero H2 classes. Computed up-to-sign integral multiplicities CP2#CP2=33,33,3,3 versus CP2#(-CP2)=33,33,6; both mod2=33,33,6. Lower supports cannot be nonzero simplicial 2-cycles. This proves finite exhaustive results only, not smooth minimal area.
 
-Reducing the same exact coordinate vectors modulo two yields
-\[
-33,33,6
-\]
-for both complexes.
+## originality
 
-Exact successful output:
+PASS
 
-`VERIFY_OK f_both=12,57,148,165,66 H2_Z=Z^2 min_vertex_support=4 carriers=72_each all_primitive=yes integral_spectra=33,33,3,3|33,33,6 mod2_spectra=33,33,6|33,33,6 reps_pp=1236|1359|1239|56710 reps_pm=1234|12310|12410`
+Best-of-knowledge original mathematical claim; matches no implication-equivalent inspected primary/published comparison; detailed risks remain.
+
+## value
+
+PASS
+
+A complete integral carrier census of two natural minimal triangulations exposes a homology-spectrum distinction lost after reduction mod 2, despite identical f-vectors, 72 minimum carriers and mod2 spectra. It is an exact natural combinatorial-topology invariant independently useful for distinguishing integral orientation effects, rather than arbitrary parameter sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

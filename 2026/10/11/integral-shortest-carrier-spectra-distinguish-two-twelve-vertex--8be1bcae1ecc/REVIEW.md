@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Both exact facet lists are reconstructed independently. Integral unimodular chain reduction proves \(H_2\cong\mathbb Z^2\) in each case. Exhaustion of all \(495\) four-vertex sets gives exactly \(72\) minimum carriers per complex, and every carrier is checked to be nonzero and primitive. The integral and mod-two multiplicity spectra are exact.
+## correctness
 
-## Originality
-PASS. The primary exact-object source supplies existence, topology, common face vector, and ambient homology, while the exact data source supplies the facets. A broader smooth embedded-sphere theorem was also inspected. None of these statements implies or states the finite minimum-support spectra. Focused searches using both topology names, support terminology, and the numerical fingerprints found no covering published statement. An unindexed historical computation remains a residual risk.
+PASS
 
-## Value
-PASS. This is a comparative structural invariant at the first possible support size: the two complexes have identical \(f\)-vectors and identical mod-two minimum spectra, but their integral lift spectra differ. The result therefore detects integral combinatorial structure that both face numbers and mod-two homology miss.
+Both exact labelled 12-vertex facet sets have face vector (12,57,148,165,66). Independently executed inspected verify.py: integral boundary d2 rank 46 with unimodular identity reduction; 102 integral 2-cycle coordinates, d3 rank 100 with unit diagonal and zero remainder, hence H2=Z^2. All binomial(12,4)=495 four-vertex supports enumerated for each triangulation; exactly 72 induced missing tetrahedral boundary spheres give primitive nonzero H2 classes. Computed up-to-sign integral multiplicities CP2#CP2=33,33,3,3 versus CP2#(-CP2)=33,33,6; both mod2=33,33,6. Lower supports cannot be nonzero simplicial 2-cycles. This proves finite exhaustive results only, not smooth minimal area.
 
-## Closest literature and limitations
-The closest exact-object source is Lutz's Proposition 42 and linked facet data. Luo's smooth representability theorem is broader in ambient topology but does not control simplicial support. The result is specific to the two published labelled triangulations and does not classify larger supports or minimal-genus surfaces.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original mathematical claim; matches no implication-equivalent inspected primary/published comparison; detailed risks remain.
+
+## value
+
+PASS
+
+A complete integral carrier census of two natural minimal triangulations exposes a homology-spectrum distinction lost after reduction mod 2, despite identical f-vectors, 72 minimum carriers and mod2 spectra. It is an exact natural combinatorial-topology invariant independently useful for distinguishing integral orientation effects, rather than arbitrary parameter sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
