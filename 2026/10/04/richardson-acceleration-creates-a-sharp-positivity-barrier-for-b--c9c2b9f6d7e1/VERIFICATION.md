@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-`verify.py` uses exact rational arithmetic for the finite algebraic checks.
 
-For integer refinement factors it constructs
-\[
-B_1(z)=\frac1{1+z},
-\qquad
-B_r(z)=\left(1+\frac zr\right)^{-r},
-\qquad
-R_r(z)=\frac{rB_r(z)-B_1(z)}{r-1},
-\]
-and checks the constant, linear, and quadratic Taylor coefficients \(1\), \(-1\), and \(1/2\).
+# Independent mathematical audit
 
-For \(r=2\), it verifies the exact numerator identity and checks that the sign transition is the positive root of
-\[
--z^2+4z+4=0.
-\]
-It also performs independent rational bisection checks of the unique sign transition for several refinement factors and confirms the comparison criterion against the exact integer-power expression.
+## correctness
 
-The universal uniqueness proof and the asymptotic formula
-\[
-z_r=\log r+\log\log r+o(1)
-\]
-are analytic and appear in RESULT.md. The finite replay is corroborative only.
+PASS
+
+For every integer r>=2, the frozen RESULT.md constructs B_1=(1+z)^-1, B_r=(1+z/r)^-r, and R_r=(r B_r-B_1)/(r-1). Expansion gives order two; F_r=(1+z/r)^r/(1+z) has (log F_r)'=((r-1)z)/((r+z)(1+z))>0 on z>0, F_r(0)=1<r and F_r→infinity, so precisely one sign transition. Direct rational R_2 simplification gives z_2=2+2sqrt2. Root bound log r<z_r<2 log r (large r) yields z_r=log r+log log r+o(1). Independent exact Fraction computations confirmed the R_2 algebra at 12 sample integers and bisection roots for r=2,3,4,5,8,16,32,64; finite checks are not the universal proof.
+
+## originality
+
+PASS
+
+The original Constantinescu–Sandu paper constructs Aitken–Neville extrapolation from Euler substeps and studies linear stability, but its inspected Section 2, equations (2.1)–(2.6), do not give the nonnegativity threshold or log/loglog refinement asymptotics. Resultary query found the subject record and distinct BDF2/stagewise Richardson results, not an implication-equivalent positivity classification.
+
+## value
+
+PASS
+
+A well-motivated and explicit obstruction to preserving positivity when accelerating a positivity-preserving stiff integrator; the complete sign interval for all r and logarithmic refinement scaling quantify a natural qualitative limitation beyond routine second-order calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

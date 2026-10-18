@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T06:14:58.936503Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/04/richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1/RESULT.md",
+        "2026/10/04/richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1/VERIFICATION.md",
+        "2026/10/04/richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1/verify.py"
+      ],
+      "rationale": "For every integer r>=2, the frozen RESULT.md constructs B_1=(1+z)^-1, B_r=(1+z/r)^-r, and R_r=(r B_r-B_1)/(r-1). Expansion gives order two; F_r=(1+z/r)^r/(1+z) has (log F_r)'=((r-1)z)/((r+z)(1+z))>0 on z>0, F_r(0)=1<r and F_r→infinity, so precisely one sign transition. Direct rational R_2 simplification gives z_2=2+2sqrt2. Root bound log r<z_r<2 log r (large r) yields z_r=log r+log log r+o(1). Independent exact Fraction computations confirmed the R_2 algebra at 12 sample integers and bisection roots for r=2,3,4,5,8,16,32,64; finite checks are not the universal proof.",
+      "residual_risks": [
+        "Extrapolation monotonicity/SSP literature is extensive; an unindexed equivalent scalar sign threshold remains possible.",
+        "Stated result is only scalar two-level positivity, not a nonlinear SSP coefficient."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known extrapolation and stability theory applies to more tableaux and ODE systems, but the inspected general theory provides no theorem transferring |R|<=1 to sign positivity on positive scalar decay."
+        ],
+        "reasoning": "No inspected stronger theorem subsumes z_r’s unique root and refinement asymptotic.",
+        "searches": [
+          "Resultary query: Richardson extrapolation backward Euler positivity threshold two levels refinement r negative stiff decay sign radius logarithm log r log log r",
+          "https://web.cels.anl.gov/~emconsta/Repository/Papers/Constantinescu_2010a.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://web.cels.anl.gov/~emconsta/Repository/Papers/Constantinescu_2010a.pdf",
+        "https://epubs.siam.org/doi/10.1137/080732833",
+        "Resultary: Richardson extrapolation backward Euler positivity threshold two levels refinement r negative stiff decay sign radius logarithm log r log log r",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equations (2.1)–(2.6) of Constantinescu–Sandu imply the combination formula; the sign bound additionally requires monotonicity of F_r and the asymptotic estimates."
+        ],
+        "reasoning": "Prior construction does not entail the exact root law without new analysis.",
+        "searches": [
+          "Resultary query: Richardson extrapolation backward Euler positivity threshold two levels refinement r negative stiff decay sign radius logarithm log r log log r",
+          "https://web.cels.anl.gov/~emconsta/Repository/Papers/Constantinescu_2010a.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Potential aliases are scalar nonnegativity/stability-function sign and absolute-monotonicity terminology. The source determines R_r analytically, but linear stability |R|<=1 is logically distinct from positivity R>=0."
+        ],
+        "reasoning": "The paper gives the Aitken–Neville combination, not an if-and-only-if scalar positivity threshold.",
+        "searches": [
+          "Resultary query: Richardson extrapolation backward Euler positivity threshold two levels refinement r negative stiff decay sign radius logarithm log r log log r",
+          "https://web.cels.anl.gov/~emconsta/Repository/Papers/Constantinescu_2010a.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The root at r=2 is obtained from -z^2+4z+4; no matching published threshold table for every r was observed."
+        ],
+        "reasoning": "This is not a lookup of stability regions or bounded experiments.",
+        "searches": [
+          "Resultary query: Richardson extrapolation backward Euler positivity threshold two levels refinement r negative stiff decay sign radius logarithm log r log log r",
+          "https://web.cels.anl.gov/~emconsta/Repository/Papers/Constantinescu_2010a.pdf"
+        ]
+      },
+      "rationale": "The original Constantinescu–Sandu paper constructs Aitken–Neville extrapolation from Euler substeps and studies linear stability, but its inspected Section 2, equations (2.1)–(2.6), do not give the nonnegativity threshold or log/loglog refinement asymptotics. Resultary query found the subject record and distinct BDF2/stagewise Richardson results, not an implication-equivalent positivity classification.",
+      "residual_risks": [
+        "Extrapolation monotonicity/SSP literature is extensive; an unindexed equivalent scalar sign threshold remains possible.",
+        "Stated result is only scalar two-level positivity, not a nonlinear SSP coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONSTRUCTION_AND_LINEAR_STABILITY_NOT_EXACT_POSITIVITY",
+          "evidence": [
+            "Section 2.3 Aitken–Neville recurrence and Section 2.2 scalar stability analysis; no positivity sign threshold at the inspected location"
+          ],
+          "identifier_or_url": "https://web.cels.anl.gov/~emconsta/Repository/Papers/Constantinescu_2010a.pdf",
+          "material_read": "Inspected full-text PDF pages 1–4 and Section 2 equations (2.1)–(2.6), including scalar stability-function construction and Aitken–Neville recurrence, not just the abstract",
+          "method": "Open lawful author PDF; read actual PDF text and page images",
+          "title": "Extrapolated Implicit-Explicit Time Stepping",
+          "trigger": "Identical Euler-based two-level extrapolation construction; plausible prior sign or stability coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/04/richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1/RESULT.md",
+        "https://web.cels.anl.gov/~emconsta/Repository/Papers/Constantinescu_2010a.pdf"
+      ],
+      "rationale": "A well-motivated and explicit obstruction to preserving positivity when accelerating a positivity-preserving stiff integrator; the complete sign interval for all r and logarithmic refinement scaling quantify a natural qualitative limitation beyond routine second-order calculation.",
+      "residual_risks": [
+        "Extrapolation monotonicity/SSP literature is extensive; an unindexed equivalent scalar sign threshold remains possible.",
+        "Stated result is only scalar two-level positivity, not a nonlinear SSP coefficient."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Extrapolation monotonicity/SSP literature is extensive; an unindexed equivalent scalar sign threshold remains possible.",
+    "Stated result is only scalar two-level positivity, not a nonlinear SSP coefficient."
+  ],
+  "schema_version": 1
+}
