@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All incidence systems with at most three members in either guild and with connected, nonisolated, twin-free incidence were enumerated. These are finite, exhaustively bounded universes because no two neighborhoods may coincide, so the opposing guild has at most seven members. Integer subset-count laws were compared after explicit guild-preserving isomorphism checks. The two displayed four-by-four networks have the same full laws but distinguishable four-cycle structure. The standalone checker reports successful complete enumeration.
+PASS
 
-## Originality — PASS, subject to residual literature risk
+Encoding a species row by a nonzero site-mask m yields exact richness R(s)=sum_m 1[(m&s)!=0] for each site subset s and histogram L_k(j) by popcount(s)=k. Row/column twin-freeness implies if either guild size<=3 then opposite guild size <=2^3−1=7. Inspected full Git verify.py; independently enumerated all such relation shapes on each side (15 parameter-size cases), checked connectedness, nonzero and nonduplicate row/column masks, laws and guild-preserving isomorphism, with no collision. Direct witness A=(1,3,6,14), B=(1,3,6,13) is eligible and shares every k,j histogram, though A contains a four-cycle (rows 6 and 14 share two sites) while B does not; hence nonisomorphic. This is an exhaustive finite proof for the claimed first boundary, not statistical sampling.
 
-Colwell, Mao, and Chang (2004) provide primary incidence-based sampling methods and explicitly discuss identical *mean* accumulation curves. That weaker observation does not give full-distribution reconstruction or its sharp failure. Searches of published records and relevant variants found no covering result. Boros, Gurvich, and Zverovich (2008) study neighborhood hypergraphs; only the abstract was accessible, so stronger equivalent prior coverage remains possible. No independence from all unindexed mathematics is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The complete sample-size-by-richness law is more informative than any fixed collection of summary moments. Proving the sharp boundary at which it nevertheless ceases to identify a connected ecological incidence structure, even with identical guild-degree profiles, isolates a genuine limitation of network reconstruction from biodiversity accumulation data.
+Classic incidence-based rarefaction relates species-frequency counts and mean richness, but this complete joint k,j sampling-law reconstruction and sharp first nonuniqueness under connected twin-free constraints are strictly finer: identical mean curves do not imply identical entire distributions. Complete neighborhood hypergraphs are stronger input than histograms and their reconstruction theorem cannot be conflated with the present invariant.
 
-## Limitations
+## value
 
-The theorem concerns exact sampling distributions for finite noiseless binary incidence, with both twin-freeness and connectedness. It is not a statistical sample-size guarantee and is not an empirical ecological reconstruction method.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp 4x4 failure of identifiability despite observing every finite sample richness distribution, under connectedness and twin-free hypotheses, is a natural obstruction relevant to ecological inverse problems and binary relation invariants. The finite character is intrinsic to the minimal-size classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
