@@ -1,22 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Burek gives the \(24\) base parameters, four node parameters over each, the node coordinates, and exact formulas for the six section images used in the small resolution. A standalone exact-arithmetic replay reconstructs all \(96\) nodes and evaluates all six sections at each node. It obtains \(32\) nodes on every section and the incidence-multiplicity distribution
-\[
-(44,24,16,8,4)
-\]
-for multiplicities \(1,2,3,4,5\). The \(44\) multiplicity-one nodes split as
-\[
-(6,6,10,6,6,10)
-\]
-across \(P_1,P_2,P_6,P'_1,P'_2,P'_6\). Hence each section has private nodes and no proper subset of the six can cover all \(96\) nodes. Exhaustive subset enumeration independently confirms minimum cover size \(6\).
+## correctness
 
-## Originality
-PASS. The initiating paper proves that the six chosen section images cover the \(96\) nodes and records one witness section per node, but it does not state the complete all-six incidence relation or minimality of the chosen cover. The distinction matters because \(52\) nodes lie on at least two of the six sections. Targeted exact-source, named-section, equivalent set-cover, broader small-resolution, and implication searches found no prior statement of the complete profile or its minimality consequence.
+PASS
 
-## Value
-PASS. The six global section divisors are the central projective small-resolution mechanism in the construction. Showing that every one is indispensable answers a natural structural question about redundancy in that mechanism, and the \(44\) private nodes give a sharp certificate. The full incidence profile is also reusable in studying alternative global small resolutions of the same nodal model.
+Burek Proposition 7.1 parameterizes nodes by 24 distinct roots v of J(v)=481^3 B(v)^4-30^4 A(v)^3 and four fourth-root t values, node (x,0) with x=3·481² C(v)t²/(-4879 A(v)); Appendix A supplies P1,P2,P6 at u=2 and u=2i. Reviewed standalone rational-Q(i) checker from actual artifacts/verify.py reconstructing A,B,C, 24 (v,tau) pairs, all 96 node coordinates and six section coordinate pairs, with J(v)=0 and tau^4=C(v)/(-4879) exact. Independently replayed the equations with rational Gaussian arithmetic: 96 distinct nodes; incidence multiplicity N1=44,N2=24,N3=16,N4=8,N5=4,N6=0; each section incident to 32; private-node counts (6,6,10,6,6,10), implying none of six can be omitted. Double sum ∑r N_r=192 equals 6×32. Quantifiers concern only these six global divisorial centers and the 96 nodes; not arbitrary divisors or the two A2 curves.
 
-The theorem is relative to the six explicit section images; it does not claim a universal lower bound for arbitrary resolution centers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Burek’s full 2026 primary paper Proposition 7.1/Lemma 7.2/Appendices A,B verifies and uses that six sections *cover* 96 nodes, with Table 1 listing one witness per node, but does not provide the six-by-96 full incidence matrix, multiplicity profile or prove all six choices indispensable. Kumar–Kuwata develops earlier K3/Mordell–Weil section framework without the 96-node Calabi–Yau resolution. Actual search of Burek node-section incidence and published Resultary results did not uncover equivalent minimal-cover statement. A primary source with one witness per node cannot be assumed to have computed private-node status.
+
+## value
+
+PASS
+
+The incidence profile measures overlap of the exact six divisorial centers used in a natural crepant-resolution construction; private nodes prove all six selected sections are genuinely indispensable, settling a concrete redundancy question in that construction. This is mathematically motivated finite incidence geometry (96 nodes times six explicit sections), not a claim of minimality among arbitrary other divisors and not a pointless reprint of one-witness data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

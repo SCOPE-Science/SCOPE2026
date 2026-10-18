@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,56 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verification reconstructs the data directly from arXiv:2610.01276v1.
+# Independent mathematical audit
 
-Burek defines
-\[
-A(z)=z^8+14z^4+1,\qquad
-B(z)=z(z^4-1),\qquad
-C(z)=z^{12}-33z^8-33z^4+1
-\]
-and uses
-\[
-A(2)=481,\qquad B(2)=30,\qquad C(2)=-4879.
-\]
-Proposition 7.1 describes each ordinary double point by
-\[
-J(v_0)=0,\qquad
-t^4=\frac{C(v_0)}{-4879},\qquad
-y=0,\qquad
-x=\frac{3\cdot481^2C(v_0)}{-4879A(v_0)}t^2.
-\]
+## correctness
 
-Appendix A gives the section formulas \(P_j(u)\); the six resolution sections are
-\[
-P_1(2),\ P_2(2),\ P_6(2),\ P_1(2i),\ P_2(2i),\ P_6(2i).
-\]
-Appendix B lists the \(24\) values \(v_0\), one fourth root \(\tau\) for each, and one witnessing section for each of the four nodes over \(v_0\).
+PASS
 
-`artifacts/verify.py` uses only exact rational arithmetic in \(\mathbf Q(i)\). It first checks all \(24\) values satisfy \(J(v_0)=0\) and every displayed \(\tau\) satisfies
-\[
-\tau^4=C(v_0)/(-4879).
-\]
-It then forms all \(96\) pairs
-\[
-(v_0,i^k\tau),\qquad 0\le k\le3,
-\]
-reconstructs their node coordinates, and evaluates all six section coordinate formulas at every node.
+Burek Proposition 7.1 parameterizes nodes by 24 distinct roots v of J(v)=481^3 B(v)^4-30^4 A(v)^3 and four fourth-root t values, node (x,0) with x=3·481² C(v)t²/(-4879 A(v)); Appendix A supplies P1,P2,P6 at u=2 and u=2i. Reviewed standalone rational-Q(i) checker from actual artifacts/verify.py reconstructing A,B,C, 24 (v,tau) pairs, all 96 node coordinates and six section coordinate pairs, with J(v)=0 and tau^4=C(v)/(-4879) exact. Independently replayed the equations with rational Gaussian arithmetic: 96 distinct nodes; incidence multiplicity N1=44,N2=24,N3=16,N4=8,N5=4,N6=0; each section incident to 32; private-node counts (6,6,10,6,6,10), implying none of six can be omitted. Double sum ∑r N_r=192 equals 6×32. Quantifiers concern only these six global divisorial centers and the 96 nodes; not arbitrary divisors or the two A2 curves.
 
-The replay obtains
-\[
-N_1=44,\quad N_2=24,\quad N_3=16,\quad N_4=8,\quad N_5=4,\quad N_6=0.
-\]
-Every section contains \(32\) nodes. The nodes lying on exactly one section are distributed
-\[
-6,\ 6,\ 10,\ 6,\ 6,\ 10
-\]
-for
-\[
-P_1,\ P_2,\ P_6,\ P'_1,\ P'_2,\ P'_6.
-\]
-Thus each section has private nodes. The script also checks every subset of size at most \(5\) and confirms that none covers all \(96\) nodes, while all six do. The saved replay terminates with `VERIFY_OK`.
+## originality
 
-No floating-point computation is used. No conclusion is drawn about centers outside these six explicit section images.
+PASS
+
+Burek’s full 2026 primary paper Proposition 7.1/Lemma 7.2/Appendices A,B verifies and uses that six sections *cover* 96 nodes, with Table 1 listing one witness per node, but does not provide the six-by-96 full incidence matrix, multiplicity profile or prove all six choices indispensable. Kumar–Kuwata develops earlier K3/Mordell–Weil section framework without the 96-node Calabi–Yau resolution. Actual search of Burek node-section incidence and published Resultary results did not uncover equivalent minimal-cover statement. A primary source with one witness per node cannot be assumed to have computed private-node status.
+
+## value
+
+PASS
+
+The incidence profile measures overlap of the exact six divisorial centers used in a natural crepant-resolution construction; private nodes prove all six selected sections are genuinely indispensable, settling a concrete redundancy question in that construction. This is mathematically motivated finite incidence geometry (96 nodes times six explicit sections), not a claim of minimality among arbitrary other divisors and not a pointless reprint of one-witness data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
