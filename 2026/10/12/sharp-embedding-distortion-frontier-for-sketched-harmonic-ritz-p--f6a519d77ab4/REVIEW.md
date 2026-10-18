@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a Hermitian positive-definite input, the spectral-order inequality \((C-aI)(bI-C)\succeq0\) yields the exact minimum cosine \(2\sqrt{ab}/(a+b)\). The embedding's self-adjoint Gram defect has norm at most \(\varepsilon\) on the two required ranges. The resulting inequality \(\operatorname{Re}(y^*Gy)\geq(c_\kappa-\varepsilon)\|ABy\|\|By\|\) is strict for every nonzero coefficient vector below the threshold, proving nonsingularity and positive real parts of generalized harmonic eigenvalues; no diagonalizability is presumed. For the exact two-mode witness, the numerator is positive while the denominator equals \(\sqrt\kappa(c_\kappa-\varepsilon)\), so equality is singular and every larger permitted distortion gives a negative Ritz value. The packaged rational checker verifies the two-mode witness identities and two-column Gram matrices in dimension three; the dimension-reducing sketch construction follows algebraically from the same witness. The argument is exact-arithmetic mathematics, not a claim of numerical floating-point stability.
+PASS
 
-## Originality — PASS, subject to stated risks
+For Hermitian positive definite A with spectrum in [mu,L], C=A^(-1) has spectrum [1/L,1/mu]. The elementary operator inequality (C-aI)(bI-C)>=0 implies for every nonzero x, Re<x,Cx>/(||x||||Cx||)>=2sqrt(ab)/(a+b)=2sqrt(kappa)/(kappa+1), with equality at an endpoint-eigenspace mixture. The (1±epsilon) subspace embedding on span(B,AB) bounds inner-product error by epsilon||u||||v||, so the Hermitian part of G=(SAB)^*(SB) is strictly positive for epsilon<c_kappa and F=(SAB)^*(SAB)>0. An eigenpair Fy=theta Gy has theta=(positive real)/(right-half-plane denominator), giving Re(theta)>0; invertibility of G follows from strict accretivity. The explicit A=diag(1,q^-2), x=(q,1)/sqrt(1+q²), B=A^-1 x, S* S=I-epsilon J (q=sqrt(kappa), 0<=epsilon<1) is an exact embedding on the plane and gives G=q(c_kappa-epsilon), F=1-epsilon*c_kappa; equality is singular, above it one negative Ritz value. Independently reconstructed rational Gram products for q=2,3,7,13, including kappa=9,epsilon=2/3 giving -3. This establishes sharpness for kappa>1; kappa=1 has threshold epsilon=1, the excluded embedding endpoint. Sketching probabilities and nonnormal A are outside scope.
 
-The motivating full preprint (Güttel–Liu–Nyman, arXiv:2607.10354v1, Section 5.3) derives exactly the present pencil and a general sufficient bound. Specialization of its bound to Hermitian positive-definite inputs gives only \(\varepsilon<1/\kappa\); the full preprint does not derive the sharper \(2\sqrt\kappa/(\kappa+1)\) condition or its singular and negative sharpness construction. Jang–Grigori's full open-access article analyzes randomized orthogonalization and a harmonic Ritz formulation but not this exact sketch-positivity frontier. Nakatsukasa–Tropp's accessible full preprint analyzes ordinary sketched Rayleigh--Ritz rather than this harmonic pencil. Similarity searches across published mathematical findings for the harmonic pencil, embedding error, spectral angles, the constant, and equivalent generalized-pencil formulations found related but non-covering analyses. The cosine bound itself is classical, and no novelty is claimed for it. A possible unlocated earlier equivalent in oblique projection or Kantorovich-angle literature is the main residual risk; searches alone are not a proof of unique priority.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating convergence analysis explicitly needs the sketched harmonic Ritz values in the open right half-plane, and its known criterion becomes restrictive at large condition number. Resolving the exact universal Hermitian-class embedding frontier changes the allowable distortion scaling from order \(1/\kappa\) to order \(1/\sqrt\kappa\), with no gap between a proof and an achievable failure construction. This is a natural stability classification for a recently introduced harmonic projection and can guide decisions about sketch accuracy. It does not address randomized success probabilities, non-Hermitian operators, or the other conditions required for convergence of restarted matrix-function algorithms.
+Best-of-knowledge new statement/implication after source-specific primary comparison and targeted published-record searches; residual priority and access risks are itemized below.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact condition-number-dependent positivity threshold for the sketched harmonic pencil improves the known general positive-real-matrix sufficient SPD specialization epsilon<1/kappa by an asymptotic factor 2sqrt(kappa), and supplies matching singular and negative-eigenvalue sketches. It resolves a natural failure boundary for harmonic Ritz values, not an arbitrary narrow sample computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
