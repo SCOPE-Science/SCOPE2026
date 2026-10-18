@@ -1,15 +1,21 @@
-# Review of All \(k\)-metric generators of path-barbell graphs
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof identifies the decisive twin classes \(X\) and \(Y\). For each same-side pair, the set of all distinguishing vertices is exactly the pair itself, which proves both the omission obstruction for ordinary resolving sets and the global upper limit \(k\le2\). The converse directions are checked by exhaustive pair types using the explicit path-distance formulas. The generating functions then follow from independent choices on \(X\), \(Y\), and the path vertex set. The packaged exhaustive verifier agrees with the theorem for all \(3\le p,q\le5\), \(1\le\ell\le3\), and \(k\in\{1,2,3\}\), while the analytic argument supplies the proof for all stated parameters.
+## correctness
 
-## Originality
-**PASS.** The foundational \(k\)-metric paper gives the general minimum-distinguishing-set criterion and a twin-class lower bound, but not this path-barbell all-set classification or its enumerators. The directly relevant barbell paper proves the scalar equality \(\dim_2(B_{n,n})=2n-2\) for the symmetric bridge case and exhibits a basis; that covered scalar is explicitly excluded from the novelty claim. Full-text and targeted alias searches found no theorem implying the simultaneous asymmetric-clique, arbitrary-handle, all-generator statements or the two exact polynomials. Residual risk remains for obscure or poorly indexed special-case literature.
+PASS
 
-## Value
-**PASS.** This is a natural completion of a published exact-parameter calculation on barbell graphs. It replaces a minimum-number statement by a complete structural description of every feasible 1- and 2-metric generator, exposes the precise way the connecting handle is irrelevant to the minima but contributes a binomial factor to all-set counts, and yields exact basis multiplicities. The result holds uniformly for all unequal clique sizes and all positive handle lengths rather than for an arbitrary finite slice.
+For X=K_p\{a}, Y=K_q\{b}, true-twin pairs have exactly their two endpoints as distinguishing vertices. Thus k>=3 impossible, k=2 forces X∪Y, k=1 permits at most one omitted in each. With p,q>=3 the remaining landmarks on both sides distinguish path/path, path/nonattachment and cross-side pairs. Direct factorization gives x^(p+q-4)(x+p-1)(x+q-1)(1+x)^(ell+1) and x^(p+q-2)(1+x)^(ell+1). Independently constructed shortest-path matrices, exhaustively checked 65,856 set/k decisions over 3<=p,q<=5 and 1<=ell<=3. Infinity proof rests on twin/distance argument, not finite checks.
 
-## Closest literature and limitations
-The closest same-object source is Setyawan--Kusmayadi (2020), which treats only the symmetric one-edge barbell and its scalar 2-metric dimension. Estrada-Moreno--Rodríguez-Velázquez--Yero (arXiv:1312.6840) supplies the general \(k\)-metric framework and twin-class lower bound. The theorem here assumes \(p,q\ge3\); smaller clique sizes require separate boundary analysis. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The symmetric bridge scalar value dim_2=2n-2 is in Setyawan–Kusmayadi; the general k-metric twin framework is in Estrada-Moreno et al. The all-set characterization, asymmetric path handle, polynomial and minimum-basis multiplicities were not supplied by these inspected sources. No statement-level overlap found in Resultary semantic search; best-of-knowledge with residual risk.
+
+## value
+
+PASS
+
+Exact all-generator polynomial is a natural refining invariant of k-metric locating sets for clique-path networks; it yields all subset cardinalities and both base counts, not just a textbook scalar basis bound. The arbitrary handle/unequal-clique classification resolves a tractable but motivated infinite graph-family question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

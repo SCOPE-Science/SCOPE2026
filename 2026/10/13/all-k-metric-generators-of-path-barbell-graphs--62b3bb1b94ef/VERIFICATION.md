@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone `verify.py` constructs each path-barbell from the definition and computes all-pairs shortest-path distances by breadth-first search. It then checks the literal definition of a \(k\)-metric generator against the claimed structural predicate for every subset.
+# Independent mathematical audit
 
-The exhaustive grid is \(3\le p,q\le5\), \(1\le\ell\le3\), and \(k\in\{1,2,3\}\). For \(k=1,2\), the script also compares the complete cardinality histogram of valid subsets with the stated generating-polynomial coefficients and checks the predicted minimum size and number of minimum sets. For \(k=3\), it verifies that no valid subset exists.
+## correctness
 
-Replay output from the packaged script:
+PASS
 
-`VERIFY_OK parameter_triples=27 k_values=3 subset_checks=65856 max_order=12`
+For X=K_p\{a}, Y=K_q\{b}, true-twin pairs have exactly their two endpoints as distinguishing vertices. Thus k>=3 impossible, k=2 forces X∪Y, k=1 permits at most one omitted in each. With p,q>=3 the remaining landmarks on both sides distinguish path/path, path/nonattachment and cross-side pairs. Direct factorization gives x^(p+q-4)(x+p-1)(x+q-1)(1+x)^(ell+1) and x^(p+q-2)(1+x)^(ell+1). Independently constructed shortest-path matrices, exhaustively checked 65,856 set/k decisions over 3<=p,q<=5 and 1<=ell<=3. Infinity proof rests on twin/distance argument, not finite checks.
 
-This finite computation does not prove the infinite family. The proof in `RESULT.md` supplies the general argument from twin classes and explicit path distances. The checker is a bounded stress test of definitions, boundary parameters within the stated domain, coefficient formulas, and case handling.
+## originality
+
+PASS
+
+The symmetric bridge scalar value dim_2=2n-2 is in Setyawan–Kusmayadi; the general k-metric twin framework is in Estrada-Moreno et al. The all-set characterization, asymmetric path handle, polynomial and minimum-basis multiplicities were not supplied by these inspected sources. No statement-level overlap found in Resultary semantic search; best-of-knowledge with residual risk.
+
+## value
+
+PASS
+
+Exact all-generator polynomial is a natural refining invariant of k-metric locating sets for clique-path networks; it yields all subset cardinalities and both base counts, not just a textbook scalar basis bound. The arbitrary handle/unequal-clique classification resolves a tractable but motivated infinite graph-family question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
