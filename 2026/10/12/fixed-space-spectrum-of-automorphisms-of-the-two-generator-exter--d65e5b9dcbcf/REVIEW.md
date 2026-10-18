@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every automorphism is reconstructed from its invertible action on the two-dimensional degree-one quotient plus an arbitrary top-degree functional, and the top exterior generator is scaled by the determinant. The fixed equations reduce to a two-dimensional eigenspace condition and one scalar equation. The determinant-not-one, identity, nonidentity-unipotent, and remaining determinant-one strata are disjoint and exhaustive; their multiplicities sum to the full automorphism-group order. The weighted Burnside sum is exactly \(3q\), and an independent direct orbit argument gives the same answer. Exhaustive finite-field checks over \(q=3,5,7\) agree with every coefficient.
+## correctness
 
-## Originality
-PASS. Djoković's full paper was inspected at the automorphism section and Theorem 9: it gives structural semidirect-product descriptions of the automorphism group over characteristic different from \(2\), but not a finite-field fixed-space census. Bavula's 2007 paper treats derivations, the automorphism action on derivations, and normal-element orbits, not these fixed-space fibers. published-finding corpus searches using fixed-space, fixed-point-set, element-orbit, Grassmann, and exterior-algebra formulations returned the four-dimensional Rota--Baxter classification and other automorphism-counting results, but no statement equivalent to this four-fiber spectrum or implying it. Current and prior own ledgers were checked for Grassmann/exterior overlaps; no own finding states this result.
+PASS
 
-## Value
-PASS. Fixed-set-size distributions are a natural refinement of knowing only the automorphism group: they determine the Burnside cycle statistic relevant to the action on the algebra itself. For this classical four-dimensional algebra the distribution has a closed uniform form over every odd finite field and recovers a transparent orbit decomposition into exactly three radical types per scalar part. This is a complete structural invariant for a natural family, not a single numerical census.
+Every algebra automorphism is parametrized by (A,u)∈GL₂(q)×(F_q²)* with φ(v)=Av+u(v)z, φ(z)=det(A)z. Radical fixed points solve (A−I)v=0 and u(v)+(det A−1)t=0; the whole fixed space gains scalar line 1. Split determinant!=1 (a 1-eigenvector iff conjugate diag(1,det A)), A=I, nonidentity unipotent det1, and remaining SL₂(q) with no 1-eigenvectors; all disjoint and exhaustive. Counts yield N1=q³(q+1)(q−2)², N2=2q⁵−q⁴−4q³−q²+q, N3=(q+1)(q²−1), N4=1, summing q²|GL₂(q)|. Radical orbits: zero, nonzero socle, nonzero linear part; independently enumerated every (A,u) for q=3 and q=5, yielding {1:108,2:291,3:32,4:1} and {1:6750,2:5105,3:144,4:1}, verifying formulas and Burnside 3q. Field-independence of counts proves extension fields, not prime-only finite checks.
 
-## Closest literature and limitations
-The closest structural source is Djoković's arbitrary-field automorphism theory for finite-dimensional exterior algebras. Bavula supplies a later Grassmann-algebra treatment with explicit automorphism actions on related objects. The present claim is only rank two and odd characteristic; it does not address higher exterior rank, characteristic two, or automorphism conjugacy classes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority for the precisely delimited contribution. Known subfamilies, classical inputs, and plausible stronger derivations separately documented; searches alone are not treated as a novelty proof.
+
+## value
+
+PASS
+
+A complete fixed-point-dimension distribution of all automorphisms and the precise Burnside orbit count are natural finite representation invariants of the fundamental smallest nontrivial exterior algebra. Unlike the group-size formula alone, the four fibers provide exact statistics usable in invariant theory and enumerative algebra; mathematically motivated albeit narrow, not a generalization to higher-rank exterior algebras.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
