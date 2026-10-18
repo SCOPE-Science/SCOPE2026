@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The derivation identity on the single nonzero bracket family determines every ID derivation as a pair \((c,E)\) with \(c\in TV\), \(ET=TE\), and \(\operatorname{im}E\subseteq TV\). Inner derivations occupy exactly \(TV\oplus KT\) for \(T\ne0\); the abelian case is handled separately. Standard primary-module Hom dimensions determine the deficiency, including the shortened nilpotent target blocks. The semicompleteness proof distinguishes \(T^2\notin KT\), nonzero scalar multiples, and square-zero operators, with no characteristic assumptions. A standalone finite-field linear-system verifier reproduces all stated small cases. Residual scientific risk: finite computations do not substitute for the symbolic proof, and source equivalences may be overlooked.
+## correctness
 
-## Originality — PASS, with residual historical risk
-published-finding corpus semantic searches targeting ID-derivation quotients, elementary divisors, module centralizers, and almost-abelian semicompleteness yielded no record implying the formula. The closest record on almost-abelian Lie algebras computes commuting probabilities, a different invariant. Boyle (2018) supplies the ID derivation definition and general properties; Alemi–Saeedi–Srivastava (2019) discuss direct sums. The 2026 motivating paper's accessible abstract describes small-dimensional non-Lie classifications and extensions, not this arbitrary-dimensional almost-abelian formula. The 2026 paper itself remains an important access risk because the publisher displayed an early-access abstract instead of readable complete text. A prior equivalent formulation under the vocabulary of derivation centralizers could also exist.
+PASS
 
-## Mathematical value — PASS
-The classification resolves a natural full-dimensional structural stratum of the semicompleteness problem and computes an entire quantitative obstruction, rather than a binary yes/no check. It distinguishes equal-rank defining operators by their elementary divisors: the third-order nilpotent block and a rank-two diagonal projection can have the same rank but different outer ID-derivation dimensions. This clarifies how nilpotent versus invertible primary blocks affect semicompleteness in every field, including characteristic two.
+Since [L_T,L_T]=TV, an ID derivation is uniquely (c,E) with c∈TV and E:V→TV commuting with T; inner ones fill TV⊕KT when T≠0. Thus outer ID quotient is Hom_{K[t]}(V,tV)/KT. Primary decomposition and Hom(K[t]/(f^a), K[t]/(f^b)) dimension deg(f)·min(a,b) give the stated Phi including t-primary exponent shortened by one; all arbitrary fields and char two covered. If T²∉KT, T and T² force at least two independent homs. If T²=λ T with λ≠0, phi=(rank T)²; if λ=0, phi=rank T·(n−rank T); Phi=1 only for rank1 with T²≠0 or rank1,n=2. A fresh independent row-reduction checker exhausted all binary T of sizes 1,2,3 and ternary T of sizes 1,2, confirming the stated boundary; finite checks only corroborate proof.
 
-## Limits
-This review is not an independent audit or priority certification. It claims neither a classification of all Lie/Leibniz algebras nor originality for standard module-Hom lemmas. The full text of the 2026 motivating article was not accessible in the present inspection.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Boyle 2018 full Chapter6 supplies the exact ID-derivation concept but does not furnish this arbitrary-field almost-abelian Hom quotient and elementary-divisor deficiency. The 2026 source abstract concerns other structural strata; full inaccessible original remains explicit residual risk rather than automatic failure. Alternative almost-inner terminology was distinguished. No Resultary same-statement match was found; nonappearance alone is not proof.
+
+## value
+
+PASS
+
+Almost-abelian Lie algebras are a canonical semidirect-product structural family. The full all-field invariant Phi(T) and semicompleteness iff T=0 or a sharp rank-one case distinguish nilpotent/invertible Jordan behaviors, quantify outer ID derivations, and settle an exact natural classification rather than an arbitrary tiny finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
