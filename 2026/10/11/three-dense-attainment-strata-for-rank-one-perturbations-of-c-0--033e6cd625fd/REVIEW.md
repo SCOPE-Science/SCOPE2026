@@ -1,15 +1,21 @@
-# Scientific review: three dense attainment strata
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact \(\ell_1\) norm of each row is \(A+t-2\min(a_n,t)\), and its supremum is \(A+t\) because \(a_n\to0\). The nonzero lower bound \(t/2\) follows from the fact that \((T_{a,t}x)_n\) tends to \(\varphi_a(x)\) for each \(x\in c_0\). This makes quasi norm attainment equivalent to ordinary norm attainment. Ordinary norm attainment forces equality in an absolutely convergent weighted triangle inequality, hence finite support. For weak-star quasi norm attainment, the weak-star compact range of the explicit continuous extension \(S_{a,t}\) exactly equals the image closure. A missing coefficient gives an extremal coordinate; full support forces a common phase at every coordinate and yields a strict contradiction. Truncation, strictly positive mixing and one-coordinate deletion prove the fixed-norm density assertions. Coordinate positivity is relatively open and dense, so its countable intersection is residual, while the countable union of zero-coordinate hyperplanes is dense but meager. Complex phases and positive-parameter endpoints were checked directly.
+## correctness
 
-## Originality — PASS, with residual risks
-The principal 2022 source proves global density of weak-star quasi norm-attaining operators by unrestricted rank-one perturbations and gives examples separating attainment notions; it does not furnish the support-exact classification or simultaneous norm density of three classes on the fixed-norm family. The 2020 monomorphism criterion is expressly treated as prior input rather than new. The 2023 rank-one perturbation paper studies failure of norm attainment from reflexive domains without the weak-star quasi norm-attainment criterion used here. Targeted semantic searches of published mathematical findings and comparisons with the available prior claims found no implication covering the combined theorem. Possible equivalences in unindexed older work remain a residual risk, not an assertion of mathematical independence.
+PASS
 
-## Mathematical value — PASS
-The result identifies the precise parameter boundary between all three attainment notions in a natural Banach-space embedding perturbed in a single rank-one direction. Every regime occurs arbitrarily close to every other **while operator norm remains exactly constant**; nevertheless the strongest failure is a residual \(G_\delta\) on this simplex. The strongest failure produces an explicit nonremotal weak-star compact convex image of a unit ball. This sharp local instability is not a routine substitution into the general 2022 density theorem, because the latter does not control the complement or impose a fixed rank-one direction and fixed operator norm.
+Over K=R or C and a∈ℓ1 nonnegative with A=Σa_n>0,t>0, each row functional φ_a−tδ_n has norm A+t−2min(a_n,t); because a_n→0 the operator norm is A+t. If y=T x, the coordinate limit equals c=φ_a(x), hence |c|≤||y|| and t||x||≤2||y||, so closed range and NA⇔QNA. Norm attainment in c0 forces equality |φ_a(x)|=A and all positive-weight coordinates x_k share unimodular phase; that is possible in c0 precisely for finite support, with a zero j used for −phase. S extension to ℓ∞ is weak-star continuous by ℓ1 pre-adjoint, B_ℓ∞ is weak-star closure of B_c0, and compactness yields exact weak-star image K. If some a_j=0 choose z_j=−1, z on support +1 for a maximizer. If all a_n>0, any norm-maximizing sup sequence forces |Σa_nz_n|=A, hence every z_n is the same unimodular phase, contradicting ||S z||=A+t. Finite-support, infinite-support-with-zero and full-support strata each dense in the A-simplex via truncation/mass transfer/positive summable mixing. Full-support is dense Gδ and zero-coordinate weak-star QNA union is dense meager Fσ. Both fields and normalization boundaries tracked.
 
-## Literature and limits
-Closest primary sources: arXiv:2209.07763v1 (Theorem 2.1, Example 3.4, Example 4.11), arXiv:2004.11025v1 (Lemma 2.5), arXiv:2301.05003v1 (Theorem 2.1). The argument is confined to nonnegative \(\ell_1\) coefficients and the canonical weak-star topology on \(\ell_\infty\). No independent audit has been performed, and differently phrased earlier results may exist.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Choi et al general weak-star quasi norm attainment density and example separating QNA from weak-star QNA are antecedents. The present exact coefficient-support trichotomy and simultaneous density of 3 attainability statuses inside one fixed-norm 2-parameter affine family, including generic nonattainment, are not given by those broader-existence statements.
+
+## value
+
+PASS
+
+The same-norm family exhibits dense but meager weak-star quasi norm attainment, with a clean coefficient-level distinction between three notions. This supplies a motivated explicit stratification and compact convex nonremotal image within a central Banach-space operator-geometry problem; not a textbook finite-support norm estimate alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

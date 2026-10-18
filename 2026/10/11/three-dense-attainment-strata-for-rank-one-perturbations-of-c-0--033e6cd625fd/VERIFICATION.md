@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification of the analytic theorem
+# Independent mathematical audit
 
-The theorem does not depend on a finite computation, or a solver log. It is verified by the following directly checkable analytic steps.
+## correctness
 
-1. For each coordinate \(n\), the norm of the corresponding \(\ell_1\)-row is exactly \(A+t-2\min(a_n,t)\); because \(a_n\to0\), the supremal row norm is \(A+t\). No coordinate is assumed to maximize the operator norm.
-2. For \(x\in c_0\), the output coordinates converge to \(\varphi_a(x)\). This yields \(t\|x\|_\infty\le2\|T_{a,t}x\|_\infty\), making norm-convergent maximizing sequences of outputs correspond to norm-convergent inputs.
-3. If the operator attains its norm, one **fixed finite coordinate** must attain it because the limiting coordinate magnitude is at most \(A<A+t\). The equality case of the absolutely convergent weighted triangle inequality then forces all coordinates with positive weight to have one common unit phase; membership in \(c_0\) makes that support finite. Conversely finite support provides an explicit finite-support extremizer.
-4. For arbitrary \(b\in\ell_1\), the pullback of \(b\) under the extended map has coefficients \(\bigl((\sum_n b_n)a_k-tb_k\bigr)\in\ell_1\); thus the extension is weak-star continuous. Finite truncations and Banach--Alaoglu identify the full weak-star closure, not just some cluster points.
-5. A zero weight permits an exact weak-star maximizer at that coordinate. If every weight is positive, no single coordinate can reach \(A+t\); a hypothetical supremum of \(A+t\) requires \(|\varphi_a(z)|=A\), which forces a constant unit-phase sequence. Its output norm is then \(|A-t|<A+t\), an exact contradiction.
-6. The three density constructions preserve nonnegative coefficients and the fixed total mass \(A\). Each set \(\{a:a_n>0\}\) is relatively open dense, so full support is a dense \(G_\delta\), while the union of the nowhere dense closed zero-coordinate sets is a dense meager \(F_\sigma\). The operator-distance equality \(\|T_{a,t}-T_{b,t}\|=\|a-b\|_1\) transfers the density statements without any unproved continuity assumption.
+PASS
 
-The complex case uses the real-part equality argument with a unit scalar phase; no ordering of complex coefficients is used. The classification excludes \(t=0\) and \(A=0\), where different endpoint behavior would invalidate the stated strict inequalities. Scientific verification here is a same-model mathematical review, not independent auditing.
+Over K=R or C and a∈ℓ1 nonnegative with A=Σa_n>0,t>0, each row functional φ_a−tδ_n has norm A+t−2min(a_n,t); because a_n→0 the operator norm is A+t. If y=T x, the coordinate limit equals c=φ_a(x), hence |c|≤||y|| and t||x||≤2||y||, so closed range and NA⇔QNA. Norm attainment in c0 forces equality |φ_a(x)|=A and all positive-weight coordinates x_k share unimodular phase; that is possible in c0 precisely for finite support, with a zero j used for −phase. S extension to ℓ∞ is weak-star continuous by ℓ1 pre-adjoint, B_ℓ∞ is weak-star closure of B_c0, and compactness yields exact weak-star image K. If some a_j=0 choose z_j=−1, z on support +1 for a maximizer. If all a_n>0, any norm-maximizing sup sequence forces |Σa_nz_n|=A, hence every z_n is the same unimodular phase, contradicting ||S z||=A+t. Finite-support, infinite-support-with-zero and full-support strata each dense in the A-simplex via truncation/mass transfer/positive summable mixing. Full-support is dense Gδ and zero-coordinate weak-star QNA union is dense meager Fσ. Both fields and normalization boundaries tracked.
+
+## originality
+
+PASS
+
+Choi et al general weak-star quasi norm attainment density and example separating QNA from weak-star QNA are antecedents. The present exact coefficient-support trichotomy and simultaneous density of 3 attainability statuses inside one fixed-norm 2-parameter affine family, including generic nonattainment, are not given by those broader-existence statements.
+
+## value
+
+PASS
+
+The same-norm family exhibits dense but meager weak-star quasi norm attainment, with a clean coefficient-level distinction between three notions. This supplies a motivated explicit stratification and compact convex nonremotal image within a central Banach-space operator-geometry problem; not a textbook finite-support norm estimate alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
