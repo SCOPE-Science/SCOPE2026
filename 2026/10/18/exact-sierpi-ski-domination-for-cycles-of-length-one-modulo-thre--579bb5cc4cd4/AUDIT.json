@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3,k>=1, the proof establishes |D_i|>=k by a 3(k-1)+2<3k+1 capacity bound. Equality forces one hole per cycle layer, a unique tiling by k disjoint closed neighborhoods, and a coherent orientation of all n connecting edges. This yields an if-and-only-if cyclic step condition with S={2,5,...,3k-1} in Z/(3k+1). The +2 permutation decomposes into orbits of n or n/2. Explicit zero-sum walks of lengths 2 (all k), 5 (k>=3), 7 (k>=2), plus rigorous three-step and k=2 five-step obstructions, classify all feasible orbit lengths. A separate explicit construction produces a dominating set of size kn+1 for every parameter pair and identifies its at most two residual adjacent holes. Thus failure of equality forces kn+1 and all boundaries are covered. The bundled standard-library verifier independently tests graph neighborhoods, the walk classification and lower-bound attainability for 522 pairs, with five small connecting-map censuses; finite checks corroborate but do not prove infinite claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/pdf/2309.15409",
+        "https://home.agh.edu.pl/~pilsniak/53.pdf",
+        "https://arxiv.org/pdf/1904.04180",
+        "Professor-hosted earlier submitted manuscript index excerpt: https://users.fmf.uni-lj.si/klavzar/preprints/Sierpinski%20domination%20submit.pdf, purported Theorem 3.1, not the final journal theorem"
+      ],
+      "reasoning": "General domination bounds and the 2024 article are not stronger results covering the missing parameters: the article leaves a genuine two-value interval for the same invariant, while the product-definition paper studies structural properties rather than a stronger domination classification. Adjacent cycle-product locating-total domination and graph domination complexes are different graph constructions or invariants. A historical submitted-draft index excerpt shows a stronger expression, but this is not valid coverage: the n=7,k=3 explicit 21-set witness contradicts the formula’s predicted 22, and the revised and published versions weaken it to the two-value range.",
+      "searches": [
+        "The Sierpiński Domination Number Henning Klavzar Kleszcz Pilsniak 2023 gamma_S(C_n,C_{3k+1}) exact",
+        "Sierpiński product of two cycles equality domination bound n times k exceptional n=3 or 6",
+        "Sierpiński domination number cycles exact 2024 2025 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2309.15409v1 (27 September 2023), primary original preprint, relevant full text inspected",
+      "DOI:10.26493/1855-3974.2892.f07, 2024 journal version, relevant full text inspected",
+      "arXiv:1904.04180, origin/definition and relevant structural results checked",
+      "Public scholarly metadata and related searches for subsequent Sierpiński domination-cycle papers",
+      "Public research-result catalog queries on Sierpiński domination, zero-sum cycles, exact formulas and adjacent invariants",
+      "Earlier author-hosted submit.pdf indexed theorem excerpt (full text unavailable); compared against revised and published versions and a concrete contradictory certificate"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Henning–Klavžar–Kleszcz–Pilśniak 2024, Theorem 3.2: only membership in {kn,kn+1}; equality kn for n divisible by four",
+        "Henning et al. concluding discussion: isolated additional tight instance for n=18,k=2",
+        "Current theorem: all k>=3, n not 3 or 6; all k=2, n except 3,5,6,10; k=1 iff four divides n",
+        "A superseded submitted-draft index excerpt asserts kn+ceil(n/4)-floor(n/4), contradicted by f=(0,4,5,6,0,8,2) for n=7,k=3: 21 selected vertices dominate all 70 vertices"
+      ],
+      "reasoning": "The new result implies the old two-point bound and known tight divisibility cases, not conversely. E.g. the old theorem neither proves nor excludes the kn value at n=7,k=3, while the new classification proves it and excludes kn exactly at n=3,6. The old isolated example is a special case of the k=2 clause. The earlier draft’s stronger exact assertion cannot dominate this result logically as a true theorem: it is incompatible with an explicitly verified witness. Its revision to a two-value bound is visible in the revised preprint and journal PDF.",
+      "searches": [
+        "The Sierpiński domination number Theorem 3.2 C3k+1 kn kn+1",
+        "site:home.agh.edu.pl/~pilsniak/53.pdf Sierpiński domination cycles n 4 18 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Henning et al., arXiv:2309.15409v1, Section 3, Theorem 3.2 and discussion",
+        "Kovič et al., arXiv:1904.04180 (product definition and structural graph properties)"
+      ],
+      "reasoning": "Potential equivalent statements are domination of the product, existence of a map admitting kn domination, and closed zero-sum walks with increments congruent to two modulo three. The original source gives only the two-point range and a 4-divisibility sufficient condition; its stated sufficient examples do not imply the complete walk-length spectrum. The full proof here supplies both necessity and sufficiency.",
+      "searches": [
+        "Sierpiński domination number of two cycles C_n C_{3k+1} exact residual cases n divisible four additional equality",
+        "Sierpiński product cycles domination γS(Cn,C3k+1) closed formula 2023 2024 2025",
+        "Sierpinski domination cycle products two-step modular walks perfect domination kn",
+        "zero sum walks step set 2 5 8 3k-1 cyclic Sierpinski domination"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Henning et al. 2024 final examples and concluding remarks, including a non-divisible-by-four order (18,2)",
+        "The earlier article provides sparse individual examples but no exhaustive infinite table of correction terms"
+      ],
+      "reasoning": "The theorem is not a known exact numerical table reformatted as a closed expression: it classifies all arbitrarily large n and k by a necessary-and-sufficient modular walk criterion. The earlier single example (18,2) is subsumed, as are all orders divisible by four, but neither implies the theorem.",
+      "searches": [
+        "Sierpiński domination number remaining cases tables cycles kn+1 2024 2025",
+        "Sierpinski domination cycle-cycle 18 2 3 5 6 10"
+      ]
+    },
+    "rationale": "The 2023 preprint and 2024 journal version by Henning, Klavžar, Kleszcz and Pilśniak establish only that the parameter on pairs of cycles of orders n and 3k+1 lies in {kn,kn+1}; they prove equality kn when n is divisible by four, with isolated other examples, and leave the remaining residue families unresolved. The exact classification here has genuine additional cases: for k>=3 all n except 3 and 6 attain kn, whereas n=3,6 cannot. For k=2 the exact excluded orders are 3,5,6,10. The original product paper does not imply these domination values. Searches of the catalog of public research claims and other mathematical literature by invariant, product notation, congruence spectrum, and equivalent closed-walk formulation did not return a theorem implying this classification. That negative search is not proof of historical novelty. An older author-hosted submit-version PDF is indexed with a purported stronger exact expression kn+ceil(n/4)-floor(n/4); this superseded draft expression cannot be a valid covering result, because the explicit n=7,k=3 map f=(0,4,5,6,0,8,2) gives a directly checked dominating set of size 21 on 70 vertices, versus that expression’s value 22. The later freely readable revised version and the published journal version instead print only the two-value range. The earlier full draft was inaccessible and is recorded as a residual comparison risk, not cited as a proof.",
+    "residual_risks": [
+      "Indexing and terminology limitations may conceal a previously known equivalent closed-walk characterization or exact all-parameter table.",
+      "The novelty judgment compares accessible sources and documented searches, not every unpublished or inaccessible manuscript.",
+      "The integer and graph construction verifier tests finite cases; novelty and the unrestricted theorem require mathematical argument and independent scholarly checking.",
+      "The full text of a superseded author-hosted submitted draft was inaccessible; its indexed exact formula conflicts with an explicit independently reconstructed n=7,k=3 construction. The source-version provenance and surrounding context remain uninspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3.2 restricts the specified parameter to kn or kn+1 and settles n divisible by four, but it does not establish the all-parameter correction table in this finding.",
+        "evidence": [
+          "2023-09-27 original arXiv public date",
+          "Same graph product and exactly same domination invariant",
+          "Theorem 3.2 does not state a necessary-and-sufficient criterion for tightness"
+        ],
+        "identifier_or_url": "arXiv:2309.15409v1; https://arxiv.org/pdf/2309.15409",
+        "material_read": "Definition of the Sierpiński product and domination parameter; Section 3 including the cycle theorems and proof treatment of cycles with orders 3k+1; examples and remaining two-value cases.",
+        "method": "Read the freely available preprint primary full text and compare theorem statements, quantifiers, sufficient conditions and implications.",
+        "title": "The Sierpiński Domination Number",
+        "trigger": "Same invariant, exact same cycle factors, original preprint and exact preceding bounds"
+      },
+      {
+        "assessment": "The journal article retains a two-value unresolved family and an isolated example; no theorem gives the exact correction for all cycle orders.",
+        "evidence": [
+          "2024 journal publication in Ars Mathematica Contemporanea 24, article P3.06",
+          "Published cycle theorem and concluding remarks"
+        ],
+        "identifier_or_url": "doi:10.26493/1855-3974.2892.f07; https://home.agh.edu.pl/~pilsniak/53.pdf",
+        "material_read": "Complete relevant cycle-product theorems and proofs, including concluding discussion and isolated non-divisible-by-four tight case.",
+        "method": "Read the freely available primary journal PDF, checking cycle bounds and closing section against new classification.",
+        "title": "The Sierpiński domination number",
+        "trigger": "Journal version possibly stronger than original preprint, direct necessity for novelty comparison"
+      },
+      {
+        "assessment": "The product definition matches that employed here; the inspected structural results do not imply the exact domination values.",
+        "evidence": [
+          "Different invariant and aims from the minimization of domination over connecting maps"
+        ],
+        "identifier_or_url": "arXiv:1904.04180; https://arxiv.org/pdf/1904.04180",
+        "material_read": "Definition, principal structural statements on connectivity, planarity and automorphisms.",
+        "method": "Compared original-product paper formulation and its structural subject matter with the domination-number classification.",
+        "title": "The Sierpiński product of graphs",
+        "trigger": "Original product construction and possible broader structural theory"
+      },
+      {
+        "assessment": "The draft formula appears superseded and is inconsistent with the explicit f=(0,4,5,6,0,8,2) 21-vertex dominating set, whereas the revised and journal sources state a two-value range. No definitive claim about the inaccessible draft’s full context is made.",
+        "evidence": [
+          "Index excerpt of the submit-version Theorem 3.1 prints kn+ceil(n/4)-floor(n/4) for the order-3k+1 case",
+          "Revised-preprint Theorem 3.2 prints only {kn,kn+1}",
+          "At n=7,k=3, 21 selected vertices directly dominate all 70 graph vertices, refuting a predicted 22"
+        ],
+        "identifier_or_url": "https://users.fmf.uni-lj.si/klavzar/preprints/Sierpinski%20domination%20submit.pdf",
+        "material_read": "Search-indexed excerpt of the purported Theorem 3.1 showing an exact expression; the underlying PDF could not be fetched for full-text inspection.",
+        "method": "Read the indexed theorem excerpt, contrast it with the accessible revised preprint and journal Theorem 3.2, and independently check a concrete contradictory certificate by enumerating all 70 vertices of the n=7,k=3 product.",
+        "title": "The Sierpiński domination number (earlier author-hosted submitted version)",
+        "trigger": "A highly relevant alternate primary draft surfaced with an apparently stronger theorem than the final published article"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "579bb5cc-4cd4-4582-8cce-dc2fe22e77b4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This answers the precise natural gap left by the foundational paper: its unresolved choice between kn and kn+1 for all cycles C_n with C_{3k+1}. The complete criterion is structural, not a parameter renaming: sharp domination corresponds to existence of a prescribed zero-sum closed walk, whose full length spectrum has nontrivial exceptional orders. The theorem supplies an unrestricted infinite two-parameter classification and an explicit construction realizing every optimum, including corrections to the earlier sufficient condition for 4|n. It has direct significance for the same invariant on the same family, independent of future generalizations.",
+    "status": "PASS"
+  }
+}
