@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic proof characterizes every general-position set of size at least three by the absence of a simultaneously selected core vertex and its pendant mate. The polynomial then follows from pairwise choices, and strict log-concavity reduces to three explicit inequalities plus the standard strict log-concavity of the scaled binomial tail.
+# Independent mathematical audit
 
-The included checker is definition-level. It constructs each graph \(K_n\circ K_1\), computes all-pairs shortest-path distances by breadth-first search, identifies every forbidden triple from the geodesic equality, and tests every subset independently of the claimed pair characterization.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-n_values_checked = 2..10
-subsets_checked = 1398096
-definition-level geodesic test matched every coefficient
-strict log-concavity matched for every tested n
-```
+For H_n=K_n corona K_1 (n>=2), any chosen pendant leaf v_i prime and core mate v_i together with a third vertex w form a forbidden geodesic triple since every v_i prime-to-w shortest path passes internally through v_i. Conversely, if at most one from every pendant pair is chosen, all geodesic internal vertices between selected endpoints are the absent core mates of selected pendant endpoints: no forbidden triple for |S|>=3. Sizes 0,1,2 are always admissible; hence psi(H_n;x)=(1+2x)^n+n*x^2. The affected coefficient differences are a1^2-a0*a2=2n^2+n, a2^2-a1*a3=n^2(4n^2+12n-13)/3 when a3 exists, and a3^2-a2*a4=2n^2(n-1)(n-2)(2n^2-3n+7)/9 when a4 exists; they are positive. For other interior indices scaled binomial strict log concavity applies, with n=2,3 edge cases direct. Thus all n>=2 strictly log-concave; finite enumeration is not used to prove the all-n statement.
 
-The exhaustive computation is finite corroboration only; the theorem for every \(n\ge2\) follows from the proof.
+## originality
+
+PASS
+
+Best-of-knowledge: distinct exact theorem or implication not supplied by the materially inspected primary results; the same Resultary indexed SCOPE entry is the audited work, not prior independent coverage. A degree formula gp=n only fixes the highest nonzero coefficient; the exact psi=(1+2x)^n+n*x^2 and three corrected log-concavity inequalities add genuinely additional information to prior corona preservation results.
+
+## value
+
+PASS
+
+The 2024 corona-unimodality preservation question asks for natural base-graph families. Complete-graph bases yield a whole infinite positive family with a stronger strictly log-concave exact general-position polynomial, independent of the generic general-position-number formula that only determines its degree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
