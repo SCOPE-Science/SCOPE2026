@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The group/order argument handles up to eight columns. An exhaustive normalized enumeration covers all rank-five nine-, ten- and eleven-subsets: 14,950, 65,780 and 230,230 candidates, none with trivial stabilizer; the separate proper-rank case has an elementary pointwise-fixing automorphism. Every distinct nonzero generator column is represented in the normalized search. Independently, `verify_spectrum.py` examines all invertible basis-image assignments for four explicit nested sets of lengths 12–15 and finds exactly the identity. Taking complements among 31 nonzero five-vectors preserves stabilizers and yields all lengths 16–19; complementarity also prohibits length 20 or more. The conclusion uses complete finite certificates and exact group theory, not partial experiments.
+## correctness
 
-**Originality — PASS, with risk.** Haily–Harzalla (2015) already study the smallest binary code with trivial automorphism group; the length-twelve boundary is not newly claimed. Li–Wang–Zhou (2026) prove an asymptotic random-code result under increasing-dimension hypotheses and do not settle this fixed-dimension finite length window. The full 2020 Bouyukliev–Bouyuklieva–Kurz paper presents general classification methods and several exact parameter tables but does not state the full interval of possible lengths for trivial automorphism at dimension five. Published-record and research-record searches identified no equivalent full length-spectrum theorem. Access to the complete 2015 journal paper remained unavailable; possible unindexed coverage is a material residual risk.
+PASS
 
-**Value — PASS.** This is a complete feasibility classification of a natural coding-theory invariant in the first dimension where asymmetric binary linear codes are possible. In contrast to one more finite instance, it proves sharp **both** the lower and upper length cutoffs and supplies witnesses at every intermediate length. The upper cutoff exhibits a finite-projective complement obstruction absent from growing-dimension random-code asymptotics.
+Distinct nonzero columns encode a spanning S⊂F_2^5\{0}, whose coordinate automorphisms are exactly GL(5,2) set stabilizers. Below length 9, |GL(5,2)|=9,999,360 exceeds binomial(31,8)=7,888,725; rank-deficient sets admit pointwise-fixing nonidentity elements. For n=9,10,11 every spanning S is equivalent to one containing the five standard basis columns: 14,950, 65,780 and 230,230 choices, exhaustively tested by compiled verify_lower.cpp and an independent review of its sound pruning; each has nontrivial stabilizer. Independent all-basis-image witness checking gives stabilizer one for nested sets of sizes 12–15; complements among 31 nonzero columns give sizes 16–19 and prove nonexistence for n≥20. Direct code paths verify_lower.cpp and verify_spectrum.py were inspected; lower checker recompiled and rerun: 0 rigid cases at n=9,10,11. No timeouts or random sampling.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The known smallest trivial-automorphism construction at length twelve does not imply all existence/nonexistence lengths for dimension five, especially the 19-column upper cutoff. Fixed-dimension full-support spectrum is distinguished from random-code asymptotics and from code enumerations without rigidity tabulations.
+
+## value
+
+PASS
+
+For first useful binary dimension with rigid full-support codes, a complete attainable length interval is a natural code-structure invariant, with matching absolute lower and upper endpoints; the upper endpoint follows a nontrivial finite-projective complement obstruction. A researcher testing automorphism-free codes in fixed dimension can use exact feasibility, not merely a small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T08:43:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md (Git blob ebf1d98b27265558df14c1dc77d503142beed177)",
+        "verify_lower.cpp and verify_spectrum.py original Git blobs",
+        "independent complete normalized counts and explicit witness image enumeration"
+      ],
+      "rationale": "Distinct nonzero columns encode a spanning S⊂F_2^5\\{0}, whose coordinate automorphisms are exactly GL(5,2) set stabilizers. Below length 9, |GL(5,2)|=9,999,360 exceeds binomial(31,8)=7,888,725; rank-deficient sets admit pointwise-fixing nonidentity elements. For n=9,10,11 every spanning S is equivalent to one containing the five standard basis columns: 14,950, 65,780 and 230,230 choices, exhaustively tested by compiled verify_lower.cpp and an independent review of its sound pruning; each has nontrivial stabilizer. Independent all-basis-image witness checking gives stabilizer one for nested sets of sizes 12–15; complements among 31 nonzero columns give sizes 16–19 and prove nonexistence for n≥20. Direct code paths verify_lower.cpp and verify_spectrum.py were inspected; lower checker recompiled and rerun: 0 rigid cases at n=9,10,11. No timeouts or random sampling.",
+      "residual_risks": [
+        "Only fixed dimension five, full-support codes; allowing zero coordinates invalidates the upper length endpoint."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Haily–Harzalla abstract identifies smallest TAG-code and constructions [2n,n,3] for n≥6; Li–Wang–Zhou addresses growing-dimension probabilistic triviality."
+        ],
+        "reasoning": "Neither established statement provides the exhaustive dimension-five length spectrum or fixed-dimension complement bound. Full Haily–Harzalla article remains inaccessible and may conceal related precise coverage.",
+        "searches": [
+          "Haily–Harzalla 2015 DOI:10.1080/09720529.2014.927650",
+          "Li–Wang–Zhou arXiv:2607.23936 automorphism groups of random linear codes",
+          "Borello arXiv:1311.3868"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1080/09720529.2014.927650",
+        "https://arxiv.org/abs/2607.23936"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lower endpoint 12 was previously reported; current theorem also requires no rigid sets of 20–31 columns and existence at all intermediate lengths."
+        ],
+        "reasoning": "Prior lower endpoint alone cannot imply an upper endpoint or uninterrupted attainable-length interval. Complementarity plus new certificate provides those statements; credit the previously known minimum.",
+        "searches": [
+          "Haily–Harzalla 2015 smallest TAG-code",
+          "Li–Wang–Zhou 2026 probabilistic code result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Row-space automorphisms of a full-rank binary generator matrix with distinct nonzero columns are precisely the GL(5,2) set stabilizer; no matching 12–19 projective set-spectrum result surfaced."
+        ],
+        "reasoning": "The binary field has no nonidentity scalars, so projective and vector point sets agree; same invariant searched under rigid linear-code and asymmetric point-set terminology.",
+        "searches": [
+          "Resultary_Search semantic query: binary linear [n,5] code trivial permutation automorphism full support attainable lengths 12 19 rigid subsets PG(4,2) GL(5,2)",
+          "Haily–Harzalla 2015 trivial automorphism codes DOI:10.1080/09720529.2014.927650",
+          "asymmetric PG(4,2) point subsets of GL(5,2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Normalized exhaustive rigid-set obstruction sizes 9–11 and explicit 12–15 witnesses were tested anew from actual code; no matched published fixed-rank spectrum table identified."
+        ],
+        "reasoning": "General code classification software/tables are not logically a theorem of the complete 12–19 trivial-automorphism interval absent those entries and implications; hidden databases remain a risk.",
+        "searches": [
+          "Bouyukliev–Bouyuklieva–Kurz Computer classification of linear codes (2020), DOI:10.15495/EPub_UBT_00004618",
+          "Resultary_Search semantic query: binary linear [n,5] code trivial permutation automorphism full support attainable lengths 12 19 rigid subsets PG(4,2) GL(5,2)"
+        ]
+      },
+      "rationale": "The known smallest trivial-automorphism construction at length twelve does not imply all existence/nonexistence lengths for dimension five, especially the 19-column upper cutoff. Fixed-dimension full-support spectrum is distinguished from random-code asymptotics and from code enumerations without rigidity tabulations.",
+      "residual_risks": [
+        "Full Haily–Harzalla 2015 paper inaccessible through authorized tools (vpn_disconnected); complete fixed-dimension statement could be hidden in its body.",
+        "Possible obscure projective-set/database census under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract reports smallest TAG-code and families; article contents not readable, cannot rule out a complete 12–19 spectrum.",
+          "evidence": [
+            "2015 J Discrete Math Sci Cryptogr 18:495–512, pp abstract; institutional attempt returned vpn_disconnected"
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/09720529.2014.927650",
+          "material_read": "Accessible journal abstract, bibliographic metadata and publicly indexed article descriptions; not full article",
+          "method": "Published abstract / journal record; lawful OA and preprint search, then authorized institutional retrieval",
+          "title": "On Binary Linear Codes Whose Automorphism Group is Trivial",
+          "trigger": "Same objects, smallest automorphism-free binary code"
+        },
+        {
+          "assessment": "Growth-parameter probability theorem cannot establish exact fixed-dimension existence/nonexistence.",
+          "evidence": [
+            "2026 Li–Wang–Zhou; dimension increases in asymptotic hypotheses"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.23936",
+          "material_read": "Abstract and reported asymptotic formulation",
+          "method": "ArXiv literature search / scope comparison",
+          "title": "The automorphism groups of random linear codes",
+          "trigger": "Broader random-code triviality theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Haily–Harzalla smallest TAG-code study",
+        "newly reconstructed 9–11 exhaustive obstruction and witnesses"
+      ],
+      "rationale": "For first useful binary dimension with rigid full-support codes, a complete attainable length interval is a natural code-structure invariant, with matching absolute lower and upper endpoints; the upper endpoint follows a nontrivial finite-projective complement obstruction. A researcher testing automorphism-free codes in fixed dimension can use exact feasibility, not merely a small instance.",
+      "residual_risks": [
+        "Finite-dimension theorem does not claim asymptotic constructions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For full-support rank-5 binary linear codes, trivial permutation automorphism group is achievable exactly at integer lengths 12 through 19.",
+  "limitations": [
+    "Original full 2015 journal article unavailable after lawful-access attempts; record a material O risk.",
+    "The finite calculation is exhaustive only for the normalized GL(5,2) problem; no classification of inequivalent codes at every length."
+  ],
+  "schema_version": 1
+}

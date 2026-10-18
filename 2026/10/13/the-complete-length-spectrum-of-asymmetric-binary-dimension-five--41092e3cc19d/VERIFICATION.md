@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification of the length spectrum
+# Independent mathematical audit
 
-The complete small-set search in `verify_lower.cpp`, compiled with `g++ -std=c++17 -O3`, was executed with arguments `9 11` and gave:
+## correctness
 
-```text
-size=9 normalized_cases=14950 rigid=0
-size=10 normalized_cases=65780 rigid=0
-size=11 normalized_cases=230230 rigid=0
-```
+PASS
 
-Elapsed-time suffixes are omitted; they are not mathematical certificates. The program covers all normalized rank-five sets for these three sizes. Its image search rejects only mappings whose currently determined images are linearly dependent, leave the target set, or violate the pair-sum incidence invariant. Such necessary-condition pruning is sound.
+Distinct nonzero columns encode a spanning S⊂F_2^5\{0}, whose coordinate automorphisms are exactly GL(5,2) set stabilizers. Below length 9, |GL(5,2)|=9,999,360 exceeds binomial(31,8)=7,888,725; rank-deficient sets admit pointwise-fixing nonidentity elements. For n=9,10,11 every spanning S is equivalent to one containing the five standard basis columns: 14,950, 65,780 and 230,230 choices, exhaustively tested by compiled verify_lower.cpp and an independent review of its sound pruning; each has nontrivial stabilizer. Independent all-basis-image witness checking gives stabilizer one for nested sets of sizes 12–15; complements among 31 nonzero columns give sizes 16–19 and prove nonexistence for n≥20. Direct code paths verify_lower.cpp and verify_spectrum.py were inspected; lower checker recompiled and rerun: 0 rigid cases at n=9,10,11. No timeouts or random sampling.
 
-The separately implemented `verify_spectrum.py` was executed on the four nested witness sets. It considers every ordered five-tuple of possible basis images, rejects singular assignments, and checks the full image set without the above pruning. Every witness has stabilizer order one and the script reports `VERIFY_OK`.
+## originality
 
-The complement argument is a general finite-group identity, not a computational extrapolation. The result does not certify any cases outside binary dimension five or disclose unperformed independent validation.
+PASS
+
+The known smallest trivial-automorphism construction at length twelve does not imply all existence/nonexistence lengths for dimension five, especially the 19-column upper cutoff. Fixed-dimension full-support spectrum is distinguished from random-code asymptotics and from code enumerations without rigidity tabulations.
+
+## value
+
+PASS
+
+For first useful binary dimension with rigid full-support codes, a complete attainable length interval is a natural code-structure invariant, with matching absolute lower and upper endpoints; the upper endpoint follows a nontrivial finite-projective complement obstruction. A researcher testing automorphism-free codes in fixed dimension can use exact feasibility, not merely a small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
