@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The exact Sherman–Morrison rank-one resolvent identity yields a positive-weight sum of rank-one outer products for finite positive-residue rational functions. Cauchy nonsingularity, including a constant column for a linear term, proves the exact rank rather than an upper bound. Classical Stieltjes formulas produce sign-definite integral Gram forms; partial-fraction uniqueness proves strict definiteness on the full active eigenspace and exact nullity off it. Both update and downdate cases are handled by strict positivity of the secular denominator. The first-power and inverse-first-power exceptions follow by direct formulas. An independently runnable symbolic/high-precision checker passed 27 exact and 54 numerical instance checks; universal validity rests on the written proof.
+
+## Originality — PASS, subject to publication-priority risk
+Shmueli–Drineas–Avron establish approximate low-rank corrections and spectral decay for square roots, already noting generic exact full rank. Bernstein–Van Loan and Beckermann–Cortinovis–Kressner–Schweitzer establish rational rank upper bounds and Krylov exactness. Fasi–Higham–Liu solve the scaled-identity case. The present single claim is the exact active-spectrum rank formula and positive-residue pole-budget saturation together with the sharp fractional-power endpoint boundary. Neither the abstract-level Bernstein–Van Loan statement nor the inspected portions of the remaining full texts establishes that combined equality. A detailed theorem-level comparison against inaccessible portions of Bernstein–Van Loan remains a priority risk; a negative database search is not a uniqueness certificate.
+
+## Value — PASS
+The exact rank of a square-root or inverse-square-root update determines when an exact low-rank representation is algebraically impossible despite a rank-one change to the original SPD matrix. The sharp pole budget identifies the exact rank mechanism within commonly used positive-residue rational approximants, and the active spectral grade explains why the scaled-identity case is exceptional. This refines the distinction between exact and approximate low rank that motivates matrix-function updating. The statement is structural and dimension-independent; it makes no claim of improved numerical convergence or computational cost.
+
+## Closest literature and residual limits
+Relevant full/partial inspections: Shmueli–Drineas–Avron (arXiv:2201.13156; published open access), Beckermann–Cortinovis–Kressner–Schweitzer (arXiv:2008.11501), Fasi–Higham–Liu (Manchester preprint), Beckermann–Kressner–Schweitzer (arXiv:1707.03045). Bernstein–Van Loan, DOI:10.1137/S0895479898333636, was compared via its abstract and the explicit account of Theorem 3 in the 2020 primary paper; its original full text was not accessed. Publication priority is therefore not independently established. The theorem requires positive-definite matrices, admissible rank-one updates, and strictly positive residues for its exact finite-pole rank statement. Numerical rank may be smaller.
+
+Self-review: passed. Independent audit: not yet performed.
