@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T18:00:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 178fc149c153d0cf5ef6d0387f9c8bed0579cbd5 and source verify.py c9c2d5d70cf1a3a233152caa57ae807b33d06281",
+        "Independent Symbolic Python/SymPy factorization, endpoint sign, two scale limits, outer correction and closed-form critical integral checks from mathematical identities",
+        "Ambika & Ambika primary full arxiv:nlin/0606005v1 PDF §2–§6 inspected: exact same rational f, but nonzero dissipative a=0.008, b=0.05 and other mu windows"
+      ],
+      "rationale": "For original map T(x,y)=(y+g(x),-x+g(y+g(x))) with g(s)=mu*s+2(1-mu)s²/(1+s²), primitive period-two orbits force successive x values p≠q, g(p)=q, g(q)=p and both planar y-coordinates zero. The factor g(x)-x=(mu-1)x(x-1)²/(1+x²) and sign algebra yield pq<0 and mu=-(K+2S)/(K-2S)<-1, with exceptional mu=1 explicitly a shear having only fixed periodic points. For mu=-1-t,t>0, independently re-derived and checked full exact sextic factorization (g(g(x))-x)(1+x²)H_t=x(mu-1)(x-1)²Q_t. Q_t(0)<0, Q_t(-1/(1+t))>0, Q_t(-infty)<0 provide >=2 distinct negative roots. Q_t(-u) coefficient signs descending are (-,-,-,-,*,+,-), exactly two Descartes sign changes for any t>0: at most two negative roots including multiplicity; hence exactly two simple negative roots corresponding to two distinct primitive cycles. Independent symbolic scale limits Q_t(sqrt(t)u)/t→16u²-1, e²Q_{e^4}(v/e)→-v²(v²-4)(v²+4), and outer next coefficient 128(w-2)e confirm inner -sqrt(t)/4 and outer -2t^-1/4+2; applying g gives displayed positive partners. All algebra exact SymPy checks independently redone, not merely verifier exit logs.",
+      "residual_risks": [
+        "The t>0 global sign argument assumes mu real and no poles; 1+x² and H_t are positive for all real x.",
+        "Threshold asymptotics pointwise t→0+, not uniform stability types or other periods."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Analytic quartic-integrable additive equations do not cover essential cubic numerator of 2g_mu at mu<-1.",
+          "Published dissipative and a*s/(1+s²) maps differ algebraically; no general period-two count implying the two real roots was identified."
+        ],
+        "reasoning": "The exact polynomial rational composition and sign structure are not a parameter rename of known odd-rational or dissipative map results.",
+        "searches": [
+          "Resultary: conservative Gumowski Mira map primitive period two cycles threshold mu -1 asymptotics two branches",
+          "Gumowski Mira 1980 monograph historical",
+          "Bastien–Rogalski 2007 quartic additive maps",
+          "Kulenovic Nurkanovic Pilav 2014"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/nlin/0606005",
+        "https://arxiv.org/abs/1106.0318",
+        "Bastien–Rogalski 2007 DOI:10.1016/j.jmaa.2006.02.095",
+        "Kulenovic–Nurkanovic–Pilav 2014 DOI:10.1155/2014/819290",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-two-primitive-two-cycles-below-a-sharp-threshold-in-the-conserva--3854923d38dc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary equation indeed gives same g_mu, but setting dissipation a=0 is necessary to obtain scalar equation x_{n+2}+x_n=2g(x_{n+1}); their numerical bifurcation charts cannot prove global count for all mu<-1.",
+          "Independent sextic Descartes argument establishes a new exact cutoff and dual singular scales."
+        ],
+        "reasoning": "The published recurrence includes this slice but does not in inspected full text classify its primitive two-cycles globally; mathematical implication requires nontrivial factor/sign calculation.",
+        "searches": [
+          "https://arxiv.org/pdf/nlin/0606005",
+          "arxiv:1106.0318",
+          "Resultary: conservative Gumowski Mira map primitive period two cycles threshold mu -1 asymptotics two branches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same f(s)=mu*s+2(1-mu)s²/(1+s²) is stated verbatim in Ambika eq.(1), but the second recurrence has extra dissipative coefficient a(1-b y²), not the conservative a=0 family.",
+          "Cima–Gasull–Mañosa uses a different odd rational nonlinearity, so matching Gumowski–Mira name does not imply equivalence."
+        ],
+        "reasoning": "Compare exact equations and parameter windows. The claimed family is the area-preserving a=0 slice extending to mu<-1, not same dynamics as dissipative experiments.",
+        "searches": [
+          "Resultary: conservative Gumowski Mira map primitive period two cycles threshold mu -1 asymptotics two branches",
+          "arxiv:nlin/0606005 exact formula and two-cycle roots",
+          "arxiv:1106.0318 difference equations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matching own entry is source under review; nearest other exact 2-cycle classification entries concern Duffing, Bogdanov, Rulkov, unrelated recurrences.",
+          "Ambika tabulates stability in other mu windows and not exact global conservative 2-cycle roots."
+        ],
+        "reasoning": "No exact mu<-1 2-cycle census or inner/outer threshold coefficient table was found in inspected sources.",
+        "searches": [
+          "Resultary: conservative Gumowski Mira map primitive period two cycles threshold mu -1 asymptotics two branches",
+          "Resultary other exact period-two maps",
+          "Ambika 2006 tables for a=0.008,b=0.05"
+        ]
+      },
+      "rationale": "The exact same g_mu rational nonlinearity appears in Ambika & Ambika original primary, but their full article §2–§6 focuses on dissipative a=0.008,b=0.05, mu roughly -0.3 to +0.0039, 4/7/11-period numerics and synchronization, not conservative a=0 for all real mu or exact primitive two-orbit count. Other GM literature analyzed integrable odd nonlinearities or nonconservative settings. No exact threshold mu=-1 plus two contrasting algebraic asymptotic scales was identified in Resultary primary inspection, with historical 1980/1985 inaccessible texts retained as risks.",
+      "residual_risks": [
+        "The 1980 Gumowski–Mira monograph and 1985 article were not inspected in full; they may discuss the conservative a=0 period-two slice.",
+        "Other unindexed nonconservative-to-conservative limit publications may already contain a comparable algebraic root count; searches are not proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUND same rational function but NOT global conservative mu<-1 primitive two-cycle theorem",
+          "evidence": "Their x_{n+1}=y_n+a(1-by_n²)y_n+f(x_n), a=0.008,b=0.05 in numerical work; mu near -0.096 and -0.3, not mu<-1 classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/nlin/0606005",
+          "material_read": "Complete 13-page arXiv PDF text sections 1–6, explicit p3 equation (1), fixed points, parameter windows, 4-cycle and chaotic synchronisation; page image visually verified",
+          "method": "Full public arXiv PDF text and screenshot page 3",
+          "title": "Intermittency and Synchronisation in Gumowski-Mira Maps",
+          "trigger": "Same defining nonlinearity and map name, possible prior period-two result"
+        },
+        {
+          "assessment": "INACCESSIBLE plausible historical source; retain explicit priority risk without failing O for lack of access alone",
+          "evidence": "No claim of full-text NOT_COVERING; original monograph may contain an equivalent period-two classification.",
+          "identifier_or_url": "Gumowski and Mira, Springer Lecture Notes in Mathematics 809 (1980)",
+          "material_read": "Bibliographic identification only; full monograph was not obtained or read",
+          "method": "Citation and availability lookup (not a whole-document inspection)",
+          "title": "Recurrences and Discrete Dynamic Systems",
+          "trigger": "Original source potentially treated conservative plane-map 2-cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact global Descartes polynomial root census and two different singular scales",
+        "Original 2006 primary work focuses on different dissipative regimes"
+      ],
+      "rationale": "This is an exact complete bifurcation classification for primitive 2-cycles of a natural conservative slice of the well-studied Gumowski–Mira recurrence, with sharp mu=-1 existence cutoff and a mathematically distinctive coexistence of an inner vanishing orbit and outer escaping orbit on different sqrt(t) and t^-1/4 scales. The root structure and boundary asymptotics are reusable in dynamics stability/infinity analyses; value is not merely a trivial fixed-point test.",
+      "residual_risks": [
+        "No stability analysis of the two cycles or classification of periods beyond two; practical importance beyond conservative slice remains uncertain."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only real parameters and exactly period-two orbits, not elliptic/hyperbolic stability, basins or higher periods.",
+    "Historical inaccessible original sources flagged; best-of-knowledge originality not a novelty certificate.",
+    "The t>0 global sign argument assumes mu real and no poles; 1+x² and H_t are positive for all real x.",
+    "Threshold asymptotics pointwise t→0+, not uniform stability types or other periods.",
+    "The 1980 Gumowski–Mira monograph and 1985 article were not inspected in full; they may discuss the conservative a=0 period-two slice.",
+    "Other unindexed nonconservative-to-conservative limit publications may already contain a comparable algebraic root count; searches are not proof of novelty.",
+    "No stability analysis of the two cycles or classification of periods beyond two; practical importance beyond conservative slice remains uncertain.",
+    "Export preparation was incomplete in the original submission; this administrative note does not change the scientific assessment or its limitations."
+  ],
+  "schema_version": 1
+}
