@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The executable check uses Python 3 standard library only. Run `python3 verify.py --csv minimal_fiber.csv`; compare standard output byte-for-byte with `verification_output.txt` and the generated CSV with the embedded `minimal_fiber.csv`.
+# Independent mathematical audit
 
-The program enumerates every divisor of 57600 and trial-tests primality of each divisor plus one. Its exact recursive search examines every strictly increasing four-prime selection whose predecessor product equals 57600. It checks all 37 output rows and establishes the minimum 75361 among them. An independent sieve covers all 11386 integers below 75361 that have exactly four distinct prime divisors, without restricting exponent vectors, and detects no solution.
+## correctness
 
-The mathematical reason for considering 57600 is established in the proof: squarefree four-prime solutions require an even totient with 2-adic valuation at least 3 and exactly 81 divisors. The enumerated finite fiber is not assumed to contain all solutions of the original equation. The exhaustive scan of numbers below the explicit witness is sufficient only for the claimed first-entry result.
+PASS
+
+The squarefree equation forces tau(phi(n))=3^4=81 and nu_2(phi(n))>=3. The only exponent partitions of 81 are (80),(26,2),(8,8),(8,2,2),(2,2,2,2); eliminating (2,2,2,2) via the 2-adic condition gives sharp phi>=2^8*3^2*5^2=57600. For equality, each p-1 divides 57600, so the 33 admissible p=d+1 are a provably finite set; independent exact trial primality plus four-combination product enumeration gives precisely 37 distinct tuples, least (11,13,17,31). An independent sieve of every 2<=n<75361 (all 11,386 n with omega(n)=4, nonsquarefree included) evaluates tau(n²) and tau(phi(n)) from factorizations and finds zero solutions; the exhibited witness satisfies both counts 81. Thus the finite search proves minimality but does not prove a full four-support classification.
+
+## originality
+
+PASS
+
+The initiating Amroune–Bellaouar–Boudaoud paper proves equations and parametrizations for up to three distinct prime factors and gives some larger-support Fermat-prime examples in Section 5. That result does not imply which four-support integer is first, the sharp squarefree totient floor, or the 37-element fiber. A published two-prime branch parametrization applies to omega=2 only. Generic inverse-totient tools and isolated sequence entries might recompute the finite fiber but provide no checked prior joint extremal theorem.
+
+## value
+
+PASS
+
+Four distinct primes is the first support size beyond the motivating paper's three-prime analysis, and minimal n and sharp minimal phi are intrinsically selected extremal invariants. The exact complete 37-element minimal-fiber classification is useful for further arithmetic searches. This is not an arbitrary large cutoff or a full four-prime census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
