@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Each palindrome split is identified with a reflection matching on its length-\(d\) root. The exact independent-parameter count and parity-dependent sum \(S_d\) are algebraic identities. To bound overlap of distinct near-full-length models, centrally placed splits have \(\delta n\) conflicting reflected positions. Distinct joining edges between size-at-most-two matching components induce a degree-at-most-two multigraph, forcing \(\Omega(\delta n)\) additional independent constraints. Pairwise intersections are exponentially smaller than \(2^{n/2}\), making their total negligible after fixing the root deficit and central-cut threshold. Upper and lower bounds produce both constants. Finite direct enumeration corroborates the representation identities, but is not the infinite proof.
+PASS
 
-## Originality — PASS, subject to literature risk
+For n-bit prefixes of (ps)^infinity with palindrome p,s and root length d<=n, each distinct d/c split yields exactly 2^(ceil(c/2)+ceil((d-c)/2)) distinct word models. Summation gives S_d=3d*2^(d/2)/2 (even d) and d*2^((d+1)/2) (odd d). For d>=n-L and split cuts away from both endpoints, the two reflection matchings of any distinct models differ on a linear number of positions; after contracting first-matching components, a max-degree-2 graph forces a linear drop in free binary choices. Thus pair intersections are exponentially negligible versus n*2^(n/2), for fixed L and cut-margin delta. Upper bound via sum S_d, lower by two-term inclusion exclusion; take n->infinity then delta->0 then L->infinity, obtaining even coefficient 5 of n*2^(n/2) and odd 7/sqrt(2). Independently re-enumerated n=6,8,10,12,14 and got 58,190,560,1574,4116 using explicit palindrome root constructions. This finite enumeration does not establish the asymptotics.
 
-Fici–Shallit–Simpson explicitly ask for this asymptotic in their 2025 Section 7; the 2024 preprint predates the present argument and gives no leading constants. Their sequence A374495 supplies finite counts, not an infinite asymptotic. Simpson's earlier two-representation results and Kemp's root enumeration address related but non-identical objects. The reflection-component overlap proof supplies the missing cross-period distinction. Semantic comparisons found no encompassing statement. An older or unindexed result in the symmetric-word literature remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem resolves a written asymptotic counting question in combinatorics on words. Its parity-sensitive sharp constants describe an infinite regularity of a natural language, and the matching argument exposes the structural reason that different large-root models rarely coincide. The theorem is not a small finite table extension or a routine change of normalization.
+Fici, Shallit and Simpson explicitly pose the asymptotic number P(n) in Section 7 of their 2025 paper as open; their exact small-term sequence and a coarser order lower bound do not imply either leading coefficient. Earlier work on palindrome-pair root counts and overlap does not give near-disjoint periodic-prefix models with bounded root-length deficit. The matching-overlap estimate is the substantive new ingredient. Best-of-knowledge PASS.
 
-## Scientific limits
+## value
 
-No effective error term or higher-alphabet formula is claimed. The reflection overlap estimate only requires bounded deficit and centrally separated cuts before taking successive limits. Source-coverage priority is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Resolves a precise published open asymptotic counting question with different even/odd leading constants, using a structural overlap bound that explains why representations mostly disjointly contribute at the dominant scale. It is a natural exact language-enumeration result, not a chosen arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
