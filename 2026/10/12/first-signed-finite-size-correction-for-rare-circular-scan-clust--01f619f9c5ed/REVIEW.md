@@ -1,15 +1,21 @@
-# Scientific review: first signed rare circular scan correction
+# Independent mathematical audit
 
-## Correctness — PASS
-Gamma-tail Taylor coefficients and the exact beta integral give the local new-cluster intensity. The circular local-dependency graph yields a Poisson total-variation error of order \(O(N^{-1}+N^{-2/(k-1)})\), negligible compared with the signed correction for each fixed \(k\ge4\). The exceptional all-window event is super-polynomially rare. A gamma-concentration sandwich eliminates random-spacing normalization at negligible order. The standalone checker verified 145 exact local algebraic assertions; finite checks are not substituted for the universal proof.
+## correctness
 
-## Originality — PASS, subject to priority risk
-The full lead source [1] provides exact formulas for different scan ranges and not this signed large-population coefficient for fixed \(k\ge4\). The older exact-recursion, Bonferroni and Poisson-approximation literature includes relevant general methods, which do not by their identified claims state the coefficient proved here. Full access to some older sources was unavailable; they could contain an equivalent unstated expansion. This is a material residual priority risk, not proof of uniqueness.
+PASS
 
-## Value — PASS
-A quantitative correction to the limiting rare-cluster probability is a natural statistical quantity for assessing finite-population scan significance. Its negative sign and explicit coefficient identify the first bias caused by adjacent overlapping windows, rather than an arbitrary parameter slice or a routine constant improvement. The excluded case \(k=3\) marks a mathematically distinct normalization scale.
+For fixed integer k≥4, t>0, q=tN^(−1/(k−1)), the exponential-spacing representation gives Gamma(k−1,1) single-window probability q^(k−1)/(k−1)!−(k−1)q^k/k!+O(q^(k+1)). Direct integration of adjacent joint small-window event over k−2 shared exponentials yields 2q^k/k!+O(q^(k+1)). Thus new-cluster intensity λ−(k+1)t^k N^(−1/(k−1))/k!+O(N^(−2/(k−1))). For start indicators overlapping at most k bins, nonadjacent simultaneous starts are O(q^(k+1)) and Chen–Stein total-variation error is O(N^-1+N^(−2/(k−1)))=o(N^(−1/(k−1))); the all-window exception is exponentially small. Gamma concentration of T_N/N and a deterministic sandwich choose exponent 1/(k−1)<a<1/2 (possible precisely k≥4), giving the same signed expansion for circle spacings. Reviewed attached exact-rational 145 algebraic coefficient checks for k=4..32; these are supportive only, not the asymptotic proof.
 
-## Limits
-Fixed \(k\ge4\), fixed \(t>0\); no uniformity or independent validation. See the proof and references in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novel evaluation of signed N^(−1/(k−1)) term in fixed-k≥4 circular scan clusters. General Poisson and exact scan methods are credited. The inspected Yuan 2026 source treats k=3 and k=N−1 rather than this fixed-k≥4 coefficient; older m-spacing methods could implicitly provide a derivation and remain priority risks.
+
+## value
+
+PASS
+
+The explicit negative first error coefficient in the rare-scan extreme law quantifies finite-N significance bias for local point-clustering tests. Its origin in adjacent-window overlap and the k=3 normalization-scale boundary are substantive structural features, not a routine restatement of first-order Poisson approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

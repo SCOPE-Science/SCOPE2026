@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Analytic and computational verification
+# Independent mathematical audit
 
-The complete proof in RESULT.md derives the Gamma\((k-1,1)\) coefficient \(-(k-1)/k!\), the adjacent-window beta integral coefficient \(2/k!\), and hence the cluster-start correction \(-(k+1)/k!\). A bounded-dependence Chen–Stein estimate gives \(O(N^{-1}+N^{-2/(k-1)})\) error. The normalization concentration sandwich works because \(k\ge4\) permits \(1/(k-1)<a<1/2\).
+## correctness
 
-Run `python verify_rare_scan.py` using Python 3 standard library. The script makes 145 exact rational checks across the first 29 admissible integers \(k\). The finite checks are supportive algebraic smoke tests, not a proof of the all-\(k\) or limiting statements. No independent scientific validation has been performed.
+PASS
+
+For fixed integer k≥4, t>0, q=tN^(−1/(k−1)), the exponential-spacing representation gives Gamma(k−1,1) single-window probability q^(k−1)/(k−1)!−(k−1)q^k/k!+O(q^(k+1)). Direct integration of adjacent joint small-window event over k−2 shared exponentials yields 2q^k/k!+O(q^(k+1)). Thus new-cluster intensity λ−(k+1)t^k N^(−1/(k−1))/k!+O(N^(−2/(k−1))). For start indicators overlapping at most k bins, nonadjacent simultaneous starts are O(q^(k+1)) and Chen–Stein total-variation error is O(N^-1+N^(−2/(k−1)))=o(N^(−1/(k−1))); the all-window exception is exponentially small. Gamma concentration of T_N/N and a deterministic sandwich choose exponent 1/(k−1)<a<1/2 (possible precisely k≥4), giving the same signed expansion for circle spacings. Reviewed attached exact-rational 145 algebraic coefficient checks for k=4..32; these are supportive only, not the asymptotic proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge novel evaluation of signed N^(−1/(k−1)) term in fixed-k≥4 circular scan clusters. General Poisson and exact scan methods are credited. The inspected Yuan 2026 source treats k=3 and k=N−1 rather than this fixed-k≥4 coefficient; older m-spacing methods could implicitly provide a derivation and remain priority risks.
+
+## value
+
+PASS
+
+The explicit negative first error coefficient in the rare-scan extreme law quantifies finite-N significance bias for local point-clustering tests. Its origin in adjacent-window overlap and the k=3 normalization-scale boundary are substantive structural features, not a routine restatement of first-order Poisson approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

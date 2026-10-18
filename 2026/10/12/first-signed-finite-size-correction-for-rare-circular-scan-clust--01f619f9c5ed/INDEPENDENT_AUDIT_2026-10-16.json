@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T01:03:46.226979Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed integer k≥4, t>0, q=tN^(−1/(k−1)), the exponential-spacing representation gives Gamma(k−1,1) single-window probability q^(k−1)/(k−1)!−(k−1)q^k/k!+O(q^(k+1)). Direct integration of adjacent joint small-window event over k−2 shared exponentials yields 2q^k/k!+O(q^(k+1)). Thus new-cluster intensity λ−(k+1)t^k N^(−1/(k−1))/k!+O(N^(−2/(k−1))). For start indicators overlapping at most k bins, nonadjacent simultaneous starts are O(q^(k+1)) and Chen–Stein total-variation error is O(N^-1+N^(−2/(k−1)))=o(N^(−1/(k−1))); the all-window exception is exponentially small. Gamma concentration of T_N/N and a deterministic sandwich choose exponent 1/(k−1)<a<1/2 (possible precisely k≥4), giving the same signed expansion for circle spacings. Reviewed attached exact-rational 145 algebraic coefficient checks for k=4..32; these are supportive only, not the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exact Yuan range k=3 or k=N−1 differs from fixed k≥4; classical total variation controls error but does not supply local signed intensity."
+        ],
+        "reasoning": "The exact local beta integral and correction coefficient are additional calculations, not results directly provided by general bound.",
+        "searches": [
+          "Yuan arXiv:2604.25360 k=3 k=N−1",
+          "Arratia–Goldstein–Gordon Poisson approximation 1989"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.25360",
+        "https://doi.org/10.1214/aop/1176991491",
+        "Journal of Applied Probability, Glaz, Naus, Roos and Wallenstein",
+        "Resultary semantic search: rare circular scan minimum k consecutive uniform points signed second-order correction overlapping windows Poisson"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Yuan formulas specialize differently; Chen–Stein supplies o(ε) approximation after computing b1,b2, not the coefficient."
+        ],
+        "reasoning": "The signed correction is not an immediate specialization of either inspected theorem alone.",
+        "searches": [
+          "Yuan 2026 scanned theorem ranges",
+          "Arratia Goldstein Gordon 1989 dependency graph proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Minimum of k-point circular scans is an extreme of sums of k−1 neighboring circular gaps, also called minimum m-spacing with m=k−1."
+        ],
+        "reasoning": "Alias checked; earlier first-order extreme limits do not determine signed order N^(−1/(k−1)) without an overlap calculation.",
+        "searches": [
+          "rare circular scan minimum k consecutive uniform points signed second-order correction overlapping windows Poisson",
+          "ordered m-spacings Poisson approximations circles extreme minimum spacings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching complete N-parameter table or database coefficient identified; statistics here are asymptotic continuous scan laws."
+        ],
+        "reasoning": "A finite table cannot prove signed asymptotic. Older exact formulas can encode coefficients implicitly, motivating the residual literature risk.",
+        "searches": [
+          "rare circular scan minimum k consecutive uniform points signed second-order correction overlapping windows Poisson",
+          "circular scan distribution tables small arcs",
+          "Glaz Naus Roos Wallenstein ordered m-spacing"
+        ]
+      },
+      "rationale": "Best-of-knowledge novel evaluation of signed N^(−1/(k−1)) term in fixed-k≥4 circular scan clusters. General Poisson and exact scan methods are credited. The inspected Yuan 2026 source treats k=3 and k=N−1 rather than this fixed-k≥4 coefficient; older m-spacing methods could implicitly provide a derivation and remain priority risks.",
+      "residual_risks": [
+        "Older Poisson/ordered m-spacing primary literature was not inspected completely and could implicitly contain this asymptotic coefficient.",
+        "Claim requires fixed k≥4, t>0; it does not claim k=3 or uniformity in k or t.",
+        "The random cyclic cut in an ordered circle sample is harmless only for cyclically invariant min-window statistics; Dirichlet spacings are used in that invariant sense."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not cover fixed k≥4 with N→∞ signed first correction",
+          "evidence": "Yuan arXiv:2604.25360v1, headline exact finite-N families k=3 or k=N−1.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.25360",
+          "material_read": "Primary PDF formulas, statement, ranges k=3 and k=N−1 and surrounding proof exposition",
+          "method": "ArXiv PDF read and theorem-to-theorem parameter comparison",
+          "title": "Exact Closed-Form Formulae for Linear and Circular Continuous Scan Statistics: Pc(N−1;N,w), Pc(3;N,w), and P(3;N,w)",
+          "trigger": "Closest 2026 exact continuous circle scan result"
+        },
+        {
+          "assessment": "Poisson approximation tool is prior, not the claimed coefficient",
+          "evidence": "Arratia–Goldstein–Gordon 1989 Theorem 1 gives bound by neighborhoods/dependence parameters.",
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176991491",
+          "material_read": "Known theorem statement and parameter b1,b2 dependence; complete original paper not re-read in this run",
+          "method": "Classical theorem application check",
+          "title": "Two moments suffice for Poisson approximations: the Chen–Stein method",
+          "trigger": "Main classical method underlying local dependent-window approximation"
+        },
+        {
+          "assessment": "A plausible prior source not verified not to contain the exact signed coefficient; risk preserved",
+          "evidence": "Older ordered m-spacing Poisson approximation literature.",
+          "identifier_or_url": "Journal of Applied Probability, Glaz, Naus, Roos and Wallenstein",
+          "material_read": "Bibliographic and result-level material only, not full historical article",
+          "method": "Targeted title/method comparison",
+          "title": "Poisson approximations for the distribution and moments of ordered m-spacings",
+          "trigger": "Same uniform order statistics and Poisson limit as possible broader coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit negative first error coefficient in the rare-scan extreme law quantifies finite-N significance bias for local point-clustering tests. Its origin in adjacent-window overlap and the k=3 normalization-scale boundary are substantive structural features, not a routine restatement of first-order Poisson approximation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2604.25360",
+    "https://doi.org/10.1214/aop/1176991491",
+    "Journal of Applied Probability, Glaz, Naus, Roos and Wallenstein",
+    "Resultary semantic search: rare circular scan minimum k consecutive uniform points signed second-order correction overlapping windows Poisson"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Older Poisson/ordered m-spacing primary literature was not inspected completely and could implicitly contain this asymptotic coefficient.",
+    "Claim requires fixed k≥4, t>0; it does not claim k=3 or uniformity in k or t.",
+    "The random cyclic cut in an ordered circle sample is harmless only for cyclically invariant min-window statistics; Dirichlet spacings are used in that invariant sense.",
+    "Matching record tree SHAs and pinned scientific blob identities were fetched; complete root-to-record Git ancestry of full pinned commit was not separately rebuilt.",
+    "Potential public metadata contains private provenance: publication not ready, scientific assessment complete."
+  ],
+  "residual_risks": [
+    "Older Poisson/ordered m-spacing primary literature was not inspected completely and could implicitly contain this asymptotic coefficient.",
+    "Claim requires fixed k≥4, t>0; it does not claim k=3 or uniformity in k or t.",
+    "The random cyclic cut in an ordered circle sample is harmless only for cyclically invariant min-window statistics; Dirichlet spacings are used in that invariant sense."
+  ],
+  "schema_version": 1
+}
