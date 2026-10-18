@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T17:18:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "source RESULT.md blob 847d2c9c0c3e77faa9caf3a58b74525f88e47ef8",
+        "source verify.py blob f4e6ddb7927f5abc63882ddd5e51d055efde5c10",
+        "independent exhaustive binary word enumeration n=2..16"
+      ],
+      "rationale": "For a binary linear word with N=n−1 adjacent pairs, the transition counts obey c_01−c_10 in {-1,0,1}; every nonnegative count tuple with this difference, total N and the zero-transition connectivity exception is realized by runs. Exact counting of balanced and two imbalanced sectors gives Q_(2m)=3m²−m+2 and Q_(2m+1)=3m²+2m+2. Run-composition formulas give singleton profiles exactly for constant/one-transition words and two alternating even-length words. The proof has correct all-n quantifiers for n≥2; independent word-by-word enumeration for EVERY binary n=2,...,16 verified profile counts and singleton classifications, with a separate finite arithmetic spot-check through n=200 in the inspected verifier. Finite checks corroborate rather than replace the all-n run proof.",
+      "residual_risks": [
+        "This is exact for binary linear read-length-two multispectra, not cyclic, larger alphabets, or larger read lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unrestricted four-composition upper bound grows cubically, versus exact quadratic Q_n; cyclic balance only counts one of three endpoint sectors."
+        ],
+        "reasoning": "Broader corpus covers some aspects but neither theorem determines linear Q_n or singleton classes.",
+        "searches": [
+          "Gabrys–Milenkovic arXiv:1804.04548",
+          "Counting Markov Types DOI 10.46298/dmtcs.2768"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1804.04548",
+        "DOI 10.1109/TIT.2019.2935973",
+        "DOI 10.46298/dmtcs.2768"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General composition count includes unrealizable profiles; cyclic restriction omits realizable imbalanced linear profiles and has no singleton-word claim."
+        ],
+        "reasoning": "Neither source implies the exact binary linear image or unique reconstruction classifications without new endpoint/run analysis.",
+        "searches": [
+          "Markov types original cyclic restriction",
+          "Gabrys–Milenkovic linear multispectrum image bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Linear bigram multispectrum is a directed two-vertex Euler-trail edge-multiplicity invariant; the prior cyclic Markov-type table imposes c01=c10 and cannot count c01−c10=±1."
+        ],
+        "reasoning": "Compared the exact same invariant under bigram counts, first-order Markov types, Euler-trail degree profiles and multispectrum reconstruction coding.",
+        "searches": [
+          "Attempted Resultary: binary 2-spectrum adjacent pair multiset reconstruction code size Qn 3m²−m+2 singleton alternating words",
+          "arXiv:1804.04548",
+          "Jacquet–Knessl–Szpankowski DOI 10.46298/dmtcs.2768"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cyclic binary table uses c01=c10 and is not an exact linear reconstruction-code-size table. No direct linear singleton table was encountered in inspected source material."
+        ],
+        "reasoning": "An exact published noncyclic Markov-profile table could cover the claim, but the inspected cyclic table does not; search outage prevents exclusion of unindexed aliases.",
+        "searches": [
+          "Targeted primary cyclic binary table pp388–390",
+          "Gabrys–Milenkovic Section II tables and bounds"
+        ]
+      },
+      "rationale": "Gabrys–Milenkovic supplies exactly the linear L-multispectrum definition and a general unrestricted-composition upper bound, but does not determine its image count at L=2. Jacquet–Knessl–Szpankowski expressly passes to cyclic Markov types, forcing balanced opposite transitions and therefore excluding the two free-endpoint imbalance sectors. Neither prior result states or implies the exact noncyclic binary Q_n formula together with unique-word classification.",
+      "residual_risks": [
+        "All five targeted Resultary requests returned temporarily_unavailable/search_internal_error (search_completed=false); this is not evidence of no matching findings. No retry was made in this run.",
+        "The all-n formula is elementary enough to have appeared under weakly indexed noncyclic Markov/Euler-trail terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact binary L=2 image count",
+          "evidence": "The source upper-bounds the number of possible spectra by unrestricted 2^L-part compositions, which is not the exact realizable bigram-profile number.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.04548",
+          "material_read": "Accessible arXiv PDF: abstract, Section II definitions and count/rate bound plus subsequent construction scope; relevant PDF pages visually inspected.",
+          "method": "Primary statement-level comparison",
+          "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+          "trigger": "Exact definition of L-multispectrum and general upper count"
+        },
+        {
+          "assessment": "COVERS CYCLIC ANALOGUE ONLY, NOT LINEAR",
+          "evidence": "The paper explicitly switches to cyclic strings and enforces equal cross-transition counts, omitting the linear c01−c10=±1 sectors.",
+          "identifier_or_url": "https://dmtcs.episciences.org/en/articles/2768/download",
+          "material_read": "Open-access primary full PDF, pages 388–390 (including binary example and cyclic restriction), inspected in text and page images.",
+          "method": "Compare cyclic versus linear balance and endpoints",
+          "title": "Counting Markov Types",
+          "trigger": "Closely equivalent adjacent-pair count matrix enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gabrys–Milenkovic binary multispectrum model",
+        "Jacquet–Knessl–Szpankowski cyclic contrast",
+        "independent enumeration"
+      ],
+      "rationale": "The shortest nontrivial read length for binary string reconstruction is L=2. The exact achievable multispectrum count is quadratic rather than the standard cubic unconstrained profile bound, and the theorem classifies all uniquely reconstructible words at every length. This is a natural all-n exact invariant with a reproducible run characterization and useful benchmark for general reconstruction-code theory.",
+      "residual_risks": [
+        "Does not determine optimal efficient representative encoding or noisy higher-read analogues."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Alphabet exactly {0,1}, length n≥2, adjacent linear length-two multispectra with multiplicities."
+  ],
+  "schema_version": 1
+}

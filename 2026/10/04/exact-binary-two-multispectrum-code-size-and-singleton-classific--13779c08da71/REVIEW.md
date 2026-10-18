@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces a length-two multispectrum to the four adjacent-pair multiplicities. Endpoint telescoping gives the only possible transition imbalance, and explicit run decompositions prove that every claimed profile is realizable. The parity formulas follow from exact sums. Singleton classes are decided by exact weak-composition counts across runs. The bundled verifier independently exhausts all binary words through length \(16\) and agrees with the formulas and class-size calculation.
+## correctness
 
-## Originality
-PASS. The closest direct reconstruction source defines the same linear multispectrum and code problem but gives a general unrestricted-composition upper bound rather than the exact \(L=2\) count. The closest adjacent-pair enumeration source explicitly replaces linear strings by cyclic strings, forcing equal cross-transition counts; its exact binary count therefore omits the two free-endpoint sectors and does not give the singleton classification. Targeted searches under multispectrum, bigram, Markov-type, Euler-trail, and adjacent-pair aliases found no statement implying the claim. The residual risk is an unindexed elementary derivation under different terminology.
+PASS
 
-## Value
-PASS. This closes the shortest nontrivial read-length case of a standard coded reconstruction extremum for every \(n\), sharpens the generic cubic profile-count upper bound to an exact quadratic expression, and identifies exactly which individual words need no codebook side information. The result is a natural complete boundary case rather than an arbitrary finite census.
+For a binary linear word with N=n−1 adjacent pairs, the transition counts obey c_01−c_10 in {-1,0,1}; every nonnegative count tuple with this difference, total N and the zero-transition connectivity exception is realized by runs. Exact counting of balanced and two imbalanced sectors gives Q_(2m)=3m²−m+2 and Q_(2m+1)=3m²+2m+2. Run-composition formulas give singleton profiles exactly for constant/one-transition words and two alternating even-length words. The proof has correct all-n quantifiers for n≥2; independent word-by-word enumeration for EVERY binary n=2,...,16 verified profile counts and singleton classifications, with a separate finite arithmetic spot-check through n=200 in the inspected verifier. Finite checks corroborate rather than replace the all-n run proof.
 
-## Closest literature and limitations
-Gabrys--Milenkovic (arXiv:1804.04548; IEEE TIT 2019) is the direct model source. Jacquet--Knessl--Szpankowski (DMTCS 2010) is the closest adjacent-pair frequency enumeration but is cyclic. The theorem here is limited to binary linear spectra of read length two; it makes no claim for larger alphabets, longer reads, noisy observations, or cyclic spectra.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Gabrys–Milenkovic supplies exactly the linear L-multispectrum definition and a general unrestricted-composition upper bound, but does not determine its image count at L=2. Jacquet–Knessl–Szpankowski expressly passes to cyclic Markov types, forcing balanced opposite transitions and therefore excluding the two free-endpoint imbalance sectors. Neither prior result states or implies the exact noncyclic binary Q_n formula together with unique-word classification.
+
+## value
+
+PASS
+
+The shortest nontrivial read length for binary string reconstruction is L=2. The exact achievable multispectrum count is quadratic rather than the standard cubic unconstrained profile bound, and the theorem classifies all uniquely reconstructible words at every length. This is a natural all-n exact invariant with a reproducible run characterization and useful benchmark for general reconstruction-code theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
