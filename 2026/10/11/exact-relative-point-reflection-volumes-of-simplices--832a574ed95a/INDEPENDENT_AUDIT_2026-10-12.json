@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T19:14:20.898875Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize affinely to Δ=conv(0,e1,...,en) with Euclidean vol 1/n!, and M=(Δ-Δ)/2. Rogers--Shephard point reflection maximizes vol(conv(Δ∪(2x−Δ))) at a vertex with value 2^n/n!, and difference-body equality gives vol(M)=C(2n,n)/(2^n n!). Hence Busemann factor v_n/vol(M) yields 4^n v_n/C(2n,n). The polar inequalities |y_i−y_j|<=2 (y0=0) describe a range<=2 polytope with vertices ±2 1_S; sign-pattern integral ∫_{a+b≤2}k(n-k)a^(k-1)b^(n-k-1) da db gives 2^n per sign-count k=0..n, so vol(M°)=(n+1)2^n and Holmes--Thompson value 4^n(n+1)/(n!v_n). Gromov mass: maxima of cross-polytope determinants occur on doubled M vertices e_i−e_j; reduced directed-incidence matrices are totally unimodular so max det for M generators is 2^-n, largest cross-polytope vol=1/n! and normalized reflection volume=4^n/n!. Mass*: polar vertices ±2 1_S and multilinear absolute determinant convexity reduce maximal polar cross determinant to 2^n D_n, D_n=max zero-one determinant; the polar volume product vol(P)vol(P°)=4^n/n! gives minimal enclosing parallelotope vol=1/D_n, and mass* value 4^n D_n/n!. Independent scipy hull geometry reproduces vol(M),vol(M°),D_n=(1,2) at n=2,3: (3/4,12,1) and (5/12,32,2). Finite hull checks corroborate, not replace all-n unimodularity and polarity. D_n is left exact without pretending all-n closed form.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical difference body and point reflection theorems imply Euclidean numerator and volume(M)",
+          "Lángi Problem 4 asks global extrema without stated simplex-four-volume calculation"
+        ],
+        "reasoning": "Existing classical theorems do not provide norm-specific polar and extremal parallelepiped geometry. Broad mixed-volume inequalities do not alone settle the exact mass* zero-one determinant factor.",
+        "searches": [
+          "Rogers Shephard point reflection convex hull simplex equality 2^n",
+          "Langi point reflection simplex Busemann Holmes Thompson all dimensions",
+          "Horvath Langi convex hull of two convex bodies reflection"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1308.2500v1",
+        "arXiv:1302.6164v1",
+        "doi:10.1112/S0025579300001418",
+        "Git RESULT.md@f4a7315d70337b042827c83521f92ba398462743",
+        "Git verify.py@9506b77db1aab1c4966d80f33631578511cc301f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "vol(conv(Δ∪(2x−Δ))) max =2^n/n! at vertices follows Rogers--Shephard",
+          "A simplex difference body has volume C(2n,n)/n!, while polar and extremal cross-polytopes require separate arguments"
+        ],
+        "reasoning": "Bus value is a relatively direct combination of known RS equalities; HT, mass and mass* additionally need independent polar-volume/determinant computations. The mathematical result is the combined canonical benchmark, with explicit prior dependencies credited.",
+        "searches": [
+          "Langi arxiv 1308.2500 Definition 2 Problem 4 simplex",
+          "Rogers Shephard simplex point reflection volume ratio"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lángi arXiv:1308.2500v1 §final Definition 2/Problem 4 provides target normalization and extremal functional",
+          "Rogers--Shephard Euclidean reflection max 2^n vol(simplex) supplies only unnormalized numerator"
+        ],
+        "reasoning": "Searched equivalents under relative unit ball, central symmetral, Minkowski difference simplex and Gromov mass*. The four normalized output formulas require the polar and determinant scalars absent from the original definitions.",
+        "searches": [
+          "Langi 2013 normed Rogers Shephard relative norm simplex m star",
+          "Holmes Thompson Busemann simplex difference body reflection volume",
+          "resultary attempted relative point reflection 0 1 determinant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "D_n is defined as global maximum of n-by-n zero-one determinant and has tabulated low ranks",
+          "At n=2/3 independent hull and determinant samples match formulas; all n uses total unimodularity and exact polar volume"
+        ],
+        "reasoning": "A table of D_n values is prior art and alone does not furnish the geometric mass* identification. Conversely formula (5) does not claim a solution to open maximal determinant in every n.",
+        "searches": [
+          "zero one maximal determinant Dn table simplex mass star",
+          "root polytope polar hypercube D_n inscribed cross polytope"
+        ]
+      },
+      "rationale": "Lángi arXiv:1308.2500 defines exactly these four relative norm measures, gives Problem 4 on all-body extrema, but inspected full 10-page text (especially final Definition 2, Problem 4) does not state the all-n simplex benchmark. Classical Rogers--Shephard reflection and difference-body maxima provide Euclidean factors and simplex extremizers and are credited. The new mathematical content is explicitly computing all four norm-specific scalars for M, especially dual parallelotope determinant D_n; a normed volume formulation is not merely a restatement of Euclidean bound. No existing exact all-n simplex benchmark located by aliases of Busemann, Holmes--Thompson, mass, mass*, root polytopes or maximal determinant, but later renamed normed-volume literature remains a risk. Resultary failed; not used as evidence.",
+      "residual_risks": [
+        "Some later normed-volume simplex benchmark could reproduce formulas under alternative normalization; historical search not exhaustive.",
+        "The maximal zero-one determinant D_n is not known as an elementary closed form at arbitrary n; formula 5 is an exact reduction only.",
+        "No assertion of extrema among all convex bodies; only within simplex class.",
+        "Resultary temporarily unavailable (search_internal_error, search_completed=false)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same point-reflection quantities; no all-n simplex-four-volume result in inspected full text",
+          "evidence": [
+            "Definition 2 formula (14) and Problem 4; four normalizations earlier in text"
+          ],
+          "identifier_or_url": "arXiv:1308.2500v1; https://arxiv.org/pdf/1308.2500",
+          "material_read": "Full 10-page lawful arXiv preprint, normed-volume definitions and final p.9 Definition 2 / Problem 4",
+          "method": "ArXiv PDF full-text and page-image inspection",
+          "title": "On a normed version of a Rogers--Shephard type problem",
+          "trigger": "Defines same four functionals and open global problem"
+        },
+        {
+          "assessment": "Established sharp Euclidean inequalities used directly and fully credited",
+          "evidence": [
+            "Euclidean point-reflection maximal volume 2^n vol(Δ) and difference-body C(2n,n) simplex equality"
+          ],
+          "identifier_or_url": "doi:10.1112/S0025579300001418",
+          "material_read": "Referenced Rogers--Shephard theorem statements and subsequent primary-context citations; original entire 1958 paper not read in this run",
+          "method": "Published theorem statements and Lángi primary citations",
+          "title": "Some extremal problems for convex bodies",
+          "trigger": "Classical sharp Euclidean point-reflection and difference body equalities"
+        },
+        {
+          "assessment": "Potentially broad convex-hull estimates, no demonstrated implication to all four relative simplex scalars",
+          "evidence": [
+            "Horváth and Lángi 2013 convex-hull problem"
+          ],
+          "identifier_or_url": "arXiv:1302.6164v1; https://arxiv.org/abs/1302.6164",
+          "material_read": "ArXiv record and available theorem/abstract material; not full article text",
+          "method": "Lawful arXiv record and related literature",
+          "title": "On the volume of the convex hull of two convex bodies",
+          "trigger": "Plausible stronger convex-hull comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A canonical n-simplex is the equality object of the classic Rogers--Shephard theorems and a natural baseline for Lángi's open relative reflection-volume problem. The four exact normalizations give useful all-dimensional benchmarks, and mass* establishes a nonobvious structural bridge to the discrete maximal 0/1 determinant invariant, indicating genuine combinatorial dependence rather than routine rescaling. No general minimum/maximum over arbitrary bodies is claimed, and formula 5 does not compute unknown D_n in closed form.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1308.2500v1",
+    "arXiv:1302.6164v1",
+    "doi:10.1112/S0025579300001418",
+    "Git RESULT.md@f4a7315d70337b042827c83521f92ba398462743",
+    "Git verify.py@9506b77db1aab1c4966d80f33631578511cc301f"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Some later normed-volume simplex benchmark could reproduce formulas under alternative normalization; historical search not exhaustive.",
+    "The maximal zero-one determinant D_n is not known as an elementary closed form at arbitrary n; formula 5 is an exact reduction only.",
+    "No assertion of extrema among all convex bodies; only within simplex class.",
+    "Resultary temporarily unavailable (search_internal_error, search_completed=false)."
+  ],
+  "residual_risks": [
+    "Some later normed-volume simplex benchmark could reproduce formulas under alternative normalization; historical search not exhaustive.",
+    "The maximal zero-one determinant D_n is not known as an elementary closed form at arbitrary n; formula 5 is an exact reduction only.",
+    "No assertion of extrema among all convex bodies; only within simplex class.",
+    "Resultary temporarily unavailable (search_internal_error, search_completed=false)."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Same point-reflection quantities; no all-n simplex-four-volume result in inspected full text",
+      "evidence": [
+        "Definition 2 formula (14) and Problem 4; four normalizations earlier in text"
+      ],
+      "identifier_or_url": "arXiv:1308.2500v1; https://arxiv.org/pdf/1308.2500",
+      "material_read": "Full 10-page lawful arXiv preprint, normed-volume definitions and final p.9 Definition 2 / Problem 4",
+      "method": "ArXiv PDF full-text and page-image inspection",
+      "title": "On a normed version of a Rogers--Shephard type problem",
+      "trigger": "Defines same four functionals and open global problem"
+    },
+    {
+      "assessment": "Established sharp Euclidean inequalities used directly and fully credited",
+      "evidence": [
+        "Euclidean point-reflection maximal volume 2^n vol(Δ) and difference-body C(2n,n) simplex equality"
+      ],
+      "identifier_or_url": "doi:10.1112/S0025579300001418",
+      "material_read": "Referenced Rogers--Shephard theorem statements and subsequent primary-context citations; original entire 1958 paper not read in this run",
+      "method": "Published theorem statements and Lángi primary citations",
+      "title": "Some extremal problems for convex bodies",
+      "trigger": "Classical sharp Euclidean point-reflection and difference body equalities"
+    },
+    {
+      "assessment": "Potentially broad convex-hull estimates, no demonstrated implication to all four relative simplex scalars",
+      "evidence": [
+        "Horváth and Lángi 2013 convex-hull problem"
+      ],
+      "identifier_or_url": "arXiv:1302.6164v1; https://arxiv.org/abs/1302.6164",
+      "material_read": "ArXiv record and available theorem/abstract material; not full article text",
+      "method": "Lawful arXiv record and related literature",
+      "title": "On the volume of the convex hull of two convex bodies",
+      "trigger": "Plausible stronger convex-hull comparison"
+    }
+  ]
+}

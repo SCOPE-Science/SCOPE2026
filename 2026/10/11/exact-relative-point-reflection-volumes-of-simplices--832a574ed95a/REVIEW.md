@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Affine normalization reduces to the standard simplex. Rogers--Shephard gives the maximal Euclidean point-reflection volume \(2^n/n!\) at a vertex and the simplex equality case for the difference body. The polar of the relative unit ball is described exactly by a coordinate-range inequality, and a sign-chamber beta integral gives its volume \((n+1)2^n\). For Gromov mass, the doubled vertices of the relative ball are complete-graph roots, so total unimodularity makes the largest inscribed cross-polytope volume \(1/n!\). For mass*, polarity converts the smallest circumscribed parallelotope problem into an inscribed cross-polytope problem in the polar; its vertex determinant maximum is exactly \(2^nD_n\), yielding circumscribed volume \(1/D_n\). The bundled checker reconstructs all polyhedral and determinant quantities independently in dimensions \(2,3,4\).
+## correctness
 
-## Originality
-**PASS, with a residual later-literature risk.** Lángi's primary paper defines the four relative point-reflection quantities and poses their all-dimensional extremal problem, but the materially inspected definitions and concluding Problem 4 do not state the simplex formulas. Searches combining the exact object with Busemann, Holmes--Thompson, Gromov mass, mass*, central symmetral, simplex, and maximal determinant did not locate an implication-equivalent result. The closest retrieved reflection results concern Euclidean reflection across supporting hyperplanes or the classical Euclidean reflection-body bound; neither computes the four relative-norm normalization factors. The mass* reduction to \(D_n\) is especially distinctive.
+PASS
 
-## Value
-**PASS.** A simplex is the canonical equality body for both Rogers--Shephard inequalities and therefore the natural first benchmark for Lángi's open normed reflection problem. The result solves that benchmark simultaneously for all four standard normed volumes and all dimensions. The mass* formula exposes a nontrivial structural bridge to the zero-one maximal-determinant problem rather than merely supplying a low-dimensional numerical example.
+Normalize affinely to Δ=conv(0,e1,...,en) with Euclidean vol 1/n!, and M=(Δ-Δ)/2. Rogers--Shephard point reflection maximizes vol(conv(Δ∪(2x−Δ))) at a vertex with value 2^n/n!, and difference-body equality gives vol(M)=C(2n,n)/(2^n n!). Hence Busemann factor v_n/vol(M) yields 4^n v_n/C(2n,n). The polar inequalities |y_i−y_j|<=2 (y0=0) describe a range<=2 polytope with vertices ±2 1_S; sign-pattern integral ∫_{a+b≤2}k(n-k)a^(k-1)b^(n-k-1) da db gives 2^n per sign-count k=0..n, so vol(M°)=(n+1)2^n and Holmes--Thompson value 4^n(n+1)/(n!v_n). Gromov mass: maxima of cross-polytope determinants occur on doubled M vertices e_i−e_j; reduced directed-incidence matrices are totally unimodular so max det for M generators is 2^-n, largest cross-polytope vol=1/n! and normalized reflection volume=4^n/n!. Mass*: polar vertices ±2 1_S and multilinear absolute determinant convexity reduce maximal polar cross determinant to 2^n D_n, D_n=max zero-one determinant; the polar volume product vol(P)vol(P°)=4^n/n! gives minimal enclosing parallelotope vol=1/D_n, and mass* value 4^n D_n/n!. Independent scipy hull geometry reproduces vol(M),vol(M°),D_n=(1,2) at n=2,3: (3/4,12,1) and (5/12,32,2). Finite hull checks corroborate, not replace all-n unimodularity and polarity. D_n is left exact without pretending all-n closed form.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Lángi arXiv:1308.2500 defines exactly these four relative norm measures, gives Problem 4 on all-body extrema, but inspected full 10-page text (especially final Definition 2, Problem 4) does not state the all-n simplex benchmark. Classical Rogers--Shephard reflection and difference-body maxima provide Euclidean factors and simplex extremizers and are credited. The new mathematical content is explicitly computing all four norm-specific scalars for M, especially dual parallelotope determinant D_n; a normed volume formulation is not merely a restatement of Euclidean bound. No existing exact all-n simplex benchmark located by aliases of Busemann, Holmes--Thompson, mass, mass*, root polytopes or maximal determinant, but later renamed normed-volume literature remains a risk. Resultary failed; not used as evidence.
+
+## value
+
+PASS
+
+A canonical n-simplex is the equality object of the classic Rogers--Shephard theorems and a natural baseline for Lángi's open relative reflection-volume problem. The four exact normalizations give useful all-dimensional benchmarks, and mass* establishes a nonobvious structural bridge to the discrete maximal 0/1 determinant invariant, indicating genuine combinatorial dependence rather than routine rescaling. No general minimum/maximum over arbitrary bodies is claimed, and formula 5 does not compute unknown D_n in closed form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
