@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The singular-locus calculation gives one projective point, and the nondegenerate quadratic term proves it is \(A_1\). The cited one-node cubic theorem supplies the geometric total of \(21\) lines. The fresh exact verifier enumerates \(21\) \(\mathbf F_5\)-lines, matches the \(15\) diagonal reductions and the pairwise \(12\)-to-\(6\) golden-ratio specialization, and exhausts all \(120\) coordinate permutations. The proof therefore does not infer an algebraically closed-field census from finite sampling alone.
+## correctness
 
-Risk: the geometric line-count step uses the standard one-node cubic theorem rather than a fresh elimination of the Fano scheme. This is explicitly identified and independently cross-checked by the exact \(\mathbf F_5\) enumeration.
+PASS
 
-## Originality
-PASS. Dolgachev--Duncan and Busé--Nonkané cover the characteristic-\(5\) singularity, but not the bad-fiber line decomposition. Huybrechts covers the smooth \(15+12\) line orbits and explicit golden-ratio equations. Dolgachev--van Geemen--Kondō cover the general \(15+6\) line count for a one-node cubic and the fact that node lines are pairwise limits. None of the inspected sources states which Clebsch orbit collapses, the exact two-to-one specialization of the twelve golden-ratio equations, or the resulting \(S_5\) orbit/stabilizer description. published-finding corpus searches for those equivalent formulations and broader aliases found no covering result, and the current and previous private ledgers contain no equivalent claim.
+For the Clebsch diagonal cubic H=sum xi=F=sum xi^3=0 over algebraic closure F5, singularity equations force all xi^2 equal; sign choices have zero sum mod 5 only when all signs agree, giving unique p=[1:1:1:1:1]. In local affine coordinates the quadratic term 3(a^2+b^2+c^2+(a+b+c)^2) has symmetric matrix with determinant 4 in F5, so p is A1. The one-nodal cubic-surface line theorem yields 21 geometric lines, 6 through node and 15 away. An independent enumeration of all 806 two-spaces of F5^4 satisfying the restricted cubic found 21 F5-lines with exactly 6 through p; hence this is the entire geometric set, not a finite sample standing for closure. The 15 classical diagonal lines survive. Reduction phi=(1+sqrt5)/2 ->3 at the ramified prime turns 12 displayed smooth golden-ratio double-six equations into 6 distinct lines, each twice; independent Gaussian elimination verified precisely the six node lines. Enumerating all 120 coordinate permutations gives S5 orbits 15 and 6, stabilizers of orders 8 and 20, respectively D8 Sylow2 and normalizer C5⋊C4 of Sylow5. This is the reduced geometric line set, not the nonreduced Fano scheme.
 
-Risk: an older classical or arithmetic treatment may record the same bad reduction using different terminology.
+## originality
 
-## Value
-PASS. The prime \(5\) is the unique bad prime of the integral Clebsch model, and the smooth surface's \(15+12\) line-orbit split is one of its defining symmetric configurations. Determining exactly how that configuration degenerates is a natural structural invariant of the bad fiber: it explains the numerical drop \(27\to21\), singles out the ramified golden-ratio orbit as the collapsing part, and identifies the symmetry-enhanced six-line orbit through the node. This is not an arbitrary parameter slice or a recomputation of the already-known singular point.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Dolgachev–Duncan and Busé–Nonkané establish singularity/bad discriminant of the Clebsch model at characteristic five. Huybrechts gives the smooth Clebsch orbit split (15 diagonal and 12 golden-ratio double-six) and line equations. Dolgachev–van Geemen–Kondō Section 2.14 establishes that an arbitrary one-nodal cubic has 21 lines, 6 through node as pairwise limits and 15 others. These are credited; their general facts do not state which of the two Clebsch S5 orbits folds in the arithmetic specialization nor classify stabilizers of the actual reduced bad fiber. The new exact phi->3 specialization, identification with Sylow normalizers and exhaustive finite-field action supply additional model-specific math. Older classical Clebsch surface degeneration literature is a genuine priority risk.
+
+## value
+
+PASS
+
+Characteristic five is the exceptional prime for the integral Clebsch cubic, and its two famous smooth S5-orbits of 15+12 lines degenerate to 15+6 in an arithmetically constrained way. Identifying explicitly which orbit folds and the resulting Sylow symmetry is a motivated structural invariant of this natural bad fiber, not merely the known 21-line nodal total.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
