@@ -1,17 +1,21 @@
-# Same-model mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The \(\ell_2\)-sum and dual identification follow from finite-dimensional Hölder duality. The explicit comparisons \(\|z\|_X\le\|z\|_H\le\sqrt2\|z\|_X\) make reflexivity and Hilbert-renormability transparent. The coordinate-defect argument proves LUR in the full infinite sum, not only in its blocks; an explicit pair \(2^{-1/p_n}(1,\pm1)\) shows that the resulting norm is not uniformly convex. Smoothness follows from the unique block norming functionals and the \(\ell_2\)-sum derivative. The general LUR lemma proves local uniform \(C\)-approximate left/right symmetry at every point. Direct support-functional calculations show \(u_p\perp_Bv_p\) and reverse defect \(r_p\to1\), with \(\sqrt p(1-r_p)\to1\). Strict convexity excludes equality for any single pair, and reflexive duality exchanges witness order in the dual without changing its reversed residual.
+## correctness
 
-The standard-library checker verified exact rational support cancellation and strict reverse-defect inequalities for square exponents, numerical dual pairings and the specified asymptotic scale. This is supplementary: all universal quantifiers follow from the analytic proof.
+PASS
 
-## Originality — PASS
-The primary full-text 2020 paper defines local and global Chmieliński \(C\)-approximate Birkhoff symmetry, explicitly reports an older smooth infinite-dimensional counterexample, and establishes compact-set uniformity; it does not, in the inspected sections, state the stronger combination here of an LUR Hilbert-equivalent primal-and-dual construction, both uniform pointwise direction bounds, and a nonattained global defect with an explicit rate. Comparisons included the alternative Dragomir parameter and the full proof of “Zero Birkhoff saturation without an extremal pair in a reflexive strictly convex space”. The latter works with a space **isometric to the present dual \(X^*\)** but computes saturation of an orthogonality-restricted James norm sum using coordinate pairs; its witnesses have zero reverse \(C\)-defect, so its theorem does not imply the present support-functional asymmetry or local/global separation. The 2018 predecessor was available in abstract and the 2020 paper's discussion but not as verified full text. Its Example 3.7 is a material originality risk for the strengthened claim, not evidence that the earlier generic smooth counterexample is new.
+Each \(\ell_p^2\) block and its conjugate dual are finite-dimensional strictly convex and smooth. Their \(\ell_2\)-sums have LUR and Gâteaux smooth norms; LUR follows from convergence of the block-length vectors and finite-dimensional strict convexity with a small-tail argument. Uniform block norm inequalities yield \(\|z\|_X\le\|z\|_H\le\sqrt2\|z\|_X\). In any LUR real Banach space, a fixed vector cannot have reverse support evaluations tending to one along Birkhoff–James orthogonal unit vectors: the near-unit norming evaluation forces convergence to the positive or negative fixed point by LUR, contradicting the orthogonality separation \(\|a\pm b\|\ge1\). The explicit \(p\)-block pair \(u_p=(1,t)/(1+t^p)^{1/p}\), \(v_p=(-t^{p-1},1)/(1+t^{p(p-1)})^{1/p}\), \(t=1-p^{-1/2}\), satisfies \(j(u_p)(v_p)=0\) exactly and \(j(v_p)(u_p)=r_p\to1\) with \(\sqrt p(1-r_p)\to1\). Embedding each pair in one block proves global supremum one; strict convexity prevents attainment. Reflexive smooth strict-convex duality interchanges directions and transfers the same witness to \(X^*\). The inspected verifier tests exact cancellation at square exponents and asymptotic scaling but does not prove the infinite-dimensional properties.
 
-## Value — PASS
-The theorem places a sharp counterexample on an explicitly renormed Hilbert space, with local uniform rotundity and pointwise uniform approximate symmetry on both it and its dual. It separates conditions that guarantee all local bounds from a single global bound, while exhibiting a computable nonattained obstruction sequence with rate. The result addresses the natural gap between known uniform-convexity positive theorems and mere smoothness/rotundity, rather than a special value of an arbitrary invariant.
+## originality
 
-## Closest literature and limitations
-The 2020 full-text paper and the 2018 cited predecessor are the closest sources: a generic smooth infinite-dimensional non-symmetry example already exists. The novelty claimed here is only the enhanced Hilbert-renormable LUR/primal-dual/two-local-directions quantitative statement. The inaccessible 2018 full text leaves a significant unverified coverage risk. A closely related published James-saturation result works on the *same dual space* but concerns a different invariant and uses coordinate pairs that have reverse \(C\)-defect zero. Other nearby indexed results concern Dragomir rather than Chmieliński orthogonality. The theorem concerns the chosen norm, not all equivalent Hilbert norms.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The 2020/2021 full primary study of local approximate BJ symmetry acknowledges an earlier infinite-dimensional smooth counterexample to global \(C\)-symmetry, so the mere existence of smooth non-global examples is covered. The assigned theorem adds an explicitly Hilbert-equivalent \(\ell_2\)-sum whose primal and dual both have LUR and smoothness, whose every fixed point admits both local direction bounds, and whose nonattained unit global defects have a stated convergence rate. A later published exact-dual-space example establishes a different James-type saturation invariant, not the \(C\)-reverse defect. The 2018 predecessor could not be examined in full and an institutional retrieval returned a different paper, leaving a genuine overlapping-source risk rather than claimed noncoverage.
+
+## value
+
+PASS
+
+The simultaneous pointwise/global symmetry separation for a well-controlled Hilbert renorming and its dual is a natural Banach space geometric counterexample. The nonattained extremal defect and precise rate distinguish it from a merely smooth counterexample, and both local directions are explicitly controlled.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
