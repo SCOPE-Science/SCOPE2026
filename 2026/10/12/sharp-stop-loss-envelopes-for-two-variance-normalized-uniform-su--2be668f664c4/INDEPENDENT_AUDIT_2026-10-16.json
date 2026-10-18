@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:59:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md 396f68a3f6b3282834b65a0f0f68a8a7f04b3293 and verify_stoploss.py 3d65375b9fadf363743feaadac575dbbd4cbb3ab",
+        "Independent dense coefficient grid across strikes and exact transition checks",
+        "arXiv:2603.25643v2 relevant full-text HTML sections",
+        "arXiv:2305.06235 abstract and theorem description",
+        "Resultary stop-loss normalized two-uniform query"
+      ],
+      "rationale": "The independent uniforms convolve to a symmetric trapezoidal density; direct piecewise integration gives L_d=[(b+c-d)_+³-(b-c-d)_+³]/(24bc) for b>=c>0 with b²+c²=1 and the correct c=0 continuous limit (1-d)_+²/4. On central chamber d<=b-c, L=b/6-d/2+(1+3d²)/(12b), strictly convex in b, with stationary b_d=sqrt((1+3d²)/2). On outer chamber b-c<=d<b+c, s=b+c gives (s-d)³/[12(s²-1)], and derivative sign of s²+2ds-3, with unique stationary s_d=sqrt(d²+3)-d. Stationary points cross admissibility at q1=1/(2sqrt2), q2=1/sqrt5, q3=1/sqrt3, giving four minimum regimes. Neither chamber has an interior maximum; interface directional signs exclude an extra interface maximum. Maximum thus compares balanced to single-summand endpoints, crossing once at delta approximately .47177505; all-zero boundary for d>=sqrt2, and all orientations with b+c<=d minimize for d>=1. Independent dense orientation grids at 14 strikes, including all three transitions and d=1,sqrt2, reproduced the exact extrema to <1e-6; analytic derivative sign completes continuum proof.",
+      "residual_risks": [
+        "Complete Barthe–Koldobsky 2003 and König–Koldobsky 2011 primary full texts not independently inspected; hidden equivalent integrated moment extremal result remains plausible.",
+        "Only two independent symmetric uniforms and fixed L2 coefficient norm; no multi-summand convex-order theorem.",
+        "Numerical orientation grids check finite samples only; unrestricted sharpness rests on source analytic chamber derivatives."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gaussian-tail comparator bounds an upper probability tail using a different Gaussian benchmark, not an exact stop-loss extremum over two coefficients. Recent cube-slab work provides moment evaluation and low-dimension critical computations, not the reported four thresholds."
+        ],
+        "reasoning": "Known general calculation or comparison results are not, from inspected implications, a sharp two-weight integrated-tail minimax theorem; exact small dimensions require extra optimization and chamber analysis.",
+        "searches": [
+          "He Tkocz Wyczesany A Sharp Gaussian Tail Bound for Sums of Uniforms arXiv 2305.06235",
+          "Barthe Koldobsky Extremal slabs in cube Laplace transform 2003 DOI 10.1016/S0001-8708(02)00055-5",
+          "König Koldobsky Volumes of low-dimensional slabs 2011 DOI 10.1016/j.aam.2011.05.001",
+          "Brandenburg De Loera Luo Meroni arXiv:2603.25643v2"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md 396f68a3f6b3282834b65a0f0f68a8a7f04b3293 and verify_stoploss.py 3d65375b9fadf363743feaadac575dbbd4cbb3ab",
+        "Independent dense coefficient grid across strikes and exact transition checks",
+        "arXiv:2603.25643v2 relevant full-text HTML sections",
+        "arXiv:2305.06235 abstract and theorem description",
+        "Resultary stop-loss normalized two-uniform query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source derivative formulas G_d and F_d give two distinct interior minimizing orientations for q1<d<q3, preventing deduction from a blanket one-sparse/balanced extremal direction claim."
+        ],
+        "reasoning": "The full four-phase result requires distinguishing integrated tail from pointwise tails and handling critical points/interfaces; source methods could be used but do not directly entail a published envelope equality.",
+        "searches": [
+          "Brandenburg et al 2026 square slice volume-moment formula and polynomial algorithms",
+          "Barthe Koldobsky cube slab extremal directions",
+          "two independent uniform integrated tail risk maxima"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stop-loss is the integral of the right-tail probability. Geometric square-slab volume and slice moment formulas can express it, but available sources do not give an exact coefficient-sphere minmax and four-phase optimizer formula."
+        ],
+        "reasoning": "Aliases integrated-tail/stop-loss/excess-loss/cube-marginal were compared; equivalence of an integral representation is not equivalence of the full optimized classification.",
+        "searches": [
+          "two uniform random variables E[(aU+bV-t)+] exact maxima minima variance one",
+          "Resultary semantic stop loss order expectation positive part two uniform weighted sum minimum maximum normalized coefficients cube slab",
+          "Brandenburg et al arXiv 2603.25643 Sections 2.3 and 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact strike transitions q1,q2,q3 and delta are absent from source paper tables inspected. No already tabulated two-uniform optimizer classification was found."
+        ],
+        "reasoning": "Existing 2D polytope moment formulas are not an exact table of minimizer regimes; nonappearance is not absolute novelty proof.",
+        "searches": [
+          "two-dimensional cube normalized slab integrated moment optimal coefficients d 1/sqrt5 1/sqrt3",
+          "Resultary exact 2-uniform stop loss phase diagram",
+          "arXiv 2603.25643 appendix 2D moment formulas"
+        ]
+      },
+      "rationale": "PASS with bounded slab-geometry risk: classical Gaussian comparison concerns pointwise probability tails and cube-slab volumes; Brandenburg et al provide general polynomial/rational moment algorithms and study other critical-direction problems, but inspected full text gives no explicit optimized integrated right-tail two-uniform functional with its four minimum phases and crossover. A general moment formula can calculate L_d at given coefficients, but does not alone imply the optimized envelope.",
+      "residual_risks": [
+        "Complete Barthe–Koldobsky 2003 and König–Koldobsky 2011 primary full texts not independently inspected; hidden equivalent integrated moment extremal result remains plausible.",
+        "Only two independent symmetric uniforms and fixed L2 coefficient norm; no multi-summand convex-order theorem.",
+        "Numerical orientation grids check finite samples only; unrestricted sharpness rests on source analytic chamber derivatives."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL METHOD AND GEOMETRIC DATA; no exact integrated-stop-loss four-phase normalized weight optimization located in inspected material.",
+          "evidence": [
+            "Abstract covers algorithms for volumes/higher moments, known 2D/3D formulas and new 4D study; appendix 2D slice/slab moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.25643v2",
+          "material_read": "Full HTML contents including introduction, Sections 2.3/2.5, 3.1 and listed appendices on dimension-two moments and critical-point methods.",
+          "method": "Lawful arXiv full-text HTML, inspected stated sections and theorem descriptions.",
+          "title": "Critical moments of slices and slabs of the cube (and other polyhedral norms)",
+          "trigger": "Recent plausible strong covering paper on moments and critical directions for the same two-dimensional cube."
+        },
+        {
+          "assessment": "A Gaussian comparator is not the exact two-weight integrated-tail envelope; residual risk of other results retained.",
+          "evidence": [
+            "Source title/main contribution is probabilistic tail comparator, not explicit stop-loss optimizer."
+          ],
+          "identifier_or_url": "arXiv:2305.06235",
+          "material_read": "Abstract and main theorem topic of Gaussian comparison for independent uniforms; entire proof not independently read this run.",
+          "method": "Public arXiv abstract and prior cited theorem statement.",
+          "title": "A Sharp Gaussian Tail Bound for Sums of Uniforms",
+          "trigger": "Two-uniform weighted tails plausibly stronger than stop-loss."
+        },
+        {
+          "assessment": "ACCESS RISK: could contain related integrals or extremizers; not claimed whole-document NOT_COVERING.",
+          "evidence": [
+            "2003 extremal slab volume topic and Laplace transform."
+          ],
+          "identifier_or_url": "doi:10.1016/S0001-8708(02)00055-5",
+          "material_read": "Bibliographic abstract/secondary description; complete primary full text not obtained.",
+          "method": "Known lawful bibliographic/abstract information only, no whole-paper negative assessment.",
+          "title": "Extremal slabs in the cube and the Laplace transform",
+          "trigger": "Original cube-slab extremality potentially implies direction optimization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md 396f68a3f6b3282834b65a0f0f68a8a7f04b3293 and verify_stoploss.py 3d65375b9fadf363743feaadac575dbbd4cbb3ab",
+        "Independent dense coefficient grid across strikes and exact transition checks",
+        "arXiv:2603.25643v2 relevant full-text HTML sections",
+        "arXiv:2305.06235 abstract and theorem description",
+        "Resultary stop-loss normalized two-uniform query"
+      ],
+      "rationale": "Stop-loss is a standard integrated-tail/convex-risk functional; under fixed variance, exact worst/best achievable risk and four optimizer phases are a natural complete classification relevant to convex-order and tail-risk comparison. The result distinguishes optimizing the integral of probabilities from pointwise tail bounds, with genuine interior families and sharp thresholds rather than arbitrary numerical slices.",
+      "residual_risks": [
+        "Complete Barthe–Koldobsky 2003 and König–Koldobsky 2011 primary full texts not independently inspected; hidden equivalent integrated moment extremal result remains plausible.",
+        "Only two independent symmetric uniforms and fixed L2 coefficient norm; no multi-summand convex-order theorem.",
+        "Numerical orientation grids check finite samples only; unrestricted sharpness rests on source analytic chamber derivatives."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Complete Barthe–Koldobsky 2003 and König–Koldobsky 2011 primary full texts not independently inspected; hidden equivalent integrated moment extremal result remains plausible.",
+    "Only two independent symmetric uniforms and fixed L2 coefficient norm; no multi-summand convex-order theorem.",
+    "Numerical orientation grids check finite samples only; unrestricted sharpness rests on source analytic chamber derivatives."
+  ],
+  "schema_version": 1
+}

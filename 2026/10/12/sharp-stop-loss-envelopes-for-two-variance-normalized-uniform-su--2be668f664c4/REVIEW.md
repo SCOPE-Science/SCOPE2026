@@ -1,15 +1,21 @@
-# Scientific review of sharp two-uniform stop-loss envelopes
+# Independent mathematical audit
 
-## Correctness — PASS
-The convolution identity is integrated exactly and remains continuous when one weight vanishes. Within the two analytically exhaustive coefficient chambers, differentiation gives a strictly convex central expression and a single-minimum outer expression. The three transition values come from admissibility of stationary points and the endpoints, and the maximum compares only the two coefficient extremes. The unique maximum crossover is determined by a sign-controlled rational derivative. Exact tests and deterministic optimization supplement, but do not substitute for, these algebraic arguments.
+## correctness
 
-## Originality — PASS, with stated priority risks
-The motivating sharp Gaussian **probability-tail** inequality (He–Tkocz–Wyczesany) does not optimize the stop-loss integral. Classical cube-slab papers prove or compute slab volumes at specific widths, whereas the claim here identifies the global optimized integral with four successive minimizing orientations. The inspected 2026 study of polynomial moments of slices/slabs provides general calculation machinery and distinct critical-point analyses, not the stated risk envelope. A full-text comparison with the 2003 and 2011 original slab papers was not completed; a hidden equivalent integral-optimization argument remains the principal bibliographic risk. Searches for stop-loss, integrated tails, convex order, equal/unequal weights, the exact transition constants, and mathematical-record overlaps found no equivalent reported classification; absence from search is not proof of priority.
+PASS
 
-## Value — PASS
-Stop-loss transforms uniquely characterize integrated upper-tail risk and are directly relevant to convex order and variance-preserving aggregation of bounded shocks. The result gives both extremal values and all optimal weight orientations for **every** nonnegative threshold, exposing interior unequal-weight minimizers that cannot be recovered by checking the intuitive single-summand and balanced configurations. The boundaries are natural exact algebraic transitions rather than selected numerical thresholds.
+The independent uniforms convolve to a symmetric trapezoidal density; direct piecewise integration gives L_d=[(b+c-d)_+³-(b-c-d)_+³]/(24bc) for b>=c>0 with b²+c²=1 and the correct c=0 continuous limit (1-d)_+²/4. On central chamber d<=b-c, L=b/6-d/2+(1+3d²)/(12b), strictly convex in b, with stationary b_d=sqrt((1+3d²)/2). On outer chamber b-c<=d<b+c, s=b+c gives (s-d)³/[12(s²-1)], and derivative sign of s²+2ds-3, with unique stationary s_d=sqrt(d²+3)-d. Stationary points cross admissibility at q1=1/(2sqrt2), q2=1/sqrt5, q3=1/sqrt3, giving four minimum regimes. Neither chamber has an interior maximum; interface directional signs exclude an extra interface maximum. Maximum thus compares balanced to single-summand endpoints, crossing once at delta approximately .47177505; all-zero boundary for d>=sqrt2, and all orientations with b+c<=d minimize for d>=1. Independent dense orientation grids at 14 strikes, including all three transitions and d=1,sqrt2, reproduced the exact extrema to <1e-6; analytic derivative sign completes continuum proof.
 
-## Scientific limitations
-The theorem is restricted to two independent uniforms and nonnegative strikes. It does not assert extension to higher dimensions or independent priority certification. Potential equivalence in the older slab literature is a bibliographic risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with bounded slab-geometry risk: classical Gaussian comparison concerns pointwise probability tails and cube-slab volumes; Brandenburg et al provide general polynomial/rational moment algorithms and study other critical-direction problems, but inspected full text gives no explicit optimized integrated right-tail two-uniform functional with its four minimum phases and crossover. A general moment formula can calculate L_d at given coefficients, but does not alone imply the optimized envelope.
+
+## value
+
+PASS
+
+Stop-loss is a standard integrated-tail/convex-risk functional; under fixed variance, exact worst/best achievable risk and four optimizer phases are a natural complete classification relevant to convex-order and tail-risk comparison. The result distinguishes optimizing the integral of probabilities from pointwise tail bounds, with genuine interior families and sharp thresholds rather than arbitrary numerical slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
