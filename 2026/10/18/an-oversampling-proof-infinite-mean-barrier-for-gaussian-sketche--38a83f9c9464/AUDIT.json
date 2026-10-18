@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "Lanczos AV=VH+beta v_next e_last^T, Gaussian independence, Wishart integration, positive Jacobi inverse corner, and an exact rank-one resolvent pole prove the 1/T tail and iff p<1; complete-sketched regression gives the Student nu=s-k+1 comparison. Exact-rational one- and multistep checks, Gaussian-chi integral checks and numerical Student CDF checks independently corroborate intermediate formulas, not the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Conditional embedding and Céa-type error bounds apply on successful sketch events, excluding near-singular tails.",
+        "Complete Gaussian-sketch OLS distribution supplies the minimal-residual moment threshold and the matrix-Student ingredient."
+      ],
+      "reasoning": "General Gaussian regression results cover the linear coefficient distribution; the new use of the Lanczos corner-cofactor noncancellation and pole integration establishes a different nonlinear Galerkin output and universal infinite-mean consequence. No directly stronger published result covering that conclusion was identified; this is not absolute priority certification.",
+      "searches": [
+        "arxiv:1803.02602 Section 4.1",
+        "arxiv:2208.11447 Sections 2 and 5",
+        "arxiv:1706.03665 complete Gaussian sketch OLS",
+        "arxiv:2306.03593 Equation (1)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2302.07466",
+      "arxiv:2111.14641",
+      "arxiv:2208.11447",
+      "arxiv:1803.02602",
+      "arxiv:2306.03593",
+      "arxiv:1706.03665",
+      "related published numerical-linear-algebra summaries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sketched FOM update is inverse of a rank-one perturbed Jacobi matrix; its first-last inverse entry is always nonzero prior to Krylov termination.",
+        "Gaussian regression Student law alone is about a *linear* regression coefficient, not its singular matrix inverse; the minimal-residual comparator is exactly a regression estimator and is prior-covered."
+      ],
+      "reasoning": "The headline result is an implication of *combining* existing distributional regression theory with Krylov-specific irreducible Jacobi algebra and an inverse-pole integration. None of the inspected primary works draws the sharp all-k 1/T law. Given its derivation from known ingredients, literature equivalence is the principal residual originality risk.",
+      "searches": [
+        "arxiv:2111.14641 randomized FOM equations",
+        "arxiv:1706.03665 regression distribution",
+        "arxiv:2306.03593 Equation (1)",
+        "arxiv:2208.11447 Ritz spectrum",
+        "arxiv:2302.07466 Ritz spikes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "RFOM is the sketched Petrov–Galerkin condition; Lanczos yields an inverse rank-one perturbation of a positive Jacobi matrix.",
+        "Exact complete-sketch Student regression law was identified as an ingredient, but no statement of the Galerkin pole-tail consequence was located."
+      ],
+      "reasoning": "Comparison includes projected Ritz zeros, inverse Student transforms, near-singular Galerkin matrices, and randomized FOM aliases. Algebraically equivalent formulas for a random reduced matrix do not themselves report the universal nonintegrability of inverse Krylov energy error. Nevertheless generic inverse-Student functionals remain an overlap risk.",
+      "searches": [
+        "Gaussian sketched Krylov Galerkin FOM arbitrary iterations moment divergence infinite expected A norm error all sketch sizes Lanczos rank one determinant poles versus sketched GMRES",
+        "randomized FOM Gaussian embedding arbitrary Krylov degree rank one matrix Student Ritz pole unconditional expectation nonintegrable",
+        "matrix Student inverse random Petrov Galerkin moment threshold Gaussian sketch SPD Lanczos",
+        "arxiv:2111.14641 Section 4.3",
+        "arxiv:2302.07466 Section 5.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected figures report finite numerical spikes and Ritz values, not a table of all finite sketch sizes and exact moment thresholds.",
+        "No record hit asserting this every-k all-s sharp moment cutoff was identified."
+      ],
+      "reasoning": "A finite spectrum/error table does not imply an exact probability-one moment criterion; the present statement integrates the full Gaussian law.",
+      "searches": [
+        "Gaussian sketched Krylov Galerkin FOM arbitrary iterations moment divergence infinite expected A norm error all sketch sizes Lanczos rank one determinant poles versus sketched GMRES",
+        "randomized FOM Gaussian embedding arbitrary Krylov degree rank one matrix Student Ritz pole unconditional expectation nonintegrable",
+        "arxiv:2302.07466 Figure 5 spectral spikes"
+      ]
+    },
+    "rationale": "Primary FOM/sketch papers give definitions/high-probability bounds/finite spikes; Gaussian-regression literature already covers Student law for the sketched minimal-residual comparator and is explicitly credited. No checked primary source supplies the global all-k, all-finite-s noncancelling inverse-Lanczos pole and sharp energy-error tail. The derivation uses known ingredients and alternative equivalent probabilistic formulations remain a residual bibliographic risk.",
+    "residual_risks": [
+      "The nonlinear inverse-Lanczos tail may be implicit in literature on singular noncentral matrix-Student inverses under a different name.",
+      "The 2017 regression manuscript itself was not read in full; the explicit distribution theorem was checked in the 2024 paper that quotes and proves it.",
+      "No literature search or comparison constitutes independent priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines randomized projection and finds spectral spikes; lacks unconditional every-k first-moment theorem",
+        "evidence": [
+          "Section 5.1 reports exceptionally small or negative randomized Ritz values associated with large error spikes."
+        ],
+        "identifier_or_url": "arxiv:2302.07466",
+        "material_read": "Sections 3 and 5.1, including theorem proof around p. 9 and spike discussion/figures pp. 19-20",
+        "method": "Full primary PDF textual and page inspection",
+        "title": "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers",
+        "trigger": "Direct algorithm and near-zero randomized Ritz spikes"
+      },
+      {
+        "assessment": "Defines the methods and conditional subspace-embedding control; does not state universal unconditional pole tail",
+        "evidence": [
+          "Section 4.3 states high-probability conditions and leaves further analysis of randomized FOM to future work."
+        ],
+        "identifier_or_url": "arxiv:2111.14641",
+        "material_read": "HTML Section 4.2, Section 4.3 and randomized Galerkin equation (4.5)",
+        "method": "Primary full HTML, targeted method and theorem reading",
+        "title": "Randomized block Gram-Schmidt process for the solution of linear systems and eigenvalue problems",
+        "trigger": "Closest foundational RFOM and sketched GMRES definitions"
+      },
+      {
+        "assessment": "Shows indefinite sketched Ritz behavior and numerical irregularity, but does not derive our all-k unconditional distribution",
+        "evidence": [
+          "Section 2.2 explains sketched Ritz values may leave numerical range and cause instabilities.",
+          "Section 5 discusses irregular sketched FOM error versus GMRES."
+        ],
+        "identifier_or_url": "arxiv:2208.11447",
+        "material_read": "Full HTML Sections 2, 2.2 and 5, especially Ritz instability and contrast with GMRES",
+        "method": "Primary OA full HTML inspection",
+        "title": "Randomized sketching for Krylov approximations of large-scale matrix functions",
+        "trigger": "Sketched FOM stability and near-zero Ritz values"
+      },
+      {
+        "assessment": "Conditional high-probability quasioptimality does not imply nor preclude unconditional nonintegrable error",
+        "evidence": [
+          "Section 4.1 requires positive randomized inf-sup constant; the result conditions on successful geometry."
+        ],
+        "identifier_or_url": "arxiv:1803.02602",
+        "material_read": "Full HTML Sections 3 and 4.1 on sketch and modified Céa bounds; examples",
+        "method": "Primary full HTML inspection",
+        "title": "Randomized linear algebra for model reduction. Part I: Galerkin methods and error estimation",
+        "trigger": "Strong general coverage of randomized Galerkin stability"
+      },
+      {
+        "assessment": "Explicitly gives known multivariate Student complete-sketch regression law; fully covers minimal-residual comparator, not nonlinear inverse-Lanczos Galerkin tail constant",
+        "evidence": [
+          "Equation (1) records the multivariate t distribution, crediting Ahfock et al.",
+          "Section 2.1 uses conditional Wishart integration."
+        ],
+        "identifier_or_url": "arxiv:2306.03593; DOI:10.1093/imaiai/iaae023",
+        "material_read": "Open full-text Sections 1, 2.1, 2.2 and citations",
+        "method": "Primary OA journal HTML inspection",
+        "title": "Statistical inference for sketching algorithms",
+        "trigger": "Potential stronger theorem for exact Gaussian-sketch least-squares distribution"
+      },
+      {
+        "assessment": "Published Student Gaussian regression law undercuts novelty of minimal-residual comparison; may imply all-k Galerkin Student input after a nontrivial Lanczos reduction, so residual equivalence risk is acknowledged",
+        "evidence": [
+          "Its exact complete-sketch regression distribution is credited by Browne–Andrews, equation (1)."
+        ],
+        "identifier_or_url": "arxiv:1706.03665; DOI:10.1093/biomet/asaa062",
+        "material_read": "Abstract and the explicit derivative citation/theorem in Browne–Andrews Section 2.1",
+        "method": "Primary abstract plus independent journal full-text citation; original complete manuscript not read",
+        "title": "Statistical properties of sketching algorithms",
+        "trigger": "Earliest strong Gaussian-sketch regression distribution precedent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "38a83f9c-9464-4d85-bd44-9577c920c1e5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharp universal oversampling-independent failure of absolute-moment integrability explains rare near-zero Ritz spikes on well-conditioned SPD systems, identifies why second-moment error estimates for unsafeguarded sketched FOM can be undefined, and separates this from sketched GMRES, whose moment threshold grows with sketch dimension. It motivates safeguards and robust tail-aware evaluation.",
+    "status": "PASS"
+  }
+}
