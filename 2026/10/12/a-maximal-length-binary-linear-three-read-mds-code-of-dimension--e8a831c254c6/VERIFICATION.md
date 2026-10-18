@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the binary dimension-five three-read construction
 
-Run `python3 verify_code.py` using Python 3.8 or later. All data needed to reproduce the result, including the ordered twenty columns, are in `RESULT.md` and in the standalone script.
+# Independent mathematical audit
 
-The script enumerates all \(2^5=32\) messages, verifies full rank using distinct outputs, computes all \(31\) nonzero three-window weights, checks the exact weight distribution, checks the twenty sets of nonzero messages annihilating each consecutive three-column block, and tests equality in both bounds. Output on the checked source: `VERIFY_OK binary_linear=[20,5] min_3_symbol_distance=18 zero_triple_distribution= {0: 1, 2: 30} total_zero_triples= 60 all_cyclic_column_triplets_rank=3 Griesmer=140=7*20`.
+## correctness
 
-The mathematical upper bound for **all** codes in the stated class is given by a separate universal double-counting proof in `RESULT.md`, not extrapolated from the enumerated finite witness. No statement about generator uniqueness, nonlinear codes, or independent certification follows from these checks.
+PASS
+
+Read the complete 5×20 binary generator column list and independently computed all 32 codewords. They are distinct; among 31 nonzero messages exactly 30 have two zero cyclic 3-windows and one (message 14) has none; thus d3=18 and linear dimension=5. Each cyclic triple of columns has rank3, with exactly three nonzero annihilating messages. Universally, a length n dimension5 binary generator with d3≥n−2 has at most 62 zero windows across nonzero messages, while each position supplies ≥3; hence 3n≤62 and n≤20. At n20,d18 the three-symbol Singleton d3≤n−2 and Griesmer 7n≥Σ_{j=0}^4 ceil(4d3/2^j)=140 are attained.
+
+## originality
+
+PASS
+
+The binary b-symbol Griesmer bound already implies the n≤20 upper cutoff; the new ingredient is an explicit binary linear [20,5,18] three-read code attaining it with a complete 31-word certificate. Resultary search found related pair-metric codes and 3-read families with other parameters, not the same witness; targeted exact parameter searches found no positive match. Full primary construction tables were inaccessible and remain a real prior-implication risk; acceptance is best-of-knowledge for the exact attaining example.
+
+## value
+
+PASS
+
+Dimension-five binary 3-read Singleton-optimal maximal length is a natural extremal construction question. General upper bounds alone do not construct a code. A finite explicit generator at the sharp n=20 boundary with complete weight distribution and equality in two bounds closes that concrete existence gap; this is not an arbitrary narrow sample or known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

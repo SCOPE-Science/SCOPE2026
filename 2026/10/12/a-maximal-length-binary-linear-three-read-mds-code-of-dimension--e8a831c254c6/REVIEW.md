@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The displayed generator yields \(32\) distinct codewords and the exact multiset of nonzero cyclic three-read weights \(18\) (thirty times) and \(20\) (once), checked independently of any search. The incidence double-counting argument gives \(3n\le62\) for every dimension-five binary code with distance at least \(n-2\), including generators not related to the witness. The Singleton and Griesmer equalities are checked term by term. Risk: the finite witness has no independent external validation; the proof does not extend to nonlinear codes.
+## correctness
 
-**Originality: PASS, with residual risk.** Ding–Zhang–Ge (2016) prove the general Singleton bound and construct families, but their inspected original paper does not exhibit the particular binary \([20,5,18]\) three-read code. Luo et al. (2024) prove the Griesmer inequality: in particular, the **upper bound \(n\le20\) follows already from their theorem** and is not presented as a new consequence; their explicit families do not settle attainability at \(n=20\). Kurz (2025) treats large-distance eventual attainability and pair-symbol small dimensions, not the displayed fixed-parameter instance. Targeted string/parameter/duality/index searches found no explicit earlier existence witness, but an implicit or unindexed one remains possible. No absence claim is based solely on snippets.
+PASS
 
-**Value: PASS.** Exact attainment of the **largest** allowable length for a natural binary, dimension-five, three-read Singleton-optimal code closes the sharp extremal case and simultaneously realizes the tight Griesmer equality. Both standard coding bounds alone leave the realization question open; the twenty-column generator answers it constructively and reproducibly. The universal zero-window incidence proof also provides a structural interpretation, though the length inequality itself was already implied by Griesmer.
+Read the complete 5×20 binary generator column list and independently computed all 32 codewords. They are distinct; among 31 nonzero messages exactly 30 have two zero cyclic 3-windows and one (message 14) has none; thus d3=18 and linear dimension=5. Each cyclic triple of columns has rank3, with exactly three nonzero annihilating messages. Universally, a length n dimension5 binary generator with d3≥n−2 has at most 62 zero windows across nonzero messages, while each position supplies ≥3; hence 3n≤62 and n≤20. At n20,d18 the three-symbol Singleton d3≤n−2 and Griesmer 7n≥Σ_{j=0}^4 ceil(4d3/2^j)=140 are attained.
 
-The principal priority and scope risk is equivalent prior constructions under code equivalence or the geometric methods discussed in the cited papers. The claim is limited to an explicit realization and exact extremal length, not a new general bounding theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The binary b-symbol Griesmer bound already implies the n≤20 upper cutoff; the new ingredient is an explicit binary linear [20,5,18] three-read code attaining it with a complete 31-word certificate. Resultary search found related pair-metric codes and 3-read families with other parameters, not the same witness; targeted exact parameter searches found no positive match. Full primary construction tables were inaccessible and remain a real prior-implication risk; acceptance is best-of-knowledge for the exact attaining example.
+
+## value
+
+PASS
+
+Dimension-five binary 3-read Singleton-optimal maximal length is a natural extremal construction question. General upper bounds alone do not construct a code. A finite explicit generator at the sharp n=20 boundary with complete weight distribution and equality in two bounds closes that concrete existence gap; this is not an arbitrary narrow sample or known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

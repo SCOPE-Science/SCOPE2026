@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:17:51.240202Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read the complete 5×20 binary generator column list and independently computed all 32 codewords. They are distinct; among 31 nonzero messages exactly 30 have two zero cyclic 3-windows and one (message 14) has none; thus d3=18 and linear dimension=5. Each cyclic triple of columns has rank3, with exactly three nonzero annihilating messages. Universally, a length n dimension5 binary generator with d3≥n−2 has at most 62 zero windows across nonzero messages, while each position supplies ≥3; hence 3n≤62 and n≤20. At n20,d18 the three-symbol Singleton d3≤n−2 and Griesmer 7n≥Σ_{j=0}^4 ceil(4d3/2^j)=140 are attained.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Luo general Griesmer inequality yields n≤20 at k5,d3=n−2, so the upper-bound portion is PRIOR.",
+          "The assigned source explicitly distinguishes its new 20-column witness from previously cited two cyclic/extended families."
+        ],
+        "reasoning": "The prior bound dominates nonexistence but does not imply attainability. A general family might contain an equivalent n20 example; inaccessible complete construction tables remain bibliographic risk.",
+        "searches": [
+          "Luo et al. 2024 arXiv:2401.04941 Griesmer constructions",
+          "Ding Zhang Ge arXiv:1609.09236 b-symbol MDS families"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md sha d01b8e4f5b60566b11d3b605ff4405472c4067d1",
+        "pinned verify_code.py sha 6202407dd173043ad701d8ff8bbc84c6b848d177",
+        "Luo et al. arXiv:2401.04941 public abstract and bound",
+        "Ding et al. arXiv:1609.09236 cited in pinned source",
+        "Resultary and web exact parameter searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior inequality proves n≤20 for Singleton-tight dimension5 but offers no existence in its abstract.",
+          "An explicit generator and exhaustive finite codeword check establish attainability not implied by that inequality."
+        ],
+        "reasoning": "The main claim is an exact maximum: combine an OLD upper bound with a NEW (best-of-knowledge) attaining construction. Originality attaches to attainment, not the bound.",
+        "searches": [
+          "Luo arXiv:2401.04941 general Griesmer bound",
+          "pinned verify_code.py complete generator"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Related Resultary items cover symbol-pair (b=2) small codes; none retrieved the assigned b=3 binary [20,5,18].",
+          "The pinned generator gives 30 words of three-read weight18 and one of weight20."
+        ],
+        "reasoning": "Distance here is cyclic 3-read not ordinary Hamming or symbol-pair; the exact parameter pair was not positively matched under equivalent read-channel terminology.",
+        "searches": [
+          "Resultary binary linear b-symbol three-symbol dimension 5 length 20 MDS",
+          "web binary three-symbol [20,5,18] MDS"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact table was returned; existing pair-metric catalogues involve b=2.",
+          "Independent exhaustive 32-message census verifies the stated finite witness and full three-read weight enumerator."
+        ],
+        "reasoning": "The witness is a natural extremal parameter, not claimed classification of all inequivalent codes; unknown comprehensive code tables could cover existence.",
+        "searches": [
+          "Resultary searched [20,5,18] binary 3-read",
+          "web exact binary three-symbol 20 5 18 code"
+        ]
+      },
+      "rationale": "The binary b-symbol Griesmer bound already implies the n≤20 upper cutoff; the new ingredient is an explicit binary linear [20,5,18] three-read code attaining it with a complete 31-word certificate. Resultary search found related pair-metric codes and 3-read families with other parameters, not the same witness; targeted exact parameter searches found no positive match. Full primary construction tables were inaccessible and remain a real prior-implication risk; acceptance is best-of-knowledge for the exact attaining example.",
+      "residual_risks": [
+        "An existing noncyclic or extended-cyclic b=3 construction may implicitly contain an equivalent 20-column generator; full primary tables not inspected.",
+        "Not a classification of inequivalent optimal codes; only dimension5 binary cyclic 3-read metric."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bound and construction families confirmed at abstract level, but no full-text NOT_COVERING claim can be made",
+          "evidence": [
+            "Abstract establishes general Griesmer bound and two families from cyclic/extended cyclic codes."
+          ],
+          "identifier_or_url": "arXiv:2401.04941; IEEE TIT 2024",
+          "material_read": "Public arXiv abstract and institutional bibliographic abstract; full tables unavailable via accessed OA links",
+          "method": "arXiv and lawful OA search",
+          "title": "Griesmer Bound and Constructions of Linear Codes in b-Symbol Metric",
+          "trigger": "highly relevant possible already covering binary three-read construction"
+        },
+        {
+          "assessment": "Potential earlier realization remains residual priority risk",
+          "evidence": [
+            "Assigned result notes different displayed distances; not accepted as proof that all appendices avoid the assigned example."
+          ],
+          "identifier_or_url": "arXiv:1609.09236",
+          "material_read": "Title and citation in pinned package; full primary text not read",
+          "method": "targeted bibliographic comparison, no full paper",
+          "title": "Maximum Distance Separable Codes for b-Symbol Read Channels",
+          "trigger": "pre-existing MDS construction families potentially including boundary case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dimension-five binary 3-read Singleton-optimal maximal length is a natural extremal construction question. General upper bounds alone do not construct a code. A finite explicit generator at the sharp n=20 boundary with complete weight distribution and equality in two bounds closes that concrete existence gap; this is not an arbitrary narrow sample or known-table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned RESULT.md sha d01b8e4f5b60566b11d3b605ff4405472c4067d1",
+    "pinned verify_code.py sha 6202407dd173043ad701d8ff8bbc84c6b848d177",
+    "Luo et al. arXiv:2401.04941 public abstract and bound",
+    "Ding et al. arXiv:1609.09236 cited in pinned source",
+    "Resultary and web exact parameter searches"
+  ],
+  "disposition": "passed",
+  "limitations": "Exact n=20 existence independently fully enumerated; n≤20 universal incidence argument holds only binary linear dimension5 with Singleton-tight three-read distance; no statement for nonlinear codes.",
+  "residual_risks": [
+    "An existing noncyclic or extended-cyclic b=3 construction may implicitly contain an equivalent 20-column generator; full primary tables not inspected.",
+    "Not a classification of inequivalent optimal codes; only dimension5 binary cyclic 3-read metric."
+  ],
+  "schema_version": 1
+}
