@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For a naturally ordered semiring, finite sums cannot vanish unless all summands vanish; absence of zero divisors gives the analogous product fact. Hence nonzero support is a semiring homomorphism to the Boolean semiring. Saturating \(r\) copies of each classical witness takes exactly the top value \(t\) on its classical models and zero elsewhere. Classical extension closure then gives monotone semiring valuation. Any semiring-equivalent \(\Sigma_n\) sentence would restrict through canonical Boolean annotations to a forbidden classical \(\Sigma_n\) definition. The capped-counting family satisfies all assumptions. All 83,688 finite evaluation checks passed; finite checks do not prove the infinite theorem. The Dawar–Sankaran hierarchy is an openly identified cited mathematical input.
+## correctness
 
-**Originality — PASS with residual risk.** Brinke–Dawar–Grädel–Pago (arXiv:2605.10829v1) prove finite positive results for lattice semirings (including the three-element min-max algebra) and negative results for \(\mathbb N\); the inspected sections do not state any finite capped-counting family or all-prefix transfer. Dawar–Sankaran (arXiv:2007.05459v2) establish the classical hierarchy but do not address annotated semiring valuations. Published-finding semantic searches found no equivalent formulation, and own earlier claims were compared by objects and implications. This does not prove global novelty: support-and-saturation transfer could be older folklore.
+PASS
 
-**Value — PASS.** The result gives a uniform algebraic sufficient condition for transfer of the entire finite extension-preservation hierarchy, answers the natural capped-counting case, and differentiates two three-element semirings whose preservation behavior is opposite. This is a motivated class-wide boundary, not merely an isolated finite numerical check. The result does not classify all finite semirings.
+Natural order antisymmetry gives zerosumfreeness, while no zero divisors yields a Boolean support semiring homomorphism h(s)=1_{s!=0}. This inductively converts finite semiring truth support to ordinary FO satisfaction. Let phi_n be the finite classical extension-closed but not Sigma_n definable sentence from Dawar–Sankaran; psi_n is a disjunction of r copies. By uniform saturation, value(psi_n) is t if phi_n holds and 0 otherwise. Since each nonzero s<=t in natural order, 0<=t and extension-closed support makes psi_n semiring extension preserved. If semiring equivalent to a Sigma_n formula, testing canonical 0/1 annotations and applying h would make phi_n classically Sigma_n-definable, contradiction. For S_k operations a⊕b=min(k,a+b), a⊗b=min(k,ab), zero divisors are absent and k-fold positive sums equal k; S_2 is non-idempotent (1⊕1=2). Domain finiteness and nonemptiness are essential. Independently checked source proof steps and algebra, with no attempt to turn small finite source tests into the unbounded theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Direct material from Brinke–Dawar–Grädel–Pago 2026 distinguishes a positive finite result for three-element min-max lattice semantics and failures on infinite N from the finite capped-counting semiring. Dawar–Sankaran proves only classical hierarchy input; semiring preservation requires the extra 0/t saturation argument. No prior source read gives this non-idempotent finite S_2 instance or all-level lifting. Best-of-knowledge with residual older support-semirings equivalence risk.
+
+## value
+
+PASS
+
+The three-element capped-counting counterexample draws a sharp mathematical boundary between equal-sized semirings with different additive idempotence: min-max lattice has finite extension preservation, capped counting does not at any bounded prefix level. The uniform saturation-transfer lemma is a usable structural mechanism across a class of semirings, beyond a one-off numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
