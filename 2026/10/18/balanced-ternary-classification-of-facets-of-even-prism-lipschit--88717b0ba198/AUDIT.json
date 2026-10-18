@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the entire argument: graph metric unit ball equals symmetric-edge polytope; connected planar bipartite hypothesis makes the published dual-flow bijection applicable; even-prism planar dual is an n-gonal bipyramid; unit conservation forces a_i+b_i=c_(i-1)-c_i; the ternary x=(a-b)/2 has sum zero by apex conservation; conversely any balanced word has even number of zeros for even n, yielding exactly two consistent rim signs; no degeneracy at all-zero word. Counting and Gaussian asymptotic verified analytically, supplemented by 25 independent exact finite consistency assertions in packaged verify.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[1, Proposition 4.33] equates facets of any planar connected bipartite symmetric edge polytope with dual integer 2-flows.",
+        "[1, Proposition 4.29] gives a multiplicative expression for connected bipartite outerplanar graphs.",
+        "[2] characterizes facets via maximal bipartite subgraphs."
+      ],
+      "reasoning": "The broad [1] result supplies a nontrivial reduction used here, but does not evaluate the specific bipyramid flow count or classify the flows as balanced ternary words. The stronger outerplanar product theorem covers OPEN ladders, not circular ladders, which are non-outerplanar for n>=4. [2] does not evaluate the requested quantity in the inspected full text.",
+      "searches": [
+        "arXiv:1910.05193 Proposition 4.33 planar bipartite graph nowhere-zero 2-flows",
+        "arXiv:1910.05193 Proposition 4.29 connected bipartite outerplanar graphs",
+        "arXiv:2107.12315 facet subgraph classification"
+      ]
+    },
+    "checked_sources": [
+      "D’Alì–Delucchi–Michałek, arXiv:1910.05193, original full open text, 2019-10-11",
+      "Chen–Davis–Korchevskaia, arXiv:2107.12315, original full open text, 2021-07-26",
+      "Braun–Bruegge, facets of symmetric edge polytopes for graphs with few edges, full accessible primary material",
+      "Related mathematical literature on Eulerian orientations and central trinomial coefficient; exact target queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general identity in [1] reduces facet counting to dual flow counting; the new theorem supplies the previously unevaluated bipyramid counting bijection.",
+        "The published outerplanar closed formula applies to the open ladder only, whereas even circular ladders have an additional global cycle and fail outerplanarity."
+      ],
+      "reasoning": "It would be false to claim the planar dual-flow correspondence new. The new assertion is the explicit all-even-n solution of its specialized counting problem and unique ternary encoding. The general published statements neither state this closed form nor imply it by direct parameter substitution; a separate cyclic sign-switch bijection is required.",
+      "searches": [
+        "arXiv:1910.05193 Proposition 4.33",
+        "arXiv:1910.05193 Proposition 4.29",
+        "arXiv:2107.12315 Facets and facet subgraphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A bipartite planar prism facet count can equivalently be stated as the number of nowhere-zero integer 2-flows or Eulerian orientations of its bipyramid planar dual, by [1, Proposition 4.33].",
+        "Targeted exact-expression, flow-polynomial and balanced-ternary searches yielded no inspected identical formula; this is evidence of search scope, not proof of uniqueness."
+      ],
+      "reasoning": "The equivalent Eulerian-orientation statement was explicitly searched and used for the proof. The generic flow dictionary is acknowledged as prior; the evaluated coefficient and bijective ternary classification were not found as published results in checked material.",
+      "searches": [
+        "\"circular ladder\" \"facets\" \"symmetric edge polytope\"",
+        "Eulerian orientations of n-gonal bipyramid graph central trinomial coefficient even n",
+        "prism graph symmetric edge polytope facet formula flow polynomial planar dual bipyramid"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact count sequence for even n checked independently: 38, 282, 2214, 17906, 147578, 1232454.",
+        "The inspected references discuss general graph classes, not a table of even-prism counts."
+      ],
+      "reasoning": "No relevant identified exact table subsumes the even-prism formula; a possible unindexed sequence or naming variant remains a residual risk.",
+      "searches": [
+        "Ladder graph symmetric edge polytope facet count 2 6 18 54 162",
+        "\"circular ladder\" \"facets\" \"symmetric edge polytope\"",
+        "\"bipyramid\" \"nowhere-zero\" \"2-flow\" \"trinomial\""
+      ]
+    },
+    "rationale": "The closest source supplies the general flow translation, not the explicit bipyramid count; its outerplanar formula implies the open-ladder result but not the nonouterplanar closed prism. Additional facet-subgraph papers were compared by implication, and exact alternative aliases (Eulerian orientations, bipyramid 2-flows, circular ladders) searched. Residual risk of unindexed equivalent enumeration is explicit.",
+    "residual_risks": [
+      "A published but unindexed enumeration of Eulerian orientations of bipyramid graphs could restate the same formula.",
+      "General planar-flow results are strong prior reductions and have been fully acknowledged; the remaining contribution is an explicit nontrivial evaluation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING reduction to bipyramid flows, not covering their explicit count. Outerplanar exact formula inapplicable to closed prisms.",
+        "evidence": "Theorems explicitly assert general dual 2-flow count and separate outerplanar formula; no bipyramid ternary evaluation appears in checked sections.",
+        "identifier_or_url": "https://arxiv.org/html/1910.05193v1",
+        "material_read": "Full open primary text, including Sections 2.3, 4.4–4.5, Propositions 4.29 and 4.33 and proofs",
+        "method": "Original open HTML, direct propositions and definitions",
+        "title": "Many faces of symmetric edge polytopes",
+        "trigger": "Planar bipartite facet theorem and outerplanar ladder possibility"
+      },
+      {
+        "assessment": "General facet-subgraph characterizations, not an even-circular-ladder count or balanced-word bijection in inspected material.",
+        "evidence": "The stated abstract and principal characterization concern maximal bipartite subgraphs of general graphs.",
+        "identifier_or_url": "https://arxiv.org/abs/2107.12315",
+        "material_read": "Open full primary text, facet-subgraph classification statements and examples",
+        "method": "Original arXiv document, directed search for prism/ladder and relevant structural theorems",
+        "title": "Facets and facet subgraphs of symmetric edge polytopes",
+        "trigger": "Possible stronger general facet-subgraph classification"
+      },
+      {
+        "assessment": "The studied near-tree graph families have far fewer edges than cubic circular ladders; no direct all-even-prism formula identified.",
+        "evidence": "Graphs with vertex count plus zero or one extra edge differ from prisms with 2n vertices and 3n edges.",
+        "identifier_or_url": "https://arxiv.org/abs/2208.08721",
+        "material_read": "Open 29-page primary PDF, theorem scope and connected sparse graph families",
+        "method": "Original accessible paper text and displayed theorem scope",
+        "title": "Facets of symmetric edge polytopes for graphs with few edges",
+        "trigger": "Potential explicit formulas for sparse graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "88717b0b-a198-4ce9-8706-5e1ffb62743d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines a natural geometric invariant (facet number of the Banach Lipschitz-free unit ball) for every even circular ladder, not an ad hoc slice. Produces a sharp bijection classifying all facets and a closed coefficient formula with Gaussian 3^n/sqrt(n) growth, measuring the global effect of closing an outerplanar ladder into a prism. No downstream theorem or paper-sized contribution is asserted.",
+    "status": "PASS"
+  }
+}
