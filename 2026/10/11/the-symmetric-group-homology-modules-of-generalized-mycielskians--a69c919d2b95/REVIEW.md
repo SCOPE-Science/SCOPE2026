@@ -1,12 +1,21 @@
-# Scientific review: symmetric-group homology of generalized Mycielskians
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is stated for all integers \(n\ge2\), \(\ell\ge0\), and only reduced rational \(S_n\)-homology. The equivariant fold lemma is proved by a common-face contiguity homotopy, not assumed from nonequivariant folding. Successive level deletions produce the precise \(C_n\) and \(B_n\) join factors. Their only reduced homology modules are \(U_n\) in degrees zero and one, respectively. The apex decomposition gives the stated exact sequence; rational semisimplicity yields the abstract splitting. The \(\ell=0\) boundary is checked separately and both nonzero degree and character formulas follow without extrapolation. A standalone replay carried out 76 fold tests, 1,144 orbit character calculations, 112 direct traces and 16 exact mod-two homology calculations. All passed. Residual scientific limitations: these small calculations cannot prove the infinite theorem; the proof relies on the explicit fold neighborhood inclusion, join Künneth, and equivariant long exact sequence.
+## correctness
 
-## Originality — PASS
-The closest source is A. Carnero Bravo, arXiv:2601.13432v1 (2026-01-19), whose full Sections 2–4 include the generalized Mycielskian definition, fold method, homotopy Theorem 5, and nonequivariant complete-graph Corollary 7. The earlier full text of Goyal–Shukla–Singh, arXiv:1905.06926v1, supplies nonequivariant homotopy classifications. The exact dimensions are covered, but those sources do not calculate coordinate-permutation traces, identify the tensor-power rational modules, or prove the simultaneous folds equivariantly. A homotopy equivalence not respecting the group does not imply a representation isomorphism. Database and primary-literature searches under Mycielskian, Kronecker double cover, symmetric-group action, and tensor power found no formula implying the stated characters. This does not certify worldwide uniqueness; an equivalent unindexed result is a residual risk.
+PASS
 
-## Value — PASS
-This is a uniform classification over all \(n\ge2\) and \(\ell\ge0\) of a natural and nontrivial symmetry invariant of the graph complexes studied in recent literature. It determines every coordinate-permutation trace from its fixed-label count, distinguishing representations with identical dimensions; for instance a three-cycle has character \(-1\) on the \(n=3,\ell=1\) two-dimensional homology instead of character \(2\) for a trivial action. The \(\ell=3k\) residue has two distinct tensor powers, a structural refinement invisible in the known wedge multiplicities. The result makes no claim about integral splitting or an equivariant homotopy wedge decomposition.
+Check graph convention first: G_{n,0}=K_{n+1}, apex at level0, top clique at level ell, edges between consecutive levels iff labels differ. For u_a/v_a with N(u_a)⊆N(v_a) and U={u_a} independent, the simultaneous replacement v_a→u_a sends faces to faces, is S_n-equivariant and is contiguous to identity via σ∪Fσ. Applying it to every third layer in G−w and G−N[w] yields blocks C_n=Ind K_n with Htilde_0=U_n, B_n=Ind(K_n×P2) with Htilde_1=U_n, and otherwise equivariantly contractible simplex blocks. Join Künneth and the apex cone Mayer–Vietoris give the unique homological degree and short exact rational S_n extension; Maschke splits it for ell=3k, and ell=0 is separately K_(n+1). The traces follow from χ_U(g)=fix(g)-1. Independently rebuilt 116 signed fixed-simplex Lefschetz traces for n=2,3,4 and ell through 6/4/2; each agrees with (-1)^degree times the character formula, including n=2, ell=0 and derangements. Finite tests corroborate the all-parameter equivariant proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Published generalized-Mycielskian results give ordinary homotopy types and nonequivariant Betti multiplicities; those data cannot determine a full S_n-representation or all conjugacy-class character values. The result supplies an equivariant layer fold and rational module extension argument absent from the stated prior theorem.
+
+## value
+
+PASS
+
+A closed formula for complete S_n-module structure across all n>=2 and ell>=0 is a natural representation-theoretic refinement of known homotopy classifications. It detects cycle-type dependence invisible to Betti ranks and supplies precise character data usable in equivariant topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

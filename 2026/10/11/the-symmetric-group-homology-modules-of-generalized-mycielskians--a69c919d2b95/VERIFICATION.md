@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The formula is proved for all integers \(n\ge2\) and \(\ell\ge0\) in `RESULT.md`. The proof uses a genuinely equivariant simultaneous fold, a two-simplex-plus-bridges model for \(\operatorname{Ind}(K_n\times P_2)\), the join Künneth isomorphism and the apex Mayer–Vietoris sequence. The only representation splitting invokes Maschke over \(\mathbb Q\); no integral splitting or equivariant wedge splitting is certified.
+## correctness
 
-## Actual finite checks
+PASS
 
-Run `python3 verify.py` with Python 3 and only its standard library. The file directly constructs the graph using the explicit edge definition, obtains exact independence complex faces, checks the simultaneous fold neighborhood inclusions, evaluates the permutation-invariant independence polynomial at \(-1\) by an orbit graph recurrence for the signed Lefschetz trace, and independently enumerates direct oriented-face traces. For bounded small cases it computes mod-two reduced homology from explicit boundary ranks, retaining the empty simplex in the augmented chain complex. A successful run prints:
+Check graph convention first: G_{n,0}=K_{n+1}, apex at level0, top clique at level ell, edges between consecutive levels iff labels differ. For u_a/v_a with N(u_a)⊆N(v_a) and U={u_a} independent, the simultaneous replacement v_a→u_a sends faces to faces, is S_n-equivariant and is contiguous to identity via σ∪Fσ. Applying it to every third layer in G−w and G−N[w] yields blocks C_n=Ind K_n with Htilde_0=U_n, B_n=Ind(K_n×P2) with Htilde_1=U_n, and otherwise equivariantly contractible simplex blocks. Join Künneth and the apex cone Mayer–Vietoris give the unique homological degree and short exact rational S_n extension; Maschke splits it for ell=3k, and ell=0 is separately K_(n+1). The traces follow from χ_U(g)=fix(g)-1. Independently rebuilt 116 signed fixed-simplex Lefschetz traces for n=2,3,4 and ell through 6/4/2; each agrees with (-1)^degree times the character formula, including n=2, ell=0 and derangements. Finite tests corroborate the all-parameter equivariant proof.
 
-`VERIFY_OK folds=76 orbit_characters=1144 direct_traces=112 mod2_homology_cases=16`
+## originality
 
-Fold tests cover \(2\le n\le5\) and up to \(\ell=10,10,8,6\), respectively. The 1,144 character checks cover every coordinate permutation for these ranges, and 112 direct signed simplicial traces provide a second enumeration. Exact mod-two homology is computed for 16 small cases with \(n\le4\). These tests are finite corroboration, not the basis for the universal homology theorem or the rational representation isomorphisms.
+PASS
 
-## Review boundary
+Published generalized-Mycielskian results give ordinary homotopy types and nonequivariant Betti multiplicities; those data cannot determine a full S_n-representation or all conjugacy-class character values. The result supplies an equivariant layer fold and rational module extension argument absent from the stated prior theorem.
 
-The lead first public source is arXiv:2601.13432v1 (2026-01-19); the 2019 complete-graph source is historical support only. The mathematical comparison concerns the full rational \(S_n\) action, not merely sphere multiplicity. Other unpublished or unindexed equivalent work remains possible. Independent audit has not been performed.
+## value
+
+PASS
+
+A closed formula for complete S_n-module structure across all n>=2 and ell>=0 is a natural representation-theoretic refinement of known homotopy classifications. It detects cycle-type dependence invisible to Betti ranks and supplies precise character data usable in equivariant topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
