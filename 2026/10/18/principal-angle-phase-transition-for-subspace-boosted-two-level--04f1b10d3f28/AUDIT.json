@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The exact cosine-sine principal-angle decomposition reduces the SPD product to blocks with trace a_i+gamma b_i and common determinant kappa gamma. At gamma>=1 trace ordering identifies the largest angle as the simultaneous global minimum/maximum eigenvalue source, including unpaired directions. The normalized trace a/sqrt(gamma)+b sqrt(gamma) has the unique constrained minimizer max(1,a/b); algebraic identity ab=kappa+(kappa−1)^2sin²theta cos²theta gives exact piecewise conditioning. Asymptotics follow by sin theta cos theta and gamma/kappa limits. Python/Numpy checker independently reconstructs 50 matrix configurations and 300 scalar boosts; finite checks are auxiliary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2601.20174v1 §4.1–4.2, Appendix A (learned multilevel subspace corrections)",
+        "Kahl–Rittich, arxiv:1209.1963 §4 Proposition 4.3",
+        "Helmberg, DOI:10.1007/s10107-023-01986-w Corollary 5 and Theorem 6"
+      ],
+      "reasoning": "Inspected stronger-looking bounds for learned coarse corrections, deflated CG and low-rank Galerkin preconditioners. Their operators differ: their estimates do not give the complete two-level boosted SPD eigenvalue endpoints, exact minimizer gamma=max(1,a/b), worst-angle sufficiency in arbitrary dimension, or the 45° transition. A generic bound does not logically imply the sharp equalities here.",
+      "searches": [
+        "learned coarse space projector finite amplification approximate eigenspace SPD repeated eigenvalues condition number best scalar scaling principal angles",
+        "Helmberg 2023 conic bundle low rank positive definite projector preconditioning exact two level scalar scaling optimized",
+        "NeuraLSP NeuraLSP 2601.20174 rank deficient coarse space principal angle spectral gain"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.29304v1",
+      "arxiv:2601.20174v1",
+      "arxiv:1209.1963",
+      "doi:10.1007/s10107-023-01986-w",
+      "2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c",
+      "2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+      "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "2026/10/11/SCOPE-sharp-scalar-view-conditioning-and-a-smallest-prime-barrier-for--58911b2d31f1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kahl–Rittich (arxiv:1209.1963), Proposition 4.3 gives an angle-dependent upper bound for a different, singular deflation preconditioner",
+        "Published SOAP result 2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c provides an entrywise-normalization matrix family",
+        "Lai–Lu (2014), The bound for the spectral condition number of a rank one perturbation matrix: bibliographic title/abstract only"
+      ],
+      "reasoning": "Neither the deflation bound nor the SOAP adaptive normalization applies to C_gamma=W_gamma^{1/2} H W_gamma^{1/2} with W_gamma=I+(gamma−1)Pi_F. The exact family of all finite dimensions, scalar optimum and high-contrast limit are not logical special cases of those inspected results. The Lai–Lu paper was not available in full; its apparent generic rank-one-bound scope poses a residual risk rather than a claim that full text is noncovering.",
+      "searches": [
+        "Lai Lu bound spectral condition number rank one perturbation matrix optimal scalar projector 2014",
+        "principal angle phase transition optimal boost spectral subspace projector preconditioner theta 45 degrees two-level symmetric positive definite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2605.29304v1 §3.2: constrained orthogonal projection; arxiv:1209.1963 Proposition 4.3: singular deflation",
+        "Published result 2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c §Finding: entrywise normalized SOAP"
+      ],
+      "reasoning": "Principal-angle, scalar boost, inverse low-eigenmode preconditioner, and spectral-condition formulations were compared. Orthogonal deflation removes a subspace and has an effective condition number on a reduced range, whereas the claimed W=I+(gamma−1)P_F is positive definite and optimizes an unconstrained full spectrum. Entrywise SOAP normalization is nonlinear in matrix entries and has no operator equivalence to a positive scalar subspace projector.",
+      "searches": [
+        "principal angle phase transition optimal boost spectral subspace projector preconditioner theta 45 degrees two-level symmetric positive definite",
+        "largest canonical principal angle two level SPD condition number scalar projector boost gamma critical mesh independent",
+        "exact principal-angle conditioning low rank spectral correction preconditioner eigenvalue two cluster rank k misalignment"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search returned 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f, 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705, 2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c without an equivalent claim",
+        "arxiv:2605.29304v1, arxiv:2601.20174v1 and arxiv:1209.1963 full mathematical text checked"
+      ],
+      "reasoning": "Direct semantic searches for parameter aliases and exact two-level spectral formulas returned unrelated sharp iteration tuning and learned-preconditioner sources, but not an exact table, result or optimizer matching the claim. This is limited search evidence, not a proof of global novelty.",
+      "searches": [
+        "two-level spectrum SPD rank-k projector preconditioning optimal boost gamma maximum principal angle theta pi over four mesh independent κ sin squared 2θ",
+        "optimal positive spectral rank-one eigenspace deflation preconditioner angle accuracy kappa inverse square root threshold condition number"
+      ]
+    },
+    "rationale": "Successful published-finding corpus searches of exact two-level principal-angle spectral formula, tuned scalar boost, learned approximate subspaces and rank-one perturbation aliases found no equivalent statement. Full primary-literature inspection compared the mathematical operators and hypotheses, including recent subspace-constrained projection, learned two-grid correction, deflated CG effective condition number, and Galerkin coarse approximation; none logically implies the claimed sharp all-dimensional scalar optimum and threshold. A plausible 2014 rank-one-perturbation title was unavailable and remains a recorded limitation, not deemed fully excluded.",
+    "residual_risks": [
+      "Lai and Lu (2014) rank-one perturbation paper: abstract/bibliography only, no full text inspected; may contain a related special-case bound.",
+      "Unindexed or inaccessible preconditioner-tuning literature could contain equivalent results; searches are not mathematical uniqueness proofs.",
+      "The exact two-level spectrum is deliberately restrictive, and no finite-step CG objective contraction follows solely from this condition-number theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Projector onto a constraint nullspace and randomized iteration estimates; not the positive scalar inverse-projector-boost theorem",
+        "evidence": [
+          "arxiv:2605.29304v1 §§1,3.2",
+          "first-public 2026-05-28; primary MSC 65F10"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.29304v1",
+        "material_read": "HTML introduction, problem formulation, §3.2 and principal statements/proof structure",
+        "method": "Open-access arXiv HTML direct material inspection",
+        "title": "On subspace-constrained preconditioning for randomized iterative methods",
+        "trigger": "Motivating recent preconditioning direction and verified MSC ownership"
+      },
+      {
+        "assessment": "Two-grid learned correction, not the exact one-parameter SPD scalar projection boost",
+        "evidence": [
+          "arxiv:2601.20174v1 §§4.1–4.2, Appendix A"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.20174v1",
+        "material_read": "§4.1, §4.2, Appendix A and theorem statements",
+        "method": "Open-access arXiv HTML full-text inspection",
+        "title": "NeuraLSP: An Efficient and Rigorous Neural Left Singular Subspace Preconditioner for Conjugate Gradient Methods",
+        "trigger": "Learned approximate low-frequency coarse spaces potentially cover angular effect"
+      },
+      {
+        "assessment": "Bounds effective condition number for a singular deflated operator; not exact full positive SPD boosting or optimized gamma",
+        "evidence": [
+          "arxiv:1209.1963 §4 Proposition 4.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1209.1963",
+        "material_read": "Full 19-page PDF text with sections 2 and 4, Proposition 4.3 and proof comparisons",
+        "method": "Open-access arXiv PDF inspected in text and sampled page images",
+        "title": "The Deflated Conjugate Gradient Method: Convergence, Perturbation and Accuracy",
+        "trigger": "Most directly related exact angular robustness of deflated subspace preconditioner"
+      },
+      {
+        "assessment": "Different low-rank Galerkin structure and coarse norm bounds; no sharp two-level boost phase transition",
+        "evidence": [
+          "Helmberg §4 Corollary 5, Theorem 6"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10107-023-01986-w",
+        "material_read": "Full open-access HTML; preconditioning section, Corollary 5 and Theorem 6",
+        "method": "Publisher lawful OA full text",
+        "title": "A preconditioned iterative interior point approach to the conic bundle subproblem",
+        "trigger": "Low-rank Galerkin preconditioning might give dominating result"
+      },
+      {
+        "assessment": "Entrywise normalized matrix and noncommuting epsilon-angle limits; does not imply the principal-angle scalar SPD inverse-boost optimum",
+        "evidence": [
+          "2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c/RESULT.md",
+        "material_read": "Complete published RESULT.md: definitions, theorem, proof and limitations",
+        "method": "Public result repository file inspection",
+        "title": "Exact stale-basis singular-value collapse in SOAP",
+        "trigger": "Semantically close 45-degree and spectral conditioning result"
+      },
+      {
+        "assessment": "Plausibly related to finite k=1 spectral conditioning, but a generic perturbation bound does not visibly imply an exact arbitrary-rank optimized boost; residual literature risk maintained",
+        "evidence": [
+          "Lai and Lu (2014), The bound for the spectral condition number of a rank one perturbation matrix"
+        ],
+        "identifier_or_url": "Lai and Lu, 2014 (bibliographic discovery)",
+        "material_read": "Bibliographic title and abstract only; full paper unavailable during bounded checks",
+        "method": "Metadata discovery only, no full-text comparison asserted",
+        "title": "The bound for the spectral condition number of a rank one perturbation matrix",
+        "trigger": "Rank-one spectral condition bounds might overlap the k=1 case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "04f1b10d-3f28-416f-92a0-3353c42bdadf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The unknown optimal inverse-projector gain on an approximate low-eigenspace is naturally motivated by SPD iterative solvers. The exact all-dimensional spectral classification identifies an actionable 45-degree stop-boosting threshold and a sharp O(kappa^(-1/2)) angular accuracy barrier for contrast-independent conditioning. These are not a renamed textbook perturbation estimate or isolated numerical special case; the claim exhaustively optimizes a noncommuting preconditioner family.",
+    "status": "PASS"
+  }
+}
