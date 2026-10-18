@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof excludes zero-labeled private leaves by checking both possible root-label cases. For each admissible root-zero subset it partitions roots into outside, boundary-zero and interior-zero vertices and independently counts all feasible root/leaf labels, establishing the unrestricted polynomial identity. Positivity of coefficients then yields the minimum weight and exact minimum-function census. The sunlet proof counts cyclic alternating selected runs of length at least two and gaps of length at least one; it explicitly treats the empty and full zero sets. Independent ternary-label enumeration agrees for every graph on at most four vertices, deterministic sampled larger graphs and small sunlets. The general identities rest on the written proof rather than extrapolation from finite tests.
+## correctness
 
-## Originality — PASS, with recorded risk
-Samadi et al. introduce restrained Italian domination and analyze bounds, complexity and extreme values but do not give the stated leaf-corona all-weight polynomial in the material inspected. The published restrained-domination polynomial of Velmurugan–Kala concerns a **set-valued, different parameter**, and a scalar restrained Italian domination number cannot imply exact counts for every weight. The 2023 work of Abdulhasan–Mojdeh is the most salient unresolved overlap: its abstract indicates results on some corona graphs, but its full text was not obtainable during the comparison. The complete formula and its nontrivial cycle coefficient distribution are therefore assessed as noncovered on examined evidence, with genuine residual risk, not certified global uniqueness.
+PASS
 
-## Value — PASS
-Restrained Italian domination is an established NP-hard optimization parameter. The result does more than recompute a minimum: it gives the complete weight enumerator for **every** graph with one private leaf per vertex, translates its minimum into the natural maximum inner-boundary statistic, and determines every coefficient and minimum-solution multiplicity for the sunlet family. Exact solution multiplicities and weight distributions are not obtained from previously reported minimum values, and the cyclic-run formula identifies a reusable structural decomposition.
+Every pendant leaf of a restrained Italian labeling must be 1 or 2: leaf zero with root zero fails Italian neighbor sum, and leaf zero with positive root is isolated in zero-induced graph. Thus zero set S consists only of roots and is admissible iff G[S] has no isolated vertices. For each fixed S, n-|S| outside root/leaf pairs each contribute (z+z²)²; b(S) boundary zero roots have freely 1/2-labeled leaves; |S|-b(S) interior zeros force leaf 2. Product gives exact stated polynomial. Nonnegative distinct terms imply minimum 2n-max b and count of optimizers. On C_n every proper admissible S decomposes into k cyclic 1-runs >=2 and 0-gaps >=1, b=2k. Composition of s selected and n-s unselected into k runs and gaps gives n/k binom(s-k-1,k-1) binom(n-s-1,k-1); k≤floor(n/3). Maximize k to derive minimum 2n-2floor(n/3) and #min n/k binom((n-3k)+2k-1,2k-1). Independent direct ternary enumerations for all 12 graphs on n<=3 incl empty/disconnected bases matched polynomial. The infinite formula follows by case decomposition, not finite checks.
 
-## Sources and limitations
-The full primary 14-page article of Samadi et al. (RAIRO 2021, DOI 10.1051/ro/2021022; arXiv:2009.12209v1) was inspected through relevant theorem sections and searchable text. Other comparisons used accessible source abstracts for DOI 10.1142/S179383092250118X and DOI 10.1142/S1793830923500179 and the 2024 Roman \(\{2\}\)-domination survey (DOI 10.3390/math12172771). The latter two comparisons do not amount to full-text clearance; the 2023 corona-related paper should be revisited when lawful access becomes possible. The universal subset expression is not an asserted efficient algorithm for arbitrary graphs, and finite computational agreement alone proves no infinite theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The foundational restrained Italian domination paper defines the parameter and classifies extremal values, not its all-weight leaf-corona enumerator. The restrained domination polynomial is a set-valued different invariant. An abstract of a plausible 2023/24 corona-related RID paper mentions minimum values, not all coefficients; full article inaccessible and remains a residual risk. The all-base-graph coefficient identity and explicit sunlet run-profile are best-of-knowledge additions.
+
+## value
+
+PASS
+
+Weight enumerators of restrained dominating functions refine minimum domination numbers and determine a complete distribution relevant to graph polynomial studies; the admissible-zero induced-boundary reduction is a reusable structural lemma for every finite base graph, while sunlet is a natural cycle-corona specialization. No invented algorithmic complexity gain; subset sum may be exponential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
