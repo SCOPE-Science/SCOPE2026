@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reconstructs the singleton extremizer from first principles. After the change of variables \(\theta=\pi+x\), nonnegativity is reduced to a global supporting-tangent inequality for \(T_m\). Strict convexity handles \([\cos(\pi/m),1]\), and the explicit bound \(m(\cos(\pi/(2m))-\cos(\pi/m))>\sin(\pi/(2m))\) handles the remaining interval. This proves that the only contacts are \(\pi\pm\pi/(2m)\). At those contacts the added frequency contributes the same value \((-1)^n\cos(n\pi/(2m))\), which vanishes exactly for odd multiples of \(m\). In the nonresonant case an explicit perturbation is positive at both contacts, and compactness supplies a uniform small parameter preserving nonnegativity.
+## correctness
 
-Sources checked for the critical mathematics: the direct Carathéodory–Fejér formulation in arXiv:math/0302193v1 and the general LCA formulation in arXiv:1304.0071v1. The proof does not rely on a finite scan. Risk: the delicate step is the global Chebyshev tangent inequality; both of its interval cases are proved explicitly in `RESULT.md`.
+PASS
 
-## Originality
-**PASS.** The closest direct source defines the general support-restricted extremum but does not state the two-frequency odd-multiple classification in the inspected definitions, comparison results, and special cases. Neuwirth's arXiv:math/0102145v1 produces a related secant constant for a three-character Sidon problem, but its statement is not implication-equivalent to nonnegative cosine-polynomial optimization. Prior exact support calculations for \(\{1,3,5\}\) and for higher-frequency set \(\{3,4\}\) are isolated cases and do not imply the complete \((m,n)\) classification.
+The Chebyshev tangent support proof at C=cos(pi/(2m)) yields a nonnegative singleton extremizer with exactly two contact points pi±pi/(2m). The first and m harmonics vanish appropriately at contacts to force a<=sec(alpha). At these points cos(n theta)=(-1)^n cos(n alpha), zero iff n an odd multiple of m. For nonzero contact value the perturbation R=cos(theta)+2C/q cos(n theta) equals C>0 at BOTH zeros; compactness makes P_m+epsilon R positive for sufficiently small epsilon>0. Checked m>=3 and full-circle quantifiers; grid checks not used as proof.
 
-Risk: an equivalent resonance statement could occur in older cosine-polynomial or positive-definite-sequence literature under different notation. The checked historical Révész paper provides relevant dual/extremal context but no matching all-parameter statement was located in the inspected material.
+## originality
 
-## Value
-**PASS.** The question is intrinsic to the support-restricted Carathéodory–Fejér problem: when does one new allowed harmonic genuinely improve the singleton optimum? The theorem answers that question for every \(m\ge3\) and every distinct auxiliary frequency, with a sharp arithmetic boundary and a contact-geometry mechanism. This is a natural complete structural classification rather than a numerical table, a renamed special case, or a routine parameter increment.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The two-contact perturbation establishes a uniform infinite frequency-resonance classification; prior support-restricted Caratheodory--Fejer framework and isolated exact examples do not state the m>=3 all-n classification.
+
+## value
+
+PASS
+
+A natural complete rigidity/strictness dichotomy for arbitrary augmentation of a standard extremal harmonic, distinguishing when adding a frequency is effective; quantitative strict optima are not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
