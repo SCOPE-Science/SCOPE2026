@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof decomposes the max-norm product into all four branch products. The two pure branches are bounded by \(1\). A one-parameter quadratic minorant gives the mixed-branch bound, and optimizing that minorant produces exactly the two stated regimes. Explicit pairs attain both branches. Equality tracing through the Euclidean, arithmetic--geometric mean, quadratic-minorant, and direction inequalities yields the complete maximizing sets.
+## correctness
 
-## Originality
-PASS. The original 1993 paper defines the exact norm but predates the invariant. The principal 2010 Zbăganu paper is only partially accessible in the checked route; its exposed material does not identify this family, but its unseen body remains an explicit residual risk. Targeted searches by space name, \(R_\lambda^2\), candidate formula, phase point, and strip--disk description found no equivalent result. Current and prior archive ledgers contain other Banaś--Frączek constants but no Zbăganu formula.
+PASS
 
-## Value
-PASS. This is a full one-parameter phase diagram with a simultaneous extremizer bifurcation on a classical Banach-plane family. The high branch is genuinely different from the known neighboring constants, and the change from a continuum of orthogonal maximizers to a rigid transition-ray orbit gives structural information beyond the scalar value.
+Original RESULT correctly splits N(p)N(q) into EE,FF,EF,FE products. EE<=D by Euclidean parallelogram; FF<=D since F(x)^2+F(y)^2<=D. For mixed EF, optimize the quadratic minorant N(z)^2 >= Aθ z1²+θ z2², Aθ=λ²-(λ²-1)θ, to derive ratio <=λ/sqrt(Aθθ). Maximizing Aθθ on θ∈[0,1] yields λ for 1<λ<=sqrt2, then 2sqrt(1−λ^-2). Direct pairs attain each bound. Equality tracing gives a low-λ continuous orthogonal family, transition α=π/4, high-λ unique circle/strip transition orbit. λ→1 excluded and λ=sqrt2 checked in both formulas.
 
-## Closest literature and limitations
-Banaś--Frączek (1993) supplies the exact family. Llorens-Fuster--Mazcuñán-Navarro--Reich (2010) supplies the Zbăganu framework and is the strongest unresolved bibliographic comparison because its full body was not accessible. Zuo (2012) treats the nearby Ptolemy problem for absolute normalized norms. The theorem is real, two-dimensional, and does not treat generalized \(p\)-deformations.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The full phase diagram includes a classification of Zbăganu maximizing pairs and a real-parameter transition at sqrt2, not just the piecewise value. Published Resultary Ptolemy computations on the identical space yield numerically identical branch values but concern a different supremum; known CP>=CZ cannot by itself prove equal CZ without an attaining CZ witness. The same paper on both parameters remains an explicit access risk, not declared NOT_COVERING.
+
+## value
+
+PASS
+
+The norm is a canonical disk intersected with a strip, and the phase change explains when maximizers leave the Euclidean circle and meet the clipped boundary. Classifying all CZ equality configurations is a structural geometric fact independent of a coincident CP scalar profile; applicable in estimates for fixed-point and geometric constants. The exact full parameter locus is mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
