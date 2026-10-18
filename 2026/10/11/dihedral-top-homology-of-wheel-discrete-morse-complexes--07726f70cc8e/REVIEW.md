@@ -1,15 +1,21 @@
-# Scientific review: dihedral wheel Morse-complex homology
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The wheel's universal hub meets the published complete-source shellability hypothesis after equivariantly reversing incidence arrows. The proof constructs the directed orbit multigraph without identifying non-equivalent arrow choices, proves the forest correspondence and the permutation-orientation sign, and derives the exact Lefschetz determinant. Rotation and both even-reflection classes give singular quotient determinants; an odd reflection gives the displayed path-tridiagonal determinant. Its identity value gives the top integral rank. The packaged checker independently evaluates quotient determinants for \(136\) cases and complete signed chain traces for every group element at rim lengths \(5\), \(6\) and \(7\). These are supportive finite checks, not a substitute for the general proof.
+## correctness
 
-## Originality
-**PASS, with residual risk.** Jojić's complete-source shelling explains wedge concentration but not the symmetry character. Contreras–Tawfeek relates graph Morse-complex counts to Laplacians, without the equivariant orbit construction or oriented trace. Donovan–Scoville examine different graph families through star clusters. The closest published five-vertex wheel computation is only the smaller rim length and reports ordinary homotopy type. The present formulas distinguish the two parity regimes and characterize all conjugacy classes for each rim length \(k\ge5\). An unindexed or differently phrased equivalent character computation remains possible; this same-source investigation does not establish absolute uniqueness.
+PASS
 
-## Value
-**PASS.** The character completely identifies a natural infinite family of rational dihedral representations, separating their reflection behavior from ordinary Betti counts. The odd-rim sign-twisted rim-permutation summand is structurally informative, while the even-rim cases are multiples of the regular representation. The proof also provides a reusable equivariant orbit-forest determinant method. The underlying sphere count alone would not be the claimed new contribution.
+PASS. After reversing incidence arrows, an acyclic matching is a directed rooted forest with outdegree ≤1, and the universal hub supplies Kozlov's complete-source shellability hypothesis, giving pure dimension k-1 and concentrated reduced integral homology. For each dihedral g the quotient on vertex orbits admits an outgoing orbit-arrow precisely when the target is fixed by g^ell and lies in a different orbit; any cycle of quotient orbit-arrows lifts to a directed cycle because lengths are nonincreasing and constant round cycles. The signed augmented fixed-simplex trace is -det(I-L_g) by the directed rooted-forest determinant. Since homology is in degree k-1, χ_k(g)=(-1)^k det(I-L_g). For identity the wheel Laplacian spectrum has eigenvalues 0,k+1,3−2cos(2πj/k), j=1,...,k-1, yielding k³. Nontrivial rotations and both even-rim reflection classes leave a quotient zero-sum block, hence trace 0; odd reflections reduce to a tridiagonal Dirichlet path determinant with sign (-1)^((k-1)/2). Rational character comparison gives the regular/permutation twisted splittings. Independently implemented an orbit multigraph with exact SymPy determinants and verified EVERY 2k group element for k=5,...,12; these are auxiliary finite checks, not the uniform determinant proof.
 
-## Scope and limitations
-The decomposition is over \(\mathbb Q\); no integral representation splitting or independent validation is claimed. The shellability principle and determinant enumeration methods are credited to prior literature. Independent assessment of novelty and the proof remains outstanding.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on inspected literature. Kozlov/Jojić establish complete-source shellability but no orbit-specific wheel character; an unadorned graph Laplacian or forest-count theorem provides rank but not signed reflection traces. A public four-rim wheel homotopy computation (outside k>=5) does not dominate the full equivariant claim. Both parity classes of reflections and natural dihedral action are substantive additional information, though an unindexed representation calculation cannot be ruled out because Resultary failed.
+
+## value
+
+PASS
+
+PASS. Determines the full D_k-character of the top reduced homology of a canonical graph Morse complex for every wheel with k>=5, distinguishing exceptional odd-reflection traces. This equivariant invariant is motivated by the natural geometric dihedral group and not recoverable from the known shellability/wedge count. The integral wedge count is attributed to prior structural ideas, while the character and representation decomposition are the new nontrivial content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
