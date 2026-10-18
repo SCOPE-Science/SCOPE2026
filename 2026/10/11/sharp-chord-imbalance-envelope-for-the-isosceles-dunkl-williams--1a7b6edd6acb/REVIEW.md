@@ -1,27 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. After a sign change, write \(a=\|x+y\|\ge b=\|x-y\|\) and \(r=b/a\). The unit-pair integrand is bounded by
-\[
-\frac{1+r}{2}\bigl(2+a(1-r)\bigr)
-\le
-(1+r)(2-r).
-\]
-For every \(0<r\le1\), the pair
-\[
-x_r=(1,1-2r),
-\qquad
-y=(1,1)
-\]
-in \(\ell_\infty^2\) has chord ratio exactly \(r\) and attains \((1+r)(2-r)\), so the conditional envelope is exact. Tracing equality through the three sharp inequalities shows that global equality requires and is implied by the stated three norm identities after a sign choice.
+## correctness
 
-## Originality
-PASS. The defining Fu--Xie--Li paper and the closest 2026 public sharp-bound result were inspected in full where relevant. The latter already contains the upper polynomial \(2+r-r^2\), so that inequality is not claimed as new. It gives only the global \(9/4\) theorem and expressly does not classify equality cases. Targeted searches found no source proving pointwise attainability for every \(r\), the resulting optimal stability law, or the necessary-and-sufficient pairwise equality criterion. The current own ledger through g000062 contains no such isosceles Dunkl--Williams profile.
+PASS
 
-## Value
-PASS. The parameter \(r\) is the intrinsic sum/difference imbalance in the sharp global proof. Establishing the exact conditional supremum turns the one-number theorem into a best-possible stability profile and determines exactly how far a pair with unbalanced chords must lie below \(9/4\). The equality criterion also closes the most immediate structural limitation left by the prior sharp-bound result.
+The final theorem conditions the Fu–Xie–Li unit-pair integrand Phi_X(x,y) on r=min(||x+y||,||x-y||)/max in (0,1]. After y↦−y assume a=||x+y||≥b=||x−y||=ra. The exact identity Phi=(a+b)/(2ab)||b(x+y)−a(x−y)|| and triangle inequality yield Phi≤(1+r)(2+a(1−r)/2)=(1+r)(2−r) after a≤2. For every 0<r≤1, x_r=(1,1−2r), y=(1,1) in real ℓ∞² realize a=2,b=2r and Phi=(1+r)(2−r), so the continuum of conditional suprema is attained. Tracing equality at the global 9/4 yields r=1/2,a=2,b=1 and ||3σy−x||=3 with sign σ; converse directly attains 9/4. The exact near-extremizer stability |r−1/2|≤sqrt(delta) follows from the polynomial gap and is sharp. Verified rational samples r=1/80,1/2,4/5,1 by a separate exact-norm implementation, supplementary to the continuum proof.
 
-## Closest literature and limitations
-Fu, Xie and Li introduced \(DW_I\), proved the unit-pair formula, and computed \(DW_I(\ell_\infty^2)=9/4\). A later public result proved the universal \(9/4\) bound and already derived the polynomial upper estimate used here. The new claim is restricted to pointwise sharpness of that estimate, its stability consequence, and equality of individual pairs. It does not classify spaces whose supremum is \(9/4\) but is not attained.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution scoped to the exact theorem, not its already-known ingredients. Originality comparisons explicitly distinguish full prior statements, their implications and residual access risks; inaccessible articles alone were not used as proof of novelty or as automatic rejection.
+
+## value
+
+PASS
+
+The intrinsic ratio of two canonical chords is a natural geometric stratification of the isosceles Dunkl–Williams problem. Although the universal 9/4 bound and its upper polynomial were already known, exact attainability of each constrained value and a necessary/sufficient pairwise equality classification sharpen the result in an independently usable way. The full profile gives a sharp quantitative deficit and identifies the geometry of equality pairs without claiming global space classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
