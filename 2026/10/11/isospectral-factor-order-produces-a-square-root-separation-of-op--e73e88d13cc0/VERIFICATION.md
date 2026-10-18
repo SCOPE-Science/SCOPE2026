@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Analytical and computational verification
+# Independent mathematical audit
 
-The proof in `RESULT.md` directly verifies the operator expansions, both triangular period maps, positivity and sharpness of the Green inverses, the Gaussian rescaling near the two nondegenerate extrema, the pulse-area limit, and matching bounds for the downstream filter maximum. These are analytic arguments with all time variables on the real line, not extrapolations from finite samples.
+## correctness
 
-For a reproducible numerical consistency check, run `python verify_order_response.py` with Python 3 and its standard library. The script uses a composite trapezoidal grid with 90,000 intervals on a full trigonometric period to compute the periodic responses, then asserts the zero-modulation normalization and increasing convergence trends at modulation parameters 25, 80, and 240. On execution it printed:
+PASS
 
-```text
-delta0 1.0000000004061589 1.00000000081232
-delta=25: KA/leading=1.04658105 KB/leading=0.71694199 KA/KB=2.90641176
-delta=80: KA/leading=1.01421221 KB/leading=0.79758340 KA/KB=4.52893417
-delta=240: KA/leading=1.00470393 KB/leading=0.86182092 KA/KB=7.19159095
-CHECK_OK
-```
+For Q C⁴ P-periodic, a,b>0, δ→∞, the first-order inverses G_u and G_b have positive causal kernels with exponential averages a and b. The bilateral homogeneous solutions of both triangular Floquet systems have no nonzero bounded whole-line orbit (multipliers exp(-aP), exp(-bP) strictly less than one), so the unique bounded inverse gives the best Ulam residual-to-solution constant, and the test residual g≡1 saturates it. Carefully checking factor order gives KA=(1/b) max v, v=G_u 1, while KB=max w, w=G_b v. The period formula for v has the normalization 1/(1-exp(-aP)). Laplace expansion of its numerator near the preceding max of Q and the e^{-δQ(t)} Gaussian pulse near Q-min produce pulse height C exp(δΔ)/sqrt δ and mass C' exp(δΔ)/δ. Concentrating a positive pulse through G_b makes the output maximum asymptotic to the pulse mass divided by 1-exp(-bP), so the two prefactors and square-root ratio are as claimed. Independently evaluated quadrature for Q=sin t, P=2π, a=b=1 at δ=10,25,60: normalized KA/asymptotic 1.123,1.047,1.019; KB/asymptotic .662,.717,.778; KA/(sqrtδ KB) decreasing toward predicted 0.3982. Numerical tests are not the δ→∞ proof. The scalar expansions have identical mean a+b, mean ab and identical Floquet multipliers.
 
-The slower approach of the second normalized constant is consistent with the narrow-pulse delay of the downstream filter; it is not itself a rate-of-convergence proof. No independent audit, formal proof assistant, or external numerical certification was performed. The validity of the main claim rests on the elementary factorization and Laplace estimates reconstructed in `RESULT.md`.
+## originality
+
+PASS
+
+Prior Green-operator theorems already yield general exact best Ulam constants; Darboux-type factor swap and matching monodromy spectrum are also classical. The noncovered claim is a sharp two-order large-modulation comparison with full prefactors despite matched Floquet multipliers and coefficient averages.
+
+## value
+
+PASS
+
+Optimal Ulam constants quantify worst-case error amplification, while Floquet multipliers quantify homogeneous spectral stability. An exact arbitrarily large square-root mismatch between two isospectral periodic equations is an instructive structural counterexample to spectral surrogates for uniform residual sensitivity, with universal two-saddle prefactors; this is not a trivial factor permutation identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

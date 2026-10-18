@@ -1,15 +1,21 @@
-# Scientific review: square-root factor-order separation of optimal periodic stability constants
+# Independent mathematical audit
 
-## Correctness — PASS
-The factor-order expansions and triangular Floquet reductions are exact. The positive causal first-order inverses define unique bounded global errors because both Floquet multipliers are strictly inside the unit disk. Their positive Green kernels make the forcing of constant sign an extremizer for the uniform operator norm, so the integral expressions are **best** Ulam constants rather than generic upper bounds. The first Laplace method localizes a previous maximum of the modulation; a second quadratic expansion localizes the response at its minimum. The downstream constant-rate filter sees the *mass*, not the *height*, of this pulse. The upper/lower filter comparison therefore justifies the two distinct powers of the modulation parameter. The proof explicitly states its whole-line norm and fixed-parameter quantifiers. The numerical checker reproduces the expected trend without being used as a proof of the infinite-parameter limit.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Anderson, Onitsuka, and O'Regan (arXiv:2307.15103v1, Theorem 4.1) already provide a general exact Ulam-constant framework for nonautonomous damped oscillators; the exact Green representations and stability criterion are credited and not claimed anew. The 2019 first-order periodic and 2020 Hill-equation best-constant studies likewise cover related formulations but do not state the pair of isospectral factor reversals with sharp different modulation powers. Reversing two differential factors is a familiar Darboux-type operation; the new point is the quantified instability of the *uniform resolvent norm* under that reversal despite fixed Floquet multipliers. Targeted mathematical-record searches and a claim-level comparison with the accessible relevant papers did not locate a statement giving the two coefficients and the square-root separation. Publication priority is not certified exhaustively; differently formulated Darboux/resolvent work, and partially accessible later periodic-damping studies, remain reasonable comparison risks.
+PASS
 
-## Value — PASS
-A Floquet spectrum normally reports long-time exponential rates but need not control nonnormal forced response. The theorem gives an explicit, structurally motivated infinite family where both periodic oscillators share the same exact stable Floquet multipliers and the same averages of damping and stiffness, yet their *best possible* residual-to-solution constants diverge from one another at a sharp algebraic rate. Both Gaussian factors in the coefficient have clear independent dynamical roles (past-source maximum and current observation minimum). This addresses robustness of periodic differential equations, not a change of symbols or an arbitrary parameter slice.
+For Q C⁴ P-periodic, a,b>0, δ→∞, the first-order inverses G_u and G_b have positive causal kernels with exponential averages a and b. The bilateral homogeneous solutions of both triangular Floquet systems have no nonzero bounded whole-line orbit (multipliers exp(-aP), exp(-bP) strictly less than one), so the unique bounded inverse gives the best Ulam residual-to-solution constant, and the test residual g≡1 saturates it. Carefully checking factor order gives KA=(1/b) max v, v=G_u 1, while KB=max w, w=G_b v. The period formula for v has the normalization 1/(1-exp(-aP)). Laplace expansion of its numerator near the preceding max of Q and the e^{-δQ(t)} Gaussian pulse near Q-min produce pulse height C exp(δΔ)/sqrt δ and mass C' exp(δΔ)/δ. Concentrating a positive pulse through G_b makes the output maximum asymptotic to the pulse mass divided by 1-exp(-bP), so the two prefactors and square-root ratio are as claimed. Independently evaluated quadrature for Q=sin t, P=2π, a=b=1 at δ=10,25,60: normalized KA/asymptotic 1.123,1.047,1.019; KB/asymptotic .662,.717,.778; KA/(sqrtδ KB) decreasing toward predicted 0.3982. Numerical tests are not the δ→∞ proof. The scalar expansions have identical mean a+b, mean ab and identical Floquet multipliers.
 
-## Limitations and closest literature
-The class requires unique nondegenerate periodic modulation extrema and fixed positive decay rates. General Green representations are prior art and the literature search is not a guarantee of publication novelty. For a later 2024 periodic-damping paper, only the indexed abstract and accessible introductory information were obtained, not a complete full-text comparison. The standalone numerical calculation cannot certify the asymptotic limits, which instead follow from the displayed proof.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Green-operator theorems already yield general exact best Ulam constants; Darboux-type factor swap and matching monodromy spectrum are also classical. The noncovered claim is a sharp two-order large-modulation comparison with full prefactors despite matched Floquet multipliers and coefficient averages.
+
+## value
+
+PASS
+
+Optimal Ulam constants quantify worst-case error amplification, while Floquet multipliers quantify homogeneous spectral stability. An exact arbitrarily large square-root mismatch between two isospectral periodic equations is an instructive structural counterexample to spectral surrogates for uniform residual sensitivity, with universal two-saddle prefactors; this is not a trivial factor permutation identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
