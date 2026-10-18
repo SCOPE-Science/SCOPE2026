@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "All n and c are proved by the exact Q(6h+j) table and the complete identity (1). For gcd(c,6)=1, every six-step block contributes exactly 1 and the unique negative partial sum is a one-entry walk at residue zero; the last zero is exactly n=7c-7 or 7c-5 and c=1 is separate. For gcd(c,6)>1, the 6-step sum is -6,-3,or -2 and produces a strict decrease for every n=6kc. Exact independent DP verifies 408502 identities/comparisons but universal proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kevin Woods, The generalized Frobenius problem via restricted partition functions, arXiv:2011.00600 (2020), especially Theorem 1.8 and Proposition 1.19 explicitly derives quasi-polynomial constituents and eventual growth in several residue regimes.",
+        "Komatsu, Hyun, Song, p-numerical semigroup of the sequence of consecutive odd integers, arXiv:2608.14053 (2026) treats arithmetic-progressions of odd denominations, a different generator configuration."
+      ],
+      "reasoning": "General denumerant and Frobenius machinery can imply eventual strict increase for pairwise-coprime weights, but the exact last obstruction requires finite-range analysis not furnished by the cited asymptotic results. This finding does not claim the preexisting eventual quasi-polynomial theory.",
+      "searches": [
+        "2 3 c denumerant monotonic increase eventual exact cutoff, triangular coin function 2,3,c last plateau",
+        "Exact eventual strict coefficient monotonicity index for ternary coin change 2,3,c, including gcd dichotomy and last plateau at 7c minus 7 or 5; nonnegative representations",
+        "arXiv:2011.00600 Theorem 1.8 Proposition 1.19"
+      ]
+    },
+    "checked_sources": [
+      "Yuchen Ding, Restricted partition functions and additive complements, arXiv:2606.18027, Bull. Aust. Math. Soc. (2026), DOI 10.1017/S0004972726101920",
+      "Kevin Woods, The generalized Frobenius problem via restricted partition functions, arXiv:2011.00600 (2020), especially Theorem 1.8 and Proposition 1.19",
+      "Komatsu, Hyun, Song, p-numerical semigroup of the sequence of consecutive odd integers, arXiv:2608.14053 (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kevin Woods, The generalized Frobenius problem via restricted partition functions, arXiv:2011.00600 (2020), especially Theorem 1.8 and Proposition 1.19 describes eventual quasi-polynomial/leading-term information and a qualitative increase, not a uniform sharp cutoff.",
+        "Yuchen Ding, Restricted partition functions and additive complements, arXiv:2606.18027, Bull. Aust. Math. Soc. (2026), DOI 10.1017/S0004972726101920 proves a construction of restricted representation functions with polynomial growth, not the exact eventual local growth index for three fixed denominations."
+      ],
+      "reasoning": "Woods qualitative eventual increase for pairwise-coprime data applies to c coprime to 6, so claiming that fact alone as new would be covered. The proof here isolates and proves the precise final equality index for every such c and infinitely many strict descents for the complementary parameters; the former is not a direct stated corollary of the cited asymptotic claims. Residual risk is that an unstated application of a general coefficient formula already yields these exact numbers.",
+      "searches": [
+        "2 3 c denumerant monotonic increase eventual exact cutoff, triangular coin function 2,3,c last plateau",
+        "Exact eventual strict coefficient monotonicity index for ternary coin change 2,3,c, including gcd dichotomy and last plateau at 7c minus 7 or 5; nonnegative representations",
+        "arXiv:2011.00600 Theorem 1.8, Proposition 1.19",
+        "DOI:10.1017/S0004972726101920 Theorem 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kevin Woods, The generalized Frobenius problem via restricted partition functions, arXiv:2011.00600 (2020), especially Theorem 1.8 and Proposition 1.19 gives eventual quasi-polynomial information but no (2,3,c) last plateau index.",
+        "Yuchen Ding, Restricted partition functions and additive complements, arXiv:2606.18027, Bull. Aust. Math. Soc. (2026), DOI 10.1017/S0004972726101920 concerns more general positivity/growth, not this adjacent-index comparison."
+      ],
+      "reasoning": "The exact monotonicity threshold can be expressed as the largest nonpositive adjacent difference in coefficients of 1/((1-z^2)(1-z^3)(1-z^c)). Neither the standard generating function nor the known eventual polynomial structure specifies the sharp location 7c-7 or 7c-5, especially for all c.",
+      "searches": [
+        "Sharp eventual strict monotonicity threshold for ternary restricted partition function solutions 2x+3y+cz=n, c coprime 6; last n with P(n+1)<=P(n) equals 7c-5 or 7c-7",
+        "eventual increasing coefficients of generating function 1/((1-x^2)(1-x^3)(1-x^c)) for c congruent 1 or 5 mod 6",
+        "Sylvester denumerant three variables (2,3,c) generating function 1/((1-x^2)(1-x^3)(1-x^c)) exact eventual strict monotonicity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No direct published mathematical-result table giving the full parameter cutoff was returned by the actual targeted searches.",
+        "Exact dynamic programming checked c=1..200 and indices through 20c+30, but it is new verification, not an existing published table."
+      ],
+      "reasoning": "The relevant comparison is the formula for all c, not isolated numerical data. A negative database search is insufficient by itself to prove novelty, so it was paired with reading the applicable theorems in primary sources.",
+      "searches": [
+        "Sharp eventual strict monotonicity threshold for ternary restricted partition function solutions 2x+3y+cz=n, c coprime 6; last n with P(n+1)<=P(n) equals 7c-5 or 7c-7",
+        "denumerant p(n;2,3,c) last failure of p(n+1)>p(n), non-monotone gcd(c,6) classification, numerical semigroup restricted partition",
+        "Sylvester denumerant three variables (2,3,c) generating function 1/((1-x^2)(1-x^3)(1-x^c)) exact eventual strict monotonicity",
+        "Semantic literature-record searches for 2,3,c, seven-times-c cutoff and last plateau"
+      ]
+    },
+    "rationale": "Woods gives qualitative eventual growth and general quasi-polynomial machinery; Ding gives restricted partition growth; the actual mathematical-record searches and prior theorem comparisons did not identify the exact all-c final non-increase formula. This is a sharper natural invariant than mere eventual increase, but possible implicit earlier derivation is acknowledged.",
+    "residual_risks": [
+      "A general exact restricted-partition identity or an unpublished computation may implicitly contain the particular cutoff.",
+      "The related Komatsu-Hyun-Song full paper was not accessible; its abstract gives a distinct generator family, not a decisive comparison.",
+      "Negative search results do not establish uniqueness or first discovery."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies positivity and polynomial growth for constructed infinite coefficient sets; no analysis of adjacent differences for the finite weight family (2,3,c).",
+        "evidence": [
+          "Theorem 2 uses binary additive complements and a polynomial upper bound.",
+          "Primary MSC 11B34 and publication metadata are explicit."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/bulletin-of-the-australian-mathematical-society/article/restricted-partition-functions-and-additive-complements/38DD65F082D52054693D56DAA71F65A8",
+        "material_read": "Abstract; Theorem 2 and proof; general question, results, and reference list in the publicly accessible article",
+        "method": "direct HTML article reading",
+        "title": "Restricted partition functions and additive complements",
+        "trigger": "Recent primary-MSC-11B34 motivating source on representation growth"
+      },
+      {
+        "assessment": "General eventual quasi-polynomial formulas and qualitative increase are closest prior implications; no uniform formula for last non-increase in (2,3,c) was identified in inspected theorem material.",
+        "evidence": [
+          "Theorem 1.8 reduces representation counts to residues in pairwise gcds.",
+          "Proposition 1.19 includes quasi-polynomial coefficients and a sufficiently-large monotonicity assertion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2011.00600",
+        "material_read": "Theorem 1.8, Proposition 1.19, relevant proof paragraphs and remarks on exact representation counts",
+        "method": "arXiv publicly readable HTML text",
+        "title": "The generalized Frobenius problem via restricted partition functions",
+        "trigger": "Potential dominating classical restricted-partition/quasi-polynomial results"
+      },
+      {
+        "assessment": "Its odd consecutive generator family is not (2,3,c); residual risk of unstated techniques remains but no decisive covering result was found.",
+        "evidence": [
+          "Abstract identifies conjectures on p-Frobenius numbers and bounded Gaussian polynomial partitions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.14053",
+        "material_read": "Abstract and bibliographic description; complete text was inaccessible during this check",
+        "method": "public index and abstract, no full-text noncoverage inference",
+        "title": "p-numerical semigroup of the sequence of consecutive odd integers",
+        "trigger": "A recent p-Frobenius work for arithmetic-progression coin systems"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dd3310bb-9813-4840-a637-9f9540474ad4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The last index at which a representation count fails to increase is a natural, exact local-growth invariant not supplied by polynomial asymptotics; it is classified sharply for every parameter c. The result also gives an exact arithmetic dichotomy between eventual strict growth and infinitely recurring strict declines, establishing a structural boundary, rather than an isolated small enumeration.",
+    "status": "PASS"
+  }
+}
