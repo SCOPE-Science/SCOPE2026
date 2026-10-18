@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T08:48:41.172337Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For u,v inside the same multipartite part Vi, the distance-two geodesic has an unselected internal vertex exactly when Y=V\\X has an element outside Vi; all cross-part pairs are adjacent. Thus if Y intersects two parts, all 3 visibility predicates hold. When Y is nonempty in one part, ordinary requires at most one selected vertex remaining in that part; outer requires Y to be the whole part; dual requires Y singleton in a part of size <=2. Y empty is valid only in complete graphs. Disjoint nonempty single-part complements give exactly the three stated binomial-subtraction polynomials. Independently enumerated all vertex subsets of K(1,2), K(1,1,3), K(1,2,3), K(2,2,2), K(1,1,1), K(3,3,1) and each predicate, matching every coefficient. Correct for r>=2 nonempty parts and excludes the separate total predicate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The extremals paper (published 2026-10-04) proves an exact complete-multipartite r_{N-t} formula and maximum/minimum theorem.",
+          "The colorings paper (published 2026-10-04) proves complete-multipartite outer/dual set criteria for each individual subset, dominating mere cardinality enumeration.",
+          "Bujtás–Klavžar–Tian (2025) gives special case balanced K(n,n) polynomials."
+        ],
+        "reasoning": "Two earlier exact same-graph classification theorems dominate the supposed generalization; they cover the precise three predicate classes independently of wording.",
+        "searches": [
+          "Resultary source ID 2026/10/4/SCOPE-coefficientwise-extremals-for-visibility-polynomials-of-complete--aef021fd50df",
+          "Resultary source ID 2026/10/4/SCOPE-dual-outer-and-total-mutual-visibility-colorings-of-complete-mul--7f9c854a9a00",
+          "Bujtás Klavžar Tian visibility polynomials 2025"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-coefficientwise-extremals-for-visibility-polynomials-of-complete--aef021fd50df",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dual-outer-and-total-mutual-visibility-colorings-of-complete-mul--7f9c854a9a00",
+        "DOI:10.1007/s00010-025-01197-y",
+        "arXiv:2304.00864",
+        "Resultary query: mutual visibility outer mutual visibility dual mutual visibility polynomials complete multipartite graph K n1 n2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let Y=V\\X; prior colorings iff conditions are exactly the proposed outer/dual valid complement classes. Their sizes immediately count via binomial sums as in the submission.",
+          "Substituting t=N-k in prior ordinary coefficient yields proposed polynomial terms, including top coefficient 0 when noncomplete."
+        ],
+        "reasoning": "This is a decisive logical implication, not an unsupported failed-search argument. No repair by disclaimer or extra certificate can re-establish originality for the unchanged claimed three polynomials.",
+        "searches": [
+          "published Resultary 2026-10-04 colorings paper proof dual and outer set criteria",
+          "published Resultary 2026-10-04 extremals paper proof coefficient formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier published colorings RESULT.md: \"If B meets at least two parts, then M is outer/dual. If nonempty B⊆Vi, M outer iff B=Vi; M dual iff both |M∩Vi|<=1 and |B∩Vi|<=1; B=empty iff graph complete.\" These are EXACT two all-subset criteria in submitted Finding.",
+          "Earlier published extremals RESULT.md supplies full ordinary coefficients for all part sizes, equal to submitted ordinary formula."
+        ],
+        "reasoning": "Outer/dual predicate equivalence is already proved for all subsets, and ordinary coefficients are already stated; hence the entire submitted enumerative claim is already encoded by prior results.",
+        "searches": [
+          "Resultary: mutual visibility outer mutual visibility dual mutual visibility polynomials complete multipartite graph K n1 n2",
+          "published Resultary 2026-10-04 dual outer total mutual visibility colorings complete multipartite RESULT.md",
+          "published Resultary 2026-10-04 coefficientwise extremals visibility polynomials complete multipartite RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact ordinary coefficient r_{N−t}=C(N,t)−Σ_{ni≥t+2} C(ni,t) in 2026-10-04 paper, identical to current ordinary.",
+          "Bujtás et al. 2025 Section 3 gives balanced bipartite exact polynomials; not all arbitrary parts but precedent."
+        ],
+        "reasoning": "The ordinary polynomial is a known exact coefficient table, and outer/dual coefficients follow from already-known complete set criteria; no new exact database entry survives.",
+        "searches": [
+          "Resultary 2026-10-04 coefficientwise extremals for visibility polynomials complete multipartite",
+          "Bujtás Klavžar Tian 2025 balanced bipartite visibility polynomials"
+        ]
+      },
+      "rationale": "FAIL (decisive prior implication). Before this 2026-10-13 submission, published Resultary 2026-10-04 'Coefficientwise extremals for visibility polynomials of complete multipartite graphs' states exact ordinary coefficient r_{N-t}=C(N,t)-Σ_{i:n_i>=t+2}C(n_i,t) for 1<=t<=N−1; this is the first claimed polynomial verbatim after reindexing t=N−k. Another published Resultary 2026-10-04 'Dual, outer, and total mutual-visibility colorings of complete multipartite graphs' proves EXACT outer and dual iff-characterizations for all subsets by the same complement Y two-part/single-part cases as the claim. These prior stronger all-set characterizations imply every outer/dual polynomial coefficient by immediate binomial counting. The special-case and corollary coverage defeats originality without requiring identical polynomial formatting. This is not merely matching topic names: the full earlier RESULT.md proofs were read and their conditions matched word-for-word mathematically.",
+      "residual_risks": [
+        "No scientific uncertainty remains about the direct prior implication of the three formulas; this is an originality and value rejection, not a correctness failure.",
+        "The 2025 balanced-bipartite source is a special case and is not itself sufficient to reject the general formula; the two earlier published complete-multipartite theorems are decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT ORDINARY PRIOR COVERAGE",
+          "evidence": "For every 1<=t<=N−1, r_{N−t}=binom(N,t)−sum_{i:ni>=t+2}binom(ni,t).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-coefficientwise-extremals-for-visibility-polynomials-of-complete--aef021fd50df",
+          "material_read": "Entire published RESULT.md text read from Git blob 9e85f1128f87536dffdcf55cc5e005c73f73c25e; proof complement count and coefficient formula.",
+          "method": "GitHub actual public source blob full-text",
+          "title": "Coefficientwise extremals for visibility polynomials of complete multipartite graphs (published Resultary, 2026-10-04)",
+          "trigger": "Exact same graph and ordinary polynomial with stronger extremal goal"
+        },
+        {
+          "assessment": "DIRECT ALL-SUBSET PRIOR COVERAGE for outer/dual; published before current record",
+          "evidence": "If B meets >=2 parts all valid; if B nonempty in one part, outer iff B=Vi, dual iff |M∩Vi|<=1 and |B∩Vi|<=1; if empty complete graph only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dual-outer-and-total-mutual-visibility-colorings-of-complete-mul--7f9c854a9a00",
+          "material_read": "Entire published RESULT.md text read from Git blob b33e01cf3e72b527203c9a8a6b46cbf0c9efa81f, especially proof of outer/dual iff criteria.",
+          "method": "GitHub public source blob full-text",
+          "title": "Dual, outer, and total mutual-visibility colorings of complete multipartite graphs (published Resultary, 2026-10-04)",
+          "trigger": "Same exact outer and dual valid subsets under complement criterion"
+        },
+        {
+          "assessment": "Balanced-bipartite subfamily covered; broader arbitrary-part polynomials already in 2026 published records",
+          "evidence": "Reported explicit K(n,n) formulas are consistent with submitted specializations.",
+          "identifier_or_url": "https://doi.org/10.1007/s00010-025-01197-y",
+          "material_read": "Relevant full accessible paper section on visibility polynomials, especially Proposition 3.2 balanced complete bipartite formulas and definitions.",
+          "method": "Publisher HTML/PDF indexed text",
+          "title": "Bujtás, Klavžar and Tian, Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets (2025)",
+          "trigger": "Earlier exact special-case K(n,n) polynomials"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: Although the formulas are correct and useful as an organized reference, all three asserted new cardinality enumerators are immediate counting consequences of two already-published complete-multipartite coefficient/valid-subset theorems. The proposed work is a direct recomputation of a known ordinary table and binomial packaging of known outer/dual predicate classes, without a nonroutine further invariant, new extremal boundary, or motivated obstruction. Under the shared C/O/V bar this is not an independent mathematically valuable advance, even if no earlier paper displays the outer/dual polynomials in exactly these symbols.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-coefficientwise-extremals-for-visibility-polynomials-of-complete--aef021fd50df",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dual-outer-and-total-mutual-visibility-colorings-of-complete-mul--7f9c854a9a00",
+    "DOI:10.1007/s00010-025-01197-y",
+    "arXiv:2304.00864",
+    "Resultary query: mutual visibility outer mutual visibility dual mutual visibility polynomials complete multipartite graph K n1 n2"
+  ],
+  "disposition": "failed",
+  "residual_risks": [
+    "No scientific uncertainty remains about the direct prior implication of the three formulas; this is an originality and value rejection, not a correctness failure.",
+    "The 2025 balanced-bipartite source is a special case and is not itself sufficient to reject the general formula; the two earlier published complete-multipartite theorems are decisive."
+  ],
+  "schema_version": 1
+}
