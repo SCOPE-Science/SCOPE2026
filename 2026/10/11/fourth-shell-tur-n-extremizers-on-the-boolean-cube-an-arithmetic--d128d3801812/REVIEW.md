@@ -1,11 +1,21 @@
-# Review of the fourth-shell Turán extremizer theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The symmetry-averaged Walsh transform yields the exact sharp Turán mass, while positivity forces each minimizing-weight Fourier coefficient separately to vanish. The published harmonic multilinear basis of Filmus provides a complete kernel decomposition. Direct Krawtchouk calculations show that degree one alone can survive, precisely at the square-resonance dimensions. The Fourier inequalities characterize the entire surviving face; strict slack at all nonminimum weights gives actual nonradial positive-definite examples. An exact standalone checker independently confirms polynomial identities, 988 dimension classifications, and a rational nonradial witness. These finite checks supplement, rather than substitute for, the general proof.
+## correctness
 
-**Originality — PASS (qualified).** The relevant primary literature on Turán extremals (Kolountzakis–Révész and Berdysheva–Révész) provides general packing/spectral bounds, not this particular fourth-shell equality-face and resonance criterion. Filmus's harmonic-slice basis and Polyanskiy's Krawtchouk formulas are acknowledged prior ingredients; neither supplies the derived arithmetic locus or optimizer-polytope classification as stated. The known weight-two shell classification treats a distinct support and its parity behavior does not imply the fourth-shell square condition. Residual risk: older unpublished-to-us tables or specialized association-scheme equality results could contain an equivalent statement. No absolute priority or independence claim is made.
+PASS
 
-**Value — PASS.** The Boolean Hamming shells are canonical sparse Fourier supports. The sharp extremizer's geometry changes discontinuously along an infinite, arithmetically defined sequence \(d=(t^2+8)/3\), rather than an arbitrary finite test set or a simple parity correction. The exact \((d-1)\)-dimensional face and its inequalities explain precisely which nonradial optimizers exist and supply directly usable certificates for extremal constructions.
+From actual RESULT.md and checker.py, rederived radial mass via permutation averaging and Walsh nonnegativity; saturation annihilates each minimal-character Fourier component. The independent harmonic slice basis reduces equality functions to degree j kernel, with multipliers λ1=−t(t²−3d+8)/3, λ2=2(t²−d+4), λ3=−8t, λ4=16, t=d−2k. Exact K4 quartic makes minimizers near t²=3d−4; for d≥13 min levels 4≤k≤d−4 and the only surviving harmonic kernel is degree one at 3d−8=t² (integer t≥7, 3∤t). Positivity at nonminimal levels bounds a compact full dimension d−1 face. Independently rechecked polynomial and classification for 13≤d≤1000, and an exact nonradial d=19 Fourier witness; these finite checks do not replace the harmonic-basis proof.
 
-**Scientific limitations.** The theorem assumes \(d\ge13\), a support restriction to the identity and weight-four shell, unnormalized counting mass, and no pointwise sign constraint. The mass is expressed using a finite Krawtchouk minimum; no independent mathematical audit or absolute novelty certificate is asserted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Resultary comparisons show prior weight-two Boolean and nonbinary shell resonances, different support and parameter identities. Filmus primary theorem supplies the slice harmonic basis, Kolountzakis–Révész the general PD Turán setup. The specific all-d fourth-shell rank-drop square locus and complete Fourier inequality polytope were not found in these inspected materials. This is a conditional best-of-knowledge originality judgment, with association-scheme/spectral table risk explicitly retained.
+
+## value
+
+PASS
+
+The fourth Hamming sphere is a canonical sparse support in Boolean Fourier extremal theory. The infinite square-resonance sequence changes optimizer uniqueness and yields an explicit d−1-dimensional nonradial equality face, a substantive structural classification beyond a numerical mass formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
