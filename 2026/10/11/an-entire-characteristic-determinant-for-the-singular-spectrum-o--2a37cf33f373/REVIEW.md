@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The compact injective operator is explicitly \(CJ=MC-CM\) with Hilbert–Schmidt kernel \(1-t/x\). The fourth-order equation is derived from the adjoint eigenproblem and its two terminal boundary conditions; crucially, the singular endpoint is handled by the \(O(x^{3/2})\) bound, which places \(u/x^2\) in \(L^1\) and produces well-defined left derivatives. The weighted Volterra integral equation has a unique solution for each pair of Taylor coefficients, represented by the two entire power series. Its right boundary determinant vanishes exactly for a positive singular eigenvalue, and self-adjoint positivity excludes nonreal/spurious zeros. Exact coefficient recurrences and independent symmetric-kernel traces corroborate normalization. Numerical comparisons do not establish completeness; the analytic equivalence does.
+## correctness
 
-## Originality — PASS, with residual risks
-The closest publication is Deng–Fischer–Hofmann, arXiv:2401.11411v1. Its Sections 2–4 study the **same** \(CJ\), derive an integro-differential final-value equation, and prove only \(\sigma_n\asymp n^{-2}\); its Section 3 specifically notes the difficulty of solving the eigenproblem and gives finite-difference values instead. The present exact entire two-solution determinant and its no-spurious-zero theorem go beyond those statements. Ramlau–Koutschan–Hofmann, arXiv:1811.11642v1, provides transcendental equations for unweighted \(J^n\), not this singularly weighted \(x^{-1}J^2\). Chuong–Hung, arXiv:1208.5242v1, develops Hardy–Cesàro commutators and norm bounds, not singular values. Hofmann–von Wolfersdorf (2009) studies outer-weighted first integration, not the present second-order integrated kernel. Comparison with published mathematics and two nearby prior results (opaque identifiers 502b7b01-3a69-413f-9c1a-1e1d160f40d6 and 2b376b3b-891a-4200-9220-9d97f336cac6) reveals no equivalent claim. The 2024 source has a later online revision not fully compared, and uninspected historical weighted-ODE equivalences are residual bibliographic risks. No negative search is treated as a uniqueness proof.
+PASS
 
-## Value — PASS
-A specific published eigenvalue problem had only coarse order estimates and finite-difference singular approximations. The new theorem yields a convergent entire characteristic function giving **every** singular value by exact root constraints and determines spectral eigenspace dimensions by a two-by-two matrix nullity. It replaces mesh-dependent estimates with a reproducible scalar spectral equation for a canonical commutator of classical Hardy and multiplication operators. The sharp constant in a high-index asymptotic and elementary root formulas remain open within this work; neither is required to make this exact full-spectrum characterization mathematically useful.
+T=MC-CM=CJ acts as (Tf)(x)=x^-1 integral_0^x (x-t)f(t)dt and is Hilbert-Schmidt (norm squared 1/6). T is injective because J²f=xTf. For nonzero eigenvector T*T f=s² f put u=J²f; the adjoint integral yields h=T*T f satisfying h(1)=h'(1)=0 and h''(x)=u(x)/x², so u^(4)=s^-2 u/x², u(0)=u'(0)=u^(2)(1)=u^(3)(1)=0. The potentially singular endpoint is covered by |u(x)|<=x^(3/2)||f||/sqrt3, so u/x² is L1, f is sufficiently regular to fix u^(2)(0),u^(3)(0). The weighted Volterra equation gives the unique solutions U2,U3 with entire parameter series (quartic recursion), each with L² second derivative. The two right-boundary equations are exactly the 2x2 determinant F(z)=0; conversely the boundary conditions and second-derivative identity imply T*T f=z^-1 f, ruling out every nonpositive or nonreal complex root by selfadjoint positivity. F(0)=12; infinite roots follow from infinite-rank compact injective T. Independently derived the first coefficients F(z)=12-2z+z²/40-z³/15120 by exact rational series, matching F/12=1-z/6+z²/480-z³/181440; checked diagonal kernel trace 1/6 and trace square 17/720 separately. Inspected actual source verifier implementation and boundary derivation.
 
-## Limits and comparative checks
-Correctness is a proof with independent computational spot checks, not machine or expert certification. Novelty is a supported comparison with inspected literature, not a guarantee against obscure reformulations. Numerical root values are not claimed as rigorous root intervals. The formula is for the real \(L^2(0,1)\) operator with exactly the stated normalization, not for general weights, exponents, or interval lengths.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2018 Ramlau–Koutschan–Hofmann transcendental spectral equations concern J^n without x^-1 weight (constant-coefficient fourth-order ODE at n=2). The highly relevant 2024 Deng–Fischer–Hofmann paper analyzes exactly CJ, proving sigma_n~n^-2 up to constants, but not the explicit entire two-solution characteristic determinant for all singular values; the complete primary paper was read. Earlier Chuong–Hung covers weighted commutator boundedness. No stronger spectral formula found in Resultary or primary searches; weighted fourth-order spectral equivalences remain an originality risk.
+
+## value
+
+PASS
+
+An exact and convergent determinant characterizing every nonzero singular value (and geometric multiplicity) of a natural compact inverse-problem operator is a structural spectral result, not merely another asymptotic estimate or numerical finite discretization. It directly addresses the spectral-equation difficulty acknowledged in the 2024 CJ paper. It does not purport to provide closed elementary roots or zero-order multiplicities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T18:51:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "T=MC-CM=CJ acts as (Tf)(x)=x^-1 integral_0^x (x-t)f(t)dt and is Hilbert-Schmidt (norm squared 1/6). T is injective because J²f=xTf. For nonzero eigenvector T*T f=s² f put u=J²f; the adjoint integral yields h=T*T f satisfying h(1)=h'(1)=0 and h''(x)=u(x)/x², so u^(4)=s^-2 u/x², u(0)=u'(0)=u^(2)(1)=u^(3)(1)=0. The potentially singular endpoint is covered by |u(x)|<=x^(3/2)||f||/sqrt3, so u/x² is L1, f is sufficiently regular to fix u^(2)(0),u^(3)(0). The weighted Volterra equation gives the unique solutions U2,U3 with entire parameter series (quartic recursion), each with L² second derivative. The two right-boundary equations are exactly the 2x2 determinant F(z)=0; conversely the boundary conditions and second-derivative identity imply T*T f=z^-1 f, ruling out every nonpositive or nonreal complex root by selfadjoint positivity. F(0)=12; infinite roots follow from infinite-rank compact injective T. Independently derived the first coefficients F(z)=12-2z+z²/40-z³/15120 by exact rational series, matching F/12=1-z/6+z²/480-z³/181440; checked diagonal kernel trace 1/6 and trace square 17/720 separately. Inspected actual source verifier implementation and boundary derivation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exactly same CJ operator has sigma_n(CJ) asymptotically comparable to n^-2 but no explicit entire characteristic equation in inspected proof; related weighted Hardy commutators focus on boundedness or asymptotics."
+        ],
+        "reasoning": "Asymptotic two-sided decay inequalities do not determine the full discrete singular spectrum, its individual characteristic roots or boundary singular regularity.",
+        "searches": [
+          "RESULTARY: singular value spectrum Hardy Cesaro commutator C J x inverse J squared entire characteristic determinant fourth order ODE",
+          "arXiv:2401.11411",
+          "arXiv:1208.5242",
+          "doi:10.1216/JIE-2009-21-2-281"
+        ]
+      },
+      "checked_sources": [
+        "The degree of ill-posedness for some composition governed by the Cesàro operator — arXiv:2401.11411",
+        "On the singular value decomposition of n-fold integration operators — arXiv:1811.11642",
+        "An entire characteristic determinant for the singular spectrum of the Hardy–Volterra commutator — https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/an-entire-characteristic-determinant-for-the-singular-spectrum-o--2a37cf33f373"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new theorem supplies every CJ singular value as 1/sqrt(z) for F(z)=0; previously only polynomial-rate decay known for CJ."
+        ],
+        "reasoning": "An explicit spectral characterization can be used to extract asymptotic or numerical data but comparable n^-2 estimates cannot recover the exact roots; neither unweighted Jn spectrum nor weighted boundedness contains the theorem as a routine specialization.",
+        "searches": [
+          "RESULTARY: singular value spectrum Hardy Cesaro commutator C J x inverse J squared entire characteristic determinant fourth order ODE",
+          "arXiv:2401.11411",
+          "arXiv:1811.11642"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ramlau 1811.11642 treats unweighted J^n with differential equation lambda u^(2n)+(-1)^(n+1)u=0, versus weighted u^(4)=z u/x²; Deng 2401.11411 treats CJ, mostly singular decay."
+        ],
+        "reasoning": "Operator CJ=x^-1 J² has singular weight and cannot be substituted for J² in the constant-coefficient determinant; the same operator in Deng paper lacks this exact entire-root spectral theorem.",
+        "searches": [
+          "RESULTARY: singular value spectrum Hardy Cesaro commutator C J x inverse J squared entire characteristic determinant fourth order ODE",
+          "arXiv:1811.11642",
+          "arXiv:2401.11411"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Deng et al manuscript has numerical approximations/ill-posedness bounds, Ramlau et al have transcendental equations for J² and higher unweighted Jn."
+        ],
+        "reasoning": "Numerical tables cannot imply an exact zero-set characterization of CJ; the new F is an analytic determinant for all modes, rather than a finite table recomputation.",
+        "searches": [
+          "RESULTARY: singular value spectrum Hardy Cesaro commutator C J x inverse J squared entire characteristic determinant fourth order ODE",
+          "arXiv:2401.11411",
+          "arXiv:1811.11642"
+        ]
+      },
+      "rationale": "The 2018 Ramlau–Koutschan–Hofmann transcendental spectral equations concern J^n without x^-1 weight (constant-coefficient fourth-order ODE at n=2). The highly relevant 2024 Deng–Fischer–Hofmann paper analyzes exactly CJ, proving sigma_n~n^-2 up to constants, but not the explicit entire two-solution characteristic determinant for all singular values; the complete primary paper was read. Earlier Chuong–Hung covers weighted commutator boundedness. No stronger spectral formula found in Resultary or primary searches; weighted fourth-order spectral equivalences remain an originality risk.",
+      "residual_risks": [
+        "Historical weighted fourth-order spectral or Fredholm determinant presentation equivalent to F might exist but was not located.",
+        "No proof of analytic zero orders equal multiplicity; excluded from assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No explicit entire all-root characteristic determinant; bounds sigma_n~n^-2 and difficulty of eigenproblem are supported",
+          "evidence": "Relevant eqs (11)-(13) define CJ and squared kernel; singular behavior and numerical methods do not produce claimed F.",
+          "identifier_or_url": "arXiv:2401.11411",
+          "material_read": "Complete 13-page primary PDF: introduction definition of CJ, section 3 singular estimates/numerical calculations, section 4 ill-posedness results",
+          "method": "full arXiv primary PDF, including displayed equations and primary-page screenshots",
+          "title": "The degree of ill-posedness for some composition governed by the Cesàro operator",
+          "trigger": "Exactly same composite CJ and spectral-equation coverage"
+        },
+        {
+          "assessment": "General transcendental method for Jn but target weighted x^-1 J² is different; no direct special case",
+          "evidence": "Eq(7): constant-coefficient 2n-th order ODE for Jn; source specifically limits operator family to J^alpha.",
+          "identifier_or_url": "arXiv:1811.11642",
+          "material_read": "Sections 1-3 and differential boundary-value problem (7) for J^n, including n=2",
+          "method": "19-page arXiv primary PDF read at equations (1)-(7)",
+          "title": "On the singular value decomposition of n-fold integration operators",
+          "trigger": "Plausible stronger general fourth-order characteristic-equation theorem"
+        },
+        {
+          "assessment": "Consistent exact spectrum by BVP; no finite discretization used as infinity proof",
+          "evidence": "Volterra contraction for u/x² singular endpoint, boundary determinant, T*T positivity.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/an-entire-characteristic-determinant-for-the-singular-spectrum-o--2a37cf33f373",
+          "material_read": "Full RESULT.md and verify.py",
+          "method": "Frozen source blob read and independent rational determinant expansion",
+          "title": "An entire characteristic determinant for the singular spectrum of the Hardy–Volterra commutator",
+          "trigger": "Proof endpoint regularity and all-complex zeros"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact and convergent determinant characterizing every nonzero singular value (and geometric multiplicity) of a natural compact inverse-problem operator is a structural spectral result, not merely another asymptotic estimate or numerical finite discretization. It directly addresses the spectral-equation difficulty acknowledged in the 2024 CJ paper. It does not purport to provide closed elementary roots or zero-order multiplicities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Operator exactly real L²(0,1) and T=x^-1 J², not arbitrary weighted Volterra operators.",
+    "Characteristic equation is implicit; approximate singular roots are not certified error intervals and root-order multiplicity/simplicity is not proven.",
+    "Historical equivalent weighted fourth-order spectral determinant cannot be excluded exhaustively."
+  ],
+  "schema_version": 1
+}
