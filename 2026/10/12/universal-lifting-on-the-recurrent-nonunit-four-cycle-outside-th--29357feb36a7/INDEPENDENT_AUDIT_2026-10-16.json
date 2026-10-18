@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T05:10:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every c>=2 except 4 and every nonzero integral conic point, source quotient formulas z1=cx+y+c, z2=cz1+x+c, z3=cz2+z1-c, z4=cz3+z2-c obey P0(x)=y z1, P1(z1)=x z2, P2(z2)=z1 z3, P3(z3)=z2 z4 on C=x^2-y^2+c(x-y)+c-cxy=0, and (z4,z3) preserves C. Independent SymPy exact division verifies all four identities are +/-C and return conic is C. Nonzero quotients follow because c(c-4) and c(c+4) cannot be nonzero-square discriminants of P0,P2 or P1,P3: factor pairs of 4 of same parity force c=4 or c=0 respectively. Induction proves indefinite continuation for c!=4. At c=4 point (-2,4) lies on C and z1=0. No positivity/coprimality hypothesis used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General source framework covers many coefficient cycles but imposes coprime assumptions; explicit Prop. 4.12 constructs a positive subfamily."
+        ],
+        "reasoning": "Broader coefficient-state scope is weaker for the exact family’s arithmetic starting-point domain; it does not dominate all signed nonzero solutions.",
+        "searches": [
+          "Resultary semantic search: Alekseyev Khomovsky congruence jumping recurrent nonunit four-cycle P0 P1 P2 P3 all integral points c=4",
+          "arXiv:2610.00808v1 Proposition 4.11 S-coprime chamber, Proposition 4.13 general Pell identities"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00808v1 HTML Section 4.3 Props 4.11-4.13",
+        "Actual source RESULT.md blob 3c333e2a16770ed41a7740b74bcd25274cd338cc",
+        "Independent SymPy quotient/return identities in independent_checks.py",
+        "Resultary 4-cycle semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source full-cycle matrix defines a formal map on the invariant conic, but equations may pass through a zero quotient for c=4. It only proves an infinite positive congruence-class orbit."
+        ],
+        "reasoning": "Finite matrix preservation alone does not imply the required nonzero divisibility states. The polynomial root exclusion is exactly the extra needed step and identifies the c=4 counterexample.",
+        "searches": [
+          "Resultary semantic search: Alekseyev Khomovsky congruence jumping recurrent nonunit four-cycle P0 P1 P2 P3 all integral points c=4",
+          "arXiv:2610.00808v1 full text Proposition 4.12 and 4.13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source all-point conic membership statement is not the same as all-point indefinite nonvanishing; Prop. 4.12 proves positive chamber chain, Prop. 4.13 Pell dynamics conditionally."
+        ],
+        "reasoning": "Universal all nonzero conic-point lifting requires proving every intermediate quotient is nonzero for c!=4, which source does not assert.",
+        "searches": [
+          "Resultary semantic search: Alekseyev Khomovsky congruence jumping recurrent nonunit four-cycle P0 P1 P2 P3 all integral points c=4",
+          "Alekseyev Khomovsky arXiv:2610.00808v1 Props 4.11-4.13 and Pell reformulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source table/data is an explicit four-state recurrence, not a nonvanishing classification of all integral conic points."
+        ],
+        "reasoning": "Exact-object lookup found source formulas and supports the new sharp discriminant exclusion; no independently tabulated all-point coverage was identified.",
+        "searches": [
+          "Resultary semantic search: Alekseyev Khomovsky congruence jumping recurrent nonunit four-cycle P0 P1 P2 P3 all integral points c=4",
+          "Source equations (77)-(82) and exact c=4 witness (-2,4)"
+        ]
+      },
+      "rationale": "PASS, best of knowledge: Alekseyev-Khomovsky Proposition 4.12 constructs infinitely many positive unit-class points and gives the same recurrences and invariant, while Proposition 4.11 imposes an S-coprime chamber for a general sufficient criterion. Proposition 4.13 linearizes the coefficient/Pell dynamics but does not prove all nonzero integral points avoid zero quotient or isolate the unique c=4 failure. The assessed root-exclusion and full all-point lifting are additional.",
+      "residual_risks": [
+        "At c=4 some starting points still have infinite chains; no classification of the exceptional locus is made.",
+        "The theorem only addresses this four-state polynomial cycle; all other coefficient orbits remain outside scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PREMISES BUT NOT ALL-POINT THEOREM",
+          "evidence": "Proposition 4.12 explicitly proves only infinitely many positive points with x=y=1 mod c and Prop 4.11 S-coprimality; Eq 81 is exact conic-preserving map, not a proof each intermediate quotient avoids zero for all integer points.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.00808",
+          "material_read": "Full primary arXiv HTML Section 4.3, Proposition 4.11, Proposition 4.12 complete proof and Proposition 4.13 recurrence; equations 74-92",
+          "method": "Full relevant primary section textual comparison",
+          "title": "Max A. Alekseyev and Dmitry I. Khomovsky, Congruence Jumping in Polynomial Divisibility Systems, arXiv:2610.00808v1",
+          "trigger": "Exact same four-cycle, conic, primitive normalization and full-cycle Pell model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: removes an explicit arithmetic chamber restriction from a nonunit normalized quadratic divisibility cycle and identifies a sharp exceptional integer parameter, a structural boundary of the original paper’s lifting question. Nonzero solutions outside the positive coprime chamber can now be classified as indefinitely liftable for all c!=4.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.00808v1 HTML Section 4.3 Props 4.11-4.13",
+    "Actual source RESULT.md blob 3c333e2a16770ed41a7740b74bcd25274cd338cc",
+    "Independent SymPy quotient/return identities in independent_checks.py",
+    "Resultary 4-cycle semantic query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "At c=4 some starting points still have infinite chains; no classification of the exceptional locus is made.",
+    "The theorem only addresses this four-state polynomial cycle; all other coefficient orbits remain outside scope.",
+    "Best-of-knowledge audit, not formal certification. Primary texts and package proofs independently compared; prior package PASS not adopted as audit evidence."
+  ],
+  "schema_version": 1
+}
