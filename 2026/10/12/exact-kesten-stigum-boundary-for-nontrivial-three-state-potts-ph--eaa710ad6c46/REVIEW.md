@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The order-four boundary-law equation is reduced reversibly by the positive parameter \(t=z^{1/4}\). The resulting rational expression for \(\theta(t)\) is substituted into the exact three-state transition matrix. Its two nontrivial eigenvalues reduce to explicit positive rational functions, their ordering is determined by a factored difference, and the Kesten–Stigum inequality is then solved globally on both \(t<1\) and \(t>1\) branches. The \(t>1\) exclusion follows from a polynomial whose shift by \(t=1+s\) has strictly positive coefficients; the \(t<1\) threshold follows from a strictly increasing cubic and a strictly decreasing \(\theta(t)\). No finite experiment is used as an infinite proof.
+PASS
 
-## Originality
+Read actual Git RESULT.md blob 4f0df2764d9f56f6a059f7f64d8cfa1230839af0 and verification/verify.py. Reversible positive t=z^1/4 parametrization away from t=1 yields θ(t)=(t⁴+t³+t²+t+2)/(t(t²+t+1)); the three-state Markov transition matrix splits into antisymmetric spin-2/3 mode and a lumped 2-state mode. Independent Sympy characteristic polynomial and exact integer identities confirm λa=1/((t+1)(t²+1)) and λb=t³(t+2)/((t+1)(t²+1)(t⁴+2)); their ordering changes at t=1. For t>1, 2λb<1 follows from a polynomial in s=t−1 with positive coefficients (6,14,36,59,54,28,8,1); for 0<t<1, 2λa>1 iff cubic t³+t²+t−1<0. θ′(t)<0 on 0<t<1 and at unique root ρ, θ=2(1+ρ). Hence KS sufficient non-extremality criterion 4λ*²>1 holds exactly when t<ρ; no converse/reconstruction conclusion is drawn.
 
-PASS. Rozikov's 2021 survey explicitly says that the three-state order-\(k\ge4\) extremality problem had not been considered because nontrivial solutions lacked explicit formulas. Külske--Rozikov's earlier general paper provides the transition-matrix framework but its explicit Kesten–Stigum critical-parameter theorem in Section 4 is restricted to \(k=2\). Makhammadaliev's later paper is explicitly order three and uses estimates where branch formulas are bulky. Candidate-specific searches for order four, the cubic threshold, the decimal threshold, and the rational eigenvalue formula found no statement covering this exact classification.
+## originality
 
-## Value
+PASS
 
-PASS. Tree order four is the first order singled out by the survey as beyond the already studied three-state case. The finding gives a complete all-branch Kesten–Stigum classification at that first open order and supplies the missing mechanism: parameterizing by \(t=z^{1/4}\) rather than solving \(z\) explicitly as a function of \(\theta\). The threshold is exact and algebraic, and the result cleanly distinguishes certified non-extremality from the unresolved converse.
+Best-of-knowledge PASS: the q=3, k=4 rational t=z^(1/4) parameterization and exact branch-specific second-eigenvalue inequality give a complete algebraic threshold not present in inspected foundational k=2 theorem, later k=3 paper or 2021 survey. The result deliberately restricts itself to what KS certifies, not the true extremality threshold.
 
-## Closest literature and limitations
+## value
 
-The closest general work is arXiv:1403.5775, whose transition matrix and Kesten–Stigum framework are used but whose explicit Section 4 theorem assumes \(k=2\). The closest later specialization is DOI:10.35634/VM240403, which treats order three. The result does not determine true extremality below the Kesten–Stigum boundary. A weakly indexed equivalent calculation in different boundary-law coordinates remains the main originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Provides exact complete all-branch Kesten–Stigum certification on q=3, order-four tree, the first order past explicitly studied three-state k=3; resolves a concrete algebraic threshold using a natural boundary-law parametrization. Separating sufficient non-extremality from true extremality is scientifically necessary, and the exact threshold can guide subsequent reconstruction analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

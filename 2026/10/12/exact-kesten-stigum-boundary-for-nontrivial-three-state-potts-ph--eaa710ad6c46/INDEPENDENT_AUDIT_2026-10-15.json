@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T06:07:29.650139Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read actual Git RESULT.md blob 4f0df2764d9f56f6a059f7f64d8cfa1230839af0 and verification/verify.py. Reversible positive t=z^1/4 parametrization away from t=1 yields θ(t)=(t⁴+t³+t²+t+2)/(t(t²+t+1)); the three-state Markov transition matrix splits into antisymmetric spin-2/3 mode and a lumped 2-state mode. Independent Sympy characteristic polynomial and exact integer identities confirm λa=1/((t+1)(t²+1)) and λb=t³(t+2)/((t+1)(t²+1)(t⁴+2)); their ordering changes at t=1. For t>1, 2λb<1 follows from a polynomial in s=t−1 with positive coefficients (6,14,36,59,54,28,8,1); for 0<t<1, 2λa>1 iff cubic t³+t²+t−1<0. θ′(t)<0 on 0<t<1 and at unique root ρ, θ=2(1+ρ). Hence KS sufficient non-extremality criterion 4λ*²>1 holds exactly when t<ρ; no converse/reconstruction conclusion is drawn.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Külske–Rozikov Theorem 4.1 assumes k=2; Makhammadaliev 2024 Theorem 3.1 assumes k=3 (and q≥4); Rozikov 2021 remarks q=3, k>=4 beyond then-known explicit treatments."
+        ],
+        "reasoning": "General eigenvalue criterion requires the nontrivial branch coordinates; none of inspected stronger results gives the q=3, k=4 exact cutoff. A theorem on k=3 or k=2 does not dominate k=4.",
+        "searches": [
+          "arXiv:1403.5775v2 Theorem 4.1",
+          "arXiv:2103.07391v1 Remark 4.1",
+          "DOI:10.35634/vm240403 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2103.07391v1",
+        "arXiv:1403.5775v2",
+        "DOI:10.35634/vm240403",
+        "Resultary semantic search three state Potts Cayley tree order four extremality Kesten Stigum threshold boundary law algebraic cubic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known 4λ²>1 is sufficient non-extremality; present proof derives λ_a=1/((t+1)(t²+1)), λ_b=t³(t+2)/((t+1)(t²+1)(t⁴+2)), and λ_a>1/2 iff t<ρ. For t>1 a shifted gap polynomial has all positive coefficients."
+        ],
+        "reasoning": "Earlier papers supply the transition matrix and generic sufficient condition, not all-branch exact k=4 reduction. This also does not prove extremality on failure of KS (explicitly excluded).",
+        "searches": [
+          "arXiv:1403.5775v2 §3–§4",
+          "arXiv:2103.07391v1",
+          "DOI:10.35634/vm240403 §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Order-four q=3 boundary law is equivalent to z=((θz+2)/(z+θ+1))^4; setting t=z^(1/4) gives θ(t)."
+        ],
+        "reasoning": "General tree-reconstruction criterion kλ_2²>1 is prior, but the exact rational factorization and its if-and-only-if parameter-domain solution are not equivalent to known k=2 or k=3 cases.",
+        "searches": [
+          "three state Potts Cayley tree order four extremality Kesten Stigum threshold boundary law algebraic cubic",
+          "arXiv:2103.07391v1 Remark 4.1",
+          "arXiv:1403.5775v2 §4",
+          "DOI:10.35634/vm240403"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No Resultary exact matching threshold/table identified; search results about other cubic and lattice phenomena not this tree-indexed chain."
+        ],
+        "reasoning": "An isolated algebraic root number without the transition matrix and branch coverage is not an exact precomputed reconstruction or KS classification.",
+        "searches": [
+          "three state Potts Cayley tree order four extremality Kesten Stigum threshold boundary law algebraic cubic",
+          "three-state Potts order four cubic t^3+t^2+t-1",
+          "2(1+0.543689012692076) Potts"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: the q=3, k=4 rational t=z^(1/4) parameterization and exact branch-specific second-eigenvalue inequality give a complete algebraic threshold not present in inspected foundational k=2 theorem, later k=3 paper or 2021 survey. The result deliberately restricts itself to what KS certifies, not the true extremality threshold.",
+      "residual_risks": [
+        "Equivalent weakly indexed order-four computation with other boundary-law notation cannot be ruled out.",
+        "Strict KS inequality at ρ is not satisfied; no converse or true extremality is claimed for t≥ρ."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NO_ORDER_FOUR_EXACT_THRESHOLD",
+          "evidence": "Remark 4.1 describes lack of explicit treatment for three-state k≥4.",
+          "identifier_or_url": "arXiv:2103.07391v1",
+          "material_read": "Primary survey PDF, boundary-law equation and Remark 4.1 on q=3 tree order k>=4",
+          "method": "PDF text and screenshot of the relevant page",
+          "title": "Gibbs Measures of Potts Model on Cayley Trees: A Survey and Applications",
+          "trigger": "Motivating claim of unaddressed tree orders"
+        },
+        {
+          "assessment": "GENERAL_CRITERION_K2_SPECIALIZATION_ONLY",
+          "evidence": "Theorem 4.1 explicitly starts k=2; §4 contains generic kλ²>1 and nontrivial eigenvalues, not the order-four t-threshold.",
+          "identifier_or_url": "arXiv:1403.5775v2; DOI:10.1002/rsa.20671",
+          "material_read": "44-page primary PDF introduction, §3–§4 formulas and Theorem 4.1 at page 20, located by full document search",
+          "method": "Mathematical reading of primary PDF formulas and theorem hypothesis",
+          "title": "Fuzzy transformations and extremality of Gibbs measures for the Potts model on a Cayley tree",
+          "trigger": "General original transition matrix and KS bound"
+        },
+        {
+          "assessment": "DIFFERENT_K_TREE_ORDER",
+          "evidence": "Title/hypotheses k=3; Theorem 3.1 k=3 and q≥4; uses estimations rather than rational k=4 threshold.",
+          "identifier_or_url": "DOI:10.35634/vm240403",
+          "material_read": "Full 19-page primary PDF, introduction and §3.1 (Kesten–Stigum), Theorem 3.1 page 13, PDF screenshots pages 1 and 2",
+          "method": "Primary journal PDF mathematical comparison",
+          "title": "Pure phases of the ferromagnetic Potts model with q states on the Cayley tree of order three",
+          "trigger": "Newest directly related temperature/extremality classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides exact complete all-branch Kesten–Stigum certification on q=3, order-four tree, the first order past explicitly studied three-state k=3; resolves a concrete algebraic threshold using a natural boundary-law parametrization. Separating sufficient non-extremality from true extremality is scientifically necessary, and the exact threshold can guide subsequent reconstruction analysis.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2103.07391v1",
+    "arXiv:1403.5775v2",
+    "DOI:10.35634/vm240403",
+    "Resultary semantic search three state Potts Cayley tree order four extremality Kesten Stigum threshold boundary law algebraic cubic"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Equivalent weakly indexed order-four computation with other boundary-law notation cannot be ruled out.",
+    "Strict KS inequality at ρ is not satisfied; no converse or true extremality is claimed for t≥ρ."
+  ],
+  "schema_version": 1
+}
