@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The included self-contained `verify.py` runs with Python 3 standard library. Its `direct` function uses the original graph adjacency relation and tests each nonempty vertex subset, rejecting subsets if any omitted vertex has exactly one selected neighbor. Its `fort_polynomial` function independently implements the occupied-support classification and the state-polynomial recurrence.
+# Independent mathematical audit
 
-Checks completed:
-- Complete comparison of their coefficient dictionaries on twenty-one labeled rook graphs, totaling 1,423,541 enumerated nonempty vertex subsets.
-- Direct lower-boundary comparisons on five small rook-graph parameters.
-- Degree-four counts and five/six gap checks for side lengths five through eight, with the explicit degree-six formula tested when both sides are at least seven.
-- Boundary checks giving 120 five-element forts in the five-by-five rook graph and 3,720 six-element forts in the six-by-six rook graph.
+## correctness
 
-The proof in `RESULT.md`, rather than these finite tests, establishes the theorem for every positive side length. Arithmetic costs are counted as operations on exact integers; there is no claim of polynomial bit complexity. The literature assessment is based on cited sources and is not independent validation.
+PASS
+
+For an unselected rook-graph cell (i,j), its fort-neighbor count is exactly r_i+c_j. Thus a nonempty binary selected-cell matrix is a fort iff no zero cell has r_i+c_j=1. The unique occupied p rows/q columns satisfy row bounds 1+1_{q<n} and column bounds 1+1_{p<m}; these conditions are necessary by testing empty lines and sufficient for all unselected cells. Hence the binomial-support double sum of H_{p,q}^{a,b} counts every fort once, and its three-state-per-row-class column DP is an exact finite recurrence. For m,n≥6, the only cardinality-four forts are 2×2 full rectangles; there are no size-five forts, and 2×3 full rectangles and 6-cycles give size six. For m,n≥7 the degree-six coefficient counts two full 2×3 orientations plus six labeled 3×3 cycles, agreeing with formula. Independent brute-force zero-cell test enumerated 2×3:28, 3×3:280, 3×4:2444, 4×4:44167 total forts; smaller dimensions do have degree-five terms and are properly excluded from gap claim. No finite enumeration substitutes for the all-m,n incidence proof.
+
+## originality
+
+PASS
+
+Known fort hypergraph/minimal fort and Cartesian-product bounds concern existence/minimal obstructions, not the weight polynomial counting every nonempty fort of K_m□K_n, nor the universal internal gap with exact six-cell coefficient. Resultary related complete multipartite minimal forts and rook cut homology count different sets. No covering exact enumeration found; risk older zero-forcing appendix implicitly gives the same incidence recurrence.
+
+## value
+
+PASS
+
+Forts are natural obstructions to zero-forcing. The exact all-fort size enumerator (not just minimal forts), polynomial-time integer recurrence, and sharp internal degree-five zero bracketed by positive degrees four/six give a complete counting/classification invariant for the central Cartesian-product family. This is a natural complete family result valuable despite simple elementary proof steps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

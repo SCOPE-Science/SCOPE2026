@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T21:15:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an unselected rook-graph cell (i,j), its fort-neighbor count is exactly r_i+c_j. Thus a nonempty binary selected-cell matrix is a fort iff no zero cell has r_i+c_j=1. The unique occupied p rows/q columns satisfy row bounds 1+1_{q<n} and column bounds 1+1_{p<m}; these conditions are necessary by testing empty lines and sufficient for all unselected cells. Hence the binomial-support double sum of H_{p,q}^{a,b} counts every fort once, and its three-state-per-row-class column DP is an exact finite recurrence. For m,n≥6, the only cardinality-four forts are 2×2 full rectangles; there are no size-five forts, and 2×3 full rectangles and 6-cycles give size six. For m,n≥7 the degree-six coefficient counts two full 2×3 orientations plus six labeled 3×3 cycles, agreeing with formula. Independent brute-force zero-cell test enumerated 2×3:28, 3×3:280, 3×4:2444, 4×4:44167 total forts; smaller dimensions do have degree-five terms and are properly excluded from gap claim. No finite enumeration substitutes for the all-m,n incidence proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cameron et al discuss fort hypergraphs and bounds in Cartesian products; related Resultary minimal-fort complete multipartite result is about another graph class; rook three-cut-complex paper is homology, not fort enumeration."
+        ],
+        "reasoning": "Minimal-fort classification does not determine the number of supersets that are forts without additional incidence constraints; Cartesian bounds do not yield the complete polynomial or nonunimodality gap.",
+        "searches": [
+          "Forts fractional zero forcing Cartesian products Cameron Hogben Kenter Mojallal Schuerger 2026",
+          "rook graph fort hypergraph all forts domination"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/777b2b21e054cb68d855230883c60b5f35c9209a/2026/10/12/fort-polynomial-of-rook-graphs-and-its-degree-five-gap--10cceec37c9c/RESULT.md",
+        "https://arxiv.org/abs/2310.17904",
+        "https://arxiv.org/abs/2609.11754"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source proof uses full characterization of unselected neighbor counts and occupied line support; prior references define forts and show bounds."
+        ],
+        "reasoning": "Definitions alone permit a new calculation, but do not immediately contain or imply the complete refined counting recurrence/gap. The degree-six formula and nonunimodality require an explicit finite-support combinatorial argument.",
+        "searches": [
+          "zero forcing forts rook Cartesian graph degree constraints",
+          "fort abundance enumeration all forts vs minimal forts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Forts are exactly selected-cell matrices satisfying r_i+c_j≠1 at zero entries; this supports the explicit all-fort weight enumerator."
+        ],
+        "reasoning": "Equivalent formulation is a labeled bipartite edge-subset degree lower-bound generating polynomial, conditional on row/column support; no returned relevant Resultary finding stated this all-fort enumerator.",
+        "searches": [
+          "fort polynomial rook graph K_m cartesian K_n all nonminimal forts",
+          "Resultary minimal forts rook graph zero forcing fort size enumerator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent direct grid brute enumeration yields 280 forts for R_{3,3}, 2444 for R_{3,4}, 44167 for R_{4,4}; these are tests, not a known-table source."
+        ],
+        "reasoning": "Small fixed-graph tables are at most finite evidence, not an existing uniform all-(m,n) polynomial. No exact pre-existing formula/table located in actual searches.",
+        "searches": [
+          "fort polynomial rook graph 3x3 4x4 counts coefficients",
+          "fort enumeration rook graph all sizes"
+        ]
+      },
+      "rationale": "Known fort hypergraph/minimal fort and Cartesian-product bounds concern existence/minimal obstructions, not the weight polynomial counting every nonempty fort of K_m□K_n, nor the universal internal gap with exact six-cell coefficient. Resultary related complete multipartite minimal forts and rook cut homology count different sets. No covering exact enumeration found; risk older zero-forcing appendix implicitly gives the same incidence recurrence.",
+      "residual_risks": [
+        "An unindexed combinatorial table or old zero-forcing appendix may contain the same rook-graph all-fort enumerator.",
+        "Brute-force validation was only for at most 16 vertices; arbitrary side lengths are supported by the symbolic support-characterization and recurrence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INSPECTED_SECTIONS_NOT_COVERING the complete rook weight enumerator; publication-wide negative claim limited to text actually read.",
+          "evidence": "Fort definition and Cartesian-product results, not uniform K_m□K_n polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.17904",
+          "material_read": "Open arXiv/PDF pages containing definitions and Cartesian product fort results; not every appendix page exhaustively checked.",
+          "method": "Compared objects: minimal fort sets/fort bounds versus all-fort cardinality generating function.",
+          "title": "Forts, (fractional) zero forcing, and Cartesian products",
+          "trigger": "Closest primary text on the same fort invariant and Cartesian product graphs"
+        },
+        {
+          "assessment": "Only abstract-level evidence; possible hidden relevant details remain a residual risk.",
+          "evidence": "Fort numbers and general abundance are not an explicit all-fort rook polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.11754",
+          "material_read": "Accessible title/abstract and displayed theorem-level summary, not full text.",
+          "method": "Scope comparison of general abundance/bounds with exact two-parameter rook enumerator.",
+          "title": "Fort Abundance",
+          "trigger": "Recent enumerative fort literature that might dominate all forts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Forts are natural obstructions to zero-forcing. The exact all-fort size enumerator (not just minimal forts), polynomial-time integer recurrence, and sharp internal degree-five zero bracketed by positive degrees four/six give a complete counting/classification invariant for the central Cartesian-product family. This is a natural complete family result valuable despite simple elementary proof steps.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Fort polynomial excludes empty set and includes nonminimal forts; graph dimensions m,n≥1, sharp gap needs m,n≥6, exact sixth coefficient m,n≥7.",
+    "Polynomially many integer operations does not claim bit-polynomial total runtime for exponentially large integer coefficients."
+  ]
+}
