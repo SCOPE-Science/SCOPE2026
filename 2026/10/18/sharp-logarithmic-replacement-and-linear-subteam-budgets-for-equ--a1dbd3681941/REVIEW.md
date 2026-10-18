@@ -1,0 +1,9 @@
+# Three-axis scientific review
+
+**Correctness — PASS.** The replacement lower bound counts the exactly \(m^t-m\) nonconstant column words on \(t\) rows, and a matching construction realizes any consistent profile with its constant and nonconstant classes. Duplicate generated rows would contradict minimality. The subteam bound is a strictly refining partition argument on \(m+r\) actual functions, starting from \(m\) already distinguished constants; staircase teams give exact sharpness. The logical preservation implication is Engström–Kontinen's equality–constancy invariance lemma, applied only to nonempty teams over the same pure-equality structure. The finite checker checks concrete initial cases but is not substituted for the proof.
+
+**Originality — PASS, with stated priority risk.** The primary 2026 paper proves invariance and quantifier elimination but not either of the two exact sharp row-count budgets. The 2024 study of weighted team definability concerns dependence, inclusion, and independence logics rather than this equality-only fragment. Searches covering equality–constancy types, minimal teams, distinguishing rows, and sharp logarithmic/linear bounds did not identify an equivalent theorem. Older combinatorial work on separating function families may already yield the counting and extraction ingredients; the possibility of an equivalent composite result remains a residual historical-priority risk, not a proof of novelty.
+
+**Value — PASS.** The distinction between constructing a fresh semantically indistinguishable team and taking a subteam of an existing data set yields sharply different logarithmic versus linear worst-case costs, both independent of formula length and quantifier depth. The result is an exact resource theorem for a newly investigated decidable elementary team-logic fragment, with explicit constructions and a semantic lower-bound formula.
+
+Self-review: passed. Independent audit: not yet performed.
