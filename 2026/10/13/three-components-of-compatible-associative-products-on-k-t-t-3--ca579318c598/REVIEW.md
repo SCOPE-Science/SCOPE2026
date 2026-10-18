@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Compatibility with the fixed unital algebra is reduced by unit insertions and three radical-basis triples to a unique nine-parameter table, without division by field elements. Six exact associator coefficients force a three-way field-level stratification. On the residual stratum the full associative system is precisely the minors of a \(3\times2\) matrix. Each closure is proved to satisfy every associator, the rank-one cone is geometrically irreducible of dimension four, and explicit intersections give the all-characteristic count and zeta function. The standalone checker reconstructs the mixed equations, verifies the symbolic expansions, exhausts the full nine-parameter lists over \(\mathbf F_2\) and \(\mathbf F_3\), and returns `VERIFY_OK`. The finite enumerations are corroboration, not an infinite-field proof.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-The closest full primary article, Abdelwahab–Kaygorodov–Makhlouf, arXiv:2406.10947 (Theorems 2.10 and 3.8), classifies **two-dimensional** compatible associative pairs, not the reduced fiber for a fixed three-dimensional local algebra. Chtioui–Das–Mabrouk, arXiv:2107.09259 (Definition 2.1, Proposition 2.1), prove the general cohomological criterion but not this determinantal decomposition. Abdurasulov–Adashev–Toshtemirova, arXiv:2603.07362 (Definitions 1–2, Theorem 24), analyze stronger matching conditions on a nonunital nilpotent truncated polynomial algebra; those structures neither cover the unital first algebra nor all ordinary compatible products here. Odesskii–Sokolov's semisimple/matrix scope is different. Semantic searches of published mathematical research records for fixed-first compatible associative products, truncated polynomial local algebras, determinantal components and the exact count found no implication covering this result. The remaining risk is an equivalent calculation elsewhere under another name; unsuccessful search by itself is not a novelty certificate.
+PASS
 
-## Value — PASS
-A first three-dimensional monogenic local algebra has a compatible-product locus that is not a single deformation family: its geometric components have three different dimensions, and the smaller mutation family does not dominate the space. The complete determinantal description gives its arithmetic over every finite field, including characteristic two, and a rational point-counting zeta function. These distinguish genuinely compatible products from the more restrictive mutation/matching products in a natural example of deformation theory. The statement is neither a restricted parameter slice nor a recalculation of a published classification table.
+For fixed unital A=K[t]/(t^3), require associative bilinear star and mixed associativity of m0+s*star; do not require shared unit. The mixed identity is an integer linear system of rank 18 in 27 structure constants even in characteristics 2,3,5, yielding the stated unique nine-parameter commutative table. The 27 star-associators force six equations: bf=be=0,bd+cf=bg+cd=bj+ce=b(h-a)+cj=0. If b!=0, star is multiplication by a+bt+ct²; if b=0,c!=0, force d=e=f=j=0 and leave a,c,g,h; if b=c=0 the whole associativity ideal set-theoretically reduces to 3 minors of M=[[f,d],[j,h-a],[d-e,g-j]]. Hence the reduced variety is exactly A³, A⁴, and A¹ × determinantal rank≤1 Mat_{3×2}, dimensions 3,4,5. All components are geometrically irreducible over any field, and inclusion–exclusion over intersections A²,A³,A¹,triple A¹ yields #=q^5+2q^4-2q². The motive and zeta follow by same stratification. Independent exhaustive direct nine-parameter associator evaluation for q=2,3 gives 56,387, respectively. This does not establish the unreduced scheme structure.
 
-## Limitations and risk
-The result classifies labeled products with the first product fixed, not abstract isomorphism classes. No reduced-scheme equality for the original possibly nonradical ideal is asserted beyond its geometric support. The literature comparison has a residual synonym/coverage risk. Independent replication and audit are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The best-matching published classification by Abdelwahab–Kaygorodov–Makhlouf concerns 2D compatible associative/pre-Lie pairs and not the 3D fixed unital K[t]/t³ fiber. Chtioui–Das–Mabrouk establish general mixed associativity and cohomology but no irreducible-component census. Abdurasulov–Adashev–Toshtemirova (2026) use stronger matching/interchangeable identities on a *nonunital* nilpotent truncated algebra, so their special families do not imply this full unital fiber. Odesskii–Sokolov emphasize semisimple first products. Checked Resultary related 3D associative classifications lacked the same fixed-product geometry. Thus component sizes and q-counts survive the actual prior implications, subject to a possible unindexed deformation-variety computation.
+
+## value
+
+PASS
+
+This is a complete component/point-count/motivic classification of a natural three-dimensional local associative algebra's compatibility fiber over every field, including positive characteristic. The components' differing dimensions expose actual deformation geometry beyond a tiny numerical example or a repackaging of general cohomology. The labeled q-polynomial and zeta are natural exact invariants; no claim to classify all three-dimensional isomorphism types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
