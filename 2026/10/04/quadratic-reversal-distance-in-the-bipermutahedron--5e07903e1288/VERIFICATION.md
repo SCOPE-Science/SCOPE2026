@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,7 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The standalone script `verify_bipermutahedron_reversal.py` implements the two published local edge moves on bipermutations. Breadth-first search gives distances \(2,8,15,24\) for \(n=2,3,4,5\), respectively. The script also checks the elementary lower-bound inequality over a range of \(n\) and singleton-set sizes.
 
-The finite search is corroborative only. The proof for all \(n\ge3\) is the copy-inversion argument in `RESULT.md`, together with the explicit block-selection path. No claim is made that the full graph diameter equals \(n^2-1\).
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+The actual RESULT.md 14e56384049f27b5a51bb15b281573e12d88e657 uses Ardila’s exact adjacent-edge graph: swap distinct neighboring letters, or transfer singleton status via a doubled adjacent block. Duplicating the singleton makes a two-copy word; target block reversal reverses 4*choose(n,2) cross-label orders. An ordinary swap changes at most one copy inversion; a singleton swap at most two; transfer changes zero. If t=n-r labels were never singleton, their pairs force 2t(t-1) ordinary swaps; visiting r>=2 singleton labels in a closed walk forces at least r transfers, establishing L>=n*n-1 for n>=3, with r=1 separate. Explicit moves cross blocks with n(n-1) swaps and n-1 transfers. n=2 distance 2. Independently implemented BFS reproduces n=2,3,4 distances 2,8,15; script 6cbe8ae200570f317cda55103771033d90e8b3e7 reports n=5 distance 24.
+
+## originality
+
+PASS
+
+The inspected primary article classifies vertices, local graph edges and descent-reversal symmetry, not the exact one-skeleton shortest path between this canonical reversal pair. Resultary search returns this result but no earlier dominating all-pairs distance or diameter theorem; other bipermutahedron records concern Euclidean radii. Best-of-knowledge exact metric statement survives.
+
+## value
+
+PASS
+
+Bipermutahedron is a natural flag-matroid/generalized permutahedral polytope. An exact canonical antipodal/reversal distance in its one-skeleton, valid for every n and giving a quadratic diameter lower bound, addresses a natural graph metric invariant with a non-obvious inversion/transfer argument. It is not a renamed known inversion count because transfer changes singleton status.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

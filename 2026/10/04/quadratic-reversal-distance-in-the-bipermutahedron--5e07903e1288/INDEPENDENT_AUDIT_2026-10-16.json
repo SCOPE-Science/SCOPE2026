@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T01:53:42.367463Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual RESULT.md 14e56384049f27b5a51bb15b281573e12d88e657 uses Ardila’s exact adjacent-edge graph: swap distinct neighboring letters, or transfer singleton status via a doubled adjacent block. Duplicating the singleton makes a two-copy word; target block reversal reverses 4*choose(n,2) cross-label orders. An ordinary swap changes at most one copy inversion; a singleton swap at most two; transfer changes zero. If t=n-r labels were never singleton, their pairs force 2t(t-1) ordinary swaps; visiting r>=2 singleton labels in a closed walk forces at least r transfers, establishing L>=n*n-1 for n>=3, with r=1 separate. Explicit moves cross blocks with n(n-1) swaps and n-1 transfers. n=2 distance 2. Independently implemented BFS reproduces n=2,3,4 distances 2,8,15; script 6cbe8ae200570f317cda55103771033d90e8b3e7 reports n=5 distance 24.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ardila enumerates the face poset, h-polynomial and edge rule; no shortest-path/diameter theorem in read text.",
+          "Later Resultary exact radial spectrum is about Euclidean norm, not graph distance."
+        ],
+        "reasoning": "An all-pairs one-skeleton metric or exact diameter would dominate, but relevant inspected source and index do not supply either.",
+        "searches": [
+          "Resultary search: Ardila bipermutahedron reversal of canonical bipermutation distance n squared minus one diameter graph",
+          "arXiv:2008.02295 full HTML"
+        ]
+      },
+      "checked_sources": [
+        "Assigned Git RESULT.md blob 14e56384049f27b5a51bb15b281573e12d88e657 and checker blob 6cbe8ae200570f317cda55103771033d90e8b3e7",
+        "Ardila arXiv:2008.02295v1 full HTML, exact local adjacency",
+        "Resultary semantic index on bipermutahedron graph distance and polytope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary local edge theorem defines permitted paths but does not imply n*n-1 without the copy-order and visited-singleton lower bound.",
+          "The constructive path attains the lower bound for all n>=3, with n=2 exceptional."
+        ],
+        "reasoning": "The underlying edge classification does not yield the numeric graph distance as an immediate theorem; the new proof is essential.",
+        "searches": [
+          "Ardila 2020 full text adjacency proposition",
+          "Assigned RESULT.md proof and Resultary search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source local moves include adjacent swaps and changing the singleton from ii; standard permutahedron adjacent-transposition distance alone does not cover singleton transfers.",
+          "No earlier exact same reversal-distance formula found in matched records."
+        ],
+        "reasoning": "The enlarged two-copy inversion count supplies a bound but transfer costs create a distinct combinatorial metric; this is not merely ordinary permutation inversion distance.",
+        "searches": [
+          "Resultary search: Ardila bipermutahedron reversal of canonical bipermutation distance n squared minus one diameter graph",
+          "arXiv:2008.02295, edges of bipermutahedron"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact sequence n=2 distance2, n=3 distance8, n=4 distance15, n=5 distance24 occurs in assigned verifier; these finite values do not prove formula.",
+          "Resultary matches only the assigned exact reversal statement."
+        ],
+        "reasoning": "No independently identified database/graph diameter table covering arbitrary n or these canonical pairs; independent BFS is strictly corroborative.",
+        "searches": [
+          "Resultary search: Ardila bipermutahedron reversal of canonical bipermutation distance n squared minus one diameter graph",
+          "Ardila primary full paper: face/edge/vertex classification"
+        ]
+      },
+      "rationale": "The inspected primary article classifies vertices, local graph edges and descent-reversal symmetry, not the exact one-skeleton shortest path between this canonical reversal pair. Resultary search returns this result but no earlier dominating all-pairs distance or diameter theorem; other bipermutahedron records concern Euclidean radii. Best-of-knowledge exact metric statement survives.",
+      "residual_risks": [
+        "A metric formula for an equivalent combinatorial encoding (biwords, matroid flags) may appear under different title; no exhaustive historical search.",
+        "No claim that this pair realizes the entire graph diameter."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms exact two-type local adjacency; reversal used for descent/ascents, not graph metric",
+          "evidence": [
+            "arXiv:2008.02295v1, section on bipermutahedron edges and Proposition 2.7; 27-page HTML"
+          ],
+          "identifier_or_url": "arXiv:2008.02295v1",
+          "material_read": "Full 27-page article via arXiv HTML, especially bipermutations, face poset, edges and symmetry",
+          "method": "Read full primary HTML at https://arxiv.org/html/2008.02295v1",
+          "title": "The bipermutahedron",
+          "trigger": "Primary definition, adjacency and reversal claims"
+        },
+        {
+          "assessment": "This is the same assigned finding, not independent antecedent evidence",
+          "evidence": [
+            "Resultary semantic query and record hit"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-quadratic-reversal-distance-in-the-bipermutahedron--5e07903e1288",
+          "material_read": "Resultary semantic summary matched exactly; underlying actual assigned RESULT and verifier were read in full",
+          "method": "Read matched index summary and assigned frozen source Git blobs",
+          "title": "Quadratic reversal distance in the bipermutahedron",
+          "trigger": "Check whether current finding already published in comparison database"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Bipermutahedron is a natural flag-matroid/generalized permutahedral polytope. An exact canonical antipodal/reversal distance in its one-skeleton, valid for every n and giving a quadratic diameter lower bound, addresses a natural graph metric invariant with a non-obvious inversion/transfer argument. It is not a renamed known inversion count because transfer changes singleton status.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem establishes one canonical distance, not the full diameter or all-pairs metric.",
+    "Finite BFS n<=4 independent and n=5 packaged remain corroborative."
+  ],
+  "schema_version": 1
+}
