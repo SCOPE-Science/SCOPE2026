@@ -1,0 +1,13 @@
+# Scientific review
+
+**Correctness — PASS.** In the line graph \(L(K_{3,n})\), independent dominating sets are exactly three-cell nonattacking rook placements: maximal matchings must saturate the side of size three. This forces all partition blocks to have size at most two. The singleton-partner condition forces at least three two-cell blocks, and equality forces one missing-row block per row when \(n\ge4\). Three two-element column-set equalities have exactly the two listed solution families. The exceptional \(n=3\) profile count is derived by three exhaustive composition cases and independently checked by a complete 21,147-partition enumeration. Finite verification through \(n=8\) agrees; the infinite proof does not rely on extrapolation.
+
+**Originality — PASS.** The primary introduction of independent coalition [1] obtains different exact graph classes and general bounds; [2] classifies almost-maximum cases and coalition graphs; and [3] addresses the coefficient counts on complete, complete multipartite, cycle, wheel and tree graphs, expressly raising Cartesian products as a future direction. In contrast, the present result gives the exact independent-coalition number and leading partition coefficient for \(K_3\square K_n\), plus all maximizers for \(n\ge4\). General bounds from these sources do not imply the result. Targeted searches under rook, grid, Cartesian product and line-graph descriptions and a mathematical-record search yielded no matching result. Unindexed equivalent work remains a residual risk, not a proof of uniqueness.
+
+**Value — PASS.** The natural first nontrivial width-three rook family exhibits a sharp value \(3n-3\) rather than merely the idomatic lower bound \(2n\) or the available general upper bound \(3n-1\). A complete partition classification reveals distinct two-column and three-column extremal shapes and an exceptional square-board multiplicity; its exact count supplies the leading coefficient of the independent-coalition polynomial. This directly answers a motivated product-family enumeration problem and is stronger than a small numerical census.
+
+**Limitations and risks.** The findings concern labeled configurations and \(n\ge3\), not the complete polynomial or all rectangular rook graphs. Source [3] is a public preprint rather than a certified exhaustive survey of prior art. Mathematical correctness and literature comparison were assessed here, not independently validated.
+
+**Checked literature.** [1] Samadzadeh–Mojdeh, arXiv:2306.02079; [2] Alikhani–Bakhshesh–Golmohammadi–Klavžar, DOI:10.7151/dmgt.2543; [3] Asadzadeh–Alikhani, public June 2026 preprint.
+
+Self-review: passed. Independent audit: not yet performed.
