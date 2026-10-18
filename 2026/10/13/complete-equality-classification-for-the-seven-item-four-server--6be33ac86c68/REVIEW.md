@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim uses the standard Hall formulation of a \(t=1\) combinatorial batch code. The lower bound \(N\ge 12\) follows by summing the six two-server Hall inequalities, and the equality case reduces to two storage profiles. The profile-by-profile argument gives exactly the four displayed structures. The exhaustive verifier independently checks every one of the \(116280\) ambient seven-item storage multisets and reproduces all counts.
+## correctness
 
-## Originality
-PASS for the equality classification, not for the optimum value. Bujtás--Tuza already imply \(N(7,3,4)=12\). Brualdi--Kiernan--Meyer--Schroeder explicitly classify \(n=m+1\) and \(n=m+2\), while the present case is \(n=m+3\). Their full text and the full text of Bujtás--Tuza were inspected for implication coverage. Exact-parameter and equality-case searches found no source stating or implying the four types, the \(46\) labeled-server multisets, or the \(171360\) fully labeled incidence assignments. Residual risk remains for obscure or unindexed finite tables or theses.
+PASS
 
-## Value
-PASS. Equality classifications are a natural next question after an exact extremal value. This parameter is the smallest four-server \(k=3\) instance immediately beyond the previously characterized \(n=m+2\) regime, and the result exposes two different storage profiles and a genuine repeated-storage-set extremizer. The four-type classification is compact, exact, and directly reusable as a finite benchmark.
+Re-derived Hall equivalence for r<=3: each server pair U contains at most two fully supported items. Summing all six pair inequalities gives 3a1+a2<=12; combined with seven items forces excess storage >=5. At equality a1=a3+2a4+2, and disjoint singleton supports force precisely profiles (3,3,1,0),(2,5,0,0). The former consists of one three-subset and star pairs to a fourth server (16 cases); the latter of two singleton items and five pairs with unique allowable multiplicities (30 cases). A NEW independent finite enumeration of all 116280 multisets found 39112 Hall-valid codes, 46 storage-12 optima, S4 orbit sizes 4,6,12,24, and 171360 fully labeled assignments. Both known optimum and equality numbers checked; finite enumeration genuinely exhausts this finite parameter only.
 
-## Closest literature and limitations
-The closest sources are the general \(k=3\) optimum formula of Bujtás--Tuza and the \(n=m+1,m+2\) optimal-code classification of Brualdi et al. Neither inspected statement gives the equality layer at \((7,3,4)\). The result is finite and does not generalize those classifications by itself.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the minimum 12 follows from known general k=3 theory; the 46 equality optima, four orbit taxonomy, and fully labeled census are additional exact finite structure. The inspected Brualdi et al. theorem covers n=m+1,m+2, whereas here n=m+3. Possible inaccessible finite tabulation remains a risk.
+
+## value
+
+PASS
+
+This is a complete equality classification immediately beyond the previously classified n=m+1,m+2 structural range, for a natural minimal storage batch-code parameter. Knowing all optimizers rather than only their cost is useful for design and uniqueness questions, and cannot be read off directly from the optimization formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
