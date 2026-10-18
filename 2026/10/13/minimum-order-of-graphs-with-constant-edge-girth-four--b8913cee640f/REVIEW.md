@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is formulated over every positive integer edge count and finite connected simple graphs; edge-girth four is equivalent to triangle-freeness plus square coverage of every edge. Nonexistence at 1–3 edges is immediate; at five edges it follows because two distinct four-cycles cannot share three edges. Mantel bounds order from below by \(\lceil2\sqrt m\rceil\). The displayed balanced bipartite construction has exactly the target edge count; the strict threshold from the previous vertex order bounds its matching deletion by the smaller part size minus one. The four-cycle argument verifies every remaining edge and connectivity is proved from common neighbors. The independent finite checks confirm, but do not replace, this universal proof.
+## correctness
 
-## Originality — PASS
-Marey–Hilaire–Laclau's inspected full text (arXiv:2607.25629, Definitions 2.1–2.4, Theorem 6.1, Section 7 and Section 8) classifies feasible edge-girth sequences and maximum diameters, but explicitly identifies possible vertex counts as a subsequent research question; neither theorem gives the optimal vertex count. Mantel supplies the lower bound, but not the square-covered matching-deletion witness that attains it for every allowed edge count. Searches for edge-girth, square-covered or four-cycle-covered triangle-free graphs, and balanced bipartite deletion constructions, together with overlapping published records and earlier claims, identified no stronger covering statement. A non-indexed equivalent result is a residual risk; no exclusivity or independence is asserted.
+PASS
 
-## Value — PASS
-This is a complete, sharp minimum-vertex solution of an expressly motivated vertex-count realization question on an infinite and naturally defined constant-edge-girth family. It demonstrates that the all-edges-on-four-cycles constraint imposes zero additional vertex cost beyond Mantel's triangle-free density bound for every admissible size, not merely asymptotically or in a finite table. The exact matching-deletion construction is reusable for other vertex-budget realization problems. The other edge-girth constants and larger possible vertex counts remain open here.
+Edge-girth=4 equivalent to triangle-free plus every edge in some square. m<=3 impossible; if m=5, a first C4 plus a fifth edge must require a distinct C4 sharing at least three edges of first, impossible in a simple graph. Mantel triangle-free m<=floor(n²/4) yields n>=ceil(2sqrt m). For m>=7 put n=ceil(2sqrt m), a=floor(n/2),b=ceil(n/2),d=ab−m: n>=6, a,b>=3 and 0<=d<=a−1 using strict minimality of n. Delete a d-edge matching. Each surviving uv has opposite candidate neighbors of sizes >=a−2,>=b−2. If there is no square through uv, the entire candidate cross product is deleted matching, so each set has size one; this forces a=b=3 and three distinct missing edges, impossible since d<=2. Every same-side vertex pair shares a neighbor, proving connectivity. C4 and K2,3 handle m=4,6. An independent graph-construction check verified edge count, connectedness, no triangles and square coverage for 4 and every m=6..300, while analytic argument proves all m.
 
-## Review status
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS as exact minimum-vertex realization of constant edge-girth-four sequences, not the already-known feasibility of edge counts or the classical Mantel inequality.
+
+## value
+
+PASS
+
+Solves the explicit vertex-count realization gap raised by the primary edge-girth-sequence paper in a natural whole-parameter class. Sharp n=ceil(2sqrt m), all forbidden m, and uniform constructive matching-deletion proof are nontrivial as square-coverage is stronger than Mantel's triangle-free density constraint; useful for extremal realization benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

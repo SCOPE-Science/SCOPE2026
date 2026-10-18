@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T17:46:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Edge-girth=4 equivalent to triangle-free plus every edge in some square. m<=3 impossible; if m=5, a first C4 plus a fifth edge must require a distinct C4 sharing at least three edges of first, impossible in a simple graph. Mantel triangle-free m<=floor(n²/4) yields n>=ceil(2sqrt m). For m>=7 put n=ceil(2sqrt m), a=floor(n/2),b=ceil(n/2),d=ab−m: n>=6, a,b>=3 and 0<=d<=a−1 using strict minimality of n. Delete a d-edge matching. Each surviving uv has opposite candidate neighbors of sizes >=a−2,>=b−2. If there is no square through uv, the entire candidate cross product is deleted matching, so each set has size one; this forces a=b=3 and three distinct missing edges, impossible since d<=2. Every same-side vertex pair shares a neighbor, proving connectivity. C4 and K2,3 handle m=4,6. An independent graph-construction check verified edge count, connectedness, no triangles and square coverage for 4 and every m=6..300, while analytic argument proves all m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marey et al characterize feasible m=4 or m>=6, but do not determine minimum n; Section 7 maximizes diameter.",
+          "Mantel bound is a necessary extremal density inequality, even without square coverage.",
+          "C4,6 saturation concerns a forbidden-family edge-addition property different from every existing edge lying in a 4-cycle."
+        ],
+        "reasoning": "Neither feasible m nor density extremality individually or jointly forces existence at n=ceil(2sqrt m); matching deletion construction proves the missing upper bound.",
+        "searches": [
+          "arXiv:2607.25629 Theorem 6.1, Sections 7 and 8",
+          "Mantel theorem n-vertex triangle-free maximum floor(n²/4)",
+          "Resultary: 2026/9/30/SCOPE-six-extremal-mathcal-c-4-6-saturated-graphs-on-eight-vertices--63a804c30ab9"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md blob 71f23adff53085acd3cfa08baa613517343ba5be",
+        "arXiv:2607.25629",
+        "Marey Hilaire Laclau 2026 Sections 6-8",
+        "Mantel 1907",
+        "Resultary C4-covered and saturation searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Thm6.1 says exists some connected square-covered triangle-free graph iff m in {4}∪[6,infinity), without upper bound sharp at each m.",
+          "Mantel yields n>=ceil(2sqrt m), but could leave gaps where every edge needs a square.",
+          "Matching deletions d<=a−1 retain squares and attain bound."
+        ],
+        "reasoning": "The submitted upper-bound theorem is not implied by the conjunction of an existence result and a lower bound; proof fills that implication gap at every admissible m.",
+        "searches": [
+          "arXiv:2607.25629 Thm 6.1, Section 8 number-of-vertices question",
+          "Mantel extremal triangle-free bound",
+          "Search 'C4-covered' matching deletion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Constant edge-girth four is exactly triangle-free with every edge on some C4.",
+          "Primary Theorem 6.1 treats realizable constant sequences; Section 8 identifies possible number of vertices as an open direction.",
+          "Standard C4-saturated graphs and square-covered graphs are distinct conditions; saturation means adding edges creates forbidden cycles."
+        ],
+        "reasoning": "Aliases 'C4-covered triangle-free' and uniform edge-girth were checked against theorem statements, not mere titles. No published exact minimal vertex-order formula found for this realization invariant.",
+        "searches": [
+          "Marey Hilaire Laclau arXiv:2607.25629 'On the Realizability of Edge-Girth Sequences'",
+          "Resultary search: minimum order graphs constant edge girth four every edge belongs four cycle exact minimum vertices given edges",
+          "Search: triangle-free square-covered graphs C4-covered min order m"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary source provides constant-sequence edge feasibility, not an order-by-edge-count minimum table.",
+          "Independent constructed exact (m,n) witnesses for all tested 4,6..300."
+        ],
+        "reasoning": "Exact graph-order invariant is not a mere readout of prior feasibility table: proof needs uniform no-isolated-square-edge lemma; no identical database was located.",
+        "searches": [
+          "Search: 'edge girth sequence' 'numbers of vertices' 'minimum'",
+          "Resultary search: square covered triangle free complete bipartite minus matching min vertices",
+          "Primary arXiv:2607.25629 examples/tables and Section 8"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS as exact minimum-vertex realization of constant edge-girth-four sequences, not the already-known feasibility of edge counts or the classical Mantel inequality.",
+      "residual_risks": [
+        "No full classification of larger feasible vertex orders or other constant edge-girth g is given.",
+        "Potential unrelated known construction of the same matching-deletion lemma could constitute unindexed antecedent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers feasible m, not exact minimal vertex count; Section 8 treats numbers of vertices as further question",
+          "evidence": "Thm6.1 lists m=4 or m>=6; Section7 maximal diameter vs here minimal order.",
+          "identifier_or_url": "arXiv:2607.25629; https://www.researchgate.net/publication/410930988_On_the_Realizability_of_Edge-Girth_Sequences",
+          "material_read": "Full author-posted accessible text, Definition 2.2, Theorem 6.1, Sections 7 and 8 incl. section 'Realizable numbers of vertices'",
+          "method": "Web full-text article reading and targeted section searches",
+          "title": "On the Realizability of Edge-Girth Sequences",
+          "trigger": "Same formal edge-girth sequence and constant 4 setting"
+        },
+        {
+          "assessment": "Prior lower bound fully acknowledged; new upper construction essential",
+          "evidence": "Mantel only controls density, not 4-cycle coverage of every edge.",
+          "identifier_or_url": "Mantel 1907; https://en.wikipedia.org/wiki/Tur%C3%A1n%27s_theorem",
+          "material_read": "Classical precise statement m<=floor(n²/4) and equality graph",
+          "method": "Standard mathematics and bibliographic check",
+          "title": "Mantel theorem / Turán triangle-free extremal bound",
+          "trigger": "Universal lower bound for all triangle-free graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Solves the explicit vertex-count realization gap raised by the primary edge-girth-sequence paper in a natural whole-parameter class. Sharp n=ceil(2sqrt m), all forbidden m, and uniform constructive matching-deletion proof are nontrivial as square-coverage is stronger than Mantel's triangle-free density constraint; useful for extremal realization benchmarks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a positive integer edge count m, the minimum order of a connected simple graph in which every edge lies on a 4-cycle but no triangles exist is infinity at m=1,2,3,5, and ceil(2 sqrt(m)) at m=4 or m>=6; balanced K_{a,b} with at most a−1 matching edges deleted realizes each admissible order.",
+  "limitations": [
+    "Finite connected simple graphs only; minimum order, not all feasible orders, all isomorphism classes or diameter.",
+    "Constant edge-girth 4 only.",
+    "Numerical checks bounded at m<=300 and do not prove all m."
+  ],
+  "schema_version": 1
+}
