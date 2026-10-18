@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Substitution into Kato's algebraic criterion reduces the general bilinear matrix to \(\begin{psmallmatrix}a&b\\-b&0\end{psmallmatrix}\) with \(b\ne0\). The automorphism group, induced product, isomorphism criterion, and idempotent separator are derived explicitly. The symbolic replay independently checks each displayed algebraic reduction.
+## correctness
 
-## Originality
-PASS with residual literature risk. Kato's Example 3.5 supplies the two endpoint representatives but not the classification of all NDB forms or the map from their automorphism orbits to product isomorphism classes. The ambient real left-symmetric classification of Medina--Saldarriaga--Giraldo does not impose the NDB-origin condition. Targeted searches did not locate a source stating the complete NDB-form moduli or the two-class collapse.
+PASS
 
-## Value
-PASS. The affine-line Lie algebra is the smallest nonabelian test case for the new NDB notion. A complete moduli calculation reveals a non-obvious mismatch: infinitely many form orbits over infinite fields but only two induced left-symmetric classes. The idempotent geometry gives an intrinsic separator between those classes.
+The eight trilinear NDB basis checks for [t,x]=x reduce to b+c=0 and 2d=0, so for char(k)!=2 the nondegenerate matrix is [[a,b],[-b,0]], b!=0. Lie automorphisms t->t+beta x, x->lambda x preserve a and multiply b by lambda. Pairing the induced product against t,x gives t*t=-t-(a/b)x, t*x=0, x*t=-x, x*x=0; its commutator recovers [t,x]=x and its left-multiplication commutator satisfies the pre-Lie identity. A product isomorphism requires s=r lambda, so exactly the zero and nonzero parameter classes; the nonzero-idempotent locus distinguishes them. Independent GF(3) form enumeration yielded precisely six matrices (3 choices of a and 2 nonzero b), checking a non-real boundary; the algebraic proof, not the finite census, establishes all fields char!=2.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Kato proves the NDB criterion and gives two selected aff(R) examples, but his complete scholarly text does not classify every NDB bilinear form or the many-to-one map from form-orbits to LSA product-orbits. Medina–Saldarriaga–Giraldo classify broader real affine structures, but not which products are induced by all NDB forms, nor their form orbit parameter a. Thus the claimed complete fiber description is not an immediate reformulation of the two examples. Best-of-knowledge PASS with older low-dimensional classification risk.
+
+## value
+
+PASS
+
+The complete fiber map for a natural 2D nonabelian Lie algebra is an exact structural moduli calculation: infinitely many form classes map to two pre-Lie classes, with an internal idempotent separator. The point is the phenomenon and classification, not simply listing a known two-class answer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
