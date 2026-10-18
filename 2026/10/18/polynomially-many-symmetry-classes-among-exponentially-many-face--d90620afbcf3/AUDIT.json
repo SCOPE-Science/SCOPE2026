@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For every m>=2 the tight-edge spanning criterion forces at most one zero per arm and at least one entirely tight arm. Opposite parities of the length-two and length-three paths yield exactly the three Delta cases with local alphabet sizes 6, 3, and 3. Graph automorphisms are exactly S_m times pole reversal, and the additional sign action yields the explicitly identified multiset involutions. Burnside counts the fixed six-letter multisets by H_m and fixed three-letter multisets by floor(m/2)+1. The classwise multinomial orbit-size formulas sum to every facet. Standalone exhaustive spanning-tree-coordinate enumeration, separately deriving actual symmetry orbits from permutations of vertices, confirms all classwise orbit-size multisets at m=2,3,4 and full facet counts through m=5. This is an infinite analytic proof with independent finite cross-checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Braun--Bruegge arxiv:2201.13303, Proposition 4.6 gives the general mixed-parity path-bundle total-count formula; specializing lengths to (2,3,...,3) produces 2*6^m+6*3^m.",
+        "Chen--Davis--Korchevskaia arxiv:2107.12315, Theorem 9 supplies a general recipe for generating facets from maximal bipartite subgraphs."
+      ],
+      "reasoning": "Both broad results strongly cover facet existence and counts, and neither may be cited as evidence that those components are new. Their statements do not evaluate or enumerate action-orbits of the full automorphism group on the 2*6^m+6*3^m facets. The extra group-equivariant multiset calculation and exact multiplicities are the surviving new content.",
+      "searches": [
+        "\"Facets of Symmetric Edge Polytopes for Graphs with Few Edges\" Proposition 4.6",
+        "\"Facets and facet subgraphs of symmetric edge polytopes\" generalized theta graph",
+        "\"Many faces of symmetric edge polytopes\" theta path bundle",
+        "generalized theta graph parallel paths length two length three Lipschitz free facets 6^m 3^m"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1807.07678, Theorem 3.1",
+      "arxiv:1910.05193, Section 2.3",
+      "arxiv:2107.12315, Theorem 9 and examples",
+      "arxiv:2201.13303, Section 4 and Proposition 4.6",
+      "Published mathematical-record semantic hits for theta-graph Rips persistence and other symmetric-edge-polytope facet problems (distinct claims)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Braun--Bruegge, Proposition 4.6 already implies the numerical total F_m=2*6^m+6*3^m; the result explicitly excludes this count from novelty.",
+        "The proof here derives the three separate group actions on six- and three-letter multisets, yielding O_m~m^5/240 and exact individual orbit sizes; none is a statement of Braun--Bruegge Proposition 4.6 or of Chen--Davis--Korchevskaia Theorem 9."
+      ],
+      "reasoning": "An aggregate facet count is invariant under wildly different orbit partitions; it does not logically determine orbit sizes or their number. General facet-generation recipes can in principle produce the partition after a separate symmetry analysis, but the specific closed quotient formula and orbit-size classification are not already asserted or evaluated by those recipes.",
+      "searches": [
+        "arxiv:2201.13303 Proposition 4.6 and Section 4",
+        "arxiv:2107.12315 facet subgraph Theorem 9",
+        "\"theta graphs\" \"symmetric edge polytopes\" facets 2019 2022"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Higashitani--Jochemko--Michałek arxiv:1807.07678, Theorem 3.1 characterizes facets but does not evaluate symmetry-orbit types for the path bundle.",
+        "Chen--Davis--Korchevskaia arxiv:2107.12315, Theorem 9 gives facet-subgraph generation without orbit formulas for this exact graph.",
+        "Braun--Bruegge arxiv:2201.13303, Section 4 contains path-bundle facet counts, not symmetry-orbit counts."
+      ],
+      "reasoning": "The putative equivalent assertions would be full graph-symmetry quotient counts, Burnside formulas for six/three path-word types, or classwise multinomial orbit sizes for CB(2,3^m). None is stated in the inspected sections; matching only the aggregate facet total is mathematically weaker.",
+      "searches": [
+        "\"theta\" \"facets\" \"automorphism orbits\" \"symmetric edge polytope\"",
+        "\"symmetric edge polytope\" \"generalized theta\" orbit",
+        "\"theta graph\" \"facet\" \"orbit\" \"Lipschitz\"",
+        "Orbit-stabilizer enumeration of extreme 1-Lipschitz potentials on mixed parity generalized theta graphs; six local zero-arc states; Burnside multiset necklaces"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Braun--Bruegge arxiv:2201.13303 Tables 1--2 record small-graph extremal total facet counts, not symmetry orbits of the family.",
+        "Relevant published mathematical-record hit on equal-arm theta graphs concerns Vietoris--Rips persistence and symmetry rather than facet orbits.",
+        "Exact class-tagged orbit sizes for m=2,3,4 were independently computed from all normalized integral potentials by verify_theta.py."
+      ],
+      "reasoning": "Targeted text, formula, and parameter searches did not identify a table giving the 23/48/94 facet orbit counts or the general orbit-size lists. Absence from searchable indexes does not prove there is no unindexed table.",
+      "searches": [
+        "\"CB(2,3,3)\" \"facet\" \"orbit\"",
+        "\"symmetric edge polytope\" \"facet\" \"orbit\" \"theta\" Braun",
+        "Graph-symmetry classes of facets on two poles joined by multiple three-edge paths and one two-edge path; 23,48,94 orbit counts at 2,3,4 arms",
+        "Complete graph automorphism and global sign facet orbit classification for symmetric edge polytope of graph CB(2,3,3,...,3) one length two path and m length three paths; orbit-count degree-five polynomial"
+      ]
+    },
+    "rationale": "Braun--Bruegge Proposition 4.6 already implies the full numerical facet count and the underlying parity/tight-edge dichotomy for CB(2,3,...,3). Those consequences are acknowledged rather than presented as new. The distinct claim is an evaluated all-m formula and complete orbit-size classification under the graph automorphism and negation action. The inspected original literature provides general facet criteria or aggregate counts but no such orbit quotient for this exact family. Multiple targeted published-record semantic queries and direct primary-text comparisons found no equivalent; potential unindexed orbit tables remain the principal bibliographic risk.",
+    "residual_risks": [
+      "An unindexed thesis, dataset, or article may already tabulate the same group-orbit partition.",
+      "The broad prior path-bundle enumeration makes this orbit theorem derivable after additional calculations; its value is the explicit all-m equivariant classification, not a new general facet theory.",
+      "The theorem uses graph automorphisms plus negation and makes no assertion about a potentially larger linear symmetry group."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the facet-criterion lemma, not the special mixed-theta orbit quotient.",
+        "evidence": [
+          "Theorem 3.1, PDF page 6; Corollary 3.2 and Examples on pages 6--7."
+        ],
+        "identifier_or_url": "arxiv:1807.07678",
+        "material_read": "Full-text PDF sections containing Theorem 3.1, Corollary 3.2, and the complete/complete-multipartite examples",
+        "method": "Read arXiv open PDF text and inspected original first-page image and theorem text",
+        "title": "Arithmetic aspects of symmetric edge polytopes",
+        "trigger": "Original integer tight-edge facet criterion"
+      },
+      {
+        "assessment": "Establishes relevant finite transportation norm viewpoint and other graph families, no equivalent mixed-theta orbit theorem in located contents.",
+        "evidence": [
+          "Section 2.3, PDF pages 4--5; section descriptions in contents."
+        ],
+        "identifier_or_url": "arxiv:1910.05193",
+        "material_read": "Full-text PDF table of contents, Section 2.3 on the finite metric identification, searched for theta and automorphism",
+        "method": "Read arXiv open PDF text in relevant sections and global term search",
+        "title": "Many faces of symmetric edge polytopes",
+        "trigger": "Identification with Kantorovich--Rubinstein graph metric polytopes"
+      },
+      {
+        "assessment": "General facet construction and particular two-cycle example; no evaluated (2,3,...,3) automorphism orbit count or individual orbit sizes in inspected parts.",
+        "evidence": [
+          "Theorem 9, PDF pages 9--10; running example pages 12--13."
+        ],
+        "identifier_or_url": "arxiv:2107.12315",
+        "material_read": "Full-text PDF introduction, maximal bipartite facet-subgraph discussion, Theorem 9, examples and searches for theta terminology",
+        "method": "Read arXiv open PDF pages 1,2,8--13, inspected original first-page image",
+        "title": "Facets and facet subgraphs of symmetric edge polytopes",
+        "trigger": "Possible dominating general face-subgraph classification"
+      },
+      {
+        "assessment": "Decisive prior coverage of numerical total facet count, but not of the separate symmetry orbit formulas claimed here.",
+        "evidence": [
+          "Proposition 4.6 and its proof, PDF pages 11--12; Corollary 4.7, page 12; full-text orbit search found no match."
+        ],
+        "identifier_or_url": "arxiv:2201.13303",
+        "material_read": "Full 23-page arXiv PDF available; read introduction, background facet criterion, entirety of Section 4 propositions on path bundles, table/corollary around Section 4, and searched full text for orbit terminology",
+        "method": "Read original open arXiv PDF text, inspected original Section 4 pages 10--12 as images",
+        "title": "Facets of symmetric edge polytopes for graphs with few edges",
+        "trigger": "Exact path-bundle formula likely subsuming any aggregate counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d90620af-bcf3-4bf4-a60f-3be95c1d5051",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The mixed theta graph is the smallest repeated-arm two-terminal family with both even- and odd-length paths and therefore both simplicial and nonsimplicial transportation-ball facets. Its established total facet count grows exponentially as 2*6^m, but the natural symmetry quotient has an exactly classified polynomial count asymptotic to m^5/240. The explicit six/three-color multiset orbit families and stabilizer-recoverable sizes provide meaningful structural data not supplied by an aggregate facet count. This is a natural all-dimensional equivalence classification rather than a numerical slice.",
+    "status": "PASS"
+  }
+}
