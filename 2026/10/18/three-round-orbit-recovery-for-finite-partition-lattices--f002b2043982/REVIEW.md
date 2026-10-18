@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The first round reconstructs the number of blocks via strictly increasing Bell numbers. The second round isolates each class of partitions with a single nonsingleton block by maximizing the number of atomic strict predecessors at fixed block count. The third round counts these classes underneath a candidate partition, recovers its binomial block-size moments, and inverts the triangular system. The converse is guaranteed by the natural transitive relabelling action. Exact class sizes and the all-size boundary cases are proved. Two independent finite checking programs provide corroboration without substituting for the proof.
+
+**Originality — PASS, with priority risk.** Classical partition-type orbits are known; [1] and [2] discuss those types, Möbius functions, and homology, not constant-round counting refinement. [3] discusses colour-refinement orbit recovery for general graphs, but does not entail the uniform three-round partition-lattice bound for the full directed refinement relation. Searches for partition-lattice colour refinement, orbit profiles, binomial inversion, and two-variable counting logic found no published equivalent in the sources examined. A specialized earlier result remains possible; search non-detection does not prove priority.
+
+**Value — PASS.** This establishes a uniform, ground-set-size-independent refinement depth for exact orbit recovery in natural nondistributive lattices with Bell-number many elements. It gives an intrinsic reconstruction mechanism rather than merely listing known orbits; the multiplicity and class-count formulas are immediately readable from the recovered partition. The full strict-order predicate is essential to the stated method. The bound is not shown sharp and should not be interpreted as a C2 identification theorem against arbitrary finite structures.
+
+Self-review: passed. Independent audit: not yet performed.
