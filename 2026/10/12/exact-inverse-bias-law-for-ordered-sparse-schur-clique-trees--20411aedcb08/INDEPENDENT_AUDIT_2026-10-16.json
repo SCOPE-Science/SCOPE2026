@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T00:14:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The star center Schur complement is P=I-J/n. Under the specified ordered SampleClique law each i<n independently chooses a uniform later parent and creates a tree edge of conductance (n-i)/n. Each possible edge has expected conductance 1/n, proving E[T]=P. Backward induction on pendant arrivals yields E[R_T(i,j)]=n/(n-i)+(n-i-1)n/(n-i)=n for all distinct vertices and every n>=2. Double-centering E[R] yields E[T^dagger]=(n/2)P, and deterministic last edge (n-1,n) of resistance n gives Rayleigh quotient n/2 and lambda_min(T|1perp)<=2/n. Independently replayed exact fraction enumeration over all (n-1)! parent maps for n=2..7; no finite cutoff is used as the infinite proof. Nullspace centered on 1 and reciprocal weight conventions are explicit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kyng–Sachdeva arXiv:1605.02353 proves approximation for randomized elimination with controlled multi-edge sampling, not a single unsplit ordered tree.",
+          "CAST arXiv:2609.09255 uses a different weighted spanning-tree law and edge weights."
+        ],
+        "reasoning": "Neither algorithmic global spectral guarantee nor alternative tree law subsumes the exact expectation under this fixed one-tree distribution.",
+        "searches": [
+          "one tree SampleClique ordered Schur complement star leaves exact expected effective resistance inverse pseudoinverse bias n/2 randomized Cholesky"
+        ]
+      },
+      "checked_sources": [
+        "Git source tree 2f3bb1355b22cbe4836e1824ff1cccae319b224c, RESULT.md/REVIEW.md/VERIFICATION.md",
+        "arXiv:2011.07769",
+        "arXiv:2303.00709",
+        "arXiv:1605.02353",
+        "arXiv:2609.09255",
+        "Resultary live semantic search: one tree SampleClique ordered Schur complement star leaves exact expected effective resistance inverse pseudoinverse bias n/2 randomized Cholesky"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source sampling law gives E[T]=P and connectivity. Inverting expectation is not the expectation of inverses.",
+          "Jensen implies qualitative inverse order but does not determine exact scalar n/2; the fixed final edge gives a separate deterministic obstruction."
+        ],
+        "reasoning": "Published algorithm definitions permit constructing the new induction but their stated mean results do not already imply its numeric value by matrix inversion. Explicit inspection priority risk remains.",
+        "searches": [
+          "one tree SampleClique ordered Schur complement star leaves exact expected effective resistance inverse pseudoinverse bias n/2 randomized Cholesky"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Git blob dd8841ed... RESULT.md defines all-pairs E[R]=n and E[T^dagger]=(n/2)P as equivalent via PDP=-2T^dagger.",
+          "Chen–Liang–Biros arXiv:2011.07769 and Gao–Kyng–Spielman arXiv:2303.00709 introduce corresponding ordered tree sampling and primal expectation."
+        ],
+        "reasoning": "The all-pairs effective-resistance form is mathematically the same result as the mean pseudoinverse. The source algorithms assert tree formation and mean Laplacian, not the nonlinear inverse expectation. The inference needs the additional backward series-resistance induction.",
+        "searches": [
+          "one tree SampleClique ordered Schur complement star leaves exact expected effective resistance inverse pseudoinverse bias n/2 randomized Cholesky"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search top matches discuss random-tree distance or unrelated inverses, not this sampler and this formula.",
+          "Fresh exhaustive exact arithmetic n=2..7 agrees and is not an already published table."
+        ],
+        "reasoning": "The claim is an all-n matrix identity rather than a finite lookup; negative search alone is not priority proof.",
+        "searches": [
+          "one tree SampleClique ordered Schur complement star leaves exact expected effective resistance inverse pseudoinverse bias n/2 randomized Cholesky"
+        ]
+      },
+      "rationale": "The primitive and unbiased mean Schur complement were known, but the exact isotropic n/2 pseudoinverse inflation and deterministic resistance obstruction are not statements of the inspected algorithm descriptions. Other sparse elimination results control different algorithms or repeated samples. The new backward tree resistance induction, not merely Jensen convexity, supplies the sharp observable. Open-source limitations remain.",
+      "residual_risks": [
+        "The complete primary arXiv algorithm/appendix texts were not re-read in this execution; do not treat noncoverage as exhaustive.",
+        "Equivalent expected-distance identities could occur in older random recursive/electrical network literature.",
+        "Only one local star elimination and fixed tie order are modeled, not a full sparse solver."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known unbiasedness/tree law; no accessible explicit exact inverse theorem",
+          "evidence": "Source identifies the sampled update law and RCHOL solver scope; original full text was not wholly available.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.07769",
+          "material_read": "Public arXiv/publisher algorithm descriptions and identifying abstract; not the complete article in this execution",
+          "method": "Public web page and source package comparison",
+          "title": "RCHOL: Randomized Cholesky Factorization for Solving SDD Linear Systems",
+          "trigger": "Original ordered SampleClique algorithm"
+        },
+        {
+          "assessment": "Tree and primal mean treated as prior; precise inverse moment not established by material inspected",
+          "evidence": "Source record identifies Algorithm 3, Corollary 4.4 and Claim 4.5 as sampling law and expected update.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.00709",
+          "material_read": "Accessible abstract and source-cited Algorithm 3, Corollary 4.4 and Claim 4.5 locations; not complete current-run full text",
+          "method": "Public abstract and source theorem comparison",
+          "title": "Robust and Practical Solution of Laplacian Equations by Approximate Elimination",
+          "trigger": "Later formulation of same local sampler"
+        },
+        {
+          "assessment": "Different controlled sampling scheme, not claimed local one-tree law",
+          "evidence": "Random elimination spectral approximation requires additional sampling structure.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.02353",
+          "material_read": "Public preprint abstract and algorithmic summary",
+          "method": "Public arXiv metadata / abstract",
+          "title": "Approximate Gaussian Elimination for Laplacians: Fast, Sparse, and Simple",
+          "trigger": "Potential broader solver spectral coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Effective resistance and the pseudoinverse are standard inverse-sensitive invariants of Laplacian solvers. A dimension-growing exact inverse bias for the actual one-tree local replacement exposes a sharp mathematical boundary of primal unbiasedness. It is a structural identity on all n, not an arbitrary test instance and not a claim about entire factorization performance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git source tree 2f3bb1355b22cbe4836e1824ff1cccae319b224c, RESULT.md/REVIEW.md/VERIFICATION.md",
+    "arXiv:2011.07769",
+    "arXiv:2303.00709",
+    "arXiv:1605.02353",
+    "arXiv:2609.09255",
+    "Resultary live semantic search: one tree SampleClique ordered Schur complement star leaves exact expected effective resistance inverse pseudoinverse bias n/2 randomized Cholesky"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The complete primary arXiv algorithm/appendix texts were not re-read in this execution; do not treat noncoverage as exhaustive.",
+    "Equivalent expected-distance identities could occur in older random recursive/electrical network literature.",
+    "Only one local star elimination and fixed tie order are modeled, not a full sparse solver.",
+    "Best-of-knowledge scientific judgment, not mathematical certification.",
+    "Source metadata contains operational provenance; no publication files generated or sanitized."
+  ],
+  "schema_version": 1
+}

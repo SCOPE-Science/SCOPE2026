@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of exact ordered-clique-tree inverse law
+# Independent mathematical audit
 
-The exact unweighted-star Schur complement and the actual one-tree sampling weights follow directly from the published algorithm normalization in [1, Algorithm 3]. The proof in `RESULT.md` uses no numerical approximations: an exact backwards pendant-edge resistance induction for every integer \(n\ge2\), followed by the standard resistance-matrix double-centering identity. The last-edge spectral consequence is an exact Rayleigh quotient.
+## correctness
 
-Run `python3 verify.py` (Python 3 standard library, no external dependencies). For every \(2\le n\le8\), the checker enumerates all \((n-1)!\) possible increasing-parent maps, for 5,913 total weighted trees. Exact `Fraction` arithmetic verifies every mean edge coefficient equals \(1/n\), every mean pairwise resistance equals \(n\), the deterministic resistance of the final leaf pair, and every entry of the double-centered expected pseudoinverse equals \((n/2)P\). The checker was successfully executed from the same packaged path used for the artifact.
+PASS
 
-Finite exhaustive checks are finite evidence only; they do not establish the result for larger \(n\). The unbounded theorem rests on the published sampling law, series resistance of trees, independence of parent choices and the mathematical induction. This does not verify global solver accuracy or another sampling distribution. Independent scientific audit remains unperformed.
+The star center Schur complement is P=I-J/n. Under the specified ordered SampleClique law each i<n independently chooses a uniform later parent and creates a tree edge of conductance (n-i)/n. Each possible edge has expected conductance 1/n, proving E[T]=P. Backward induction on pendant arrivals yields E[R_T(i,j)]=n/(n-i)+(n-i-1)n/(n-i)=n for all distinct vertices and every n>=2. Double-centering E[R] yields E[T^dagger]=(n/2)P, and deterministic last edge (n-1,n) of resistance n gives Rayleigh quotient n/2 and lambda_min(T|1perp)<=2/n. Independently replayed exact fraction enumeration over all (n-1)! parent maps for n=2..7; no finite cutoff is used as the infinite proof. Nullspace centered on 1 and reciprocal weight conventions are explicit.
+
+## originality
+
+PASS
+
+The primitive and unbiased mean Schur complement were known, but the exact isotropic n/2 pseudoinverse inflation and deterministic resistance obstruction are not statements of the inspected algorithm descriptions. Other sparse elimination results control different algorithms or repeated samples. The new backward tree resistance induction, not merely Jensen convexity, supplies the sharp observable. Open-source limitations remain.
+
+## value
+
+PASS
+
+Effective resistance and the pseudoinverse are standard inverse-sensitive invariants of Laplacian solvers. A dimension-growing exact inverse bias for the actual one-tree local replacement exposes a sharp mathematical boundary of primal unbiasedness. It is a structural identity on all n, not an arbitrary test instance and not a claim about entire factorization performance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
