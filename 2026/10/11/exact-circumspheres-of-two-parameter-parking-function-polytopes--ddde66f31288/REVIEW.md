@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact source vertex layers reduce the enclosing-ball problem to \(n+1\) scalar squared-distance quadratics after permutation symmetry forces a diagonal center. Their adjacent difference
-\[
-Q_k(s)-Q_{k+1}(s)=\lambda_k(\lambda_k-2s)
-\]
-makes the active layer monotone in \(s\). On each active interval the objective is a single convex quadratic, and the quantities \(D_k\) and \(nb-D_k\) are exactly its two endpoint tests. Since \(D_k\) is strictly decreasing, the stated threshold \(K\) and the two cases for \(s_*\) exhaust the global minimizer. The contact layers and the classical golden-ratio threshold follow from equality in those same comparisons.
+## correctness
 
-## Originality
-PASS. The exact two-parameter source was inspected at its vertex and facet theorems, and the later arbitrary-parameter paper was inspected at its generalized-permutahedron, polymatroid, combinatorial-diameter, and circuit-diameter results. Neither source states an ambient Euclidean circumradius, circumcenter, or minimum-enclosing-ball theorem. Direct and alias searches likewise found no covering result. The closest own parking-related metric theorem is the partial-permutohedron inradius result, which solves a different inner-ball optimization and does not imply this outer-radius classification.
+PASS
 
-## Value
-PASS. The two-parameter parking-function polytopes are a natural recent geometric family. The result gives an exact minimum enclosing ball, unique center, and full contact-layer classification for every parameter choice. More structurally, it shows that only one vertex layer, or exactly two adjacent layers at transition, controls the circumsphere. In the classical family, that active layer occurs asymptotically at the golden-ratio fraction \((\sqrt5-1)/2\), a feature not visible from the existing face or walk-diameter theory.
+Hanada–Lentfer–Vindas-Meléndez Prop 3.4 gives vertex layers with k entries 1 and shifted tail lambda_j=a-1+jb. After translation by -1 and symmetry, unique minimax center equals s 1_n with layer distances Q_k(s)=ns^2-2S_k s+T_k; adjacent differences lambda_k(lambda_k-2s) ensure one active layer or two neighbors. D_k=2S_k-n lambda_(k-1) is strictly decreasing with difference -2(a-1)-b(2k+n); first K satisfying D_K<=nb and boundary cases yield claimed center/radius and contacts, accounting for coincident layers k=0,1 at a=1. Independent rational arithmetic tested 576 triples 2<=n<=10,1<=a,b<=8, checking the minmax against ALL breakpoints and stationary candidates and verifying contact adjacency after collapsing equal layers. Classical K_n formula and golden-ratio limit follow exact quadratic inequality; not a numerical asymptotic extrapolation.
 
-## Closest literature and limitations
-The closest papers provide the complete vertex structure and later broader polymatroid and walk-diameter descriptions. Those are inputs and neighboring invariants, not Euclidean circumsphere results. A residual risk remains for a general minimum-enclosing-ball theorem for symmetric polymatroids under different terminology. The theorem is restricted to the canonical two-parameter realization.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Compared the exact claim/implications against independently searched Resultary and relevant published mathematical literature. Accepted on best-of-knowledge evidence with explicitly bounded overlap and residual risks; no claim of exhaustive bibliographic novelty.
+
+## value
+
+PASS
+
+The entire natural (a,b,...,b)-parking-function-polytope family gains a closed Euclidean minimum enclosing sphere, support-layer transitions, and a concrete golden-ratio classical limit. Known face/volume formulas do not themselves yield this metric optimization; the general a,b metric classification has use despite overlap with partial permutohedra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

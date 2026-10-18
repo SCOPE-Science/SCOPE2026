@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-The all-parameter theorem is proved symbolically in `RESULT.md`.
 
-Critical checks:
-- the published vertices are exactly the permutations of the \(n+1\) displayed layers;
-- uniqueness of a Euclidean minimum enclosing ball plus coordinate-permutation invariance forces a diagonal center;
-- after translating by \(-\mathbf1\), every layer has squared-distance function \(Q_k(s)=n s^2-2S_k s+T_k\);
-- the adjacent identity \(Q_k-Q_{k+1}=\lambda_k(\lambda_k-2s)\) makes the maximum layer index monotone with \(s\);
-- \(D_k=2S_k-n\lambda_{k-1}\) and \(nb-D_k=n\lambda_k-2S_k\) are the exact left and right tests for whether the quadratic minimizer \(S_k/n\) lies in its active interval;
-- \(D_{k+1}-D_k=-b(2k+n)-2(a-1)<0\), so the threshold rule is exhaustive;
-- the radius is obtained by direct substitution into the active-layer quadratic;
-- in the classical case the threshold inequality is \(k(k+n-1)\ge n(n-1)\), yielding the explicit ceiling formula and golden-ratio limit.
+# Independent mathematical audit
 
-`verify.py` independently replays the minimax problem over a large finite box by enumerating every layer and every candidate breakpoint/quadratic minimum. This is corroborative only and does not replace the arbitrary-parameter proof.
+## correctness
+
+PASS
+
+Hanada–Lentfer–Vindas-Meléndez Prop 3.4 gives vertex layers with k entries 1 and shifted tail lambda_j=a-1+jb. After translation by -1 and symmetry, unique minimax center equals s 1_n with layer distances Q_k(s)=ns^2-2S_k s+T_k; adjacent differences lambda_k(lambda_k-2s) ensure one active layer or two neighbors. D_k=2S_k-n lambda_(k-1) is strictly decreasing with difference -2(a-1)-b(2k+n); first K satisfying D_K<=nb and boundary cases yield claimed center/radius and contacts, accounting for coincident layers k=0,1 at a=1. Independent rational arithmetic tested 576 triples 2<=n<=10,1<=a,b<=8, checking the minmax against ALL breakpoints and stationary candidates and verifying contact adjacency after collapsing equal layers. Classical K_n formula and golden-ratio limit follow exact quadratic inequality; not a numerical asymptotic extrapolation.
+
+## originality
+
+PASS
+
+Compared the exact claim/implications against independently searched Resultary and relevant published mathematical literature. Accepted on best-of-knowledge evidence with explicitly bounded overlap and residual risks; no claim of exhaustive bibliographic novelty.
+
+## value
+
+PASS
+
+The entire natural (a,b,...,b)-parking-function-polytope family gains a closed Euclidean minimum enclosing sphere, support-layer transitions, and a concrete golden-ratio classical limit. Known face/volume formulas do not themselves yield this metric optimization; the general a,b metric classification has use despite overlap with partial permutohedra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
