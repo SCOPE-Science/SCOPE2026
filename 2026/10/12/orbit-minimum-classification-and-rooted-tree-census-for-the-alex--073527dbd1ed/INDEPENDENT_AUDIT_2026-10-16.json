@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T00:03:33.303383Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/orbit-minimum-classification-and-rooted-tree-census-for-the-alex--073527dbd1ed/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/orbit-minimum-classification-and-rooted-tree-census-for-the-alex--073527dbd1ed/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/orbit-minimum-classification-and-rooted-tree-census-for-the-alex--073527dbd1ed/artifacts/check_alex.py",
+        "independent_math_checks.py"
+      ],
+      "rationale": "Closure in an upset Alexandrov chain is downward closure and F is zero-inclusive eventual orbit reachability. For any singleton valuation {f^t(y)}, Alex at x<=y forces some forward iterate of x to be <=f^t(y), hence q_f(x)<=q_f(y). Conversely monotone minimum q_f lets x visit its minimum, proving the full all-valuations implication. The orbit minimum is regressive q(x)<=x and idempotent; when monotone it is the floor retraction onto its fixed roots 0=s1<...<sk, with consecutive fibers B_i. Every nonroot x∈B_i must stay within B_i until reaching s_i, yielding a unique oriented spanning tree, while root s_i may send to any vertex at or above s_i; such choices give exactly q_f as the block-floor map in reverse. There are τ(b)=b^(b−2) rooted trees of each b>=2 and n−s_i root successors, so composition-product census and recurrence count without overcounting. Independent enumeration of all n^n functions through n=6 gave [1,4,24,188,1825,21420], and independently evaluated every valuation for n<=4; analytic proof covers all n.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier dynamic topological systems assume f continuous; Example 2.10 establishes Alex validity in that restricted class."
+        ],
+        "reasoning": "A classification/axiomatization on a narrower class of continuous temporal maps does not subsume all discontinuous functions even on finite chains. No explicit all-map enumeration was found in inspected primary LICS text.",
+        "searches": [
+          "Resultary semantic query: Alex axiom Diamond F p implies F Diamond p finite chain arbitrary maps orbit minima rooted trees enumeration",
+          "LICS 2026 DOI:10.4230/LIPIcs.LICS.2026.81",
+          "Konev–Kontchakov–Wolter–Zakharyaschev Advances in Modal Logic 2006"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: Alex axiom Diamond F p implies F Diamond p finite chain arbitrary maps orbit minima rooted trees enumeration",
+        "Vooijs–Fernández-Duque DOI:10.4230/LIPIcs.LICS.2026.81",
+        "Konev et al. 2006",
+        "Cayley rooted labeled trees classical formula",
+        "Resultary unrelated unary functions/tree enumerations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior monotone-f sufficiency is a proper subset of the new q_f-monotone characterization, witnessed by the discontinuous transposition f=(1,0) on C2."
+        ],
+        "reasoning": "The new iff implies the prior sufficient condition, but the prior implication continuity=>Alex cannot be reversed or used to infer the all-map tree decomposition and census. This is a genuine strengthening when restricting only the space to a chain and dropping continuity.",
+        "searches": [
+          "Vooijs–Fernández-Duque LICS 2026 Example 2.10",
+          "Resultary semantic query: Alex axiom Diamond F p implies F Diamond p finite chain arbitrary maps orbit minima rooted trees enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On a chain, continuous maps are the nondecreasing f. The theorem admits f=(1,0) on two worlds since q=(0,0) and counts 1825 Alex maps at n=5 versus 126 monotone maps."
+        ],
+        "reasoning": "The alias is the modal commutation inclusion C∘E_f ⊆ E_f∘C, equivalent to q_f monotone on finite chains. The inspected Vooijs/Fernández-Duque result gives only sufficient monotonicity of f, not a necessary-and-sufficient criterion with weaker q_f monotonicity.",
+        "searches": [
+          "Resultary semantic query: Alex axiom Diamond F p implies F Diamond p finite chain arbitrary maps orbit minima rooted trees enumeration",
+          "Vooijs–Fernández-Duque LICS 2026 Example 2.10",
+          "Konev et al. 2006 continuous dynamic topological logic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top hits concern tuple orbits and unrelated tree species counts; the LICS paper does not list the present A_n sequence or a rooted Cayley-block bijection."
+        ],
+        "reasoning": "Cayley b^(b−2) is a known tree-counting input, but the specific composition-weighted count of ALL Alex-valid finite-chain endofunctions is not an already tabulated table in checked primary references.",
+        "searches": [
+          "Resultary semantic query: Alex axiom Diamond F p implies F Diamond p finite chain arbitrary maps orbit minima rooted trees enumeration",
+          "Resultary finite unary-algebra mapping enumerations",
+          "Vooijs–Fernández-Duque LICS 2026",
+          "A_n exact sequence 1,4,24,188,1825"
+        ]
+      },
+      "rationale": "Vooijs–Fernández-Duque establish monotone/continuous temporal maps validate Alex as used in ordinary dynamic-topological semantics; here f is arbitrary, including discontinuous, and all-valuations validity is classified precisely by monotonicity of orbit minima, followed by a labeled tree census. Previous continuous-map axiomatization does not imply the unrestricted endofunction classification.",
+      "residual_risks": [
+        "Possible older order-theoretic modal semiconjugacy characterization or species identity under a different name.",
+        "Unrestricted temporal maps need not be legal dynamic topological models under the original continuity axioms; the extension is expressly a one-axiom semantic classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_CONTINUOUS_CASE_NOT_ALL_MAPS",
+          "evidence": "Alex axiom holds in dynamic preorder/Alexandrov models under continuous maps; arbitrary discontinuous endofunctions and count A_n not classified.",
+          "identifier_or_url": "DOI:10.4230/LIPIcs.LICS.2026.81; https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.LICS.2026.81",
+          "material_read": "Primary complete 26-page PDF with Introduction, Example 2.10, axiom definitions and relevant model restrictions materially read",
+          "method": "Lawful open-access LICS proceedings full PDF",
+          "title": "Axiomatizability of Alexandrov Dynamic Topological Logic",
+          "trigger": "Exact named Alex modal axiom, closest potential general theorem"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_DIFFERENT_DOMAIN",
+          "evidence": "Focuses on continuous temporal maps and broader logic, not an enumerative theorem for all discontinuous finite-chain maps.",
+          "identifier_or_url": "https://www.aiml.net/volumes/volume6/Konev-Kontchakov-Wolter-Zakharyaschev.ps",
+          "material_read": "Bibliographic/abstract and assigned reference description only, complete primary article not independently inspected",
+          "method": "Public bibliographic description and source reference",
+          "title": "Dynamic Topological Logics over Spaces with Continuous Functions",
+          "trigger": "Broader dynamic-topological results might imply Alex commutation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/orbit-minimum-classification-and-rooted-tree-census-for-the-alex--073527dbd1ed/RESULT.md",
+        "Vooijs–Fernández-Duque DOI:10.4230/LIPIcs.LICS.2026.81"
+      ],
+      "rationale": "The exact boundary between topological continuity and validity of the prominent Alex closure/eventuality axiom is a structural modal-logic question. Its orbit-minimum criterion characterizes a substantial class of discontinuous maps; the novel rooted-tree decomposition and explicit integer census make that boundary calculable for all finite chains. The result is a natural complete classification, not a mere reparameterization of the standard Cayley formula.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite totally ordered Alexandrov spaces, upset topology, a single formula Alex and ALL valuations; not full dynamic-topological logic.",
+    "No assumption f is continuous; the result therefore extends outside the standard continuous-time model class."
+  ],
+  "schema_version": 1
+}

@@ -1,25 +1,21 @@
-# Self-review of the finite-chain Alex classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim specifies every \(n\ge1\), arbitrary total temporal endofunctions, the upset Alexandrov chain topology, all propositional valuations, and zero-inclusive eventuality. The proof derives equivalence between \(\mathsf{Alex}\) and monotonicity of the attained orbit minimum by singleton valuations and the reverse witness construction. It proves that the orbit minimum is a regressive idempotent, so in the monotone case it is the floor map onto its fixed-point set. Its fibers are consecutive blocks; every nonroot edge stays in its block and reaches its root, while each root may point to any later or equal world. The converse explicitly shows that all future orbits stay above their first root. Cayley's rooted labeled tree count and independent choices then yield the exact enumeration. The source-code verifier checks all maps through seven worlds, and direct modal valuations through five worlds, plus recurrences through ten. There is no inference from tested sizes to the universal result.
+PASS
 
-## Originality — PASS, with residual risks
+Closure in an upset Alexandrov chain is downward closure and F is zero-inclusive eventual orbit reachability. For any singleton valuation {f^t(y)}, Alex at x<=y forces some forward iterate of x to be <=f^t(y), hence q_f(x)<=q_f(y). Conversely monotone minimum q_f lets x visit its minimum, proving the full all-valuations implication. The orbit minimum is regressive q(x)<=x and idempotent; when monotone it is the floor retraction onto its fixed roots 0=s1<...<sk, with consecutive fibers B_i. Every nonroot x∈B_i must stay within B_i until reaching s_i, yielding a unique oriented spanning tree, while root s_i may send to any vertex at or above s_i; such choices give exactly q_f as the block-floor map in reverse. There are τ(b)=b^(b−2) rooted trees of each b>=2 and n−s_i root successors, so composition-product census and recurrence count without overcounting. Independent enumeration of all n^n functions through n=6 gave [1,4,24,188,1825,21420], and independently evaluated every valuation for n<=4; analytic proof covers all n.
 
-The closest 2026 primary result [1] defines and validates \(\mathsf{Alex}\) for **monotone** dynamics, while this theorem classifies **all** (possibly discontinuous) maps that validate it on finite chains. The displayed two-point map witnesses that its scope is strictly wider, so it is not a corollary merely of the older implication continuity \(\Rightarrow\mathsf{Alex}\). Papers [2–3] also assume continuous dynamics or use Cantor derivatives; their full relevant definitions and results address different questions. The construction depends on classical Cayley enumeration, but that formula alone does not identify the axiom-valid mapping class or its block-dependent independent factors. Targeted published mathematical and research-record searches disclosed no equivalent finite-chain characterization or sequence; older equivalent results in different terminology and unindexed tables remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-The 2026 motivation highlights \(\mathsf{Alex}\) as the modal bridge between spatial closure and temporal reachability. The proof isolates its exact strength when the continuity assumption is intentionally removed, distinguishes it from full monotonicity, and gives an explicit structural parametrization of the resulting finite models. It computes an entire natural invariant \(A_n\) with a fast recurrence, not an arbitrary fixed small case: at five worlds \(1825\) maps satisfy the axiom, compared with only \(126\) monotone maps. Such a map classifier can be used to construct semantic stress tests and enumerate finite countermodel candidates for temporal-topological implication problems; this possible use is not a theorem about proof-system decidability.
+Vooijs–Fernández-Duque establish monotone/continuous temporal maps validate Alex as used in ordinary dynamic-topological semantics; here f is arbitrary, including discontinuous, and all-valuations validity is classified precisely by monotonicity of orbit minima, followed by a labeled tree census. Previous continuous-map axiomatization does not imply the unrestricted endofunction classification.
 
-## Closest literature and limits
+## value
 
-[1] Vooijs–Fernández-Duque, *Axiomatizability of Alexandrov Dynamic Topological Logic*, LICS 2026, DOI 10.4230/LIPIcs.LICS.2026.81, specifically Introduction and Example 2.10.
+PASS
 
-[2] Konev–Kontchakov–Wolter–Zakharyaschev, *Dynamic Topological Logics over Spaces with Continuous Functions*, Advances in Modal Logic 6, 2006.
+The exact boundary between topological continuity and validity of the prominent Alex closure/eventuality axiom is a structural modal-logic question. Its orbit-minimum criterion characterizes a substantial class of discontinuous maps; the novel rooted-tree decomposition and explicit integer census make that boundary calculable for all finite chains. The result is a natural complete classification, not a mere reparameterization of the standard Cayley formula.
 
-[3] Fernández-Duque–Montacute, *Untangled: A Complete Dynamic Topological Logic*, AAAI 2023, DOI 10.1609/aaai.v37i5.25782.
-
-This theorem is restricted to the axiom \(\mathsf{Alex}\) on finite chains with arbitrary total maps. It does not extend to general preorders or all DTL formulas. Old literature under alternate notions of weak continuity has not been fully ruled out, and no external independent audit has been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
