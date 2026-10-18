@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+All shortest paths in this graph have length at most three; the only length-three geodesics join leaves attached to distinct hubs. Their three edges give the exact and complete feasibility obstruction. Unique active hub sets partition all feasible edge subsets; independent pendant and admissible clique choices give the bivariate polynomial. Saturating all possible edges for a nonempty active set and testing the two kinds of absent edge proves the exact facet bijection. The maximum formula is a finite maximization over active-set size. Nonpurity follows from comparing singleton, pair, and triple active sets. The maximal-size gap follows from an explicit monotone size formula. A BFS shortest-path verifier independently reproduces all coefficients, facets, and optimum sizes in six finite profiles (55,360 subsets). These checks support but do not replace the universal proof.
+
+## Originality — PASS (with residual source-access risk)
+The edge-general-position definition comes from Manuel–Prabha–Klavžar (2021). Tian–Klavžar–Tan (2024) already determine a scalar optimum for the one-pendant-path-per-selected-hub special case, so that scalar is not treated as new. The inspected 2021 and 2024 texts do not give complete all-set/facet polynomial formulas for positive heterogeneous pendant bundles or the resulting purity and gap theorems; the scalar bound does not imply an entire enumerator. Related results concerning vertex-general-position coronas, edge-general-position sets of spider trees, and edge-geodesic covering of complete multipartite graphs concern different predicates or graph families. A 2026 edge-general-position corona-products paper could not be compared in full text; its accessible description emphasizes scalar parameters. This is a real residual priority risk, not evidence of full-text noncoverage. Published-record and related mathematical-literature searches revealed no implication covering the full claim; unindexed equivalents remain possible.
+
+## Mathematical value — PASS
+This identifies the full edge-subset independence system and every facet for a natural n-parameter family of block graphs, rather than only its previously studied maximum cardinality. The facet count is rigid under arbitrary positive pendant multiplicities, yet the facet sizes need not coincide. In the canonical corona family, maximal cardinalities exhibit gaps growing linearly with clique order. Exact cardinality/weight distributions support subsequent questions about random feasible edge selections, maximal augmentation, and variation of multiplicities without requiring a speculative downstream theorem.
+
+## Boundaries and risks
+The proof assumes a complete core and pendant leaves of length one, with all multiplicities positive. It does not extend automatically to long paths or arbitrary cores. The available bibliographic record does not establish absolute novelty. Independent scientific validation and comprehensive priority verification remain unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
