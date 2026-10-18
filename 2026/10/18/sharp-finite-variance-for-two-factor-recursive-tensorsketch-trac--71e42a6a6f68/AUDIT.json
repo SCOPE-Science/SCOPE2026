@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The effective hash difference has a two-level collision atom (2m−1)/m² and uniform remaining masses. Conditional leaf-sign orthogonality decomposes the centered squared norm into factor-only and rectangle terms. Their variances are exactly 2qa, 2qb and 2Uab, including the even-width double-solution count gcd(2,m); no independence of all tensor-coordinate signs is incorrectly assumed. Fourth-power convexity gives the unique constant-magnitude maximizers. An actual independently implemented three-layer program passed 395 exact modular checks, 3190 finite extremal comparisons and 8 seeded direct simulations. This establishes the stated finite and asymptotic claims under the explicit 4-wise sign and independent-layer assumptions; experiments supplement the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ahle et al. 2020, Corollary 16 / Lemma 15, gives moment upper bounds for recursive sketches, not equality and exact maximizers.",
+        "Pham and Pagh, arXiv:2505.08146v2, Theorem 9 addresses the standard nonrecursive TensorSketch construction.",
+        "Sharma et al. PMLR 337 (2026) study complex sketch distributions, not the real three-layer sketch."
+      ],
+      "reasoning": "A generic bound on variance or a result for a single TensorSketch is not an exact formula for the composition of two CountSketch leaves with an internal TensorSketch. The claim is restricted to the first nontrivial recursive case; no general-PSD or higher-order improvement is asserted.",
+      "searches": [
+        "Ahle Kapralov Knudsen Pagh Velingker Woodruff Zandieh RecursiveTensorSketch moment exact fourth coefficient for rank one tensor order two",
+        "\"TensorSketch\" \"exact variance\" \"CountSketch\" compositions",
+        "\"Pham Pagh 2013 Tensor Sketch polynomial kernel variance 3^p exact second moment\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.18577v1",
+      "Ahle et al. 2020 (author-provided 60-page PDF), Sections 3 and 4.1",
+      "arxiv:2505.08146v2 (corrected HTML)",
+      "PMLR 337:sharma26b (official abstract, full text not inspected)",
+      "published-finding corpus research-record semantic search for nested CountSketch collisions and exact recursive TensorSketch moments",
+      "Accessible mathematical research records inspected only for statement overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Khan et al. give Var ≤(10p/m+100p²/m²)(tr A)², which at p=2 gives only an upper bound with first-order constant 20; the new sharp separable-rank-one limit is 10 with complete finite formula.",
+        "Ahle et al. establish second-moment composition and not the precise collision distribution conditional on rank-one factors.",
+        "The PMLR 2026 complex-valued variant concerns different randomness."
+      ],
+      "reasoning": "None of the inspected stronger-looking general inequalities logically determines the exact dependence on a, b, parity of m, or sharp finite-dimension equality conditions. A full exact fourth-moment theorem for a broader class could dominate this claim; no such theorem was verified in the inspected primary material.",
+      "searches": [
+        "Recursive TensorSketch degree two three layer CountSketch TensorSketch composition exact variance on separable rank one positive semidefinite trace input, parity of sketch dimension, collision multiplicities",
+        "Two-level CountSketch composed hashes collision probability 2/m-1/m^2 tensor sketch trace variance sharp worst case for Kronecker rank-one",
+        "\"Accurate Trace Estimation with Fewer Random Bits via Recursive TensorSketch\" theorem 11",
+        "\"Improving TensorSketch Using Complex Random Variables\" 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Khan–Pratap–Sharma arXiv:2609.18577v1 defines the three-layer recursive sketch and presents degree-wise variance bounds, not the q,U formula.",
+        "Ahle et al., 2020, Sections 3 and 4.1, treat recursive sketch JL moment composition; their argument yields an upper bound rather than an exact finite-dimensional profile."
+      ],
+      "reasoning": "The estimate for rank-one PSD A equals squared-norm preservation of its generating separable vector, so both norm-preservation and trace-estimation terminology were compared. The two effective hashes each consist of a leaf hash composed with an internal hash. The current exact q and U formula accounts for that specific composition and a two-torsion effect absent from the inspected general moment statements.",
+      "searches": [
+        "Recursive TensorSketch degree two three layer CountSketch TensorSketch composition exact variance on separable rank one positive semidefinite trace input, parity of sketch dimension, collision multiplicities",
+        "Two-level CountSketch composed hashes collision probability 2/m-1/m^2 tensor sketch trace variance sharp worst case for Kronecker rank-one",
+        "\"recursive sketch\" \"rank one\" \"fourth moment\" 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible published records titled “Schur concavity and the exact block-count envelope for the product-profile scale” and “Parity-sharp fourth moments of the dyadic quadratic graph” concern different mathematical objects and do not tabulate nested CountSketch trace moments.",
+        "Related accessible research findings on stochastic trace estimation concern Gaussian tensor-train and FLEXTRACE probes, rather than the recursive CountSketch object."
+      ],
+      "reasoning": "Searches for variance, nested hashes, Kronecker rank-one, moment constants and parity did not reveal an exact database value or table with this finite-dimensional and finite-width expression. No inference of uniqueness is made from failed search, and this check does not rule out unindexed tabulations.",
+      "searches": [
+        "Recursive TensorSketch degree two three layer CountSketch TensorSketch composition exact variance on separable rank one positive semidefinite trace input, parity of sketch dimension, collision multiplicities",
+        "Two-level CountSketch composed hashes collision probability 2/m-1/m^2 tensor sketch trace variance sharp worst case for Kronecker rank-one",
+        "TensorSketch norm variance exact fourth powers of tensor factors sharp constants 6/m 10/m double countsketch full support"
+      ]
+    },
+    "rationale": "The original recursive sketch construction and 2026 trace estimator already provide general moment bounds, but the inspected relevant sections do not contain or imply the exact rank-one degree-two variance, modular even-width correction, and complete finite-dimensional extrema. Comparisons include original and corrected standard TensorSketch work, complex sketches, accessible prior claims, and published abstract literature; uncertainty about unindexed equivalent formulas is explicitly retained.",
+    "residual_risks": [
+      "The relevant full PDF of Sharma et al., 2026, could not be completely compared; its published abstract concerns complex standard TensorSketch, so it remains a bounded plausible overlap risk.",
+      "An unindexed exact fourth-moment computation or a result proved for a broader recursive sketch distribution could imply the finite formula.",
+      "Hash/sign independence is specified at the level of sufficient moments; implementations with weaker or coupled random mappings require separate analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Algorithm identical at degree two, but no exact separable rank-one variance or sharp flat-factor extremum located in material read.",
+        "evidence": "Theorem 11 gives a general (10p/m + 100p²/m²) trace-squared upper bound, not the proposed equality.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.18577",
+        "material_read": "Definition of recursive CountSketch/TensorSketch construction (Section 3.2), Section 4 trace estimator and its degree-dependent variance proof (Theorem 11), introduction and abstract.",
+        "method": "Full primary-paper text and mathematically relevant sections, with direct comparison of the exact input classes and variance statements.",
+        "title": "Accurate Trace Estimation with Fewer Random Bits via Recursive TensorSketch",
+        "trigger": "Motivating method and closest possible coverage"
+      },
+      {
+        "assessment": "Second-moment composition bound, not a rank-one finite-m exact variance formula.",
+        "evidence": "Section 4.1 proves a Johnson–Lindenstrauss moment guarantee for Π_q by independent composition; it does not compute the parity-sensitive modular intersection.",
+        "identifier_or_url": "https://thomasahle.com/papers/tensorsketch-joint.pdf",
+        "material_read": "Construction in Section 3, Section 4.1 (PDF pages 23–25), Lemma 15 and Corollary 16, contents and main results.",
+        "method": "Author-provided complete lawful PDF, text and visual inspection of relevant pages.",
+        "title": "Oblivious Sketching of High-Degree Polynomial Kernels",
+        "trigger": "Original recursive sketching construction and potentially dominating second moments"
+      },
+      {
+        "assessment": "Analyzes ordinary TensorSketch, lacking additional internal hash composition of recursive sketch.",
+        "evidence": "Theorem 9 discusses sketches built from p factor hash/sign functions rather than a separate internal TensorSketch layer.",
+        "identifier_or_url": "https://arxiv.org/html/2505.08146v2",
+        "material_read": "Theorem 9 and definitions and related variance discussion, corrected online full-text version.",
+        "method": "Primary HTML text of the corrected TensorSketch manuscript.",
+        "title": "Tensor Sketch: Fast and Scalable Polynomial Kernel Approximation",
+        "trigger": "Closest ordinary TensorSketch fourth moments and possible stronger implications"
+      },
+      {
+        "assessment": "Complex variable version of conventional TensorSketch, not decisive coverage of the real composed-hash calculation; full-text comparison is a residual risk.",
+        "evidence": "Abstract explicitly describes the complex variant of the Pham–Pagh TensorSketch.",
+        "identifier_or_url": "https://proceedings.mlr.press/v337/sharma26b.html",
+        "material_read": "Official PMLR abstract and bibliography metadata; full PDF download was not accessible in the retrieval route.",
+        "method": "PMLR abstract and bibliographic page.",
+        "title": "Improving TensorSketch Using Complex Random Variables",
+        "trigger": "Recent closely authored tensor sketch moment improvement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "71e42a6a-6f68-45ff-89a0-03c3bd731969",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The newly proposed 2026 estimator has a generic degree-dependent variance estimate, while this exact, sharp model quantifies sketch-width requirements for the first nontrivial recursive tree. The two-level collision atom and parity-sensitive modular intersection expose which effects depend on the architecture rather than on tensor-factor fourth moments. The full all-d,m extremizer classification for separable rank-one PSD inputs is a natural benchmark for trace estimation and separates a sharp leading coefficient of 10 from the motivating general bound without claiming an improved guarantee for arbitrary PSD inputs.",
+    "status": "PASS"
+  }
+}
