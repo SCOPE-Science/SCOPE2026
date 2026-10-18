@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T17:12:52.020979Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/0c9388fc1533d38ed91063a55c96c9c935f40448/2026/10/12/exact-ternary-length-five-two-deletion-optimum-and-equality-cens--f262ebab78e2/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/0c9388fc1533d38ed91063a55c96c9c935f40448/2026/10/12/exact-ternary-length-five-two-deletion-optimum-and-equality-cens--f262ebab78e2/VERIFICATION.md"
+      ],
+      "rationale": "Define distinct two-deletion shadows D2(x)⊂Σ³ for all 243 words in Σ⁵. Code legality is exactly pairwise disjointness, equivalently LCS≤2 and compatibility-graph clique. Independent exhaustive enumeration using Python itertools and NetworkX maximal-clique search (not the packaged verifier) regenerated all 243 shadows; found largest clique size 6 and exactly 478 size-six cliques among 181053 maximal cliques. Direct second enumeration over natural S3 symbol permutations and coordinate reversal gave 46 orbits, with size distribution 2^1,4^2,6^8,12^35. Shadow-cardinality histogram over all 478 maximum codes was 18:2,19:12,20:54,21:100,22:144,23:96,24:52,25:18. All cover fewer than 27 received words. Finite exhaustive graph search is a valid proof for this finite case because the entire finite 3^5 graph was built and enumerated; it is not extrapolated to other lengths. The packaged checker separately cross-checks 29403 pairwise LCS constraints, maximum clique search and fixed-size recursion.",
+      "residual_risks": [
+        "No assertion beyond n=5,q=3,t=2; hidden older finite enumeration or code-table entry remains possible."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kulkarni–Kiyavash arXiv:1211.3128 Theorem IV.1 gives specialized upper bound 14 at q=3 n=5 t=2",
+          "Chee–Ge–Ling focus perfect (4,2), (3,1) families"
+        ],
+        "reasoning": "A broad but weak upper bound does not imply six or equality cases; perfect length-four design regime does not include unrestricted length-five two deletions.",
+        "searches": [
+          "ternary length five two deletion correcting code A_3(5,2) equals 6 478 codes 46 orbits",
+          "A_q(n,t) general q-ary t deletion upper bound Kulkarni Kiyavash"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1008.1343",
+        "https://arxiv.org/pdf/1211.3128",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-ternary-length-five-single-deletion-code-size--831d8cb03d53",
+        "Resultary search: ternary length five two deletion correcting code A_3(5,2) equals 6 478 codes 46 orbits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither cited primary theorem gives a bound ≤6 or a classification of extremal codes",
+          "Independent enumeration gives 478 maximal size-six code subsets and 46 S3×C2 orbits"
+        ],
+        "reasoning": "Existing general results establish background but cannot algebraically supply the exact finite optimum/equality census without additional exhaustive or structural work.",
+        "searches": [
+          "ternary length five two deletion correcting code A_3(5,2) equals 6 478 codes 46 orbits",
+          "arxiv 1008.1343 q=3 n=5 t=2",
+          "arxiv 1211.3128 q-ary deletion upper bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chee–Ge–Ling arXiv:1008.1343 §1–2 define equivalent deletion-shadow / insertion-deletion distance conditions",
+          "Direct independent compatibility graph built from all 243 length-five words"
+        ],
+        "reasoning": "Compared same code metric via deletion-shadow disjointness and LCS, not just A_q(n,t) notation; no matching earlier all-maxima classification.",
+        "searches": [
+          "ternary length five two deletion correcting code A_3(5,2) equals 6 478 codes 46 orbits",
+          "ternary 5 two deletions LCS at most two insertion deletion distance six"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed single-deletion length-five exact value 24 is a different deletion radius",
+          "No indexed exact two-deletion n=5 q=3 478-code equality table identified"
+        ],
+        "reasoning": "Checked exact size, orbit and coverage counts as well as aliases; failure of indexed search is not itself proof of novelty.",
+        "searches": [
+          "ternary length five two deletion correcting code A_3(5,2) equals 6 478 codes 46 orbits",
+          "Resultary 478 maximum ternary two deletion 46 symmetry orbits",
+          "A_3(5,2) deletion code table"
+        ]
+      },
+      "rationale": "Chee–Ge–Ling (2010) treat perfect deletion correcting code size spectra, particularly (3,1) and (4,2) at t=n−2; they do not provide unrestricted (5,2)_3 equality census. Kulkarni–Kiyavash general multiple-deletion upper bound specializes to 14 codewords here, which neither establishes exact 6 nor determines 478 labeled maxima, 46 natural orbits or the coverage distribution. Published Resultary ternary length-five single-deletion code result solves a different t=1 problem; no dominating t=2 table or exact 478 census was found. Remaining risk is an unindexed finite enumeration.",
+      "residual_risks": [
+        "Natural symmetry only S3 alphabet permutations and coordinate reversal: no assertion this group is the full compatibility graph automorphism group.",
+        "No assertion beyond n=5,q=3,t=2; hidden older finite enumeration or code-table entry remains possible.",
+        "Independent enumeration used a standard maximal-clique routine but generated all 243 vertices and all disjoint-shadow edges and enumerated all maximal cliques, no sampling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Perfect (3,1) and (4,2) code size spectra, not unrestricted (5,2)_3 equality census",
+          "evidence": "arXiv:1008.1343 pp 1–3, Theorem 2.2, stated contribution",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.1343",
+          "material_read": "arXiv full 23-page paper definitions, prior-work survey, Theorems 2.1–2.3, main-contribution description and §2–3 scope",
+          "method": "open arXiv PDF text and page inspection",
+          "title": "Spectrum of Sizes for Perfect Deletion-Correcting Codes",
+          "trigger": "nearby perfect-code theory and metric equivalences"
+        },
+        {
+          "assessment": "General upper bound specializes to 14 and not exact six or equality histogram",
+          "evidence": "arXiv:1211.3128 Theorem IV.1",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+          "material_read": "full article abstract, general hypergraph/LP bound, statement of Theorem IV.1 and parameters as quoted in reviewed source",
+          "method": "open arXiv PDF and proof overview",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "potential stronger all-parameter deletion upper bound"
+        },
+        {
+          "assessment": "Different t=1 problem cannot imply complete t=2 maximum-code census",
+          "evidence": "Resultary 2026-10-04 indexed result",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-ternary-length-five-single-deletion-code-size--831d8cb03d53",
+          "material_read": "Resultary indexed scientific summary and statement 24 words for t=1",
+          "method": "published-finding semantic result only",
+          "title": "Exact ternary length-five single-deletion code size",
+          "trigger": "same alphabet and blocklength but deletion radius differs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/1008.1343",
+        "https://arxiv.org/pdf/1211.3128"
+      ],
+      "rationale": "The exact A_3(5,2)=6 closes a real finite extremal gap (published general upper bound 14) at the first length beyond the classical q=3 length-four t=n−2 design setting. Enumerating all equality cases and orbit/coverage distributions identifies nonperfect optimal configurations and furnishes a reproducible benchmark for deletion-correcting code classification, a motivated natural finite invariant even without an all-n formula.",
+      "residual_risks": [
+        "Natural symmetry only S3 alphabet permutations and coordinate reversal: no assertion this group is the full compatibility graph automorphism group.",
+        "No assertion beyond n=5,q=3,t=2; hidden older finite enumeration or code-table entry remains possible.",
+        "Independent enumeration used a standard maximal-clique routine but generated all 243 vertices and all disjoint-shadow edges and enumerated all maximal cliques, no sampling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Natural symmetry only S3 alphabet permutations and coordinate reversal: no assertion this group is the full compatibility graph automorphism group.",
+    "No assertion beyond n=5,q=3,t=2; hidden older finite enumeration or code-table entry remains possible.",
+    "Independent enumeration used a standard maximal-clique routine but generated all 243 vertices and all disjoint-shadow edges and enumerated all maximal cliques, no sampling.",
+    "Published-source priority checked at the level of mathematical implication and given available lawful primary access; neither a universal priority certification nor publication authorization.",
+    "Source metadata sanitization is a distinct transport/publication blocker, not a scientific proof defect."
+  ],
+  "schema_version": 1
+}
