@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The source theorem, its standing assumptions, and equation (20) were reconstructed. The two uniform laws satisfy the assumptions, and their interquantile ranges are identical. Substitution of \(w(x)=e^{-x}\) gives the exact scaling
-\[
-\Phi_{Q_Y}^w(u)=e^{-2}\Phi_{Q_X}^w(u),
-\]
-while \(\Phi_{Q_X}^w(u)<0\) for every \(0<u<1\). Hence the source conclusion is strictly reversed throughout the whole interior quantile range. No numerical sample or finite enumeration is used as proof.
+## correctness
 
-## Originality — PASS
-The exact 2026 article was inspected in full at the theorem and definition level. Focused searches covered the source title, theorem wording, weighted cumulative residual quantile extropy, dispersive-order aliases, translation invariance, and correction/corrigendum terms. No covering correction or equivalent published counterexample was located.
+PASS
 
-The closest substantive predecessor is Khammar, Amir Jahanshahi, and Zarei (2023), which studies the unweighted quantile-based dynamic survival extropy. Its full text uses an endpoint condition when invoking the dispersive-to-stochastic comparison. It does not state the weighted theorem or the translated-uniform counterexample. The main residual risks are a later correction to the very recent source or a nonindexed independent observation.
+The source equation (20) defines Phi_Q^w(u)=-(2(1-u)^2)^{-1} integral_u^1 w(Q(p))(1-p)^2 q(p) dp. The source Theorem 7 states X<=disp Y and w1 decreasing, w1<=w2 imply Phi_X>=Phi_Y. With Q_X=p,Q_Y=p+2 and both quantile densities=1, all interquantile ranges coincide and the weights are equal, nonnegative, integrable and strictly decreasing. But Phi_Y=e^{-2}Phi_X while Phi_X<0 (the defining positive integrand gives the strict sign), hence Phi_X<Phi_Y for EVERY u in (0,1). Independent exact antiderivative e^{-u}(u^2+1)-2/e checks the integral. Source proof incorrectly invokes X>=st Y from dispersive order without endpoint/location condition; in example X<st Y. This is symbolic, not sample-based.
 
-## Value — PASS
-The counterexample invalidates a general ordering theorem with a natural continuous lifetime model and a standard positive decreasing weight. Its value is structural: dispersive order depends only on differences of quantiles and is unchanged by translations, whereas the weighted functional is intentionally sensitive to the magnitude of the quantiles. This identifies the missing role of location information and gives a direct guide for repairing the theorem statement.
+## originality
 
-## Closest literature and limitations
-The 2023 unweighted quantile-survival-extropy paper is the closest inspected literature and already illustrates that stochastic comparisons require support/location hypotheses in this setting. The present result does not claim a maximal repaired theorem, nor does it rule out a later corrigendum to the 2026 article.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Theorem 7 is the actual recent printed target. The paper itself notes weighted extropy is not translation invariant, and standard dispersive-order references establish interquantile equivalence under shifts. Nonetheless, no inspected earlier article states this specific failure of the printed 2026 theorem, which combines those facts incorrectly. The result is a new concrete published-theorem counterexample, not a claim to invent translation sensitivity or dispersive order.
+
+## value
+
+PASS
+
+An exact analytic counterexample invalidates a recently printed stochastic-order theorem under its own hypotheses for every residual quantile u. It identifies a substantive missing location condition and prevents unsound reliability comparisons; the value is theorem correction, not an arbitrary inexpensive negative check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
