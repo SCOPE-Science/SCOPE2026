@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,64 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal argument is analytic.
 
-For each eigenvalue \(\lambda\), zero-velocity Heavy-Ball gives
-\[
-p_1(\lambda)=1-\alpha\lambda,
-\]
-\[
-p_2(\lambda)=(1-\alpha\lambda)^2-\beta\alpha\lambda.
-\]
-With
-\[
-\rho=\frac{\sqrt\kappa-1}{\sqrt\kappa+1},
-\]
-one has
-\[
-\alpha\mu=(1-\rho)^2,
-\qquad
-\alpha L=(1+\rho)^2,
-\qquad
-\beta=\rho^2.
-\]
-This yields the endpoint ratios
-\[
-g_\mu=\frac{\rho(3-2\rho)}{2-\rho},
-\qquad
- g_L=\frac{\rho(3+2\rho)}{2+\rho}.
-\]
-The latter is larger and equals
-\[
-\frac{(\sqrt\kappa-1)(5\sqrt\kappa+1)}{(\sqrt\kappa+1)(3\sqrt\kappa+1)}.
-\]
-The condition \(g_L\le1\) reduces to
-\[
-\sqrt\kappa\le2+\sqrt5,
-\]
-which is equivalent to
-\[
-\kappa\le9+4\sqrt5.
-\]
+# Independent mathematical audit
 
-For dimension three, the interior curvature
-\[
-\lambda_*=1/\alpha
-\]
-has
-\[
-p_1(\lambda_*)=0,
-\qquad
-p_2(\lambda_*)=-\beta.
-\]
-If \(\alpha\lambda=1+\varepsilon\), then
-\[
-p_1=-\varepsilon,
-\qquad
-p_2=\varepsilon^2-\beta(1+\varepsilon),
-\]
-so the adjacent objective ratio diverges as \(\varepsilon\to0\).
+## correctness
 
-The embedded `verify.py` checks the endpoint identities symbolically through polynomial cross-multiplication, verifies the threshold polynomial, and replays the exact \(\kappa=4\) examples with rational arithmetic. Finite computation is corroborative only and does not replace the all-\(\kappa\) proof.
+PASS
 
-The result does not address later iterates, arbitrary momentum initialization, nonquadratic objectives, or other parameter choices.
+Diagonalizing the SPD quadratic and setting rho=(sqrt(kappa)-1)/(sqrt(kappa)+1), p1(lambda)=1-alpha*lambda, p2(lambda)=p1(lambda)^2-beta*alpha*lambda. At endpoints, the absolute factors are g_mu=rho(3-2rho)/(2-rho) and g_L=rho(3+2rho)/(2+rho). Their exact difference is 2(r-1)^2/((r+3)(3r+1))>0 for r=sqrt(kappa)>1; the second/first objective ratio in dimension two is a convex weighted average of their squares, so the sharp maximum is g_L^2. The equation g_L=1 is r^2-4r-1=0 and gives kappa=9+4sqrt(5). In dimension three lambda*=1/alpha lies strictly between mu,L, so p1(lambda*)=0, p2(lambda*)=-beta; epsilon-perturbing lambda gives ratio ((epsilon^2-beta(1+epsilon))/epsilon)^2 -> infinity at unchanged exact endpoints. Exact kappa=4 reset f0=9/8,f1=0,f2=1/72 and lambda=20/9 finite ratio 516961/6561 independently checked. The infinite limit is analytic, not inferred from finite verification.
+
+## originality
+
+PASS
+
+The 2018 Danilova-Kulakova-Polyak article gives Heavy-Ball nonmonotonicity and large transient peaks with optimal parameters and examines interior eigenmodes; this is important conceptual prior coverage. It does not give the exact first-to-second objective ratio across all two-eigenvalue quadratic starts, its kappa=9+4sqrt(5) frontier, or a minimal three-dimensional fixed-kappa divergence of this local ratio. A separate published Nesterov three-mode statement is for a different recurrence. Thus the precise joint boundary survives best-of-knowledge implication comparison.
+
+## value
+
+PASS
+
+A sharp early-step objective-monotonicity frontier and a minimal-dimension failure of fixed-kappa adjacent-step bounds are algorithmically motivated boundary facts. The infinite-ratio construction is not global divergence or an arbitrary new invariant: it explains why classical stable momentum can land exactly at an optimizer then leave it, and supplies a quantitative limit for two-curvature safeguards.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

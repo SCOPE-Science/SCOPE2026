@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T10:45:14.895093Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Diagonalizing the SPD quadratic and setting rho=(sqrt(kappa)-1)/(sqrt(kappa)+1), p1(lambda)=1-alpha*lambda, p2(lambda)=p1(lambda)^2-beta*alpha*lambda. At endpoints, the absolute factors are g_mu=rho(3-2rho)/(2-rho) and g_L=rho(3+2rho)/(2+rho). Their exact difference is 2(r-1)^2/((r+3)(3r+1))>0 for r=sqrt(kappa)>1; the second/first objective ratio in dimension two is a convex weighted average of their squares, so the sharp maximum is g_L^2. The equation g_L=1 is r^2-4r-1=0 and gives kappa=9+4sqrt(5). In dimension three lambda*=1/alpha lies strictly between mu,L, so p1(lambda*)=0, p2(lambda*)=-beta; epsilon-perturbing lambda gives ratio ((epsilon^2-beta(1+epsilon))/epsilon)^2 -> infinity at unchanged exact endpoints. Exact kappa=4 reset f0=9/8,f1=0,f2=1/72 and lambda=20/9 finite ratio 516961/6561 independently checked. The infinite limit is analytic, not inferred from finite verification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 of Danilova et al. gives large absolute peaks of order sqrt(kappa) for special starts; Section 3.2 permits interior spectral modes.",
+          "The Nesterov published claim concerns an extrapolated-gradient recurrence, rather than Heavy-Ball."
+        ],
+        "reasoning": "The previous peak bound grows with kappa and is relative to a normalized initial condition, so it does not imply divergence of the f2/f1 ratio at EVERY FIXED kappa. A same-dimension result for Nesterov is a nonimplication because p1,p2 differ.",
+        "searches": [
+          "Heavy ball method objective function transient nonmonotonic second iteration blowup zero velocity initialization 2 dimension 3 dimension optimal spectral step",
+          "arXiv:1811.00658 Theorem 1",
+          "Resultary:2026/9/20/SCOPE-nesterov-three-dimensional-objective-spike-barrier--6979da6f15ad"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1811.00658 §§2-4/Theorem 1 (primary sections read)",
+        "arXiv:1412.7457 (classical parameters, abstract/method source)",
+        "Resultary 2026/9/20 Nesterov objective-spike published entry (summary only)",
+        "SCOPE Git RESULT.md and verify.py at audited tree 90c7f48272bf8ac43189efcd9531457dcb4a50df"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical alpha,beta and nonmonotone Heavy-Ball recurrences were already established.",
+          "Interior eigenvalues can oscillate, but the source does not supply lambda=1/alpha forcing exact first-step annihilation then immediate momentum departure or the exact dimension-2 ratio."
+        ],
+        "reasoning": "One cannot conclude the new constant or fixed-kappa unbounded adjacent ratio solely from a prior existence of transients without a new, explicit modal calculation; the displayed calculation does establish the gap.",
+        "searches": [
+          "Danilova et al. arXiv:1811.00658 Sections 3.1-3.3",
+          "Ghadimi et al. arXiv:1412.7457",
+          "Resultary Nesterov objective-spike record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Danilova et al. analyze modal recurrences and transient peak growth, with standard starting convention equivalent to x_{-1}=x_0 after reindexing.",
+          "The new invariant is f(x2)/f(x1), not peak from initial iterate."
+        ],
+        "reasoning": "Mapped the endpoint modal polynomials and initial-condition shift. The qualitative published overshoot and restart claims are not an equivalent second/first sharp ratio or minimal dimension statement.",
+        "searches": [
+          "Heavy ball method objective function transient nonmonotonic second iteration blowup zero velocity initialization 2 dimension 3 dimension optimal spectral step",
+          "arXiv:1811.00658 Section 3",
+          "arXiv:1412.7457"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published table of kappa=9+4sqrt(5) Heavy-Ball objective adjacent-step frontiers identified.",
+          "A different published positivity condition at kappa=9 concerns entrywise iterates, not objective monotonicity."
+        ],
+        "reasoning": "This is an all-real-parameter analytical threshold, not a finite-table recomputation; searched comparison entries have different invariants.",
+        "searches": [
+          "Heavy ball method objective function transient nonmonotonic second iteration blowup zero velocity initialization 2 dimension 3 dimension optimal spectral step",
+          "Resultary semantic search: Nesterov and Heavy-Ball positivity frontier"
+        ]
+      },
+      "rationale": "The 2018 Danilova-Kulakova-Polyak article gives Heavy-Ball nonmonotonicity and large transient peaks with optimal parameters and examines interior eigenmodes; this is important conceptual prior coverage. It does not give the exact first-to-second objective ratio across all two-eigenvalue quadratic starts, its kappa=9+4sqrt(5) frontier, or a minimal three-dimensional fixed-kappa divergence of this local ratio. A separate published Nesterov three-mode statement is for a different recurrence. Thus the precise joint boundary survives best-of-knowledge implication comparison.",
+      "residual_risks": [
+        "Classical Heavy-Ball peak/transient literature is extensive; a nonindexed early-step ratio result may exist.",
+        "The Nesterov analogue was inspected at Resultary-summary rather than entire primary paper; recurrence difference is decisive for absence of direct logical implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONFIRMS established nonmonotone transients, but DOES NOT state the fixed-kappa adjacent-step ratio/dimension frontier.",
+          "evidence": "Section 3.2 gives endpoint/interior eigenmodes; Theorem 1 gives peak amplitude >=sqrt(kappa)/(2e), not f(x2)/f(x1).",
+          "identifier_or_url": "arXiv:1811.00658",
+          "material_read": "Accessible full ar5iv paper; read introduction and Sections 2-4, especially Section 3.1-3.3 and Theorem 1.",
+          "method": "Read original modal recurrence, initial conditions and peak theorem; compare quantifiers and normalization.",
+          "title": "Non-monotone Behavior of the Heavy Ball Method",
+          "trigger": "Closest same-method mathematical precedent"
+        },
+        {
+          "assessment": "Classical recurrence is prior, local dimensional spike theorem is not asserted in material read.",
+          "evidence": "The optimal quadratic parameter pair agrees with the audited equations.",
+          "identifier_or_url": "arXiv:1412.7457",
+          "material_read": "Abstract, method statements and bibliographic identity; submitted package uses the classical formula and cites this article.",
+          "method": "Compared known optimal asymptotic rate framework to local ratio.",
+          "title": "Global convergence of the Heavy-ball method for convex optimization",
+          "trigger": "Classical parameter and convergence baseline"
+        },
+        {
+          "assessment": "Different Nesterov recurrence; leave the lack of full-text inspection as residual risk.",
+          "evidence": "Summary explicitly identifies Nesterov objective spikes on a three-curvature spectrum.",
+          "identifier_or_url": "Resultary:2026/9/20/SCOPE-nesterov-three-dimensional-objective-spike-barrier--6979da6f15ad",
+          "material_read": "Full Resultary finding title and summary read; underlying proof not inspected.",
+          "method": "Compared named algorithm recurrence and claimed invariants.",
+          "title": "Three-dimensional onset of objective spikes in exact-parameter Nesterov acceleration",
+          "trigger": "Potential matching result across a different accelerated method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp early-step objective-monotonicity frontier and a minimal-dimension failure of fixed-kappa adjacent-step bounds are algorithmically motivated boundary facts. The infinite-ratio construction is not global divergence or an arbitrary new invariant: it explains why classical stable momentum can land exactly at an optimizer then leave it, and supplies a quantitative limit for two-curvature safeguards.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For optimal classical zero-velocity Heavy-Ball on SPD quadratics of fixed exact condition number kappa>1, the sharp two-dimensional second/first objective ratio is ((sqrt(kappa)-1)(5sqrt(kappa)+1)/((sqrt(kappa)+1)(3sqrt(kappa)+1)))^2, with objective-monotonicity threshold kappa=9+4sqrt(5); dimension three is minimal for arbitrarily large finite adjacent-step ratios at every kappa>1.",
+  "limitations": [
+    "Only first two completed steps, SPD quadratic, optimal spectral-endpoint Heavy-Ball, zero-velocity start, and exact condition number.",
+    "Ratio is relative to possibly tiny first-step objective; no global divergence or finite upper bound on later transients claimed."
+  ],
+  "schema_version": 1
+}
