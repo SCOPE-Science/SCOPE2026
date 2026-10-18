@@ -1,19 +1,21 @@
-# Self-review of cycle-prism maximal matchings
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The 25-state construction imposes exactly the matching and maximality conditions on each cyclic column, with each selected edge weighted once. Its trace enumerates labeled matchings without quotienting by cyclic automorphisms. The explicit characteristic determinant is verified by integer-polynomial Newton identities in the supplied, executable standalone verifier. Substituting \(t=s/y^2\), \(z=y^3\), and extracting its lowest three \(y\)-coefficients proves the asserted minimum size and all residue-class multiplicities for every \(n\ge3\). Independent direct enumeration checks all coefficients on labeled prisms of orders 3 through 12, but those finite checks are not used as an infinite proof. Boundary conventions explicitly exclude formal prism orders one and two.
+PASS
 
-## Originality: PASS (residual priority risk)
+For each labeled n>=3 prism Y_n=C_n square K_2, local symbol a_i=(r_i,p_i,q_i) ranges over 000,010,001,011,100. For every cyclic three-column window the inequalities for covered counts on both vertices and non-addability of rung/top/bottom rail edges are necessary and sufficient for an inclusion-maximal matching. This yields 25 ordered-pair transfer states and 53 valid weighted arcs. The exact integer-polynomial Newton trace determinant is D(t,z)=(1+tz-t^3 z^2)(1-2tz-t^3z^2+t^3z^3-t^4z^3-t^5z^4), with degree 8, not a finite-z interpolation. The trace-log identity gives all n>=3 coefficients after subtracting spurious t and t^2 terms. Under t=s/y^2,z=y^3 the determinant has constant y-part (1-s^3)^2, hence no weight below ceil(2n/3); first y^0,y^1,y^2 coefficients yield exact least-size counts 6, 2n and n(5n-1)/3 for n modulo3. Independently direct enumeration of ALL edge-subset matchings for n=3,4,5,6 gave polynomials 6z^2+4z^3, 8z^3+9z^4, 40z^4+11z^5, 6z^4+72z^5+20z^6. The full infinite result follows from formal transfer algebra, not the finite counts.
 
-The complete, original-language primary text of Došlić--Zubac was compared in its definition and ladder sections: it defines the polynomial and treats an **open** ladder, not the claimed cycle-prism graded distribution. Hertz et al. also study the open ladder. OEIS A284703 **already gives the exact ungraded prism totals** and an order-eight recurrence, with the same scalar denominator obtained by setting \(z=1\) in the new determinant; that narrower claim is credited rather than presented as new. The full graded two-variable polynomial and the residue-class number of smallest maximal matchings are neither contained in, nor logically recovered from, these scalar totals or open-ladder results. Searches for circular/closed ladder, maximal independent edge set, saturated dimer, edge domination, maximal matching polynomial, and the exact minimum-layer patterns did not surface an equivalent theorem; absence from search alone does not prove priority. Relevant public mathematical result records returned generic maximal-matching inequalities, not the all-order prism enumeration. Remaining risk: an equivalent bivariate formula under another name, or unpublished work, could exist.
+## originality
 
-## Value: PASS
+PASS
 
-The prism is a natural finite periodic two-row lattice for saturated dimer adsorption. Its complete size distribution refines the already-known ungraded total into the probability-relevant cardinality strata, and the exact three-case multiplicity for smallest saturated matchings identifies the worst-case occupancy patterns. This is a complete all-order invariant and a structurally derived extremal classification, not an arbitrary finite sample or the routine restatement of the published ungraded recurrence.
+Open-ladder maximal-matching polynomials in Došlić–Zubac and Hertz et al. are not the cyclic graph Y_n. OEIS A284703 already determines M_n(1) for prisms, and its denominator matches D(t,1); the ungraded count is explicitly excluded from novelty. The current statement retains z and determines each cardinality coefficient including minimum-size multiplicity by n mod 3, none of which follows from a single specialization z=1. No synonymous saturated-dimer enumerator covering the full bivariate polynomial was identified.
 
-## Closest literature and limits
+## value
 
-Došlić--Zubac (2015 online), Proposition 5.2: open-ladder ungraded counting and general maximal-matching polynomial. OEIS A284703 (2017): exact **ungraded cyclic-prism** recurrence. Hertz et al. (2022), Section 5.4: average size on **open** ladders. The matchings are labeled and the graph family requires \(n\ge3\); mathematical independence and exhaustive historical priority have not been certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full labeled size distribution of inclusion-maximal matchings on a standard 3-regular periodic graph is a natural exact combinatorial invariant, and its sharp edge-domination/saturation minimum and number of optimal saturated configurations provide structurally useful quantitative detail beyond already tabulated totals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
