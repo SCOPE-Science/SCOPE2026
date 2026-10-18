@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T03:56:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Factored each period of the scalar delayed recursion x_{k+1}=x_k-t x_{k-d_k} using T0=[[1-t,0],[1,0]]=ve1^T and T1=[[1,-t],[1,0]]. Each run of L delayed updates after a zero has rank-one matrix T1^L ve1^T, with nonzero eigenvalue p_L following p0=1-t,p1=1-2t,p_{L+2}=p_{L+1}-t p_L. Product of cyclic runs has determinant 0 and trace Π p_L; all initial pairs decay iff |Π p_L|<1; equality has a nondecaying modal trajectory and product 0 yields monodromy square zero by Cayley-Hamilton, so annihilation within two full periods. p_L=det(I-sqrt(t) A_path(L+2)) gives exact positive simple roots 1/[4cos²(jπ/(L+3))]; their largest grows quadratically with run length, giving arbitrarily large specially tuned finite-termination steps. The L=2 stability windows (0,1)∪(2,3) follow from -1<t²-3t+1<1. Independently checked symbolic monodromy traces/determinants for every cyclic delay word through length seven, path determinants through size eleven and period-three nilpotence. The all-length result is the rank-one/path proof, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mitliagkas et al. analyze random staleness and effective momentum, not deterministic arbitrary periodic binary delay run words.",
+          "Duman et al. cover arbitrary periodic systems abstractly but not the explicit p_L cancellation spectrum; fixed-lag switches analyze autonomous lag."
+        ],
+        "reasoning": "Broader qualitative methods or a different random/constant-lag setting do not imply exact symbolic monodromy trace for every prescribed alternating run schedule.",
+        "searches": [
+          "Asynchrony begets Momentum arXiv:1605.09774",
+          "Duman Kızılkan Aydın Schur stability periodic coefficients 2016",
+          "Cermak Jansky stability switches constant lag 2014"
+        ]
+      },
+      "checked_sources": [
+        "https://dergipark.org.tr/en/download/article-file/636264",
+        "https://arxiv.org/abs/1605.09774",
+        "https://papers.nips.cc/paper_files/paper/2014/file/0f41d814a243c98c672bdbfabaa40f5e-Paper.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General monodromy stability is necessary to interpret the trace but does not give its factorization or values without direct calculation.",
+          "Random-delay momentum result has no fixed schedule run profile, and so cannot imply the exact nilpotent roots."
+        ],
+        "reasoning": "No inspected primary statement covers the new binary-run closed expression or unbounded exact cancellation family; older tailored delay-difference statements still a risk.",
+        "searches": [
+          "Full Duman 2016 periodic linear difference paper Schur criterion",
+          "arXiv:1605.09774 full paper random asynchronous SGD"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The trace of the monodromy for a known period is a classical Floquet condition.",
+          "The exact factorization into p_L factors indexed only by zero/one run lengths, and path-polynomial spectral root family, were reconstructed and not stated in inspected general discussion."
+        ],
+        "reasoning": "General Floquet equivalence is a premise but does not constitute a published closed uniform binary-run formula absent the rank-one calculation.",
+        "searches": [
+          "Resultary: rank one Floquet trace cyclic zero one delay scalar quadratic path eigenvalues Chebyshev nilpotence",
+          "Duman Çelik Kızılkan Aydın 2016 periodic difference systems",
+          "Classical characteristic polynomial of path graph A_{L+2}"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No directly covering existing table of exact p_L factors/whole-period cancellation roots appeared in targeted published search; generic polynomial roots are classical.",
+          "The shortest specific periodic word has explicit reentrant interval but no reviewed source was found printing this interval."
+        ],
+        "reasoning": "No exact-table coverage verified; a finite example alone would be too narrow, whereas the claim covers all finite patterns.",
+        "searches": [
+          "Resultary: periodic binary delay gradient descent exact run length stability finite time roots",
+          "Published stability regions delay pattern 0 1 1 quadratic reentrant 2 3"
+        ]
+      },
+      "rationale": "The source-independent rank-one cyclic run product and path-spectrum factorization go beyond the known general Floquet/Schur stability criterion. Primary periodic linear-system work treats general monodromy without explicit binary-run factors; random staleness momentum literature uses probabilistic modeling and unrelated convergence objectives. No exact dominating same-recurrence all-pattern classification found in searched published records; unindexed specialized periodic delay literature remains a risk.",
+      "residual_risks": [
+        "Generic periodic-difference literature could contain a previously published specialized binary run-length calculation not found in bounded search.",
+        "High-stepsize termination is exact arithmetic/constant curvature and not stable under perturbation; no stochastic/noise guarantee.",
+        "The all-one-delay word is deliberately excluded and follows a different second-order stability boundary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background: stability via monodromy eigenvalues; no explicit cyclic binary delay p_L factors.",
+          "evidence": [
+            "General spectral-radius/period-product criterion"
+          ],
+          "identifier_or_url": "https://dergipark.org.tr/en/download/article-file/636264",
+          "material_read": "Full available article, general Floquet monodromy criterion and Section 3.3 application",
+          "method": "PDF text of statement and development",
+          "title": "Sensitivity of Schur stability of systems of linear difference equations with periodic coefficients",
+          "trigger": "General Floquet and Schur stability with periodic matrix coefficients"
+        },
+        {
+          "assessment": "Random staleness effective momentum is not a general deterministic prescribed-word Floquet classification.",
+          "evidence": [
+            "Stochastic delay/optimization modeling, no all-cyclic-run p_L formula"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1605.09774",
+          "material_read": "Full arXiv article discussion of random asynchrony and induced momentum",
+          "method": "PDF text and method comparison",
+          "title": "Asynchrony Begets Momentum, with an Application to Deep Learning",
+          "trigger": "Relevant stale-gradient mechanism"
+        },
+        {
+          "assessment": "Autonomous fixed lag model differs; entire unavailable article not excluded as containing a special section.",
+          "evidence": [
+            "Fixed lag x(n+1)=alpha x(n)+beta x(n-k) in accessible abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2014.08.099",
+          "material_read": "Publisher abstract/secondary bibliographic summary only",
+          "method": "Abstract-level title/model comparison",
+          "title": "Stability switches in linear delay difference equations",
+          "trigger": "Potential stronger constant-lag stability switches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete tractable Floquet classification of every deterministic periodic fresh/stale scalar-gradient schedule plus exact cancellation roots and reentrant stability regions reveals a meaningful stability boundary that generic asynchronous optimization bounds obscure. The unbounded stepsize existence is a fragile exact-tuning phenomenon, explicitly not a robust algorithm, but structurally important for discrete-delay systems.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Generic periodic-difference literature could contain a previously published specialized binary run-length calculation not found in bounded search.",
+    "High-stepsize termination is exact arithmetic/constant curvature and not stable under perturbation; no stochastic/noise guarantee.",
+    "The all-one-delay word is deliberately excluded and follows a different second-order stability boundary."
+  ],
+  "schema_version": 1
+}

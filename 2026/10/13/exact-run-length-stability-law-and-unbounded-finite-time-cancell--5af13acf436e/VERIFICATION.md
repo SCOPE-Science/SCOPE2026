@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The independently executable `verify.py` recomputes the two companion matrices directly, forms the monodromy in chronological order, and compares its trace against the cyclic run-length formula for every binary word with a fresh update of length one through eight (502 words). It checks every determinant is zero, path-polynomial recurrences and small-run eigenvalue roots numerically to 30-digit precision, and the exact square-zero claim at the large golden-ratio parameter. It prints `VERIFY_OK` only when all tests pass.
+## correctness
 
-These are finite symbolic and numeric consistency tests, not a proof of the unbounded statement. The general argument is the exact rank-one Floquet decomposition and the path-adjacency characteristic polynomial. The step-to-step delayed recurrence, initial-pair convention, equality cases, and fixed-schedule limitation are explicitly stated in the proof. This review is same-model only; independent validation was not performed.
+PASS
+
+Factored each period of the scalar delayed recursion x_{k+1}=x_k-t x_{k-d_k} using T0=[[1-t,0],[1,0]]=ve1^T and T1=[[1,-t],[1,0]]. Each run of L delayed updates after a zero has rank-one matrix T1^L ve1^T, with nonzero eigenvalue p_L following p0=1-t,p1=1-2t,p_{L+2}=p_{L+1}-t p_L. Product of cyclic runs has determinant 0 and trace Π p_L; all initial pairs decay iff |Π p_L|<1; equality has a nondecaying modal trajectory and product 0 yields monodromy square zero by Cayley-Hamilton, so annihilation within two full periods. p_L=det(I-sqrt(t) A_path(L+2)) gives exact positive simple roots 1/[4cos²(jπ/(L+3))]; their largest grows quadratically with run length, giving arbitrarily large specially tuned finite-termination steps. The L=2 stability windows (0,1)∪(2,3) follow from -1<t²-3t+1<1. Independently checked symbolic monodromy traces/determinants for every cyclic delay word through length seven, path determinants through size eleven and period-three nilpotence. The all-length result is the rank-one/path proof, not finite enumeration.
+
+## originality
+
+PASS
+
+The source-independent rank-one cyclic run product and path-spectrum factorization go beyond the known general Floquet/Schur stability criterion. Primary periodic linear-system work treats general monodromy without explicit binary-run factors; random staleness momentum literature uses probabilistic modeling and unrelated convergence objectives. No exact dominating same-recurrence all-pattern classification found in searched published records; unindexed specialized periodic delay literature remains a risk.
+
+## value
+
+PASS
+
+Complete tractable Floquet classification of every deterministic periodic fresh/stale scalar-gradient schedule plus exact cancellation roots and reentrant stability regions reveals a meaningful stability boundary that generic asynchronous optimization bounds obscure. The unbounded stepsize existence is a fragile exact-tuning phenomenon, explicitly not a robust algorithm, but structurally important for discrete-delay systems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

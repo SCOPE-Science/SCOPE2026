@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two update matrices are exact for the given scalar quadratic. A zero-delay update is rank one, and multiplying the block factors yields a monodromy matrix with characteristic roots zero and the explicit product of \(p_L\). The path-adjacency characteristic recurrence proves the cosine-root formula and its unbounded largest-root asymptotics. The period-three stability intervals follow from two strict quadratic inequalities. Exact tests for every binary period through length eight, short-run characteristic polynomials, and nilpotent period-three monodromy support the algebra; the all-period conclusions are analytical rather than enumerative.
+PASS
 
-## Originality — PASS (scoped, with historical risk)
+Factored each period of the scalar delayed recursion x_{k+1}=x_k-t x_{k-d_k} using T0=[[1-t,0],[1,0]]=ve1^T and T1=[[1,-t],[1,0]]. Each run of L delayed updates after a zero has rank-one matrix T1^L ve1^T, with nonzero eigenvalue p_L following p0=1-t,p1=1-2t,p_{L+2}=p_{L+1}-t p_L. Product of cyclic runs has determinant 0 and trace Π p_L; all initial pairs decay iff |Π p_L|<1; equality has a nondecaying modal trajectory and product 0 yields monodromy square zero by Cayley-Hamilton, so annihilation within two full periods. p_L=det(I-sqrt(t) A_path(L+2)) gives exact positive simple roots 1/[4cos²(jπ/(L+3))]; their largest grows quadratically with run length, giving arbitrarily large specially tuned finite-termination steps. The L=2 stability windows (0,1)∪(2,3) follow from -1<t²-3t+1<1. Independently checked symbolic monodromy traces/determinants for every cyclic delay word through length seven, path determinants through size eleven and period-three nilpotence. The all-length result is the rank-one/path proof, not finite enumeration.
 
-Generic Floquet/Schur criteria are established and credited to classical sources and Duman–Çelik Kızılkan–Aydın (2016); the special calculation is not a new general stability criterion. Mitliagkas et al. (2016) examine random-delay-induced momentum; McMahan–Streeter (2014) analyze delayed online-learning regret. Čermák–Jánský (2014) study autonomous constant-lag stability switches, which do not determine this time-periodic reset/stale word. The specific all-binary-period multiplicative law, exact roots, and arbitrarily large finite-time cancellation were not found in the inspected materials or the searched published mathematical records. Residual risk: an equivalent specialized identity may appear in historical switching-difference-equation literature.
+## originality
 
-## Value — PASS
+PASS
 
-The all-pattern formula replaces repeated \(2\times2\) matrix-product eigenanalysis by a combinatorial run decomposition and exact path-spectrum factors. It gives a complete test for any prescribed finite periodic schedule and reveals a non-obvious disconnected stability region even for a period-three schedule. Finite-time cancellation at arbitrarily large prescribed stepsizes is a rigorous boundary phenomenon in optimization under stale gradients, with explicit caveats about tuning and noise. This is a precise dynamical classification rather than a mere new test instance.
+The source-independent rank-one cyclic run product and path-spectrum factorization go beyond the known general Floquet/Schur stability criterion. Primary periodic linear-system work treats general monodromy without explicit binary-run factors; random staleness momentum literature uses probabilistic modeling and unrelated convergence objectives. No exact dominating same-recurrence all-pattern classification found in searched published records; unindexed specialized periodic delay literature remains a risk.
 
-## Limits and verification state
+## value
 
-The theorem is scalar, quadratic, deterministic, periodic, exact-arithmetic, and assumes at least one fresh step per period. It does not give robustness guarantees in the large-stepsize regime. The comparison with older periodic delay literature cannot exclude undiscovered equivalent proofs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete tractable Floquet classification of every deterministic periodic fresh/stale scalar-gradient schedule plus exact cancellation roots and reentrant stability regions reveals a meaningful stability boundary that generic asynchronous optimization bounds obscure. The unbounded stepsize existence is a fragile exact-tuning phenomenon, explicitly not a robust algorithm, but structurally important for discrete-delay systems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
