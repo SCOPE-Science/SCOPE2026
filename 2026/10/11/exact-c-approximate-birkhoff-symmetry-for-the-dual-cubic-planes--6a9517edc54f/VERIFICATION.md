@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-For unit vectors in the real cubic plane, all ordered Birkhoff--James pairs can be reduced to
-\[
-x(t)=\frac{(1,t)}{(1+t^3)^{1/3}},\qquad y(t)=\pm\frac{(-t^2,1)}{(1+t^6)^{1/3}}.
-\]
-The reverse norming-functional value equals
-\[
-D(t)=\frac{|t-t^4|}{(1+t^3)^{1/3}(1+t^6)^{2/3}}.
-\]
-After setting \(u=t^3\) and \(k=(1-u)/(1+u)\) on \(0\le u\le1\),
-\[
-D^3=\frac{k^3(1-k^2)}{(1+k^2)^2},\qquad
-\frac{d}{dk}D^3=\frac{k^2(3-6k^2-k^4)}{(1+k^2)^3}.
-\]
-The unique interior maximum has \(k^2=2\sqrt3-3\) and
-\[
-D_{\max}^6=\frac{78\sqrt3-135}{16}.
-\]
-The attached `verify.py` uses exact symbolic differentiation and radical simplification, then independently checks representative primal/dual norming-functional identities and numerical samples. The continuum theorem follows from the displayed derivative sign and all-parameter support-functional classification, not from samples.
 
-The same-model assessment concerns the mathematical claim above; independent audit and validation have not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For every nonaxis unit x in the real smooth cubic plane, signed coordinate symmetry reduces x to (1,t)/(1+t^3)^(1/3), t>0; the unique norming functional has kernel spanned by (-t^2,1), giving precisely the ± normalized Birkhoff partner. Its reverse functional residual satisfies D(t)^3=u|1−u|^3/((1+u)(1+u^2)^2), u=t^3. Under k=|1−u|/(1+u), D^3=H(k)=k^3(1−k^2)/(1+k^2)^2, k∈[0,1]. Independent symbolic differentiation yielded H′=k^2(3−6k^2−k^4)/(1+k^2)^3; the unique interior global maximum has k^2=2√3−3, and H(k)^2=(78√3−135)/16. Endpoints (axis or t=1) give zero. For finite-dimensional real smooth strictly convex E, the duality map j_E is bijective, j_(E*)(j_E(x))=x, and (x,y)↦(j_E(y),j_E(x)) bijects the ordered Birkhoff sets while preserving |j_E(y)(x)|. Thus the dual constant and the complete orbit follow without finite sampling. The asserted duality does not include nonsmooth/non-strictly-convex spaces.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the inspected full primary foundations give the same approximate-orthogonality definition and qualitative global/local symmetry results, but none of their read theorems supplies the sharp cubic closed form, its maximizing orbit, or the finite-dimensional duality identity. Distinguish the Dragomir threshold from the C residual and retain the inaccessible 2018 article as a material risk rather than treating its abstract as an exhaustive absence result.
+
+## value
+
+PASS
+
+A sharp global failure-of-symmetry parameter and a complete classification of its maximizers for the simplest nonlinear Hölder-dual plane are natural, independently usable geometric data, and the duality-map invariance extends beyond that example. Neither the derivative extremum nor the maximizer orbit is a mere normalization or a negligible bound improvement; both connect local Birkhoff-orthogonality geometry to an exact global metric defect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

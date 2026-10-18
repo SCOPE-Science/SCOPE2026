@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Unique norming functionals give an exhaustive parametrization of Birkhoff--James pairs in the real cubic plane, including zero residual on axis cases. The reverse residual becomes a rational function after two bijective changes of variables, and its derivative has exactly one interior sign change. Exact substitution gives the radical and shows that the only maximizing ordered pairs are the specified signed-coordinate orbits. The finite-dimensional duality-map correspondence is a bijection preserving each reversed residual, so the dual formula and extremizers follow. Symbolic identities are checked in the supplied reproducibility script; finite sampling is supplementary.
+## correctness
 
-## Originality
-PASS. Searches considered global \(C\)-approximate reversal, its smooth support-functional equivalent, the exact decimal and radical, cubic-plane aliases, and duality-map formulations. The direct 2020 source was inspected in full at the definition and finite-dimensional results, and the 2022 exact-orthogonality source at its sequence-space theorems; neither contains the claimed sharp cubic calculation. The closest published indexed result for the same dual planes is Dragomir approximate symmetry, a different relation. The 2018 global approximate-symmetry paper could only be read through its abstract, leaving an explicit residual novelty risk rather than a false whole-document comparison.
+PASS
 
-## Value
-PASS. The theorem determines a natural optimal parameter, all its ordered sharp pairs, and an exact duality phenomenon on a canonical non-Hilbert pair. These are substantive answers to the defining approximate-symmetry problem, not an arbitrary numerical slice or a restatement of BJ orthogonality.
+For every nonaxis unit x in the real smooth cubic plane, signed coordinate symmetry reduces x to (1,t)/(1+t^3)^(1/3), t>0; the unique norming functional has kernel spanned by (-t^2,1), giving precisely the ± normalized Birkhoff partner. Its reverse functional residual satisfies D(t)^3=u|1−u|^3/((1+u)(1+u^2)^2), u=t^3. Under k=|1−u|/(1+u), D^3=H(k)=k^3(1−k^2)/(1+k^2)^2, k∈[0,1]. Independent symbolic differentiation yielded H′=k^2(3−6k^2−k^4)/(1+k^2)^3; the unique interior global maximum has k^2=2√3−3, and H(k)^2=(78√3−135)/16. Endpoints (axis or t=1) give zero. For finite-dimensional real smooth strictly convex E, the duality map j_E is bijective, j_(E*)(j_E(x))=x, and (x,y)↦(j_E(y),j_E(x)) bijects the ordered Birkhoff sets while preserving |j_E(y)(x)|. Thus the dual constant and the complete orbit follow without finite sampling. The asserted duality does not include nonsmooth/non-strictly-convex spaces.
 
-## Closest literature and limitations
-Chmieliński, Khurana and Sain (2020/2021) supply the \(C\)-approximation framework and qualitative results. Bose, Roy and Sain (2022) characterize exact BJ orthogonality in sequence spaces. An indexed exact result for the cubic dual pair instead studies Dragomir approximation. The 2018 Chmieliński–Wójcik global paper was not available in full text, leaving possible unrecognized stronger coverage. The explicit formula is restricted to the real cubic Hölder-dual pair; the duality lemma assumes finite-dimensional smooth strict convexity.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the inspected full primary foundations give the same approximate-orthogonality definition and qualitative global/local symmetry results, but none of their read theorems supplies the sharp cubic closed form, its maximizing orbit, or the finite-dimensional duality identity. Distinguish the Dragomir threshold from the C residual and retain the inaccessible 2018 article as a material risk rather than treating its abstract as an exhaustive absence result.
+
+## value
+
+PASS
+
+A sharp global failure-of-symmetry parameter and a complete classification of its maximizers for the simplest nonlinear Hölder-dual plane are natural, independently usable geometric data, and the duality-map invariance extends beyond that example. Neither the derivative extremum nor the maximizer orbit is a mere normalization or a negligible bound improvement; both connect local Birkhoff-orthogonality geometry to an exact global metric defect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
