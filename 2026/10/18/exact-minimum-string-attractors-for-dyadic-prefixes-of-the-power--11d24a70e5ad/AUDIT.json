@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Definitions and one-based indexing are fixed. For each parity, the explicit Schaeffer–Shallit Theorem-8 sets have the claimed size and fit the theorem parameter interval at length 2^m. The new lower proof lists ceil(m/2)+1 pairwise disjoint factor intervals, proves the factor spelling appears exactly once from gaps between consecutive powers of two, and hence forces that many distinct attractor positions. Odd m=3 and even m=2 are checked explicitly. The provided standard-library checker independently tests forced unique factors and interval disjointness for m=2..14 and full factor-occurrence coverage for m=2..9, all passing. No finite enumeration is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schaeffer–Shallit give general asymptotic O(log n) and a constructive object-specific upper bound, with an explicit lower-bound gap.",
+        "Cassaigne et al. give asymptotic growth classifications for morphic words, not the exact parity-dependent dyadic minimum.",
+        "Béal–Crochemore–Romana analyze greedy construction for the same word; their table does not certify optimum."
+      ],
+      "reasoning": "The asymptotic Theta(log n) envelope and existence of size-k attractors are strictly weaker than the asserted exact minimum: they cannot imply a coefficient, integer rounding, or every-exponent equality.",
+      "searches": [
+        "String attractor powers of two characteristic sequence exact minimum attractor positions dyadic prefixes n=2^k, counts of minimum attractors",
+        "Minimal string attractors powers-of-two word indicator dyadic prefixes Schaeffer Shallit 2024",
+        "https://arxiv.org/abs/2012.06840",
+        "https://doi.org/10.1016/j.jcta.2024.105936",
+        "https://arxiv.org/abs/2509.08503"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2012.06840",
+      "https://arxiv.org/abs/2509.08503",
+      "https://doi.org/10.1016/j.jcta.2024.105936",
+      "https://www.i2m.univ-amu.fr/wiki/Combinatorics-on-Words-seminar/_media/seminar2023:20231010dvorakova.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schaeffer–Shallit Theorem 8 logically implies gamma(P_m) at most ceil(m/2)+1, but the exact equality additionally requires the reverse inequality, which is expressly not claimed.",
+        "Béal–Crochemore–Romana Table 2 gives nonoptimal or potentially nonoptimal greedy attractors; these are upper bounds and do not imply optimality.",
+        "Asymptotic profile bounds from Cassaigne et al. do not dominate the exact coefficient or rounding."
+      ],
+      "reasoning": "Source-by-source implication comparison leaves the exact matching lower bound uncovered. The new proof uses disjoint unique-factor intervals requiring that number of positions, and the extant upper construction closes equality.",
+      "searches": [
+        "String attractor powers of two characteristic sequence exact minimum attractor positions dyadic prefixes n=2^k, counts of minimum attractors",
+        "Greedy string attractor power-of-two characteristic sequence least positions full classification",
+        "Minimal string attractors powers-of-two word indicator dyadic prefixes Schaeffer Shallit 2024",
+        "\"powers of two\" \"string attractor\" lower bound exact gamma",
+        "https://arxiv.org/abs/2012.06840",
+        "https://arxiv.org/abs/2509.08503",
+        "https://doi.org/10.1016/j.jcta.2024.105936",
+        "Exact minimum attractor size for length 2^m prefix of binary characteristic word of powers of two 11010001 is ceil(m/2)+1 by unique factor packing",
+        "Sharp dyadic prefix attractor profile power-of-two positions, non-circular minimum string attractor, parity dependent exact bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schaeffer–Shallit Section 6 explicitly defines the powers-of-two characteristic word and gives two position families in Theorem 8; neither family proves minimality.",
+        "Theorem 8 ends by saying its construction only yields an upper bound and that other techniques are needed for matching lower bounds.",
+        "A dyadic-prefix closed form would imply a lower-bound packing not included in the inspected theorem."
+      ],
+      "reasoning": "Matching the object and even the upper-bound parameters does not amount to earlier proof of the lower inequality. The present necessary disjoint intervals are not an algebraic restatement of the listed upper sets; they certify optimality.",
+      "searches": [
+        "String attractor powers of two characteristic sequence exact minimum attractor positions dyadic prefixes n=2^k, counts of minimum attractors",
+        "Greedy string attractor power-of-two characteristic sequence least positions full classification",
+        "Minimal string attractors powers-of-two word indicator dyadic prefixes Schaeffer Shallit 2024",
+        "\"powers of two\" \"string attractor\" lower bound exact gamma",
+        "\"11010001\" \"string attractor\" minimum",
+        "https://arxiv.org/abs/2012.06840",
+        "Exact minimum attractor size for length 2^m prefix of binary characteristic word of powers of two 11010001 is ceil(m/2)+1 by unique factor packing",
+        "Sharp dyadic prefix attractor profile power-of-two positions, non-circular minimum string attractor, parity dependent exact bound"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Béal–Crochemore–Romana (arXiv:2509.08503v2), Section 5 Table 2, presents greedy sizes 2,3,4,5,... at dyadic prefixes; those are not minimum-size enumerations.",
+        "No directly covering exact attractor table was returned in the targeted literature searches. A nearby exact computational study concerns Rudin–Shapiro and regular paperfolding, not the powers-of-two characteristic word."
+      ],
+      "reasoning": "The current formula predicts minima 2,3,3,4,4,5,... for lengths 4,8,16,32,64,128,...; its difference from a greedy table is material, not just notation. Exhaustive finite checks confirm early values, but numerical matching is not itself a novelty proof.",
+      "searches": [
+        "String attractor powers of two characteristic sequence exact minimum attractor positions dyadic prefixes n=2^k, counts of minimum attractors",
+        "Greedy string attractor power-of-two characteristic sequence least positions full classification",
+        "\"string attractor\" \"powers of 2\" \"optimal\" dyadic minimum",
+        "\"powers of two\" \"string attractor\" lower bound exact gamma",
+        "https://arxiv.org/abs/2509.08503"
+      ]
+    },
+    "rationale": "Exact dyadic minimum is not a consequence of the known published upper-bound witnesses alone. Schaeffer–Shallit Theorem 8 explicitly notes a matching lower bound is missing; the present disjoint uniquely occurring-factor packing supplies it in both parities. Béal–Crochemore–Romana Table 2 reports sizes from a greedy algorithm and not the optimum. Cassaigne et al. study general asymptotics, not this equality. Closest search hits concern other automatic-word families or different invariants, not the exact same-object minimum. Historical priority remains a stated limitation.",
+    "residual_risks": [
+      "Potential unindexed or differently named priority result proving identical sharp dyadic minimum.",
+      "Secondary 2023 seminar slide broadly credits powers-of-two attractor work to 2021; the primary cited text actually provides the upper construction only.",
+      "Published upper construction uses Walnut validation, not independently reconstructed here for all exponents."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact present equality not established; supplies matching upper and explicitly leaves sharp lower proof missing",
+        "evidence": [
+          "Theorem 8(a),(b) on the zero-based positions and their n-ranges",
+          "Section 6 final sentence expressly limits theorem to an upper bound",
+          "The unrelated gap flagged for Theorem 18 in the article metadata does not bear on Theorem 8"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2012.06840",
+        "material_read": "Entire publicly accessible text, with close reading of Section 6, Theorem 8, proof and closing limitation, plus asymptotic Section 8",
+        "method": "Read available primary full-text representation and compare both parity parameter ranges, index origins, quantitative implications and missing lower bound",
+        "title": "String Attractors for Automatic Sequences",
+        "trigger": "Identical powers-of-two characteristic word and explicit theorem-8 attractor sets"
+      },
+      {
+        "assessment": "Greedy counts are noncertifying upper bounds; do not imply exact minimum formula",
+        "evidence": [
+          "arXiv submission history: v1 10 September 2025 and v2 9 October 2026, MSC 68W32",
+          "Section 5 describes powers-of-two characteristic sequence; Table 2 lists greedy output cardinalities"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.08503",
+        "material_read": "Public arXiv v1/v2 full-text HTML sections, especially definitions and Section 5 Table 2",
+        "method": "Compared greedy algorithm guarantee and reported counts with exact mathematical minimum; checked arXiv submission dates and primary MSC",
+        "title": "Checking and producing word attractors",
+        "trigger": "Recent literal same sequence, experimental dyadic prefix table"
+      },
+      {
+        "assessment": "General asymptotic bounds and complexity classes do not give this dyadic equality",
+        "evidence": [
+          "2024 JCTA 208 article DOI 10.1016/j.jcta.2024.105936",
+          "Powers-of-two example concerns growth regime, not this integer exact optimum"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jcta.2024.105936",
+        "material_read": "Accessible open-author version, 28-page paper, including examples and growth-theorem statements",
+        "method": "Compared general asymptotic attractor-profile results and exact object scope against claimed equality",
+        "title": "New string attractor-based complexities for infinite words",
+        "trigger": "Potential general theorem dominating a special automatic-word exact profile"
+      },
+      {
+        "assessment": "Slide wording is coarse and does not supply a purported exact dyadic formula; the primary cited paper explicitly records lack of matching lower bound",
+        "evidence": [
+          "Slide listing credits Schaeffer–Shallit with attractors of powers-of-two prefixes, without an exact count or proof",
+          "Primary Theorem 8 calls its claim an upper bound"
+        ],
+        "identifier_or_url": "https://www.i2m.univ-amu.fr/wiki/Combinatorics-on-Words-seminar/_media/seminar2023:20231010dvorakova.pdf",
+        "material_read": "Pages discussing literature on string attractors, especially slide 9 of 63; publicly indexed PDF text",
+        "method": "Compared brief slide credit with the referenced original Schaeffer–Shallit theorem statement",
+        "title": "String attractors and pseudopalindromic closures (seminar slides)",
+        "trigger": "Seminar slide lists powers-of-two prefixes beside minimum-attractor classifications"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "11d24a70-e5ad-483c-a55f-6a045042a3e4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp minimum attractor profile on dyadic prefixes is the natural exact invariant behind compression-style positions for the canonical automatic characteristic word, and a genuine gap explicitly noted in Schaeffer–Shallit Section 6. The elementary parity-separated unique-factor packing produces an all-order exact answer, in contrast to the 2025/2026 experimental greedy profile. No extension to arbitrary prefix lengths or counting all minimizers is claimed.",
+    "status": "PASS"
+  }
+}
