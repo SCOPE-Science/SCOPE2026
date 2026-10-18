@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For every integer r>=2, binary MSD transitions (u,v,e)->(v+ez,u,z) calculate the number of pair-11 digits from the right; 1100 and 0110 independently increment the two residue coordinates when e=0, all 2r^2 states are reached, and suffixes 00(1100)^t, 00(0110)^t0, and a phase-triggering 1 separate every pair. LSD completed-pair/pending-bit transitions reach 3r states; suffixes (11)^t and 1(11)^t force inconsistent congruences for different phases, and other pairs have direct selectors. Base4 r-state minimization is elementary. The standalone checker independently minimizes all three explicit automata for r=2..9 and compares all outputs with direct counts for n<512 and four padding choices; this finite test is not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Allouche et al., arXiv:2610.03837v1, Lemma 6 proves 2-automaticity from the 4-uniform morphism and Section 3 computes Abelian complexity, not minimal state counts.",
+        "Moradi et al., arXiv:2512.10017v5, introduction, Sections 3 and 4 describe exact automata for arithmetic relations and linear subsequences, a different operation.",
+        "Zantema and Bosma (2020) investigate automatic-sequence complexity, but the inspected sections and term searches contain no assertion of these specific digit-count formulas."
+      ],
+      "reasoning": "General finite-state conversion and minimization algorithms make the quantities computable but do not supply explicit sharp formulas for this input-language family in the examined literature. An undiscovered general theorem specialized to this family remains a residual originality risk.",
+      "searches": [
+        "Exact state complexities radix four and binary msd and lsd for modular count of digits 3; r states 2r squared msd 3r lsd",
+        "Minimal DFAO msd versus lsd for the Allouche Rampersad Rigo Shallit Stipulanti digit-three nonregular abelian complexity counterexample, 18 vs 9",
+        "Regular language count of digit 3 in base 4 divisible by modulus m, exact 2m^2 versus 3m state DFA in binary",
+        "web: state complexity automatic sequences base k and base k power minimal automaton blow up counting digit occurrences blocks",
+        "web: DFAO state complexity base conversion k automatic digit frequency modulo base 4 base 2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.03837v1",
+      "PMC:PMC7206635",
+      "arxiv:2512.10017v5",
+      "record-id:39839f2d9a7f",
+      "claim-id:bdbf07ff-d223-415b-a71a-895f2b74298f",
+      "claim-id:d1c4fe6e-5ab2-4b8b-b10c-89d1ccb30dbd"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Allouche et al. show existence of a 2-DFAO for b_3, but existence gives an upper bound with no matching state-minimality guarantee.",
+        "Zantema and Bosma develop generic minimization and MSD/LSD distinctions, but their examined theorems do not imply the exact modular digit-3 three-convention size law without the new concrete reachability and distinguishability arguments.",
+        "The new proof explicitly constructs r, 2r^2, 3r-state automata and supplies a distinguishing suffix for every pair of states, which is needed for equality."
+      ],
+      "reasoning": "Automaticity in the prior paper logically implies a finite minimal 2-DFAO, not that it has 18 states nor that general moduli have sharp quadratic-versus-linear costs. The arbitrary-modulus and LSD claims are likewise not corollaries of the inspected specific existing statements. General Myhill-Nerode is a standard proof tool, not claimed as a new principle.",
+      "searches": [
+        "arxiv:2610.03837v1 Lemma 3, Lemma 6, Theorem 7",
+        "arxiv:2512.10017v5 state-complexity definitions and inspected main result sections",
+        "PMC:PMC7206635 introduction, exponential-gap section and 2-kernel section",
+        "Exact minimal two-base binary DFAO state count 2r squared for sequence indicator count of digit 3 in base 4 expansion divisible by r; grouped adjacent 11 bits, base conversion",
+        "Minimal deterministic automaton 2r^2 for binary words where number of blocks 11 in nonoverlapping pairs from right is divisible by r"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Allouche et al., arXiv:2610.03837v1, p.3-4, defines b(n)=1 precisely when digit-3 count is 0 modulo 3; this is the r=3 member of the claimed family.",
+        "Zantema and Bosma, Complexity of Automatic Sequences (2020), introduction and Theorem 3, supplies the formal minimal-DFAO view without a modular digit-3 state-count formula."
+      ],
+      "reasoning": "The exact b_3 sequence and the right-aligned binary pair-11 formulation are equivalent, so novelty is not claimed for defining them. The new statement requires three sharp minimal-state counts for all integer moduli. Searched these aliases and parameters directly; no identified published result states or logically dominates the full triple of formulas.",
+      "searches": [
+        "Exact minimal two-base binary DFAO state count 2r squared for sequence indicator count of digit 3 in base 4 expansion divisible by r; grouped adjacent 11 bits, base conversion",
+        "Minimal deterministic automaton 2r^2 for binary words where number of blocks 11 in nonoverlapping pairs from right is divisible by r",
+        "Automatic sequence b(n) of Allouche Rampersad Rigo Shallit Stipulanti 2026, minimal state complexity in base two versus base four",
+        "Base 4 digit count 3 modulo r binary automaton Myhill Nerode quadratic state blowup 2r²",
+        "web: \"base 4\" \"digit 3\" \"modulo\" \"binary\" \"state complexity\" automaton",
+        "web: automata counting disjoint pairs 11 modulo r binary minimal states"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A nearby published research record on automatic odd parts of Thue-Morse powers (record identifier 39839f2d9a7f) concerns a different sequence and 2-adic odd parts.",
+        "A prior claim (identifier bdbf07ff-d223-415b-a71a-895f2b74298f) computes shifted powers-of-two state complexity rather than count-of-digit-3 DFAO complexity.",
+        "No inspected exact table contained the uniform modular digit-3 counts r, 2r^2, 3r."
+      ],
+      "reasoning": "Exact r=3 state counts (3,18,9) and the full parameter law were sought as database and literature phrases. No matching table was identified. This is a negative search result, not evidence that an unindexed table cannot exist.",
+      "searches": [
+        "Exact minimal two-base binary DFAO state count 2r squared for sequence indicator count of digit 3 in base 4 expansion divisible by r; grouped adjacent 11 bits, base conversion",
+        "Minimal deterministic automaton 2r^2 for binary words where number of blocks 11 in nonoverlapping pairs from right is divisible by r",
+        "Minimal DFAO msd versus lsd for the Allouche Rampersad Rigo Shallit Stipulanti digit-three nonregular abelian complexity counterexample, 18 vs 9",
+        "web: \"base 4\" \"digit 3\" \"modulo\" \"binary\" \"state complexity\" automaton"
+      ]
+    },
+    "rationale": "The first-public 2026 source specifies b_3 and its 2-automaticity and nonregular Abelian complexity but gives no minimal-state counts. Earlier state-complexity references treat generic DFAO representations or other operations, and targeted published-finding corpus, previous-claim, and web comparisons identified no statement implying the three exact formulas for all moduli. The novelty claim is restricted to the sharp three-convention family, not the sequence, automaton theory, or binary/base-four convertibility.",
+    "residual_risks": [
+      "Earlier papers on counting aligned binary blocks modulo an integer may encode equivalent minimized DFAs without using the phrase base-four digit 3.",
+      "Generic radix-change formulas not identified by searches could imply a special-case count; distinct-numeration and related main sources examined but not every textbook or conference paper.",
+      "No independent scientific audit has yet checked the proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines r=3 indicator and proves 2-automaticity and nonregular Abelian complexity; no exact r,2r^2,3r automaton-state classification in examined content.",
+        "evidence": [
+          "arXiv PDF pages 2-4 definition s(n), b(n), Lemma 6, Theorem 7",
+          "arXiv PDF pages 5-10 Abelian-complexity computations and proof"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.03837",
+        "material_read": "Entire 12-page preprint retrieved; examined introduction, sequence definition and morphism/Lemmas 3-6, Proposition 8, proof of Theorem 7 and concluding references, with page views for primary formula passages.",
+        "method": "Full-text web PDF line and page inspection",
+        "title": "An example of an automatic sequence with non-regular abelian complexity",
+        "trigger": "Same b_3(n) object and original 2-automaticity claim"
+      },
+      {
+        "assessment": "The examined propositions concern abstract state complexities and generic constructions, not the base-four modular digit-three indicator family.",
+        "evidence": [
+          "Introduction discusses distinct MSD and LSD state complexities and effects of sequence operations",
+          "Theorem 1 and Theorem 3 concern general representation and minimality"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7206635/",
+        "material_read": "Open full-text article abstract, introduction, definitions, exponential-gap section and k-kernel/minimality sections; searched within full text for base 4 and digit 3.",
+        "method": "PMC HTML textual inspection and full-document term searches",
+        "title": "Complexity of Automatic Sequences",
+        "trigger": "General MSD/LSD minimal DFAO comparisons might subsume exact results"
+      },
+      {
+        "assessment": "Studies arithmetic relations, shifts, and linear subsequences; no identified modular digit-three automaton minima. Searches alone do not certify absence of any implicit relevant theorem.",
+        "evidence": [
+          "PDF pp.1-3 scope, MSD/LSD conventions, main topics",
+          "Full-text term searches returned no base-4 or digit-3 match"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2512.10017",
+        "material_read": "PDF introduction and definitions, section map and state-complexity main statement spans, plus entire-PDF searches for base 4 and digit 3.",
+        "method": "Full-text searchable PDF inspection of relevant passages and terms",
+        "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+        "trigger": "Recent exact state-complexity paper by related authors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4eeb5b45-ac2e-4513-834d-505bec7eb28a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recently introduced automatic sequence b_3 is a central counterexample in Abelian complexity; determining its exact binary MSD/LSD and quaternary MSD automaton size measures the concrete representation cost of that new object. The uniform all-moduli result exhibits a sharp family-wide 2r^2 versus 3r reading-order gap and exact r-state base-four optimum, supplying a motivated infinite classification and minimal automata rather than a tiny table. It does not claim a new abelian-complexity theorem or general radix-change optimality.",
+    "status": "PASS"
+  }
+}
