@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact homogeneous equation is independently checked to be smooth. The involution \(X\mapsto-X\) produces the quotient \(Y^2=-T(T+1)(T+2)\), which translates to the \(j=1728\) elliptic curve. Its fixed divisor has four distinct points. For a projective transformation fixing \(p\), coefficient comparison eliminates all \(X\)-shears and reduces the stabilizer to simultaneous isometries of \(T^2+Z^2\) preserving \(TZ(T+Z)(T+2Z)\); the exact Gröbner basis leaves only \(\pm I\), hence the marked stabilizer is \(C_2\).
+## correctness
 
-## Originality
-PASS. The lead source gives the curve, smoothness, and the four concurrent ordinary bitangents, but the inspected full text does not state the plane-quartic quotient, \(j\)-invariant, or marked projective stabilizer. Exact-equation, bielliptic, automorphism, stabilizer, and quotient searches found no statement covering the accepted claim. General bielliptic-quartic literature is broader but does not imply this specialization.
+PASS
 
-## Value
-PASS. Four concurrent bitangents are extremal in the source's theorem, so the distinguished concurrence point is not an arbitrary mark. The result explains hidden structure in that extremal example: a visible bielliptic involution, a CM elliptic quotient with \(j=1728\), and exact marked isotropy. This links the explicit bitangent parameters to intrinsic genus-three geometry rather than merely recomputing the displayed bitangent list.
+Evenness in X gives a nontrivial involution. Setting Y=X²+T²+1 on Z=1 yields quotient function field Y²=−T(T+1)(T+2). Translation s=T+1 yields s−s³, genus one with distinct cubic roots and j=1728. The projective fixed locus contains plane X=0 plus [1:0:0], but p is not on the quartic; fixed-plane section has polynomial T^4+T^3+5T²+2T+1 with discriminant 4257≠0 and hence four distinct points, consistent with RH genus 3→1. For any PGL transformation fixing p, matrix block upper triangular; X³ terms force shear b=c=0 and X² and constant coefficients reduce to q(Nv)=q(v) and r(Nv)=r(v). An independently recomputed exact Gröbner basis is {u−s,v,w,s²−1}, proving N=±I and marked stabilizer exactly C2. Independent patch Jacobian ideals establish smoothness over C. This does NOT assert full unmarked automorphism group.
 
-Closest literature: Bannai--Tokunaga--Yorisaki provide the extremal example; Badr--Bars provide general bielliptic plane-quartic automorphism strata. The main residual originality risk is an older equivalent calculation in different coordinates. The complete unmarked automorphism group is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full Bannai–Tokunaga–Yorisaki source supplies this exact quartic, four concurrent bitangents and related ambient elliptic surface; its inspected Example 6.1 does not identify the plane-quartic quotient E or j=1728 or exact marked PGL stabilizer. Bielliptic-quartic general theory permits involutions but does not compute this marked example from its equation.
+
+## value
+
+PASS
+
+The four concurrent bitangents give a geometrically distinguished nonarbitrary mark in an extremal family. The explicit CM quotient and exact marked symmetry group reveal the arithmetic/geometric structure behind that extremal presentation, beyond merely recounting its bitangents. Exact stabilizer proof is the substantive additional invariant, not the mere observation that an even polynomial is invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
