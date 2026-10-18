@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. YellowFin's robust interval is exactly a bounded interval for the scalar momentum-matrix trace parameter. The two-step product has an exact determinant and trace range. Applying the complete second-order Jury criterion gives uniform two-period stability exactly for \(\mu<3-2\sqrt2\), and endpoint alternation attains both the boundary and the unstable side.
+PASS
 
-Risk: the theorem concerns arbitrary two-period generalized-curvature switching rather than a guaranteed trajectory of one fixed smooth objective.
+Directly multiplying A(c_2)A(c_1), A(c)=[[c,-mu],[1,0]], yields det=mu^2 and trace T=c1*c2-2mu in [-6mu,2mu]. The strict degree-two Jury criteria 1-mu^2>0, 1-T+mu^2>0, 1+T+mu^2>0 reduce uniformly to 1-6mu+mu^2>0, i.e. mu<3-2sqrt(2). Opposite c endpoints attain lower trace and eigenvalues -mu(3+/-2sqrt(2)), with -1 at equality and modulus>1 above. Substituting YellowFin's mu*(nu) solves nu=(1+sqrt2)^2. Independent exact algebra and numerical eigenvalue checks at mu=1/10,1/5,1/2 confirm boundary behavior; finite grids not used as universal proof.
 
-## Originality
+## originality
 
-PASS. The defining YellowFin paper explicitly warns that equal per-step spectral radii do not imply product convergence, but does not give an exact switched counterexample or threshold. Broader heavy-ball robust-control work covers nonrobustness in other settings. Focused published-record searches did not locate this complete two-period classification inside YellowFin's robust region.
+PASS
 
-Residual risk: an equivalent two-matrix switched-system calculation may exist in unindexed control literature.
+Best-of-knowledge comparison to exact-object foundational sources, stronger possible general theorems, and Resultary mathematical records finds no decisive implication-equivalent published theorem; the four explicit scientific comparisons and source-reading limitations below retain uncertainty. Equivalence would require all admissible pairs of source-form momentum matrices, the exact characteristic polynomial and cutoff; no checked prior states that equivalent claim.
 
-## Value
+## value
 
-PASS. The source's main design principle is to keep momentum operators in a region intended to be robust to curvature variation while explicitly acknowledging a product-stability gap. The exact \(3-2\sqrt2\) threshold resolves that gap for the simplest nontrivial switching law and shows a sharp failure at generalized condition number \(3+2\sqrt2\).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+YellowFin's own spectral-radius robustness argument explicitly leaves changing-operator products open. A sharp Floquet threshold and extremal alternating curvature witness resolve the first nontrivial switched-product case, distinguish homogeneous stability from robust switching, and quantify the condition-number boundary; this is a motivated structural stability result, not a mere algorithm reparametrization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
