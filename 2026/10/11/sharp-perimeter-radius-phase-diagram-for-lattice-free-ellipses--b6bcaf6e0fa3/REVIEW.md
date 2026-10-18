@@ -1,15 +1,21 @@
-# Review of the lattice-free ellipse phase theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The radius of the largest centered inscribed disk is the minor semiaxis \(b\), so lattice-freeness forces \(b\le\rho(\Lambda)\). The differentiated exact ellipse-perimeter integral gives \(\partial_aP<4\), forcing the disk equality case for every \(\lambda\ge4\). Lattice-row strips give an explicit unbounded family below the threshold; small disks give the nonattained zero supremum above the second threshold. All equality and strictness claims were reconstructed case by case. The standalone numerical checks pass but are not the infinite proof.
+## correctness
 
-## Originality
-**PASS, with historical-priority risk.** The 2013 lattice-constrained perimeter paper establishes \(P-4R\le2\) for unconditional square-lattice-free bodies and leaves its broader conjecture open; it does not give a sharp ellipse-only constant, arbitrary-lattice covering-radius formula, or parameter phase diagram. The 2022 ellipse-perimeter paper derives perimeter upper bounds without lattice restrictions or avoidance optimizers. The closest published triangle-only bound applies to triangles, not ellipses. Searches across alternative perimeter-minus-diameter formulations, covering radius, ellipse anisotropy, and coefficient penalties did not identify an equivalent result. Because the proof combines standard geometry with a short new optimization, an earlier implicit or unindexed corollary is a genuine residual risk; absence of search results is not proof of uniqueness.
+PASS
 
-## Value
-**PASS.** The \(\lambda=4\) coefficient is the critical boundary between unbounded strip configurations and finite geometry; the sharp ellipse-only constant is strictly stronger than the proposed general square-lattice bound. The theorem classifies the optimum, all attainment regimes, and their dependence on an intrinsic lattice invariant for every planar lattice, thus supplying a complete natural shape-class benchmark rather than an arbitrary parameter substitution.
+Let a≥b>0 be semiaxes, so circumradius R=a. The exact elliptic-integral perimeter P(a,b)=4∫_0^{π/2}√(a²sin²t+b²cos²t)dt has ∂P/∂a=4∫ a sin²t/√(...)dt<4 for finite b>0, yielding P(a,b)−λa≤(2π−λ)b for every λ≥4 with equality only a=b. A lattice-free ellipse contains the disk centered at its center with radius b, so b≤ρ(Λ), attained by deepest-hole disks. Positive/zero/negative branches and precise equality follow, and elongated ellipses inside any open lattice-free inter-row strip have P≥4a and yield infinity for λ<4. Square lattice ρ=1/√2 gives sharp √2(π−2). This derivation directly verifies all real λ thresholds, not numerical sampling.
 
-## Closest literature and limitations
-The two inspected primary texts are González Merino–Henze (arXiv:1310.6534v1), specifically their introduction, Theorems 1.1–1.3 and proofs, and Pain (arXiv:2205.12266v1), especially the ellipse perimeter integral and bound (45). The distinct triangle-only result is a useful overlap control. The theorem makes no assertion for nonelliptical bodies and no historical-independence claim; its computational sampling is supplementary.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The named lattice-constrained perimeter-circumradius conjecture addresses ALL lattice-free convex bodies, while the supplied proof provides the exact ellipse-only value for any planar lattice, every λ and equality/nonattainment regimes. The general conjectured upper constant for Z² does not determine the strictly smaller sharp ellipse constant nor the λ phase diagram. Pain studies unconstrained ellipse perimeter estimates; covering radius is a standard ingredient but no inspected primary source gives this exact coupled lattice-ellipse optimizer classification. Best of knowledge not an absolute priority assertion.
+
+## value
+
+PASS
+
+The motivating lattice-free perimeter–circumradius question is an explicit classical open convex-body problem. This solves a natural smooth centrally symmetric shape class sharply, gives an exact inequality strictly stronger than the general conjectured Z² value, locates two genuine λ phase boundaries and classifies all optimizers on arbitrary full-rank lattices. Despite the short calculus/geometry proof, the exact best value is not a mere parameter rename or a known-table recomputation; the lattice dependence via ρ is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

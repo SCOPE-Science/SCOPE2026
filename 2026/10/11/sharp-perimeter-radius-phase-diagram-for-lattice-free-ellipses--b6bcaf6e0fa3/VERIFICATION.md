@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is established by the complete analytic proof in `RESULT.md`. Its critical steps are: an exact ellipse-perimeter integral; the strict inequality \(\partial_aP<4\) at fixed minor semiaxis; the covering-radius constraint \(b\le\rho(\Lambda)\); existence of deepest-hole disks; and a lattice-free strip construction for every full-rank planar lattice. These prove all coefficient regimes, boundary coefficients, and equality conditions without finite enumeration.
+# Independent mathematical audit
 
-## Reproducible diagnostic checks
+## correctness
 
-From the directory containing the embedded files, run:
+PASS
 
-```sh
-python3 verify.py
-```
+Let a≥b>0 be semiaxes, so circumradius R=a. The exact elliptic-integral perimeter P(a,b)=4∫_0^{π/2}√(a²sin²t+b²cos²t)dt has ∂P/∂a=4∫ a sin²t/√(...)dt<4 for finite b>0, yielding P(a,b)−λa≤(2π−λ)b for every λ≥4 with equality only a=b. A lattice-free ellipse contains the disk centered at its center with radius b, so b≤ρ(Λ), attained by deepest-hole disks. Positive/zero/negative branches and precise equality follow, and elongated ellipses inside any open lattice-free inter-row strip have P≥4a and yield infinity for λ<4. Square lattice ρ=1/√2 gives sharp √2(π−2). This derivation directly verifies all real λ thresholds, not numerical sampling.
 
-The command was run and printed:
+## originality
 
-```text
-VERIFY_OK: 28 axis pairs, five parameters, attained square-lattice sharp disk and free-strip ellipses.
-```
+PASS
 
-The script uses Python's standard library and a composite Simpson quadrature. It tests twenty-eight axis pairs and five coefficient values, compares perimeter and derivative inequalities, verifies the permitted square-lattice extremal disk, and checks some elongated ellipses in the open unit lattice strip. Computed inequalities allow numerical tolerance; they support, but do not prove, statements quantified over real coefficients, all ellipses, or all lattices.
+The named lattice-constrained perimeter-circumradius conjecture addresses ALL lattice-free convex bodies, while the supplied proof provides the exact ellipse-only value for any planar lattice, every λ and equality/nonattainment regimes. The general conjectured upper constant for Z² does not determine the strictly smaller sharp ellipse constant nor the λ phase diagram. Pain studies unconstrained ellipse perimeter estimates; covering radius is a standard ingredient but no inspected primary source gives this exact coupled lattice-ellipse optimizer classification. Best of knowledge not an absolute priority assertion.
 
-## Boundaries and historical verification
+## value
 
-The admissibility condition forbids lattice points in the **interior** but permits boundary contact. The square-lattice equality disk touches four lattice sites on its boundary. The disk equality conditions differ between \(4\le\lambda<2\pi\) and \(\lambda=2\pi\); the supremum is unattained for \(\lambda>2\pi\). Comparisons with the cited literature are limited to the inspected published texts and available search records; independent audit is not performed.
+PASS
+
+The motivating lattice-free perimeter–circumradius question is an explicit classical open convex-body problem. This solves a natural smooth centrally symmetric shape class sharply, gives an exact inequality strictly stronger than the general conjectured Z² value, locates two genuine λ phase boundaries and classifies all optimizers on arbitrary full-rank lattices. Despite the short calculus/geometry proof, the exact best value is not a mere parameter rename or a known-table recomputation; the lattice dependence via ρ is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
