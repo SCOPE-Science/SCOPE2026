@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T08:14:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For binary strategies S in {0,1,2,3}, (S/3)^gamma converges uniformly to 1_{S=3}=s_i s_j s_k; the exact maximum discrepancy is (2/3)^gamma. Normalized game payoff discrepancy is at most B=3 alpha r q_*(2/3)^gamma. Payoff-gap perturbations are <=2B; the Fermi response is 1/4-Lipschitz; the one-step imitation-plus-mutation kernel perturbation in total variation is <=B/2, capped by 1. Telescoping gives fixed-time bound tB/2; irreducibility/aperiodicity at 0<mu<1 on finite graph gives unique stationary distributions which converge by finite-dimensional continuity. Assumptions fixed finite hypergraph with nonempty game/model-player sets. Inspected verifier checks 8 triad states and a 3-person kernel; those experiments are not needed for the uniform analytic bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original model gives all normalized payoffs, selection updates, mutation, and strict product separately.",
+          "Uniform convergence of finite-state transition matrices with a uniquely ergodic limit yields convergence of stationary measures."
+        ],
+        "reasoning": "Together the explicit published model plus textbook finite-chain continuity dominates the complete stated endpoint theorem and its stochastic corollaries.",
+        "searches": [
+          "Tang–Rao DOI:10.3390/axioms15080617",
+          "standard finite-state Markov chain perturbation and logistic derivative bound"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/axioms15080617",
+        "DOI:10.1103/PhysRevLett.132.167401",
+        "DOI:10.1103/54zg-75zk",
+        "Git tree 0c8170a90e7557e62be2fc0bee0ca1435c0a2148"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Power-law payoff and strict product are both explicitly defined in the original article.",
+          "Derivative |F prime|<=1/4 and finite ergodic-chain perturbation suffice for the quantitative TV and stationary parts."
+        ],
+        "reasoning": "Original mathematical conclusion is a routine algebraic-limit and perturbation corollary of stronger already-known model and general results; no residual unentailed finding.",
+        "searches": [
+          "Tang–Rao Axioms 2026 Sections 2 and 6",
+          "classical Lipschitz logistic map and finite-state stationary continuity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published binary power-law term is 3 alpha r(S/3)^gamma and published Section 6 strict product term is 3 alpha r s_i s_j s_k.",
+          "The exact identity lim_{gamma to infinity}(S/3)^gamma=s_i s_j s_k holds for all eight binary triads."
+        ],
+        "reasoning": "The apparently different payoff is mathematically in the closure of the same source-defined one-parameter family without an additional theorem.",
+        "searches": [
+          "three-player public goods power law collective returns gamma infinity strict product payoff stochastic Fermi mutation bound",
+          "Tang–Rao 2026 Axioms 15(8) 617 Sections 2,6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A database of discrete payoff states is not needed: there are exactly S=0,1,2,3 possible cooperative counts.",
+          "The published formulas already determine all eight payoff comparisons by substitution."
+        ],
+        "reasoning": "No new natural finite invariant or previously unknown exact table results; direct four-case evaluation supplies the entire fact.",
+        "searches": [
+          "Tang–Rao 2026 Section 6 equations",
+          "Resultary query: three-player public goods power law collective returns gamma infinity strict product payoff stochastic Fermi mutation bound"
+        ]
+      },
+      "rationale": "The originating 2026 Tang–Rao paper itself writes both the power-law and strict-product formulas for the exact same binary triads. The endpoint identity follows immediately by substituting S=0,1,2,3; its stated kernel/stationary convergence is a routine consequence of the derivative bound for logistic imitation and standard finite Markov-chain continuity. No independently unentailed mathematical theorem is supplied. The article does not explicitly call the product rule a gamma-infinity endpoint, but lack of wording does not make a direct corollary original.",
+      "residual_risks": [
+        "An interpretive note about experimental robustness may still be useful in a non-research venue; that does not supply a new mathematical theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IMPLIES_LIMIT_BY_ELEMENTARY_SPECIALIZATION",
+          "evidence": "Section 6 calls the strict product a different social mechanism; equations nonetheless make it the gamma->infinity binary power-law endpoint.",
+          "identifier_or_url": "https://www.mdpi.com/2075-1680/15/8/617",
+          "material_read": "Full accessible HTML, especially Section 2 normalized payoff and imitation/mutation rule and Section 6 strict-product robustness test",
+          "method": "Publisher full-text HTML",
+          "title": "Curvature of Collective Returns Reshapes the Cooperation Transitions in Higher-Order Public Goods Games",
+          "trigger": "Same full model and exact two payoffs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The observation clarifies what the original robustness experiment actually tests, but the exact limiting identity is a one-line elementary normalization of formulas already printed side by side, and the total-variation bound/stationary convergence are standard finite-state perturbation exercises. No nonstandard structural, sharp threshold, new model classification or deeper mathematical obstruction is identified. Interpretive utility alone does not meet this audit’s substantive mathematical-value bar.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.3390/axioms15080617",
+    "DOI:10.1103/PhysRevLett.132.167401",
+    "DOI:10.1103/54zg-75zk",
+    "Git tree 0c8170a90e7557e62be2fc0bee0ca1435c0a2148"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Finite fixed N and 0<mu<1; no large-population gamma interchange or phase-transition proof.",
+    "Mathematical rejection concerns lack of independent originality/value, not correctness or the real practical relevance of the source’s numerical observations."
+  ],
+  "schema_version": 1
+}
