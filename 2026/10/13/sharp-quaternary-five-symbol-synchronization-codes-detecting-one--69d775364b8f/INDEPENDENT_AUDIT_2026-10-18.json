@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T06:06:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The explicit parity-lift 32-word construction has only two unbordered binary support patterns 00011 and 00101; changing the pattern flips two coordinates, while a single within-pattern change forces the parity fifth-symbol change, so pairwise Hamming distance>=2. Normalize the first-letter set A and disjoint last-letter set B by relabeling/reversal to |A|=1,2. For both, the complete self-unbordered conflict-graph vertex sets of sizes 180 and 240 are certified by 32 cliques each; every pair within each clique conflicts by a proper overlap or Hamming distance<=1, and all vertices are covered. Fresh independent direct audit of the bundled exact certificate verified all 180/240 vertex identities, the clique pair conflicts and full coverage, plus 32 lower words and all 496 unordered pairs. Thus an independent set has <=32 vertices universally, not merely from solver status. Single-template bound min(l^4,l^3(4-l))<=27 with equality by mod-3 checksum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical bounds and construction schemes do not establish the exact 32 upper bound in inspected accessible materials; related 2025 full article was inaccessible/mismatched."
+        ],
+        "reasoning": "A general family could dominate an exact small-parameter bound, but the specific 32 exact code size was not derived from these sources without a new clique-cover witness.",
+        "searches": [
+          "quaternary length 5 non-overlapping code min Hamming distance 2 maximum 32 comma-free error detecting",
+          "Blackburn arXiv:1303.1026",
+          "Stanovnik Moskon Mraz 2024 DOI 10.1007/s10623-023-01344-z",
+          "Wang Fang Feng 2025 DOI 10.1016/j.disc.2024.114236"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE RESULT.md blob 741d130ef15fb027fc8f961351c32a7f84acbb07",
+        "SCOPE exact upper_certificate.json blob d6861553923a896c08eca0e9cb97382525c10680",
+        "SCOPE artifacts/verify.py and verify_independent.py actual Git blobs",
+        "Blackburn arXiv:1303.1026",
+        "Levy Yaakobi arXiv:1804.05371",
+        "Stanovnik Moskon Mraz 2024",
+        "Resultary published 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+        "Resultary query quaternary length 5 non-overlapping code min Hamming distance 2 maximum 32 comma-free error detecting"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior template bound d_H>=2 is at most 27, strictly below 32; unrestricted maximum 81 supplies no opposite inequality."
+        ],
+        "reasoning": "The submitted construction and complete normalized conflict-graph clique-cover certificate are needed for exact equality.",
+        "searches": [
+          "quaternary length 5 non-overlapping code min Hamming distance 2 maximum 32 comma-free error detecting",
+          "Blackburn arXiv:1303.1026",
+          "Levy Yaakobi arXiv:1804.05371",
+          "published Resultary length-five optimum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published unrestricted length-five 4-ary maximum 81 does not include minimum-distance-two restriction; the explicit 32-word set satisfies both constraints."
+        ],
+        "reasoning": "The Hamming-constrained independence problem is mathematically distinct from unrestricted non-overlap and its maximum 81.",
+        "searches": [
+          "quaternary length 5 non-overlapping code min Hamming distance 2 maximum 32 comma-free error detecting",
+          "Resultary published 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+          "Levy Yaakobi arXiv:1804.05371"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previously published exact table concerns S(4,5)=81 without a Hamming distance condition; not the 32 constrained maximum."
+        ],
+        "reasoning": "The relevant exact-table disambiguation is explicit: 81 is unrestricted, 32 is with d_H>=2; no matching 32 restricted table was found.",
+        "searches": [
+          "quaternary length 5 non-overlapping code min Hamming distance 2 maximum 32 comma-free error detecting",
+          "Resultary 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a"
+        ]
+      },
+      "rationale": "Blackburn 2013, Levy and Yaakobi 2018, Stanovnik et al 2024 establish non-overlap constructions and unrestricted optima, not the simultaneous exact q=4,n=5,d_H>=2 optimum in the examined relevant results. Published Resultary earlier length-five classification asserts unrestricted max 81, with optimizers I^4J, which cannot be used as distance-constrained classification. Closely relevant Wang/Fang/Feng 2025 restricted-overlap paper could not be read: authorized PDF extraction returned a different 2019 article and cannot be counted as coverage exclusion. Best-of-knowledge PASS with significant residual historical-priority risk.",
+      "residual_risks": [
+        "The Wang/Fang/Feng 2025 paper is highly relevant, and the authorized downloaded file was a different unrelated 2019 article; potential direct prior coverage remains unexcluded.",
+        "All parameters other than alphabet four, length five, detection distance two are outside the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unrestricted q=4,n=5 maximum 81, not constrained minimum-distance-two optimum",
+          "evidence": "S(q,5)=max_l l^4(q-l) for q>=4; all unrestricted maxima are Blackburn templates",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+          "material_read": "Published finding title, summary, repository file inventory and stated unrestricted optimum and optimizer family",
+          "method": "Resultary semantic result and GitHub repository evidence",
+          "title": "Exact size and enumeration of maximum length-five non-overlapping codes",
+          "trigger": "Directly same alphabet and length, exact table"
+        },
+        {
+          "assessment": "Unrestricted length-five code family, not a sharp Hamming-distance-two result in inspected material",
+          "evidence": "No min Hamming 2 constraint in the compared optimization",
+          "identifier_or_url": "doi:10.1007/s10623-023-01344-z",
+          "material_read": "Published abstract and article scope, unrestricted code characterization",
+          "method": "Publisher/OA source comparison",
+          "title": "In search of maximum non-overlapping codes",
+          "trigger": "Relevant maximal length-five non-overlap"
+        },
+        {
+          "assessment": "Coverage unresolved as risk, not asserted absent from full text",
+          "evidence": "Retrieved wrong title/DOI 10.1016/j.dam.2019.01.035",
+          "identifier_or_url": "doi:10.1016/j.disc.2024.114236",
+          "material_read": "Publisher-accessible metadata only; authorized PDF attempt returned unrelated Cao-Jin-Lin 2019 inversion-sequences paper and was NOT treated as reading Wang et al.",
+          "method": "Publisher metadata plus verified Oxford retrieval mismatch",
+          "title": "q-ary (1,k)-overlap-free codes with given restrictions",
+          "trigger": "Potential broad restricted-overlap paper"
+        },
+        {
+          "assessment": "General nonoverlap bounds are prior; strict 27-template subcode bound follows elementary puncturing and does not equal 32",
+          "evidence": "Blackburn I^4J family yields at most 27 distance-2 codewords",
+          "identifier_or_url": "https://arxiv.org/abs/1303.1026",
+          "material_read": "Accessible general construction and upper-bound descriptions",
+          "method": "Open preprint background and result comparison",
+          "title": "Non-Overlapping Codes",
+          "trigger": "Fundamental constructions and single-template comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural small exact coding-theoretic extremal invariant with an independently checkable exhaustive upper-bound certificate; optimal size 32 separates mixed-template error detection from the 27-word traditional single-template ceiling, useful for exact finite synchronization code design.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE RESULT.md blob 741d130ef15fb027fc8f961351c32a7f84acbb07",
+    "SCOPE exact upper_certificate.json blob d6861553923a896c08eca0e9cb97382525c10680",
+    "SCOPE artifacts/verify.py and verify_independent.py actual Git blobs",
+    "Blackburn arXiv:1303.1026",
+    "Levy Yaakobi arXiv:1804.05371",
+    "Stanovnik Moskon Mraz 2024",
+    "Resultary published 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+    "Resultary query quaternary length 5 non-overlapping code min Hamming distance 2 maximum 32 comma-free error detecting"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The Wang/Fang/Feng 2025 paper is highly relevant, and the authorized downloaded file was a different unrelated 2019 article; potential direct prior coverage remains unexcluded.",
+    "All parameters other than alphabet four, length five, detection distance two are outside the claim."
+  ],
+  "residual_risks": [
+    "The Wang/Fang/Feng 2025 paper is highly relevant, and the authorized downloaded file was a different unrelated 2019 article; potential direct prior coverage remains unexcluded.",
+    "All parameters other than alphabet four, length five, detection distance two are outside the claim."
+  ],
+  "schema_version": 1
+}

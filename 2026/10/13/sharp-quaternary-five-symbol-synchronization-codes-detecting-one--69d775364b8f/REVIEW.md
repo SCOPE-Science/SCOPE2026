@@ -1,19 +1,21 @@
-# Scientific review: exact quaternary synchronization and substitution detection
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every admissible four-symbol length-five code, length-one overlap exclusion separates its possible first and last symbols. Reversal and relabeling reduce the problem to two exhaustive candidate sets of \(180\) and \(240\) self-unbordered words. Each has a fully bundled \(32\)-clique cover in the graph of forbidden codeword pairs. Two separately written, executed verifiers reconstruct the candidate sets and validate every graph edge used in the covers. A fully explicit \(32\)-word parity construction is checked directly, giving matching bounds. The argument is finite and exhaustive for the stated domain; it neither extrapolates from sampling nor relies on a solver outcome without a checked certificate.
+PASS
 
-## Originality — PASS, subject to documented bibliographic risk
+The explicit parity-lift 32-word construction has only two unbordered binary support patterns 00011 and 00101; changing the pattern flips two coordinates, while a single within-pattern change forces the parity fifth-symbol change, so pairwise Hamming distance>=2. Normalize the first-letter set A and disjoint last-letter set B by relabeling/reversal to |A|=1,2. For both, the complete self-unbordered conflict-graph vertex sets of sizes 180 and 240 are certified by 32 cliques each; every pair within each clique conflicts by a proper overlap or Hamming distance<=1, and all vertices are covered. Fresh independent direct audit of the bundled exact certificate verified all 180/240 vertex identities, the clique pair conflicts and full coverage, plus 32 lower words and all 496 unordered pairs. Thus an independent set has <=32 vertices universally, not merely from solver status. Single-template bound min(l^4,l^3(4-l))<=27 with equality by mod-3 checksum.
 
-Blackburn's non-overlapping-code bounds, Levy–Yaakobi's error-detecting mutually uncorrelated-code framework, and the Stanovnik–Moškon–Mraz length-five unrestricted maximum do not state or logically imply the sharp \(32\)-word Hamming-constrained optimum. A published exact length-five **unrestricted** classification gives \(81\) words over four symbols, not the requested minimum Hamming distance. The constrained Gilbert–Varshamov bounds described by Wang–Fang–Feng also do not visibly give this exact value; however, their full paper was unavailable for complete inspection, so an equivalent hidden result cannot be ruled out. Targeted public literature and mathematical-record searches revealed no complete equivalent classification. The binary-template idea is pre-existing; novelty is confined to sharp attainment, the complete upper certificate, and the strict \(32>27\) single-template separation.
+## originality
 
-## Value — PASS
+PASS
 
-A four-symbol alphabet naturally models DNA encodings, and reliable detection of a substitution alongside word-boundary synchronization is an established joint constraint. The exact maximum \(32\) settles a natural small-parameter optimization without adding artificial restrictions. The proof also shows that an extremal design must go beyond any one Blackburn \(I^4J\) template: the best such restricted code has \(27\) words. This is a structural design distinction, not a renamed version of the unrestricted maximum.
+Blackburn 2013, Levy and Yaakobi 2018, Stanovnik et al 2024 establish non-overlap constructions and unrestricted optima, not the simultaneous exact q=4,n=5,d_H>=2 optimum in the examined relevant results. Published Resultary earlier length-five classification asserts unrestricted max 81, with optimizers I^4J, which cannot be used as distance-constrained classification. Closely relevant Wang/Fang/Feng 2025 restricted-overlap paper could not be read: authorized PDF extraction returned a different 2019 article and cannot be counted as coverage exclusion. Best-of-knowledge PASS with significant residual historical-priority risk.
 
-## Closest literature and limitations
+## value
 
-The closest primary works are Blackburn (2013), Levy–Yaakobi (2018), Stanovnik–Moškon–Mraz (2024), and Wang–Fang–Feng (2025). The result is an exact finite bound for one triple of parameters and does not classify every optimizer, generalize to other distances or lengths, or provide an independent external audit. The complete unavailable full text of the last paper and unindexed numerical coding tables remain residual originality risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural small exact coding-theoretic extremal invariant with an independently checkable exhaustive upper-bound certificate; optimal size 32 separates mixed-template error detection from the 27-word traditional single-template ceiling, useful for exact finite synchronization code design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
