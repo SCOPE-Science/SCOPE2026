@@ -1,18 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses three generator identities valid for compactly supported invariant measures inside the strict positive region: stationarity of \(Y\), stationarity of \(Y^2/2\), and stationarity of \(\log X\). These give \(n\bar Y+\bar X=m\), \(\operatorname{Cov}(X,Y)=-n\operatorname{Var}(Y)\), and the exact finite-amplitude mean–variance law. Factoring the endemic-equilibrium quadratic gives the variance-gap shell. The equality case is rigid because simultaneous zero variance in \(X\) and \(Y\) makes the invariant measure an equilibrium atom. The packaged symbolic checker reproduces the algebra and the exact source-example roots.
+## correctness
 
-Risk: the invariant-measure argument requires support compactly contained in \(X>0\); it does not cover measures charging the infection-free boundary.
+PASS
 
-## Originality
-PASS. The complete Zeng–Yu source was inspected at the model, equilibrium, Hopf, and numerical-example sections. It develops the bifurcation diagram and limit cycles but does not state a stationary mean–variance identity, a factorized variance gap, or a finite-amplitude mean trap between endemic infective coordinates. Searches using the exact vector field, nonlinear-incidence terminology, periodic-orbit averages, invariant measures, variance defects, and the two-endemic-equilibrium formulation returned no statement implying the claim. The closest indexed research records concern unrelated epidemic, Rössler, or generic recurrence systems.
+For compact stationary measures contained in 0<X<Y<m/n, the invariant generators of Y, Y²/2 and log X yield n meanY+meanX=m, Cov(X,Y)=-n Var(Y), and E[(1+εX)(Y-X)]=(n+1)/k. Algebra gives (m-(n+1)meanX)(1+ε meanX)/n=(n+1)/k+ε[Var(X)+nVar(Y)]. The equilibrium quadratic has leading coefficient -ε(n+1)/n, so if its two distinct physical roots x_-<x_+, factorization gives Var(X)+nVar(Y)=(n+1)/n(x_+-meanX)(meanX-x_-). Both variances zero only for an equilibrium atom, making the mean bounds strict for non-Dirac measures. Independent SymPy rational expansion for m=2,n=1/3,ε=5/4,k=41/200 gave polynomial -(1230x²-861x+124)/246 and exact roots 7/20±sqrt(131241)/2460 (0.202734960462713...,0.497265039537287...). The numerical example is supplementary; the proof is all-parameter under the stated hypotheses.
 
-Risk: the 2007 introducing article for the same epidemic model was accessible only at abstract level, so a differently phrased equivalent finite-amplitude average identity there cannot be completely excluded.
+## originality
 
-## Value
-PASS. The source's central phenomena are Hopf cycles and bistability. The new law supplies a global finite-amplitude constraint on every compact recurrent state in the same bistable regime: the cycle's mean infective coordinate cannot drift beyond either endemic branch, and its distance from the branches exactly measures the combined variance \(V_X+nV_Y\). This is useful for interpreting simulations and data because it links an observable mean directly to oscillation amplitude without a small-cycle approximation.
+PASS
 
-Risk: the result is diagnostic rather than an existence theorem; it does not determine cycle period or stability.
+The Zeng–Yu full author-hosted 17-page source studies the EXACT normalized epidemic model, the quadratic endemic branches and Hopf/bistable examples, but its theorems concern equilibria and bifurcation parameters, not the invariant-measure covariance and exact mean–variance factorization. Its PDF contains neither 'variance' nor 'average'. A positive cycle example is not a statement about every compact interior stationary distribution. Resultary returns the assessed result and different epidemic models, no same-model dominating moment theorem. The 2007 introduction of the identical incidence model was accessible only in abstract, so older equivalent averaging identities remain possible; assessment is best-of-knowledge, not certified priority.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The model's published bistable Hopf cycles make finite-amplitude averages of infected population a natural exact invariant. The formula pins a weighted fluctuation magnitude to the distance of the true cycle mean from the two endemic branches, with a strict global mean trap not obtainable from local Hopf linearization; it is useful for simulations and epidemiological interpretation. Limited to compact interior invariant measures and not an existence claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

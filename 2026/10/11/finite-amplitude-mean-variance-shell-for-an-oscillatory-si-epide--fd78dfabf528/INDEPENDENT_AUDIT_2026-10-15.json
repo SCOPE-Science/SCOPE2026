@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T04:53:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For compact stationary measures contained in 0<X<Y<m/n, the invariant generators of Y, Y²/2 and log X yield n meanY+meanX=m, Cov(X,Y)=-n Var(Y), and E[(1+εX)(Y-X)]=(n+1)/k. Algebra gives (m-(n+1)meanX)(1+ε meanX)/n=(n+1)/k+ε[Var(X)+nVar(Y)]. The equilibrium quadratic has leading coefficient -ε(n+1)/n, so if its two distinct physical roots x_-<x_+, factorization gives Var(X)+nVar(Y)=(n+1)/n(x_+-meanX)(meanX-x_-). Both variances zero only for an equilibrium atom, making the mean bounds strict for non-Dirac measures. Independent SymPy rational expansion for m=2,n=1/3,ε=5/4,k=41/200 gave polynomial -(1230x²-861x+124)/246 and exact roots 7/20±sqrt(131241)/2460 (0.202734960462713...,0.497265039537287...). The numerical example is supplementary; the proof is all-parameter under the stated hypotheses.",
+      "risks": [
+        "Measures charging X=0 excluded; two distinct endemic roots must be physical; no existence/period assertion."
+      ],
+      "sources": [
+        "2026/10/11/finite-amplitude-mean-variance-shell-for-an-oscillatory-si-epide--fd78dfabf528/RESULT.md",
+        "2026/10/11/finite-amplitude-mean-variance-shell-for-an-oscillatory-si-epide--fd78dfabf528/REVIEW.md",
+        "2026/10/11/finite-amplitude-mean-variance-shell-for-an-oscillatory-si-epide--fd78dfabf528/verify.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zeng–Yu full 17-page PDF equations (2), Figure 5(c) and conclusions; no variance or average term.",
+          "Nearby Resultary semantic hits describe different vector fields, coefficient choices, or entropy settings; no single stronger theorem at matching objects/parameters."
+        ],
+        "reasoning": "Hopf parameter inequalities and branch equilibrium data cannot imply the exact mean-statistics shell without invariant generator tests.",
+        "searches": [
+          "nonlinear-incidence SI epidemic Zeng Yu stable periodic cycles exact mean variance infective two endemic equilibria",
+          "SI epidemic nonlinear incidence exactly covariance variance mean equilibrium roots oscillatory 2023",
+          "source_id:https://publish.uwo.ca/~pyu/pub/preprints/ZY_DCDS-S2022.pdf; DOI:10.3934/dcdss.2022069",
+          "source_id:DOI:10.3934/dcdsb.2007.8.161"
+        ]
+      },
+      "checked_sources": [
+        "Frozen normalized-SI RESULT.md + verify.py",
+        "B. Zeng and P. Yu DOI:10.3934/dcdss.2022069 full author-hosted 17-page PDF",
+        "J. Li et al. DOI:10.3934/dcdsb.2007.8.161 accessible abstract only",
+        "Independent SymPy exact quadratic and roots",
+        "Resultary semantic query pair for epidemic mean/variance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zeng–Yu full 17-page PDF equations (2), Figure 5(c) and conclusions; no variance or average term.",
+          "A parent result giving equations/existence/local bifurcation or semiconjugacy does not algebraically state the final all-states invariant; independent proof establishes a further quantified conclusion."
+        ],
+        "reasoning": "Exact polynomial mean-gap identity requires integrating logX, Y and Y²; not an explicit or automatic corollary of earlier Hopf stability theorem.",
+        "searches": [
+          "nonlinear-incidence SI epidemic Zeng Yu stable periodic cycles exact mean variance infective two endemic equilibria",
+          "SI epidemic nonlinear incidence exactly covariance variance mean equilibrium roots oscillatory 2023",
+          "source_id:https://publish.uwo.ca/~pyu/pub/preprints/ZY_DCDS-S2022.pdf; DOI:10.3934/dcdss.2022069",
+          "source_id:DOI:10.3934/dcdsb.2007.8.161"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zeng–Yu full 17-page PDF equations (2), Figure 5(c) and conclusions; no variance or average term."
+        ],
+        "reasoning": "The endemic quadratic parameterizes equilibria, not the weighted variance of every compact positive stationary state.",
+        "searches": [
+          "nonlinear-incidence SI epidemic Zeng Yu stable periodic cycles exact mean variance infective two endemic equilibria",
+          "SI epidemic nonlinear incidence exactly covariance variance mean equilibrium roots oscillatory 2023",
+          "source_id:https://publish.uwo.ca/~pyu/pub/preprints/ZY_DCDS-S2022.pdf; DOI:10.3934/dcdss.2022069",
+          "source_id:DOI:10.3934/dcdsb.2007.8.161"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact numeric table or profile of the complete claim in inspected closest parent theorem; this is NOT inferred from failed search alone."
+        ],
+        "reasoning": "No finite instance database: two exact Figure 5(c) roots are algebraic specializations, while the theorem is universal over invariant measures.",
+        "searches": [
+          "nonlinear-incidence SI epidemic Zeng Yu stable periodic cycles exact mean variance infective two endemic equilibria",
+          "SI epidemic nonlinear incidence exactly covariance variance mean equilibrium roots oscillatory 2023",
+          "source_id:https://publish.uwo.ca/~pyu/pub/preprints/ZY_DCDS-S2022.pdf; DOI:10.3934/dcdss.2022069",
+          "source_id:DOI:10.3934/dcdsb.2007.8.161"
+        ]
+      },
+      "rationale": "The Zeng–Yu full author-hosted 17-page source studies the EXACT normalized epidemic model, the quadratic endemic branches and Hopf/bistable examples, but its theorems concern equilibria and bifurcation parameters, not the invariant-measure covariance and exact mean–variance factorization. Its PDF contains neither 'variance' nor 'average'. A positive cycle example is not a statement about every compact interior stationary distribution. Resultary returns the assessed result and different epidemic models, no same-model dominating moment theorem. The 2007 introduction of the identical incidence model was accessible only in abstract, so older equivalent averaging identities remain possible; assessment is best-of-knowledge, not certified priority.",
+      "residual_risks": [
+        "Li et al. (2007) introducing article full text inaccessible; equivalent older invariant averaging under other notation cannot be completely excluded.",
+        "The interior compact-support and two-physical-root hypotheses are essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same equations, endemic equilibria and Hopf/bistability regions. No stated invariant-measure covariance, mean–variance quadratic factorization or interval trapping of mean infective level in inspected original.",
+          "evidence": [
+            "Equation (2) in printed p.710 exactly Xdot=X[k(1+εX)(Y-X)-(n+1)], Ydot=m-nY-X.",
+            "Figure 5(c) caption uses m=2,n=1/3,ε=5/4,k=0.205 and documents a stable limit cycle coexisting with E1.",
+            "PDF full searchable term checks: no variance or average."
+          ],
+          "identifier_or_url": "https://publish.uwo.ca/~pyu/pub/preprints/ZY_DCDS-S2022.pdf; DOI:10.3934/dcdss.2022069",
+          "material_read": "Seventeen-page author-hosted lawful full PDF: model equations and invariant region on printed p.710, equilibrium/Hopf parameter discussion, Figure 5 and its caption on printed p.722, Conclusion; full searchable-text checks for variance and average (none)",
+          "method": "Primary author-hosted public PDF parsed text with visual check of p.710 and figure caption reading",
+          "title": "A hierarchical parametric analysis on Hopf bifurcation of an epidemic model",
+          "trigger": "Exact normalized SI equations, endemic quadratic, Figure 5(c) stable cycle and candidate moment formula"
+        },
+        {
+          "assessment": "Bifurcation analyses known, but no full-text exclusion can be asserted. Named remaining originality risk.",
+          "evidence": [
+            "Li, Zhou, Wu and Ma 2007 DOI:10.3934/dcdsb.2007.8.161 introduces same nonlinear-incidence model."
+          ],
+          "identifier_or_url": "DOI:10.3934/dcdsb.2007.8.161",
+          "material_read": "Accessible journal abstract and bibliographic record only; original full article not obtained",
+          "method": "DOI/publisher source/secondary citation",
+          "title": "Complex dynamics of a simple epidemic model with a nonlinear incidence",
+          "trigger": "Introducing exact same epidemiological model may contain an earlier invariant-statistical identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model's published bistable Hopf cycles make finite-amplitude averages of infected population a natural exact invariant. The formula pins a weighted fluctuation magnitude to the distance of the true cycle mean from the two endemic branches, with a strict global mean trap not obtainable from local Hopf linearization; it is useful for simulations and epidemiological interpretation. Limited to compact interior invariant measures and not an existence claim.",
+      "risks": [
+        "Li et al. (2007) introducing article full text inaccessible; equivalent older invariant averaging under other notation cannot be completely excluded.",
+        "The interior compact-support and two-physical-root hypotheses are essential."
+      ],
+      "sources": [
+        "Frozen normalized-SI RESULT.md + verify.py",
+        "B. Zeng and P. Yu DOI:10.3934/dcdss.2022069 full author-hosted 17-page PDF",
+        "J. Li et al. DOI:10.3934/dcdsb.2007.8.161 accessible abstract only",
+        "Independent SymPy exact quadratic and roots",
+        "Resultary semantic query pair for epidemic mean/variance"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen normalized-SI RESULT.md + verify.py",
+    "B. Zeng and P. Yu DOI:10.3934/dcdss.2022069 full author-hosted 17-page PDF",
+    "J. Li et al. DOI:10.3934/dcdsb.2007.8.161 accessible abstract only",
+    "Independent SymPy exact quadratic and roots",
+    "Resultary semantic query pair for epidemic mean/variance"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Li et al. (2007) introducing article full text inaccessible; equivalent older invariant averaging under other notation cannot be completely excluded.",
+    "The interior compact-support and two-physical-root hypotheses are essential.",
+    "Measures charging X=0 excluded; two distinct endemic roots must be physical; no existence/period assertion."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "Same equations, endemic equilibria and Hopf/bistability regions. No stated invariant-measure covariance, mean–variance quadratic factorization or interval trapping of mean infective level in inspected original.",
+      "evidence": [
+        "Equation (2) in printed p.710 exactly Xdot=X[k(1+εX)(Y-X)-(n+1)], Ydot=m-nY-X.",
+        "Figure 5(c) caption uses m=2,n=1/3,ε=5/4,k=0.205 and documents a stable limit cycle coexisting with E1.",
+        "PDF full searchable term checks: no variance or average."
+      ],
+      "identifier_or_url": "https://publish.uwo.ca/~pyu/pub/preprints/ZY_DCDS-S2022.pdf; DOI:10.3934/dcdss.2022069",
+      "material_read": "Seventeen-page author-hosted lawful full PDF: model equations and invariant region on printed p.710, equilibrium/Hopf parameter discussion, Figure 5 and its caption on printed p.722, Conclusion; full searchable-text checks for variance and average (none)",
+      "method": "Primary author-hosted public PDF parsed text with visual check of p.710 and figure caption reading",
+      "title": "A hierarchical parametric analysis on Hopf bifurcation of an epidemic model",
+      "trigger": "Exact normalized SI equations, endemic quadratic, Figure 5(c) stable cycle and candidate moment formula"
+    },
+    {
+      "assessment": "Bifurcation analyses known, but no full-text exclusion can be asserted. Named remaining originality risk.",
+      "evidence": [
+        "Li, Zhou, Wu and Ma 2007 DOI:10.3934/dcdsb.2007.8.161 introduces same nonlinear-incidence model."
+      ],
+      "identifier_or_url": "DOI:10.3934/dcdsb.2007.8.161",
+      "material_read": "Accessible journal abstract and bibliographic record only; original full article not obtained",
+      "method": "DOI/publisher source/secondary citation",
+      "title": "Complex dynamics of a simple epidemic model with a nonlinear incidence",
+      "trigger": "Introducing exact same epidemiological model may contain an earlier invariant-statistical identity"
+    }
+  ]
+}
