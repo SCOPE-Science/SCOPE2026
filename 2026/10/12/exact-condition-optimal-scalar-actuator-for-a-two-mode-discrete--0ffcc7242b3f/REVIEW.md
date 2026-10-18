@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The infinite-horizon Gramian is obtained by two scalar geometric series and one mixed geometric series. For an interior actuator direction its determinant is positive exactly because the two stable eigenvalues are distinct. In dimension two, minimizing condition number is equivalent to minimizing trace squared divided by determinant. The resulting scalar rational function has one interior critical point and diverges at both endpoints, so that point is the unique global minimizer in squared actuator weight.
+## correctness
 
-Substitution equalizes the modal diagonal Gramian energies and makes the optimal Gramian a scalar multiple of a two-by-two correlation matrix. Its eigenvalue ratio is therefore exactly
-\[
-\frac{1+\rho}{1-\rho}.
-\]
-The hyperbolic form follows from writing the stable eigenvalues as hyperbolic tangents. The embedded checker replays an exact example with optimum condition number \(9\).
+PASS
 
-## Originality
-PASS with stated residual risks. Gramian-based actuator placement, use of Gramian condition number as a controllability-quality metric, and Hadamard formulas for diagonalizable systems are prior work.
+For stable real diagonal A=diag(a,d), a!=d, the exact series give W=[[px,rsqrt(x(1-x))],[rsqrt(x(1-x)),q(1-x)]], where p=(1-a^2)^-1, q=(1-d^2)^-1, r=(1-ad)^-1. The determinant is (pq-r^2)x(1-x)>0 interior. Since tr(W)^2/det(W)=kappa+1/kappa+2 is monotone in kappa>=1, the ratio (q+(p-q)x)^2/[x(1-x)] has its unique global minimum at x=q/(p+q), with boundary divergence. Optimal equal diagonal energies yield rho=r/sqrt(pq), kappa=(1+rho)/(1-rho)=coth^2(|atanh(a)-atanh(d)|/2). Independently repeated four rational pair checks and the a=0,d=3/5 example with W=[[25,20],[20,25]]/41 and kappa=9; finite tests are not the proof.
 
-The closest full paper was inspected through its discrete-time Hadamard construction and all three actuator-selection objectives. It treats determinant, trace inverse, and trace over a finite candidate set, and a full-text search found no condition-number optimization. Earlier network work uses condition number for scaling with network size rather than continuous actuator-direction design. Targeted exact-form and alias searches did not locate the squared-weight optimizer or the hyperbolic-separation formula.
+## originality
 
-The main residual risk is older modal-control literature using different terminology for the same two-state balancing calculation.
+PASS
 
-## Value
-PASS. The condition number of the controllability Gramian compares the hardest and easiest control-energy directions. The theorem exactly solves the first nontrivial scalar-actuator orientation problem, shows that the condition-optimal direction generally differs from the determinant-optimal direction, and quantifies an unavoidable quadratic loss as the two modes coalesce. This is a motivated control-design boundary rather than an arbitrary two-by-two identity.
+Known papers provide the discrete Gramian Hadamard kernel, controllability-energy interpretation and several actuator metrics, but the inspected finite-candidate determinant/trace objectives do not imply optimizing Gramian condition over a continuously variable direction. No matching two-eigenvalue hyperbolic optimizer found in searches; this is best-of-knowledge, not historical uniqueness.
 
-## Closest literature and limitations
-The closest inspected literature supplies Gramian energy interpretations, condition-number motivation, and the diagonalizable discrete-time Hadamard formula. The result is restricted to an orthonormal two-mode diagonal system, one scalar input, and the infinite horizon. Nonnormal coordinates, multiple inputs, finite horizons, and dimensions above two remain outside the claim.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The condition number controls best/worst minimum control energy anisotropy. Its exact two-mode optimal direction, its difference from determinant optimization, and divergence under eigenvalue coalescence yield a useful quantitative actuator-design boundary even for the natural smallest nontrivial diagonal case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

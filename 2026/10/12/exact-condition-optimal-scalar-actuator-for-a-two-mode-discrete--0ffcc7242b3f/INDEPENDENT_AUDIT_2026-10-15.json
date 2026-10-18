@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T19:12:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For stable real diagonal A=diag(a,d), a!=d, the exact series give W=[[px,rsqrt(x(1-x))],[rsqrt(x(1-x)),q(1-x)]], where p=(1-a^2)^-1, q=(1-d^2)^-1, r=(1-ad)^-1. The determinant is (pq-r^2)x(1-x)>0 interior. Since tr(W)^2/det(W)=kappa+1/kappa+2 is monotone in kappa>=1, the ratio (q+(p-q)x)^2/[x(1-x)] has its unique global minimum at x=q/(p+q), with boundary divergence. Optimal equal diagonal energies yield rho=r/sqrt(pq), kappa=(1+rho)/(1-rho)=coth^2(|atanh(a)-atanh(d)|/2). Independently repeated four rational pair checks and the a=0,d=3/5 example with W=[[25,20],[20,25]]/41 and kappa=9; finite tests are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dilip gives 1/(1-lambda_i lambda_j) kernel and optimizes determinant/trace variants over finite actuator sets",
+          "Summers studies set functions and alternative criteria"
+        ],
+        "reasoning": "These general Gramian formulas supply ingredients but not a theorem solving this condition-number variational objective. The exact optimizer requires separate rational minimization.",
+        "searches": [
+          "Dilip 2019 DOI:10.1109/LCSYS.2019.2919278",
+          "Summers Cortesi Lygeros arxiv:1404.7665"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1109/LCSYS.2019.2919278",
+        "arXiv:1404.7665",
+        "arXiv:1410.1830",
+        "Resultary semantic search: two-mode discrete-time controllability Gramian condition number optimal single actuator direction equal diagonal energies artanh"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General kernel plus condition-number use does not by itself identify minimax actuator direction or its hyperbolic separation law."
+        ],
+        "reasoning": "The cited earlier principles leave a nontrivial design objective to solve; no stronger optimization theorem in inspected source implies the stated solution.",
+        "searches": [
+          "Dilip Hadamard controllability Gramian 2019",
+          "Enyioha arxiv:1410.1830"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original RESULT.md analytic equivalent optimizer x=q/(p+q); published Hadamard kernel r/(sqrt(pq))",
+          "Dilip 2019 finite candidate objectives are distinct"
+        ],
+        "reasoning": "Alternative forms include equal diagonal Gramian energy and coth^2 of modal hyperbolic distance; searches and inspected full text did not identify that same continuous-variable theorem.",
+        "searches": [
+          "Resultary semantic search: two-mode discrete-time controllability Gramian condition number optimal single actuator direction equal diagonal energies artanh",
+          "continuous scalar actuator direction Gramian condition minimizer",
+          "two-mode Gramian hyperbolic parameter separation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant published discrete two-mode exact optimizer table appeared in examined results"
+        ],
+        "reasoning": "This is a continuous parameter formula, not a finite catalogue entry; no exact table superseded it.",
+        "searches": [
+          "Resultary semantic search: two-mode discrete-time controllability Gramian condition number optimal single actuator direction equal diagonal energies artanh",
+          "control Gramian two by two exact condition number table"
+        ]
+      },
+      "rationale": "Known papers provide the discrete Gramian Hadamard kernel, controllability-energy interpretation and several actuator metrics, but the inspected finite-candidate determinant/trace objectives do not imply optimizing Gramian condition over a continuously variable direction. No matching two-eigenvalue hyperbolic optimizer found in searches; this is best-of-knowledge, not historical uniqueness.",
+      "residual_risks": [
+        "An older two-mode balanced Gramian design result with different terminology could preempt this elementary scalar calculation.",
+        "No full classification for nonnormal or higher-dimensional actuators is implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior kernel and objectives are covered; the continuous Gramian-condition-number minimum is not among the analyzed objectives.",
+          "evidence": "https://doi.org/10.1109/LCSYS.2019.2919278",
+          "identifier_or_url": "DOI:10.1109/LCSYS.2019.2919278",
+          "material_read": "Author-accessible full text; discrete kernel and finite-candidate determinant, trace-inverse, trace sections",
+          "method": "read full article via web",
+          "title": "The Controllability Gramian, the Hadamard Product, and the Optimal Actuator/Leader and Sensor Selection Problem",
+          "trigger": "exact discrete-time Hadamard Gramian and actuator optimization"
+        },
+        {
+          "assessment": "Known controllability metrics and actuator-set context, not the two-mode continuous direction formula.",
+          "evidence": "https://arxiv.org/abs/1404.7665",
+          "identifier_or_url": "arXiv:1404.7665",
+          "material_read": "Abstract and opening source discussion of set-selection objectives",
+          "method": "arxiv PDF/text inspection",
+          "title": "On Submodularity and Controllability in Complex Dynamical Networks",
+          "trigger": "Gramian actuator design and energy interpretation"
+        },
+        {
+          "assessment": "Conditioning context, not an inspected equivalent optimum theorem.",
+          "evidence": "https://arxiv.org/abs/1410.1830",
+          "identifier_or_url": "arXiv:1410.1830",
+          "material_read": "Available abstract and source mathematical context",
+          "method": "arxiv metadata/abstract inspection",
+          "title": "Controllability and Fraction of Leaders in Infinite Network",
+          "trigger": "condition number as control-quality metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The condition number controls best/worst minimum control energy anisotropy. Its exact two-mode optimal direction, its difference from determinant optimization, and divergence under eigenvalue coalescence yield a useful quantitative actuator-design boundary even for the natural smallest nontrivial diagonal case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1109/LCSYS.2019.2919278",
+    "arXiv:1404.7665",
+    "arXiv:1410.1830",
+    "Resultary semantic search: two-mode discrete-time controllability Gramian condition number optimal single actuator direction equal diagonal energies artanh"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An older two-mode balanced Gramian design result with different terminology could preempt this elementary scalar calculation.",
+    "No full classification for nonnormal or higher-dimensional actuators is implied.",
+    "Scientific assessment is not formal certification or an external attestation. Publication readiness is a separate privacy/transport status."
+  ],
+  "schema_version": 1
+}
