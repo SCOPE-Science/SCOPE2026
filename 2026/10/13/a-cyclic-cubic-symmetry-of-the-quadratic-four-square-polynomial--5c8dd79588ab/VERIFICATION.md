@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The packaged `verify.py` uses only Python's standard library and exact rational arithmetic. It checks the following finite algebraic certificates: the identity for \(G(\tau(T))\), the projective matrix relation \(M^3=512I\), the two entry-renormalization identities modulo \(G\), the monic integral equation for \(z\), the power-basis discriminant \((128\cdot91)^2\), and the Eisenstein coefficient tests at \(7\) and \(13\).
+# Independent mathematical audit
 
-The script does not numerically certify the general local-number-theory statements used after the Eisenstein tests. Those proof steps use the standard implications “Eisenstein of degree \(3\) gives total ramification” and “for tame total ramification of degree \(3\), the discriminant exponent is \(2\).”
+## correctness
 
-Expected output:
+PASS
 
-`VERIFY_OK mobius_order=3 root_cycle=exact entry_cycle=a->c->b field_discriminant=8281 eisenstein=7,13`
+Direct exact rational substitution verifies G((28T−16)/(67T−36))=512G(T)/(67T−36)^3 and M^3=512I; irreducibility and real, non-fixed roots force a cyclic cubic splitting field. The two reduced identities relating 1/tau(k)^2 to q²/k²−2q and the tau² expression to p²/k²−2p identify the monic-entry cycle a→c→b. With y=16k, the integral z=(y²+119y+64)/128 satisfies z³+10z²−361z+1702 and yields a cubic-order discriminant 91². Eisenstein shifts at 7 and 13 force tame total ramification with discriminant exponent two at each, so the field discriminant is exactly 7²·13²=8281. Independently checked rational polynomial congruences and arithmetic; the local ramification theorem is standard, not supplied by a numerical verifier.
+
+## originality
+
+PASS
+
+arXiv:2610.05565v1 Lemma 3.3 and Remark 3.7 already state the cubic and association of its three roots with alternate monic entries, and Lemma 3.4 gives irreducibility and square polynomial discriminant. They do not exhibit the specific cyclic Möbius generator or determine the maximal field discriminant in the inspected Section 3. The general irreducible cubic square-discriminant criterion is known, so the additional contribution is source-specific explicit symmetry and arithmetic, not novelty of cyclicity.
+
+## value
+
+PASS
+
+The unique normalized quadratic four-square triple has three equivalent distinguished entries; the explicit orientation-preserving order-three arithmetic automorphism describes their canonical symmetry and identifies the exact number field. This gives structural transport between normalizations rather than a synthetic rename of one polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
