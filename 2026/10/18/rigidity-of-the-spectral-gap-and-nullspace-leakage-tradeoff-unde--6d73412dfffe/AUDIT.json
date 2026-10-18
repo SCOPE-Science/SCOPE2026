@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Blockwise symmetric eigenvalue perturbation proves G=spread(U^TDU), L=norm(PDu) with fixed-D and uniform bounded-D error controls. Coordinate rank-one probes give the necessary equal squared normal components and exclude zeros. Explicit orthonormal compression proves balanced sufficiency and coefficient sqrt(2). Known lower-branch uniform CDF is independently derived by a three-coordinate cube-volume calculation, and continuous mapping proves the joint event limit. Symbolic and direct-eigensolver checks were replayed; finite trials are not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kressner--Shao arXiv:2407.04634v1 Theorem 4 is a general probabilistic separation bound; Theorem 6 gives a general norm bound for nullspace residual. Neither theorem determines when the first-order gap is exactly a constant multiple of residual for all diagonal samples.",
+        "Stewart--Sun (1990) gives perturbation background, not a checked equivalent iff classification."
+      ],
+      "reasoning": "General perturbation bounds do not logically imply the characterization of exact equality across arbitrary samples. No stronger reviewed theorem implying it was identified; a specialized unpublished or hard-to-search theorem remains possible.",
+      "searches": [
+        "Kressner Shao randomized diagonal null space perturbation balanced projector gap residual exact sqrt 2 tradeoff rigidity all coordinate orientations",
+        "rank one projector diagonal perturbation two zero eigenvalues spectral gap residual eigenvector trade-off three dimensional"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2407.04634v1, relevant full text",
+      "arXiv:2407.04634v2, relevant full text",
+      "arXiv:2609.25333v1, relevant full text",
+      "Farrell (2016), bibliographic abstract only",
+      "Classical invariant-subspace theory as cited in Kressner--Shao"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kressner--Shao 2024 analyzes eigenvalue repulsion and residual separately on general matrices; the new implication is deterministic and if-and-only-if in a rank-one three-coordinate subclass.",
+        "An earlier exact graph-normal example analyzes finite-amplitude covariance for a zero-coordinate normal. Its claim does not force the all-coordinate-balanced proportionality class.",
+        "Osan--Chu--Yu 2026 analyzes sample-variance CDF, not numerical eigenvector residuals or the orientation iff property."
+      ],
+      "reasoning": "None of the checked prior statements implies the exact equality class. The previous graph-normal claim is not a specialization of the current balanced equality because its normal has a zero component, and conversely balanced equality does not yield the previous finite-epsilon covariance.",
+      "searches": [
+        "A randomized small-block Lanczos method Kressner Shao null space randomized diagonal perturbation rank degeneracy",
+        "Kressner Shao 2024 randomized small block Lanczos diagonal perturbation zero eigenvalues first order leakage tradeoff"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kressner--Shao arXiv:2407.04634v1, Sections 2.1--2.3, presents separate gap and residual bounds; no equality-classification assertion found in those sections.",
+        "The eigenspace perturbation identity is classical, but the all-orientation proportionality property is a stronger quantified statement."
+      ],
+      "reasoning": "Equivalence was tested via the compressed 2x2 eigenvalue gap, orthogonal coupling to the retained top eigenvector, and arbitrary diagonal probes. The motivating analysis bounds these separately, whereas the new if-and-only-if normal classification relates them for every diagonal perturbation.",
+      "searches": [
+        "diagonal projection unit normal balanced three-dimensional compression eigenvalue spread proportional off diagonal coupling",
+        "3x3 rank-one Gram matrix random uniform diagonal gap leakage linear equality sqrt2 nullspace"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Osan--Chu--Yu arXiv:2609.25333v1 explicitly states the exact uniform n=3 sample-variance distribution was known since Rietz (1931); it derives a two-piece CDF.",
+        "The joint acceptance probability here is a transfer of that prior CDF through the newly characterized deterministic coupling."
+      ],
+      "reasoning": "The marginal uniform CDF and quadratic small-gap exponent are covered, and no originality is claimed for them. The record did not reveal a database entry computing the separate numerical nullspace residual jointly with the spectral gap or classifying exactly which normals make their ratio constant.",
+      "searches": [
+        "Uniform diagonal disorder 3x3 random sample variance eigenvalue repulsion distribution compressed rank two projector",
+        "Rietz 1931 three uniform observations sample variance distribution formula Osan 2026"
+      ]
+    },
+    "rationale": "A complete iff condition for samplewise proportionality of two first-order numerical quantities is proved on every rank-one three-coordinate orientation. The source paper provides separate bounds, while classical sample-variance formulas account for the marginalized CDF and are explicitly excluded from novelty. Known graph-specific finite-amplitude covariance does not imply or cover the iff classification; exact equivalence elsewhere remains a residual literature risk.",
+    "residual_risks": [
+      "The if-and-only-if property may appear as a small-dimensional lemma in older spectral-compression or diagonal-perturbation literature under different terminology.",
+      "The transfer CDF is known and not a novelty component by itself.",
+      "Some related publisher-only full texts were not independently inspected; their claims were not represented as NOT_COVERING."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the perturbation and separate bounds but does not state an all-orientation samplewise gap/residual proportionality classification.",
+        "evidence": [
+          "arXiv:2407.04634v1, Algorithm 1 step 1, Theorem 4 and Theorem 6."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.04634v1",
+        "material_read": "Full public HTML introduction and Sections 2.1--2.3, including Theorems 4 and 6 and the principal-angle definitions; relevant later convergence/implementation sections and reference titles examined.",
+        "method": "Full-text HTML section reading and theorem/definition inspection.",
+        "title": "A randomized small-block Lanczos method for large-scale null space computations",
+        "trigger": "Primary 2024 algorithm and exact perturbation setup."
+      },
+      {
+        "assessment": "No explicit rigidity classification found in inspected relevant sections; same independent gap and residual perspective.",
+        "evidence": [
+          "arXiv:2407.04634v2, perturbation analysis sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.04634v2",
+        "material_read": "Full public HTML Sections 1--3, especially algorithm, perturbation statements, and bounds, plus contents and references.",
+        "method": "Full-text HTML theorem/section comparison to v1.",
+        "title": "On a randomized small-block Lanczos method for large-scale null space computations",
+        "trigger": "Revised version could supersede v1 statements."
+      },
+      {
+        "assessment": "Covers marginal CDF, historically already known in 1931; does not cover joint nullspace residual or its orientation rigidity.",
+        "evidence": [
+          "arXiv:2609.25333v1, abstract and uniform-parent distribution section; Rietz (1931) attribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.25333v1",
+        "material_read": "Full public HTML abstract, introductory historical context, geometric uniform-parent CDF derivation, discussion and references related to sample variance.",
+        "method": "HTML reading and formula/attribution comparison.",
+        "title": "Closed forms and open obstructions: the sample variance of three observations",
+        "trigger": "Known equivalent representation of the marginal gap as a uniform three-point sample variance."
+      },
+      {
+        "assessment": "Counts distinct perturbed eigenvalues; insufficient evidence about exact gap-to-nullspace-leakage proportionality.",
+        "evidence": [
+          "Farrell, SIAM J. Matrix Anal. Appl. 37 (2016), abstract."
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/15M1037603",
+        "material_read": "Publication abstract and theorem scope in search/index material; full text not inspected.",
+        "method": "Bibliographic abstract comparison only.",
+        "title": "The number of distinct eigenvalues of a matrix after perturbation",
+        "trigger": "Potential broad rank-one perturbation eigenvalue coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6d73412d-fffe-4ccc-8ceb-be3ea69dd052",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Diagonal randomization of a nullspace is explicitly intended to improve small-eigenvalue separation while controlling the original-system residual. Characterizing precisely when these two metrics must move in fixed proportion for every perturbation is a natural sharp structural boundary, not an arbitrary coordinate example; balanced symmetry is uniquely forced from all three coordinate probes. The sharp coefficient and joint acceptance probability make the distinction operational for this benchmark, while the limited dimension and infinitesimal regime are explicit.",
+    "status": "PASS"
+  }
+}
