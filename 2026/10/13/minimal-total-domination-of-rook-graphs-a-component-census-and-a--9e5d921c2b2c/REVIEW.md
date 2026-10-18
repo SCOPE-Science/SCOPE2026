@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A rook-graph total dominating set is exactly a selected bipartite edge set with no isolated selected edge and no unused row-column pair. The proof applies the deletion criterion to classify all possible occupied components; both necessity and sufficiency are checked, including the regime in which neither bipartition class has isolates. The labeled exponential formula uses the exact row, column, and edge counts of each component and disjoint counting regimes. On square boards the row-deficit argument proves the upper bound, maximum-count formula, and forbidden next-lower size without experimental extrapolation. The standalone exact scripts check the generating coefficients against exhaustive deletion tests and compare the ungraded totals to the published table.
+PASS
 
-## Originality — PASS, with residual risk
+The graph is the line graph of K_{m,n} with one vertex per board square. A chosen-edge set F is total dominating precisely when no selected edge is isolated in L(F) and not both sides contain unused vertices. Removing an essential edge either isolates another selected edge or creates unused row and column; this yields the three disjoint occupied-component regimes. Labelled exponential component enumeration gives the full coefficient-extraction polynomial. For n×n boards, the componentwise deficit 2n-|F| is at least two; equality requires one (n−1)-arm subdivided star plus one unused column, with 2n·n! orientations and label choices for n≥4. A deficit of 3 is impossible for n≥5 by the used-column bound. Independently brute-forced every selected-set mask on 2×2, 2×3, 3×3, 3×4, 4×4, reproducing polynomials (4z²), (3z²+2z³), (6z³+45z⁴), (4z³+93z⁴), and (80z⁴+96z⁵+192z⁶). The finite checks support but do not prove the infinite formula.
 
-The directly closest known result is Howroyd's OEIS A384118: it reports the number of minimal total dominating sets on each rectangular rook board and a recurrence for that total. Evaluating the new formula at \(z=1\) must therefore recover prior data; these numbers alone are not claimed as new. Neither those ungraded counts, Mertens's ordinary domination polynomial, nor Kazemi–Pahlavsay–Stones's 2-tuple minimum parameter states the all-cardinalities component theorem, square-board upper gap, or maximum-size multiplicities. It is possible that the A384118 recurrence can be graded by reconstructing its component argument, or that a differently indexed enumeration already contains the polynomial. No search result establishes uniqueness or independent priority.
+## originality
 
-## Value — PASS
+PASS
 
-The exact polynomial separates minimum, intermediate, and maximal *inclusion-minimal* total dominating sets on every rectangular board. This is not merely a new tabulation of the known total: for \(5\times5\) the counts \(410\), \(5700\), and \(1200\) lie at cardinalities \(5\), \(6\), and \(8\), while cardinality \(7\) is genuinely absent. The uniform theorem \(\Gamma_t(R_{n,n})=2n-2\), its exact extremal multiplicity, and the forbidden size \(2n-3\) make the precise grading a motivated invariant of minimal total domination.
+Howroyd's OEIS A384118 already gives the UNGRADED total for every rectangle, including 51, 368, 7310, and a m,n recurrence; the full three-variable cardinality polynomial, component classification, sharp upper total domination multiplicity and forbidden 2n−3 size are not stated there. Mertens computes ordinary domination rather than inclusion-minimal total domination; k-tuple total domination bounds are another parameter. Independent searches under line-graph edge domination, rook boards and minimal total domination returned no dominating weighted formula. The known ungraded table is expressly not claimed as new.
 
-## Evidence and limitations
+## value
 
-The primary older background is Kazemi–Pahlavsay–Stones, arXiv:1509.08208 (2015 first posting, 2016 revision); the closest ungraded table is OEIS A384118 (2025), and the ordinary domination polynomial is Mertens (2024). PDF introductions and relevant theorems were inspected, and the complete OEIS entries including programs were examined. The correctness proof is unrestricted; the separately implemented code checks are finite. Independent external mathematical review and exhaustive historical priority verification remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full size distribution and structure of inclusion-minimal (not minimum-size) total dominating sets on rectangular rook boards is a natural domination polynomial. It resolves every coefficient, including a surprising large-set cardinality gap, and counts extremal objects in a standard graph-product family; these are mathematically reusable invariants, not a table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

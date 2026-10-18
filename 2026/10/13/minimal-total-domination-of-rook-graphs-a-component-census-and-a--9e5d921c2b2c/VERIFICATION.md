@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The component proof in `RESULT.md` establishes the general theorem for all integer board dimensions at least two. The reproducible artifact `verify.py` uses exact rational arithmetic to expand the three component-generating series, and independently enumerates all selected sets on ten boards, retaining a set exactly when deleting any chosen square violates ordinary **total** domination. Executing `python3 verify.py` gave:
+# Independent mathematical audit
 
-```
-VERIFY_OK board_shapes= 10 brute_subsets= 124752 prior_table_totals= 7
-POLY 2 4 [(2, 4), (4, 8)]
-POLY 3 3 [(3, 6), (4, 45)]
-POLY 3 4 [(3, 4), (4, 93)]
-POLY 4 4 [(4, 80), (5, 96), (6, 192)]
-POLY 4 5 [(4, 65), (5, 244), (6, 1920)]
-POLY 5 5 [(5, 410), (6, 5700), (8, 1200)]
-```
+## correctness
 
-A second separately coded necessary-and-sufficient edge-local criterion in `structural_test.py` agrees with deletion-based minimality across all subsets of \(2\times2\), \(2\times3\), \(2\times4\), \(3\times3\), \(3\times4\), and \(4\times4\) boards (zero disagreements). The script also checks published ungraded totals for the seven sizes \((3,3),(3,4),(4,4),(4,5),(5,5),(5,6),(6,6)\). These finite tests check code and illustrations, not a quantified infinite statement. No separate verification or independent audit has been performed.
+PASS
+
+The graph is the line graph of K_{m,n} with one vertex per board square. A chosen-edge set F is total dominating precisely when no selected edge is isolated in L(F) and not both sides contain unused vertices. Removing an essential edge either isolates another selected edge or creates unused row and column; this yields the three disjoint occupied-component regimes. Labelled exponential component enumeration gives the full coefficient-extraction polynomial. For n×n boards, the componentwise deficit 2n-|F| is at least two; equality requires one (n−1)-arm subdivided star plus one unused column, with 2n·n! orientations and label choices for n≥4. A deficit of 3 is impossible for n≥5 by the used-column bound. Independently brute-forced every selected-set mask on 2×2, 2×3, 3×3, 3×4, 4×4, reproducing polynomials (4z²), (3z²+2z³), (6z³+45z⁴), (4z³+93z⁴), and (80z⁴+96z⁵+192z⁶). The finite checks support but do not prove the infinite formula.
+
+## originality
+
+PASS
+
+Howroyd's OEIS A384118 already gives the UNGRADED total for every rectangle, including 51, 368, 7310, and a m,n recurrence; the full three-variable cardinality polynomial, component classification, sharp upper total domination multiplicity and forbidden 2n−3 size are not stated there. Mertens computes ordinary domination rather than inclusion-minimal total domination; k-tuple total domination bounds are another parameter. Independent searches under line-graph edge domination, rook boards and minimal total domination returned no dominating weighted formula. The known ungraded table is expressly not claimed as new.
+
+## value
+
+PASS
+
+The full size distribution and structure of inclusion-minimal (not minimum-size) total dominating sets on rectangular rook boards is a natural domination polynomial. It resolves every coefficient, including a surprising large-set cardinality gap, and counts extremal objects in a standard graph-product family; these are mathematically reusable invariants, not a table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

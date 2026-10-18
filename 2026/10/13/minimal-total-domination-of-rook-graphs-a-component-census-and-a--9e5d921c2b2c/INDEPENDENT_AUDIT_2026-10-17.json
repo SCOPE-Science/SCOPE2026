@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T17:09:21.835439Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph is the line graph of K_{m,n} with one vertex per board square. A chosen-edge set F is total dominating precisely when no selected edge is isolated in L(F) and not both sides contain unused vertices. Removing an essential edge either isolates another selected edge or creates unused row and column; this yields the three disjoint occupied-component regimes. Labelled exponential component enumeration gives the full coefficient-extraction polynomial. For n×n boards, the componentwise deficit 2n-|F| is at least two; equality requires one (n−1)-arm subdivided star plus one unused column, with 2n·n! orientations and label choices for n≥4. A deficit of 3 is impossible for n≥5 by the used-column bound. Independently brute-forced every selected-set mask on 2×2, 2×3, 3×3, 3×4, 4×4, reproducing polynomials (4z²), (3z²+2z³), (6z³+45z⁴), (4z³+93z⁴), and (80z⁴+96z⁵+192z⁶). The finite checks support but do not prove the infinite formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kazemi et al. target minimum k-tuple total domination, in particular k=2; Mertens counts all ordinary dominating sets."
+        ],
+        "reasoning": "Neither invariant implies the number of inclusion-minimal ordinary total dominating sets of each cardinality; ordinary domination admits non-total sets, and minimum cardinality does not yield the full inclusion-minimal spectrum.",
+        "searches": [
+          "Kazemi Pahlavsay Stones arXiv 1509.08208 k-tuple total domination rook products",
+          "Mertens 2024 domination polynomial rook graphs"
+        ]
+      },
+      "checked_sources": [
+        "https://oeis.org/A384118",
+        "https://oeis.org/A384116",
+        "Mertens JIS 27 (2024) Article 24.3.7",
+        "arXiv:1509.08208",
+        "Resultary targeted rook/domination semantic searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting z=1 in the submitted M_{m,n}(z) gives OEIS A384118; evaluating n=5 yields 410+5700+1200=7310."
+        ],
+        "reasoning": "The new theorem implies published ungraded totals. The reverse implication cannot be obtained from the published table/recurrence alone without additional structural results. Not a universal novelty proof.",
+        "searches": [
+          "https://oeis.org/A384118",
+          "JIS 2024 Mertens rook graph domination polynomial",
+          "rook graph upper total domination forbidden penultimate size"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A384118 is the same graph/set class but lists just M_{m,n}(1).",
+          "The rook graph is L(K_{m,n}); graph edge model is exact and the new component structural proof is checked."
+        ],
+        "reasoning": "Equivalent reformulation as edge sets in K_mn was compared. The ungraded recurrence fixes a specialization z=1, not the graded output; a concealed graded lift remains possible.",
+        "searches": [
+          "rook graph K_m square K_n inclusion minimal total domination labelled polynomial",
+          "line graph complete bipartite edge-set minimal total domination component distribution",
+          "OEIS A384118"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A384118 table n×m has 3×3=51, 4×4=368, 5×5=7310 and an ungraded m,n recurrence."
+        ],
+        "reasoning": "Those exact sum totals and other minimum-size counts are covered and credited; none shown there is the entire polynomial or theorem excluding size 2n−3.",
+        "searches": [
+          "OEIS A384118",
+          "OEIS A384116",
+          "OEIS A384117",
+          "OEIS A303211"
+        ]
+      },
+      "rationale": "Howroyd's OEIS A384118 already gives the UNGRADED total for every rectangle, including 51, 368, 7310, and a m,n recurrence; the full three-variable cardinality polynomial, component classification, sharp upper total domination multiplicity and forbidden 2n−3 size are not stated there. Mertens computes ordinary domination rather than inclusion-minimal total domination; k-tuple total domination bounds are another parameter. Independent searches under line-graph edge domination, rook boards and minimal total domination returned no dominating weighted formula. The known ungraded table is expressly not claimed as new.",
+      "residual_risks": [
+        "The ungraded OEIS recurrence may admit an unstated structural grading that duplicates part of this formula.",
+        "Finite brute enumerations only reached boards of area 16 in independent checks; the general result rests on the reconstructed component proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers ungraded counts; no z-grading or extremal cardinality proof displayed",
+          "evidence": [
+            "OEIS A384118 lines 14, 32–68, values n=3,4,5"
+          ],
+          "identifier_or_url": "https://oeis.org/A384118",
+          "material_read": "Entire OEIS table, formula, PARI program and links, including displayed n×m values",
+          "method": "full HTML entry read",
+          "title": "Number of minimal total dominating sets in an n×m rook graph",
+          "trigger": "Exact same objects, possibly dominating recurrence"
+        },
+        {
+          "assessment": "Ordinary domination is not inclusion-minimal total domination",
+          "evidence": [
+            "Mertens, Journal of Integer Sequences 27 (2024), article 24.3.7"
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.html",
+          "material_read": "Article identification and the class of dominating sets compared; not full article text in this run",
+          "method": "bibliographic/claim-level comparison",
+          "title": "Domination Polynomial of the Rook Graph",
+          "trigger": "Potential stronger graph-product polynomial"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full size distribution and structure of inclusion-minimal (not minimum-size) total dominating sets on rectangular rook boards is a natural domination polynomial. It resolves every coefficient, including a surprising large-set cardinality gap, and counts extremal objects in a standard graph-product family; these are mathematically reusable invariants, not a table lookup.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "All m,n≥2; number of labeled inclusion-minimal total dominating sets by cardinality, not unlabeled isomorphism classes.",
+    "Maxima count 2n·n! for n≥4, forbidden near maximum size for n≥5; no extension to all Cartesian products."
+  ]
+}
