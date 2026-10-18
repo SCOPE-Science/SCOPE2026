@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For every \\(n\\ge3\\), \\(2\\le k<n\\), and \\(s\\ge0\\), the positive quadratic root t fixes the semiaxes. The exact support identity \\(a^2p^2+b^2(1-p^2)-(1+sp)^2=(s/t)(p-t)^2\\) proves all-direction containment. Equality normals yield exactly k+1 spherical contact orbits, whose normalizations have a finite zero-mean covariance-\\(I_n/n\\) certificate. Averaged quadratic containment for an arbitrary competitor and AM-GM force its volume at least as large with equality only for the proposed ellipsoid. Differentiation of the exact semiaxes gives \\(d\\log(\\mathrm{vol})/ds=k/(s+t)\\), whose derivative is strictly negative. The separate standard-library verifier checks 510 exact rational configurations and 3060 exact support differences, with the infinite result proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yıldırım (2005/2006) studies approximate minimum-volume covering ellipsoids of arbitrary convex hulls of full-dimensional ellipsoids.",
+        "Güler–Gürtuna 2007 Theorem 8.1 determines exact ellipsoids for the convex hull of two parallel ellipsoidal slices."
+      ],
+      "reasoning": "Generic approximation to arbitrary accuracy and general contact conditions do not state or imply the exact two-semiaxis formula, full positive-scale contact locus, or strict log-volume curvature. The two-slice family differs from a regular-simplex unit-ball parallel body; the available inspected source does not subsume the displayed formulas.",
+      "searches": [
+        "\"On the Minimum Volume Covering Ellipsoid of Ellipsoids\" Yildirim",
+        "\"minimum volume enclosing ellipsoid of convex hull two congruent balls\"",
+        "\"minimum volume ellipsoid\" \"rounded simplex\"",
+        "arxiv:0709.0707 Section 8"
+      ]
+    },
+    "checked_sources": [
+      "Yıldırım, Optimization Online 2005-01-14, https://optimization-online.org/2005/01/1043/",
+      "Yıldırım, SIAM Journal on Optimization 17 (2006), doi:10.1137/050622560",
+      "Güler and Gürtuna, arXiv:0709.0707v1 (2007-09-05), Introduction, Section 2, Section 8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical contact/John-Löwner conditions certify optimality after a specific contact measure is found, but do not select the contact measure of this rounded-simplex family.",
+        "The 2005 algorithmic work permits general convex hull input but gives approximate computational outputs in its accessible abstract.",
+        "The 2007 exact hull-of-two-slices formulas do not contain a rounded simplex with at least three ball centers."
+      ],
+      "reasoning": "The claim cannot be obtained by simply citing the known generic uniqueness criterion or an approximate convex-hull algorithm. A two-ball capsule has a one-dimensional center hull and does not cover the \\(k\\ge2\\) simplex-center covariance or the corresponding exact normalized contact split. The new proof constructs and checks its own parameter-dependent contact certificate.",
+      "searches": [
+        "arxiv:0709.0707 Theorem 8.1",
+        "doi:10.1137/050622560 abstract",
+        "\"Lowner ellipsoid of Minkowski sum regular simplex ball all dimensions\"",
+        "\"minimum volume ellipsoid of spherical rounded simplex embedded in higher dimension\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches did not surface a stated closed-form covering ellipsoid for unit-ball parallel bodies of embedded regular simplices.",
+        "Güler–Gürtuna 2007 Section 8 gives a distinct two-cross-section family."
+      ],
+      "reasoning": "The body can be written as the Minkowski sum of a regular simplex and a unit Euclidean ball, or as the convex hull of k+1 translated unit balls. This equivalence was included in the search, with attention to competing contact-latitude formulations.",
+      "searches": [
+        "\"Löwner ellipsoid\" \"rounded simplex\"",
+        "\"minimum volume\" \"ellipsoid\" \"rounded simplex\"",
+        "\"Lowner\" \"regular simplex\" \"Minkowski sum\" \"ball\"",
+        "\"minimum ellipsoid of thickened regular simplex dimensional contact sets\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No equivalent exact numerical database, catalog, or closed formula for this rounded-simplex family was identified in the searched scholarly records."
+      ],
+      "reasoning": "The assertion is an all-real-scale, all-integer-dimension theorem with a complete contact locus, rather than a finite numerical value; a sample-size table would not cover these universal quantifiers.",
+      "searches": [
+        "\"Löwner ellipsoid\" \"rounded simplex\"",
+        "\"minimum area\" \"enclosing ellipse\" \"stadium\"",
+        "\"minimum volume\" \"ellipsoid\" \"rounded simplex\""
+      ]
+    },
+    "rationale": "The claim is an explicit sharp all-parameter ellipsoid and complete contact classification for rounded regular simplices with intrinsic center span of dimension \\(k\\ge2\\), with a strict growth law. The 2005 broad convex-hull-of-ellipsoids work concerns numerical approximations; the 2007 fully inspected exact examples concern slabs and hulls of two ellipsoidal slices. Neither inspected scientific statement implies the present exact case. Historical priority is limited by inaccessible full text of the closest generic algorithmic paper and by imperfect scholarly search coverage.",
+    "residual_risks": [
+      "The most directly encompassing generic work (Yıldırım 2005/2006) was accessible by abstracts but not in full text. The searched descriptions are approximation-focused, but an undiscovered special-case exact example in that text cannot be ruled out.",
+      "An earlier closed form in specialized geometric design/experimental-design literature might use terminology different from rounded simplex or Löwner ellipsoid; negative searches do not establish absolute historical priority.",
+      "The analytic full-dimensional rounded-simplex theorem deliberately excludes the two-center k=1 case, whose duality with symmetric lenses makes it a distinct previously considered configuration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Broad input coverage and approximate computational output are not the same statement as the exact closed-form geometry assessed here. Missing full text is a residual priority risk.",
+        "evidence": [
+          "Optimization Online public date 2005-01-14 and abstract: computes (1+epsilon)-approximations and polynomial-time core sets for a convex hull of ellipsoids.",
+          "SIAM J. Optim. 17 (2006) 621–641, doi:10.1137/050622560, abstract restates the approximation scope."
+        ],
+        "identifier_or_url": "https://optimization-online.org/2005/01/1043/; doi:10.1137/050622560",
+        "material_read": "The public January 14, 2005 research abstract, repository metadata, and journal abstract; full paper was not accessible in the available authorized routes.",
+        "method": "Compared the actual input-object class and the claims of approximation and rounding with exact semiaxes, contact strata, and logarithmic concavity for regular-simplex center configurations.",
+        "title": "On the Minimum Volume Covering Ellipsoid of Ellipsoids",
+        "trigger": "Its class is a convex hull of full-dimensional ellipsoids and thus includes finitely many translated unit balls."
+      },
+      {
+        "assessment": "The treated truncated cone/cylinder section bodies are geometrically different from sums of a k-dimensional regular simplex (\\(k\\ge2\\)) with an n-ball. The source provides general contact theory but not the asserted exact family formula.",
+        "evidence": [
+          "arXiv:0709.0707v1, 2007-09-05, introduction pp. 2–3, defines the two classes of slab and hull-of-two-slices bodies.",
+          "Section 8 pp. 31–32 defines Q_{alpha,beta}=conv(S_alpha union S_beta) and gives its circumscribing ellipsoid.",
+          "Section 2 pp. 4–9 provides the general circumscribed-ellipsoid contact characterization."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0707",
+        "material_read": "Primary 36-page accessible preprint, with close material examination of the abstract, introduction, general optimality conditions in Section 2, and geometric definitions and Theorem 8.1 in Section 8 (pages 31–32).",
+        "method": "Matched the defining convex hull of two parallel ellipsoidal slices, truncated cone, and cylinder to the ball-parallel regular-simplex body; checked whether stated formulas implied the latter.",
+        "title": "The extremal volume ellipsoids of convex bodies, their symmetry properties, and their determination in some special cases",
+        "trigger": "General circumscribed-ellipsoid contact conditions and exact computations for rotationally structured convex bodies could include or dominate the present object."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f257ed13-407e-41fc-8e9e-5a2ae4504a05",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The unit-ball parallel body of a regular embedded simplex is a natural archetype of rounded polytopes and unions/convex hulls of congruent balls. The result evaluates a nontrivial unrestricted extremal invariant for all intrinsic/ambient dimensions and all real scales, classifies all contact strata, proves the universal dimension-only normalized contact split \\(k/n\\) and \\((n-k)/n\\), and establishes strict logarithmic concavity of optimal volume. These structural and equality statements are not mere specialization of the known generic ellipsoid algorithms.",
+    "status": "PASS"
+  }
+}
