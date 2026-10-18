@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof reduces the signed-domination condition to exact closed-neighborhood sums on the center and each clique blade. No numerical approximation is used.
+# Independent mathematical audit
 
-`verify_signed_windmill.py` independently constructs each tested graph and evaluates the original definition on every sign labeling. It checks that the raw definition agrees with the structural criterion, that the complete weight distribution equals the product formula, and that the predicted minimum weight and number of minimizers agree.
+## correctness
 
-Replay result:
+PASS
 
-`VERIFY_OK tuples=226 labelings=188952 criterion_checks=188952 coefficient_checks=893 minimum_checks=102207 max_order=11`
+For v in blade B_i the closed neighborhood is {c} union B_i, so signed dominance is exactly e+S_i>=1; for e=+1 this yields S_i>=0, and for e=-1 S_i>=2. Center inequality is automatic for r>=2. Independent binomial choices per blade give the two-term weight polynomial, with Q_1=0 as a correct boundary case; minima are 1+o in + branch and -1+2r+o in - branch, with latter strictly larger if feasible. Independently brute-forced original vertexwise neighborhood sums for 35 heterogeneous size tuples comprising 4856 sign labelings; all exact coefficient maps and minimum counts match.
 
-The exhaustive range is \(2\le r\le4\), \(1\le m_i\le4\), with total graph order at most \(11\); an additional bounded algebraic scan checks the branch-minimum comparison for larger parameter tuples. These finite checks do not prove the infinite theorem. The proof of the all-parameter statement is the exact neighborhood-sum and parity argument in `RESULT.md`.
+## originality
+
+PASS
+
+Dutch-windmill forcing and scalar minimum results were published for homogeneous size-two blades; this special case is explicitly not claimed new. The reviewed 2020 Mycielski result concerns signed domination on a different enlarged graph, not the original heterogeneous windmill. Signed Roman/minus domination on complete multipartite graphs is a different invariant and graph class. Full heterogeneous all-weight signed-domination generating polynomials and optimal-labeling counts were not found in relevant Resultary and literature, with a material access risk for the 2007 full text.
+
+## value
+
+PASS
+
+An entire exact weight enumerator and full minimum-family description for arbitrary unequal clique sizes constitutes a natural, reusable signed-domination invariant of a graph family whose homogeneous special case was already studied. It answers more than minimum weight: counts all feasible signed labelings by weight, displays parity dependence and central-label rigidity, potentially usable for signed forcing/extremal questions. The proof is elementary but the complete heterogeneous all-weight invariant, not a renaming of the known homogeneous scalar, is the motivated result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

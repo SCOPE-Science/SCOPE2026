@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The closed neighborhood of every blade vertex is exactly its blade together with the center, so the signed-domination constraints reduce to \(e+S_i\ge1\). The center condition is then redundant for \(r\ge2\): with center label \(+1\), all blade sums are nonnegative; with center label \(-1\), all are at least \(2\). Counting plus labels in a blade gives the two product factors. The minimum-weight comparison separates by parity and proves both \(\gamma_s=1+o\) and the exact optimizer count. Exhaustive replay on \(188952\) labelings agrees with the criterion and coefficient formulas.
+## correctness
 
-Risk: the only excluded boundary is the explicitly stated one-blade case; no finite computation is used to bridge an unproved infinite step.
+PASS
 
-## Originality
-**PASS.** The closest primary literature covers the standard signed-domination definition and bounds, homogeneous Dutch-windmill signed-domination/forcing values, and complete multipartite graphs. The known Dutch-windmill scalar case is treated as prior coverage, not as new. The heterogeneous all-weight product formula and its complete optimizer classification are not implied by the inspected sources: unequal clique blades change the parity constraints independently, and these windmills are not complete multipartite in general. Targeted searches also found no matching all-weight windmill enumerator.
+For v in blade B_i the closed neighborhood is {c} union B_i, so signed dominance is exactly e+S_i>=1; for e=+1 this yields S_i>=0, and for e=-1 S_i>=2. Center inequality is automatic for r>=2. Independent binomial choices per blade give the two-term weight polynomial, with Q_1=0 as a correct boundary case; minima are 1+o in + branch and -1+2r+o in - branch, with latter strictly larger if feasible. Independently brute-forced original vertexwise neighborhood sums for 35 heterogeneous size tuples comprising 4856 sign labelings; all exact coefficient maps and minimum counts match.
 
-Risk: an obscure or poorly indexed equivalent result may exist. Direct inspection of the 2007 forcing article was partial, though an accessible later full-text source independently describes the earlier Dutch-windmill coverage. This residual risk is not a decisive unresolved implication because the assessed claim is strictly broader in object parameters and stronger in output than the covered scalar specialization.
+## originality
 
-## Value
-**PASS.** The graph family is a natural block-graph extension of friendship and Dutch windmill graphs already studied for signed domination. The theorem classifies every feasible sign labeling by weight, not merely the optimum, and makes the role of each blade's parity explicit. The coefficient factorization, parity law, and exact minimum-family count give reusable structural information for subsequent forcing or extremal questions on windmill-type graphs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Dutch-windmill forcing and scalar minimum results were published for homogeneous size-two blades; this special case is explicitly not claimed new. The reviewed 2020 Mycielski result concerns signed domination on a different enlarged graph, not the original heterogeneous windmill. Signed Roman/minus domination on complete multipartite graphs is a different invariant and graph class. Full heterogeneous all-weight signed-domination generating polynomials and optimal-labeling counts were not found in relevant Resultary and literature, with a material access risk for the 2007 full text.
+
+## value
+
+PASS
+
+An entire exact weight enumerator and full minimum-family description for arbitrary unequal clique sizes constitutes a natural, reusable signed-domination invariant of a graph family whose homogeneous special case was already studied. It answers more than minimum weight: counts all feasible signed labelings by weight, displays parity dependence and central-label rigidity, potentially usable for signed forcing/extremal questions. The proof is elementary but the complete heterogeneous all-weight invariant, not a renaming of the known homogeneous scalar, is the motivated result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
