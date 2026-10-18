@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T07:16:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026 Git object 56fa0f2a4a649e5feb6f1e6cb9f2c51817d7495f/RESULT.md",
+        "SCOPE-Science/SCOPE2026 Git object 56fa0f2a4a649e5feb6f1e6cb9f2c51817d7495f/verify_slater_markov_first_layer.py",
+        "local independent numerical/combinatorial replay (scope05_independent_checks.py; separate bondage compiled C++)"
+      ],
+      "rationale": "The Markov transition matrix is column stochastic because outdegree at j plus incoming wins against j equals n-1, and stationary solution exists uniquely in the tournament setting. The Slater criterion maximizes arcs consistent with a linear order. Independently rebuilt all labeled tournaments n=1,…,5 and computed Slater maxima by direct all n! ordering enumeration, and exact Markov winners by rational Gaussian elimination; the original source additionally supplies independent subset-DP and matrix-tree-cofactor implementations, each inspected. The exact discrepancy counts are 0 through n=4, and 240 at n=5 of 1024, with the 240 all satisfying MA⊊SL; the two strict size layers (3,1) and (2,1) each comprise 120 labeled cases. Independently canonicalized these under all 120 relabelings to find two size-120 isomorphism classes, so automorphism order one; rational stationary vectors (9,3,1,13,17)/43 and (1/4,1/12,1/6,1/8,3/8) have the asserted unique maxima. Enumeration is complete for n≤5 only, not larger tournaments.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published 2015 paper exhaustively evaluated non-isomorphic tournaments up to order 10 for index discovery, but publishes only minimal disparity/separation indices."
+        ],
+        "reasoning": "An algorithm may have generated the cases internally, but the published threshold table does not imply their number or universal set inclusion.",
+        "searches": [
+          "2015 full author-posted primary PDF pp. 5–10",
+          "Resultary related tournament-disparity findings"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1016/j.dam.2015.01.041",
+        "https://pub.dss.in.tum.de/brandt-research/tsrel.pdf",
+        "arxiv:0803.2138",
+        "Resultary:2026/10/4/SCOPE-complete-five-alternative-banks-minimal-covering-disparity-layer--cdf9bdf7fa72",
+        "Resultary semantic query: Slater Markov tournament solutions 5 vertices disparity 240 two isomorphism classes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No separation at 5 guarantees only SL∩MA nonempty; it does not guarantee the stronger strict MA⊊SL in every mismatch."
+        ],
+        "reasoning": "Prior index values do not force 240 discrepancies, two types, sizes 120 each, or the two stationary vectors.",
+        "searches": [
+          "2015 Table 1 disparity=5 separation=6",
+          "Resultary related published first-disparity layers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Markov stationary-distribution maxima MA and Slater optimal-linear-order first elements SL are identical definitions in source and reviewed result."
+        ],
+        "reasoning": "The claimed frequency and first-divergence classes refine, rather than rename, known disparity threshold 5.",
+        "searches": [
+          "2015 Brandt–Dau–Seedig Sec. 2 definitions and Table 1",
+          "Resultary query: Slater Markov tournament solutions 5 vertices disparity 240 two isomorphism classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The PDF contains the (SL,MA) threshold indices, no 240 occurrence or two-class census; similar frequency results indexed for other rule pairs only."
+        ],
+        "reasoning": "A table of minimum disagreement orders cannot be substituted for the exact labeled 5-tournament joint-size histogram.",
+        "searches": [
+          "2015 PDF Table 1 and full-text find for “240”",
+          "Resultary query: Slater Markov tournament solutions 5 vertices disparity 240 two isomorphism classes"
+        ]
+      },
+      "rationale": "Brandt–Dau–Seedig original 2015 article already computes the first difference threshold d(SL,MA)=5 and first disjointness threshold s(SL,MA)=6, in an exhaustive survey of tournaments of order ≤10; these thresholds are explicitly prior. However its printed comparison table reports onset indices, not all 240 labeled five-vertex mismatch instances, universal MA⊊SL containment, two sizes and exact two isomorphism classes. A separation threshold of six implies only nonempty intersection at order five, substantially weaker than universal strict containment. Related published Resultary five-alternative disparity classifications concern different pairs of tournament rules and do not imply the Slater–Markov special case.",
+      "residual_risks": [
+        "Archived unpublished tournament-by-tournament data generated by the 2015 authors may already encode this complete first disparity census.",
+        "The theorem classifies only labeled/unlabeled order-five first-disparity layer; no larger-order frequency follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_PAIR_AND_THRESHOLDS_ONLY; no published 240/1024 prevalence or two-isomorphism-class joint-size result.",
+          "evidence": "Methods: enumerated non-isomorphic tournaments of order ≤10. Table1 first disagreement SL vs MA at five, first disjointness at six; text has no 240 occurrence.",
+          "identifier_or_url": "https://pub.dss.in.tum.de/brandt-research/tsrel.pdf",
+          "material_read": "Primary author-posted complete 19-page PDF; relevant abstract, definitions of Markov and Slater on pp. 5–6, exhaustive-search methodology pp. 8–9, Results section and comparison table pp. 9–10, bibliography; PDF page images checked.",
+          "method": "Direct lawful author-posted full-text reading, exact term search for count 240, visual checking of results/methodology.",
+          "title": "Bounds on the disparity and separation of tournament solutions",
+          "trigger": "Same Slater-versus-Markov comparison and published onset thresholds."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "doi:10.1016/j.dam.2015.01.041",
+        "https://pub.dss.in.tum.de/brandt-research/tsrel.pdf",
+        "arxiv:0803.2138",
+        "Resultary:2026/10/4/SCOPE-complete-five-alternative-banks-minimal-covering-disparity-layer--cdf9bdf7fa72"
+      ],
+      "rationale": "A complete structural description of the very first disagreement between a global minimum-feedback order and stationary tournament rule is a natural motivated boundary, clarifying why disparity at five precedes separation at six. The two exact asymmetric classes and universal nesting are informative independent of the already-known thresholds.",
+      "residual_risks": [
+        "Limited to the expressly stated geometry/finite parameter, not a general parameter-free statement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Archived unpublished tournament-by-tournament data generated by the 2015 authors may already encode this complete first disparity census.",
+    "The theorem classifies only labeled/unlabeled order-five first-disparity layer; no larger-order frequency follows."
+  ]
+}

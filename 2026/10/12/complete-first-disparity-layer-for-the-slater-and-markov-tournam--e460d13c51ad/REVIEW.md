@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The full labeled tournament domain through order \(5\) is exhausted. Slater winners are reproduced independently by direct permutation scoring and by subset dynamic programming. Markov stationary vectors are reproduced independently by exact rational linear-system solving and by directed matrix-tree cofactors. The two canonical disparity representatives, exact stationary vectors, orbit sizes, and universal first-layer containment are all replayed from the packaged verifier.
+## correctness
 
-Risk: the theorem is finite and does not extrapolate beyond order \(5\).
+PASS
 
-## Originality
-**PASS.** The decisive prior paper already establishes the disparity threshold \(d(SL,MA)=5\) and separation threshold \(s(SL,MA)=6\), and those facts are explicitly excluded from the novelty claim. Its full text defines both solutions and describes an exhaustive search over non-isomorphic tournaments through order \(10\), but the inspected paper does not publish the exact \(240\)-tournament first-layer count, the fraction \(15/64\), the two-class quotient, or the universal containment \(MA(T)\subsetneq SL(T)\) on the threshold layer. Targeted searches by names, exact counts, threshold language, and symmetry language did not locate an equivalent published statement.
+The Markov transition matrix is column stochastic because outdegree at j plus incoming wins against j equals n-1, and stationary solution exists uniquely in the tournament setting. The Slater criterion maximizes arcs consistent with a linear order. Independently rebuilt all labeled tournaments n=1,…,5 and computed Slater maxima by direct all n! ordering enumeration, and exact Markov winners by rational Gaussian elimination; the original source additionally supplies independent subset-DP and matrix-tree-cofactor implementations, each inspected. The exact discrepancy counts are 0 through n=4, and 240 at n=5 of 1024, with the 240 all satisfying MA⊊SL; the two strict size layers (3,1) and (2,1) each comprise 120 labeled cases. Independently canonicalized these under all 120 relabelings to find two size-120 isomorphism classes, so automorphism order one; rational stationary vectors (9,3,1,13,17)/43 and (1/4,1/12,1/6,1/8,3/8) have the asserted unique maxima. Enumeration is complete for n≤5 only, not larger tournaments.
 
-Risk: the earlier exhaustive computation necessarily generated the relevant five-alternative cases, so unpublished data or program output from that project could contain the same census.
+## originality
 
-## Value
-**PASS.** Slater and Markov are conceptually different canonical tournament solutions: one is a global minimum-feedback ranking rule and the other a stationary random-walk rule. The published fact that disparity begins at five alternatives leaves open what that first obstruction actually looks like. The complete layer shows that the initial disagreement is unexpectedly mild and rigid: Markov always selects a singleton strictly inside the Slater set, and only two asymmetric tournament types occur. This also gives a structural explanation of why the published separation threshold is one order larger than the disparity threshold.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Brandt–Dau–Seedig original 2015 article already computes the first difference threshold d(SL,MA)=5 and first disjointness threshold s(SL,MA)=6, in an exhaustive survey of tournaments of order ≤10; these thresholds are explicitly prior. However its printed comparison table reports onset indices, not all 240 labeled five-vertex mismatch instances, universal MA⊊SL containment, two sizes and exact two isomorphism classes. A separation threshold of six implies only nonempty intersection at order five, substantially weaker than universal strict containment. Related published Resultary five-alternative disparity classifications concern different pairs of tournament rules and do not imply the Slater–Markov special case.
+
+## value
+
+PASS
+
+A complete structural description of the very first disagreement between a global minimum-feedback order and stationary tournament rule is a natural motivated boundary, clarifying why disparity at five precedes separation at six. The two exact asymmetric classes and universal nesting are informative independent of the already-known thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

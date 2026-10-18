@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_slater_markov_first_layer.py` performs a complete exact census of labeled tournaments on one through five alternatives using only the Python standard library.
 
-The Slater set is computed independently by:
-1. enumerating every linear order and maximizing its number of forward tournament arcs;
-2. a subset dynamic program that recursively maximizes the same objective and identifies all possible optimal first alternatives.
+# Independent mathematical audit
 
-The Markov stationary distribution is computed independently by:
-1. exact rational Gaussian elimination on the stationary linear system;
-2. exact integer diagonal cofactors of the tournament Markov Laplacian via the directed matrix-tree theorem.
+## correctness
 
-The verifier confirms:
-- no Slater–Markov disparity at orders \(1,2,3,4\);
-- exactly \(240\) disparities among the \(1024\) labeled tournaments of order \(5\);
-- exact incidence \(15/64\);
-- \(MA(T)\subsetneq SL(T)\) in every first-layer disparity;
-- exactly \(120\) strict cases with sizes \((3,1)\);
-- exactly \(120\) strict cases with sizes \((2,1)\);
-- exactly two divergent isomorphism classes;
-- orbit size \(120\) for each class, hence trivial automorphism groups;
-- the two displayed out-neighborhood descriptions;
-- stationary vectors \((9,3,1,13,17)/43\) and \((1/4,1/12,1/6,1/8,3/8)\).
+PASS
 
-Run:
+The Markov transition matrix is column stochastic because outdegree at j plus incoming wins against j equals n-1, and stationary solution exists uniquely in the tournament setting. The Slater criterion maximizes arcs consistent with a linear order. Independently rebuilt all labeled tournaments n=1,…,5 and computed Slater maxima by direct all n! ordering enumeration, and exact Markov winners by rational Gaussian elimination; the original source additionally supplies independent subset-DP and matrix-tree-cofactor implementations, each inspected. The exact discrepancy counts are 0 through n=4, and 240 at n=5 of 1024, with the 240 all satisfying MA⊊SL; the two strict size layers (3,1) and (2,1) each comprise 120 labeled cases. Independently canonicalized these under all 120 relabelings to find two size-120 isomorphism classes, so automorphism order one; rational stationary vectors (9,3,1,13,17)/43 and (1/4,1/12,1/6,1/8,3/8) have the asserted unique maxima. Enumeration is complete for n≤5 only, not larger tournaments.
 
-`python3 verify_slater_markov_first_layer.py`
+## originality
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+Brandt–Dau–Seedig original 2015 article already computes the first difference threshold d(SL,MA)=5 and first disjointness threshold s(SL,MA)=6, in an exhaustive survey of tournaments of order ≤10; these thresholds are explicitly prior. However its printed comparison table reports onset indices, not all 240 labeled five-vertex mismatch instances, universal MA⊊SL containment, two sizes and exact two isomorphism classes. A separation threshold of six implies only nonempty intersection at order five, substantially weaker than universal strict containment. Related published Resultary five-alternative disparity classifications concern different pairs of tournament rules and do not imply the Slater–Markov special case.
 
-The computation proves only the stated finite threshold layer through order \(5\).
+## value
+
+PASS
+
+A complete structural description of the very first disagreement between a global minimum-feedback order and stationary tournament rule is a natural motivated boundary, clarifying why disparity at five precedes separation at six. The two exact asymmetric classes and universal nesting are informative independent of the already-known thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
