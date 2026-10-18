@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The code contains every singleton characteristic vector, so the message map has rank \(k\). For an \(r\)-space \(U\) of messages, the inactive face coordinates are exactly \(D\cap U^\perp\). Every \((k-r)\)-space \(W\) has an information set \(P\) of \(k-r\) coordinate positions; projection on \(P\) is injective on \(W\), and downward closure sends every projected face to \(\Delta|_P\). Hence \(|D\cap W|\le|\Delta|_P|\), with equality for the coordinate space \(\mathbb F_q^P\). This proves both displayed formulas and all quantifiers. Boundary cases \(r=1\) and \(r=k\) match the published distance and code length.
+## correctness
 
-## Originality
-PASS. The 2026 source treats arbitrary abstract simplicial complexes but proves a first-weight/minimum-distance result. The closest primary generalized-weight paper, arXiv:2310.11873v1, gives the standard subspace-intersection formulation and explicitly states that the general simplicial-complex maximum is difficult before treating special cases. Searches for the source title combined with “generalized Hamming weights,” “information set,” “coordinate subspace,” and “arbitrary simplicial complex” did not locate the sharp projection formula. The current and prior ledgers were also checked for statement-level overlap; their generalized-weight entries concern different code families and do not imply this arbitrary-complex theorem.
+PASS
 
-## Value
-PASS. The result replaces an all-subspaces optimization by a purely combinatorial induced-subcomplex maximum, simultaneously computes every generalized Hamming weight of the arbitrary-complex family, explains field independence, and recovers the source's minimum-distance theorem as the first case. This is a structural reduction rather than a routine parameter increment.
+PASS: The full vertex-set assumption makes all unit face columns present, so message-to-code map is injective and dimension k. For r-subspace U, its inactive coordinates are D ∩ U^⊥ including zero, giving support |Δ|-|D∩U^⊥|. Every (k-r)-dimensional W has an information set P of that size with coordinate projection injective on W. Downward closure maps any 0/1 face vector in D∩W injectively to Δ|P, so |D∩W|≤|Δ|P|; equality at W=F_q^P. Thus d_r=|Δ|-max_{|P|=k-r}|Δ|P| for each r=1..k and every prime q. Explicit boundary r=k is code length, and r=1 recovers minimum vertex-incidence count. Three independently enumerated small simplicial complexes yielded hierarchies (2,4,5),(1,5,7,8),(3,5,6), matching induced-max formula; exhaustive small tests are corroboration only.
 
-## Closest literature and limitations
-The closest literature is Lorite López--Camazón Portela--López Ramos (DOI 10.3934/math.2026414) for the arbitrary characteristic-face construction and Liu--Zheng--Lu--Wang (arXiv:2310.11873v1; DOI 10.1016/j.disc.2024.114240) for generalized weights of related simplicial defining-set codes. The claim is limited to the characteristic-face code and leaves the induced-subcomplex maximization problem itself to the combinatorics of \(\Delta\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge: Lorite López et al (2026) establish arbitrary face-code construction and only first minimum distance; Liu et al (2023/2025) provide general subspace-intersection formula and explicit complete hierarchies only for special coordinate-subspace union complexes. Their broad intersection expression is prior, but the sharp information-set projection for arbitrary 0/1 characteristic face sets does not follow from it without an additional lemma. A differently named projection theorem remains possible.
+
+## value
+
+PASS
+
+PASS: The generalized Hamming hierarchy controls multi-dimensional subcode supports and erasure profiles of a natural code attached to any finite simplicial complex. The theorem reduces the full linear-subspace optimization to combinatorial induced-face maximization and shows field independence. It is a motivated structural extension from minimum distance, not a parameter substitution or unmotivated finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
