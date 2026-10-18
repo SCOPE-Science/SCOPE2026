@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T21:18:45.963921Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an arc word U^{p_1}D^{q_1}...U^{p_f}D^{q_f} with nonempty alternating matchings allowed and fixed coordinate signs, the characteristic-vector support symmetric difference equals squared Euclidean distance of two shard vertices. Tracking the number of open matchings (0,1,2) gives exact singleton/spare-run max-plus matrices; distinct positions in a run of length>=2 allow 0->2 or 2->0 reward 2, whereas singleton simultaneous selection contributes zero difference. The state invariant A_i=2i+2g_i, B_i=A_i+2h_i-1, C_i=A_i+2h_i-2 after completed runs yields max closed-state score 2(f+g). Independently recomputed max-plus products for every singleton/spare pattern through f=8, agreeing with greedy g; the pinned exhaustive enumerator over all UD arc words length 2..10 was also inspected. The independent zero-vertex argument gives squared eccentricity 2f and exactly product_i p_i q_i farthest vertices. Finite checks corroborate, do not replace the all-f induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shard polytope construction relates to series-parallel matroid polytopes; same-day sphere/covering-result abstracts discuss related Euclidean statistics."
+        ],
+        "reasoning": "No inspected broader normal-fan, matroid or Ehrhart theorem supplies the max-two-matching diameter 2(f+g) as a direct specialization; complete full primary Padrol--Pilaud--Ritter text did not yield such a theorem.",
+        "searches": [
+          "Resultary: shard polytope Euclidean diameter alternating matching run lengths Hamming maximum"
+        ]
+      },
+      "checked_sources": [
+        {
+          "identifier_or_url": "https://arxiv.org/abs/2007.01008",
+          "scope": "Full accessible primary PDF, focusing on Definition 39, Proposition 40 and adjacent vertex/face descriptions; title and body inspected for Euclidean diameter and matching metric.",
+          "title": "Shard Polytopes"
+        },
+        {
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-shard-polytopes-have-a-canonical-vertex-sphere-with-a-balanced-p--6152ee04b3f8",
+          "scope": "Published indexed abstract/summary, not full primary text.",
+          "title": "Shard polytopes have a canonical vertex sphere with a balanced-prefix minimum-sphere criterion"
+        },
+        {
+          "identifier_or_url": "https://arxiv.org/abs/2503.16403",
+          "scope": "Public abstract/title and relation to Ehrhart positivity; complete source not inspected during this execution.",
+          "title": "Skew Shapes, Ehrhart Positivity and Beyond"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published vertex characterization implies each vertex support and fixed sign, and explains the Hamming reduction."
+        ],
+        "reasoning": "Computing the maximal Hamming distance across TWO interleaving alternating matchings requires new three-state max-plus recurrence and greedy invariant; this is not a corollary without those steps.",
+        "searches": [
+          "Resultary: shard polytope Euclidean diameter alternating matching run lengths Hamming maximum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Padrol--Pilaud--Ritter Definition 39 alternating matchings and Proposition 40 characteristic-vector polytope, together with symmetric-difference Hamming metric, are equivalent combinatorial descriptions of vertices."
+        ],
+        "reasoning": "The underlying vertex encoding is prior art, but the diameter is an optimization over TWO matchings and is not automatically determined by the face count or single-vertex matching maximum.",
+        "searches": [
+          "Resultary: shard polytope Euclidean diameter alternating matching run lengths Hamming maximum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source full-text search returned no matching diameter theorem/table; published record of canonical vertex sphere studies a different minimum-enclosing-ball quantity."
+        ],
+        "reasoning": "A radius around zero sqrt(2f) is not the diameter sqrt(2(f+g)): the extra greedy pair term can be positive, so an eccentricity/circumsphere table does not cover the present finding.",
+        "searches": [
+          "Resultary: shard polytope Euclidean diameter alternating matching run lengths Hamming maximum"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Padrol--Pilaud--Ritter define shard polytopes and their alternating-matching vertex model, but their inspected primary paper handles face/normal-fan/matroid geometry rather than the ambient Euclidean metric invariant. The exact diameter formula, greedy spare-run statistic, and farthest-zero-vertex count do not follow numerically from the vertex-description statement without a nontrivial two-matching optimization. Published Resultary neighbors concern enclosing spheres, different polytope metrics, or graph distances rather than this exact diameter; no materially stronger published covering theorem was found. Metric-translation literature remains a residual risk.",
+      "residual_risks": [
+        "Other terminology (series-parallel matroid base polytopes or alternating-matching code) might already contain the same diameter formula; semantic searches are not a global novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS vertex foundation but not found to state exact Euclidean diameter formula; no claim from snippets alone.",
+          "evidence": "Definition 39: alternating matchings with empty matching, Proposition 40: convex hull of characteristic vectors.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.01008",
+          "material_read": "Full accessible primary PDF, focusing on Definition 39, Proposition 40 and adjacent vertex/face descriptions; title and body inspected for Euclidean diameter and matching metric.",
+          "method": "Lawful author-hosted open PDF inspected by text and page rendering.",
+          "title": "Shard Polytopes",
+          "trigger": "Exact original object and matching vertex model"
+        },
+        {
+          "assessment": "Addresses minimum enclosing sphere and uniform-density prefix test, not opposite-vertex Euclidean diameter; full-text overlap remains possible.",
+          "evidence": "Resultary hit reports radius sqrt(pq/(p+q)) in a distinct circumsphere normalization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-shard-polytopes-have-a-canonical-vertex-sphere-with-a-balanced-p--6152ee04b3f8",
+          "material_read": "Published indexed abstract/summary, not full primary text.",
+          "method": "Resultary semantic lookup.",
+          "title": "Shard polytopes have a canonical vertex sphere with a balanced-prefix minimum-sphere criterion",
+          "trigger": "Closest indexed same-object metric competitor"
+        },
+        {
+          "assessment": "Enumerative relationship only from inspected metadata, not used to claim whole-document absence of diameter.",
+          "evidence": "Shard polytopes and Ehrhart positivity treated as distinct invariant.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.16403",
+          "material_read": "Public abstract/title and relation to Ehrhart positivity; complete source not inspected during this execution.",
+          "method": "ArXiv context search.",
+          "title": "Skew Shapes, Ehrhart Positivity and Beyond",
+          "trigger": "Later shard-polytope enumerative theorem might contain metric corollary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A closed linear-time run-statistic formula for the ordinary Euclidean diameter of every natural type-A shard polytope is an exact, reusable metric invariant. The 1-vs-2 threshold, extremal equalities and farthest-vertex enumeration give structural information, not an unmotivated small enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Formula uses the standard coordinate metric on type-A shard polytopes, not affine-invariant diameter or all Minkowski sums."
+  ],
+  "schema_version": 1
+}

@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source's exact vertex model was reconstructed first. Since each position has a fixed possible sign, squared Euclidean distance between two vertices is support Hamming distance. A matching uses at most one coordinate from each maximal \(U\)- or \(D\)-run, so two vertices are governed by a three-state “number of open matchings” dynamic program. Singleton runs and runs of length at least two give four explicit max-plus transition matrices. Their product has the closed invariant
-\[
-A_i=2i+2g_i,\qquad
-B_i=A_i+2h_i-1,\qquad
-C_i=A_i+2h_i-2,
-\]
-where \(g_i\) is the greedy spare-run pairing count and \(h_i\) records one pending spare \(U\). The final closed state is therefore \(2(f+g)\). The zero-vertex eccentricity and extremal count are proved independently from maximum alternating-match length.
+## correctness
 
-## Originality
-PASS. Padrol--Pilaud--Ritter's full text was inspected at the alternating-matching definition, V/H descriptions, basic geometry, symmetries, and matroid interpretation. It contains no occurrence of “diameter”, “circumradius”, or “inradius” and does not optimize Euclidean distances between vertices. Direct and alias searches under shard-polytopes, Hamming distance, alternating matchings, run structure, and series-parallel matroids located no covering theorem. The later shard-polytope Ehrhart-positivity paper was also checked and contains no diameter, distance, or Euclidean terminology. Own current and prior ledgers contain no shard-polytope metric claim.
+PASS
 
-## Value
-PASS. Shard polytopes are the elementary summands used to realize quotient fans, so a complete metric classification of each summand is intrinsically relevant. The diameter formula is exact for every arc and has a non-obvious rigidity: after the number of runs is fixed, a run contributes only through whether its length is \(1\) or at least \(2\). The theorem also gives sharp extremal bounds and the exact number of vertices farthest from the distinguished zero vertex.
+For an arc word U^{p_1}D^{q_1}...U^{p_f}D^{q_f} with nonempty alternating matchings allowed and fixed coordinate signs, the characteristic-vector support symmetric difference equals squared Euclidean distance of two shard vertices. Tracking the number of open matchings (0,1,2) gives exact singleton/spare-run max-plus matrices; distinct positions in a run of length>=2 allow 0->2 or 2->0 reward 2, whereas singleton simultaneous selection contributes zero difference. The state invariant A_i=2i+2g_i, B_i=A_i+2h_i-1, C_i=A_i+2h_i-2 after completed runs yields max closed-state score 2(f+g). Independently recomputed max-plus products for every singleton/spare pattern through f=8, agreeing with greedy g; the pinned exhaustive enumerator over all UD arc words length 2..10 was also inspected. The independent zero-vertex argument gives squared eccentricity 2f and exactly product_i p_i q_i farthest vertices. Finite checks corroborate, do not replace the all-f induction.
 
-## Closest literature and limitations
-The closest source gives the entire vertex and facet combinatorics, plus a series-parallel matroid interpretation, but not this metric optimization. The later Ehrhart work is enumerative rather than metric. A residual risk remains that the same formula is hidden under series-parallel matroid terminology. The result is specific to the standard type-\(A\) realization and does not address type \(B\), graph diameter, or Minkowski sums.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. Padrol--Pilaud--Ritter define shard polytopes and their alternating-matching vertex model, but their inspected primary paper handles face/normal-fan/matroid geometry rather than the ambient Euclidean metric invariant. The exact diameter formula, greedy spare-run statistic, and farthest-zero-vertex count do not follow numerically from the vertex-description statement without a nontrivial two-matching optimization. Published Resultary neighbors concern enclosing spheres, different polytope metrics, or graph distances rather than this exact diameter; no materially stronger published covering theorem was found. Metric-translation literature remains a residual risk.
+
+## value
+
+PASS
+
+PASS. A closed linear-time run-statistic formula for the ordinary Euclidean diameter of every natural type-A shard polytope is an exact, reusable metric invariant. The 1-vs-2 threshold, extremal equalities and farthest-vertex enumeration give structural information, not an unmotivated small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

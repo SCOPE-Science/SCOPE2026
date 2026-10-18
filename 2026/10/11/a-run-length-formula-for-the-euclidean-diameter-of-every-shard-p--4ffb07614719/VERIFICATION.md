@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem is proved symbolically in `RESULT.md`; finite enumeration is corroborative only.
 
-Verified source premises:
-- an \(\alpha\)-alternating matching may be empty;
-- its characteristic vector has \(+1\) coordinates only on \(\{a\}\cup A\) and \(-1\) coordinates only on \(B\cup\{b\}\);
-- the vertices of the shard polytope are exactly these characteristic vectors.
+# Independent mathematical audit
 
-Verified proof reductions:
-- squared Euclidean distance of two vertices equals the Hamming size of their support symmetric difference;
-- each matching uses at most one coordinate per maximal run;
-- pairwise distance optimization therefore reduces to three open-matching states;
-- a singleton run differs from a longer run only when both matchings try to use it, producing the four transition matrices displayed in `RESULT.md`;
-- the max-plus invariant after every complete \(U_iD_i\) run pair yields the closed formula \(2(f+g)\);
-- maximum distance from the zero vertex is \(2f\) in squared units, with exactly \(\prod_i p_iq_i\) maximizing vertices.
+## correctness
 
-`verify.py` exhaustively enumerates every arc word of lengths \(2\) through \(10\), every alternating matching for each word, and every vertex pair. It compares direct Euclidean squared diameters and zero-vertex data against the formulas. This finite replay is not used as proof for arbitrary arc length.
+PASS
+
+For an arc word U^{p_1}D^{q_1}...U^{p_f}D^{q_f} with nonempty alternating matchings allowed and fixed coordinate signs, the characteristic-vector support symmetric difference equals squared Euclidean distance of two shard vertices. Tracking the number of open matchings (0,1,2) gives exact singleton/spare-run max-plus matrices; distinct positions in a run of length>=2 allow 0->2 or 2->0 reward 2, whereas singleton simultaneous selection contributes zero difference. The state invariant A_i=2i+2g_i, B_i=A_i+2h_i-1, C_i=A_i+2h_i-2 after completed runs yields max closed-state score 2(f+g). Independently recomputed max-plus products for every singleton/spare pattern through f=8, agreeing with greedy g; the pinned exhaustive enumerator over all UD arc words length 2..10 was also inspected. The independent zero-vertex argument gives squared eccentricity 2f and exactly product_i p_i q_i farthest vertices. Finite checks corroborate, do not replace the all-f induction.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS. Padrol--Pilaud--Ritter define shard polytopes and their alternating-matching vertex model, but their inspected primary paper handles face/normal-fan/matroid geometry rather than the ambient Euclidean metric invariant. The exact diameter formula, greedy spare-run statistic, and farthest-zero-vertex count do not follow numerically from the vertex-description statement without a nontrivial two-matching optimization. Published Resultary neighbors concern enclosing spheres, different polytope metrics, or graph distances rather than this exact diameter; no materially stronger published covering theorem was found. Metric-translation literature remains a residual risk.
+
+## value
+
+PASS
+
+PASS. A closed linear-time run-statistic formula for the ordinary Euclidean diameter of every natural type-A shard polytope is an exact, reusable metric invariant. The 1-vs-2 threshold, extremal equalities and farthest-vertex enumeration give structural information, not an unmotivated small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
