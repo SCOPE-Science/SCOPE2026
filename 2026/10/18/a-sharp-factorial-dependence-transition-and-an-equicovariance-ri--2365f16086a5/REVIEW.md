@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+For each admissible vector of cycle lengths and falling-factorial multiplicities, direct marking in the Ewens sampling formula yields the exact identity \(\mathbb E\prod_i (C_{r_i})_{\underline{k_i}}=F_n(\sum_i r_i k_i)\prod_i (\theta/r_i)^{k_i}\), with \(F_n(t)=\prod_{a=0}^{t-1}(n-a)/(n+\theta-1-a)\). The successive factor ratio has the sign of \(1-\theta\), establishing the strict comparisons for every feasible collection. The two-cycle mixed difference gives covariance; the fixed-length second-order expansion is explicit. At \(\theta=2\), \(F_n(t)=(n-t+1)/(n+1)\) yields exact common covariance \(-4/(n+1)^2\). The difference of two admissible covariances factors with positive denominator and numerator proportional to \((\theta-1)(\theta-2)\), yielding rigidity for every \(n\ge4\). A standalone rational program verified 1,165 finite assertions; the infinite-domain statements rest on the proof.
+
+## Originality — PASS on compared material; residual priority risk
+The full Ewens sampling law and independent-Poisson conditioning are classical, explicitly presented by Tavaré (2021). Da Silva, Jamshidpey and Tavaré (2020) study the Ewens law conditioned on derangement, not the unconditioned \(\theta\)-varying cross-length statement. Stark (2021) treats random injections. The assessed result does not claim the factorial-moment formula as new. Its target is the *complete strict sign transition*, *common leading covariance independent of cycle lengths*, and especially the *unique nonzero all-pairs equicovariance point* together with its rigidity. Inspection of the cited materials and targeted searches did not identify the conjunction or a dominating theorem. An earlier text may imply these identities directly from standard Ewens moment formulas; that is a material priority risk, not a claim of demonstrated uniqueness. Bakshajeva–Manstavičius (2014) and general Ewens dependence literature warrant independent full-text follow-up.
+
+## Value — PASS
+Cycle lengths are canonical observables in the Ewens sampling model. The result supplies a complete finite-size sign phase boundary for their factorial dependencies, shows a length-independent leading covariance for fixed cycle lengths, and classifies exactly the two positive \(\theta\) values producing all-pair equicovariance. The isolated nonzero \(\theta=2\) point offers a natural exact structural parameter rather than an arbitrary numerical case. The result is an elementary structural consequence of the classical distribution, not a new probability law or global association theorem.
+
+## Scope and limits
+At sample sizes with \(r+s>n\), cycle classes cannot coexist; such pairs are not part of the equicovariance rigidity assertion. Zero covariance at \(\theta=1\) is not independence. Fixed-length asymptotics are not uniform in growing lengths. Full independent scientific and historical-priority evaluation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
