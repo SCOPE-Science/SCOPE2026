@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof is the primary verification. It was reconstructed against the source's definitions of the combined limit process and its branching-process threshold.
+# Independent mathematical audit
 
-1. **Parameter nesting.** With common app marks \(U\) and manual-link marks \(V\), the traceable-edge predicate is monotone under \((p_1,\pi_1)\le(p_2,\pi_2)\).
-2. **Pruning lemma.** An earliest-discrepant-birth argument rules out an infection occurring with stronger tracing but not with weaker tracing. The argument uses the genealogical-tree structure, common clocks, and recursive tracing through recovered infected vertices.
-3. **Threshold transfer.** The source proves that its limiting component branching process dies out almost surely for \(R_{\mathrm{DM}}\le1\) and grows without bound with positive probability for \(R_{\mathrm{DM}}>1\). Pathwise inclusion therefore transfers directly to the sign of \(R_{\mathrm{DM}}-1\).
-4. **Finite checker.** `verify.py` exhaustively checks the edge-predicate nesting on a rational grid and tests the pruning direction over nested trace-edge sets on finite event trees that include backward tracing, branching, and recovered tracing intermediates. Successful finite replay is a regression check only; it is not substituted for the infinite proof.
+## correctness
 
-Limits: no computation verifies continuity, differentiability, or numerical monotonicity of \(R_{\mathrm{DM}}\), and none is claimed. The proof depends on instantaneous iterative tracing and common infection-contact dynamics; models with delay or one-step tracing require separate analysis.
+PASS
+
+The common marked potential-infection tree nests traceable edges as manual marking p or both app uptake marks pi increase. A first-discrepant-birth argument: any earlier removal under the weaker graph is triggered by a diagnosis connected to the would-be parent by weaker traceable infection edges; along that already-realized path the larger traceability forces at least the same removal or suppresses the relevant ancestry. Consequently stronger-traced infections are a subset of weaker-traced infections. The actual source establishes extinction a.s. when R_DM<=1 versus positive probability of unbounded growth when R_DM>1, so the threshold upper set follows. This does not imply numerical monotonicity of R_DM. Independent small finite event-tree stress checks (5,7,9 nodes, 15,000 random nested-edge constructions each) found no counterexample; they are not the infinite proof.
+
+## originality
+
+PASS
+
+Source states this monotone threshold frontier as a missing proof, despite evidence of nonmonotonicity of the reproduction-number value. Related contact-tracing threshold papers use delayed/one-step or distinct dynamics; no exact implication identified from those models.
+
+## value
+
+PASS
+
+The source explicitly identifies the monotone level-one threshold as open; proving the subcritical region is coordinatewise upper gives a structural intervention-order theorem without falsely claiming monotonicity of the nonmonotone numerical reproduction number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

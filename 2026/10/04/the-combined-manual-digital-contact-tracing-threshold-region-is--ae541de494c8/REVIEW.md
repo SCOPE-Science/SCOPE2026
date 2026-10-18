@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the exact combined-model assumptions from Britton and Zhang: a common rate-\(\beta\) potential infection process, independent app marks, independent manual-tracing marks, spontaneous recovery and diagnosis clocks, and instantaneous recursive tracing through infected contacts including those already naturally recovered. Coordinatewise larger \((p,\pi)\) can only add traceable edges. The earliest-discrepant-birth argument shows that the stronger-tracing process cannot realize an infection absent from the weaker-tracing process. The source independently supplies the threshold equivalence between survival and \(R_{\mathrm{DM}}>1\). No finite experiment is used as the infinite proof.
+## correctness
 
-## Originality — PASS
-The primary source is the closest possible comparison and explicitly states that its numerically observed monotone \(R_{\mathrm{DM}}=1\) curve lacks a proof, while also documenting non-monotonicity of \(R_{\mathrm{DM}}\) itself. Searches covering monotone-critical-curve aliases, survival/coupling language, manual/digital combinations, and branching-process tracing did not locate a covering theorem. The closest own-ledger contact-tracing result concerns a different pairwise/triplewise mean-field model. The related Zhang–Britton network SEIR paper uses delayed, one-step, forward-only tracing and reports numerical rather than theorem-level combined monotonicity. A residual risk remains that a general tracing-monotonicity principle exists in literature not retrieved here; no inspected source states this source-specific result.
+PASS
 
-## Value — PASS
-This resolves an explicit open structural point in a recent primary-92D30 paper. It separates a useful threshold-order law from the misleading stronger assertion that the component reproduction number itself must decrease. The result implies that the control region is upward closed and that increasing one tracing mechanism can never require increasing the other merely to remain subcritical, even in parameter regimes where noncritical contours of \(R_{\mathrm{DM}}\) bend non-monotonically.
+The common marked potential-infection tree nests traceable edges as manual marking p or both app uptake marks pi increase. A first-discrepant-birth argument: any earlier removal under the weaker graph is triggered by a diagnosis connected to the would-be parent by weaker traceable infection edges; along that already-realized path the larger traceability forces at least the same removal or suppresses the relevant ancestry. Consequently stronger-traced infections are a subset of weaker-traced infections. The actual source establishes extinction a.s. when R_DM<=1 versus positive probability of unbounded growth when R_DM>1, so the threshold upper set follows. This does not imply numerical monotonicity of R_DM. Independent small finite event-tree stress checks (5,7,9 nodes, 15,000 random nested-edge constructions each) found no counterexample; they are not the infinite proof.
 
-## Closest literature and limitations
-The direct predecessor is Britton and Zhang, DOI 10.1017/apr.2025.15. Zhang and Britton, arXiv:2402.13392 / DOI 10.1016/j.mbs.2024.109231, studies a different delayed one-step network model. Ball–Knock–O'Neill and Barlow study other tracing branching processes. The present theorem does not cover delayed tracing, imperfect digital registration, fatigue, structured-contact changes, late-epidemic susceptible depletion, strictness, or value monotonicity of \(R_{\mathrm{DM}}\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Source states this monotone threshold frontier as a missing proof, despite evidence of nonmonotonicity of the reproduction-number value. Related contact-tracing threshold papers use delayed/one-step or distinct dynamics; no exact implication identified from those models.
+
+## value
+
+PASS
+
+The source explicitly identifies the monotone level-one threshold as open; proving the subcritical region is coordinatewise upper gives a structural intervention-order theorem without falsely claiming monotonicity of the nonmonotone numerical reproduction number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
