@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** For each fixed seed set, exploration of outgoing independent contacts gives the same final activated-set distribution as independent undirected bond components. The exact first and second moment formula yields every three-vertex set-function curvature, with all symmetry types tabulated in `RESULT.md`. The cubic sign proof determines the unique interior threshold. On the star, conditioning on center activation gives an elementary exact variance expression; direct algebra proves the two-unseeded-leaves obstruction and asymptotic leaf scale. The packaged symbolic script independently checks all small topology formulas and directed-arc enumeration, but finite checks are not substituted for the arbitrary-star proof.
+
+**Originality — PASS, with residual bibliographic risk.** The closest original model paper, Kempe–Kleinberg–Tardos (2003), and later Khanna–Lucier (2014) concern submodularity of the *expected* activation count. Staib–Jegelka (2017, Appendix D) treats second moments under random continuous transmission *parameters* rather than random fixed-parameter cascade outcomes and does not supply either the three-agent cubic or the final-two-leaves star criterion. Wilder (2018) analyzes CVaR objectives, not this variance set function. Focused search and comparison did not locate a mathematically covering result. Variance-of-stochastic-coverage or reliability formulations might contain equivalent results and should be checked independently before publication.
+
+**Mathematical value — PASS.** Submodularity is the central structural basis of classical greedy influence maximization. The theorem identifies precisely where its variance analogue first fails, including a sharp universal boundary for the smallest nontrivial networks, and proves that *no* common low-transmissibility interval guarantees the variance property uniformly across networks. The quantitative star-size threshold explains the scale of the obstruction as transmission becomes rare; this is a structural classification, not an isolated negative example.
+
+Independent bibliographic validation and external proof review are outstanding. This work concerns variance, not tail-risk guarantees or approximation ratios.
+
+Self-review: passed. Independent audit: not yet performed.
