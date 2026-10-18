@@ -1,15 +1,21 @@
-# Review: strict growth gap from global univalence
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For \(0<k<1\), equality in the primary-source radial growth inequality requires equality in the odd analytic derivative bound, Schwarz's quadratic-order lemma, and the denominator triangle bound along the entire radial segment. The odd Bieberbach equality case forces \(\phi=z/(1-z^2)\); phase matching forces \(\varepsilon=-1\) and \(\omega=kz^2\). For the resulting shear, the real part of the coanalytic primitive on the right upper boundary arc has a strictly positive angular derivative and vanishes at \(z=i\), hence is strictly negative before that endpoint. The opposite arc has the opposite sign. Every horizontal line above the upper slit therefore has two distinct preimages of one value, so the equality shear is noninjective despite its strictly positive Jacobian. Compactness of the original normalized univalent family upgrades equality impossibility into a strict optimal-constant gap. At \(k=0\), the normalized odd Koebe square-root map attains the bound.
+PASS
 
-## Originality
+Quadratic Schwarz lemma bounds |ω|≤k|z|²; odd analytic distortion integrates to T. Equality for a positive radius forces extremal third coefficient a3=1 in odd schlicht φ, hence φ=z/(1−z²) and ω=+kz² with h−g=φ. The equality F=H+bar G is locally orientation preserving but its slit-domain boundary real parts have opposing signs and horizontal coordinate derivative (1−k²|z|⁴)/|1−kz²|²>0, yielding two distinct preimages of iy for y>1/2. Closed normalized schlicht analytic combinations, derivative bounds and preservation of positive local degrees under uniform limit make the global univalent class compact; excluded equality therefore yields strict positive gap. k=0 analytic ψ attains.
 
-PASS. Full relevant sections of the May 2026 primary manuscript were read: its class definitions, odd distortion input, Theorem 6, derivation of the growth function, and purported sharpness construction. The source does not investigate whether the formal equality shear is globally injective, distinguish local sharpness from global sharpness, or prove a strict pointwise gap for the univalent class. Jaglan--Sairam Kaliraj's 2024 paper provides the earlier vertical shear and related odd coefficient/Hardy theory, but the inspected main results do not establish the finite-positive-\(k\) nonunivalence mechanism. Targeted published-result and mathematical-record searches for the source inequality, equivalent phase conditions, and the opposite shear did not locate an implication-equivalent statement. The uninspected remainder of the earlier article and possibly unindexed independent notes remain residual originality risks.
+## originality
 
-## Value
+PASS
 
-PASS. Global injectivity versus local orientation is central to the geometry of harmonic shears. The result gives a complete yes/no sharpness classification for a natural one-parameter family of growth envelopes, explains the exact obstruction by geometry of paired boundary slits, and separates the compact globally univalent class from its larger locally univalent relaxation. This is a structural boundary of a recently asserted sharp bound, not an isolated numerical countercheck or a merely renamed known inequality. It does not pretend to compute the still-unknown exact best positive-\(k\) constant.
+The same analytic odd growth envelope is published and explicitly credited, but its claimed sharpness for globally injective maps is contradicted by an exact equality-case classification and noninjective opposite shear. The corrected strict all-k,all-r gap is not a restatement of the original bound; it rules out source equality and establishes compactly attained positive deficit.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Corrects a mathematically substantive sharpness assertion in a current theorem: a locally sense-preserving equality shear cannot be used as a globally injective extremizer. The geometric double-preimage obstruction and compactness give genuinely better guaranteed distortion constants for every fixed positive parameter, even without closed optimum formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

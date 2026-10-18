@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,35 +19,24 @@
 }
 ---
 
-The candidate equality map can be reconstructed without external code:
-\[
-\psi(z)=\frac{z}{1-z^2},\quad
-H_k'(z)=\frac{1+z^2}{(1-z^2)^2(1-kz^2)},\quad
-G_k'(z)=kz^2 H_k'(z).
-\]
-The primitives vanish at the origin. The normalized harmonic map \(F_k=H_k+\overline{G_k}\) obeys
-\[
-\frac{G_k'}{H_k'}=kz^2,
-\quad J_{F_k}=|H_k'|^2(1-k^2|z|^4)>0,
-\quad H_k-G_k=\psi.
-\]
-On the positive real diameter, \(F_k(r)=\int_0^r(1+ks^2)U(s)/(1-ks^2)\,ds=T(k,r)\).
+# Independent mathematical audit
 
-On the boundary right upper quadrant \(z=e^{it}\), the exact derivative
-\[
-\frac{d}{dt}\operatorname{Re}G_k(e^{it})=
-\frac{k\cos t\sin(2t)}{2\sin^2t(1-2k\cos(2t)+k^2)}>0,
-\qquad0<t<\pi/2
-\]
-with \(\operatorname{Re}G_k(i)=0\) gives a negative real part on that arc. The reflected boundary arc has the opposite real value. On the two horizontal components above each slit of \(\psi(\mathbb D)\), the exact coordinate derivative is
-\[
-\frac{\partial}{\partial x}\operatorname{Re}F_k(\psi^{-1}(x+iy))
-=\frac{1-k^2|\psi^{-1}(x+iy)|^4}{|1-k\psi^{-1}(x+iy)^2|^2}>0.
-\]
-The two coordinate ranges overlap, providing distinct preimages of \(iy\) for every \(y>1/2\). This exact sign-and-intermediate-value proof establishes noninjectivity for all \(0<k<1\).
+## correctness
 
-Any equality case for the upper bound forces \(\phi=h+\varepsilon g=\psi\) by the normalized second-coefficient equality case and forces \(\omega=kz^2\) by Schwarz-phase equality. It is therefore a normalized rotation of \(F_k\). Compactness follows from locally uniform derivative bounds, analytic schlicht compactness, and preservation of local topological degree, so the positive strict gap holds for each fixed \(k,r\).
+PASS
 
-For numerical consistency only, with \(k=1/2\), solving on \(y=1\) gives two approximate preimages \(\pm0.7552608658+0.3671083730i\), both sent near \(i\). The analytic proof is independent of this finite check.
+Quadratic Schwarz lemma bounds |ω|≤k|z|²; odd analytic distortion integrates to T. Equality for a positive radius forces extremal third coefficient a3=1 in odd schlicht φ, hence φ=z/(1−z²) and ω=+kz² with h−g=φ. The equality F=H+bar G is locally orientation preserving but its slit-domain boundary real parts have opposing signs and horizontal coordinate derivative (1−k²|z|⁴)/|1−kz²|²>0, yielding two distinct preimages of iy for y>1/2. Closed normalized schlicht analytic combinations, derivative bounds and preservation of positive local degrees under uniform limit make the global univalent class compact; excluded equality therefore yields strict positive gap. k=0 analytic ψ attains.
 
-Limitations: The exact optimal value \(M(k,r)\), the gap's magnitude and its endpoint behavior are not determined for positive \(k\). No other harmonic class is classified here.
+## originality
+
+PASS
+
+The same analytic odd growth envelope is published and explicitly credited, but its claimed sharpness for globally injective maps is contradicted by an exact equality-case classification and noninjective opposite shear. The corrected strict all-k,all-r gap is not a restatement of the original bound; it rules out source equality and establishes compactly attained positive deficit.
+
+## value
+
+PASS
+
+Corrects a mathematically substantive sharpness assertion in a current theorem: a locally sense-preserving equality shear cannot be used as a globally injective extremizer. The geometric double-preimage obstruction and compactness give genuinely better guaranteed distortion constants for every fixed positive parameter, even without closed optimum formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
