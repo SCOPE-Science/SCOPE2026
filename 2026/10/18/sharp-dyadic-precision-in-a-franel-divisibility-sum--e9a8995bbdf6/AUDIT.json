@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Guo 2014 equation (2.4) is an exact published identity with a reconstructed finite telescoping recurrence; factorial quotient is integral. Legendre valuation gives the exact digit formula at every dyadic height. For small-half indices the unique lowest term is j=1 at valuation 2r; large-half indices are strictly higher and r=2 is computed separately. Thus the normalized quotient has valuation 2r, and the exact central binomial factor adds r+1. Exact code independently reproduces the transform for n=2..26 and the dyadic checks through r=10; these finite tests are not used to prove the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guo Theorem 1.3 yields only \\(\nu_2(S_{2^r})\\ge r+1\\) at dyadic endpoints; its Section 2 proves a transform valid for all indices.",
+        "Sun 2015 studies sums of form \\(\\sum_{k=0}^{p-1}\binom{2k}{k}f_k/m^k\\) modulo odd primes \\(p>5\\).",
+        "Mao 2021 proves a fourth-power odd-prime congruence for \\(\\sum_{k=0}^{p-1}(3k+1)\binom{2k}{k}f_k/(-16)^k\\) with \\(p>3\\)."
+      ],
+      "reasoning": "The broad general-index identity is acknowledged as a necessary antecedent; it is not a valuation classification. The later odd-prime theorems cannot specialize to the prime two and to n=2^r. No discovered stronger theorem evaluates this specific 2-adic series.",
+      "searches": [
+        "web: Guo 2014 Franel sum sharper divisibility 2 powers n central binomial",
+        "web: \"Franel\" \"n binom{2n}{n}\" \"2-adic\" Guo",
+        "web: \"Congruences for sums involving Franel numbers\" \"3k+1\" \"16\"",
+        "arXiv:1404.6978v1, full Theorem 1.3/Proof Section 2/Concluding remarks",
+        "arXiv:1502.02499v3, abstract/introduction and statements",
+        "arXiv:2111.08778, introduction Theorem 1.1 and proof opening"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1404.6978v1",
+      "arXiv:1502.02499v3",
+      "arXiv:2111.08778",
+      "OEIS:A000172",
+      "OEIS:A181543",
+      "published-finding corpus search hits 2026/9/20/SCOPE-shifted-generalized-domb-supercongruences--d55c1da5b110",
+      "published-finding corpus search hits 2026/9/19/SCOPE-twice-odd-thue-morse-valuation-obstruction--8d0b08903313"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.3 of Guo is a divisibility lower bound and does not force equality.",
+        "Guo equation (2.4) reduces the question to a nontrivial term valuation comparison using Legendre and binary complement."
+      ],
+      "reasoning": "Unlike the published divisibility assertion and the inspected published results, the present theorem proves a unique leading 2-adic contribution for the transformed quotient at all dyadic heights. This implication comparison supports originality, not guaranteed global uniqueness.",
+      "searches": [
+        "arXiv:1404.6978v1 Theorem 1.3 and equation (2.4)",
+        "published-finding corpus: 2-adic precision refinement for Guo Franel divisibility theorem n binom(2n,n), 2014 supercongruence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guo 2014 arXiv:1404.6978v1 Theorem 1.3 (general integrality) and equation (2.4) (finite transform).",
+        "published-finding corpus top match 2026/9/20/SCOPE-shifted-generalized-domb-supercongruences--d55c1da5b110 addresses generalized Domb sums, not this Franel convolution.",
+        "published-finding corpus 2026/9/19/SCOPE-twice-odd-thue-morse-valuation-obstruction--8d0b08903313 concerns the Thue-Morse generating function, not the weighted Franel sum."
+      ],
+      "reasoning": "Rewriting the claim as exact valuation of the normalized Guo quotient or as congruence modulo a consecutive power of two did not expose a covering claim. The finite identity contains the same sum but does not evaluate the dyadic valuation; the additional binary carry comparison is performed here.",
+      "searches": [
+        "published-finding corpus: Franel sums Guo 2014 dyadic n=2^r exact valuation of sum (3k+1)(-16)^(n-k-1) binom(2k,k) Franel(k), sharp divisibility",
+        "published-finding corpus: Franel numbers convolution signed powers sixteen n central binomial quotient valuation 2-adic 3r+1",
+        "web: \"Franel\" \"3k+1\" \"2^r\" \"valuation\"",
+        "web: \"Franel\" \"2^{3r+1}\" \"sum\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A000172 tabulates individual Franel numbers \\(f_n\\).",
+        "OEIS:A181543 tabulates entries \\(\binom nk^3\\) as a triangle; it is not a table of the weighted sum at dyadic endpoints."
+      ],
+      "reasoning": "The investigated sequence databases supply component terms rather than an exact convolution valuation table. Absence from these searches is not a proof of priority.",
+      "searches": [
+        "web: OEIS \"Franel\" \"3k+1\" \"(-16)\" sum central binomial",
+        "web: \"Franel\" \"(-16)^{n-k-1}\" 2-adic",
+        "OEIS:A000172",
+        "OEIS:A181543"
+      ]
+    },
+    "rationale": "The closest paper, Guo 2014 (arXiv:1404.6978v1), proves the same convolution is divisible by a general central-binomial divisor and supplies equation (2.4), but does not identify the exact dyadic valuation. The new exact termwise binary-digit formula identifies a unique term at the lower valuation. Sun 2015 and Mao 2021 treat prime-length congruences for odd primes and do not directly imply the 2-adic dyadic statement. Comparisons with relevant published mathematical research records identified no direct match; stronger implicit published coverage remains a genuine risk.",
+    "residual_risks": [
+      "Guo 2014 equation (2.4) is very close: another author could have extracted the same valuation as a short unstated corollary.",
+      "Some later related Franel work was inspected only in its stated theorem sections, not all body material.",
+      "published-finding corpus similarity matching and limited external literature coverage cannot establish global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct antecedent and strongest overlap. Provides identity and general divisibility, but no exact dyadic valuation theorem in inspected sections.",
+        "evidence": [
+          "Theorem 1.3 on PDF p. 2 gives modulus n*binom(2n,n).",
+          "Equation (2.4) on PDF p. 4 gives exact normalized finite transform.",
+          "Concluding remarks pp. 6–7 pose related congruences but do not enumerate dyadic valuation."
+        ],
+        "identifier_or_url": "arXiv:1404.6978v1; https://arxiv.org/pdf/1404.6978",
+        "material_read": "ArXiv full-text theorem and proofs, PDF pp. 1–4 for exact identity (2.4), and concluding remarks pp. 6–7; checked for dyadic refinements",
+        "method": "Full-text PDF and accessible HTML equations; compared theorem statements, recurrence and finite transform",
+        "title": "Proof of a supercongruence conjectured by Z.-H. Sun",
+        "trigger": "Exact same convolution, first-public archival source, closest possible coverage"
+      },
+      {
+        "assessment": "Focuses on odd-prime finite sums, does not directly imply the dyadic valuation; further implicit identity remains a residual risk.",
+        "evidence": [
+          "Abstract and introduction specify sums over k=0,...,p-1 modulo p with p>5, parameters including -16."
+        ],
+        "identifier_or_url": "arXiv:1502.02499v3; https://arxiv.org/pdf/1502.02499",
+        "material_read": "Abstract and introduction, PDF pp. 1–3 with stated main prime-modulus directions; not the entire 25-page text",
+        "method": "Examined full-text PDF introduction and stated objectives, recorded uninspected scope",
+        "title": "Congruences involving Franel and Catalan-Larcombe-French numbers",
+        "trigger": "Same Franel and central-binomial summands; negative-sixteen parameter"
+      },
+      {
+        "assessment": "Does not cover prime two or n=2^r; uninspected parts remain a modest source limitation.",
+        "evidence": [
+          "Intro theorem concerns primes p>3 and sums over k=0,...,p-1 with (-16)^(-k)."
+        ],
+        "identifier_or_url": "arXiv:2111.08778; https://arxiv.org/abs/2111.08778",
+        "material_read": "ArXiv full-text introduction, Theorem 1.1, and beginning of its proof; remaining sections not inspected",
+        "method": "Compared odd-prime p>3 modulo p^4 theorem against powers-of-two endpoint statement",
+        "title": "Proof of some congruence conjectures of Z.-H. Sun involving Apéry-like numbers",
+        "trigger": "Same weighted 3k+1 Franel summand and -16 denominator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e9a8995b-bdf6-42b3-a08a-611fa466d57a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Guo established a natural global divisibility for this weighted Franel convolution but not the optimal prime-two exponent at dyadic endpoints. The exact formula improves the known lower valuation by 2r unbounded binary digits, supplies a transparent digit-carry mechanism selecting the unique leading term, and explicitly resolves the small exception n=2. The motivation is precision of a published arithmetic divisibility invariant, rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
