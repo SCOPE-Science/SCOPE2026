@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The domain was normalized affinely to \(A=(0,0)\), \(B=(1,0)\), \(D=(0,1)\), \(C=(p,q)\). Oriented edge determinants give \(p>0\), \(q>0\), \(p+q>1\); the two possible pairs of parallel opposite sides are exactly \(p=1\) and \(q=1\).
+# Independent mathematical audit
 
-The proof then uses Schneider’s exact criterion: for no parallel edges, \(z\) is a convexity point if and only if every middle line through \(z\) has \(z\) in its corresponding middle set. This lemma was materially checked in the full paper. The support-function difference is odd, so at least one middle line passes through every \(z\); therefore any convexity point belongs to the middle hedgehog.
+## correctness
 
-For a quadrilateral, the unoriented normal circle has four open cones. Inside each cone the opposite support faces are singleton vertices, making the middle set one vertex-pair midpoint and the middle line linear in the normal. Substitution on the four edge-generated middle segments gives exactly the four case rows stated in RESULT.md; every segment-interior point violates the criterion in a second cone, and one corner is excluded in each region.
+PASS
 
-The convex-hull check is independent algebra: in each region the excluded corner is a strict convex combination of the other three with the positive coefficients printed in RESULT.md. Thus the middle-hedgehog hull is triangular, and Schneider’s exposed-point lemma confirms all three surviving corners are convexity points.
+Affine normalization A=(0,0),B=(1,0),D=(0,1),C=(p,q) is valid when p,q>0,p+q>1; no pair of parallel sides precisely excludes p=1 or q=1. Schneider criterion z∈M_Q(u)⇒z∈Z_Q(u) reduces testing to four normal cones, with a midpoint singleton in each cone and four edge-normal middle segments. The four sign cases yield an excluded nonexposed midpoint and exclude all segment interiors by their second conflicting middle lines; barycentric coefficients in RESULT place the excluded corner strictly inside the triangle of the other three (positive and summing to 1). Schneider exposed-point lemma proves all three surviving vertices qualify. Rational polygon-union calculations for representative (p,q)=(2,2),(2,.8),(.8,2),(.7,.6) corroborate the table, not substitute for all-parameter cone analysis.
 
-No finite numerical experiment is used to establish the infinite family. No statement is made for the boundary cases with parallel sides.
+## originality
+
+PASS
+
+Schneider proves general existence and exposed-point tests for convexity points and develops polygonal middle hedgehogs; those results yield machinery but not the exact count for all nontrapezoid quadrilaterals. The four parameter cases and explicit midpoint triples add a complete low-complexity classification; independent rational tests support each region, not bibliographic novelty.
+
+## value
+
+PASS
+
+The first generic asymmetric four-vertex polygon is a natural complexity threshold for reflection convexity. A complete affine-invariant classification with EXACT cardinality and explicit location of all convexity points sharpens Schneider’s general existence theorem and contrasts generic smooth-body infinitude, without claiming trapezoid boundary cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
