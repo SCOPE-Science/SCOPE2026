@@ -1,75 +1,47 @@
 # Exact color-refinement depth of tadpole graphs
+
 ## Finding
-For integers \(m\ge 3\) and \(k\ge 1\), let \(T_{m,k}\) be the tadpole graph obtained by joining one vertex \(q\) of the cycle \(C_m\) by a bridge to the first vertex \(p_1\) of a path \(p_1,\ldots,p_k\). Start ordinary color refinement from the uniform coloring, and let \(\operatorname{Stab}(G)\) be the least \(s\) for which rounds \(s\) and \(s+1\) induce the same vertex partition. Then
+Let \(T_{m,k}\) be the simple graph formed from a cycle \(C_m\), \(m\ge3\), by joining a distinguished cycle vertex \(q\) to the first vertex of a path \(p_1,\ldots,p_k\), where \(k\ge1\). There are \(m+k\) vertices. Start ordinary one-dimensional color refinement from the uniform vertex coloring, and let \(\operatorname{Stab}(G)\) be the least \(s\ge0\) such that rounds \(s\) and \(s+1\) induce the same partition. Then
 \[
-\operatorname{Stab}(T_{m,k})
-=
-\max\left\{
-\left\lfloor\frac m2\right\rfloor,\,
-\left\lceil\frac k2\right\rceil,\,
-\min\{m,k\}
-\right\}.
+\boxed{\operatorname{Stab}(T_{m,k})=
+\max\left\{\left\lfloor\frac m2\right\rfloor,
+\left\lceil\frac k2\right\rceil,\min\{m,k\}\right\}.}
 \]
+The first term is the cycle-distance refinement scale, the second comes from the two endpoints of the tail, and the third records the delayed distinction between a cycle neighbor of \(q\) and \(p_1\). The latter pair first receives different colors at round \(\min(m,k)\).
 
-The three terms have distinct causes. The cycle needs \(\lfloor m/2\rfloor\) rounds to resolve all distances from the attachment vertex up to reflection. The tail needs \(\lceil k/2\rceil\) rounds for the waves from the attachment vertex and the leaf to meet. Finally, a cycle neighbor of \(q\) and the tail neighbor \(p_1\) remain color-equivalent through round \(\min\{m,k\}-1\) and split exactly in round \(\min\{m,k\}\); this is the extra cycle-versus-tail ambiguity that is absent on a path.
-
-As a fixed-order consequence, among all tadpole graphs on \(N\) vertices the largest stabilization depth is
+For fixed order \(N=m+k\), the exact maximum over admissible \(m,k\) is
 \[
-\max_{m+k=N}\operatorname{Stab}(T_{m,k})
-=
-\begin{cases}
-1,&N=4,\\
-\left\lfloor N/2\right\rfloor,&N\ge5.
-\end{cases}
+\boxed{\max_{\substack{m+k=N\\m\ge3,k\ge1}}
+\operatorname{Stab}(T_{m,k})=
+\begin{cases}1,&N=4,\\\lfloor N/2\rfloor,&N\ge5.\end{cases}}
 \]
-For every \(N\ge5\), a balanced choice \(m=\lfloor N/2\rfloor\), \(k=\lceil N/2\rceil\) attains the maximum.
+For \(N=5\), the admissible graph \(T_{3,2}\) attains the maximum \(2\). For every \(N\ge6\), the admissible balanced choice \(m=\lfloor N/2\rfloor\), \(k=\lceil N/2\rceil\) attains \(\lfloor N/2\rfloor\). No balanced choice with \(m=\lfloor N/2\rfloor\) is admissible at \(N=5\), because a cycle has at least three vertices.
 
-## Assumptions and scope
-All graphs are finite, simple, undirected, and initially uncolored. Round \(0\) is the uniform coloring. Each later color records the previous color together with the multiset of previous colors of the neighbors. The parameter \(k\) counts the path vertices outside the cycle, so \(T_{m,k}\) has \(m+k\) vertices. The theorem concerns stabilization on one graph, not distinguishing two graphs by running refinement on their disjoint union.
+## Definitions, hypotheses, and scope
+Every graph is finite, simple, undirected, and uncolored initially. Round zero is uniform; round \(r+1\) assigns to each vertex its previous color together with the multiset of previous colors of its neighbors. Stabilization means equality of color *partitions*, rather than numerical equality of arbitrary color labels. The parameter \(k\) is the number of path vertices **outside** the cycle; thus the bridge is the edge \(qp_1\). The statement concerns refinement of one graph, not distinguishing two graphs by a disjoint-union refinement or higher-dimensional Weisfeiler--Leman.
 
-The final stable partition of \(T_{m,k}\) consists of the attachment vertex \(q\), all singleton tail vertices \(p_i\), and the cycle reflection orbits: two cycle vertices have the same final color exactly when they have the same graph distance from \(q\).
+The eventual stable partition consists of the singleton attachment vertex \(q\), the \(k\) singleton tail vertices, and the reflection orbits of the cycle fixing \(q\). Thus two cycle vertices are equivalent precisely when their distances from \(q\) coincide.
 
 ## Proof
-Krebs and Verbitsky prove that, for a vertex \(v\), its color after round \(r\) is exactly the isomorphism type of the depth-\(r\) truncation of the universal cover rooted above \(v\). The universal cover of \(T_{m,k}\) has a particularly simple form. Its spine is a bi-infinite path whose degree-three branch vertices occur every \(m\) edges, and from every such branch vertex hangs a path of \(k\) edges ending in a leaf. Every other vertex has degree two.
+Use the standard universal-cover description of color refinement: the round-\(r\) color of a vertex is determined exactly by the isomorphism type of its depth-\(r\) rooted universal-cover tree. For the tadpole, the universal cover consists of a bi-infinite degree-two spine with degree-three vertices at consecutive distance \(m\), each such vertex bearing a pendant path of length \(k\) ending at a degree-one leaf. The two directions on the spine are exchanged by reflection. A finite-radius rooted neighborhood records the first appearance of a branch or leaf event in each direction, so comparisons below are comparisons of rooted tree types, not merely vertex degrees.
 
-This description reduces the refinement process to comparing rooted positions in that periodic tree.
+**Cycle positions.** The lift of a cycle vertex at distance \(d\) from \(q\), with \(1\le d\le\lfloor m/2\rfloor\), lies between its nearest two degree-three spine vertices at distances \(d\) and \(m-d\). Distinct \(d\)'s eventually give distinct rooted types; their successive distance waves separate them by round \(\lfloor m/2\rfloor\). The deepest pair of different distance classes (or the initial degree distinction for \(m=3\)) witnesses the corresponding lower bound. Reflection-equivalent vertices remain equivalent at every round.
 
-First consider two cycle positions. A cycle vertex at distance \(d\) from \(q\), where \(1\le d\le\lfloor m/2\rfloor\), lifts to a spine vertex whose two nearest degree-three spine vertices are at distances \(d\) and \(m-d\). Distinct values of \(d\) are therefore eventually distinguished. The deepest possible distinction is between the two central distance classes: they agree through depth \(\lfloor m/2\rfloor-1\) and differ at depth \(\lfloor m/2\rfloor\). Hence the maximum round needed to separate two distinct cycle reflection orbits is \(\lfloor m/2\rfloor\). For \(m=3\), there is only one nontrivial cycle orbit, and the value \(1\) is already forced by the degree split between \(q\) and the degree-two vertices.
+**Tail positions.** Along the pendant path, its two ends are identifiable respectively by the degree-three attachment at \(q\) and the degree-one leaf \(p_k\). At round \(r\), these two distinguishing waves have advanced \(r\) levels. Positions not yet reached from either end have identical rooted truncations; each newly reached position becomes distinguishable from the remaining middle positions. All tail vertices separate within \(\lceil k/2\rceil\) rounds, and the central pair or initial endpoint distinction witnesses that this scale cannot generally be dropped from the maximum.
 
-Next consider the tail. The endpoint types are different from the first round: \(q\) has degree three and \(p_k\) has degree one. Inductively, after round \(r\), the vertices \(p_i\) with \(i<r\) have been separated by the wave from \(q\), and those with \(i>k-r\) have been separated by the wave from the leaf. Any remaining middle interval \(p_r,\ldots,p_{k-r}\) is still internally indistinguishable. Thus all tail positions are pairwise distinguished exactly by round \(\lceil k/2\rceil\).
+**Cycle versus tail.** The cycle neighbor \(c_1\) of \(q\) and \(p_1\) each have the same degree-two rooted arrangement near the same degree-three attachment vertex. In the direction away from \(q\), the cycle spine first displays the next branching vertex after the prescribed \(m\)-edge cycle interval, while the tail first displays a leaf at the end of its prescribed \(k\)-edge path. Before round \(\min(m,k)\), these two rooted truncations coincide; at that round one encounters the first distinguishing endpoint or branch (both events are different if simultaneous). Thus the pair first splits exactly at round \(\min(m,k)\).
 
-It remains to compare cycle and tail positions. The worst pair is a cycle neighbor \(c_1\) of \(q\) and the tail neighbor \(p_1\). In the universal cover, both roots lie one edge from the same kind of degree-three branch vertex. Looking away from that branch vertex, one root lies on a spine segment whose next degree-three event is \(m\) edges from the branch vertex, while the other lies on a pendant segment whose leaf event is \(k\) edges from the branch vertex. Before depth \(\min\{m,k\}\), these events lie beyond the visible truncation, so the rooted truncations are isomorphic. At depth \(\min\{m,k\}\), the shorter branch exposes its endpoint type and the rooted truncations cease to be isomorphic. Hence \(c_1\) and \(p_1\) split exactly in round \(\min\{m,k\}\).
+Other cycle-tail pairs are separated no later. Indeed, differing distances from \(q\) are detected by the ordinary attachment-distance waves. For equal positive distance \(i\), the two roots compare the same local degree-two intervals as \(c_1,p_1\), but shortened by \(i-1\) along the directions leading back to the attachment; their remaining endpoint/branch discrepancy therefore occurs no later than \(\min(m,k)-i+1\), or earlier when a leaf or branch enters a truncated neighborhood. Together with the cycle and tail separation bounds, this gives the displayed upper bound. The three witness mechanisms give the matching lower bound. Once these rooted types are resolved, no subsequent round can further split a stable reflection orbit, so this is the precise stabilization time.
 
-More generally, if a cycle position and a tail position are both at distance \(i\) from \(q\), their first possible cycle-versus-tail discrepancy is obtained by shortening the preceding argument by \(i-1\) levels, so it occurs no later than round \(\min\{m,k\}-i+1\). If their distances from \(q\) differ, they separate no later than the corresponding distance wave. Therefore no cycle-tail pair survives beyond
-\[
-\max\left\{
-\left\lfloor\frac m2\right\rfloor,\,
-\left\lceil\frac k2\right\rceil,\,
-\min\{m,k\}
-\right\}.
-\]
-Each of the three terms is also a genuine lower bound by the cycle, tail, and \(c_1\)-versus-\(p_1\) witnesses above. This proves the exact formula.
+For the fixed-order assertion, put \(N=m+k\). For \(N\ge5\), each of \(\lfloor m/2\rfloor\), \(\lceil k/2\rceil\), and \(\min(m,k)\) is at most \(\lfloor N/2\rfloor\), using \(m\le N-1\) and \(k\le N-3\). At \(N=5\), \(T_{3,2}\) attains 2 by the formula. At \(N\ge6\), \(m=\lfloor N/2\rfloor\ge3\) and \(k=\lceil N/2\rceil\ge1\) are admissible and make the third term equal \(\lfloor N/2\rfloor\). Finally, \(N=4\) admits only \(T_{3,1}\), which stabilizes in one round.
 
-For the fixed-order statement, put \(N=m+k\). Each term in the formula is at most \(\lfloor N/2\rfloor\) when \(N\ge5\): the first because \(m\le N-1\), the second because \(k\le N-3\), and the third because \(\min\{m,k\}\le\lfloor N/2\rfloor\). The balanced choice \(m=\lfloor N/2\rfloor\), \(k=\lceil N/2\rceil\) is admissible for \(N\ge5\) and makes the third term equal to \(\lfloor N/2\rfloor\). The unique order-\(4\) tadpole is \(T_{3,1}\), which stabilizes in one round.
-
-## Verification
-The accompanying `verify.py` implements color refinement directly, with no graph-library dependency. It checks the depth formula for every \(3\le m\le50\) and \(1\le k\le80\), checks that the cycle neighbor and tail neighbor separate exactly in round \(\min\{m,k\}\) for every such parameter pair, and checks the fixed-order extremum for every \(4\le N\le100\). Its terminal output is:
-
-`VERIFY_OK depth_checks=3840 cross_witness_checks=3840 order_checks=97 m=3..50 k=1..80 N=4..100`
-
-The computation is a finite consistency check. The all-parameter result rests on the universal-cover argument above.
+## Verification and proof limitations
+A direct standard-library implementation of partition-based color refinement independently checked every \(3\le m\le26\), \(1\le k\le38\), both the exact stabilization formula and the \(c_1,p_1\) separation time (912 parameter pairs). In particular \(T_{3,2}\) has depth 2, whereas the formally balanced pair \((2,3)\) is not an admissible tadpole. The repository's own checker reports a larger finite regression range. Finite tests are only corroboration: all-parameter assertions rely on the rooted universal-cover comparison above. No claim is made for arbitrary unicyclic graphs or nonuniform initial colors.
 
 ## Relationship to prior work
-DeMaio and Jacobson use the same standard tadpole family \(T_{m,k}\), a cycle joined to a path by a bridge, for exact graph-invariant calculations. Krebs and Verbitsky define the stabilization parameter for color refinement and prove the exact equivalence between round-\(r\) colors and depth-\(r\) rooted universal-cover truncations. Their paper gives near-linear worst-case examples for unrestricted graphs, not a tadpole-family formula.
-
-Kiefer and McKay later study the iteration number of color refinement systematically. They note the path lower bound and prove that unrestricted graphs can require \(N-1\) iterations. The inspected full text does not state a tadpole, kite, or dragon-graph stabilization formula. Targeted searches under all three family names and under the aliases “color refinement”, “colour refinement”, “1-WL”, “Weisfeiler-Leman”, and “iteration number” likewise did not locate the formula above.
-
-The new point is the exact three-scale competition. On a tadpole, stabilization is controlled not only by the cycle radius and the two-ended tail propagation, but also by the delayed local ambiguity between a cycle edge and the bridge into the tail. Balanced tadpoles make that third mechanism dominant and attain half the graph order.
-
-## Limitations
-The theorem is specific to ordinary one-dimensional color refinement from the uniform coloring. It does not claim the same formula for higher-dimensional Weisfeiler-Leman refinement, arbitrary initial colors, or general unicyclic graphs. The literature search was targeted rather than exhaustive, so an obscure family-specific occurrence under unusual terminology remains a residual priority risk.
+Krebs and Verbitsky identify color-refinement rounds with finite-depth universal-cover types and establish strong general depth bounds. Kiefer and McKay's analysis of iteration numbers gives extremal results for general graph families but does not imply the exact three-term formula for this bridged cycle-and-tail family from its inspected theorems. DeMaio and Jacobson study exact invariants of the same tadpole graphs, not refinement depths. The present result isolates the additional cycle-versus-tail scale and gives a complete natural family classification, not a general worst-case theorem. Equivalent earlier results under a different family name remain a bounded originality risk.
 
 ## References
-1. Andreas Krebs and Oleg Verbitsky, *Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth*, arXiv:1407.3175, first posted 11 July 2014; LICS 2015.
-2. Joe DeMaio and John Jacobson, *Fibonacci number of the tadpole graph*, Electronic Journal of Graph Theory and Applications 2(2) (2014), 129–138, DOI: 10.5614/ejgta.2014.2.2.5.
-3. Sandra Kiefer and Brendan D. McKay, *The Iteration Number of Colour Refinement*, ICALP 2020, DOI: 10.4230/LIPIcs.ICALP.2020.73.
+1. A. Krebs and O. Verbitsky, *Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth*, arXiv:1407.3175; LICS 2015.
+2. S. Kiefer and B. D. McKay, *The Iteration Number of Colour Refinement*, ICALP 2020, DOI 10.4230/LIPIcs.ICALP.2020.73.
+3. J. DeMaio and J. Jacobson, *Fibonacci number of the tadpole graph*, Electronic Journal of Graph Theory and Applications 2(2) (2014), 129--138, DOI 10.5614/ejgta.2014.2.2.5.

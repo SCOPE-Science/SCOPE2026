@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem was checked by a standalone implementation of ordinary color refinement.
 
-For every pair
-\[
-3\le m\le50,\qquad 1\le k\le80,
-\]
-the checker constructs \(T_{m,k}\), runs refinement from the uniform coloring until the first repeated partition, and compares the observed depth with
-\[
-\max\left\{
-\left\lfloor\frac m2\right\rfloor,\,
-\left\lceil\frac k2\right\rceil,\,
-\min\{m,k\}
-\right\}.
-\]
-For the same \(3840\) pairs it also verifies the critical lower-bound witness: a cycle neighbor of the attachment vertex and the tail neighbor split for the first time exactly in round \(\min\{m,k\}\).
+# Independent mathematical audit
 
-Finally, for each total order \(4\le N\le100\), the checker maximizes the formula over all admissible \(m+k=N\) and verifies the fixed-order extremum \(1\) at \(N=4\) and \(\lfloor N/2\rfloor\) for every \(N\ge5\).
+## correctness
 
-The checker returns:
+PASS
 
-`VERIFY_OK depth_checks=3840 cross_witness_checks=3840 order_checks=97 m=3..50 k=1..80 N=4..100`
+The main three-term formula is supported by the universal-cover rooted-depth color characterization: cycle distance waves, two-ended tail waves and first cycle-vs-tail endpoint discrepancy. Independently reconstructed partition-based WL for all 912 pairs 3<=m<=26,1<=k<=38, plus cross witness times. An actual boundary defect was detected in original RESULT/SLOGAN: at N=5 the specified balanced choice m=floor(N/2)=2 contradicts m>=3; this is not an admissible graph. The full corrected RESULT.md and SLOGAN.txt supplied in exact guarded UTF8 bytes replace N>=5 balanced assertion by N=5 witness T_3,2 and N>=6 balanced witness; main depth and extremal-value formulas remain unchanged. Final repaired statements are all consistent with proof and finite tests; no finite enumeration is mistaken for an infinite theorem.
 
-The computation is finite corroboration. The all-parameter theorem is established by the universal-cover proof in `RESULT.md`.
+## originality
+
+PASS
+
+Krebs–Verbitsky gives universal-cover round correspondence, Kiefer–McKay gives general extremal iteration numbers, neither proves this exact tadpole three-mechanism formula in inspected primary full text. Repair corrects a genuine small N quantifier fault without inflating novelty.
+
+## value
+
+PASS
+
+Complete stabilization-depth classification of a natural one-cycle-one-tail graph family, identifying the delayed cycle-tail ambiguity and sharp fixed-order maximum. The N=5 witness correction matters for theorem accuracy and usability, not a new claim of separate mathematical novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
