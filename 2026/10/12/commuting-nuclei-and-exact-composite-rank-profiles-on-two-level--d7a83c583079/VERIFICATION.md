@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the finite two-level nucleus census
 
-The accompanying `verify.py` uses Python's standard library only. Execute it from the directory containing this file with `python3 verify.py`.
+# Independent mathematical audit
 
-The direct map implementation identifies every upper set by a bitmask and implements each purported nucleus as an actual transformation of the finite upset lattice. It checks all ordered pairs of these transformations for commutation, computes their composition and image cardinality, verifies the necessary and sufficient support criterion, and independently evaluates each coefficient in the exact bivariate polynomial. An additional enumeration starts instead from **all extensive self-maps** of the upset lattice and filters by idempotence and meet preservation; in the four smallest cases, its output equals the family obtained from subsets. This last comparison avoids assuming the completeness of the support representation in the finite test.
+## correctness
 
-Direct pair counts:
-```
-HEIGHT_TWO_OK 1 1 upsets 3 nuclei 4 ordered_pairs 16 commuting 14 ranks 4
-HEIGHT_TWO_OK 1 2 upsets 5 nuclei 8 ordered_pairs 64 commuting 50 ranks 6
-HEIGHT_TWO_OK 2 1 upsets 5 nuclei 8 ordered_pairs 64 commuting 50 ranks 6
-HEIGHT_TWO_OK 2 2 upsets 7 nuclei 16 ordered_pairs 256 commuting 162 ranks 9
-HEIGHT_TWO_OK 1 3 upsets 9 nuclei 16 ordered_pairs 256 commuting 182 ranks 8
-HEIGHT_TWO_OK 3 1 upsets 9 nuclei 16 ordered_pairs 256 commuting 182 ranks 8
-HEIGHT_TWO_OK 2 3 upsets 11 nuclei 32 ordered_pairs 1024 commuting 542 ranks 12
-HEIGHT_TWO_OK 3 2 upsets 11 nuclei 32 ordered_pairs 1024 commuting 542 ranks 12
-HEIGHT_TWO_OK 3 3 upsets 15 nuclei 64 ordered_pairs 4096 commuting 1682 ranks 16
-DIRECT_NUCLEI_OK 1 1 candidate_closures 6 all_nuclei 4
-DIRECT_NUCLEI_OK 1 2 candidate_closures 90 all_nuclei 8
-DIRECT_NUCLEI_OK 2 1 candidate_closures 80 all_nuclei 8
-DIRECT_NUCLEI_OK 2 2 candidate_closures 2800 all_nuclei 16
-VERIFY_OK
-```
+PASS
 
-The values correspond to \(7056\) directly enumerated ordered pairs of subset-indexed nuclei. The unrestricted result relies on the proof, not numerical extrapolation. No claim is made about higher-level posets, arbitrary self-maps, or full historical priority. Independent audit is not performed.
+For P=A⊕B with antichain widths m,n≥2, every finite meet-preserving extensive idempotent j on Up(P) has a unique support S⊂P via K_x=intersection of opens U with x∈j(U); j_S(U) tests S∩↑x⊂U. Composition tests for x∈A yield the two implications on S_A\T_A and T_A\S_A regarding upper supports; top level B is automatic. For commuting nuclei their composite is exactly j_{S∩T}. Split lower-support choices into equal, strict-inclusion each orientation, incomparable; respective polynomials (1+x)^m, (2+x)^m−(1+x)^m, (3+x)^m−2(2+x)^m+(1+x)^m and corresponding upper choices (3+y)^n, (2+y)^n, (1+y)^n yield F_mn. Expanding is symmetric in (m,x)↔(n,y). A nucleus with intersected lower/upper supports a,b has image size #Up(S∩T)=2^a+2^b−1. Independent brute-force of all 16^2 ordered pairs for m=n=2 found 162 commuting pairs and full rank counts {1:35,2:68,3:28,4:18,5:12,7:1}, matching formula. The general combinatorial derivation is necessary; finite brute force is supporting evidence only.
+
+## originality
+
+PASS
+
+Erné 2022 Nuclear ranges in implicative semilattices develops abstract nuclei and notes commutation/composition consequences, but its inspected Lemma 3.6 gives neither the height-two subset-support criterion nor generating polynomial or composite image census. No equivalent explicit formula surfaced in Resultary query. Standard finite distributive-lattice duality only underpins recovery of the underlying poset, not the rank-profile symmetry. An older relational/combinatorial equivalent remains plausible and disclosed.
+
+## value
+
+PASS
+
+The exact count of commuting nuclei and their composite image sizes on a natural two-level distributive Heyting family is a meaningful complete classification. The rank distribution agrees after exchanging widths even though the Heyting algebras are not isomorphic when widths differ, a structural limitation of an intuitive invariant, not just an arbitrary tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

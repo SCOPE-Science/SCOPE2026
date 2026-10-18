@@ -1,15 +1,21 @@
-# Scientific review — commuting nuclei on two-level Heyting algebras
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes the domain, the notion of nucleus, ordering of pairs, and the rank convention. The proof establishes a support bijection for *all* nuclei from finite-meet preservation and idempotence, derives the necessary and sufficient two-containment condition by testing composite maps on each kind of point, and gives a disjoint weighted enumeration of equal, strictly nested, and incomparable lower supports. The image-rank formula uses an explicit bijection with upper sets of the intersection support, and the level-width exchange follows from direct polynomial algebra. Independent direct small-lattice enumeration reproduces the statements and checks the support parametrization in the smallest cases. Finite verification is not treated as an infinite proof.
+## correctness
 
-## Originality — PASS, subject to historical-search uncertainty
-Erné's 2022 full-text treatment gives general nuclear-range theory and commutation/composition implications (notably Lemma 3.6); it does not specify the two-level support conditions, the exact bivariate polynomial, or the rank-spectrum involution. Cīrulis's modal-operator paper treats structurally related notions, not the displayed exact finite-family census in the sections inspected. Searches for height-two upsets, commuting nuclei, nested subset supports, and numerical/polynomial aliases in other mathematical records and primary literature did not identify a logically equivalent or stronger result. Relevant finite-space mapping counts concern maps of posets rather than closure nuclei on their upset Heyting algebras. The possibility of a historical formula expressed in alternative terminology remains a real residual risk; absence of a search hit is not proof of absolute novelty.
+PASS
 
-## Mathematical value — PASS
-General nucleus-composition theory gives neither a closed rank census nor a distinction between comparable and incomparable support data for this non-chain family. The two-level setting is a natural minimal departure from chains where new incomparability arises. The resulting exact parameter-uniform classification separates compatibility from rank, and the width-exchange symmetry yields a concrete pair of nonisomorphic finite Heyting algebras with identical full commuting-composite image-cardinality distributions. This structural boundary and spectrum equivalence are stronger than a routine numerical computation.
+For P=A⊕B with antichain widths m,n≥2, every finite meet-preserving extensive idempotent j on Up(P) has a unique support S⊂P via K_x=intersection of opens U with x∈j(U); j_S(U) tests S∩↑x⊂U. Composition tests for x∈A yield the two implications on S_A\T_A and T_A\S_A regarding upper supports; top level B is automatic. For commuting nuclei their composite is exactly j_{S∩T}. Split lower-support choices into equal, strict-inclusion each orientation, incomparable; respective polynomials (1+x)^m, (2+x)^m−(1+x)^m, (3+x)^m−2(2+x)^m+(1+x)^m and corresponding upper choices (3+y)^n, (2+y)^n, (1+y)^n yield F_mn. Expanding is symmetric in (m,x)↔(n,y). A nucleus with intersected lower/upper supports a,b has image size #Up(S∩T)=2^a+2^b−1. Independent brute-force of all 16^2 ordered pairs for m=n=2 found 162 commuting pairs and full rank counts {1:35,2:68,3:28,4:18,5:12,7:1}, matching formula. The general combinatorial derivation is necessary; finite brute force is supporting evidence only.
 
-## Verification and limitations
-`python3 verify.py` directly enumerates composite transformations on the finite upper-set lattices and independently enumerates nuclei in the smallest cases. The proof covers all integers \(m,n\ge2\); tests do not. Results concerning longer ordinal sums, automorphism orbits, and multi-operator commutation are not asserted. A separate literature auditor has not examined priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Erné 2022 Nuclear ranges in implicative semilattices develops abstract nuclei and notes commutation/composition consequences, but its inspected Lemma 3.6 gives neither the height-two subset-support criterion nor generating polynomial or composite image census. No equivalent explicit formula surfaced in Resultary query. Standard finite distributive-lattice duality only underpins recovery of the underlying poset, not the rank-profile symmetry. An older relational/combinatorial equivalent remains plausible and disclosed.
+
+## value
+
+PASS
+
+The exact count of commuting nuclei and their composite image sizes on a natural two-level distributive Heyting family is a meaningful complete classification. The rank distribution agrees after exchanging widths even though the Heyting algebras are not isomorphic when widths differ, a structural limitation of an intuitive invariant, not just an arbitrary tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
