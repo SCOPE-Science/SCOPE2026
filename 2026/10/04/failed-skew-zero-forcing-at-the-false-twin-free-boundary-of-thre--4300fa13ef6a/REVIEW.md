@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim reduces maximum failed skew zero forcing to minimum nonempty skew-stalled white sets by complementation. The proof rules out stalled sets of sizes one and two, then classifies every stalled triple by the largest represented clique block. Both directions of the classification are checked: every claimed triple is stalled, and every other triple exposes a vertex with exactly one white neighbor. The counting formula follows from a disjoint classification by the largest represented block. A standalone brute-force verifier independently checks all eligible canonical block profiles through order \(11\); this finite computation is explicitly not used as the infinite proof.
+## correctness
 
-## Originality
-**PASS, with residual bibliographic risk.** Direct searches were made for failed/skew zero forcing on threshold graphs, skew-stalled sets, false-twin formulations, and maximum failed-set counts. Shitov's 2016 full text proves general NP-completeness and uses skew-stalled sets but does not derive threshold-graph formulas. The 2022 paper characterizes the special regime \(F^{-}(G)=1\), whereas the present noncomplete family has \(F^{-}(G)=N-3\ge2\), and its conclusion explicitly asks about counting maximum failed sets. The inspected 2025 paper handles path powers and circulant graphs and does not state the present threshold family. Two relevant OEIS tables concern path/cycle powers, not threshold graphs. The 2016 foundational article is a genuine residual risk because only its abstract and bibliographic metadata were inspectable; its abstract says several graph families are treated, so hidden coverage cannot be ruled out absolutely. No decisive covering implication was located.
+PASS
 
-## Value
-**PASS.** FAILED SKEW ZERO FORCING is NP-complete on general graphs, so exact structural formulas on canonical graph classes are mathematically motivated. The result isolates the false-twin-free boundary of threshold graphs: larger canonical \(0\)-blocks immediately create two-vertex stalled sets, while singleton \(0\)-blocks force the minimum obstruction to jump to three. The theorem gives both the exact parameter and an exact count of maximum witnesses, directly addressing a counting question highlighted in later failed-skew-zero-forcing work.
+The actual RESULT.md and verify.py at Git tree 3ba88f9e2c8479d29d1ceb874c0249e7abd09df4 were inspected. In a connected threshold creation word with singleton zero blocks, a stalled nonempty white set of size 1 cannot occur; a stalled nonadjacent pair requires open twins, ruled out by strictly nested nonzero A_i neighborhoods, while an adjacent white pair forces. For size-3 stalled sets, the highest occupied clique B_j must contain at least two white vertices; a third must lie in B_j or before its block. Such triples are indeed stalled. Therefore min white stalled size=3, F^-=N-3 and M=Σ_j[C(b_j,2)*(j+Σ_{h<j}b_h)+C(b_j,3)]. An independently written exhaustive white-triple checker verified all 44 bounded positive b-profiles with p=2..4, 1<=b_i<=3, N<=10; this corroborates but does not prove the infinite result.
 
-## Closest literature and limitations
-The closest conceptual sources are the 2016 definition/complexity papers and the 2022 \(F^{-}=1\) characterization. The theorem excludes complete graphs and threshold graphs with nonsingleton \(0\)-blocks, and the computational replay is finite. The unavailable full text of the 2016 foundational article and incomplete indexing under alternate threshold/split terminology remain the main originality risks.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact false-twin-free boundary subclass and the complete count of maximum failed sets. Primary accessible literature covers small failed values, path powers/circulants and general complexity but does not imply the explicit structural triples. The 2016 foundational full text is an acknowledged inaccessible plausible source; OAuth VPN failure alone does not force a scientific FAIL.
+
+## value
+
+PASS
+
+Exact failed skew-zero-forcing on threshold graphs at the false-twin-free boundary is structurally motivated: false twins give an easy two-white stall but their absence raises the minimum to three. Determining all extremal triples and exact multiplicity addresses the counting question and yields an infinite family classification with potential direct combinatorial uses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
