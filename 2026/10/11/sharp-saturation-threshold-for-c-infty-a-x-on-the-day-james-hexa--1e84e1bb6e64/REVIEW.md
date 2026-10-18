@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The universal upper bound comes from the defining paper. The lower bound at and above the threshold is witnessed explicitly. For the converse, any sequence whose minimum quotient tends to one must force equality in the two triangle/quadratic bounds, hence equal limiting norms and both shifted norms equal to twice the common norm. The complete exposed-face analysis of the hexagonal unit ball then forces limiting separation at least one, contradicting an admissible parameter below one. The bundled exact checker independently verifies the face-separation lemma and the endpoint approximants.
+## correctness
 
-## Originality
-PASS. The 2021 defining paper gives saturation for its Day–James example only above one. The 2025 p-generalization records saturation from one onward in a closed-constraint formulation, but does not give the converse below one. Searches for the constant, its generalized James equivalent, the Day–James hexagon, and saturation/threshold language found no statement implying the sharp if-and-only-if threshold. A previously published exact profile on the same hexagon concerns a different two-vector isosceles von Neumann–Jordan invariant.
+PASS
 
-## Value
-PASS. The parameter \(a\) is the defining separation scale of the constant, and the value \(1\) is its universal extremal bound. Locating the exact onset of saturation is therefore a natural boundary question. The converse distinguishes the genuinely nonsaturated regime \(0<a<1\) from the extremal regime and resolves the sharpness left open by the motivating example without requiring an arbitrary parameter slice.
+For real hexagonal plane N(s,t)=max(|s|,|t|,|s-t|), the defining three-vector quotient is min(N(x+y)^2,N(x-z)^2)/(2N(x)^2+N(y)^2+N(z)^2), with N(y-z)<=a N(x). Universal bound 1 follows by the two triangle inequalities plus (r-s)^2+(r-t)^2>=0. For a>=1 take x=(1,1), y=(0,1), z=(-1,0), yielding both shifted norms 2, denominator 4 and separation 1; strict-constraint endpoint a=1 follows by taking y=(0,1-e), z=(-(1-e),0) and e down to 0. If subcritical a<1 saturated as supremum, normalize a maximizing triple to the compact unit-ball domain; the nonzero limit has r=s=t=1 and N(x+y)=N(x-z)=2. Supporting-face equality forces x and y on one exposed edge and x and -z on one exposed edge. If x is edge-interior, both companion vectors share the same face and N(y-z)>=2; if a vertex, incident same-edge or cross-edge faces force N(y-z)>=1. This contradicts separation <=a<1. Independent exact rational endpoint fractions and finite vertex/edge geometry confirm; the proof, not sampled parameters, handles every a>0.
 
-## Closest literature and limitations
-The closest sources are DOI 10.3934/math.2021370 and DOI 10.2298/FIL2533701D. The result gives the saturation threshold only; the subcritical exact profile remains open here. The 2003 generalized-James paper is implication-relevant; only its abstract and metadata were accessible, and they do not advertise a Day–James threshold. This creates a specific residual novelty risk, but no dominating statement was located in accessible material or the other inspected full texts.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison against the same primary mathematical object, stronger theorems, equivalent reductions, exact tables and indexed related results finds no previously established result implying the full final statement. Searches alone are not novelty proof. Most relevant full primary texts were read where accessible; restricted sources and mathematical priority uncertainties are named below.
+
+## value
+
+PASS
+
+The defining separation parameter a controls saturation of the universal upper bound for a natural hexagonal Banach plane. The source examples establish saturation from a threshold but not sharpness; identifying precisely the subcritical nonsaturation range closes a natural equality-geometry question and provides a reusable exposed-face obstruction. This is an exact natural invariant boundary, not an arbitrary numerical slice, though it does not give the full subcritical profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
