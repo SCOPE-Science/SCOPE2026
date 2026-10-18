@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof specifies every smooth geometric fiber, derives both elliptic quotient equations by invariant function fields, and obtains a separable isogeny to their product. In characteristic five the Hasse invariant is exactly the fourth coefficient of the squared cubic or quartic; the extracted `verify.py` computes these polynomial identities over \(\mathbb F_5[t,z]\). A separate exact genus-two Cartier–Manin matrix calculation shows rank zero at the two common roots (superspecial, \(a=2\)), rank one at the other four roots (\(a=1\)), and rank two elsewhere (\(a=0\)). Factor coprimality and separability exclude overlaps and show that the two and four exceptional fibers are smooth, as independently guaranteed by the initiating source's singular-fiber theorem. The finite implementation verifies symbolic identities; the proof, not samples, establishes the all-parameter statement.
+## correctness
 
-**Originality — PASS subject to recorded residual risk.** The initiating Sun–Xu article presents the four-singular-fiber genus-two fibration and its Arakelov invariants, not an explicit classification of its elliptic quotient Hasse loci. Shaska's general work covers elliptic subcovers and split genus-two Jacobians and prevents any originality claim for that general technique. Focused published-result queries about the source, p-rank and equivalent elliptic-splitting formulations returned results on distinct families and invariants rather than a classification implying this exact six-point exceptional locus. The older Nguyen/Saito antecedent may contain an unindexed equivalent calculation, and generic formulas could encode this specialization implicitly; these remain bibliographic risks, not excluded facts.
+PASS
 
-**Value — PASS.** The underlying family realizes the sharp four-singular-fiber boundary in positive-characteristic semistable geometry. Computing the complete smooth-fiber Newton/p-rank jumping behavior pinpoints exactly two superspecial and four intermediate members in that extremal family. The result provides a natural finite arithmetic stratification and an explicit pair of elliptic quotients for further arithmetic and degeneration questions, rather than arbitrary parameter slicing.
+In characteristic 5 the original sextic is identically F_t(x(x-1)), with F_t(z)=t(t-1)z^3+(1-2t)z^2+2t(1-t)z+t^2. Involutions (x,y)->(1-x,y) and its hyperelliptic product give smooth elliptic quotients Y^2=F_t(z), V^2=(4z+1)F_t(z), with separable degree-2 quotient maps and (2,2)-isogenous Jacobian. Independent exact F5[t,x,z] coefficient extraction verifies Hasse factors (t^2+2)(t^2-2t-2) and (t-2)(t+1)(t^2+2), and genus-two Cartier/Hasse-Witt matrix [[(t-2)(t+1)(t^2+2),-2t(t^2+2)],[0,(t^2+2)(t^2-2t-2)]]. The common two roots have rank zero, a-number 2, p-rank 0, hence superspecial; four other distinct roots have rank and p-rank 1; elsewhere ordinary. Pairwise gcds and the original source prove none of the six lie on excluded singular fibres t=0,1,3,infinity. Geometric counts, not F5-rational parameter counts.
 
-The conclusion is confined to smooth fibers in characteristic five; no claim is made about polarizations or full isomorphism types of special Jacobians, singular fibers or all genus-two families.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sun–Xu, Theorem 1.5 and full Section 5, construct this exact four-singular-fibre genus-two pencil and classify its singular fibres, not its smooth-fibre elliptic Hasse loci or a-number. General genus-two elliptic quotient/isogeny theory (Shaska) supplies the mechanism but not these six exceptional characteristic-five parameters. Searches of Resultary and primary literature revealed no exact prior computed Hasse/Carter–Manin classification. Best-of-knowledge original specialization with Nguyen/Saito antecedent priority risk.
+
+## value
+
+PASS
+
+The fibration attains the minimum of four singular fibres in characteristic 5. A complete ordinary/intermediate/superspecial smooth-fibre stratification is a naturally motivated arithmetic invariant of an extremal family, with only two geometrically superspecial fibres and four other nonordinary fibres.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
