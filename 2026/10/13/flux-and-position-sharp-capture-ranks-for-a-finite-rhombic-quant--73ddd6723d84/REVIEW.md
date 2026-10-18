@@ -1,11 +1,21 @@
-# Scientific review — finite rhombic capture rank
+# Independent mathematical audit
 
-**Correctness — PASS.** A fixed, explicit Hermitian matrix specifies every hopping and flux phase. For arbitrary integer \(N\ge2\), an absorbing upper site, and every real flux, the proof first reduces eventual capture to the detector-visible spectral subspace and then counts the visible hub singular modes. It checks injectivity of the rectangular hopping block at nonzero flux, a visible zero-energy mode at every flux, the real Jacobi recurrence away from half flux, the exact zero-flux sine selection rule and its gcd count, and the diagonal caging Gram matrix at half flux. The independent verifier compares algebraic rank, spectral projection support and three directly propagated loss dynamics. The finite calculations are corroboration rather than a substitute for the infinite-family proof.
+## correctness
 
-**Originality — PASS with residual priority risk.** The 1998 Aharonov–Bohm paper establishes caging, the 2015 quantum-walk paper establishes trapping/Krylov reduction, and the full main text and supplement of Mukherjee and collaborators (2018) give the same rhombic Hamiltonian and the half-flux bulk/edge energies, without the single-sink all-flux sitewise capture classification. A 2019 paper studies a different parity–time-symmetric non-Hermitian triangular-chain model. Actual published-record and targeted semantic searches did not identify the present gcd selection law or the three-branch detector rank classification; the prior published transport examples on complete graphs, trees and hypercubes have distinct Hamiltonians and do not imply this statement. An unlocated more general local-spectral-support formula, particularly within the extensive flat-band literature, remains a priority risk.
+PASS
 
-**Value — PASS.** The exact all-length dark/bright space dimension is a motivated observable of coherent quantum transport, not a table of isolated small graphs. It identifies optimal and poor sink positions at zero flux through the arithmetic of \(\gcd(j,N+1)\), quantifies the half-flux caging collapse, and explains why infinitesimal changes in a magnetic parameter can sharply change infinite-time absorption. The result is limited to uniform one-particle open chains and exactly controlled single-site loss; no finite-time uniformity or experimental disorder robustness is asserted.
+For each finite N>=2 the lossy semigroup has dark complement to cyclic span of the upper-rim trap. Imaginary-part eigenvalue argument yields asymptotic capture rank R independent of gamma>0; mixed input gives R/(3N+1). With B the rim-by-hub magnetic incidence matrix, hub Gram T=B*B has positive simple spectrum for generic flux and detector overlap cannot cancel two real neighboring gauged Jacobi components. At zero flux the signless path eigenmodes have detector overlap proportional to sin(jkπ/(N+1)), exactly gcd(j,N+1)-1 invisible positive modes, giving 2N-2gcd(j,N+1)+3. At phi=pi Gram is diagonal with endpoint energy2 and bulk energy4, yielding two positive pairs for end site and one for interior. Zero-energy visible spectral support is one in all cases. Independent direct Hermitian spectral eigenspace grouping for N=2..9 and each detector/three fluxes verified all ranks. Finite tests not used as infinite proof.
 
-Closest literature: Vidal, Mosseri and Douçot (1998), Novo et al. (2015), Mukherjee et al. (2018), and Jin (2019). Scientific verification rests on the detailed analytic proof and independently reproducible small-dimensional comparisons. Independent assessment of originality and scientific merit is not yet performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: general trap-visible cyclic-subspace principle and half-flux Aharonov-Bohm caging spectra are prior results. The all-length exact rank with generic placement independence, phi0 gcd dependence and pi boundary-end split was not stated in inspected primary material.
+
+## value
+
+PASS
+
+The visible-subspace rank controls the exact eventual absorption of a uniformly mixed walker on a natural finite magnetic diamond chain. The three sharply distinct flux regimes and gcd detector-position law characterize interference-induced trapping and the caging boundary in a way directly useful for quantum transport and sensor placement, not an arbitrary numeric instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

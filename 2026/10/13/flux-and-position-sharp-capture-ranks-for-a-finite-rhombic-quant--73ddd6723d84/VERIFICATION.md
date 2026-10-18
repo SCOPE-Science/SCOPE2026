@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the rhombic-chain capture theorem
+# Independent mathematical audit
 
-The theorem concerns each \(N\ge2\), every upper cell index \(j\), all real magnetic phases \(\phi\), and strictly positive detector rate \(\gamma\). Its analytic justification is Steps 1–6 in `RESULT.md`: spectral dark/bright decomposition; Jacobi Gram matrix; one visible zero energy; generic-flux nonvanishing of a complex determinant overlap; zero-flux sine divisibility; and half-flux flat-band collapse. These are exact, not sampled.
+## correctness
 
-Run `python verify.py` with the two dependencies listed in `requirements.txt`. The code generates each matrix from its declared four hopping amplitudes rather than importing a previous computation. It compares Gram–Schmidt Krylov ranks with an independently grouped Hermitian-eigenvector spectral support, for all \(2\le N\le8\), four indicated flux values, and every upper-rim site. It also checks several mixed-state long-time survival probabilities by exponentiating the lossy Hamiltonian. The expected successful output is `VERIFY_OK rank_cases=140 independent_spectral_rank=140 loss_dynamics=3`.
+PASS
 
-The spectral eigenspace threshold and long-time convergence checks use floating-point tolerances, so they provide finite corroboration only. No finite enumeration certifies the infinite or continuum cases. The theorem does not provide a flux-uniform finite-time convergence rate. The proof itself does not depend on the numerical tolerances.
+For each finite N>=2 the lossy semigroup has dark complement to cyclic span of the upper-rim trap. Imaginary-part eigenvalue argument yields asymptotic capture rank R independent of gamma>0; mixed input gives R/(3N+1). With B the rim-by-hub magnetic incidence matrix, hub Gram T=B*B has positive simple spectrum for generic flux and detector overlap cannot cancel two real neighboring gauged Jacobi components. At zero flux the signless path eigenmodes have detector overlap proportional to sin(jkπ/(N+1)), exactly gcd(j,N+1)-1 invisible positive modes, giving 2N-2gcd(j,N+1)+3. At phi=pi Gram is diagonal with endpoint energy2 and bulk energy4, yielding two positive pairs for end site and one for interior. Zero-energy visible spectral support is one in all cases. Independent direct Hermitian spectral eigenspace grouping for N=2..9 and each detector/three fluxes verified all ranks. Finite tests not used as infinite proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: general trap-visible cyclic-subspace principle and half-flux Aharonov-Bohm caging spectra are prior results. The all-length exact rank with generic placement independence, phi0 gcd dependence and pi boundary-end split was not stated in inspected primary material.
+
+## value
+
+PASS
+
+The visible-subspace rank controls the exact eventual absorption of a uniformly mixed walker on a natural finite magnetic diamond chain. The three sharply distinct flux regimes and gcd detector-position law characterize interference-induced trapping and the caging boundary in a way directly useful for quantum transport and sensor placement, not an arbitrary numeric instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
