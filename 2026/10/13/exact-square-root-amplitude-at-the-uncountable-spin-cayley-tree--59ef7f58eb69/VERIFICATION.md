@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof uses the exact polynomial reduction from arXiv:1803.02867v1. The critical steps are the simple vanishing
-\[
-r_\theta(k,1)=-\frac{km}{m+2}(\theta-\theta_c),
-\]
-the positive cubic coefficient
-\[
-r_{\theta_c}(k,3)=\frac{2^{2/m}(k-1)\left((k+1)(m+2)^2-6k\right)}{3(m+2)(m+4)},
-\]
-and the implicit-function reduction in \(w=z^2\).
+# Independent mathematical audit
 
-`verify.py` reconstructs the source polynomial from its two finite sums. It checks the closed cubic coefficient using exact rational arithmetic after removing the common factor \(2^{2/m}\), then isolates the unique positive root for several admissible parameter pairs and confirms convergence of the normalized ratio \(z_0/\sqrt{\theta-\theta_c}\) to the claimed amplitude. A successful replay prints `VERIFY_OK`.
+## correctness
 
-The finite replay is not an exhaustive proof over all \(k\) and \(n\). The infinite-family claim follows from the coefficient identities and the analytic implicit-function argument. The verification does not test other Gibbs-state classes or nonlocal critical observables.
+PASS
+
+From the primary odd polynomial P_theta(z), its z coefficient is -km/(m+2)*(theta-theta_c). The coefficient of 2^(2/m) z^3 at theta_c independently simplifies to ((k-1)*((k+1)*(m+2)^2-6k))/(3*(m+2)*(m+4)), positive for physical k,m. For k=2 this comes from the leading z^3 term rather than the internal sum. Analytic implicit-function theorem for w=z^2 gives w=km/((m+2)*r_cubic)*(theta-theta_c)+O((theta-theta_c)^2), hence the stated square-root coefficient and O(delta^(3/2)). Positivity and uniqueness of the two branches follow from the published fixed-point analysis. Independent rational coefficient identity established for 95 (k,m) pairs, including odd/even k and m=1.
+
+## originality
+
+PASS
+
+The primary source proves the exact threshold, the number of translation-invariant splitting Gibbs measures, and unique positive nontrivial polynomial root, but does not state a leading square-root coefficient; computing a critical cubic derivative yields an explicit amplitude for every permitted k,m.
+
+## value
+
+PASS
+
+The explicit onset amplitude identifies a physically interpretable bifurcation strength as a function of both tree order and kernel exponent, complementing the previously known phase-count threshold. The exponent and coefficient control the leading separation of the two nontrivial boundary laws for every interior critical point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

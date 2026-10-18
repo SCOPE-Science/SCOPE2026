@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The proof starts from the source's exact odd polynomial for the order parameter \(z=\theta C_2/C_1\). The linear coefficient vanishes simply at \(\theta_c\), while the critical cubic coefficient is strictly positive and has the displayed closed form. Passing to \(w=z^2\) makes the bifurcating branch an ordinary implicit-function problem, yielding the coefficient and the \(O((\theta-\theta_c)^{3/2})\) remainder. The argument treats \(k=2\) separately at the coefficient-identification step and imposes the necessary physical condition \(\theta_c<1\).
+# Independent mathematical audit
 
-## Originality
-PASS. The primary paper gives the exact threshold, the complete one-versus-three translation-invariant measure count, and the unique positive symmetry-breaking root, but its inspected full proof does not state a critical exponent or asymptotic amplitude. Targeted semantic searches covered the source identifier, critical-threshold formula, order-parameter aliases, square-root onset, and amplitude language without finding a covering result. Earlier 2014 and 2017 papers are special cases of the same phase-count theorem; available records did not reveal an amplitude statement, but incomplete full-text access to those predecessors remains a residual risk rather than evidence of noncoverage.
+## correctness
 
-## Value
-PASS. The source identifies the phase transition exactly but leaves its local strength unquantified. The new formula supplies both the bifurcation exponent and its exact dependence on the tree order and kernel exponent, converting a qualitative appearance of two new phases into a quantitative critical law for the model's natural reduced order parameter. This is a structural bifurcation invariant, not a numerical re-evaluation of the critical point.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+From the primary odd polynomial P_theta(z), its z coefficient is -km/(m+2)*(theta-theta_c). The coefficient of 2^(2/m) z^3 at theta_c independently simplifies to ((k-1)*((k+1)*(m+2)^2-6k))/(3*(m+2)*(m+4)), positive for physical k,m. For k=2 this comes from the leading z^3 term rather than the internal sum. Analytic implicit-function theorem for w=z^2 gives w=km/((m+2)*r_cubic)*(theta-theta_c)+O((theta-theta_c)^2), hence the stated square-root coefficient and O(delta^(3/2)). Positivity and uniqueness of the two branches follow from the published fixed-point analysis. Independent rational coefficient identity established for 95 (k,m) pairs, including odd/even k and m=1.
 
-## Closest literature and limitations
-The closest work is the primary 2018 preprint/journal article, whose complete open proof was inspected. The 2014 arbitrary-order \(n=1\) paper and the 2017 order-two general-\(n\) paper are the closest special-case predecessors. The present claim is restricted to the local translation-invariant boundary-law bifurcation with \(\theta_c<1\); no other Gibbs-state classes or thermodynamic observables are classified.
+## originality
+
+PASS
+
+The primary source proves the exact threshold, the number of translation-invariant splitting Gibbs measures, and unique positive nontrivial polynomial root, but does not state a leading square-root coefficient; computing a critical cubic derivative yields an explicit amplitude for every permitted k,m.
+
+## value
+
+PASS
+
+The explicit onset amplitude identifies a physically interpretable bifurcation strength as a function of both tree order and kernel exponent, complementing the previously known phase-count threshold. The exponent and coefficient control the leading separation of the two nontrivial boundary laws for every interior critical point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
