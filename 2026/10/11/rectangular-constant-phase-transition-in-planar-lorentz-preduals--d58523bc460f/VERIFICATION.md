@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Set \(c=1+w\) and \(d=1-w\). The two candidate normalized triples are
-\[
-(x,y,t)=\left((1,w),(-c/2,c/2),2d/c\right)
-\]
-and
-\[
-(x,y,t)=\left((1,w),(0,-1),2w\right).
-\]
-Both satisfy \(x\perp_B y\), because at the vertex \((1,w)\) the first is annihilated by the slanted norming functional and the second by the axial norming functional. Their final vectors are respectively \((w,1)\) and \((1,-w)\), both of norm one. Their quotients are exactly \(1+2d/c\) and \(1+2w\).
+# Independent mathematical audit
 
-For an arbitrary vertex and normalized orthogonal direction, sign and coordinate symmetries give \(x=(1,w)\) and either \(y=(-a,b)\) or \(y=(a,-b)\), where \(0\le a\le c/2\) and \(b=1\) for \(a\le w\), \(b=c-a\) otherwise. In the first sign case, the norm is bounded from below by the maximum of \(1+(b-a)t/c\) and \(w+bt\). These intersect at \(t=cd/(a+wb)\), where the true vector is a positive multiple of \((w,1)\). The ratio is maximized precisely there, and its value is
-\[
-R_+(a)=\frac{a+wb+1-w^2}{wa+b}.
-\]
-On the first piece its derivative equals \((1-w)^2(1+w)/(1+wa)^2>0\); on the second piece its derivative equals \(2dc/(c-da)^2>0\). Therefore the unique maximum is at \(a=c/2\).
+## correctness
 
-In the opposite sign case the sharp affine lower bounds are \(1+at\) and \((d+(a+b)t)/c\). They intersect at \(t=2w/(b-wa)\) and the final vector is a positive multiple of \((1,-w)\). The exact maximum is
-\[
-R_-(a)=1+\frac{2w(1-a)}{b+wa}.
-\]
-Its derivatives are \(-2w(1+w)/(1+wa)^2<0\) on the first piece and \(-4w^2/(c-da)^2<0\) on the second, so its unique maximum occurs at \(a=0\).
+PASS
 
-In axial edge interiors one has an upper bound strictly below \(1+2w\); in diagonal edge interiors an upper bound strictly below \(1+2d/c\). Thus the two displayed types exhaust all normalized maximizers. The crossing condition \(w=d/c\) is the unique positive solution \(w=\sqrt2-1\).
+PASS: The real Lorentz-predual unit sphere N_w=max(|u|,|v|,(|u|+|v|)/(1+w)) has precisely axial edges, slanted edges and 8 vertices. On edge interiors Birkhoff-James orthogonality gives one tangent direction and strictly suboptimal bounds. At x=(1,w), norming-functional segment yields exactly two signed unit cones y=(-a,b) and (a,-b), 0<=a<=(1+w)/2, b=1 for a<=w and b=1+w-a after. Matching affine supporting-functional bounds at their sharp intersection gives R_+(a)=(a+w b+1-w²)/(w a+b), strictly increasing to (3-w)/(1+w), and R_-(a)=1+2w(1-a)/(b+w a), strictly decreasing to 1+2w. Symbolically differentiated all four rational branches independently, confirming signs, and checked endpoints (w,1) and (1,-w) have norm 1. Hence exact mu=1+2 max{w,(1-w)/(1+w)}, unique minimum w=sqrt(2)-1 and the stated ordered maximizing triples up to signed coordinate perms; comparison remains for 0<w<1 only.
 
-The displayed rational derivatives and endpoint substitutions were checked symbolically from their algebraic definitions. A finite numerical optimization over representative parameters was used only for exploratory stress testing; neither that test nor an incomplete enumeration is used as proof. Independent external validation has not been performed.
+## originality
+
+PASS
+
+PASS, best of knowledge: Paul-Ghosh-Sain arXiv:1407.1353 Theorem 3.6 gives reduction to a starting vertex for two-dimensional polyhedral norms but does not evaluate the Lorentz-predual family or enumerate all ordered triples. Baronti-Casini-Papini full 10-page PDF treats hexagonal norms and lp estimates, not this octagonal phase diagram. Kim 2013 studies symmetric bilinear-form extremes in precisely the same Lorentz-predual space, a different invariant. Earlier del Río-Benítez 1977 2D rectangular paper remained uninspected full text; this is a priority risk, not an automatic novelty failure. Resultary exact hit is present target; nearby Birkhoff profiles and Cesàro-space rectangular constants do not imply the same identity.
+
+## value
+
+PASS
+
+PASS: Complete exact natural family and transition of extremizing Birkhoff-James directions at the geometrically distinguished regular octagon, including unique minimum of a classical invariant and full sharp ordered triples. The extremizer switch is information not mechanically supplied by a general vertex-reduction or bilinear-form result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
