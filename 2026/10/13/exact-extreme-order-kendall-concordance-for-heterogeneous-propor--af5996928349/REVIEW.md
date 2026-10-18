@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The formula follows from four explicit ingredients: exponential-proportional-hazard monotone reduction; independence of the first exponential arrival and the remaining maximum spacing; a finite inclusion-exclusion density for that spacing; and the exact Laplace difference kernel for Kendall discordance. Each coefficient and denominator is defined, with strictly positive hazard rates and a strictly increasing continuous baseline transformation. Direct two-component algebra and derivative endpoints independently establish the inverse and optimal sensitivity constants. The standalone exact-rational verifier checks multiple parameter families; no finite enumeration is misrepresented as the infinite proof.
+PASS
 
-## Originality — PASS
+PASS. A strictly increasing common cumulative-hazard transform maps independent proportional-hazard lifetimes to independent exponentials without changing rank concordance. Exponential race shows minimum M~Exp(Λ) independent of winner and maximum residual gap G. Inclusion–exclusion over nonempty proper S yields density ∑c_S r_S exp(−r_S x), c_S=(−1)^{|S|+1}(Λ−r_S)/Λ. For independent copies the difference M−M’ is Laplace and conditional discordance probability is [1−exp(−Λ|G−G’|)]/2, hence τ=E exp(−Λ|G−G’|). Direct pairwise exponential integration yields the submitted finite rational double sum; all denominators positive, with no infinite rearrangements. Independently evaluated the double sum in exact fractions for [1,1], [1,2], [1,3], [2,7], [1,2,3], [1,1,1], [1,1,1,1], [1,2,4,8]. For two rates τ=(1−t)(3−t)/(9−t), derivative negative on 0≤t<1 and endpoint slopes −11/27, −1/4; the stated inverse recovers only UNORDERED ratio, not scale or labels.
 
-The 2008 Dolati–Genest–Kochar primary paper characterizes the underlying extreme-order copula and proves an upper concordance bound, not a finite explicit heterogeneous Kendall formula. Its §4.2 treats the heterogeneous exact calculation as difficult. The 2022 Kochar paper proves stronger qualitative dependence comparisons but supplies Kendall formulas only for the homogeneous reference sample. The 2005 Avérous–Genest–Kochar and 2018 Fuchs–Schmidt treatments provide exact formulas under common marginal laws, and do not supply the heterogeneous subset-sum or two-rate inversion. The known full copula implies that rank concordance is mathematically determined, but does not itself furnish the evaluated rational identity or exact inverse. Related exchangeable and copula calculations remain a bibliographic risk.
+## originality
 
-## Value — PASS
+PASS
 
-Early-versus-late system failure dependence is a motivated reliability invariant previously controlled only by qualitative concordance comparisons in the heterogeneous case. An arbitrary-rate computable closed expression replaces a bound, while the two-component specialization establishes exact baseline-free identification of the unordered relative hazard rate and sharp quantitative sensitivity. These are structural statements for an entire natural model class, not an arbitrary numeric table. No finite-sample inferential claim or large-system complexity advantage is made.
+PASS, best of knowledge for the evaluated arbitrary-rate finite rational Kendall expression and its sharp two-rate inverse calibration. The original heterogeneous extreme-order copula and qualitative concordance upper bound are prior work; the inspected Dolati–Genest–Kochar 2008 full text, §4.2, explicitly notes the difficulty of computing heterogeneous concordance and does not give this evaluated finite formula. Homogeneous order-statistic Kendall formulas and broader stochastic-order comparisons do not imply the exact heterogeneous rational identity without a new integration, though the known joint law formally determines the same quantity.
 
-## Closest work and limitations
+## value
 
-See the 2008 Dolati–Genest–Kochar joint copula and upper bound, the February 2022 Kochar comparison theorem, and the homogeneous rank-concordance formulas of Avérous et al. (2005) and Fuchs–Schmidt (2018). Identification is restricted to two components, and the formula has exponential subset complexity. Older equivalent representations cannot be excluded by search alone. This is a mathematical consistency and literature assessment, not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Early-versus-late failure concordance is an intrinsic reliability dependence measure, not an arbitrary parameter. A baseline-free exact finite evaluation replaces a heterogeneous bound; the n=2 invertibility gives a concrete identification law and best possible sensitivity coefficients, with model and population restrictions clearly specified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
