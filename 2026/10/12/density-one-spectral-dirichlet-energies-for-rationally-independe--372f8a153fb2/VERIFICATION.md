@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the spectral Dirichlet criterion
 
-The supplied `verify.py` reconstructs the six complex Bloch vertex equations of Exner--Pekař, equations (3), (17), and (18). At \(ak=m\pi\) with all four half-period phases it symbolically calculates the exact determinant and compares it with the reduced expression; only a nonzero factor \(64ik^2pq\) and a harmless Bloch-label transposition separate them. The calculation uses symbolic Laurent polynomials with no fitting or numerical root guesses.
+# Independent mathematical audit
 
-The explicit irrational witness is checked using the formula for \(r\) and a direct residual. The mathematical proof that \(0<r<0.017\) uses \(3<\pi<4\), \(\sqrt2,\sqrt3<2\), \(\sin t<t\), and \(\cos t\ge 1-t^2/2\); finite machine precision is not its justification.
+## correctness
 
-The density-one and spectral-interior claims are proved analytically in `RESULT.md` by torus equidistribution and continuity. The verifier does not purport to establish this infinite assertion by enumerating finitely many indices. Run `python3 verify.py` (requires SymPy); a successful run prints `VERIFY_OK`.
+PASS
+
+Reconstructed the un-divided six-wave Floquet cell determinant at ak=mπ: the nonzero 2k² factor leaves (k²−1)(sin(bk)cosθ₂+sin(ck)cosθ₁)=(-1)^m(k²+1)sin((b+c)k). Independent cosine coordinates fill [−1,1]², proving the exact iff including k=1 and all sine-zero boundaries without division by sin(ak). For rationally independent 1,b/a,c/a, Weyl–Kronecker and Δ=|sin x|+|sin y|−|sin(x+y)|>0 off the measure-zero coordinate sine-zero loci prove the strict inequality for a density-one set. Continuous determinant sign changes then yield spectral interior, not merely individual fibers. Independent irrational witness has ratio 0.006056515926075707<1. This is not a proof about all spectral gaps.
+
+## originality
+
+PASS
+
+The original Exner–Pekař un-divided secular equation is the input, but its Section 4.1 incorrectly forbids these incommensurate Dirichlet momenta by separately setting energy-power terms to zero; only their sum must vanish. The exact phase-range iff and density-one positive-energy subsequence are distinct statements, not consequences of global band-density estimates. Relevant 2024 arXiv primary text was read; possible corrections in the inaccessible 2025 journal version remain an explicit risk.
+
+## value
+
+PASS
+
+The theorem reverses a concrete published spectral exclusion on a canonical subsequence: almost all single-edge Dirichlet momenta under rational independence actually lie inside bands. Exact membership and interior criteria matter for rational-independent quantum-graph band/gap analysis; the result does not need to solve the full spectral distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

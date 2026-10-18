@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact, un-divided positive-energy secular equation (19) of Exner--Pekař, arXiv:2409.03538v1, reduces at a single-edge Dirichlet momentum to an affine combination of two *independently* variable Bloch cosines; its attainable range gives the if-and-only-if spectral condition, even at the exceptional value \(k=1\). The traveling-wave boundary determinant was reconstructed separately and symbolically factored at \(ak=\pi\), so the critical un-divided equation is not assumed only from a potentially invalid cotangent expression. The irrational witness has an exact phase and elementary analytic bounds. Torus equidistribution, strict triangle inequality off a null set, and a continuous cutoff prove density one (not just finite sampling). Strict range inclusion plus continuity gives an open spectral neighborhood. Risk: the argument does not quantify the width of those neighborhoods, and the graph/coupling normalization is specific.
+PASS
 
-## Originality — PASS
+Reconstructed the un-divided six-wave Floquet cell determinant at ak=mπ: the nonzero 2k² factor leaves (k²−1)(sin(bk)cosθ₂+sin(ck)cosθ₁)=(-1)^m(k²+1)sin((b+c)k). Independent cosine coordinates fill [−1,1]², proving the exact iff including k=1 and all sine-zero boundaries without division by sin(ak). For rationally independent 1,b/a,c/a, Weyl–Kronecker and Δ=|sin x|+|sin y|−|sin(x+y)|>0 off the measure-zero coordinate sine-zero loci prove the strict inequality for a density-one set. Continuous determinant sign changes then yield spectral interior, not merely individual fibers. Independent irrational witness has ratio 0.006056515926075707<1. This is not a proof about all spectral gaps.
 
-The closest same-object primary document is arXiv:2409.03538v1, pp. 5--8, where a contrary blanket claim appears for these momenta. It acknowledges a special exceptional commensurate case later, but not a density-one family of *incommensurate* spectral Dirichlet energies. The δ-coupled predecessor arXiv:1405.0694v1 uses a different self-adjoint domain and cannot imply the \(-R\) criterion. Checks of published searches for Dirichlet resonances, irrational edge lengths, equivalent sine tests, and near-complete spectral subsequences did not identify a stronger equivalent theorem. Residual risk: the 2025 journal text might correct the preprint; a weakly indexed equivalent proof under alternate lattice coordinates may exist. Search absence is not an independent novelty certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The special momenta are selected by the original paper as organizing centers for its high-energy gap analysis. This theorem replaces its asserted spectral exclusion with an exact all-parameter membership criterion and a stark density-one spectral-interior phenomenon for the natural arithmetic class of rationally independent lengths. The correction affects the location of supposed gaps in an entire infinite subsequence and is not a mere normalization check or an arbitrary finite parameter slice. It does not dispute that other gaps can exist.
+The original Exner–Pekař un-divided secular equation is the input, but its Section 4.1 incorrectly forbids these incommensurate Dirichlet momenta by separately setting energy-power terms to zero; only their sum must vanish. The exact phase-range iff and density-one positive-energy subsequence are distinct statements, not consequences of global band-density estimates. Relevant 2024 arXiv primary text was read; possible corrections in the inaccessible 2025 journal version remain an explicit risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The theorem reverses a concrete published spectral exclusion on a canonical subsequence: almost all single-edge Dirichlet momenta under rational independence actually lie inside bands. Exact membership and interior criteria matter for rational-independent quantum-graph band/gap analysis; the result does not need to solve the full spectral distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
