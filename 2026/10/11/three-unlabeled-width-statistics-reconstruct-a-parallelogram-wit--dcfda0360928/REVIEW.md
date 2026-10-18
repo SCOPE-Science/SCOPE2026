@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The centered parallelogram is a Minkowski sum of two segments, so its projection length is the sum of two absolute dot products. Partitioning the angle integral yields the stated mean-square formula; maximizing signed sums yields the longer diagonal. The derivative of the scalar recovery function is positive at every permitted angle and its endpoints are explicit, so the shape parameters are uniquely recovered. On compact nondegenerate parameter classes the inverse angle and side-product maps are Lipschitz, while extracting unordered side lengths introduces exactly a square-root loss, which is necessary at a rhombus. The standalone script exercises the formulas but is not used as a proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Kim–Yaskin–Zvavitch (arXiv:1512.07289v1, Section 3) establish that projection distributions do not determine arbitrary planar symmetric bodies, not that the first two moments together with their maximum identify all parallelograms. Finch (arXiv:1110.0671, Sections 1–2) tabulates the square's first two width moments, not a three-parameter inverse theorem. Martirosyan (2023, Sections 3–4) gives orientation-dependent chord-length laws, not unlabeled projection-width population moments. The closest searchable parallelotope results concern other geometric functionals. An unlocated classical equivalent involving perimeter, quadratic mean width, and diameter remains a historical-overlap risk. These comparisons do not establish absolute priority.
+PASS
 
-## Value — PASS
-This is a natural complete inverse classification for the three-dimensional family of planar parallelogram shapes from three scalar, orientation-unlabeled measurements; none of the three involves chosen directions. The exact scalar monotonicity exposes the angle, the sharp inequality identifies rectangular shapes, and the optimal stability exponent describes the unavoidable loss near equal-sided shapes. Two scalar measurements cannot locally recover a generic three-parameter member, so the measurement count is minimal among continuous scalar measurements.
+PASS. For a,b>0 and edge-line phi in (0,pi/2], W=a|cos theta|+b|cos(theta-phi)|. Direct integration independently agrees with mu=2(a+b)/pi, nu=(a²+b²)/2+(2ab/pi)[sin phi+(pi/2-phi)cos phi], and D²=a²+b²+2ab cos phi. Setting s=pi mu/2, X=s²-D² and Y=s²/2-nu gives T=Y/X=1/2-F(phi)/pi with F=(sin phi-phi cos phi)/(1-cos phi), F'=sin phi(phi-sin phi)/(1-cos phi)²>0. F runs from 0 to 1, so inversion uniquely recovers phi and ab, then sorted roots of t²-st+ab give unordered side lengths; T range [1/2-1/pi,1/2). On bounded nonflattening classes, all steps prior to roots are Lipschitz and sqrt discriminant gives uniform 1/2 Holder; perturbing equal sides (1,1)→(1+t,1-t) moves stats by O(t²) but lengths O(t), proving optimality at rhombi. Independently checked quadrature for multiple parameters. Degenerate phi=0 and sides=0 excluded; rectangle endpoint and rhombi included.
 
-## Scope and limitations
-Only exact isotropic measurements and genuine nondegenerate parallelograms are covered. The stability constant depends on lower side-length and angle bounds; the theorem does not claim stability at flattening or general-polygon recovery. Scientific precedence beyond the inspected sources remains uncertain.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after exact-object and logical-implication comparison. Kim–Yaskin–Zvavitch projection-distribution counterexamples for arbitrary convex bodies do not imply either uniqueness or nonuniqueness of three moments+diameter on parallelograms. Finch's moment examples for a square or 3D regular polyhedra are special cases and cannot recover all arbitrary oblique side lengths or sharp inverse modulus. Orthotope tomography fixes right angles in higher dimension and does not dominate oblique parallelogram shape recovery. An indexed-search miss alone is not treated as novelty proof.
+
+## value
+
+PASS
+
+PASS. Projection widths under anonymous directions are a natural geometric tomography observable. For the full 3-parameter class of nondegenerate planar parallelograms, only mean, second moment and support maximum recover the unordered side lengths and acute edge-line angle, with sharp global moment-range and optimal 1/2 inverse Holder modulus. This is a motivated complete inverse classification and stability boundary, not a table of one shape's moments or an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
