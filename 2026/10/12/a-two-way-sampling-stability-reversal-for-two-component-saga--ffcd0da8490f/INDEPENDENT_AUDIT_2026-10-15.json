@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T14:16:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md af70bf06454a92b47a4837872038c3c12a310470",
+        "Actual frozen verify.py 0a4fcdfd91eb805b8714b5b4b5c1c84a5e8cab8c",
+        "Defazio, Bach & Lacoste-Julien, SAGA: A Fast Incremental Gradient Method, arXiv:1407.0202"
+      ],
+      "rationale": "For original pre-update-table SAGA on scalar f_i(x)=a_i x^2/2, write state z=(x,y1,y2). Direct gradient-memory expansion yields exact 3×3 index matrices; second moments lift to six monomials. IID transition is (L(M1)+L(M2))/2 per step; independent random reshuffle transition (L(M2M1)+L(M1M2))/2 per epoch. At (a,b,eta)=(1,1,23/20), Q=[[253,-53,-53],[-53,230,-114],[-53,-114,230]] and iid mean residual Q-E[M_i^T Q M_i] have strictly positive leading principal minors (Q: 253,55381,8163120; residual: 563/400,789489/640000,5427/5120), proving all-initial-state geometric mean-square stability. At (1,4,27/100), epoch reshuffling Q=[[259,5,-34],[5,3,-3],[-34,-3,9]] has minors 259,752,1989 and residual positive minors 192531773/50000000, 7694776875239369/1600000000000000, 2268049442949819/640000000000000. Both sets of minors were recomputed exactly. For the opposite schemes, the source supplies full exact initialized rational generating functions for E[x_k^2] with denominators positive at 0, negative at 1, and numerator coprime to denominator; therefore an uncancelled real pole inside (0,1), giving limsup geometric growth along subsequences by Cauchy-Hadamard/nonnegative coefficients. Source exact six-monomial lift and rational-function verification algorithm were inspected, and independently constructed 3×3 matrices and first 0..3 grouped moments matched across direct path enumeration and lifted matrix propagation. Strict inequalities persist locally in parameters; no almost-sure divergence or full frontier claimed.",
+      "residual_risks": [
+        "The unstable guarantee is existence of exponentially growing expected squared position error subsequences from one standard initialization, not every-start instability or almost-sure divergence.",
+        "The reshuffling scheme independently samples each epoch; alternative post-update-table algorithms are not covered.",
+        "Independent crosscheck reconstructed initial moments and stability minors but not every large rational generating-function coefficient by separate symbolic inversion; exact source rational algorithm and algebraic pole check support that segment."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ying et al. arXiv:1708.01383",
+          "Qian et al. arXiv:1901.08669"
+        ],
+        "reasoning": "The former assumes an altered memory refresh and sufficient small step; the latter treats iid selection. Neither dominates the exact opposite-sign examples for the same pre-update recursion.",
+        "searches": [
+          "random reshuffling versus iid SAGA mean square stability reversal"
+        ]
+      },
+      "checked_sources": [
+        "Defazio, Bach & Lacoste-Julien, SAGA: A Fast Incremental Gradient Method, arXiv:1407.0202",
+        "Ying, Yuan & Sayed, Variance-Reduced Stochastic Learning under Random Reshuffling, arXiv:1708.01383",
+        "Qian, Qu & Richtárik, SAGA with Arbitrary Sampling, arXiv:1901.08669",
+        "Resultary:2026/10/4/SCOPE-exact-random-residual-floor-for-a-single-infinite-sarah-inner-lo--3a03442a77b1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ying et al. small-step convergence bounds; different update convention",
+          "Two explicit rational pole certificates in source RESULT.md"
+        ],
+        "reasoning": "Sufficient convergence for small eta says nothing about eta=23/20 and 27/100 with alternate sampling. Two exact counterexamples disprove either universal stability ordering while preserving all known sufficient-regime statements.",
+        "searches": [
+          "random reshuffling versus iid SAGA mean square stability reversal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Defazio et al. arXiv:1407.0202 original SAGA update",
+          "Source exact Q and pole calculations"
+        ],
+        "reasoning": "The matrix lift is standard but its explicit two opposed stability witnesses are not a standard implication of the algorithm definition.",
+        "searches": [
+          "random reshuffling versus iid SAGA mean square stability reversal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary:exact-random-residual-floor-for-a-single-infinite-sarah-inner-lo--3a03442a77b1",
+          "Resultary:exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73"
+        ],
+        "reasoning": "Those exact scalar numerical results are SARAH and STORM and do not tabulate the SAGA stability poles. No matching SAGA matrix table identified; not a novelty certificate.",
+        "searches": [
+          "random reshuffling versus iid SAGA mean square stability reversal"
+        ]
+      },
+      "rationale": "The original Defazio–Bach–Lacoste-Julien SAGA defines saved gradients at the previous iterate, which is crucial to these matrices. Ying–Yuan–Sayed 2017 random reshuffling variance reduction instead updates its selected stored gradient at the post-update point and proves convergence for sufficiently small steps, not this pre-update memory law. Qian–Qu–Richtárik 2019 studies iid arbitrary sampling sufficient bounds, not a bidirectional comparison. The same pre-update SAGA two-parameter counterexample pair was not found in materially inspected sources. Resultary nearby SARAH/STORM findings are different algorithms.",
+      "residual_risks": [
+        "A specialized stability-frontier or scalar-SAGA reshuffling study outside indexed papers could contain equivalent examples.",
+        "Publication says original SAGA, but algorithmic claims do not transfer automatically to the 2017 post-update reshuffling variant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_ALGORITHM_DEFINITION_NOT_CURRENT_STABILITY_CONTRAST",
+          "evidence": [
+            "Original pre-update gradient table mechanism is the model assumption."
+          ],
+          "identifier_or_url": "arXiv:1407.0202",
+          "material_read": "Relevant algorithm definition and introductory sections in PDF, including rendered algorithm page",
+          "method": "PDF text and screenshot of algorithm",
+          "title": "SAGA: A Fast Incremental Gradient Method with Support for Non-Strongly Convex Composite Objectives",
+          "trigger": "Algorithm exact gradient table timing"
+        },
+        {
+          "assessment": "DIFFERENT_POST_UPDATE_TABLE_AND_SMALL_STEP_BOUNDS",
+          "evidence": [
+            "Algorithm stores newly computed gradient at post-update point unlike submitted recursion."
+          ],
+          "identifier_or_url": "arXiv:1708.01383",
+          "material_read": "Algorithm and introductory theorem statements from rendered PDF, including displayed memory update convention",
+          "method": "PDF text and screenshot of algorithm page",
+          "title": "Variance-Reduced Stochastic Learning under Random Reshuffling",
+          "trigger": "Closest possible stronger SAGA reshuffling analysis"
+        },
+        {
+          "assessment": "IID_SAMPLING_ONLY_NO_RESHUFFLE_COMPARISON_IN_CHECKED_MATERIAL",
+          "evidence": [
+            "Arbitrary sampling SAGA uses iid law, not tested epoch correlations."
+          ],
+          "identifier_or_url": "arXiv:1901.08669",
+          "material_read": "Abstract/known algorithmic scope and cited sufficient bounds; not all primary pages re-read",
+          "method": "Primary bibliographic/abstract lookup and cited theorem comparison",
+          "title": "SAGA with Arbitrary Sampling",
+          "trigger": "Possible stronger iid and reshuffling stability theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Defazio, Bach & Lacoste-Julien, SAGA: A Fast Incremental Gradient Method, arXiv:1407.0202",
+        "Ying, Yuan & Sayed, Variance-Reduced Stochastic Learning under Random Reshuffling, arXiv:1708.01383",
+        "Qian, Qu & Richtárik, SAGA with Arbitrary Sampling, arXiv:1901.08669"
+      ],
+      "rationale": "Two-way failure of a universal stability ordering is a structural algorithmic counterexample, not a tiny accuracy gain. In one example even identical component curvatures do not prevent reshuffling instability; the reverse witness establishes that neither iid nor reshuffle generally dominates. Strict Lyapunov and pole certificates make both contrasts robust and precisely distinguish sampling correlation from curvature heterogeneity.",
+      "residual_risks": [
+        "The unstable guarantee is existence of exponentially growing expected squared position error subsequences from one standard initialization, not every-start instability or almost-sure divergence.",
+        "A specialized stability-frontier or scalar-SAGA reshuffling study outside indexed papers could contain equivalent examples."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The unstable guarantee is existence of exponentially growing expected squared position error subsequences from one standard initialization, not every-start instability or almost-sure divergence.",
+    "The reshuffling scheme independently samples each epoch; alternative post-update-table algorithms are not covered.",
+    "Independent crosscheck reconstructed initial moments and stability minors but not every large rational generating-function coefficient by separate symbolic inversion; exact source rational algorithm and algebraic pole check support that segment.",
+    "A specialized stability-frontier or scalar-SAGA reshuffling study outside indexed papers could contain equivalent examples.",
+    "Publication says original SAGA, but algorithmic claims do not transfer automatically to the 2017 post-update reshuffling variant."
+  ]
+}
