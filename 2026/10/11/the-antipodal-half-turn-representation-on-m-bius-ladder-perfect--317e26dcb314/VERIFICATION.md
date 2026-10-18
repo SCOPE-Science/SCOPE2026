@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact checks and proof boundaries
+# Independent mathematical audit
 
-Run `python3 verify_ladder.py` with Python 3 standard library only. The script constructs graph edges and their central half-turn permutation, computes all perfect matchings, and enumerates all faces for each size from \(n=2\) through \(n=9\). A direct signed invariant-simplex calculation is compared against a separately enumerated cyclic monomer–dimer partition function and the proven parity formula. The final output is `VERIFY_OK` only if every assertion holds.
+## correctness
 
-For \(2\le n\le8\), the program additionally constructs mod-two augmented boundary maps and performs exact bitwise Gaussian elimination to recover reduced Betti numbers; this checks the ranks quoted from Agarwal–Basak in a finite range. The homology output vector uses position zero for degree minus one (the augmented chain convention); positive simplicial degree is shifted accordingly. These computations do **not** determine rational homology solely from their finite mod-two values; the published non-equivariant homotopy theorem is essential.
+PASS
 
-The universal Lefschetz equality is established symbolically: each invariant face is a uniquely extendible column monomer–dimer packing; alternating over every unused monomer gives a binomial cancellation; the only survivors are the two complete dimer tilings for even column count. For odd column count none survive. The transition from reduced Lefschetz number to full rational \(C_2\)-representation uses a published universal homology rank/dimension theorem and elementary order-two linear algebra. The experiment is a guard against indexing and orientation errors, not proof by sampling.
+I reconstructed the graph (2n rim edges plus n spokes), τ-fixed faces of the *perfect-matching complex*, and their bijection with disjoint spoke monomers and complete rim-edge-orbit dimers on the n-column cycle. A fixed face with s spokes and t dimers has signed simplicial trace (−1)^t on chain degree s+2t−1, yielding reduced Lefschetz −Σ_(D,S)(−1)^(|D|+|S|). For each D, alternating over all n−2|D| free spoke monomers cancels except complete dimer coverings. There are exactly two for even n (including n=2 with distinguished parallel orbit dimers), none odd, giving 2(−1)^(n/2+1) and 0. Theorem21 of Agarwal–Basak supplies degree n/2−1 even and odd ranks 2 or4. An order-two operator on rational H has eigenvalues ±1; trace=2 on even rank2 forces identity and odd trace0 forces equal multiplicity. Finite n≤9 checks are only corroboration; all-n cancellation is analytic.
 
-Independent audit has not been performed. An unindexed overlap remains possible.
+## originality
+
+PASS
+
+Opened primary arXiv:2608.30601v2 and inspected precise Theorem21 and proof on p14, plus definitions/main theorem. It classifies nonequivariant wedge-of-spheres types, not the central involution action; an abstract sphere count does not imply traces or eigenspaces. Searched half-turn, signed Lefschetz, C2 character and dihedral aliases; close honeycomb and ordinary matching-complex sources involve different objects. Thus strongest inspected same-object source is not covering.
+
+## value
+
+PASS
+
+The antipodal central involution is canonical in the Möbius ladder. Its rational homological character and surprising even/odd dichotomy answer a natural symmetry refinement left undetermined by the published ranks, using a nontrivial signed fixed-face monomer–dimer cancellation that works uniformly for all n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
