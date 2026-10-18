@@ -1,31 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For the compact heat step,
-\[
-A_\sigma=W-\sigma D
-=
-\left(\frac56+2\sigma\right)I
-+
-\left(\frac1{12}-\sigma\right)(S+S^{-1}).
-\]
-At and above \(\sigma=1/12\), this is a strictly diagonally dominant \(M\)-matrix with exact dominance margin \(1\), so its inverse and the resulting update are nonnegative. Below \(1/12\), the inverse kernel has alternating geometric sign. Multiplication by \(W\) leaves the distance-two coefficient
-\[
--\frac{12C\sigma r^2}{1-12\sigma},
-\]
-which is strictly negative. The endpoints are handled separately: \(B_0=I\) and \(A_{1/12}=I\).
+## correctness
 
-The exact four-point periodic witness was recomputed from rational matrices and the packaged verifier returned `VERIFY_OK`.
+PASS
 
-## Originality
-PASS. The archive-era heat paper gives the same compact spatial relation but proves solvability and unconditional stability, not pointwise positivity. The closest bound-preserving compact paper defines the identical periodic spatial operators and contains a brief unqualified statement of a backward-Euler/Crank--Nicolson maximum principle. It does not state or derive the sharp \(1/12\) lower threshold. Exact rational inversion of its displayed periodic operators at \(\sigma=1/100\) produces a negative component, so the new theorem is not implied by that statement.
+Define W=(S^-1+10I+S)/12 and D=S^-1-2I+S on the bi-infinite lattice; sigma>=0, A=W-sigma D has center a=5/6+2sigma and neighbors b=1/12-sigma. For sigma=0, B=A^-1 W=I. If sigma>=1/12 then b<=0 and a-2|b|=1, so inverse Green kernel of A is nonnegative; multiplying by W>=0 shows B>=0 and since B1=1 preserves all constant-bound data ranges. If 0<sigma<1/12, A^-1 kernel is C r^|j| with C=(a²-4b²)^-1/2>0 and -1<r<0; using b(r²+1)+ar=0 yields (B e0)_2=-12*C*sigma*r²/(1-12sigma)<0. This proves exact iff for the infinite lattice. Independently verified four-cycle at sigma=1/100: [13217/13568,3/212,-33/13568,3/212], whose sum is 1 and third component is negative. This finite witness only refutes unqualified finite-periodic positivity, not an all-size threshold.
 
-Searches using maximum-principle, inverse-positivity, \(M\)-matrix, lower-timestep, re-entrant-positivity, and compact-heat terminology did not locate an implication-equivalent theorem. Residual risk remains that older literature uses another terminology for the same constant.
+## originality
 
-## Value
-PASS. The theorem distinguishes unconditional stability from physical pointwise positivity for a canonical fourth-order compact diffusion discretization. It identifies a sharp and counterintuitive lower timestep threshold and supplies a finite exact witness, making the result useful both for method selection and for interpreting maximum-principle claims about implicit high-order schemes.
+PASS
 
-## Closest literature and limitations
-The closest classical source is Zhao--Dai--Niu's fourth-order compact heat analysis; the closest pointwise-bound source is Li--Xie--Zhang's compact bound-preserving work. The sharp theorem is confined to the infinite one-dimensional lattice, with a four-point periodic counterexample supplied separately. Boundary closures, multidimensional schemes, variable coefficients, nonlinear diffusion, and Crank--Nicolson remain outside the claim.
+The earlier compact scheme paper studies precisely W,D and describes a maximum-principle expectation for backward Euler without the positive-time restriction, but its main formal results concern explicit weak monotonicity, limiters, and related spatial discretizations. General lower timestep positivity effects and filtered Crank–Nicolson do not determine this sharp compact backward-Euler threshold. The exact if-and-only-if and counterexample under the same spatial operator survive as a distinct claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+High-order compact heat discretizations can be stable but fail pointwise positivity, a substantive issue for maximum principles. The exact nonmonotone (re-entrant) timestep cutoff and rigorous counterexample correct a plausible unconditional assertion, giving a useful sharp condition rather than a routine M-matrix sufficient bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

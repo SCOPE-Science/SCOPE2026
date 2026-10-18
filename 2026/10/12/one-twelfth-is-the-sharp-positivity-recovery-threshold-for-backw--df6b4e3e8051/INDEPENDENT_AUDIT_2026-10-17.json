@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T20:18:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Define W=(S^-1+10I+S)/12 and D=S^-1-2I+S on the bi-infinite lattice; sigma>=0, A=W-sigma D has center a=5/6+2sigma and neighbors b=1/12-sigma. For sigma=0, B=A^-1 W=I. If sigma>=1/12 then b<=0 and a-2|b|=1, so inverse Green kernel of A is nonnegative; multiplying by W>=0 shows B>=0 and since B1=1 preserves all constant-bound data ranges. If 0<sigma<1/12, A^-1 kernel is C r^|j| with C=(a²-4b²)^-1/2>0 and -1<r<0; using b(r²+1)+ar=0 yields (B e0)_2=-12*C*sigma*r²/(1-12sigma)<0. This proves exact iff for the infinite lattice. Independently verified four-cycle at sigma=1/100: [13217/13568,3/212,-33/13568,3/212], whose sum is 1 and third component is negative. This finite witness only refutes unqualified finite-periodic positivity, not an all-size threshold.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary finding concerns BE filtering of Crank–Nicolson on standard heat lattice, a different time-propagator and spatial symbol.",
+          "Other general high-order positivity techniques may impose lower timestep conditions."
+        ],
+        "reasoning": "A lower-CFL phenomenon is not itself novel, but these stronger/different results do not supply the precise if-and-only-if 1/12 for this classical three-point compact operator.",
+        "searches": [
+          "Resultary 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+          "Qin Shu DOI:10.1137/17M112436X"
+        ]
+      },
+      "checked_sources": [
+        "GitHub RESULT.md blob 583df75990687ccebd9a52b044870839e7220831",
+        "GitHub verify.py blob 38b034509017e7ff3e81cbd3b0c37914d3e74ece",
+        "arXiv:2310.16170 pp3–4 and compact W2 definition",
+        "DOI:10.1002/num.20200 abstract",
+        "Resultary semantic search: backward Euler fourth order compact finite difference heat equation positivity threshold one twelfth inverse positive M matrix"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source introduction suggests maximum-principle behavior for BE/CN compact methods; no universal lower threshold was established in inspected main formal statements.",
+          "The sign-alternating Green kernel proves negative distance-two response for every 0<sigma<1/12."
+        ],
+        "reasoning": "The source operator matches precisely, but its premise does not imply sharp positivity; the current proof identifies the exact boundary and corrects any unconditional reading.",
+        "searches": [
+          "Li Xie Zhang arXiv:2310.16170 section on maximum principle",
+          "Resultary semantic search: backward Euler fourth order compact finite difference heat equation positivity threshold one twelfth inverse positive M matrix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li et al use exactly W2=(S^-1+10I+S)/12 and centered second-difference Dxx, matching pinned normalizations.",
+          "Zhao et al treat compact heat stability, not the exact BE sign threshold."
+        ],
+        "reasoning": "A generic maximum-principle claim or stability is not equivalent to determining all sigma with B>=0; the exact lower threshold and negative impulse formula are additional.",
+        "searches": [
+          "Resultary semantic search: backward Euler fourth order compact finite difference heat equation positivity threshold one twelfth inverse positive M matrix",
+          "Li Xie Zhang DOI:10.1137/18M1208551 / arXiv:2310.16170",
+          "Zhao Dai Niu DOI:10.1002/num.20200"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The negative four-cycle coefficient -33/13568 is explicitly reproduced with exact rational matrix inversion.",
+          "No prior exact threshold table for this infinite-lattice BE compact operator found."
+        ],
+        "reasoning": "Even if a finite-grid maximum-principle table were known, it does not determine the infinite-lattice iff; finite counterexample is supporting evidence not sole novelty.",
+        "searches": [
+          "Resultary semantic search: backward Euler fourth order compact finite difference heat equation positivity threshold one twelfth inverse positive M matrix",
+          "Li Xie Zhang arXiv:2310.16170 compact operators"
+        ]
+      },
+      "rationale": "The earlier compact scheme paper studies precisely W,D and describes a maximum-principle expectation for backward Euler without the positive-time restriction, but its main formal results concern explicit weak monotonicity, limiters, and related spatial discretizations. General lower timestep positivity effects and filtered Crank–Nicolson do not determine this sharp compact backward-Euler threshold. The exact if-and-only-if and counterexample under the same spatial operator survive as a distinct claim.",
+      "residual_risks": [
+        "Older finite-difference inverse-positivity literature may use a lower timestep or M-matrix alias and give this cutoff under different notation.",
+        "Infinite-lattice sharpness does not assert finite periodic grids all have identical thresholds or extend to Neumann/Dirichlet boundary closures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same spatial symbols; a claimed unconditional positivity is refuted by the finite exact counterexample, main limiter theorem not attacked",
+          "evidence": [
+            "W2=(S^-1+10I+S)/12, introductory maximum-principle wording and different explicit/limiter results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.16170",
+          "material_read": "Preprint Introduction pp3–4, definition of W2, standard Dxx, distinction between weak monotonicity/limiters and asserted BE/CN maximum-principle statement",
+          "method": "Full-text arXiv PDF page images and equation comparison",
+          "title": "A high order accurate bound-preserving compact finite difference scheme for scalar convection diffusion equations",
+          "trigger": "Identical classical fourth-order compact spatial stencil and possible maximum-principle claim"
+        },
+        {
+          "assessment": "Solvability and stability are not the same as pointwise positivity threshold",
+          "evidence": [
+            "Compact fourth-order relation; Neumann and CN context."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/num.20200",
+          "material_read": "Abstract and operator/relation as cited by reviewed package; detailed full proof not independently read",
+          "method": "Publisher abstract and pinned comparison",
+          "title": "Fourth-order compact schemes of a heat conduction problem with Neumann boundary conditions",
+          "trigger": "Same compact spatial relation but different boundary/time regime"
+        },
+        {
+          "assessment": "Different time-stepping operator; cannot infer 1/12 BE compact threshold",
+          "evidence": [
+            "Filtered CN positivity claims standard second difference, not A_sigma^-1 W for W2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+          "material_read": "Resultary scientific summary of filtered-CN operator and positivity claim, no full manuscript read",
+          "method": "Resultary semantic search",
+          "title": "Unconditional lattice positivity from backward-Euler-filtered Crank-Nicolson",
+          "trigger": "Related lattice positivity framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "High-order compact heat discretizations can be stable but fail pointwise positivity, a substantive issue for maximum principles. The exact nonmonotone (re-entrant) timestep cutoff and rigorous counterexample correct a plausible unconditional assertion, giving a useful sharp condition rather than a routine M-matrix sufficient bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub RESULT.md blob 583df75990687ccebd9a52b044870839e7220831",
+    "GitHub verify.py blob 38b034509017e7ff3e81cbd3b0c37914d3e74ece",
+    "arXiv:2310.16170 pp3–4 and compact W2 definition",
+    "DOI:10.1002/num.20200 abstract",
+    "Resultary semantic search: backward Euler fourth order compact finite difference heat equation positivity threshold one twelfth inverse positive M matrix"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality only; absence of search hits is not proof of priority.",
+    "Public source privacy needs sanitized replacements, so complete science assessment does not authorize publication or an accepted import.",
+    "All mathematical hypotheses, normalizations and bounded/infinite scope are as stated in reconstructed correctness rationale."
+  ],
+  "residual_risks": [
+    "Older finite-difference inverse-positivity literature may use a lower timestep or M-matrix alias and give this cutoff under different notation.",
+    "Infinite-lattice sharpness does not assert finite periodic grids all have identical thresholds or extend to Neumann/Dirichlet boundary closures."
+  ],
+  "schema_version": 1
+}
