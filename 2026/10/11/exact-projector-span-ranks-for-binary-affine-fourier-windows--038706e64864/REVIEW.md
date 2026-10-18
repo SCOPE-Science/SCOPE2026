@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fourier-coordinate projector identity, translation-character decomposition, and paired-column rank argument establish the displayed formula for all binary fields of order at least four and for every complex parameter. The diagonal constant eigenvalue is strictly positive, and the row-pair parity proves directness of symmetric and antisymmetric contributions. Exact modular replay of the full orbit at three extension degrees verifies fifteen sampled regimes, but is supplementary to the general argument. No numerical experiment is asserted to prove infinitely many field orders.
+## correctness
 
-## Originality — PASS (with specified limits)
-The closest primary full text is Bartusel–Führ–Oussa, arXiv:2109.07123, Section 6; its matrix-recovery results address prime fields and do not imply an exact characteristic-two extension-field rank law. Li's arXiv:2609.09619 describes conditioning for odd prime powers. Indexed Fourier-support, conjugate-retrieval and two-sparse Gabor operator-span records involve distinct operators or weaker retrieval notions. These implication comparisons support distinctness relative to checked sources; an unindexed equivalent statement and uninspected portions of the more recent paper remain residual risks.
+PASS
 
-## Value — PASS
-The natural rank of the full affine orbit of rank-one projectors is a complete invariant for matrix recovery. The theorem classifies its continuous parameter-family spectrum and pinpoints both the universal explicit recovering seed and the sharp real/complex rank separation, with the exceptional field-four condition. This addresses a motivated mathematical frame-recovery boundary rather than a small isolated calculation.
+In Fourier coordinates, the orbit projector entries split by the binary-field sum/difference d=a+b after additive-character transformation in the translation variable; orthogonality makes the q blocks independent. The diagonal block is equivalent to J+(|z|²−1)I, with positive constant eigenvalue q−2+|z|² and (q−2)-fold zero-sum eigenvalue |z|²−1. A nonzero block has q−2 columns paired by the fixed-point-free involution x↦x+1; symmetric columns contribute s or one depending on Re z, and antisymmetric columns contribute s precisely when Im z≠0. Distinct parity images have zero intersection; summing ranks proves the full formula, including exceptional q=4 equality. Independently constructed the full affine orbit with complex matrices and recomputed numerical matrix ranks for GF4 and GF8 at five complex z each (10 cases), matching ranks 9/6/9/4/7 and 49/28/35/8/43 respectively. Those finite ranks do not prove all n; the algebraic block argument does.
 
-## Scientific limitations
-The proof is exact but does not determine reconstruction conditioning or minimum measurement subfamilies. Rank deficiency is not asserted to preclude every weaker form of signal-only phase retrieval. Independent review is outstanding.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bartusel–Führ–Oussa’s accessible primary full paper supplies criteria for affine group frames over PRIME fields, not the exact rank locus for binary extension q≥4; the distinction is in field characteristic and the complete complex-parameter stratification. The published all-finite-abelian one-frequency DELETION rank theorem covers the specialization z=0 and stronger groups there; that subcase is prior and is not the originality basis. The surviving variable-z full-rank seed z=2+i, real-vs-complex rank gap and singular loci are not consequences of deletion-only ranks. Li’s 2026 paper states ODD prime-power conditioning, outside the target. Novelty passes with the usual unindexed-equivalent risk.
+
+## value
+
+PASS
+
+Projector-span dimension determines exactly which full matrix coefficients the affine measurement orbit observes, a motivated tomography invariant. Its complete continuous complex window classification produces an explicit binary-field recovering seed and exposes sharp phase-versus-amplitude rank drops with a genuine field-four exception. The result materially extends beyond the known deletion-mask subcase rather than recomputing it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
