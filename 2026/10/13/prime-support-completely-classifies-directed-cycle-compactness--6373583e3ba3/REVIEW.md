@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source reduces \(K_{C_n}\) to phase choice on arbitrary families of disjoint directed \(n\)-cycles. Divisor descent is choice-free: a \(d\)-cycle is expanded canonically to an \(n\)-cycle when \(d\mid n\), and the unique phase-zero vertex projects to an origin of the \(d\)-cycle. Product assembly is also valid in \(\mathsf{ZF}\): an \(ab\)-cycle is quotiented by the \(b\)-step successor into a \(b\)-cycle; a chosen quotient phase selects an \(a\)-cycle orbit; a second phase chooses a point in that orbit and therefore a phase of the original \(ab\)-cycle. Prime-factor induction proves the equivalence. The reverse implication criterion follows from the source's prime separation theorem.
+PASS
 
-## Originality
+The proof applies the primary source's Lemma 39 equivalence K_Cn iff phase choice T(n) for families of directed n-cycles. If n=dr, canonically replace each d-cycle by its product with {0,..,r-1}; its induced n-phase has unique zero whose first coordinate gives a d-origin. For ab-cycles, quotient by s^b-orbits to obtain b-cycle, choose an orbit with T(b), then a root in that a-cycle with T(a). Both constructions are definable in ZF without unmentioned global choice. Prime-factor induction proves K_Cn iff conjunction K_Cp for p|n; Corollary 59 gives missing-prime nonimplications under Con(ZF). For finite choice Theorem 42 plus factorization gives prime basis, though prior introductory Lemma 9 appears already to state this. Limits: no arbitrary digraph classification and no independent consistency proof.
 
-PASS. The source explicitly proves a prime antichain and separately proves that \(\operatorname{AC}(N)\) is the conjunction of all \(K_{C_i}\) for \(2\le i\le N\), but does not classify the strength of a composite single cycle. Candidate-specific database and literature searches did not locate an equivalent statement under prime-support, radical, prime-power, divisibility, or cyclic-torsor formulations.
+## originality
 
-## Value
+PASS
 
-PASS. The result gives a natural complete classification of the entire single-directed-cycle family. It shows that prime powers introduce no new compactness strength, identifies the exact implication relation between arbitrary cycle lengths, and compresses the source's all-length basis for \(\operatorname{AC}(N)\) to prime lengths alone.
+PASS only for the exact single directed-composite-cycle lattice. The source already provides all crucial phase-choice and prime independence machinery and even indicates the finite-choice prime basis in the introduction; those are credited, not rebranded as new. The explicit divisor/product constructions and resulting all-m,n radical criterion go beyond the inspected statement of the source's Theorem 42.
 
-## Closest literature and limitations
+## value
 
-Li--Shah--Snodgrass--Thornton--Zhou (2026) supplies the decisive normal form, finite-choice equivalence, and prime separation. Truss's classical finite-choice work is relevant background but concerns unstructured finite sets rather than the directed-cycle phase-choice principles classified here.
+PASS
 
-The classification is restricted to single directed cycles, and the nonimplication half retains the source's consistency qualification.
+A natural exact logical implication classification of all single-cycle compactness principles collapses composite lengths to their prime supports. The structural equivalences and sharp implication criterion can be directly used to compare weak choice axioms and CSP templates. The contribution is a motivated organizing lemma, not a new symmetric-model separation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

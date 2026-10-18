@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,39 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The source proves
-\[
-K_{C_n}\longleftrightarrow\mathsf T(n),
-\]
-where \(\mathsf T(n)\) is phase choice for arbitrary disjoint unions of directed \(n\)-cycles.
+# Independent mathematical audit
 
-For \(d\mid n\), expand each \(d\)-cycle by a finite second coordinate. An \(n\)-phase has a unique zero, whose old coordinate gives a \(d\)-phase. Hence
-\[
-K_{C_n}\Longrightarrow K_{C_d}.
-\]
+## correctness
 
-For \(a,b\ge2\), quotient each \(ab\)-cycle by the orbits of its \(b\)-step successor. The quotient is a \(b\)-cycle. A \(b\)-phase selects one orbit, which is an \(a\)-cycle under the \(b\)-step successor. An \(a\)-phase then chooses an origin of the original \(ab\)-cycle. Hence
-\[
-K_{C_a}\wedge K_{C_b}\Longrightarrow K_{C_{ab}}.
-\]
+PASS
 
-Prime-factor induction gives
-\[
-K_{C_n}\longleftrightarrow\bigwedge_{p\mid n}K_{C_p}.
-\]
+The proof applies the primary source's Lemma 39 equivalence K_Cn iff phase choice T(n) for families of directed n-cycles. If n=dr, canonically replace each d-cycle by its product with {0,..,r-1}; its induced n-phase has unique zero whose first coordinate gives a d-origin. For ab-cycles, quotient by s^b-orbits to obtain b-cycle, choose an orbit with T(b), then a root in that a-cycle with T(a). Both constructions are definable in ZF without unmentioned global choice. Prime-factor induction proves K_Cn iff conjunction K_Cp for p|n; Corollary 59 gives missing-prime nonimplications under Con(ZF). For finite choice Theorem 42 plus factorization gives prime basis, though prior introductory Lemma 9 appears already to state this. Limits: no arbitrary digraph classification and no independent consistency proof.
 
-The source's prime separation result supplies the reverse nonimplications, and its Theorem 42 supplies
-\[
-\operatorname{AC}(N)\longleftrightarrow\bigwedge_{2\le i\le N}K_{C_i}.
-\]
-Substituting the prime-support classification gives the prime-only basis.
+## originality
 
-## Limits
+PASS
 
-The positive classification is a theorem of \(\mathsf{ZF}\).
+PASS only for the exact single directed-composite-cycle lattice. The source already provides all crucial phase-choice and prime independence machinery and even indicates the finite-choice prime basis in the introduction; those are credited, not rebranded as new. The explicit divisor/product constructions and resulting all-m,n radical criterion go beyond the inspected statement of the source's Theorem 42.
 
-The exact negative implication criterion uses the source's consistency-dependent separation.
+## value
 
-No statement is made about arbitrary finite digraphs or arbitrary CSP templates.
+PASS
+
+A natural exact logical implication classification of all single-cycle compactness principles collapses composite lengths to their prime supports. The structural equivalences and sharp implication criterion can be directly used to compare weak choice axioms and CSP templates. The contribution is a motivated organizing lemma, not a new symmetric-model separation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
