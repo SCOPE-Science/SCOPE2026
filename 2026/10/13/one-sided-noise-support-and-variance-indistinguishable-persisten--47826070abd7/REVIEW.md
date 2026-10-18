@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The upper bound \(rx(1-x)\le r/4\) makes an arbitrarily large negative shock a state-independent entry event. A doubly growing descent threshold and a summable Chebyshev series give a uniform positive conditional probability of permanent descent, which bounded-martingale convergence upgrades to probability one. Stationarity on the entire real line is impossible under such a law. For the bounded comparator, a strict contraction on an explicit positive invariant interval gives existence, uniqueness and geometric attraction of its invariant probability there. The exact-rational verifier checks the illustrative bounds and formal closure quartic; all infinite-time conclusions rest on the proof, not the verifier.
+PASS
 
-## Originality — PASS, limited to the new scope
+Use universal f(x)=r x(1-x)<=r/4: any sufficiently negative innovation moves all states below -L with fixed probability p>0. From x<=-L, quadratic negative drift thresholds a_(j+1)=r a_j^2/2 yield uniformly positive probability >=1/2 of infinite descent by the union bound and finite second-moment Chebyshev tail Σ4v/(r²a_j⁴)<=1/2. Markov property and Doob bounded martingale convergence applied to tail event A=X_n→-infinity upgrade uniform P_x(A)>=p/2 to P_x(A)=1. Invariant probability contradicts stationary fixed-B tails. For 1<r<3 interval J about u=1-1/r contracts Lipschitz by q<1, with ±a invariance and W1 contraction. At r2, ±1/16 versus (1-Exp(1))/16 match mean0 variance1/256, while only first preserves positive J. Independently checked exact interval bounds, quartic signs and trap failure bound 1/3840; no finite experiment purports to prove almost-sure result.
 
-The complete motivating source defines the exact stochastic recurrence and derives the *formal Gaussian closure*, but does not give this one-sided support theorem or the matched two-law stationary contrast. A closely relevant 2023 article explicitly states Gaussian logistic escape and the qualitative contrast with bounded noise; those statements are acknowledged as prior and not counted as new. They do not imply the theorem for arbitrary non-Gaussian laws with unbounded negative support and merely finite variance. The 1993 dichotomous-noise paper anticipates bounded-noise invariant distributions. Nearby work on multiplicative noise with absorption is not the same recurrence. Searches uncovered no stronger direct coverage, but an older general random-iteration escape theorem, or an unindexed source, could reduce originality.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The ecological question is whether a population with given growth parameter and disturbance variance actually admits a positive stationary state. The one-sided law-independent escape criterion, together with a matched-variance example of a strictly contractive positive stationary regime, proves that the first two noise moments do not determine this invariant-measure question. The formal closure retains two positive algebraic roots for *both* laws in the illustrative parameter regime, making the distinction material to its intended biological interpretation rather than an arbitrary parameter curiosity. This conclusion does not critique the algebraic truth of the closure theorem itself.
+Published Bassols-Cornudella--Lamb already describes Gaussian-noise almost-sure negative divergence and small bounded-noise attractors; neither the general one-sided unbounded-negative-support finite-second-moment criterion nor the explicit equal-variance non-Gaussian counterpoint is included in the material inspected. Yang--Han studies FORMAL Gaussian moment-closure equilibria, not the existence of invariant probabilities for every innovation law. No originality claimed for Gaussian escape alone or for the closure quartic.
 
-## Closest literature and residual limits
+## value
 
-The closest source for Gaussian blow-down is Bassols-Cornudella–Lamb (2023), which explicitly recognizes a.s. divergence with unbounded Gaussian innovations. Gutiérrez–Iglesias–Rodríguez (1993) is an earlier dichotomous logistic-noise study. A source-inspection limitation remains for the latter's full text. Classical random polynomial iteration may contain an earlier encompassing statement; no uniqueness of discovery is asserted. Unphysical negative populations and alternative absorbing or truncated models are outside scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Stochastic logistic moment-closure formulas can share identical mean/variance for radically different actual Markov-chain stationary behavior. The one-sided tail criterion and explicit equal-variance non-Gaussian pair isolate a mathematically motivated support effect and a precise limitation of noise-variance-only persistence reasoning. Not just a Gaussian repetition: the proof covers every iid law with unbounded negative support and finite second moment for every r>0.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:45:48.485747Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md and verify.py",
+        "independent exact-rational inequalities",
+        "Bassols-Cornudella--Lamb 2023 additive random logistic escape context"
+      ],
+      "rationale": "Use universal f(x)=r x(1-x)<=r/4: any sufficiently negative innovation moves all states below -L with fixed probability p>0. From x<=-L, quadratic negative drift thresholds a_(j+1)=r a_j^2/2 yield uniformly positive probability >=1/2 of infinite descent by the union bound and finite second-moment Chebyshev tail Σ4v/(r²a_j⁴)<=1/2. Markov property and Doob bounded martingale convergence applied to tail event A=X_n→-infinity upgrade uniform P_x(A)>=p/2 to P_x(A)=1. Invariant probability contradicts stationary fixed-B tails. For 1<r<3 interval J about u=1-1/r contracts Lipschitz by q<1, with ±a invariance and W1 contraction. At r2, ±1/16 versus (1-Exp(1))/16 match mean0 variance1/256, while only first preserves positive J. Independently checked exact interval bounds, quartic signs and trap failure bound 1/3840; no finite experiment purports to prove almost-sure result.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2023 paper contrasts Gaussian forcing with sufficiently small bounded forcing, but in inspected p.2 uses Gaussian positive/negative tails.",
+          "2026 model works with formal Gaussian closure and equilibrium polynomial, not an all-law real stationary existence theorem.",
+          "1993 dichotomous-noise models have bounded support."
+        ],
+        "reasoning": "Published special cases do not logically imply the stated universal all-r finite-variance criterion without an argument controlling rare positive shocks.",
+        "searches": [
+          "Bassols-Cornudella--Lamb DOI 10.1063/5.0175466",
+          "Yang--Han DOI 10.3934/dcdss.2026151",
+          "Gutiérrez--Iglesias--Rodríguez DOI 10.1103/PhysRevE.48.2507"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.07116",
+        "DOI 10.1063/5.0175466",
+        "DOI 10.3934/dcdss.2026151",
+        "DOI 10.1103/PhysRevE.48.2507",
+        "Resultary semantic logistic random map noise tail support query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gaussian example alone does not prove arbitrary skewed iid finite-variance tails; absence of stationary distribution follows from newly supplied uniform trap argument.",
+          "A formal moment-closure equilibrium is not a stationary Markov law, so Yang--Han polynomial cannot guarantee persistence."
+        ],
+        "reasoning": "The escape proof supplies missing quantifiers; the physical correction directly refutes variance-only interpretation while not contradicting the prior formal model.",
+        "searches": [
+          "2023 Chaos paper Gaussian random logistic model",
+          "2026 Yang--Han closure polynomial and Gaussian parameterization",
+          "simple stochastic Lyapunov/escape arguments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Their Gaussian-driven map has a.s. negative escape, which is a special case of one-sided unbounded negative support.",
+          "The symmetric bounded and skewed exponential innovations have exactly equal mean and variance 1/256 at r=2."
+        ],
+        "reasoning": "The criterion is a distributional extension of a known phenomenon, not a new statement about Gaussian noise; a general random dynamical systems version might be equivalent.",
+        "searches": [
+          "Bassols-Cornudella--Lamb arXiv:2308.07116, Chaos 33 (2023) 121102",
+          "random logistic map unbounded negative shock escape almost surely",
+          "Resultary:random logistic map additive noise unbounded negative support almost sure escape negative infinity finite variance bounded stationary equal variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The quartic is explicitly acknowledged as pre-existing formal closure, not a new count or tabulated invariant.",
+          "Exact-rational sign checks Q(1/4), Q(3/8), Q(1/2) show two formal roots despite divergent true dynamics in one noise law."
+        ],
+        "reasoning": "The exact example is a witness contrasting identical variance, not a known table recomputation; no exact prior pair located.",
+        "searches": [
+          "Resultary:random logistic map additive noise unbounded negative support almost sure escape negative infinity finite variance bounded stationary equal variance",
+          "DOI 10.3934/dcdss.2026151 equilibrium quartic",
+          "Bassols-Cornudella--Lamb 2023"
+        ]
+      },
+      "rationale": "Published Bassols-Cornudella--Lamb already describes Gaussian-noise almost-sure negative divergence and small bounded-noise attractors; neither the general one-sided unbounded-negative-support finite-second-moment criterion nor the explicit equal-variance non-Gaussian counterpoint is included in the material inspected. Yang--Han studies FORMAL Gaussian moment-closure equilibria, not the existence of invariant probabilities for every innovation law. No originality claimed for Gaussian escape alone or for the closure quartic.",
+      "residual_risks": [
+        "General distribution-free escape criterion could appear in older random difference-equation or population extinction literature under other variables.",
+        "Yang--Han complete article not exhaustively inspected; strict claims about full-document noncoverage are not made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "It explicitly recognizes Gaussian additive-noise escape to negative infinity a.s.; does not state distribution-free one-sided finite-variance theorem in examined material.",
+          "evidence": [
+            "Discussion p.2: Gaussian additive perturbation random logistic orbit tends to negative infinity; bounded perturbation can preserve bounded random attractor."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.07116",
+          "material_read": "Full accessible OA manuscript, pp.1--3 setup and statement on Gaussian case versus bounded attractors, p.2 screenshot examined.",
+          "method": "Read preprint full PDF and relevant page image",
+          "title": "Noise-induced chaos: A conditioned random dynamics perspective",
+          "trigger": "Same exact random logistic map and Gaussian-versus-bounded escape"
+        },
+        {
+          "assessment": "Formal closure algebra cannot by itself certify invariant probability for non-Gaussian laws; no claim the full paper was exhaustively read.",
+          "evidence": [
+            "Publication early online 2026-05-18; quadratic nonlinear moment closure from mean/variance."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/dcdss.2026151",
+          "material_read": "Accessible publisher article abstract, equations and figure/section overview inspected; the original quartic is taken from this source package and cross-checked, not claimed new.",
+          "method": "Publisher HTML/abstract and math source comparison",
+          "title": "Equilibrium and bifurcation analysis of a stochastic logistic difference equation with additive noise",
+          "trigger": "Same additive logistic map and claimed Gaussian moment-closure bifurcation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2023 Chaos Gaussian-versus-bounded discussion",
+        "2026 Yang--Han formal closure"
+      ],
+      "rationale": "Stochastic logistic moment-closure formulas can share identical mean/variance for radically different actual Markov-chain stationary behavior. The one-sided tail criterion and explicit equal-variance non-Gaussian pair isolate a mathematically motivated support effect and a precise limitation of noise-variance-only persistence reasoning. Not just a Gaussian repetition: the proof covers every iid law with unbounded negative support and finite second moment for every r>0.",
+      "residual_risks": [
+        "Biological interpretation requires nonnegative or absorbed state, not treated here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any r>0 exact additive-noise real logistic recursion and iid innovations with finite second moment and unbounded negative support, every finite trajectory tends to -infinity almost surely and no real-line invariant probability exists; small bounded noise may sustain positive stationary law even with exactly matched mean and variance.",
+  "limitations": [
+    "Real-valued exact recursion; no reflection, truncation or absorption at zero.",
+    "Positive bounded-noise uniqueness holds within invariant interval J only, not all R.",
+    "The quartic describes formal Gaussian moment closure, not real invariant distributions."
+  ],
+  "schema_version": 1
+}
