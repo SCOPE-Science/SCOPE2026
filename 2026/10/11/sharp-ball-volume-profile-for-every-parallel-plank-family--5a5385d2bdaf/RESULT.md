@@ -1,217 +1,104 @@
-# Sharp ball-volume profile for every parallel plank family
+# Sharp positional stability for aligned plank coverage of a Euclidean ball
+
 ## Finding
-Let \(B^d\subset\mathbb R^d\) be the Euclidean unit ball with \(d\ge2\). Let \(\{P_i\}\) be a finite or countable family of pairwise parallel planks whose widths \(w_i\) satisfy
-\[
-W=\sum_iw_i<2.
-\tag{1}
-\]
-Then
-\[
-\boxed{
-\operatorname{vol}_d\!\left(B^d\cap\bigcup_iP_i\right)
-\le
-\kappa_{d-1}\int_{-W/2}^{W/2}(1-t^2)^{(d-1)/2}\,dt
-}
-\tag{2}
-\]
-and equivalently
-\[
-\boxed{
-\frac{\operatorname{vol}_d\!\left(B^d\cap\bigcup_iP_i\right)}{\kappa_d}
-\le
-I_{W^2/4}\!\left(\frac12,\frac{d+1}{2}\right)
-}.
-\tag{3}
-\]
-Here \(\kappa_j\) denotes the volume of the Euclidean unit \(j\)-ball and \(I_x(p,q)\) is the regularized incomplete beta function.
 
-A single plank of width \(W\) concentric with the ball attains equality. More generally, equality occurs exactly when the family uses all of its available width inside the ball and its union there is, up to a null set, the same centered plank.
+Let \(d\ge2\), let \(B^d\subset\mathbb R^d\) be the Euclidean unit ball, and let a finite or countable family of parallel planks have total width \(W\in(0,2)\). Choose their common unit normal as the first coordinate direction. Denote the union of their normal-coordinate traces inside \([-1,1]\) by \(E\). **Assume there is no lost normal-coordinate width:** \(|E|=W\).
 
-There is a sharp stability refinement. Suppose the one-dimensional normal-coordinate union \(E\subset[-1,1]\) has
+Write
 \[
-|E|=W.
+a=W/2,\quad E_*=[-a,a],\quad
+\delta=\tfrac12|E\triangle E_*|,\quad
+f_d(t)=(1-t^2)^{(d-1)/2}.
 \]
-Put
-\[
-E_*=[-a,a],
-\qquad
-a=\frac W2,
-\qquad
-\delta=\frac12|E\triangle E_*|.
-\tag{4}
-\]
-Then
-\[
-0\le\delta\le\min\{W,2-W\},
-\]
-and the loss from the optimum satisfies
+Then \(0\le\delta\le\min\{W,2-W\}\), and the exact **sharp positional deficit** is
 \[
 \boxed{
-D(E)
+\operatorname{vol}_d(B^d\cap\{x:x_1\in E_*\})
+-\operatorname{vol}_d\!\left(B^d\cap\bigcup_iP_i\right)
 \ge
 2\kappa_{d-1}
 \left[
-\int_{a-\delta/2}^{a}(1-t^2)^{(d-1)/2}\,dt
--
-\int_a^{a+\delta/2}(1-t^2)^{(d-1)/2}\,dt
-\right]
-}.
-\tag{5}
+\int_{a-\delta/2}^{a}f_d(t)\,dt-
+\int_a^{a+\delta/2}f_d(t)\,dt
+\right].}
+\tag{1}
 \]
-For every admissible \(\delta\), equality in (5) is attainable.
-
-Thus the complete parallel-direction subclass of the plank-volume question has an exact all-dimensional solution, equality classification, and optimal placement-deficit profile.
-
-## Assumptions and scope
-A plank is the closed region between two parallel hyperplanes, and its width is the Euclidean distance between those hyperplanes. Pairwise parallel means that all planks have one common unit normal, up to sign.
-
-The family may be finite or countable. The sum in (1) is assumed finite. The restriction \(W<2\) is the natural regime of the source problem and keeps the optimal centered slab strictly narrower than the unit ball's diameter.
-
-After a rotation, write each plank as
+Here \(\kappa_{d-1}\) is the volume of the Euclidean unit \((d-1)\)-ball. The right-hand side is strictly positive for \(\delta>0\). For every \(d,W,\delta\) in the stated ranges, equality in (1) is realized by a union of three parallel planks with normal-coordinate traces
 \[
-P_i=\{x\in\mathbb R^d:\alpha_i\le x_1\le\beta_i\},
-\qquad
-w_i=\beta_i-\alpha_i.
+\boxed{
+[-a-\delta/2,-a]\ \cup\
+[-a+\delta/2,a-\delta/2]\ \cup\
+[a,a+\delta/2].}
+\tag{2}
 \]
-Only the set
-\[
-E=\left(\bigcup_i[\alpha_i,\beta_i]\right)\cap[-1,1]
-\tag{6}
-\]
-matters for coverage inside the ball. By countable subadditivity,
-\[
-|E|\le W.
-\tag{7}
-\]
+More precisely, equality forces (2) up to null sets when \(\delta>0\). Thus (1) is the optimal possible deficit function of the symmetric-difference distance \(\delta\), not merely a small-error estimate.
 
-The theorem does not address families whose plank normals are different. In particular, it is a sharp aligned-direction theorem inside the broader open problem posed by Bezdek, Deza, and Ye.
+The unquantified centered-plank volume optimum is recalled below solely as **prior-established background**; it is not claimed as new.
+
+## Definitions, scope, and prior baseline
+
+A plank is a region between two parallel hyperplanes; the width is their Euclidean separation. A common unit normal \(u\) permits a rotation to \(u=e_1\), making the \(i\)-th plank the set \(\alpha_i\le x_1\le\beta_i\). Set
+\[
+E=\left(\bigcup_i[\alpha_i,\beta_i]\right)\cap[-1,1],\qquad
+W=\sum_i(\beta_i-\alpha_i).
+\]
+Countable subadditivity gives \(|E|\le W\). The hypothesis \(|E|=W\) requires that no positive width is lost to overlap or to the outside of the ball's coordinate diameter. It does not require that \(E\) be connected.
+
+Bakaev and Polyanskii, *Optimal Partial Plank Coverings*, arXiv:2607.27483v1 (29 July 2026), Theorem 10 and its uniqueness discussion, already resolve the centered-plank optimum for arbitrary finite plank directions, hence in particular for the aligned direction class. In aligned coordinates this optimum has the elementary slice form
+\[
+V_{d,*}(W)=\kappa_{d-1}\int_{-W/2}^{W/2}f_d(t)\,dt
+=\kappa_d I_{W^2/4}\!\left(\tfrac12,\tfrac{d+1}{2}\right).
+\tag{3}
+\]
+Neither (3) nor the statement that the centered plank maximizes covered volume is offered as an original theorem. Formula (1), conditioned on the full utilized width and prescribing the geometric displacement \(\delta\), is the precise new mathematical claim assessed here.
+
+This result does **not** provide a stability inequality for nonparallel planks; it does not handle overlapping or out-of-ball width losses, and it makes no claim about stability of the full theorem of Bakaev and Polyanskii.
 
 ## Proof
-At height \(x_1=t\), the section of the unit ball is a \((d-1)\)-ball of radius \(\sqrt{1-t^2}\). Its \((d-1)\)-volume is therefore
-\[
-\kappa_{d-1}(1-t^2)^{(d-1)/2}
-\]
-for \(|t|\le1\). Fubini's theorem gives
-\[
-\operatorname{vol}_d\!\left(B^d\cap\bigcup_iP_i\right)
-=
-\kappa_{d-1}\int_E f_d(t)\,dt,
-\tag{8}
-\]
-where
-\[
-f_d(t)=(1-t^2)^{(d-1)/2}.
-\]
-For \(d\ge2\), the function \(f_d\) is even and strictly decreases as \(|t|\) increases on \([0,1]\).
 
-Among measurable subsets of \([-1,1]\) of prescribed measure \(s\), the integral of this even strictly radially decreasing function is maximized uniquely up to null sets by the centered interval \([-s/2,s/2]\). This is the one-dimensional symmetric-decreasing rearrangement principle. Using (7), then monotonicity in \(s\),
+By exact Euclidean slicing, at height \(t\in[-1,1]\) the ball section is a \((d-1)\)-ball of radius \(\sqrt{1-t^2}\), so
 \[
-\int_E f_d(t)\,dt
-\le
-\int_{-|E|/2}^{|E|/2}f_d(t)\,dt
-\le
-\int_{-W/2}^{W/2}f_d(t)\,dt.
+\operatorname{vol}_d(B^d\cap\{x:x_1\in F\})
+=\kappa_{d-1}\int_F f_d(t)\,dt
+\tag{4}
 \]
-Together with (8), this proves (2).
-
-Put \(a=W/2\). The substitution \(s=t^2\) gives
+for every measurable \(F\subset[-1,1]\). In particular, the covered-volume deficit for \(E\) is
 \[
-\int_{-a}^{a}(1-t^2)^{(d-1)/2}\,dt
-=
-B_{a^2}\!\left(\frac12,\frac{d+1}{2}\right).
+\frac{D(E)}{\kappa_{d-1}}
+=\int_{E_*\setminus E}f_d(t)\,dt
+-\int_{E\setminus E_*}f_d(t)\,dt.
+\tag{5}
 \]
-Since slicing the whole unit ball gives
+Since \(|E|=|E_*|=W\), both \(A=E_*\setminus E\) and \(C=E\setminus E_*\) have measure exactly \(\delta\). The available interior measure is \(W\), while the available exterior measure in \([-1,1]\) is \(2-W\); consequently \(\delta\le\min\{W,2-W\}\).
+
+The density \(f_d\) is even and strictly decreases as \(|t|\) increases from \(0\) to \(1\). Among all measurable subsets \(A\subset[-a,a]\) of measure \(\delta\), its integral is therefore **minimized** by selecting points with the largest \(|t|\), namely
 \[
-\kappa_d
-=
-\kappa_{d-1}B\!\left(\frac12,\frac{d+1}{2}\right),
+A_*=[-a,-a+\delta/2]\cup[a-\delta/2,a].
+\tag{6}
 \]
-formula (3) follows.
+Indeed, exchange of any positive-measure portion of \(A\) closer to the origin with an equal-measure portion of its complement farther from the origin can only reduce the integral; strict radial monotonicity gives uniqueness up to null sets. This is the elementary layer-cake (bathtub) rearrangement principle.
 
-The two inequalities used above are both strict unless their equality conditions hold. Thus equality in (2) requires
+Similarly, among all measurable \(C\subset[-1,-a)\cup(a,1]\) of measure \(\delta\), the integral of \(f_d\) is **maximized** by its two immediately adjacent exterior layers,
 \[
-|E|=W
+C_*=[-a-\delta/2,-a]\cup[a,a+\delta/2].
+\tag{7}
 \]
-and
-\[
-E=[-W/2,W/2]
-\]
-up to a null set. Conversely those conditions plainly give equality. A single centered plank realizes them, while a family may also realize equality by partitioning the centered interval without positive-length overlap.
+Substituting the extremal integrals of (6) and (7) into (5) gives exactly (1). The domain restrictions ensure all four layers lie in \([-1,1]\). Taking \(E=(E_*\setminus A_*)\cup C_*\) yields the union (2), has measure \(W\), and achieves equality simultaneously in both exchanges. These three intervals are genuine plank traces, so the lower bound is sharp **within the actual family of parallel planks**, not merely for abstract measurable sets.
 
-For the stability statement assume \(|E|=W\) and use the notation (4). Let
-\[
-A=E_*\setminus E,
-\qquad
-C=E\setminus E_*.
-\]
-Then
-\[
-|A|=|C|=\delta.
-\tag{9}
-\]
-The volume deficit divided by \(\kappa_{d-1}\) is
-\[
-\int_Af_d(t)\,dt-
-\int_Cf_d(t)\,dt.
-\tag{10}
-\]
-Among subsets of \(E_*\) of measure \(\delta\), the first integral in (10) is smallest when \(A\) consists of the two outermost boundary layers, each of thickness \(\delta/2\). Among subsets of \([-1,1]\setminus E_*\) of measure \(\delta\), the second integral is largest when \(C\) consists of the two immediately adjacent exterior layers, again each of thickness \(\delta/2\). Equation (5) follows.
+If \(\delta>0\), every interior point of the removed layers has \(|t|<\) the corresponding exterior-layer point (up to endpoints), and \(f_d\) is strictly decreasing in \(|t|\). Thus the deficit is positive and the layer-exchange equality pattern is unique modulo null sets. The case \(\delta=0\) gives \(D(E)=0\), as required.
 
-The constraints in (4) imply
-\[
-\delta\le W
-\]
-and
-\[
-\delta\le2-W,
-\]
-so all four layers lie inside \([-1,1]\). Equality in (5) is realized, modulo endpoints, by
-\[
-E=
-[-a-\delta/2,-a]
-\cup
-[-a+\delta/2,a-\delta/2]
-\cup
-[a,a+\delta/2].
-\tag{11}
-\]
-These three intervals are themselves the normal-coordinate traces of three parallel planks, so the deficit bound is genuinely sharp within the plank class.
+## Why this precise fact matters
 
-For reference, the first low-dimensional specializations of (2) are
-\[
-\operatorname{area}(B^2\cap\cup_iP_i)
-\le
-W\sqrt{1-\frac{W^2}{4}}
-+2\arcsin\frac W2
-\tag{12}
-\]
-and
-\[
-\operatorname{vol}_3(B^3\cap\cup_iP_i)
-\le
-\pi\left(W-\frac{W^3}{12}\right).
-\tag{13}
-\]
+The classical and now settled ball plank optimum specifies the maximizing covered volume but does not quantify how much covered volume must be forfeited when an *aligned*, full-utilization configuration fails to occupy the optimal centered trace. Formula (1) supplies the exact answer as a function of a natural \(L^1\)-symmetric-difference distance, including all dimensions and all finite displacements. It distinguishes geometric misplacement from the additional, separate phenomena of overlap, width wasted outside the ball, and changes of plank direction. It also gives explicit sharp configurations, not only an inequality with unspecified constants.
 
-## Verification
-The bundled `verify.py` independently checks the beta-normalization identity numerically in dimensions \(2\) through \(10\), the closed forms (12)--(13), the centered optimum against thousands of deterministic random interval unions, and the exact layer-swap equality construction for the stability bound.
+## Verification and limitations
 
-The numerical tests are regression checks only. The all-dimensional theorem follows from the exact slice formula (8) and the one-dimensional rearrangement argument.
+Equation (4) follows from Fubini and the ball cross-section formula; (5)--(7) prove the global bound and sharpness without recourse to numerical experiments. The original accompanying `verify.py` provides diagnostic slice and boundary-layer integral tests in dimensions \(2\)–\(10\), but finite tests do not prove the all-dimensional theorem. A further direct independent numerical equality check may corroborate (1), without changing its proof.
 
-## Relationship to prior work
-Bezdek, Deza, and Ye ask for the maximum volume of the part of the Euclidean unit ball covered by planks whose total width is less than the ball's diameter. Their stated expected extremizer is exactly the configuration appearing in (2): nonoverlapping planks whose union is one plank concentric with the ball. They also record that a stronger unrestricted statement is known in dimension three.
-
-The theorem here proves that expected picture in every dimension under the natural aligned-direction restriction and additionally gives the exact incomplete-beta value, the full equality classification, and the sharp displacement-deficit law (5). The dimension-three inequality itself is therefore prior-covered by the stronger theorem cited in the source; the new content is the all-dimensional parallel-family theorem and its equality/stability profile.
-
-Modern plank theorems principally control the total width required for complete coverage. They do not, in the sources inspected for this result, state the partial-volume formula (2) or the sharp stability profile (5). Targeted searches under parallel planks, slabs, ball coverage volume, centered-plank extremizers, rearrangement, and incomplete-beta formulations did not locate an implication-equivalent theorem.
-
-## Limitations
-The theorem does not settle the original plank-volume problem for differently oriented planks. Interactions between distinct directions are exactly the missing difficulty that disappears in the one-dimensional reduction (8).
-
-The rearrangement step is classical. Consequently, an equivalent aligned-direction statement may exist as an unindexed observation in older plank or rearrangement literature. The originality claim is limited to the absence of a located implication-equivalent published statement after targeted searches and to the explicit equality/stability package given here.
-
-The stability law (5) assumes no width is lost to positive-length overlap or to parts of planks outside the ball's normal-coordinate interval. It quantifies positional misalignment once the full available one-dimensional measure is used; it is not a stability theorem for arbitrary nonparallel plank families.
+The sharp profile is an instance of the general one-dimensional bathtub rearrangement method specialized to the geometric plank parameter. Its originality is therefore **best-of-knowledge**: an identical sharp positional form may be present in classical quantitative rearrangement literature. The 2026 full partial-covering theorem covers the baseline optimizer but does not, in its inspected statement and proof, prescribe the exact symmetric-difference deficit (1). The related Bakaev–Yehudayoff plank *covering* stability problem imposes a different annular/full-coverage condition and does not state (1).
 
 ## References
-1. K. Bezdek, A. Deza, and Y. Ye, *Selected Open Problems in Discrete Geometry and Optimization*, in *Discrete Geometry and Optimization*, Fields Institute Communications 69, Springer, 2013, 321--336. DOI: 10.1007/978-3-319-00200-2_18.
-2. O. Ortega-Moreno, *The Complex Plank Problem, Revisited*, *Discrete & Computational Geometry* 71 (2024), 683--687. DOI: 10.1007/s00454-022-00423-7.
+
+1. E. Bakaev and A. Polyanskii, *Optimal Partial Plank Coverings*, arXiv:2607.27483v1, first posted 29 July 2026, Theorem 10 and the uniqueness discussion; https://arxiv.org/html/2607.27483 .
+2. K. Bezdek, A. Deza and Y. Ye, *Selected Open Problems in Discrete Geometry and Optimization*, Fields Institute Communications 69 (2013), 321–336, doi:10.1007/978-3-319-00200-2_18.
+3. E. Bakaev and A. Yehudayoff, *Volume stability of plank covers*, arXiv:2609.30409v2 (8 October 2026). Its covering-stability geometry is distinct from the aligned partial-volume displacement profile above.
