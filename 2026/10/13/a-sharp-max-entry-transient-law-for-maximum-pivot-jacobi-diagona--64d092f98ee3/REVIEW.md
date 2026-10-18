@@ -1,37 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. A Jacobi rotation acts orthogonally on every two-entry vector
-\[
-(a_{pk},a_{qk})^{\mathsf T},
-\]
-so if every nonpivot entry is bounded by \(s\), each transformed component is bounded by
-\[
-\sqrt2\,s.
-\]
-Untouched entries stay at most \(s\), and the pivot becomes zero. This proves the universal upper bound.
+## correctness
 
-The sharp family has a unique pivot of magnitude \(1\), two nonpivot entries of magnitude \(\tau\), and equal pivot diagonals. Its \(45^\circ\) Jacobi rotation combines the two entries into one of magnitude \(\sqrt2\,\tau\). The explicit scalar shift makes the matrix SPD with any prescribed condition number \(\kappa>1\) without changing the rotation. Only one off-diagonal pair survives, so the following rotation diagonalizes exactly. The packaged checker replays these identities at high precision.
+PASS
 
-## Originality
-PASS with stated residual risks. The maximum-element Jacobi strategy, orthogonal pair update, aggregate off-diagonal energy decrease, and global convergence are classical.
+A pivot Jacobi step acts by a plane orthogonal matrix on each nonpivot pair (a_pk,a_qk). Both entries start <=s in magnitude; hence each new component <=sqrt(2)*s, the pivot is zero, and unaffected entries stay <=s. The explicit symmetric offdiagonal template (1,tau,-tau) has equal pivot diagonals and 45-degree rotation realizing sqrt(2)*tau. The eigenvalues 1 and (-1±sqrt(1+8tau²))/2, and c=(1-kappa*beta_minus)/(kappa-1), make the shift SPD of exactly condition number kappa. Check n=2 and tau=0 separately; strict spikes need tau>1/sqrt(2). This is a complete elementary proof, not an inference from the packaged numerical log.
 
-The closest inspected sources establish Jacobi convergence, single-step eigenvalue perturbation theory, and the largest-element strategy, but no located statement gives the sharp second-largest-to-pivot threshold
-\[
-1/\sqrt2,
-\]
-the equality factor
-\[
-\sqrt2\,\tau,
-\]
-or the arbitrary-condition-number three-dimensional equality family. Targeted published-record and literature searches found no implication-equivalent result.
+## originality
 
-The main residual risk is older Jacobi literature using max-norm or elementwise language that was not exposed in the inspected sources.
+PASS
 
-## Value
-PASS. Maximum-element Jacobi explicitly searches the largest off-diagonal entry to choose its next pivot, while standard theory monitors an aggregate off-diagonal norm. The theorem precisely quantifies the mismatch between those two diagnostics and proves that even excellent SPD conditioning does not prevent a one-step max-entry spike. The sharp minimal-dimensional family and next-step exact termination make the boundary transparent.
+Classic Jacobi sources contain orthogonal two-entry updates and decrease of offdiagonal Frobenius energy; these statements do not themselves quantify the sharp max-entry nonincrease criterion in terms of the second-largest element or realize it at arbitrary SPD condition number. Published nearby result on weighted Jacobi Euclidean iteration is a distinct stationary iterative method; Resultary complete-pivot ACA monitors a different matrix-approximation residual. Best-of-knowledge no exact prior coverage found; older Jacobi max-norm treatments remain a priority risk. Weighted Jacobi stationary iteration and ACA max-pivot Frobenius growth are distinct from two-sided symmetric Jacobi eigenvalue rotation, despite shared words; no matching second-largest-gap statement retrieved.
 
-## Closest literature and limitations
-Hari supplies archive-era global-convergence and MSC context. Matejaš is a particularly relevant single-step perturbation source, though full access was restricted through the inspected route. A modern open treatment confirms the largest-element strategy. The theorem is exact-arithmetic and one-step; full-sweep max-entry dynamics, block variants, pivot-search costs, and finite precision are outside scope.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Max-entry Jacobi actively pivots by an individual-entry diagnostic, unlike the standard decreasing offdiagonal Frobenius norm. An exact condition-independent maximal transient and sharp second-largest-entry gap provide a motivated pivot-local safety boundary; the three-dimensional SPD witness rules out explaining the spike by poor spectral conditioning. It is a narrow but mathematically natural sharp result rather than a general sweep or convergence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
