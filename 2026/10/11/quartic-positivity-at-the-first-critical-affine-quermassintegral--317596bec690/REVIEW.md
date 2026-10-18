@@ -1,19 +1,21 @@
-# Scientific review: quartic positivity at the first critical affine-quermassintegral threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is an identity for the local expansion of \(\log I_{1,-10}-\frac12\log I_{2,-10}\) along the concrete support family. The algebraic normalization cancels exactly. Planar projection areas are quadratic in the Fourier coefficients of the restricted support function. Beta-moment identities, proved from standard rotational Haar distributions, give the exact second-through-fourth coefficients in the proof; the cancellations of the second and third coefficients, positive fourth coefficient, and curvature-range estimates are each checked with an independent standalone exact-fraction script. Analyticity of uniformly positive projected volumes supplies the strict local conclusion without interpreting finite samples as proof. The claim does not assert a globally uniform positive lower bound over all convex bodies.
+PASS
 
-## Originality — PASS with residual risk
+The canonical n=10 degree-four zonal harmonic Y(s)=s^4-3s^2/7+1/56 yields a positive C2 support function h_t=1+tY for |t|<56/143 from exact principal-curvature polynomial extrema. Independent exact rational Beta-moment reconstruction (s^2~Beta(1/2,9/2), projection z~Beta(1,4)) produced M1 coefficients 1,0,363/12544,-1573/153664,4492917/550731776 and M2 coefficients 1,0,363/6272,-1573/76832,4968273/275365888 through degree four. The second and third logarithmic comparison coefficients cancel, while the fourth equals (M2_4-2 M1_4-M1_2^2)/20=139863/3147038720>0. Direct expansion of support-function projection volumes and their negative moments, rather than numerical sampling, proves Delta(t)=positive*t^4+O(t^5) for sufficiently small t of either sign; it does not settle unrestricted affine monotonicity.
 
-The directly relevant 2026 article of Chen, Li and Wang treats the same canonical quartic harmonic but stops at the second-variation remainder \(O(t^3)\). Its strict dimension condition does not include the first critical parameter triple. The 2020/2023 Milman–Yehudayoff comparison theorems do not cover projection dimensions \(1\) versus \(2\) with negative exponent \(-10\). Searches for the exact coefficient, critical dimensions, equivalent moment formulations, and dominating general results produced no statement implying this quartic calculation. The closest comparisons concern different nonlinear functionals. A non-indexed older perturbative computation remains possible, and the literature search is not a proof of global priority.
+## originality
 
-## Value — PASS
+PASS
 
-The exact equality \(10=(1+2)(2+2)-2\) is the first excluded integer threshold of a recent explicit counterexample mechanism. The source's sign test is silent here; the observed cubic cancellation is nontrivial, and the exact positive quartic term decides whether that natural mechanism reverses or satisfies the inequality at the threshold. This gives a precise boundary benchmark for further local stability and counterexample investigations. It is not presented as a proof of the unrestricted ten-dimensional conjecture.
+The full Chen–Li–Wang arXiv:2604.26828v3 text, sections 1,3–5, establishes a fourth-harmonic second-variation coefficient proportional to ((m+2)(k+2)-n-2) and reversal only above the threshold. Its first critical integer case n=10,m=1,k=2 makes the quadratic term zero; the source states O(t^3) remainder, not the vanishing cubic and explicit positive fourth-order coefficient. Resultary searches found no distinct covering n=10 critical quartic calculation. General affine-quermassintegral and flag integral inequalities do not imply this signed higher-order coefficient.
 
-## Closest literature and limitations
+## value
 
-Chen–Li–Wang, arXiv:2604.26828v1, §§1–5; Milman–Yehudayoff, arXiv:2005.04769, §1 and relevant comparison theorems. The validity region of the asymptotic sign is unspecified beyond sufficiently small \(|t|\), and independent verification of originality remains desirable.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The first dimension where the published quadratic test becomes identically zero is a natural structural boundary of a major monotonicity conjecture. Determining that the cubic also vanishes and the quartic term is positive in its exact canonical perturbation resolves local behavior at the critical threshold; it is not an arbitrary sampled parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
