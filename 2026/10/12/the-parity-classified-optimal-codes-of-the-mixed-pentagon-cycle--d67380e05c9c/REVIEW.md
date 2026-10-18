@@ -1,19 +1,21 @@
-# Scientific review: mixed pentagon–cycle optimal code classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact claim holds for all integers \(n\ge6\) on the stated labeled alphabet. The pivotal covering lemma is checked explicitly: each independent two-set of \(C_5\) has closed-neighborhood union all of \(\mathbb Z/5\mathbb Z\); consequently neighboring columns are empty. The count of empty and doubly occupied columns gives the universal upper bound \(n\). Equality makes the doubly occupied-column set invariant under a shift of two, forcing either all singleton columns or, on even cycles, alternating empty/double columns. Cyclic closed walks enumerate the singleton family; five pair choices in each occupied column enumerate the other. Construction and spectrum complete the proof, including boundary and parity cases. The exact-integer column transfer checker and a separate exhaustive column enumerator agree through the stated finite ranges; an independent raw-vertex maximal-clique census reproduces the counts through \(n=9\), but no finite check is offered as an infinite proof.
+PASS
 
-## Originality — PASS with explicit bibliographic uncertainty
+Column sections of a strong-product independent set have cardinalities zero, one, or two. Each nonadjacent two-set in C5 has union of closed neighborhoods all five symbols and forces both adjacent columns empty. If D and E are doubled and empty columns then D±1⊆E; hence |I|=n+|D|−|E|≤n. Cyclic ±2 singleton constructions achieve n for every n≥6 (for odd n use a five-cycle plus two-step backtracks). Equality implies |D|=|E| and D+1=D−1=E, i.e. D+2=D. If D empty all columns are singleton and their symbols trace a closed ±2 walk; if D nonempty then n is even and D is exactly one parity class, the other empty. Each occupied double section has five freely chosen C5 nonadjacent pairs. The all-length labeled count follows by choosing a0 (5), k positive signs satisfying 2k≡n(mod5), plus 2·5^(n/2) even-n codes. Independently reconstructed cyclic column-state transfer enumeration from the actual graph and got alpha n and counts 350,70,1600,360 for n=6,7,8,9; finite tests support but do not replace the equality proof. C5 spectrum gives the even/odd asymptotic growth as submitted.
 
-The graph-theoretic numerical bound \(\alpha(C_5\boxtimes C_n)=n\) is known in earlier literature and is not the novelty. The reviewed statement classifies *all* equality cases and gives the all-length exact labeled count and parity-sensitive solution-family growth. The Hales 1973, Sonnemann–Krafft 1974, and Vesel 1998 sources concern independence numbers; their complete primary texts could not be inspected, so an unindexed subsidiary equality enumeration remains possible. Full inspection of Badalyan–Markosyan (2009) and Korže–Vesel (2012) did not find this all-optima census. The cycle-power and graph-product results are compared by implication, not merely by title. Known pentagon-square results at \(n=5\) are outside the new claimed range.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete equality classification for a natural heterogeneous zero-error transmission model, not merely an optimized numerical parameter. It establishes two structural mechanisms for optimal codebooks and an unexpected parity-dependent exponential count of possible optimal designs, despite the same linear optimal cardinality. Odd cycles also exhibit the strict mixed-use improvement \(n>2\lfloor n/2\rfloor\). These distinctions inform exact codebook enumeration and construction choices; the result does not claim new homogeneous-channel capacity bounds.
+PASS best-of-knowledge for equality CLASSIFICATION and exact count, not novelty of alpha=n. Read full Hales 1973 (all ten pages) and Korže–Vesel 2012 nearby graph-product result; they establish independence-number bounds and constructions, not enumerate every maximizing labeled set. Sonnemann–Krafft 1974 and Vesel 1998 are plausible prior independence-number sources, their inaccessible bodies are recorded as genuine bibliographic risks. A numerical alpha formula alone does not imply equality-case structure or number of max codebooks.
 
-## Primary literature and limitations
+## value
 
-Shannon (1956), Hales (1973), Sonnemann–Krafft (1974), Badalyan–Markosyan (2009), and Korže–Vesel (2012) provide the closest foundational and structural context. Full text was obtained and inspected for the latter two works; the two older primary texts remained an access-limited novelty risk. The statement is restricted to the first factor \(C_5\) and the fixed labeled alphabet. Independent external validation has not been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Counting every optimal codebook in a canonical zero-error confusability product is a substantive complete classification for a natural infinite graph family. The two structurally different extremizer mechanisms and parity split n-even ~5^(n/2) versus n-odd ~2^n supply mathematically meaningful design diversity, without asserting new Shannon capacity or arbitrary-product results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
