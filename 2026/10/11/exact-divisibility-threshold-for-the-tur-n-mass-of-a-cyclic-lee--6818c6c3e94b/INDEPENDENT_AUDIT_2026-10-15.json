@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T05:39:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md sha:a63d5226ccd230cb1ea82de9665a61a25e7b805b",
+        "checker.py sha:92b64f39ab3d967762d593ea27ba083fa3db3b68",
+        "Lam-Leung math/9511209 Theorem 3.3, Corollary 3.4, Theorem 4.8"
+      ],
+      "rationale": "The support and normalization were checked: the B1 convolution has f0(0)=1 and Fourier spectrum (1+2x+2y)^2/5; orbit averaging gives mass 1+4(a+b+c). The exact 5th-root sample (cos 2pi/5, cos 4pi/5) yields 1-a-b-c>=0; when 12|n the (-1,1/2),(-1/2,0) inequalities average to the same bound. Root-of-unity equation 1+z+z^-1+w+w^-1=0 is governed by Lam-Leung short minimal vanishing sums: a 5-cycle requires 5|n; a 2+3 partition yields (-1,1/2) for 6|n or (0,-1/2) for 12|n. Thus outside 5 and 12 the canonical zero set is empty unless 6|n, when it contains exactly (-1,1/2) and swap. Empty set allows (1+eps)f0-eps delta0; the residual 6fold contacts allow (a,b,c)=(2/5+eps,1/5+3eps,2/5+eps), whose Fourier perturbation vanishes at both contacts and raises mass by 20eps. Finite grid compactness ensures positive eps at the other sampled pairs, proving strictness for every fixed n. Independently checked the exact n=6 rational Fourier witness (3/7,2/7,3/7) with mass 39/7 and independent 8-order zero diagnostics; these are supplementary to the all-n Lam-Leung proof.",
+      "residual_risks": [
+        "Infinite classification depends on the published Lam-Leung minimal root-of-unity theorem, not on the n<=240 numerical checker; theorem does not compute optimal values when T_n>5."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General packing/spectral bounds for positive-definite functions and symmetric supports are proved, but the inspected theorem statements do not specify the 13-point Lee ball, 5|n or 12|n equality, or the 6fold positive perturbation."
+        ],
+        "reasoning": "General group inequalities can yield upper/lower principles but the actual sharp-if-and-only-if arithmetic regimes need specialized zero classification and two contact certificates not derived by general existence/packing statements.",
+        "searches": [
+          "arXiv:math/0312218 Kolountzakis Révész Turán extremal problem positive definite groups Theorems 2,4",
+          "arXiv:1904.03614 Berdysheva Révész Delsarte extremal problem packing Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches as identified",
+        "Lam-Leung math/9511209 full critical theorems",
+        "Kolountzakis-Révész math/0312218",
+        "Berdysheva-Révész 1904.03614"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lam-Leung classifies short cyclotomic zero sets, but does not optimize the supported positive-definite mass; general Turán frameworks do not fix exact resonance. Conversely the claim implies new specialized Turán equality iff for a concrete support."
+        ],
+        "reasoning": "The 5|n and 12|n dual contact upper certificates plus strict perturbation are essential extra steps, hence no cited prior theorem directly implies the final equivalence.",
+        "searches": [
+          "Lam and Leung math/9511209 Theorems 3.3,4.8",
+          "Kolountzakis Révész math/0312218",
+          "Berdysheva Révész arXiv:1904.03614"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same SCOPE-derived Resultary listing reindexes precisely the audited claim; not an independent earlier covering theorem. The one-dimensional 5-point cyclic support {0,±1,±3} uses G=Z/N, not the square torus (Z/n)^2 or 13-point B1-B1."
+        ],
+        "reasoning": "Compared Fourier-positive-type formulation, the packing interpretation and positive definite convolution with counting rather than probability normalization; no different named result in searches contains the full iff criterion.",
+        "searches": [
+          "Resultary: finite torus (Z/nZ)^2 positive definite Turan maximum normalized Lee ball radius 2 support 13 points mass 5 divisibility 5 12",
+          "Resultary: Lee two ball cyclic torus 5 12 Turan positive definite mass Fourier nonnegative"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns the same claim under its published clone and a q-ary Hamming two-ball in a different product alphabet. No external exact finite torus divisibility table was located."
+        ],
+        "reasoning": "Hamming weight enumerators do not imply cyclic Lee addition or cyclotomic 5 and 12 thresholds; do not mistake title similarity or same-number equalities for coverage.",
+        "searches": [
+          "Resultary: square torus 13 point Lee ball mass five",
+          "Resultary: sharp positive definite mass q ary Hamming two balls"
+        ]
+      },
+      "rationale": "Distinct counting-normalized two-dimensional 13-point Lee ball divisibility equality criterion and strictness not entailed by identified general packing theorems or 1D/Hamming cases; this is best-of-knowledge, not a proof of absolute absence.",
+      "residual_risks": [
+        "Indexing under alternative Turán normalizations or packing aliases could hide an older exact Lee-torus calculation. Same published Resultary clone is not evidence of independent novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPORTS_CRITICAL_LEMMA",
+          "evidence": "Minimal 5-term vanishing sum: regular 5-cycle or 2+3 cycles; asymmetric three-prime length at least 6.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/9511209",
+          "material_read": "Full-text Theorem 3.3, Corollary 3.4 and Lower Bound Theorem 4.8, including two-prime cycle decomposition and three-prime lower bound (pages around 6-12).",
+          "method": "arXiv primary PDF section/theorem reading",
+          "title": "On vanishing sums of roots of unity",
+          "trigger": "Key nonstandard lemma classifies all 5-term root sums"
+        },
+        {
+          "assessment": "GENERAL_BACKGROUND_NOT_COVERING_AS_INSPECTED",
+          "evidence": "No same square torus 13-point sharp arithmetic threshold in checked statements.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0312218",
+          "material_read": "Definitions and cited general packing and spectral results, Theorems 2 and 4.",
+          "method": "Primary preprint theorem/abstract inspection",
+          "title": "Turán's extremal problem for positive definite functions on groups",
+          "trigger": "Possible dominating theorem for exact finite group mass"
+        },
+        {
+          "assessment": "GENERAL_NOT_DECISIVE",
+          "evidence": "Generic asymptotic-density upper bounds do not give this exact pair of divisibility resonances.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.03614",
+          "material_read": "Primary arXiv abstract, general extremal formulation and Theorem 1.1 description; not represented as whole-document exclusion.",
+          "method": "Primary arXiv metadata/available text and paper-theorem comparison",
+          "title": "Delsarte's extremal problem and packing on locally compact Abelian groups",
+          "trigger": "Broader Turán/Delsarte packing formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Finite positive-definite Turán packing problem",
+        "explicit perturbations and exact dual certificates"
+      ],
+      "rationale": "Natural arithmetic-optimality boundary for canonical 5-point cross-autocorrelation on 13-point Lee two-balls. It separates exact packing/spectral equality from strict gains at every torus size and identifies surprising 5fold and 12fold resonances, while distinguishing 6fold contacts that do not suffice. This is a motivated nonroutine finite-group extremal theorem, not a random parameter substitution or sole checker output.",
+      "residual_risks": [
+        "Does not calculate how much the mass exceeds five for remaining n; that limitation does not erase the exact equality classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every n>=5 the counting-normalized positive-definite Turán mass of the 13-point Lee radius-two ball B1-B1 in (Z/n)^2 equals 5 exactly when 5|n or 12|n, and strictly exceeds 5 otherwise.",
+  "limitations": [
+    "Finite diagnostic n<=240 and exact n=6 test are not used as an all-n proof.",
+    "The endpoint determines exactly when T_n=5, not its strict-excess values or all optimizers."
+  ],
+  "schema_version": 1
+}
