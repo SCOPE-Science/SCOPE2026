@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T19:00:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each n>=3 polygon, its boundary radius in a direction δ from nearest vertex is r/cos(α−δ), α=π/n,r=Rcosα. A circle t∈(r,R) is covered by vertex-angle arcs of half-width η=α−arccos(r/t). With m cyclic phase gaps g_j summing 2α, angular measure exactly nΣ min(g_j,2η), valid also for zero gaps. The sharp sum inequality Σmin(g,c)≤min(2α,mc) has all-level equality for equal gaps; unequal gaps are strictly inferior on an open interval near c=2α/m, so positive-a.e. radial weights strictly prefer equal gaps. The polar angular integration per gap equals r²[tanα−tan(α−g/2)], giving area/inradius and the stated 1/m disk deficit. Independent Shapely computations for (n,m)=(3,3),(4,3) with coincident phases,(5,5),(7,2) agree with the exact formula <1e−10. These finite cases are diagnostics, not the all-n,m proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Kiss–Vidnyánszky pp 1-12: theorem 2.4 square translation counterexample; Lemma 2.5 centered perimeter/area ratio; later triangle translation counterexample/open questions. Gyenes accessible abstract addresses bounding ratios, centered-square consequence."
+        ],
+        "reasoning": "The verified broader theorem pertains to perimeter-to-area ratios of unions, not all-radius coverage or unique maximum of radial area among rotations. Gyenes full paper remains unchecked.",
+        "searches": [
+          "concentric unions rotated congruent regular n-gons equal phase gaps radial coverage weighted area maximization",
+          "arXiv:1402.5452 entire 12-page primary",
+          "Gyenes doi:10.1007/s00454-010-9321-9 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 273109ac75a68b551768f24ee48bca693d5c3fb5; verify.py 7074b9cdee661bd21a857211f2c0f20a8dbce241",
+        "Full arXiv 1402.5452v2, particularly Def 2.1 and Lemma 2.5",
+        "Gyenes 2011 abstract doi:10.1007/s00454-010-9321-9",
+        "Resultary concentric unions rotated congruent regular n-gons equal phase gaps radial coverage weighted area maximization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known perimeter/area ratio 2/r follows from common inradius to all exposed union edges, and holds for any centered rotations—not uniqueness of area, which follows from gap-concavity."
+        ],
+        "reasoning": "Existing named facts do not logically imply the sharp coverage and rigidity without additional phase-gap analysis; all known preexisting parts explicitly excluded from novelty.",
+        "searches": [
+          "concentric unions rotated congruent regular n-gons equal phase gaps radial coverage weighted area maximization",
+          "arXiv:1402.5452 Lemma 2.5, Theorem 2.4",
+          "Gyenes 2011 centered squares"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kiss–Vidnyánszky Definition 2.1 basic(k,n) equal phases and Lemma 2.5 gives constant perimeter/area ratio; its translation counterexamples treat a different optimization."
+        ],
+        "reasoning": "The same equal-spaced layout was known. A constant ratio for basic setups says nothing about which concentric arrangement has greatest area at each radius, nor strict dominance for all radial weights.",
+        "searches": [
+          "concentric unions rotated congruent regular n-gons equal phase gaps radial coverage weighted area maximization",
+          "Kiss Vidnyánszky arXiv:1402.5452v2 Definitions 2.1-2.3 Lemma 2.5",
+          "Gyenes DCG 45(2011) 400-409"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected tabulation of sharp phase-gap-dependent area formula for arbitrary n,m, repeated phases and positive radial weight; Resultary relevant equal phase object entry is current claim."
+        ],
+        "reasoning": "This is a continuous optimization identity for all n,m and real rotations, not a known finite table; existing single ratio is a different invariant.",
+        "searches": [
+          "concentric unions rotated congruent regular n-gons equal phase gaps radial coverage weighted area maximization",
+          "Resultary regular polygon union and radial mass exact formula",
+          "Kiss Vidnyánszky 2014 paper"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level comparison of original claim, aliases and stronger coverage: Existing named facts do not logically imply the sharp coverage and rigidity without additional phase-gap analysis; all known preexisting parts explicitly excluded from novelty.",
+      "residual_risks": [
+        "Gyenes (2011) full paper not accessed; an earlier sharp radius-by-radius maximization buried therein cannot be entirely excluded.",
+        "Finite Shapely geometry validates only sampled configurations, not the infinite theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Basic configuration and ratio COVERED, radical coverage/weighted optimizer not stated",
+          "evidence": "Def 2.1 is equal-spaced concentric arrangement; Lemma 2.5 p3 proves p/a=2/r; Theorem 2.4 constructs translated squares with p/a>4.",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.5452",
+          "material_read": "Full 12-page PDF text including introduction, Def 2.1, Lemma 2.5, square/triangle translation constructions and open problems; screenshot p3",
+          "method": "Primary arXiv PDF material reading and text search",
+          "title": "Unions of regular polygons with large perimeter-to-area ratio",
+          "trigger": "Same centered regular polygon basic(k,n) configuration"
+        },
+        {
+          "assessment": "Same perimeter ratio overlap; radial all-level coverage unknown",
+          "evidence": "2011 abstract describes p/a bound 5.6 and centered-square p/a ratio result is attributed in arXiv:1402.5452 p2.",
+          "identifier_or_url": "doi:10.1007/s00454-010-9321-9",
+          "material_read": "Abstract and independent citation in Kiss–Vidnyánszky introduction; not full primary text",
+          "method": "Bibliographic and abstract search",
+          "title": "The Ratio of the Perimeter and the Area of Unions of Copies of a Fixed Set",
+          "trigger": "Predecessor centered-square perimeter/area result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The universal every-radius coverage order is stronger and more reusable than single area or perimeter optimization. It determines all positive radial-weight optimizers, rigidity including coincidence, exact area/inradius, and the disk deficit for a natural congruent-polygon union construction. The known basic configuration and perimeter/area ratio are explicitly NOT the novel portion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Congruent regular n-gons, fixed center and circumradius; arbitrary rotations, n≥3,m≥2, positive-a.e. radial densities for uniqueness.",
+    "No translations, nonregular shapes, unequal scales or higher dimension.",
+    "Gyenes (2011) full paper not accessed; an earlier sharp radius-by-radius maximization buried therein cannot be entirely excluded.",
+    "Finite Shapely geometry validates only sampled configurations, not the infinite theorem."
+  ],
+  "schema_version": 1
+}
