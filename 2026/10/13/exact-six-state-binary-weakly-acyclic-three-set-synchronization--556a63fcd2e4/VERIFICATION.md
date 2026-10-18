@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `verify.cpp` and `certificate.json`.
+# Independent mathematical audit
 
-The verifier enumerates every weakly acyclic binary automaton after choosing a topological order: each letter has \(720\) allowed transition maps, hence \(518400\) ordered pairs. For each automaton it builds the complete nonempty subset automaton and computes exact reverse distances from all singleton subsets.
+## correctness
 
-All twenty three-subsets are inspected. The maximum finite distance is checked to be \(7\), with four extremal presentations in the fixed topological order. Every such presentation is replayed independently by a forward BFS. Canonicalization under every state permutation and both letter orders gives one class. The representative `aaabaaa` is replayed and its full labeled symmetry orbit is checked to have size \(1440\).
+PASS
 
-The computation is exhaustive only for six states, two letters, and three-element distinguished subsets. Independent audit has not been performed.
+Every weakly acyclic deterministic automaton admits one topological ordering with both transitions nondecreasing; each letter has exactly 6! =720 maps, giving a complete 720^2 universe of ordered binary maps in such coordinates. For each map pair the subset automaton on 63 nonempty subsets and backward BFS from six singleton subsets yields exact shortest lengths of every synchronizable three-subset. Independent whole-universe C++ search recovered maximum 7, four naturally ordered extremal presentations and no larger distance. Independent orbit canonicalization with all 6! state permutations and letter swap yields one class with orbit size 1440. The exhibited a=(0,2,3,4,4,5), b=(1,5,5,5,4,5), S={0,1,4} is merged by aaabaaa and independent forward BFS certifies no shorter merging word. Finite theorem is exhaustively proved by complete finite enumeration (not extrapolated).
+
+## originality
+
+PASS
+
+Prior-work comparisons credit foundational techniques and potential broader theorems. No actually inspected source has a theorem that entails the complete claimed new invariant/formula at the assigned parameters; real full-text gaps are identified as residual risk. The exact mathematical implication comparison is given in four named checks.
+
+## value
+
+PASS
+
+This is a full exact classification of a natural first small open parameter outside prior 6-to-12 general-bound interval. Six-state binary fixed-alphabet weak acyclicity and triple synchronization are motivated by exact subset synchronization extremal functions. An exhaustive complete finite cutoff, with unique extremal class and actual labeled multiplicity, is independently useful to the next extremal computation; no general n theorem is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

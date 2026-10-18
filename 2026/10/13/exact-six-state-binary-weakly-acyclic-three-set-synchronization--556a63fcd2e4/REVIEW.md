@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. A fixed topological order contains every weakly acyclic isomorphism type after relabeling. Exhaustion of all \(720^2\) binary transition pairs and all twenty three-subsets gives maximum shortest synchronization distance \(7\). Independent forward BFS replays every equality presentation. Symmetry canonicalization gives one equality class and an orbit of size \(1440\).
+## correctness
 
-## Originality
-PASS. The direct source gives a universal upper bound and a binary lower construction, which specialize to \(12\) and \(6\) at \((n,k)=(6,3)\). It does not state the exact value \(7\) or classify equality. Searches under weakly acyclic, partially ordered, binary, six-state, three-set, threshold, and equality-case formulations found no covering result. Related monotonic and constrained-synchronization papers do not imply the finite census.
+PASS
 
-Residual risk remains that an unindexed or unpublished small-state computation contains the same data.
+Every weakly acyclic deterministic automaton admits one topological ordering with both transitions nondecreasing; each letter has exactly 6! =720 maps, giving a complete 720^2 universe of ordered binary maps in such coordinates. For each map pair the subset automaton on 63 nonempty subsets and backward BFS from six singleton subsets yields exact shortest lengths of every synchronizable three-subset. Independent whole-universe C++ search recovered maximum 7, four naturally ordered extremal presentations and no larger distance. Independent orbit canonicalization with all 6! state permutations and letter swap yields one class with orbit size 1440. The exhibited a=(0,2,3,4,4,5), b=(1,5,5,5,4,5), S={0,1,4} is merged by aaabaaa and independent forward BFS certifies no shorter merging word. Finite theorem is exhaustively proved by complete finite enumeration (not extrapolated).
 
-## Value
-PASS. The result closes a concrete gap in the source's extremal binary problem at a natural low-order parameter and adds a complete equality classification, not merely a single example.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior-work comparisons credit foundational techniques and potential broader theorems. No actually inspected source has a theorem that entails the complete claimed new invariant/formula at the assigned parameters; real full-text gaps are identified as residual risk. The exact mathematical implication comparison is given in four named checks.
+
+## value
+
+PASS
+
+This is a full exact classification of a natural first small open parameter outside prior 6-to-12 general-bound interval. Six-state binary fixed-alphabet weak acyclicity and triple synchronization are motivated by exact subset synchronization extremal functions. An exhaustive complete finite cutoff, with unique extremal class and actual labeled multiplicity, is independently useful to the next extremal computation; no general n theorem is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
