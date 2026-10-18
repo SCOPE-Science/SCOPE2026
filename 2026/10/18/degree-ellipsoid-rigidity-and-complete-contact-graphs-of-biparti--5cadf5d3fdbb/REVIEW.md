@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The claimed John ellipsoid has the exact degree-vector support bound, follows by coordinate-reflection rigidity and coordinate-axis caps, and has precisely the asserted contacts in the connected nontrivial case. The Löwner bound is attained at a full signed isotropic contact design for each connected bipartite biregular graph; its trace/determinant certificate proves *global* uniqueness, not just optimality within symmetric ellipsoids. Equality cases in Cauchy–Schwarz give all outer contact arcs, and their incidence gives the complete bipartite contact graph. The packaged checker corroborates these analytic steps with 8,500 inequality trials, 1,348 contact profiles and 193 covariance entries; finite tests do not establish the universal result.
+
+**Originality — PASS (qualified).** The closest primary papers on discotopes by Mathis–Meroni and Gesmundo–Meroni discuss fiber bodies, faces and algebraic boundaries. A previously stated exact theorem covers only regular graphical discotopes; the new graph-general John formula and nonregular biregular Löwner/contact theorem do not follow from that restricted result, although the balanced regular case is already covered and explicitly not claimed as new. Indexed searches for alternate coordinate-disk Minkowski-sum formulations and broader ellipsoid assertions found no decisive equivalent or dominating theorem. Residual risk: unindexed earlier work under zonoid or convex-body ellipsoid terminology.
+
+**Mathematical value — PASS.** The result is an all-graph extremal-ellipsoid classification on the John side and a natural complete two-part degree family on the Löwner side, rather than a numerical special case. The topological classification \(K_{2^p,2^q}\) has exponentially many arcs and \((2^p-1)(2^q-1)\) cycles, distinguishing nonregular disk sums from their combinatorial graph structure and previously known scalar inradii. The nonregular families are genuinely new scope.
+
+**Closest literature and limits.** Mathis–Meroni, *Fiber Convex Bodies* (arxiv:2105.12406); Gesmundo–Meroni, *The Geometry of Discotopes* (arxiv:2111.01241). Non-biregular enclosing ellipsoids are not classified here. Independent mathematical and full bibliographic audits are outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
