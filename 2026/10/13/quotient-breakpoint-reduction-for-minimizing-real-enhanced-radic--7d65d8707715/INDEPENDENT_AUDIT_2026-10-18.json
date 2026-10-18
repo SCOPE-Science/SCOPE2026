@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T01:11:00.721735Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/13/quotient-breakpoint-reduction-for-minimizing-real-enhanced-radic--7d65d8707715/RESULT.md @ 40d46a820f74fdf355c691812bdc426ec204bde7",
+        "source verify.py original frozen blob b0729fda6709794818bd3e93ed1cee471d250c09",
+        "independent_1793_checks.py"
+      ],
+      "rationale": "For each prime valuation m and degree d, the exact exponent is m-floor(m/d)(d-1). If the quotient is unchanged from d to d+1, its exponent falls by floor(m/d). At every 2<=d<M not in the union of integer-quotient plateaus, all prime quotients are unchanged and at least one positive, so P_(d+1)<P_d. The endpoint M is itself floor(M/1). There are at most 2 floor(sqrt(m)) distinct floor(m/q) values per prime. This proves every global minimizer is in the candidate set for M>=2, without assuming monotonicity at breakpoints. If M=1 all d>=2 give exponent 1. Independently tested 4368 exponent vectors of lengths 1..3 with entries 1..16 using integer prime products and checked full argmin containment, strict omitted-step descent, and the count; the Reyssat valuations 10,5,1 give candidates {2,3,5,10} and minimizing degree 5.",
+      "residual_risks": [
+        "No factorization-free complexity result; finite tests not a proof of all valuations. The entire proof uses the stated exponent normalization; it does not apply to the p-adic or combined-gain objectives."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Weger proves only that the degree search is eventually constant; in the Reyssat example he lists every degree.",
+          "Laniewski–Müller addresses presentations and gain bounds; full text unavailable, potentially stronger coverage."
+        ],
+        "reasoning": "A full finite search is not automatically a sparse search; a stronger theorem prescribing optimal presentations could imply the pruning, and cannot be ruled out without the unread Laniewski–Müller text. Therefore risk is explicit and material.",
+        "searches": [
+          "Laniewski–Müller arXiv:2610.03212 title and abstract, open full-text attempts",
+          "de Weger arXiv:2602.08051 full accessible text"
+        ]
+      },
+      "checked_sources": [
+        "de Weger arXiv:2602.08051 (material full text read)",
+        "Laniewski–Müller arXiv:2610.03212 (abstract only; full unavailable)",
+        "Resultary semantic search on enhanced radical and floor-quotient optimization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier formulation scans 2..M; standard number-theoretic fact bounds the number of floor(m/q) values.",
+          "For d not at any quotient change P_(d+1)/P_d=product_l l^(-floor(m_l/d))<1."
+        ],
+        "reasoning": "Published finite minimization plus classical distinct-quotient count supply the ingredients, but do not by themselves explicitly state strict descent for this nonmonotone objective. The implication is short; it is assessed as a modest original application, not a new number-theoretic theorem.",
+        "searches": [
+          "de Weger arXiv:2602.08051 section 2; Laniewski–Müller arXiv:2610.03212",
+          "standard floor-division quotient grouping"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "de Weger represents the same real objective with floor(m/d)+(m mod d) and tabulates finite degree values.",
+          "Standard divisor-quotient block enumeration gives at most 2 floor(sqrt m) distinct values."
+        ],
+        "reasoning": "The parameterized objective is equivalent to de Weger’s real enhanced radical. The novel candidate rule is not the definition of this objective; it exploits strict monotonicity inside every quotient plateau. Basic divisor-quotient enumeration itself is prior algorithmic folklore.",
+        "searches": [
+          "Resultary semantic query: enhanced radical abc triple real radicand exponent floor m/d remainder degree breakpoint minimization quotient plateau",
+          "de Weger 2026 arXiv:2602.08051 sections 2.2-2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published table already identifies minimizing degree 5.",
+          "The new general theorem excludes all degrees outside {2,3,5,10} for this valuation profile."
+        ],
+        "reasoning": "The instance optimum is known and is not claimed as a fresh numerical database fact. The all-input candidate bound is not a restatement or recomputation of that table.",
+        "searches": [
+          "de Weger arXiv:2602.08051 Reyssat table and degree values",
+          "Reyssat 2+3^10*109=23^5"
+        ]
+      },
+      "rationale": "The exact real enhanced-radical degree objective and a full finite search were already published by Laniewski–Müller, and de Weger originally defined and tabulated the degree dependence. The present constraint to union of distinct integer quotients uses a standard floor-division trick, but no identical pruning claim was found in material inspected. The highly relevant new paper full text was inaccessible through arXiv/OA and authorized institutional access, so originality is only best-of-knowledge, with material risk. No claim that ordinary floor-quotient enumeration is original.",
+      "residual_risks": [
+        "Material unread Laniewski–Müller full text; arXiv and lawful OA attempts failed, Oxford authorized access vpn_disconnected; priority remains conditional.",
+        "A short floor-quotient plateau argument may already appear in algorithms folklore or an unindexed optimized abc-radical implementation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines same exponent and full finite degree search; does not state quotient-breakpoint pruning in inspected sections.",
+          "evidence": "Real enhanced radical presentation and all-degree Reyssat table.",
+          "identifier_or_url": "arXiv:2602.08051",
+          "material_read": "Full publicly accessible text reproduction, material sections 2.2–2.4 and worked degree table",
+          "method": "lawful public full text HTML",
+          "title": "On the approximation gain for abc-triples",
+          "trigger": "Original real enhanced radical and Reyssat degree table"
+        },
+        {
+          "assessment": "Not resolved; cannot make whole-document NOT_COVERING assessment. Authorized institutional request returned vpn_disconnected.",
+          "evidence": "Abstract concerns gains/presentations and research objectives; exact pruning could be in unavailable main text.",
+          "identifier_or_url": "arXiv:2610.03212",
+          "material_read": "Title and abstract only; arXiv PDF/HTML and lawful alternative OA not retrievable",
+          "method": "arXiv and OA retrieval attempts, authorized institutional request",
+          "title": "The quality plane of abc-triples and the decomposition into gains",
+          "trigger": "Same exact objective and strongest plausible prior degree-search coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Laniewski–Müller arXiv:2610.03212 abstract",
+        "de Weger arXiv:2602.08051 sections 2.2–2.4"
+      ],
+      "rationale": "The enhanced-radical objective is a genuine exact finite optimization in a number-theoretic presentation problem. Eliminating every non-breakpoint degree yields a proof-backed reduction from potentially M candidates to at most 2 sum sqrt(m_l), directly useful for large valuations and across all triples; no factorization, abc bound or global conjecture is claimed. It adds a structural answer to a specifically motivated degree-search question, not merely the previously tabulated Reyssat optimum. Its mathematical depth is modest because the mechanism is a short floor-quotient observation.",
+      "residual_risks": [
+        "Reduction may be regarded as a standard quotient-plateau optimization; little conceptual significance beyond exact search speed-up."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Material inaccessible Laniewski–Müller full text, noted as O risk.",
+    "Universal candidate upper bound is not claimed optimal; finite checker tests a bounded space only."
+  ],
+  "schema_version": 1
+}

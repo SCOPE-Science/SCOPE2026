@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. For each valuation \(m\), the identity \(e_m(d)=m-\lfloor m/d\rfloor(d-1)\) is exact. If no valuation quotient drops at \(d\to d+1\), every positive quotient lowers its exponent contribution by that quotient; for \(d<M\), at least one quotient is positive, so \(P_{d+1}<P_d\). Every interior non-breakpoint is therefore excluded, while \(M\) itself is a breakpoint. The standard distinct-floor-quotient split gives the stated \(O(\sum\sqrt{m_\ell})\) candidate bound. Exact-integer replay agrees on all \(16{,}275\) tested exponent vectors.
+# Independent mathematical audit
 
-## Originality
-PASS. The closest primary source writes the same minimization as a full finite search over \(2\le d\le M\), while the earlier definition paper proves only eventual constancy and explicitly evaluates every degree in its worked Reyssat table. Searches for enhanced-radical degree minimization, quotient breakpoints, equivalent floor/remainder formulas, and algorithmic reductions did not locate a statement implying the breakpoint theorem. No overlapping claim was found in the checked current or prior research ledgers. Residual risk remains for unindexed or differently phrased literature.
+## correctness
 
-## Value
-PASS. The result converts an explicitly posed exact optimization from a linear scan in the largest valuation to a provably sufficient union of divisor-quotient breakpoints with at most \(2\sum_{\ell\mid bc}\lfloor\sqrt{m_\ell}\rfloor\) candidates. This is structurally useful for extending computations to triples with large prime-power valuations and explains, rather than merely recomputes, why six of the ten degree regimes in the classical Reyssat table are unnecessary.
+PASS
 
-## Closest literature and limitations
-Laniewski--Müller (arXiv:2610.03212v1) gives the exact objective and the full finite interval. De Weger (arXiv:2602.08051v2) defines the real enhanced radical and supplies the worked all-degree table. Neither inspected full text states the quotient-breakpoint pruning. The theorem does not solve the global database extremal problem and the cardinality bound is not claimed optimal.
+For each prime valuation m and degree d, the exact exponent is m-floor(m/d)(d-1). If the quotient is unchanged from d to d+1, its exponent falls by floor(m/d). At every 2<=d<M not in the union of integer-quotient plateaus, all prime quotients are unchanged and at least one positive, so P_(d+1)<P_d. The endpoint M is itself floor(M/1). There are at most 2 floor(sqrt(m)) distinct floor(m/q) values per prime. This proves every global minimizer is in the candidate set for M>=2, without assuming monotonicity at breakpoints. If M=1 all d>=2 give exponent 1. Independently tested 4368 exponent vectors of lengths 1..3 with entries 1..16 using integer prime products and checked full argmin containment, strict omitted-step descent, and the count; the Reyssat valuations 10,5,1 give candidates {2,3,5,10} and minimizing degree 5.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact real enhanced-radical degree objective and a full finite search were already published by Laniewski–Müller, and de Weger originally defined and tabulated the degree dependence. The present constraint to union of distinct integer quotients uses a standard floor-division trick, but no identical pruning claim was found in material inspected. The highly relevant new paper full text was inaccessible through arXiv/OA and authorized institutional access, so originality is only best-of-knowledge, with material risk. No claim that ordinary floor-quotient enumeration is original.
+
+## value
+
+PASS
+
+The enhanced-radical objective is a genuine exact finite optimization in a number-theoretic presentation problem. Eliminating every non-breakpoint degree yields a proof-backed reduction from potentially M candidates to at most 2 sum sqrt(m_l), directly useful for large valuations and across all triples; no factorization, abc bound or global conjecture is claimed. It adds a structural answer to a specifically motivated degree-search question, not merely the previously tabulated Reyssat optimum. Its mathematical depth is modest because the mechanism is a short floor-quotient observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
