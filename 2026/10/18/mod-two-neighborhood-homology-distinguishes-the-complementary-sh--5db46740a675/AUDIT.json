@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructs exact adjacency predicates, complete face enumeration as subsets of sixteen nine-point facets, explicit mod-two augmented boundaries, exhaustive Gaussian elimination of all matrices, and rank-nullity in every degree. Independent transpose implementation uses a determinantal-one coordinate transform for Shrikhande and a different enumeration; both compute identical f-vectors and ranks. Entire domain is finite, so enumeration is exhaustive, not merely experimental extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2508.05871 Section 6.1 compares the same graphs via clique-complex spectral cohomology",
+        "arxiv:2312.02639 treats general Alexander-dual construction, examples for forests and grids"
+      ],
+      "reasoning": "Clique-complex eigenvalues and cohomology do not imply the complete binary simplicial boundary ranks of the complementary neighborhood complexes. The general duality theorem changes descriptions and degrees, but leaves the pair-specific Betti numbers to be computed.",
+      "searches": [
+        "strongly regular graph clique complex cohomology Shrikhande rook",
+        "arxiv:2508.05871 Section 6.1 Shrikhande 4x4 grid",
+        "arxiv:2312.02639 neighborhood-complex Alexander duality",
+        "homology of domination complex of complementary strongly regular graphs 16 vertices"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0208072",
+      "arxiv:math/0512077",
+      "arxiv:2312.02639",
+      "arxiv:2508.05871",
+      "doi:10.1214/aoms/1177706207",
+      "Mertens 2024 Journal of Integer Sequences 27",
+      "published-finding corpus IDs 2026/10/4/SCOPE-mixed-dimensional-mod-2-homology-of-d-6-3--9a3a7140d738, 2026/10/4/SCOPE-the-4-times4-grid-refutes-all-k-cut-complex-shellability--2bb3bc2c65c6, 2026/10/4/SCOPE-the-icosahedral-neighborhood-complex-is-a-wedge-of-twenty-three--07e6e60de0e7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Matoušek–Ziegler 2002 defines neighborhood complexes and discusses general hierarchy",
+        "Kahle 2005 studies random-graph neighborhood complexes",
+        "Matsushita–Wakatsuki general Alexander-dual identity does not determine numerical ranks",
+        "Cioabă–Guo–Ji–Mim 2025 computes different clique-complex invariants"
+      ],
+      "reasoning": "The new claim is neither the earlier identification of the two graphs, nor their known differing clique-/independence-complex invariants, nor the general duality theorem. Exact homology for the complementary neighborhood complexes does not follow solely from those sources.",
+      "searches": [
+        "arxiv:math/0208072 neighborhood complex hierarchy",
+        "arxiv:math/0512077 neighborhood complex random graph",
+        "arxiv:2312.02639 dominance complexes neighborhood complexes Alexander duals",
+        "arxiv:2508.05871 Shrikhande rook clique complex",
+        "published-finding corpus Shrikhande rook independence complex and neighborhood complex comparisons"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2312.02639; Theorem 1.1: dominance Alexander dual equals complementary neighborhood complex",
+        "direct equivalence: every face is a non-dominating vertex subset"
+      ],
+      "reasoning": "The non-dominating/dual dominance terminology identifies exactly the same complexes, but the general Alexander-duality theorem is not a numerical homology computation for this graph pair. Searches under both vocabularies found no such computation.",
+      "searches": [
+        "mod 2 homology Lovasz neighborhood complexes of the complements of the Shrikhande graph and 4 by 4 rook graph, strongly regular cospectral pair",
+        "neighborhood complex of the complementary strongly regular (16,9,4,6) graphs distinguishes homology dimensions H2 H4",
+        "non-dominating simplicial complexes of the Shrikhande graph and 4x4 lattice rook graph",
+        "Alexander dual domination complex of strongly regular graphs Shrikhande and rook graph ranks",
+        "homology of domination complex of complementary strongly regular graphs 16 vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/10/4/SCOPE-the-4-times4-grid-refutes-all-k-cut-complex-shellability--2bb3bc2c65c6: cut complex, not a complementary-neighborhood complex",
+        "Mertens 2024 domination polynomial of the rook graph counts dominating subsets but does not encode differential ranks"
+      ],
+      "reasoning": "No located indexed homology table lists these complete binary Betti vectors. Face counts are not the homology: the boundary ranks are necessary, and are not implied by a domination polynomial.",
+      "searches": [
+        "Lovasz neighborhood complex Shrikhande graph and 4 by 4 rook graph topology homology graph 16 6 2 2",
+        "Shrikhande graph neighborhood complex homology equivariant strongly regular",
+        "neighborhood complex rook graph Shrikhande graph rational homology distinctions",
+        "mod 2 homology Lovasz neighborhood complexes of the complements of the Shrikhande graph and 4 by 4 rook graph, strongly regular cospectral pair",
+        "non-dominating complex Shrikhande rook neighborhood rank 11 degree 4",
+        "Shrikhande rook graph neighborhood complement Betti numbers"
+      ]
+    },
+    "rationale": "The theorem determines exact homology of complementary *open-neighborhood* complexes of a canonical cospectral strongly regular pair. Primary sources treating the same graphs investigate their clique complexes, not these homology matrices; dominance duality provides an equivalence of constructions but not this computation. Searches under equivalent non-dominating/Alexander-dual formulations and prior indexed results located no stronger implication. Priority remains subject to unindexed literature.",
+    "residual_risks": [
+      "The 1959 graph-classification article could not be inspected in full; an equivalent unindexed numerical homology computation could exist.",
+      "The exact day of the earliest public release of the older 1959 graph paper was not verified; 2002-08-09 is the verified arXiv first-public date for the methodological primary source.",
+      "The earlier clique-complex, independence-complex, and domination-polynomial invariants already distinguish the pair by other methods; no first-distinguishing claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines relevant functor, does not tabulate pair-specific binary homology of complementary strongly regular examples",
+        "evidence": [
+          "arxiv:math/0208072, sections on neighborhood complex and chromatic bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0208072v3",
+        "material_read": "Definition and topological-invariant discussion, general hierarchy results and comparisons",
+        "method": "Read accessible arXiv full-text sections",
+        "title": "Topological lower bounds for the chromatic number: A hierarchy",
+        "trigger": "Foundational definition and possible covering theorem for neighborhood complexes"
+      },
+      {
+        "assessment": "Random-graph asymptotic topology, no deterministic Shrikhande/rook complementary calculations",
+        "evidence": [
+          "arxiv:math/0512077, main results and proofs"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0512077v4",
+        "material_read": "Abstract, definitions, statements and arguments surrounding Theorems 2.1–2.7",
+        "method": "Read accessible arXiv full text",
+        "title": "The neighborhood complex of a random graph",
+        "trigger": "Potential stronger general theorem"
+      },
+      {
+        "assessment": "Proves equivalence of functors but no exact homology for this SRG pair; checked name searches absent",
+        "evidence": [
+          "arxiv:2312.02639, Theorem 1.1 and 2.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2312.02639v2",
+        "material_read": "Introduction, theorem 1.1, theorem 2.2, following illustrative families; full-text searches for Shrikhande, rook, strongly regular",
+        "method": "Read full-text relevant sections and searched entire text for exact graph aliases",
+        "title": "Dominance complexes, neighborhood complexes and combinatorial Alexander duals",
+        "trigger": "Equivalent non-dominating formulation could subsume the claim"
+      },
+      {
+        "assessment": "Same graphs are distinguished by clique-complex spectral invariants, not the complementary-neighborhood homology claimed",
+        "evidence": [
+          "arxiv:2508.05871, section 6.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2508.05871",
+        "material_read": "Opening and Section 6.1 on Shrikhande/rook pair, surrounding cohomology examples and bibliography",
+        "method": "Read text and page images from primary arXiv PDF",
+        "title": "Clique complexes of strongly regular graphs, their eigenvalues, and cohomology groups",
+        "trigger": "Same 16-vertex strongly regular pair may be a covered example"
+      },
+      {
+        "assessment": "Counts dominating subsets; does not determine mod-two simplicial differentials",
+        "evidence": [
+          "Journal of Integer Sequences 27 (2024), domination polynomial definitions"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.html",
+        "material_read": "Abstract and relevant statements about domination-set enumeration",
+        "method": "Inspected open-access source text",
+        "title": "Domination Polynomial of the Rook Graph",
+        "trigger": "Domination polynomial could encode the same simplicial complex"
+      },
+      {
+        "assessment": "Graph classification establishes models; inaccessible full original text is a residual bibliographic risk, not evidence of noncoverage",
+        "evidence": [
+          "Shrikhande (1959), Ann. Math. Statist. 30(3) 781–798"
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aoms/1177706207",
+        "material_read": "Bibliographic metadata and summaries; full text not accessible during inspection",
+        "method": "Publication metadata and repository indexing",
+        "title": "The uniqueness of the L2 association scheme",
+        "trigger": "Original graph pair classification and priority"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5db46740-a675-4f47-8c16-57e55b171697",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two sixteen-vertex SRGs are precisely the natural exceptional pair sharing all strongly regular parameters and spectra. A complete degreewise homology classification of the same canonical complementary-neighborhood functor is structurally motivated and shows a new type of spectral insufficiency, with the specific nonzero degree-two rook class. It does not merely rename or recalculate existing clique/independence complexes or face-count polynomials; neither a broad theorem nor an unknown integral claim is needed.",
+    "status": "PASS"
+  }
+}
