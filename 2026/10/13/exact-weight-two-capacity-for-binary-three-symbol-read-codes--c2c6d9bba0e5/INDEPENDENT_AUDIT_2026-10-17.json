@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T17:03:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For binary weight-two cyclic words, distinct disjoint supports produce a four-element symmetric difference with at least six affected windows for n>=6. Supports sharing one endpoint leave two differing coordinate positions; their triple-window supports are disjoint iff their cyclic distance is >=3. Thus feasible codes equal edge sets whose every vertex neighborhood is 3-separated on C_n. Handshake gives |E|<=floor(n floor(n/3)/2). When n=3m, a degree-m neighborhood is one residue class mod3; three fully saturated residue classes would force a fixed-point-free involution on three labels, impossible, forcing at least m missing degree units. K_{m,m} disjoint K_m attains m(3m-1)/2. Explicit circulants +/- (3j-1) with optional antipodal edges or Hamilton cycle matching attain floor(nm/2) for other residues. Independent constructed graph checks n=6..45, direct triple-read pair distances through n=22, and independent exhaustive maximum independent sets n=6..9 (5,7,8,12). The infinite result depends on the proof, not tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yaakobi et al. 2016 and Verma et al. arxiv:2504.10088 address different parameter constraints; Yang-Li-Feng and Ding-Zhang-Ge deal all-weight linear families."
+        ],
+        "reasoning": "General b-symbol linear MDS codes and prescribed b-symbol-weight bounds do not imply the cardinality optimum on binary Hamming weight exactly two; code linearity is incompatible with a nontrivial constant weight two set.",
+        "searches": [
+          "Maximum constant Hamming weight two binary cyclic three symbol read codes minimum distance six independent sets token graph square of cycle",
+          "Yaakobi Bruck Siegel 2016 constructions decoding b symbol read channels",
+          "de Alba Carballosa Leaños Rivera alpha token graph cycle square",
+          "arxiv:2504.10088"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1606.06370",
+        "arxiv:2504.10088",
+        "doi:10.1109/TIT.2016.2522434",
+        "Resultary semantic query: Maximum constant Hamming weight two binary cyclic three symbol read codes minimum distance six independent sets token graph square of cycle"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n=3m submitted exact optimum m(3m-1)/2 differs from integer handshake bound by floor(m/2), so one cannot derive it by matching a coarse prior bound."
+        ],
+        "reasoning": "The plain degree bound floor(nm/2) alone cannot imply the sharp divisible-by-three case; the residue-class saturation obstruction is necessary. Earlier general token graph bound proves at most the unsharp handshake value.",
+        "searches": [
+          "Maximum constant Hamming weight two binary cyclic three symbol read codes minimum distance six independent sets token graph square of cycle",
+          "Yaakobi Bruck Siegel 2016 constructions decoding b symbol read channels",
+          "de Alba Carballosa Leaños Rivera alpha token graph cycle square",
+          "doi:10.1109/TIT.2016.2522434"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "de Alba et al. Theorem 1.3 gives independence for F_2(C_n) (ordinary cycle), whereas this base is C_n²."
+        ],
+        "reasoning": "The exact graph equivalent is independent set of the two-token graph of the SQUARE of a cycle, not alpha(F_2(C_n)) for ordinary C_n. The distinction is mathematically material: sharing-support conflict arises for cyclic coordinate separation 1 or 2.",
+        "searches": [
+          "Maximum constant Hamming weight two binary cyclic three symbol read codes minimum distance six independent sets token graph square of cycle",
+          "Yaakobi Bruck Siegel 2016 constructions decoding b symbol read channels",
+          "de Alba Carballosa Leaños Rivera alpha token graph cycle square",
+          "arxiv:1606.06370"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary binary 2-read (7,5) maximum 8 is a different read length and unconstrained code weight."
+        ],
+        "reasoning": "Semantic Resultary search returned related 2-read (7,5) optimum and cyclic code spectra but no all-n binary weight-two 3-read distance-6 table. Such misses are limited search evidence, not a novelty certificate.",
+        "searches": [
+          "Maximum constant Hamming weight two binary cyclic three symbol read codes minimum distance six independent sets token graph square of cycle",
+          "Yaakobi Bruck Siegel 2016 constructions decoding b symbol read channels",
+          "de Alba Carballosa Leaños Rivera alpha token graph cycle square",
+          "doi:10.1109/TIT.2016.2522434"
+        ]
+      },
+      "rationale": "A fixed-Hamming-weight-two optimum in the cyclic three-symbol read metric, equivalently alpha(F_2(C_n²)), is not supplied by published ordinary-cycle token graph independence nor by b-symbol-weight bounds/linear codes. Exact divisible-by-three degree deficit is an additional nonstandard combinatorial argument; historical equivalent token graph results remain possible.",
+      "residual_risks": [
+        "An equivalent graph-theoretic result for F_2(C_n²) under another title could precede this classification.",
+        "Published source on b-symbol-weight bounds inspected by abstract/context rather than every section; keep residual historical risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem handles ordinary cycle F_2(C_n), not F_2(C_n^2); no all-n fixed-weight three-read exact formula inferred",
+          "evidence": [
+            "arXiv:1606.06370, Theorem 1.3, exact ordinary-cycle token graph result."
+          ],
+          "identifier_or_url": "arxiv:1606.06370",
+          "material_read": "Full available arXiv HTML, definition and Theorem 1.3 for independence in F_2(C_n), not squared base cycle",
+          "method": "Public arXiv full-text inspection",
+          "title": "Independence and Matching Numbers of Some Token Graphs",
+          "trigger": "The graph reformulation becomes an independent set in F_2(C_n^2)"
+        },
+        {
+          "assessment": "Bounds for prescribed b-symbol weight are not a fixed Hamming-weight-two optimum",
+          "evidence": [
+            "arXiv:2504.10088 separates b-symbol weight and unconstrained code-size constraints."
+          ],
+          "identifier_or_url": "arxiv:2504.10088",
+          "material_read": "Accessible arXiv abstract/introduction and distinction of b-symbol weight vs binary Hamming weight",
+          "method": "Public arXiv search and abstract/full-context inspection",
+          "title": "Code Size Constraints in b-Symbol Read Channels: A Bound Analysis",
+          "trigger": "Direct b-symbol read size bounds, possibly stronger coverage of constant layer"
+        },
+        {
+          "assessment": "Linear-code constructions do not determine exact nonlinear constant-Hamming-weight-two maximum",
+          "evidence": [
+            "Yaakobi, Bruck, Siegel, IEEE TIT 2016."
+          ],
+          "identifier_or_url": "doi:10.1109/TIT.2016.2522434",
+          "material_read": "Accessible title, bibliographic metadata, abstract and mathematical setting; no assertion of full-document absence",
+          "method": "Public indexed journal/author-posted location review",
+          "title": "Constructions and Decoding of Cyclic Codes over b-Symbol Read Channels",
+          "trigger": "Basic cyclic three-symbol metric and families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines a natural exact constrained coding capacity at every length, with a sharp arithmetic obstruction (m/2 loss when n divisible by three) and constructive optimal configurations. Fixed-weight layers are relevant to constrained read-channel design; all lengths rather than an arbitrary small tabulation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1606.06370",
+    "arxiv:2504.10088",
+    "doi:10.1109/TIT.2016.2522434",
+    "Resultary semantic query: Maximum constant Hamming weight two binary cyclic three symbol read codes minimum distance six independent sets token graph square of cycle"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An equivalent graph-theoretic result for F_2(C_n²) under another title could precede this classification.",
+    "Verified finite calculations supplement rather than establish unrestricted theorem.",
+    "No GitHub write/import, independent external attestation, or global literature priority certification.",
+    "Publication withheld due to potentially public operational provenance in source metadata."
+  ],
+  "residual_risks": [
+    "An equivalent graph-theoretic result for F_2(C_n²) under another title could precede this classification.",
+    "Published source on b-symbol-weight bounds inspected by abstract/context rather than every section; keep residual historical risk."
+  ],
+  "schema_version": 1
+}
