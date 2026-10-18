@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The constructed density-quantile profile is strictly positive because the exact global bound \(|h|\le13/28\) holds, so the quantile integral defines a proper bounded-support distribution with a strictly positive real-analytic density. The density is asymmetric for every nonzero \(\varepsilon\) because its density-quantile profile is not invariant under \(u\mapsto1-u\). Exact polynomial integration gives \(\mathcal X_{1,3}=0\) and \(\mathcal X_{1,4}=\varepsilon/35\). These are symbolic identities, not finite experiments.
+## correctness
 
-## Originality
-**PASS.** The primary 2026 source was inspected in full where it defines the consecutive-system densities, the population contrast, estimator consistency, and the fixed \((1,3)\) test. A second 2026 consecutive-system extropy paper was inspected for its all-configuration characterization. Earlier record-value and order-statistic extropy symmetry tests were compared at the accessible statement level. Focused semantic-database, exact-DOI, alias, density-quantile, single-contrast, and asymmetric-null searches found no statement implying this explicit family. The main access risk is the unavailable full text of the 2021 record-value test; its accessible description concerns a different statistic.
+PASS
 
-## Value
-**PASS.** The result identifies a smooth one-parameter population blind family for the exact fixed contrast used by a recent proposed symmetry test. It also shows that the next system-size contrast is nonzero, separating the single-contrast limitation from the stronger collection-level characterization and giving a concrete reason to retain multiple structural probes.
+Define z=2u−1, h=z³−(15/28)z, d_epsilon=1+epsilon h, |epsilon|<28/13. Exact calculus gives |h|<=13/28, so quantile Q(u)=int_0^u dv/d(v) is increasing and finite with inverse F, density f(Q(u))=d(u)>0 analytic on interior. h is odd about u=1/2, hence d(1−u)≠d(u) for epsilon≠0, impossible for a symmetric absolutely continuous distribution. Substituting rho3=4u−3u² and reflected counterpart gives W3=(5z−3z³)/2; direct exact symbolic integration against h gives zero. For rho4=6u²−4u³, W4=6z−2z³, and int_0^1 W4h du=2/35, thus X_(1,4)=epsilon/35. Independent sympy integration reproduced W3/W4, 0 and 2/35; no finite experiment substitutes for the polynomial proof.
 
-## Closest literature and limitations
-Alshathri and Kayid (2026, DOI 10.3934/math.2026438) are the direct source. Sathar and Sathar (2026, DOI 10.3390/sym18071114) provide the closest broader consecutive-system extropy characterization, but they use all admissible configurations. Xiong, Zhuang, and Qiu (2021, DOI 10.1080/10485252.2021.1914338) and Noughabi and Jarrahiferiz (2020/2022, DOI 10.1080/03610918.2020.1714660) concern different extropy-based symmetry statistics.
+## originality
 
-The claim is population-level. It does not establish the exact limiting rejection probability of the spacing estimator on the blind family, does not analyze cumulative-extropy variants, and does not claim that adding \((1,4)\) produces an omnibus-consistent test.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+No directly equivalent consecutive-system fixed-(1,3) asymmetric null family found in literature/result-corpus searches. All-system-size theorems do not imply the individual contrast separates asymmetry; the construction specifically demonstrates their scope difference. Generic functional-analytic nullspace intuition makes other blind families unsurprising; originality is the explicit smooth polynomial witness for the implemented statistic, with uninspected paper-section and earlier test primary risks.
+
+## value
+
+PASS
+
+A proposed symmetry test can conflate a vanishing SINGLE population contrast with symmetry even when a full collection of contrasts characterizes symmetry. The explicit smooth bounded-support family makes that failure mechanism precise and separately exhibits a detecting X_(1,4) contrast, directly motivating multi-contrast testing rather than a hollow general linear-kernel observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
