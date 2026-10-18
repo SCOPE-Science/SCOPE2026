@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The full kernel follows exactly from three mutually orthogonal centered trigonometric generators and normalized area. The limiting Legendre kernel has sharp endpoint norm 1+12 sqrt(6)/25: a direct Cauchy--Schwarz margin covers |x|<=21/25; a strictly positive factored derivative covers 21/25<=|x|<=1. Uniform analytic convergence and simple-root continuation preserve both global maximizers for small h. Taylor expansion of the exact Gram kernel and exact negative-root integration give -387 sqrt(6)/21875 as the quadratic coefficient, with O(h^4) from even analytic dependence. The packaged script repeats exact symbolic identities and 25 finite checks; finite examples are corroboration only. Largest admissible aperture is not proved.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1811.09527 section 4, Theorem 4.1: Lebesgue function bounds O(log N) interior and O(sqrt N) globally for fixed extension length as bandwidth increases.",
+        "arXiv:1811.09527 section 4, Lemma 4.3: a general prolate reproducing kernel formula, not a globally optimized exact finite-bandwidth norm.",
+        "arXiv:1206.4111v3 sections 3.1/3.4: FE Gram condition estimates and exact map coefficient stability, not an L1/L-infinity norm expansion as aperture vanishes."
+      ],
+      "reasoning": "The 2018 results are broader in Fourier bandwidth but in a different asymptotic direction and do not state the small-aperture optimized two-term constant. A general kernel identity alone yields an integral optimization problem and does not logically identify the maximizing boundary, prove its robustness, or supply the evaluated quadratic defect.",
+      "searches": [
+        "Small-interval Fourier extension projection Lebesgue constant second order curvature perturbation Legendre quadratic; shrink interval as aperture tends to zero",
+        "Projection norm arc trigonometric polynomial degree one short interval asymptotic O(epsilon^2) Legendre kernel",
+        "2012 Fourier extension approximation nonperiodic functions arc orthogonal projection trigonometric polynomial frame condition numbers",
+        "trigonometric polynomial orthogonal projection short interval Lebesgue constant Legendre polynomial limit"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1206.4111",
+      "doi:10.1137/090752456",
+      "arxiv:1811.09527",
+      "Published mathematical-record searches using the six listed mathematical alias queries",
+      "Prior mathematical claims screened for substantive overlap with the small-arc trigonometric projection theorem"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Huybrechs 2010 sections 1,3,4 prove existence/convergence and analyze Gram and numerical conditioning; inspected source pages 4326–4329 and 4343–4347.",
+        "Adcock et al. 2012 arXiv full-text HTML sections 1,2.1.1 and 3.4 detail Fourier extension equivalences and stability, with no identified fixed-n/aperture-two-term norm theorem.",
+        "Webb et al. 2018 arXiv full-text HTML sections 1 and 4 derive Lebesgue-function bounds via a prolate kernel for growing bandwidth, whereas the claim derives a specific small-h optimizer and an exact Taylor coefficient.",
+        "The closest retrieved published cyclic three-frequency projector concerns a globally translation-invariant finite group and has no direct implication for nonorthogonal arc-restricted basis functions."
+      ],
+      "reasoning": "The earlier statements are either ingredients (kernel representation, Legendre limit), other regimes (bandwidth tends to infinity with extension parameter fixed), or other operator norms/measure spaces. None inspected yields the complete single claim by direct specialization. A plausible uncatalogued fixed-bandwidth formula is a residual risk.",
+      "searches": [
+        "Sharp L infinity operator norm for orthogonal least-squares projection onto span {1, sin t, cos t} over a short symmetric arc; 2.175755 Legendre limit and negative quadratic correction",
+        "Small-interval Fourier extension projection Lebesgue constant second order curvature perturbation Legendre quadratic; shrink interval as aperture tends to zero",
+        "Projection norm arc trigonometric polynomial degree one short interval asymptotic O(epsilon^2) Legendre kernel",
+        "Legendre polynomial projection n 2 exact Lebesgue constant 1 12 sqrt 6/25",
+        "Fourier extension Lebesgue constant small interval fixed degree endpoint norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fourier-extension space of bandwidth one is span{1,cos(pi x/T),sin(pi x/T)} on [-1,1], equivalent under t=pi x/T to the interval [-h,h] with h=pi/T.",
+        "The norm statement is equivalently 1+12 sqrt(6)/25-(387 sqrt(6) pi^2)/(21875 T^2)+O(T^-4) as T tends to infinity.",
+        "Huybrechs 2010 defines Fourier extension as least squares in a larger-period trigonometric space, SIAM JNA 47, section 1.",
+        "Adcock et al. arXiv:1206.4111v3 sections 1 and 2 set up continuous FE and polynomial transformation."
+      ],
+      "reasoning": "The rescaling is an exact unitary/isometric identification of Lp spaces with normalized measure. Search examined small-arc, short-interval, three-mode and fixed-bandwidth aliases, not just the selected title. No equivalent claim was found in the consulted published mathematical-record results.",
+      "searches": [
+        "Sharp L infinity operator norm for orthogonal least-squares projection onto span {1, sin t, cos t} over a short symmetric arc; 2.175755 Legendre limit and negative quadratic correction",
+        "Projection norm arc trigonometric polynomial degree one short interval asymptotic O(epsilon^2) Legendre kernel",
+        "degree one Fourier extension finite bandwidth short interval endpoint maximal Lebesgue function",
+        "\"1+12 sqrt(6)/25\" Legendre quadratic projection norm Lebesgue constant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record searches for the exact radical limiting constant and for the radical second-order coefficient returned related Johnson/Legendre/Fourier projection invariants but no matching continuous three-mode shrinking-arc formula.",
+        "The classical Legendre quadratic kernel provides the leading constant and may occur in other tables; the new claim depends on the nonzero aperture coefficient and sharp optimizer persistence."
+      ],
+      "reasoning": "A known leading Legendre norm, if tabulated, covers only the zero-aperture limit. An exact general Gram kernel is known but is not an evaluated table of the operator-norm correction. Absence from searched databases is not proof that no other publication contains the answer.",
+      "searches": [
+        "\"1+12 sqrt(6)/25\" Legendre quadratic projection norm Lebesgue constant",
+        "small aperture trigonometric orthogonal projection exact norm 387 sqrt(6)/21875 quadratic term",
+        "Legendre polynomial projection n 2 exact Lebesgue constant 1 12 sqrt 6/25"
+      ]
+    },
+    "rationale": "The central claim is the sharp global endpoint projection norm for fixed three trigonometric modes in the small-aperture regime, including strict endpoint localization and exact negative second-order defect. Full relevant sections of pre-2016 Fourier-extension stability work and the 2018 prolate-kernel/Lebesgue-function analysis were compared; the inspected results concern polynomial equivalences, Gram-condition growth and increasing bandwidth at fixed extension scale. None of the examined statements determines the optimized fixed-bandwidth small-aperture second coefficient without new sign-root and extremizer arguments. This is qualified by residual priority risk and is not an independent novelty certificate.",
+    "residual_risks": [
+      "A degree-one Fourier-extension Lebesgue-constant computation may be available in prior literature under a different name; a prior kernel identity alone is not evidence that the exact optimized correction was previously evaluated.",
+      "The 2018 prolate-kernel result applies to the same family and could facilitate rediscovery of the coefficient; full historical priority beyond inspected passages and searches remains uncertain.",
+      "The primary classification 41A10 treats the norm as an approximation-theory stability invariant; neighboring Fourier-analysis classifications exist, but this claim concerns the sharp least-squares approximation projector norm, not Fourier coefficient summability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the least-squares problem and matrix conditioning, not the claimed exact norm correction in a shrinking-aperture regime.",
+        "evidence": [
+          "SIAM J. Numer. Anal. 47 (2010), DOI:10.1137/090752456, pp.4326–4355.",
+          "Section 1 Problem 1.1 and section 4 Gram stability; original scanned/screened source."
+        ],
+        "identifier_or_url": "https://people.cs.kuleuven.be/~daan.huybrechs/research/sinum_fourierextension.pdf",
+        "material_read": "Original full-text PDF pages 4326–4329, 4343–4347, including setup, finite Gram matrix, and conditioning results; keyword searches over the 30-page parsed text for Lebesgue, projection and Appendix.",
+        "method": "Read text of relevant opening/technical sections and visually inspected the first page; examined section 4 Gram and conditioning theorems.",
+        "title": "On the Fourier Extension of Nonperiodic Functions",
+        "trigger": "Earliest relevant formulation of the continuous Fourier-extension least-squares operator and polynomial reduction."
+      },
+      {
+        "assessment": "Establishes general FE construction and conditioning bounds, but not sharp endpoint norm small-aperture asymptotics.",
+        "evidence": [
+          "arXiv:1206.4111, first submitted 2012-06-19, v3 HTML lines 70–110, 235–271 and 403–411, 535–546."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1206.4111v3",
+        "material_read": "Full-text HTML introduction and sections 2.1.1, 3.1 and 3.4, plus abstract and original v1 posting date.",
+        "method": "Read the paper sections containing setup, polynomial decomposition and condition-number theorems; inspected the v1 arXiv chronology.",
+        "title": "On the numerical stability of Fourier extensions",
+        "trigger": "Direct continuous FE formulation for interval-to-period parameter and numerical stability."
+      },
+      {
+        "assessment": "Theorems bound Lebesgue functions as Fourier bandwidth increases at fixed extension scale; the general prolate kernel does not state the fixed-three-mode sharp aperture expansion.",
+        "evidence": [
+          "arXiv:1811.09527, 2018-11-23 v1, section 4 Theorem 4.1 and Lemma 4.3, HTML lines 197–243, 268–329."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1811.09527",
+        "material_read": "Full-text HTML introduction, section 4 Theorem 4.1, Lemma 4.3, discussion of growing-bandwidth asymptotics and their proof.",
+        "method": "Read relevant theorem and proof passages in arXiv HTML.",
+        "title": "Pointwise and uniform convergence of Fourier extensions",
+        "trigger": "Closest global Lebesgue-function and reproducing-kernel study."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "078fe2a0-1265-4a9a-9e22-0a75c6439a66",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The three-mode continuous Fourier extension is the natural first nontrivial example of least-squares approximation by trigonometric functions beyond a physical interval. Its coefficient Gram condition degenerates as the arc collapses, but its function-space operator norm tends to a finite sharp Legendre constant. The exact negative second-order coefficient supplies a first quantitative curvature correction, while eventual extremizer uniqueness is necessary for sharp global sensitivity, distinguishing this from an arbitrary Taylor expansion of a pointwise kernel.",
+    "status": "PASS"
+  }
+}
