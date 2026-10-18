@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "For consecutive weight-two windows separated by t starts, their unordered two-one cyclic-distance labels differ by at most t-1, since changed positions are confined modulo k to an arc of t residues. Cyclic label variation must traverse both 1 and floor(k/2) twice, forcing 2(floor(k/2)-1) non-weight-two windows. The explicit alternating-complementary cyclic gap list contains each gap 1..k-1 and an extra k-1; each gap d has both neighbors at least k-d, giving every position of the two ones in a length-k window. Thus the two proved bounds follow for all k>=4. Direct finite construction and exhaustive k=3,4,5 optimum checks pass. The proof does not assert a general exact optimum.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sawada, Williams and Wong (2013), author PDF, introductory example and Theorem 1, prove universal cycles for the entire weight interval, including {1,2} when k>=2. Their construction yields length binom(k,2)+k in that specialization."
+      ],
+      "reasoning": "The interval-weight construction yields a valid but one-position-longer cyclic cover, and supplies no lower bound implying the sharp linear correction. King et al. provide fixed-weight s-overlap cycles using jumps of at least two, a distinct and longer host model.",
+      "searches": [
+        "Sawada Williams Wong \"Universal cycles for weight-range binary strings\" 2013 author full text",
+        "\"Universal Cycles for Weight-Range Binary Strings\" pdf Sawada Williams Wong",
+        "\"universal cycle\" \"fixed weight\" \"minimum\" \"overhead\" binary cyclic"
+      ]
+    },
+    "checked_sources": [
+      "King et al., arXiv:1405.5938v1 (primary full-text material inspected)",
+      "Sawada et al., DOI:10.1007/978-3-642-45278-9_33 (author-hosted full-text material inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sawada et al. guarantee an exactly weight-{1,2} universal cycle of length binom(k,2)+k, which implies only the weaker upper bound. King et al. prove overlap-cycle existence when overlap size is below k-1, which implies a host of much larger length in this model."
+      ],
+      "reasoning": "Neither result entails the lower bound binom(k,2)+2floor(k/2)-2 or the explicit length binom(k,2)+k-1 host. The second-order coefficient follows from the new cyclic label-variation lemma, rather than an application of the prior existence theorems.",
+      "searches": [
+        "Sawada et al. (2013) Theorem 1 and Section 3, 2013 university PDF",
+        "King et al. (2014) Section 3, arXiv:1405.5938v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "King et al. describe reduced-overlap cycles of weight-fixed words, not shortest unit-step cyclic covers with auxiliary windows (arXiv:1405.5938v1, pp. 2-3 and 11-12)."
+      ],
+      "reasoning": "The relevant equivalents are cyclic superstrings, partial de Bruijn sequences, and cyclic covering of all weight-two k-mers. Unlike a strict universal cycle, the host permits auxiliary windows and repeats; unlike an s-overlap cycle, all adjacent host windows advance by one symbol.",
+      "searches": [
+        "\"shortest\" \"cyclic\" \"weight\" \"de Bruijn\" \"two ones\"",
+        "\"constant-weight\" \"de Bruijn\" \"superstring\" shortest",
+        "\"fixed-weight\" \"binary words\" \"cyclic superstring\" universal",
+        "King et al., arXiv:1405.5938v1, Sections 1 and 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct full-text comparison with the published 2013 interval-weight construction and the 2014 fixed-weight overlap-cycle construction found no numerical table or exact bound for the auxiliary-window shortest cyclic weight-two cover."
+      ],
+      "reasoning": "No matching published table was identified in the inspected materials; this is a bounded statement about the inspected sources, not a claim that no table exists anywhere.",
+      "searches": [
+        "\"cover all\" \"constant-weight\" \"substrings\" \"cyclic\" \"length\"",
+        "\"weight two\" \"cyclic superstring\"",
+        "\"shortest\" \"weight two\" \"universal word\" substring"
+      ]
+    },
+    "rationale": "Against the two materially inspected primary full texts and bounded web and semantic result searches, the closest interval-weight construction yields a one-position-weaker upper bound while the fixed-weight overlap paper uses a different stride. Neither implies the new sharp linear lower-order term via cyclic variation; a prior unindexed equivalent remains possible.",
+    "residual_risks": [
+      "Searches cannot exclude an earlier exact cyclic-superstring result under other terminology.",
+      "The 2013 weight-range paper has earlier year-level publication evidence but its first publicly accessible day was not verified; the recorded anchor is the precisely dated 2014 arXiv posting."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different s-overlap model; does not cover optimal auxiliary-window unit-shift cyclic host.",
+        "evidence": [
+          "arXiv:1405.5938v1, posted 2014-05-23, Sections 1 and 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1405.5938",
+        "material_read": "Introduction pp. 1-3 and Section 3 pp. 11-12, including overlap definition and theorem context",
+        "method": "Full open-access arXiv PDF text and page image inspection",
+        "title": "Universal and Overlap Cycles for Posets, Words, and Juggling Patterns",
+        "trigger": "Fixed-weight word cycles appear closely related to the required windows"
+      },
+      {
+        "assessment": "One more character for interval {1,2}; no sharp necessary overhead or auxiliary-window optimization found.",
+        "evidence": [
+          "Sawada, Williams, Wong (2013), DOI:10.1007/978-3-642-45278-9_33"
+        ],
+        "identifier_or_url": "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+        "material_read": "Full-text introduction and Sections 2-4; in particular Theorem 1 and 2-weight example",
+        "method": "Author-hosted lawful open PDF, direct text inspection",
+        "title": "Universal cycles for weight-range binary strings",
+        "trigger": "Its interval {1,2} contains every required weight-two word"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6fa44afd-c48a-43cb-b0bc-a0a0892965a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sparse weight-two k-mers form a canonical motif family for constrained de Bruijn covering and binary substring indexing. Pure fixed-weight universal cycles are obstructed, while full weight-{1,2} universal cycles spend k auxiliary windows. The bounds determine the optimal sharp linear correction to the main binomial term up to an absolute constant of at most three, and give an explicit host one character shorter than the natural weight-interval construction. This is a structural infinite-family result, not a routine restatement of existing existence theorems.",
+    "status": "PASS"
+  }
+}
