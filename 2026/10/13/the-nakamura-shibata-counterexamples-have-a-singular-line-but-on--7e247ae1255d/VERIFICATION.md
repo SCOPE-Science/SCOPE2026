@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The initiating full text was checked at the construction and proof of its main theorem. The verified source facts are:
+# Independent mathematical audit
 
-- \(Y\) is a normal Gorenstein affine cone over an elliptic curve;
-- \(\widetilde Y\) is smooth and \(\widetilde Y\to Y\) is an isomorphism outside the cone vertex;
-- \(\operatorname{mld}_{0_Y}(Y)=0\);
-- the cyclic action on \(\widetilde Y\) is free;
-- the diagonal action on \(Y\times\mathbf A^1\) is virtually free;
-- virtually free quotients preserve closed-point minimal log discrepancies;
-- the distinguished origin of \(X_m\) has closed-point mld \(1\) and canonical index exactly \(m\);
-- that origin is log canonical but not klt.
+## correctness
 
-For a nonidentity group element, no point of \(Y\setminus\{0_Y\}\) can be fixed because its unique lift would be a fixed point of the free action on \(\widetilde Y\). Over \(0_Y\), a point with \(t\ne0\) cannot be fixed because the second coordinate is multiplied by a nontrivial root of unity. Thus the quotient is étale away from \((0_Y,0)\).
+PASS
 
-Because \(\operatorname{Sing}(Y)=\{0_Y\}\), the product has singular locus \(\{0_Y\}\times\mathbf A^1\). Étale locality of regularity gives its image as the singular locus of \(X_m\). The quotient of the invariant line has coordinate ring
-\[
-k[t]^{\mathbf Z/m\mathbf Z}=k[t^m],
-\]
-so the image is an affine line.
+The source establishes Y normal Gorenstein, its smooth resolution away from vertex and the free torsion-translation action on the resolution. Thus on Y\{0} stabilizers vanish; at vertex t≠0 the nontrivial scalar action on t eliminates stabilizers. The diagonal quotient is consequently étale away from (vertex,0). Its vertex line has invariant coordinate ring k[t]^G=k[t^m]≅k[u], so image is a single affine line. Étale local singularity and Cartier-index properties show this line is singular and Gorenstein off its origin while complement is smooth; source proves index m at origin. The source virtually free quotient mld theorem plus product with smooth A1 gives mld 0+1=1 at every line point, while smooth dimension-three points have mld3. Non-klt exactly along the line by cone discrepancy -1, étale descent and source origin non-klt. No finite numerical experiment substitutes for the all-m argument.
 
-At any point of this line, virtual-freeness preservation gives
-\[
-\operatorname{mld}=\operatorname{mld}_{0_Y}(Y)+\operatorname{mld}_{t}(\mathbf A^1)=0+1=1.
-\]
-Outside it, \(X_m\) is a smooth threefold, hence the closed-point mld is \(3\).
+## originality
 
-The product \(Y\times\mathbf A^1\) is Gorenstein. Since the quotient is étale outside the distinguished origin, \(X_m\) is Gorenstein there; the initiating theorem gives index exactly \(m\) at the origin. Along the punctured singular line the étale-local model is the non-klt cone vertex times a smooth curve, while the initiating paper proves the origin itself is non-klt. Hence the non-klt locus equals the singular line.
+PASS
 
-The verification uses no finite sampling or computational extrapolation. The limits are explicit: the result is not a theorem about arbitrary quotient singularities, and the mld values are closed-point values.
+The initiating Nakamura–Shibata Theorem 3.2 computes only the distinguished origin mld=1 and index=m and develops virtual freeness. Its Example 3.1/resolution provides ingredients but does not state complete singular and non-klt loci, all closed-point mlds, or isolated index jump. The authors’ related virtually-free work addresses general quotient mld, not this complete threefold stratum. No directly covering separate classification appeared in searches; best-of-knowledge with explicit implication risk.
+
+## value
+
+PASS
+
+The natural complete pointwise stratification distinguishes a one-dimensional non-klt singular locus from the isolated non-Gorenstein index jump, while closed-point mld is constant on the singular line. These are motivated geometric invariants explaining the counterexample mechanism and serve as a precise local/global reference for the original threefold, not an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Nakamura--Shibata prove that the elliptic cone \(Y\) is Gorenstein, that its smooth equivariant resolution is an isomorphism away from the vertex, that \(\operatorname{mld}_{0_Y}(Y)=0\), that the lifted cyclic action is free, that the product action is virtually free, and that the origin of \(X_m\) has closed-point mld \(1\) and canonical index exactly \(m\). For \(m\ge2\), the diagonal action has no stabilizer away from \((0_Y,0)\), so the quotient is étale there. This makes regularity and Gorensteinness identical to those of \(Y\times\mathbf A^1\) away from the origin. Hence the singular locus is exactly the image of the vertex line and every non-origin point is Gorenstein. The invariant ring of the vertex line is \(k[t^m]\), giving \(\Sigma_m\simeq\mathbf A^1\). Virtual-freeness preservation and the smooth-factor product formula give closed-point mld \(1\) on \(\Sigma_m\); off it the threefold is smooth and has mld \(3\). The same étale-local product description shows the punctured line is non-klt, while the source proves the origin is non-klt and the complement is smooth.
+## correctness
 
-## Originality
-PASS. The initiating theorem states only the two invariants at the distinguished origin. Its proof contains the ingredients for, but does not state, the global singular/non-klt/Gorenstein stratification or the pointwise mld and index functions. The same-authors companion paper gives general virtual-freeness machinery but predates the arbitrary-index family. Exact-source, alias, singular-locus, Gorenstein-locus, punctured-line, and constant-mld/index-jump searches found no implication-equivalent published statement. Closest indexed results concern different singularities and invariants.
+PASS
 
-## Value
-PASS. The result turns the counterexample into a sharper geometric picture: an entire irreducible non-klt singular line has the same closed-point mld \(1\), yet the canonical index is \(1\) at every punctured point and jumps to arbitrary value \(m\) only at the origin. This directly clarifies how the index conjecture fails and separates four natural singularity-theoretic stratifications on the same example. The statement is structural rather than a one-off arithmetic calculation.
+The source establishes Y normal Gorenstein, its smooth resolution away from vertex and the free torsion-translation action on the resolution. Thus on Y\{0} stabilizers vanish; at vertex t≠0 the nontrivial scalar action on t eliminates stabilizers. The diagonal quotient is consequently étale away from (vertex,0). Its vertex line has invariant coordinate ring k[t]^G=k[t^m]≅k[u], so image is a single affine line. Étale local singularity and Cartier-index properties show this line is singular and Gorenstein off its origin while complement is smooth; source proves index m at origin. The source virtually free quotient mld theorem plus product with smooth A1 gives mld 0+1=1 at every line point, while smooth dimension-three points have mld3. Non-klt exactly along the line by cone discrepancy -1, étale descent and source origin non-klt. No finite numerical experiment substitutes for the all-m argument.
 
-The claim is restricted to this explicit family and to closed-point minimal log discrepancies; it makes no general semicontinuity assertion for canonical indices.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The initiating Nakamura–Shibata Theorem 3.2 computes only the distinguished origin mld=1 and index=m and develops virtual freeness. Its Example 3.1/resolution provides ingredients but does not state complete singular and non-klt loci, all closed-point mlds, or isolated index jump. The authors’ related virtually-free work addresses general quotient mld, not this complete threefold stratum. No directly covering separate classification appeared in searches; best-of-knowledge with explicit implication risk.
+
+## value
+
+PASS
+
+The natural complete pointwise stratification distinguishes a one-dimensional non-klt singular locus from the isolated non-Gorenstein index jump, while closed-point mld is constant on the singular line. These are motivated geometric invariants explaining the counterexample mechanism and serve as a precise local/global reference for the original threefold, not an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
