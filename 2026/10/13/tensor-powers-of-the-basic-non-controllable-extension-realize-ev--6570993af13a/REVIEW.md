@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For the fork path algebra \(A\) and the fused subalgebra \(B\), direct balancing gives a nine-dimensional \(A\otimes_BA\). The multiplication kernel has the explicit decomposition
-\[
-Ae_2\otimes e_3A\oplus Ae_3\otimes e_2A,
-\]
-so it is ordinary \(A^e\)-projective. The \(B^e\)-split relative bar sequence therefore gives \(\operatorname{pd}_{(A^e,B^e)}A\le1\); the published equality \(\operatorname{gldim}(A,B)=1\) and the standard inequality in the source force equality. Repeated use of Theorem 4.9 supplies a tensor-power module of relative projective dimension \(r\), while Corollary 4.10 supplies the matching upper bound \(r\). Finally, separability of \(A/J(A)\cong k^3\) and \(B/J(B)\cong k^2\) gives \(A_rJ(B_r)=J(A_r)\) by the tensor-radical formula.
+## correctness
 
-## Originality
-PASS. The closest source explicitly leaves the positive-gap realization under the condition \(AJ(B)\triangleleft A\) open in Remark 5.6. Its existing \(A_n,B_n\) family realizes all positive gaps without establishing that ideal condition. The source's tensor additivity theorem applies to homologically controllable extensions and therefore does not cover its non-controllable Example 5.1. The new regular-bimodule computation makes the weaker global upper bound sharp after tensoring. Targeted published-finding corpus and web searches returned no equivalent ideal-gap tensor-power statement.
+PASS
 
-## Value
-PASS. The claim addresses an explicit open realization problem in the motivating September 2026 paper. It gives a uniform construction for every positive integer, not isolated low-dimensional examples, and identifies a structural mechanism—ordinary projectivity of the first relative bar kernel—that explains why tensor powers of the simplest non-controllable example remain exactly computable.
+Using the actual five-dimensional quiver algebra A=k(1→2,1→3) and 3-dimensional subalgebra B=⟨e1,e2+e3,α+β⟩, reconstructed the balanced tensor quotient A⊗_B A of dimension 9: balancing relations rank 16 in A⊗_k A of dimension 25. The multiplication kernel has four independent classes and splits into the two ordinary projective A^e-modules Ae2⊗e3A and Ae3⊗e2A (dimension 2 each). The B-bimodule section a↦1⊗a gives a relatively split projective length-one resolution, yielding relative bimodule pd(A)=1 from base relative gldim(A,B)=1. With the cited tensor relative-dimension theorems, obtains r≤gldim(A_r,B_r)≤r. Separability of semisimple quotients permits J(B^⊗r) and J(A^⊗r) radical formulas, proving A_rJ(B_r)=J(A_r) and quotient k^{3^r}. This is an infinite symbolic proof; only the base 25-dimensional calculation was checked finitely. The external tensor theorem hypotheses under char≠2 are essential.
 
-## Closest literature and limitations
-The direct source is arXiv:2609.31642v1, especially Example 5.1, Theorem 4.9, Corollary 4.10, Proposition 5.5, and Remark 5.6. Primolan's 2023 dissertation contains the base example and earlier relative tensor material but not, in the inspected material, the decisive regular-bimodule calculation or the all-positive family with \(AJ(B)\triangleleft A\). The characteristic-\(2\) case and the negative-gap question are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The motivating 2026 source already constructs non-controllable examples with arbitrary gap, but Proposition 5.5 and Remark 5.6 distinguish the stronger missing AJ(B)-ideal restriction. The exact base regular-bimodule pd calculation makes the source tensor results yield the all-r ideal-preserving family; this stronger constraint is not settled by the cited bare gap theorem. Source article full text was inaccessible; originality remains best-of-knowledge, not a categorical full-text exclusion.
+
+## value
+
+PASS
+
+The family supplies every positive gap in the specifically open ideal-preserving non-controllable regime, using one uniform quiver extension and tensor amplification; it gives a structural parameter-wide answer rather than another individual example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
