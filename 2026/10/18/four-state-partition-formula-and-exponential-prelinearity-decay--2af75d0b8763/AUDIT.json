@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md: proof of edge-point criterion, tree recursion and Perron rate",
+      "verify.py: VERIFY_OK graphs=84 independent_pairs=2490828 adjunction_graphs=11 tree_recursions=11 path_recurrence_to=15"
+    ],
+    "rationale": "Each upset is determined by its maximal-vertex trace and arbitrary eligible induced edge points; this yields \\(Z(G)\\). Heyting implication on the principal upset of an edge point fails in both directions exactly when its endpoint vertex states are the opposing pure states \\(10\\) and \\(01\\), yielding matrix \\(W\\). The forest recursion is ordinary tree factorization. The characteristic-polynomial recurrence follows from the eigenvector orthogonal to the boundary vector, and strict primitive-matrix Perron monotonicity proves exponential decay. The standalone Python program replays independent brute-force implication checks for 84 graph instances and 2,490,828 ordered pairs; 11 small graphs were checked using the defining adjunction. These finite checks corroborate but do not replace the arbitrary-graph proof.",
+    "residual_risks": [
+      "Verification beyond the finite tests depends on the fully stated combinatorial and spectral proof, not the test coverage."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Prior finite-Heyting degree-of-satisfiability results cover classical principles and general gap questions, but do not give this parameterized graph family partition formula.",
+        "The separately compared published weak-order prelinearity spectrum concerns posets formed by ordinal sums of antichains and does not enumerate arbitrary dual graph-incidence posets.",
+        "The separately compared height-two negation-output inversion theorem reconstructs a frame from indexed negation probabilities; it does not give a prelinearity degree, a four-state graph formula, or spectral decay."
+      ],
+      "reasoning": "The class of all graph-incidence posets is a concrete non-linear height-two frame family. A general reconstruction algorithm for another invariant could in principle recover the frame and permit brute-force counting, but this does not contain the explicit closed graph partition identity, tree recursion, or path spectral theorem. The weak-order formula covers only the occasional overlap (such as one edge), not the full family.",
+      "searches": [
+        "finite Heyting algebra prelinearity count graph edges upper sets incidence posets exact probability",
+        "prelinearity satisfaction probability Heyting algebra height-two graph incidence poset weighted independent set transfer matrix four states",
+        "prelinearity probability finite Heyting algebras poset graph"
+      ]
+    },
+    "checked_sources": [
+      {
+        "comparison": "Establishes foundational degree notion and classical-principle gap results, not the exact graph-incidence prelinearity numerator.",
+        "identifier": "arxiv:2110.11515",
+        "title": "Degree of Satisfiability in Heyting Algebras"
+      },
+      {
+        "comparison": "Provides related Gödel–Dummett semantics on linear frames rather than incidence-graph probabilities.",
+        "identifier": "arxiv:2308.04518",
+        "title": "A Kripke Semantics for Hajek's BL"
+      },
+      {
+        "comparison": "Defines opposite incidence order and studies order dimension, not the logical spin representation.",
+        "identifier": "arxiv:1308.2471",
+        "title": "Incidence Posets and Cover Graphs"
+      },
+      {
+        "comparison": "Only ordinal sums of antichains; cannot directly supply the arbitrary dual graph-incidence expression.",
+        "identifier": "related mathematical result (statement compared)",
+        "title": "Exact local-versus-global prelinearity spectrum on layered intuitionistic frames"
+      },
+      {
+        "comparison": "Distinct negation-output invariant and inverse reconstruction, without prelinearity law or path spectral asymptotics.",
+        "identifier": "related mathematical result (statement compared)",
+        "title": "Negation-output frequencies reconstruct finite height-two intuitionistic frames"
+      },
+      {
+        "comparison": "Homotopy classification of finite posets, not counting two-variable Heyting implications.",
+        "identifier": "published graph-incidence homotopy theorem",
+        "title": "Graph 2-cores classify Stong cores of incidence posets"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bumpus–Kocsis supplies the definition and background for the probabilistic invariant, not the present exact graph-indexed evaluation.",
+        "Lewis-Smith provides related semantic context on linearly ordered frames, not spin partition functions on arbitrary finite graphs.",
+        "Trotter–Wang uses the reverse incidence order and studies order dimension/chromatic properties, not Heyting prelinearity.",
+        "The published graph-2-core theorem concerns homotopy of finite spaces, not the truth-set pairing or the weighted four-state partition function."
+      ],
+      "reasoning": "The present theorem computes a two-variable logical satisfaction degree for every graph-incidence frame, realizes it as a four-state partition function, and proves the precise exponentially decaying path regime. Each closest statement addresses a different invariant, graph class, orientation, or level of generality; none yields all three conclusions as a direct corollary.",
+      "searches": [
+        "arXiv:2110.11515 §§1–3: implication satisfaction, excluded-middle, Peirce, material implication",
+        "arXiv:2308.04518: Gödel–Dummett prelinearity, linear Kripke frames, semantic completeness",
+        "arXiv:1308.2471: graph incidence posets, cover graphs, order dimension",
+        "Published result: Graph 2-cores classify Stong cores of incidence posets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The prelinearity test at one edge-point is equivalent to forbidding a pair of opposite pure endpoint membership states; the resulting matrix has just two zero entries.",
+        "Bumpus and Kocsis (arXiv:2110.11515), §§1–3 and related sections, analyze finite Heyting satisfaction-degree principles but do not state this graph-spin representation.",
+        "Lewis-Smith (arXiv:2308.04518), in its Kripke semantics discussion, studies Gödel–Dummett prelinearity rather than pairs of random upsets of non-linear graph-incidence frames."
+      ],
+      "reasoning": "Equivalent forms sought include four-color graph-homomorphism partition functions with weighted edges, transfer-matrix evaluations, finite Kripke-frame prelinearity degrees, and direct paired-upset counts. None of the inspected source statements entails the explicit matrix and path decay together. Negative searches alone are not treated as a proof of originality.",
+      "searches": [
+        "Gödel Dummett prelinearity formula on incidence posets of graphs exact satisfaction probability",
+        "finite Heyting algebra local prelinearity path incidence frame exponential decay transfer matrix",
+        "intuitionistic prelinearity satisfiability degree finite Heyting algebra Kripke graph incidence",
+        "Gödel Dummett prelinearity probability finite Heyting algebras poset graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact relevant published table of the path numerators \\(4,23,147,952,6177\\) or the cubic characteristic polynomial was identified.",
+        "The program checked direct ordered-upset counts separately from the proposed matrices for 84 graph instances, including every graph on at most four vertices."
+      ],
+      "reasoning": "A matched table would cover a finite prefix, not by itself the graph-general matrix identity and all-length path decay. Absence of a table hit is weak negative evidence only; residual equation/name alias risk remains.",
+      "searches": [
+        "4 23 147 952 6177 prelinearity count graph path upsets",
+        "finite Heyting algebra local prelinearity path incidence frame exponential decay transfer matrix",
+        "Gödel Dummett prelinearity probability finite Heyting algebras poset graph"
+      ]
+    },
+    "rationale": "Statement-level comparisons to original satisfiability-degree work, Gödel–Dummett linear-frame semantics, incidence-poset structural literature, and related published counts show distinct hypotheses and conclusions. The present general four-state graph-partition identity and path decay rate are not contained in the inspected statements, including previous weak-order prelinearity results and height-two negation inversion. Search failures are not proof of novelty; an independently complete literature priority audit is not claimed.",
+    "residual_risks": [
+      "An equivalent 4-state spin/graph-homomorphism formulation could have been published under another name and not retrieved.",
+      "Exhaustive statement-by-statement inspection of all graph polynomial and finite algebra literatures was not possible; publication priority requires independent expert verification.",
+      "Reconstruction of a height-two frame from a different invariant indirectly enables brute-force evaluation of any formula, but does not imply the evaluated four-spin identity and all-path asymptotic."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BACKGROUND_NOT_COVERING_THE_SPECIFIC_GRAPH_IDENTITY",
+        "evidence": "The paper develops gap and satisfaction-degree properties of classical principles; the inspected statements do not enumerate dual graph-incidence frame prelinearity via a four-state matrix or provide path spectral asymptotics.",
+        "identifier_or_url": "https://arxiv.org/pdf/2110.11515",
+        "material_read": "Primary full-text PDF, introduction and definitions, results on classical principles in §§1–3, and concluding discussion relevant to scope.",
+        "method": "Original open-access arXiv text inspected, including statement-level comparisons of the binary principles and an in-document search for prelinearity.",
+        "title": "Degree of Satisfiability in Heyting Algebras",
+        "trigger": "Direct origin of the finite Heyting satisfiability-degree notion and nearby two-variable logical principles."
+      },
+      {
+        "assessment": "SEMANTIC_CONTEXT_NOT_COVERING_THE_COUNTING_THEOREM",
+        "evidence": "The paper supplies a semantics for BL and its Gödel–Dummett specialization, but does not formulate exact random-upset probabilities for graph-incidence height-two frames.",
+        "identifier_or_url": "https://arxiv.org/pdf/2308.04518",
+        "material_read": "Primary full-text PDF, definitions and frame/semantic completeness discussions including the treatment of Gödel–Dummett linearly ordered Kripke frames.",
+        "method": "Original open-access arXiv text inspected, checking hypotheses and conclusions on the linear-frame semantics.",
+        "title": "A Kripke Semantics for Hajek's BL",
+        "trigger": "Logical prelinearity and Gödel–Dummett interpretation are directly relevant to the equation."
+      },
+      {
+        "assessment": "SAME_OBJECT_DUAL_ORIENTATION_DIFFERENT_INVARIANT",
+        "evidence": "This standard incidence poset has vertices below edge elements; it proves order dimension and cover graph results, not probability of Heyting prelinearity.",
+        "identifier_or_url": "https://arxiv.org/pdf/1308.2471",
+        "material_read": "Primary full-text PDF, introduction and incidence-poset definition and relevant preliminary statement, with supporting scan of scope.",
+        "method": "Open-access arXiv PDF text and first-page image inspected; mathematical invariant and order convention directly compared.",
+        "title": "Incidence Posets and Cover Graphs",
+        "trigger": "Same graph-to-poset construction, where poset orientation and prior graph structural theorems could dominate."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2af75d0b-8763-4923-ae9f-e33743ab1de4",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "Four-state factorization for all finite graphs",
+      "O(|V|) forest dynamic program",
+      "Cubic path sequence and strictly subunit spectral ratio for bounded-height examples"
+    ],
+    "rationale": "The two-variable prelinearity degree is a natural, logically motivated invariant of finite intuitionistic frames. The theorem replaces exponential enumeration of pairs of upsets by a graph partition function, yields a linear arithmetic-operation recursion for all forests, and exhibits an exact Perron-rate separation where local prelinearity almost surely fails on a height-two family of bounded local branching. The structural graph-family formula and nontrivial asymptotic regime provide interpretable mathematics beyond isolated small cases, a straightforward renaming, or a table lookup.",
+    "residual_risks": [
+      "Other graph families need not share the path rate or asymptotic behavior."
+    ],
+    "status": "PASS"
+  }
+}
