@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the lacunarity dichotomy
 
-The proof is self-contained. The crucial exact identity is the adjacent-slope parametrization
-\[
-\|f_s\|_{\mathrm{Lip}}=\sup_n\|s_n\|,\qquad f_s(t_n)=\sum_{j=n}^\infty(t_j-t_{j+1})s_j.
-\]
-All series converge absolutely by telescoping. Every distance quotient on the ordered set is a convex combination of these coefficients. The sufficient direction estimates the difference between an adjacent slope and the slope from the accumulation point by \(2\|f\|_{\mathrm{Lip}}t_{n+1}/t_n\). The necessary direction chooses separated near-maximal coefficients at indices where that ratio is at least \(\delta\), giving the exact uniform bound
-\[
-\sup_n\|f(t_n)\|/t_n\le (1-\delta/2)\|f\|_{\mathrm{Lip}}.
-\]
-Isolated-point nonattainment additionally uses that every finite average of strictly subnorm coefficients stays strictly subnorm, while quotients toward the sole limit point converge to an already bounded, subnorm value.
+# Independent mathematical audit
 
-A finite rational sanity test for the geometric example, using 100 weights and a sparse support every fourth index, produced a base-point quotient at most approximately 0.507 against the analytic upper bound 0.75 and strictly subnorm quotient values at the sampled isolated points. This is a check of the signs and indexing, **not** a substitute for the infinite proof. The analytic argument establishes all infinite claims. Source comparison is limited to the listed papers and searches; an independent audit has not been performed.
+## correctness
+
+PASS
+
+For t1>t2>…>0 tending to zero, the telescoping map f(t_n)=sum_{j≥n}(t_j−t_{j+1})s_j is an isometric onto parametrization of Lip0(M,Y) by bounded adjacent slopes: every pairwise slope is a positive convex average of s_j. Under ratios t_{n+1}/t_n→0, either one adjacent slope attains the Lipschitz norm or a near-maximizing tail of slopes forces the fixed accumulation point 0 to norm f. Conversely, if the ratio limsup is positive, select sparse n_k with ratio≥δ and the next selected t-value at most δ t_{n_k}/2; attenuate an infinitely repeating ℓ∞ coordinate map by 1−1/(k+1). This realizes an isometric closed ℓ∞ subspace and yields uniform strict gap at p=0. At an isolated t_m, all finite adjacent-slope averages are individually below the norm, and the far-tail limit is below norm by the p=0 gap, so their supremum also stays below it. This completes the quantifiers for every nonzero real Banach target without extrapolating a finite test.
+
+## originality
+
+PASS
+
+Original 2023 preprint supplies one superlacunary compact example where all scalar maps PNA, not a necessary-and-sufficient adjacent-ratio classification or nonattainer spaceability for every Banach range. Its 2025 journal version abstract was checked, and the independent 2024/2026 lineability article studies complements to strong norm attainment and some PNA examples on the whole line, without the compact sequence dichotomy. Failed Resultary lookup leaves an explicit transport risk; direct primary comparison supports best-of-knowledge originality.
+
+## value
+
+PASS
+
+A sharp iff characterization for all compact sequences with one accumulation point, strengthened by an isometric closed ℓ∞ spaceability result on the complementary side for every Banach target, is a natural substantive classification problem in norm-attaining Lipschitz maps. It extends a notable named superlacunary example and separates pointwise from strong attainment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

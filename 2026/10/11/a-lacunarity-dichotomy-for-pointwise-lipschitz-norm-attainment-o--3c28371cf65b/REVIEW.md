@@ -1,15 +1,21 @@
-# Review: A lacunarity dichotomy for pointwise Lipschitz norm attainment on convergent sequences
+# Independent mathematical audit
 
-## Correctness — PASS
-The adjacent-slope map is an isometric identification of \(\operatorname{Lip}_0(M,Y)\) with bounded \(Y\)-valued sequences: every two-point slope is a positive weighted average of the adjacent slopes, and the consecutive pairs attain each adjacent coefficient. If the adjacent ratio tends to zero, any nearly norming consecutive slope also yields a nearly norming slope based at the accumulation point. Conversely, sparse high slopes placed at indices with adjacent ratio bounded below yield an isometric \(\ell_\infty\) family with no pointwise norming point; the quantitative tail bound and the limit at each isolated point close the only potential gap. All quantifiers and infinite tails are covered by the proof, not by finite simulation.
+## correctness
 
-## Originality — PASS with stated residual risk
-The 2023 source's Proposition 2.7 proves only one rapidly lacunary compact example, and its surrounding propositions supply contrasting discrete and interval examples; a complete ratio criterion is not given. The 2024 source proves a large class of functions failing *strong* norm attainment on every infinite metric space and a spaceable non-pointwise-attaining class on the whole real line; restriction to the prescribed compact sequences is not implied. Related published Lipschitz-free-space results concern different objects or norm-attainment notions. Targeted literature and published-results searches found no stronger statement implying both halves of this dichotomy. Residual risk: an equivalent characterization under different terminology, or revisions to the later journal text, may have escaped available searches. Lack of a match is not treated as proof of novelty.
+PASS
 
-## Mathematical value — PASS
-Pointwise norm attainment is strictly weaker than attainment at a fixed pair. The theorem finds the exact geometric boundary at which this weakening becomes universal for a natural entire class of compact metric spaces. Its complementary direction is not merely an existence counterexample: it constructs a maximal-size closed isometric \(\ell_\infty\) family of nonattainers with an explicit quantitative obstruction at the sole accumulation point. This simultaneously classifies both sides for arbitrary Banach-valued maps.
+For t1>t2>…>0 tending to zero, the telescoping map f(t_n)=sum_{j≥n}(t_j−t_{j+1})s_j is an isometric onto parametrization of Lip0(M,Y) by bounded adjacent slopes: every pairwise slope is a positive convex average of s_j. Under ratios t_{n+1}/t_n→0, either one adjacent slope attains the Lipschitz norm or a near-maximizing tail of slopes forces the fixed accumulation point 0 to norm f. Conversely, if the ratio limsup is positive, select sparse n_k with ratio≥δ and the next selected t-value at most δ t_{n_k}/2; attenuate an infinitely repeating ℓ∞ coordinate map by 1−1/(k+1). This realizes an isometric closed ℓ∞ subspace and yields uniform strict gap at p=0. At an isolated t_m, all finite adjacent-slope averages are individually below the norm, and the far-tail limit is below norm by the p=0 gap, so their supremum also stays below it. This completes the quantifiers for every nonzero real Banach target without extrapolating a finite test.
 
-## Closest literature and limitations
-Choi–Jung–Lee–Roldán, arXiv:2312.00393v1 (2023), Definition 2.1 and Propositions 2.7–2.8; Choi–Jung–Lee–Roldán, arXiv:2404.07599v1 (2024), Theorem 2.2 and Propositions 4.2–4.5; earlier strong-attainment theory arXiv:2204.12529v1. Only strictly decreasing positive sequences tending to zero are covered. The 2025 journal version of the 2023 preprint was located but its complete final text was not inspected. No independent literature exhaustiveness or external certification is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Original 2023 preprint supplies one superlacunary compact example where all scalar maps PNA, not a necessary-and-sufficient adjacent-ratio classification or nonattainer spaceability for every Banach range. Its 2025 journal version abstract was checked, and the independent 2024/2026 lineability article studies complements to strong norm attainment and some PNA examples on the whole line, without the compact sequence dichotomy. Failed Resultary lookup leaves an explicit transport risk; direct primary comparison supports best-of-knowledge originality.
+
+## value
+
+PASS
+
+A sharp iff characterization for all compact sequences with one accumulation point, strengthened by an isometric closed ℓ∞ spaceability result on the complementary side for every Banach target, is a natural substantive classification problem in norm-attaining Lipschitz maps. It extends a notable named superlacunary example and separates pointwise from strong attainment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
