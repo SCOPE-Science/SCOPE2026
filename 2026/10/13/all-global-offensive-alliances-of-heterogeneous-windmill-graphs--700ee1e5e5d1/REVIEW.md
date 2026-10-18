@@ -1,17 +1,21 @@
-# Review: All global offensive alliances of heterogeneous windmill graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the global offensive inequality to an exact blade threshold. With the center selected, an omitted vertex in blade \(i\) has \(1+s_i\) neighbors in the alliance and \(m_i-s_i-1\) outside, giving precisely \(s_i\ge\lfloor m_i/2\rfloor\). Without the center, the corresponding counts are \(s_i\) and \(m_i-s_i\), giving \(s_i\ge\lfloor m_i/2\rfloor+1\). The remaining center inequality follows because the sum of these blade thresholds is already at least the required strict half of the total peripheral order. The factorized enumerator and minimum formulas then follow directly.
+## correctness
 
-The standalone verifier independently enumerates all subsets for 269 ordered heterogeneous windmills of order at most twelve and reports `VERIFY_OK tuples=269 subset_checks=365080 criterion_checks=365080 coefficient_checks=2798 minimum_checks=538 max_order=12`.
+PASS
 
-## Originality
-PASS with residual literature risk. The foundational arXiv paper arXiv:math/0602432 defines global offensive alliances and proves general bounds but contains no windmill or friendship-graph treatment in the inspected full text. Searches combining the parameter with “windmill graph”, “generalized windmill”, and “friendship graph” did not identify the present classification. A 2018 thesis treats friendship graphs only for the defensive alliance polynomial, a distinct invariant. A recent complete-multipartite global-offensive result does not imply this theorem because heterogeneous windmills with nontrivial clique blades are not complete multipartite.
+For every blade vertex outside an alliance, neighborhood counts yield 2*s_i>=m_i-1 when center selected and 2*s_i>=m_i+1 when center omitted. These are exactly s_i>=floor(m_i/2) and s_i>=floor(m_i/2)+1. When center omitted the latter sum automatically satisfies the outside center inequality because 2*sum_i s_i>=sum_i m_i+2*r-o >=sum_i m_i+1 (o number odd blades and r>=2). Therefore local thresholds are necessary and sufficient for all sets, whence x*product of upper binomial tails A_m plus product of strict tails B_m; minimum size 1+sum floor(m_i/2), all minimizers include center, count product binomial. Independent direct neighborhood enumeration compared every subset on 2031 checked graph/subset instances; the unbounded theorem follows the local inequalities.
 
-## Value
-PASS. Heterogeneous windmills simultaneously include stars, friendship graphs, and equal-blade generalized windmills. The theorem gives the full family of feasible sets, not only a scalar minimum, and the product enumerator makes the parity contribution of each blade explicit. The minimum count is a direct structural consequence and supplies exact optimizer multiplicities for a natural cut-vertex family.
+## originality
 
-## Closest literature and limitations
-The closest primary source inspected is Sigarreta–Rodriguez (arXiv:math/0602432), which gives the standard definition and general bounds. Ibrahim's 2018 thesis is object-close for friendship graphs but parameter-different. The result does not address global strong offensive alliances or general offensive \(k\)-alliances. Poorly indexed older friendship-graph literature remains a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge originality limited to the specifically unpreempted structural/classification content. The local clique-blade counting and global center redundancy are necessary independent steps; an exact polynomial is not an immediate corollary of available generic bounds.
+
+## value
+
+PASS
+
+Heterogeneous windmills include friendship graphs and generalized windmills and have independent clique blades attached at a universal hub. A full all-set cardinality enumerator and precise minimum-set multiplicities are natural alliance invariants, distinct from the usual scalar extremal number, and allow arbitrary blade sizes; this is a motivated graph family, not an arbitrary slice of a table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

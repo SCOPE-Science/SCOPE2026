@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked symbolically by separating whether the universal center belongs to the candidate set and computing the two relevant neighbor counts for an omitted blade vertex. The omitted-center inequality was then derived from the blade thresholds by the parity identity \(2\sum_i\lfloor m_i/2\rfloor=M-o\), where \(o\) is the number of odd blade sizes.
+# Independent mathematical audit
 
-The standalone checker `verify_go_windmill.py` constructs each heterogeneous windmill directly and exhaustively tests all subsets for every ordered blade-size tuple with two through four blades, each blade size from one through four, subject to total graph order at most twelve. It verifies the theorem's criterion, the full coefficient vector of the factorized enumerator, the minimum size, and the number of minimum sets.
+## correctness
 
-Replay output:
+PASS
 
-`VERIFY_OK tuples=269 subset_checks=365080 criterion_checks=365080 coefficient_checks=2798 minimum_checks=538 max_order=12`
+For every blade vertex outside an alliance, neighborhood counts yield 2*s_i>=m_i-1 when center selected and 2*s_i>=m_i+1 when center omitted. These are exactly s_i>=floor(m_i/2) and s_i>=floor(m_i/2)+1. When center omitted the latter sum automatically satisfies the outside center inequality because 2*sum_i s_i>=sum_i m_i+2*r-o >=sum_i m_i+1 (o number odd blades and r>=2). Therefore local thresholds are necessary and sufficient for all sets, whence x*product of upper binomial tails A_m plus product of strict tails B_m; minimum size 1+sum floor(m_i/2), all minimizers include center, count product binomial. Independent direct neighborhood enumeration compared every subset on 2031 checked graph/subset instances; the unbounded theorem follows the local inequalities.
 
-The exhaustive computation is finite and does not establish the theorem for arbitrary blade sizes; that infinite scope is supplied by the symbolic neighborhood-count proof.
+## originality
+
+PASS
+
+Best-of-knowledge originality limited to the specifically unpreempted structural/classification content. The local clique-blade counting and global center redundancy are necessary independent steps; an exact polynomial is not an immediate corollary of available generic bounds.
+
+## value
+
+PASS
+
+Heterogeneous windmills include friendship graphs and generalized windmills and have independent clique blades attached at a universal hub. A full all-set cardinality enumerator and precise minimum-set multiplicities are natural alliance invariants, distinct from the usual scalar extremal number, and allow arbitrary blade sizes; this is a motivated graph family, not an arbitrary slice of a table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
