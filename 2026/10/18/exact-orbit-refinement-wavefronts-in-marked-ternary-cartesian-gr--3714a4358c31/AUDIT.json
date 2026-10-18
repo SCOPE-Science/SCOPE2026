@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "Exact weighted quotient neighbours are \\((b+1,c)\\) with weight a, \\((b-1,c)\\) and \\((b-1,c+1)\\) each with weight b, and \\((b+1,c-1)\\) with weight c. The first round distinguishes b by degree \\(d+b\\) and the state \\((1,0)\\) by adjacency to the marked root. At subsequent rounds, at most one state per b-tail has newly reachable distance \\(t+1\\) and it has a neighbour in a previously singled reached state; all more-distant states have neighbours exclusively in other merged tails, with multiplicities \\(d-b\\) and \\(2b\\) independent of c. The max second-highest state-distance is \\(2d-2\\), attained at \\(b=0\\) and witnessed by \\((0,d-1)\\) and \\((0,d)\\). Coordinate permutations are all rooted automorphisms: degrees distinguish \\(2e_i\\) from \\(e_i+e_j\\) and the distances to \\(2e_i\\) recover each coordinate. Direct whole-graph computations for \\(2\\le d\\le8\\) and independent quotient computations through \\(d=60\\) in specified samples reproduce every round. Finite computations are corroboration rather than proof of the dimension-uniform theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krebs–Verbitsky give general asymptotic lower bounds from specially constructed graphs, not a universal formula for this family.",
+        "Arvind–Köbler–Rattan–Verbitsky relate amenability, compactness and orbit refinability but do not supply the asserted family-specific intermediate partitions.",
+        "Kiefer–McKay establish existence of nearly maximally slow refiners, not the rooted Cartesian path-power depth."
+      ],
+      "reasoning": "General existence and graph-class implications cannot subsume an exact per-round calculation for these marked products; no directly stronger all-dimensional statement was located in the inspected primary material.",
+      "searches": [
+        "\"P_3\" \"color refinement\" \"Cartesian power\"",
+        "colour refinement 1-WL Cartesian product paths dimensional stabilization",
+        "arxiv:1407.3175 depth refinement universal cover",
+        "arxiv:1502.01255 compact amenable refinable",
+        "arxiv:2005.10182 iteration number"
+      ]
+    },
+    "checked_sources": [
+      "M. O. Albertson (2005), doi:10.37236/1984",
+      "W. Imrich and S. Klavžar (2006), doi:10.1002/jgt.20190",
+      "A. Krebs and O. Verbitsky (2014), arxiv:1407.3175",
+      "V. Arvind et al. (2015), arxiv:1502.01255",
+      "S. Kiefer, P. Schweitzer, E. Selman (2015), arxiv:1503.08792",
+      "S. Kiefer and B. D. McKay (2020), arxiv:2005.10182"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Albertson and Imrich–Klavžar study existence of labelings destroying automorphisms, a different invariant from the partition produced by counting refinement after marking a given corner.",
+        "General refinement/amenability and C2-characterization theorems do not calculate the stated round partition on \\(P_3\\) powers.",
+        "Extremal iteration-rate theorems do not provide this particular \\(2d-2\\) formula or last-pair witness."
+      ],
+      "reasoning": "The target statement is strictly more specific than an orbit upper bound and logically independent of the existence of distinguishing labelings: the rooted stabilizer \\(S_d\\) is intentionally nontrivial, and the theorem recovers its orbit partition and exact timing.",
+      "searches": [
+        "doi:10.37236/1984 distinguishing Cartesian powers of graphs",
+        "doi:10.1002/jgt.20190 distinguishing Cartesian powers",
+        "arxiv:1407.3175 universal covers depth",
+        "arxiv:1502.01255 Graph Isomorphism Color Refinement Compactness",
+        "arxiv:1503.08792 Graphs Identified by Logics with Counting",
+        "arxiv:2005.10182 The Iteration Number of Colour Refinement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target equivalently fixes every round of the rooted \\(P_3\\) Cartesian power quotient under 1-WL, with maximal refinement depth \\(2d-2\\).",
+        "The available 2015 comprehensive frameworks define refinement and counting-logic partitions but do not give an all-dimensional \\(P_3\\)-power quotient-depth theorem."
+      ],
+      "reasoning": "The equivalences 1-WL = counting equitable partition and C2 types do not yield this specific sharp depth or whole intermediate partition without the new weighted-state induction.",
+      "searches": [
+        "\"P_3\" \"color refinement\" \"Cartesian power\"",
+        "\"ternary grid\" \"Weisfeiler-Leman\" \"corner\"",
+        "\"Cartesian product\" \"colour refinement\" \"marked\" \"path\"",
+        "arxiv:1502.01255 Sections 1,2,8",
+        "arxiv:1503.08792 Sections 1,4,5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published enumeration or exact-depth table for all dimensions of the marked \\(P_3\\) Cartesian power was returned in the bounded searches.",
+        "The theorem supplies an infinite sequence, full class sizes and round-by-round equivalence, rather than extrapolating a short finite table."
+      ],
+      "reasoning": "The searched finite/computational literature did not contain an exact table that directly entails the universal theorem. Nonretrieval is not a proof of originality, and a targeted database not indexed by the searches remains possible.",
+      "searches": [
+        "\"P_3\" \"color refinement\" \"Cartesian power\"",
+        "P3 Cartesian powers color refinement Weisfeiler Leman marked corner exact rounds",
+        "\"ternary grid\" \"Weisfeiler-Leman\" \"corner\""
+      ]
+    },
+    "rationale": "Direct claim-level comparison was made with early work on Cartesian-power distinguishing labelings (Albertson 2005; Imrich and Klavžar 2006), general 1-WL and C2 refinement and orbit theory (Arvind et al. 2015; Kiefer et al. 2015), the universal-cover depth bounds of Krebs and Verbitsky (2014), and later extremal round bounds of Kiefer and McKay (2020). Those works do not state or directly imply the explicit per-round tail partition and sharp \\(2d-2\\) one-corner depth for \\(P_3\\) Cartesian powers. The distinction is by scientific implications, not absence of a matching phrase. Specialized earlier material might exist, so publication priority is not asserted.",
+    "residual_risks": [
+      "The 2014 universal-cover manuscript and the later extremal-round paper were not examined in complete full text; their accessible statements concern different graph families, but a buried related calculation is possible.",
+      "A specialized earlier calculation of colour refinement on marked Cartesian powers of paths may be absent from the indexed scholarly material.",
+      "No independent publication-priority check or independent mathematical audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Distinguishing vertex labeling number, not iterative counting refinement of one marked vertex",
+        "evidence": [
+          "The work gives \\(D(G^{\\square r})=2\\) for suitable powers; this does not imply a fixed-one-corner 1-WL orbit partition or its depth."
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/1984",
+        "material_read": "Publisher abstract, first-publication metadata and invariant definition",
+        "method": "Read official journal abstract",
+        "title": "Distinguishing Cartesian Powers of Graphs",
+        "trigger": "Cartesian powers and symmetry breaking"
+      },
+      {
+        "assessment": "Non-equivalent invariant: automorphism-breaking labelings",
+        "evidence": [
+          "The graph product argument proves existence of a two-label distinguishing coloring, not the refinement dynamics of a prescribed singleton corner."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.20190",
+        "material_read": "Publisher abstract and publicly visible introductory and structural theorem text",
+        "method": "Read publisher article landing page and accessible full-text excerpt",
+        "title": "Distinguishing Cartesian powers of graphs",
+        "trigger": "Possible dominating Cartesian-power result"
+      },
+      {
+        "assessment": "General graph families yield near-linear worst-case bounds; no direct family implication visible, with full-text access limitation",
+        "evidence": [
+          "Their asymptotic lower bound concerns constructed graph pairs rather than pointed \\(P_3\\) Cartesian powers."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1407.3175",
+        "material_read": "ArXiv abstract and bibliographic metadata; complete manuscript not accessible in the checked rendering",
+        "method": "Read arXiv abstract and inspect available public version links",
+        "title": "Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth",
+        "trigger": "Exact logical-depth and refinement-rate background"
+      },
+      {
+        "assessment": "General hierarchy, no asserted exact \\(P_3\\) Cartesian product wavefront or iteration count",
+        "evidence": [
+          "Introduction defines refinability as stable partition equals automorphism orbits and places it in the hierarchy; no Cartesian family-specific depth theorem occurs in inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1502.01255v3",
+        "material_read": "Accessible full-text introduction, basic definitions, the graph-class hierarchy, individualization discussion and relevant theorem statements; searched Cartesian/product vocabulary",
+        "method": "Read scholarly HTML full-text sections and keyword matches",
+        "title": "Graph Isomorphism, Color Refinement, and Compactness",
+        "trigger": "Possible stronger orbit-refinement coverage"
+      },
+      {
+        "assessment": "Classification of graphs identified by C2; no stated rooted \\(P_3\\) Cartesian wavefront result",
+        "evidence": [
+          "C2-identifiability of a whole graph is distinct from exact equitable orbit classes in a pointed graph."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1503.08792",
+        "material_read": "Accessible full scholarly rendering: introduction, classification statements, and searching Cartesian/grid terms",
+        "method": "Read text of primary source and search for relevant family",
+        "title": "Graphs Identified by Logics with Counting",
+        "trigger": "Potential stronger C2 identification covering the claim"
+      },
+      {
+        "assessment": "Worst-case linear stabilization constructions, not an all-dimensional marked Cartesian-power classification",
+        "evidence": [
+          "Extremal existence of graphs requiring n-1 rounds does not determine depth for \\(P_3\\) powers."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2005.10182",
+        "material_read": "ArXiv abstract and conference open-access description; not all 19 manuscript pages",
+        "method": "Reviewed abstract, main theorem claims and scope",
+        "title": "The Iteration Number of Colour Refinement",
+        "trigger": "Possible general theorem subsuming exact depth"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3714a435-8c31-4f1e-8570-02b83bf59296",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The central object is the \\(d\\)-dimensional ternary Cartesian grid, a natural product family with exponentially growing order \\(3^d\\) and many nontrivial rooted automorphisms. The natural invariant is the number of one-dimensional counting refinement rounds and the complete orbit partition after a canonical corner is marked. The theorem gives all intermediate partitions, exact least depth \\(2d-2\\), an explicit last merged pair, the exact orbit count \\(\\binom{d+2}{2}\\) and every orbit size. The same wavefront induction explains how root information propagates through a high-dimensional symmetric product and provides a reproducible benchmark, not just a finite enumeration, cosmetic reparametrization or trivial degree calculation.",
+    "status": "PASS"
+  }
+}
