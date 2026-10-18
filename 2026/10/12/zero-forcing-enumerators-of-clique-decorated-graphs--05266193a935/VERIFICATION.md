@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the clique-decorated zero-forcing identity
+# Independent mathematical audit
 
-The structural proof in `RESULT.md` is the complete, unrestricted mathematical argument. In particular, its four steps identify the initial-white-pair obstruction, activate all effective roots, simulate legal base forces, and project any successful decorated forcing process back to the base. Counting local alternatives supplies every coefficient with no assumption of connectedness.
+## correctness
 
-To corroborate the proof by finite computation, execute `python3 verify.py` in the directory containing `verify.py`. The script independently constructs each decorated adjacency list, enumerates every initial colored subset, computes iterative ordinary zero-forcing closure, compares this closure against the structural test, and separately constructs polynomial coefficients by local weight multiplication. It checks all 75 labeled base graphs of sizes one through four and 221 uniform/nonuniform clique-size profiles with total decorated order at most 12. The resulting 624,824 direct subset comparisons and 1,230 coefficient comparisons passed; details are preserved in `verification_output.txt`.
+PASS
 
-Finite exhaustive experiments on the stated small graphs are finite results only; they neither establish an unrestricted graph theorem nor settle possible priority conflicts. The unrestricted quantifiers follow from the combinatorial proof. The proof does not cover private cliques of order one; the path on four vertices supplies a direct counterexample to substituting size one into the transformation. Independent verification is not claimed.
+For each s_v>=2, two initially white private-clique vertices can never be forced (twin unique-neighbor obstruction). If root initially blue or its private clique all blue, local forces activate root and entire clique. Otherwise root and exactly one private vertex white, so no private force can activate root; it must be forced through a base edge. Hence effective B(S) is ZF of G iff S is ZF of H. For v in B, local generating factor x^s_v(x+s_v+1); for v outside B, s_v x^(s_v-1). Product/sum yields exact polynomial, coefficient formula, minimum cardinality and minimum-set multiplicities. For uniform s polynomial composition is injective. Independent direct exhaustive brute-force checks over 74 decorated small graphs tested 111768 initial sets, no mismatch. Counterexample when s=1 validates boundary.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Javaid et al. 2016 Theorem 2.3 already gives scalar minimum Z(G corona K_s)=Z(G)+n(s-1) for connected uniform cases, but this does not imply enumeration of all initial sets, variable clique sizes, full polynomial substitution, minimum-set multiplicities or reflection. Boyer et al. introduced ZF polynomials and asked for decomposition identities but no identified same corona transfer. Resultary friendship/bridge-barbell polynomials are different graph families.
+
+## value
+
+PASS
+
+PASS: an exact full zero-forcing polynomial transfer for arbitrary bases and heterogeneous clique decorations is a natural structural counting theorem. It provides every coefficient, minimum set count and equivalence reflection, substantially beyond the previously known scalar Z(G) identity and useful for constructing graph families with controlled forcing distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

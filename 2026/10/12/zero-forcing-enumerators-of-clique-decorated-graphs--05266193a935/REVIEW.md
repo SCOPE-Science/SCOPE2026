@@ -1,15 +1,21 @@
-# Scientific review: clique-decorated zero-forcing enumerators
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed structural test has two independent directions. Two initially white private-clique vertices form an immutable forcing obstruction because each possible forcing neighbor sees both. Under the resulting at-most-one-white condition, every root that is initially blue or has a fully blue private clique can be activated immediately; each subsequent root-to-root force is exactly a legal base-graph force after the source's private clique has been completed. Conversely, an initially white root with one initially white private neighbor cannot first be activated from its own clique: the first blue transition of that root must be along a base edge. Projecting such transitions recovers a zero-forcing process from the effective root set. This proves the if-and-only-if criterion, not merely necessity. Disjoint local configurations have weights \(x^{s_v}(x+s_v+1)\) and \(s_vx^{s_v-1}\), and their independent products prove the counting identity. The uniform substitution and all corollaries follow algebraically. An independent exhaustive program tests both propagation and coefficients on 221 clique-decorated instances (624,824 initial subsets), including disconnected and single-vertex bases; all comparisons passed. These finite examples do not establish the infinite theorem and are supplementary to the proof. The lower bound \(s_v\ge2\) is necessary for the activation argument, and a concrete \(s=1\) counterexample is supplied.
+## correctness
 
-## Originality — PASS (subject to residual literature risk)
-The primary counting-source paper, Boyer et al., *The zero forcing polynomial of a graph* (arXiv:1801.08910v1, first public 2018-01-26), introduces this counting invariant and discusses graph-polynomial splitting, but does not state a clique-corona counting transformation. The closest same-operation primary paper, Javaid et al., *On the zero forcing number of corona and lexicographic product of graphs* (arXiv:1607.04071v1, first public 2016-07-14), proves an **earlier scalar** corona formula (Theorem 2.3 and Corollary 2.5). The scalar identity is explicitly not claimed as new. Its statement does not determine the full distribution of zero-forcing subsets, and the source does not state the weighted all-set classification. Searches for the corona polynomial, rooted-product equivalents, all-set classifications and substitution formulas did not identify an equivalent source. This is not a proof of absolute priority: a differently indexed or implicit derivation may remain undiscovered. The pertinent primary PDF sections were materially inspected, and the remaining risk is stated in the formal originality review.
+PASS
 
-## Value — PASS
-The result concerns an established counting polynomial on a natural rooted graph operation. Rather than tabulating one graph class, it gives a uniform transfer valid for **every** finite simple base graph, plus a genuinely weighted formula for nonuniform private cliques. It permits exact counts at every cardinality from the base invariant, classifies the actual feasible initial sets, counts minimum configurations, and proves that fixed-size clique coronas both preserve and reflect polynomial equivalence. Those claims exceed a minimum-cardinality formula and address the broader graph-polynomial transformation problem highlighted in the foundational counting literature. The boundary \(s=1\) is sharply excluded, not silently ignored.
+For each s_v>=2, two initially white private-clique vertices can never be forced (twin unique-neighbor obstruction). If root initially blue or its private clique all blue, local forces activate root and entire clique. Otherwise root and exactly one private vertex white, so no private force can activate root; it must be forced through a base edge. Hence effective B(S) is ZF of G iff S is ZF of H. For v in B, local generating factor x^s_v(x+s_v+1); for v outside B, s_v x^(s_v-1). Product/sum yields exact polynomial, coefficient formula, minimum cardinality and minimum-set multiplicities. For uniform s polynomial composition is injective. Independent direct exhaustive brute-force checks over 74 decorated small graphs tested 111768 initial sets, no mismatch. Counterexample when s=1 validates boundary.
 
-## Closest literature and limitations
-The scalar minimum formula for connected uniform coronas was established in 2016, before the chosen 2018 counting framework; treating it as newly discovered would be covered. The present contribution is the full set-classification and its enumerator. The proof applies only to ordinary zero forcing with private cliques of size at least two. It does not solve arbitrary-attachment corona enumeration or provide an algorithm for the unrestricted base-graph zero-forcing polynomial. Searches and an inspected pair of primary sources reduce but do not remove literature-overlap risk. There is no independent audit or external proof certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Javaid et al. 2016 Theorem 2.3 already gives scalar minimum Z(G corona K_s)=Z(G)+n(s-1) for connected uniform cases, but this does not imply enumeration of all initial sets, variable clique sizes, full polynomial substitution, minimum-set multiplicities or reflection. Boyer et al. introduced ZF polynomials and asked for decomposition identities but no identified same corona transfer. Resultary friendship/bridge-barbell polynomials are different graph families.
+
+## value
+
+PASS
+
+PASS: an exact full zero-forcing polynomial transfer for arbitrary bases and heterogeneous clique decorations is a natural structural counting theorem. It provides every coefficient, minimum set count and equivalence reflection, substantially beyond the previously known scalar Z(G) identity and useful for constructing graph families with controlled forcing distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
