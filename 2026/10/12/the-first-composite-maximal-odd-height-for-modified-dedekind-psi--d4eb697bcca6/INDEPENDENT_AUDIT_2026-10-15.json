@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T04:14:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The completely additive H recurrence H(2)=1 and H(p)=1+H((p+1)/2) for odd primes decreases its argument, so is well-defined; multiplicativity of modified psi gives H(psi(m))=H(m) for odd m, H(psi(n))=H(n)-1 for even n, and lambda(m)=H(m) for odd m>1. Odd m has psi(m)>=m+1 and each subsequent even iterate n>2 satisfies psi(n)>=n/2, so any odd height-k m obeys m+1<=2^k. This rigorously confines *every* odd height <=23 to <2^23, so the sieve is exhaustive, not empirical. Independently implemented an 8,388,608-entry smallest-prime-factor/height recurrence, computed all class maxima k2..23, confirmed prime maxima through k22 and B23=8,193,151=127*64,513 > largest height23 prime 8,126,431. Every one of 97,728 larger possible odd competitors was screened and had height not 23. The source verify_defant_B23.py additionally checks selected defining-function trajectories; these and complete source recurrence were inspected. There is no claim about higher heights.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant Theorem 2.3 gives B(k)<2^k, Theorem 2.4 supplies lower bounds, Theorem 2.5 gives divisor inheritance for record maxima.",
+          "None computes B(23), proves all k<=22 maxima prime, or asserts the proposed counterexample."
+        ],
+        "reasoning": "An upper bound and divisor heredity do not determine which odd integer attains a height-class maximum. The original bound makes the finite certificate possible but does not logically imply the computed answer.",
+        "searches": [
+          "Resultary: modified Dedekind psi iteration largest odd B(k) height 23 8193151 composite first exception Defant",
+          "primary PDF: arXiv:1501.00971 "
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1501.00971 Defant full primary PDF Theorems 2.3–2.5 and following paragraph",
+        "Resultary query: modified Dedekind psi iteration largest odd B(k) height 23 8193151 composite first exception Defant"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After Theorem 2.4 the primary text states that numerical evidence suggests elements of B other than 1 are prime but it has no proof or counterexample.",
+          "Source Theorem 2.5 proves divisor inheritance; its hypothesis can hold for composite products of earlier record maxima and does not enforce primality."
+        ],
+        "reasoning": "The finite class-23 computation supplies information independent of the source general inequalities: it proves a smallest failing rank, not simply one nonprime input. The previous theoretical cap is credited as an ingredient; no earlier implication was found.",
+        "searches": [
+          "Resultary: modified Dedekind psi iteration largest odd B(k) height 23 8193151 composite first exception Defant",
+          "primary PDF: arXiv:1501.00971 "
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Defant arXiv:1501.00971 defines the same modified Dedekind psi, iteration classes, and their maximal odd elements B(k).",
+          "The source expressly reports B(k) empirical prime pattern with no proof or counterexample, rather than the specific finite height-23 failure."
+        ],
+        "reasoning": "The original notation and equivalent height/iterative/additive descriptions were considered. Related number-theory records about other arithmetic functions or numeric coincidences do not assert this exact extremal threshold.",
+        "searches": [
+          "Resultary: modified Dedekind psi iteration largest odd B(k) height 23 8193151 composite first exception Defant",
+          "primary PDF: arXiv:1501.00971 "
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked numeric table identified 8,193,151 as maximum odd height-23 input with earlier prime records; the originating source has prime-seeming initial data but leaves the pattern open.",
+          "A same-integer appearance in unrelated lists would not establish the dynamical extremal property."
+        ],
+        "reasoning": "The claimed novelty is the exact first nonprime maximum in the same psi-height class, not the factorization of one integer. A truly covering prior table would need validated class maxima or an equivalent theorem.",
+        "searches": [
+          "Resultary: modified Dedekind psi iteration largest odd B(k) height 23 8193151 composite first exception Defant",
+          "primary PDF: arXiv:1501.00971 "
+        ]
+      },
+      "rationale": "Best-of-knowledge originality judged against exact antecedent model, broader results, tables and mathematical implication. The new complete statement is not covered by the inspected sources; the named residual risks and incomplete full-text material prevent any claim of exhaustive priority or external certification.",
+      "residual_risks": [
+        "An unpublished computation or unindexed table could already list the first composite record; failed searches alone are not novelty proof.",
+        "Only heights 2 through 23 are classified; no higher-record conjecture is advanced.",
+        "Finite exhaustive verifier is mathematically sufficient with its proved cutoff but not a Lean/Coq-certified artifact."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The original theorem bounds B(k)<2^k and describes unsolved prime pattern; does not state B23 or its first composite failure.",
+          "evidence": "PDF page 9 paragraph directly after Theorem 2.4: observed B elements are prime with no known proof or counterexample; Theorem 2.5 divisor inheritance.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.00971",
+          "material_read": "Full 13-page primary PDF, definitions and Section 2, Theorems 2.3–2.5; visually inspected page 9 containing empirical prime observation.",
+          "method": "PDF text plus rendered page-image inspection and direct comparison to independent recurrence.",
+          "title": "An Arithmetic Function Arising from the Dedekind psi Function",
+          "trigger": "Exact original map, B(k) sequence, and explicit prime pattern."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determining the *first* failure of a concrete numerical-primality pattern explicitly observed and left unsettled in Defant's original arithmetic dynamical study is a natural exact cutoff, not an arbitrary high numerical instance. The proof covers all previous ranks and excludes every possible larger class-23 input by a theoretical bound and exhaustive recurrence, giving a motivated counterexample to the previously observed prime-maximizer phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unpublished computation or unindexed table could already list the first composite record; failed searches alone are not novelty proof.",
+    "Only heights 2 through 23 are classified; no higher-record conjecture is advanced.",
+    "Finite exhaustive verifier is mathematically sufficient with its proved cutoff but not a Lean/Coq-certified artifact."
+  ]
+}

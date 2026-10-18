@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof constructs the additive height function from a well-founded prime recurrence and proves its exact relation to the original iterates, including parity and stopping conventions. Defant's upper bound is independently reproduced to restrict all candidates of heights at most \(23\) to integers below \(2^{23}\). The complete, deterministic smallest-prime-factor census verifies the rank maxima and all prime/composite decisions. Independent trajectories from the defining map check the exceptional composite, both of its prime factors, the leading prime competitor, and all \(97{,}728\) larger odd integers. The finite certificate suffices for the stated theorem precisely because the analytical upper bound precedes the computation. The verification script is standalone.
+PASS
 
-## Originality — PASS
+The completely additive H recurrence H(2)=1 and H(p)=1+H((p+1)/2) for odd primes decreases its argument, so is well-defined; multiplicativity of modified psi gives H(psi(m))=H(m) for odd m, H(psi(n))=H(n)-1 for even n, and lambda(m)=H(m) for odd m>1. Odd m has psi(m)>=m+1 and each subsequent even iterate n>2 satisfies psi(n)>=n/2, so any odd height-k m obeys m+1<=2^k. This rigorously confines *every* odd height <=23 to <2^23, so the sieve is exhaustive, not empirical. Independently implemented an 8,388,608-entry smallest-prime-factor/height recurrence, computed all class maxima k2..23, confirmed prime maxima through k22 and B23=8,193,151=127*64,513 > largest height23 prime 8,126,431. Every one of 97,728 larger possible odd competitors was screened and had height not 23. The source verify_defant_B23.py additionally checks selected defining-function trajectories; these and complete source recurrence were inspected. There is no claim about higher heights.
 
-Defant (2015), Theorems 2.3–2.5, supplies the underlying arithmetic function, its record-set definition, an upper bound, and a divisor inheritance property. Immediately following Theorem 2.4 it records a plausible all-prime pattern without proof or counterexample. The new theorem explicitly settles this pattern negatively, and pinpoints its first failure. The historical prime-only observations are *not* treated as a formally numbered theorem or proved conjecture. Searches for the exact exceptional number jointly with modified Dedekind height, for the class-23 extremum, and for equivalent records in available mathematical publications and published semantically indexed findings returned no statement implying the new result. Close-looking records involving the ordinary Dedekind function or unrelated arithmetic-function \(\lambda\) were excluded by direct object and implication comparisons, not titles alone. Residual risk: unindexed earlier tabulations or proofs of the same extremum.
+## originality
 
-## Value — PASS
+PASS
 
-The discovery answers a question explicitly motivated in a foundational published study of this arithmetic iteration: whether the record odd elements are invariably prime. Merely displaying a composite of height \(23\) would not address that question, so the proof also certifies maximality at its height and establishes *earliest failure*, an exact natural cutoff. This counterexample changes the anticipated structural property of the whole record family and is not an arbitrary short numerical slice.
+Best-of-knowledge originality judged against exact antecedent model, broader results, tables and mathematical implication. The new complete statement is not covered by the inspected sources; the named residual risks and incomplete full-text material prevent any claim of exhaustive priority or external certification.
 
-## Limits
+## value
 
-The result classifies only the first 22 nontrivial height maxima. It does not prove further record composites, distribution laws, or an eventual structural pattern. Novelty is assessed against inspected relevant literature and actual searches, not guaranteed against all unpublished or unindexed work.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determining the *first* failure of a concrete numerical-primality pattern explicitly observed and left unsettled in Defant's original arithmetic dynamical study is a natural exact cutoff, not an arbitrary high numerical instance. The proof covers all previous ranks and excludes every possible larger class-23 input by a theoretical bound and exhaustive recurrence, giving a motivated counterexample to the previously observed prime-maximizer phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
