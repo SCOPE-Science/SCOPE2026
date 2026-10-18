@@ -1,39 +1,21 @@
-# Review of Exact energy–defect frontier for weak harmonic quasiregularity
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. After writing
-\[
-x=\lambda_f/\Lambda_f,
-\]
-the defining weak quasiregular inequality reduces exactly to
-\[
-t=K_0/\Lambda_f^2\ge\max\{0,1-Kx\}.
-\]
-The candidate estimate becomes a scalar inequality on \(0\le x\le1\). For \(x\ge1/K\), zero defect forces the sharp lower energy coefficient
-\[
-A_0(K)=2K^2/(K^2+1).
-\]
-For \(x<1/K\), maximizing the exact rational function \(\phi_A(x)\) gives the displayed boundary \(B_K(A)\). The derivative has one maximizing root in the admissible interval, and its critical-point equation simplifies the maximum exactly.
+PASS
 
-Necessity is not inferred from asymptotics: every point of the curved frontier is attained by an explicit affine harmonic map saturating both the weak quasiregular constraint and the proposed estimate. The regime below \(A_0(K)\) is excluded by a zero-defect affine witness. The case \(\Lambda_f=0\), the endpoints, and the requirement \(B\ge0\) are all included.
+For nonnegative Jacobian write x=λ/Λ in [0,1], t=K0/Λ² with t≥max(0,1−Kx). The claim reduces exactly to 1≤A(1+x²)/2+B t. On x≥1/K, necessary A≥A0; on 0≤x<1/K and B≥0 maximize φ_A(x)=[1−A(1+x²)/2]/(1−Kx). Differentiation produces the displayed radical and B_K(A); boundary x_A and limits at A0 and 2 agree. Every point is saturated by constant-derivative affine maps with λ/Λ=x_A, K0=L²(1−Kx_A). B≥0 follows from zero map with K0 arbitrary. Independent grid maximization at K=1,1.5,2,5 and selected A agreed with the analytic curve; analyticity of the elementary optimization, not sampling, proves all cases.
 
-## Originality
+## originality
 
-PASS. The fresh primary paper derives only the single pair
-\[
-\left(2K^2/(K^2+1),2/(K^2+1)\right)
-\]
-for use in a global Hardy-space proof. It does not formulate or solve the two-coefficient pointwise optimization problem.
+PASS
 
-Searches using the exact weak-quasiregular terminology, the source coefficients, energy–defect language, and equivalent optimal-constant formulations found no published statement of the full admissible region. The closest literature studies global conjugate-function and Hardy-space inequalities in the same class or its homogeneous subclass.
+Best-of-knowledge a natural full sharp Pareto region extending the source’s single coefficient pair; not directly implied by published global harmonic quasiregularity conclusions. Original source full text was inaccessible so possible hidden same-object lemma remains explicit material risk.
 
-The main residual risk is terminological: an equivalent two-singular-value optimization could have appeared outside harmonic-mapping literature without the \((K,K_0)\) notation. No inspected source supplied the same admissible curve or its affine equality family.
+## value
 
-## Value
+PASS
 
-PASS. The source's fixed local estimate is a key input to downstream norm estimates. Knowing the complete sharp frontier shows exactly how much additive defect can be traded for derivative-energy weight rather than treating that coefficient pair as canonical by algebraic accident.
+The local estimate in the source is used for sharp harmonic mappings; a complete Pareto frontier reveals all optimal energy versus additive-distortion penalties and equality maps, a meaningful structural refinement of that motivated inequality, without demanding a new global theorem.
 
-The result is structurally motivated and complete: it identifies the entire Pareto boundary, proves impossibility below it, and gives equality witnesses at every point. This makes the local differential inequality reusable in later arguments where energy and additive-defect terms carry different costs.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

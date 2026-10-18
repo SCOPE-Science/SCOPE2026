@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,87 +19,24 @@
 }
 ---
 
-Let
-\[
-\Lambda=|h'|+|g'|,
-\qquad
-\lambda=|h'|-|g'|.
-\]
-For nonnegative Jacobian,
-\[
-0\le\lambda\le\Lambda,
-\qquad
-J=\Lambda\lambda,
-\]
-and
-\[
-|h'|^2+|g'|^2
-=
-\frac{\Lambda^2+\lambda^2}{2}.
-\]
+# Independent mathematical audit
 
-When \(\Lambda>0\), put
-\[
-x=\lambda/\Lambda,
-\qquad
-t=K_0/\Lambda^2.
-\]
-The weak quasiregular condition is exactly
-\[
-t\ge\max\{0,1-Kx\}.
-\]
-Thus universal validity of
-\[
-\Lambda^2
-\le
-A(|h'|^2+|g'|^2)+BK_0
-\]
-is equivalent to
-\[
-1\le\frac A2(1+x^2)+Bt
-\]
-for this scalar feasible set.
+## correctness
 
-For \(x\ge1/K\), the allowed value \(t=0\) forces
-\[
-A\ge\frac{2K^2}{K^2+1}.
-\]
-For \(x<1/K\), the least admissible defect gives
-\[
-B\ge
-\frac{1-\frac A2(1+x^2)}{1-Kx}.
-\]
-The derivative numerator is
-\[
-AKx^2-2Ax+K(2-A).
-\]
-For
-\[
-\frac{2K^2}{K^2+1}\le A\le2,
-\]
-the maximizing root is
-\[
-x_A
-=
-\frac{A-\sqrt{A((K^2+1)A-2K^2)}}{KA},
-\]
-and the critical-point equation yields
-\[
-\max B
-=
-\frac{Ax_A}{K}
-=
-\frac{A-\sqrt{A((K^2+1)A-2K^2)}}{K^2}.
-\]
+PASS
 
-The sharpness construction uses constant derivatives
-\[
-h'=\frac{L(1+x_A)}2,
-\qquad
-g'=\frac{L(1-x_A)}2,
-\]
-with
-\[
-K_0=L^2(1-Kx_A).
-\]
-It saturates both the defining distortion inequality and the frontier estimate. Hence the sharpness is exact and finite-dimensional, not experimental.
+For nonnegative Jacobian write x=λ/Λ in [0,1], t=K0/Λ² with t≥max(0,1−Kx). The claim reduces exactly to 1≤A(1+x²)/2+B t. On x≥1/K, necessary A≥A0; on 0≤x<1/K and B≥0 maximize φ_A(x)=[1−A(1+x²)/2]/(1−Kx). Differentiation produces the displayed radical and B_K(A); boundary x_A and limits at A0 and 2 agree. Every point is saturated by constant-derivative affine maps with λ/Λ=x_A, K0=L²(1−Kx_A). B≥0 follows from zero map with K0 arbitrary. Independent grid maximization at K=1,1.5,2,5 and selected A agreed with the analytic curve; analyticity of the elementary optimization, not sampling, proves all cases.
+
+## originality
+
+PASS
+
+Best-of-knowledge a natural full sharp Pareto region extending the source’s single coefficient pair; not directly implied by published global harmonic quasiregularity conclusions. Original source full text was inaccessible so possible hidden same-object lemma remains explicit material risk.
+
+## value
+
+PASS
+
+The local estimate in the source is used for sharp harmonic mappings; a complete Pareto frontier reveals all optimal energy versus additive-distortion penalties and equality maps, a meaningful structural refinement of that motivated inequality, without demanding a new global theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
