@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T16:13:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any positive multipartite sizes classify maximal shortest paths: if complete graph all edges and floor(N/2) matching; otherwise only 3-vertex endpoint-same-part paths and 2-vertex edges between singleton classes. With e disjoint singleton edges removed, triple number t bounded by 3t<=Q, t<=Q-max a_i, t<=sum floor(a_i/2). Sufficiency: set R=Q-2t>=t and L_i=max(0,a_i-R); algebra proves L_i<=floor(a_i/2) and sum_i L_i<=t. Allocate t pair tokens p_i within bounds and Hall-match distinct centers outside each pair class; homogeneous and mixed token subsets pass Hall. Therefore all t from 0 through bound achievable and optimize e to displayed three-term min. Independent brute graph geodesic enumeration plus exact set-packing DP matched 128 integer partitions on N=2..10; finite check is supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior geodesic packing paper gives complete graph floor(N/2), balanced K_{n,n} floor(2n/3), no all-part-count formula."
+        ],
+        "reasoning": "Older general NP-hardness and related multipartite geodetic/cover formulas do not imply the joint three-capacity sufficiency construction.",
+        "searches": [
+          "arXiv:2210.15325 full article",
+          "Resultary: edge-geodesic cover and partition numbers of complete multipartite graphs",
+          "Resultary geodetic polynomial of complete multipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2210.15325, complete 13-page primary paper",
+        "1996 Broere-Jonck-Voigt abstract only",
+        "Resultary geodesic packing and alternate edge-cover / geodetic searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both known special values are corollaries of formula, but neither entails Hall-based simultaneous capacity sufficiency for heterogeneous classes."
+        ],
+        "reasoning": "No inspected stronger theorem implies the full equality; explicit matching lemma supplies genuinely missing sufficiency proof.",
+        "searches": [
+          "Manuel Brešar Klavžar Section 2 complete and bipartite cases",
+          "Resultary: geodesic subpath numbers of bicliques with deleted matching"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vertex-disjoint maximal shortest-path packings differ from minimum induced-path partitions, edge-geodesic covering and geodetic hitting sets."
+        ],
+        "reasoning": "Although triples here are induced paths, their maximum disjoint count with potentially uncovered vertices and singleton-edge paths does not equal a minimum full induced-path cover.",
+        "searches": [
+          "Resultary: geodesic packing complete multipartite disjoint maximal shortest paths",
+          "Manuel Brešar Klavžar arXiv:2210.15325 Section 2",
+          "Broere Jonck Voigt 1996 induced path number"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Induced-path partition number can coincide for K_{2,1,1,1,1,1} and K_{3,3,1} although submitted packing differs (3 vs 2)."
+        ],
+        "reasoning": "No exact table/formula dominating arbitrary (n_i) was found in inspected full packing paper; 1996 article full contents unavailable, retained as originality risk.",
+        "searches": [
+          "arXiv:2210.15325 full article and tables",
+          "Broere-Jonck-Voigt 1996 bibliographic abstract",
+          "Resultary geodesic packing multipartite all sizes"
+        ]
+      },
+      "rationale": "Manuel-Brešar-Klavžar establish general invariant and special complete graph/balanced bipartite values but not arbitrary unequal parts and singleton 2-edge/triple joint capacities. Earlier edge-geodesic covers, geodetic set polynomials and induced-path PARTITION minimum optimize distinct objects.",
+      "residual_risks": [
+        "A hidden induced-path packing result in the inaccessible 1996 full paper or another alias could state an equivalent formula.",
+        "No assertion about arbitrary graphs or counting all optimal packings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Special complete/balanced-bipartite formulas covered; no arbitrary multipartite mixed edge/triple capacity formula",
+          "evidence": "Section 2 complete graphs and complete bipartite graphs; graph-family discussion",
+          "identifier_or_url": "https://arxiv.org/abs/2210.15325",
+          "material_read": "Full 13-page open preprint including Section 2, theorem statements and later graph families; relevant displayed page checked",
+          "method": "Full arXiv PDF text and page image",
+          "title": "Geodesic packing in graphs",
+          "trigger": "Defines identical maximal-shortest-path packing, with complete and bipartite special cases"
+        },
+        {
+          "assessment": "Different minimum all-vertex cover; full-text scope remains an originality risk",
+          "evidence": "1996 title, abstract and journal metadata",
+          "identifier_or_url": "https://www.sav.sk/?doc=journal-list&journal_article_no=1259&lang=en&part=article_response_page",
+          "material_read": "Bibliographic abstract and metadata only; full text not accessible",
+          "method": "Publisher bibliographic record",
+          "title": "The induced path number of a complete multipartite graph",
+          "trigger": "Possible duality/reduction from induced path coverings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three sharp, jointly sufficient resource constraints and explicit matching construction solve a natural graph family with heterogeneous part sizes, including the non-obvious competition from singleton-only maximal edges. This is an algorithmic structural theorem, not a trivial parameter plug-in.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A hidden induced-path packing result in the inaccessible 1996 full paper or another alias could state an equivalent formula.",
+    "No assertion about arbitrary graphs or counting all optimal packings."
+  ]
+}

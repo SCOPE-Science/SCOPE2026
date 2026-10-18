@@ -1,15 +1,21 @@
-# Scientific review: geodesic packings of complete multipartite graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies all inclusion-maximal shortest paths: induced three-vertex paths with equal-class endpoints, and two-vertex edges joining singleton classes. For a prescribed number of the latter, three necessary capacity bounds are shown sufficient by choosing endpoint-pair multiplicities between explicit integer lower and upper bounds and applying Hall's matching theorem to available centers. Boundary cases, quantifiers, and the complete-graph exception are explicit. An adjacency-based enumerator independently verified the exact maximum over all 359 integer-partition instances on 2–13 vertices; the standalone construction was also checked on 990 reproducible larger instances. These checks are finite corroboration, not a replacement for the proof.
+## correctness
 
-## Originality — PASS, subject to residual literature risk
-Manuel, Brešar and Klavžar, *Geodesic packing in graphs* (arXiv:2210.15325, 2022), establish the complete-graph and balanced-biclique values, the geodesic-packing definition, and other families; their main statements do not imply an all-part-size exact value with singleton edges. Their earlier *The geodesic-transversal problem* (arXiv:2101.08042, 2021) addresses hitting sets, whose optimum only bounds packing from above. Boats and Kikas, *Complete Multipartite Graphs are Pansophical* (2019), study an expected routing quantity for assigned terminal pairs, not maximal-geodesic packings. Targeted literature and published-mathematical-result searches did not identify the three-capacity equivalence or its exact heterogeneous multipartite optimization; searches are not proof of absence. Broere–Jonck–Voigt (1996) calculate the minimum induced-path **partition** number for complete multipartite graphs. The objective differs, and even together with graph order their scalar partition invariant cannot determine geodesic packing: the seven-vertex graphs \(K_{2,1,1,1,1,1}\) and \(K_{3,3,1}\) have the same induced-path partition number three but geodesic-packing numbers three and two. The original 1996 full text was not accessible; its scholarly abstract was compared. The remaining risk is an equivalent older packing result under other terminology.
+PASS
 
-## Value — PASS
-The result gives an exact efficiently evaluable invariant on the entire complete-multipartite class, not merely a single value or unmotivated parameter slice. The distinction between two-vertex maximal geodesics among singleton classes and three-vertex geodesics creates a genuine optimization tradeoff; for instance, the graph with part sizes \((2,1,1,1,1,1)\) packs three maximal geodesics, including two singleton edges. The Hall-saturation lemma completely characterizes feasible numbers of both path types and constructs optimal witnesses, refining existing complete-graph and balanced-bipartite cases. The classification is useful for understanding maximal-shortest-path resource allocation in heterogeneous networks.
+For any positive multipartite sizes classify maximal shortest paths: if complete graph all edges and floor(N/2) matching; otherwise only 3-vertex endpoint-same-part paths and 2-vertex edges between singleton classes. With e disjoint singleton edges removed, triple number t bounded by 3t<=Q, t<=Q-max a_i, t<=sum floor(a_i/2). Sufficiency: set R=Q-2t>=t and L_i=max(0,a_i-R); algebra proves L_i<=floor(a_i/2) and sum_i L_i<=t. Allocate t pair tokens p_i within bounds and Hall-match distinct centers outside each pair class; homogeneous and mixed token subsets pass Hall. Therefore all t from 0 through bound achievable and optimize e to displayed three-term min. Independent brute graph geodesic enumeration plus exact set-packing DP matched 128 integer partitions on N=2..10; finite check is supplementary.
 
-## Limitations and closest comparisons
-No assertion is made about counting all maximum packings, non-multipartite graphs, or independent validation. A potentially equivalent older induced-three-vertex-path packing theorem cannot be excluded from search evidence alone. The geodesic-packing literature's own \(K_{n,n}\) case remains prior art, not a novelty claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Manuel-Brešar-Klavžar establish general invariant and special complete graph/balanced bipartite values but not arbitrary unequal parts and singleton 2-edge/triple joint capacities. Earlier edge-geodesic covers, geodetic set polynomials and induced-path PARTITION minimum optimize distinct objects.
+
+## value
+
+PASS
+
+The three sharp, jointly sufficient resource constraints and explicit matching construction solve a natural graph family with heterogeneous part sizes, including the non-obvious competition from singleton-only maximal edges. This is an algorithmic structural theorem, not a trivial parameter plug-in.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
