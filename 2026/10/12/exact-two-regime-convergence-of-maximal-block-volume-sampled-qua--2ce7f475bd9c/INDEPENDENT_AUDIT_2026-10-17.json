@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T17:45:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, steps 1–4, Jacobi/Schur/Perron/SLLN arguments",
+        "Independent local finite matrix/path checks, 40 SPD matrices, 2240 path updates"
+      ],
+      "rationale": "Jacobi complementary minors give label probabilities p_i=G_ii/tr(G); exact minimization fixes x_i and yields x^+=x_i Ge_i/G_ii. The second-moment transition Q_{ji}=p_j G_ij^2/G_ii^2 is diagonal-similar to K_ij=G_ij^2/(tr(G) sqrt(G_ii G_jj)); Schur positivity and Perron comparison prove r in (0,1), the positive all-coordinate start guarantees positive leading coefficient even when K reducible. A zero inverse-Hessian offdiagonal yields a positive-probability annihilating adjacent label pair almost surely; if all entries nonzero, telescoped scale ratios and finite-state ergodic SLLN yield gamma=sum p_i p_j log|C_ij|, negative since SPD strict correlations. Independently tested 2240 rational/numerical path-update identities over 40 SPD matrices; no finite test substituted for spectral/SLLN proofs.",
+      "residual_risks": [
+        "Only deterministic x0 with all coordinates nonzero supports the sharp coefficient/nonabsorption conclusions; exact arithmetic and independent labels are necessary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General determinantal sampling and expected inverse principal-submatrix bounds do not state almost-sure inverse-zero absorption or the full second moment spectral identity."
+        ],
+        "reasoning": "Rodomanov–Kropotov and Mutný–Dereziński–Krause prove convergence guarantees for families of block samplers, not a theorem immediately yielding this exact pathwise law.",
+        "searches": [
+          "volume sampled block coordinate descent all-but-one n minus 1 block exact convergence Hadamard-square inverse Hessian almost sure finite-step absorption",
+          "Rodomanov Kropotov A Randomized Coordinate Descent Method with Volume Sampling arXiv:1904.04587",
+          "Mutny Derezinski Krause Convergence Analysis of Block Coordinate Algorithms with Determinantal Sampling arXiv:1910.11561"
+        ]
+      },
+      "checked_sources": [
+        "volume sampled block coordinate descent all-but-one n minus 1 block exact convergence Hadamard-square inverse Hessian almost sure finite-step absorption",
+        "Rodomanov Kropotov A Randomized Coordinate Descent Method with Volume Sampling arXiv:1904.04587",
+        "Mutny Derezinski Krause Convergence Analysis of Block Coordinate Algorithms with Determinantal Sampling arXiv:1910.11561",
+        "https://arxiv.org/abs/1904.04587",
+        "https://arxiv.org/abs/1910.11561",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Deriving this formula from published expected-contraction statements would require a new exact reduction to one-dimensional state amplitudes and the ergodic calculation; the previous bounds do not imply equivalence of annealed and quenched rates."
+        ],
+        "reasoning": "For 2D G=[[1,c],[c,1]], annealed r=(1+c²)/2 and quenched squared factor c differ for 0<c<1.",
+        "searches": [
+          "volume sampled block coordinate descent all-but-one n minus 1 block exact convergence Hadamard-square inverse Hessian almost sure finite-step absorption",
+          "Rodomanov Kropotov A Randomized Coordinate Descent Method with Volume Sampling arXiv:1904.04587",
+          "Mutny Derezinski Krause Convergence Analysis of Block Coordinate Algorithms with Determinantal Sampling arXiv:1910.11561"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All-but-one block update is equivalent to random projection onto coordinate-indexed lines of inverse Hessian, with multiplicative amplitudes; full deterministic state evolution is reconstructed rather than inferred from algorithm naming."
+        ],
+        "reasoning": "The checked volume-sampling papers analyze expected progress bounds, whereas this claim explicitly determines the reduced random line chain and both rates.",
+        "searches": [
+          "volume sampled block coordinate descent all-but-one n minus 1 block exact convergence Hadamard-square inverse Hessian almost sure finite-step absorption",
+          "Rodomanov Kropotov A Randomized Coordinate Descent Method with Volume Sampling arXiv:1904.04587",
+          "Mutny Derezinski Krause Convergence Analysis of Block Coordinate Algorithms with Determinantal Sampling arXiv:1910.11561"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite exact table dominates an all-SPD n-dimensional theorem; numerical verifications alone would not establish the universal claim."
+        ],
+        "reasoning": "The Resultary hit on optimal single-coordinate sampling studies selecting one updated coordinate, not updating n−1 coordinates.",
+        "searches": [
+          "volume sampled block coordinate descent all-but-one n minus 1 block exact convergence Hadamard-square inverse Hessian almost sure finite-step absorption",
+          "Rodomanov Kropotov A Randomized Coordinate Descent Method with Volume Sampling arXiv:1904.04587",
+          "Mutny Derezinski Krause Convergence Analysis of Block Coordinate Algorithms with Determinantal Sampling arXiv:1910.11561"
+        ]
+      },
+      "rationale": "Published volume-sampling schemes supply block selection and objective-contraction bounds; the actual maximal proper-block pathwise multiplier chain, its exact Hadamard-square annealed factor and quenched/absorption dichotomy are not consequences of those bounds without substantial reduction. Best-of-knowledge novel though a matrix-product/Markov additive derivation could predate it.",
+      "residual_risks": [
+        "Equivalent closed-form exact trajectories might appear in less-indexed randomized projection or matrix-product literature; no exhaustive exclusion.",
+        "The theorem treats only maximal proper blocks, not arbitrary block size."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ALGORITHM_COVERED_EXACT_RATES_NOT_ESTABLISHED",
+          "evidence": [
+            "The general expected contraction theorem does not present the inverse-Hessian zero absorption criterion or exact pathwise Lyapunov exponent."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.04587",
+          "material_read": "Primary PDF: method, maximal-block selection and expected convergence theorem and surrounding proof read; selected pages visually inspected",
+          "method": "open arXiv PDF and inspect mathematical sections",
+          "title": "A Randomized Coordinate Descent Method with Volume Sampling",
+          "trigger": "Identical determinant-volume-sampling algorithm"
+        },
+        {
+          "assessment": "GENERAL_BOUNDS_NOT_EXACT_PATH_LAW",
+          "evidence": [
+            "Expected inverse-block bound structure differs from the explicit Markov multiplier recurrence for an all-but-one block."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.11561",
+          "material_read": "Primary full-PDF mathematical sections covering sampling, convergence rates and bounds; relevant pages inspected",
+          "method": "read accessible author/preprint/PMLR PDF",
+          "title": "Convergence Analysis of Block Coordinate Algorithms with Determinantal Sampling",
+          "trigger": "Determinantal block sampling generalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1904.04587",
+        "https://arxiv.org/abs/1910.11561",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+      ],
+      "rationale": "This quantifies two different natural notions of convergence for a real determinant-volume optimization algorithm and gives a sharp inverse-Hessian structural criterion for finite termination, neither merely a routine estimator bound nor an arbitrary slice.",
+      "residual_risks": [
+        "Does not establish floating-point finite termination or practical runtime superiority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For maximal (n-1)-coordinate determinant-volume sampling of a fixed SPD quadratic, exact mean-square Perron decay, inverse-Hessian-zero absorption dichotomy, and dense-inverse almost-sure Lyapunov exponent hold with the stated positive-coordinate initial condition.",
+  "limitations": [
+    "Only deterministic x0 with all coordinates nonzero supports the sharp coefficient/nonabsorption conclusions; exact arithmetic and independent labels are necessary.",
+    "Equivalent closed-form exact trajectories might appear in less-indexed randomized projection or matrix-product literature; no exhaustive exclusion.",
+    "The theorem treats only maximal proper blocks, not arbitrary block size.",
+    "Does not establish floating-point finite termination or practical runtime superiority."
+  ],
+  "schema_version": 1
+}

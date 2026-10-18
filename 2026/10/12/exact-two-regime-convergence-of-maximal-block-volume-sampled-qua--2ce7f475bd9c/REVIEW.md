@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Jacobi's minor identity fixes the determinant sampling probabilities, and the block first-order conditions establish the exact projection onto the inverse-Hessian column lines. The squared scalar recurrence is a finite nonnegative transfer operator similar to the symmetric positive-definite normalized Hadamard square. Perron analysis, independent-pair absorption, and the ergodic theorem prove the infinite-horizon classifications. The exact-rational finite path and matrix checks reproduce the stated identities but are not substitutes for the proofs. The coordinatewise nonzero initial-point condition and dense/zero inverse distinction are essential.
+## correctness
 
-**Originality — PASS, subject to remaining priority uncertainty.** Rodomanov--Kropotov's original method and the determinantal block sampling work provide the algorithm and expected decrease bounds, but the inspected results do not state or imply the complete scalar path reduction, exact second-moment Perron operator, inverse-Hessian zero finite-absorption criterion and dense-case almost-sure Lyapunov exponent jointly. Full published statements of the closest single-coordinate sampling and stale Gauss--Seidel findings were compared; neither has the maximal proper-block determinant update or covers these implications. Broader general random-projection literature may contain equivalent derivations, so priority is not independently established.
+PASS
 
-**Value — PASS.** This is a natural extreme block size already present in a motivated volume-sampling optimization algorithm. Compression of an \(n\)-dimensional vector process to a concrete \(n\)-state transfer operator gives exact mean-square rates, while the inverse-Hessian sparsity criterion establishes an unexpected nontrivial finite-termination mechanism even for fully coupled Hessians. It quantitatively separates typical and average convergence, a distinction missed by a one-step contraction bound.
+Jacobi complementary minors give label probabilities p_i=G_ii/tr(G); exact minimization fixes x_i and yields x^+=x_i Ge_i/G_ii. The second-moment transition Q_{ji}=p_j G_ij^2/G_ii^2 is diagonal-similar to K_ij=G_ij^2/(tr(G) sqrt(G_ii G_jj)); Schur positivity and Perron comparison prove r in (0,1), the positive all-coordinate start guarantees positive leading coefficient even when K reducible. A zero inverse-Hessian offdiagonal yields a positive-probability annihilating adjacent label pair almost surely; if all entries nonzero, telescoped scale ratios and finite-state ergodic SLLN yield gamma=sum p_i p_j log|C_ij|, negative since SPD strict correlations. Independently tested 2240 rational/numerical path-update identities over 40 SPD matrices; no finite test substituted for spectral/SLLN proofs.
 
-**Limits and closest literature.** Original volume sampling: arXiv:1904.04587 (2019); determinantal block methods: arXiv:1910.11561 (2019); published single-coordinate sampling and stochastic-delay results (2026) have different update mechanisms. Exact arithmetic, fixed quadratic, and specific maximal block sampler only. No independent publication-priority or general-nonlinear claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published volume-sampling schemes supply block selection and objective-contraction bounds; the actual maximal proper-block pathwise multiplier chain, its exact Hadamard-square annealed factor and quenched/absorption dichotomy are not consequences of those bounds without substantial reduction. Best-of-knowledge novel though a matrix-product/Markov additive derivation could predate it.
+
+## value
+
+PASS
+
+This quantifies two different natural notions of convergence for a real determinant-volume optimization algorithm and gives a sharp inverse-Hessian structural criterion for finite termination, neither merely a routine estimator bound nor an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
