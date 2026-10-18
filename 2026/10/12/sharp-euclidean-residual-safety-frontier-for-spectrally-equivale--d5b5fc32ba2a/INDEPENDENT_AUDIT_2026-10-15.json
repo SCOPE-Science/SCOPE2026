@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:56:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For SPD A,B and C=A^(1/2) B A^(1/2) with eigenvalues in [1−δ,1+δ], δ∈[0,1), the residual map is T=I−AB=A^(1/2)(I−C)A^(−1/2). Therefore ||T||₂<=δ sqrt(κ₂(A)), and in the A^(−1) norm its factor is ≤δ. For any κ≥1, take A=diag(κ,1), C=I−δ[[0,1],[1,0]], B=A^(−1/2) C A^(−1/2) SPD. Then T=δ[[0,sqrtκ],[1/sqrtκ,0]] has norm EXACTLY δ sqrtκ (for κ>=1), so the sharp uniform nonexpansion threshold is δ sqrtκ<=1. For κ>1 converting κ_p=(1+δ)/(1−δ) is algebraically equivalent to κ_p<=(sqrtκ+1)/(sqrtκ−1); for κ=1 the frontier is δ<=1 automatically. Independently checked the rational example A=diag(9,1), B=[[1/9,−1/6],[-1/6,1]], C eigenvalues 1/2 and 3/2, T=[[0,3/2],[1/6,0]], singular values 3/2 and 1/6. Does not claim numerical residual gap stability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kressner–Steinlechner–Vandereycken 2016 is an SPD preconditioned low-rank Riemannian Richardson framework and energy-based convergence context.",
+          "Bialecki 1994 considers preconditioned Richardson with spectral equivalence; no exact Euclidean δ√κ residual frontier was verified from accessible source material."
+        ],
+        "reasoning": "General convergence/spectral-equivalence assumptions do not certify one-step ordinary residual monotonicity. A textbook similarity-norm inequality bounds it, but an attained worst-case SPD construction is needed for the sharp safety claim.",
+        "searches": [
+          "preconditioned Richardson Euclidean residual monotonicity sharp delta square root condition number SPD preconditioner",
+          "exact Euclidean 2 norm residual norm preconditioned Richardson spectral equivalence delta sqrt kappa(A) off diagonal 2x2 SPD",
+          "https://arxiv.org/abs/1508.02988",
+          "https://doi.org/10.1137/0915043"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1508.02988",
+        "https://doi.org/10.1137/0915043",
+        "Resultary scientific record 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+        "Resultary scientific record 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+        "Resultary scientific search: preconditioned Richardson Euclidean residual monotonicity sharp delta square root condition number SPD preconditioner",
+        "Resultary scientific search: exact Euclidean 2 norm residual norm preconditioned Richardson spectral equivalence delta sqrt kappa(A) off diagonal 2x2 SPD"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard SPD energy-norm convergence yields δ but, under arbitrary ill-conditioned similarity, needs an extra sqrtκ factor to control ordinary 2-norm.",
+          "Related unpreconditioned two-step stagewise stability findings quantify different error transformations and cannot directly imply this residual factor."
+        ],
+        "reasoning": "The bound is an immediate standard norm inequality, openly credited; the precise SPDs witnessing equality and sharp threshold are supplied and distinguish mathematical claim from mere upper bound. No verified prior theorem with this full statement was found.",
+        "searches": [
+          "https://arxiv.org/abs/1508.02988",
+          "https://doi.org/10.1137/0915043",
+          "preconditioned Richardson Euclidean residual monotonicity sharp delta square root condition number SPD preconditioner",
+          "exact Euclidean 2 norm residual norm preconditioned Richardson spectral equivalence delta sqrt kappa(A) off diagonal 2x2 SPD"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "T=I−AB is similar to symmetric I−C, but Euclidean residual norm is not invariant under similarity.",
+          "Published related finding 'Sharp stagewise-safe Richardson frontier' addresses two unpreconditioned SPD Richardson stages, not symmetrically preconditioned residual similarity."
+        ],
+        "reasoning": "Same κ(A), δ meaning and residual norm are necessary: energy-norm contractivity by δ does not imply Euclidean nonexpansion, and standard Richardson coefficient/step-size analyses have different quantifiers.",
+        "searches": [
+          "preconditioned Richardson Euclidean residual monotonicity sharp delta square root condition number SPD preconditioner",
+          "exact Euclidean 2 norm residual norm preconditioned Richardson spectral equivalence delta sqrt kappa(A) off diagonal 2x2 SPD",
+          "https://arxiv.org/abs/1508.02988"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact rational 2×2 example yields ||I−AB||₂=3/2 while the spectrum of the symmetrized map lies in [1/2,3/2]; not presented as an unknown tabulated matrix constant."
+        ],
+        "reasoning": "This is a continuum-wide extremal parameter frontier, not a lookup in a numerical database; the 2×2 example certifies attainability.",
+        "searches": [
+          "preconditioned Richardson Euclidean residual monotonicity sharp delta square root condition number SPD preconditioner",
+          "exact Euclidean 2 norm residual norm preconditioned Richardson spectral equivalence delta sqrt kappa(A) off diagonal 2x2 SPD",
+          "Richardson residual amplification 2x2 SPD exact condition number table"
+        ]
+      },
+      "rationale": "Classical spectral equivalence and energy-norm Richardson convergence are covered. A tight Euclidean RESIDUAL amplification depending simultaneously on δ and κ₂(A), with an attained 2×2 SPD nonnormal similarity and exact monotonicity frontier, was not located in directly relevant numerical analysis literature or published related findings. This is a distinct norm and quantifier from energy-norm contraction and unpreconditioned SPD Richardson step-size safety. The similarity bound itself is textbook; novelty is restricted to its sharp worst-case application and safety distinction.",
+      "residual_risks": [
+        "The sharp bound is a short standard submultiplicative norm argument. A classical text or a detailed Richardson paper may contain the equality case under another metric/notation; full original papers not inspected here.",
+        "Value is intentionally limited to a precise natural safety boundary and explicit stationary SPD obstruction, not novel foundational convergence machinery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies preconditioned SPD iterative-method context; abstract concerns low-rank Riemannian algorithms and contains no exact ordinary residual amplification statement",
+          "evidence": [
+            "SIAM J. Sci. Comput. 38 (2016), A2018–A2044, DOI 10.1137/15M1032909."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1508.02988",
+          "material_read": "SIAM journal abstract/bibliography and preprint identification; full paper not obtained in this execution",
+          "method": "publisher abstract and arXiv identifier",
+          "title": "Preconditioned Low-rank Riemannian Optimization for Linear Systems with Tensor Product Structure",
+          "trigger": "Same preconditioned Richardson method in SPD setting"
+        },
+        {
+          "assessment": "Relevant prior-method context; inability to inspect full theorem leaves genuine overlap risk",
+          "evidence": [
+            "SIAM J. Sci. Comput. 15 (1994), 668–680, DOI 10.1137/0915043."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0915043",
+          "material_read": "Publisher bibliographic identification only, not full text",
+          "method": "abstract/metadata search",
+          "title": "Preconditioned Richardson and Minimal Residual Iterative Methods for Piecewise Hermite Bicubic Orthogonal Spline Collocation Equations",
+          "trigger": "Potential earlier preconditioned Richardson spectral equivalence dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An SPD preconditioner can give strongly contracting preconditioned residuals yet transiently increase the ordinary stopping-test Euclidean residual. The exact δ sqrtκ frontier gives a usable, parameter-sharp yes/no condition, with the smallest possible two-dimensional witness, for a common stationary correction. This natural stability-boundary diagnostic is more than a sign/type check, despite elementary norm algebra; it does not pretend to be a new Richardson convergence theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact arithmetic, unit-step SPD stationary correction; not Krylov, flexible preconditioners, floating point or backward-stability claim.",
+    "The original high-relevance general numerical literature not all read full text; full recursive Git tree guard unavailable."
+  ],
+  "schema_version": 1
+}
