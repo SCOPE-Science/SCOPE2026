@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_coalescent.py` in a standard Python 3 environment; no external packages or downloads are needed. The test independently propagates the exact rational probability of each partition under uniformly chosen binary mergers for \(2\le n\le8\), then compares coalescent-stage counts with the theorem's binomial formula. It evaluates the covariance from the independently enumerated counts, all legal signed finite differences, the two endpoint covariances, and both deterministic consistency identities. The exact portion produces 140 passed assertions, with the status line `EXACT_OK`.
+## correctness
 
-The program also compares \(n\operatorname{Cov}(H_n,L_{n,r})\) against the continuum profile at five fraction values for \(n=500,1000,2000\). These finite approximations are sanity checks only; they do not establish a limit or inequality for all \(n\). General correctness relies on the published exact lineage-size identity and its independent-time consequence, Pascal's rule and summable dominated convergence, as reconstructed in `RESULT.md`. No independent audit has been performed.
+PASS
+
+Independence of exponential holding times T_k and merger topology gives c_(n,r)=sum_k E[W_(k,r)]Var(T_k). With the established E[W]=k C(n-r-1,k-2)/C(n-1,k-1) and Var(T_k)=4/[k²(k-1)²], obtain exact sum. Repeated Pascal finite difference yields nonnegative binomial terms and a strictly positive k=j+2 summand in every permitted order; n=2 boundary and r endpoints included. Product-form expectation and uniform 8/[k(k-1)] majorant justify dominated convergence for r/n->alpha including alpha=0,1; sum gives g(alpha). Independent exact Fraction computations n=2..13 confirmed every defined alternating difference and c_n1=4/n,c_n,n-1=2/(n-1). Those finite checks do not replace infinite proof.
+
+## originality
+
+PASS
+
+Known branch-size expectation and generic coalescent moment-computation frameworks are credited prior. The new specific strict all-order finite-frequency inequalities and explicit macroscopic covariance profile are not the fixed-r first-moment statements or generic computational method in the inspected primary literature.
+
+## value
+
+PASS
+
+The exact signs of every frequency difference and nonconstant scaling profile describe a natural frequency-resolved covariance structure in Kingman genealogies, beyond one-off moments and a useful analytic input to frequency-spectrum comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
