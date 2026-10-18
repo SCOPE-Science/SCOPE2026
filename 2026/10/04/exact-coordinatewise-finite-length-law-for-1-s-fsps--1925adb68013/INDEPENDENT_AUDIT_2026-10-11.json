@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T18:17:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual RESULT.md blob 7604a7968a150cc726c6b4df8c10cfa60aaf8200",
+        "actual verify.py blob 7ca8952febdba52064f70f3b0de79400f071e974",
+        "independent coordinatewise proof from the explicit recurrence",
+        "arXiv:2609.28306 abstract and package-source identification"
+      ],
+      "rationale": "Under the displayed S-FSPS specialization A=I, h=0, g=ell_1, z^0=0 and centered box, the Moreau gradient is coordinatewise clip(x/gamma,[-1,1]). For k>=1 the claimed recurrence z_i^k=clip(x_i^k/gamma_{k-1},[-1,1]), x_i^{k+1}=x_i^k-(gamma_k/chi)z_i^k gives, for every nonzero coordinate, a strict step toward but never past zero: in the outer regime gamma_k<=gamma_{k-1}<|x_i^k|; in the inner regime the multiplicative factor is in [1-1/chi,1). Projection thus remains inactive, coordinate signs never flip, and each |x_i^k| decreases. A positive limit would eventually incur the nonsummable losses gamma_k/chi, contradiction; all coordinates tend to zero. Telescoping each monotone coordinate proves exactly sum ||x^{k+1}-x^k||_1=||x^0||_1 and Euclidean finite length for ANY prescribed positive nonincreasing nonsummable gamma_k tending to zero. The packaged rational verifier was inspected and an independent symbolic case split checked. This correctness conclusion is conditional on the stated update being the accurate specialization of equation (6.2), for which the recent original paper was not fully accessible in this execution.",
+      "residual_risks": [
+        "Most relevant original equation (6.2) could not be independently reread in full: this is a material reproducibility/attribution residual risk, not proof of a wrong recurrence.",
+        "Only identity map, separable ell_1 norm, centered box, z^0=0, chi>1 and monotone nonsummable gamma; not arbitrary S-FSPS."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The recent source is reported to require beta>1/2 for general definable composite finite-length results, not a theorem for beta<=1/2 on all problems.",
+          "A general nonconvergence example for variable smoothing confirms that special monotone coordinate structure cannot be dropped."
+        ],
+        "reasoning": "The audited theorem is only narrower in problem class but stronger in allowable smoothing schedules and exact path identity. The precise source theorem statement was not independently re-read in full, so a decisive source-comparison risk remains noted.",
+        "searches": [
+          "arXiv:2609.28306 general S-FSPS theorem scope in abstract and audited source citation",
+          "arXiv:2608.20859 counterexample to general whole-sequence convergence",
+          "arXiv:2312.14341 fractional full-splitting framework"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.28306v1 (abstract only; full text blocked)",
+        "arXiv:2608.20859 (abstract)",
+        "arXiv:2312.14341v2 (bibliographic scope)",
+        "DOI 10.1007/s10915-020-01332-8 (Moreau smoothing background)",
+        "GitHub SCOPE code search: S-FSPS"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A broad theorem limited to beta>1/2 cannot alone imply the beta<=1/2 conclusion.",
+          "The exact identity follows from extra sign/box separability not shared by general full-splitting methods."
+        ],
+        "reasoning": "The exact law is a structural special-model calculation, not a formal consequence of the stated general schedule hypothesis; possible uninspected examples in the primary source remain a real risk.",
+        "searches": [
+          "arXiv:2609.28306 public abstract (full text inaccessible)",
+          "arXiv:2608.20859 public description",
+          "Moreau-envelope/proximal identity as known background"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model is equivalent to coordinatewise underrelaxed shrinkage with moving threshold; the algebra yields strict sign invariance and telescoping.",
+          "The original public abstract advertises KL-based whole-sequence theory rather than an exact monotone-coordinate length law."
+        ],
+        "reasoning": "Compared variable Moreau smoothing, coordinatewise soft thresholding, relaxed proximal-point dynamics and finite-variation property; no verified accessible prior exactly decides this schedule-uniform identity.",
+        "searches": [
+          "Attempted Resultary: variable smoothing S-FSPS l1 centered box coordinatewise finite length (temporarily_unavailable, search_completed=false)",
+          "GitHub SCOPE code search: S-FSPS (zero indexed results)",
+          "arXiv:2609.28306v1 abstract",
+          "DOI 10.1007/s10915-020-01332-8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No full numerical census or table would dominate this all-dimension exact telescoping law; no accessible exact theorem was identified."
+        ],
+        "reasoning": "This is a symbolic monotonicity/path-variation invariant for arbitrary finite dimension and schedules, not an isolated numerical datum. Lack of returned search results is not used as novelty proof.",
+        "searches": [
+          "Attempted Resultary S-FSPS ell1 exact path length (search_completed=false)",
+          "GitHub SCOPE indexed search: S-FSPS",
+          "Targeted web: S-FSPS l1 norm coordinatewise finite length beta one half"
+        ]
+      },
+      "rationale": "The reported general finite-length theorem for definable S-FSPS problems assumes power exponents strictly greater than one half, whereas this directly proved canonical separable model has an exact telescoping path law under every base-admissible schedule, including exponents at/below one half. Standard Moreau clipping and relaxed proximal iterations explain the dynamics but the precise all-schedule S-FSPS invariant is not stated in the accessible summaries. Originality is best-of-knowledge only: the highly relevant 2026 source full text was inaccessible here and the published-finding search did not complete.",
+      "residual_risks": [
+        "A targeted published-finding semantic search was attempted but returned temporarily_unavailable/search_internal_error with search_completed=false; it is not treated as evidence that no overlapping record exists. A current GitHub code-search query of the public SCOPE repository returned no match, which is also not proof of novelty.",
+        "The focal 2026 primary full text was not available; authorized institutional access required a disconnected VPN, so overlap with its complete results/examples was not conclusively checked.",
+        "An equivalent elementary moving-threshold path-variation identity could be present in specialized proximal literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PLAUSIBLE PRIMARY NOT FULLY INSPECTED; RESIDUAL RISK",
+          "evidence": "The accessible record reports a general lifted-KL convergence framework, while the supplied exact recurrence supports the specialized coordinate proof. Full-paper overlap is not ruled out.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.28306",
+          "material_read": "Public arXiv abstract and accessible metadata only; arXiv PDF/HTML full-text retrieval was unsuccessful. An authorized institutional download attempt returned vpn_disconnected, so equation (6.2) was not independently read in that paper.",
+          "method": "Abstract-level implication/scope comparison; full-text access expressly not claimed.",
+          "title": "Whole-Sequence Convergence of Variable-Smoothing Full-Splitting Methods via a Lifted Kurdyka–Łojasiewicz Framework",
+          "trigger": "Focal paper whose algorithm and general schedule theorem may cover the special model"
+        },
+        {
+          "assessment": "GENERAL LIMITATION ONLY",
+          "evidence": "The counterexample shows nonsummable smoothing alone cannot imply convergence for general models; separable monotone recurrence is essential.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.20859",
+          "material_read": "Public preprint metadata and abstract describing failures of whole-sequence convergence, not its full proof.",
+          "method": "Scope comparison.",
+          "title": "Failure of Whole-Sequence Convergence in Variable-Smoothing Full-Splitting Methods",
+          "trigger": "Possible general counterexample to broad extrapolation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2609.28306 public abstract and model context",
+        "direct all-coordinate telescoping proof",
+        "arXiv:2608.20859 general limitation"
+      ],
+      "rationale": "The centered-box separable ell_1 model is a canonical natural nonsmooth benchmark and tests how restrictive the general variable-smoothing schedule condition is. The exact total ell_1 path variation for every monotone nonsummable schedule proves that the commonly sufficient beta>1/2 bound is not necessary on this model and gives a reusable finite-length invariant; the argument is elementary but the motivated all-schedule boundary and exact identity constitute a meaningful structural special case.",
+      "residual_risks": [
+        "Special model only; not a general relaxation of the lifted-KL theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All-n finite-dimensional centered box, A=I, h=0, g=ell_1, z0=0, chi>1, gamma positive monotone tending to zero with divergent sum.",
+    "Correctness verified for the explicitly supplied recurrence; inaccessible primary full text leaves a material check on the exact source Eq (6.2) and originality overlap.",
+    "No arbitrary dual initialization, coupled A, or nonseparable geometry."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The source iteration reduces to \(\delta_k=\chi/\gamma_k\), while the Moreau gradient of \(\|\cdot\|_1\) is coordinatewise clipping. Every coordinate update stays on the segment from its current value to zero, so the box projection is inactive, signs are preserved, and magnitudes are monotone. Nonsummability rules out any positive coordinate limit. Coordinatewise telescoping proves \(\sum_k\|x^{k+1}-x^k\|_1=\|x^0\|_1\), and norm domination gives finite Euclidean length. The finite verifier is only a sanity check.
+## correctness
 
-## Originality
-**PASS.** The primary paper was inspected at its exact iteration, base smoothing assumptions, Corollary 5.5, Theorem 6.1, and nonsmooth example. Its general composite theorem covers power exponents \(1/2<\beta\le1\); the new coordinatewise law works under every base-admissible nonsummable schedule. The original S-FSPS paper, 2020 variable-smoothing work, generic relaxed-proximal-point literature, semantic published-finding searches, and prior-publication searches did not supply a statement implying the exact path identity or the all-schedule conclusion. Residual risk remains for obscure specialized shrinkage literature.
+PASS
 
-## Value
-**PASS.** This is a full finite-dimensional identity-map \(\ell_1\) benchmark, not an arbitrary scalar slice. The exact accumulated \(\ell_1\) motion and the resulting Euclidean finite-length bound give a clean regression case for implementations and a mathematically natural boundary example for interpreting the source paper's power-schedule threshold.
+Under the displayed S-FSPS specialization A=I, h=0, g=ell_1, z^0=0 and centered box, the Moreau gradient is coordinatewise clip(x/gamma,[-1,1]). For k>=1 the claimed recurrence z_i^k=clip(x_i^k/gamma_{k-1},[-1,1]), x_i^{k+1}=x_i^k-(gamma_k/chi)z_i^k gives, for every nonzero coordinate, a strict step toward but never past zero: in the outer regime gamma_k<=gamma_{k-1}<|x_i^k|; in the inner regime the multiplicative factor is in [1-1/chi,1). Projection thus remains inactive, coordinate signs never flip, and each |x_i^k| decreases. A positive limit would eventually incur the nonsummable losses gamma_k/chi, contradiction; all coordinates tend to zero. Telescoping each monotone coordinate proves exactly sum ||x^{k+1}-x^k||_1=||x^0||_1 and Euclidean finite length for ANY prescribed positive nonincreasing nonsummable gamma_k tending to zero. The packaged rational verifier was inspected and an independent symbolic case split checked. This correctness conclusion is conditional on the stated update being the accurate specialization of equation (6.2), for which the recent original paper was not fully accessible in this execution.
 
-## Closest literature and limitations
-The closest sources are arXiv:2609.28306v1, arXiv:2312.14341v2, DOI:10.1007/s10915-020-01332-8, DOI:10.3934/jimo.2022107, and arXiv:2608.20859. The proof depends on separability, the centered box, \(A=I_n\), and \(z^0=0\); it does not cover coupled linear maps or arbitrary feasible sets.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The reported general finite-length theorem for definable S-FSPS problems assumes power exponents strictly greater than one half, whereas this directly proved canonical separable model has an exact telescoping path law under every base-admissible schedule, including exponents at/below one half. Standard Moreau clipping and relaxed proximal iterations explain the dynamics but the precise all-schedule S-FSPS invariant is not stated in the accessible summaries. Originality is best-of-knowledge only: the highly relevant 2026 source full text was inaccessible here and the published-finding search did not complete.
+
+## value
+
+PASS
+
+The centered-box separable ell_1 model is a canonical natural nonsmooth benchmark and tests how restrictive the general variable-smoothing schedule condition is. The exact total ell_1 path variation for every monotone nonsummable schedule proves that the commonly sufficient beta>1/2 bound is not necessary on this model and gives a reusable finite-length invariant; the argument is elementary but the motivated all-schedule boundary and exact identity constitute a meaningful structural special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
