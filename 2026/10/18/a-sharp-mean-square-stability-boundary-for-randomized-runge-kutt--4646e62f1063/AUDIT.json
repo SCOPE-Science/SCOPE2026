@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Source equations (2.3)–(2.4) specialize algebraically to the iid one-delay-step companion. Exact integration builds the six-coordinate moment operator, whose determinant is s Q(s)/12. Sturm variations at 0 and 3/2 are 4 and 3, proving a unique relevant root. The cone-preserving moment map has a positive-definite adjoint Perron eigenmatrix because the companions have no common proper invariant subspace, giving the exact growth rate for every nonzero deterministic state. Perturbation at zero and the determinant sign establish the stable/unstable intervals below sqrt(2); above sqrt(2), the deterministic mean companion determinant and Jensen exclude stability. Exact Routh–Hurwitz coefficients at s=7/6 establish mean stability, while det(I-M)<0 proves mean-square growth. The variance decomposition gives monotone moment spectral radius. Standalone SymPy verification completed 24 checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2401.11658v1 Theorem 4.3 bounds finite-time approximation error for fixed delay intervals and does not classify fixed-step infinitely many intervals.",
+        "arXiv:2006.12131v1 Theorem 3 gives the nondelayed scalar ODE mean-square region.",
+        "Engelborghs–Roose 2002 abstract treats characteristic roots of deterministic linear multistep DDE methods."
+      ],
+      "reasoning": "General random linear-system Lyapunov criteria cover the *form* of the recurrence but do not supply this method-specific sharp positivity interval or the exact rational separation at s=7/6. Deterministic delay and nondelayed stochastic RK analyses do not subsume this combined result.",
+      "searches": [
+        "\"randomized Runge Kutta\" \"delay differential equations\" \"mean-square stability\"",
+        "\"randomized\" \"delay differential\" \"mean square stability\" \"Runge Kutta\" exact",
+        "arXiv:2006.12131v1 Section 5",
+        "doi:10.1137/S003614290037472X abstract"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.11658v1 full HTML relevant sections 2,4,5",
+      "arXiv:2006.12131v1 full-text Section 5 and comparison",
+      "doi:10.1137/S003614290037472X bibliographic abstract only",
+      "MSC2020 official entry 65L03"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 paper supplies the exact algorithm for finite delay intervals but not the long-horizon unit-delay mean-square crossing.",
+        "The 2020 paper supplies an ODE scalar stage-variance effect, not a three-lag covariance operator.",
+        "The 2002 paper is a deterministic delay-method stability analysis; only its abstract was materially available in this comparison."
+      ],
+      "reasoning": "The claimed novelty is not that positive-map criteria or stage-variance penalties are new: it is the derivation of the degree-seven exact threshold for this published delayed-stage scheme, a complete all-positive-step classification, and the exact rational stable-mean/unstable-mean-square witness. No inspected stronger theorem directly implies the explicit parameter statement without a substantive method-specific computation.",
+      "searches": [
+        "arXiv:2401.11658v1 equations 2.3–2.4 theorem 4.3",
+        "arXiv:2006.12131v1 Section 5",
+        "doi:10.1137/S003614290037472X abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Difonzo et al., arXiv:2401.11658v1, equations (2.3)–(2.4): stage-sharing delayed interpolation, not a scalar ODE stability multiplier.",
+        "Bochacik et al., arXiv:2006.12131v1, Section 5: independently randomized scalar ODE multiplier p(z)=1+z+gamma*z^2; no multistep delayed memory."
+      ],
+      "reasoning": "Equivalent formulations include the three-step random companion recursion, the completely positive covariance map X->E[BXB^T], and the positive-map spectral radius criterion. The ODE randomized RK scalar stability theorem does not imply the degree-seven delayed characteristic condition by substitution; no independent covering formula for this exact companion was found.",
+      "searches": [
+        "randomized Runge Kutta numerical time delay equation y'= -b y(t-tau), N=1, mean-square stability cubic stochastic recurrence",
+        "degree seven stability polynomial for randomized delay Runge Kutta 1 - s z^-1 + uniform s^2 stage z^-2",
+        "\"randomized\" \"delay differential\" \"mean square stability\" \"Runge Kutta\" exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published finding entitled “Exact delay-distribution law for two-coordinate randomized Gauss–Seidel” (2026) concerns stale reads in Gauss–Seidel, not this integrator.",
+        "The 2024 primary source has no presented pure-delay covariance table or polynomial stability threshold in Sections 2, 4, 5."
+      ],
+      "reasoning": "No exact parameter table or source claim was identified containing Q(s) or its unique relevant root. Search absence is not conclusive; the risk of an older equivalent random-recurrence table remains.",
+      "searches": [
+        "\"A Randomized Runge-Kutta Method for time-irregular delay differential equations\" mean-square stability pure delay recurrence iid uniform stage sharp threshold",
+        "degree seven stability polynomial for randomized delay Runge Kutta 1 - s z^-1 + uniform s^2 stage z^-2",
+        "\"2401.11658\" stability second moment numerical"
+      ]
+    },
+    "rationale": "The source 2024 algorithm is an actual delayed-stage randomized RK method but supplies fixed-horizon convergence, not an exact infinite-horizon mean-square stability threshold. A prior randomized ODE scalar test yields a different one-multiplier stability criterion, and deterministic DDE methods likewise do not determine the random companion covariance. The degree-seven threshold with exact one-crossing proof, all-positive-parameter boundary, and rational mean/mean-square reversal are new to the literature inspected and distinct from previously available scientific findings. Residual risks include undiscovered stochastic recurrence equivalences; originality is a self-review, not a claim of exhaustive priority.",
+    "residual_risks": [
+      "An equivalent covariance spectral interval might be embedded in older stochastic finite-memory recurrence literature under different terminology.",
+      "The publisher full text of Engelborghs–Roose was not inspected; its abstract confines the described analysis to deterministic LMS methods.",
+      "Searches and comparisons support best-known originality, not formal exhaustive novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Method matches specialization; the investigated results are fixed-horizon errors, not the asymptotic mean-square stability interval.",
+        "evidence": "Equations (2.3)–(2.4) build the stage-delayed correction; Theorem 4.3 bounds max step errors for j up to fixed n and section 5 reports numerical experiments.",
+        "identifier_or_url": "https://arxiv.org/html/2401.11658v1",
+        "material_read": "HTML full text sections 1–5 with particular attention to equations (2.3)–(2.4), Theorem 4.3, and implementation discussion in Section 5.",
+        "method": "Open-access arXiv HTML textual inspection, including exact formulas and main convergence statement.",
+        "title": "A Randomized Runge-Kutta Method for time-irregular delay differential equations",
+        "trigger": "Same numerical method and exact delayed-stage construction; most plausible coverage."
+      },
+      {
+        "assessment": "Finds the scalar nondelayed ODE multiplier and random-vs-central-stage gap, but not a delayed companion recurrence.",
+        "evidence": "Section 5.1 formula E|1+z+gamma z^2|^2 and region of stability; no delay variable or three-lag update is involved.",
+        "identifier_or_url": "https://arxiv.org/abs/2006.12131",
+        "material_read": "Full web-rendered manuscript introduction, equations for the algorithm, and Section 5.1 stability formula and Theorem 3, with the comparison to deterministic midpoint.",
+        "method": "Open-access arXiv full-text rendering and targeted section inspection.",
+        "title": "Randomized Runge-Kutta method—stability and convergence under inexact information",
+        "trigger": "Same randomized two-stage construction and an explicit mean-square stability theorem."
+      },
+      {
+        "assessment": "Focus is deterministic linear multistep delay methods; equivalence to a stochastic iid-stage covariance threshold was not established.",
+        "evidence": "Abstract says the goal is approximating characteristic roots and recovering deterministic stability/instability for LMS methods.",
+        "identifier_or_url": "https://doi.org/10.1137/S003614290037472X",
+        "material_read": "Publisher bibliographic record and abstract only; full text not inspected.",
+        "method": "Publisher summary inspection.",
+        "title": "On Stability of LMS Methods and Characteristic Roots of Delay Differential Equations",
+        "trigger": "Plausible older stronger coverage for delay stability and characteristic roots."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4646e62f-1063-493b-b9d4-7ad5e991b63d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Infinite-horizon moment stability is a natural practical question for an iid-stage method with finite-horizon error analysis. An exact sharp threshold and exact stable-mean/unstable-second-moment witness at a simple rational step clarify the reliability limits of randomized delay integration, and the variance-order law identifies the structural cause. This is a motivated full parameter classification for the smallest nontrivial delay grid, not an arbitrary computed number. Its relevance is limited to the specified scalar test family, which is stated explicitly.",
+    "status": "PASS"
+  }
+}
