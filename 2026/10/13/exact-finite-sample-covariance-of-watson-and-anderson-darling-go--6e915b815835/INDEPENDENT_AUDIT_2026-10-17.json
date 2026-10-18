@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T13:06:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all n>=1 under a fully specified continuous simple null, the Watson kernel h(x,y)=1/12-|x-y|/2+|x-y|^2/2 is canonical and has constant diagonal 1/12; the Anderson-Darling kernel a(x,y)=integral Y_xY_y/[t(1-t)]dt is canonical. Thus only matching unordered off-diagonal pairs contribute to covariance, giving 2(n-1)/n E[ha]. Independent symbolic Brownian-bridge integration reduced its inner product to integral_0^1 s(1-s)/12 ds=1/72, yielding Cov=(n-1)/(36n). The variances Var(U)= (n-1)/(360n) and Var(A)=[4-pi^2/3+2(n-1)(pi^2/3-3)]/n then give stated monotone correlation and n=1 undefined correlation. Hypotheses exclude parameter estimation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stephens discusses separate components and power; Hwang–Kuriki gives generalized process/statistic families and related kernels but not the stated finite-n mixed covariance in inspected results."
+        ],
+        "reasoning": "No inspected stronger theorem yields precisely the cross covariance; an inaccessible historical joint calculation is a residual risk.",
+        "searches": [
+          "Stephens 1974 full article",
+          "Hwang–Kuriki arXiv:2404.06040 generalized goodness-of-fit statistics",
+          "Durbin–Knott 1972 bibliographic record"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md blob 265e1f355e7d40b0144cc8d6c3f4c9cebd470522",
+        "Stephens 1974 full open-access article",
+        "Hwang–Kuriki arXiv:2404.06040",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing Var(U_n^2) and Var(A_n^2) separately leaves an arbitrary covariance without a cross-kernel identity."
+        ],
+        "reasoning": "The mixed bridge integral 1/72 and diagonal cancellation are the extra derived facts; no coverage implication established from inspected prior statements.",
+        "searches": [
+          "Stephens 1974 component decompositions",
+          "Hwang–Kuriki 2024 process framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both statistics are quadratic forms of the same empirical bridge; the claim is an off-diagonal covariance, equivalently a cross Hilbert–Schmidt kernel inner product with distinct weightings."
+        ],
+        "reasoning": "Compared process-kernel and original named-statistic formulations. Marginal decompositions of each kernel do not automatically equal the exact finite-n mixed covariance.",
+        "searches": [
+          "Stephens Components of goodness-of-fit statistics (1974)",
+          "Resultary: Watson Anderson Darling finite sample exact mixed covariance empirical process goodness of fit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No source result gave the finite-sample pair covariance (n-1)/(36n). Marginal variance tables would not determine the cross term."
+        ],
+        "reasoning": "Exact finite-n covariance has to be evaluated as a cross moment; a null search does not certify novelty.",
+        "searches": [
+          "Resultary exact Watson Anderson Darling covariance query",
+          "Stephens 1974 tables of statistic-component moments"
+        ]
+      },
+      "rationale": "The classical Watson and Anderson–Darling marginals and spectral decompositions are known; the submission gives the exact cross-statistic finite-n covariance and correlation. The inspected primary Stephens 1974 full work decomposes the separate statistics rather than evaluating this cross finite-sample kernel inner product. A possible older joint-component calculation remains a genuine risk.",
+      "residual_risks": [
+        "Older Pearson–Stephens/Durbin–Knott joint-component calculations may contain equivalent covariance under notation not indexed by the two statistic names.",
+        "Does not cover composite nulls, altered statistic normalizations or joint tails."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact stated mixed finite-n covariance in inspected text",
+          "evidence": "Separate Watson/Anderson–Darling component formulations and asymptotic power/moment analyses.",
+          "identifier_or_url": "https://www.numdam.org/article/AIHPB_1974__10_1_37_0.pdf",
+          "material_read": "Full public article, component decompositions and relevant statistic-moment sections",
+          "method": "Read open-access full primary PDF",
+          "title": "Components of goodness-of-fit statistics",
+          "trigger": "Primary classic source for both named statistics"
+        },
+        {
+          "assessment": "NO IDENTIFIED direct all-n cross-statistic formula",
+          "evidence": "Generalized kernel/covariance results concern individual modified statistic families.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.06040",
+          "material_read": "Open primary preprint sections on generalized test statistics and kernels",
+          "method": "Read accessible arXiv text/PDF sections",
+          "title": "Integrated empirical measures and generalizations of classical goodness-of-fit statistics",
+          "trigger": "Potential later stronger kernel theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact cross covariance quantifies dependence between two canonical omnibus goodness-of-fit statistics for every sample size, directly relevant to interpreting joint/combined testing even though it does not itself calibrate joint tails. This is a motivated cross-statistic invariant not supplied by separate marginal moments.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen RESULT.md blob 265e1f355e7d40b0144cc8d6c3f4c9cebd470522",
+    "Stephens 1974 full open-access article",
+    "Hwang–Kuriki arXiv:2404.06040",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Older Pearson–Stephens/Durbin–Knott joint-component calculations may contain equivalent covariance under notation not indexed by the two statistic names.",
+    "Does not cover composite nulls, altered statistic normalizations or joint tails.",
+    "Not publication-ready because operational provenance was found in metadata and full source-tree/neutral-content guards were not independently verified.",
+    "Best-of-knowledge mathematical judgment, not certification, formal proof, or external attestation."
+  ],
+  "residual_risks": [
+    "Older Pearson–Stephens/Durbin–Knott joint-component calculations may contain equivalent covariance under notation not indexed by the two statistic names.",
+    "Does not cover composite nulls, altered statistic normalizations or joint tails."
+  ],
+  "schema_version": 1
+}

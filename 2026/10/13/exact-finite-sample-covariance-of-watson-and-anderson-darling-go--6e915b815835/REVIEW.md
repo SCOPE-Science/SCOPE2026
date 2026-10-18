@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The transformed empirical process has the exact canonical kernel representation. The Watson kernel has the constant diagonal \(1/12\), so mixed covariances retain only matched off-diagonal unordered pairs; the exact cross-kernel integral is \(1/72\). Those statements yield \((n-1)/(36n)\) for all sample sizes. The Watson variance uses an exact \(1/720\) pair-kernel integral, and the Anderson–Darling variance uses explicit beta-logarithm and triangular bridge integrals. The independent coefficient checker and directly computed sorted-sample simulations support, but do not replace, these proofs. The one-observation correlation is correctly left undefined.
+PASS
 
-## Originality — PASS, with residual risk
+For all n>=1 under a fully specified continuous simple null, the Watson kernel h(x,y)=1/12-|x-y|/2+|x-y|^2/2 is canonical and has constant diagonal 1/12; the Anderson-Darling kernel a(x,y)=integral Y_xY_y/[t(1-t)]dt is canonical. Thus only matching unordered off-diagonal pairs contribute to covariance, giving 2(n-1)/n E[ha]. Independent symbolic Brownian-bridge integration reduced its inner product to integral_0^1 s(1-s)/12 ds=1/72, yielding Cov=(n-1)/(36n). The variances Var(U)= (n-1)/(360n) and Var(A)=[4-pi^2/3+2(n-1)(pi^2/3-3)]/n then give stated monotone correlation and n=1 undefined correlation. Hypotheses exclude parameter estimation.
 
-Stephens (1974) analyzes component decompositions, marginal moments and asymptotic power, not this finite-sample cross-covariance; Hwang–Kuriki (2024) derive distinct generalized processes and marginal spectra, not the mixed statistic. A 2010 composite-null paper is not directly covering. Even exact covariances pairing each statistic with Cramér–von Mises would not determine their mutual covariance: it is an independent off-diagonal entry of the joint covariance matrix. Search results and source reading identified no equivalent mixed-moment formula. Durbin–Knott (1972) remains a material but not decisive access risk because its full original report could not be inspected here; unindexed older finite-statistic calculations could also overlap.
+## originality
 
-## Value — PASS
+PASS
 
-Watson and Anderson–Darling are standard, scientifically distinct integral diagnostics: mean-centering removes an empirical location-on-the-circle mode, while inverse binomial-variance weighting emphasizes tail departures. Exact finite-null dependence matters when both diagnostics are read jointly. The theorem gives more than separately known marginal moments: a positive dependence at all nondegenerate sample sizes, an explicit strict monotonicity law, and a nonzero limiting correlation. The proof identifies the nontrivial mechanism—complete cancellation of a diagonal mixed contribution—without asserting an unproved combined-test threshold.
+The classical Watson and Anderson–Darling marginals and spectral decompositions are known; the submission gives the exact cross-statistic finite-n covariance and correlation. The inspected primary Stephens 1974 full work decomposes the separate statistics rather than evaluating this cross finite-sample kernel inner product. A possible older joint-component calculation remains a genuine risk.
 
-## Limitations
+## value
 
-A known continuous null is essential; estimated nuisance parameters, two-sample tests, joint tail probabilities, and historical uniqueness are not established. The inaccessible Durbin–Knott article and potentially unindexed historical derivations are acknowledged rather than treated as negative novelty evidence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact cross covariance quantifies dependence between two canonical omnibus goodness-of-fit statistics for every sample size, directly relevant to interpreting joint/combined testing even though it does not itself calibrate joint tails. This is a motivated cross-statistic invariant not supplied by separate marginal moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
