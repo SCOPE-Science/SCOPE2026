@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T00:45:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The direct matrix trapezoidal step with x=ha,y=hb in (0,1) has P11+=(r P11+h nu)/(1+x), P22+=(ell P22+h nu)/(1+y), P12+=z P12, r=1-x,ell=1-y,z=(2-x-y)/(2+x+y). Rank-one trace-tau inputs generate the PSD trace slice, so convexity reduces universal PSD to determinant F_s(t)=s^2+s[rt+ell(1-t)]-E t(1-t)>=0, s=h nu/tau, E=k-r ell=2(x-y)^2(x+y)/(2+x+y)^2>0 and k=z^2(1+x)(1+y). Completing the square yields s*=E/(r+ell+2 sqrt(k)), t*=1/2-s*(r-ell)/(2E) strictly in (0,1), F_s*(t)=E(t-t*)^2. F_s increases strictly in s>=0 pointwise; thus the threshold is necessary and sufficient, equality orientation unique, below it fails even for rank-one inputs. Taylor E=0.5(a-b)^2(a+b)h^3+O(h^4) gives nu*=tau h^2(a-b)^2(a+b)/8+O(h^3). Independent exact Fraction replay at (x,y)=(1/4,4/5) reproduced s*=42/1159, t*=74/209, unforced determinant -847/111630. No extrapolation from this witness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dieci and Eirola, Positive Definiteness in the Numerical Solution of Riccati Differential Equations — Higher-order direct integration cannot universally preserve positive definiteness",
+          "Gillis and Diehl, A Positive Definiteness Preserving Discretization Method for Lyapunov Differential Equations — Positivity-preserving replacement method rather than direct CN diffusion threshold"
+        ],
+        "reasoning": "Dieci–Eirola broad non-preservation obstruction and Gillis–Diehl a general structure-preserving method do not imply a minimum diffusion for the fixed-trace direct scheme. Generic impossibility persists for arbitrary covariance rescalings.",
+        "searches": [
+          "Resultary: Crank Nicolson direct Lyapunov covariance matrix positivity isotropic noise threshold trace two dimensional diagonal drift",
+          "web: Dieci Eirola Positive Definiteness in Numerical Solution of Riccati Differential Equations",
+          "web: Gillis Diehl Positive Definiteness Preserving Discretization Lyapunov Differential Equations",
+          "web: Schur multiplier CN covariance isotropic noise floor"
+        ]
+      },
+      "checked_sources": [
+        "Dieci and Eirola, Positive Definiteness in the Numerical Solution of Riccati Differential Equations (https://doi.org/10.1007/s002110050030)",
+        "Gillis and Diehl, A Positive Definiteness Preserving Discretization Method for Lyapunov Differential Equations (https://doi.org/10.1109/CDC.2013.6761121)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dieci and Eirola, Positive Definiteness in the Numerical Solution of Riccati Differential Equations — Higher-order direct integration cannot universally preserve positive definiteness"
+        ],
+        "reasoning": "Qualitative loss of positivity cannot determine the sharp sufficient-and-necessary s*(x,y) or equality direction; modified schemes do not constrain the unchanged trapezoid calculation. A separate determinant minimization is necessary.",
+        "searches": [
+          "Resultary: Crank Nicolson direct Lyapunov covariance matrix positivity isotropic noise threshold trace two dimensional diagonal drift",
+          "web: Dieci Eirola Positive Definiteness in Numerical Solution of Riccati Differential Equations",
+          "web: Gillis Diehl Positive Definiteness Preserving Discretization Lyapunov Differential Equations",
+          "web: Schur multiplier CN covariance isotropic noise floor"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct matrix trapezoidal step with x=ha,y=hb in (0,1) has P11+=(r P11+h nu)/(1+x), P22+=(ell P22+h nu)/(1+y), P12+=z P12, r=1-x,ell=1-y,z=(2-x-y)/(2+x+y). Rank-one trace-tau inputs generate the PSD trace slice, so convexity reduces universal PSD to determinant F_s(t)=s^2+s[rt+ell(1-t)]-E t(1-t)>=0, s=h nu/tau, E=k-r ell=2(x-y)^2(x+y)/(2+x+y)^2>0 and k=z^2(1+x)(1+y). Completing the s",
+          "Comparison with closest primary sources under transformed variables."
+        ],
+        "reasoning": "One-step positivity of direct trapezoid on trace-slice covariances, positivity of a 2x2 affine Schur multiplier and a rank-one determinant lower envelope are equivalent; this exact rescue problem differs from arbitrary-scale cone preservation.",
+        "searches": [
+          "Resultary: Crank Nicolson direct Lyapunov covariance matrix positivity isotropic noise threshold trace two dimensional diagonal drift",
+          "web: Dieci Eirola Positive Definiteness in Numerical Solution of Riccati Differential Equations",
+          "web: Gillis Diehl Positive Definiteness Preserving Discretization Lyapunov Differential Equations",
+          "web: Schur multiplier CN covariance isotropic noise floor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search Crank Nicolson direct Lyapunov covariance matrix positivity isotropic noise threshold trace two dimensional diagonal drift returned no statement matching the exact claim among top twelve hits; no negative search is considered proof of novelty."
+        ],
+        "reasoning": "Resultary similar covariance/noise entries treat different models; no same two-rate parameter threshold or exact rational witness table found. Lack of hits is not proof of novelty.",
+        "searches": [
+          "Resultary: Crank Nicolson direct Lyapunov covariance matrix positivity isotropic noise threshold trace two dimensional diagonal drift",
+          "web: Dieci Eirola Positive Definiteness in Numerical Solution of Riccati Differential Equations",
+          "web: Gillis Diehl Positive Definiteness Preserving Discretization Lyapunov Differential Equations",
+          "web: Schur multiplier CN covariance isotropic noise floor"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Dieci–Eirola already proved a general loss of positive definiteness in direct high-order Lyapunov/Riccati integrators; Gillis–Diehl introduce a modified positivity-preserving discretization. Neither inspected work states an exact smallest isotropic input diffusion restoring one direct CN step over fixed-trace PSD covariances. This quantitative Schur-multiplier rescue is separated from known impossibility and from changing integrators.",
+      "residual_risks": [
+        "Possible older Schur-product multiplier positivity or integrator-noise threshold in numerical linear algebra under a different name.",
+        "Some Gillis–Diehl detail was available only through selected material rather than complete fresh full-text traversal."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes broad qualitative impossibility but not fixed-trace exact additive-noise recovery of unmodified trapezoid step",
+          "evidence": [
+            "Higher-order direct integration cannot universally preserve positive definiteness"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s002110050030",
+          "material_read": "Read author-hosted full preprint and positivity-impossibility sections during source inspection",
+          "method": "lawful open access HTML/PDF or source description as specified",
+          "title": "Dieci and Eirola, Positive Definiteness in the Numerical Solution of Riccati Differential Equations",
+          "trigger": "Generic direct higher-order loss of positive definiteness"
+        },
+        {
+          "assessment": "Constructs changed covariance method to guarantee positivity; no documented exact s*(x,y) for unchanged direct update in the inspected material",
+          "evidence": [
+            "Positivity-preserving replacement method rather than direct CN diffusion threshold"
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/CDC.2013.6761121",
+          "material_read": "Available paper description and relevant numerical-discretization discussion; not asserting entire paper inspected this execution",
+          "method": "lawful open access HTML/PDF or source description as specified",
+          "title": "Gillis and Diehl, A Positive Definiteness Preserving Discretization Method for Lyapunov Differential Equations",
+          "trigger": "Direct same Lyapunov covariance model, competing method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed total variance is a natural physical normalization of additive covariance forcing. The exact minimal isotropic noise and worst rank-one direction quantify an integrator positivity defect despite nonnegative scalar damping; the h² scaling helps distinguish structural versus numerical safety. Not claimed for repeated steps or arbitrary matrix drift.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Dieci and Eirola, Positive Definiteness in the Numerical Solution of Riccati Differential Equations (https://doi.org/10.1007/s002110050030)",
+    "Gillis and Diehl, A Positive Definiteness Preserving Discretization Method for Lyapunov Differential Equations (https://doi.org/10.1109/CDC.2013.6761121)"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Possible older Schur-product multiplier positivity or integrator-noise threshold in numerical linear algebra under a different name.",
+    "Some Gillis–Diehl detail was available only through selected material rather than complete fresh full-text traversal."
+  ],
+  "schema_version": 1
+}
