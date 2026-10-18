@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T17:48:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md 0e870282902001dfef3f976ced55564111585d11",
+        "Git verify.py 11258e6259bb0a28d5623e597682cd1e7b92afdd",
+        "Liu--Feng--Chen--Huang DOI:10.3934/dcdss.2024065 Figure 11 caption"
+      ],
+      "rationale": "From \\(W\\dot{}=i\\omega_1W\\) and \\(V\\dot{}=i\\omega_2V\\), the derivatives of \\(|W|^2,|V|^2\\) vanish and \\(\\dot K=i(\\omega_2-2\\omega_1)K=0\\). The printed forcing yields \\(W=e^{i\\omega_1t}\\), \\(V=e^{2i\\omega_1t}\\), so \\(K=1\\) for every common time translate. The panel initial state \\((w,p,z,q)=(4/5,3/5,4/5,3/5)\\) gives \\(W=(4+3i)/5\\), \\(V=(3+4i)/5\\), and exact multiplication gives \\(K=(117-44i)/125\\). The retrieved source Figure 11 caption confirms these oscillator initial values and frequencies. The actual verify.py was inspected, and independent symbolic Lie-derivative/rational checks reproduced the conserved quantities and exact value; no Lyapunov numerics are used.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier forced KP-MEW-Burgers dynamics uses periodic perturbations and does not specify this later panel pair or its oscillator data."
+        ],
+        "reasoning": "The general existence of oscillator phase constants is elementary; the new information is their source-specific incompatible initial value and analytical consequence.",
+        "searches": [
+          "DOI:10.1016/j.camwa.2017.02.017 (Saha)",
+          "DOI:10.3934/dcdss.2024065"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/dcdss.2024065",
+        "DOI:10.1016/j.camwa.2017.02.017"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two autonomous initial states with different conserved \\(K\\) cannot be connected by one time translation at resonance."
+        ],
+        "reasoning": "Equivalence of an autonomous embedding with a prescribed forcing requires matching relative-phase initial data, which the source captions do not impose.",
+        "searches": [
+          "Liu et al. equations (20)--(21) and Figure 11 caption"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Figure 11(a) is associated with planar forced equation (20), whereas 11(b) uses the six-dimensional autonomous extension (21) at listed oscillator initial values."
+        ],
+        "reasoning": "Relative phase of a 2:1 pair is exactly represented by the conserved resonant monomial \\(K=V\\overline W^2\\).",
+        "searches": [
+          "KP MEW Burgers periodic external forcing six dimensional oscillator two to one resonance phase invariant Figure 11 Lyapunov 2024 Liu Feng Chen Huang [Resultary attempted, temporarily_unavailable]",
+          "DOI:10.3934/dcdss.2024065 Figure 11 caption"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published figure caption has the exact four oscillator coordinates, permitting an exact rational phase-invariant calculation."
+        ],
+        "reasoning": "No independent dataset is required; exact comparison is to the source’s two figure configurations.",
+        "searches": [
+          "Exact Figure 11(b) initialization \\(0.8,0.8,0.6,0.6\\)",
+          "GitHub same-repository search for KP MEW Burgers phase [no result]"
+        ]
+      },
+      "rationale": "The primary publisher page identifies the two different numerical setups; the additional resonant first integral and its exact value are not among the accessible source statements. Earlier periodic forcing dynamics work is a precursor, not an analysis of this exact six-dimensional initialization. The page-level source comparison and all-op algebra substantiate the source-specific mismatch, subject to uninspected publisher full text and unavailable index.",
+      "residual_risks": [
+        "Published-results semantic-index query was attempted for this record but returned temporarily_unavailable/search_internal_error, search_completed=false; absence of an indexed overlap is not inferred.",
+        "The complete original article was not read; its inaccessible body or appendix could already mention resonant phase dependence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_FIGURE_INITIALIZATIONS_DIFFER_IN_PHASE",
+          "evidence": "Figure 11(a) lists \\((u,v)=(1,-0.42)\\) in the nonautonomous equation and 11(b) lists additional \\((w,z,p,q)=(0.8,0.8,0.6,0.6)\\) for the autonomous system.",
+          "identifier_or_url": "DOI:10.3934/dcdss.2024065",
+          "material_read": "Official primary publisher abstract, equation/figure descriptions and Figure 11 caption displaying parameters and the two different sets of initial conditions; full article file access was restricted.",
+          "method": "Publisher landing page and figure-caption inspection.",
+          "title": "Geometric analysis of traveling wave solutions for the generalized KP-MEW-Burgers equation",
+          "trigger": "Exact source of the two Figure 11 experiments."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Liu--Feng--Chen--Huang 2025 primary figure/caption",
+        "Saha 2017"
+      ],
+      "rationale": "The relative phase is a genuine invariant of the resonant autonomous extension, so using different leaves undermines a specific published comparison of bifurcation and Lyapunov diagnostics unless phase-independence is proved. This is a motivated source-specific consistency result, not a routine computational typo.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "On the resonance \\(\\omega_2=2\\omega_1\\ne0\\), the oscillator extension of Liu--Feng--Chen--Huang has conserved \\(I_1=|W|^2\\), \\(I_2=|V|^2\\), and \\(K=V\\overline W^2\\), where \\(W=w+ip\\) and \\(V=q+iz\\). The periodically forced model and all its common time translations have \\(K=1\\), whereas the published Figure 11(b) oscillator initial data give \\(K=(117-44i)/125\\ne1\\); therefore the two figure panels use distinct relative phase leaves and are not pointwise equivalent as forced systems without an additional phase-independence theorem.",
+  "limitations": [
+    "Shows a phase mismatch, not that either computed bifurcation diagram or Lyapunov spectrum is numerically wrong.",
+    "Applies to the 2:1 resonant experiment, not an incommensurate-frequency case."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Writing \(W=w+ip\) and \(V=q+iz\) converts the source's two oscillator pairs to \(\dot W=i\omega_1W\) and \(\dot V=i\omega_2V\). At \(\omega_2=2\omega_1\), direct differentiation gives \(\frac{d}{d\zeta}(V\overline W^2)=0\). The printed forcing has \(K=1\) under every common time translation. Exact evaluation of the Figure 11(b) initial oscillator state gives \(K=(117-44i)/125\), so no time translation can identify that trajectory with the printed forcing. The bundled exact checker returns `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS. The primary paper supplies the autonomous embedding and the two Figure 11 initializations but does not identify the resonant relative-phase invariant or compare their invariant leaves. published-finding corpus searches for the exact source, autonomous embeddings, harmonic phase invariants, and Lyapunov comparisons returned only unrelated phase-geometry and forced-system findings. The antecedent periodic-forcing literature inspected does not imply the source-specific Figure 11 phase-leaf comparison.
+PASS
 
-## Value
-PASS. Figure 11 juxtaposes a bifurcation diagram of the nonautonomous equation and a Lyapunov diagram of its claimed autonomous equivalent as diagnostics of the same parameter sweep. The invariant proves that, for the published \(2:1\) frequency choice, the two computations use inequivalent relative phases. This is a structural reproducibility condition: matching radii is insufficient, and a relative-phase constraint must also be enforced before the two diagnostics can be compared pointwise.
+From \(W\dot{}=i\omega_1W\) and \(V\dot{}=i\omega_2V\), the derivatives of \(|W|^2,|V|^2\) vanish and \(\dot K=i(\omega_2-2\omega_1)K=0\). The printed forcing yields \(W=e^{i\omega_1t}\), \(V=e^{2i\omega_1t}\), so \(K=1\) for every common time translate. The panel initial state \((w,p,z,q)=(4/5,3/5,4/5,3/5)\) gives \(W=(4+3i)/5\), \(V=(3+4i)/5\), and exact multiplication gives \(K=(117-44i)/125\). The retrieved source Figure 11 caption confirms these oscillator initial values and frequencies. The actual verify.py was inspected, and independent symbolic Lie-derivative/rational checks reproduced the conserved quantities and exact value; no Lyapunov numerics are used.
 
-## Closest literature and limitations
-The closest source is Liu–Feng–Chen–Huang, DOI 10.3934/dcdss.2024065, whose Section 4 defines the autonomous embedding and whose Figure 11 caption reports the initial data at issue. Saha, DOI 10.1016/j.camwa.2017.02.017, is the earlier periodically forced KP-MEW-Burgers study cited by the source. The present result does not recompute either numerical panel and does not exclude a future proof that the asymptotic diagnostics are independent of the resonant relative phase.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary publisher page identifies the two different numerical setups; the additional resonant first integral and its exact value are not among the accessible source statements. Earlier periodic forcing dynamics work is a precursor, not an analysis of this exact six-dimensional initialization. The page-level source comparison and all-op algebra substantiate the source-specific mismatch, subject to uninspected publisher full text and unavailable index.
+
+## value
+
+PASS
+
+The relative phase is a genuine invariant of the resonant autonomous extension, so using different leaves undermines a specific published comparison of bifurcation and Lyapunov diagnostics unless phase-independence is proved. This is a motivated source-specific consistency result, not a routine computational typo.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
