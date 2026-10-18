@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:10:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/777b2b21e054cb68d855230883c60b5f35c9209a/2026/10/12/all-centered-rank-contrasts-share-one-exact-value-correlation--137368332882/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/777b2b21e054cb68d855230883c60b5f35c9209a/2026/10/12/all-centered-rank-contrasts-share-one-exact-value-correlation--137368332882/checker.py",
+        "https://doi.org/10.1111/j.2044-8317.1954.tb00138.x",
+        "https://pdfs.semanticscholar.org/3626/39fd9b65684d8bec571cbedb62ed1a14a85c.pdf",
+        "https://doi.org/10.5539/jmr.v1n1p14"
+      ],
+      "rationale": "For atomless iid values, Stuart’s diagonal rank–value covariance is (N−1)G/4. A constant rank sum forces every off-diagonal to −G/4; contraction against any deterministic zero-sum c gives NG||c||²/4, and the permutation-rank variance is N(N+1)||c||²/12. Combining gives the claimed common correlation and the Mann–Whitney two-sample identity. Sharp Gini bound follows from Cauchy–Schwarz between X and F(X); equality iff X is affine in F(X), i.e. uniform on interval. Independently exactly enumerated uniform order-rank conditional expectations for N=3,4,5, recovering expected covariances 2,20/3,50/3 for centered arithmetic contrasts. The final RESULT.md has a form-feed character corrupting one displayed LaTex command in the sample specialization, but the intended identity is otherwise unambiguous.",
+      "residual_risks": [
+        "The malformed LaTeX form-feed makes the displayed specialization imperfect; preserve source rather than silently repairing failed original.",
+        "The formula requires atomlessness, finite positive variance, deterministic zero-sum contrasts; no claims for studentized/nonnull cases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stuart’s arbitrary continuous-parent single rank–variate correlation formula applies all finite-variance continuous parents and sample sizes; rank permutation covariance supplies the rest without additional distribution analysis."
+        ],
+        "reasoning": "The prior arbitrary-distribution formula dominates every deterministic centered contrast for the same iid model once trivial invariance under permutations is applied.",
+        "searches": [
+          "rank value centered contrasts Gini Mann Whitney exact correlation",
+          "https://doi.org/10.1111/j.2044-8317.1954.tb00138.x",
+          "https://pdfs.semanticscholar.org/3626/39fd9b65684d8bec571cbedb62ed1a14a85c.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1111/j.2044-8317.1954.tb00138.x",
+        "https://pdfs.semanticscholar.org/3626/39fd9b65684d8bec571cbedb62ed1a14a85c.pdf",
+        "https://doi.org/10.5539/jmr.v1n1p14"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let a=Cov(X_i,R_i) from Stuart. Because Σ_j R_j=N(N+1)/2, b=Cov(X_i,R_j)=-a/(N-1) for j≠i. Therefore Cov(T_c,V_c)=(a-b)||c||²=NG||c||²/4; the two-sample coefficients and sharp uniform equality require only standard substitutions."
+        ],
+        "reasoning": "This is exact implication, not merely matching titles or an inaccessible-prior suspicion; the new statement is mechanically obtained from published mathematics.",
+        "searches": [
+          "rank value centered contrasts Gini Mann Whitney exact correlation",
+          "https://doi.org/10.5539/jmr.v1n1p14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maturi–Elsayigh 2009 p.16 Eq.(2) reproduces Stuart 1954 exact generic ρ(X_i,R_i) in terms of E[XF(X)]−μ/2, N, σ. This is diagonal G/4 entry."
+        ],
+        "reasoning": "This equivalent first-coordinate statistic determines the entire full cross-covariance matrix by exchangeability and fixed rank sum, so zero-sum contrast correlation is not a new independent theorem.",
+        "searches": [
+          "rank value centered contrasts Gini Mann Whitney exact correlation",
+          "\"rank\" \"variates\" Stuart 1954 correlation Gini all contrasts",
+          "https://doi.org/10.5539/jmr.v1n1p14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2009 primary Table 1 records Stuart exact uniform and other correlations; the claimed N-dependent bound is the uniform equality case after replacing a single coordinate with a centered linear contrast."
+        ],
+        "reasoning": "No separate table of all contrast coefficients is needed: all entries are fixed by the one known scalar and the rank-sum identity; re-tabulation cannot supply novelty.",
+        "searches": [
+          "rank value centered contrasts Gini Mann Whitney exact correlation",
+          "\"Mann Whitney\" \"sample mean\" covariance Gini rank sum",
+          "Maturi Elsayigh 2009 table exact uniform exponential Gaussian correlation"
+        ]
+      },
+      "rationale": "The complete centerpiece follows as an immediate linear-algebra corollary of the prior full-distribution single-pair correlation formula of Stuart (1954), explicitly reproduced as Eq. (2) by Maturi–Elsayigh (2009). Recover Cov(X_i,R_i) from their correlation; since rank sum is deterministic and pairs are exchangeable, the off-diagonal is −diag/(N−1). Hence the entire centered covariance operator is a scalar and every contrast/Mann–Whitney formula follows by one-line contraction; the claimed “all contrast directions” extension is already mathematically implied. No novel nontrivial structural ingredient survives the earlier theorem plus standard rank-variance identities. This is a scientific coverage rejection, not an access failure.",
+      "residual_risks": [
+        "Original Stuart 1954 full text inaccessible: authorized retrieval reported disconnected VPN; no whole-document noncoverage claim is made.",
+        "The source’s LaTex control character is a separate formatting issue, not a reason for scientific failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The exact general single-observation identity used to derive the new theorem is established and explicitly attributed to Stuart 1954",
+          "evidence": "p.16 Eq.(2): ρ(X_i,R_i)=[∫xF(x)dF(x)−μ/2] sqrt(12(N−1)/((N+1)σ²)).",
+          "identifier_or_url": "https://pdfs.semanticscholar.org/3626/39fd9b65684d8bec571cbedb62ed1a14a85c.pdf",
+          "material_read": "Primary 2009 article introduction and page 16 Eq.(2), Table 1 comparing general distribution families; PDF page visual inspected",
+          "method": "Full-text PDF extraction and visual screenshot of Eq.2 in printed page16",
+          "title": "The Correlation between Variate-Values and Ranks in Samples from Complete Fourth Power Exponential Distribution",
+          "trigger": "Accessible source reproducing Stuart’s broad exact rank/value correlation formula"
+        },
+        {
+          "assessment": "Original full text not read (authorized access reports disconnected); decisive implication relies on equation in accessible 2009 full article, not unavailable original",
+          "evidence": "Stuart 1954 pp.37–44, later Maturi–Elsayigh 2009 Eq.(2) explicitly credits Stuart.",
+          "identifier_or_url": "https://doi.org/10.1111/j.2044-8317.1954.tb00138.x",
+          "material_read": "Wiley full abstract, bibliographic record; formula from attributed 2009 primary republication. Original full article inaccessible; its exact equation attributed in later article",
+          "method": "Publisher abstract and lawful OA search, then authorized institution attempt",
+          "title": "The Correlation between Variate-Values and Ranks in Samples from a Continuous Distribution",
+          "trigger": "Original cited theorem dominating proposed contrasts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://doi.org/10.1111/j.2044-8317.1954.tb00138.x",
+        "https://pdfs.semanticscholar.org/3626/39fd9b65684d8bec571cbedb62ed1a14a85c.pdf"
+      ],
+      "rationale": "The object, contrasts, and Mann–Whitney comparison are naturally motivated, but the claimed universal contrast formula is entirely forced by the classical single-coordinate rank–value identity, exchangeability, and the deterministic rank sum. The uniform-parent extremum is the standard sharp Cauchy–Schwarz case. The purported contribution adds no unknown/non-implied invariant or motivated nonstandard lemma; it is a useful instructional corollary but does not meet the bar for a new mathematical finding.",
+      "residual_risks": [
+        "A more substantively new second-order contrast result could be valuable, but none is in the assessed original; no repair is claimed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The malformed LaTeX form-feed makes the displayed specialization imperfect; preserve source rather than silently repairing failed original.",
+    "The formula requires atomlessness, finite positive variance, deterministic zero-sum contrasts; no claims for studentized/nonnull cases.",
+    "Original Stuart 1954 full text inaccessible: authorized retrieval reported disconnected VPN; no whole-document noncoverage claim is made.",
+    "The source’s LaTex control character is a separate formatting issue, not a reason for scientific failure.",
+    "A more substantively new second-order contrast result could be valuable, but none is in the assessed original; no repair is claimed."
+  ]
+}
