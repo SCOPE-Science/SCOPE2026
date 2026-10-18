@@ -1,9 +1,0 @@
-# Self-review
-
-**Correctness — PASS.** The subgroup \(S_2\wr S_3\) contains \(48\) permutations with pairwise even agreement. The nonnegative normal Cayley matrix \(3A_{(5,1)}+2A_{(3,2,1)}\) has degree \(672\), and its exact irreducible-character spectrum has minimum \(-48\). The weighted ratio inequality forces any eligible family to have at most \(48\) members. The two exact character computations, class enumerations, eigenvalue totals and lower-bound family are independently replayable from the supplied script. The argument makes no exhaustive-search assumption.
-
-**Originality — PASS with residual source-access risk.** The September 2026 even-intersecting-permutation source proves an asymptotic even-degree upper bound and presents the matching wreath-product construction as a lower bound, not a degree-six optimum theorem. The published degree-five finite result does not imply degree six. Ordinary \(t\)-intersection and even-cycle-intersection theorems concern different compatibility relations. Searches under even agreement, Hamming-distance restrictions, exact \(S_6\) maxima, and the particular two-class spectral certificate identified no stronger covering theorem. The relevant 1988 prescribed-distance paper was available only in abstract/metadata and an inaccessible full-text listing; possible unindexed equivalent calculations are not excluded. This is not a claim of proven global uniqueness in the literature.
-
-**Value — PASS.** The exact next small even case of an active permutation-Eventown extremal problem is settled by a short, reproducible, non-brute-force sharp certificate. The integer weighted normal Cayley witness supplies a new proof mechanism in this finite degree and identifies how to match the wreath lower construction. There is no claim of a general result for all even degrees or classification of optimizers.
-
-Self-review: passed. Independent audit: not yet performed.
