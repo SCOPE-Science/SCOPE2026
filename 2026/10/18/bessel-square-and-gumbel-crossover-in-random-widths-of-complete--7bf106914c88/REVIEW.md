@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+For every \(p,q\ge2\), the support over all \(2pq\) actual edge-root vertices equals the maximum of the two cross-part extreme differences, so the four extreme statistics use genuinely independent Gaussian samples. The proof explicitly derives asymptotic independence of positive and negative maxima inside each sample from disjoint Gaussian tail events. The ratio of extreme-value scales has the stated limit, giving the full distributional interpolation. The Bessel representation follows by transforming independent Gumbels to exponentials. Gaussian projection to the sum-zero hyperplane and chi-square concentration justify the exact intrinsic Euclidean normalization, while fourth-moment bounds and Gaussian-tail uniform integrability justify the variance limits. The finite checker independently compares direct hull support to the formula for 840 cases and the Bessel integral identity at five points; it does not certify any infinite limit.
+
+## Originality — PASS, with limitations
+The 2018 facet-volume theorem for complete-bipartite symmetric edge polytopes is strong, but it is about normalized volumes of facets, not directional-width distributions; it cannot be used as a purported novelty claim for facet areas here. The 2015 regular-polytope width paper proves a *single* sum-of-Gumbels law for a simplex and a shifted-Gumbel limit for crosspolytopes. Neither statement identifies the maximum of *two independent scaled sums* for the complete-bipartite family or its logarithmic-imbalance continuum. The reviewed primary results and specific matching searches did not identify this claim. Classical Gaussian extreme-value facts, support-function reduction, and Bessel-function identities remain prior mathematical ingredients, not new claims. An equivalent result from the broader Gaussian-array literature remains a genuine risk.
+
+## Mathematical value — PASS
+The graph-family width observable is a geometric statistic not determined by combinatorial facet counts or normalized facet volumes. The theorem gives three sharply distinct limiting behaviors inside a natural two-parameter graph-polytope family: finite absolute-normal extremes, a Bessel-square competition law at balanced growth, and a shifted Gumbel law in the logarithmically imbalanced limit. It also identifies the entire interpolating CDF and limiting variance scales. This is a motivated and quantitative geometric fluctuation classification, not a normalization restatement or an arbitrary one-off numerical instance.
+
+## Closest literature and residual limits
+Higashitani--Jochemko--Michałek (arXiv:1807.07678v1, Propositions 3.4 and 4.5), D'Alì--Delucchi--Michałek (arXiv:1910.05193v1), Chen--Davis--Korchevskaia (arXiv:2107.12315v1), and Kabluchko--Litvak--Zaporozhets (arXiv:1511.08479v1, Theorem 3.7) were compared at the level of mathematical statements. The generic independent-Gaussian extreme-value literature is too broad for an exhaustiveness claim, and independent validation has not been conducted.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Support is exactly max of 2 cross-part Gaussian extreme differences. Independent upper/lower limit follows from disjoint positive/negative Gaussian tails, four independent Gumbels and the continuous-mapping theorem. Chi-radius concentration and bounded fourth moments validate intrinsic angular normalization and second moments; conditional exponential integration gives Bessel-square CDF. 840 direct support checks and 5 Bessel checks passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1511.08479v3, Sections 3 and 5: random widths for regular simplex, cube, and crosspolytope, not general K_{p,q} edge-root polytopes.",
+        "arXiv:1910.05193v1 addresses symmetric-edge-polytope combinatorics and normalized volumes, not the claimed directional-width fluctuation parameter."
+      ],
+      "reasoning": "A general Gaussian-process perspective could subsume the reduction, but the inspected theorems specify other bodies. Their Gumbel limits do not identify the continuous logarithmic-ratio family or the independent-competition Bessel-square law for K_{p,q}. Generic extreme-value theory is used as a lemma, rather than claimed as new.",
+      "searches": [
+        "Mean width of regular polytopes and expected maxima of correlated Gaussian variables arXiv 1511.08479",
+        "asymptotic mean width distribution complete bipartite symmetric edge polytope balanced unbalanced",
+        "Brownian Gumbel fluctuation random Euclidean width complete bipartite root polytope"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1807.07678v1, Props. 3.4, 4.5, Example 3.6",
+      "arXiv:1511.08479v3, Theorem 3.7, Remark 3.8",
+      "arXiv:1910.05193v1, geometric/normalized-volume statements",
+      "arXiv:2107.12315v1, facet-subgraph statements",
+      "Published mathematical records on complete-bipartite symmetric-edge inradii and graphical zonotope ellipsoids (different invariants)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2018 paper proves facet counts and normalized facet volumes for K_{p,q}, with no theorem about directional width.",
+        "The 2015 paper computes a single Gumbel sum for a regular simplex and regular crosspolytope projection lengths; the current result concerns max of two independent sums in a different polytope."
+      ],
+      "reasoning": "The claim is not a special case of the stated geometric results: it replaces the underlying body and introduces two competing cross-part extremes, with a nontrivial limit depending on the ratio of logarithmic part sizes. The common independent-Gaussian maximum theorem is openly assumed and applied.",
+      "searches": [
+        "arXiv:1807.07678v1 Proposition 4.5 normalized volume facets K_{a,b}",
+        "arXiv:1511.08479v3 Theorem 3.7 random projection Gumbel simplex crosspolytope",
+        "Gaussian directional width complete bipartite symmetric edge polytope joint extreme Gumbel fixed part"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1511.08479v3, Theorem 3.7: regular-simplex random width has a sum-of-two-Gumbels limit; regular-crosspolytope width has a single-Gumbel limit.",
+        "arXiv:1807.07678v1, Proposition 3.4 identifies the K_{p,q} facet potentials, not random-width laws."
+      ],
+      "reasoning": "The new limit is the maximum of two asymptotically independent weighted sums of Gumbels for K_{p,q}; at logarithmically balanced sizes its CDF is the square of the known sum-of-two-Gumbels CDF. The simplex theorem has one sum, not its maximum against an independent sum. Matching Gaussian order-statistic motifs alone do not establish equivalent statements.",
+      "searches": [
+        "Gaussian directional width complete bipartite symmetric edge polytope joint extreme Gumbel fixed part",
+        "support function width of K_{p,q} symmetric edge polytope Gaussian max range",
+        "\"symmetric edge polytope\" \"directional width\" Gumbel",
+        "arXiv:1511.08479v1 Theorem 3.7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1807.07678v1, Proposition 4.5 is an exact integer-normalized *facet-volume* formula; it provides no table of Gaussian directional widths.",
+        "The graph-polytope literature in arXiv:2107.12315v1 catalogs facet geometry/subgraphs, not this distribution."
+      ],
+      "reasoning": "An exact normalized-facet-volume table cannot determine Euclidean spherical directional-width distributions merely by a change of volume units. The current observable uses extreme-value competition across all edge-root vertices, and no covering width table was identified.",
+      "searches": [
+        "exact Euclidean surface area facet area of symmetric edge polytope K_{p,q} complete bipartite graph",
+        "complete-bipartite symmetric edge polytope Gaussian distribution of facet areas area-weighted signs",
+        "\"symmetric edge polytope\" \"mean width\" complete bipartite"
+      ]
+    },
+    "rationale": "The claim is a graph-indexed Euclidean random-width phase diagram with a max-of-two-Gumbel-sums limit and balanced Bessel-square CDF; the matched same-polytope sources concern normalized facet volumes, whereas the closest Gaussian-projection source treats different regular bodies and one sum of Gumbels. All classical extremal ingredients are credited. A semantically equivalent Gaussian-array theorem may exist under another name.",
+    "residual_risks": [
+      "An equivalent conclusion may appear under generic Gaussian-array or extreme-value terminology beyond the inspected specific-body papers.",
+      "No independent mathematical audit or optimal error-rate claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant same polytope, but no directional-width law or Gumbel-competition limit",
+        "evidence": "Proposition 3.4 describes 2^p+2^q-2 facets; Proposition 4.5 determines integer-normalized facet volumes, which do not imply the proposed Gaussian width fluctuation theorem.",
+        "identifier_or_url": "https://arxiv.org/pdf/1807.07678v1",
+        "material_read": "Section 3.1, Example 3.6, Propositions 3.4 and 4.5, and surrounding Section 4 triangulation statements, including the explicit normalized facet-volume sum",
+        "method": "Full-text PDF inspection and formula-to-claim comparison",
+        "title": "Arithmetic aspects of symmetric edge polytopes",
+        "trigger": "Same complete-bipartite symmetric edge polytope and strong exact facet-volume results"
+      },
+      {
+        "assessment": "Establishes single sum-of-Gumbels and shifted-Gumbel limits for regular simplex/crosspolytope, not a K_{p,q} two-sum competition",
+        "evidence": "Theorem 3.7 and Remark 3.8 exhibit a Bessel-related *single* sum of two Gumbels; the present balanced CDF is its square.",
+        "identifier_or_url": "https://arxiv.org/pdf/1511.08479v3",
+        "material_read": "Abstract and introduction, Theorem 3.7 and Remark 3.8, plus the proof of asymptotic independence in the final section",
+        "method": "Full-text PDF inspection of result, proof and body-class hypotheses",
+        "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+        "trigger": "Potential dominating prior Gaussian random projection theorem"
+      },
+      {
+        "assessment": "No covering random-width distribution identified",
+        "evidence": "Describes facet count, normalized volume, and graph combinatorics, rather than Euclidean random-direction projection fluctuations.",
+        "identifier_or_url": "https://arxiv.org/abs/1910.05193",
+        "material_read": "Introduction, symmetric-edge-polytope combinatorics, and normalized-volume sections",
+        "method": "Primary full-text review of mathematical statements and object classes",
+        "title": "Many faces of symmetric edge polytopes",
+        "trigger": "Potential geometric characteristic broader than normalized volume"
+      },
+      {
+        "assessment": "Graph-facet classification, not random Euclidean directional-width law",
+        "evidence": "Primary MSC2020 52B20/52B40; facet graph results contain no matching Gaussian width limit.",
+        "identifier_or_url": "https://arxiv.org/abs/2107.12315",
+        "material_read": "Introduction and facet-subgraph theorem statements, with primary classification metadata",
+        "method": "Primary document and preprint record comparison",
+        "title": "Facets and facet subgraphs of symmetric edge polytopes",
+        "trigger": "Closest modern geometry treatment of same polytopes and MSC2020 scope"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7bf10691-4c88-4758-817c-ecf03038cc3f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural two-parameter Euclidean geometry observable separates a fixed-side Gaussian absolute-maximum law, balanced Bessel-square competition, and extreme-imbalance shifted Gumbel regime. The full logarithmic-ratio interpolation, exact CDF and asymptotic variance scales quantify nontrivial fluctuations beyond known facet volumes and basic width expectations.",
+    "status": "PASS"
+  }
+}
