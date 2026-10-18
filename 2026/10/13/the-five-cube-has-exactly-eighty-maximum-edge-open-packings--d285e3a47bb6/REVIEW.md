@@ -1,11 +1,21 @@
-# Scientific review: maximum edge-open packings of the five-cube
+# Independent mathematical audit
 
-**Correctness: PASS.** With \(Q_5\) and the third-edge conflict relation defined explicitly, the twelve-edge configuration is checked from first principles. Two separately coded conflict predicates coincide on every pair of the cube's \(80\) edges. Fixing one edge by edge-transitivity reduces the complete exact upper-bound search to a \(51\)-vertex compatibility graph. The exhaustive greedy-color-branching argument proves that it has zero 12-cliques and twelve 11-cliques. Edge transitivity and double counting give the optimum and exactly \(80\) maxima, while a full coordinate-permutation/translation orbit accounts for all \(80\). The program is inspectable and replays, but the checks are same-model rather than independent validation.
+## correctness
 
-**Originality: PASS, with residual risk.** The closest direct source, Brešar--Dravec--Hedžet--Samadi (arXiv:2406.04020, Section 5, Table 1), gives a five-cube lower bound of \(10\) and exact values only in dimensions that are powers of two; the five-cube is not among them. General EOP upper bounds in arXiv:2403.00750 do not determine \(12\) or the count \(80\). The other inspected characterization in arXiv:2508.01935 does not supply this exact census. The equality and the orbit statement have been checked against actual implication strength, not merely matching words. A hidden equivalent classification in coding/induced-star/injective-edge-coloring literature remains possible; lack of a search hit is not proof of novelty.
+PASS
 
-**Value: PASS.** This closes a concrete, previously bounded natural cube case of a graph invariant studied explicitly in the literature: the earlier bound \(10\le\rho_e^o(Q_5)\le16\) becomes the exact value \(12\). The full extremal multiplicity and one-orbit classification add structural information useful in the study of optimal injective-edge-color classes and induced-star packings. The result is a motivated exact finite cutoff, not an arbitrary slice.
+Q5 has 32 vertices/80 edges. The defining third-edge conflict predicate and equivalent bit-distance predicate agree on all 3160 pairs; conflict graph has 1120 pairs, degree28. Edge-transitivity reduces any 13-packing to a 12-clique in the 51-vertex compatibility graph after a fixed cube edge. Independent NetworkX maximal-clique enumeration over that graph found 0 cliques of order12, exactly 12 of order11 and a maximum of 11. The 12-edge four-star construction has no conflicting pair and orbit under 32 translations/120 coordinate permutations has size80; fixed-edge double count 80*12/12=80. The search is exhaustive finite proof for Q5 only.
 
-**Limitations and risks.** No claim is made for larger cube dimensions. The complete finite verification depends on the transparent standard-library checker and its provably exhaustive recursion. No third-party audit was performed. Alternative terminology might conceal prior equivalent work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete 2024 product-graph primary paper supplies only lower bound 10 for Q5 and general upper 16. It establishes exact hypercube formula only for power-of-two dimensions; no direct or stronger implication yields the sharp Q5 optimum or 80 extremizers. A separate 2024 general-complexity paper and Resultary semantic query did not reveal the same exact census. Best-of-knowledge, not absolute priority.
+
+## value
+
+PASS
+
+Q5 is the first small non-power-of-two cube omitted by the exact power-of-two hypercube theorem and its previously tabulated lower bound. An exact optimum, count and unique natural automorphism orbit fill a motivated sharp finite boundary, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
