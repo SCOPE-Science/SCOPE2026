@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Feynman–Kac gives a nonlocal second-order two-region boundary value equation, whose unique bounded solution follows by matching both values and derivatives at the reset point. Differentiation yields exact moments; positive covariance follows from a strictly positive Taylor series; algebra yields the exact normalized mismatch; the joint high-reset law follows from convergence of its two-variable Laplace transform. Actual checker confirms 1,708 assertions including independent finite-difference solutions. Analytic proof, not finite computation, proves all parameter quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li and Zhou (2013), Secs. 1–3, treat time-homogeneous continuous diffusion SDEs and their occupation-time transforms; their generator does not contain reset jumps to a fixed point.",
+        "Linn and Lawley (arxiv:2302.05409), Theorem 1, give a scalar exponential limit for first-passage time under frequent resetting, without a vector of region residence times or a finite-rate two-region defect.",
+        "A general fast-restart renewal-reward argument could qualitatively explain common exponential scaling, but does not furnish the evaluated bivariate transform or the exact 4e^{-z} defect without this calculation."
+      ],
+      "reasoning": "No inspected stronger theorem directly states the complete model-specific joint transform or its exact finite-rate synchronization coefficient. The scalar p=q and upper-only q=0 special cases are covered and are explicitly not claimed new. Both broad model classes and reduction to a scalar absorption time were compared, not just titles.",
+      "searches": [
+        "The Joint Laplace Transforms for Diffusion Occupation Times Li Zhou 2013 DOI 10.1239/aap/1386857857",
+        "First passage times under frequent stochastic resetting Linn Lawley arxiv 2302.05409v1 Theorem 1",
+        "joint Laplace transform two occupation times Brownian resetting upper lower intervals absorption"
+      ]
+    },
+    "checked_sources": [
+      "Singh and Pal arxiv:2202.02715v1",
+      "Li and Zhou DOI:10.1239/aap/1386857857",
+      "Linn and Lawley arxiv:2302.05409v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known upper-only residence moments and total first-passage transform match two slices of the bivariate identity; neither slice alone determines the joint law or mixed covariance.",
+        "The scalar high-reset exponential law applies to U+L but is insufficient by itself to determine whether the split U/L becomes 1/2 or to determine its exact mean-square error.",
+        "The general single-function Feynman–Kac equation is directly applicable after substituting p1_{x>a}+q1_{x<a}, and the present derivation performs that substitution and solves the nonlocal interface problem explicitly."
+      ],
+      "reasoning": "The result is not claiming a new generator or a new scalar exponential first-passage theorem. Its asserted contribution is the evaluated cross-region dependence for all rates and exact strong-reset synchronization coefficient, which requires a mixed generating function and cannot be read off from the known one-dimensional marginals. It remains a possible specialization of broader renewal theory; this is a residual priority risk, not a disguised claim of independence.",
+      "searches": [
+        "Singh Pal first-passage Brownian functionals residence moments arxiv:2202.02715v1 Eq.28–30",
+        "Linn Lawley frequent stochastic resetting first passage theorem arxiv:2302.05409v1",
+        "Li Zhou joint diffusion occupation times 2013 generator model sections 2–3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Singh and Pal (arxiv:2202.02715v1), Eq. (9), gives scalar Feynman–Kac for arbitrary test functional; Eq. (28) covers q=0 marginal only.",
+        "The new formula specializes to that marginal and to their scalar first-passage transform at p=q, but the mixed derivative, covariance sign and exact mean-normalized difference are not printed there.",
+        "No matching evaluated two-region law was located in the actual searches; this absence does not establish uniqueness."
+      ],
+      "reasoning": "Equivalences examined include the transform of (U,L), the pair (U,tau) with L=tau-U, and renewal decomposition into successful and unsuccessful attempts. The general scalar backward equation is a method, not an evaluated joint law; the claim explicitly excludes its novelty. The evaluated mixed quantity and exact synchronization coefficient are separate, nontrivial consequences of the solved two-potential boundary problem.",
+      "searches": [
+        "joint distribution occupation times two regions Brownian motion stochastic resetting first passage joint Laplace",
+        "two-sided occupation time stochastic resetting first passage to origin joint residence times exact covariance perfect correlation",
+        "arxiv:2202.02715v1 Sections 2 and 4 (backward equation and upper residence law)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant publications identified are analytic transformation studies rather than finite combinatorial tables or tabulated numerical constants.",
+        "Singh and Pal (2022) tabulate none of the joint mixed moments or two-region strong-reset defect in their Sections 2–5."
+      ],
+      "reasoning": "There is no natural finite database of this continuous-parameter transform. The exact_database_or_table avenue is therefore inapplicable as a finite-table duplication test; known marginal formula coverage was checked in the source itself.",
+      "searches": [
+        "correlation upper lower occupation times Brownian motion first passage stochastic resetting",
+        "residence time first passage resetting joint occupation lower upper",
+        "joint distribution occupation times two regions Brownian motion stochastic resetting"
+      ]
+    },
+    "rationale": "Closest model paper evaluates only scalar functionals and one-region residence. The separate two-region mixed transform, cross-covariance and exact high-reset mismatch are not reported in inspected relevant sections; the general scalar Feynman–Kac principle is acknowledged. Broader diffusion occupation and first-passage-restart theorems do not directly state this evaluated joint outcome. Priority remains subject to future independent review.",
+    "residual_risks": [
+      "A general renewal-reward formulation may imply the qualitative diagonal exponential limit; the asserted novelty is the evaluated full joint transform and exact finite-rate coefficient.",
+      "Unindexed equivalent model-specific formulas may exist; negative searches are not proof of worldwide uniqueness.",
+      "The diffusion joint-occupation literature contains general transform machinery, acknowledged as methodologically prior."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general scalar Feynman–Kac and the upper marginal; no evaluated joint two-region law or cross-covariance identified in these sections.",
+        "evidence": [
+          "arxiv:2202.02715v1, Sec. 2 Eq. (9); Sec. 4 Eq. (28) upper-residence transform; Sec. 5 Eq. (42) scalar first-passage transform"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.02715v1",
+        "material_read": "Sections 1–5, especially equations (9), (23)–(30), and appendix summary.",
+        "method": "Accessible original full-text HTML, direct reading of model, hypotheses, formulae, and the scalar backward equation.",
+        "title": "First-passage Brownian functionals with stochastic resetting",
+        "trigger": "Identical reset-to-point killed Brownian model and prior single-residence results."
+      },
+      {
+        "assessment": "Studies continuous time-homogeneous diffusion SDEs and joint occupation transforms; does not directly include instantaneous Poisson reset jumps to fixed point.",
+        "evidence": [
+          "Li–Zhou (2013), Section 2 Eq. (1) is dX=mu(X)dt+sigma(X)dW; Section 3 occupation-time theorems apply to that diffusion generator."
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/aap/1386857857",
+        "material_read": "Author-hosted full-text transcription, introduction and Sections 2–3, including diffusion generator definition and occupation-transform setup.",
+        "method": "Direct reading of accessible author-transcribed text on publication listing, compared the defining SDE generator against reset-to-a generator.",
+        "title": "The Joint Laplace Transforms for Diffusion Occupation Times",
+        "trigger": "Broad joint occupation-time theorem that might dominate a simple two-region result."
+      },
+      {
+        "assessment": "Strongly covers scalar limiting absorption time, not simultaneous upper/lower occupations or their exact finite-rate covariance and defect.",
+        "evidence": [
+          "Linn–Lawley (2023), Theorem 1: rp_0 T converges to unit exponential; no separate two-region occupation vector in inspected theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.05409",
+        "material_read": "Full-text abstract, introduction, hypotheses and Theorem 1 in Section 2.",
+        "method": "Direct reading of arXiv text rendering and inspection of statements and scope.",
+        "title": "First passage times under frequent stochastic resetting",
+        "trigger": "Strong existing general theorem for fast-restart exponential absorption-time asymptotics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "90b2b4c1-41eb-410b-8ef9-cb24741fb9de",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two regions form a canonical measurable partition of the search trajectory: their joint behavior informs allocation of pre-absorption search time. Their positive covariance despite disjoint instantaneous occupancy is a non-obvious dependence result. The full two-variable transform gives all joint moments, while the exact strong-reset L2 defect and half-half occupation split show how extreme resetting synchronizes two distinct physical observables. This is a motivated complete classification for a natural observable, not an arbitrary numeric slice or generic scalar theorem restatement.",
+    "status": "PASS"
+  }
+}
