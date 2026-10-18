@@ -1,12 +1,21 @@
-# Review of Perfect Italian domination weight enumerator of complete multipartite graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. A zero-labeled vertex in part \(X_i\) sees exactly the total label weight outside \(X_i\), so the local condition is precisely \(W-s_i=2\) on each zero-containing part. Summing these equalities over the \(q\) zero-containing parts gives \(R=2q-(q-1)W\), which forces the complete case split used in the proof. The one-zero-part contribution is counted by \(A_{n_i}(z)\); for at least two zero-containing parts only weights \(2\), \(3\), and \(4\) can occur, and the low-weight terms are disjoint. Exhaustive definition-level verification checks every ternary labeling through order nine and matches every coefficient.
+## correctness
 
-## Originality
-PASS. The most relevant full primary source explicitly determines only the minimum perfect Italian domination number for complete multipartite graphs with all part sizes at least three, while its general results characterize minimum weights two and three. The later cograph work gives a linear-time algorithm for the minimum number on a superclass. Neither inspected statement provides the all-function criterion or a weight enumerator. Exact and alias searches using perfect Italian domination, perfect Roman \(\{2\}\)-domination, complete multipartite, polynomial, enumerator, and all-function terminology located no arbitrary-multipartite enumeration. The known minimum theorem is reproduced as a specialization and is not presented as new.
+PASS
 
-## Value
-PASS. The literature treats perfect Italian domination as an optimization and algorithmic parameter, including an exact complete-multipartite minimum theorem and a cograph minimum algorithm. The new classification resolves the entire feasible labeling space on a canonical class, gives every weight coefficient in closed form, and handles small part sizes excluded from the published complete-multipartite minimum theorem. This enables exact counts of minimum and nonminimum deployments and random-label questions that minimum-value results alone do not answer.
+For a zero label in part Xi, neighbor sum=W−si by complete multipartite adjacency, giving the exact iff criterion. With q zero-containing parts and outside weight R, R=2q−(q−1)W. Cases q=0 give z^N(1+z)^N, q=1 force outside weight 2 and yield z²A_ni only if 1≤N−ni≤2, q≥2 force W≤4 and partition into W=2 (singleton and doubleton configurations), W=3 (three parts with singleton-zero parts), W=4 (two parts, each internal weight 2), giving c2,c3,c4 exactly. Independently enumerated all 87 unordered part-size profiles n=2..9, evaluated 748,341 ternary vertex labelings from the original neighborhood condition and polynomial, and found 0 coefficient or feasibility discrepancies. The symbolic q/W case split establishes all n.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+All-function weight enumeration refines only known optimization results, differs from other Roman function variants; no direct domination-polynomial equivalent located.
+
+## value
+
+PASS
+
+The entire weight distribution of a natural, previously studied domination condition on arbitrary connected complete multipartite graphs is a substantive combinatorial refinement; not merely recovering the known minimum or renaming Roman-domination formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

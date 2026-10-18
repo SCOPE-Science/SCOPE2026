@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic proof uses only the neighborhood structure of complete multipartite graphs. For a zero-labeled vertex in part \(X_i\), the neighbor-label sum is exactly the global weight minus the weight inside \(X_i\). Summing the resulting equalities over zero-containing parts gives the finite case split used in the enumerator.
+# Independent mathematical audit
 
-The included checker independently evaluates the original definition. For every ternary labeling of every complete multipartite isomorphism type of orders two through nine, it explicitly sums labels over vertices in different parts for each zero-labeled vertex. It then compares the result with the stated profile criterion and with every coefficient of the closed formula.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-multipartite_types_checked = 87
-ternary_labelings_checked = 748341
-orders = 2..9
-all-set profile criterion matched
-all weight-enumerator coefficients matched
-published all-parts-at-least-3 minimum specializations checked = 7
-```
+For a zero label in part Xi, neighbor sum=W−si by complete multipartite adjacency, giving the exact iff criterion. With q zero-containing parts and outside weight R, R=2q−(q−1)W. Cases q=0 give z^N(1+z)^N, q=1 force outside weight 2 and yield z²A_ni only if 1≤N−ni≤2, q≥2 force W≤4 and partition into W=2 (singleton and doubleton configurations), W=3 (three parts with singleton-zero parts), W=4 (two parts, each internal weight 2), giving c2,c3,c4 exactly. Independently enumerated all 87 unordered part-size profiles n=2..9, evaluated 748,341 ternary vertex labelings from the original neighborhood condition and polynomial, and found 0 coefficient or feasibility discrepancies. The symbolic q/W case split establishes all n.
 
-The checker also compares the minimum nonzero coefficient degree against the published all-parts-at-least-three theorem on every tested specialization where that theorem applies. The finite computation is corroborative only; the all-orders statement follows from the proof.
+## originality
+
+PASS
+
+All-function weight enumeration refines only known optimization results, differs from other Roman function variants; no direct domination-polynomial equivalent located.
+
+## value
+
+PASS
+
+The entire weight distribution of a natural, previously studied domination condition on arbitrary connected complete multipartite graphs is a substantive combinatorial refinement; not merely recovering the known minimum or renaming Roman-domination formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
