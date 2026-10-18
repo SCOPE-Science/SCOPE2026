@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic reduction shows that equality for a principal-plane reflection of a three-dimensional parallelotope can occur only when its unit normal has, up to permutation, one of the two squared-coordinate patterns
-\[
-\left(
-\frac{3+\sqrt3}{6},
-\frac{3-\sqrt3}{12},
-\frac{3-\sqrt3}{12}
-\right)
-\]
-or
-\[
-\left(
-\frac{3-\sqrt3}{6},
-\frac{3+\sqrt3}{12},
-\frac{3+\sqrt3}{12}
-\right).
-\]
+# Independent mathematical audit
 
-The bundled exact checker constructs every signed and permuted vector of these two types using symbolic algebraic numbers. It verifies that there are \(48\) such signed vectors, \(48\) orthogonal unordered pairs, and no orthogonal triple. More strongly, every orthogonal pair has one vector of each type with the same distinguished coordinate, and the squared-coordinate multiset of its cross product is exactly
-\[
-\{0,1/2,1/2\}.
-\]
+## correctness
 
-This finite enumeration is exhaustive because the preceding analytic argument has already classified every equality normal into those two finite signed-permutation families. It is not numerical sampling and is not used to infer anything outside that equality locus.
+PASS
 
-The other inputs are published theorems: the Minkowski-chirality Banach--Mazur upper bound, complementary-dimension equality and polarity invariance from the primary source, and the three-dimensional Banach--Mazur equality classification from Grundbacher--Kobos.
+Conjugating each principal-axis plane reflection of a parallelotope via its SVD gives the Householder matrix I-2vv^T and containment factor its infinity-to-infinity norm. Row l1<=sqrt3, with equality iff the squared normal coordinates have one of two explicitly solved (t,s,s) radical patterns. An orthogonal pair of equality-type normals has a third normal with squares (0,1/2,1/2); hence no orthonormal equality triple, so some principal reflection is strict. Published polarity and complementary-dimension invariances extend from parallelotopes to cross-polytopes. The published 3D Banach--Mazur equality classification then excludes any other equality body. All strict assertions are pointwise, no compact uniform gap follows.
 
-No uniform quantitative gap below \(\sqrt3\) is verified or claimed.
+## originality
+
+PASS
+
+The chirality primary paper leaves precisely three-dimensional attainability unsettled and reduces it to parallelotopes/cross-polytopes, while Grundbacher--Kobos classify the distance extremizers but do not compute chirality there. The principal-axis reflection obstruction gives a new exclusion of both classes. Resultary semantic search found no separate earlier statement. Best-of-knowledge with possibility of literature not indexed.
+
+## value
+
+PASS
+
+Resolves a concrete attainability problem identified explicitly in the originating convex-geometry paper at the first nontrivial three-dimensional point-symmetric bound. The exact Householder equality-normal classification is structural and separates individual bodies from any open question of supremal uniform gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

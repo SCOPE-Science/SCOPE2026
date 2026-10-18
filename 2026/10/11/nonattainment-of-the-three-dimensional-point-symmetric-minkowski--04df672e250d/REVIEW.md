@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For a parallelotope \(P=A[-1,1]^3\), a principal John-plane reflection pulls back under an SVD \(A=QDR^{\mathsf T}\) to the Euclidean reflection \(I-2vv^{\mathsf T}\) on the cube. Origin symmetry makes its relative circumradius exactly the \(\ell_\infty\)-operator norm of that matrix. The row \(\ell_1\)-to-\(\ell_2\) bound gives \(\sqrt3\). Equality forces exactly two squared-coordinate types. Direct radical comparisons show that any orthogonal equality-type pair has opposite types and the same distinguished coordinate; its cross product has squared coordinates \((0,1/2,1/2)\), so no orthonormal equality-type triple exists. Hence one principal reflection is strictly better. Published complementary-dimension and polarity identities and the published three-dimensional Banach--Mazur equality classification complete the argument.
+PASS
 
-## Originality
+Conjugating each principal-axis plane reflection of a parallelotope via its SVD gives the Householder matrix I-2vv^T and containment factor its infinity-to-infinity norm. Row l1<=sqrt3, with equality iff the squared normal coordinates have one of two explicitly solved (t,s,s) radical patterns. An orthogonal pair of equality-type normals has a third normal with squares (0,1/2,1/2); hence no orthonormal equality triple, so some principal reflection is strict. Published polarity and complementary-dimension invariances extend from parallelotopes to cross-polytopes. The published 3D Banach--Mazur equality classification then excludes any other equality body. All strict assertions are pointwise, no compact uniform gap follows.
 
-PASS. The primary source explicitly leaves the three-dimensional attainment question open and says that it suffices to check one chirality on parallelotopes or cross-polytopes. The supporting Banach--Mazur theorem supplies only the candidate-class classification. Targeted searches across nonattainment, principal-axis, polar-dual, parallelotope, and cross-polytope formulations found no result carrying out the missing calculation.
+## originality
 
-## Value
+PASS
 
-PASS. The result resolves a stated open attainment question for the full class of point-symmetric three-dimensional convex bodies. The proof also gives a concrete geometric obstruction explaining why the only Banach--Mazur extremal classes fail to attain the chirality bound.
+The chirality primary paper leaves precisely three-dimensional attainability unsettled and reduces it to parallelotopes/cross-polytopes, while Grundbacher--Kobos classify the distance extremizers but do not compute chirality there. The principal-axis reflection obstruction gives a new exclusion of both classes. Resultary semantic search found no separate earlier statement. Best-of-knowledge with possibility of literature not indexed.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest source is Caragea--von Dichter--Gottwald--Grundbacher--Jahn--Runge, arXiv:2504.13013v1, whose Section 7 reduces the problem to parallelotopes or cross-polytopes but does not decide it. Grundbacher--Kobos, arXiv:2407.08829v1, supplies the three-dimensional Banach--Mazur equality classification.
+Resolves a concrete attainability problem identified explicitly in the originating convex-geometry paper at the first nontrivial three-dimensional point-symmetric bound. The exact Householder equality-normal classification is structural and separates individual bodies from any open question of supremal uniform gap.
 
-The conclusion is strict pointwise nonattainment only. It does not prove a uniform gap below \(\sqrt3\), and it does not decide whether the supremum of the two chiralities over all point-symmetric bodies is itself \(\sqrt3\).
+The dated certificate retains the supplied scientific assessment, sources and limitations.
