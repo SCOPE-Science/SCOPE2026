@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For every finite DAG with at least two source-sink routes, its unit flow polytope is exactly the convex hull of route vectors. Directed arc precedence is a finite poset and a chain extends to a route; Dilworth yields a w-route cover from a width-w antichain. Every feasible reflection with coefficient lambda forces each center coordinate >=1/(lambda+1), and every path hits an antichain at most once; hence lambda>=w-1. Averaging the route cover gives c_e>=1/w; for any such c and every route R, wc-chi_R is a nonnegative flow of strength w-1, proving containment and characterizing all optimal centers. Positive integer flows decompose into integer route vectors, and relative-interior flows have all arc coordinates positive, so codegree=w. The exact-integer standalone verifier checks the claimed identities in 1393 small DAGs. No finite test is used as a general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Braun and Cornejo, Equatorial Flow Triangulations of Gorenstein Flow Polytopes, arXiv:2408.05320 (2024), https://arxiv.org/abs/2408.05320",
+        "von Bell, Braun, Bruegge, Hanely, Peterson, Serhiyenko and Yip, Triangulations of Flow Polytopes, Ample Framings, and Gentle Algebras, arXiv:2203.01896 (2022), https://arxiv.org/abs/2203.01896",
+        "Dilworth, A decomposition theorem for partially ordered sets, Ann. Math. 51 (1950), 161–166"
+      ],
+      "reasoning": "The 2024 codegree statement for balanced/Gorenstein DAGs uses edge-disjoint route partitions. Here general acyclic networks require overlapping route covers; the theorem also determines an affine asymmetry invariant and all centers. Special planar-flow/order-polytope correspondences do not encompass arbitrary acyclic DAGs.",
+      "searches": [
+        "\"flow polytope\" \"codegree\" \"minimum flow\"",
+        "\"flow polytopes\" \"codegree\" \"routes\"",
+        "\"Minkowski asymmetry\" \"poset\" \"width\" directed graph"
+      ]
+    },
+    "checked_sources": [
+      "von Bell, Braun, Bruegge, Hanely, Peterson, Serhiyenko and Yip, Triangulations of Flow Polytopes, Ample Framings, and Gentle Algebras, arXiv:2203.01896 (2022), https://arxiv.org/abs/2203.01896",
+      "Braun and Cornejo, Equatorial Flow Triangulations of Gorenstein Flow Polytopes, arXiv:2408.05320 (2024), https://arxiv.org/abs/2408.05320",
+      "Dilworth, A decomposition theorem for partially ordered sets, Ann. Math. 51 (1950), 161–166"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Braun and Cornejo, Equatorial Flow Triangulations of Gorenstein Flow Polytopes, arXiv:2408.05320 (2024), https://arxiv.org/abs/2408.05320",
+        "Dilworth, A decomposition theorem for partially ordered sets, Ann. Math. 51 (1950), 161–166",
+        "von Bell, Braun, Bruegge, Hanely, Peterson, Serhiyenko and Yip, Triangulations of Flow Polytopes, Ample Framings, and Gentle Algebras, arXiv:2203.01896 (2022), https://arxiv.org/abs/2203.01896"
+      ],
+      "reasoning": "Dilworth implies equality of maximum arc-antichain size and minimum route-cover cardinality, but alone has no convex-geometric reflection assertion. The triangulation/Gorenstein papers do not establish the global containment certificate. Together these primary ingredients do not explicitly state the combined geometric theorem. A general uninspected affine-symmetry result might subsume it.",
+      "searches": [
+        "\"Dilworth\" \"path cover\" \"edge\" directed acyclic graph",
+        "\"flow polytope\" \"minimum number of paths\" \"codegree\"",
+        "\"Minkowski asymmetry\" \"flow polytope\" \"codegree\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "von Bell, Braun, Bruegge, Hanely, Peterson, Serhiyenko and Yip, Triangulations of Flow Polytopes, Ample Framings, and Gentle Algebras, arXiv:2203.01896 (2022), https://arxiv.org/abs/2203.01896",
+        "Braun and Cornejo, Equatorial Flow Triangulations of Gorenstein Flow Polytopes, arXiv:2408.05320 (2024), https://arxiv.org/abs/2408.05320"
+      ],
+      "reasoning": "Looked for synonymous Minkowski coefficient, symmetry measure, and codegree formulations; inspected related flow-polytope primary sections. No equivalent geometric formula was located. A null search cannot prove global novelty.",
+      "searches": [
+        "\"Minkowski asymmetry\" \"flow polytope\" DAG",
+        "\"Minkowski symmetry\" \"network flow\" polytopes",
+        "\"Minkowski measure of symmetry\" \"flow polytope\"",
+        "\"Minkowski asymmetry\" \"codegree\" \"0/1\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full graph-size independent statement follows by poset width and elementary flow geometry; small exact computations in verify.py examine 1393 sample DAGs and are not used to claim exhaustive database coverage.",
+        "von Bell, Braun, Bruegge, Hanely, Peterson, Serhiyenko and Yip, Triangulations of Flow Polytopes, Ample Framings, and Gentle Algebras, arXiv:2203.01896 (2022), https://arxiv.org/abs/2203.01896"
+      ],
+      "reasoning": "No inspected codegree table or unit-flow-polytope catalog gives this all-DAG coefficient and center classification. Finite numerical records do not imply the infinite theorem.",
+      "searches": [
+        "\"minimum path cover\" \"codegree\" \"flow polytope\"",
+        "\"Minkowski asymmetry\" \"flow\" \"path cover\""
+      ]
+    },
+    "rationale": "Primary full texts on acyclic unit-flow polytopes and Gorenstein flow triangulations establish route vertices, combinatorial triangulations, and a codegree formula for specially balanced networks. They do not state the global arc-antichain Minkowski-asymmetry identity nor the complete optimal-center criterion. A chain-to-route application of Dilworth establishes a new combined implication; literature uncertainty remains explicitly documented.",
+    "residual_risks": [
+      "A general theorem on symmetry of 0–1 lattice polytopes may give an indirect implication without explicitly naming flow polytopes.",
+      "Some planar DAG flow polytopes are equivalent to order polytopes and hence overlap with known formulas; the all-DAG theorem is not implied by that special correspondence.",
+      "Publication priority and correctness have not undergone independent expert review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Route vertices and Gorenstein statements supply premises; no direct classification of the present invariant was found in inspected relevant passages.",
+        "evidence": [
+          "von Bell, Braun, Bruegge, Hanely, Peterson, Serhiyenko and Yip, Triangulations of Flow Polytopes, Ample Framings, and Gentle Algebras, arXiv:2203.01896 (2022), https://arxiv.org/abs/2203.01896",
+          "Proposition 2.3 (unit-flow route vertices), and closing Gorenstein discussion."
+        ],
+        "identifier_or_url": "arXiv:2203.01896v2; https://arxiv.org/abs/2203.01896",
+        "material_read": "Full-text opening definitions and route-vertex proposition; results on ample framings and Gorenstein conditions toward the final sections.",
+        "method": "Publicly accessible complete arXiv PDF was inspected by page and searched for named asymmetry, Minkowski and Dilworth formulations.",
+        "title": "Triangulations of Flow Polytopes, Ample Framings, and Gentle Algebras",
+        "trigger": "Same unit-strength DAG-flow polytope and route vertex description; primary source date 2022-03-03."
+      },
+      {
+        "assessment": "Theorem 4.1 addresses special balanced/Gorenstein cases and edge-disjoint routes; does not cover arbitrary DAGs or Minkowski centers.",
+        "evidence": [
+          "Braun and Cornejo, Equatorial Flow Triangulations of Gorenstein Flow Polytopes, arXiv:2408.05320 (2024), https://arxiv.org/abs/2408.05320",
+          "Theorem 4.1 and the codegree definition in Section 2."
+        ],
+        "identifier_or_url": "arXiv:2408.05320v1; https://arxiv.org/abs/2408.05320",
+        "material_read": "Full-text definitions of lattice codegree and Gorenstein flow polytopes, main statements and Theorem 4.1 with its restricted balance assumptions.",
+        "method": "Publicly available arXiv PDF read in relevant sections; searched for equivalent reflection and symmetry terminology.",
+        "title": "Equatorial Flow Triangulations of Gorenstein Flow Polytopes",
+        "trigger": "Strongest plausible codegree coverage by route decomposition."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0aaa0ebf-412b-4618-a3a5-772d0265fbb5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact affine invariant is determined for every positive-dimensional acyclic unit-flow polytope by a maximum antichain, rather than by a high-dimensional facet optimization. The full optimal-center polytope and an integral lattice codegree are simultaneously classified, yielding polynomial-time computation. The result remains valid on graphs with multiple sources/sinks, disconnected graphs, and non-Gorenstein examples requiring overlapping route covers. These are motivated natural extensions of strength-one flow-polytope research rather than a finite table or arbitrary restriction.",
+    "status": "PASS"
+  }
+}
