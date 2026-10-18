@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T13:01:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob 15d891830367d6534fb2db2b3c8a5527780222f9",
+        "Chen–Li–Newton–Wright Structured random sketching for PDE inverse problems arXiv:1909.11290v4, §§3–5 Theorems 3–4"
+      ],
+      "rationale": "Exact normal equations yield E1=(X·Y/||X||²)(U·V/||U||²) as independent G/chi factors, proving moments from gamma integrals. Independent rows yield E2=(ΣW_iZ_i)/(ΣW_i²) with W,Z iid products of independent Gaussians. The product-normal K0 density has a logarithmic singularity at 0, and spherical-polar integration with integrable angular logs gives t^-R(log t)^R; layer cake yields the boundary p=R divergence. Dense error is G/chi_R, giving pure t^-R tail. Conditioning on W then on first Gaussian factors and strict Jensen establishes E(E2²)>1/(R-2) if R>2. Independently recomputed C1=4/π²,C2=1/π,C4=3/π² by product normal moments. Explicit argument covers R=1 and R=2 and dimension independence, with no implication that four rows cost identical runtime.",
+      "residual_risks": [
+        "Only noiseless exact-arithmetic scalar regression with orthogonal residual; not a general algorithm cost or regression theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. full HTML uses (ε,δ) embeddings and two tensor structures; Sridhar et al. give Gaussian least squares estimators."
+        ],
+        "reasoning": "High-probability row-complexity bounds do not imply all-p moment cutoffs or sharp tail coefficients at fixed R; dense reference alone does not dominate product-normal rare events.",
+        "searches": [
+          "arXiv:1909.11290v4 §§3–5",
+          "arXiv:2010.09791",
+          "arXiv:2006.08160"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md Git blob 15d891830367d6534fb2db2b3c8a5527780222f9",
+        "Chen–Li–Newton–Wright Structured random sketching for PDE inverse problems arXiv:1909.11290v4, §§3–5 Theorems 3–4",
+        "Sridhar–Pilanci–Özgür arXiv:2006.08160",
+        "Bujanović–Kressner arXiv:2004.06433",
+        "Chen–Jin arXiv:2010.09791",
+        "Resultary semantic query: Gaussian Kronecker tensor structured row-product sketch least squares inverse moments logarithmic tails"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published norm and high-probability results constrain typical embeddings but not singular denominator negative moments."
+        ],
+        "reasoning": "Exact p-moment and logarithmic-tail claims are not corollaries of stated embedding bounds unless one proves a new integration beyond them.",
+        "searches": [
+          "Chen et al. Theorems 3 and 4 arXiv:1909.11290",
+          "Bujanović–Kressner arXiv:2004.06433"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Factor reuse equals a product of two studentized normal projections; independent row products equal a ratio with product-normal denominator singularity."
+        ],
+        "reasoning": "Normal/chi and Bessel K0 laws are not new; inspected sketch theorem does not state unconditional inverse-moment threshold nor logarithmically enhanced exact tail.",
+        "searches": [
+          "Resultary: Gaussian Kronecker tensor structured row-product sketch least squares inverse moments logarithmic tails",
+          "arXiv:1909.11290 Theorem 3 and Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact moment recomputation yields 4/π²,1/π,3/π² for rank-one row product constants."
+        ],
+        "reasoning": "These analytic constants are not a combinatorial database/table novelty claim; no matching table found in inspected primary regression sources.",
+        "searches": [
+          "Resultary tensor sketch inverse moment query",
+          "C1,C2,C4 product-normal moment constants"
+        ]
+      },
+      "rationale": "Chen–Li–Newton–Wright study precisely both tensor sketch constructions, but their full primary HTML Theorems 3–4 and proof sections concern high-probability embeddings rather than unconditional estimator inverse moments and logarithmic tail equivalents. Dense Gaussian sketch and product-normal Bessel singularity are classical, but their exact synthesis for the two competing structured regressions is not contained in the inspected guarantees. Related published Resultary products concern other quantities.",
+      "residual_risks": [
+        "Product-normal density asymptotic and angular dominated convergence are stated with hypotheses; precise domination at rare extreme Z is a nonstandard technical step, analytically argued but not verified by simulation alone.",
+        "Other randomized regression risk literature may derive equivalent exact product-normal ratio tails under different terminology.",
+        "Only noiseless exact-arithmetic scalar regression with orthogonal residual; not a general algorithm cost or regression theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "provides high-probability embedding guarantees, not exact inverse-error distribution",
+          "evidence": [
+            "Theorem3 explicitly P⊗Q and Theorem4 independent rows; their output is (epsilon,delta)-embedding."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1909.11290v4",
+          "material_read": "full HTML opened, contents and §§3–5 Theorems 3–4 and proof structure examined, including distinct Case1/Case2 constructions",
+          "method": "web arXiv HTML",
+          "title": "Structured random sketching for PDE inverse problems",
+          "trigger": "Same Gaussian tensor structures and regression setup"
+        },
+        {
+          "assessment": "dense Gaussian comparator remains prior, not inspected as covering product-normal structured models",
+          "evidence": [
+            "Full text not reread, residual risk preserved."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.08160",
+          "material_read": "abstract and bibliographic description only, not complete manuscript",
+          "method": "open abstract",
+          "title": "Lower Bounds and a Near-Optimal Shrinkage Estimator for Least Squares using Random Projections",
+          "trigger": "Potential dense Gaussian estimator coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chen–Li–Newton–Wright Structured random sketching for PDE inverse problems arXiv:1909.11290v4, §§3–5 Theorems 3–4",
+        "Sridhar–Pilanci–Özgür arXiv:2006.08160",
+        "Bujanović–Kressner arXiv:2004.06433",
+        "Chen–Jin arXiv:2010.09791"
+      ],
+      "rationale": "The comparison identifies a sharp rare-failure and mean-square-error separation despite equal sketch row counts and well-conditioned one-column design; this is a motivated quantitative limitation of structure reuse, useful when interpreting probabilistic sketch guarantees.",
+      "residual_risks": [
+        "Product-normal density asymptotic and angular dominated convergence are stated with hypotheses; precise domination at rare extreme Z is a nonstandard technical step, analytically argued but not verified by simulation alone.",
+        "Other randomized regression risk literature may derive equivalent exact product-normal ratio tails under different terminology.",
+        "Only noiseless exact-arithmetic scalar regression with orthogonal residual; not a general algorithm cost or regression theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Product-normal density asymptotic and angular dominated convergence are stated with hypotheses; precise domination at rare extreme Z is a nonstandard technical step, analytically argued but not verified by simulation alone.",
+    "Other randomized regression risk literature may derive equivalent exact product-normal ratio tails under different terminology.",
+    "Only noiseless exact-arithmetic scalar regression with orthogonal residual; not a general algorithm cost or regression theorem."
+  ],
+  "schema_version": 1
+}

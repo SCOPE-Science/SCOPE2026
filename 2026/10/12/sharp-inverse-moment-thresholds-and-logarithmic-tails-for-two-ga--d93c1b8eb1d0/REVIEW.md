@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the stated one-column design and orthogonal residual, the least-squares normal equation reduces exactly to a scalar random quotient. Reused tensor factors split into independent Gaussian-to-chi ratios and yield the stated gamma moments and cutoff at the smaller factor-row dimension. Independent tensor rows give a quotient with independent product-normal design and residual columns; the product-normal logarithmic density singularity, polar integration, and a dominated-convergence argument give the sharp \(t^{-R}(\log t)^R\) tail. The dense reference is a Gaussian-to-chi ratio. The strict mean-square ordering follows from conditional variance and Jensen's inequality. No finite experiment is used as a substitute for asymptotic proof; 1,513 verifier diagnostics confirm sample identities and benchmark constants, not the analytic limit.
+PASS
 
-## Originality — PASS, with limited priority risk
+Exact normal equations yield E1=(X·Y/||X||²)(U·V/||U||²) as independent G/chi factors, proving moments from gamma integrals. Independent rows yield E2=(ΣW_iZ_i)/(ΣW_i²) with W,Z iid products of independent Gaussians. The product-normal K0 density has a logarithmic singularity at 0, and spherical-polar integration with integrable angular logs gives t^-R(log t)^R; layer cake yields the boundary p=R divergence. Dense error is G/chi_R, giving pure t^-R tail. Conditioning on W then on first Gaussian factors and strict Jensen establishes E(E2²)>1/(R-2) if R>2. Independently recomputed C1=4/π²,C2=1/π,C4=3/π² by product normal moments. Explicit argument covers R=1 and R=2 and dimension independence, with no implication that four rows cost identical runtime.
 
-The main source's two sketch structures and their high-probability embedding theory are acknowledged as prior work, not rebranded. Source-paper text, closely related Gaussian sketching analyses, Gaussian product-moment work, a different tensor-regression sketch, and relevant published numerical-analysis results were compared at claim level. The inspected references neither establish the distinct sharp moment thresholds for these two exact sketch constructions nor the row-independent logarithmic tail coefficient. The classical product-normal density and Student-type ratio results are used as known inputs. Similar results in specialized unindexed work remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-This computes the unconditional risk boundary for the two concrete source sketch designs at a fixed sketch row count. Already at four rows, the factor-reusing tensor sketch has infinite mean-square regression error while the independent-row tensor and dense Gaussian alternatives have finite error on a condition-one design; independent rows nevertheless incur a precise logarithmic tail penalty. The ambient problem can be arbitrarily larger than the sketch, making this a meaningful rare-failure distinction for tensor least-squares sketch selection, not a toy conditioning artifact. No claim is made that high-probability guarantees fail or that one method is cheapest to implement.
+Chen–Li–Newton–Wright study precisely both tensor sketch constructions, but their full primary HTML Theorems 3–4 and proof sections concern high-probability embeddings rather than unconditional estimator inverse moments and logarithmic tail equivalents. Dense Gaussian sketch and product-normal Bessel singularity are classical, but their exact synthesis for the two competing structured regressions is not contained in the inspected guarantees. Related published Resultary products concern other quantities.
 
-The benchmark is limited to exact Gaussian sampling, a one-column design, a deterministic orthogonal residual and exact arithmetic. It is not a universal performance ordering for arbitrary inverse problems or an assertion of optimal sketching runtime.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The comparison identifies a sharp rare-failure and mean-square-error separation despite equal sketch row counts and well-conditioned one-column design; this is a motivated quantitative limitation of structure reuse, useful when interpreting probabilistic sketch guarantees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
