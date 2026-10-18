@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,39 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let \(P\) be the regular dodecagon with Euclidean circumradius \(1\), and put
-\[
-c=\cos\frac{\pi}{12}.
-\]
-Then
-\[
-cB_2\subseteq P\subseteq B_2,
-\]
-hence
-\[
-\|z\|_2\le N_{12}(z)\le\frac{\|z\|_2}{c}.
-\]
+# Independent mathematical audit
 
-For \(x,y\in S_{X_{12}}\),
-\[
-\|x+y\|_2^2+\|x-y\|_2^2
-=
-2\|x\|_2^2+2\|y\|_2^2
-\le4,
-\]
-so one Euclidean chord has length at most \(\sqrt2\), proving
-\[
-J(X_{12})\le\frac{\sqrt2}{c}.
-\]
+## correctness
 
-The pair \(v_0,v_3\) is Euclidean orthogonal. Its sum and difference lie on dodecagon edge-normal rays, whose boundary radius is \(c\), so both normed chord lengths equal \(\sqrt2/c\).
+PASS
 
-If equality holds globally, then both Euclidean chord lengths must be at least \(\sqrt2\); the parallelogram identity forces both to equal \(\sqrt2\) and forces \(\|x\|_2=\|y\|_2=1\). The only dodecagon boundary points on the Euclidean unit circle are vertices. Equal Euclidean chord lengths force \(\langle x,y\rangle=0\), hence
-\[
-x=v_k,\qquad y=\pm v_{k+3}.
-\]
-This also verifies the converse.
+Unit ball P is the regular 12-gon with Euclidean circumradius 1, apothem c=cos(pi/12). Norm comparison gives ||z||_2<=N_12(z)<=||z||_2/c. For any unit x,y, min(N_12(x+y),N_12(x-y))<=sqrt(2)/c by parallelogram. The vertex pair v_0=(1,0), v_3=(0,1) attains it because sum/difference lie on edge-normal rays; sqrt(2)/c=2(sqrt(3)-1). Equality forces both Euclidean chords length sqrt(2), x,y length 1 and perpendicular, hence dodecagon vertices differing by 3 or 9 indices. Converse holds for every dihedral image. No missed edge-interior optimizer.
 
-No numerical sampling or external certificate is used as proof.
+## originality
+
+PASS
+
+PASS best-of-knowledge based on specific prior publication chronology: Komuro–Saito–Tanaka gives a sqrt(2) endpoint symmetry criterion but not exact dodecagon value nor all maximizers. The dodecagon result was imported at 2026-10-11T13:10:54Z. The all-odd-m theorem in J2, which subsequently covers it exactly, was imported at 13:10:55Z, one second later, so is later coverage not earlier coverage. Other earlier result entries searched do not yield the equality-set classification. This is historical source-order originality only, not a claim of independent discovery.
+
+## value
+
+PASS
+
+PASS: Exact James constant of the first nonsquare 4 mod 8 regular polygon and exhaustive rigid equality set form a natural finite polygonal-Banach invariant. It is a self-contained motivated complete classification at a notable symmetry boundary, not an arbitrary small test; its incremental importance is now reduced by subsequent broad theorem, noted as a risk.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

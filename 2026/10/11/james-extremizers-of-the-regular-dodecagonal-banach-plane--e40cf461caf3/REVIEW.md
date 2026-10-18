@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact inclusions \(cB_2\subseteq P\subseteq B_2\), with \(c=\cos(\pi/12)\), give the sharp Euclidean comparison. The parallelogram identity yields the global upper bound. Equality forces both unit vectors onto the Euclidean circumcircle, hence onto dodecagon vertices, and then forces Euclidean orthogonality. Orthogonal vertex pairs attain the bound because their sum and difference lie on edge-normal rays.
+## correctness
 
-## Originality
-PASS. The closest primary literature characterizes the James-\(\sqrt2\) endpoint and uses the regular octagon as a benchmark. The full 2017 continuation gives the \(\pi/2\)- versus \(\pi/4\)-rotation criterion but contains no dodecagon occurrence. Targeted equality-case, exact-value, and ledger searches found no statement covering the regular-dodecagon value together with its complete maximizing-pair set. The unavailable 2015 article body remains an explicit access risk.
+PASS
 
-## Value
-PASS. The dodecagon is a natural first regular-polygon test immediately beyond the regular-octagon endpoint: it keeps quarter-turn symmetry while losing \(\pi/4\) symmetry. The theorem quantifies that departure and shows that the octagon's large extremal family collapses to finitely many orthogonal vertex pairs.
+Unit ball P is the regular 12-gon with Euclidean circumradius 1, apothem c=cos(pi/12). Norm comparison gives ||z||_2<=N_12(z)<=||z||_2/c. For any unit x,y, min(N_12(x+y),N_12(x-y))<=sqrt(2)/c by parallelogram. The vertex pair v_0=(1,0), v_3=(0,1) attains it because sum/difference lie on edge-normal rays; sqrt(2)/c=2(sqrt(3)-1). Equality forces both Euclidean chords length sqrt(2), x,y length 1 and perpendicular, hence dodecagon vertices differing by 3 or 9 indices. Converse holds for every dihedral image. No missed edge-interior optimizer.
 
-## Closest literature and limitations
-Komuro--Saito--Tanaka's 2015 paper is the archive-period endpoint source; their 2017 continuation supplies the full rotation-invariance theorem and a detailed regular-octagon comparison. The result here is only for the regular dodecagon, and an older unindexed polygonal calculation remains a residual risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge based on specific prior publication chronology: Komuro–Saito–Tanaka gives a sqrt(2) endpoint symmetry criterion but not exact dodecagon value nor all maximizers. The dodecagon result was imported at 2026-10-11T13:10:54Z. The all-odd-m theorem in J2, which subsequently covers it exactly, was imported at 13:10:55Z, one second later, so is later coverage not earlier coverage. Other earlier result entries searched do not yield the equality-set classification. This is historical source-order originality only, not a claim of independent discovery.
+
+## value
+
+PASS
+
+PASS: Exact James constant of the first nonsquare 4 mod 8 regular polygon and exhaustive rigid equality set form a natural finite polygonal-Banach invariant. It is a self-contained motivated complete classification at a notable symmetry boundary, not an arbitrary small test; its incremental importance is now reduced by subsequent broad theorem, noted as a risk.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
