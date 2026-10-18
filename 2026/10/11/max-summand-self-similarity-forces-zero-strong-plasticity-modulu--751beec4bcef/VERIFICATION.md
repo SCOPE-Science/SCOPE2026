@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked from the definitions rather than by numerical testing. If \(J:\mathbb R\oplus_\infty X\to X\) is a linear isometry and \(F(x)=J(\sigma(x),x)\), then
-\[
-\|F(x)-F(y)\|=\max\{|\sigma(x)-\sigma(y)|,\|x-y\|\}.
-\]
-This identity establishes the self-map property, injectivity, and non-contraction. Taking opposite selector values on a sequence \(u_n\to u\) gives output distance exactly \(2\) while the source distance tends to \(0\), so for every \(0<\varepsilon<2\) the same map has an expansion exceeding \(\varepsilon\) and no contraction. The strong-plasticity modulus is therefore \(0\) on \((0,2)\).
+# Independent mathematical audit
 
-For \(c\) and \(\ell_\infty\), coordinate prepending is an isometric identification with \(\mathbb R\oplus_\infty X\); in \(c\), a finite initial coordinate does not alter convergence of the remaining sequence. The focal full text was inspected for its definitions and plasticity theorem. No claim is made for \(\ell_1\) or for Banach spaces lacking the max-summand self-embedding.
+## correctness
+
+PASS
+
+Independently reconstructed F(x)=J(sigma(x),x) with sign sigma(u)=+1 and sigma(u_n)=-1 for distinct u_n->u in S_X. Because ||(sigma(x),x)||_infty=1, F maps S_X into itself. Isometry of J gives exact distance max(|sigma(x)-sigma(y)|,||x-y||), so F never contracts and is injective. Yet ||F(u)-F(u_n)||=2 while ||u-u_n||->0; every 0<epsilon<2 is expanded by >epsilon with no contraction depth. For c and ell_infty, coordinate prepending is a surjective linear max-sum isometry; no continuity is required of a noncontractive map. Infinite-dimensionality ensures u_n exists.
+
+## originality
+
+PASS
+
+The exact current source proves EC-plasticity of S_c,S_ell_infinity, not strong plasticity; Kadets–Zavarzina define strong plasticity and study Hilbert-ball counterexamples. The max-summand shift obstruction is a separate metric construction not stated in those full sources. Broad indexed searches using EC-plasticity aliases and the max-summand hypothesis did not identify a stronger precedent; folklore-equivalence risk remains.
+
+## value
+
+PASS
+
+Shows a concrete, reusable structural mechanism by which ordinary plasticity coexists with the strongest zero strong-plasticity modulus on natural sequence-space spheres. It answers a quantitative property left open by the recent positive plasticity result, rather than a vacuous sign convention or isolated finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

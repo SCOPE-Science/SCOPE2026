@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact distance identity for \(F(x)=J(\sigma(x),x)\) proves non-contraction for every pair and diameter inflation along a convergent sequence. The zero-modulus conclusion follows directly from the quantitative definition for every \(0<\varepsilon<2\). Coordinate prepending verifies the hypothesis for \(c\) and \(\ell_\infty\).
+## correctness
 
-## Originality
-PASS. The focal full text proves ordinary plasticity for the two sup-norm sequence spheres and strong plasticity only for Hilbert spheres. The closest inspected strong-plasticity paper gives a Hilbert-ball counterexample and the modulus definition, not the max-summand criterion or these sphere conclusions. Targeted searches by source, aliases, implication, coordinate shift, and max-sum formulation did not locate a covering statement. The main residual risk is equivalent folklore under different terminology.
+PASS
 
-## Value
-PASS. The claim identifies a reusable geometric mechanism and an exact invariant: the strong-plasticity modulus vanishes throughout \((0,2)\). It turns two newly established plastic spheres into sharp natural examples separating ordinary and strong plasticity, with diameter-size expansion at arbitrarily small input scales.
+Independently reconstructed F(x)=J(sigma(x),x) with sign sigma(u)=+1 and sigma(u_n)=-1 for distinct u_n->u in S_X. Because ||(sigma(x),x)||_infty=1, F maps S_X into itself. Isometry of J gives exact distance max(|sigma(x)-sigma(y)|,||x-y||), so F never contracts and is injective. Yet ||F(u)-F(u_n)||=2 while ||u-u_n||->0; every 0<epsilon<2 is expanded by >epsilon with no contraction depth. For c and ell_infty, coordinate prepending is a surjective linear max-sum isometry; no continuity is required of a noncontractive map. Infinite-dimensionality ensures u_n exists.
 
-## Closest literature and limitations
-The closest literature is Levchenko–Zavarzina for ordinary sphere plasticity and Hilbert-sphere strong plasticity, Kadets–Zavarzina for the strong-plasticity modulus and a Hilbert-ball failure example, and Naimpally–Piotrowski–Wingler for total-boundedness strong plasticity. The result does not address spaces without an isometric \(\mathbb R\oplus_\infty X\) self-embedding and does not address \(S_{\ell_1}\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact current source proves EC-plasticity of S_c,S_ell_infinity, not strong plasticity; Kadets–Zavarzina define strong plasticity and study Hilbert-ball counterexamples. The max-summand shift obstruction is a separate metric construction not stated in those full sources. Broad indexed searches using EC-plasticity aliases and the max-summand hypothesis did not identify a stronger precedent; folklore-equivalence risk remains.
+
+## value
+
+PASS
+
+Shows a concrete, reusable structural mechanism by which ordinary plasticity coexists with the strongest zero strong-plasticity modulus on natural sequence-space spheres. It answers a quantitative property left open by the recent positive plasticity result, rather than a vacuous sign convention or isolated finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
