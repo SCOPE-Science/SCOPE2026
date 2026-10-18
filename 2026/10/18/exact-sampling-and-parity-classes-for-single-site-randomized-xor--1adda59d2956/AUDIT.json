@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "A bijection maps the length-n XOR feedback action to cyclic rotation on the even-parity subspace of F2^(n+1). Fixed-site noise maps to incidence vectors of cycle-graph edges connecting positions j apart. The graph has gcd(j,n+1) components; the first n+1-g edges form a forest, giving exact rank r_t=min(t,n+1-g). Uniform independent fair bits map uniformly onto the rank-r_t affine support, so the total-variation identity is exact. Residue-class parities generate the quotient, and Burnside counting proves the class structure. The stdlib checker passed 186840 orbit-rank, 1039 exact-state law, and 12 cyclic-class-count checks. These finite checks are supplementary, not substitutes for the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Diaconis--Graham (1992), pp. 215–217 and Theorem 5.1, develops a one-Jordan-block model (order a power of two); this does not state the all-n cyclic XOR register gcd classification.",
+        "Chung--Diaconis--Graham (1987), p. 1148, treats affine walks on integers modulo an odd p.",
+        "Levin--Tankala (2021), Theorem 2, treats n=2m and j=m."
+      ],
+      "reasoning": "The general algebra of affine walks and cyclic vectors motivates this deduction, but none of the inspected broader theorems states an inequality or exact identity that immediately supplies the rank min(t,n+1-gcd(j,n+1)) for every n,j, or the quotient classes. A generic rank criterion itself is insufficient without the arithmetic orbit-rank calculation.",
+      "searches": [
+        "Shift register noise controllability finite field cyclic vector e_j A full rank gcd(j,n+1) exact total variation mixing",
+        "Diaconis Graham 1992 An affine walk on the hypercube PDF",
+        "Diaconis Graham 1992 affine walk hypercube exact random bits rank uniform mixing"
+      ]
+    },
+    "checked_sources": [
+      "Levin--Tankala 2021, arXiv:2109.05387v1, full preprint and Section 5 Theorem 2",
+      "Diaconis--Graham 1992, Journal of Computational and Applied Mathematics 41, primary author PDF",
+      "Chung--Diaconis--Graham 1987, Annals of Probability 15, primary author PDF",
+      "Ben-Hamou--Peres 2021, arXiv:2104.03568, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Levin--Tankala Section 5 Theorem 2 states Q_2^n(x,·)=pi for even n=2m and middle coordinate m; the present criterion specializes to gcd(m,2m+1)=1.",
+        "Levin--Tankala Theorem 1 concerns random site selection rather than one fixed site.",
+        "Diaconis--Graham Theorem 5.1 has a single-Jordan-block assumption, not this cyclic parity graph for all n."
+      ],
+      "reasoning": "The new statement strictly includes the middle-site uniformity case and determines outcomes for all other sites, including an explicit nonmixing obstruction, entire TV profile, and communication-class periods. The published assertions inspected do not imply this strengthened statement by matching their hypotheses alone; the new graph-rank argument is necessary.",
+      "searches": [
+        "\"randomized shift-register\" \"coordinate\" \"coprime\" mixing",
+        "Diaconis Graham 1992 An affine walk on the hypercube PDF",
+        "Levin and Tankala randomized shift-register Markov chain, deterministic update of fixed j-th bit, perfect sampling in n steps for coprime j"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2109.05387v1 Section 5 gives a special fixed-middle-site exact sampler, not the all-site classification.",
+        "A fixed-site Bernoulli affine recursion is equivalent to an F2 controllability/orbit-span problem, here reduced to edge incidence on step-j cycles."
+      ],
+      "reasoning": "Searched aliases include shift register, XOR feedback, perfect mixing, fixed-site injection, linear controllability, coset confinement, and cyclic parity. The inspected 2021 theorem covers only the coprime site j=n/2 for n even. No equivalent all-site statement was located in the records inspected; this is not a logical proof that none exists.",
+      "searches": [
+        "\"shift register\" \"exact mixing\" \"gcd\" coordinate",
+        "\"randomized shift-register\" \"coordinate\" \"coprime\" mixing",
+        "Fixed-coordinate random-bit injection into the xor-feedback linear shift-register map f(x)=(x2,...,xn,x1 xor ... xor xn) over F2. Exact finite-time total variation distance to uniform equals 1-2^{min(t,n+1-gcd(j,n+1))-n}; perfect mixing after n steps iff gcd(j,n+1)=1, otherwise permanent coset confinement.",
+        "Finite-dimensional F2 xor shift register noise controllability graph cycles gcd coordinate exact coset support"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The explicit source Section 5 computes an invertible bit-influence matrix only for one family of dimensions and sites.",
+        "The current theorem produces the complete symbolic finite-time distance for every site, not a re-tabulation of a finite dataset."
+      ],
+      "reasoning": "No exact table or preexisting all-parameter formula for this specific transition rule was found in the queried mathematical records. This negative search result has limited evidentiary force and is not used as uniqueness proof.",
+      "searches": [
+        "\"shift register\" \"exact mixing\" \"gcd\" coordinate",
+        "Levin Tankala generalization fixed coordinate j shift register gcd n+1 mixing random bit",
+        "Levin Tankala 2021 Fast mixing randomized shift-register Markov chain single coordinate update exact uniform n steps arbitrary coordinate coprime gcd",
+        "randomized linear shift-register one-bit stochastic update period n+1 gcd exact mixing"
+      ]
+    },
+    "rationale": "The closest fully inspected primary theorem (Levin--Tankala, arXiv:2109.05387, Section 5, Theorem 2) covers the fixed middle site of even-dimensional registers and asserts uniformity at time n. It neither classifies arbitrary fixed sites nor gives a total-variation profile or the nonergodic parity-orbit classes. Diaconis--Graham (1992) proves sharp mixing for a Jordan-block matrix, a different deterministic map; their general affine formulation explains the family but not the cyclic arithmetic rank. Chung--Diaconis--Graham (1987) concerns modular integer affine walks. Searches of mathematical records for the precise gcd criterion and its equivalents found no dominating theorem. General algebraic controllability theory could imply parts of the result, so priority is not certified.",
+    "residual_risks": [
+      "Binary linear-systems controllability or coding theory may give an older equivalent gcd statement in different language.",
+      "The full text of Ben-Hamou--Peres (arXiv:2104.03568) was not inspected; abstract evidence alone does not establish noncoverage.",
+      "An independent historical-priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SPECIAL_CASE_ONLY: the fixed site is the middle coordinate of even n, and no general gcd-dependent stationary decomposition or all-time TV formula is stated.",
+        "evidence": "Section 5, Theorem 2 and its n by n invertible bit-influence matrix; Section 1 gives the distinct randomly chosen-site process.",
+        "identifier_or_url": "https://arxiv.org/pdf/2109.05387",
+        "material_read": "Full arXiv text including setup, main random-site result, Section 5 Theorem 2 and proof, and concluding discussion; PDF pages showing Section 5 examined",
+        "method": "Direct full-text reading and visual inspection of primary preprint PDF",
+        "title": "Fast mixing of a randomized shift-register Markov chain",
+        "trigger": "Same XOR-feedback deterministic map and an exactly mixing fixed-middle-coordinate chain"
+      },
+      {
+        "assessment": "DIFFERENT_LINEAR_OPERATOR: results on a single unipotent Jordan block, without the cyclic step-j rank classification of the present XOR map.",
+        "evidence": "p. 215 matrix A is lower triangular with diagonal/subdiagonal ones; p. 229 Theorem 5.1 requires similarity to this single-Jordan-block matrix.",
+        "identifier_or_url": "https://fanchung.ucsd.edu/ron/papers/92_01_hypercube_walk.pdf",
+        "material_read": "Introduction and statement of Theorems 1.1–1.2, Section 5 Theorem 5.1 and related discussion, inspected in the original PDF",
+        "method": "Full-text PDF extraction plus original-page image inspection",
+        "title": "An affine walk on the hypercube",
+        "trigger": "Earlier exact and asymptotic hypercube affine walks with Bernoulli disturbances and possible broad covering results"
+      },
+      {
+        "assessment": "DISTINCT_MODULAR_MODEL: affine walk on integer residues rather than binary XOR-feedback with one chosen coordinate.",
+        "evidence": "pp. 1148–1150 use X_{t+1}=a_t X_t+b_t modulo p and Fourier analysis on Z_p.",
+        "identifier_or_url": "https://fanchung.ucsd.edu/mypaps/fanpap/88walks.pdf",
+        "material_read": "Original PDF title, abstract, model description and Fourier-analysis preliminaries, pages 1148 and 1150",
+        "method": "Original PDF page-image reading",
+        "title": "Random walks arising in random number generation",
+        "trigger": "Foundational random-affine generator study cited by the closest source"
+      },
+      {
+        "assessment": "NO_FULL_TEXT_ASSESSMENT: abstract concerns typical random permutations and cutoff, not an explicitly stated fixed-coordinate gcd classification.",
+        "evidence": "Accessible abstract-level model and scope; no whole-document noncoverage inference is made.",
+        "identifier_or_url": "https://arxiv.org/abs/2104.03568",
+        "material_read": "Accessible abstract and bibliographic record only; complete text not read",
+        "method": "Accessible article-record inspection; attempted full text not available",
+        "title": "Cutoff for permuted Markov chains",
+        "trigger": "Related general deterministic-jump acceleration theory cited by Levin--Tankala"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1adda59d-2956-4691-a22c-7586beaf9e61",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The site of randomness is an intrinsic design choice for the concrete shift-register sampler studied in the cited primary paper. The gcd criterion gives an exact, dimension-independent feasibility condition, detects permanent failure of convergence when violated, supplies all finite-time TV distances, and classifies closed classes and periods. This is a structural positive/negative dichotomy in a natural finite-state probability family, not a routine single numerical example or a minor asymptotic estimate.",
+    "status": "PASS"
+  }
+}
