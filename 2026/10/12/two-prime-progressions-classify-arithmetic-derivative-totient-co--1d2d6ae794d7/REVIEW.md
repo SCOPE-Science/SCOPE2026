@@ -1,12 +1,21 @@
-# Three-axis scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The identity \(D(5^a7^b r^c)/(5^a7^b r^c)=a/5+b/7+c/r\) is the standard logarithmic arithmetic derivative. The totient ratio is \(24(r-1)/(35r)\). Their exact equality reduces to \((24-7a-5b)r=35c+24\). Positivity yields exactly four possible \((a,b)\) pairs, the congruences modulo \(5\) or \(7\) eliminate two, and the two surviving residues are \(2\) and \(12\) modulo \(35\), with unique displayed positive exponent. The converse follows by substitution. Dirichlet's theorem applies to both reduced residue classes. Exact rational checks against a separately coded enumeration corroborate every prime \(7<r<10000\); they are not used to infer the infinite statement.
+## correctness
 
-## Originality — PASS (with stated risk)
-OEIS A166374 identifies the exact general equality and includes the term \(3788435=5\cdot7^3\cdot47^2\), along with 2010 prime-power and 2014 two-prime-support remarks. Neither item states the complete classification across \(\{5,7,r\}\) nor either of its infinite progressions. The original derivative paper of Dahl, Olsson, and Loiko gives the formula rather than this equality classification. Associated divisibility entries A342008 and A342009 and the indexed works on derivative multiplier levels and cototient gaps do not imply it. An unindexed earlier derivation is a residual priority risk.
+PASS
 
-## Value — PASS
-The natural and previously recorded three-prime instance is promoted to a *complete* family classification for all positive prime exponents, with two necessary-and-sufficient prime congruence classes and infinitude in each. This exact arithmetic progression structure is more informative than ad hoc examples and supplies an explicit infinite class of coincidences with exactly three prime divisors. No claims concern other prime supports or global enumeration.
+For all primes r>7 and positive a,b,c, the exact logarithmic derivative and totient identities reduce equality to (24−7a−5b)r=35c+24. Positivity leaves only (a,b)=(1,1),(1,2),(1,3),(2,1); modular 7 and 5 exclude the middle and last. The other two yield respectively r≡2 mod35 with c=(12r−24)/35, and r≡12 mod35 with c=(2r−24)/35; minimum primes 37 and 47 give c>0. Both residues coprime to 35, so Dirichlet proves infinitely many primes. Our independent integer enumeration over all 58 primes 7<r<300 obtained exactly the four predicted qualifying supports; this is corroboration, not the infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+OEIS A166374 already poses D(n)=phi(n) and lists 3788435=5·7³·47², which lies in the second branch; Dahl–Olsson–Loiko present the standard arithmetic derivative identity. The assessed addition is the complete classification in a motivated fixed first-two-prime support and two infinite prime progressions. No checked named prior result implies their precise necessary-and-sufficient pair, but an unindexed elementary derivation is a material risk.
+
+## value
+
+PASS
+
+The fixed support is motivated by the explicitly recorded first three-prime numerical instance, rather than an arbitrary test of isolated parameters. It upgrades that example to an exhaustive infinite two-progression classification with necessary-and-sufficient exponent formulas. Though elementary linear congruence algebra, the exact full-support family and infinity statement supply an independently reusable answer to a natural constrained Diophantine question; no broader classification is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
