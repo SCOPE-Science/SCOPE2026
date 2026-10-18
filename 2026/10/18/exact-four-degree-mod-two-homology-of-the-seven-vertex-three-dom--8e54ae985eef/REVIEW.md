@@ -1,0 +1,15 @@
+# Scientific review: exact mod-two homology of the seven-vertex three-domination complex
+
+## Correctness — PASS
+The precise object is the downward-closed simplicial complex of edge subsets on seven labeled vertices with no dominating pair. Every graph mask among \(2^{21}\) is tested against all \(21\) possible vertex pairs, so the face census is exhaustive. The verifier contains an explicit matching algorithm and constructs the entire Hasse graph; all \(287276\) nonempty faces and \(2113692\) covering relations are checked. The complete topological sort certifies acyclicity rather than inferring it from unmatched-cell counts. Exact mod-two Morse differentials have ranks \(0,56,262,6\), deriving the claimed ranks. Reversing the matching coordinate order yields different critical counts and ranks \(0,55,82,2\), independently recovering the same Betti vector. The Euler check is consistent. The proof and reproducible code establish only homology with \(\mathbb F_2\) coefficients; neither integral torsion nor an actual sphere-wedge homotopy equivalence is established.
+
+## Originality — PASS, with residual risk
+González and Hoekstra-Mendoza's defining work (arXiv:1901.07130v2, complete primary text examined) classifies \(D_{n,n-2}\) and \(D_{5,2}\), while discussing \(D_{6,3}\) using Euler characteristic. The seven-vertex \(D_{7,3}\) has a different domination threshold and is not an instance of either theorem. Two publicly available subsequent findings for \(D_{6,3}\) give its homotopy type and mod-two homology but do not imply the present seven-vertex ranks. Searches for aliases such as graph-property simplicial complexes and domination-number-at-least-three graph complexes uncovered no covering exact \(D_{7,3}\) table or stronger homological classification. The realistic residual risk is an equivalent, unindexed computation; these searches are not proof of absolute novelty.
+
+## Value — PASS
+This complex occupies the next natural unclassified region of the domination-number filtration studied in the primary paper. An exact homological invariant for \(D_{7,3}\) is a motivated finite classification, not an arbitrary graph sample or a numerical bound. Its four simultaneous homological degrees extend the observed two-degree pattern of the six-vertex \(D_{6,3}\) case, provide a precise reproducible target for prospective homotopy classifications, and expose rich behavior beyond the uniform single-degree theorem at \(D_{n,n-2}\). The result has useful intrinsic topological information without requiring a broader theorem.
+
+## Closest literature and limitations
+Primary source: González–Hoekstra-Mendoza, arXiv:1901.07130, Theorem 1.1, Proposition 1.3, Problem 1.4, and Sections 2 and 8. Related published computational records: the two \(D_{6,3}\) findings cited in the main article. Residual risks: other unindexed exact computations; reliance on an exhaustive implementation, with two ordering checks using the same foundational face criterion. No integral, equivariant, or homotopy classification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
