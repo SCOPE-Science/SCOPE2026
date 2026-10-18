@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,27 +19,24 @@
 }
 ---
 
-# Mathematical checks and limits
+# Independent mathematical audit
 
-The CDF, density, survival and hazard were algebraically reconstructed from the source's equations (2.4)–(2.7). The numerical-stability form
-\[
-h(x)=\frac{\theta}{\lambda+x}\frac{\alpha(e^{t(x)}-1)}{e^{\alpha t(x)}-1}
-\]
-was directly differentiated. The exact derivative identity is
-\[
-\frac{d\log h(x)}{dx}=\frac{\theta K_\alpha(t(x))-1}{\lambda+x}.
-\]
-The proof in RESULT.md explicitly checks both \(\alpha\le1\) and \(\alpha>1\), both sides and equality of the critical boundary, \(x\downarrow0\), and \(x\to\infty\). The core universal strict-monotonicity step is proved analytically using the derivative of \(\sinh z/z\), not inferred from a plot.
+## correctness
 
-To reproduce the finite checks, execute `python3 hazard_phase_checker.py`. It requires Python 3.11 or later and only the standard-library `decimal` module. The completed run of the exact packaged script reports:
+PASS
 
-```
-finite derivative identity tests: 360
-alpha=2, theta=2: x*/lambda= 0.06788960253492849930452255336622850752459049227671769657967813173898908
-alpha=2, theta=2: hazard maximum (lambda=1)= 1.34699989940591358088412858215633954857732887468980836163678348816863365
-test status: PASS
-```
+Reconstructed the original APIILx CDF and differentiated to get h(x)=θ/(λ+x)·α(e^t−1)/(e^{αt}−1), t=−log(1−v/2). The exact logarithmic derivative is [θK_α(t(x))−1]/(λ+x); K_α=(e^t−1)[α/(1−e^{−αt})−1/(1−e^{−t})]. For α≤1, K≤0; for α>1, both e^t−1 and D_α(t) rise strictly because a/(1−e^{−at}) increases with a and sinh(z)/z with z. Therefore K increases from 0 to B(α)=α/(1−2^{−α})−2 as t increases while t(x) strictly decreases. This proves exact decreasing region θB≤1 (including equality on positive times), otherwise one strict peak and no bathtub/ever-increasing shapes. Scale λ cancels the boundary. Independent symbolic checks at α=1,2,3 confirm derivative identity; infinite claim is analytic.
 
-The checker uses 72-digit decimal precision and tests the logarithmic derivative against centered differences across eight powers, three Lomax shapes, three scales and five positive times. It additionally verifies the rational boundary at \(\alpha=2\), the exact radical peak, sign changes, and several decreasing cases including boundary equality. Finite checks do not certify infinitely many parameter values: the analytic proof does. The listed computation depends on Python decimal behavior and is reproducible without source data.
+## originality
 
-The literature comparison supports a provisional mathematical originality assessment, not a proof that all publications have been found. Independent audit and external certification have not been performed.
+PASS
+
+Best-of-knowledge: the exact APIILx three-parameter hazard in Kalt et al. 2026 is credited. The inspected complete original publisher paper describes decreasing or unimodal hazards qualitatively with plots, but does not provide the necessary-and-sufficient parameter criterion, global at-most-one-peak theorem, or root equation. Later-named power-Lomax distributions use distinct generators and do not dominate this phase theorem.
+
+## value
+
+PASS
+
+An exact parameter-level answer to whether a new lifetime family can exhibit decreasing or unimodal failure-rate regimes is a natural model-intrinsic question. The iff boundary, proof of exactly one possible maximum, explicit monotone peak equation, and scale-independence replace ambiguous shape plots with usable mathematical classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

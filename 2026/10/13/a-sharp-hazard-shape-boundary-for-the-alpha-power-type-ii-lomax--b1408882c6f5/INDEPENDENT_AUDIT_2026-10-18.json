@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T00:59:08.228267Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the original APIILx CDF and differentiated to get h(x)=θ/(λ+x)·α(e^t−1)/(e^{αt}−1), t=−log(1−v/2). The exact logarithmic derivative is [θK_α(t(x))−1]/(λ+x); K_α=(e^t−1)[α/(1−e^{−αt})−1/(1−e^{−t})]. For α≤1, K≤0; for α>1, both e^t−1 and D_α(t) rise strictly because a/(1−e^{−at}) increases with a and sinh(z)/z with z. Therefore K increases from 0 to B(α)=α/(1−2^{−α})−2 as t increases while t(x) strictly decreases. This proves exact decreasing region θB≤1 (including equality on positive times), otherwise one strict peak and no bathtub/ever-increasing shapes. Scale λ cancels the boundary. Independent symbolic checks at α=1,2,3 confirm derivative identity; infinite claim is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The type-II-G generator is broader over baseline families but does not assert a universal hazard sign theorem that specializes to Lomax.",
+          "The 2023 model has an exponential-in-CDF alpha-power generator rather than the current power-of-1+G transformation."
+        ],
+        "reasoning": "Containment of a distribution in a broad generator class is not mathematical coverage of an exact Lomax-baseline shape partition; different Lomax-named transforms have different hazards.",
+        "searches": [
+          "Mohsin and Kalt 2025 DOI 10.18280/mmep.120330 alpha-power type II-G generator",
+          "Qura et al 2023 DOI 10.1155/2023/6661792 extended power-Lomax",
+          "Kalt et al 2026 DOI 10.3934/math.2026334 full paper"
+        ]
+      },
+      "checked_sources": [
+        "Kalt et al full 2026 AIMS publisher PDF DOI 10.3934/math.2026334",
+        "Mohsin Kalt 2025 DOI 10.18280/mmep.120330",
+        "Qura et al 2023 DOI 10.1155/2023/6661792",
+        "Resultary semantic APIILx hazard boundary search",
+        "Original Git RESULT.md analytic proof and hazard_phase_checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact formula d(log h)/dx=[θK_α(t(x))−1]/(λ+x) depends on monotonicity of K_α as t decreases.",
+          "K_α(log2)=α/(1−2^(−α))−2 and K_α(0)=0 for α>1, yielding one crossing at most."
+        ],
+        "reasoning": "Published source expressions are necessary inputs but do not mathematically state/prove the global derivative-sign monotonicity lemma or iff alpha/theta boundary; the finding has a nontrivial implication beyond replotting a known hazard.",
+        "searches": [
+          "Kalt et al DOI 10.3934/math.2026334 2.4–2.7 / Figure 1",
+          "Mohsin Kalt type-II generator DOI 10.18280/mmep.120330",
+          "Current exact logarithmic-derivative calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kalt et al give CDF equations (2.4)–(2.7) and examples of decreasing/unimodal hazard shapes.",
+          "The claim gives an iff sign θ[α/(1−2^(−α))−2]−1, exact endpoint equality classification and one unique peak whenever positive."
+        ],
+        "reasoning": "Qualitative existence of decreasing/unimodal examples does not imply the exhaustive parameter partition or uniqueness of the peak for every admissible triple. No same-family equivalent theorem was located in the inspected primary results.",
+        "searches": [
+          "Kalt et al AIMS Mathematics DOI 10.3934/math.2026334 exact original hazard formula and Figure 1",
+          "Alpha power type-II Lomax exact hazard shape theta alpha decreasing upside down bathtub",
+          "Resultary semantic query: alpha power type II Lomax distribution hazard increasing unimodal monotone shape exact phase alpha theta"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Figures and numerical shape examples in the original paper are not an exhaustive parameter-shape database.",
+          "The exact analytic criterion holds over all positive real parameters and time, including the boundary at θB(α)=1."
+        ],
+        "reasoning": "The claim is not a finite numerical-table refinement. It upgrades plots into a proof valid for the entire parameter continuum, with the special α=1 Lomax case correctly excluded from the unimodal regime.",
+        "searches": [
+          "Kalt 2026 Figure 1 hazard plots and parameter examples",
+          "AIMS publisher 2026 equations (2.4)–(2.7)",
+          "Resultary target semantic search APIILx parameter phase"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the exact APIILx three-parameter hazard in Kalt et al. 2026 is credited. The inspected complete original publisher paper describes decreasing or unimodal hazards qualitatively with plots, but does not provide the necessary-and-sufficient parameter criterion, global at-most-one-peak theorem, or root equation. Later-named power-Lomax distributions use distinct generators and do not dominate this phase theorem.",
+      "residual_risks": [
+        "Equivalent hazard derivative classification in unindexed statistical reliability literature is not ruled out.",
+        "Some comparison sources were checked through generator descriptions rather than complete rendering of mathematical equations; do not infer whole-document absence from partial access."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_HAZARD_NOT_EXACT_PARTITION",
+          "evidence": [
+            "The original reports decreasing or unimodal shapes and plots, but no full iff condition θB(α)>1 or proof of unique maximum over all parameter combinations."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/3/PDF/math-11-03-334.pdf",
+          "material_read": "Complete 2026 34-page publisher PDF obtained and inspected, particularly Sections 1–3, equations (2.4)–(2.7), Figure 1 and additional later model discussions; relevant pages rendered.",
+          "method": "Read original publisher text and inspected relevant PDF page images for hazard definition and shape claims.",
+          "title": "A new alpha power type-II Lomax distribution with applications to radiation and materials sciences",
+          "trigger": "Identical distribution and potentially exact phase results"
+        },
+        {
+          "assessment": "BROADER_FAMILY_NOT_COVERING_EXACT_SHAPE",
+          "evidence": [
+            "Generator covers the distributional transform, not automatically its exact Lomax hazard derivative boundary."
+          ],
+          "identifier_or_url": "https://doi.org/10.18280/mmep.120330",
+          "material_read": "Generator definition and worked exponential/Weibull examples from accessible primary article; no unsupported claim about unread portions.",
+          "method": "Compare mathematical transform and whether any general hazard-sign theorem applies.",
+          "title": "Alpha Power Type II-G Family: Adding a Power Parameter of Distributions",
+          "trigger": "General parent generator might imply Lomax shape phase"
+        },
+        {
+          "assessment": "DIFFERENT_DISTRIBUTION",
+          "evidence": [
+            "2023 extended power-Lomax uses a different alpha-power transformation from the 2026 APIILx CDF."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2023/6661792",
+          "material_read": "Published abstract, stated distributional construction and descriptions; complete mathematical image equations not independently checked.",
+          "method": "Compare named generator forms and parameterization; record limits.",
+          "title": "A Novel Extended Power-Lomax Distribution for Modeling Real-Life Data: Properties and Inference",
+          "trigger": "Potential synonym or earlier shape analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact parameter-level answer to whether a new lifetime family can exhibit decreasing or unimodal failure-rate regimes is a natural model-intrinsic question. The iff boundary, proof of exactly one possible maximum, explicit monotone peak equation, and scale-independence replace ambiguous shape plots with usable mathematical classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kalt et al full 2026 AIMS publisher PDF DOI 10.3934/math.2026334",
+    "Mohsin Kalt 2025 DOI 10.18280/mmep.120330",
+    "Qura et al 2023 DOI 10.1155/2023/6661792",
+    "Resultary semantic APIILx hazard boundary search",
+    "Original Git RESULT.md analytic proof and hazard_phase_checker.py"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Applies to the exact three-positive-parameter APIILx distribution over unbounded times, not empirical finite-window curves.",
+    "The source qualitative shape plots and generator are previously known; novelty restricted to exact phase theorem."
+  ]
+}

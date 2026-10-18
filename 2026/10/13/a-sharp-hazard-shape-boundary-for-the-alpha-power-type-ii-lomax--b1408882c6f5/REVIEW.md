@@ -1,24 +1,21 @@
-# Scientific review: exact APIILx hazard-shape phase boundary
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The probability law and hazard are reconstructed from the source CDF (equations (2.4)–(2.7)). The change of variable \(t=-\log(1-v/2)\) gives the exact, numerically stable hazard and logarithmic derivative in RESULT.md. The sign lemma is proved for all positive parameters: the function \(a/(1-e^{-at})\) is strictly increasing in \(a\), and \(\sinh(z)/z\) is strictly increasing in positive \(z\). These establish strict monotonicity of the transformed derivative sign, its exact endpoint \(B(\alpha)\), and the unique peak or global decrease across every boundary case. Scale invariance and the absence of globally increasing or multiphasic hazards follow. The reproducibility script checks 360 distinct parameter/time combinations and exact radical peak conditions. The proof, not finite testing, establishes the universal quantifiers. No external mathematical lemma beyond the elementary inequalities is assumed.
+PASS
 
-## Originality — PASS, subject to recorded priority risk
+Reconstructed the original APIILx CDF and differentiated to get h(x)=θ/(λ+x)·α(e^t−1)/(e^{αt}−1), t=−log(1−v/2). The exact logarithmic derivative is [θK_α(t(x))−1]/(λ+x); K_α=(e^t−1)[α/(1−e^{−αt})−1/(1−e^{−t})]. For α≤1, K≤0; for α>1, both e^t−1 and D_α(t) rise strictly because a/(1−e^{−at}) increases with a and sinh(z)/z with z. Therefore K increases from 0 to B(α)=α/(1−2^{−α})−2 as t increases while t(x) strictly decreases. This proves exact decreasing region θB≤1 (including equality on positive times), otherwise one strict peak and no bathtub/ever-increasing shapes. Scale λ cancels the boundary. Independent symbolic checks at α=1,2,3 confirm derivative identity; infinite claim is analytic.
 
-The complete, accessible 2026 primary PDF describes both decreasing and unimodal hazard *shapes* and displays examples, but does not give the sharp if-and-only-if boundary \(\theta B(\alpha)=1\), monotone root characterization or proof that those are the only possible shapes for every positive parameter. The accessible 2025 alpha-power type-II-G generator article derives its general transformation and works through exponential and Weibull baselines, not the Lomax-baseline phase boundary. The accessible 2023 alpha-power power-Lomax article uses a distinct exponential-in-CDF generator and a four-parameter model. A prior indexed APIILx tail-exponent analysis addresses asymptotic moments and tail behavior and does not determine the global derivative-sign classification. Exact-paper, alias, derivative, alternate-generator and broader-family literature searches did not reveal covering statements. Lack of a retrieved result is not a proof of priority; potentially unindexed equivalent analyses remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The hazard-shape division is an inherent and practically interpretable feature of a proposed lifetime model. A complete parameter criterion is useful before fitting a decreasing-failure-rate or unimodal-failure-rate phenomenon: it determines precisely whether an initial rise is possible, shows it can have only one peak, provides the unique peak location, and demonstrates that no positive parameter choice can yield globally increasing failure rate. It upgrades published plots and qualitative observations to a nontrivial exhaustive classification, not a minor numerical improvement or a parameter renaming. The result is restricted to the stated model and does not make claims about estimation consistency or empirical fits.
+Best-of-knowledge: the exact APIILx three-parameter hazard in Kalt et al. 2026 is credited. The inspected complete original publisher paper describes decreasing or unimodal hazards qualitatively with plots, but does not provide the necessary-and-sufficient parameter criterion, global at-most-one-peak theorem, or root equation. Later-named power-Lomax distributions use distinct generators and do not dominate this phase theorem.
 
-## Closest literature and limitations
+## value
 
-1. Kalt et al. (2026), DOI `10.3934/math.2026334`, full publisher PDF, sections 1–3 and 6–7, equations (2.4)–(2.7), Figure 1. Provides the source hazard and qualitative shapes, not the sharp criterion.
-2. Mohsin and Kalt (2025), DOI `10.18280/mmep.120330`, full open HTML text, sections 2–4. Provides the general generator, with exponential/Weibull examples, but not the studied Lomax hazard partition.
-3. Qura et al. (2023), DOI `10.1155/2023/6661792`, accessible full-page HTML narrative and sections 1–2, 7. An analogous name refers to a different family and does not imply this theorem; math images in that HTML view were not independently extracted.
-4. The classical Lomax model is the \(\alpha=1\) special case and has decreasing hazard; no claim to originality is made for that fact.
+PASS
 
-Scientific limits: exact full-support model only; a short observed range may appear increasing even when the hazard ultimately falls. Residual priority risk from unindexed or otherwise overlooked equivalent statements remains. Independent scientific audit has not been performed.
+An exact parameter-level answer to whether a new lifetime family can exhibit decreasing or unimodal failure-rate regimes is a natural model-intrinsic question. The iff boundary, proof of exactly one possible maximum, explicit monotone peak equation, and scale-independence replace ambiguous shape plots with usable mathematical classification.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
