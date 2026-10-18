@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the stated mathematical theorem
 
-The deterministic Python 3 standard-library script `verify.py` uses `fractions.Fraction` exact rational arithmetic. Invoke it as `python3 verify.py` after placing the script in the current directory; no network or external package is needed.
+# Independent mathematical audit
 
-A successful run prints `VERIFY_OK` and the following totals: 1,184 graph profiles, 2,368 nonnegative center instances, 7,300 nonintegral vertex/farthest-point comparisons, 4,836 exact odd-cycle gain identity checks, and 1,184 weighted diameter equality tests. Graphs include all 1,024 labeled graphs on five vertices and 160 additional six-vertex instances. A triangle with a negative center is separately confirmed as a sharp hypothesis boundary.
+## correctness
 
-The graph instances and finite center cases are not exhaustive over graphs, metric weights, or centers of arbitrary order. The proof of the general result is the extremal-vertex classification, the exact odd-cycle mean-gain identity, center clamping, and the strict quadratic identity in RESULT.md; no numerical inference is used to extend finite tests to infinite quantifiers. No independent scientific audit has yet been performed.
+PASS
+
+Fractional matching vertices are disjoint unit edges and vertex-disjoint half-valued odd cycles. For a uniform near-perfect matching on each odd cycle length ℓ, exact independent rational calculation verifies gain w_e[(ℓ−2)/(4ℓ)+c_e/ℓ]>0 for c_e≥0 (checked ℓ=3,5,7,9 and c=0,1/4,3/2). Thus no fractional extreme vertex maximizes squared distance, and strict convexity excludes other nonmatching boundary points. Clamping proposed centers to nonnegative proves identical minimax ball center/radius; midpoint identity ensures unique center. Farthest-point replacement twice yields equal diameters and integral diametral endpoints. All finite G, positive diagonal metric; no claim for negative c or non-diagonal metric.
+
+## originality
+
+PASS
+
+General weighted Euclidean farthest-point equality and strict quantitative half-cycle gain hold for every finite graph and positive diagonal weights. Published Sanità diameter is one-skeleton shortest-path distance, not ambient Euclidean distance; known fractional matching vertex structure alone does not imply positive convex quadratic integrality or shared circumball. Resultary special cycle and complete-graph circumradius findings do not dominate the all-graphs all-weights theorem. Best-of-knowledge original with residual search risk for general separable convex maximization.
+
+## value
+
+PASS
+
+Nontrivial structural invariance of *two* ambient Euclidean metrics of fractional vs integral matching polytopes for all finite graphs and arbitrary diagonal weights; quantitative strict vertex slack identifies contact points and a graph-theoretic diameter formula. Not merely the known half-integral vertex theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
