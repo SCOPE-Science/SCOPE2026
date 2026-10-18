@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T23:49:49.476485Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from the exact level-2 aging theorem and white-region lemma of Edelsbrunner--Garber--Saghafian, an arbitrary COMPLETE level-2 hypertriangulation H has a unique complete ordinary underlying triangulation P. Every black hypertriangle is a medial triangle and every white hypertriangle rooted at x a 1/2 homothetic image of its original-scale triangle. For each x the white triangles plus old triangles not incident to x form a complete triangulation P^{-x} of A\\{x}, including when x is a hull vertex because the white region intersects conv(A\\{x}). Hence 2c(H)=max(c(P), max_x c(P^{-x})); the result is independent of non-Delaunay triangulations. For Del_2(A), black triangles correspond to Del(A); each white triangle is the replacement of the single Delaunay triangle after deleting x, so P^{-x}=Del(A\\{x}) by the empty-circle criterion and generic no-four-cocircular assumption. Rajan's ordinary min-containment theorem separately bounds each component against its Delaunay counterpart. Thus the global inequality follows. The proof explicitly uses SMALLest enclosing circles, not circumcircles; it does not presume all hypertriangles acute.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rajan proves ordinary Delaunay minimizes maximal smallest-enclosing-circle radius.",
+          "Higher-order Delaunay mosaic radius functions concern constrained spheres/alpha shapes, not comparing arbitrary complete level-2 hypertriangulations."
+        ],
+        "reasoning": "Higher dimensional ordinary triangulation optimality and order-k alpha shape analysis do not dominate an order-two constrained-hypertriangulation minimax claim.",
+        "searches": [
+          "V. T. Rajan DOI:10.1007/BF02574375",
+          "Edelsbrunner--Osang DOI:10.1007/s00453-022-01027-6",
+          "arXiv:2310.18238"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.18238 Definitions 2.1--2.2, §§2,4,6",
+        "Rajan, DOI:10.1007/BF02574375 theorem statement",
+        "Edelsbrunner--Osang DOI:10.1007/s00453-022-01027-6 alpha-shape comparator",
+        "Resultary semantic query: order-2 Delaunay minimax enclosing-circle"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's aging and white regions supply a topological/labelled triangulation decomposition.",
+          "Rajan's theorem supplies bounds for c(P),c(P^{-x}), but does not itself assert that 2c(H) equals their max."
+        ],
+        "reasoning": "The nonstandard deletion identity links the objects and is needed for implication; once proved, Rajan applies componentwise. The paper expressly asks for an extension beyond angle optimality.",
+        "searches": [
+          "arXiv:2310.18238 aging/white-region structure and Section 6",
+          "Rajan 1994 ordinary minimax"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Paper proves lexicographic angle optimality, not a maximum-smallest-enclosing-circle minimax.",
+          "At its conclusion the paper lists smallest enclosing circle among properties whose higher-order extension is in question."
+        ],
+        "reasoning": "The source identifies the target as open; no equivalent complete level-2 minimax theorem located in the inspected sources.",
+        "searches": [
+          "Resultary: order-2 Delaunay hypertriangulation minimum maximum enclosing circle radius Rajan Edelsbrunner",
+          "Edelsbrunner--Garber--Saghafian arXiv:2310.18238 concluding open questions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite exact-value table is involved; this is a uniform geometric theorem on arbitrary finite generic point sets."
+        ],
+        "reasoning": "Inapplicable as an exact finite census; the relevant prior theorem is Rajan's ordinary minimax in a different competitor class.",
+        "searches": [
+          "arXiv:2310.18238 sections 2--6",
+          "Resultary semantic search for order-2 smallest enclosing circle"
+        ]
+      },
+      "rationale": "The primary Edelsbrunner--Garber--Saghafian paper establishes order-two angle optimality and asks in its conclusion whether the smallest-enclosing-circle property generalizes. Rajan's 1994 theorem only handles ordinary triangulations. The new exact decomposition into P and all one-point deletions is necessary to transfer the ordinary theorem to the constrained level-two competitors. A mere parameter substitution in Rajan cannot establish it.",
+      "residual_risks": [
+        "The central aging and white-region lemma is imported from original paper rather than formally re-proved; all complete-competitor hypotheses must be retained.",
+        "The theorem is not uniqueness and does not cover incomplete hypertriangulations or levels k>=3; subtle degeneracies ruled out by no-three-collinear/no-four-cocircular.",
+        "Potential alternate undocumented proof of the explicit open question; novelty search nonexhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Angle-optimality theorem and geometric decomposition supply premises; smallest-enclosing-circle extension expressly raised as an open question.",
+          "evidence": [
+            "PDF conclusion p.27 lists smallest enclosing circle among sought higher-order optimality properties.",
+            "Definitions and aging supply black and white triangle structure."
+          ],
+          "identifier_or_url": "arXiv:2310.18238; https://arxiv.org/pdf/2310.18238",
+          "material_read": "Original 32-page paper read at Definitions 2.1--2.2, aging and white-region discussion in Sections 2 and 4, Theorem 4.5 and concluding Section 6, including PDF page 27 explicit open question.",
+          "method": "Read primary PDF text and inspected displayed page where needed.",
+          "title": "Order-2 Delaunay Triangulations Optimize Angles",
+          "trigger": "Exactly the same complete level-2 hypertriangulation class and explicit open enclosing-circle question."
+        },
+        {
+          "assessment": "Ordinary Delaunay minimax supplies needed bound for each P and P^{-x}, but not the new higher-order identity.",
+          "evidence": [
+            "1994 min-containment maximum enclosing-ball radius optimality for ordinary Delaunay triangulations."
+          ],
+          "identifier_or_url": "V. T. Rajan, Discrete Comput. Geom. 12 (1994), DOI:10.1007/BF02574375",
+          "material_read": "Inspected accessible primary theorem characterization/summary and citation in initiating paper; complete original source PDF not claimed read.",
+          "method": "Primary-source theorem cross-check from accessible metadata and citation plus mathematical application.",
+          "title": "Optimality of the Delaunay Triangulation in R^d",
+          "trigger": "The precise ordinary minimax property needed to transfer to deletion triangulations."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Answers a geometric higher-order optimality question explicitly posed in the initiating Delaunay paper, identifying a nontrivial exact reduction to n+1 ordinary minimax problems. The theorem applies to every generic finite planar set and every complete level-2 competitor, with meaningful constraints and boundaries.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Complete level-2 hypertriangulations, generic planar sets |A|>=4 only.",
+    "No uniqueness, level k>=3, or incomplete competitor theorem."
+  ],
+  "schema_version": 1
+}
