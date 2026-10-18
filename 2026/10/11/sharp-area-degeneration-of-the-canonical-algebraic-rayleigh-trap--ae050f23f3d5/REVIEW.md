@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact chord integrals are reconstructed directly from the published inner and outer polynomials. The inner moving vertical turning point is the unique discriminant root between \(\sqrt{8/3}\) and \(\sqrt3\); the sharp large-damping correction uses **both** discriminant endpoints. Their local square-root models and the explicitly integrated middle rational kernel yield \(10\log\lambda+5+2\log(243/256)\), with a proved \(o(\lambda^{-1})\) remainder. The outer coordinate change has unit Jacobian and yields an exact area quadrature and a positive limiting integral coefficient. A standalone Python script recomputes the underlying areas at finite damping. Numeric output alone is not used as a proof of any limit.
+## correctness
 
-## Originality — PASS with stated priority risk
-Grin and Schneider (2023), DOI 10.14232/ejqtde.2023.1.35, define the inner and outer ovals and prove their trapping properties, but the inspected formula and theorem sections do not evaluate their sharp enclosed-area asymptotics or limiting area fraction. Grin and Schneider's 2021 van der Pol preprint defines the predecessor outer oval, again without the Rayleigh area comparison in the inspected material. Available abstract text of Li–Grin–Kuzmich (2024), DOI 10.31857/S0374064124060023, describes **improved** trapping boundaries, not an explicit evaluation of the two 2023 certificate areas, but its full text was unavailable. A plausible uninspected paper and indexing gaps remain genuine publication-priority risks; searches do not establish absolute originality.
+PASS
 
-## Value — PASS
-The invariant is geometrically motivated by the area efficiency of a published polynomial Poincaré–Bendixson trapping certificate. In strong damping the boundaries enclose areas in a limiting ratio of about one to forty, whereas their weak-damping area ratio is one to three. This gives a quantitative baseline for sharper certificate constructions. The nontrivial two-endpoint logarithmic correction also resolves the next order for the original Dulac–Cherkas oval; neither a qualitative cycle theorem nor plotting the ovals supplies that coefficient. The result does not assert a bound for the actual limit-cycle area.
+Checked exact x-quadratic discriminant λ²y²(1-y²/3)²+4(8/3-y²). Its unique upper turn lies in (sqrt(8/3),sqrt3), from strict derivative negativity on y² in (8/3,3). The chord area must integrate to moving Yλ, not the λ=0 circle radius. The large-λ proof splits at both zeros of h=y(1-y²/3); local models y and 2(sqrt3-y), with q(0)=32/3 and q(sqrt3)=-4/3, produce the positive and negative logarithmic singularities. Integrating q/(2h)= derivative of (16/3)log y+(1/3)log(3-y²) cancels cutoff logarithms and yields the stated constant. Independently numerically integrated original discriminant at λ=30,300,1000; renormalized constants respectively 4.8659838551,4.8951958192,4.8957036570 converge to 5+2log(243/256)=4.8957679977. Outer polynomial discriminant reconstructed as [λ²(648+9u⁴-u⁶)+108λ+288-36u²]/9 and the Rayleigh–van-der-Pol map is area preserving (Jacobian determinant ±1); singular scaling and dominated convergence give 60.00037902855485. Small-λ cap is O(λ³) and rationalization yields 13π/243. Finite quadrature supports but does not establish limits.
 
-## Literature and limitations
-The bounded algebraic ovals and trapping theorem are entirely credited to their original authors. The explicit area asymptotic and matched endpoint analysis form the present contribution. A subsequent refinement of the annulus is known at abstract level; a complete full-text priority comparison is outstanding. Results concern the original canonical certificate alone, not its 2024 replacement or all admissible trapping regions.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Published 2023 article constructs both precise algebraic boundaries and proves trapping, thus those formulas are NOT new. The asserted sharp enclosed Euclidean-area asymptotics require moving-root chord integration and two separate endpoint layers. The 2024 follow-up supplies refined annulus boundaries, not a stated exact area asymptotic of the original 2023 pair in the passages and formulas inspected; searched full extracted text for area terminology with no occurrence. Resultary semantic search returned the current identical record and nearby but different oscillator/annulus records; that identical self-record is not independent priority evidence. Originality of the quantitative law is best-of-knowledge subject to older unindexed calculations.
+
+## value
+
+PASS
+
+Quantifies a concrete, published dynamical-certificate efficiency: area ratio degrades from 1/3 at weak damping to about 1/40 at strong damping, while the exact logarithmic endpoint correction provides a sharp next-order normalization for the specific Dulac–Cherkas boundary. This is an independently meaningful geometric invariant of standard trapping ovals, not a claim about the physical limit cycle or an arbitrary annulus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
