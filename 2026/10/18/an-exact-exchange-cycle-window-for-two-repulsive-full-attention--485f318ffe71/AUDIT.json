@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The exact orthogonal sum/difference decomposition gives t^+=t[(1-eta*tanh(kappa*t/(1+t)))/abs(1-eta)]^2, with sign change of U only for eta>1. For eta in (1,2], G is strictly increasing since 2eta*t*tau′<=kappa<1-eta*tau when kappa<=1/3. Its unique interior fixed ratio exists exactly for 2/(1+tanh(kappa))<eta<2; monotonic iteration establishes global attraction without overshoot. The x-configuration at this fixed ratio is exchanged with signs every step. Endpoint consensus and antipodal pairs are treated separately. Expanding G at infinity and zero proves the two universal n*(1+c) and n*(1-c) limits. Standard-library verify.py tests 1890 conjugacy/orientation identities, 45 sample phase trajectories and two rates; tests are not a substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Altafini arXiv:2610.13518v1, Eq. (1), Sections II, IV and V; its relevant stated spectral assumptions exclude V=-I.",
+        "Gao--Yang--Chen arXiv:2609.28448v1, Section II model definition: diagonal attention scores masked; for two tokens softmax weights then lose dependence on kappa."
+      ],
+      "reasoning": "Full-attention nonnegative-value results cannot imply the repulsive negative-value phase portrait without new analysis. Masked repulsive self-attention has only one neighbor for two tokens and hence cannot exhibit the proved kappa-dependent phase boundaries; its broader high-token conclusions do not cover the present model.",
+      "searches": [
+        "arxiv:2610.13518v1 full normalized residual self-attention discrete negative value",
+        "arxiv:2609.28448v1 repulsive self attention diagonal removal two tokens",
+        "normalized self attention 2 tokens reflection invariant manifold exact symmetry breaking pitchfork token clustering"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.13518v1; relevant primary full HTML",
+      "arxiv:2609.28448v1; primary article full text",
+      "arxiv:2511.11553v1; abstract only",
+      "Mathematical indexed records for two-token repulsion, exchange cycles, inverse-time critical relaxation; closest unrelated oscillator lock and attractive-token metastability records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gao--Yang--Chen setting for n=2 yields A_12=A_21=1 independently of kappa, unlike the diagonal-inclusive map where A_11-A_12=tanh(kappa*(1-c)/2).",
+        "Altafini assumption of positive top value eigenvalue is false for negative identity V=-I.",
+        "Attractive identity-value metastability has the opposite sign of the value feedback, so its trajectory recurrence and parameter thresholds do not imply the present conclusion."
+      ],
+      "reasoning": "Compared actual implication: neither a diagonal-masked repulsive result nor a positive-eigenvalue normalized full-attention result covers this all-noncollinear, all-permitted-parameter classification. General reduction and normal-form literature remains a residual risk.",
+      "searches": [
+        "arxiv:2610.13518v1 Section II Equation 1 positive simple top eigenvalue negative V",
+        "arxiv:2609.28448v1 repulsive model diagonal mask Eq Section II",
+        "two-token normalized self-attention exponential-integral metastability law attractive identity value matrix"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full-attention negative-value two-token dynamics is conjugate to t -> t[(1-eta*tanh(kappa*t/(1+t)))/abs(1-eta)]^2.",
+        "Altafini arXiv:2610.13518v1 studies full-attention under positive top-eigenvalue hypotheses; Gao et al. arXiv:2609.28448v1 uses diagonal-excluded repulsive attention."
+      ],
+      "reasoning": "Explicitly tested the scalar half-angle/projective reformulation, exchange-cycles, exact thresholds and inverse-time asymptotics as aliases, rather than relying on title overlap; no retrieved source contained the same conjunction, but a generic projective-map theorem could conceivably imply it.",
+      "searches": [
+        "\"two-token\" \"repulsive\" \"attention\" \"self-loops\" exact threshold",
+        "\"self-attention\" \"tanh\" \"two-token\" repulsive bifurcation",
+        "negative value full self-attention two tokens dimension-independent exchange cycle threshold tanh softmax",
+        "two token full self-attention Q=K=I V=-I normalized residual map exact correlation period-two anti-consensus phase transition eta tanh beta"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed searches found no directly matching record. The closest screened oscillator result was the discrete repulsive phase-locking critical law, a sine-coupled phase map with different state and coupling.",
+        "A prior attractive identity-value two-token metastability record concerns the opposite feedback sign and metastable, rather than exchange-cycle, dynamics."
+      ],
+      "reasoning": "No checked table/database entry matches the natural invariant: entire relative-angle phase portrait, two step thresholds, interior prime-two exchange branch and boundary constants for diagonal-inclusive V=-I attention. Failure of retrieval is not proof of priority.",
+      "searches": [
+        "two spherical tokens repulsive self-attention self-loops included attracting exchange cycles exact threshold",
+        "negative value transformer diagonal included two token angular period two critical inverse square convergence",
+        "exact two token repulsive full attention step threshold artanh inverse-time 2026"
+      ]
+    },
+    "rationale": "Relevant full published texts address either diagonal-inclusive self-attention under positive value spectral hypotheses or diagonal-excluded negative-value many-body attention. The present all-noncollinear sharp two-token exchange-cycle window is not implied by either under its hypotheses. Actual semantic record and synonym searches found no direct coverage; risk from general projective or bifurcation literature remains.",
+    "residual_risks": [
+      "An uninspected generic two-dimensional projective or softmax-dynamics theorem might imply part of the phase portrait.",
+      "Earlier works may treat full-attention negative value in a different notation; search is not a proof of global priority.",
+      "Only an abstract was inspected for arxiv:2511.11553v1; omission claims about its full text are not made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Model contains diagonal self-attention but stated positive top-eigenvalue value-matrix assumptions do not cover V=-I",
+        "evidence": "Its discrete normalized update is general but the relevant convergence guarantees rely on spectral positivity absent from negative identity.",
+        "identifier_or_url": "https://arxiv.org/html/2610.13518v1",
+        "material_read": "Equation (1), modelling hypotheses and theorem assumptions in relevant Sections II, IV and V",
+        "method": "Public full HTML, mathematical model and premise-level comparison",
+        "title": "Asymptotic Analysis of Discrete-Time Self-Attention Dynamics in Transformers",
+        "trigger": "Closest full diagonal-inclusive normalized residual attention setup"
+      },
+      {
+        "assessment": "Explicit diagonal removal means two-token attention is determined by the other token, independent of softmax sharpness; no threshold result for the unmasked model",
+        "evidence": "Self-exclusion from attention softmax, unlike present A_11>0, changes the two-token dynamics fundamentally.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.28448",
+        "material_read": "Full public article text, especially model and diagonal masking, two-body comparisons and appendices",
+        "method": "Public full-text mathematical definition and primary-results comparison",
+        "title": "Nonequilibrium Phases of Repulsive Self-Attention: Chaos, Attention Condensation, and Emergent Locality",
+        "trigger": "Repulsive negative-value self-attention and phase dynamics"
+      },
+      {
+        "assessment": "Background comparison, not used as negative evidence about entire article",
+        "evidence": "Continuous-time hypotheses described as involving positive eigenvalues; unresolved full-document equivalence noted.",
+        "identifier_or_url": "https://arxiv.org/abs/2511.11553",
+        "material_read": "Abstract-level publicly available description; full article not inspected",
+        "method": "Abstract-level contextual comparison only",
+        "title": "Multistability of Self-Attention Dynamics in Transformers",
+        "trigger": "Earlier continuous-time self-attention result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "485f318f-fe71-454d-ba3c-cfdfd2ba18e4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete globally valid bifurcation/attractor classification for a natural minimal nontrivial negative-value attention dynamical system, with an interior family of prime-two exchange attractors absent from two-token diagonally masked models, explicitly sharp parameter transitions and two nontrivial universal critical rates. This directly distinguishes self-attention inclusion from exclusion and supplies a quantitative reproducible reference for higher-token studies.",
+    "status": "PASS"
+  }
+}
