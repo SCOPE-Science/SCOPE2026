@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,44 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let \(Q_1(z)=(1+\lambda)z_1^2+z_2^2\) and \(Q_2(z)=z_1^2+(1+\lambda)z_2^2\). The exact identities are
-\[
-N_\lambda(z)^2=\max\{Q_1(z),Q_2(z)\},\qquad
-Q_1(z)+Q_2(z)=(\lambda+2)\|z\|_2^2.
-\]
-For \(N_\lambda(z)=1\), therefore \(\|z\|_2^2\le2/(\lambda+2)\), and equality holds if and only if \(|z_1|=|z_2|\). With \(u=x+ty\), \(v=x-ty\), equal-index quadratic branches obey
-\[
-Q_i(u)+Q_i(v)=2Q_i(x)+2t^2Q_i(y)\le2(1+t^2).
-\]
-The mixed branch obeys
-\[
-Q_1(u)+Q_2(v)=(\lambda+2)(\|x\|_2^2+t^2\|y\|_2^2)+2\lambda t(x_1y_1-x_2y_2)
-\le2(1+t^2)+\frac{4\lambda t}{\lambda+2},
-\]
-with the analogous swapped-branch estimate. Thus
-\[
-\frac{N_\lambda(u)^2+N_\lambda(v)^2}{2}\le1+t^2+\frac{2\lambda t}{\lambda+2}.
-\]
-For \(1\le p\le2\), the \(p\)-power mean is at most the quadratic mean, giving the desired upper bound.
+# Independent mathematical audit
 
-For the concrete unit vectors
-\[
-x_*=\frac{(1,1)}{\sqrt{\lambda+2}},\qquad
-y_*=\frac{(1,-1)}{\sqrt{\lambda+2}},
-\]
-one has
-\[
-Q_1(x_*+ty_*)=Q_2(x_*-ty_*)=1+t^2+\frac{2\lambda t}{\lambda+2}.
-\]
-These are the active branches, since each exceeds its unused branch by \(4\lambda t/(\lambda+2)>0\); the two output norms are equal. Equality in the sharp mixed-branch bound forces \(x,y\) to be unit diagonal vectors and forces Euclidean equality between \(y\) and a reflected \(x\). This yields the stated orbit and no others.
+## correctness
 
-The 2009 quadratic Hilbert-comparison upper bound, for the same \(p\)-range, exceeds the exact profile **after squaring** by
-\[
-\frac{2(\lambda+1)(1+t^2)}{\lambda+2}-\left(1+t^2+\frac{2\lambda t}{\lambda+2}\right)
-=\frac{\lambda(t-1)^2}{\lambda+2}.
-\]
-This vanishes only at \(t=1\), matching the exact 2011 example. The derivative at the origin is \(\lambda/(\lambda+2)\), so the space is not uniformly smooth when \(\lambda>0\).
+PASS
 
-The algebra was independently checked by symbolic substitution of the diagonal witness into both quadratic forms and by exact simplification of the historical-bound gap. Finite randomized stress tests over multiple \(\lambda,t\) choices supported the candidate but are not used to prove any uniform bound or equality classification. All proof obligations are discharged by the displayed elementary identities and inequalities.
+The norm squared is max(Q1,Q2), Q1=(1+lambda)z1²+z2² and Q2=z1²+(1+lambda)z2². For all unit x,y and t>0, compare all four branch sums: same-index <=2(1+t²), mixed <=2(1+t²)+4lambda t/(lambda+2) using Euclidean diagonal sphere bound and Cauchy–Schwarz. Quadratic mean dominates p-power mean for 1<=p<=2; opposite diagonal unit vectors make both active mixed branches and both output norms equal, attaining the profile. Strict mixed-branch equality forces exactly the indicated signed-coordinate orbit even when p=2; lambda=0 and t=0 excluded.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty after object/parameter/implication comparisons with primary literature and published Resultary findings; specific plausible residual coverage risks stated; inaccessible literature alone does not force scientific rejection.
+
+## value
+
+PASS
+
+The complete all-scale modulus of smoothness and generalized coefficient for the classical non-Hilbert quadratic Lorentz plane, plus full extremizer rigidity and strict improvement over the original sharp-at-t=1 bound, fills an explicit primary-source gap. A future norm-geometry argument can use exact t>0 behavior rather than a norm-comparison bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

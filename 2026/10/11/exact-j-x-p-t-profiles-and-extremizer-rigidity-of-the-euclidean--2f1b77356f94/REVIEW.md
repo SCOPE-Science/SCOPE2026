@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The norm is the maximum of two positive quadratic forms, whose average controls Euclidean length sharply on the diagonal rays. All four possible active-branch sums are bounded analytically; the mixed-branch bound is attained, and the power-mean inequality for \(1\le p\le2\) is sharp because the two output norms coincide at the witness pair. Backtracking equality forces one diagonal/reflected-diagonal orbit for every \(\lambda,t>0\). The strict endpoint assumptions and excluded \(p>2\) range are essential.
+## correctness
 
-## Originality
-PASS. The full 2009 Zuo--Cui source introduces the same \(Z_\lambda\) norm and gives only a Banach--Mazur upper bound; its exact squared slack from the new answer is \(\lambda(t-1)^2/(\lambda+2)\). Zuo's complete 2011 article calculates the same invariant only at \(t=1\), which is a covered specialization. No exact whole-scale formulation or maximizing-pair orbit appeared in the checked claims, searches, or other full primary sources. The inaccessible 2006 James source and unindexed equivalent notation remain explicit residual risks.
+PASS
 
-## Value
-PASS. This settles the full-scale generalized smoothness/Pythagorean coefficient of a classical quadratic absolute norm explicitly singled out for nonexact estimates in the 2009 literature. It adds a complete equality classification and quantifies a nonsmoothness cusp, rather than merely reproducing the already known \(t=1\) value. The sharp profile spans all positive deformation and scale parameters and the entire subquadratic power-mean range.
+The norm squared is max(Q1,Q2), Q1=(1+lambda)z1²+z2² and Q2=z1²+(1+lambda)z2². For all unit x,y and t>0, compare all four branch sums: same-index <=2(1+t²), mixed <=2(1+t²)+4lambda t/(lambda+2) using Euclidean diagonal sphere bound and Cauchy–Schwarz. Quadratic mean dominates p-power mean for 1<=p<=2; opposite diagonal unit vectors make both active mixed branches and both output norms equal, attaining the profile. Strict mixed-branch equality forces exactly the indicated signed-coordinate orbit even when p=2; lambda=0 and t=0 excluded.
 
-## Closest literature and limitations
-Zuo--Cui (2009) provide the exact norm, coefficient, and previously nonsharp general-scale comparison; Zuo (2011) provides its unit-scale exact value under two equivalent norm names. Gao (2006) and Wang (2008) supply the geometric-modulus context. The theorem is real and two-dimensional, excludes \(t=0\) and the Hilbert equality-endpoint from rigidity, and does not address \(p>2\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty after object/parameter/implication comparisons with primary literature and published Resultary findings; specific plausible residual coverage risks stated; inaccessible literature alone does not force scientific rejection.
+
+## value
+
+PASS
+
+The complete all-scale modulus of smoothness and generalized coefficient for the classical non-Hilbert quadratic Lorentz plane, plus full extremizer rigidity and strict improvement over the original sharp-at-t=1 bound, fills an explicit primary-source gap. A future norm-geometry argument can use exact t>0 behavior rather than a norm-comparison bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
