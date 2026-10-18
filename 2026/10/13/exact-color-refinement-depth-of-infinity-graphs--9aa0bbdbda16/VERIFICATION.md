@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-The attached `verify.py` directly constructs infinity graphs \(F_{p,q}\), implements ordinary color refinement from the uniform coloring, evaluates the exact stabilization formula, and constructs the explicit automorphism-orbit partition.
 
-For every
-\[
-3\le p,q\le50,
-\]
-it verifies both the depth formula and equality of the stable partition with the orbit partition.
+# Independent mathematical audit
 
-The checker returns:
+## correctness
 
-`VERIFY_OK depth_checks=2304 orbit_checks=2304 p,q=3..50`
+PASS
 
-These finite checks are corroborative only. The all-parameter result rests on the proof in `RESULT.md`.
+The unique degree-four wedge vertex separates in round one. Along each of the two otherwise degree-two cycle threads, the round-r color of position i is determined by the unordered pair of distances i and L-i clipped at r; this exact induction determines the last internal split at floor(L/2). If p≠q, endpoint-nearest vertices on the shorter and longer threads remain indistinguishable through round min(p,q)-1 and split at min(p,q); after the shorter length has become visible, pair equality cannot survive between lengths with distinct endpoint-distance sums. Automorphism orbits are reflections within a cycle plus interchange of equal-length petals, exactly the terminal colors. Independently reimplemented the WL partition algorithm with separate encoding and checked all 400 ordered length pairs 3..22, including p=q, small triangles and widely separated lengths. Finite check corroborates, not substitutes for the all-parameter induction.
+
+## originality
+
+PASS
+
+Best-of-knowledge quantitative depth and orbit-recovery classification for the two-cycle wedge. Published graph spectra determine the object, and published WL theory establishes general principles and stabilization bounds, but inspected relevant primary material does not establish this exact length-pair formula. A same-day assigned general rose theorem subsumes the t=2 special case mathematically; this overlap is documented as concurrent internal work and is not mistaken for independently prior published novelty.
+
+## value
+
+PASS
+
+A closed nonconstant exact iteration-depth formula for a canonical bicyclic family, including the sharp cross-length bottleneck and complete orbit recovery, supplies a natural structural benchmark for 1-WL on unicyclic/wedge graphs. Unlike a one-instance census or a trivial degree check, it isolates when branch symmetry persists many rounds as p and q grow. The integer parameter formula can be used to test exact stabilization runtimes; existing general worst-case bounds do not supply these equality cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

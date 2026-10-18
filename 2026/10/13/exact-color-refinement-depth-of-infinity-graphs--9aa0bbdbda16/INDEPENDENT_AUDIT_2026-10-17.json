@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:53:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen Git tree 7181509ee446c96bcb6d9dab5e6755683852a1ae / RESULT.md blob 65db94c58f6e97e7155514f2ac6b775833864e79",
+        "verified actual verify.py blob 3d669062d5393eccc0946751ea1fb7328e064345",
+        "independent graph/partition WL census p,q=3..22 (400 cases)"
+      ],
+      "rationale": "The unique degree-four wedge vertex separates in round one. Along each of the two otherwise degree-two cycle threads, the round-r color of position i is determined by the unordered pair of distances i and L-i clipped at r; this exact induction determines the last internal split at floor(L/2). If p≠q, endpoint-nearest vertices on the shorter and longer threads remain indistinguishable through round min(p,q)-1 and split at min(p,q); after the shorter length has become visible, pair equality cannot survive between lengths with distinct endpoint-distance sums. Automorphism orbits are reflections within a cycle plus interchange of equal-length petals, exactly the terminal colors. Independently reimplemented the WL partition algorithm with separate encoding and checked all 400 ordered length pairs 3..22, including p=q, small triangles and widely separated lengths. Finite check corroborates, not substitutes for the all-parameter induction.",
+      "residual_risks": [
+        "Uniform initial colors and simple two-cycle wedge required.",
+        "Pair-induction supplies infinite conclusion, not the bounded census."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krebs–Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175 treats general WL and depth through universal covers.",
+          "Arvind–Köbler–Rattan–Verbitsky, Graph Isomorphism, Color Refinement, and Compactness, arXiv:1502.01255 provides the general refinability/orbit terminology.",
+          "Kiefer–McKay, The Iteration Number of Colour Refinement, arXiv:2005.10182 / DOI:10.4230/LIPIcs.ICALP.2020.73 proves general extremal bounds rather than a closed formula for F_{p,q}."
+        ],
+        "reasoning": "A general universal-cover or orbit characterization does not mechanically yield the precise last cross-length split min(p,q); the exact path-length dependence is reconstructed here. The related assigned rose claim specializes to this formula but is not evidence of previously published coverage.",
+        "searches": [
+          "Resultary semantic query \"Exact color refinement depth infinity graph\" (top 150 results)",
+          "Resultary semantic query \"Exact color refinement depth of rose graphs\" (top 150 results)",
+          "arXiv:1407.3175",
+          "arXiv:1502.01255",
+          "arXiv:2005.10182"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query \"Exact color refinement depth infinity graph\" (top 150 results)",
+        "Resultary semantic query \"Exact color refinement depth of rose graphs\" (top 150 results)",
+        "Wang–Huang–Belardo–Li Marzi, On the spectral characterizations of infinity-graphs, institutional handle 11570/1903053",
+        "Krebs–Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175",
+        "Arvind–Köbler–Rattan–Verbitsky, Graph Isomorphism, Color Refinement, and Compactness, arXiv:1502.01255",
+        "Kiefer–McKay, The Iteration Number of Colour Refinement, arXiv:2005.10182 / DOI:10.4230/LIPIcs.ICALP.2020.73",
+        "He–van Dam, Laplacian spectral characterization of roses, arXiv:1607.05466"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Krebs–Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175 determines what WL colors mean but does not evaluate their last separation on wedge cycles.",
+          "Kiefer–McKay, The Iteration Number of Colour Refinement, arXiv:2005.10182 / DOI:10.4230/LIPIcs.ICALP.2020.73 bounds general iteration numbers; does not force equality at the three competing lengths.",
+          "He–van Dam, Laplacian spectral characterization of roses, arXiv:1607.05466 gives general k-rose graph spectral results; arbitrary-petal WL has not been inferred from spectra."
+        ],
+        "reasoning": "Neither spectral isomorphism criteria nor general upper bounds logically imply exact equality and orbit classes. The general rose theorem in this batch **does** imply the infinity case: document this same-batch implication as an overlap, not a independent novelty certificate.",
+        "searches": [
+          "arXiv:1407.3175",
+          "arXiv:2005.10182",
+          "Resultary semantic query \"Exact color refinement depth of rose graphs\" (top 150 results)",
+          "Wang et al. 2010 institutional record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang–Huang–Belardo–Li Marzi, On the spectral characterizations of infinity-graphs, institutional handle 11570/1903053 uses infinity/figure-eight/tight-handcuff terminology and a spectral invariant.",
+          "Krebs–Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175 gives universal-cover descriptions of WL colors; no formula for a one-vertex two-cycle wedge was identified in inspected sections."
+        ],
+        "reasoning": "The figure-eight and infinity graph are the same one-vertex cycle wedge, while dumbbells have two branch vertices and a connector; none of the retrieved same-object spectral results implies its exact refinement index.",
+        "searches": [
+          "Resultary semantic query \"Exact color refinement depth infinity graph\" (top 150 results)",
+          "Resultary query \"Color refinement 1-WL stabilization depth figure-eight infinity graphs two cycles share a vertex exact formula refinable\"",
+          "web: \"figure eight graph Weisfeiler Leman iteration rounds equitable partition\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top-150 semantic hits included unrelated graph-coloring and path-complex results; no matching exact depth table was found.",
+          "Frozen verifier enumerates p,q≤50 but is not an external prior table."
+        ],
+        "reasoning": "No actual external all-parameter depth database/table was located; absence of a search hit is not itself novelty proof and unindexed small-family computations remain possible.",
+        "searches": [
+          "Resultary searches Resultary semantic query \"Exact color refinement depth infinity graph\" (top 150 results)",
+          "web: \"infinity graph color refinement depth p q table\""
+        ]
+      },
+      "rationale": "Best-of-knowledge quantitative depth and orbit-recovery classification for the two-cycle wedge. Published graph spectra determine the object, and published WL theory establishes general principles and stabilization bounds, but inspected relevant primary material does not establish this exact length-pair formula. A same-day assigned general rose theorem subsumes the t=2 special case mathematically; this overlap is documented as concurrent internal work and is not mistaken for independently prior published novelty.",
+      "residual_risks": [
+        "2010 same-family spectral paper full text unavailable; no claim of whole-document absence.",
+        "Unindexed exact equitable-partition calculation could predate this result.",
+        "Concurrent general rose theorem of same audit batch mathematically implies this two-petal formula; no false independent-priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General extremal iteration results, no directly presented p,q wedge formula in inspected content.",
+          "evidence": [
+            "section 1 iteration-number formulation and general maximum bound",
+            "searched full PDF for named family; no matching named treatment"
+          ],
+          "identifier_or_url": "arXiv:2005.10182",
+          "material_read": "Full 22-page primary PDF obtained; abstract, theorem framing and text searched for lollipop and cycle-family formulas.",
+          "method": "arXiv full PDF text + first-page visual and text search",
+          "title": "The Iteration Number of Colour Refinement",
+          "trigger": "Plausibly dominating all-graph iteration bound"
+        },
+        {
+          "assessment": "Spectral study is topically close but complete noncoverage cannot be proved from abstract; material originality risk retained.",
+          "evidence": [
+            "2010 institutional abstract identifies two-cycle one-vertex intersection",
+            "Oxford authorization status vpn_disconnected"
+          ],
+          "identifier_or_url": "institutional handle 11570/1903053",
+          "material_read": "Institutional indexed abstract/title and online availability metadata only; full paper not retrieved. Authorized institutional attempt on this same item returned VPN disconnected; no text beyond abstract asserted.",
+          "method": "lawful OA/preprint search then authorized Oxford institutional download",
+          "title": "On the spectral characterizations of infinity-graphs",
+          "trigger": "Exact named graph family"
+        },
+        {
+          "assessment": "Establishes general method rather than inspected exact infinity-graph specialization.",
+          "evidence": [
+            "universal-cover equivalence of color types",
+            "general lower/upper complexity scope"
+          ],
+          "identifier_or_url": "arXiv:1407.3175",
+          "material_read": "Primary abstract and general universal-cover depth framework; not all appendix proofs reread.",
+          "method": "arXiv search and accessible primary sections",
+          "title": "Universal covers, color refinement, and two-variable counting logic",
+          "trigger": "General WL-stabilization theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Krebs–Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175",
+        "Kiefer–McKay, The Iteration Number of Colour Refinement, arXiv:2005.10182 / DOI:10.4230/LIPIcs.ICALP.2020.73",
+        "Wang–Huang–Belardo–Li Marzi, On the spectral characterizations of infinity-graphs, institutional handle 11570/1903053"
+      ],
+      "rationale": "A closed nonconstant exact iteration-depth formula for a canonical bicyclic family, including the sharp cross-length bottleneck and complete orbit recovery, supplies a natural structural benchmark for 1-WL on unicyclic/wedge graphs. Unlike a one-instance census or a trivial degree check, it isolates when branch symmetry persists many rounds as p and q grow. The integer parameter formula can be used to test exact stabilization runtimes; existing general worst-case bounds do not supply these equality cases.",
+      "residual_risks": [
+        "The simultaneous broader rose formula may make the two-petal statement mathematically redundant when the two are published together; this is an attribution/packaging issue, not false mathematics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For integers p,q≥3, two cycles C_p,C_q meeting at one vertex have WL stabilization depth floor(p/2) if p=q, otherwise max(floor(p/2),floor(q/2),min(p,q)); stable colors equal automorphism orbits.",
+  "limitations": [
+    "Only ordinary 1-WL from uniform colors; not general cactus graphs or distinguishing graph pairs.",
+    "The simultaneous rose formula contains this result as t=2; claims of independent priority avoided.",
+    "Primary Wang 2010 full text not accessed (institutional VPN disconnected); risk expressly retained."
+  ],
+  "schema_version": 1
+}
