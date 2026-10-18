@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal proof reduces the norm problem to the explicit two-variable rational function \(\Phi(X,r)\). The boundary estimate is exact: every two-frequency face has normalized sixth moment at most \(5/2\), whereas an interior test point gives \(11/3\). Hence every global maximizer satisfies the interior stationarity equations.
+# Independent mathematical audit
 
-`artifacts/verify.py` uses exact rational polynomial arithmetic to certify the nontrivial algebraic step. It verifies the cleared identity that substitutes
-\[
-X=\frac{2(1-r^2)}{r^3+4r^2-3r-4}
-\]
-into the second stationarity equation and obtains the degree-ten polynomial \(R\). It constructs the full Sturm chain, proves there is exactly one root on the whole feasible interval \((1,23/20)\), and isolates that root to \((547/500,219/200)\). Exact sign checks then give \(0<X_*<1\).
+## correctness
 
-The same program numerically reconstructs
-\[
-(X_*,Y_*,Z_*)=(0.334220497181418\ldots,0.362816605726877\ldots,0.302962897091705\ldots)
-\]
-and
-\[
-\mathsf C_{013,6}^6=3.676690884789743\ldots,\qquad
-\mathsf C_{013,6}=1.242346821125471\ldots.
-\]
-It also evaluates the exact cubic self-convolution expression on 20,000 random complex triples as a corroborative stress test. Random sampling is not used to prove the global inequality.
+PASS
 
-Actual replay terminal line:
-`VERIFY_OK sturm_feasible_roots=1 r=1.094331386704356 X=0.334220497181418 Y=0.362816605726877 Z=0.302962897091705 K=3.676690884789743 C6=1.242346821125471 random_cases=20000 max_random=3.674059471999777`
+For f=a+bz+cz³, coefficientwise cubing yields exactly one non-permutation collision at exponent 3, b³+3a²c. Parseval gives the claimed phase-positive sixth-moment polynomial. Every two-term boundary has normalized ratio at most 5/2, whereas aligned equal amplitudes give 11/3. Substitution X=|a|², r=|b|/|c| and derivative elimination were independently reconstructed with SymPy and equal the displayed Φ and degree-ten R(r); rational root counts give exactly one root in (1,23/20) and (547/500,219/200). The feasibility inequality restricts all critical points to (1,23/20); uniqueness plus compactness proves global optimality and full aligned phase equality. Independently evaluated K⁶≈3.6766908847897435, X≈0.3342204972 and positive Y,Z. The finite random replay and packaged exact check were inspected but not accepted as proof without the derivation.
 
-Scientific limits: the certificate proves the polynomial root count only after the analytic reduction, so both pieces are needed. No claim is made for other supports, other exponents, or a radical expression for the algebraic optimizer.
+## originality
+
+PASS
+
+Best of knowledge original at first publication: exact unrestricted coefficient-amplitude norm and complete extremizers for {0,1,3}, p=6. Neuwirth analyzes L∞ Sidon/multiplier problems, Krenedits fixed idempotent signs, and the pre-existing phase-moment result keeps all three amplitudes unimodular. An identical result under another parametrization was imported at 12:56:57Z, eight seconds AFTER this 12:56:49Z record. The broader all-compact-group theorem was published at 12:59:39Z and likewise came later. These later relations are preserved, not misreported as independently new consequences.
+
+## value
+
+PASS
+
+The first cubic additive resonance forces a nonuniform sharp coefficient profile and rigid phase condition. Exact norm and complete extremizers resolve a natural small Hardy–Littlewood/Λ(6) amplitude-optimization problem not fixed by the earlier phase-only or endpoint calculations; reproducibility is supporting evidence rather than sole value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

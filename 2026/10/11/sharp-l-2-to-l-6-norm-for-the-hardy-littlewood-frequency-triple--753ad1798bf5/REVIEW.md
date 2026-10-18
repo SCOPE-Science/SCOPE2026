@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Parseval applied to the exact cubic self-convolution leaves one collision, \(b^3+3a^2c\). Fixed moduli therefore force the stated phase alignment. Every boundary face has normalized sixth moment at most \(5/2\), while an interior point gives \(11/3\), so a global maximizer is interior. The two stationarity equations reduce to the explicit degree-ten polynomial \(R\), and the exact rational Sturm certificate proves that exactly one feasible critical point exists. Reconstructing the moduli and phase equality gives all extremizers.
+## correctness
 
-## Originality
-PASS. The closest arbitrary-trinomial source is a maximum-modulus theorem, not an \(L^6\) coefficient norm. The closest Hardy--Littlewood source fixes equal coefficient magnitudes and treats non-even exponents. The closest published even-moment classification for three frequencies is explicitly unimodular and excludes non-unimodular amplitude optimization. The separate consecutive-support \(L^6\) theorem concerns \(\{0,1,2\}\), whose cubic collision is different. Targeted searches for the support, norm, resonance term, and degree-ten optimizer did not locate an implication-equivalent statement. Residual risk remains from older low-degree Nikolskii tables under different terminology.
+PASS
 
-## Value
-PASS. The frequency triple \(\{0,1,3\}\) is the classical three-term Hardy--Littlewood support, and exponent \(6\) is its first cubic-resonant even norm. Determining the unrestricted sharp \(L^2\)-to-\(L^6\) constant and all extremizers exposes a non-uniform optimal amplitude profile that the phase-only theory cannot see. This is a natural exact invariant of a canonical Fourier subspace rather than an arbitrary parameter slice.
+For f=a+bz+cz³, coefficientwise cubing yields exactly one non-permutation collision at exponent 3, b³+3a²c. Parseval gives the claimed phase-positive sixth-moment polynomial. Every two-term boundary has normalized ratio at most 5/2, whereas aligned equal amplitudes give 11/3. Substitution X=|a|², r=|b|/|c| and derivative elimination were independently reconstructed with SymPy and equal the displayed Φ and degree-ten R(r); rational root counts give exactly one root in (1,23/20) and (547/500,219/200). The feasibility inequality restricts all critical points to (1,23/20); uniqueness plus compactness proves global optimality and full aligned phase equality. Independently evaluated K⁶≈3.6766908847897435, X≈0.3342204972 and positive Y,Z. The finite random replay and packaged exact check were inspected but not accepted as proof without the derivation.
 
-## Closest literature and limitations
-Neuwirth's arXiv:math/0703236v1 treats arbitrary trinomials in \(L^\infty\); Krenedits' arXiv:1006.0409v1 treats the signed idempotents \(1+e_1\pm e_3\) at non-even exponents. The published unimodular even-moment result with identifier `2026/10/4/SCOPE-even-phase-moments-recover-the-normalized-geometry-of-a-three-fr--7849dda51c79` supplies the phase-only collision formula but explicitly excludes non-unimodular coefficient magnitudes. The theorem here is restricted to \(\{0,1,3\}\) and exponent \(6\), with a recorded residual risk from older differently named Nikolskii literature.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge original at first publication: exact unrestricted coefficient-amplitude norm and complete extremizers for {0,1,3}, p=6. Neuwirth analyzes L∞ Sidon/multiplier problems, Krenedits fixed idempotent signs, and the pre-existing phase-moment result keeps all three amplitudes unimodular. An identical result under another parametrization was imported at 12:56:57Z, eight seconds AFTER this 12:56:49Z record. The broader all-compact-group theorem was published at 12:59:39Z and likewise came later. These later relations are preserved, not misreported as independently new consequences.
+
+## value
+
+PASS
+
+The first cubic additive resonance forces a nonuniform sharp coefficient profile and rigid phase condition. Exact norm and complete extremizers resolve a natural small Hardy–Littlewood/Λ(6) amplitude-optimization problem not fixed by the earlier phase-only or endpoint calculations; reproducibility is supporting evidence rather than sole value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
