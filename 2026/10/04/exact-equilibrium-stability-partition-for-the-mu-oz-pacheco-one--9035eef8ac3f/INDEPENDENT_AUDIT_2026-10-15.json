@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T07:50:48.796038Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: From |x|=1 obtain two x signs and r=y roots of r^2-r+a=0, with z=-xy. I independently expanded det(lambda I-J_s(r)) for s=+/-1 symbolically: lambda^3+(1-r^2)lambda^2+(1-r)lambda+(1-2r). The exact cubic Hurwitz determinant factors AB-C=r(r^2-r+1), whose sign is the sign of r. Hence on 0<a<1/4 the r_- pair (0<r<1/2) is Hurwitz and r_+ pair (1/2<r<1) has one RHP root. For a<0, r_+ has one RHP and r_- two; at a=0 the r_- spectrum is -1,+/-i; at a=1/4 zero plus -3/8 +/- i sqrt(23)/8, and a>1/4 none. On the Hurwitz r_- branch the strict commensurate Caputo spectral-angle criterion also holds for every 0<q<=1. All statements are local, with the non-differentiability at x=0 irrelevant because equilibria have |x|=1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General spectral-angle stability and Routh-Hurwitz criteria supply proof tools but not the model-specific r-dependent polynomial.",
+          "Resultary distinct-system stable-equilibrium hits have different vector fields and parameter regimes."
+        ],
+        "reasoning": "No found stronger published result specializes to this corrected interval; the source general theorem only yields the fractional-order consequence after proving eigenvalues are in the left half-plane.",
+        "searches": [
+          "Munoz Pacheco fractional-order chaotic system all four unstable a less than 1/4 corrected stable equilibria",
+          "fractional order commensurate Caputo stability characteristic angle Routh Hurwitz"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/e20080564",
+        "2026/10/4/SCOPE-exact-equilibrium-stability-partition-for-the-mu-oz-pacheco-one--9035eef8ac3f",
+        "2026/10/4/SCOPE-a-stable-nonzero-equilibrium-in-the-niu-zhou-zhang-four-dimensio--557da4e96dca"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source asserts all four unstable below one quarter; the calculation has AB-C>0 at 0<r<1/2 and all positive A,B,C, contradicting that sentence.",
+          "The source provides |arg(lambda)|>q pi/2 for the commensurate order."
+        ],
+        "reasoning": "Its theorem implies q<1 stability only together with the new Hurwitz fact; the blanket source assertion does not imply and indeed conflicts with the corrected r_- stability interval.",
+        "searches": [
+          "DOI:10.3390/e20080564 Section 3.5 instability and Theorem 1 spectral angle",
+          "Munoz Pacheco fractional-order chaotic system all four unstable a less than 1/4 corrected stable equilibria"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary top hit is exactly 2026/10/4/SCOPE-exact-equilibrium-stability-partition-for-the-mu-oz-pacheco-one--9035eef8ac3f; nearest other hits treat distinct chaotic vector fields rather than the absolute-value system.",
+          "Equilibrium labels r_+ and r_- coincide with the motivating paper, so this is a correction to identical objects rather than a different formulation."
+        ],
+        "reasoning": "The exact cubic is model-specific and not matched by distinct-flow analogies; no equivalent prior correction found in the examined results.",
+        "searches": [
+          "Munoz Pacheco fractional-order chaotic system all four unstable a less than 1/4 corrected stable equilibria",
+          "GitHub SCOPE2026 code search: Muñoz-Pacheco equilibrium stable",
+          "\"yz+x(y-a)\" \"1-|x|\" \"-xy-z\" equilibrium"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary Table 1 lists eigenvalues at a=-1 and a=1/4; Section 3.5 makes an all-unstable assertion for a<1/4."
+        ],
+        "reasoning": "The claimed exact classification includes the omitted whole open interval, and is not copied from a table.",
+        "searches": [
+          "DOI:10.3390/e20080564 Table 1 Section 3.5",
+          "Muñoz-Pacheco 2018 four equilibria a -1 1/4 stable"
+        ]
+      },
+      "rationale": "PASS best of knowledge: The introducing paper asserts all four equilibria unstable for a<1/4, whereas exact Routh shows two stable on the whole open interval 0<a<1/4. Table 1 samples a=-1 and a=1/4 and does not settle the disputed open interval. The correction is mathematically incompatible with that blanket prior statement.",
+      "residual_risks": [
+        "An uncatalogued later correction could reproduce the same Routh partition.",
+        "Noncommensurate fractional orders, nonlinear bifurcations at a=0 or 1/4, basins and chaos classifications are outside scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary states all four unstable for a<1/4, but its tabulated examples do not cover 0<a<1/4.",
+          "evidence": "At any equilibrium x=+/-1, so the local derivative of |x| is unambiguous and the Routh polynomial is well-defined.",
+          "identifier_or_url": "DOI:10.3390/e20080564",
+          "material_read": "Open primary full-text equations (15)–(17), local stability theorem, Section 3.1 equilibria, Section 3.5 mechanism argument, Figure 9 description and Table 1",
+          "method": "Publisher/open full-text focused original source inspection",
+          "title": "A New Fractional-Order Chaotic System with Different Families of Hidden and Self-Excited Attractors",
+          "trigger": "Introduces exact fractional vector field and disputed all-unstable assertion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: An open interval of stable equilibria changes the claimed mechanism for hidden/self-excited attractors; its exact boundary and fractional-order extension are a meaningful dynamical correction, not a one-off numerical counterexample. No global attractor/basin conclusion is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An uncatalogued later correction could reproduce the same Routh partition.",
+    "Noncommensurate fractional orders, nonlinear bifurcations at a=0 or 1/4, basins and chaos classifications are outside scope.",
+    "Both AUDIT.json and METADATA.json retain original operational provenance; publication is not_ready pending confidential-safe transformation, irrespective of science PASS."
+  ],
+  "schema_version": 1
+}

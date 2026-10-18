@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The equilibrium reduction gives \(a=r-r^2\), the exact Jacobian determinant is sign-independent, and the Routh first-column signs yield the stated unstable dimensions on every open parameter regime. Boundary values \(a=0\) and \(a=1/4\) are factored exactly. The bundled exact-arithmetic replay independently checks the algebraic identities used by the proof.
+## correctness
 
-## Originality
-PASS. The introducing article gives the symbolic equilibria and samples \(a=-1\) and \(a=1/4\), but its Section 3.5 instead states that all four equilibria are unstable for every \(a<1/4\). Exact-title, DOI, equation, branch, and interval searches did not locate this corrected branchwise partition. published-finding corpus searches returned only different dynamical systems, none with the same vector field or an implication covering this parameter classification.
+PASS
 
-## Value
-PASS. Equilibrium stability is the mechanism used by the source to distinguish its dynamical regimes. Replacing a blanket instability assertion by the exact partition exposes an open interval with two sinks, which materially changes local basin geometry and the admissible interpretation of numerical attractors. The result is a natural complete classification in the source's sole control parameter, not an arbitrary parameter slice.
+PASS: From |x|=1 obtain two x signs and r=y roots of r^2-r+a=0, with z=-xy. I independently expanded det(lambda I-J_s(r)) for s=+/-1 symbolically: lambda^3+(1-r^2)lambda^2+(1-r)lambda+(1-2r). The exact cubic Hurwitz determinant factors AB-C=r(r^2-r+1), whose sign is the sign of r. Hence on 0<a<1/4 the r_- pair (0<r<1/2) is Hurwitz and r_+ pair (1/2<r<1) has one RHP root. For a<0, r_+ has one RHP and r_- two; at a=0 the r_- spectrum is -1,+/-i; at a=1/4 zero plus -3/8 +/- i sqrt(23)/8, and a>1/4 none. On the Hurwitz r_- branch the strict commensurate Caputo spectral-angle criterion also holds for every 0<q<=1. All statements are local, with the non-differentiability at x=0 irrelevant because equilibria have |x|=1.
 
-## Closest literature and limitations
-The closest source is the introducing article itself, DOI 10.3390/e20080564. It supplies the system, equilibrium formulas, fractional-order stability criterion, and representative eigenvalue calculations, but it does not contain the corrected \(0<a<1/4\) stability window. The result does not establish a global attractor classification, a Hopf or saddle-node bifurcation theorem, or basin structure. An unindexed later correction remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: The introducing paper asserts all four equilibria unstable for a<1/4, whereas exact Routh shows two stable on the whole open interval 0<a<1/4. Table 1 samples a=-1 and a=1/4 and does not settle the disputed open interval. The correction is mathematically incompatible with that blanket prior statement.
+
+## value
+
+PASS
+
+PASS: An open interval of stable equilibria changes the claimed mechanism for hidden/self-excited attractors; its exact boundary and fractional-order extension are a meaningful dynamical correction, not a one-off numerical counterexample. No global attractor/basin conclusion is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
