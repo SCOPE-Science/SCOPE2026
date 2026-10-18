@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness: PASS.** The defining forbidden triples are exactly 60 three-stars and 20 triangles in the six-point complete graph. Complete enumeration gives 1708 augmented faces. The explicit 840-pair acyclic matching leaves one critical 3-cell and 27 critical 4-cells, with a primitive integer attaching-degree vector, implying 26 four-spheres. A separate raw GF(2) boundary calculation agrees. Exact signed fixed-face enumeration over all 720 group elements and Murnaghan–Nakayama character calculations yield the claimed rational Specht summands.
+
+**Originality: PASS subject to explicit residual uncertainty.** The checked published research records closest to the topic treat the four-cut complex of a *five-point* triangular graph, the neighborhood complex of a six-point triangular graph, and distinct Čech and Kneser complexes. None identifies the three-clique-free complex of \(L(K_6)\), its homotopy type or its character. The main clique-free paper provides sufficient shellability conditions in graph classes not covering this nonchordal triangular graph. Higher matching and bounded-degree work treats a different complex that permits triangles. Full primary text of the motivating preprint could not be inspected, and unindexed equivalents remain possible; search absence alone does not certify uniqueness.
+
+**Value: PASS.** The exact homotopy classification is for the first sizable triangular-graph instance with fifteen face vertices and both four- and five-dimensional facets. Its character has nontrivial nine- and sixteen-dimensional irreducibles plus a unique invariant class. The explicit integral cancellation and symmetry decomposition provide mathematical data beyond enumerating Betti numbers and are natural input to subsequent investigations of graph clique-free complexes and equivariant phenomena. No general-order extrapolation is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
