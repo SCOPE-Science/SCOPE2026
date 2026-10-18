@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For any L>=0 binary addition n+2n has at most one post-input carry. Kummer gives X=s2(n) and Y=the exact carry sum. A four-state weighted transducer includes the terminal carry, so P_L=e M^L f. Cramer determinants are exactly verified as polynomials N,D, giving the full rational generating function without sampling. Three formal derivatives and elementary coefficient extraction produce exact E[X], E[Y], E[XY] and the boxed covariance. A standard-library verifier checks symbolic determinant and derivative identities and enumerates finite cases independently. No infinite claim is based only on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barat–Grabner (2001), introduction and Section 2: block-additive/multiplicative matrix techniques and asymptotic Pascal-triangle statistics, not this simultaneous restricted-index pair.",
+        "Spiegelhofer–Wallner (2016), introduction and theorem: counts of entries in one Pascal row of fixed prime-power valuation, not covariance of two different rows sampled at a shared n.",
+        "Wan–Zudilin (2011), Table 1 row B: binom(2n,n)binom(3n,n) occurs as a hypergeometric Apéry-like sequence; their principal assertions concern Legendre generating functions, not valuations."
+      ],
+      "reasoning": "Compared actual index domains and quantifiers. General results about all binomial coefficients or digit-block techniques could motivate a derivation, but their published statements do not fix the concrete bivariate rational function nor its exact covariance. The potential for an implicit short corollary is a recorded priority risk rather than a pretense that general theory is unrelated.",
+      "searches": [
+        "doi:10.1112/S0024610701002630",
+        "arxiv:1604.07089",
+        "MPIM-preprint-2011-37",
+        "bivariate generating function for p-adic valuations of binomial coefficients 2n choose n and 3n choose n, Kummer correlations",
+        "2-adic joint valuation covariance central binomial coefficient binomial(3n,n) over dyadic intervals Kummer 4-state transfer matrix"
+      ]
+    },
+    "checked_sources": [
+      "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+      "https://arxiv.org/abs/1604.07089",
+      "https://archive.mpim-bonn.mpg.de/973/1/preprint_2011_37.pdf",
+      "https://academic.oup.com/jlms/article-abstract/64/3/523/799122",
+      "Kummer (1852), original carry theorem cited in Barat–Grabner",
+      "previous mathematical record da56eef2-fbe7-42db-bb1e-f0b7d2692ff7",
+      "2026/9/20/SCOPE-shifted-generalized-domb-supercongruences--d55c1da5b110",
+      "2026/9/17/SCOPE-exact-tenth-power-thue-morse-valuations--2cde9accbbd3",
+      "2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9",
+      "2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Exact specialization u=1 reduces the new numerator to (1+z)(1-vz) and denominator to 1-(1+v)z-(1-v+v^2)z^2+v(1+v)z^3, agreeing with the prior univariate result.",
+        "Two one-dimensional marginals never generally specify a coupling; exact mixed valuation covariance is an additional joint invariant.",
+        "The 2001 and 2016 literature studies Pascal-row valuation counts, not this paired hypergeometric sequence."
+      ],
+      "reasoning": "The new claim strictly refines an older one-variable enumerator rather than repeating it: setting u=1 recovers the old formula, whereas differentiating jointly in u and v yields new E[XY]. Neither the marginal nor the cited Pascal-row theorems fixes this mixed derivative. A possible unlocated exact specialization remains a limited but real risk.",
+      "searches": [
+        "joint distribution of binary valuations of binomial(2n,n) and binomial(3n,n), mixed carry statistic and covariance",
+        "bivariate generating function for p-adic valuations of binomial coefficients 2n choose n and 3n choose n, Kummer correlations",
+        "exact covariance of digit sum n and binary carries in multiplying by 3, sum over n<2^L",
+        "2-adic joint valuation covariance central binomial coefficient binomial(3n,n) over dyadic intervals Kummer 4-state transfer matrix",
+        "exact bivariate rational generating function joint distribution nu_2 binomial(2n,n) nu_2 binomial(3n,n)",
+        "da56eef2-fbe7-42db-bb1e-f0b7d2692ff7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kummer identifies Y as the carry count in n+2n and X as the binary weight of n.",
+        "Exact u=1 specialization matches the previously documented marginal formula for Y (opaque record da56eef2-fbe7-42db-bb1e-f0b7d2692ff7).",
+        "No inspected record states the exact joint covariance, rational bivariate law, or equivalent two-factor binary-weight correlation."
+      ],
+      "reasoning": "Searched equivalences through digit sums, Kummer carries, central binomial and 3n-choose-n valuations, and bivariate length enumerators. The older marginal determines only a specialization u=1, not mixed moments. A mere transfer-matrix methodology does not supply these exact coefficients without a specialized state computation.",
+      "searches": [
+        "joint distribution of binary valuations of binomial(2n,n) and binomial(3n,n), mixed carry statistic and covariance",
+        "bivariate generating function for p-adic valuations of binomial coefficients 2n choose n and 3n choose n, Kummer correlations",
+        "exact covariance of digit sum n and binary carries in multiplying by 3, sum over n<2^L",
+        "bivariate joint distribution 2-adic valuations binomial 2n n binomial 3n n covariance Kummer",
+        "simultaneous valuations binomial (2n choose n) (3n choose n) generating function",
+        "binary carry statistic covariance of n and 3n binomial coefficients"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest public mathematical records include 2026/9/20/SCOPE-shifted-generalized-domb-supercongruences--d55c1da5b110 and 2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9; neither concerns the exact joint distribution of these two binomial factors.",
+        "Wan–Zudilin Table 1 tabulates the underlying product as a Zagier example, not its dyadic valuation distribution.",
+        "Previously available exact Y marginal has no u-weighted information."
+      ],
+      "reasoning": "The named records and concrete table were inspected at statement level with parameter/implication comparisons. Their objects or statistics differ. Search absence alone is not proof of priority; it is combined with the primary-source comparisons.",
+      "searches": [
+        "joint distribution of binary valuations of binomial(2n,n) and binomial(3n,n), mixed carry statistic and covariance",
+        "bivariate generating function for p-adic valuations of binomial coefficients 2n choose n and 3n choose n, Kummer correlations",
+        "exact covariance of digit sum n and binary carries in multiplying by 3, sum over n<2^L",
+        "2-adic joint valuation covariance central binomial coefficient binomial(3n,n) over dyadic intervals Kummer 4-state transfer matrix",
+        "exact bivariate rational generating function joint distribution nu_2 binomial(2n,n) nu_2 binomial(3n,n)",
+        "bivariate joint distribution 2-adic valuations binomial 2n n binomial 3n n covariance Kummer",
+        "simultaneous valuations binomial (2n choose n) (3n choose n) generating function",
+        "binary carry statistic covariance of n and 3n binomial coefficients",
+        "2012 2015 distribution p-adic valuations binomial 3n n digit sum Kummer carries",
+        "\"2-adic valuation\" \"3n choose n\" \"2n choose n\" covariance"
+      ]
+    },
+    "rationale": "The exact joint finite-dyadic two-factor rational enumerator and its covariance are not asserted by the inspected Pascal-row distribution papers, the relevant Legendre-product paper, or the previously available one-variable enumerator. The new statement is not implied numerically by its marginals; it requires the mixed carry transition analysis. General transfer-method antecedents and an unlocated stronger specialization remain specific residual risks.",
+    "residual_risks": [
+      "Block-digit transfer matrices are classical and could make the new rational function a short implicit specialization of general machinery, even though no cited theorem states its numerical coefficients or covariance.",
+      "A stronger or unlocated published joint carry distribution for related binomial factors may imply this law.",
+      "The literature comparison covers highly relevant primary text and targeted searches, not a proof of global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_METHOD_NOT_EXACT_JOINT_COVERAGE",
+        "evidence": "Theorems concern distribution of binomial coefficients in Pascal rows and asymptotic block counts; no inspected assertion supplies this bivariate dyadic pairing or its mixed covariance.",
+        "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+        "material_read": "Author-manuscript abstract, introduction, Section 2 block-matrix lemma and overview, Section 4 theorem scopes including p-free-part distribution; focused text inspection of the searchable 26-page primary document.",
+        "method": "Primary full-text reading, formulas, index domains and explicit term searches for 3n, covariance, joint",
+        "title": "Distribution of Binomial Coefficients and Digital Functions",
+        "trigger": "Broadest plausible digital-function and binomial-valuation framework"
+      },
+      {
+        "assessment": "DIFFERENT_INDEX_DOMAIN_AND_STATISTIC",
+        "evidence": "Counts entries of given valuation within a fixed Pascal row, encoded in word-occurrence polynomials, rather than simultaneous valuations of 2n choose n and 3n choose n over n<2^L.",
+        "identifier_or_url": "https://arxiv.org/abs/1604.07089",
+        "material_read": "Full-text rendering of arXiv introduction, central theorem, notation, examples, and section outline; mathematical scope compared with target.",
+        "method": "Primary open-access full-text examination of objects and index sets",
+        "title": "An explicit generating function arising in counting binomial coefficients divisible by powers of primes",
+        "trigger": "Explicit binomial valuation generating functions and possible dominating exact formulas"
+      },
+      {
+        "assessment": "PRODUCT_MOTIVATION_NOT_VALUATION_LAW",
+        "evidence": "Table 1 row B equals binom(2n,n)binom(3n,n); results concern Apéry-like and Legendre generating functions, not dyadic valuations or covariance.",
+        "identifier_or_url": "https://archive.mpim-bonn.mpg.de/973/1/preprint_2011_37.pdf",
+        "material_read": "20-page primary preprint introduction, stated theorems and Table 1, including direct visual inspection of page 5 displaying row B.",
+        "method": "Primary PDF text and table-image inspection; mathematical specialization comparison",
+        "title": "Generating functions of Legendre polynomials: a tribute to Fred Brafman",
+        "trigger": "Identifies and motivates the exact product of the two binomial factors"
+      },
+      {
+        "assessment": "STRICT_MARGINAL_NOT_JOINT_COVERAGE",
+        "evidence": "Old P_L(v) is the u=1 marginal; the two-dimensional distribution and the covariance are not functions of that marginal alone.",
+        "identifier_or_url": "da56eef2-fbe7-42db-bb1e-f0b7d2692ff7",
+        "material_read": "Available claim statement and exact rational univariate generating function.",
+        "method": "Algebraic specialization u=1 of the new rational function",
+        "title": "Earlier exact dyadic valuation marginal for binomial(3n,n)",
+        "trigger": "Closest earlier formula on the exact second factor and same dyadic sample"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scientific_limits": [
+    "Only p=2, both specified binomial factors and the full dyadic intervals n=0,...,2^L-1.",
+    "Independent audit and priority certification have not been performed."
+  ],
+  "scope_run_id": "767a9e2b-871f-4f28-83e6-49bd895aec57",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two factors occur together in Zagier hypergeometric Apéry-like sequence B, making their joint 2-adic valuations canonical rather than an arbitrary numerical slice. The exact three-variable rational enumerator supplies every finite dyadic joint frequency, while the new covariance has nonzero extensive slope 5/12; neither conclusion follows from the one-factor marginal. It is a complete structural finite-state classification of a natural arithmetic statistic, not a routine parameter increment.",
+    "status": "PASS"
+  }
+}
