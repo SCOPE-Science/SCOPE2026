@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The general saturation criterion follows in both directions from equality in the triangle inequality, norming dual functionals and the compact admissible set. The explicit exposed-face diameters yield exact clipped-disk and regular-polygon phase boundaries. The standard modulus zero criterion follows by representing a norm-one midpoint as a supporting face. The supplementary checker returned `VERIFY_OK`; the infinite claims are established by the proof rather than the finite numerical tests.
+PASS
 
-## Originality — PASS, with residual risk
+The rho_2 maximum is attained on a nonempty compact domain. The norm bound 3 and equality of BOTH distances imply ||x||=1, ||y_i||=2 and dual norm-one functionals simultaneously supporting x and z_i=-y_i/2; separation gives ||z_1-z_2||>=1. Conversely two star points with norm separation >=1 generate y_i=-2z_i and both distances exactly 3. Compactness of the supporting-functional incidence relation ensures the maximum diameter is attained, including nonsmooth vertices. In K_a the only non-singleton exposed faces are vertical segments of norm diameter 2sqrt(1-a^2); equality is a<=sqrt3/2. In P_N, vertex stars are pairs of incident edges; their endpoints have norm distance D_N=2sin(2pi/N) if 4|N and D_N=4sin(pi/N) otherwise. Edge distances are <=2tan(pi/N)<=D_N; checking trigonometric monotonicity gives N=4,6,8,10,12 exactly. The modulus statement follows from the single-face diameter threshold 1/2 at a=sqrt15/4. No exact subcritical rho_2 is proved.
 
-The originating full preprint arXiv:2609.25288v1 establishes the universal and modulus upper bounds, but not the exact equality criterion or either family cutoff. The most superficially similar published regular-polygon formula was checked in full text and solves the different Euclidean continuous two-center covering problem. Targeted index and earlier-work searches did not identify an implication covering the same saturation classification. Basic supporting-face equality is classical; an unindexed equivalent saturation statement remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete criterion is a structural all-dimensional classification of the sharp endpoint for a motivated geometric invariant. Its two natural family phase diagrams are exact. In particular the clipped-disk interval between the saturation and modulus thresholds produces strict improvement even where the pre-existing modulus argument is vacuous, revealing a substantive gap in what the known sufficient bound detects.
+The originating full-text article defines the exact constant and the universal upper bound, with a sufficient bound via the modulus delta_K(1/2), but does not give a necessary-and-sufficient geometry-of-equality test or either sharp phase cutoff. The face-star criterion detects strict subcriticality in a specific interval where the published modulus bound cannot. This is a best-of-knowledge originality finding, not a claim to have ruled out all older norm equality criteria.
 
-## Closest literature and limitations
+## value
 
-G. M. Dall'Ara and A. Dumitrescu, arXiv:2609.25288v1; the published exact regular-even-polygon Euclidean two-center computation with source ID `5ecef0f3d939`; standard Minkowski exposed-face geometry. The strict phase provides no numerical value below 3, and the present work makes no claim of a new best planar covering constant.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The two-ball factor is motivated by a canonical geometric covering problem. A dimension-uniform iff saturation characterization and two exact sharp families determine when the universal bound is qualitatively improvable. The clipped-disk interval where the older modulus bound is blind makes the exact new boundary independently useful; it is not a mere normalization or finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
