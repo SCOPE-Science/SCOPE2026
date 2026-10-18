@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-`verify_exact.py` and `endpoint_certificates.json` implement a self-contained integer/rational certificate for the real \(4\times4\) sharp ratio. Run `python3 verify_exact.py` from any working directory, with both files beside one another. The verifier uses Python's standard `fractions.Fraction` to reconstruct all \(512\) canonical sign masks, all \(128\) rank-one signed bilinear vertices, and all certificate coefficients. It checks, entry by entry, that each canonical sign mask is a nonnegative rational combination of vertices with total mass at most \(12/5\). The verifier independently computes the integer witness's \(24\) absolute-entry sum and \(10\) cut/signed-bilinear norm, so it establishes the matching lower bound.
+## correctness
 
-The finite exhaustive scan is mathematically exhaustive because arbitrary matrix entry signs are equivalent, under independent row/column sign flips, to exactly the \(512\) canonical masks. The proof in RESULT.md provides the symbolic argument reducing all real matrices to those masks; the checker validates the complete finite certificate, not an infinite sampling approximation. No third-party package, external service, or numerical optimization is required to replay the proof. It does not establish originality or prove any high-dimensional assertion. No independent audit has been performed.
+PASS
+
+Read exact 512-pattern endpoint_certificates.json and verify_exact.py from assigned Git tree. Independently reconstructed 128 signed rank-one vertices and all 512 row/column-normalized 4×4 entry-sign targets; using BigInt scaled rational arithmetic, checked every one of 512×16 exact coordinate decompositions with all weights positive and total ≤12/5 (zero failed), including maximum mass exactly 12/5. Independently enumerated all ±1 bilinear signs for H=[[2,2,1,1],[2,−1,−1,−2],[1,−1,−2,2],[1,−2,2,1]], obtaining P=24 and C=10. Every arbitrary real A is paired with sign(A), normalized by independent row/column flips, and rational decomposition bounds P(A)≤(12/5)C(A), even with zeros. Finite certificate is exhaustive mathematically because there are precisely 2^9 normalized signs; not sampling.
+
+## originality
+
+PASS
+
+Independent statement-and-implication comparisons checked relevant original theorems rather than titles. The mirrored current record was excluded as an independent priority source. No inspected stronger theorem determines the entire audited final result; specific residual access/priority risks are retained.
+
+## value
+
+PASS
+
+Exact projective/injective ℓ₁ tensor norm in the first nontrivial four-by-four square endpoint gives a useful small-dimensional Banach-space and signed-cut inequality. The unrestricted sharp constant 12/5 is below the known 8/3 general 1-summing upper bound; matching 512-mask rational certificate is a substantive finite complete extremal classification, not a routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

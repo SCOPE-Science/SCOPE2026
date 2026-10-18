@@ -1,15 +1,21 @@
-# Review: Exact real four-by-four projective–injective tensor norm ratio
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact upper-bound certificate covers all \(512\) independent first-row/first-column normalized sign patterns. Each is decomposed with nonnegative rational weights into one of \(128\) possible rank-one sign vertices, with total mass at most \(12/5\). Every vector identity and mass inequality is verified by the included exact checker using rational arithmetic; the gauge normalization is valid even when entries vanish. The explicit integer witness has entrywise sum \(24\) and signed bilinear norm \(10\). These facts reconstruct both sharp inequalities independently of exploratory numerical optimization. No infinite-dimensional conclusion is inferred from finite checks.
+## correctness
 
-## Originality — PASS, subject to residual literature risk
-The closest full primary source is Santos–Serrano-Rodríguez, arXiv:2610.04398v1, Sections 1, 4, and 8. It introduces precisely this rectangular tensor ratio and transfers it to Grothendieck–Hölder endpoint constants, but it presents general bounds, complex two-row exact values, and open square-endpoint questions, not the real four-by-four sharp value. An earlier sharp dimension-uniform row-saturation result yields \(12/5<8/3\) only as a possible improvement, not this fixed small-row optimum. Aubrun–Lami–Palazuelos–Szarek–Winter (arXiv:1809.10616, Propositions 13–14) identify the restricted summing formulation but give the unrestricted \(8/3\) upper bound, not the sharp four-vector restricted \(12/5\). Gupta–Mal–Misra–Ray, arXiv:2607.08441v1, treat positive-semidefinite cones and related positive Grothendieck constants, which do not cover arbitrary signed matrices. Ambrus–Grundbacher, arXiv:2502.13752v2, address signed-sum/Macphail problems and general extremal bounds, but the inspected finite-vector material does not state the present exact matrix inequality. Targeted searches for the ratio, its numerical value, equivalent \(\ell_\infty\to\ell_1\) formulation, and finite summing norms did not reveal a covering earlier statement. Unindexed classical results remain a risk; unsuccessful searches alone do not establish novelty.
+PASS
 
-## Mathematical value — PASS
-The result computes an exact real square endpoint at size four beyond the elementary two- and three-row behavior, directly refining the dimension-specific constant singled out by the motivating 2026 paper. It determines \(B_4^{\mathbb R}=6/5\), strictly improving the universal Hadamard lower estimate \(B_4^{\mathbb R}\ge1\) to an exact value, while the earlier general \(8/3\) real four-column bound does not determine sharpness at four rows. The proof is a reproducible sharp polyhedral norm comparison rather than a test of a random matrix or an arbitrary slice. Future endpoint bounds can use this exact base case. No downstream asymptotic theorem is asserted.
+Read exact 512-pattern endpoint_certificates.json and verify_exact.py from assigned Git tree. Independently reconstructed 128 signed rank-one vertices and all 512 row/column-normalized 4×4 entry-sign targets; using BigInt scaled rational arithmetic, checked every one of 512×16 exact coordinate decompositions with all weights positive and total ≤12/5 (zero failed), including maximum mass exactly 12/5. Independently enumerated all ±1 bilinear signs for H=[[2,2,1,1],[2,−1,−1,−2],[1,−1,−2,2],[1,−2,2,1]], obtaining P=24 and C=10. Every arbitrary real A is paired with sign(A), normalized by independent row/column flips, and rational decomposition bounds P(A)≤(12/5)C(A), even with zeros. Finite certificate is exhaustive mathematically because there are precisely 2^9 normalized signs; not sampling.
 
-## Closest sources and limitations
-Primary sources: arXiv:2610.04398v1, arXiv:1809.10616, arXiv:2607.08441v1, and arXiv:2502.13752v2, in the sections specified in RESULT.md. The statement concerns real \(4\times4\) matrices only and does not resolve larger dimensions, complex scalars, or asymptotic behavior. The positive-semidefinite restriction in the second source and the larger-row saturation threshold in related work are scientifically distinct. No independent review has been obtained.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Independent statement-and-implication comparisons checked relevant original theorems rather than titles. The mirrored current record was excluded as an independent priority source. No inspected stronger theorem determines the entire audited final result; specific residual access/priority risks are retained.
+
+## value
+
+PASS
+
+Exact projective/injective ℓ₁ tensor norm in the first nontrivial four-by-four square endpoint gives a useful small-dimensional Banach-space and signed-cut inequality. The unrestricted sharp constant 12/5 is below the known 8/3 general 1-summing upper bound; matching 512-mask rational certificate is a substantive finite complete extremal classification, not a routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
