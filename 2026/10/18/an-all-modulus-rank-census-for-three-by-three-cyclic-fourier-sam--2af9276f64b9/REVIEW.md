@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Dephasing reduces the determinant of a unimodular three-by-three matrix to \((a-1)(d-1)=(b-1)(c-1)\). Conjugation and the unit-circle identity establish row/column proportionality, including the zero-factor cases. Bézout converts proportionality to residue collision, and divisor-lattice Möbius inversion counts the exact difference-gcd strata. Rank-one, rank-three and rank-two formulas are disjoint and exhaustive. Independent cyclotomic-polynomial enumeration confirms every minor through cyclic order eighteen in the specified test set.
+
+**Originality — PASS, best knowledge.** The inspected 2024 principal-minor paper proves statements about \(R=C\); the inspected 2019 Fourier Hadamard submatrix paper classifies orthogonality rather than the complete rank distribution. Related previously available calculations for cyclic prime squares, prime powers and even semiprime orders are strict special cases and are explicitly excluded from any novelty claim. The new complete arbitrary-modulus divisor formulas apply at mixed-prime-power orders and give an exact factorization threshold for rank-one nonprincipal minors. Searches on all-modulus minor rank counts and equivalent gcd/primitive-set descriptions did not identify a dominating published theorem. A differently indexed or older derivation remains possible; one relevant published special-case record was accessible only as its abstract.
+
+**Mathematical value — PASS.** Three-by-three Fourier sampling is the smallest nontrivial submatrix size in which singularity and rank-one collapse are distinct. The theorem gives a complete arithmetic distribution over all cyclic moduli, avoids exhaustive choice of \(\binom N3^2\) pairs, and connects exact rank defects to congruence geometry and divisor structure. It resolves how rank-one defects can appear at squarefree composite moduli without contradicting known principal-minor nonsingularity.
+
+**Limits.** No claim is made for higher-dimensional minors or beyond the cyclic complex Fourier transform. The correctness proof is algebraic; finite exact computations are corroboration. Independent verification is not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
