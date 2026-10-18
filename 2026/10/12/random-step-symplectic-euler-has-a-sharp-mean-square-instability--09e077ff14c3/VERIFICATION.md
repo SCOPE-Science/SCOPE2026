@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact-arithmetic verification and scientific limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or newer; no external libraries are required. The verifier calculates \(T(h)S_hT(h)^\top=S_h\), the covariance map on rank-one states, the perturbation matrix coefficient \(2h^2/(4-h^2)\), and, for two equiprobable rational steps, the characteristic polynomial \(64r^3-66r^2+49r-49\). It also enumerates every sample path at horizons \(0\) through \(8\) for two independent rational initial-state choices and compares the exact expected covariance with the iterated three-coordinate moment recurrence. Its executed output reports 107 passed exact-rational checks.
+## correctness
 
-These checks confirm nontrivial algebra and finite-path consistency. They do not by themselves certify infinitely many iterations, the existence of positive-definite primal/dual eigenmatrices, strictness of determinant-root concavity, or novelty. Those mathematical steps are proved in `RESULT.md`; the decisive strict eigenvalue step uses the impossibility of a common positive invariant quadratic form for distinct step values. No independent audit has been performed.
+PASS
+
+For iid positive H compactly supported within (0,2), T(h)=[[1,h],[-h,1-h²]] has determinant 1 and positive invariant S_h=[[1,-h/2],[-h/2,1]]. Its covariance map F(S)=E[TSTᵀ] has positive-definite primal and dual eigenmatrices: normalized Brouwer eigenmatrices cannot be rank-one because every T(h) lacks a real eigenline. Strict determinant-root concavity at equal positive determinant forces r≥1, with equality only when every support step preserves one and the same S_h, i.e. constant H. The positive dual eigenmatrix gives the claimed uniform two-sided c r^n ≤ E||z_n||² ≤ C r^n and identifies r with the spectral radius of the explicit third-order covariance matrix. Exact symbolic independent checks reproduced S_h invariance, perturbation matrix and coefficient 2h²/(4-h²), and rational example polynomial 64r³−66r²+49r−49 with leading real root ≈1.01797185386451. Fixed constant h gives bounded powers. Infinite horizon is analytic, not extrapolation from finite experiments.
+
+## originality
+
+PASS
+
+The motivating random-time-step method gives conditional finite/polynomial-horizon estimates and symplecticity, not a universal all-horizon mean-square spectral dichotomy. Deterministic varying-step parametric resonances and continuous random oscillator Lyapunov exponents use different hypotheses or statistics. The new part is the exact iid-step criterion, four-moment rate and perturbative coefficient for this update; general matrix-products theory could yield an alternative equivalence not indexed by these searches.
+
+## value
+
+PASS
+
+An exact instability boundary for a canonical geometric time integrator is mathematically and numerically relevant: each single step is elliptic and area preserving, yet any nontrivial iid mixing generates exponentially growing second moments, quantified with a sharp variance coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
