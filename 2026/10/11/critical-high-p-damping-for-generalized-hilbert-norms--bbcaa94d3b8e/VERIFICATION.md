@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,127 +19,24 @@
 }
 ---
 
-Put
-\[
-x=\frac{\alpha+2}{p}.
-\]
-In the cited exact-norm range,
-\[
-0<x\le\frac12
-\]
-and
-\[
-x\|\mathcal H_b\|
-=
-\Gamma(1+x)
-\frac{\Gamma(b+1-x)}{\Gamma(b+1)}.
-\]
+# Independent mathematical audit
 
-Taking logarithms,
-\[
-\log(x\|\mathcal H_b\|)
-=
-\log\Gamma(1+x)
-+
-\log\Gamma(b+1-x)
--
-\log\Gamma(b+1).
-\]
-Taylor's theorem gives
-\[
-\log\Gamma(1+x)
-=
--\gamma x+O(x^2),
-\]
-and
-\[
-\log\Gamma(b+1-x)-\log\Gamma(b+1)
-=
--x\psi(b+1)
-+
-\frac{x^2}{2}\psi_1(b+1-\theta x)
-\]
-for some
-\[
-0<\theta<1.
-\]
-Since
-\[
-b+1-\theta x\ge1/2
-\]
-and
-\[
-\psi_1(1/2)=\pi^2/2,
-\]
-the remainder is bounded by an absolute constant times
-\[
-x^2
-\]
-uniformly for every
-\[
-b\ge0.
-\]
+## correctness
 
-Therefore
-\[
-\log(x\|\mathcal H_b\|)
-=
--x(\gamma+\psi(b+1))
-+
-O(x^2).
-\]
+PASS
 
-For
-\[
-b\to\infty,
-\]
-\[
-\psi(b+1)=\log b+O(1/b).
-\]
-Hence at
-\[
-\log b
-=
-\frac{p}{\alpha+2}
-(\log p+s+o(1)),
-\]
-one obtains
-\[
-x\|\mathcal H_b\|
-=
-p^{-1}e^{-s+o(1)}
-\]
-and thus
-\[
-\|\mathcal H_b\|
-\to
-\frac{e^{-s}}{\alpha+2}.
-\]
+Set x=(alpha+2)/p in (0,1/2]. The exact cited operator identity yields xN=Gamma(1+x)Gamma(b+1-x)/Gamma(b+1). Taylor of both logarithms gives log(xN)=-x(gamma+psi(b+1))+O(x²). The trigamma remainder has argument >=1/2 and is bounded by pi²/2 uniformly b>=0, so uniformity is genuine even for moving superexponential b. For b→infinity, psi(b+1)=log b+O(1/b) yields N≈(p/(alpha+2)) exp(-(alpha+2)log b/p). Hence at log b=[p/(alpha+2)](log p+s+o(1)), N→e^-s/(alpha+2); moving s to ±infinity forces zero or infinity. Independent mpmath beta/gamma evaluations with p=200,400 and b=0,1,exp(2),exp(20) gave absolute log-remainders of order x² with bounded ratios. Numerical probes are supplementary.
 
-The same formula gives divergence when the critical-window parameter tends to
-\[
--\infty
-\]
-and convergence to zero when it tends to
-\[
-+\infty.
-\]
+## originality
 
-For the classical case
-\[
-b=0,
-\]
-the identity
-\[
-B(x,1-x)=\pi/\sin(\pi x)
-\]
-gives
-\[
-x\|\mathcal H_0\|=1+O(x^2),
-\]
-consistent with the uniform formula because
-\[
-\gamma+\psi(1)=0.
-\]
+PASS
 
-All estimates are analytic and uniform. Numerical beta-function evaluations were only consistency checks and are not used to justify any infinite or asymptotic statement.
+The lead Li–Li–Pan–Wulan–Zhou paper gives the exact beta-function norm on the stated p range; that input is prior and cannot be republished as novel. Earlier Bergman and Hilbert essential-norm results do not state the simultaneous high-p, high-b uniform asymptotic or superexponential balancing threshold. These statements follow by additional uniform special-function analysis, but no checked indexed result explicitly covers the double-scaling phase.
+
+## value
+
+PASS
+
+The generalized parameter b changes the weighted-Bergman Hilbert operator and naturally asks how growth in b offsets its high-p norm blow-up. Ordinary polynomial and exponential b do not stabilize the norm; an unexpectedly superexponential scale b≈p^{p/(alpha+2)} sharply separates blow-up and decay. The all-b uniformity and finite critical window are a useful natural two-parameter norm phase result, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

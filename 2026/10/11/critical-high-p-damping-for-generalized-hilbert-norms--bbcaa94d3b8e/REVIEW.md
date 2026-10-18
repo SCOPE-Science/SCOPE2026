@@ -1,103 +1,21 @@
-# Review of Critical high-\(p\) damping for generalized Hilbert norms
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In the source-proved exact regime,
-\[
-N_{\alpha,p}(b)
-=
-B(x,b+1-x),
-\qquad
-x=(\alpha+2)/p.
-\]
-The normalization
-\[
-xN_{\alpha,p}(b)
-\]
-is exactly
-\[
-\Gamma(1+x)\Gamma(b+1-x)/\Gamma(b+1).
-\]
-Taylor expansion of the two logarithmic gamma terms gives
-\[
-\log(xN_{\alpha,p}(b))
-=
--x(\gamma+\psi(b+1))
-+
-O(x^2).
-\]
-The decisive point is uniformity: the trigamma remainder is evaluated at an argument at least
-\[
-1/2,
-\]
-so it has an absolute upper bound independent of
-\[
-b.
-\]
-This validates the formula even when
-\[
-b
-\]
-grows superexponentially with
-\[
-p.
-\]
+PASS
 
-The critical scale follows algebraically from the uniform expansion and
-\[
-\psi(b+1)=\log b+O(1/b).
-\]
-At
-\[
-\log b
-=
-\frac{p}{\alpha+2}(\log p+s+o(1)),
-\]
-the linear factor
-\[
-p/(\alpha+2)
-\]
-is cancelled exactly by the generalized-parameter damping, leaving the finite limit
-\[
-e^{-s}/(\alpha+2).
-\]
+Set x=(alpha+2)/p in (0,1/2]. The exact cited operator identity yields xN=Gamma(1+x)Gamma(b+1-x)/Gamma(b+1). Taylor of both logarithms gives log(xN)=-x(gamma+psi(b+1))+O(x²). The trigamma remainder has argument >=1/2 and is bounded by pi²/2 uniformly b>=0, so uniformity is genuine even for moving superexponential b. For b→infinity, psi(b+1)=log b+O(1/b) yields N≈(p/(alpha+2)) exp(-(alpha+2)log b/p). Hence at log b=[p/(alpha+2)](log p+s+o(1)), N→e^-s/(alpha+2); moving s to ±infinity forces zero or infinity. Independent mpmath beta/gamma evaluations with p=200,400 and b=0,1,exp(2),exp(20) gave absolute log-remainders of order x² with bounded ratios. Numerical probes are supplementary.
 
-## Originality
+## originality
 
-PASS. The 2026 lead source proves the beta-function norm formula and emphasizes the structural role of
-\[
-b,
-\]
-but the inspected full text contains no simultaneous high-\(p\), high-\(b\) asymptotic, no uniform digamma expansion, and no critical damping scale.
+PASS
 
-Earlier generalized-Hilbert Bergman work gives boundedness conditions or norm upper bounds. Classical Hilbert-matrix work gives fixed-parameter exact and essential norms. Special-function literature contains general facts about gamma ratios, but the checked operator literature does not convert them into the uniform weighted-Bergman norm phase proved here.
+The lead Li–Li–Pan–Wulan–Zhou paper gives the exact beta-function norm on the stated p range; that input is prior and cannot be republished as novel. Earlier Bergman and Hilbert essential-norm results do not state the simultaneous high-p, high-b uniform asymptotic or superexponential balancing threshold. These statements follow by additional uniform special-function analysis, but no checked indexed result explicitly covers the double-scaling phase.
 
-Targeted searches used the exact source identifier, the beta norm, high-\(p\)/high-\(b\) terminology, digamma formulations, and the scale
-\[
-p^{\,p/(\alpha+2)}.
-\]
-No implication-equivalent operator theorem was located.
+## value
 
-## Value
+PASS
 
-PASS. The generalized parameter
-\[
-b
-\]
-is central to the source and is explicitly described there as changing the operator structurally. The exact source formula also shows that the classical high-\(p\) norm diverges linearly. It is therefore natural to ask how rapidly
-\[
-b
-\]
-must grow to offset that divergence.
+The generalized parameter b changes the weighted-Bergman Hilbert operator and naturally asks how growth in b offsets its high-p norm blow-up. Ordinary polynomial and exponential b do not stabilize the norm; an unexpectedly superexponential scale b≈p^{p/(alpha+2)} sharply separates blow-up and decay. The all-b uniformity and finite critical window are a useful natural two-parameter norm phase result, not an arbitrary finite slice.
 
-The answer has a sharp and non-obvious scale: ordinary polynomial or exponential growth of
-\[
-b
-\]
-does not make the norm bounded; finite stabilization occurs only near
-\[
-p^{\,p/(\alpha+2)}.
-\]
-The uniform expansion describes every intermediate scaling through one digamma parameter and gives a complete zero/finite/infinite transition at the critical window. This is a parameter-phase theorem for the new exact norm, not a fixed-parameter restatement.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

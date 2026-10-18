@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T22:52:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Set x=(alpha+2)/p in (0,1/2]. The exact cited operator identity yields xN=Gamma(1+x)Gamma(b+1-x)/Gamma(b+1). Taylor of both logarithms gives log(xN)=-x(gamma+psi(b+1))+O(x²). The trigamma remainder has argument >=1/2 and is bounded by pi²/2 uniformly b>=0, so uniformity is genuine even for moving superexponential b. For b→infinity, psi(b+1)=log b+O(1/b) yields N≈(p/(alpha+2)) exp(-(alpha+2)log b/p). Hence at log b=[p/(alpha+2)](log p+s+o(1)), N→e^-s/(alpha+2); moving s to ±infinity forces zero or infinity. Independent mpmath beta/gamma evaluations with p=200,400 and b=0,1,exp(2),exp(20) gave absolute log-remainders of order x² with bounded ratios. Numerical probes are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 lead paper proves a stronger identity in the sense of exact norm at each eligible parameter.",
+          "The 2025 source studies general boundedness and upper bounds; 2022 work computes distinct essential norms."
+        ],
+        "reasoning": "Although beta identity plus classical special-function asymptotics permit the deduction, the older statements do not directly give the uniform double-scaling theorem or critical window; no claim is made outside their exact regime.",
+        "searches": [
+          "generalized Hilbert operator weighted Bergman exact beta-function norm high p high b transition digamma exponential scaling",
+          "arXiv:2609.04833 full main theorem and corollaries",
+          "Bhuyan–Naik DOI:10.11568/kjm.2025.33.1.7",
+          "arXiv:2201.09591 essential Hilbert matrix norms"
+        ]
+      },
+      "checked_sources": [
+        "assigned source-tree 5e6a803f57f5ad11deb34161728b5180cdec5bdd, RESULT.md 23129727107b5fa8e6067e0e9b8d2e23daeec0ac",
+        "arXiv:2609.04833 Eq. (1.2), Corollaries 3.1 and 4.1",
+        "DOI:10.11568/kjm.2025.33.1.7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollaries 3.1 and 4.1 prove N=B(x,b+1-x) for alpha>-1 and p>=2(alpha+2).",
+          "The paper explicitly leaves other exact-norm regimes open; the submitted result stays inside its proven regime."
+        ],
+        "reasoning": "The old identity is necessary and algebraically yields the phase only after establishing a parameter-uniform trigamma bound and matching growth rates. The result is not new operator-norm evaluation or an extension to the open p range.",
+        "searches": [
+          "generalized Hilbert operator weighted Bergman exact beta-function norm high p high b transition digamma exponential scaling",
+          "arXiv:2609.04833 Sections 1.5, 3 and 4",
+          "Resultary generalized Hilbert norm simultaneous scaling query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The underlying exact norm is already B(x,b+1-x); normalized operator phase equals a Gamma ratio.",
+          "Moving-b asymptotics are equivalent to the uniform log Gamma ratio expansion and its gamma/digamma phase."
+        ],
+        "reasoning": "Special-function tools are prior; the precise parameter-uniform operator phase is the claim. A fixed-b expansion does not cover b_p=exp(p log p/(alpha+2)+...).",
+        "searches": [
+          "generalized Hilbert operator weighted Bergman exact beta-function norm high p high b transition digamma exponential scaling",
+          "Li et al. arXiv:2609.04833 Corollaries 3.1 and 4.1",
+          "beta gamma digamma ratio"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source provides analytic norm formulas over continuum parameters, rather than an asymptotic high-b table.",
+          "The indexed nearest same-object hit is the audited record itself."
+        ],
+        "reasoning": "Tabulating finitely many values cannot establish all-b uniformity; no stronger precomputed table or exact critical-transition record was located.",
+        "searches": [
+          "generalized Hilbert operator weighted Bergman exact beta-function norm high p high b transition digamma exponential scaling",
+          "Resultary generalized Hilbert operator high-p high-b digamma query",
+          "arXiv:2609.04833 norm formulas"
+        ]
+      },
+      "rationale": "The lead Li–Li–Pan–Wulan–Zhou paper gives the exact beta-function norm on the stated p range; that input is prior and cannot be republished as novel. Earlier Bergman and Hilbert essential-norm results do not state the simultaneous high-p, high-b uniform asymptotic or superexponential balancing threshold. These statements follow by additional uniform special-function analysis, but no checked indexed result explicitly covers the double-scaling phase.",
+      "residual_risks": [
+        "Classical gamma-ratio asymptotic theory may imply the operator asymptotics under an unindexed formulation; the proof uses standard functions.",
+        "The earlier Bergman paper was not read completely here; any hidden simultaneous-limit theorem remains an access risk.",
+        "No claim for the still-open exact norm parameter range or moving alpha."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves the exact norm over alpha>-1,p>=2(alpha+2); does not state the simultaneous all-b high-p scaling phase.",
+          "evidence": "Equation (1.2) and Corollaries 3.1, 4.1.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.04833",
+          "material_read": "Full accessible HTML article including Sections 1.4–1.5, exact beta identity (1.2), and references to Corollaries 3.1, 4.1.",
+          "method": "Read accessible primary full text and compared exact theorem/equations",
+          "title": "Norm of the generalized Hilbert operator on weighted Bergman spaces",
+          "trigger": "Exact same operator and norm formula"
+        },
+        {
+          "assessment": "Relevant but not evidence for a whole-document NOT_COVERING assertion; overlap risk retained.",
+          "evidence": "Bhuyan and Naik (2025), abstract and publisher record.",
+          "identifier_or_url": "DOI:10.11568/kjm.2025.33.1.7",
+          "material_read": "Publisher bibliographic record and accessible description of boundedness/norm upper estimates; not claimed full text read in current run.",
+          "method": "Publisher record and available abstract, not complete full text",
+          "title": "Generalized Hilbert operator on Bergman spaces",
+          "trigger": "Closest preceding generalized-Hilbert Bergman study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The generalized parameter b changes the weighted-Bergman Hilbert operator and naturally asks how growth in b offsets its high-p norm blow-up. Ordinary polynomial and exponential b do not stabilize the norm; an unexpectedly superexponential scale b≈p^{p/(alpha+2)} sharply separates blow-up and decay. The all-b uniformity and finite critical window are a useful natural two-parameter norm phase result, not an arbitrary finite slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed alpha>-1, p>=2(alpha+2), b>=0 only; no open-norm region or spectral/compactness claims.",
+    "Classical gamma-ratio asymptotic theory may imply the operator asymptotics under an unindexed formulation; the proof uses standard functions.",
+    "The earlier Bergman paper was not read completely here; any hidden simultaneous-limit theorem remains an access risk.",
+    "No claim for the still-open exact norm parameter range or moving alpha."
+  ],
+  "schema_version": 1
+}
