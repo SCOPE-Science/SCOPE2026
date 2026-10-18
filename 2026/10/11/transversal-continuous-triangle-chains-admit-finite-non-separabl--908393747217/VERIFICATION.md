@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,31 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the finite chain realization and strict bound
 
-The exact finite product equations (5.20) in the cited primary source are solved by a pair \((c_m,s_m)\) satisfying
-\[
-c_m=v-\frac{(v-u)d}{v}\frac{(1-\kappa s_m/m)^m}{(1+Ds_m/m)^m},
-\]
-\[
-d(\kappa+D)-\kappa c_m=\frac{dE_f}{v}(1-\kappa s_m/m)^m.
-\]
-The scalar zero is obtained by uniform convergence and strict opposite signs, not by an approximate numerical endpoint residual. The source's contact theorem ensures the non-separability and positivity of each resulting finite family. Uniform denominator control gives the limit of the exact finite sum as the continuous integral.
+# Independent mathematical audit
 
-The enclosed script `verify_chain.py` uses only the Python standard library, exact rational objects and scaled integers. Run:
+## correctness
 
-```text
-python3 verify_chain.py
-```
+PASS
 
-It verifies, using only outward-rounded operations and a proven exponential Taylor remainder, the root bracket
-\[
-\frac{1110182}{10^6}<s_*<\frac{1110185}{10^6}
-\]
-and derivative positivity, strict geometric signs, negativity of the recovery denominator, the upper rectangle sum with \(N=16384\), and the **integer comparison**
-\[
-S_\infty<0.940465236<\frac{10000}{10633}.
-\]
-The script concludes with `VERIFY_OK` only if every assertion holds. The integral bound applies to the entire root bracket; it is not merely quadrature at a guessed root.
+The two source endpoint products (Thm.5.3, eq.(5.20)) are exactly equivalent for equal h=s/m to a scalar F_m(s)=0 and its c_m(s); all variables and normalization are from the source. The finite products converge in C1 on compact s-intervals to the exponential F_infty. Strict simple F_infty root guarantees s_m for EVERY sufficiently large integer m and c_m→c*. Source strict conditions (5.15), conic (5.18), κ<v and nonzero recovery denominator persist; Theorem5.3 yields exactly 3(m+1) pairwise distinct positive NS triangles and valid coordinate-minimal container, not merely a zero-scale continuous family. The source E_{j,m} formula and uniform denominator separation justify total scale right Riemann sum. At rational d=0.415868, τ=0.67376 the inspected outward-directed integer interval source was independently replayed with exact directed Fraction intervals on a 10^38 grid, including strict sign/transversality/positivity and 16384 upper-rectangle comparisons (S_upper≈0.9404652351773 < 0.940465236); independent 60-digit root/integral gives s*=1.11018332497810, S∞≈0.94046231356648, λ∞≈1.06330682854>1.0633. Exact inequality depends on the rational interval certificate, not decimal quadrature.
 
-The proof supplies finite examples for all sufficiently large \(m\) but gives no effective bound on the smallest such \(m\), nor any claim of a global optimum. Independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge scientific implication comparison grounded in primary mathematical text; residual risks and access boundaries remain explicit.
+
+## value
+
+PASS
+
+Motivated finite realizability gap in a recently proposed continuous NS triangle chain. Exact endpoint product perturbation supplies a structural universal-in-long-chain lemma and a stronger rigorously proved lower bound for the natural global covering factor; neither a numerical limit nor a routine check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

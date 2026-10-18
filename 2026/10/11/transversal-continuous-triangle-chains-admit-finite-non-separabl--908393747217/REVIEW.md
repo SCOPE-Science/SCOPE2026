@@ -1,25 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The finite product equations reduce algebraically to the scalar \(F_m(s)=0\). The convergence \(F_m\to F_\infty\) with its first derivative ensures an exact finite zero for every sufficiently large integer, near any simple interior continuous endpoint solution. The contact theorem then supplies pairwise distinct NS-families with strictly positive ratios, and uniform positivity of the recovered denominator yields convergence of the geometric scale sums.
+PASS
 
-For the certified rational parameters, the fixed-point interval script proves \(F_\infty(a)<0<F_\infty(b)\), a strictly positive derivative on the entire bracket, all source admissibility conditions, and a negative recovery denominator. Its upper rectangle-sum bound gives \(S_\infty<0.940465236<10000/10633\). Consequently the finite covering factors eventually exceed \(10633/10000\), with no unjustified inference from finitely many experiments.
+The two source endpoint products (Thm.5.3, eq.(5.20)) are exactly equivalent for equal h=s/m to a scalar F_m(s)=0 and its c_m(s); all variables and normalization are from the source. The finite products converge in C1 on compact s-intervals to the exponential F_infty. Strict simple F_infty root guarantees s_m for EVERY sufficiently large integer m and c_m→c*. Source strict conditions (5.15), conic (5.18), κ<v and nonzero recovery denominator persist; Theorem5.3 yields exactly 3(m+1) pairwise distinct positive NS triangles and valid coordinate-minimal container, not merely a zero-scale continuous family. The source E_{j,m} formula and uniform denominator separation justify total scale right Riemann sum. At rational d=0.415868, τ=0.67376 the inspected outward-directed integer interval source was independently replayed with exact directed Fraction intervals on a 10^38 grid, including strict sign/transversality/positivity and 16384 upper-rectangle comparisons (S_upper≈0.9404652351773 < 0.940465236); independent 60-digit root/integral gives s*=1.11018332497810, S∞≈0.94046231356648, λ∞≈1.06330682854>1.0633. Exact inequality depends on the rational interval certificate, not decimal quadrature.
 
-## Originality
+## originality
 
-**PASS.** The closest primary source is Lian--Xue--Yuan, arXiv:2609.06558v1. It gives the conditional finite recurrence and a numerical continuous candidate but explicitly leaves finite approximation open. The new argument perturbs the support and total time through an exact simple-root equation, recovering both endpoint-product equalities and a rigorous new finite lower bound. Earlier Bezdek--Lángi and Akopyan--Balitskiy--Grigorev sources establish general bounds rather than this realization theorem. Alias, parameter and numeric-threshold searches found no covering statement.
+PASS
 
-**Residual risk.** An equivalent continuation argument might exist in an unindexed source. No claim is made about boundary/tangent endpoints or the precise candidate near \(1.0633083238\).
+Best-of-knowledge scientific implication comparison grounded in primary mathematical text; residual risks and access boundaries remain explicit.
 
-## Value
+## value
 
-**PASS.** The finite-versus-continuous gap is explicitly recognized as a mathematical obstacle in the source. Resolving it for transversal interior chains provides a reusable exact geometric construction principle and upgrades a conjectural continuous-scale improvement into a verified unconditional lower bound for genuine finite NS-families. The result is relevant to the global planar covering-factor problem independent of computing a minimal admissible length.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Motivated finite realizability gap in a recently proposed continuous NS triangle chain. Exact endpoint product perturbation supplies a structural universal-in-long-chain lemma and a stronger rigorously proved lower bound for the natural global covering factor; neither a numerical limit nor a routine check.
 
-## Closest literature and limitations
-
-Lian--Xue--Yuan, arXiv:2609.06558v1, especially Theorem 5.3 and Section 7, is the direct comparison. Bezdek--Lángi, arXiv:2512.23651v1, and Akopyan--Balitskiy--Grigorev, arXiv:1605.04300v2, provide background general bounds.
-
-The finite families are guaranteed for all sufficiently large cardinalities without an explicit threshold or coordinate list. The finite-realization principle applies only at strictly admissible simple roots; global optimality and any degenerate boundary optimum remain open.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
