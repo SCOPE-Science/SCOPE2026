@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T17:15:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥3 rooted star with m=n-1 leaves, Sack tube definition and ατ cover differences imply full equation ∑y_i=M=n^(2n) with y_i=p_i-p0 and p0=-M/n constant on the affine span, so the affine map y preserves inherited Euclidean distances. Proper tubes are {0}∪S, ∅≠S⊊[m], and the complete halfspaces are ∑_{i∈S}y_i≥n^(2(|S|+1)). Projected singleton facet normal has length sqrt((m-1)/m); summing all radius-r constraints y_i≥n^4 gives r≤(M/m-n^4)sqrt(m/(m-1)), with equality forcing all center y_i=M/m and hence p0=-n^(2n-1), p_i=n^(2n-1)/(n-1). For k-subset face, normal norm sqrt(k(m-k)/m) and distance Dk=(kM/m-n^(2k+2))/sqrt(k(m-k)/m). qk=m/n^(2(m-k))<1/4; for k≥2, Dk/A>(7/8)sqrt(mk/(m-k))>sqrt(m/(m-1))>D1/A, so exactly m singleton facets touch; closed r=(n^(2n)-(n-1)n^4)/sqrt((n-1)(n-2)). The n=3 one-dimensional boundary is valid. Independent exact rational distance comparison checked all cardinalities for n=3..60 (1711 checks) and the squared closed formula.",
+      "residual_risks": [
+        "No assertion for a metric realization other than Sack’s fixed exponential scale, nor for non-star posets."
+      ],
+      "sources": [
+        "Sack primary A Realization of Poset Associahedra (FPSAC2023) Definition2.1 and Theorem2.3",
+        "RESULT.md blob 826a7405934765e05ad71d4a9da9805ea65c7d35",
+        "verify.py blob d52e34dd5d49a502726ed2dab7499971cf9a126f",
+        "Local independent_checks.py n3..60 exact Fraction"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem2.3 realizes arbitrary connected posets by tube inequalities, but states no inradius.",
+          "Nguyen–Sack abstract focuses f-vectors, h-polynomials/stack sorting; 2024 dissertation abstract describes combinatorics and lattices, not explicit inradius."
+        ],
+        "reasoning": "General realization and combinatorial theorems are inputs/nearby subject matter, not a computation or upper bound implying the metric formula for this normalization. Dissertation complete text was not accessible.",
+        "searches": [
+          "Sack 2023 Theorem2.3",
+          "Nguyen–Sack 2024 On the f-vectors of poset associahedra",
+          "2024 Sack dissertation The Combinatorics of Poset Associahedra abstract"
+        ]
+      },
+      "checked_sources": [
+        "Sack full 12-page FPSAC2023 primary PDF",
+        "Nguyen–Sack 2024 f-vector published abstract",
+        "Sack 2024 thesis abstract (full text inaccessible)",
+        "source RESULT.md and code"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The H-description supplies halfspaces but leaves open which of 2^(n-1)-2 facet distances minimizes at the optimal center.",
+          "The new comparison Dk>D1 requires normalization of facet projections and exponential threshold estimates."
+        ],
+        "reasoning": "The complete inradius, uniqueness and active-facet classification are not directly consequences of the cited structural or f-vector statements without new metric optimization.",
+        "searches": [
+          "Sack Definition2.1, Theorem2.3",
+          "Nguyen–Sack f-vector abstract",
+          "rooted star poset associahedron Sack realization Euclidean inradius Chebyshev center singleton tubes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct optimization is a Chebyshev-center problem for the symmetric generalized permutahedron ∑y_i=M, ∑_{i∈S}y_i≥n^{2(|S|+1)}.",
+          "Sack’s Theorem2.3 defines that same polytope but does not state the metric answer."
+        ],
+        "reasoning": "Checked the exact realization and its generalized-permutahedron/permutohedral alias; the face lattice by itself is insufficient for Euclidean radius.",
+        "searches": [
+          "rooted star poset associahedron Sack realization Euclidean inradius Chebyshev center singleton tubes",
+          "\"Sack\" \"poset associahedra\" inradius rooted star",
+          "rooted star generalized permutahedron Chebyshev center cardinality sum inequalities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inradius/center tables appear in sections checked of Sack 12-page primary realization; latter includes tube geometry and combinatorial examples.",
+          "No exact family inradius table was located by direct query; search nonappearance alone has little weight."
+        ],
+        "reasoning": "A known star cardinality-weighted permutohedron table could subsume the result even without poset vocabulary; none verified in searched primary/text results.",
+        "searches": [
+          "\"poset associahedron\" \"inradius\" rooted star",
+          "\"Sack\" \"poset associahedra\" Chebyshev center",
+          "Sack source PDF full-text search: inradius, Chebyshev, metric"
+        ]
+      },
+      "rationale": "The source Sack 2023/2025 constructs the poset associahedron by a general H-description and verifies tubings, but does not in the reviewed primary 12-page realization article compute Euclidean Chebyshev radii or incenter. Combinatorial permutohedron equality does not fix this exotic cardinality-weighted metric. Follow-up 2024 f-vector and stack-sorting work is combinatorial rather than metric. No stronger covered metric formula was established; an alternative generic symmetric generalized-permutahedron Chebyshev observation remains a residual risk. Resultary failed and is not a negative search.",
+      "residual_risks": [
+        "Resultary indexed query unavailable.",
+        "Exact realization is particularly symmetric; an unindexed/generalized-permutahedron Chebyshev calculation could imply same answer.",
+        "Sack 2024 thesis full text could not be inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same realization, but supplied results are realization/tubing statements and do not state this Euclidean inradius or contact-facet formula.",
+          "evidence": [
+            "Theorem2.3 and Definition2.1; ατ cover relations, hτ halfspaces."
+          ],
+          "identifier_or_url": "https://www.mat.univie.ac.at/~slc/wpapers/FPSAC2023/24.pdf",
+          "material_read": "Full 12-page open primary conference manuscript: Definitions2.1,2.2 pp.2–3, Theorem2.3, construction §§3–4 and examples; rendered pp.2–3.",
+          "method": "Read page text and images, compared ατ threshold n^(2|τ|).",
+          "title": "A Realization of Poset Associahedra",
+          "trigger": "Same exact geometric realization and normalizations"
+        },
+        {
+          "assessment": "Covers combinatorial f-vectors and real-rootedness rather than Euclidean inradius; no whole-document claim.",
+          "evidence": [
+            "SLC 91B.43 abstract (2024)."
+          ],
+          "identifier_or_url": "https://www.mat.univie.ac.at/~slc/wpapers/FPSAC2024/43.html",
+          "material_read": "Publisher abstract and metadata only.",
+          "method": "Read published abstract, not full paper.",
+          "title": "On the f-vectors of poset associahedra",
+          "trigger": "Possible broader poset family invariant"
+        },
+        {
+          "assessment": "Full thesis uninspected; title alone does not exclude a star inradius calculation.",
+          "evidence": [
+            "2024 thesis abstract describes f-vectors, stack sorting, rooted-tree lattice."
+          ],
+          "identifier_or_url": "https://escholarship.org/uc/item/3h64q6kv",
+          "material_read": "University of California dissertation landing abstract; full PDF was inaccessible due browser verification.",
+          "method": "Read catalog abstract and attempted official source.",
+          "title": "The Combinatorics of Poset Associahedra",
+          "trigger": "Plausible primary thesis on same class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rooted star is the elementary maximally symmetric branching poset; Sack’s high-exponent realization is a natural exact family. Computing its Euclidean Chebyshev center, all-rank closed inradius, and establishing only n−1 active singleton facets among 2^(n−1)−2 makes meaningful geometric data not obtainable from combinatorial permutohedral type. The all-n inequality separating constraints is substantive but elementary.",
+      "residual_risks": [
+        "Specific to a particular metric realization; no other poset claims."
+      ],
+      "sources": [
+        "Sack 2023 realization primary PDF",
+        "RESULT.md symbolic k-facet distance comparison"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": "n≥3 rooted star in Sack ατ normalization; not a general poset-associahedron inradius or affine-invariant statement."
+}
