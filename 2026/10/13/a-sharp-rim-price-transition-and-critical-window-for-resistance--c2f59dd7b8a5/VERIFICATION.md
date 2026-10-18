@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytical. A local exact-arithmetic check supplies finite corroboration, not a replacement for the convexity, Riemann-sum, or critical-window arguments. To replay, place `verification.py` alongside this file and run `python3 verification.py` in Python 3. The program has no dependencies outside the standard library.
+# Independent mathematical audit
 
-The checker reconstructs the full \((n+1)\)-vertex weighted wheel Laplacian with rational edge conductances; forms \(L+\mathbf1\mathbf1^T/(n+1)\); inverts it by exact Gauss–Jordan elimination; and compares the resulting Kirchhoff index with a second expression involving the \(n\)-cycle Laplacian. It separately checks the derivative at the hub-only star using an exact matrix-inverse derivative identity, the boundary derivative formula, and the first two cycle Laplacian moments. The run produced: `VERIFY_OK 196 exact finite wheel/index/derivative instances; cycle traces and thresholds; general proof is analytic`.
+## correctness
 
-This covers \(3\le n\le9\), prices \(1/4,1,3/2,2,9/4,3,5\), and three rational feasible allocations at each price. The proof's quantifiers range over all \(n\ge3\), all real \(t>0\), all admissible real conductance vectors, and all fixed real critical-window shifts. Nothing about an infinite system is inferred from a finite test.
+PASS
 
-The original optimization paper provides an unpriced symmetric wheel spectral reduction (DOI: 10.1137/050645452); the present proof independently applies the Laplacian eigenmode calculation to the priced budget and derives the threshold and asymptotic formulas. Historical weighted-wheel sources remain a bibliographic originality risk; no independent validation was performed.
+For any connected wheel, K=(n+1)tr[(L|1-perp)^{-1}] is strictly convex under distinct edge-conductance changes, and compactness with blowup at disconnected boundaries gives a unique global optimum. Rotational invariance forces equal spokes a and equal rim edges b even against nonsymmetric allocations. The Fourier eigenvalues 0,(n+1)a,a+b mu_k lead to K=n(n+1)F_n(u;t), u=nb, a=(1-tu)/n. Differentiating gives F_n′(0)=n^2*t/(n+1)-2*n, hence rim exclusion iff t>=2(n+1)/n; then K=n^3. The cycle sums mu=2n, mu^2=6n and convex derivative show the critical scaling t=2+s/n, n^2*b* -> (2-s)+/4 and (n^3-K*)/n -> (2-s)+^2/8. The Fourier Riemann sum gives large-n min sqrt[t(4-t)]/2 below price2, star value1 above. Independent dense Laplacian eigensum checks for n=3..10 and direct scalar finite-n optimizer scans (n=200,600) corroborate, but do not replace general convex/Riemann arguments.
+
+## originality
+
+PASS
+
+PASS best of knowledge. Ghosh–Boyd–Saberi 2008 §5.2 expressly derives same wheel spectral reduced objective for *uniform unit-cost* budget, and covers t=1 as prior. It does not state the entire all-price rim exclusion boundary, large-wheel price-phase law, or width-1/n critical window. Classical weighted-wheel Kirchhoff-index evaluations give K(a,b), not a price-constrained all-edge optimization and its asymptotic bifurcation. The very closely titled Li–Yang–Zhang 2008 weighted wheel paper could not be read in full despite lawful OA attempts; no whole-document noncoverage is claimed.
+
+## value
+
+PASS
+
+The optimization answers a natural network-design allocation: exactly when the added cycle edges are too expensive to justify against hub spokes. The dimension-dependent threshold, all-price optimizer, large-size budget shares, and quantified critical window constitute a structurally motivated infinite family of exact facts. It is not just recomputing equal-cost wheel Kirchhoff values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

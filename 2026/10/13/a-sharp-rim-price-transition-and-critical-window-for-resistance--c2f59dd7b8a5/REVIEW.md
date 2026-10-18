@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The connected-graph domain and cost simplex are explicitly defined. Strict convexity of the Kirchhoff-index trace-inverse and edgewise injectivity give one global optimizer, hence the symmetry reduction is justified even against nonsymmetric allocations. The reduced Laplacian has the stated complete spectrum, and the rim-elimination threshold follows from the exact sign of the boundary derivative. The large-size limit follows from a uniform Riemann-sum argument away from the singular endpoint and a separate endpoint-exclusion argument; the quadratic denominator has one maximizer. The critical-window statement uses the exact cycle first and second moments and a uniform local Hessian limit. The 196 exact-rational checker instances corroborate these identities, not the infinite statements. Residual correctness risk: no independent proof audit has occurred.
+PASS
 
-## Originality — PASS, with qualified coverage
+For any connected wheel, K=(n+1)tr[(L|1-perp)^{-1}] is strictly convex under distinct edge-conductance changes, and compactness with blowup at disconnected boundaries gives a unique global optimum. Rotational invariance forces equal spokes a and equal rim edges b even against nonsymmetric allocations. The Fourier eigenvalues 0,(n+1)a,a+b mu_k lead to K=n(n+1)F_n(u;t), u=nb, a=(1-tu)/n. Differentiating gives F_n′(0)=n^2*t/(n+1)-2*n, hence rim exclusion iff t>=2(n+1)/n; then K=n^3. The cycle sums mu=2n, mu^2=6n and convex derivative show the critical scaling t=2+s/n, n^2*b* -> (2-s)+/4 and (n^3-K*)/n -> (2-s)+^2/8. The Fourier Riemann sum gives large-n min sqrt[t(4-t)]/2 below price2, star value1 above. Independent dense Laplacian eigensum checks for n=3..10 and direct scalar finite-n optimizer scans (n=200,600) corroborate, but do not replace general convex/Riemann arguments.
 
-Ghosh–Boyd–Saberi (2008) already prove the general conductance-design convex framework and solve the symmetric *unpriced* wagon-wheel problem through an implicit stationarity equation. The new claim explicitly excludes those antecedents: it concerns arbitrary positive rim price, the precise globally optimal rim-deletion boundary across all wheel sizes, the cost-dependent limiting optimal value/budget allocation, and the \(1/n\)-price-scale critical window. Bapat–Gupta (2010) evaluate wheel/fan resistances and Li–Yang–Zhang (2008) study weighted-wheel Kirchhoff indices, not an inspected statement of this price transition. Published-results and primary-literature queries were made for equivalent and stronger price-budget formulations; none checked gives the same full phase law. The Li–Yang–Zhang full text could not be inspected, and hidden historical overlap remains possible. The comparison is statement-based, not a claim that missing search matches establish novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The exact boundary \(2(n+1)/n\) makes a natural network-budget choice: when to install a circumferential set of electrical links versus spending solely on spokes. The large-size limit gives nontrivial interior cost shares and a continuous phase transition at price two, while the critical window quantifies conductance emergence and the leading gain from these links. Unlike a narrow arbitrary numeric instance, the result covers every dimension and every positive price and identifies an interpretable qualitative decision rule.
+PASS best of knowledge. Ghosh–Boyd–Saberi 2008 §5.2 expressly derives same wheel spectral reduced objective for *uniform unit-cost* budget, and covers t=1 as prior. It does not state the entire all-price rim exclusion boundary, large-wheel price-phase law, or width-1/n critical window. Classical weighted-wheel Kirchhoff-index evaluations give K(a,b), not a price-constrained all-edge optimization and its asymptotic bifurcation. The very closely titled Li–Yang–Zhang 2008 weighted wheel paper could not be read in full despite lawful OA attempts; no whole-document noncoverage is claimed.
 
-## Closest literature and limitations
+## value
 
-The 2008 wheel reduction is the closest source; its equal-cost stationary equation is not replaced or claimed as new. The 2006 conference source supplies the original convex design problem. Weighted-wheel invariant evaluations are strong antecedents for the spectral formulas. A partly inaccessible 2008 weighted-wheel paper leaves residual originality uncertainty; the result is not extended to heterogeneous individual edge prices or the maximum-resistance objective.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The optimization answers a natural network-design allocation: exactly when the added cycle edges are too expensive to justify against hub spokes. The dimension-dependent threshold, all-price optimizer, large-size budget shares, and quantified critical window constitute a structurally motivated infinite family of exact facts. It is not just recomputing equal-cost wheel Kirchhoff values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
