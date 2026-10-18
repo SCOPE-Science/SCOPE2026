@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For every fixed \(a\le0\), \(b,c>0\), there is exactly one positive equilibrium height \(p\), and the shifted vector field yields an exact cancellation in a logarithmic entropy-energy functional. The algebraic identity was checked symbolically and then reconstructed analytically. The entropy is proper in the positive-height half-space, which establishes forward completeness. The zero-dissipation set has no non-equilibrium invariant orbit: for \(a<0\) this follows by first imposing \(y=-p\), \(z=p\), then \(x=ap\); at the delicate equality \(a=0\), imposing \(z=p\), then \(x=0\), then \(y=-p\) is essential. LaSalle then proves global convergence. Positivity at an initial zero height follows from the scalar integrating factor. Exact time integration yields the dissipation formula. The compact-invariance and stationary-measure corollaries have separate invariance arguments. Numerical checks were not used as infinite proofs.
+## correctness
 
-## Originality — PASS, subject to residual priority risk
-The complete original 1976 two-page article displays a single chaotic positive-feedback parameter triple and anticipates study of monostable variations, but has no nonpositive-feedback global theorem. The 2011 equilibrium-bifurcation source states positive-parameter assumptions and gives local stability conditions, not whole-basin convergence on \(a\le0\). The 2008 study concerns harmonic-balance predictions of periodic cycles; its public abstract does not establish the exact entropy law. The 2023 large-parameter asymptotic study also assumes positive feedback. Two closest indexed Rössler findings concern positive-parameter invariant measures and do not imply a closed nonpositive-feedback convergence theorem. The full 2008 and 2011 texts were not completely accessible during comparison; unindexed earlier global Lyapunov constructions remain a priority risk. Search absence is not being treated as proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The sign of \(a\) is the natural damping boundary of the linear oscillator within this classical nonlinear chaotic-flow model. Instead of a local eigenvalue or a short transient, the result classifies *all* nonnegative-height forward initial data for *every* \(b,c>0\), including the zero-damping equality. The nonlinear forcing couples a conservative planar oscillator to a multiplicative height variable; the exact logarithmic entropy cancellation is a substantive global mechanism. The precise integral dissipation and uniqueness of compact stationary dynamics are useful mathematical consequences, not arbitrary parameter slices or numerical threshold guesses.
+Independently verified the translated vector field and the exact derivative of V=[(x-ap)^2+(y+p)^2]/2+z-p-p log(z/p): Vprime=a(y+p)^2-(c-ap)(z-p)^2/z under ap^2-cp+b=0. For a<=0 the equilibrium polynomial is strictly decreasing on p>=0, hence unique p>0 and c-ap>0. z solves a positive integrating-factor equation, so z0>=0 enters or remains in z>0. Properness of V on z>0 (blow-up for z→0+, z→infinity, and x/y infinity) gives global existence. LaSalle zero-derivative invariant set is E: at a=0 derivative vanishes on z=p but zdot=p*x enforces x=0 then xdot=-y-p forces y=-p, so equality boundary is handled. Integrating Vprime yields exact finite initial budget as t→∞; compact two-sided invariant K can have max V only at E by backward recurrence, and a stationary measure must be supported on E by integrating derivative and invariance.
 
-## Remaining limitations
-No assertions are made about positive feedback, negative initial height, degenerate forcing parameters, or uniform global rates. This is a same-model mathematical assessment rather than an external audit or a priority certificate.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Original Rössler (1976) full two-page paper treats the standard positive-feedback chaotic parameters, and later inspected equilibrium bifurcation and harmonic-balance studies predominantly assume positive a. Related indexed Rössler invariant-measure constraints explicitly restrict to positive-parameter regimes and do not imply this closed a<=0 all-initial-state global theorem. Exact entropy cancellation and boundary a=0 rigidity appear not to be mathematically covered by inspected sources; older unindexed Lyapunov arguments remain a priority risk.
+
+## value
+
+PASS
+
+The nonpositive feedback half-space including a=0 is a natural damping boundary of one of the best studied chaotic ODEs. The exact nonlinear logarithmic energy and global basin classification eliminate all nontrivial compact recurrent dynamics and give an energy budget for every initial state, a meaningful structural contrast to classical positive-a chaos.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

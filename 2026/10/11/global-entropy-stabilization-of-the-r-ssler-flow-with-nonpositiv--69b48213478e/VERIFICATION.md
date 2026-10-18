@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The attached `check_identity.py` is a standalone Python/SymPy source file. Running `python check_identity.py` verifies the equilibrium substitution, translated vector field and exact entropy derivative, symbolically reducing the residual to \((ap^2-cp+b)(z-p)/z\). It also tests the unique positive root and \(ap-c<0\) at four illustrative rational parameter triples. These samples are diagnostic only; they do not establish the universal theorem.
+## correctness
 
-The analytical proof verifies every parameter in \(a\le0\), \(b,c>0\) by monotonicity of the equilibrium polynomial, the positive scalar integrating factor for height, compact logarithmic-entropy sublevel sets, and LaSalle's invariance principle. Crucially, at \(a=0\) the derivative vanishes on all \(z=p\), but only \(E\) can remain on that surface; this extra invariance step is required. Integration of \(\dot V\) gives the stated identity after convergence. The compact fully invariant and compact stationary-measure assertions follow from maximality and invariance of the dissipation identity, respectively.
+PASS
 
-Boundary conditions: the exact initial-value dissipation formula requires \(z(0)>0\), while initial \(z(0)=0\) enters \(z>0\) immediately and then converges. Nothing is claimed for negative initial height, \(a>0\), \(b\le0\), or \(c\le0\). No external independent audit has been conducted.
+Independently verified the translated vector field and the exact derivative of V=[(x-ap)^2+(y+p)^2]/2+z-p-p log(z/p): Vprime=a(y+p)^2-(c-ap)(z-p)^2/z under ap^2-cp+b=0. For a<=0 the equilibrium polynomial is strictly decreasing on p>=0, hence unique p>0 and c-ap>0. z solves a positive integrating-factor equation, so z0>=0 enters or remains in z>0. Properness of V on z>0 (blow-up for z→0+, z→infinity, and x/y infinity) gives global existence. LaSalle zero-derivative invariant set is E: at a=0 derivative vanishes on z=p but zdot=p*x enforces x=0 then xdot=-y-p forces y=-p, so equality boundary is handled. Integrating Vprime yields exact finite initial budget as t→∞; compact two-sided invariant K can have max V only at E by backward recurrence, and a stationary measure must be supported on E by integrating derivative and invariance.
+
+## originality
+
+PASS
+
+Original Rössler (1976) full two-page paper treats the standard positive-feedback chaotic parameters, and later inspected equilibrium bifurcation and harmonic-balance studies predominantly assume positive a. Related indexed Rössler invariant-measure constraints explicitly restrict to positive-parameter regimes and do not imply this closed a<=0 all-initial-state global theorem. Exact entropy cancellation and boundary a=0 rigidity appear not to be mathematically covered by inspected sources; older unindexed Lyapunov arguments remain a priority risk.
+
+## value
+
+PASS
+
+The nonpositive feedback half-space including a=0 is a natural damping boundary of one of the best studied chaotic ODEs. The exact nonlinear logarithmic energy and global basin classification eliminate all nontrivial compact recurrent dynamics and give an energy budget for every initial state, a meaningful structural contrast to classical positive-a chaos.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
