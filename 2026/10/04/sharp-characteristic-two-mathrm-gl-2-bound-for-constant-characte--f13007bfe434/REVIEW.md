@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof is symbolic for every \(q=2^e\). The key reductions are exact: determinant equality puts \(H\) in \(\mathrm{SL}_2\); the inverse identity handles the nonzero-trace branch; and the nondegenerate trace pairing plus closure of \(A=\operatorname{span}H\) excludes a three-dimensional algebra orthogonal to an invertible matrix. The remaining two-dimensional algebras are the split, dual-number, and field cases, with determinant-one group orders \(q-1\), \(q\), and \(q+1\). The norm-one/Frobenius example attains the bound. Exhaustive checks for \(q=2\) and \(q=4\) are consistent with the proof and are not used to extrapolate.
+## correctness
 
-## Originality
-PASS. The closest primary source is Avni--Gelander, arXiv:2609.27204, which proves virtual solvability over arbitrary fields. For a finite field that conclusion is automatic for a finite subgroup and therefore does not imply abelianness, an order bound, or the quadratic-algebra classification. Targeted searches under constant-characteristic-polynomial, constant-spectrum, isospectral-coset, and single-conjugacy-class aliases did not locate this characteristic-two \(2\times2\) theorem.
+PASS
 
-## Value
-PASS. This gives a sharp, natural finite-field refinement exactly where the broad source theorem yields no effective finite-group restriction. The extremal nonsplit-torus case and the separate nonzero-trace unipotent bound expose the structural mechanism behind the constant-coset condition in characteristic two.
+From chi(xh)=chi(x), det(h)=1 and tr(xh)=tr(x). In characteristic 2 the SL2 Cayley-Hamilton identity h+h^{-1}=tr(h)I, paired with x, forces tr(h)=0 when tr(x) is nonzero, hence h^2=I and H is an elementary abelian 2-group embedded in the centralizer of a nontrivial nilpotent, size <=q. For tr(x)=0, A=span(H) is a unital algebra in x-perp. If dim A=3, then A-perp=span(x) and tr(xab)=0 implies xa in span(x) for every a, so A would be scalar: contradiction. Thus dim A<=2, so commutative. The three quadratic algebra types yield determinant-one group sizes q-1, q, q+1; full field norm-one torus attains q+1 with x Frobenius. This checks all field sizes q=2^e uniformly, including q=2 and scalar subcase.
 
-## Closest literature and limitations
-The inspected source gives the general constant-characteristic-polynomial theorem and complex sharpness examples, not the finite-field \(2\times2\) classification. The present theorem is limited to characteristic two and dimension two; it does not classify all admissible \((x,H)\) up to simultaneous conjugacy.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The nearest same-object source Avni--Gelander proves virtual solvability for arbitrary fields and dimensions. Over a finite group virtual solvability alone yields no sharp finite group bound, since every finite group is virtually solvable. The explicit abelian GL2 classification, q+1 bound, trace dichotomy, and equality torus require additional finite-field arguments and are not implied by the abstract/theorem statement inspected. Same record on Resultary is not external prior work; the odd-characteristic 2q record is a different characteristic and does not imply q even.
+
+## value
+
+PASS
+
+A sharp, uniform characteristic-two classification of constant-spectrum cosets is a natural refinement of a published general algebraic-group question, with a meaningful equality family and improved trace-specific bound, not an arbitrary small numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

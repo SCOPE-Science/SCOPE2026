@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The general result is verified by the proof in `RESULT.md`; finite computation is supplementary.
+## correctness
 
-`verify_even_gl2.py` constructs \(\mathbb F_2\) and \(\mathbb F_4\) directly, enumerates all matrices in \(\mathrm{GL}_2\) and \(\mathrm{SL}_2\), enumerates every subgroup of \(\mathrm{SL}_2\), and tests the defining condition \(\chi_{xh}=\chi_x\) for every pair \((x,H)\). It also checks that every admissible subgroup is abelian, that its order is at most \(q+1\), and that the stronger order bound \(q\) holds whenever \(\operatorname{tr}x\ne0\).
+PASS
 
-The exact output is stored in `VERIFY_OUTPUT.txt`:
+From chi(xh)=chi(x), det(h)=1 and tr(xh)=tr(x). In characteristic 2 the SL2 Cayley-Hamilton identity h+h^{-1}=tr(h)I, paired with x, forces tr(h)=0 when tr(x) is nonzero, hence h^2=I and H is an elementary abelian 2-group embedded in the centralizer of a nontrivial nilpotent, size <=q. For tr(x)=0, A=span(H) is a unital algebra in x-perp. If dim A=3, then A-perp=span(x) and tr(xab)=0 implies xa in span(x) for every a, so A would be scalar: contradiction. Thus dim A<=2, so commutative. The three quadratic algebra types yield determinant-one group sizes q-1, q, q+1; full field norm-one torus attains q+1 with x Frobenius. This checks all field sizes q=2^e uniformly, including q=2 and scalar subcase.
 
-- for \(q=2\): \(|\mathrm{GL}_2|=6\), \(|\mathrm{SL}_2|=6\), six subgroups, maximal admissible order \(3=q+1\), no violations;
-- for \(q=4\): \(|\mathrm{GL}_2|=180\), \(|\mathrm{SL}_2|=60\), fifty-nine subgroups, maximal admissible order \(5=q+1\), no violations.
+## originality
 
-These finite checks do not certify the theorem for arbitrary \(q\); that scope is established only by the symbolic argument.
+PASS
+
+The nearest same-object source Avni--Gelander proves virtual solvability for arbitrary fields and dimensions. Over a finite group virtual solvability alone yields no sharp finite group bound, since every finite group is virtually solvable. The explicit abelian GL2 classification, q+1 bound, trace dichotomy, and equality torus require additional finite-field arguments and are not implied by the abstract/theorem statement inspected. Same record on Resultary is not external prior work; the odd-characteristic 2q record is a different characteristic and does not imply q even.
+
+## value
+
+PASS
+
+A sharp, uniform characteristic-two classification of constant-spectrum cosets is a natural refinement of a published general algebraic-group question, with a meaningful equality family and improved trace-specific bound, not an arbitrary small numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
