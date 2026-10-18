@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The witness uses \(\rho=1/10\), affine \(f(t)=(t,-t)\), convex diagonal-null \(h(u,v)=(u-v)^2\), a vacuous strict constraint, and explicit full-rank order matrices. The common-interior and Ch-quasi-proper conditions are checked exactly. At any positive competitor, both row scalarizations have derivative \(1\), so the asserted stationarity condition reduces to \(0=\lambda_1+\lambda_2\) with both multipliers positive. The normalized scalarizer \(\xi=(1/2,1/2)\) also directly exhibits the missing pointwise-polar membership.
+PASS
 
-## Originality
+At rho=1/10 the three full-rank source cone matrices have q=(1,1) interior, all A_rho send w=(1,1) strictly positive, and tau=1/5 dilation excludes f(0)-f(t) from the domination cone for all t!=0. Thus f(0) is Ch-quasi-proper non-dominated under the printed conditions, with affine f and strictly feasible g=-1. At t>0 both original row scalarizations of f(s)=(s,-s) are s; both subgradients are {1}, h derivative zero, all constraints inactive, so Theorem 4.1(a) requires 0=lambda1+lambda2 with positive multipliers, contradiction. xi=(1/2,1/2) has negative coefficient -1/2 in pointwise A_rho row basis; polar of common intersection cannot imply all pointwise polar memberships. Exact rational independent matrix checks confirm all sign inequalities.
 
-PASS. The primary full proof and the closest fixed-cone predecessor were compared statement-by-statement. The fixed-cone theorem places the scalarizer in one fixed positive polar before row decomposition, so it does not imply the variable-order step. Targeted searches by article identifier, theorem number, polar-intersection language, common multipliers, and counterexample terminology found no equivalent published result or correction.
+## originality
 
-A residual risk is a later or poorly indexed erratum. None was located.
+PASS
 
-## Value
+The published theorem itself is contradicted; Theorem 4.1(a) and its proof on pp.12–13 of the full primary text are read. Fixed cone 2023 predecessor does not infer point-dependent polar decompositions. Targeted searches found no same counterexample/correction. Best-of-knowledge original for this model and theorem.
 
-PASS. The counterexample concerns the source's central necessary KKT-type condition and identifies the exact compatibility failure that any repaired variable-order theorem must address. It is low-dimensional, symbolic, and does not depend on numerical tolerance.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A structural counterexample under every stated hypothesis invalidates a necessary multiplier theorem in a newly published variable-polyhedral-order result, directly identifying the polar-intersection-to-pointwise-polar mistake. This is a consequential counterexample, not a generic negative normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
