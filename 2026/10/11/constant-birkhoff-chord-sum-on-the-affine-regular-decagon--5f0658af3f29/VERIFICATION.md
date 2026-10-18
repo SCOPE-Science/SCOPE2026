@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,55 +18,25 @@
   "schema_version": 1
 }
 ---
-Let
-\[
-r=\frac{\sqrt5-1}{2},
-\qquad
-\phi=\frac{1+\sqrt5}{2},
-\qquad
-c=\frac{3\sqrt5-1}{4}.
-\]
-The algebraic identities used in the proof are
-\[
-r\phi=1,
-\qquad
-r^2=1-r,
-\qquad
-2r+\phi=2c.
-\]
 
-After dihedral reduction, an edge-interior Birkhoff pair is
-\[
-x=(a,1-a),
-\qquad
-y=(\phi,-\phi),
-\qquad
-0<a<1,
-\]
-and its two chord norms are
-\[
-2r+r^2a
-\quad\text{and}\quad
-\phi-r^2a.
-\]
+# Independent mathematical audit
 
-At the reference vertex, every admissible Birkhoff direction is
-\[
-x=(1,0),
-\qquad
-y=(1+r\theta,-\phi),
-\qquad
-0\le\theta\le1,
-\]
-up to sign, and the two chord norms are
-\[
-2r+r^2\theta
-\quad\text{and}\quad
-\phi-r^2\theta.
-\]
+## correctness
 
-Thus every admissible chord pair has sum \(2c\), and the balanced parameter \(1/2\) attains both coordinates at \(c\).
+PASS
 
-The bundled `verify.py` checks these identities in exact arithmetic in \(\mathbb Q(\sqrt5)\), verifies the decagon vertices and symmetry generators, and replays both formula families on exact rational grids. The grids are supplementary; the analytic edge/vertex dichotomy proves exhaustiveness.
+For each unit x, dihedral transitivity reduces to an edge interior x=(a,1-a) or vertex x=(1,0). For an edge, unique norming functional s+t forces y=±(phi,-phi); exact evaluation gives A=2r+r²a and B=phi-r²a. For a vertex, the norming functionals s+t and s+rt force the opposite edge y=(1+r theta,-phi) up to sign, with identical affine A,B expressions. Since A+B=2r+phi=(3sqrt5-1)/2 for every pair, min<=half<=max, and a=1/2 attains both, giving J_perp=g_perp=(3sqrt5-1)/4. Independently evaluated the branches at five non-grid rational parameters including endpoints and checked the active-functional products; actual verify.py uses exact Q(sqrt5) arithmetic on parameter grids, corroborative only.
 
-No independent audit or independent validation has been performed.
+## originality
+
+PASS
+
+The source Baronti–Papini paper defines orthogonal James/Schäffer constants and computes hexagons and octagon, not the decagonal pointwise chord sum. Related indexed decagonal parameters share values and norm geometry but do not imply that every Birkhoff-admissible pair has the same sum. Known James constant at the same value can imply a bound on J_perp but not the stronger universal identity.
+
+## value
+
+PASS
+
+A pointwise rigidity phenomenon for all Birkhoff-orthogonal chords in a natural regular decagonal norm, rather than merely another isolated numerical norm constant. It simultaneously determines two orthogonality-specific extrema and describes their full feasible chord geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

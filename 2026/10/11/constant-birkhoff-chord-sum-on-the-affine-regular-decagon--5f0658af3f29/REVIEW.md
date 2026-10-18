@@ -1,24 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The unit sphere is exhausted by edge interiors and vertices, and the decagonal dihedral group reduces these to one reference edge and one reference vertex. At an edge interior, the unique norming functional forces the orthogonal vector onto the anti-diagonal. At a vertex, the convex hull of the two active norming functionals selects one complete opposite edge. Both cases produce the exact chord pair
-\[
-\left(
-2r+r^2q,
-\phi-r^2q
-\right),
-\qquad
-0\le q\le1,
-\]
-up to order. Its sum is constant, and \(q=1/2\) gives equal chords and simultaneous sharpness.
+## correctness
 
-## Originality
-PASS. The defining 2022 paper was inspected through its definitions, general estimates, and complete examples section; it contains no decagonal computation. Targeted searches covered the exact invariant names, decagon aliases, the radical value, decimal value, chord-sum formulation, and related Birkhoff quantities. The closest same-number decagonal record is a Banach--Mazur distance, while related own decagonal records optimize different objectives or drop the orthogonality restriction. None implies the pointwise constant-sum theorem.
+PASS
 
-## Value
-PASS. The main content is a complete pointwise classification of the two symmetric chord lengths for every Birkhoff--James pair, not merely two isolated constant values. It simultaneously resolves \(J_{\perp}\) and \(g_{\perp}\) and gives a canonical non-Hilbert polygonal benchmark for the orthogonality-sensitive parameters introduced in the motivating paper.
+For each unit x, dihedral transitivity reduces to an edge interior x=(a,1-a) or vertex x=(1,0). For an edge, unique norming functional s+t forces y=±(phi,-phi); exact evaluation gives A=2r+r²a and B=phi-r²a. For a vertex, the norming functionals s+t and s+rt force the opposite edge y=(1+r theta,-phi) up to sign, with identical affine A,B expressions. Since A+B=2r+phi=(3sqrt5-1)/2 for every pair, min<=half<=max, and a=1/2 attains both, giving J_perp=g_perp=(3sqrt5-1)/4. Independently evaluated the branches at five non-grid rational parameters including endpoints and checked the active-functional products; actual verify.py uses exact Q(sqrt5) arithmetic on parameter grids, corroborative only.
 
-## Closest literature and limitations
-Baronti and Papini, *Constructive Mathematical Analysis* 5 (2022), 37--45, define \(J_{\perp}\) and \(g_{\perp}\) and compute several two-dimensional examples, including the regular octagon, but not the decagon. The present theorem is specific to the affine-regular decagon and does not assert a corresponding constant-sum identity for all regular polygons or all Radon planes.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The source Baronti–Papini paper defines orthogonal James/Schäffer constants and computes hexagons and octagon, not the decagonal pointwise chord sum. Related indexed decagonal parameters share values and norm geometry but do not imply that every Birkhoff-admissible pair has the same sum. Known James constant at the same value can imply a bound on J_perp but not the stronger universal identity.
+
+## value
+
+PASS
+
+A pointwise rigidity phenomenon for all Birkhoff-orthogonal chords in a natural regular decagonal norm, rather than merely another isolated numerical norm constant. It simultaneously determines two orthogonality-specific extrema and describes their full feasible chord geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
