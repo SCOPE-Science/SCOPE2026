@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Exact endpoint inclusion–exclusion counts every tuple; normalization is a sample-space partition. The n>=m^2 proof establishes the k=1 and each k>=2 ULC determinant using elementary binomial/exponential inequalities (no unproved auxiliary lemma). The n=2 negative determinant is algebraic. The remaining six-face cases n=4..24 comprise exactly 84 integer comparisons, independently verified by a separate endpoint-state recursion and a standalone checker; n>=25 follows from the all-alphabet proof. Source code was replayed at the actual packaged path and returned PASS.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Badiella, del Castillo & Puig, Statistics & Probability Letters 201 (2023), 109900, prove preservation for individual order statistics.",
+        "Puig, Valero & Fernández-Fontelo, Scandinavian Journal of Statistics 51 (2024), 245–267, survey mechanisms of underdispersion rather than a uniform sample-range shape classification.",
+        "Saumard & Wellner, Statistical Surveys 8 (2014), Section 4, analyze ULC closure such as convolution of independent variables."
+      ],
+      "reasoning": "The range is the difference between dependent extremes. The order-statistic ULC theorem assumes a ULC parent, which a discrete-uniform law on three or more faces is not; its conclusions also concern individual order statistics rather than their difference. Independent-convolution closure does not apply. A previous separate result for geometric-parent sample ranges is not a stronger statement covering uniform bounded parents. No dominating result was identified.",
+      "searches": [
+        "discrete order statistics Poisson geometric uniform range sample range ultra log concavity",
+        "\"Ultra log-concavity of discrete order statistics\" \"2023\" first online",
+        "\"order statistics\" \"range\" \"ultra log concavity\" 2023"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1016/j.spl.2023.109900",
+      "https://doi.org/10.1111/sjos.12677",
+      "https://doi.org/10.1214/14-SS107",
+      "Public mathematical research records on expected sample ranges, discrete extreme-order correlations, and geometric-parent sample ranges"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The article at DOI 10.1016/j.spl.2023.109900 proves ULC preservation for individual order statistics of ULC parents; the uniform parent here fails ULC.",
+        "A separate prior claim with identifier 7c2f5b65-048e-4723-8518-259989a1294a concerns PF-infinity of geometric sample ranges, not bounded discrete-uniform ranges.",
+        "The expected-range record 2026/10/4/SCOPE-exact-fixed-profile-range-of-expected-sample-range-relative-to-s--9998a13c61eb controls a one-dimensional expectation functional and does not constrain all pmf triple ratios."
+      ],
+      "reasoning": "An expected-value extremum cannot imply a sign for every local mass determinant. Geometric support and geometric weighting are not uniform finite support; neither result contains the present support geometry as a parameter specialization. Even a hypothetical pair of ULC marginal extreme laws would not justify a ULC conclusion for their dependent difference; furthermore, the 2023 source theorem has no ULC-parent hypothesis satisfied here.",
+      "searches": [
+        "range of independent discrete uniform random variables exact ultra log concavity of the range distribution finite support sample size cutoff",
+        "discrete order statistics Poisson geometric uniform range sample range ultra log concavity",
+        "\"discrete uniform\" \"sample range\" \"log-concave\" distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact mass formula a_r=(m+1-r)((r+1)^n-2r^n+(r-1)^n) is a counting identity; targeted queries did not retrieve the stated ULC threshold.",
+        "The published order-statistics theorem https://doi.org/10.1016/j.spl.2023.109900 concerns X_{r:n} separately, not max(X)-min(X)."
+      ],
+      "reasoning": "A ULC claim on the range law is equivalently log-concavity of k! times the range pmf, and is neither log-concavity of either marginal extreme nor a statement about the expected range. No equivalent distributional-inequality statement surfaced in the actual targeted searches.",
+      "searches": [
+        "range of independent discrete uniform random variables exact ultra log concavity of the range distribution finite support sample size cutoff",
+        "range of discrete uniform sample ULC probabilities (m+1-r) second difference powers log concavity",
+        "ultra log concavity of the distribution of the difference between discrete maximum and minimum",
+        "\"sample range\" \"discrete uniform\" \"ultra log concavity\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved research on sample ranges concerns fixed-profile expected sample range (record 2026/10/4/SCOPE-exact-fixed-profile-range-of-expected-sample-range-relative-to-s--9998a13c61eb), not pmf ultra-log-concavity.",
+        "Searches including the explicit second-difference counting weights and the fair-die threshold surfaced no matching exact range-shape table."
+      ],
+      "reasoning": "The closed form of the range pmf may be classical, but it is not an exact table of the stated ULC classification and does not imply that classification without inequality analysis. Negative retrieval is treated as a limited search result, not proof of novelty.",
+      "searches": [
+        "finite discrete uniform sample range p(r)=(m+1-r)((r+1)^n-2r^n+(r-1)^n) ultra-log-concavity",
+        "sample range of iid fair six-sided die is ultra log concave after four draws but fails after two or three",
+        "\"range\" \"uniform discrete\" \"ultra-log-concave\" sample"
+      ]
+    },
+    "rationale": "The claim concerns the ultra-log-concavity of a dependent difference of discrete-uniform extreme order statistics, quantified by an all-alphabet sufficient sample bound and an exact six-face reversal. Targeted public-literature queries, relevant full article material, record retrieval and comparisons to available prior research did not identify an equivalent or implied statement. The 2023 theorem preserves ULC of individual order statistics only when the parent is ULC. A nondegenerate discrete-uniform parent is not ULC, and the dependent range is not an individual order statistic. Closest range work addresses expected values, correlation or a different geometric parent; none gives this count-shape theorem. Residual full-text and indexing risks are explicitly stated.",
+    "residual_risks": [
+      "No exhaustive search of all print books or unindexed classical order-statistic notes is possible.",
+      "Direct sequential retrieval of the most relevant four-page journal PDF was blocked at the publisher and university repository; indexed scientific sections and explicit published theorem were available.",
+      "The general quadratic trial bound is sufficient only and may be sharpened substantially; only the six-faced cutoff is proved necessary and sufficient."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Individual order-statistic ULC is proved, but neither joint extremes nor their difference is analyzed in the available theorem and concluding material.",
+        "evidence": [
+          "DOI:10.1016/j.spl.2023.109900, section on log-concave synchronized series and concluding ULC theorem.",
+          "University-hosted author copy metadata: available online 2023-06-26."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.spl.2023.109900",
+        "material_read": "Indexed 2023 journal article text describing Sections 1–3, definitions, order-statistic recursion, preservation proof, and Poisson underdispersion corollary; publisher sequential PDF access failed and institutional PDF unavailable.",
+        "method": "Publicly indexed article text and original university repository bibliographic PDF extract; checked theorem statement and argument against the range statistic.",
+        "title": "Ultra log-concavity of discrete order statistics",
+        "trigger": "Most closely related primary theorem; same qualitative inequality for constituent extrema."
+      },
+      {
+        "assessment": "Different mechanisms and aggregate moments; no theorem for the pmf of dependent maximum-minus-minimum of uniform samples.",
+        "evidence": [
+          "Wiley publisher article, first published 2023-08-07, Vol. 51 (2024), pp.245–267; Section 4."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/sjos.12677",
+        "material_read": "Full HTML article, sections 1–5: arrival processes, steady-state distributions, weighted Poisson, and variable thinning.",
+        "method": "Read open publisher HTML scientific sections and discussion; searched for range and sample-shape statements.",
+        "title": "Some mechanisms leading to underdispersion: Old and new proposals",
+        "trigger": "Later overview including ULC/order-statistic literature and count-distribution structure."
+      },
+      {
+        "assessment": "General preservation tools for independent convolution, not this dependent nonlinear range statistic.",
+        "evidence": [
+          "Statistical Surveys 8 (2014), Section 4, ULC definitions and Theorem 4.1."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/14-SS107",
+        "material_read": "Open review abstract, introduction and Section 4, including log-concavity with respect to Poisson and ULC convolution closure.",
+        "method": "Full-text section publicly available through PMC and indexed manuscript.",
+        "title": "Log-Concavity and Strong Log-Concavity: A Review",
+        "trigger": "Potential stronger general closure theorem subsuming ULC of sample ranges."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "831e52f5-333e-4a5c-9c53-8de258a0fe5a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a motivated strong-shape emergence question for a natural dispersion statistic built from two dependent extreme order statistics of a discrete-uniform parent, which itself is not ultra-log-concave. The result establishes non-ULC of all two-draw ranges with >=4 faces, eventual strict ULC with an explicit sample-size bound for all finite alphabets, and the exact sharp threshold for the canonical six-faced die. These complementary boundaries demonstrate unexpected emergence of a strong mass-shape property and give shape control potentially useful for concentration and count-inference calculations. This is more than a known pmf-table recomputation; the infinite family conclusion and sharp nondegenerate die classification require independent proofs.",
+    "status": "PASS"
+  }
+}
