@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Conditioning on the iterate reduces the source sampling rule to simple random sampling without replacement from the complement of the fixed persistent set. The finite-population second moment is derived directly from first- and second-order inclusion probabilities. Both source estimators are affine functions of the same fresh sample mean, so the bias, variance, interpolation MSE, and threshold formulas follow exactly. The MSE is a strictly convex quadratic whenever the fresh-sample variance is nonzero, and its derivative at full correction is positive.
+PASS
 
-## Originality
+Condition on one fixed gradient population g_i, persistent R of size r, fresh S uniformly without replacement from complementary M=N-r, with s>=1, B=r+s<N. Inclusion probabilities yield E||gbar_S-b||²=(M-s)V/[s(M-1)]. The two estimators are U=(1-q)a+q gbar_S and C=(1-p)a+p gbar_S, where q=s/B, p=M/N, D=p-q>0. Their bias and variance follow by shared centered noise, giving Var(C)/Var(U)=(p/q)² if V>0. For G_t=(1-t)U+tC, MSE=(1-t)²D²||a-b||²+(q+tD)² sigma². Differentiation yields the constrained oracle t*, with t*<1 for sigma²>0, and full-correction/no-correction threshold Delta²>(p+q)sigma²/D. The 50% overlap expression reduces to (2-B/N)². Independent exact-rational subset enumeration for five populations corroborated, but the unrestricted statement uses finite-population algebra.
 
-PASS. The primary full text was inspected at its bias calculation, unbiased correction, practical warning, and convergence assumptions. Published-research searches and broader finite-population and stochastic-gradient variance literature were compared at the statement level. No inspected source gives the source-specific variance multiplier, persistent-versus-complement MSE threshold, or the exact partial-debiasing optimizer.
+## originality
 
-A residual risk is an equivalent generic shrinkage identity in older survey-sampling literature; the source-specific application and \(50\%\)-overlap consequence were not located.
+PASS
 
-## Value
+Lapucci–Pucci Section 5.1.1 analyzes the biased persistent estimator, proves a fully unbiased correction in Proposition 5.1, and reports its practical degradation in Remark 2. It does not compute the conditional variance inflation, shrinkage interpolation MSE, or oracle partial correction. Classical Horvitz–Thompson sampling yields ingredient inclusion probabilities, but not the source-specific optimized frontier as a finished mathematical statement. Generic shrinkage equivalence is a residual risk.
 
-PASS. The result directly quantifies a tradeoff that the primary source identifies as practically important but leaves analytically unresolved. It shows when the convergence-oriented correction is worth its variance cost and provides a precise intermediate design target rather than an all-or-nothing bias correction.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact conditional bias-variance frontier quantitatively explains why the source deliberately uses persistent batches yet cautions that its fully unbiased correction degrades performance. It gives a mathematically meaningful oracle tradeoff and exact variance inflation at half overlap, while acknowledging an implementability gap and no full optimization guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

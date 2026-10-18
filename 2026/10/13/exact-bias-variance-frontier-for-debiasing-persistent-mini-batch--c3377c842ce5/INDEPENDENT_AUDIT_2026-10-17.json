@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T11:13:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on one fixed gradient population g_i, persistent R of size r, fresh S uniformly without replacement from complementary M=N-r, with s>=1, B=r+s<N. Inclusion probabilities yield E||gbar_S-b||²=(M-s)V/[s(M-1)]. The two estimators are U=(1-q)a+q gbar_S and C=(1-p)a+p gbar_S, where q=s/B, p=M/N, D=p-q>0. Their bias and variance follow by shared centered noise, giving Var(C)/Var(U)=(p/q)² if V>0. For G_t=(1-t)U+tC, MSE=(1-t)²D²||a-b||²+(q+tD)² sigma². Differentiation yields the constrained oracle t*, with t*<1 for sigma²>0, and full-correction/no-correction threshold Delta²>(p+q)sigma²/D. The 50% overlap expression reduces to (2-B/N)². Independent exact-rational subset enumeration for five populations corroborated, but the unrestricted statement uses finite-population algebra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horvitz–Thompson unbiasedness generalizes inverse-probability weighting; elementary finite-population variance is available.",
+          "The source convergence theorem uses conditional unbiasedness and therefore does not automatically apply to t<1."
+        ],
+        "reasoning": "General unbiasedness and finite-population theory are proof ingredients; neither determines the particular persistent complement variance amplification or source-specific oracle interpolation.",
+        "searches": [
+          "Horvitz Thompson sampling without replacement 1952",
+          "Lapucci Pucci arXiv:2411.07102 Proposition 5.1",
+          "persistent minibatch gradient partial bias correction minimum MSE optimal shrinkage variance inflation finite sampling"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2411.07102v1 (original source full text, Section 5.1.1)",
+        "DOI:10.1007/s10589-026-00776-2 (published version)",
+        "DOI:10.1080/01621459.1952.10483446 (historical sampling context)",
+        "Resultary search: persistent minibatch gradient partial bias correction minimum MSE optimal shrinkage variance inflation finite sampling"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary Section 5.1.1 derives correction and observes it can weaken desired persistency effects, leaving biased-estimator theory for future study.",
+          "The present proof directly computes the additional sampling variance using the fixed persistent subset and optimizes a new MSE quadratic."
+        ],
+        "reasoning": "That result is not a corollary of a proof of unbiasedness alone, and the source practical observation does not imply exact optimizer t*.",
+        "searches": [
+          "arXiv:2411.07102v1 source Section 5.1.1, equation 12, Proposition 5.1, Remark 2",
+          "persistent minibatch gradient partial bias correction minimum MSE optimal shrinkage variance inflation finite sampling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source explicitly writes the original U and unbiased C but lacks a parameterized G_t and exact MSE minimization."
+        ],
+        "reasoning": "Aliases partial debiasing, reweighting, shrinkage and inverse-probability correction were compared; no direct identical final frontier was found.",
+        "searches": [
+          "persistent minibatch gradient partial bias correction minimum MSE optimal shrinkage variance inflation finite sampling",
+          "arXiv:2411.07102 mini-batch persistency unbiased estimator variance correction",
+          "persistent stochastic line search shrinkage gradient estimator MSE"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source reports empirical degradation but not an exact analytic fourfold limiting variance penalty or a threshold table."
+        ],
+        "reasoning": "The finding is a conditional all-population formula, not a restatement of a finite experimental row.",
+        "searches": [
+          "persistent minibatch gradient partial bias correction minimum MSE optimal shrinkage variance inflation finite sampling",
+          "50 percent persistent minibatch variance inflation factor 4",
+          "source 2411.07102 Proposition 5.1 MSE table"
+        ]
+      },
+      "rationale": "Lapucci–Pucci Section 5.1.1 analyzes the biased persistent estimator, proves a fully unbiased correction in Proposition 5.1, and reports its practical degradation in Remark 2. It does not compute the conditional variance inflation, shrinkage interpolation MSE, or oracle partial correction. Classical Horvitz–Thompson sampling yields ingredient inclusion probabilities, but not the source-specific optimized frontier as a finished mathematical statement. Generic shrinkage equivalence is a residual risk.",
+      "residual_risks": [
+        "A mathematically equivalent two-estimator shrinkage formula could appear under generic survey-sampling terminology.",
+        "The optimal t* depends on inaccessible full-complement contrast and dispersion; no directly implementable adaptive method or convergence guarantee follows.",
+        "Sampling at fixed iterate only: across-step dynamics, changing persistent set, line searches and training loss outside theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PROVES_UNBIASED_REWEIGHTING_NOT_CONDITIONAL_MSE_FRONTIER",
+          "evidence": "Proposition 5.1 supplies weights for correction, Remark 2 says correction weakens the effect of persistency, with no conditional sampling-variance inflation formula.",
+          "identifier_or_url": "arXiv:2411.07102 / DOI:10.1007/s10589-026-00776-2",
+          "material_read": "Full open arXiv HTML and relevant sections: persistency setup, §5.1.1 equation (12), Proposition 5.1 and proof, Remark 2, convergence conditions requiring unbiasedness.",
+          "method": "Open full source https://arxiv.org/html/2411.07102 accessed earlier and source prose examined",
+          "title": "Effectively Leveraging Momentum Terms in Stochastic Line Search Frameworks for Fast Optimization of Finite-Sum Problems",
+          "trigger": "Direct original method and empirical motivation"
+        },
+        {
+          "assessment": "BACKGROUND_GENERAL_SAMPLING",
+          "evidence": "Inverse-probability weighting supplies general unbiasedness but visible content does not show this particular fixed-persistent mixture, and full-text coverage cannot be ruled out.",
+          "identifier_or_url": "DOI:10.1080/01621459.1952.10483446",
+          "material_read": "Public abstract/bibliographic summary; entire historical primary paper not read independently.",
+          "method": "Journal bibliographic and abstract access",
+          "title": "A Generalization of Sampling Without Replacement from a Finite Universe",
+          "trigger": "General unbiased finite population variance context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact conditional bias-variance frontier quantitatively explains why the source deliberately uses persistent batches yet cautions that its fully unbiased correction degrades performance. It gives a mathematically meaningful oracle tradeoff and exact variance inflation at half overlap, while acknowledging an implementability gap and no full optimization guarantee.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2411.07102v1 (original source full text, Section 5.1.1)",
+    "DOI:10.1007/s10589-026-00776-2 (published version)",
+    "DOI:10.1080/01621459.1952.10483446 (historical sampling context)",
+    "Resultary search: persistent minibatch gradient partial bias correction minimum MSE optimal shrinkage variance inflation finite sampling"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A mathematically equivalent two-estimator shrinkage formula could appear under generic survey-sampling terminology.",
+    "The optimal t* depends on inaccessible full-complement contrast and dispersion; no directly implementable adaptive method or convergence guarantee follows.",
+    "Sampling at fixed iterate only: across-step dynamics, changing persistent set, line searches and training loss outside theorem."
+  ],
+  "residual_risks": [
+    "A mathematically equivalent two-estimator shrinkage formula could appear under generic survey-sampling terminology.",
+    "The optimal t* depends on inaccessible full-complement contrast and dispersion; no directly implementable adaptive method or convergence guarantee follows.",
+    "Sampling at fixed iterate only: across-step dynamics, changing persistent set, line searches and training loss outside theorem."
+  ],
+  "schema_version": 1
+}
