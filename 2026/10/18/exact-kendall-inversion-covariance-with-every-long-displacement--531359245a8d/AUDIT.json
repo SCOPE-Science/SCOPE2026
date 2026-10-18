@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on pi(i)=j gives the centered projection -2(i-(n+1)/2)(j-(n+1)/2)/(n-1). Covariance of inversion count with each displacement threshold is therefore an explicit sum over fixed diagonal separations. Direct evaluation gives the closed formula, positive on the complete integer domain. The layer-cake decomposition of every monotone penalty and strictly positive first differences yield the stated consequences. The finite verifier exhaustively independently compares rational covariances through n=8 and algebraic first differences through n=500; the proof does not depend on extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dimitrov–Khare arxiv:2109.09183v1 §2–8 considers moments of fixed bivincular-pattern counts, not the varying absolute positional displacement threshold",
+        "Jiang arxiv:1110.0807v1 §§4–7 studies asymptotic dependence of permutation ranking metrics and sums of displacement powers, not finite threshold-indexed inversion covariance",
+        "Diaconis–Graham 1977 publisher abstract: mean, variance, normality of footrule and I≤F≤2I; full text unavailable",
+        "Petersen–Guay-Paquet 2014 §2–5 weights Motzkin path area (total displacement), not individual threshold counts"
+      ],
+      "reasoning": "Existing broad moment methods and rank-distance comparisons may facilitate a derivation but inspected statements do not imply the fully evaluated parameterized threshold covariance and its strict sign/maximizer without further nontrivial calculation; earlier implicit coverage remains a named risk.",
+      "searches": [
+        "Uniform random permutation Kendall inversion statistic and counts of displacements exceeding distance threshold; exact covariance formula and maximizing cutoff",
+        "Uniform random permutation inversion count positively correlated with every increasing displacement statistic sum f(abs(pi(i)-i)); exact threshold displacement covariance",
+        "Permutation inversion conditional expectation given pi(i)=j; rank correlation Spearman footrule monotone class",
+        "arxiv:1110.0807v1, Kendall tau Spearman rho p metrics asymptotic correlation",
+        "arxiv:2109.09183v1, general bivincular pattern moment theorem",
+        "doi:10.1111/j.2517-6161.1977.tb01624.x, classical Kendall footrule comparison"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1110.0807v1 (full statistics-primary HTML)",
+      "arxiv:1404.4674v1 (full primary HTML)",
+      "arxiv:2109.14089v2 (full primary HTML)",
+      "arxiv:2109.09183v1 (full primary HTML)",
+      "doi:10.1111/j.2517-6161.1977.tb01624.x (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Summing new threshold covariance over t gives an identity Ekhad–Zeilberger already published, explicitly excluded",
+        "Neither total-footrule generating function nor pair (inversions, footrule) distinguishes the two n=4 witnesses for t=2",
+        "The published result titled Boundary localization of fixed-point–descent dependence concerns fixed points versus descents, not displacement thresholds versus inversions"
+      ],
+      "reasoning": "The classical summed identity is a corollary of the threshold law, and hence cannot itself be counted as novel. Conversely, the earlier summed identity alone is strictly weaker than the vector of n-1 identities plus strict monotone-penalty cone and maximizing threshold.",
+      "searches": [
+        "Spearman footrule and Kendall inversions exact covariance (n+1)(n²+1)/30; universal weighted displacement positivity",
+        "arxiv:1110.0807v1, generalized Spearman rank distances",
+        "arxiv:2109.14089v2, exact inversion-total-footrule covariance (n+1)(n^2+1)/30",
+        "arxiv:1404.4674v1, displacement-depth equivalence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2109.14089v2 § How does Spearman’s Footrule interact with number of inversions: published covariance of sum of all thresholds, (n+1)(n²+1)/30",
+        "arxiv:1404.4674v1 §1–5: marginal total-displacement generating function",
+        "n=4 permutations (2,1,4,3) and (1,3,4,2) have equal inversion and total displacement yet distinct displacement-at-least-two counts"
+      ],
+      "reasoning": "Footrule equals sum over thresholds, but its joint law with inversion count cannot reconstruct each individual threshold profile. The example proves aggregate pair statistics do not determine a specific threshold indicator pointwise; no exact threshold-specific equation found.",
+      "searches": [
+        "Spearman footrule monotone displacement costs all nondecreasing penalties positively correlate with Kendall inversion distance",
+        "Covariance inversion count with exceedance count of displacement at least t in a uniform permutation; root sqrt(3n^2-2)",
+        "arxiv:2109.14089v2, joint inversion-footrule generating function and covariance",
+        "arxiv:1404.4674v1, total displacement generating function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published result titled Incidence precision law for all inversion indicators studies pairwise comparison covariances and their precision law, not positional-displacement exceedances",
+        "The published result titled Linear inversion-gap profile for cycle count concerns permutation-cycle-count covariance, not positional-displacement magnitudes",
+        "2021 enumerated joint inversion-total-footrule polynomial, not threshold-specific weighted matrix"
+      ],
+      "reasoning": "The enumerators and tables inspected encode aggregate footrule; no threshold-indexed table or expression was discovered. Finite n values alone would not supersede the all-size formula and optimizing-cutoff law.",
+      "searches": [
+        "Uniform random permutation Kendall inversion statistic and counts of displacements exceeding distance threshold; exact covariance formula and maximizing cutoff",
+        "Covariance inversion count with exceedance count of displacement at least t in a uniform permutation; root sqrt(3n^2-2)",
+        "Published research-index semantic search for threshold Kendall inversions footrule long displacement",
+        "arxiv:2109.14089v2 § joint enumerator output tables"
+      ]
+    },
+    "rationale": "Full-text comparison with arXiv:1110.0807v1, arXiv:1404.4674v1, arXiv:2109.14089v2 and arXiv:2109.09183v1 found distribution of total displacement, its previously published exact covariance with inversion count, and general pattern-moment methods, but did not find the threshold-indexed covariance, strict all-monotone-penalty inequality, or exact maximizing threshold. The new claim explicitly excludes the known total-displacement covariance. Bounded research-index queries returned nearby inversion-indicator/cycle-count work, with no directly covering statement. Complete historical uniqueness is not claimed; unavailable old full text is disclosed.",
+    "residual_risks": [
+      "Historical priority: a broad weighted-permutation covariance method (including interpolation within generalized Spearman distances in Jiang 2011), or the inaccessible 1977 original, might implicitly contain the evaluated threshold law.",
+      "Literature search and comparisons against neighboring claims cannot prove global historical priority.",
+      "The theorem does not assert positive dependence stronger than covariance or identify correlation-optimal thresholds."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_DIRECT_COVERING: analysis of asymptotic dependence and generalized rank metrics, no exact threshold-resolved finite covariance or maximizing threshold",
+        "evidence": "arxiv:1110.0807v1 §§4,5,7; first public date 2011-10-04; primary arXiv math.ST",
+        "identifier_or_url": "https://arxiv.org/html/1110.0807v1",
+        "material_read": "Full HTML, sections 1–7 including Spearman family definition, generalized powers and statements about Kendall tau",
+        "method": "Primary arXiv HTML with full-text section comparison and threshold/displacement term search",
+        "title": "Asymptotic independence of Spearman’s uniform metric with other metrics",
+        "trigger": "Statistical primary source on joint dependence of Kendall inversion metric and Spearman distance family"
+      },
+      {
+        "assessment": "NOT_DIRECT_COVERING: total displacement rather than threshold-resolved profile",
+        "evidence": "arxiv:1404.4674v1 §§1–5; submission 2014-04-18",
+        "identifier_or_url": "https://arxiv.org/html/1404.4674v1",
+        "material_read": "Full HTML sections 1–5 and references, including area/Motzkin encoding and total-displacement law",
+        "method": "HTML text with section and term inspection",
+        "title": "The generating function for total displacement",
+        "trigger": "Combinatorial exact generating function for permutation displacement and connection to inversion metric"
+      },
+      {
+        "assessment": "COVERS_SUMMED_CASE only; threshold-specific laws and optimizer not found",
+        "evidence": "arxiv:2109.14089v2 § How does Spearman’s Footrule interact with Netto’s number of inversions; (n+1)(n²+1)/30",
+        "identifier_or_url": "https://arxiv.org/html/2109.14089v2",
+        "material_read": "Full HTML, especially section about interaction between footrule and inversions and associated 2021 postscripts",
+        "method": "HTML full text and targeted formula comparison",
+        "title": "An Experimental (yet fully rigorous!) Study of a certain Measure Of Disarray that 12-year Noga Alon Proved was always Even",
+        "trigger": "High-priority exact prior joint covariance for Kendall inversion and Spearman footrule"
+      },
+      {
+        "assessment": "General moments methodology; no directly evaluated varying-displacement-threshold inversion covariance found",
+        "evidence": "arxiv:2109.09183v1 §§2–8, theorem 4.5",
+        "identifier_or_url": "https://arxiv.org/html/2109.09183v1",
+        "material_read": "Full HTML sections on bivincular patterns, aggregate moments, explicit statistics, and comparisons",
+        "method": "HTML primary full text",
+        "title": "Moments of permutation statistics and central limit theorems",
+        "trigger": "Possible general moments theorem dominating covariance calculations"
+      },
+      {
+        "assessment": "PLAUSIBLE_UNINSPECTED_FULL_TEXT: abstract describes classical mean/variance/normality and bounding inequalities, but absence of a threshold formula cannot be certified from abstract",
+        "evidence": "Royal Statistical Society B 39 (1977), 262–268, publisher abstract; no full-text claim",
+        "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1977.tb01624.x",
+        "material_read": "Publisher abstract and metadata only. Complete original full text not accessible via bounded lawful routes.",
+        "method": "Publisher abstract comparison and bounded institutional access attempt, which returned no verified PDF",
+        "title": "Spearman’s Footrule as a Measure of Disarray",
+        "trigger": "Original 1977 foundational Kendall–Spearman comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "53135924-5a8d-4693-92e3-cf6b80874a53",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Thresholded positional displacement counts naturally retain the displacement scale lost in the classical total footrule. Proving a positive covariance for every nonconstant increasing displacement penalty supplies a robust, structural comparison of Kendall inversion discordance and a broad family of rank-error losses. The exact threshold dependence has a nontrivial interior sharp maximizer asymptotic to 0.366n, showing which displacement scale contributes the greatest covariance. This motivated profile cannot be read off from the known total-footrule covariance.",
+    "status": "PASS"
+  }
+}
