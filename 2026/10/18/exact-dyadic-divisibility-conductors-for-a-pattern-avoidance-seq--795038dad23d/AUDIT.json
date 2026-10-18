@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The known quadratic enumeration equation uniquely yields F(x)=(1-x)C(2x(1-x)^2). Legendre’s valuation proves nu_2(C_j)=s_2(j+1)-1. For each r, exactly the summands k=j+1 with k+s_2(k)<=r+1 survive. Since degrees are strictly 3k-2 and highest coefficients are nonzero modulo 2^r, the last nonzero coefficient is at n=3K(r)-2. Hence L(r)=3K(r)-1, and K=r iff the binary weight of r is 1. Modulo 32 the finite explicit residues for n<=10 and zero afterward combine with a_n<32 for n<=4 to exclude all four asked residue classes for every r>=6 and n>=0. Finite independent coefficient verification is supplementary, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rowland–Yassawi 2015 Example 3.24 presents forbidden residues and continues with Open Question 3.25.",
+        "Rowland–Zeilberger 2013 concerns a general automaton approach and a term search did not locate the same pattern pair."
+      ],
+      "reasoning": "General automatic congruence algorithms can in principle compute any fixed modulus, but an algorithm for separate precisions does not imply the closed conductor law simultaneously for every positive r. No stronger explicit general result covering this threshold was identified. Limited term search of the latter paper is not a whole-document exclusion.",
+      "searches": [
+        "Rowland Yassawi automatic congruences algebraic sequence forbidden residues 1342 2143",
+        "doi:10.5802/jtnb.901",
+        "arXiv:1311.4776",
+        "\"Rowland\" \"Yassawi\" \"Open question 3.25\" solved forbidden residues"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.5802/jtnb.901 Example 3.24, Open Question 3.25, printed p. 267",
+      "https://oeis.org/A109033",
+      "doi:10.37236/1922 abstract and bibliographic record",
+      "arXiv:1311.4776 targeted PDF search"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Le (2005) established the enumeration and generating-function equation.",
+        "Barry (2008) supplies an equivalent Catalan series expansion, from which the novel conductor evaluation is elementary but not automatic without degree, valuation, and noncancellation arguments.",
+        "Rowland–Yassawi Open Question 3.25 is an explicit prior unmet target in its published version."
+      ],
+      "reasoning": "The new theorem explicitly computes L(r), proves exactness at the last nonzero coefficient, and derives an all-precision absence theorem. The generating identity logically implies the theorem together with elementary valuation work, but prior content is not shown to make that deduction. Novelty is as an evaluated claim, not an assertion of new premises or techniques; risk of a later prior solution remains.",
+      "searches": [
+        "doi:10.37236/1922",
+        "doi:10.5802/jtnb.901",
+        "OEIS:A109033",
+        "\"A109033\" \"3r\" \"Catalan\" divisibility"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A109033 has the explicit expansion (1-x)C(2x(1-x)^2), due to Barry in December 2008.",
+        "The exact theorem computes the last nonzero coefficient modulo 2^r; this is stronger information than knowing the algebraic generating function.",
+        "Rowland–Yassawi (2015), Open Question 3.25, explicitly asks about the uniform forbidden classes."
+      ],
+      "reasoning": "A formal-power-series identity determines the answer in principle, but neither provides an evaluated final-support-degree formula, its binary-weight criterion, nor the resolution in the inspected presentation. Search compared the alternative concepts eventually zero modular sequence, conductor, dyadic polynomial degree, and Catalan digit weights.",
+      "searches": [
+        "\"A109033\" \"conductor\" \"modulo\" powers two 1342 2143",
+        "Catalan transform (1-x)C(2x(1-x)^2) coefficients modulo 32 vanish beyond index 10",
+        "OEIS:A109033",
+        "arXiv:1310.8635"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A109033 reports initial terms and the Barry Catalan substitution; its initial coefficients are consistent with a_0..a_4=1,1,2,6,22.",
+        "The 2015 question names forbidden residues 2^(r-1)+1,+2,+6,+22 for r>=6."
+      ],
+      "reasoning": "Known sequence tables and identities are used as premises and verification anchors, not republished as novel results. An initial table cannot determine the last nonzero coefficient for all moduli, and the sourced open question is genuinely quantified over all indices and exponents.",
+      "searches": [
+        "OEIS A109033",
+        "\"A109033\" \"conductor\" \"modulo\" powers two 1342 2143",
+        "\"Rowland\" \"Yassawi\" \"Open question 3.25\" solved forbidden residues"
+      ]
+    },
+    "rationale": "Le (2005) supplies the pair-avoidance generating function; A109033 explicitly supplies the Catalan substitution. Neither is claimed as new. The independently evaluated invariant L(r)=3K(r)-1 has a sharp coefficient-support proof and resolves precisely Open Question 3.25 in Rowland–Yassawi (2015), where that infinite four-residue avoidance was posed as a question. No equivalent evaluated conductor or theorem resolving the stated question was found in the searches and accessible substantive sources. Short derivability from a known generating identity and an inaccessible plausible original source are acknowledged risks, not evidence of novelty by themselves.",
+    "residual_risks": [
+      "Full text of Le (2005) was not accessible: possible unstated modular result not excluded.",
+      "The proof is elementary once the known Catalan representation is used; unnoticed prior corollary or later independent solution may cover it.",
+      "A non-exhaustive literature/semantic database search cannot establish global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "States question rather than proving the all-exponents excluded classes; provides context and demonstrates nontrivial motivation.",
+        "evidence": "Example 3.24 and Open Question 3.25 give the sequence and propose exclusion of 2^(r-1)+{1,2,6,22} for every r>=6.",
+        "identifier_or_url": "https://doi.org/10.5802/jtnb.901",
+        "material_read": "Full primary PDF searched and substantive printed pages 266–268 read, especially Example 3.24 and Open Question 3.25 on printed p. 267.",
+        "method": "Full-text PDF inspection and page-level viewing",
+        "title": "Automatic congruences for diagonals of rational functions",
+        "trigger": "Same sequence, explicit forbidden residue question"
+      },
+      {
+        "assessment": "Clearly covers Catalan generating expression; no observed evaluated exact eventual-divisibility conductor.",
+        "evidence": "F(x)=(1-x)C(2x(1-x)^2), initial terms 1,1,2,6,22; credited explicitly.",
+        "identifier_or_url": "https://oeis.org/A109033",
+        "material_read": "Visible entry including 2008 dated Barry generating formula and initial terms.",
+        "method": "Entry page and indexed excerpt inspection",
+        "title": "A109033: permutations avoiding 1342 and 2143",
+        "trigger": "Equivalent generating-function/Catalan transform and known table"
+      },
+      {
+        "assessment": "Establishes enumeration and generating functions; no whole-document novelty exclusion asserted.",
+        "evidence": "2005-05-26 public publication metadata and 2005 enumeration abstract; potential full-text coverage risk retained.",
+        "identifier_or_url": "https://doi.org/10.37236/1922",
+        "material_read": "Publisher bibliographic metadata and abstract; full paper not accessed.",
+        "method": "Publisher landing/abstract and open-access source attempts",
+        "title": "Wilf Classes of Pairs of Permutations of Length 4",
+        "trigger": "Earliest archival source and possible prior general theorem"
+      },
+      {
+        "assessment": "No matching target discovered by terms; this is limited negative evidence.",
+        "evidence": "Queries for 1342, 2143, and A109033 did not locate this target in inspected paper.",
+        "identifier_or_url": "https://arxiv.org/abs/1311.4776",
+        "material_read": "Paper PDF term search for target patterns and sequence identifier; not a full systematic read.",
+        "method": "Targeted searchable-PDF inspection",
+        "title": "A Case Study in Meta-AUTOMATION",
+        "trigger": "Nearby general congruence automata work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "795038da-d23d-42cb-9c29-dbf4f0d0840c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact index after which an integer enumerative sequence vanishes mod 2^r is a canonical 2-adic invariant. Determining this conductor at every modulus by binary digit weight gives a natural infinite classification, sharp extrema precisely at power-of-two exponents, and an explicit resolution of a published 2015 all-exponents congruence question; it is not a finite table or an arbitrary fixed-precision calculation.",
+    "status": "PASS"
+  }
+}
