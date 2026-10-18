@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "A complete independent reconstruction is in RESULT.md: signed base-five exponents lie in [-4,4] and so force digitwise cancellation, yielding a Lucas weight product (1,1,3,2,4); multiplicative character sums equal 1 for every nontrivial character, giving P_j(g)=(5^j-1)/4+1_{g=1}; each n<5^L except n=5^L-1 has a unique trailing-four suffix t and carry digit d<4; the four ratios (1,3,4,2) or (4,2,1,3) permute units and force lookup vectors a=(1,2,1,3), b=(2,4,3,4); summing suffix lengths and the endpoint gives exactly the claimed count. For L>=2 exactly eight cells have strictly positive deviation and eight negative; total positive deviation is (4L+1)/2, proving total variation. L=0,1 handled separately. The actual bundled verify.py was run and returned VERIFY_OK: exact recurrence and binomial coefficients through n=260, counts for every n<5^L at 0<=L<=7, rational TV and carry tables. This is finite corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rowland--Yassawi, arXiv:1310.8635, general automatic congruence method",
+        "Kohen, arXiv:2411.03681, Lemma 8 general offset-carry formula and Proposition 14",
+        "Deutsch--Sagan, arXiv:math/0407326, congruences modulo three"
+      ],
+      "reasoning": "Rowland--Yassawi provides a procedure to compute automata and a Lucas product; Kohen gives a general carry decomposition and zero densities of linear combinations. The finite-scale complete joint distribution is not stated as a consequence and involves exact enumeration of all carry lengths and nontrivial multiplicative-product fibers. These stronger *methods* are acknowledged, while the special explicit all-cell census and sharp total variation are not covered by any inspected statement.",
+      "searches": [
+        "Lucas product neighboring central trinomial residues automatic joint uniform total variation",
+        "five automatic central trinomial sequence consecutive pair frequencies spectral discrepancy",
+        "\"trinomial coefficients\" \"pairs\" residue modulo 5 Lucas automatic"
+      ]
+    },
+    "checked_sources": [
+      "Deutsch--Sagan (2004), arXiv:math/0407326, Section 4, Theorem 4.7 (central trinomial modulo three; digit congruence context)",
+      "Rowland--Yassawi (2013), arXiv:1310.8635, full-text Sections 4.2 and 5.1 (trinomial automata and Lucas products)",
+      "Kohen (2024), arXiv:2411.03681, Sections 1--3, Proposition 7, Lemma 8, Propositions 14--16 (offset decomposition and adjacent linear comparisons)",
+      "OEIS A002426 (central trinomial definition, sequence and bibliographic references)",
+      "Public mathematical research-record semantic queries using the distinct exact/alias phrases listed in the four checks",
+      "Accessible prior scientific claims in the archive family for the present and two earlier UTC weeks (current 106, prior 135, oldest 43): mod-eight neighbor pairs and mod-nine ternary-neighbor characterization are closest local overlaps"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rowland--Yassawi Section 5.1 proves Lucas-product existence but not this enumerated probability law",
+        "Kohen Section 3 explicitly treats T_n=T_(n+1) as a marginal event, and offers a general carry decomposition",
+        "Accessible previous independent finite-window joint results concern the ring modulo eight, not the field modulo five"
+      ],
+      "reasoning": "One-point Lucas product and general digit-carry decomposition are genuine premises and method predecessors. They do not by themselves state or algebraically imply the specific closed sixteen-cell matrix and exact (4L+1)/(2*5^L) total variation absent the new character-orthogonality and carry-suffix summation. Prior equality-events are explicitly not counted as novel. No independently located theorem with complete same-object parameters was found.",
+      "searches": [
+        "central trinomial consecutive modulo five 16 residue pairs 5^L exact discrepancy 4L+1 5^L",
+        "Lucas product neighboring central trinomial residues automatic joint uniform total variation",
+        "\"central trinomial coefficients\" \"consecutive\" \"distribution\" mod 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rowland--Yassawi, https://arxiv.org/html/1310.8635v2, Sections 4.2 and 5.1",
+        "Kohen, https://arxiv.org/html/2411.03681v2, Proposition 7 and Lemma 8",
+        "OEIS https://oeis.org/A002426"
+      ],
+      "reasoning": "Searched formulations as joint neighboring residues, automatic digit product, base-five carry pairs, and a sixteen-cell law. The general Lucas identity determines individual terms, but none of the inspected sources states the exact pair counts or TV constant. No equivalence by reparameterization of known modulo-eight/nine neighboring theorems exists because those concern different local arithmetic rings.",
+      "searches": [
+        "central trinomial coefficients modulo 5 two term patterns adjacent joint distribution digit weights 1 1 3 2 4",
+        "central trinomial consecutive modulo five 16 residue pairs 5^L exact discrepancy 4L+1 5^L",
+        "\"central trinomial\" \"consecutive\" \"modulo 5\" joint residues"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A002426 https://oeis.org/A002426, central trinomial coefficients and links",
+        "Kohen arXiv:2411.03681, Proposition 14 (only an adjacent equality-event density)",
+        "Enumerated 16 residue cells for L=0..7 in bundled verify.py as independently reproducible examples, not existing published tables"
+      ],
+      "reasoning": "The inspected OEIS entry and primary sources do not contain the all-L ordered 4x4 table. The equality-event density in Kohen is a coarsening, and the eight parity/carry adjustment cells require more information. A failed database search is not a proof of unique priority.",
+      "searches": [
+        "consecutive central trinomial coefficients modulo five exact joint residue pair counts distribution five-adic digit product",
+        "central trinomial T_n mod 5 Lucas congruence never divisible by 5 residue frequencies uniform counting",
+        "\"central trinomial numbers\" \"consecutive pairs\" residues modulo 5"
+      ]
+    },
+    "rationale": "The closest full-text sources establish the digit product, automatic residue machinery, and general offset-carry decomposition. The 2024 study explicitly covers related events such as equality of adjacent residues, which is not claimed as new. The inspected results do not assert the complete finite-window ordered 16-cell joint law with two parity lookup vectors or the exact sharp TV formula. Searches for the same object, aliases, close parameters and dominating formulations returned no equivalent source; an unindexed or implicit two-point theorem remains a real risk, so novelty is best-knowledge rather than certified.",
+    "residual_risks": [
+      "An unlocated general two-point Lucas-sequence theorem may give the same full joint law or imply it directly.",
+      "Kohen (2024) Lemma 8 is a strong precursor to the carry partition; the novelty is the explicit 16-cell finite-scale formula and sharp TV, not the underlying technique.",
+      "Search results and historical files are incomplete evidence of priority; the novelty assertion is not a formal uniqueness guarantee.",
+      "Independent mathematical or priority verification has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves modulo-three congruence and related digit criteria, but not the modulo-five ordered pair distribution or sixteen-cell total variation.",
+        "evidence": [
+          "Section 4 Theorem 4.7, central-trinomial coefficient congruence modulo three, and Corollary 4.8"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0407326",
+        "material_read": "Full publicly rendered Section 4 including Theorem 4.7, definitions and proof and neighboring Motzkin relations",
+        "method": "Read original open full-text section and theorem proof",
+        "title": "Congruences for Catalan and Motzkin numbers and related sequences",
+        "trigger": "Archival central-trinomial congruence and earliest archival antecedent"
+      },
+      {
+        "assessment": "Explicitly establishes or cites digit-factorization framework for all odd primes, and modulo-four automata; it does not state finite joint residue pair counts or exact TV formula. General constructive automaton methods are a significant mathematical predecessor.",
+        "evidence": [
+          "Section 4.2 discusses T_n mod 4",
+          "Section 5.1 explicitly states central trinomial Lucas products modulo p"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1310.8635v2",
+        "material_read": "Full text Sections 4.2 and 5.1 including central trinomial example and Lucas product theorem discussion",
+        "method": "Read open publisher-hosted arXiv HTML original full-text sections",
+        "title": "Automatic congruences for diagonals of rational functions",
+        "trigger": "Strongest archival general automatic-sequence and Lucas-product coverage"
+      },
+      {
+        "assessment": "Proves digit product and handles offsets T_n,T_(n+1); Proposition 14 includes density of equality T_n=T_(n+1) modulo p, so that marginal is covered. It does not state the finite 16-cell ordered-pair formula or sharp total variation and its uniform convergence rate.",
+        "evidence": [
+          "Proposition 7 is Lucas product",
+          "Lemma 8 is general offset-carry decomposition",
+          "Proposition 14 treats density for T_(n+1)-T_n zero modulo p"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2411.03681v2",
+        "material_read": "Original publicly accessible Sections 1--3: Proposition 7, Lemma 8, zero-density analyses in Corollaries 10 and 13 and Propositions 14--16",
+        "method": "Read primary full-text displayed statements, definitions and derivations",
+        "title": "Density and Symmetry in the Generalized Motzkin Numbers mod p",
+        "trigger": "Highly relevant later general offset decomposition that could potentially cover neighboring residues"
+      },
+      {
+        "assessment": "Confirms the natural classical sequence and individual formulas; no identified table of the 16 ordered mod-five neighbor counts. The page is not a proof of absent literature.",
+        "evidence": [
+          "Central trinomial coefficients A002426 and associated references"
+        ],
+        "identifier_or_url": "https://oeis.org/A002426",
+        "material_read": "Sequence definition, formulas, comments and linked mathematical reference descriptions as published on the sequence page",
+        "method": "Reviewed accessible entry and its relevant linked literature metadata",
+        "title": "OEIS A002426: Central trinomial coefficients",
+        "trigger": "Possible preexisting table of residue pair statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1442156f-fe8a-4759-9af7-3be5b7ac059b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural ordered neighbor statistic measures carry-generated correlations not determined by marginal residue counts. It gives the complete 16-value frequency table at every base-five scale, the exact first scale L=2 at which every pair is represented, and the sharp O(L/5^L) distance to uniformity including its exact coefficient, not merely limiting existence. This resolves a canonical two-point distribution question for classical central trinomial numbers and can serve as an exact benchmark for automatic-congruence pair statistics. Its limited modulus and length-two scope are acknowledged; no downstream theorem is asserted.",
+    "status": "PASS"
+  }
+}
