@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The lower one-standard-deviation endpoint is strictly below the Pareto support edge for every \(\alpha>2\), so the central probability reduces to one exact survival-function evaluation. Two strict applications of \(\log(1+x)>x/(1+x)\) prove the global lower bound, and a direct Taylor expansion gives the unattained limit and first correction. The proof covers every scale \(a>0\) and every finite-variance shape \(\alpha>2\).
+## correctness
 
-## Originality
-PASS. The closest Pareto mean-threshold paper fixes a multiple of the mean and does not use variance. The closest Pareto standardized-deviation paper proves that the infimum of the *outside* probability is zero by taking shape down to \(2\); that is the opposite extremal direction and does not imply a lower bound on central mass. Targeted searches for the exact constant and equivalent formulations, plus comparison with the existing related records, did not locate a covering statement. A differently indexed elementary observation remains a residual risk.
+PASS
 
-## Value
-PASS. Exact one-standard-deviation central-mass infima are an active variation-comparison question for classical distribution families. The theorem completes the corresponding finite-variance Pareto type-I problem with a sharp constant, nonattainment, and the first asymptotic defect term, while clarifying the contrast with the known anti-concentration endpoint at shape \(2\).
+For Pareto scale a>0, shape alpha>2, mu=alpha a/(alpha-1), sigma=a sqrt(alpha)/((alpha-1)sqrt(alpha-2)), so mu-sigma<a since sqrt(alpha/(alpha-2))>1. Therefore the standardized one-sigma central mass equals 1-A_alpha^-alpha, where A_alpha=alpha/(alpha-1)*(1+1/sqrt(alpha(alpha-2))). For x>0 log(1+x)>x/(1+x); applied to 1/(alpha-1) and 1/sqrt(alpha(alpha-2)), each contributes >1/alpha to log A, giving alpha log A>2. As alpha->infinity, log A=2/alpha+1/alpha^2+7/(6alpha^3)+..., hence central mass=1-e^-2+e^-2/alpha+O(alpha^-2). Strict inequality and convergence establish sharp unattained infimum for all scales/shapes, not a generic Chebyshev bound. Independently evaluated 7 shapes including alpha=10000; finite checks corroborate.
 
-## Closest literature and limitations
-Li, Hu, and Zhou (arXiv:2305.02114) study the Pareto probability below a fixed multiple of its mean. Hu, Song, and Tan (arXiv:2401.09998) study Pareto standardized tail anti-concentration and obtain a zero tail infimum. Sun, Hu, and Sun study the central one-sigma infimum for Gamma laws. None of these inspected statements covers the Pareto central-mass infimum proved here. The result is restricted to the one-sigma radius and does not assert arbitrary-radius behavior.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source studying fixed multiples of mean optimizes P(X<=k E X), a different functional; 2024 Pareto anti-concentration source proves inf over shape of outside-one-sigma mass is zero, which bounds supremum of central mass, not its infimum. No matched exact shape infimum found within material actually inspected.
+
+## value
+
+PASS
+
+The exact worst-case one-standard-deviation coverage is a natural shape-uniform concentration guarantee for a canonical heavy-tailed law, with a sharp attainable-status and first asymptotic correction. It fills the Pareto analogue of documented family-specific central-mass optimization questions; the exact value is not implied by the previously established complementary infimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

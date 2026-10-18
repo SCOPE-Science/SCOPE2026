@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:15:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Pareto scale a>0, shape alpha>2, mu=alpha a/(alpha-1), sigma=a sqrt(alpha)/((alpha-1)sqrt(alpha-2)), so mu-sigma<a since sqrt(alpha/(alpha-2))>1. Therefore the standardized one-sigma central mass equals 1-A_alpha^-alpha, where A_alpha=alpha/(alpha-1)*(1+1/sqrt(alpha(alpha-2))). For x>0 log(1+x)>x/(1+x); applied to 1/(alpha-1) and 1/sqrt(alpha(alpha-2)), each contributes >1/alpha to log A, giving alpha log A>2. As alpha->infinity, log A=2/alpha+1/alpha^2+7/(6alpha^3)+..., hence central mass=1-e^-2+e^-2/alpha+O(alpha^-2). Strict inequality and convergence establish sharp unattained infimum for all scales/shapes, not a generic Chebyshev bound. Independently evaluated 7 shapes including alpha=10000; finite checks corroborate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gamma shape-family central-mass optimization is for a different distribution; Pareto outside-sigma infimum 0 does not give the bound central mass >=1-e^-2."
+        ],
+        "reasoning": "Neither related family nor the complementary Pareto anti-concentration supremum is a dominating result for this sharp lower envelope.",
+        "searches": [
+          "Resultary semantic: Pareto one-sigma central probability infimum; web: Pareto one standard deviation e^-2 probability",
+          "Sun–Hu–Sun Gamma DOI 10.1186/s13660-024-03081-w"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2401.09998",
+        "https://arxiv.org/abs/2305.02114",
+        "https://doi.org/10.1186/s13660-024-03081-w",
+        "Resultary semantic search: Resultary semantic: Pareto one-sigma central probability infimum; web: Pareto one standard deviation e^-2 probability"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "P(|X-mu|>=sigma) has zero inf as alpha↓2, implying sup coverage 1; target inf coverage occurs as alpha→∞ and is strictly less than 1."
+        ],
+        "reasoning": "The two extrema have opposite order and different optimizing boundaries; prior work does not mechanically imply the target.",
+        "searches": [
+          "Resultary semantic: Pareto one-sigma central probability infimum; web: Pareto one standard deviation e^-2 probability",
+          "Hu–Song–Tan 2024 p.9 Proposition 3.6",
+          "Sun–Hu–Sun Gamma 2024 introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-sigma coverage equals 1 minus upper Pareto tail because lower endpoint precedes support; anti-concentration is outside sigma event with infimum zero, a different extremization direction."
+        ],
+        "reasoning": "Equivalent formulations central-mass minimization, upper-tail max over Pareto shape, and standardized interval coverage distinguish inf/sup precisely.",
+        "searches": [
+          "Resultary semantic: Pareto one-sigma central probability infimum; web: Pareto one standard deviation e^-2 probability",
+          "Hu–Song–Tan arXiv:2401.09998 Proposition 3.6",
+          "Li–Hu–Zhou arXiv:2305.02114 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No named exact Pareto one-sigma central-mass infimum table identified; prior probabilities involve outside tail min or fixed mean multiplicative threshold."
+        ],
+        "reasoning": "The claim is an all-shape analytic infimum, not finite table interpolation; a source might state the same exact constant under an alias, retained as risk.",
+        "searches": [
+          "Resultary semantic: Pareto one-sigma central probability infimum; web: Pareto one standard deviation e^-2 probability",
+          "Hu–Song–Tan 2024 Proposition 3.6",
+          "Li–Hu–Zhou 2023 arXiv abstract"
+        ]
+      },
+      "rationale": "The source studying fixed multiples of mean optimizes P(X<=k E X), a different functional; 2024 Pareto anti-concentration source proves inf over shape of outside-one-sigma mass is zero, which bounds supremum of central mass, not its infimum. No matched exact shape infimum found within material actually inspected.",
+      "residual_risks": [
+        "Li–Hu–Zhou full eight-page arXiv text could not be accessed and authorized institutional access returned vpn_disconnected; abstract alone cannot justify whole-document NOT_COVERING.",
+        "Elementary Pareto formula may have been independently observed under insurance/risk terminology not reached by targeted searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COMPLEMENTARY_OPPOSITE_EXTREMUM",
+          "evidence": "Proposition3.6 establishes inf of outside-sigma probability equals zero, not inf of inside-sigma probability.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.09998",
+          "material_read": "Open full 15-page PDF; read Pareto Section 3.6 and Proposition 3.6, pp.9–10 plus scope",
+          "method": "Primary arXiv PDF reading and page screenshot",
+          "title": "On the anti-concentration functions of some familiar families of distributions",
+          "trigger": "Same Pareto one-sigma standardized interval and possible broad coverage"
+        },
+        {
+          "assessment": "PLAUSIBLE_UNREAD_FULL_TEXT_PRIORITY_RISK",
+          "evidence": "Abstract describes P(X<=E X), not variance-scaled interval, but inaccessible full text could contain extra results.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.02114",
+          "material_read": "Public arXiv abstract and study scope only; primary PDF/HTML unavailable after multiple lawful OA attempts; authorized full-text connection disconnected",
+          "method": "arXiv PDF and HTML attempts, public abstract, authorized institution unavailable",
+          "title": "A study on the Weibull and Pareto distributions motivated by Chvátal’s theorem",
+          "trigger": "Same Pareto family and optimization, plausible stronger primary source"
+        },
+        {
+          "assessment": "OTHER_FAMILY",
+          "evidence": "Main stated results concern Gamma rather than Pareto shape-dependent one-sigma coverage.",
+          "identifier_or_url": "https://doi.org/10.1186/s13660-024-03081-w",
+          "material_read": "Full open publisher HTML introduction and problem formulations read; Gamma theorem scope compared",
+          "method": "Open-access publisher HTML primary text",
+          "title": "The infimum values of two probability functions for the Gamma distribution",
+          "trigger": "Analogous standardized central-mass infimum motivation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact worst-case one-standard-deviation coverage is a natural shape-uniform concentration guarantee for a canonical heavy-tailed law, with a sharp attainable-status and first asymptotic correction. It fills the Pareto analogue of documented family-specific central-mass optimization questions; the exact value is not implied by the previously established complementary infimum.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2401.09998",
+    "https://arxiv.org/abs/2305.02114",
+    "https://doi.org/10.1186/s13660-024-03081-w",
+    "Resultary query: Resultary semantic: Pareto one-sigma central probability infimum; web: Pareto one standard deviation e^-2 probability"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Li–Hu–Zhou full eight-page arXiv text could not be accessed and authorized institutional access returned vpn_disconnected; abstract alone cannot justify whole-document NOT_COVERING.",
+    "Elementary Pareto formula may have been independently observed under insurance/risk terminology not reached by targeted searches.",
+    "Public record metadata retains operational provenance; scientific completion does not imply public-file readiness.",
+    "Finite checker calculations are bounded consistency tests; the all-parameter assertions are supported by mathematical reasoning, not only empirical checks."
+  ],
+  "schema_version": 1
+}
