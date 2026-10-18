@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T02:08:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 8 codewords, projection onto any 3 consecutive coordinates must be injective: matching those bits gives two equal adjacent pair symbols and distance at most n-2; this also realizes symbol-pair Singleton bound |C|<=8. Summing pair-distances over all 28 pairs yields <=24n by minimum collisions of four 2-bit patterns per position, hence 28(n-1)<=24n and n<=7. For each n=3,..,7, translating to contain zero converts an arbitrary code to a seven-clique of a finite forward-adjacency graph on the eligible nonzero vectors. The complete increasing-order clique recursion (no heuristic pruning) finds through-zero counts 1,1,5,4,2; every set is XOR-closed and thus a 3-plane. Coset translation gives exact labeled numbers 1,2,20,32,32. Independent C++ code reconstructed the compatibility graphs from the metric, every clique and closure without assuming linearity, producing all five counts. n=7 sharpness checks the distinct 00-position profile; the general result uses the exhaustive bounded reduction, not a finite sample extrapolation.",
+      "risk": "Applies only to binary 8-word cyclic pair metric with threshold n-1; not a general classification of all MDS pair codes. Enumerated finite lengths cover all n>=3 via explicit Plotkin-type bound.",
+      "sources": [
+        "Frozen RESULT.md blob 58368b3caccff5ee89e9975fc0228a5145f893e5",
+        "verify_graph.py e80a926e3f9d1e8c332fd45aad276d3eef7f0d8c",
+        "Independent full n=3..7 7-clique enumerator and closure checker"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kurz Theorem 4.2 covers uniqueness up to isomorphism of **linear** three-dimensional codes, whereas unrestricted nonlinear candidates need separate enumeration. n=5 unrestricted case is covered by Resultary and n=6 by a separate specific record."
+        ],
+        "reasoning": "Known linear classification and special length cases are properly subclaims; none of the inspected source theorems yields the unrestricted all-length rigidity or endpoint n=7.",
+        "searches": [
+          "eight-word binary symbol-pair maximum distance n minus 1 nonlinear affine codes length 3 through 7 classification",
+          "Sascha Kurz, Linear codes for b-symbol read channels attaining the Griesmer bound (2025), Section 4 and Theorem 4.2, https://epub.uni-bayreuth.de/8523/1/work_symbol_pair.pdf",
+          "Resultary/2026, 2026/10/4/SCOPE-exact-classification-of-binary-length-five-mds-symbol-pair-codes--2810c6c286b8/RESULT.md (full text independently read)"
+        ]
+      },
+      "checked_sources": [
+        "Y. M. Chee et al., Maximum Distance Separable Codes for Symbol-Pair Read Channels, IEEE TIT 2013, DOI:10.1109/TIT.2013.2276615",
+        "Sascha Kurz, Linear codes for b-symbol read channels attaining the Griesmer bound (2025), Section 4 and Theorem 4.2, https://epub.uni-bayreuth.de/8523/1/work_symbol_pair.pdf",
+        "Resultary/2026, 2026/10/4/SCOPE-exact-classification-of-binary-length-five-mds-symbol-pair-codes--2810c6c286b8/RESULT.md (full text independently read)",
+        "Yang–Li–Feng arXiv:1607.02677; Plotkin bounds and constructions",
+        "The separate assigned n=6 record (same batch) explicitly credited, not falsely labeled a novelty of this combined result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Singleton bound 8 limits cardinality, not structures of maximizers. Linear uniqueness does not exclude an unrelated nonlinear maximizer. n=5 alone does not imply n=7."
+        ],
+        "reasoning": "Candidate claims genuinely stronger universal quantification and an exhaustive finite range; prior special cases are explicitly acknowledged.",
+        "searches": [
+          "eight-word binary symbol-pair maximum distance n minus 1 nonlinear affine codes length 3 through 7 classification",
+          "Chee et al. Theorem 2.1",
+          "Sascha Kurz, Linear codes for b-symbol read channels attaining the Griesmer bound (2025), Section 4 and Theorem 4.2, https://epub.uni-bayreuth.de/8523/1/work_symbol_pair.pdf",
+          "Resultary/2026, 2026/10/4/SCOPE-exact-classification-of-binary-length-five-mds-symbol-pair-codes--2810c6c286b8/RESULT.md (full text independently read)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Binary cyclic pair distance is the size of the support union of a difference word and its cyclic translate; the source uses same metric as Chee and symbol-pair papers."
+        ],
+        "reasoning": "The universal statement quantifies over arbitrary subsets, not only linear subspaces or cyclic linear ideals.",
+        "searches": [
+          "eight-word binary symbol-pair maximum distance n minus 1 nonlinear affine codes length 3 through 7 classification",
+          "arXiv:1211.1728",
+          "arXiv:1607.02677"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary n=5: exactly 20 labeled all affine; older linear construction/uniqueness data do not count nonlinear n=7 candidates."
+        ],
+        "reasoning": "Matching the n=5 entry is prior coverage and is not the novelty premise; the complete five-length classification has uncovered scope.",
+        "searches": [
+          "eight-word binary symbol-pair maximum distance n minus 1 nonlinear affine codes length 3 through 7 classification",
+          "Resultary/2026, 2026/10/4/SCOPE-exact-classification-of-binary-length-five-mds-symbol-pair-codes--2810c6c286b8/RESULT.md (full text independently read)",
+          "Linear code tables of Kurz Section 4"
+        ]
+      },
+      "rationale": "Chee et al. already give the Singleton-type ceiling. Sascha Kurz Section 4/Theorem 4.2 establishes a unique isomorphism class within **linear** binary [n,3,n-1] pair codes for 3<=n<=7; this does not force arbitrary nonlinear 8-word codes to be affine. A previously published Resultary record completely covers the n=5 count 20 and affine structure, and the separate length-six result is expressly credited by this source. The surviving contribution is the universal no-nonlinear theorem over the entire feasible n=3..7 range together with the other unrestricted counts and n=7 endpoint. Source RESULT mistakenly credits the Kurz paper to Luo–Ezerman–Güneri–Özbudak; that bibliographic attribution needs correction before any public use, without changing the mathematical conclusion.",
+      "residual_risks": [
+        "Potential unindexed nonlinear all-length classification or 2024 equiweight-paper overlap; the full Liang–Liu (2024) article not read.",
+        "Cited bayreuth full paper is by Sascha Kurz; RESULT.md author attribution to Luo et al. is inaccurate and should be corrected if a legitimate scientific revision is authorized."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bounds code cardinality and discusses constructions; the read theorem does not classify all unrestricted eight-word maximizers",
+          "evidence": [
+            "Pair-metric Singleton bound |C|<=2^(n-d_p+2)"
+          ],
+          "identifier_or_url": "DOI:10.1109/TIT.2013.2276615",
+          "material_read": "Full accessible nine-page PDF, pair metric and Theorem 2.1 Singleton bound",
+          "method": "Accessible public primary PDF with text and page inspection",
+          "title": "Maximum Distance Separable Codes for Symbol-Pair Read Channels",
+          "trigger": "same pair metric and Singleton-bound equality"
+        },
+        {
+          "assessment": "Its isomorphism classification is explicitly linear; author is Sascha Kurz (not the names attributed in candidate reference)",
+          "evidence": [
+            "Theorem 4.2 small binary linear codes, unique linear isomorphism classes"
+          ],
+          "identifier_or_url": "https://epub.uni-bayreuth.de/8523/1/work_symbol_pair.pdf",
+          "material_read": "Accessible full paper, Section 4, Theorem 4.2 and following remarks read",
+          "method": "Public PDF full text and page inspection",
+          "title": "Linear codes for b-symbol read channels attaining the Griesmer bound",
+          "trigger": "same [n,3,n-1] binary pair parameters"
+        },
+        {
+          "assessment": "Covers n=5 exactly including affine rigidity and count20; does not cover n=7",
+          "evidence": [
+            "20 labeled five-bit maxima, 5 linear directions each four cosets"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-classification-of-binary-length-five-mds-symbol-pair-codes--2810c6c286b8",
+          "material_read": "Full RESULT.md read including proof and labeled orbit data",
+          "method": "Authorized read of published mathematical RESULT text",
+          "title": "Exact classification of binary length-five MDS symbol-pair codes",
+          "trigger": "published exact n=5 unrestricted overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete feasible-length, all-codeword, no-nonlinear classification is a natural equality-case theorem for a central Singleton information-theoretic bound. It unifies the entire finite n range and proves the positive endpoint n=7 by exhaustive justified finite reduction; not solely recomputing prior n=5/n=6 table entries.",
+      "risk": "Finite code size and alphabet only; the n=5 case and separate n=6 count individually have prior coverage.",
+      "sources": [
+        "Chee et al. Singleton bound",
+        "Explicit all-length graph census with closure proof",
+        "Earlier n=5 Resultary classification used as credited subcase"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Applies only to binary 8-word cyclic pair metric with threshold n-1; not a general classification of all MDS pair codes. Enumerated finite lengths cover all n>=3 via explicit Plotkin-type bound.",
+    "Finite code size and alphabet only; the n=5 case and separate n=6 count individually have prior coverage.",
+    "Potential unindexed nonlinear all-length classification or 2024 equiweight-paper overlap; the full Liang–Liu (2024) article not read.",
+    "Cited bayreuth full paper is by Sascha Kurz; RESULT.md author attribution to Luo et al. is inaccurate and should be corrected if a legitimate scientific revision is authorized."
+  ],
+  "schema_version": 1
+}

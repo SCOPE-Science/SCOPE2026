@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the eight-codeword Singleton ceiling by injecting the code into any three consecutive coordinates, and it rules out lengths above seven by an explicit 28-pair / four-symbol convexity count. Normalizing by XOR translation is a genuine pair-metric isometry. For every remaining length, every admissible code through zero is exactly a seven-clique of the explicitly defined finite graph; the forward-neighbor recursion enumerates every such clique without omission. Its code checks all counted codeword sets for XOR closure. A distinct all-linear-subspace enumeration matches the through-zero counts, and a 78,125-case endpoint enumeration checks the length-seven conclusion independently. The total labeled counts then follow by counting affine cosets. Re-run the supplied actual files, not detached logs; all three succeed.
+PASS
 
-## Originality — PASS, with stated uncertainty
+For 8 codewords, projection onto any 3 consecutive coordinates must be injective: matching those bits gives two equal adjacent pair symbols and distance at most n-2; this also realizes symbol-pair Singleton bound |C|<=8. Summing pair-distances over all 28 pairs yields <=24n by minimum collisions of four 2-bit patterns per position, hence 28(n-1)<=24n and n<=7. For each n=3,..,7, translating to contain zero converts an arbitrary code to a seven-clique of a finite forward-adjacency graph on the eligible nonzero vectors. The complete increasing-order clique recursion (no heuristic pruning) finds through-zero counts 1,1,5,4,2; every set is XOR-closed and thus a 3-plane. Coset translation gives exact labeled numbers 1,2,20,32,32. Independent C++ code reconstructed the compatibility graphs from the metric, every clique and closure without assuming linearity, producing all five counts. n=7 sharpness checks the distinct 00-position profile; the general result uses the exhaustive bounded reduction, not a finite sample extrapolation.
 
-The comparison distinguishes unrestricted **nonlinear-allowed** codes from the prior existence and uniqueness-up-to-isomorphism result for **linear** binary three-dimensional codes. Chee et al. (2013) establish Singleton bounds and MDS constructions. Yang–Li–Feng (2016) analyze Plotkin bounds and constructions. Luo–Ezerman–Güneri–Özbudak, Section 4, Theorem 4.2 and its following remark, give a unique linear isomorphism class for the small dimensions, but do not assert that every eight-word nonlinear candidate is affine or give the complete labeled unrestricted counts. Prior related work already obtains length-six affine rigidity and its count of 32; that case is not treated as a separate novel assertion. Search results on the precise claim and aliases did not yield a dominating full unrestricted theorem. Some later plausible sources could not be read completely; lack of search hits alone is not evidence of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-This resolves the natural **entire feasible range** of binary three-bit-payload, Singleton-optimal cyclic pair-read codes: there are no nonlinear extremizers and only five finite length cases, with exact design multiplicities. It is a complete structural classification for the endpoint of an information-theoretic bound, rather than a random numerical parameter. In practical terms there is no alternative nonlinear optimal design to the known affine families at this high-redundancy-distance boundary. The count for length six was previously known and is included solely to complete the classification.
+Chee et al. already give the Singleton-type ceiling. Sascha Kurz Section 4/Theorem 4.2 establishes a unique isomorphism class within **linear** binary [n,3,n-1] pair codes for 3<=n<=7; this does not force arbitrary nonlinear 8-word codes to be affine. A previously published Resultary record completely covers the n=5 count 20 and affine structure, and the separate length-six result is expressly credited by this source. The surviving contribution is the universal no-nonlinear theorem over the entire feasible n=3..7 range together with the other unrestricted counts and n=7 endpoint. Source RESULT mistakenly credits the Kurz paper to Luo–Ezerman–Güneri–Özbudak; that bibliographic attribution needs correction before any public use, without changing the mathematical conclusion.
 
-## Limits and residual risks
+## value
 
-The exhaustive classification is small and fully reproducible but depends on running inspectable finite-search code; the supplied proof explains completeness. No claims about other code sizes, alphabet sizes, or read widths follow. The 2024 equiweight-code paper was available at abstract level but its full text could not be read. An additional 2020 source includes a length-seven optimal example but the PDF could not be fully retrieved; earlier unindexed enumerations remain a risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete feasible-length, all-codeword, no-nonlinear classification is a natural equality-case theorem for a central Singleton information-theoretic bound. It unifies the entire finite n range and proves the positive endpoint n=7 by exhaustive justified finite reduction; not solely recomputing prior n=5/n=6 table entries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
