@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The four-mode normal form and the equality of its parameter with fermionic Gaussian fidelity are published theorems. Gaussian-unitary invariance reduces the calculation to the vacuum/full-occupancy family. Substituting the four-mode value into the published exact convolution formula gives \(\nu_2=1-3t+3t^2/2\) with \(t=F_{\mathrm G}(1-F_{\mathrm G})\). The derivative is strictly negative for \(0\le t\le1/4\), so \(11/32\) is the exact minimum purity. A direct Majorana-convolution replay corroborates the normalization but is not used as the proof.
+## correctness
 
-## Originality
-**PASS.** The closest 2026 source proves a universal upper bound, explicitly leaves finite-size tightness open, and gives the cat-state value only inside a special family. Dias--Koenig supply the complete four-mode Gaussian-fidelity normal form but do not contain the later convolution entropy. Lyu--Bu study a four-qubit convolution family numerically without a global exact maximum. Exact-constant, alias, broader-coverage, and implication searches found no covering theorem. The main residual risk is a very recent or differently indexed note combining the same two ingredients.
+PASS
 
-## Value
-**PASS.** The theorem answers the first nontrivial finite-size instance of an open tightness question, identifies the exact extremal orbit, and relates the order-two convolution entropy to Gaussian fidelity by a closed formula. It also proves that the universal upper bound is already strict at \(N=8\) Majoranas by an explicit gap \(\ln(1408/729)\).
+Dias--Koenig Theorems 5.4,5.6 reduce all pure even-parity four-mode states by Gaussian-unitary invariance to vacuum/full superposition with squared first amplitude p=F_G in [1/2,1]. Hoshino--Matsuda--Ashida Supplement Eq. S90 gives nu2=(p^2+r)^2+(q^2+r)^2+(2^(n-1)-2)r^2+2r with r=4pq/2^n. At n=4 r=pq/4; expansion gives 1-3t+3t^2/2 for t=pq. For 0<=t<=1/4, derivative -3+3t<0, hence min purity 11/32 iff p=1/2, maximal M2 ln(32/11). At eight Majoranas HMA bound N ln(4/3)-ln(16/9) equals 6 ln(4/3), whose difference is ln(1408/729)>0. Checked rational algebra and published exact S90--S93, not relying on checker exit log.
 
-## Closest literature and limitations
-The closest sources are Hoshino--Matsuda--Ashida for the universal bound and special-family convolution formula, Dias--Koenig for the four-mode Gaussian-fidelity normal form, and Lyu--Bu for convolution-based non-Gaussianity measures. The theorem is restricted to positive-parity pure states of four complex fermionic modes and Rényi order two; it does not classify mixed states, higher orders, or larger systems.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+HMA Supplement S90/S91 and S93 **already explicitly publish** cat_4 purity 11/32 and its entropy ln(32/11), and the universal bound; these numerical values are prior, not newly discovered. Dias--Koenig supplies the independent all-state four-mode fidelity normal form. The surviving contribution is the global extremum and equality classification for *every* even-parity four-mode state, and the closed polynomial in fidelity. HMA explicitly calls finite-N tightness open in the main article; no original source located combining both into this global theorem.
+
+## value
+
+PASS
+
+A global extremal resource value on the first nontrivial fermionic magic system is directly motivated by HMA's finite-size tightness question. Although the cat-state value was published, proving it is the maximum among all four-mode states (and classifying all maximizers by F_G) is an exact natural optimization with potential calibration use; not claimed as a new cat-state evaluation or higher-mode bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
