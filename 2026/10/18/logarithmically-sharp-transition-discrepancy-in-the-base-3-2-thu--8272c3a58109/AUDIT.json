@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The source equation t(3m)=t(3m+1)=t(2m), t(3m+2)=1-t(2m+1) gives the stated first-difference recursion. Summing yields an exact E(n) formula, which after two steps has offsets (0,0,-2,1,1,-1,-1,2,0) and index contraction by 4/9. For n=9m+7, E(n)=E(4m+3)+2. Starting with 5a_j+1=4^(j+epsilon), j successive affine moves g(u)=(9u+1)/4 remain legal and land at b_j; thus E(b_j)-E(a_j)=2j. Both endpoints are <=9^j. The checker reconstructs the first 150000 original letters, checks every prefix error and two-step case in that interval, and tests 120 exact large-integer witness chains. The infinite claim follows from the algebraic proof, not finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cassaigne–Karhumäki (1997), Theorem 7 as reproduced in arXiv:2602.21895, concerns factor complexity exponent for (p,q)-Toeplitz words.",
+        "The 2026 paper documents regular Toeplitz unique ergodicity, not prefix error bounds.",
+        "Adamczewski (2003), Balances for fixed points of primitive substitutions, is cited in the source; the present alternating block construction is not asserted to be a primitive fixed point."
+      ],
+      "reasoning": "Uniform recurrence, regularity and existence of density do not imply logarithmic discrepancy lower bounds. The accessible general Toeplitz result is about distinct factors, not a stronger error bound. Original general balance literature was not comprehensively accessible, giving a residual priority risk.",
+      "searches": [
+        "Toeplitz words logarithmic letter frequency discrepancy optimal sharp",
+        "regular Toeplitz word frequency discrepancy lower bounds logarithmic unbounded partial sums matrix p q",
+        "Cassaigne Karhumäki Toeplitz generalized periodicity frequency balance theorem"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2602.21895 full accessible HTML Eq.(6), Section 2.1 and Section 4",
+      "arxiv:2301.13563 abstract and contextual source inspection",
+      "OEIS A244040 as returned by targeted sequence-table search",
+      "Cassaigne–Karhumäki (1997) Theorem 7 as quoted and precisely stated in arxiv:2602.21895"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2602.21895, equation (6) and Section 2.1 equation (8)/Proposition 11 contain the foundational recurrence and density.",
+        "Dekking, arXiv:2301.13563, concerns a sibling sequence from the unnormalized representation; arXiv:2602.21895 Section 1.4 makes the distinction explicit."
+      ],
+      "reasoning": "The new sharp-order result implies convergence to 2/5 but not conversely. Its source recurrence provides raw data, as recurrences do for many unproved properties; the substantial missing implication is the exact iterated r=7 arithmetic branch creating a 2j error contrast. The predecessor source has no theorem yielding that conclusion merely as a stated special case.",
+      "searches": [
+        "arxiv 2602.21895 prefix sums discrepancy log divergence Toeplitz",
+        "\"01?0?10??\" discrepancy Toeplitz",
+        "Dekking Thue Morse sequence base 3/2 transition counts frequencies"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cassaigne–Espinoza–Rigo–Stipulanti, arXiv:2602.21895, Section 2.1, Proposition 11: difference sequence is the (9,4)-Toeplitz word and has letter-1 frequency 2/5; Section 4 discusses factor frequencies.",
+        "Direct algebra shows the new E(N) measures the centered prefix count of ones in that exact difference word."
+      ],
+      "reasoning": "The equivalent prefix-discrepancy formulation was compared directly, not just by keyword. The primary result is the existence/value of an asymptotic frequency, whereas the new claim supplies explicit unbounded prefix deviations and tight logarithmic order. No corresponding quantitative claim was located.",
+      "searches": [
+        "arXiv 2602.21895 first differences Toeplitz prefix discrepancy balance logarithmic",
+        "3/2 Thue Morse factor 01 10 frequency convergence rates finite prefix cumulative error",
+        "2026 base three-halves Thue Morse transition discrepancy 9-to-4 Toeplitz"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A244040 is the digital sum of a differently normalized fractional-base system, rather than a table of maximal normalized prefix transition deviations.",
+        "The source arXiv:2602.21895 identifies separate sequence records for the sibling word, but neither quoted dataset gives the two arithmetic prefix families or their discrepancy gap."
+      ],
+      "reasoning": "The exact endpoints and their E-contrast were checked for potential table/equivalent-sequence coverage. The searched sequence pages do not give the claimed identity, nor would a finite table imply its all-j statement.",
+      "searches": [
+        "site:oeis.org \"Thue-Morse\" \"base 3/2\" discrepancy",
+        "site:oeis.org \"01?0?10??\" summatory",
+        "site:arxiv.org \"3/2\" \"Toeplitz\" \"balance\" \"discrepancy\""
+      ]
+    },
+    "rationale": "The 2026 originating paper proves Toeplitz structure and limiting first-difference frequency 2/5, but does not quantify prefix discrepancy or state any repeated-resonance lower witness. The known frequency is not claimed as new. The exact contrast E(b_j)-E(a_j)=2j and Theta(log N) maximal error require an additional arithmetic and two-scale argument; the density theorem alone cannot imply this rate. No equivalent or stronger covering result was identified in the searched mathematical records, recoverable prior claims, source full text, or targeted literature; unindexed historical priority remains a risk.",
+    "residual_risks": [
+      "The exact infinite repunit contrast may have appeared in unindexed earlier balance/discrepancy literature not accessible during this search.",
+      "General Toeplitz-balance publications were not all available in full; a stronger specialized theorem could subsume the result.",
+      "A mathematical expert has not independently validated the new proof or novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_EXISTING_DENSITY_NOT_NEW_DISCREPANCY",
+        "evidence": [
+          "Eq. (6) supplies t recurrence.",
+          "Section 2.1 identifies (9,4)-Toeplitz first difference and proves 2/5 density.",
+          "Section 4 discusses remaining factor-frequency questions without stating log-order finite-prefix oscillation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.21895",
+        "material_read": "Accessible full ar5iv text, in particular original recurrence Eq. (6), Section 2.1 Lemma 9/Proposition 11 and surrounding proof, asymptotic 2/5 computation, Section 4 including all stated factor-frequency conjectures, and reference list.",
+        "method": "Full-text inspection and term searches for discrepancy, logarithmic bounds, balance, prefix sums and rates.",
+        "title": "Symbols frequencies in the Thue–Morse word in base 3/2 and related conjectures",
+        "trigger": "Same original normalized sequence, identical first-difference word and directly relevant density theorem."
+      },
+      {
+        "assessment": "SIBLING_SEQUENCE_NOT_EXPLICIT_DISCREPANCY_THEOREM",
+        "evidence": [
+          "The 2026 paper Section 1.4 expressly distinguishes the 1/2-normalized word from Dekking’s variant.",
+          "The historical abstract gives digit-sum/substitution results and conjectures, not the claimed arithmetic prefix-error contrast."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.13563",
+        "material_read": "Abstract and relevant description of digit-normalization differences from 2026 source Section 1.4; selected original-paper PDF material was examined but no complete full-text exclusion is claimed.",
+        "method": "Primary abstract and accessible original excerpts cross-compared with full treatment in arXiv:2602.21895.",
+        "title": "The Thue-Morse sequence in base 3/2",
+        "trigger": "Historical source for related rational-base word and possible equivalence under normalization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8272c3a5-8109-4099-ad03-7a47dfe63620",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact limiting transition frequency does not determine finite-prefix deviation: bounded, logarithmic and much larger discrepancies are all logically possible. The proved explicit 2j repunit contrast demonstrates actual non-balance at logarithmic scale, while a global two-step contraction yields a matching O(log N) rate. This sharp-order convergence theorem is a natural quantitative invariant of the rational-base word and supplies a nontrivial resonance mechanism rather than an arbitrary finite table, routine relabeling, or unmotivated slice.",
+    "status": "PASS"
+  }
+}
