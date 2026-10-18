@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T19:47:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The Dirichlet gamma moment formula E prod D_i^{a_i}=Γ(m)prod Γ(1+a_i)/Γ(m+sum a_i) is valid for nonnegative indices; differentiating one/two exponents yields the log moments with correct equal-index and cross-index multiplicities. Independently simplified the displayed E(GH)-E(G)E(H) algebra to -(m-1)/((m+1)^2(m+2)), verified fourth moments for Var G=4(m-1)/((m+1)^2(m+2)(m+3)) and trigamma entropy-variance formula. Standard asymptotic H_{m+1}^{(2)}=ζ(2)-1/(m+1)+O(m^-2) yields Var H∼(π²/3-3)/m, hence the nonzero correlation limit. Independent numerical computations at m=2,3,10,100,1000 give correlations approximately -0.995711, -0.985086, -0.954857, -0.931962, -0.929024; the general assertion follows from analytic differentiation, not numerics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://doi.org/10.1214/AOP/1176994901",
+          "L’Ecuyer 1997 spacing tests compare marginal test statistics",
+          "https://arxiv.org/abs/1008.4059"
+        ],
+        "reasoning": "General exact Dirichlet moments furnish a computation method, not an existing mixed covariance/correlation result. Spacing-sum central limit theorems can entail asymptotic joint normality under conditions but need model-specific weighted-log/square cross-moment calculation to produce this constant.",
+        "searches": [
+          "https://doi.org/10.1214/AOP/1176994901",
+          "https://doi.org/10.1080/00949659708811859",
+          "https://arxiv.org/abs/1008.4059"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1008.4059",
+        "https://doi.org/10.1080/00949659708811859",
+        "https://doi.org/10.1214/AOP/1176994901",
+        "Resultary Dirichlet Greenwood Shannon exact correlation query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Royen distribution of G_m alone",
+          "L’Ecuyer unweighted log-spacing vs square-spacing tests",
+          "Differentiated gamma-moment identities (10)-(15) in source"
+        ],
+        "reasoning": "Prior marginal law does not identify covariance with another statistic. Generic differentiable Dirichlet gamma identity makes the result derivable algebraically, but not mechanically covered by a specified previously asserted mixed-statistic theorem in inspected material; the exact pair and nonzero standardized limit constitute the claim.",
+        "searches": [
+          "https://arxiv.org/abs/1008.4059",
+          "https://doi.org/10.1214/AOP/1176994901",
+          "https://doi.org/10.1080/00949659708811859"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1008.4059",
+          "https://doi.org/10.1080/00949659708811859",
+          "Source weighted log -Σ D_i log D_i"
+        ],
+        "reasoning": "Checked aliases uniform simplex Dirichlet spacing, Greenwood quadratic concentration, Shannon plug-in entropy, and Holst/L’Ecuyer sum-log spacings. The latter log-spacing statistics are unweighted Σlog D_i and not equal to Shannon weighted log ΣD_i log D_i; Royen treats Greenwood marginal.",
+        "searches": [
+          "Resultary: Greenwood statistic sample spacing Shannon entropy Dirichlet uniform exact covariance correlation",
+          "Greenwood entropy Shannon spacing covariance exact",
+          "https://arxiv.org/abs/1008.4059"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Royen’s exact Greenwood quantiles and marginal square-sum table",
+          "Source exact covariance varies with every integer m and has strong limiting correlation"
+        ],
+        "reasoning": "An exact table of Greenwood marginal quantiles cannot supply the joint entropy relation; no exact mixed-data table was found. The conclusion rests on direct comparison, not negative-search inference alone.",
+        "searches": [
+          "Resultary covariance Greenwood entropy spacing",
+          "web Greenwood spacing Shannon entropy covariance Dirichlet",
+          "arXiv:1008.4059 Royen"
+        ]
+      },
+      "rationale": "PASS (best knowledge): Greenwood statistic is known and Dirichlet moments are classical, but Royen arXiv:1008.4059 calculates the square-sum marginal distribution/quantiles rather than Shannon-entropy covariance (full manuscript inspected). Holst/L’Ecuyer study broad sum-functions; the compared log-spacing statistic is unweighted ∑log D_i, whereas entropy is -∑D_i log D_i. Search of Resultary, Dirichlet compositional data, and exact covariance aliases showed no already-stated pairwise identity and nonzero standardized limit. Generic moment differentiation alone is not an already published statement about this natural pair; possibility of hidden old formula noted.",
+      "residual_risks": [
+        "Unindexed exact mixed covariance could exist in classical Dirichlet/compositional-data literature; raw formula is accessible by standard moment differentiation.",
+        "Full L’Ecuyer/Holst primary document was not independently read in this run; abstract-level material does not license a whole-document noncoverage assertion.",
+        "Applies only to uniform Dirichlet spacings and weighted Shannon entropy, not arbitrary Dirichlet parameters/unweighted log spacing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No entropy mixed moment identified; marginal distribution and quantiles are prior art",
+          "evidence": "Royen arXiv:1008.4059",
+          "identifier_or_url": "https://arxiv.org/abs/1008.4059",
+          "material_read": "Full accessible arXiv PDF including introductory and distributional/quantile sections; text searched for entropy, Shannon, covariance",
+          "method": "Read relevant entire arXiv manuscript material and targeted text search; viewed first page",
+          "title": "The distribution of the square sum of Dirichlet random variables and a table with quantiles of Greenwood’s statistic",
+          "trigger": "same Dirichlet simplex and Greenwood object"
+        },
+        {
+          "assessment": "Unweighted sum log spacings is not the weighted Shannon entropy; whole-document exclusion not claimed from abstract",
+          "evidence": "L’Ecuyer 1997 DOI:10.1080/00949659708811859",
+          "identifier_or_url": "https://doi.org/10.1080/00949659708811859",
+          "material_read": "Accessible bibliographic/abstract text and source math description; source REVIEW reports log vs square spacing but full text not independently re-fetched this turn",
+          "method": "Read accessible material and formula distinction",
+          "title": "Tests based on sum-functions of spacings for uniform random numbers",
+          "trigger": "closest bivariate GOF statistics"
+        },
+        {
+          "assessment": "General spacing functional asymptotic methodology, not direct exact weighted covariance from inspected material",
+          "evidence": "Holst Ann. Probab. 7 (1979)",
+          "identifier_or_url": "https://doi.org/10.1214/AOP/1176994901",
+          "material_read": "Bibliographic/abstract and theorem scope through search",
+          "method": "Read abstract/metadata",
+          "title": "Asymptotic normality of sum-functions of spacings",
+          "trigger": "generic potential dominating limit theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Greenwood quadratic dispersion and Shannon evenness are canonical competing concentration summaries of simplex spacings. Exact finite-sample covariance quantifies their dependence; the striking nonzero limit -0.9287 despite O(m^-2) covariance gives usable normalization insight for joint spacing diagnostics and explains persistent dependence. The exact formula is an unknown, naturally motivated invariant beyond a generic moment calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For uniform Dirichlet(1,...,1) spacings of length m≥2, Greenwood square-sum and weighted Shannon spacing entropy have exact covariance -(m-1)/((m+1)^2(m+2)), stated exact variances, and correlation tending to -1/(2 sqrt(pi^2/3-3)) ≈ -0.928687857.",
+  "limitations": [
+    "Unindexed exact mixed covariance could exist in classical Dirichlet/compositional-data literature; raw formula is accessible by standard moment differentiation.",
+    "Full L’Ecuyer/Holst primary document was not independently read in this run; abstract-level material does not license a whole-document noncoverage assertion.",
+    "Applies only to uniform Dirichlet spacings and weighted Shannon entropy, not arbitrary Dirichlet parameters/unweighted log spacing."
+  ],
+  "schema_version": 1
+}
