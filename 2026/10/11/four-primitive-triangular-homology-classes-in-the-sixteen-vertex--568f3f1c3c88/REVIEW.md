@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The package reconstructs the exact \(94\)-tetrahedron complex and proves \(H_1\cong\mathbb Z^2\) by unimodular integer reduction, not by trusting the published homology table. Two explicit cocycles provide exact integral coordinates. Exhaustive enumeration of all graph triangles proves the \(43+86+66+65+1=261\) class distribution and primitivity of all \(218\) nonzero triangular classes.
+## correctness
 
-## Originality
-PASS. The inspected primary literature gives the manifold, bundle descriptions, homology, face vector, and exact simplicial data but not the shortest integral homology-loop spectrum. Five focused semantic publication searches did not locate the \(261\)-triangle census, the four up-to-sign primitive classes, or the singleton shortest class. The closest owned flat-manifold result is for the distinct orientable \(\mathcal G_5\) space and does not imply this rank-two pattern.
+PASS
 
-## Value
-PASS. The result computes the entire first possible simple-cycle layer of a rank-two flat-manifold homology group. The highly uneven \(86,66,65,1\) multiplicities give a concrete combinatorial stable-norm signature that is invisible from the ambient group \(H_1\cong\mathbb Z^2\) alone.
+Independently reconstructed every edge/face from the actual 94 tetrahedra, formed a 188×95 integer face-relations matrix after spanning-tree contraction and computed true Smith normal form (93 invariant factors all 1, two free factors). Checked both integer cocycles on every facial boundary, their surjectivity via two identified triangles, and exhaustive coordinates of all 449 graph triangles; counts exactly 43 null and 86+66+65+1 primitive nonzero. Simplicial graph has no simple cycle shorter than 3, so realized nonzero triangles establish systolic length 3.
 
-## Closest literature and limitations
-Lutz's 2003 geometric three-manifold paper and companion Manifold Page are the decisive exact-object sources. The result is specific to this sixteen-vertex triangulation and does not compare alternate triangulations or Euclidean metric systoles. Unindexed historical computations remain a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the previously unstated class distribution, not for the known homology and f-vector.
+
+## value
+
+PASS
+
+The full minimum combinatorial length homology spectrum in a natural minimal 16-vertex flat-manifold triangulation is a finite but structurally meaningful exact invariant: H1=Z² alone cannot determine the irregular 86,66,65,1 distribution or isolated singleton.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

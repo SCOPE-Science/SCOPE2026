@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` embeds the complete \(94\)-tetrahedron presentation and uses only the Python standard library.
+# Independent mathematical audit
 
-The one-skeleton has \(110\) edges. Contracting the fixed spanning tree leaves \(95\) cycle generators. The \(188\) triangular-face boundaries form an integral relation matrix. Unimodular unit-pivot reduction produces exactly \(93\) identity pivots with zero residual block, proving
-\[
-H_1(K;\mathbb Z)\cong\mathbb Z^2
-\]
-without torsion.
+## correctness
 
-Two explicit integral cocycles annihilate all \(188\) facial relations. Their evaluations on two cycles are \((1,0)\) and \((0,1)\), so they give exact integral homology coordinates.
+PASS
 
-The verifier enumerates every three-vertex clique. It finds \(449\) graph triangles, of which \(188\) are faces and \(261\) are nonfacial. Up to sign, their coordinates have the exact multiplicities
-\[
-(0,0):43,\quad (0,1):86,\quad (1,1):66,\quad (1,0):65,\quad (1,2):1.
-\]
-It checks that all \(218\) nonzero vectors are primitive and that the singleton class is represented only by \(\{2,4,16\}\).
+Independently reconstructed every edge/face from the actual 94 tetrahedra, formed a 188×95 integer face-relations matrix after spanning-tree contraction and computed true Smith normal form (93 invariant factors all 1, two free factors). Checked both integer cocycles on every facial boundary, their surjectivity via two identified triangles, and exhaustive coordinates of all 449 graph triangles; counts exactly 43 null and 86+66+65+1 primitive nonzero. Simplicial graph has no simple cycle shorter than 3, so realized nonzero triangles establish systolic length 3.
 
-Exact successful output:
+## originality
 
-`VERIFY_OK f=16,110,188,94 H1_Z=Z^2 graph_triangles=449 facial3=188 empty3=261 null_empty3=43 primitive_systoles=218 unoriented_class_counts=86,66,65,1 class_vectors=01|11|10|12 singleton=2,4,16`
+PASS
+
+Best-of-knowledge PASS for the previously unstated class distribution, not for the known homology and f-vector.
+
+## value
+
+PASS
+
+The full minimum combinatorial length homology spectrum in a natural minimal 16-vertex flat-manifold triangulation is a finite but structurally meaningful exact invariant: H1=Z² alone cannot determine the irregular 86,66,65,1 distribution or isolated singleton.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

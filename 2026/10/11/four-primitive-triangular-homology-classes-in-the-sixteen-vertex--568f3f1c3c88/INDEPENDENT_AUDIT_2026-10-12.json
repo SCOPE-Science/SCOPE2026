@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T17:50:50.423428Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 6fce39ed40497f614d16a6416f18bec632a3c538 and verify.py blob 0b71c77ff3c7c73e4700f0c30d4e502df34b1137, tree 44c01b9bc7e982af3c6cf60bed8f8021dd63f9a9",
+        "Independent /mnt/data/_scope06_lutz_check.py all 94 facet faces, Sympy Smith normal form 93 ones, 2 free, integer cocycles and all 449 triangles",
+        "Lutz arxiv:math/0311116v1 §5 and Table9"
+      ],
+      "rationale": "Independently reconstructed every edge/face from the actual 94 tetrahedra, formed a 188×95 integer face-relations matrix after spanning-tree contraction and computed true Smith normal form (93 invariant factors all 1, two free factors). Checked both integer cocycles on every facial boundary, their surjectivity via two identified triangles, and exhaustive coordinates of all 449 graph triangles; counts exactly 43 null and 86+66+65+1 primitive nonzero. Simplicial graph has no simple cycle shorter than 3, so realized nonzero triangles establish systolic length 3.",
+      "residual_risks": [
+        "The numerical class coordinates depend on the chosen integral cocycle basis; counts and singleton presence do not.",
+        "Claim only about this fixed triangulation and integral simple-edge homology, not metric systoles on all B2 triangulations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known ambient H1=Z² and f vector do not determine which 261 graph triangles are nonfacial or carry specific primitive homology classes."
+        ],
+        "reasoning": "The source gives structural ambient coverage but not a covering theorem translating the rank/free group into 218 shortest representatives.",
+        "searches": [
+          "arxiv:math/0311116v1 Theorems19-23 Table9",
+          "sixteen vertex graph four primitive triangular homology classes torsion simplicial complex"
+        ]
+      },
+      "checked_sources": [
+        "Triangulated Manifolds with Few Vertices: Geometric 3-Manifolds (https://arxiv.org/pdf/math/0311116)",
+        "The Manifold Page: flat_3manifolds.txt (Lutz-Manifold-Page:flat_3manifolds.txt:B2)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rank two permits infinitely many primitive H1 vectors; obtaining precisely (0,1),(1,1),(1,0),(1,2) among triangle loops and multiplicities needs new exhaustion."
+        ],
+        "reasoning": "Published B2 H1 and tetrahedron list are essential input but cannot be directly substituted as a statement of triangular systole classes.",
+        "searches": [
+          "arxiv:math/0311116v1 Table9",
+          "Lutz-Manifold-Page:flat_3manifolds.txt:B2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lutz describes B2 group, bundle type, face vector, H1; triangulated systolic class spectrum requires examining specific nonfacial triangle boundaries."
+        ],
+        "reasoning": "Natural aliases nonfacial/empty triangles, simple homology systole, first nontrivial homology loop class spectrum, sixteen-vertex B2 triangulation compared; no complete 4-class count found in material read.",
+        "searches": [
+          "arxiv:math/0311116v1 §5",
+          "Lutz-Manifold-Page:flat_3manifolds.txt:B2",
+          "sixteen vertex graph four primitive triangular homology classes torsion simplicial complex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original table lists 94 tetrahedra and f-vector; independent exact enumeration yields 218 primitive classes among 261 nonfaces."
+        ],
+        "reasoning": "The object itself is a known database triangulation, but derived homology-loop census is not a known entry in the material inspected; raw data alone does not imply the answer without rank/cocycle computation.",
+        "searches": [
+          "Lutz-Manifold-Page:flat_3manifolds.txt:B2",
+          "arxiv:math/0311116v1 Table9",
+          "sixteen vertex graph four primitive triangular homology classes torsion simplicial complex"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the previously unstated class distribution, not for the known homology and f-vector.",
+      "residual_risks": [
+        "An unindexed later census may exist; this is a deliberately limited labelled finite-complex classification.",
+        "Manifold Page exact source location identified, not re-fetched in full this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "AMBIENT_TOPOLOGY_COVERED_NOT_CLASS_CENSUS",
+          "evidence": "B2 is documented with f=(16,110,188,94) and H1=Z²; no four-class 218 primitive 3-edge cycle enumeration was located in read material.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0311116",
+          "material_read": "Original PDF §5 flat spaces and Theorems19–23/Table9 plus introduction and exact B2 entries.",
+          "method": "arXiv full PDF text with page visual inspection.",
+          "title": "Triangulated Manifolds with Few Vertices: Geometric 3-Manifolds",
+          "trigger": "Exact 16-vertex B2 triangulation with integral H1 and face vector."
+        },
+        {
+          "assessment": "EXACT_DATA_SOURCE_NOT_HOMOLOGY_CENSUS",
+          "evidence": "Face-list data defines the complex and supports recomputation but does not itself assert coordinates or multiplicities of nonfacial triangular classes.",
+          "identifier_or_url": "Lutz-Manifold-Page:flat_3manifolds.txt:B2",
+          "material_read": "The assigned package transcribes all 94 tetrahedra; independently reconstructed 16 vertices/110 edges/188 faces/94 facets and triangle census. Companion data page source identified but original full page was not freshly downloaded this run.",
+          "method": "Original reference identification + actual assigned source dataset mathematical reconstruction.",
+          "title": "The Manifold Page: flat_3manifolds.txt",
+          "trigger": "Original labelled tetrahedron dataset used in the record."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact complete triangle census and Smith normal form",
+        "Lutz primary triangulation/topology paper"
+      ],
+      "rationale": "The full minimum combinatorial length homology spectrum in a natural minimal 16-vertex flat-manifold triangulation is a finite but structurally meaningful exact invariant: H1=Z² alone cannot determine the irregular 86,66,65,1 distribution or isolated singleton.",
+      "residual_risks": [
+        "Does not compare different B2 triangulations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In Lutz’s 16-vertex flat nonorientable B2 triangulation there are 449 graph triangles, 261 nonfacial triangles, of which 218 represent primitive nonzero H1(Z) classes; their four up-to-sign classes have multiplicities 86,66,65,1 with singleton {2,4,16}, and systolic edge length 3.",
+  "limitations": [
+    "Published-finding semantic Resultary search attempted with query: sixteen vertex graph four primitive triangular homology classes torsion simplicial complex. Returned temporarily_unavailable / search_internal_error, search_completed:false. No negative search inference.",
+    "Actual Git tree and all record blobs were fetched by frozen Git identities; old same-model PASS and VERIFY_OK logs were not treated as independent proof or originality evidence."
+  ],
+  "schema_version": 1
+}
