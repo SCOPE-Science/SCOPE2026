@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete four-by-four model, product-state populations, partial transpose, and negative-eigenvalue normalization are derived explicitly. The system recurrence gives \(p_{k-1}=[1+m(1-q^{k-1})]/2\). The strict entanglement inequality factors with precisely one positive threshold, giving the entire all-index classification and the limiting logarithmic count. Algebraic and numerical checks are reproduced by `verify.py`; they corroborate rather than replace the unrestricted proof.
+## correctness
 
-**Originality — PASS, subject to priority uncertainty.** The closest direct antecedent [1] already derives the anti-thermalizing collision map and plots transient negativity, but the full main and supplemental text examined do not give the exact polarization--angle phase boundary or the entangling-collision lifetime. [2] established the equivalent partial-swap relaxation and general entangling-capability theory, while [3] studies the general input-state entangleability problem. This claim is narrowly confined to the explicit **entire reset trajectory**, its strict finite lifetime, non-revival and asymptotic divergence, and not the previously known map/PPT elements. An unindexed closed specialization or a derivation implicit in earlier literature remains a genuine priority risk.
+PASS
 
-**Value — PASS.** In the experimental model of [1], early ancilla--system negativity is observed but its disappearance is described graphically. The theorem changes that observation into an exact, physically interpretable bath-polarization and interaction-strength design boundary, including precise number of entangling strokes and the singular pure-reservoir limit. The object and threshold are natural, not a selected arbitrary parameter table.
+The 4x4 anti-exchange unitary only mixes |00> and |11>, so for a diagonal incoming system population p the reduced system map is p->q p+(1-q)(1+m)/2 and p_{k-1}=[1+m(1-q^{k-1})]/2. Under ancilla partial transpose the unique possible negative eigenvalue is in the 01/10 block, giving N_k=[m sqrt((2-h)^2+4q(1-q)h^2)-1-m^2(1-h)]_+/4 for h=q^{k-1}. Its strict positivity condition factors with one positive root h_*=(1-m^2)/[m(sqrt(1+4q(1-q))-m)], for 0<m<1; h decreases, hence the first L=ceil(log(h_*)/log q) collisions are entangling iff m>1/sqrt(1+4q(1-q)), with no late birth or revival. For m=1 every finite k has positive but vanishing negativity; for m=0 or q endpoints none. Maximization q(1-q)<=1/4 yields m>1/sqrt2 over angles, and h_*~(1-m^2)/(v-1) yields logarithmic growth. Independently constructed joint density matrices and ancilla partial transposes for five regimes up to k=17, agreeing with the formula to 1e-12; near machine precision late pure-bath positivity is analytic rather than inferred from numerical thresholding.
 
-**Limitations.** Initial system is maximally mixed; ancillas are identical diagonal states and are perfectly refreshed; the anti-exchange unitary is fixed and ideal. The claim concerns pre-reset two-qubit entanglement, not sustained steady-state entanglement or imperfect experimental implementation. The underlying relaxation and single-stroke PPT principles are pre-existing.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality comparison by actual statement and implication, with historical and unavailable-material risks recorded; no priority certification. Inspected closest prior statements use different scopes/estimands or do not directly entail this final exact claim.
+
+## value
+
+PASS
+
+The pre-reset system–ancilla entanglement lifespan of the experimentally motivated anti-thermalizing repeated-collision model is a natural measurable finite-time quantity. Exact sharp polarization/angle boundary, no-revival theorem and all-index lifetime classification refine the source's early-collision negativity plot. It does not repackage the already-known population recursion as new physics or assert steady-state entanglement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

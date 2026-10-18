@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T16:19:47.520990Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 4x4 anti-exchange unitary only mixes |00> and |11>, so for a diagonal incoming system population p the reduced system map is p->q p+(1-q)(1+m)/2 and p_{k-1}=[1+m(1-q^{k-1})]/2. Under ancilla partial transpose the unique possible negative eigenvalue is in the 01/10 block, giving N_k=[m sqrt((2-h)^2+4q(1-q)h^2)-1-m^2(1-h)]_+/4 for h=q^{k-1}. Its strict positivity condition factors with one positive root h_*=(1-m^2)/[m(sqrt(1+4q(1-q))-m)], for 0<m<1; h decreases, hence the first L=ceil(log(h_*)/log q) collisions are entangling iff m>1/sqrt(1+4q(1-q)), with no late birth or revival. For m=1 every finite k has positive but vanishing negativity; for m=0 or q endpoints none. Maximization q(1-q)<=1/4 yields m>1/sqrt2 over angles, and h_*~(1-m^2)/(v-1) yields logarithmic growth. Independently constructed joint density matrices and ancilla partial transposes for five regimes up to k=17, agreeing with the formula to 1e-12; near machine precision late pure-bath positivity is analytic rather than inferred from numerical thresholding.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pal: population recursion and early-collision negativity plot; Scarani: generalized collision thermalization/entangling ability; Oliveira: general input entangleability"
+        ],
+        "reasoning": "General existence or instantaneous PPT criteria do not state the reset-trajectory root h_*, k-indexed iff condition or exact ceiling count. Claim explicitly adopts those known dynamics and restricts to maximally mixed S and identical fresh diagonal ancillas.",
+        "searches": [
+          "Pal et al arXiv:2609.04905 full main/supplement excerpts",
+          "Scarani et al arXiv:quant-ph/0110088",
+          "Oliveira Junior et al PRR 6 033236 (2024) thermodynamic entangleability"
+        ]
+      },
+      "checked_sources": [
+        "Pal et al arXiv:2609.04905 full HTML",
+        "Scarani et al quant-ph/0110088 partial inspection",
+        "Oliveira Junior et al PRR 6 033236 bibliographic source",
+        "Resultary semantic anti-thermalization search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining known recurrence, PPT eigenvalue criterion and elementary radical factorization yields the stated theorem, but no prior explicit displayed outcome found in read material"
+        ],
+        "reasoning": "The theorem is a nontrivial exact specialization of known tools. Existing more general local entangleability criteria may implicitly imply a threshold after algebra, but no inspected source directly states the entire trajectory and lifetime; monitor this as priority risk.",
+        "searches": [
+          "Pal et al equation for p_{k+1}",
+          "Known Peres-Horodecki PPT criterion for two qubits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anti-exchange H_+ with reset corresponds via local flip to partial swap; negative PPT eigenvalue is standard two-qubit negativity criterion"
+        ],
+        "reasoning": "Matched bases, anti-swap vs partial swap local equivalence, pre-reset joint-state negativity rather than persistent steady-state entanglement. Elementary 2x2 PPT algebra is prior method, but strict all-collision threshold and exact duration are not present in inspected formulations.",
+        "searches": [
+          "Pal et al arXiv:2609.04905 Eq.6–8 reset anti-thermalization",
+          "Scarani et al quant-ph/0110088 partial swap local-bit-flip relation",
+          "Resultary anti-thermalization negativity thresholds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite trajectory plots show appreciable early negativity only, not exact polarization threshold or lifetime across all k"
+        ],
+        "reasoning": "Finite plots and sampled parameters are not an analytic exact all-index classification; the present independent 4x4 checks do not substitute for the quadratic root proof.",
+        "searches": [
+          "Pal et al Fig.3(d) negativity trajectories",
+          "Resultary search entanglement lifetime collision anti-swap"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality comparison by actual statement and implication, with historical and unavailable-material risks recorded; no priority certification. Inspected closest prior statements use different scopes/estimands or do not directly entail this final exact claim.",
+      "residual_risks": [
+        "General partial-swap and thermodynamic-entangleability literature can imply the same analytic threshold by specialization not exhaustively ruled out",
+        "No finite-control-noise or correlated-bath extension"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Population relaxation known; exact negativity-all-index threshold not explicitly provided",
+          "evidence": "Fig.3(d) notes negativity appreciable first few iterations; paper gives geometric relaxation",
+          "identifier_or_url": "https://arxiv.org/abs/2609.04905",
+          "material_read": "Full arXiv HTML (~272 lines), Eq.(1),(3),(6)–(8), Fig.3(d), supplement text/Methods sections",
+          "method": "Full HTML source reading and equation-level model comparison",
+          "title": "Ancilla mediated steady-state engineering in open quantum systems",
+          "trigger": "Direct physical model and negativity Fig 3(d)"
+        },
+        {
+          "assessment": "General entangling capabilities known; insufficient reading for strong entire-paper noncoverage assertion",
+          "evidence": "Locally flipped partial-swap relaxation is established prior physics",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0110088",
+          "material_read": "Abstract and referenced equation descriptions; complete paper not re-read end-to-end",
+          "method": "Bibliographic/targeted theorem comparison",
+          "title": "Thermalizing quantum machines: Dissipation and entanglement",
+          "trigger": "Partial-swap local counterpart"
+        },
+        {
+          "assessment": "Potential broader prior criterion, no claimed whole-document noncoverage",
+          "evidence": "General thermodynamic entangleability not explicit reset trajectory in read material",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevResearch.6.033236",
+          "material_read": "Bibliographic title and source's summary, not full paper re-read this run",
+          "method": "Secondary theorem scope comparison",
+          "title": "Entanglement generation from athermality",
+          "trigger": "Potential dominating two-qubit entangleability condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The pre-reset system–ancilla entanglement lifespan of the experimentally motivated anti-thermalizing repeated-collision model is a natural measurable finite-time quantity. Exact sharp polarization/angle boundary, no-revival theorem and all-index lifetime classification refine the source's early-collision negativity plot. It does not repackage the already-known population recursion as new physics or assert steady-state entanglement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pal et al arXiv:2609.04905 full HTML",
+    "Scarani et al quant-ph/0110088 partial inspection",
+    "Oliveira Junior et al PRR 6 033236 bibliographic source",
+    "Resultary semantic anti-thermalization search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "General partial-swap and thermodynamic-entangleability literature can imply the same analytic threshold by specialization not exhaustively ruled out",
+    "No finite-control-noise or correlated-bath extension",
+    "No public edit is authorized: METADATA.json has a scope_run_id provenance field and derived public audit/certificate/file contents have not passed complete owner-authorized confidentiality sanitization and semantic review; withholding avoids disclosure of operational metadata."
+  ],
+  "schema_version": 1
+}
