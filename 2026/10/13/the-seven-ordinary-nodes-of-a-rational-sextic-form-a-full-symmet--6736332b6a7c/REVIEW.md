@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact parametrization is taken from Gimigliano–Idà, Example 6.1, whose full text establishes proper normalization, the rational \(A_5\) point and seven ordinary nodes. Independently, the supplied calculation derives all finite coincident-parameter pairs directly from the three coordinate wedges, divides by the diagonal, and verifies an exact two-polynomial reduced Gröbner basis. Its septimic is separable, its seven source pairs are distinct, and an explicit nonvanishing coordinate sum places each node over the root field. Conversely, the uniqueness and rational descent of each unordered two-point normalization fiber put that root in the node residue field. An irreducibility certificate modulo \(79\) establishes transitivity; the squarefree \((2,1,1,1,1,1)\) factorization modulo \(199\) establishes a transposition; prime-degree primitivity forces \(S_7\). No inference from approximate roots or a finite sample of characteristic-zero objects is used.
+## correctness
 
-## Originality — PASS
-The primary arXiv preprint's §§5–6 and the open-access journal article's Example 6.1 explicitly count the seven nodes and characterize their local types, but neither states the arithmetic node fields or any associated Galois permutation group. This claim does not reclaim their construction, birationality, or geometric singularity count. Targeted source, parameter, arithmetic-Galois, and polynomial searches returned no implication-equivalent result. Other indexed work on rational sextic singularities and on symmetric Galois groups does not supply the missing *specialized* arithmetic field computation. A nonindexed computation of this exact example could remain, so bibliographic uncertainty is nonzero; absence from a search is not proof of novelty.
+PASS
 
-## Value — PASS
-The seven nodes form the complete ordinary-double-point locus of a geometric example singled out in the source. Determining the **minimal** node-splitting field and maximal \(S_7\)-action is an intrinsic descent invariant not implied by their geometric count. In particular, over \(\mathbb Q\) none of the seven ordinary points can be individually rational, while the septuple is one closed point of degree seven; this controls the Galois permutation representation on the corresponding exceptional curves after blowing up the node subscheme. Such descent information distinguishes arithmetic configurations having identical complex singularity baskets. This is one exact, motivated classification for the named example, not a generic-family theorem.
+The primary 2022/2023 Example 6.1 gives parametrization and A5 plus seven A1 node census. Independent derivation formed the three homogeneous wedge minors f(a)∧f(b)/(a-b), symmetrized into u=a+b,v=ab, and recomputed exact rational reduced lex Groebner basis {u+Q(v)/51168936, P(v)/412}; P=412v^7+680v^6+1083v^5-2647v^4-9077v^3-14481v^2-14886v-3708. Check pair discriminant and coordinate sum nonzero from source algebra, so seven distinct unordered two-preimage pairs correspond to nodes; they descend in both directions, establishing Q(node)=Q(v). Independently verified P irreducible mod79 and squarefree split type 2+1+1+1+1+1 mod199, nonsquare quadratic discriminant 71. Transitive prime degree implies primitive; a primitive subgroup containing a transposition is S7 via connected transposition graph. A5 rational [1:0:0]. Computation is exact algebra, not numerical roots.
 
-## Relevant primary literature and limitations
-Gimigliano–Idà (arXiv:2201.06032v1, 2022), §6, supplies the complete parametrization and geometric census. Its open-access journal text (DOI:10.1007/s10711-022-00732-4), Example 6.1, provides a second inspected version with the same geometric material and no stated node Galois classification. Bernardi–Gimigliano–Idà (2018), cited there, concerns the projection construction; it was not inspected in full and remains a minor contextual bibliographic risk. Exact source-reading and search details are recorded in AUDIT.json. The arithmetic proof is checkable with SymPy; the classification does not settle any broader arithmetic-monodromy question.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gimigliano–Idà full primary Example 6.1 proves geometric A5+7A1 basket and gives exact parametrization, but does not determine seven node residue fields, a septimic or the Galois group in the inspected full article. The assigned new arithmetic invariant is the single degree-seven closed point and full S7 splitting action, not geometric node count. Resultary query and targeted exact polynomial-web search did not reveal a prior calculation; an unindexed arithmetic computation of this example remains possible.
+
+## value
+
+PASS
+
+The field-of-definition and Galois permutation on the complete node scheme are natural descent invariants of a singled-out rational sextic. A single S7 orbit has distinct arithmetic consequences (no rational ordinary nodes and exceptional divisor permutation action) not captured by the complex A5+7A1 basket.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
