@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For each selected interval the exact energy drop is a block quadratic form. A constant-error Rayleigh quotient gives a distribution-independent upper bound on the minimum spectral improvement. Uniform sampling produces a symmetric circulant averaged update with nonnegative entries, so its constant row-sum eigenvalue is the top eigenvalue; this attains the bound. Direct Green-function recurrence and finite cosh sum yield the exact rate, and a justified joint q-alpha limit yields the hyperbolic crossover. Reconstructed algebra is supported by 23429 independent exact-fraction and floating-limit checks, not dependent on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general RBSCD theory supplies a family of rates but does not exhibit this sharp concrete value for periodic contiguous overlapping blocks.",
+        "Tu et al. provide bounds and random-block acceleration, not the present optimal policy under all static distributions.",
+        "The published finding “Closed-form optimal coordinate sampling for inverse-positive SPD quadratics” concerns single-coordinate sampling on inverse-positive SPD quadratics, and specifically the Dirichlet Poisson case."
+      ],
+      "reasoning": "General applicability is not identical to a proved exact spectral optimization: the maximization over static cyclic intervals and hyperbolic crossover require a new closed solution. The published single-coordinate theorem corresponds to different block geometry and does not dominate the arbitrary consecutive interval length.",
+      "searches": [
+        "optimal uniform random adjacent pair block coordinate descent cyclic tridiagonal circulant Gram matrix exact mean squared contraction spectral rate 2(1-2t)/(n(1-t))",
+        "randomized block coordinate descent circulant tridiagonal matrix uniform sampling one step worst case energy decay exact optimal sampling",
+        "arxiv:2610.04685v1 general sampling optimality",
+        "arxiv:1701.03863 accelerated block Gauss Seidel"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.04685v1 full-text sections and methods",
+      "arxiv:1701.03863 full-text sections and appendix",
+      "doi:10.1137/17S015860 abstract/metadata only",
+      "published-finding corpus focused semantic searches for cyclic blocks, Green kernels, optimal distributions, and near-critical scaling",
+      "Accessible preceding weekly claim identifiers (deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Dirichlet Poisson result optimizes probabilities of individual coordinates; it does not involve overlapping cyclic intervals or hyperbolic block Green functions.",
+        "The delayed Gauss–Seidel result studies two unknowns with asynchronous stale readings, not simultaneous exact minimization of a length-varying cyclic interval.",
+        "The additive bidirectional inverse paper proves factorization/positivity properties for forward/backward triangular splittings, not random consecutive-block minimax contraction."
+      ],
+      "reasoning": "None of these statements implies the exact rate for every n and q under cyclic adjacency, or the scaling \\(1-2\\tanh(s/2)/s\\). Conversely the present theorem specializes to only one periodic Hessian family and does not subsume general existing convergence results.",
+      "searches": [
+        "Sharp worst case expected one step G norm contraction of uniformly randomized contiguous q coordinate block Gauss Seidel on periodic one-dimensional screened Laplacian G=I-t(shift+shift^T), optimal over all static block sampling laws; exact hyperbolic Green function and critical q sqrt(1-2t) crossover F(s)=1-2 tanh(s/2)/s",
+        "One-dimensional cyclic tridiagonal Stieltjes matrix overlapping contiguous block randomized coordinate descent minimax distribution constant Fourier Perron mode and boundary layer crossover",
+        "arxiv:2610.04685v1",
+        "arxiv:1701.03863"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xie–Yang Section 4 proves general expected-convergence inequalities, not a cyclic contiguous Green-kernel eigenvalue formula.",
+        "Tu et al. section 5.6 uses a circulant test and a separate nonperiodic tridiagonal test; its structured full-text results are not this theorem."
+      ],
+      "reasoning": "Interpreting the block method as randomized coordinate minimization or sketch-and-project does not automatically compute the sharp eigenvalue or optimize the distribution. The exact common Perron mode, fixed-law minimax and correlation-length crossover would be required for equivalence; none was identified in the inspected primary text.",
+      "searches": [
+        "Sharp worst case expected one step G norm contraction of uniformly randomized contiguous q coordinate block Gauss Seidel on periodic one-dimensional screened Laplacian G=I-t(shift+shift^T), optimal over all static block sampling laws; exact hyperbolic Green function and critical q sqrt(1-2t) crossover F(s)=1-2 tanh(s/2)/s",
+        "One-dimensional cyclic tridiagonal Stieltjes matrix overlapping contiguous block randomized coordinate descent minimax distribution constant Fourier Perron mode and boundary layer crossover",
+        "arxiv:2610.04685v1 Sections 2-5",
+        "arxiv:1701.03863 Sections 3,5 and appendices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The returned published-finding corpus records included single-coordinate Poisson optimization, delayed two-coordinate Gauss–Seidel, and cyclic methods with unrelated spectral objectives, but no result asserting the present rate.",
+        "No exact cyclic-contiguous screened-Poisson block rate table or formula surfaced in focused mathematical web/literature searches."
+      ],
+      "reasoning": "No identified table/value includes the all-dimension hyperbolic formula and limiting profile. Search nonappearance is only evidence of unresolved overlap, not a proof of mathematical novelty.",
+      "searches": [
+        "Sharp worst case expected one step G norm contraction of uniformly randomized contiguous q coordinate block Gauss Seidel on periodic one-dimensional screened Laplacian G=I-t(shift+shift^T), optimal over all static block sampling laws; exact hyperbolic Green function and critical q sqrt(1-2t) crossover F(s)=1-2 tanh(s/2)/s",
+        "One-dimensional cyclic tridiagonal Stieltjes matrix overlapping contiguous block randomized coordinate descent minimax distribution constant Fourier Perron mode and boundary layer crossover",
+        "randomized block coordinate descent circulant tridiagonal matrix uniform sampling one step worst case energy decay exact optimal sampling"
+      ]
+    },
+    "rationale": "The named 2026 primary work studies general batch sampling and bounds, not the explicitly optimized cyclic-consecutive-block periodic screened-Laplacian eigenvalue and its critical scaling. A second full-text block Gauss–Seidel source analyzes different matrices/algorithms. Query-level published-finding corpus comparisons identified no mathematical statement dominating the exact hyperbolic law; the closest single-coordinate and stochastic-delay claims do not imply it. Related general randomized projection identities are credited. Residual incomplete access and database incompleteness remain risks.",
+    "residual_risks": [
+      "The full 2018 Wu paper was not accessible for a page-by-page comparison; abstract evidence does not certify absence.",
+      "Unindexed work on overlapping additive Schwarz or circulant randomized-block methods may contain equivalent special-function formulas.",
+      "The theorem concerns a restricted periodic screened-Poisson family rather than general arbitrary-Hessian sampling; numerical-solver runtime effects are not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact periodic screened-Poisson all-q minimax formula or critical boundary profile; broader general block framework is credited.",
+        "evidence": [
+          "First public October 3, 2026",
+          "Sections 1,2,4,5; arxiv:2610.04685v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.04685",
+        "material_read": "Rendered complete arXiv article: introduction and contributions; block update; Section 4 theorems and proof; Section 5 sampling examples, including its fixed nonoverlapping partitions. Term searches for circulant and tridiagonal were negative.",
+        "method": "Full-text rendered page, direct reading and targeted term searches",
+        "title": "On randomized batch-sampling coordinate descent methods for solving linear least-squares problems",
+        "trigger": "Recent primary source with arbitrary static coordinate-batch distributions and learned sampling."
+      },
+      {
+        "assessment": "NOT_COVERING the matched periodic nearest-neighbor cyclic-consecutive-block optimal distribution and Green-function crossover.",
+        "evidence": [
+          "arxiv:1701.03863",
+          "Section 5.6 structured experiments and Appendix A.2 analytic examples"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1701.03863",
+        "material_read": "Full available rendered arXiv article and key Sections 3, 5.5, 5.6, and appendix A.2; the separate circulant and nonperiodic tridiagonal examples and the rank-one dense analytic example were read.",
+        "method": "Full-text rendered arXiv page, search for circulant and examination of example formulas",
+        "title": "Breaking Locality Accelerates Block Gauss-Seidel",
+        "trigger": "Foundational random-block exact minimization and potential sharp structured exceptions."
+      },
+      {
+        "assessment": "ACCESS_LIMITED: general block convergence/paving rather than an exposed cyclic block minimax formula, but complete-document equivalence not excluded.",
+        "evidence": [
+          "DOI:10.1137/17S015860",
+          "2018 SIAM Undergraduate Research Online, vol. 11"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/17S015860",
+        "material_read": "Only journal bibliographic summary and abstract-level descriptions accessible; no full manuscript read.",
+        "method": "Publisher/index and Mendeley abstracts; OA/arXiv search did not provide full text in this check",
+        "title": "Convergence of the Randomized Block Gauss-Seidel Method",
+        "trigger": "Classical directly relevant generalized block Gauss–Seidel source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "179ddfb2-cdd5-4db4-845c-5765272ad6ba",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives a full closed minimax sampling rule and sharp condition-dependent efficiency benchmark for overlapping contiguous blocks on an important standard periodic finite-difference Hessian. The crossover identifies the nontrivial block-length correlation threshold needed for near-singular operators; this is more than repackaging standard existence-of-contraction estimates, numerical examples, or a small isolated parameter computation.",
+    "status": "PASS"
+  }
+}
