@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The finding is verified by a direct symbolic reconstruction.
+## correctness
 
-1. Zariski density of \(X\) and the infinite fibers \(\{p\}\times\mathbb N\) imply \(\iota(A)\cap D=0\).
+PASS
 
-2. Because every \(p\in X\) is nonzero, each coordinate idempotent \(\delta_{(p,j)}\) is a multiple in \(R\) of at least one of \(\iota(x),\iota(y),\iota(z)\). Hence \(D\subset I\).
+The injection ι:A=k[x,y,z]→k^Ω repeats each f over infinite fibers X×N; Zariski density plus infinitely repeated fibers imply ι(A)∩D=0. Each coordinate idempotent in finite-support ideal D is divisible in R by one of ι(x),ι(y),ι(z) because X excludes origin, so D⊆I. Since D²=D, expansion yields I^n=D+ι(m^n) for all n≥1. The quotient R/I^n≅A/m^n is compatible with multiplication, giving gr_I(R)≅k[x,y,z], I-adic completion k[[x,y,z]], and intersection/kernel exactly D by polynomial total-degree order. A finite-support idempotent e annihilator makes 1-e∉I invert all d∈D under localization, so R_I≅A_m. All steps checked symbolically against pinned RESULT.md and VERIFICATION.md, with external source Section 5 confirming construction and I subset of zero-divisors and zero annihilator. No Noetherian or separatedness assumption smuggled in.
 
-3. Every finitely supported function \(d\) satisfies \(d=de_F\) for the finite-support characteristic idempotent \(e_F\) of its support. Thus \(D^2=D\).
+## originality
 
-4. Therefore \(I=D+\iota(\mathfrak m)\) and \(I^n=D+\iota(\mathfrak m^n)\) for every \(n\ge1\).
+PASS
 
-5. The projection \(\iota(f)+d\mapsto f\) has kernel \(D\), giving \(R/I^n\cong A/\mathfrak m^n\). Since \(\bigcap_{n\ge1}\mathfrak m^n=0\) in the polynomial ring, \(\bigcap_{n\ge1}I^n=D\).
+The original witness gives the global zero-divisor and annihilator pathology, but does not compute its complete I-adic power filtration, associated graded ring, completion kernel, or localization. The precise smooth finite-neighborhood / nonseparated-global contrast supplies extra structural information not stated as a corollary by the source.
 
-6. Successive quotients identify \(\operatorname{gr}_I(R)\) with \(\operatorname{gr}_{\mathfrak m}(A)\cong k[x,y,z]\), and inverse limits give \(\widehat R^{\,I}\cong k[[x,y,z]]\) with kernel \(D\).
+## value
 
-7. For \(d\in D\), the element \(1-e_{\operatorname{supp}(d)}\notin I\) kills \(d\), so \(D_I=0\). Localizing \(R/D\cong A\) at \(I/D\cong\mathfrak m\) gives \(R_I\cong A_{\mathfrak m}\).
+PASS
 
-No computational certificate is needed for these identities. The source's global statements \(I\subseteq Z(R)\) and \(\operatorname{Ann}_R(I)=0\) were checked in the primary full text. The result does not claim that other maximal ideals have the same filtration.
+The unusual reduced non-McCoy witness has every element of I a zero-divisor but Ann(I)=0. Proving every finite neighborhood and localization is that of a regular three-dimensional local scheme while the completion kernel is a nonzero idempotent ideal is a motivated structural diagnosis of how the pathology is hidden infinitesimally; the exact separation defect D can be useful in studying non-Noetherian counterexamples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

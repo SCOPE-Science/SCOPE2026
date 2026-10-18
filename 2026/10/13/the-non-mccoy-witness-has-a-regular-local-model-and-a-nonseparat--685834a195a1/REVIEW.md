@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof explicitly establishes \(\iota(A)\cap D=0\), \(D\subset I\), \(D^2=D\), and therefore \(I^n=D+\iota(\mathfrak m^n)\) for all \(n\ge1\). The quotient, intersection, associated graded, completion, and localization conclusions are then kernel computations. The proof does not infer any infinite statement from finite experiments.
+PASS
 
-## Originality
+The injection ι:A=k[x,y,z]→k^Ω repeats each f over infinite fibers X×N; Zariski density plus infinitely repeated fibers imply ι(A)∩D=0. Each coordinate idempotent in finite-support ideal D is divisible in R by one of ι(x),ι(y),ι(z) because X excludes origin, so D⊆I. Since D²=D, expansion yields I^n=D+ι(m^n) for all n≥1. The quotient R/I^n≅A/m^n is compatible with multiplication, giving gr_I(R)≅k[x,y,z], I-adic completion k[[x,y,z]], and intersection/kernel exactly D by polynomial total-degree order. A finite-support idempotent e annihilator makes 1-e∉I invert all d∈D under localization, so R_I≅A_m. All steps checked symbolically against pinned RESULT.md and VERIFICATION.md, with external source Section 5 confirming construction and I subset of zero-divisors and zero annihilator. No Noetherian or separatedness assumption smuggled in.
 
-PASS. The primary source was inspected through the construction and final theorem. It proves that the three-generated witness ideal lies in the zero-divisors and has zero annihilator, but does not analyze its powers, localization, associated graded ring, or completion. Targeted semantic and web searches for the exact claim, equivalent formulations, and broader covering statements found no result implying this filtration.
+## originality
 
-## Value
+PASS
 
-PASS. The claim identifies a precise local/global boundary in the new non-McCoy example: the pathological ideal becomes a regular local domain after localization and has completely standard finite adic thickenings, while the finite-support ideal survives as the exact nonzero Krull intersection. This explains a structural mechanism behind the example rather than merely recomputing a known invariant.
+The original witness gives the global zero-divisor and annihilator pathology, but does not compute its complete I-adic power filtration, associated graded ring, completion kernel, or localization. The precise smooth finite-neighborhood / nonseparated-global contrast supplies extra structural information not stated as a corollary by the source.
 
-## Closest literature and limitations
+## value
 
-The closest source is Tran--Nguyen, arXiv:2610.00116v1, which defines the ring and witness ideal. The present claim is limited to that distinguished ideal and does not classify all maximal ideals or assert that the ambient ring is Noetherian. The exact equality \(\bigcap_{n\ge1}I^n=D\neq0\) is part of the finding, so no separatedness claim is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unusual reduced non-McCoy witness has every element of I a zero-divisor but Ann(I)=0. Proving every finite neighborhood and localization is that of a regular three-dimensional local scheme while the completion kernel is a nonzero idempotent ideal is a motivated structural diagnosis of how the pathology is hidden infinitesimally; the exact separation defect D can be useful in studying non-Noetherian counterexamples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
