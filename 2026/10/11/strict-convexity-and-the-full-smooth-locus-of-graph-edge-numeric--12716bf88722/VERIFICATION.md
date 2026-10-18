@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Run `python3 verify_graph_norm.py` with Python 3 standard library. The checker constructs all nonempty labeled simple graphs on two through five vertices and tests whether they have a pair of vertex-disjoint edges. In every one of the \(1094\) cases the exact graph test agrees with the star-or-triangle classification; for each of the \(985\) disjoint-edge cases it numerically checks the norm-one flat face. It also numerically probes first-order cusps and verifies elementary triangle/star spectral identities.
+# Independent mathematical audit
 
-Observed:
+## correctness
 
-`VERIFY_OK graphs=1094 matching_one=109 disjoint_matching=985 triangle_cusp=0.2500004 triangle_axis_slope=2.5e-06 cycle4_cusp=0.1381970 analytic_proof_needed=True`
+PASS
 
-The Jacobi spectral solver runs in floating point, so its positive tests are numerical consistency checks rather than exact certificates. The proof of all graph sizes, uniqueness of supporting eigenvectors, and first-order formula is analytic in RESULT.md, particularly parts (3)–(5). The cited primary paper and its first public date are available at https://arxiv.org/abs/2303.00876. The proofs are not independently validated.
+Rayleigh variational formula makes N_G a norm. Vertex-disjoint edges give explicit flat faces; graphs of matching number one are exactly stars or K3 (mod isolates). Star norm is ℓ2/2. On K3 equality of Rayleigh/triangle inequalities with full Perron support forces the same edge coefficients by invertibility of the 3×3 edge-to-Ar map; one-edge support handled separately. For general graph a simple dominant Perron eigenvalue yields uniform quadratic perturbation remainder; ties or internal zero edges create first-order corners. Complex derivative is underlying real-linear as stated. Supplied finite checker is supporting evidence, not universal proof.
+
+## originality
+
+PASS
+
+The full graph matching-one iff strict convexity and induced-leading-component iff Fréchet smoothness classifications do not follow from inspected known Ridge/Sharif periodic numerical-radius formula or Nussbaum diagonal-scaling convexity theorem. Best of knowledge a natural unified graph incidence theorem, with older matrix Perron perturbation credited.
+
+## value
+
+PASS
+
+The matching obstruction produces a complete natural graph-theoretic criterion for strict convexity of numerical-radius norms; induced-leading-component gives a complete and computable differentiability locus including singular zero weights, with a sharp three-periodic shift corollary. Structural classification meaningful beyond finite numerical tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

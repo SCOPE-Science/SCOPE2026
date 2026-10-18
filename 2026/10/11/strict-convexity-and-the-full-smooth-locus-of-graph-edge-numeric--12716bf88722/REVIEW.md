@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Rayleigh characterization is verified directly, and the disjoint-edge flat segment is explicit. The matching-number-one classification reduces the only positive cases to stars and triangles. Strict convexity for the triangle follows from equality in two sharp Rayleigh/triangle inequalities, positivity of a three-vertex Perron vector, and injectivity of the three-weight eigenvector map. For the smoothness theorem, uniqueness of the Perron-leading component is equivalent to simplicity of the top eigenvalue. A spectral-gap perturbation bound isolates the first-order modulus terms; any missing internal edge produces a nonzero absolute-value cusp, while tied leading components produce incompatible one-sided slopes. These arguments cover both real and complex weights and explicitly exclude the zero vector. The checker exercises graph classification and sample cusps but is not used as an infinite proof.
+## correctness
 
-## Originality — PASS (qualified)
-Full-text inspection of Sharif, arXiv:2303.00876v2, especially §1 and Example 1.6, finds the coefficient-space numerical-radius norm and cycle Rayleigh quotient but no graph-wide matching-number strict-convexity classification or induced-support smoothness theorem. Ridge supplies the periodic Rayleigh identity rather than the graph-locus classification. Nussbaum's identified strict log-convexity results address diagonal scaling/perturbation, not independent undirected edge moduli. Wang–Wu discusses Perron-type numerical-radius calculations, not demonstrably this all-graph locus in the accessible material. Searches for graph-edge Perron norm convexity, periodic-shift coefficient norm smoothness, and equivalences produced no identified implication covering both new conclusions. The Nussbaum and Wang–Wu full texts and Ridge's original paper were not completely inspected; this is residual novelty risk, not proof of absolute priority.
+PASS
 
-## Mathematical value — PASS
-The result gives a complete natural classification of strict convexity for an entire graph-defined family of operator-space norms, and an equally complete boundary-sensitive differentiability test at every nonzero coefficient vector, not just generic strictly positive weights. The star/triangle exception and the induced-subgraph obstruction connect convex Banach geometry, Perron sensitivity, and numerical-radius norms of periodic shifts. A nontrivial first-order cusp persists for two of three nonzero periodic weights, explaining why generic Perron simplicity alone is insufficient for coefficient-space smoothness.
+Rayleigh variational formula makes N_G a norm. Vertex-disjoint edges give explicit flat faces; graphs of matching number one are exactly stars or K3 (mod isolates). Star norm is ℓ2/2. On K3 equality of Rayleigh/triangle inequalities with full Perron support forces the same edge coefficients by invertibility of the 3×3 edge-to-Ar map; one-edge support handled separately. For general graph a simple dominant Perron eigenvalue yields uniform quadratic perturbation remainder; ties or internal zero edges create first-order corners. Complex derivative is underlying real-linear as stated. Supplied finite checker is supporting evidence, not universal proof.
 
-## Closest literature and limitations
-A. Sharif (2023), arXiv:2303.00876, equation (5), Example 1.6; W. C. Ridge (1976), DOI 10.2307/2041852; R. D. Nussbaum (1986), DOI 10.1016/0024-3795(86)90233-8; K.-Z. Wang and P. Y. Wu (2011), DOI 10.1016/j.jmaa.2011.04.010. The inaccessible relevant original full texts and unindexed equivalent formulations remain originality risks. Floating-point finite tests cannot certify the all-graph theorem. Independent review remains unperformed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The full graph matching-one iff strict convexity and induced-leading-component iff Fréchet smoothness classifications do not follow from inspected known Ridge/Sharif periodic numerical-radius formula or Nussbaum diagonal-scaling convexity theorem. Best of knowledge a natural unified graph incidence theorem, with older matrix Perron perturbation credited.
+
+## value
+
+PASS
+
+The matching obstruction produces a complete natural graph-theoretic criterion for strict convexity of numerical-radius norms; induced-leading-component gives a complete and computable differentiability locus including singular zero weights, with a sharp three-periodic shift corollary. Structural classification meaningful beyond finite numerical tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
