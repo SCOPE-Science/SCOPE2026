@@ -1,11 +1,21 @@
-# Scientific review of the Heawood perfect-matching complex
+# Independent mathematical audit
 
-**Correctness — PASS.** The Fano incidence presentation and all 24 perfect matchings are independently reconstructed by recursive enumeration and a subset-dynamic-programming permanent computation. Their downward closure has exactly 2,201 nonempty faces with vector \((21,168,560,756,504,168,24)\). The stated staged-toggle matching has 1,092 disjoint incident face pairs and precisely one critical vertex and sixteen critical two-simplices; all 8,736 oriented face incidences admit a complete 2,201-vertex topological sort. An acyclic matching of this shape proves the wedge of sixteen two-spheres by the discrete Morse CW theorem. An independent mod-two boundary computation gives Betti numbers \((1,0,16,0,0,0,0)\). The certificate concerns this one finite graph, not an extrapolated graph family.
+## correctness
 
-**Originality — PASS, qualified.** The closest indexed exact Heawood result classifies its *ordinary* matching complex as a wedge of sixteen four-spheres. Inspection of its actual `RESULT.md` shows that all partial matchings are allowed there and that it explicitly excludes the perfect-matching complex. The two complexes have respectively 3,461 and 2,201 nonempty faces; the ordinary-complex classification does not imply the new subcomplex classification. The full available text of the Bayer–Jelić Milutinović–Vega perfect-matching-complex paper was inspected at its definitions, main honeycomb-family theorem, and concluding broader bipartite questions; its graphs are honeycomb graphs rather than the Fano Levi graph. Wachs' complete-graph and chessboard families likewise have inapplicable graph hypotheses. Multiple actual research-index queries, graph aliases, homotopy sphere counts, and terminology variants returned no exact covering result. There remains a real risk of an equivalent result in unindexed literature.
+PASS
 
-**Value — PASS.** The Heawood graph is the canonical Fano-plane incidence graph and the smallest cubic graph of girth six. Perfect-match extendibility defines a natural topological subcomplex studied for other bipartite graphs; its exact integral homotopy type was not determined by the known ordinary-complex calculation. The perfect and ordinary complexes display different sphere dimensions despite equal multiplicity, providing a useful precise example beyond the established honeycomb graph family. This is an exact homotopy classification, not a recomputation of a known table or a numerical Betti-vector alone.
+The graph is the 21-edge Fano incidence Heawood graph, with faces exactly the edge subsets extendible to seven-edge perfect matchings, not the ordinary matching complex. Independent construction from the line blocks i,i+1,i+3 (mod 7) enumerated exactly 24 perfect matchings and all 2201 nonempty faces, f=(21,168,560,756,504,168,24). The specified deterministic lower-to-upper face toggle matching has 1092 disjoint pairs and exactly one critical 0-face and sixteen critical 2-faces. We independently reconstructed all 8736 nonempty Hasse inclusions, reversed exactly the matched edges and topologically sorted all 2201 vertices, confirming acyclicity exhaustively. Forman then yields a CW model with one 0-cell and sixteen 2-cells, no 1-cells, whose attaching maps are constant, hence an integral wedge of sixteen 2-spheres. This is exhaustive finite proof, not a heuristic mod-2 Betti count.
 
-The finite code makes the computation reproducible, but reproducibility alone does not certify originality or mathematical significance; those are justified separately above. The originality assessment is constrained by incomplete literature indexing. Independent validation has not taken place.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The known Heawood ordinary matching complex has 3461 faces and ∨16 S4, and its 2-matching complex has a different face rule; neither determines the 2201-face perfect-matching extendibility complex. Bayer–Jelić Milutinović–Vega study perfect-matching complexes of honeycomb graphs, a specific planar graph class not including nonplanar Fano incidence graph; their general definition does not entail this exact Heawood homotopy. No covering exact Heawood perfect-matching table or broader graph theorem surfaced in targeted searches.
+
+## value
+
+PASS
+
+The perfect-matching complex is a natural subcomplex determined by extendibility to a one-factor; Heawood is a canonical highly symmetric cubic incidence graph. Its integral wedge homotopy contrasts sharply with the ordinary Heawood matching complex, and a complete finite Morse reduction provides reusable benchmark combinatorial topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

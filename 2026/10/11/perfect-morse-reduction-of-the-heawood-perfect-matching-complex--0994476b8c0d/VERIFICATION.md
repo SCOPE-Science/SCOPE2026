@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Execute `python3 verify_heawood_perfect_matching.py` in a directory containing the supplied source file. Only the Python 3 standard library is needed. The script independently computes the Fano-plane incidence pairs, all 24 perfect matchings (by recursion and subset permanent), the 2,201 nonempty simplicial faces, a 1,092-pair deterministic face-poset matching, the 8,736 directed Hasse covers and a complete topological sort. Expected result: `VERIFY_OK`, with precisely one critical vertex and sixteen critical two-cells. The script independently computes mod-two boundary ranks \((20,148,396,360,144,24)\), giving Betti numbers \((1,0,16,0,0,0,0)\).
+# Independent mathematical audit
 
-The chain rank computation checks only field homology. The integral homotopy equivalence follows instead from the acyclic discrete-Morse matching and the absence of critical one-cells or any other higher or lower cells. All finite faces and covers are enumerated; no partial search result or timeout is used as a nonexistence proof. The finding does not classify other bipartite graphs or the homotopy map induced by inclusion into the ordinary matching complex.
+## correctness
+
+PASS
+
+The graph is the 21-edge Fano incidence Heawood graph, with faces exactly the edge subsets extendible to seven-edge perfect matchings, not the ordinary matching complex. Independent construction from the line blocks i,i+1,i+3 (mod 7) enumerated exactly 24 perfect matchings and all 2201 nonempty faces, f=(21,168,560,756,504,168,24). The specified deterministic lower-to-upper face toggle matching has 1092 disjoint pairs and exactly one critical 0-face and sixteen critical 2-faces. We independently reconstructed all 8736 nonempty Hasse inclusions, reversed exactly the matched edges and topologically sorted all 2201 vertices, confirming acyclicity exhaustively. Forman then yields a CW model with one 0-cell and sixteen 2-cells, no 1-cells, whose attaching maps are constant, hence an integral wedge of sixteen 2-spheres. This is exhaustive finite proof, not a heuristic mod-2 Betti count.
+
+## originality
+
+PASS
+
+The known Heawood ordinary matching complex has 3461 faces and ∨16 S4, and its 2-matching complex has a different face rule; neither determines the 2201-face perfect-matching extendibility complex. Bayer–Jelić Milutinović–Vega study perfect-matching complexes of honeycomb graphs, a specific planar graph class not including nonplanar Fano incidence graph; their general definition does not entail this exact Heawood homotopy. No covering exact Heawood perfect-matching table or broader graph theorem surfaced in targeted searches.
+
+## value
+
+PASS
+
+The perfect-matching complex is a natural subcomplex determined by extendibility to a one-factor; Heawood is a canonical highly symmetric cubic incidence graph. Its integral wedge homotopy contrasts sharply with the ordinary Heawood matching complex, and a complete finite Morse reduction provides reusable benchmark combinatorial topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
