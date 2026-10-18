@@ -1,0 +1,15 @@
+# Scientific review — two-chain product posets
+
+## Correctness — PASS
+The proof treats strict finite posets as its competitor class, distinguishes the two atoms using predecessor/successor counts, isolates coordinate axes by counting incomparability with the atoms, and recovers the orbit partition in four rounds. In the square case it reconstructs the two coherently matched axes **using transitivity**; the per-colour comparison degrees then force every coordinatewise relation. In the nonsquare case the partition is discrete. For square sides one through three all small equivariant matching alternatives are isomorphic; from side four a single crossed comparison block yields a nontransitive but counting-equivalent competitor. Standard two-variable counting descriptions of refinement colours yield a characteristic formula with rank at most six. The code files reproduce the claimed finite checks; those experiments are not substituted for the all-size proof.
+
+## Originality — PASS, with residual risks
+The closest inspected foundations are Immerman–Lander (1990), which describes counting logic and graph canonization, and Arvind–Köbler–Rattan–Verbitsky (2015), which characterizes colour-refinement identification for undirected **graphs**. Neither inspected argument gives the claimed finite-**poset** reconstruction of a two-chain Cartesian product, a fixed six-rank description, or the square-grid axis-alignment argument. Grädel–Otto–Rosen (1997) concerns decidability of the language, not this family's identification. The accessible historical finite-poset result classifies the first small-order C2 collisions but does not entail an all-size rectangle theorem. Targeted literature and mathematical-record searches found no logically equivalent or stronger statement; this cannot eliminate the risk of unindexed specialized prior work. The 1990 and 2015 sources underpin background only, not novelty certification.
+
+## Value — PASS
+The result gives a uniform bounded-depth logical description for an unbounded, naturally occurring class of finite distributive lattices. The square case is nontrivial because counting refinement leaves two-element orbit cells; the order axioms force their compatible orientation. The argument distinguishes orbit refinement from identification and gives a sharp unrestricted-relation boundary, and explicitly separates relative-poset identification from unrestricted binary-structure identification. It supplies a structural reconstruction lemma useful in finite-model-theoretic studies of posets rather than merely a numerical recomputation.
+
+## Closest sources and limitations
+Immerman–Lander, *Describing Graphs* (1990), the 2015 Arvind et al. arXiv paper 1502.01255, and Grädel–Otto–Rosen (LICS 1997) were compared. There may be an unindexed proof for special lattice families. Only finite posets are covered in the square case; the rank bound is sufficient, not optimal. The supplementary exhaustive check covers only the stated finite sizes.
+
+Self-review: passed. Independent audit: not yet performed.
