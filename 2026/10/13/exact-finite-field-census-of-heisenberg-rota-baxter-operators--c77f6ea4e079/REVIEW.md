@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Direct substitution into the Heisenberg Rota–Baxter identity forces the central basis vector to map centrally and leaves one scalar hypersurface equation. Elementary finite-field fiber counts give the total formulas. The determinant factors as \(x^2(y+z-\lambda)\), and a separate zero-product count gives the invertible formulas. The packaged checker directly replays the identity and counts small fields.
+PASS
 
-## Originality
+PASS: Evaluating the identity on (c,e),(c,f) forces R(c)=xc even in characteristic two because fields contain no nonzero square-zero elements. The (e,f) relation becomes (y-x)z=xy-lambda x+uv with free alpha,beta. Separating y=x and y!=x gives q^6 and q^6+q^4 counts. det R=x^2(y+z-lambda); counting zero uv fibers in x!=0, y+z!=lambda yields the claimed invertible formulas and handles q=2 correctly. Fresh independent exhaustive evaluation of the Rota–Baxter identity on all 2^9 and 3^9 linear maps (both lambda=0,1) gave (64,8),(80,16),(729,270),(810,297), matching total and invertible counts.
 
-PASS. The inspected 2018 papers classify Heisenberg Rota–Baxter/Yang–Baxter operators but do not count finite-field rational points or invertible operators. Focused searches found no exact polynomial census. An unindexed enumeration remains a bibliographic risk.
+## originality
 
-## Value
+PASS
 
-PASS. The result gives a complete arithmetic census for every finite field and every weight, with a sharp \(q^4\) jump between zero and nonzero weights and exact invertible densities.
+PASS with significant mathematical overlap: Ji–Hua 2018 gives the same operator hypersurface over algebraically closed fields, and Rathee 2024 gives weight-one complex classification; these must receive credit for classification, not claimed as new. Their statements do not enumerate F_q-rational points in all characteristics nor the invertible count. The direct fiber count is independent arithmetic work rather than a verbatim or proven numerical corollary printed in those complex-field classifications; an earlier finite-field enumeration remains a risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: An exact all-q census and invertible-stratum point count are natural arithmetic statistics of the Rota–Baxter variety; the difference q^4 between weights and characteristic-two validity are precise reusable facts, beyond the known list of complex solution families. Counts are short but meaningful and nontrivially stratify invertible solutions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
