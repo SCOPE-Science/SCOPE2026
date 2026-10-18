@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Execute `python3 verify.py` using the Python standard library. This program creates every matrix over the specified small fields, reduces generator redundancy by scalar shifts, computes the resulting inner derivation on every matrix unit, directly checks composition idempotence, calculates its rank by finite-field elimination, and compares the resulting multiplicity distribution to the closed formula.
+## correctness
 
-The expected final line is `VERIFY_OK`, after six `PASS` lines for the cases \((n,q)=(2,2),(2,3),(2,4),(3,2),(3,3),(4,2)\). The last case yields exactly one rank-zero, 120 rank-six, and 336 rank-eight derivations. The \(q=4\) case uses a declared polynomial basis rather than treating its elements as integers modulo four. Exhaustiveness holds for the enumerated finite matrix spaces only. The theorem for every \(n\) and every prime power is established by the symbolic classification and group-orbit proof in `RESULT.md`, not inferred from the finite tests.
+PASS
 
-# Limits
+Every Fq-linear associative derivation of M_n is inner ad(A) modulo scalar matrices, verified by the matrix-unit proof. Odd characteristic: an idempotent ad(A) has spectrum in {0,1}, opposite eigenvalue differences force a single eigenvalue, making ad(A) nilpotent as well as idempotent and hence zero. Characteristic 2: ad(A)^2=ad(A^2), so A^2+A=cI, splitting by the Artin–Schreier coset. Split projections yield {n choose r}_q q^{r(n-r)} counts paired by complementary projections, ranks 2r(n-r). A nonsplit quadratic extension exists only at even n=2m, has rank n^2/2 and orbit GL_n(q)/(2 GL_m(q^2)). Independent direct GF(2) enumeration of ALL normalized generators with A_00=0 verified n=2:1+4z^2, n=3:1+28z^4, n=4:1+120z^6+336z^8, including direct ad∘ad tests. The odd-characteristic assertion follows symbolically, not from GF2 counts.
 
-The proof and program count \(\mathbb F_q\)-linear associative derivations only. No independent external validation or formal-system certification was performed. Potential equivalence to an older adjoint-operator classification is a residual literature risk.
+## originality
+
+PASS
+
+Ashraf–Ansari–Akhter treat generalized Jordan derivations with two-torsion-free hypotheses, excluding characteristic two; Bai–Gao–Li study complex Lie algebras with idempotent derivations, not associative Fq-linear derivation rank polynomials. Standard innerness of M_n derivations, finite-field projections and quadratic centralizers are prior ingredients. No inspected published statement or Resultary semantic hit covered the combined split/nonsplit characteristic-two rank enumerator, but a general adjoint-operator count might encode it.
+
+## value
+
+PASS
+
+This is a complete rank distribution for an intrinsic operation on every finite full matrix algebra. The odd-versus-even-characteristic contrast and nonsplit F_{q^2} conjugacy orbit are structural and quantify an otherwise invisible even-n half-algebra-rank stratum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
