@@ -1,23 +1,21 @@
-# Self-review: first eight-term threshold for factorial divisor sums
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The inclusion/exclusion recurrence for sets of sums using exactly \(j\) distinct divisors is an exact finite identity. The verifier checks every sum in \([0,n!]\), every divisor and every term count through eight for \(1\le n\le12\). At \(12!\), the seven-term complement contains exactly \(175\) integers and the eight-term union covers all \(479001601\) totals, including zero. The two divisor-generation methods, a permuted-order replication, and direct set-based checks for \(n\le5\) independently check the implementation. The explicit eight-term representation of the first difficult integer is confirmed.
+PASS
 
-There is no inference from a partial census to an infinite statement; the theorem is explicitly finite.
+The subset-of-divisors recurrence follows by disjoint include/exclude cases and remains exact when sums>N are masked. Independently reimplemented at-most-j integer bitsets, a different recurrence initialization from source exact-j layers; checked every integer 0..n! for n=1..12, all 792 divisors of 12!, and first/largest unrepresented numbers. Independent recomputation produced h=(1,1,2,3,4,5,5,6,7,7,7,8), with exactly 175 misses at seven terms, first 475785157 and last 479001547; all 479001601 totals represented by at most eight distinct divisors. The source artifact lists 175 integers and the displayed eight-term witness sums to the first. This is an exhaustive finite result, NOT an inference about later factorials.
 
-## Originality — PASS
+## originality
 
-Hughes, arXiv:2609.10902v1, introduces the exact same \(h(n!)\) invariant but proves a large-\(n\) bound and cites the \(\gg(\log n)^2\) lower bound; it supplies no initial-value table. Tenenbaum and Yokota (1990) likewise prove an asymptotic divisor-sum representation result, not the exact first eight-term transition. published-finding corpus and exact database searches found no equivalent factorial-12 classification. The nearest published divisor-subset-sum classification for \(2^a p^b\) covers a different two-prime support and does not control cardinality-constrained representations of \(12!\).
+PASS
 
-Yokota’s 1992 paper uses the same functional and its 1995 paper concerns factorial knapsacks. Only abstracts/bibliographic material could be accessed, not their full texts, so undiscovered exact data in those sources remain a specifically recorded residual originality risk rather than a claimed impossibility.
+The exact invariant h(n!) is explicitly studied by Hughes and older Yokota, so only the 1..12 finite transition and exact 175-element layer count are in scope. Hughes abstract describes h(n!) asymptotics, and full Tenenbaum–Yokota 1990 Lemma 4 has an unspecified large-k cutoff, not a 12! optimum. A high-overlap Yokota 1992/1995 text could conceal finite tables and remains an identified unresolved priority risk, but lack of access alone does not falsify this novel best-of-knowledge result.
 
-## Value — PASS
+## value
 
-The 2026 source emphasizes Erdős’s unresolved question for the growth of \(h(n!)\). Determining the complete first 12 values and exactly where the eight-term layer first appears supplies a natural sharp finite benchmark. The 175-element set of difficult integers at \(12!\) is particularly thin and creates a reproducible starting point for studying how such exceptional layers evolve.
+PASS
 
-## Scope and remaining risks
+The first point where a natural cardinality-constrained invariant h(n!) reaches eight is a meaningful exact finite cutoff for the factorial divisor-covering problem posed by Erdős and investigated by Hughes. A complete 1..12 profile, thin 175-member extremal layer and reproducible exact certificate provide concrete benchmarks and potential structure for later bounds, despite not proving a general formula.
 
-Nothing here settles the asymptotic rate, subsequent transitions, or a closed-form description of the 175 exceptional values. All claims are self-reviewed finite mathematics, not independently certified.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

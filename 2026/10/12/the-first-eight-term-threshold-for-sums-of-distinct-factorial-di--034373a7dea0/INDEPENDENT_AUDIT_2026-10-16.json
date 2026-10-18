@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T01:05:08.812691Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md complete finite table and recurrence",
+        "artifacts/verify.py complete code and descending-update logic",
+        "artifacts/eight_term_layer.txt 175-line list; artifacts/replay.txt prior replay",
+        "independent_math_checks.py independent at-most-j recurrence, executed successfully to n=12"
+      ],
+      "rationale": "The subset-of-divisors recurrence follows by disjoint include/exclude cases and remains exact when sums>N are masked. Independently reimplemented at-most-j integer bitsets, a different recurrence initialization from source exact-j layers; checked every integer 0..n! for n=1..12, all 792 divisors of 12!, and first/largest unrepresented numbers. Independent recomputation produced h=(1,1,2,3,4,5,5,6,7,7,7,8), with exactly 175 misses at seven terms, first 475785157 and last 479001547; all 479001601 totals represented by at most eight distinct divisors. The source artifact lists 175 integers and the displayed eight-term witness sums to the first. This is an exhaustive finite result, NOT an inference about later factorials.",
+      "residual_risks": [
+        "Finite 12! enumeration uses ~480 million bit positions; exact Python big integers and deterministic update order, not probabilistic testing. Complete recursive Git tree could not be inventoried via available connector."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hughes abstract: h(n!) <= (2 log 2+o(1))n/log n",
+          "Tenenbaum–Yokota JNT35 (1990) Lemma 4: for sufficiently large k all s<=k! have at most k/(log k)^(1/2-η) terms",
+          "Published two-prime-support subset-sum classification is about 2^a p^b, not 12! with five distinct prime factors"
+        ],
+        "reasoning": "Neither asymptotic bound fixes the first eight-term threshold nor the 175 finite extremizers. However, the original Hughes full text was not read: abstract supports only a limited noncoverage inference.",
+        "searches": [
+          "Hughes 2609.10902 h factorial asymptotic theorem",
+          "Tenenbaum Yokota 1990 Lemma 4 divisors factorial",
+          "distinct divisors factorial n! number h(n!) minimum summands eight term 12! exact profile"
+        ]
+      },
+      "checked_sources": [
+        "Tenenbaum–Yokota 1990 full JNT PDF, Lemma 4",
+        "Hughes arXiv:2609.10902 abstract",
+        "Yokota 1992 Cambridge abstract",
+        "Yokota 1995 J-GLOBAL bibliographic record",
+        "Resultary query distinct divisors factorial n! number h(n!) minimum summands eight term 12! exact profile"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "1990 primary Lemma 4 states existence for all sufficiently large k, with no explicit small threshold",
+          "1992 abstract concerns Vose sequence and provides no observed factorial-12 count",
+          "Independent exact DP needed to prove the specific finite table"
+        ],
+        "reasoning": "A sufficiently-large-k asymptotic theorem cannot be instantiated at 12 without explicit effective thresholds. General greedy bounds do not supply the exact extremal-layer count; the inaccessible closely related primary text is a risk, not an affirmative demonstration of coverage.",
+        "searches": [
+          "Tenenbaum and Yokota Lemma 4 1990",
+          "Yokota On a sum of divisors 1992 abstract h versus l",
+          "Hughes 2609.10902 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hughes arXiv:2609.10902 defines h(n!) and presents asymptotic upper bound",
+          "Yokota 1992 abstract defines identical min representation length l(N,r) and max l(N)",
+          "Independent 12! exhaustive census supplies the finite transition and count"
+        ],
+        "reasoning": "The h and l notations can denote the SAME invariant. Prior studies of it cannot be dismissed by title differences, but accessible main results are large-input bounds rather than exact factorial-12 data.",
+        "searches": [
+          "distinct divisors factorial n! number h(n!) minimum summands eight term 12! exact profile",
+          "Yokota l(N) sum distinct divisors factorial first values",
+          "h(12!) 8 175 475785157",
+          "Egyptian fractions denominators dividing factorial minimal number terms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest two-prime divisor subset sums has different support/term-count restrictions",
+          "OEIS and exact-integer searches yielded no confirmed table matching the 12! result"
+        ],
+        "reasoning": "Exact finite invariants are potentially table-covered even without a theorem; a successful absence query is not priority proof. This 175-element list is checked independently against the source artifact.",
+        "searches": [
+          "Resultary distinct divisors factorial n! number h(n!) minimum summands eight term 12! exact profile",
+          "OEIS h factorial n! distinct divisor min terms eight",
+          "475785157 factorial divisor eight terms count 175"
+        ]
+      },
+      "rationale": "The exact invariant h(n!) is explicitly studied by Hughes and older Yokota, so only the 1..12 finite transition and exact 175-element layer count are in scope. Hughes abstract describes h(n!) asymptotics, and full Tenenbaum–Yokota 1990 Lemma 4 has an unspecified large-k cutoff, not a 12! optimum. A high-overlap Yokota 1992/1995 text could conceal finite tables and remains an identified unresolved priority risk, but lack of access alone does not falsify this novel best-of-knowledge result.",
+      "residual_risks": [
+        "Two highly relevant Yokota primary texts (1992 and 1995) not inspected in full; their exact-data content remains unknown.",
+        "Hughes 2026 primary full text unavailable on lawful OA route, and authorized Oxford service reports vpn_disconnected; abstract alone cannot exclude full-text finite tables.",
+        "No novelty guarantee from failed OEIS/Resultary searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Lemma 4 is asymptotic in k with no numeric 12! extremizer or first-eight cutoff",
+          "evidence": "1990 paper Lemma 4, pp.152–154",
+          "identifier_or_url": "J. Number Theory 35 (1990) 150–156; https://tenenb.perso.math.cnrs.fr/PPP/Egyptian.pdf",
+          "material_read": "Full 7-page primary PDF: introduction, Lemmas 1–4 (especially pp.152–154), proof and references",
+          "method": "full PDF text and inspected page image",
+          "title": "Length and Denominators of Egyptian Fractions, III",
+          "trigger": "Same distinct factorial-divisor representation length"
+        },
+        {
+          "assessment": "No claim that unread full text is NOT_COVERING; displayed abstract discusses asymptotic h(n!) bound, not finite threshold",
+          "evidence": "https://arxiv.org/abs/2609.10902; https://www.emergentmind.com/papers/2609.10902",
+          "identifier_or_url": "arXiv:2609.10902v1",
+          "material_read": "Public arXiv abstract and external bibliographic abstract; full arXiv HTML/PDF retrieval unsuccessful; complete primary text not read",
+          "method": "abstract and metadata only",
+          "title": "Sums of distinct divisors of factorials",
+          "trigger": "Exact same h(n!) invariant; strongest relevance"
+        },
+        {
+          "assessment": "High-overlap source inaccessible in full; no whole-text noncoverage assertion",
+          "evidence": "https://www.cambridge.org/core/journals/canadian-mathematical-bulletin/article/on-a-sum-of-divisors/422DDD1972CEF8DC6A7DF98EB7060A79",
+          "identifier_or_url": "DOI:10.4153/CMB-1992-056-7",
+          "material_read": "Cambridge primary landing page with abstract, bibliographic/references; PDF button unavailable in retrieved HTML; full text not read",
+          "method": "publisher abstract and bibliography",
+          "title": "On a Sum of Divisors",
+          "trigger": "Same l(N,r), l(N) invariant and potential finite tables"
+        },
+        {
+          "assessment": "Exact overlap possible and unresolved; flagged as residual priority risk",
+          "evidence": "https://jglobal.jst.go.jp/detail?JGLOBAL_ID=200902179472007507",
+          "identifier_or_url": "Research Bulletin Hiroshima Inst. Technology 29 (1995), 25–28",
+          "material_read": "J-GLOBAL citation and title/year; no substantive text accessible",
+          "method": "bibliographic record only",
+          "title": "On a Knapsack Problem involving Divisors of n!",
+          "trigger": "Exact same factorial divisor knapsack topic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hughes 2026 asymptotic study of same h invariant",
+        "Tenenbaum–Yokota 1990 Lemma 4",
+        "12! independent exhaustive exact calculation"
+      ],
+      "rationale": "The first point where a natural cardinality-constrained invariant h(n!) reaches eight is a meaningful exact finite cutoff for the factorial divisor-covering problem posed by Erdős and investigated by Hughes. A complete 1..12 profile, thin 175-member extremal layer and reproducible exact certificate provide concrete benchmarks and potential structure for later bounds, despite not proving a general formula.",
+      "residual_risks": [
+        "Cannot infer subsequent factorial thresholds or a closed structural description of the 175 difficult integers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact finite claim only for 1<=n<=12.",
+    "Full primary text inaccessible for Yokota 1992, Yokota 1995 and Hughes 2026; Oxford VPN access disconnected.",
+    "All potential publication metadata was inspected and contains operational provenance identifiers (scope_run_id).",
+    "Complete recursive Git tree inventory not independently retrievable by the available read-only connector; original assigned source-tree SHA retained, not re-certified."
+  ],
+  "schema_version": 1
+}
