@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof uses the full graph definitions and the invariant-space quotient, plus the exact polynomial identity for the quotient cofactor. The standalone `verify.py` needs only Python 3 and emits `VERIFY_OK` if all checks pass.
+## correctness
 
-The six-by-six quotient cofactor depends polynomially on \(r\) with degree at most six. Seven exact substitutions \(0\le r\le6\) and integer Bareiss elimination verify the proposed polynomial identity for all \(r\), not merely those seven values. The other invariant-block determinants are checked directly.
+PASS
 
-As an independent finite calibration, the program constructs both edge graphs from their combinatorial definitions, confirms their \(2d+2\) vertex and \((d+3)(d-1)\) edge counts, and compares full Laplacian cofactors with the asserted products for every integer \(3\le d\le10\). In the exceptional case \(d=3\), this supplies the separate count \(336\) for the truncated triangular prism. The general result relies additionally on the proved invariant decomposition; these finite full-graph cases alone would not establish it.
+The assigned graph of A_d is (K_{d-3}∨C4)□K2, giving Laplacian spectrum 0,2,d-1 twice,d+1 with d copies,d+3 with d-2 copies; matrix-tree theorem yields the stated τ(A_d). The B_d graph is specified by truncating one simple triangular-prism vertex and replacing it by a d-clique; exchanging the paired classes splits its Laplacian into (r-1) copies of 2×2 T_d, one 3×3 S_d with eigenvalues d+1,d+1±√2, and a 7-cell quotient Q_r for r=d-3≥1. Independently evaluating det of Q_r with its singleton C row/column removed gives exactly (r+3)(r³+12r²+44r+46) as a symbolic polynomial identity; the graph spectrum and matrix-tree formula yield τ(B_d) for d≥4. The d=3 eight-vertex cofactor is 336, vs τ(A_3)=384. An independent SymPy graph construction and exact integer Laplacian cofactors for all d=3..9 matched the formulas. The rational comparison difference after h=d-3 independently expands to h⁵+18h⁴+124h³+406h²+628h+372>0; asymptotic factors each contribute -1/d. The symbolic identity plus invariant decomposition prove all dimensions, not the finite enumerations.
 
-The strict order follows from a displayed positive-coefficient polynomial after substituting \(h=d-3\); it is not inferred from numerical experiments. Remaining risks concern only possible equivalent literature under different graph terminology and lack of independent validation.
+## originality
+
+PASS
+
+Face-vector equality, graph types and extremal edge counts are cited prior results, not novel here. The new spectral separation and exact all-dimensional spanning-tree counts and strict ordering are not mathematically implied by equal f-vectors; the primary papers classify faces and edge extremizers rather than evaluating Kirchhoff graph complexity. Indexed graph spectral results concern distinct polytope families.
+
+## value
+
+PASS
+
+The two canonical infinitely parameterized edge-extremal polytope families have identical complete f-vectors yet strictly distinct exact Laplacian spectra and spanning-tree complexities. Integer-vs-irrational spectral separation, exact all-d formulas and quantitative ratio 1-2/d+O(d^-2) exhibit a mathematically motivated graph invariant that f-vectors miss.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

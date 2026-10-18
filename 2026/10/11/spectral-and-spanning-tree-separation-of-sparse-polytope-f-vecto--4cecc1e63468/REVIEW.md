@@ -1,11 +1,21 @@
-# Review of the spectral and spanning-tree separation theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The family definitions agree with the geometric construction of the source. For the prism family, the spectrum is obtained from the join and Cartesian-product rules. For the truncated triangular-prism family, the exact graph construction gives two explicit invariant blocks and a seven-cell quotient; the quotient cofactor polynomial is independently certified by seven integer evaluations and a degree bound. The eight-vertex exceptional case is separately checked. A positive-coefficient polynomial after \(h=d-3\) proves the strict count order and the displayed ratio gives its asymptotics. The bounded full-graph checks are corroboration, not the proof of arbitrary dimension.
+## correctness
 
-**Originality — PASS, with residual uncertainty.** The 2020 primary classification establishes exactly which graph families are compared and their equal edge counts, and the 2024 face-bound study supplies the common face vector. Material inspected in those sources concerns face numbers and extremal edge counts rather than Laplacian characteristic factors or Kirchhoff counts. Published-index and web searches for these precise graph constructions, numerical counts, and related spectral identities found no equivalent evaluated theorem. The existence of a more general graph-transformation formula or an alternative name for the same graph remains an open literature-coverage risk; no universal uniqueness is claimed.
+PASS
 
-**Value — PASS.** The polytopes are structurally motivated, extremal in infinitely many dimensions, and already known to have the same entire face vector. Their spanning-tree counts nevertheless differ strictly in every dimension; their Laplacian spectra are further separated by integrality. The formulas quantify the distinction and show the normalized gap tends to zero at order \(1/d\). The result is more than a determinant for an arbitrary small graph: it gives a uniform comparison of two canonical infinite extremal families with a seven-cell proof despite growing graph order.
+The assigned graph of A_d is (K_{d-3}∨C4)□K2, giving Laplacian spectrum 0,2,d-1 twice,d+1 with d copies,d+3 with d-2 copies; matrix-tree theorem yields the stated τ(A_d). The B_d graph is specified by truncating one simple triangular-prism vertex and replacing it by a d-clique; exchanging the paired classes splits its Laplacian into (r-1) copies of 2×2 T_d, one 3×3 S_d with eigenvalues d+1,d+1±√2, and a 7-cell quotient Q_r for r=d-3≥1. Independently evaluating det of Q_r with its singleton C row/column removed gives exactly (r+3)(r³+12r²+44r+46) as a symbolic polynomial identity; the graph spectrum and matrix-tree formula yield τ(B_d) for d≥4. The d=3 eight-vertex cofactor is 336, vs τ(A_3)=384. An independent SymPy graph construction and exact integer Laplacian cofactors for all d=3..9 matched the formulas. The rational comparison difference after h=d-3 independently expands to h⁵+18h⁴+124h³+406h²+628h+372>0; asymptotic factors each contribute -1/d. The symbolic identity plus invariant decomposition prove all dimensions, not the finite enumerations.
 
-**Remaining limits.** No conclusion about other sporadic edge-minimizing polytopes, about all possible graph synonyms, or about an explicit quintic spectral solution. Primary sources have been checked directly; a claim of exhaustive discovery of all preprints would be unwarranted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Face-vector equality, graph types and extremal edge counts are cited prior results, not novel here. The new spectral separation and exact all-dimensional spanning-tree counts and strict ordering are not mathematically implied by equal f-vectors; the primary papers classify faces and edge extremizers rather than evaluating Kirchhoff graph complexity. Indexed graph spectral results concern distinct polytope families.
+
+## value
+
+PASS
+
+The two canonical infinitely parameterized edge-extremal polytope families have identical complete f-vectors yet strictly distinct exact Laplacian spectra and spanning-tree complexities. Integer-vs-irrational spectral separation, exact all-d formulas and quantitative ratio 1-2/d+O(d^-2) exhibit a mathematically motivated graph invariant that f-vectors miss.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

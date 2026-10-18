@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T02:00:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The assigned graph of A_d is (K_{d-3}∨C4)□K2, giving Laplacian spectrum 0,2,d-1 twice,d+1 with d copies,d+3 with d-2 copies; matrix-tree theorem yields the stated τ(A_d). The B_d graph is specified by truncating one simple triangular-prism vertex and replacing it by a d-clique; exchanging the paired classes splits its Laplacian into (r-1) copies of 2×2 T_d, one 3×3 S_d with eigenvalues d+1,d+1±√2, and a 7-cell quotient Q_r for r=d-3≥1. Independently evaluating det of Q_r with its singleton C row/column removed gives exactly (r+3)(r³+12r²+44r+46) as a symbolic polynomial identity; the graph spectrum and matrix-tree formula yield τ(B_d) for d≥4. The d=3 eight-vertex cofactor is 336, vs τ(A_3)=384. An independent SymPy graph construction and exact integer Laplacian cofactors for all d=3..9 matched the formulas. The rational comparison difference after h=d-3 independently expands to h⁵+18h⁴+124h³+406h²+628h+372>0; asymptotic factors each contribute -1/d. The symbolic identity plus invariant decomposition prove all dimensions, not the finite enumerations.",
+      "residual_risks": [
+        "Independent bounded graph checks d=3..9 alone are not proofs for all d; general proof rests on verified symbolic quotient and group-invariant decomposition."
+      ],
+      "sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/spectral-and-spanning-tree-separation-of-sparse-polytope-f-vecto--4cecc1e63468/RESULT.md",
+        "https://arxiv.org/abs/2005.06746",
+        "https://arxiv.org/abs/2409.14294"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2005.06746",
+          "https://arxiv.org/abs/2409.14294",
+          "Kirchhoff matrix-tree theorem"
+        ],
+        "reasoning": "Matrix-tree gives a general determinant expression for any graph but not a closed all-d count or comparison without explicit graph-spectrum work. Pineda-Villavicencio et al. establish extremality/equal faces, not τ ordering or irrational eigenvalue distinctions.",
+        "searches": [
+          "f-vector equal polytopes A_d B_d 2d+2 vertices Laplacian spanning trees graph eigenvalues truncation of triplex",
+          "Pineda Villavicencio Ugon Yost A_d B_d Laplacian characteristic polynomial spanning trees"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2005.06746",
+        "https://arxiv.org/abs/2409.14294",
+        "Kirchhoff matrix-tree theorem",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/spectral-and-spanning-tree-separation-of-sparse-polytope-f-vecto--4cecc1e63468/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2005.06746",
+          "https://arxiv.org/abs/2409.14294",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/spectral-and-spanning-tree-separation-of-sparse-polytope-f-vecto--4cecc1e63468/RESULT.md"
+        ],
+        "reasoning": "Equal face vectors are not enough to determine one-skeleton isomorphism, Laplacian integral spectrum or τ; the present two explicit one-skeleta are distinguishable despite same f-vector. The preceding papers imply existence and combinatorial motivation of the pair, not the graph-complexity formulas.",
+        "searches": [
+          "f-vector equal polytopes A_d B_d 2d+2 vertices Laplacian spanning trees graph eigenvalues truncation of triplex",
+          "arXiv 2409.14294 f(A_d)=f(B_d) graph eigenvalues"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2005.06746",
+          "https://arxiv.org/abs/2409.14294",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/spectral-and-spanning-tree-separation-of-sparse-polytope-f-vecto--4cecc1e63468/RESULT.md"
+        ],
+        "reasoning": "The geometric labels 2d+2-vertex polytopes, cube/5-wedge analogues, triplex truncation and prism graph identities identify the same pair. Prior face classification names those polytopes but does not supply evaluated Laplacian characteristic factors or spanning-tree count.",
+        "searches": [
+          "f-vector equal polytopes A_d B_d 2d+2 vertices Laplacian spanning trees graph eigenvalues truncation of triplex",
+          "A_d B_d triplex truncation f-vector twins Kirchhoff determinant spectral noncospectral"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/spectral-and-spanning-tree-separation-of-sparse-polytope-f-vecto--4cecc1e63468/RESULT.md",
+          "Resultary separate results on matroid basis-exchange graphs, cycle zonotopes, symmetric-edge polytopes: different one-skeleta"
+        ],
+        "reasoning": "Searches including object aliases and exact counts 336,384 found no independent same-pair exact spanning tree table. The assigned Resultary mirror is not counted as independent coverage.",
+        "searches": [
+          "f-vector equal polytopes A_d B_d 2d+2 vertices Laplacian spanning trees graph eigenvalues truncation of triplex",
+          "sparse polytopes 2d+2 vertices f-vector twins spanning trees A_d B_d OEIS"
+        ]
+      },
+      "rationale": "Face-vector equality, graph types and extremal edge counts are cited prior results, not novel here. The new spectral separation and exact all-dimensional spanning-tree counts and strict ordering are not mathematically implied by equal f-vectors; the primary papers classify faces and edge extremizers rather than evaluating Kirchhoff graph complexity. Indexed graph spectral results concern distinct polytope families.",
+      "residual_risks": [
+        "Alternative graph names or a preexisting general truncation determinant formula could yield equivalent counts; not excluded by the located papers.",
+        "Exceptional dimensions contain additional minimizers outside the claimed pair."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes A_d,B_d and extremal edge count; does not state the computed τ formulas in inspected relevant sections",
+          "evidence": "Pineda-Villavicencio, Ugon & Yost, Electronic Journal of Combinatorics 29(3) P3.18 (2022).",
+          "identifier_or_url": "https://arxiv.org/abs/2005.06746",
+          "material_read": "Primary PDF abstract, geometric family definitions, relevant remarks and Theorem 13 on extremal edge counts; no exhaustive claim about all graph invariants",
+          "method": "arXiv open primary full PDF and publication landing page",
+          "title": "Minimum number of edges of polytopes with 2d+2 vertices",
+          "trigger": "Defines exact graph families, minimizing classes"
+        },
+        {
+          "assessment": "Equal f-vectors do not imply equal spanning-tree complexity; paper addresses face bounds",
+          "evidence": "Pineda-Villavicencio et al., arXiv:2409.14294, theorem 3(i).",
+          "identifier_or_url": "https://arxiv.org/abs/2409.14294",
+          "material_read": "Primary PDF theorem 3(i), equation 2 and related face-bound statements",
+          "method": "arXiv open PDF, theorem section",
+          "title": "A lower bound theorem for d-polytopes with 2d+2 vertices",
+          "trigger": "Supplies f-vector equality for exactly these families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two canonical infinitely parameterized edge-extremal polytope families have identical complete f-vectors yet strictly distinct exact Laplacian spectra and spanning-tree complexities. Integer-vs-irrational spectral separation, exact all-d formulas and quantitative ratio 1-2/d+O(d^-2) exhibit a mathematically motivated graph invariant that f-vectors miss.",
+      "residual_risks": [
+        "The result does not classify other sporadic co-minimizers or solve all quotient eigenvalues."
+      ],
+      "sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/spectral-and-spanning-tree-separation-of-sparse-polytope-f-vecto--4cecc1e63468/RESULT.md",
+        "https://arxiv.org/abs/2005.06746",
+        "https://arxiv.org/abs/2409.14294"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent bounded graph checks d=3..9 alone are not proofs for all d; general proof rests on verified symbolic quotient and group-invariant decomposition.",
+    "Alternative graph names or a preexisting general truncation determinant formula could yield equivalent counts; not excluded by the located papers.",
+    "Exceptional dimensions contain additional minimizers outside the claimed pair.",
+    "The result does not classify other sporadic co-minimizers or solve all quotient eigenvalues."
+  ],
+  "schema_version": 1
+}
