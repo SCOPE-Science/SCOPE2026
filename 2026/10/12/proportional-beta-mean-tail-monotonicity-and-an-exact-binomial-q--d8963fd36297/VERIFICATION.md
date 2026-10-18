@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification of the proportional-beta mean-tail theorem
+# Independent mathematical audit
 
-The complete analytic argument appears in RESULT.md. It uses exact differentiation of the binary relative entropy, a strictly increasing ratio of two branch derivatives, integration of a positive weight, and an exact log-odds Jacobian. The critical polynomial assertion is
-\[
-AB-2A(1-r)w+Brw^2>0\quad\text{for }\frac{1-p}{p}\le r\le1,\quad 0<w<p,
-\]
-under \(1/2<p<1\) and the branch-domain restriction. This follows from monotonicity in \(r\) and the displayed strictly positive value at its lower endpoint. The binomial consequence is an exact beta–binomial CDF identity.
+## correctness
 
-Execute `python3 check_beta_binomial.py` without additional dependencies. Observed output:
+PASS
 
-```
-PASS: 600 exact binomial tail values; 576 exact consecutive comparisons; 3469 exact rational derivative checks
-```
+Reconstructed the exact theorem on p in (0,1), tau>0: the inverse branches of Bernoulli KL divergence give u(s),v(s), r=v/u in ((1-p)/p,1) for p>1/2. Differentiating R_r(w)=r^2(A+Bw-w^2)/(A-Brw-r^2w^2) yields r^2(1+r)J_r/(...)^2; J_r>=J_{(1-p)/p}=B(1-p)(p-w)^2/p>0. The ratio of equal-energy displacements decreases strictly, and the log-odds beta density is an e^{-tau s} tilt of branch weights with decreasing conditional k(s)=r/(1+r). Monotone likelihood-ratio of the energy tilt proves the strict CDF trend. Escape to infinite energy for tau down to 0 and concentration at zero for tau to infinity give limits 1-p and 1/2. Reflecting p handles p<1/2. The beta-binomial identity with parameters ((n-1)t,t), cutoff (n-1)/n, gives the exact discrete strictness and infimum; n=2 is symmetric. Independently checked the symbolic derivative identity using SymPy and several rational binomial sequences using Fraction; finite tests supplement the analytic argument.
 
-The verifier constructs binomial probabilities using integer numerators and rational denominators. The universal strict monotonicity, the beta endpoint limits, and the quantifiers over all real concentration parameters are analytic, **not** consequences of exhaustive finite computation. No third-party verification is asserted.
+## originality
+
+PASS
+
+Best-of-knowledge novelty is the proportional-two-shape beta mean-tail theorem and its exact finite-n binomial quantile conjecture consequence, not monotonicity in one beta coordinate.
+
+## value
+
+PASS
+
+This proves a precise, previously formulated finite-agent matroid-rank quantile threshold and a strict distributional monotonicity theorem across all real positive beta shape scales. The relevance follows directly from a named conjecture; it is neither a numerical-only bound nor a routine one-parameter parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

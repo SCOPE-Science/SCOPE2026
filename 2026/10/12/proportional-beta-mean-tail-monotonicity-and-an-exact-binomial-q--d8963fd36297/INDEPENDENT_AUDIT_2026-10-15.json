@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T02:16:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the exact theorem on p in (0,1), tau>0: the inverse branches of Bernoulli KL divergence give u(s),v(s), r=v/u in ((1-p)/p,1) for p>1/2. Differentiating R_r(w)=r^2(A+Bw-w^2)/(A-Brw-r^2w^2) yields r^2(1+r)J_r/(...)^2; J_r>=J_{(1-p)/p}=B(1-p)(p-w)^2/p>0. The ratio of equal-energy displacements decreases strictly, and the log-odds beta density is an e^{-tau s} tilt of branch weights with decreasing conditional k(s)=r/(1+r). Monotone likelihood-ratio of the energy tilt proves the strict CDF trend. Escape to infinite energy for tau down to 0 and concentration at zero for tau to infinity give limits 1-p and 1/2. Reflecting p handles p<1/2. The beta-binomial identity with parameters ((n-1)t,t), cutoff (n-1)/n, gives the exact discrete strictness and infimum; n=2 is symmetric. Independently checked the symbolic derivative identity using SymPy and several rational binomial sequences using Fraction; finite tests supplement the analytic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2605.21424v1 Lemma 18: I_{c/(c+n)}(a,n) with fixed a and c; not proportional scaling both shapes",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC11593182/ distinct one-shape parameter trend"
+        ],
+        "reasoning": "One-shape monotonicity, separate-coordinate Turan/log-concavity and larger concentration results do not imply the pathwise derivative along fixed beta mean; simultaneous changes can have competing effects.",
+        "searches": [
+          "Hornik 2024 Two Monotonicity Results for Beta Distribution Functions",
+          "Leobacher Steinicke 2026 Lemma 18",
+          "Karp 2015 normalized incomplete beta function log-concavity"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2312.01874",
+        "https://arxiv.org/html/2605.21424v1",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11593182/",
+        "https://arxiv.org/pdf/1509.05120",
+        "Resultary semantic search: Beta(p tau,(1-p)tau) cumulative distribution at its mean monotonicity concentration parameter, binomial (nt-1,1/n) tail threshold conjecture quantile shares"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2312.01874 Remark 2 is stated as a conjecture, not a theorem",
+          "https://arxiv.org/html/2605.21424v1 Lemma 18 parameters differ"
+        ],
+        "reasoning": "The exact binomial monotonicity proves the prior conjecture; the earlier matroid-rank allocation implication does not prove its new analytic antecedent. No universal-feasibility theorem for unrestricted valuations is asserted.",
+        "searches": [
+          "Babichenko Feldman Holzman Narayan Remark 2 2023",
+          "Hornik 2024",
+          "Leobacher Steinicke 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2312.01874 Remark 2 explicitly conjectures infimum at t=1",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC11593182/ analyzes single-coordinate shape monotonicity",
+          "https://arxiv.org/html/2605.21424v1 Lemma 18 fixes its first beta shape while varying second"
+        ],
+        "reasoning": "The beta/gamma reflected variables, incomplete-beta transform and binomial-tail identity were compared; no inspected earlier theorem supplied the sign along simultaneous scaling (p tau,(1-p)tau).",
+        "searches": [
+          "Beta(p tau,(1-p)tau) cumulative distribution at its mean monotonicity concentration parameter, binomial (nt-1,1/n) tail threshold conjecture quantile shares",
+          "regularized beta CDF concentration proportional parameter mean median",
+          "Hornik 2024 beta distribution monotonicity theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/pdf/2312.01874 gives q_n as an infimum over t and conjectures t=1",
+          "Resultary returned related beta tails but no matching infimum identity among inspected hits"
+        ],
+        "reasoning": "No exact table/census computes all integer t or establishes the proposed sharp q_n from a finite table; finite binomial scans are not the theorem.",
+        "searches": [
+          "Resultary semantic query: Beta(p tau,(1-p)tau) cumulative distribution at its mean monotonicity concentration parameter, binomial (nt-1,1/n) tail threshold conjecture quantile shares",
+          "binomial nt-1 1/n threshold fair division quantile shares"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty is the proportional-two-shape beta mean-tail theorem and its exact finite-n binomial quantile conjecture consequence, not monotonicity in one beta coordinate.",
+      "residual_risks": [
+        "Uninspected equivalent monotonicity in an obscure older beta/gamma paper remains possible; no priority claim of exhaustive novelty.",
+        "Hornik full text could not be reopened due captcha; only indexed material read in this turn."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Remark 2 defines q_n=inf_t P(Bin(nt-1,1/n)<t) and conjectures t=1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.01874",
+          "material_read": "full PDF pages 0-14, particularly Proposition 6 and Remark 2 p13",
+          "method": "PDF text and section comparison",
+          "title": "Fair Division via Quantile Shares",
+          "trigger": "Exact infimum conjecture"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Lemma 18 holds fixed n1+K and n1+N while varying n_m; not (p tau,(1-p)tau).",
+          "identifier_or_url": "https://arxiv.org/html/2605.21424v1",
+          "material_read": "Full HTML Introduction, Section 2, Lemma 18 and Remark 20",
+          "method": "HTML full-text sections and parameter-mapping",
+          "title": "A dice game, a multinomial walk, and the inverted Dirichlet distribution",
+          "trigger": "Incomplete beta monotonicity plausible alias"
+        },
+        {
+          "assessment": "POTENTIALLY_RELEVANT_NOT_FULLY_INSPECTED",
+          "evidence": "Primary abstract discusses alpha-varied or beta-varied distribution function, not verified whole article.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11593182/",
+          "material_read": "search-indexed theorem/abstract; full PMC document blocked by captcha",
+          "method": "Indexed text with explicit access limitation",
+          "title": "Two Monotonicity Results for Beta Distribution Functions",
+          "trigger": "Plausible competing beta monotonicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This proves a precise, previously formulated finite-agent matroid-rank quantile threshold and a strict distributional monotonicity theorem across all real positive beta shape scales. The relevance follows directly from a named conjecture; it is neither a numerical-only bound nor a routine one-parameter parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2312.01874",
+    "https://arxiv.org/html/2605.21424v1",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC11593182/",
+    "https://arxiv.org/pdf/1509.05120",
+    "Resultary semantic search: Beta(p tau,(1-p)tau) cumulative distribution at its mean monotonicity concentration parameter, binomial (nt-1,1/n) tail threshold conjecture quantile shares"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Applies to positive beta shapes with fixed mean and to the stated binomial family; no all-valuation feasibility or matching conjecture follows.",
+    "Literature search cannot establish absolute priority; finite checks are not infinite proof."
+  ],
+  "schema_version": 1
+}

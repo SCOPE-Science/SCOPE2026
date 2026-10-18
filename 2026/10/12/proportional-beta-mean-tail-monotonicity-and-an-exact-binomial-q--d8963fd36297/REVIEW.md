@@ -1,19 +1,21 @@
-# Scientific review: proportional-beta mean-tail monotonicity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof covers every real beta concentration \(\tau>0\) and every \(p\in(0,1)\), with the strict and symmetric cases separated. It reduces the sign to an explicit rational derivative calculation for the paired Bernoulli-relative-entropy branches: \(J_r(w)>0\) throughout the necessary parameter range. The ratio-of-integrals comparison proves that the relative branch displacement decreases at every positive energy. Transforming the beta density to log-odds gives an exact positive exponential-tilt representation, not an asymptotic approximation. The two limiting values follow from the integrability properties of the transformed density; the binomial assertion follows from the exact regularized-beta identity. The bundled exact rational checks returned 600 tail values, 576 comparisons, and 3,469 derivative checks. Finite checks corroborate rather than establish the universal theorem.
+PASS
 
-## Originality — PASS, with residual priority risk
+Reconstructed the exact theorem on p in (0,1), tau>0: the inverse branches of Bernoulli KL divergence give u(s),v(s), r=v/u in ((1-p)/p,1) for p>1/2. Differentiating R_r(w)=r^2(A+Bw-w^2)/(A-Brw-r^2w^2) yields r^2(1+r)J_r/(...)^2; J_r>=J_{(1-p)/p}=B(1-p)(p-w)^2/p>0. The ratio of equal-energy displacements decreases strictly, and the log-odds beta density is an e^{-tau s} tilt of branch weights with decreasing conditional k(s)=r/(1+r). Monotone likelihood-ratio of the energy tilt proves the strict CDF trend. Escape to infinite energy for tau down to 0 and concentration at zero for tau to infinity give limits 1-p and 1/2. Reflecting p handles p<1/2. The beta-binomial identity with parameters ((n-1)t,t), cutoff (n-1)/n, gives the exact discrete strictness and infimum; n=2 is symmetric. Independently checked the symbolic derivative identity using SymPy and several rational binomial sequences using Fraction; finite tests supplement the analytic argument.
 
-Babichenko, Feldman, Holzman, and Narayan explicitly leave the exact binomial infimum as a conjecture (arXiv:2312.01874v1, Remark 2). The available expanded author-hosted treatment also retains it as a conjecture. The closest source on beta CDF monotonicity is Hornik (2024), Theorems 1–2, which varies one shape while keeping the second fixed. Leobacher and Steinicke (2026), Lemma 18, likewise vary one shape and its threshold while keeping the other fixed. Karp (2015) treats log-concavity in individual shape coordinates, not this sign along a proportional-shape ray. Direct implication checks distinguish these results from the claim, despite similar vocabulary and beta-function notation. Independent historical priority remains a legitimate risk; searches cannot establish absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The specific exact finite-agent threshold was posed as an open quantitative conjecture in a substantial fair-division result. Its determination gives a necessary-and-sufficient finite-\(n\) quantile-share threshold for the matroid-rank class under the established interpretation in that source. The proof's stronger analytic statement gives a strict, all-concentration order for probability mass to one side of the mean of a natural two-parameter beta family. This is a structured infinite-family result rather than a numerical slice, a reparameterization, or a routine special case of the inspected coordinatewise results.
+Best-of-knowledge novelty is the proportional-two-shape beta mean-tail theorem and its exact finite-n binomial quantile conjecture consequence, not monotonicity in one beta coordinate.
 
-## Closest literature and limits
+## value
 
-Primary sources: Babichenko et al., arXiv:2312.01874v1, Remark 2; Hornik, *Entropy* 26 (2024), 938, Theorems 1–2; Leobacher–Steinicke, arXiv:2605.21424v1, §2 and Lemma 18; Karp, arXiv:1509.05120v1, §2. The result does not prove universal quantile feasibility, the Erdős matching conjecture, or distributional ordering of beta variables away from their mean. Historical equivalent formulations may exist in beta-function, gamma-ratio, or binomial-tail literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This proves a precise, previously formulated finite-agent matroid-rank quantile threshold and a strict distributional monotonicity theorem across all real positive beta shape scales. The relevance follows directly from a named conjecture; it is neither a numerical-only bound nor a routine one-parameter parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
