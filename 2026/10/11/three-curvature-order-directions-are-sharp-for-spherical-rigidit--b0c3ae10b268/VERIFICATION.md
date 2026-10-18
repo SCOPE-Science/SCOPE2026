@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,41 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The primary input is the one-direction theorem: the stated \(\sigma_m\)-ordering along chords parallel to a unit direction \(e\) forces a reflection plane orthogonal to \(e\).
+# Independent mathematical audit
 
-After translating the common centroid to the origin, reflection with unit normal \(e\) is
-\[
-R_e=I-2ee^T.
-\]
-For
-\[
-e_1=(1,0,0),\qquad e_2=(3/5,4/5,0),
-\]
-the exact product is
-\[
-R_{e_2}R_{e_1}=
-\begin{pmatrix}
--7/25&-24/25&0\\
-24/25&-7/25&0\\
-0&0&1
-\end{pmatrix}.
-\]
-Thus it is a \(z\)-axis rotation through \(2\theta\), where \(\cos\theta=3/5\). If \(\theta/\pi\) were rational, \(e^{i\theta}\) would be a root of unity and \(2\cos\theta=6/5\) a rational algebraic integer, a contradiction. Hence the cyclic rotation subgroup is dense in all \(z\)-axis rotations.
+## correctness
 
-For
-\[
-e_3=(0,1,1)/\sqrt2,
-\]
-the exact reflection sends \((0,0,1)\) to \((0,-1,0)\). Conjugation therefore supplies the complete \(y\)-axis rotation group. The standard \(z\)-\(y\)-\(z\) Euler decomposition gives all of \(SO(3)\).
+PASS
 
-The bundled checker verifies the reflection matrices, the rotation entries, and the third-axis image using exact symbolic arithmetic. Density and Euler generation are analytic group facts, not conclusions from finite computation.
+Applied Ghomi 2026 directional order theorem with the same upper-chord endpoint inequality for sigma_1 or sigma_2. Its one-direction conclusion is an orthogonal reflection symmetry. Compact convex body centroid belongs to all such symmetry planes; after centering three reflection maps are linear. First two normals (1,0,0) and (3/5,4/5,0) produce planar rotation R2 R1 with cosine -7/25, sine 24/25. Since cos(theta)=3/5, 2cos(theta)=6/5 is a rational noninteger algebraic integer contradiction if theta/pi rational; powers yield full SO(2) about z by density. Third reflection normal (0,1,1)/sqrt2 maps z to -y; conjugation gives SO(2) about y, whose rotations with z-axis rotations generate SO(3). Full rotational invariance forces ball. For arbitrary two prescribed directions pick a perpendicular spheroid axis a, yielding a smooth strictly convex nonround spheroid symmetric across both u^perp and v^perp, giving curvature-order equality. Covers dependent/antipodal u,v and both elementary curvatures.
 
-For sharpness, the analytic proof uses the full family
-\[
-\frac{\langle x,a\rangle^2}{\rho^2}+
-\left|x-\langle x,a\rangle a\right|^2\le1,
-\qquad \rho\ne1,
-\]
-with \(a\) chosen perpendicular to any prescribed pair of directions. Reflection in either corresponding normal plane fixes this quadratic form, so chord-endpoint curvatures agree exactly.
+## originality
+
+PASS
+
+Best-of-knowledge statement-level comparison against directly inspected mathematical texts supports originality of the precise claim, not the source construction or standard lemmas. Each comparison and reading limit is distinguished; inaccessible work is recorded as risk, not proof of uniqueness. Resultary semantic search failed internally and supplies no negative evidence.
+
+## value
+
+PASS
+
+Sharp finite-observation complexity of a meaningful new curvature-order symmetry test is three in R3; the theorem supplies an explicit sufficient triple and a universal obstruction to any pair. Even though group generation uses standard rotations, the threshold is a nontrivial, geometric structural boundary of Ghomi’s one-direction rigidity mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
