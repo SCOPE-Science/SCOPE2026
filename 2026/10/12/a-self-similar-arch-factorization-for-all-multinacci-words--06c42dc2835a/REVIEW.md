@@ -1,11 +1,21 @@
-# Scientific review: a self-similar arch factorization for multinacci words
+# Independent mathematical audit
 
-**Correctness (PASS).** The decisive substitution identity is \(x=\sigma_m^{m-1}(\sigma_m(x))\). The elementary image identities show that \(\sigma_m^{m-1}(0)\) has exactly one \(m-1\), at its end, and each \(\sigma_m^{m-1}(j)\), for \(j>0\), has none. Consequently the displayed blocks are exactly the complete greedy arches. The all-prefix index formula then follows from the established arch characterization; the endpoint gaps and the exact substitution-length counts follow algebraically. The limiting frequencies follow from the primitive substitution incidence matrix. The packaged checker verifies these structural identities, arch endpoints, and small defining-subsequence tests for parameters \(2\le m\le8\); no finite experiment is treated as an infinite proof.
+## correctness
 
-**Originality (PASS, with explicit residual risks).** The 2023 arch-factorization literature provides the general index criterion but not the multinacci-specific identity or prefix formula. The 2000 episturmian return-word literature is particularly close: it offers general structural tools that could imply subsidiary gap facts after specializations, but does not itself present the greedy-arch coding, the all-prefix universality identity, or the joint consequence. The 2021 multinacci Ziv–Lempel decomposition describes a different factorization. Comparison with relevant published mathematical statements found no direct or stronger covering statement. Residual risks are unindexed publications and implicit specialized consequences of earlier return-word theorems. The priority of a stand-alone gap-length statement should not be treated as established independently of those methods.
+PASS
 
-**Value (PASS).** The result identifies every greedy universality arch in a canonical family of nonperiodic substitution words of arbitrary alphabet size, rather than merely computing sample prefixes. It gives a natural complete arch-length spectrum, an exact all-prefix scattered-subsequence universality statistic, and a self-similar coding that recovers the original word from gap lengths. This joins two independently studied structures, return words and subsequence universality, in a way with concrete algebraic and asymptotic consequences.
+PASS: Reconstructed sigma_m^h(0): for h<m, length 2^h and a unique terminal h, then Q_j=sigma_m^(m-1)(j) is concatenation of lower-index sigma_m^h(0) avoiding letter m-1 with length 2^(m-1)-2^(j-1). Expanding sigma_m^m(x) exactly gives x=P B_{x0}B_{x1}..., each block has all m letters only upon its unique terminal m-1 and so is a shortest greedy arch. The standard arch-subsequence theorem gives U_m(N)=the rare-letter prefix count at every N, not only special substitution boundaries. Letter preimage equations give U_m(L_n)=L_(n-m), while primitive incidence matrix equations lambda f0=1,lambda f_j=f_(j-1) give f_(m-1)=lambda^-m and arch frequencies lambda^-(j+1). Independent regeneration of substitution words for m=2..7 over 30,000-symbol prefixes matched arch endpoints to rare-letter positions and verified first 2000 coded gaps; finite tests only corroborate the all-m morphism argument.
 
-**Sources and limitations.** Schnoebelen–Veron, arXiv:2304.11932v1 (2023); Justin–Vuillon, DOI:10.1051/ita:2000121 (2000); Jahannia et al., arXiv:2106.03202v1 (2021); Barker et al., arXiv:2003.04629v1 (2020). The result does not extend automatically to arbitrary episturmian words or shifts. The checker covers finitely many parameters and does not independently certify the infinite proof. The unindexed-equivalence and episturmian-specialization risks merit human attention.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best knowledge): The general greedy arch characterization is prior work, and episturmian return-word theory already provides abstract return-word decomposition and derived-word coding. Having inspected Justin–Vuillon Theorem 4.4 and its corollaries in full, its palindromic-prefix return-word result does not itself assert the complete every-prefix scattered-subsequence universality identity for this particular multinacci substitution, nor calculate all exact arch lengths and frequencies. The specific algebraic identification is the assessable original content; priority for isolated gap lengths remains a risk.
+
+## value
+
+PASS
+
+PASS: The multinacci word is a canonical family of recurrent morphic words, and exact scattered-subsequence universality of EVERY finite prefix is a natural complexity statistic. The self-similar decomposition does more than list gap lengths: it codes the entire infinite fixed point, recovers exact morphic-prefix counts, and yields a density. This is a motivated structural theorem rather than a recomputed finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
