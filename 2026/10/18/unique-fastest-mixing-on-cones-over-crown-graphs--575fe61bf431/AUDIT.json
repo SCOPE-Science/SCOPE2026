@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Averaging over simultaneous index permutations and side interchange is permitted because the SLEM is the operator norm of \\(P-J\\), hence convex. The full invariant spectrum consists of 1, 1-(2m+1)a, 1-a-2(m-1)b, 1-a-(m-2)b with multiplicity m-1, and 1-a-mb with multiplicity m-1. The exact positive combination \\(2(m-1)[1-a-(m-2)b]-(m-2)[1-a-2(m-1)b]=m(1-a)\\) gives \\(\\mu\\ge(2m-1)/(2(3m-4))\\). Proposed positive weights saturate and their remaining modes are bounded. Uniqueness without symmetry follows by equality in the PSD spectral-norm bound on the active positive (m-1)-dimensional eigenspace and active negative vector; row/column restrictions force all cross-edge weights equal for \\(m\\ge4\\) and then all hub weights. Standalone tests: 324 exact rational identities, 72 direct spectra, five exact characteristic polynomials, 840 random feasible comparisons; the proof is not inferred from finite computations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. 2009 Thm. 3.1 applies to edge-transitive graphs, while the crown cone has two edge orbits.",
+        "Boyd et al. 2009 §5.4.2 treats complete multipartite graphs; §5.4.3 wheel graphs; §5.4.4 two complete graphs joined by a single bridge. None of these graph descriptions contains G_m for \\(m\\ge4\\).",
+        "The cone here has one apex linked to two independent parts with a deleted matching, so general edge-transitive optimization does not directly give its all-optimizer classification."
+      ],
+      "reasoning": "A general convex SDP or automorphism-averaging theorem is an algorithmic framework, not a statement that all minimizers for this two-orbit cone are unique. No inspected broader theorem supplies the specific eigenvalue equality-to-rigidity argument.",
+      "searches": [
+        "Boyd et al. 2009, arXiv:0709.0955v1, §§2-5, especially §3.1 and §5.4.2–5.4.4",
+        "\"cone\" \"fastest mixing Markov chain\" regular graph eigenvalues",
+        "\"fastest mixing\" \"cone over\" graph",
+        "\"fastest mixing Markov chain\" \"join\" \"vertex-transitive\""
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "https://arxiv.org/abs/0709.0955",
+      "https://web.stanford.edu/~boyd/papers/fast_mix_symm.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The wheel formula in the 2009 article does imply the \\(m=3\\) *value*, but a wheel is the cone of a crown only when \\(m=3\\).",
+        "The two-clique bridge graph in the same paper is structurally distinct; neither graph is a complete bipartite graph with a deleted perfect matching and one universal vertex for \\(m\\ge4\\).",
+        "The new proof establishes that every nonsymmetric optimizer must equal the invariant one, a stronger quantifier than existence of an invariant optimum."
+      ],
+      "reasoning": "The claim is restricted to \\(m\\ge4\\) and asserts all-optimizer uniqueness. General convex solvability and the worked cases do not themselves prove this precise all-optimizer implication; the active-eigenspace rigidity step must be supplied. Unidentified stronger prior work remains an originality risk.",
+      "searches": [
+        "Boyd et al. 2009 arXiv:0709.0955v1, §5.4.3 and §5.4.4",
+        "Boyd et al. 2004 doi:10.1137/S0036144503423264, general FMMC SDP",
+        "spectral SLEM optimization cone over crown graph universal vertex bipartite complement matching eigenvalue (2m-1)/(2(3m-4))"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The crown graph Cr_m=K_{m,m} minus a perfect matching has \\(\\operatorname{Cr}_3=C_6\\), so its cone is the six-rim wheel; this special case is known.",
+        "For \\(m\\ge4\\) the crown is not a cycle, and a crown-cone description and the explicit parameters were absent from the returned matching research records."
+      ],
+      "reasoning": "Included cone, suspension, apex, crown, matching-deleted complete bipartite, and SLEM aliases. Explicitly excluded the \\(m=3\\) wheel case; merely matching a graph name was not used as proof of novelty.",
+      "searches": [
+        "exact fastest mixing chain on cone over crown graph \\(K_1\\) join (K_m,m minus perfect matching), transition hub weight (2m)^-1 and cross weight (2m-1)/(m(3m-4)) global uniqueness",
+        "fastest mixing Markov chain unique optimizer suspension cocktail party crown graph complete bipartite minus matching plus apex",
+        "unique globally optimal stochastic transition matrix on a crown graph with universal apex, fastest-mixing SLEM three m minus four",
+        "\"cone over crown graph\" \"fastest mixing\"",
+        "\"crown graph\" \"fastest mixing\" \"Markov\"",
+        "Boyd et al. 2009, §5.4.3 wheel graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest returned mathematical findings involved different invariants of crown graphs (e.g. odd colorings or graph polytopes), and fastest mixing on different families.",
+        "The 2009 primary article gives worked spectral data for wheels, complete bipartite graphs, and clique bridges but not a table for crowns with a universal apex."
+      ],
+      "reasoning": "Exact parameters, graph topology, and zero-sum eigenspace conditions were compared instead of only searching the title. The available search index cannot certify that no unindexed exact table exists.",
+      "searches": [
+        "exact fastest mixing chain on cone over crown graph \\(K_1\\) join (K_m,m minus perfect matching), transition hub weight (2m)^-1 and cross weight (2m-1)/(m(3m-4)) global uniqueness",
+        "fastest mixing Markov chain unique optimizer suspension cocktail party crown graph complete bipartite minus matching plus apex",
+        "spectral SLEM optimization cone over crown graph universal vertex bipartite complement matching eigenvalue (2m-1)/(2(3m-4))",
+        "unique globally optimal stochastic transition matrix on a crown graph with universal apex, fastest-mixing SLEM three m minus four",
+        "\"cone over crown graph\" \"fastest mixing\"",
+        "\"crown graph\" \"optimal transition probabilities\" eigenvalue"
+      ]
+    },
+    "rationale": "The wheel result of Boyd et al. 2009 covers the \\(m=3\\) cone over the six-cycle, so it is excluded. For \\(m\\ge4\\) the graph is \\(K_1\\) joined to a non-cycle crown, not a complete multipartite graph or a pair of cliques connected by a bridge. The source paper gives general symmetry and spectrum methods but neither these exact optimal probabilities nor uniqueness against all nonsymmetric kernels. Mathematical-record and external literature searches found no direct coverage, and accessible prior local claims concern distinct graph families. This is evidence-based best-knowledge originality, not a uniqueness guarantee.",
+    "residual_risks": [
+      "An unindexed manuscript, stronger general cone theorem, or an uninspected appendix elsewhere could imply the exact result.",
+      "The primary-paper comparison is focused on the directly relevant sections and examples, not a claim that all mathematical papers have been exhaustively read."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the \\(m=3\\) wheel case and general methods but not the \\(m\\ge4\\) crown cone or uniqueness of nonsymmetric minimizers.",
+        "evidence": [
+          "Thm. 3.1 assumes edge transitivity; §5.4.2 discusses complete multipartite, §5.4.3 wheels, and §5.4.4 \\(K_n-K_n\\) joined by a bridge.",
+          "At \\(m=3\\), \\(\\operatorname{Cr}_3=C_6\\) and the source wheel formula agrees with the extrapolated rational optimum."
+        ],
+        "identifier_or_url": "arxiv:0709.0955v1; https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Author-accessible PDF: introduction and problem definition; automorphism-averaging and edge-transitivity; worked complete multipartite, wheel, and two-clique bridge sections; relevant graph figures and formulas.",
+        "method": "Opened and read the PDF text for §§1,3,4.3,5.4.2–5.4.4 and visually inspected representative pages (including page 14); compared graph edges and eigenvalue formulas.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Most directly relevant primary source; includes wheel and other two-orbit graph calculations."
+      },
+      {
+        "assessment": "General SDP and optimization framework, not an explicit exact all-optimizer formula for the crown cone.",
+        "evidence": [
+          "The stated contribution formulates fastest symmetric stochastic mixing as convex optimization and gives examples, with no cone-over-crown claim in the inspected material."
+        ],
+        "identifier_or_url": "doi:10.1137/S0036144503423264; https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Author-accessible PDF front matter, abstract and formulation; accompanying author publication summary.",
+        "method": "Opened primary PDF and read accessible front matter and general formulation, cross-checked the author publication page.",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Foundational mathematical formulation for symmetric stochastic fastest mixing."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "575fe61b-f431-42a5-a08c-2be34aa9b71d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The cone over a crown is a natural network with one universal hub and a systematically removed cross-part matching, including the cone over the three-dimensional cube as its smallest new case. The theorem specifies every edge probability and all loop weights on the entire unbounded family, proves every available communication edge receives positive mass, and establishes global uniqueness among arbitrary asymmetric placements of edge probabilities (while matrices remain symmetric). This distinction is not obtained from automorphism averaging alone: invariant optimality does not rule out nonsymmetric optimal kernels. The exact asymptotic SLEM 1/3 and hub saturation quantify the role of the apex.",
+    "status": "PASS"
+  }
+}
