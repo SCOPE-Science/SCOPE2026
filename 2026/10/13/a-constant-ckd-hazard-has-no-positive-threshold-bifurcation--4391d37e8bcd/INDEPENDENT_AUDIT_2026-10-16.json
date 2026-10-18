@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T18:57:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reading actual AIMS Mathematics (2026) PDF section 3.2 and Appendix B4 confirms its printed CKD-only equations Sdot=Lambda-(lambda_k+mu)S; Ikdot=lambda_k S+gamma_h H-phi Ik; Hdot=zeta_k Ik-psi H, phi=zeta_k+mu_k+mu, psi=gamma_h+mu_h+mu. Set D=phi*psi-gamma_h*zeta_k=zeta_k(mu_h+mu)+(mu_k+mu)(gamma_h+mu_h+mu)>0 for all positive death/outflow rates. Then S*=Lambda/(lambda_k+mu), I*=lambda_k Lambda psi/[(lambda_k+mu)D]>0 and H*=zeta_k I*/psi>0 for EVERY positive lambda_k. The EXACT affine Jacobian has characteristic polynomial (r+lambda_k+mu)(r^2+(phi+psi)r+D), hence all eigenvalues have negative real parts for all lambda_k>=0 and the unique equilibrium attracts globally exponentially. I* increases continuously with lambda_k, with I*(0)=0; no positive-hazard exchange of equilibrium branches. Original Ck=1 corresponds to positive lambda*=mu D/[Lambda(psi+zeta_k)], not a zero eigenvalue; the printed Appendix B4 assertion of such an eigenvalue and transcritical bifurcation cannot hold. A separate symbolic differentiation and residual check reproduced the matrix and fixed point exactly.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full source PDF contains distinct seven-dimensional model and explicit affine subsystem"
+        ],
+        "reasoning": "General affine Hurwitz stability is textbook prior theory, but it is not an earlier source-specific correction of this printed 2026 CKD-only bifurcation claim. The coupled COVID-CKD model is not covered.",
+        "searches": [
+          "constant CKD hazard affine system transcritical threshold C_k one 2026 Rao Jaradat Devi correction bifurcation",
+          "site:aimspress.com/article/doi/10.3934/math.2026707/pdf Mathematical modeling COVID chronic kidney disease Rao equation 3.2"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/math.2026707",
+        "SCOPE Resultary semantic searches: constant CKD hazard affine threshold bifurcation correction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "DOI:10.3934/math.2026707 PDF pp. 17251-17253 and Appendix B4 pp.17289-17290"
+        ],
+        "reasoning": "The paper supplies the equilibrium formula, but its own Theorem 3.8 says I* vanishes at Ck=1 and a Jacobian eigenvalue crosses zero; the affine matrix proves both wrong. Thus the corrected no-bifurcation statement is not contained in its theorem; elementary algebra from the source is deliberately credited.",
+        "searches": [
+          "constant CKD hazard affine system transcritical threshold C_k one 2026 Rao Jaradat Devi correction bifurcation",
+          "doi:10.3934/math.2026707",
+          "SCOPE Resultary semantic searches: constant CKD hazard affine threshold bifurcation correction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source PDF sections 3.2–3.2.2 and Appendix B4, theorem 3.8 and equations (3.2)-(3.3)"
+        ],
+        "reasoning": "The published Ck-index is a parameterization of lambda_k; Ck=1 is positive lambda*, but true equilibrium is nonzero there. The source zero reference is expressly not a fixed point and cannot bifurcate.",
+        "searches": [
+          "constant CKD hazard affine system transcritical threshold C_k one 2026 Rao Jaradat Devi correction bifurcation",
+          "site:aimspress.com/article/doi/10.3934/math.2026707/pdf Mathematical modeling COVID chronic kidney disease Rao equation 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original PDF lines 794-919, 922-983, 2903-3049; verified symbolic parameter identities"
+        ],
+        "reasoning": "There is no intrinsic table; targeted literature search concerns a singular published threshold assertion, not a numerical database. No indexed erratum was identified, but this absence is not proof of priority.",
+        "searches": [
+          "constant CKD hazard affine system transcritical threshold C_k one 2026 Rao Jaradat Devi correction bifurcation",
+          "site:aimspress.com/article/doi/10.3934/math.2026707/pdf Mathematical modeling COVID chronic kidney disease Rao equation 3.2"
+        ]
+      },
+      "rationale": "Rao et al DOI:10.3934/math.2026707 already print the affine system and the correct positive equilibrium coordinates. Their Theorem 3.8 and Appendix B4 nevertheless claim a forward transcritical bifurcation at Ck=1 using a non-equilibrium reference state. The new claim is a motivated falsification and globally valid correction of that specific printed theorem, not ownership of the elementary linear-system technique or of the equilibrium formula already printed. Full section 3.2 and Appendix B were inspected at the published primary source. Other COVID-CKD models with prevalence coupling have different Jacobians; no other comparable correction was identified in Resultary prior-record searches.",
+      "residual_risks": [
+        "Global exponential convergence assumes all indicated outflow/death parameters are strictly positive; degenerate zero-rate parameter boundaries are excluded.",
+        "Corrected CKD-only affine dynamics cannot be extrapolated to the full co-infection dynamics or empirical control efficacy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source acknowledges CKD-free reference is not an equilibrium but still claims a false positive-threshold transcritical; direct Jacobian factorization contradicts this",
+          "evidence": [
+            "DOI:10.3934/math.2026707, equation 3.2, Theorems 3.6–3.8, Appendix B4"
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/6/PDF/math-11-06-707.pdf",
+          "material_read": "Section 3.2 (PDF pages 12–14), Appendix B2–B4 (PDF pages 49–51); inspected original page images 12,14,50,51",
+          "method": "Lawful journal open-access PDF parsed text plus actual page images",
+          "title": "Mathematical modeling of COVID-19 and chronic kidney disease co-infection with vaccination and optimal control",
+          "trigger": "Printed CKD-only equilibrium, theorem, Jacobian, claimed bifurcation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is not a generic sign check: a published threshold and bifurcation result in a biomedical dynamical model is mathematically incompatible with the actual constant-hazard equations. Establishing an all-positive-hazard stable equilibrium and monotonicity gives the exact qualitative alternative and prevents treating a nonexistent positive-hazard disease-eradication threshold as a policy bifurcation. Scope explicitly excludes claims about the full nonlinear seven-compartment coupled model or real clinical outcomes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.3934/math.2026707",
+    "SCOPE Resultary semantic searches: constant CKD hazard affine threshold bifurcation correction"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Restricted to the exact constant noncommunicable CKD hazard in the printed 3D affine subsystem, not 7D coupled COVID-CKD model or prevalence-dependent incidence."
+  ],
+  "residual_risks": [
+    "Global exponential convergence assumes all indicated outflow/death parameters are strictly positive; degenerate zero-rate parameter boundaries are excluded.",
+    "Corrected CKD-only affine dynamics cannot be extrapolated to the full co-infection dynamics or empirical control efficacy."
+  ],
+  "schema_version": 1
+}
