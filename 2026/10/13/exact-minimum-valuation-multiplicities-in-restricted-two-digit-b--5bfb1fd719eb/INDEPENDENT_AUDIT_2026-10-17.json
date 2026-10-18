@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:12:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/13/exact-minimum-valuation-multiplicities-in-restricted-two-digit-b--5bfb1fd719eb/RESULT.md",
+        "2026/10/13/exact-minimum-valuation-multiplicities-in-restricted-two-digit-b--5bfb1fd719eb/verify.py"
+      ],
+      "rationale": "For p prime, m>=3 dividing p+1, N=p^s+p^t>m, t-s odd, zero-borrow binomial indices are exactly 0,p^s,p^t,N and none is a proper multiple of m. Kummer gives h>=1. Exactly one borrow ends immediately below s or t, with adjacency handled separately; modular conditions d+e=0 mod m or d=0 mod m give h=1 and H=(a-1) times 1,3,2,4 according to gap/s. At m=p+1 one-borrow residues are impossible; an exhaustive classification of two adjacent or separate borrow positions gives h=2 and H=(p-1) times 1,3,2,3,5 with stated boundary branches. The impossible N=m exception is excluded. Independent Legendre-factorial arithmetic exhaustively checked 70 valid small parameter cases and exact minimizing indices, not an unrestricted proof.",
+      "residual_risks": [
+        "Finite validation is not a proof for unbounded parameter ranges."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General binomial gcd results cover some valuations across progressions; not known to count argmin supports."
+        ],
+        "reasoning": "Even a broader valuation formula lacks full minimizer multiplicity unless a separate index characterization is supplied; partial Wu text remains a risk.",
+        "searches": [
+          "arXiv:1510.06696v5",
+          "arXiv:2606.20940v2"
+        ]
+      },
+      "checked_sources": [
+        "Fairfax-Ball, Restricted Binomial GCDs at Primes Congruent to -1, arXiv:2609.37754v1, Theorem 1.1 and Section 6",
+        "McTague, On the Greatest Common Divisor of Binomial Coefficients, arXiv:1510.06696v5",
+        "Wu, Computing the Greatest Common Divisor of Binomial Coefficients, arXiv:2606.20940v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem1.1 provides gcd valuation, compatible with many possible multiplicities; new theorem gives exact argmin sets."
+        ],
+        "reasoning": "The prior statement is strictly weaker with respect to the new enumerative invariant; the new proof uses digit borrow structures beyond merely computing gcd.",
+        "searches": [
+          "arXiv:2609.37754v1 Theorem 1.1",
+          "arXiv:1510.06696v5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "min_k v_p(binomial N k) = v_p(gcd restricted coefficients); new H counts the argmin fiber."
+        ],
+        "reasoning": "Equivalent valuation formulations recover h but discard multiplicity H and the index set; their equality cannot prove the census.",
+        "searches": [
+          "Resultary semantic query: binomial coefficients gcd restricted modulo m two p-power digit positions p+1 prime valuations multiplicities minimizers",
+          "arXiv:2609.37754v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original mixed-two-digit Section 6 supplies representative coefficient witnesses for valuation branches, not H factors 1,3,2,4 / 1,3,2,3,5."
+        ],
+        "reasoning": "Witness tables do not enumerate all minimizing indices; no matching multiplicity table found in accessible checked sources.",
+        "searches": [
+          "arXiv:2609.37754v1 Section 6",
+          "Resultary semantic query: binomial coefficients gcd restricted modulo m two p-power digit positions p+1 prime valuations multiplicities minimizers"
+        ]
+      },
+      "rationale": "Detailed implication comparison to primary prior work, using all four separate originality checks. No identified prior theorem or table implies the exact newly stated invariant; findings are best-of-knowledge with residual risks.",
+      "residual_risks": [
+        "An enumeration of gcd-achieving binomial indices could be implicit in unindexed papers or a subsequent version; Wu 2026 primary inspection was partial."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE: h known, H not.",
+          "evidence": "Its theorem computes valuation of restricted gcd; its witnesses show existence but do not enumerate all minimizing indices.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.37754",
+          "material_read": "Full eight-page open preprint read, especially Theorem 1.1 and Section 6 witness construction.",
+          "method": "Public full-text transcription/author OA inspection.",
+          "title": "Fairfax-Ball, Restricted Binomial GCDs at Primes Congruent to -1",
+          "trigger": "Same restricted two-digit rows and p-adic minimum."
+        },
+        {
+          "assessment": "NOT KNOWN to imply exact first-layer multiplicities.",
+          "evidence": "Valuations of gcds do not fix number of indices where minimum is attained.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.06696",
+          "material_read": "Published result and arithmetic progression gcd descriptions targeted.",
+          "method": "Preprint/abstract and targeted theorem comparison.",
+          "title": "McTague, On the Greatest Common Divisor of Binomial Coefficients",
+          "trigger": "General progression-divisor gcd results plausibly dominate."
+        },
+        {
+          "assessment": "INDETERMINATE_FULL_COVERAGE; retained as risk.",
+          "evidence": "No explicit count of all minimizing positions was found in inspected portion; uninspected appendices prevent a global noncoverage claim.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.20940",
+          "material_read": "Partial source text and abstract describing gcd computation.",
+          "method": "Partial preprint inspection.",
+          "title": "Wu, Computing the Greatest Common Divisor of Binomial Coefficients",
+          "trigger": "Potential more general gcd valuation theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Fairfax-Ball, Restricted Binomial GCDs at Primes Congruent to -1, arXiv:2609.37754v1, Theorem 1.1 and Section 6",
+        "McTague, On the Greatest Common Divisor of Binomial Coefficients, arXiv:1510.06696v5",
+        "Wu, Computing the Greatest Common Divisor of Binomial Coefficients, arXiv:2606.20940v2"
+      ],
+      "rationale": "A restricted binomial gcd determines only the smallest valuation, not how many Pascal-row positions attain it. The exact minimal-valuation-layer multiplicities and complete minimizer parametrization answer a natural refinement of the original number-theoretic extremal question for sparse two-digit rows; stabilization by parity gap is a motivated structural phenomenon.",
+      "residual_risks": [
+        "An enumeration of gcd-achieving binomial indices could be implicit in unindexed papers or a subsequent version; Wu 2026 primary inspection was partial."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only sparse N=p^s+p^t with odd gap and divisors m>=3 of p+1; exact first valuation layer only."
+  ]
+}
