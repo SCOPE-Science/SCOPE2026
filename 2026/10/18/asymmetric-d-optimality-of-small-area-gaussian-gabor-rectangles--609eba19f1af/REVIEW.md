@@ -1,0 +1,15 @@
+# Scientific review: Asymmetric D-optimality of small-area Gaussian Gabor rectangles
+
+## Correctness — PASS
+The Gaussian Weyl overlap yields an explicit Hermitian four-vector Gram matrix. Exact symbolic determinant factorization gives the area-constrained formula, and the hyperbolic-sine inequality establishes strict positivity for all positive spacings. The normalized singular limit has a unique positive maximizer: the differentiated numerator has positive Taylor coefficients exactly at orders 4, 5 and 6, then negative coefficients at all higher orders, yielding a strictly decreasing quotient and a simple stationary root. A compactness argument excludes vanishing or diverging maximizing aspect parameters, and the implicit-function theorem provides exactly one maximizing branch modulo axis swap for sufficiently small area. The sharp \(u^4\) optimum and balanced \(u^6/3\) comparison follow by uniform Taylor expansions. Exact symbolic and high-precision checks executed successfully; they do not replace the proof.
+
+## Originality — PASS, with residual publication-priority uncertainty
+Benedetto–Bourouihiya, arXiv:1211.0337v1, concern qualitative linear independence from decay; Gröchenig, arXiv:1401.1353v1, concerns bounds and deterioration for finite time-frequency shift sections; Gröchenig–Ortega-Cerdà–Romero, arXiv:1311.3861v1, establish deformation stability of Gabor systems; Gröchenig–Haimi–Romero, arXiv:1507.02124v1, concerns completeness and a Zak-fiber determinant, not this four-state Gram determinant. The inspected portions do not imply an area-constrained extremal identity for four Gaussian Weyl translates. Equivalent coherent-state/Bargmann–Fock kernel formulations, Gram-volume normalization, the relevant finite-sampling consequences, and potentially stronger Gaussian interpolation literature were compared. No covering statement was identified, but older unindexed optimal experimental-design results remain a genuine residual risk. This is a best-knowledge originality assessment, not independent novelty certification.
+
+## Value — PASS
+Four-shift Gaussian Gram volume is an intrinsic finite Gabor sampling D-optimality statistic; fixing symplectic area is natural because the Weyl phase depends only on that area. The theorem identifies a singular anisotropic optimization law with a sharp constant and two optimal branches, and quantifies a diverging advantage over the geometrically balanced rectangle. Neither the qualitative independence of four shifts nor fixed-shape small-area expansions supplies this global constrained optimization. The result is meaningful while explicitly restricted to determinant rather than smallest singular value, and to sufficiently small positive area.
+
+## Limitations and priority risks
+No all-area phase diagram, no least-eigenvalue extremizer, and no optimization over arbitrary four configurations is claimed. The limiting aspect ratio is unbounded. Older or unindexed coherent-state kernel determinant literature may contain an equivalent theorem. Publication priority awaits external assessment.
+
+Self-review: passed. Independent audit: not yet performed.
