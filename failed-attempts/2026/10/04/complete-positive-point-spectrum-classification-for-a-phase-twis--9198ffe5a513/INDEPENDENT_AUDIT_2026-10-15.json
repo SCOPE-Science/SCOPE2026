@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T00:51:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the stated normalized, nonmagnetic equilateral square graph with U=e^(i mu) R, 0<mu<pi/2, positive k and Bloch Q=cos(theta1)+cos(theta2), Exner--Tater Eq(20)-(21) gives F(k,Q)=F(k,0)+2k(k^2-1)sin(k ell) Q, with overall nonzero prefactor for k>0. Positive point spectrum requires the fiber determinant vanish on positive measure in theta; a nonconstant affine expression in Q has zero set of measure zero. Thus k=1 or sin(k ell)=0. For sin(k ell)=0, F=4k^2 sin(2mu)>0, impossible. At k=1, F=4sin(2(mu+ell)), independent of Q, vanishing iff mu+ell is a multiple of pi/2. Every fiber then has E=1, giving infinite-multiplicity point spectrum by Floquet direct-integral theory. Finite code checks coefficients but is not proof of the all-k statement; endpoints, negatives and magnetic cases excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source provides an exact global dispersion relation for the entire same normalized phase-twisted lattice family, not merely a special k formula.",
+          "Unphased/magnetic related systems are distinct and do not dominate interior phase; broad coverage here is from the identical source equation."
+        ],
+        "reasoning": "The published Floquet determinant for all k and theta, with standard Floquet point-spectrum criterion, implies the restricted complete point-spectrum statement directly.",
+        "searches": [
+          "arXiv:2108.04708 full text Eq 20 and 21",
+          "arXiv:1710.02664 unphased square lattice flat bands",
+          "arXiv:2302.04601 magnetic preferred-orientation square lattice"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.04708 Eq (15)-(23) full primary PDF",
+        "arXiv:1710.02664 related endpoint system",
+        "arXiv:2302.04601 related magnetic system",
+        "Resultary phase-twisted square-lattice flat bands search",
+        "Actual Git RESULT.md and artifacts/verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set Q=cos(theta1)+cos(theta2). Published c3,c1 terms contribute +2k^3 Q sin(kell)-2k Q sin(kell), hence slope=2k(k^2-1)sin(kell).",
+          "Zero slope forces k=1 or sin(kell)=0; for sin=0, published c2=4sin2mu implies F=4k^2sin2mu; for k=1, Eq23 sine locus."
+        ],
+        "reasoning": "Every case of the proposed positive point-spectrum dichotomy is a two-branch algebraic consequence of the published exact equation and standard Floquet theory; source not explicitly stating necessity does not prevent corollary coverage.",
+        "searches": [
+          "Exner--Tater Eq (20)-(23) arXiv:2108.04708 pp.5-6",
+          "Original RESULT.md Floquet affine decomposition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exner--Tater Eq(23) states cot(2mu)=-cot(2ell), i.e. mu+ell is a multiple of pi/2 away from singular presentations.",
+          "Its same Eq(20)-(21) has Q coefficient 2k(k^2-1)sin(k ell)."
+        ],
+        "reasoning": "The new resonance locus is exactly the published k=1 flat-band condition; uniqueness follows by an elementary coefficient zero-set argument from the source polynomial.",
+        "searches": [
+          "Resultary: phase twisted preferred orientation square lattice quantum graph point spectrum flat bands mu length k=1",
+          "arXiv:2108.04708 Eq (20)-(23) flat band mu+ell"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published original Fig1 marks k=1 flat band at mu=(pi-3)/2 with ell=3/2; Eq(23) gives the complete resonance condition.",
+          "Exact Resultary same target record is self, not a distinct independent prior entry."
+        ],
+        "reasoning": "The source exact determinant and illustrative figure are enough for the simple zero-set classification without a separate catalog of every k.",
+        "searches": [
+          "Resultary: phase twisted preferred orientation square lattice quantum graph point spectrum flat bands mu length k=1",
+          "arXiv:2108.04708 Fig 1-2 flat band at k=1"
+        ]
+      },
+      "rationale": "The original Exner--Tater paper already supplies the exact Floquet dispersion equation (20)-(21) for ALL positive k and Bloch parameters and explicitly derives the k=1 flat-band relation (23), equivalent to sin(2(mu+ell))=0. The proposed uniqueness assertion is the immediate missing one-line coefficient comparison: Q-coefficient 2k(k^2-1)sin(k ell), and the only other branch sin(k ell)=0 is visibly nonzero in the SAME published coefficients. Together with standard direct-integral point-spectrum equivalence, the complete claimed theorem is a routine corollary of a published exact dispersion characterization, not new independent spectral information. Source says merely no infinite series, but prior mathematical implication still covers the simple exclusion.",
+      "residual_risks": [
+        "An original exact Bloch dispersion equation fully determines point spectrum; O rejection is by mathematical implication, not a false claim that the source expressly listed uniqueness.",
+        "Do not extrapolate to endpoint mu values, negative spectrum, unequal edge lengths or magnetic flux."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Eq(20)-(21) already completely determines the Q-dependence and Eq(23) gives resonance; proposed exclusion of other positive flat bands is immediate algebraic corollary.",
+          "evidence": "Eq(20) determinant factor (k+1)^4 nonzero at k>0, Eq(21) c0-c4, Eq(23) cot(2mu)=-cot(2ell); p.6 notes absence of infinite series but not explicit exhaustive classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.04708",
+          "material_read": "Retrieved complete 11-page primary PDF; closely read Eqs (15)-(23) in pp.4-6 and the rendered p.6 discussion; other sections not inspected page-by-page.",
+          "method": "Lawful OA primary paper full-text plus PDF page inspection.",
+          "title": "Quantum graphs: self-adjoint, and yet exhibiting a nontrivial PT-symmetry",
+          "trigger": "Exact same phase-twisted square-lattice model and dispersion relation"
+        },
+        {
+          "assessment": "Unphased endpoint differs and does not imply the claimed interior-phase family.",
+          "evidence": "Different vertex coupling U=R and infinitely many degenerate loop-supported eigenvalues.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.02664",
+          "material_read": "Abstract and object description from source references, not all pages full text.",
+          "method": "Bibliographic/title comparison.",
+          "title": "Quantum graphs with vertices of a preferred orientation",
+          "trigger": "Endpoint reference with very different repeated flat-band spectrum"
+        },
+        {
+          "assessment": "Magnetic flux and determinant differ, so no dominance of exact nonmagnetic interior-phase conclusion is asserted from the snippet.",
+          "evidence": "Different magnetic square-lattice parameter family.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.04601",
+          "material_read": "Abstract/reference description only, not primary full text.",
+          "method": "Targeted related-source identification.",
+          "title": "Magnetic square lattice with vertex coupling of a preferred orientation",
+          "trigger": "Plausible related quantum-graph flat bands"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete positive point-spectrum dichotomy is an independently useful exact natural invariant for a phase-twisted periodic quantum graph, identifying a resonance hypersurface and ruling out all other flat energies. The narrow parameter domain is physically defined and motivated even though novelty fails by the published determinant implication.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "An original exact Bloch dispersion equation fully determines point spectrum; O rejection is by mathematical implication, not a false claim that the source expressly listed uniqueness.",
+    "Do not extrapolate to endpoint mu values, negative spectrum, unequal edge lengths or magnetic flux.",
+    "PUBLIC-FILE CONFIDENTIALITY BLOCKER: original source METADATA.json (frozen Git blob ae7492d857fd4312f4ad384c8257c29bd5011574) contains process identifiers/review states; AUDIT.json (blob f9eb6c25bda9ad896d5c8022aa1ac54ded010763) and REVIEW.md also disclose review-process details. A complete semantically checked set of sanitized guarded public replacements was not supplied. The whole package must be withheld; scientific status is separate from transport safety."
+  ],
+  "schema_version": 1
+}
