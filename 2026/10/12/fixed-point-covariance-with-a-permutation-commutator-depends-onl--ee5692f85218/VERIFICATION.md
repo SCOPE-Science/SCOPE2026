@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact covariance follows from conditional uniform probabilities for one or two pinned images of a permutation, as detailed in `RESULT.md`. Its proof applies to every integer \(n\ge3\) and every deterministic \(\eta\in S_n\), including fixed-point-free and identity boundaries. No infinite theorem is deduced from finite computation.
+## correctness
 
-`verify_commutator_covariance.py` is a standalone Python 3 script with no nonstandard dependencies. Run `python3 verify_commutator_covariance.py` to enumerate every permutation pair for each \(3\le n\le6\), plus three reference permutations at sizes seven and eight. The program checks exact rational means, cross covariances, the sharp integer envelope for each \(3\le n<200\), and a concrete uncorrelated-but-dependent witness. The verified output reads:
+PASS
 
-`PASS: 876 exact permutation-pair distribution cases, 669492 individual pairs; mean, covariance, maximum, and nonindependence checks`
+Reconstructed per-index V_i: fixed η(i) contributes Cov(F,V_i)=(n−f)/[n(n−1)]; moved η(i) contributes 2f/[n(n−1)(n−2)], using Σ_b |{i,η(i)} ∩ {b,η(b)}|=4. Sum over f fixed and n−f moved indices gives f(n−f)/[(n−1)(n−2)]. Independent complete enumeration for every η,Π∈S_n for n=3,4,5 matches rational covariance. Boundary f=0/ n gives zero; n−1 is impossible, and n=2 excluded. F=n implies Π=id and Cη=n; for η fixed-point-free nonidentity Cη variable hence uncorrelated not independent. Full proof is counting, not finite extrapolation.
 
-The finite enumeration and moment tests are consistency checks and do not establish novelty, global independence, an infinite proof, or independent validation. The analytic proof in `RESULT.md` supplies the infinite-domain argument.
+## originality
+
+PASS
+
+Direct Section6 primary paper compares exactly Cη and known marginal mean, and independent conditioning adds novel mixed moment with F(Π); known marginal moment theorems do not automatically determine cross covariance.
+
+## value
+
+PASS
+
+Exact support-only universality of a joint random-permutation statistic and uncorrelated-yet-dependent boundary provide reusable structural information beyond known marginal commutator moments; natural mixed invariant of same random permutation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

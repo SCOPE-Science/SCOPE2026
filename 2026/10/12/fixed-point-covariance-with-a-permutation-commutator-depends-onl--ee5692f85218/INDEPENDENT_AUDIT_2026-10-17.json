@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T03:47:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed per-index V_i: fixed η(i) contributes Cov(F,V_i)=(n−f)/[n(n−1)]; moved η(i) contributes 2f/[n(n−1)(n−2)], using Σ_b |{i,η(i)} ∩ {b,η(b)}|=4. Sum over f fixed and n−f moved indices gives f(n−f)/[(n−1)(n−2)]. Independent complete enumeration for every η,Π∈S_n for n=3,4,5 matches rational covariance. Boundary f=0/ n gives zero; n−1 is impossible, and n=2 excluded. F=n implies Π=id and Cη=n; for η fixed-point-free nonidentity Cη variable hence uncorrelated not independent. Full proof is counting, not finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marginal moments of Cη, including second moment with dependence on 2-cycles, and counts of noncommuting points are existing results."
+        ],
+        "reasoning": "Marginal distribution does not in general determine E[F Cη] because F and Cη share the same Π; prior broader marginal results alone do not imply full joint covariance.",
+        "searches": [
+          "arXiv:2406.12139 Theorem 3.5 marginal moments commutator",
+          "DOI:10.1186/s40064-016-3638-7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1308.5459",
+        "arXiv:2406.12139",
+        "DOI:10.1186/s40064-016-3638-7",
+        "Resultary:2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section6 supplies E[Cη]=1+(f−1)²/(n−1) and Poisson approximations, but not the mixed count; the proposed argument pins one or two values of Π and yields an explicit interaction formula."
+        ],
+        "reasoning": "Even if broader character-theoretic machinery can be adapted, prior printed marginal theorem is not a decisive direct implication without a joint refinement; mark equivalent possible hidden formula as residual risk.",
+        "searches": [
+          "arXiv:1308.5459 Section 6",
+          "arXiv:2406.12139"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cη equals fixed-point count of η^{-1}Π^{-1}ηΠ and the earlier unseparated-pair statistic; equivalent form is number of points where Π and η locally commute."
+        ],
+        "reasoning": "Definitions coincide exactly, so novelty cannot be based on a new name; new quantity is covariance with fixed points of the SAME Π.",
+        "searches": [
+          "uniform permutation commutator fixed points covariance with permutation fixed points Diaconis Fulman",
+          "arXiv:1308.5459 Section 6 commutator fixed points"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published fixed-point covariance depends on descent statistic, not commutator count; no same f(n−f) support-only table surfaced."
+        ],
+        "reasoning": "Exact database/table comparison targets same statistics and η fixed support; mere shared term fixed-point is not coverage.",
+        "searches": [
+          "uniform permutation commutator fixed points covariance with permutation fixed points Diaconis Fulman",
+          "Resultary:2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495"
+        ]
+      },
+      "rationale": "Direct Section6 primary paper compares exactly Cη and known marginal mean, and independent conditioning adds novel mixed moment with F(Π); known marginal moment theorems do not automatically determine cross covariance.",
+      "residual_risks": [
+        "Fulman 2024 full theorem material not inspected; a representation-theoretic joint-moment corollary could be implicit.",
+        "No joint limit theorem, independence or nonuniform Π claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior establishes marginal count and expectation but inspected theorem does not give cross moment E[F(Π)Cη] or covariance as f(n-f)/((n-1)(n-2)).",
+          "evidence": "Section6 marginal commutator mean f²/n+(n−f)²/(n(n−1)) and Poisson approximation.",
+          "identifier_or_url": "arXiv:1308.5459",
+          "material_read": "Complete lawful OA 23-page paper read, including Section 6, Theorem 6.1 and PDF page17 screenshot on mean and Poisson approximation for commutator fixed points.",
+          "method": "OA PDF full text with page screenshot",
+          "title": "Unseparated pairs and fixed points in random permutations",
+          "trigger": "Original same permutation commutator fixed-point statistic"
+        },
+        {
+          "assessment": "Marginal second moments of commutator fixed points may depend on two-cycle count, unlike proposed cross covariance. Complete stronger prior implication cannot be ruled out without full text.",
+          "evidence": "Title/abstract announce fixed-point moments and representation theory; exact cross F,C not identified.",
+          "identifier_or_url": "arXiv:2406.12139",
+          "material_read": "Article abstract and publicly available theorem summary only; full Theorem3.5 not independently read.",
+          "method": "Search/arXiv summary",
+          "title": "Fixed points of non-uniform permutations and representation theory of the symmetric group",
+          "trigger": "Potential broader marginal moment formula"
+        },
+        {
+          "assessment": "Covariance of fixed point and descent indicators, not fixed point versus commutator fixed points.",
+          "evidence": "Different second statistic D rather than Cη.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+          "material_read": "Resultary title and mathematical summary only.",
+          "method": "Resultary semantic search",
+          "title": "Boundary localization of fixed-point–descent dependence in a uniform permutation",
+          "trigger": "Closest prior published permutation covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact support-only universality of a joint random-permutation statistic and uncorrelated-yet-dependent boundary provide reusable structural information beyond known marginal commutator moments; natural mixed invariant of same random permutation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Fixed-point covariance with a permutation commutator depends only on fixed support",
+  "limitations": [
+    "A broader historical character-theory joint identity may encode this covariance implicitly.",
+    "Full Fulman 2024 paper unavailable; only marginal-moment material confirmed."
+  ],
+  "schema_version": 1
+}
