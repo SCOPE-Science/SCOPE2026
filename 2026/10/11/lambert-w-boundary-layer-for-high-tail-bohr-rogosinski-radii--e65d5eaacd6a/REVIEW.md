@@ -1,83 +1,21 @@
-# Review of Lambert-W boundary layer for high-tail Bohr–Rogosinski radii
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source theorem supplies the exact sharp-root equation
-\[
-p\frac{1-r^m}{1+r^m}
-=
-\frac{2r^N}{1-r}.
-\]
-The root function is strictly decreasing in \(r\), and increasing \(N\) strictly raises it at every fixed \(r\), proving strict monotonicity of the roots.
+PASS
 
-The limit must be \(1\): a limit below \(1\) would make the right-hand side tend to zero while the left-hand side tends to a positive constant.
+For integers m≥1, N≥1 and fixed p∈(0,2], the sharp radius in Hamada--Honda--Kohr Theorem 2.1 is the unique root in (0,1) of p(1−r^m)/(1+r^m)=2r^N/(1−r). The left-hand side strictly decreases and the right strictly increases in r; replacing N by N+1 decreases the right for each fixed r, hence unique roots increase to 1. Put ε=1−R and x=Nε. A root cannot satisfy bounded x as N→∞, because the 2r^N/ε term would blow up; comparison at r=1−C log N/N forces x=O(log N). Consequently Nε²=o(1), log R^N=−x+o(1) and (1−R^m)/(1+R^m)=mε/2(1+o(1)). The exact equation gives x²e^x=4N²/(pm)(1+o(1)), so x=2W(N/sqrt(pm))+o(1); large-W expansion yields x=2logN−2loglogN−log(pm)+o(1). The asymptotic is N→∞ at fixed m,p, not a joint scaling. Independent high-precision bisection: for (m,p,N)=(1,1,10000), x=14.4538717182126408, 2W(...)=14.4636920761867454; for (5,2,100000) x=16.5012445295687707 vs 16.5025324911803368; the error shrinks, but numerical checking is not an asymptotic proof.
 
-Writing
-\[
-\varepsilon=1-r,
-\qquad
-x=N\varepsilon,
-\]
-the exact equation first gives
-\[
-N[-\log(1-\varepsilon)]
-=
-2\log(1/\varepsilon)+O(1).
-\]
-This proves
-\[
-x\to\infty,
-\qquad
-x=O(\log N),
-\]
-and therefore
-\[
-N\varepsilon^2\to0.
-\]
-Only after this control is established is
-\[
-(1-\varepsilon)^N=e^{-x}(1+o(1))
-\]
-used. The resulting relation
-\[
-x^2e^x
-=
-\frac{4N^2}{pm}(1+o(1))
-\]
-is inverted by the principal Lambert function, yielding
-\[
-x
-=
-2W\!\left(\frac{N}{\sqrt{pm}}\right)+o(1).
-\]
-The expanded logarithmic formula follows from the standard large-argument expansion of \(W\).
+## originality
 
-## Originality
+PASS
 
-PASS. The 2025 lead article was inspected throughout. It proves the sharp root equation but does not state a large-tail rate. Its explicit limiting remark concerns a different parameter direction.
+The 2025 primary paper was inspected across its 19 pages; it establishes the exact equation and optimality, and discusses m→∞ for N=1, not the fixed-(m,p), N→∞ Lambert-W boundary layer. Literature searches, including related powered and high-order radius records, found no prior equivalent log-log constant for this same family. Passing best-of-knowledge is bounded; the input equation and uniqueness are credited.
 
-The 2021 scalar predecessor states only the qualitative limit
-\[
-R_{m,N}\to1
-\]
-as \(N\to\infty\). It supplies no Lambert-\(W\) scale, log-log correction, or powered-\(p\) version.
+## value
 
-The closely related 2026 refinement was also inspected in full. Its improved functional fixes the coefficient tail at the first index and does not contain a large-\(N\) theorem for the source family.
+PASS
 
-Targeted searches for the exact equation, Lambert-\(W\) inversion, high-tail asymptotics, and equivalent sharp-radius formulations did not locate an implication-equivalent published result. The main residual risk is older literature using substantially different notation.
+The sharp high-tail rate with both a log-log correction and exact pm-dependent constant quantifies how the naturally defined optimal radius approaches 1, a genuine endpoint asymptotic absent from the source. It is a modest exact consequence of a previously published implicit equation, not a new general Bohr theorem; the logarithmic error control is essential.
 
-## Value
-
-PASS. The tail index \(N\) is an intrinsic parameter of the Bohr–Rogosinski functional: it determines where the coefficient tail begins. The scalar predecessor records that the sharp radius tends to \(1\) as \(N\) grows, leaving the natural quantitative question of how fast this happens.
-
-The answer is structurally nontrivial. The sharp radius lies in a singular boundary layer where the small geometric deficit
-\[
-1-r^m
-\]
-balances the exponentially small tail factor
-\[
-r^N.
-\]
-This competition produces the Lambert-\(W\) law and the universal \(-2\log\log N\) correction. The result therefore resolves a natural asymptotic gap in a sharp radius theorem and identifies the exact scale needed for quantitative high-tail estimates.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
