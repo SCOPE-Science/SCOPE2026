@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,46 +18,25 @@
   "schema_version": 1
 }
 ---
-The structural inequality is analytic. If \(x\perp_B y\) and \(y\perp_B x\), then
-\[
-\|\beta x-\alpha y\|
-\ge
-\beta
-\quad\text{and}\quad
-\|\beta x-\alpha y\|
-\ge
-\alpha.
-\]
-Together with
-\[
-\|\alpha x+\beta y\|\le\alpha+\beta,
-\]
-this yields
-\[
-B_{\alpha-\beta}(X)
-\le
-\min\left\{1,\frac{\beta}{\alpha}\right\}.
-\]
 
-`verify.py` checks the affine-regular hexagonal model
-\[
-N(s,t)=\max\{|s|,|t|,|s-t|\}.
-\]
-It verifies that the six signed facet functionals and the two stated linear isometries preserve the unit hexagon. It then symbolically checks the norming-functional certificates
-\[
-t-us,\qquad us-t,\qquad s-vt
-\]
-used to prove symmetric Birkhoff orthogonality in the canonical edge and vertex cases.
+# Independent mathematical audit
 
-Finally, the script verifies the equality pair
-\[
-x=(1,0),\qquad y=(0,-1)
-\]
-for rational parameter samples in both regimes \(\alpha\le\beta\) and \(\beta\le\alpha\). These samples are reproducibility checks only; the all-parameter equality is the exact algebraic identity
-\[
-N(\alpha,-\beta)=\alpha+\beta,
-\qquad
-N(\beta,\alpha)=\max\{\alpha,\beta\}.
-\]
+## correctness
 
-No independent audit or independent validation has been performed.
+PASS
+
+The quantifier is every real Banach space with symmetric Birkhoff orthogonality and every α,β>0. For any unit x⊥B y, symmetric orthogonality also gives y⊥B x; hence ||βx−αy||≥β and ≥α, while ||αx+βy||≤α+β. Subtraction and division by α gives min(1,β/α). The hexagonal unit norm N(s,t)=max(|s|,|t|,|s−t|) has a complete edge/vertex classification under its six-point isometry group. On an edge x=(1,u), y=(0,±1), reverse witnesses t−us or us−t; at x=(1,0), y=(v,1), the functional s−vt annihilates y and t annihilates x. These exhaust unit Birkhoff pairs and prove symmetry; x=(1,0),y=(0,−1) attains (α+β−max(α,β))/α for all parameters. Checked arithmetic and sign conventions against actual RESULT.md and verify.py. Neither finitely sampled α/β nor the finite checker is used to prove all parameters.
+
+## originality
+
+PASS
+
+The source Zhou–Ni–Liu article defines exactly this skew constant and proves only the universal ≤1 bound plus an α≤β example in a different nonsymmetric polygonal norm. It does not derive the symmetry-sensitive min(1,β/α) branch nor the exact profile of the affine-regular Radon hexagon; related published hexagon records concern OTHER named invariants. The α>β branch gives strictly sharper quantitative control.
+
+## value
+
+PASS
+
+A natural Birkhoff-sensitive geometric constant has a nontrivial parameter transition precisely at α=β. Symmetry of orthogonality adds a second norm lower bound, while the explicit non-Hilbert Radon hexagon proves that the structural improvement is sharp. This gives a reusable sharp benchmark beyond the source’s universal bound; it is not a mere evaluation of an arbitrary polygonal slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
