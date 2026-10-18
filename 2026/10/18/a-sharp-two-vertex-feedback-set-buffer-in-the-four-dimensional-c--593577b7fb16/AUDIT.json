@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The edge count 32-4|S|+e(S) forces |S|>=6, the parity-neighbor lemma excludes mixed six-sets, and omitted antipodal pairs prove exactly eight optima. Two independent standard-library checkers exhaust all relevant finite sets using xor/union-find versus Cartesian product/leaf pruning. Both agree on eight/1008/4090 layers, 80/9072 edges, eight capacity-six isolates, 8 stars plus 928 capacity-seven isolates, connectivity at capacity eight, and all 4/12 optimum distances. An explicit 12-step witness is checked by both; lower bounds follow from symmetric differences. No infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1016/j.tcs.2023.114188, indexed Theorems 1, 2 and 4: graph-class statements involving subcubic or planar graphs.",
+        "doi:10.1016/S0020-0190(00)00127-7: bounds on minimum deletion size for hypercubes."
+      ],
+      "reasoning": "The four-cube is 4-regular and nonplanar; the accessible stated positive reconfiguration theorems for subcubic classes do not apply, and planar-hardness results do not imply these exact finite numbers. Bounding the feedback-set size does not imply the connectivity or metric of the state-transition graph.",
+      "searches": [
+        "Feedback vertex set reconfiguration in planar graphs Bousquet Hommelsheim Kobayashi Mühlenthaler Suzuki",
+        "hypercube decycling reconfiguration",
+        "feedback vertex set token addition removal two extra vertices Q4 induced forest"
+      ]
+    },
+    "checked_sources": [
+      "Focardi–Luccio–Peleg (2000), doi:10.1016/S0020-0190(00)00127-7, bibliographic record and abstract",
+      "Focardi–Luccio 1999 hypercube report, institutional record and partial publicly indexed text",
+      "Bousquet et al. (2023), doi:10.1016/j.tcs.2023.114188, indexed theorem statements and section material"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "doi:10.1016/S0020-0190(00)00127-7 addresses minimum feedback-set cardinality and bounds.",
+        "doi:10.1016/j.tcs.2023.114188 has stated fixed-cardinality reconfiguration results for subcubic and planar regimes.",
+        "The new claim is a capacity-sensitive exact TAR graph decomposition for Q4 and distances of all distinct optimal-set pairs."
+      ],
+      "reasoning": "The prior optimum-size statement is strictly weaker than exact enumeration of neighboring non-optimum configurations. The subcubic fixed-size exchange results neither cover 4-regular Q4 nor determine a two-spare addition/deletion threshold. A covering statement for Q4 was not identified in inspected available material.",
+      "searches": [
+        "Feedback vertex set in hypercubes Focardi Luccio Peleg",
+        "Feedback vertex set reconfiguration in planar graphs Theorem 4",
+        "minimum feedback vertex sets cube graph flip connected frozen two spare vertices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Feedback vertex set is the complement of an induced forest: standard definition in the hypercube optimization literature, doi:10.1016/S0020-0190(00)00127-7.",
+        "Both constructions are evaluated directly by independent exact forest predicates in check_edges.py and check_cartesian.py."
+      ],
+      "reasoning": "Taking complements changes the capacity-six/seven/eight feedback-set states into induced forests of at least ten/nine/eight vertices, respectively, with one-vertex additions/deletions. Searching these dual formulations did not yield the exact tesseract transition or pairwise optimal distances. The complement equivalence itself is not asserted as new.",
+      "searches": [
+        "hypercube Q4 maximum induced forest reconfiguration",
+        "tesseract induced forest flip graph 10 vertices",
+        "hypercube induced acyclic vertex sets reconfiguration 4-cube"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The located 1999 research report and 2000 article concern hypercube feedback-set bounds, not an identified table of feasible-state transitions.",
+        "The searches returned no source with 1008 seven-vertex states, 4090 eight-vertex states, 936 components at capacity seven, or the exact 4/12 distance dichotomy."
+      ],
+      "reasoning": "An absence from indexed records is not a proof of priority. No matching exact table was found among accessible results; unindexed or unpublished finite enumerations remain a residual risk.",
+      "searches": [
+        "tesseract decycling reconfiguration six seven eight feedback vertex sets 5106",
+        "Q4 hypercube feedback vertex reconfiguration",
+        "four dimensional hypercube decycling sets eight",
+        "hypercube Q4 feedback vertex set reconfiguration token addition removal capacity eight forest"
+      ]
+    },
+    "rationale": "The six-vertex optimum alone is known/background. No retrieved relevant primary statement, research-record match or indexed table implies the sharp capacity-eight connectivity or minimum-set 4/12 transition metric. The closest reconfiguration theorems cover different graph classes or models; full-text access risks are acknowledged rather than represented as eliminated.",
+    "residual_risks": [
+      "The full 1999 report and 2000 publisher PDF were not available for complete inspection; finer tables or constructions may exist.",
+      "The full 2023 PDF was not available; a relevant appendix or unindexed exact Q4 computation cannot be ruled out.",
+      "Semantic record searches cannot prove the global absence of equivalent results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives size-bound motivation but no accessible exact reconfiguration result; whole-paper noncoverage cannot be certified.",
+        "evidence": [
+          "Weizmann institutional record identifies 20 November 2000 and bounds for k-cubes.",
+          "Complete publisher PDF not available through accessible sources."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0020-0190(00)00127-7",
+        "material_read": "Institutional publication record with 2000-11-20 day-level date, bibliographic metadata, published abstract; full PDF inaccessible.",
+        "method": "public institutional bibliographic and abstract pages; full-text availability checks",
+        "title": "Feedback vertex set in hypercubes",
+        "trigger": "same hypercube and minimum feedback-set object"
+      },
+      {
+        "assessment": "Optimization-focused report is a residual risk for finer counts; no verified full-text comparison.",
+        "evidence": [
+          "Institutional listing dates report to 1999 without day.",
+          "The public PDF link was unavailable and textual preview focused on bounds."
+        ],
+        "identifier_or_url": "https://iris.unive.it/handle/10278/15706",
+        "material_read": "1999 archival record, public abstract and partial 1999 ResearchGate text preview; exact original day unavailable.",
+        "method": "institutional research record and publicly indexed report preview; attempted public PDF link",
+        "title": "Minimum Feedback Vertex Set in k-Dimensional Hypercubes (research report)",
+        "trigger": "earlier plausible same-line report"
+      },
+      {
+        "assessment": "The shown coverage is subcubic/planar and not an exact computation for Q4, but uninspected material is an explicitly retained risk.",
+        "evidence": [
+          "Theorem 2 assumes subcubic and K3,3-minor-free; Theorem 4 assumes subcubic.",
+          "Q4 is four-regular and nonplanar."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2023.114188",
+        "material_read": "Publicly indexed extended text covering introduction, exact Theorems 1–5 and section headings including the 3-connected example; complete publisher PDF inaccessible.",
+        "method": "accessible indexed full-text excerpts, exact theorem comparisons and institutional bibliographic checks",
+        "title": "Feedback vertex set reconfiguration in planar graphs",
+        "trigger": "closest subject-specific reconfiguration theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "593577b7-fb16-4e50-8f3f-f932966130b3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Q4 is the natural first degree-four nonplanar hypercube in a classical cycle-breaking deletion problem. The complete sharp spare-capacity threshold is 2, with a nontrivial 936-to-one component collapse, and the 4-versus-12 distance split reflects the two bipartition classes. These are natural exact invariants of feasible-state mobility in the original model, not a parameter renaming or a narrow arbitrary slice. They offer a reproducible benchmark for feedback-set reconfiguration beyond the subcubic positive theorems.",
+    "status": "PASS"
+  }
+}
