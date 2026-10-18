@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T05:58:55.585842Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md bc9d17a263ebfe943b0b426e820efd803a3bc1d8",
+        "Jhunjhunwala, Wang, Joshi, FedExP arXiv:2301.09604, Algorithm 1, Figures/Section oscillations",
+        "Li, Acharya, Richtárik, The Power of Extrapolation in Federated Learning arXiv:2405.13766"
+      ],
+      "rationale": "Substitute Delta_1=s(x-b), Delta_2=s(x+b), barDelta=sx into Algorithm 1 with M=2, giving T(x)=x-sx*max(1,(x^2+b^2)/(2(x^2+epsilon/s^2))). On the active branch with r=epsilon/(s^2b^2), T'(0)=1-s/(2r), thus |T'(0)|<1 iff r>s/4, with the inactive branch derivative 1-s. Solving T(x)=-x gives x_c^2=b^2(s-4r)/(4-s), positive iff r<s/4; at this cycle the branch ratio equals 2/s>1. Independent exact symbolic differentiation at x_c gives D=-(5rs-16r-s^2+3s)/(s(r-1)); solving |D|<1 gives s(2-s)/(2(8-3s))<r<s/4. At s=b=1,r=1/8, origin multiplier -3, x_c^2=1/6, D=5/7 and two-step multiplier 25/49. Only local stability and attraction claimed; algebra not inferred from simulated trajectories.",
+      "residual_risks": [
+        "Two equal-weight deterministic scalar quadratic clients; one local step with 0<s<=1; positive epsilon; no claim for global basin, arbitrary datasets or noisy updates.",
+        "Paper-specific scaling must remain the source Algorithm 1 convention."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Assigned RESULT.md bc9d17a263ebfe943b0b426e820efd803a3bc1d8",
+          "Jhunjhunwala, Wang, Joshi, FedExP arXiv:2301.09604, Algorithm 1, Figures/Section oscillations",
+          "Li, Acharya, Richtárik, The Power of Extrapolation in Federated Learning arXiv:2405.13766"
+        ],
+        "reasoning": "FedExProx and smooth convex extrapolation theory includes stronger setup but chiefly under interpolation; distinct local quadratic minima violate it. Earlier FedExP convergence bounds for averaged iterates or nonzero error floor do not entail last-iterate stability.",
+        "searches": [
+          "FedExP extrapolation epsilon exact two-cycle scalar quadratic stability threshold x^2+b^2",
+          "Primary source: Jhunjhunwala, Wang, Joshi, FedExP arXiv:2301.09604, Algorithm 1, Figures/Section oscillations"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md bc9d17a263ebfe943b0b426e820efd803a3bc1d8",
+        "Jhunjhunwala, Wang, Joshi, FedExP arXiv:2301.09604, Algorithm 1, Figures/Section oscillations",
+        "Li, Acharya, Richtárik, The Power of Extrapolation in Federated Learning arXiv:2405.13766",
+        "Resultary semantic query: FedExP extrapolation epsilon exact two-cycle scalar quadratic stability threshold x^2+b^2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Assigned RESULT.md bc9d17a263ebfe943b0b426e820efd803a3bc1d8",
+          "Jhunjhunwala, Wang, Joshi, FedExP arXiv:2301.09604, Algorithm 1, Figures/Section oscillations",
+          "Li, Acharya, Richtárik, The Power of Extrapolation in Federated Learning arXiv:2405.13766"
+        ],
+        "reasoning": "Original FedExP prescribes denominator epsilon and reports possible oscillatory last iterate. Its statements neither yield the stated sharp constant nor prove existence of an attracting nonzero two-cycle with disjoint minima; new algebra is required.",
+        "searches": [
+          "FedExP extrapolation epsilon exact two-cycle scalar quadratic stability threshold x^2+b^2",
+          "Primary source: Jhunjhunwala, Wang, Joshi, FedExP arXiv:2301.09604, Algorithm 1, Figures/Section oscillations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Assigned RESULT.md bc9d17a263ebfe943b0b426e820efd803a3bc1d8",
+          "Jhunjhunwala, Wang, Joshi, FedExP arXiv:2301.09604, Algorithm 1, Figures/Section oscillations",
+          "Li, Acharya, Richtárik, The Power of Extrapolation in Federated Learning arXiv:2405.13766"
+        ],
+        "reasoning": "Searched synonyms FedExP extrapolation adaptive server learning rate cancellation, flip, two-cycle and epsilon. The exact map here depends on both x^2 and epsilon; previous generic period-doubling examples with other operators are not equivalent.",
+        "searches": [
+          "FedExP extrapolation epsilon exact two-cycle scalar quadratic stability threshold x^2+b^2",
+          "Primary source: Jhunjhunwala, Wang, Joshi, FedExP arXiv:2301.09604, Algorithm 1, Figures/Section oscillations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Assigned RESULT.md bc9d17a263ebfe943b0b426e820efd803a3bc1d8",
+          "Jhunjhunwala, Wang, Joshi, FedExP arXiv:2301.09604, Algorithm 1, Figures/Section oscillations",
+          "Li, Acharya, Richtárik, The Power of Extrapolation in Federated Learning arXiv:2405.13766"
+        ],
+        "reasoning": "Resultary semantic query and indexed targeted search found other optimization flip frontiers but not the FedExP epsilon/(s^2 b^2) interval or its 25/49 witness. No known exact table giving them.",
+        "searches": [
+          "FedExP extrapolation epsilon exact two-cycle scalar quadratic stability threshold x^2+b^2",
+          "Primary source: Jhunjhunwala, Wang, Joshi, FedExP arXiv:2301.09604, Algorithm 1, Figures/Section oscillations"
+        ]
+      },
+      "rationale": "The FedExP originators analyzed denominator regularization and oscillatory behavior, but their inspected full-text oscillation illustration uses intersecting projection fixed sets and does not establish the underparameterized positive-epsilon 2-cycle or exact sharp epsilon threshold. The later FedExProx interpolation analysis does not imply the disjoint-minima cancellation example; Resultary same-claim search did not identify stronger matching coverage. Best-of-knowledge original in this narrow natural model.",
+      "residual_risks": [
+        "Two equal-weight deterministic scalar quadratic clients; one local step with 0<s<=1; positive epsilon; no claim for global basin, arbitrary datasets or noisy updates.",
+        "Paper-specific scaling must remain the source Algorithm 1 convention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers qualitative oscillations, not the exact noninterpolating quadratic sharp phase transition.",
+          "evidence": [
+            "Algorithm 1 explicitly has eta_g=max(1,sum_i ||Delta_i||^2/[2M(||barDelta||^2+epsilon)]).",
+            "Published projection oscillation example uses intersecting solution sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.09604",
+          "material_read": "Algorithm 1 extrapolation update with sum of squared client differences and epsilon regularizer; discussion of alternating losses and projection toy; convergence hypotheses.",
+          "method": "Full article text plus figures/algorithm read through accessible arXiv rendering; inspected page image for update formula.",
+          "title": "FedExP: Speeding Up Federated Averaging via Extrapolation",
+          "trigger": "Source algorithm and apparently overlapping oscillatory experiment"
+        },
+        {
+          "assessment": "No implication of disjoint-client-minimizer scalar map established.",
+          "evidence": [
+            "Interpolation assumptions differ from pair with two distinct minimizers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.13766",
+          "material_read": "Main setting/assumptions in available article material, especially interpolation; not asserted to have inspected every appendix.",
+          "method": "Accessible arXiv text/summary comparison",
+          "title": "The Power of Extrapolation in Federated Learning",
+          "trigger": "Possible broader theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md bc9d17a263ebfe943b0b426e820efd803a3bc1d8",
+        "Jhunjhunwala, Wang, Joshi, FedExP arXiv:2301.09604, Algorithm 1, Figures/Section oscillations",
+        "Li, Acharya, Richtárik, The Power of Extrapolation in Federated Learning arXiv:2405.13766"
+      ],
+      "rationale": "FedExP explicitly uses epsilon to safeguard cancellation of heterogeneous local updates. Demonstrating an exact sharp positive-epsilon period-doubling, a locally attracting nontrivial cycle, and FedAvg one-round convergence in the same client problem is a motivated algorithmic counterexample rather than a routine parameter substitution.",
+      "residual_risks": [
+        "Paper-specific scaling must remain the source Algorithm 1 convention."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Two equal-weight deterministic scalar quadratic clients; one local step with 0<s<=1; positive epsilon; no claim for global basin, arbitrary datasets or noisy updates.",
+    "Paper-specific scaling must remain the source Algorithm 1 convention.",
+    "Scientific review is complete but source package metadata privacy sanitization is not ready; not authorized for publication."
+  ],
+  "schema_version": 1
+}
