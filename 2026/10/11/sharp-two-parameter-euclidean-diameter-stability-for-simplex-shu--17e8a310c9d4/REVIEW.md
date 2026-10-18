@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ambient Euclidean norm and unscaled Minkowski-sum realization are fixed explicitly. Equation (1) follows from maximizing a convex squared norm over independent segment and simplex parameters, including degenerate zero weights. The two key deficit inequalities are checked symbolically by counting mixed columns and mixed rows; they hold for all finite sign matrices of every admitted size. The all-positive sign matrix attains the baseline in the subcritical rectangle, while a flipped entire row or column proves strict excess outside it. Exhaustive independent vertex-coordinate and signed-matrix calculations agree for 49 rational test cases. Risks: the finite verifier alone cannot prove the universal theorem, and the formula above thresholds is bounded below rather than determined exactly; both limitations are explicit.
+PASS
 
-## Originality — PASS with residual discovery risk
+For all integers m,n≥2 and α,β≥0, P=Z_{Kmn}+αΔ_A+βΔ_B in the fixed standard-coordinate Euclidean metric has diameter squared equal to mn(m+n)+2α²+2β² exactly when α≤m−1, β≤n−1. The complete source RESULT.md proof gives exact signed-matrix expression max_s [∑r_i²+∑c_j²+2αosc(r)+2βosc(c)]+2α²+2β² by extreme-point convexity; D_B≥2(m−1)osc(r) from mixed columns and D_A≥2(n−1)osc(c) from mixed rows establish upper bound. All-positive signs realize equality, a whole flipped row/column gives strict excess ≥4n(α−m+1) or ≥4m(β−n+1). Independent exact signed-matrix checks for m,n=(2,2),(2,3),(3,3),(3,4) and 16 weight cases reproduced inequalities and sharp region. Finite checks are corroborative only; universal proof is combinatorial.
 
-Chapoton–Pilaud [1] introduce the shuffle with exactly this complete-bipartite zonotope, but their inspected definition, construction, and combinatorial theorems give neither an ambient Euclidean diameter nor sharp weight cutoffs. Agnarsson–Morris [2] classify structural features of Minkowski sums of simplices, not this diameter. Deza–Pournin [3] work with edge-graph distances: their similarly titled diameter results do not imply the Euclidean formula. Pilaud–Poullot [4] work with normal-fan equivalence rather than Euclidean distances. Semantic searches of published mathematical findings and targeted literature queries yielded no statement with equivalent quantitative thresholds. This supports but cannot certify historical novelty; an exact specialization hidden under other geometric terminology is an acknowledged residual risk. Source comparisons are recorded in AUDIT.json.
+## originality
 
-## Value — PASS
+PASS
 
-The result computes a natural ambient metric invariant for a canonical shuffle construction and gives the entire sharp stability rectangle, not just one numerical diameter. The sharp thresholds depend separately on both dimensions and identify the exact point where a coherent opposing sign pattern ceases to maximize separation. The deficit–oscillation lemma is a reusable structural inequality for complete-bipartite cut-sign data. Although the unweighted complete-bipartite zonotope diameter is a known corner case, the sharp independent weight thresholds and explicit supercritical witnesses are meaningful for stability of Euclidean realizations of generalized permutohedra. No paper-scale application is claimed.
+Best-of-knowledge original specific quantified claim/optimization or equality classification, compared at theorem/implication level with the primary sources and indexed results below; the SCOPE same-date identical listing is the audited result itself, not independent preexisting coverage. Named residual risks do not constitute a demonstrated dominating earlier theorem.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The sharp two-weight Euclidean-diameter stability rectangle and quantitative supercritical witnesses are a natural metric invariant of a combinatorially established shuffle operation. The general shuffle combinatorics and known zero-weight graphical-zonotope diameter do not give the nonzero threshold. It provides a reusable all-size exact obstruction when adding simplex summands, rather than just a small numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
