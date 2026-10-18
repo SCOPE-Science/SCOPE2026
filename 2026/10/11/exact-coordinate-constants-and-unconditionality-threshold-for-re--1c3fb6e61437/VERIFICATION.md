@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The complete proof is analytic and uses: (i) exact edge-flow duality on a finite real tree, including the two terminal leaf contributions; (ii) generation of the finite free-space unit ball by normalized molecules; (iii) exact sign-flip and selected-run expressions; (iv) the increasing finite-section passage; and (v) uniform-tail/block-decay equivalence.
+## correctness
 
-The accompanying file `verify_ultrametric.py` may be executed with `python verify_ultrametric.py`. It uses the Python standard library for exact rational tree norms and exhaustive coefficient selectors, plus SciPy's HiGHS-backed `linprog` for an independent dual linear-program check. The recorded successful output was `COMB_ULTRAMETRIC_VERIFIED cases 15 LP 60`: fifteen randomly drawn strictly decreasing rational distance sequences at dimensions one through five were each exhaustively checked for every sign and binary selector; sixty additional arbitrary signed mass patterns were cross-checked by independent dual linear programming.
+PASS
 
-These are finite checks, not exhaustive over all real distance sequences and not infinite-dimensional certificates. The proof itself, rather than the reported checks, establishes all quantifiers. If the optional SciPy dependency is missing, the numerical LP portion cannot be reproduced without installing a compatible release.
+The displayed tree mass-flow norm was reconstructed, with leaf flux c_i-c_{i+1}, spine flux c_{i+1} and the terminal branch. The molecular unit-ball reduction is valid for real free spaces; alternating sign changes attain 1+tail/a_l, while alternating selected starts attain the parity sum, with no lost terminal term. Nested 1-Lipschitz retractions give a monotone Schauder basis. Finite-section constants increase to infinite ones. Uniformly bounded tails imply N a_{l+N} <= sum_{i=l+1}^{l+N} a_i <= B a_l, hence q=1/2 for N>2B; block contraction implies bounded tails by geometric summation. An independently written checker evaluated all signs and selectors over molecules and solved the full Lipschitz-dual linear programs for three strictly decreasing rational combs (n=3,4,5), matching tree norms and both exact constants. The finite checks corroborate, rather than prove, the infinite equivalence.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the precise coordinate-multiplier constants and uniform block-decay characterization for this specific one-point-comb nearest-predecessor basis are not covered by the inspected general retractional-basis, tree-space, weighted-Cantor interval-projection or Dirac-diagonal results.
+
+## value
+
+PASS
+
+PASS: Sharp unconditional and selector norms and a necessary-and-sufficient quantitative decay threshold resolve a natural question about a canonical monotone retractional basis. The surprising conditional examples coexist with the known l1-isomorphism of the ambient free space; this is a precise useful basis-level distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
