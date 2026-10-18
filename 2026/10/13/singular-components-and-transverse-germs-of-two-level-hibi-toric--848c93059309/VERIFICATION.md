@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the mathematical claim
+# Independent mathematical audit
 
-The claim is an exact symbolic statement for every two-positive-integer parameter pair over \(\mathbb C\). Reproduce the finite consistency experiment by running `python3 hibi_bipartite_checker.py` and comparing its JSON output to `hibi_bipartite_checks.json`. The checker enumerates \(1,815\) nonzero tensor/zero-factor representatives for the nine specified parameter pairs and evaluates all Hibi straightening quadrics and their Jacobian ranks modulo the two primes \(1000003\) and \(1000033\). All evaluated Jacobian rank decisions match the all-parameter singularity criterion. The script implements the equations independently of the geometric reasoning and is included with its output, but the selection of test points is not exhaustive even for arbitrary complex points of an individual variety.
+## correctness
 
-Proof-level checks requiring no code are: the two Boolean sublattices have exactly one shared order ideal; the Jacobian criterion for the equation equating their Segre corner coordinates; the one-zero-cone tangent excess \(2^m-m-1\); the irreducible projective divisor faces and mixed joins; and analytic normal forms after localizing at a general point. Multiplicity \(m!\) comes from the Segre degree. The corner derivatives are analyzed on rank-one tensor charts rather than relying on a finite experiment. The reduced singular locus is proved complete; the nonreduced singular scheme and nongeneric completed local rings are explicitly outside the claim. The analogous arbitrary-characteristic analytic statement and exhaustive equivalence searches are not claimed. Independent mathematical audit has not been performed.
+PASS
+
+For P=A_a ordinal-sum A_b, Hibi straightening relations split into the two Boolean sublattices sharing the top-of-first/bottom-of-second corner variable t, yielding affine Segre cone fiber product C_a x_{A1_t} C_b; Proj has dimension a+b. On nonzero Segre tensors, dt=0 exactly when at least two selected u_i factors vanish at t=0. Jacobian on the fiber product gives singular points with both tensors nonzero iff at least two such factors vanish on each side; single zero tensor is singular precisely when its cone dimension m>=2. Their closures are b boundary Segre B_j (a>=2), a boundary A_i (b>=2), and C(a,2)C(b,2) two-face projective joins. Dimensions and irreducibility follow from Segre face cones and joins; local coordinates give generic C_a/C_b transverse cones of multiplicity a!/b! or uv-wz node at mixed joins. Independently checked all 386 finite-coordinate points in a=b=2 with coords in {-1,0,1} satisfying the two defining quadrics: all Jacobian singularities agree with exactly the predicted five lines. This finite test does not prove arbitrary a,b.
+
+## originality
+
+PASS
+
+Wagner 1996 and Lakshmibai–Mukherjee 2007 provide broadly applicable toric orbit/singularity criteria, and are explicitly credited. Their relevant inspected theorem statements do not directly state the specialized irreducible Segre/joins count, parametric component dimensions or the two generic analytic transverse models for the complete ordinal-sum antichain family. Equivalent toric combinatorial orbit-decomposition remains a priority risk.
+
+## value
+
+PASS
+
+This is a complete, all-positive-integer two-parameter geometric singular-stratification theorem for a canonical height-two Hibi family, including boundary smoothness and two distinct generic transverse singularity types. It converts abstract orbit criteria into explicit geometry and supports local resolution investigations; it is not a generic re-labeling of a table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

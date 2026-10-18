@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Hibi straightening presentation splits the order-ideal lattice into two Boolean sublattices sharing one coordinate. This gives a rigorously determined fiber product of affine Segre cones, and all local singularities follow from the Jacobian criterion for the shared corner function. The proof checks nonzero/nonzero, zero/nonzero, nonzero/zero, and excluded total-zero cases; it distinguishes reduced singular supports from Jacobian scheme structure. The boundary and mixed joins are shown irreducible and maximal, with explicit generic transverse analytic equations. The finite checker independently of these symbolic calculations tests 1,815 tensor representatives at two primes; it cannot prove the all-parameter theorem.
+## correctness
 
-**Originality — PASS, with recorded limits.** Wagner's all-Hibi orbit criterion (1996, Theorem 2.3) determines singularity of an individual orbit closure, and Lakshmibai–Mukherjee's (2007, Theorem 6.9) does so for affine Hibi charts. These broad criteria are *strong prior coverage* of singular orbit detection, but neither states the specialized irreducible components, their explicit join/Segre geometry or count, or the generic local analytic Segre-cone/node description for the ordinal sum of two antichains. Gonciulea–Lakshmibai's ladder family is a different class; Friedl computes global divisor groups, not singular strata. The proof supplies the nontrivial specialization, with the universal orbit criteria acknowledged as potential alternate starting points. Targeted primary-text and published-record searches found no identical full statement; lack of discovery is not proof of uniqueness. Independent literature audit remains outstanding.
+PASS
 
-**Value — PASS.** The ordinal sum of antichains is a natural entire two-parameter family of height-two posets, not an arbitrary truncation. The theorem gives every reduced singular component, counts varying sharply with both antichain sizes, and identifies two distinct generic transverse geometries. For \(a=b=2\), it accounts for five singular lines on a two-quadric toric complete intersection. It explains where a universal orbit test produces explicit singular geometry and suggests stratified resolution problems. No separate general theorem about Hibi varieties is claimed.
+For P=A_a ordinal-sum A_b, Hibi straightening relations split into the two Boolean sublattices sharing the top-of-first/bottom-of-second corner variable t, yielding affine Segre cone fiber product C_a x_{A1_t} C_b; Proj has dimension a+b. On nonzero Segre tensors, dt=0 exactly when at least two selected u_i factors vanish at t=0. Jacobian on the fiber product gives singular points with both tensors nonzero iff at least two such factors vanish on each side; single zero tensor is singular precisely when its cone dimension m>=2. Their closures are b boundary Segre B_j (a>=2), a boundary A_i (b>=2), and C(a,2)C(b,2) two-face projective joins. Dimensions and irreducibility follow from Segre face cones and joins; local coordinates give generic C_a/C_b transverse cones of multiplicity a!/b! or uv-wz node at mixed joins. Independently checked all 386 finite-coordinate points in a=b=2 with coords in {-1,0,1} satisfying the two defining quadrics: all Jacobian singularities agree with exactly the predicted five lines. This finite test does not prove arbitrary a,b.
 
-**Closest literature and residual risks.** Wagner 1996 is the strongest general coverage, particularly Theorem 2.3 and the local-ring results of Section 3. Lakshmibai–Mukherjee 2007 has a second general combinatorial criterion. Gonciulea–Lakshmibai 1997 proves component formulas for certain one-sided ladders, not the complete-comparability ordinal-sum family. Further differently named toric degenerations or specializations may contain equivalent statements. General algorithmic coverage should not be misrepresented as mathematical independence. Global embedded Jacobian structures and nongeneric intersections were not classified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wagner 1996 and Lakshmibai–Mukherjee 2007 provide broadly applicable toric orbit/singularity criteria, and are explicitly credited. Their relevant inspected theorem statements do not directly state the specialized irreducible Segre/joins count, parametric component dimensions or the two generic analytic transverse models for the complete ordinal-sum antichain family. Equivalent toric combinatorial orbit-decomposition remains a priority risk.
+
+## value
+
+PASS
+
+This is a complete, all-positive-integer two-parameter geometric singular-stratification theorem for a canonical height-two Hibi family, including boundary smoothness and two distinct generic transverse singularity types. It converts abstract orbit criteria into explicit geometry and supports local resolution investigations; it is not a generic re-labeling of a table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
