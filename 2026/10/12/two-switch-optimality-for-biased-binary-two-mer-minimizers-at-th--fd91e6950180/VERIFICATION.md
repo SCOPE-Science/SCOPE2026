@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact replay
+# Independent mathematical audit
 
-Both complete verification programs use only the Python standard library. From a directory containing the packaged `verify_exact.py` and `verify_independent.py`, run `python3 verify_exact.py` and `python3 verify_independent.py`.
+## correctness
 
-The exact certificate loops over all \(24\) strict priority permutations and every binary context of length \(w+2\), for \(2\le w\le9\). For each order it computes the number of contexts of each Hamming weight whose leftmost minimizer changes between adjacent windows. It then verifies the transformed polynomial coefficient signs, exactly identifies zero polynomials, checks the excluded comparison, and verifies the factorization of the two competitive density polynomials. The proof that the crossing polynomial has exactly two simple roots uses Descartes' rule of signs and checked exact rational sign brackets; decimal approximations are not used for certification.
+PASS
 
-A second implementation evaluates changed selections through boundary departure or strict improvement by the newly arriving two-mer, rather than computing both argmins. It independently recomputes event vectors and globally compares all rankings at five rational biases per width. Both scripts completed successfully. The mathematical verification is valid for all real bias values in the stated domain because its certified polynomial signs and Descartes calculation apply throughout; the five tested fractions are secondary checks, not the proof of interval-wide optimality.
+The density equals the stationary probability that consecutive windows choose different two-mer positions, determined by exactly w+2 bits. Independently enumerated all 24 strict priority orders for every width 2≤w≤9, all 2^(w+2) contexts. After p=u/(1+2u), every order comparison against A has nonnegative integer coefficients for w≤8 and all but B,C at w9; zero polynomials give 4 ties at w2, A,A′ only for w3..8. Independently recovered A weight counts (1,2,10,37,85,127,127,85,37,11,3,1), B (1,2,11,38,77,109,131,126,84,36,9,1), dA−dB=p²(p−1)H(p), and C−B=p(1−p)^10>0. Transforming H via p=u/(1+2u) gives coefficient signs ++++---++ (two changes); exact rational signs in (257/1000,258/1000) and (346/1000,347/1000) show two simple roots by Descartes and IVT. Exactly eight optimal orders at p=1/2 attain 263/1024; bit-complement determines p>1/2. This is an exhaustive finite combinatorial certificate proving all real p through polynomial inequalities, not a mere finite-p sample.
 
-No numerical linear/integer solver, trusted external table, or external independent audit was used. The historical literature comparison and possible prior unindexed computation remain bibliographic limitations.
+## originality
+
+PASS
+
+Shur Theorem11 is directly relevant and stronger in window range, but optimizes only uniform random-string density; its equality at p=1/2 is acknowledged as old. Zheng dissertation charged-context expectation also explicitly uniform and its dataset-specific optimization is a different distribution. The 24-priority all-real-p phase switches at w9 do not follow from these uniform theorems.
+
+## value
+
+PASS
+
+Locates the first bias-driven bifurcation of a natural globally optimal minimizer ordering with exact algebraic boundaries and equality cases. This answers a structural sensitivity question that uniform-source analyses cannot detect; small absolute density gains do not erase the value of the phase-change classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

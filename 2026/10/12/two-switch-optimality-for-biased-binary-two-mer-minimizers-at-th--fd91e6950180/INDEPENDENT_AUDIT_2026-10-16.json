@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T09:01:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/08119bf33b93101414034e23c1f90b0d9c5f9592/2026/10/12/two-switch-optimality-for-biased-binary-two-mer-minimizers-at-th--fd91e6950180/RESULT.md",
+        "GitHub verify_exact.py blob e88bd9e466e538eed5785c06bf693103dbc49e8c",
+        "GitHub verify_independent.py blob 454616a6a04bf9ed3f24a1ce92af211973278b8e"
+      ],
+      "rationale": "The density equals the stationary probability that consecutive windows choose different two-mer positions, determined by exactly w+2 bits. Independently enumerated all 24 strict priority orders for every width 2≤w≤9, all 2^(w+2) contexts. After p=u/(1+2u), every order comparison against A has nonnegative integer coefficients for w≤8 and all but B,C at w9; zero polynomials give 4 ties at w2, A,A′ only for w3..8. Independently recovered A weight counts (1,2,10,37,85,127,127,85,37,11,3,1), B (1,2,11,38,77,109,131,126,84,36,9,1), dA−dB=p²(p−1)H(p), and C−B=p(1−p)^10>0. Transforming H via p=u/(1+2u) gives coefficient signs ++++---++ (two changes); exact rational signs in (257/1000,258/1000) and (346/1000,347/1000) show two simple roots by Descartes and IVT. Exactly eight optimal orders at p=1/2 attain 263/1024; bit-complement determines p>1/2. This is an exhaustive finite combinatorial certificate proving all real p through polynomial inequalities, not a mere finite-p sample.",
+      "residual_risks": [
+        "The proof is exact for w≤9 and fixed priority orders only, not a claim for Markov sources, longer k, or larger windows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shur proves all window widths, but only p=1/2.",
+          "Zheng covers charged contexts and sequence-specific design, not population Bernoulli optimum for all 0<p<1."
+        ],
+        "reasoning": "Broader k,w or adaptive framework is not dominating unless it solves the same variable-weight expectation. Checked statements do not.",
+        "searches": [
+          "arXiv 2506.05277 Theorem11 Appendix A.4",
+          "Zheng 2022 dissertation §2.7",
+          "Resultary binary k=2 minimizer density Bernoulli biased optimal total order window 9 crossover"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2506.05277",
+        "https://kingsfordlab.cbd.cmu.edu/pdf/2022-news-zhengphd.pdf",
+        "https://doi.org/10.1093/bioinformatics/btae736"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shur order (01,10,00,11) is uniformly optimal; rare-bias orders differ, with w9 B optimal only inside (α,β).",
+          "The cited works do not compare the exact 24 biased Bernoulli polynomials or isolate two positive H-roots."
+        ],
+        "reasoning": "Uniform optimality is one evaluation point of the weighted family; does not imply the asserted sharp two-threshold phase diagram.",
+        "searches": [
+          "arXiv 2506.05277 Theorem 11",
+          "arXiv 2506.05277 A.4",
+          "Zheng 2022 §§2.2,2.7",
+          "Resultary binary k=2 minimizer density Bernoulli biased optimal total order window 9 crossover"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For iid Bernoulli p, exact density is a weighted charged-context polynomial Σ c_r p^r(1−p)^(m−r), whereas Shur and Zheng evaluate uniform mean Σ c_r/2^m.",
+          "Shur gives a uniform minimizer optimal for every w, not an optimal fixed order for all p."
+        ],
+        "reasoning": "Replacing the uniform measure by a variable p changes the objective polynomial and can reverse order comparisons; no implication of two crossing roots from uniform optimality.",
+        "searches": [
+          "binary k=2 minimizer density Bernoulli biased optimal total order window 9 crossover",
+          "Bernoulli source biased minimizer ordering k2 density optimum DNA word frequency 2022 2025",
+          "Shur Theorem 11 exact binary two-mer minimizer",
+          "Zheng charged contexts expected density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Shur formula uniform density for w9 matches 263/1024; included as cross-check and not claimed new.",
+          "No examined table provides H(p), α≈0.2570614076, β≈0.3461933747 as optimum switches."
+        ],
+        "reasoning": "Published uniform tables cannot independently certify or anticipate weighted crossing classifications; missing private tables remain possible.",
+        "searches": [
+          "Resultary binary k=2 minimizer density Bernoulli biased optimal total order window 9 crossover",
+          "Shur binary k2 uniform density table",
+          "Zheng dissertation minimizer contexts"
+        ]
+      },
+      "rationale": "Shur Theorem11 is directly relevant and stronger in window range, but optimizes only uniform random-string density; its equality at p=1/2 is acknowledged as old. Zheng dissertation charged-context expectation also explicitly uniform and its dataset-specific optimization is a different distribution. The 24-priority all-real-p phase switches at w9 do not follow from these uniform theorems.",
+      "residual_risks": [
+        "A nonindexed or reference-specific weighted priority computation may already contain equivalent roots; relevant dataset-adaptive full article not exhaustively examined.",
+        "No novelty is asserted for charged-context identity, Shur uniform optimum, or the generic finite enumeration technique."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING ONLY UNIFORM SLICE: proves optimum uniform density for σ=k=2 and all w; averaging all 2^(w+2) contexts uniformly fixes p=1/2, not variable Bernoulli-p two-root phase switch",
+          "evidence": [
+            "Thm11 and Appendix A.4 p9,p17; citeturn373204view0turn373204view1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2506.05277",
+          "material_read": "§4.3 Theorem 11 p9 plus entire Appendix A.4 proof p17; charged-context averaging and density definition",
+          "method": "Lawful 30-page PDF text and page screenshots inspected",
+          "title": "Shur, On Minimizers of Minimum Density",
+          "trigger": "Directly same binary two-mer orders and all window widths, strongest plausible coverage"
+        },
+        {
+          "assessment": "NON_EQUIVALENT: standard expected density computed under uniform contexts; reference-sequence specific densities optimize a different input objective; no exact all Bernoulli biases two-switch theorem identified in read material",
+          "evidence": [
+            "Zheng PhD §2.2 p35, §2.7 p55; citeturn812364view4turn373204view2"
+          ],
+          "identifier_or_url": "https://kingsfordlab.cbd.cmu.edu/pdf/2022-news-zhengphd.pdf",
+          "material_read": "Contents; §2.2 p35; §2.7.1 p55, charged context Lemma29, equations explicitly uniform over Σ^(w+k); abstract discusses sequence-specific objective",
+          "method": "Lawful 144-page dissertation opened, relevant sections read with page screenshot",
+          "title": "Zheng, Theory and Practice of Low-Density Minimizer Sketches, PhD thesis",
+          "trigger": "Likely prior weighted charged-context exact density in comprehensive minimizer dissertation"
+        },
+        {
+          "assessment": "LIMITED: general lower bounds asymptotic in w,k do not assert exact weighted k2 priority phase; no full-text noncoverage claim",
+          "evidence": [
+            "Pub year 2024; citeturn161879search2"
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/bioinformatics/btae736",
+          "material_read": "Indexed journal abstract and DOI metadata only",
+          "method": "Read publisher-indexed abstract, not full mathematical proof",
+          "title": "Kille–Koerkamp–McAdams–Liu–Treangen, near-tight lower bound on forward sampling",
+          "trigger": "Generalization of minimizers with lower density bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/08119bf33b93101414034e23c1f90b0d9c5f9592/2026/10/12/two-switch-optimality-for-biased-binary-two-mer-minimizers-at-th--fd91e6950180/RESULT.md",
+        "https://arxiv.org/pdf/2506.05277",
+        "https://kingsfordlab.cbd.cmu.edu/pdf/2022-news-zhengphd.pdf"
+      ],
+      "rationale": "Locates the first bias-driven bifurcation of a natural globally optimal minimizer ordering with exact algebraic boundaries and equality cases. This answers a structural sensitivity question that uniform-source analyses cannot detect; small absolute density gains do not erase the value of the phase-change classification.",
+      "residual_risks": [
+        "The numerical density improvement near p=.3 is small and no practical speedup is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No window width beyond nine, k>2, alphabet>2, or source memory; no adaptive tie rules.",
+    "Unique optimum statements are for strict priorities and p∈(0,1/2) with complement symmetry, with boundary tie cases separately."
+  ],
+  "schema_version": 1
+}

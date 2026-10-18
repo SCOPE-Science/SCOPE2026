@@ -1,15 +1,21 @@
-# Scientific review of the Bernoulli two-mer minimizer optimum
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary density is the probability of a change in the leftmost-minimum position between neighboring windows, a function only of \(w+2\) iid bits. The exact weighted word census therefore gives a finite polynomial in the Bernoulli parameter. For widths two through eight, an exhaustive coefficient-positivity certificate proves global optimality and all strict-tie cases across all \(24\) orders. For width nine, the certificate reduces all competitors to two candidate density polynomials; their difference factors as \(p^2(p-1)H(p)\). A two-sign-change Descartes transform together with two rational sign reversals proves that \(H\) has exactly two simple roots in \((0,1/2)\). Complementation proves the second half of the source-bias range. Two independently implemented exact enumerators successfully verified the coefficients, polynomial identities, all comparison certificates, and selected rational bias tests. The proof is an exact finite-alphabet and finite-width classification, not a sampling experiment.
+## correctness
 
-## Originality — PASS, with remaining bibliographic risk
-The 2014 Chikhi–Limasset–Jackman–Simpson–Medvedev work introduces frequency-based minimizers but proves a de Bruijn-graph construction result, not an exact weighted density optimum. The 2018 Marçais–DeBlasio–Kingsford framework develops bounds for minimizer schemes, and Shur's 2025 all-window small-alphabet classification fixes a uniform random input. Zheng's dissertation explicitly averages charged contexts uniformly. Their claims neither imply nor state the source-bias-dependent switch polynomial and complete ranking classification. Uniform-source optima themselves are excluded from the novelty claim. A 2022 dataset-adaptive ordering paper uses load balancing rather than this Bernoulli expected-selection objective; its complete text was not available here, so the risk of incidental relevant material is retained. Relevant unpublished enumerations and unindexed studies are a further residual risk. Mathematical implications, not similar titles, determined the comparison.
+PASS
 
-## Value — PASS
-The order should respond to source composition in sequence sampling, yet a rule that simply prioritizes the least frequent two-mer need not optimize the actual density of distinct selected positions. The exact first-window threshold and its two reversals give a motivated counterexample to monotone expectations about optimal ordering under skewed sources, a natural benchmark for source-aware minimizer design. This is a general statement over a continuous family of biases and all \(24\) rankings, not an arbitrary one-off enumeration or a claim of large practical gains.
+The density equals the stationary probability that consecutive windows choose different two-mer positions, determined by exactly w+2 bits. Independently enumerated all 24 strict priority orders for every width 2≤w≤9, all 2^(w+2) contexts. After p=u/(1+2u), every order comparison against A has nonnegative integer coefficients for w≤8 and all but B,C at w9; zero polynomials give 4 ties at w2, A,A′ only for w3..8. Independently recovered A weight counts (1,2,10,37,85,127,127,85,37,11,3,1), B (1,2,11,38,77,109,131,126,84,36,9,1), dA−dB=p²(p−1)H(p), and C−B=p(1−p)^10>0. Transforming H via p=u/(1+2u) gives coefficient signs ++++---++ (two changes); exact rational signs in (257/1000,258/1000) and (346/1000,347/1000) show two simple roots by Descartes and IVT. Exactly eight optimal orders at p=1/2 attain 263/1024; bit-complement determines p>1/2. This is an exhaustive finite combinatorial certificate proving all real p through polynomial inequalities, not a mere finite-p sample.
 
-## Scientific scope and literature risk
-The theorem covers binary fixed two-mer orders and widths through nine. It has no claim for higher k-mer lengths, correlated sources or longer widths, and no independent external validation. The references in the accompanying proof identify the nearest inspected literature; incomplete access to the 2022 adaptive-order text and possible unindexed prior computations remain explicit risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Shur Theorem11 is directly relevant and stronger in window range, but optimizes only uniform random-string density; its equality at p=1/2 is acknowledged as old. Zheng dissertation charged-context expectation also explicitly uniform and its dataset-specific optimization is a different distribution. The 24-priority all-real-p phase switches at w9 do not follow from these uniform theorems.
+
+## value
+
+PASS
+
+Locates the first bias-driven bifurcation of a natural globally optimal minimizer ordering with exact algebraic boundaries and equality cases. This answers a structural sensitivity question that uniform-source analyses cannot detect; small absolute density gains do not erase the value of the phase-change classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
