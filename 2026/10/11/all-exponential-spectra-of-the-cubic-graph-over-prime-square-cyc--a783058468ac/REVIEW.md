@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fourier-zero criterion follows from prime-level cyclotomic irreducibility, a self-contained no-mixed-cubic-permutations argument, and an exact prime-square stationary-phase expansion. The latter has at most two critical values; odd-order roots prevent cancellation. A spectrum has at most one reduced frequency for each first coordinate and at most \(p\) frequencies per residue fibre, forcing exactly \(p\) saturated fibres. The independently verified Rédei–Megyesi theorem rules out noncollinear reduced spectra because only \((p+1)/2\) directions are allowed, while a noncollinear \(p\)-point set needs \((p+3)/2\). Sufficiency and counting then follow from elementary fibre geometry. The packaged exact-arithmetic checker corroborates all key local cases and independent constructions, without claiming to prove the universal statement computationally.
+## correctness
 
-## Originality — PASS (historical-priority risk retained)
-Cochrane–Zheng's stationary-phase framework, the Rédei–Megyesi direction theorem, and existing finite-field spectral-set constructions are strong, credited inputs. The specific classification of all exponential bases for the prime-square *cubic* graph requires combining the precise cubic zero directions with maximum fibre saturation, a finite-direction rigidity argument, the extra vertical fibres only when \(p\equiv2\pmod3\), and a nontrivial count. The inspected primary statements provide these ingredients separately but do not themselves supply the all-spectra theorem or imply it without additional graph-specific deductions. published-finding corpus and prior-claim comparisons found no directly covering exact classification. An equivalent archived ring-spectral classification may exist and would alter priority; no absolute novelty claim is made.
+PASS
 
-## Mathematical value — PASS
-The graph is a canonical nonlinear monomial graph over a nonfield prime-power ring, and the natural invariant is its full collection of orthogonal Fourier bases, not a hand-picked small numerical slice. The theorem converts an existence question into an exhaustive and exact classification over infinitely many moduli. In particular the count jumps by an exponential-in-\(p\) factor due to internal lift-line freedom when \(p\equiv2\pmod3\), providing structural information beyond generic tiling or stationary-phase identities. This specific catalogue supports comparative investigations of spectral multiplicity and arithmetic lifting, without implying a broader unproved theorem.
+For primitive differences modulo p², expansion t=a+pz gives a p-fold root-of-unity sum supported only on roots of u+3va²=0 modulo p. There are zero, one or two such roots; since p² is odd, one term is nonzero and two p²-th roots cannot cancel, proving the derivative-root criterion. For differences divisible by p, the prime-level p-term sum vanishes precisely when Ut+Vt³ permutes F_p; horizontal nonzero U is allowed, and a pure cubic is additionally allowed only for p≡2 (mod 3). The quadratic-character sum argument excludes mixed nonzero U,V for p≥5. Thus no primitive vertical differences, at most p reduction classes, and each residue fibre has at most p compatible frequencies, forcing p saturated fibres. Their reduced graph uses at most (p+1)/2 allowed directions; by the Rédei–Megyesi theorem a noncollinear p-set needs (p+3)/2, hence it is an affine graph with allowed slope. Every saturated fibre is exactly one horizontal or (when permitted) vertical affine line, giving the distinct count p(p+1)/2·[p(1+1_{p≡2 mod 3})]^p. All endpoints p≥5 and labeling conventions checked.
 
-## Closest literature and limitations
-The nearest inspected sources are Cochrane–Zheng (1999, pure-sum stationary phase), Somlai's proof of Rédei–Megyesi (2022/2024, prime-field directions), Iosevich–Mayeli–Pakianathan (2015, prime-field spectral graphs), Aten et al. (2015, finite-field graph spectra), and Kolountzakis–Matolcsi (2004, spectral matrix framework). Shi (2020) addresses an adjacent but different ambient group; only its abstract was accessible. Other older literature might independently state this exact special case. The proof invokes the classical direction theorem and makes no claim for higher ring exponents.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The prime-square cubic *graph* and full p²-character basis classification are not a paraphrase of an arbitrary spectral/tiling criterion; stationary-phase and finite direction theorems are used nontrivially, with different permissible fibre orientation depending on p mod3. All-spectra uniqueness and enumeration go beyond mere existence.
+
+## value
+
+PASS
+
+A natural canonical curved graph over the first non-field cyclic local ring has a nontrivial classification of ALL orthogonal exponential bases, not merely an example. The slope rigidity, dependence on p mod 3, and full independent-fibre enumeration give precise objects/invariants needed to compare prime-field and prime-power Fuglede phenomena. The exact p-indexed count is not obtained by a known table or a routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
