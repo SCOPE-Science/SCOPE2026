@@ -1,37 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The example on \(\mathbb R^2\) satisfies both approximate-duality inequalities with error \(1/2\), while
-\[
-K^\dagger T_FR_G=
-\begin{pmatrix}
-1&0\\
-0&0
-\end{pmatrix}
-\]
-is singular. The same data directly violate the lower \(K\)-frame inequality on \(e_2\).
+## correctness
 
-The repaired condition follows independently from
-\[
-I-K^\dagger T_FR_G
-=
-K^\dagger(K-T_FR_G)
-\]
-and the Neumann lemma. Injectivity of \(K\) plus the generalized-inverse identity gives \(K^\dagger K=I\), so no extra inverse identity is being assumed.
+PASS
 
-## Originality
-PASS. Exact-source searches, theorem-number searches, generalized-inverse aliases, approximate-duality formulations, and erratum searches were compared. No indexed correction of Lemma 19 or Proposition 20 was located.
+Read the frozen RESULT.md and Sun--Li Definition 18/Lemma 19/Proposition 20. With X=R^2, K=diag(2,1/2), K-dagger=diag(1/2,2), F=(e1,e2,0,...), G=(2e1*,0,...), both mixed reconstructions equal diag(2,0); primal and dual errors are diag(0,1/2) with exact norm 1/2<1, and ||K||=2>1. Both sequences are Bessel in ell2. Nevertheless K-dagger T_F R_G=diag(1,0) is singular, while R_G e2=0 and K e2=(1/2)e2 refute the lower K-frame bound. The general proposed sufficient repair follows from injectivity and K K-dagger K=K (giving K-dagger K=I), then ||I-K-dagger A||<=||K-dagger|| ||K-A||<1 and Neumann inversion; Bessel synthesis supplies the frame bound. Equality product=1 fails in this example; no necessity claim.
 
-The closest frame-theoretic results concern range compression, perturbation smallness in other frame models, diagonal scaling, projected excess, and a different dual-frame criterion. None implies this generalized-inverse conditioning obstruction. The target full text was materially inspected.
+## originality
 
-## Value
-PASS. Approximate \((K,K^*)\)-duality is introduced to provide stable near-reconstruction. The source's unscaled error threshold can nevertheless make its normalized reconstruction singular and can fail to produce a \(K\)-frame at all. The corrected dimensionless error
-\[
-\|K^\dagger\|\,\|K-T_FR_G\|
-\]
-is the natural perturbation quantity and yields a direct, reusable repair.
+PASS
 
-## Limitations
-The norm-product condition is a sharp universal Neumann-type sufficient threshold, not a necessary condition for every individual pair. The review does not assess downstream statements as separate claims. An unindexed correction remains a literature risk.
+The counterexample targets the actual unscaled hypotheses of Sun--Li Lemma 19 and Proposition 20, not the established near-identity approximate-dual theorem. Search and actual publisher full-text reading found no identical printed correction or logically dominating norm-scaled theorem in the checked sources. The conditioning factor follows from the defect identity but its omission and singular counterexample are source-specific and unreported in the inspected full text; originality remains best-of-knowledge.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A published foundational frame assertion that two errors <1 ensure invertibility and a K-frame is false. A minimal 2D counterexample locates the precise normalized defect, and the norm-product bound supplies a universally valid, dimensionless, Neumann-series repair; this changes applicability of downstream approximate K-dual constructions, rather than giving an unmotivated type check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T00:19:09.234408Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read the frozen RESULT.md and Sun--Li Definition 18/Lemma 19/Proposition 20. With X=R^2, K=diag(2,1/2), K-dagger=diag(1/2,2), F=(e1,e2,0,...), G=(2e1*,0,...), both mixed reconstructions equal diag(2,0); primal and dual errors are diag(0,1/2) with exact norm 1/2<1, and ||K||=2>1. Both sequences are Bessel in ell2. Nevertheless K-dagger T_F R_G=diag(1,0) is singular, while R_G e2=0 and K e2=(1/2)e2 refute the lower K-frame bound. The general proposed sufficient repair follows from injectivity and K K-dagger K=K (giving K-dagger K=I), then ||I-K-dagger A||<=||K-dagger|| ||K-A||<1 and Neumann inversion; Bessel synthesis supplies the frame bound. Equality product=1 fails in this example; no necessity claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Christensen--Laugesen near-identity approximate duality uses the identity, not normalization by K-dagger",
+          "Resultary adjacent K-frame perturbation counterexamples concern distinct published propositions"
+        ],
+        "reasoning": "The identity-centered Neumann criterion does not dominate operator-K approximate duality: a left inverse can amplify an absolutely small reconstruction error. Source-specific singularity and remedy are not a special case of the checked adjacent published claims.",
+        "searches": [
+          "Resultary: generalized inverse K frame perturbation counterexamples",
+          "Christensen Laugesen approximately dual frame pairs arXiv:0811.3588"
+        ]
+      },
+      "checked_sources": [
+        "Sun--Li 2022 DOI 10.1155/2022/6385365 full relevant Section 4",
+        "Christensen--Laugesen arXiv:0811.3588 publication context",
+        "Resultary 8-hit query 0 and adjacent K-frame source records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Printed hypotheses permit ||K-dagger||=2, ||K-A||=1/2 and hence noninvertible K-dagger A",
+          "Ordinary identity-centered approximate dual results require normalized defect <1"
+        ],
+        "reasoning": "The prior printed claim implies a false conclusion, whereas the corrected Neumann inequality is strictly stronger as a hypothesis. The earlier source does not imply the counterexample is impossible; our exact example instead refutes it.",
+        "searches": [
+          "Sun--Li 2022 full publisher text at Def18/Lemma19/Prop20",
+          "Resultary: approximate K dual generalized inverse scaled error"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun--Li Def18 requires ||K-T_FR_G||<1 and ||K*-T_GR_F||<1; their Lemma19 asserts invertibility without ||K-dagger|| scaling",
+          "Exact matrices give errors 1/2 and normalized rank-one projection"
+        ],
+        "reasoning": "Approximate (K,K*)-duality, reconstruction operator stability and Banach K-frame formulations were compared at operator level. None of the checked source passages adds the missing scaled smallness condition; the exhibited data disprove the theorem as printed.",
+        "searches": [
+          "Resultary: Sun Li Lemma 19 generalized inverse normalized approximate dual",
+          "web: Sun Li 2022 Lemma 19 Proposition 20 erratum generalized inverse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is a universal operator-theorem correction, not a finite classification or catalogued constant",
+          "The exact 2x2 matrix is a witness, not a table entry"
+        ],
+        "reasoning": "There is no applicable finite invariant/database table. The relevant exact match is at the named theorem and hypothesis, inspected in the publisher text.",
+        "searches": [
+          "web: K-frames for Banach Spaces DOI 10.1155/2022/6385365 Lemma 19",
+          "Resultary: Sun Li generalized inverse counterexample"
+        ]
+      },
+      "rationale": "The counterexample targets the actual unscaled hypotheses of Sun--Li Lemma 19 and Proposition 20, not the established near-identity approximate-dual theorem. Search and actual publisher full-text reading found no identical printed correction or logically dominating norm-scaled theorem in the checked sources. The conditioning factor follows from the defect identity but its omission and singular counterexample are source-specific and unreported in the inspected full text; originality remains best-of-knowledge.",
+      "residual_risks": [
+        "Unindexed erratum, informal correction or thesis remark may already document the same 2D example",
+        "The scaled condition is sufficient but not necessary in every specific invertible case"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition uses unscaled errors <1; Lemma19 multiplies by the generalized inverse without bounding the product, so the defect step fails",
+          "evidence": "https://onlinelibrary.wiley.com/doi/10.1155/2022/6385365",
+          "identifier_or_url": "doi:10.1155/2022/6385365",
+          "material_read": "Full open publisher HTML: preliminary Neumann Lemma 4, Section 4 Definition 18, Lemma 19, Proposition 20 and their proofs",
+          "method": "web publisher text",
+          "title": "K-frames for Banach Spaces",
+          "trigger": "Exactly the theorem under test"
+        },
+        {
+          "assessment": "Not relied on for a whole-paper noncoverage claim; identity-centered formulation is structurally different",
+          "evidence": "arXiv:0811.3588",
+          "identifier_or_url": "arXiv:0811.3588",
+          "material_read": "Bibliographic record and documented frame-context description only",
+          "method": "published citation/abstract context",
+          "title": "Approximately dual frame pairs in Hilbert spaces and applications to Gabor frames",
+          "trigger": "Nearest identity-centered approximate-duality predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A published foundational frame assertion that two errors <1 ensure invertibility and a K-frame is false. A minimal 2D counterexample locates the precise normalized defect, and the norm-product bound supplies a universally valid, dimensionless, Neumann-series repair; this changes applicability of downstream approximate K-dual constructions, rather than giving an unmotivated type check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Applies to the printed Sun--Li Lemma19 and Proposition20; no separate downstream theorem audited",
+    "Real R2 with ell2 coefficient BK space; counterexample covers all listed source premises",
+    "Norm-product <1 is a universal sufficient condition and the threshold is sharp via equality failure, not necessary"
+  ],
+  "schema_version": 1
+}
