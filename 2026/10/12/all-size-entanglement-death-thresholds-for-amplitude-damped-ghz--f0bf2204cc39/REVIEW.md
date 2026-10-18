@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The starting state, identical independent amplitude-damping Kraus maps, and proper nonempty intermediate NOT subset are explicit. The output has exactly one complement-pair coherence. The initial vacuum population survives on subsets of the flipped sites, whereas the initial excited population becomes a product Bernoulli distribution with site classes \(pr\) and \(qr\). The exact X-state concurrence theorem counts \(2^m-1\) altered complement pairs and \(2^{n-1}-2^m\) unaffected pairs. Direct multiplication and normalization reproduce the binomial expression. Strict decrease of the normalized concurrence deficit with second-stage survival probability and strict increase of its final endpoint with initial damping prove the uniqueness and boundary conventions. Rescaling the endpoint probability yields the stated large-\(n\) asymptotic with rigorous monotonic bracketing. Direct matrix-channel verification returned `VERIFY_OK 390`; finite trials corroborate rather than prove the infinite result.
+## correctness
 
-## Originality — PASS
-Closest direct source: Abhignan et al., arXiv:2604.23556v1, III.1 and Appendix V.1, which already give the local NOT protocol, explicit \(n=2,3,4\) concurrence, and numerical best-strategy tables. Their arbitrary-size \(p=0\) case is also prior work. Hashemi Rafsanjani et al., arXiv:1208.2706v2, supply the general X-state GMC identity and one-stage GHZ consequences. The claim here is limited to the exact \(n\)-arbitrary, strictly positive first-stage damping binomial specialization, the global monotone single-crossing phase diagram, and its unique first-stage budget with large-size scaling. The 2015 Jaynes–Cummings coherent-control paper uses a different dynamics. Searches for two-stage NOT echoes, complement-pair X-state reductions, and equivalent sudden-death thresholds revealed no equal published statement among inspected sources. These comparisons do not exclude unindexed implicit derivations; the published general theorem makes independent rediscovery plausible.
+PASS
 
-## Value — PASS
-The result resolves a directly motivated all-system-size gap left by a small-\(n\) protocol study. It gives a complete finite-time entanglement-death criterion and a quantitative first-stage loss budget, rather than another sampled parameter grid. For five equal-amplitude qubits at \(p=0.03\), one intermediate flip causes finite second-stage entanglement death, while two through four flips preserve it at every incomplete second-stage damping. The exact fixed-\(m\) exponential budget illustrates the scaling cost of protecting large GHZ registers. This concerns GMC, not teleportation fidelity or realistic noisy gates.
+For pure a|0^n>+b|1^n>, first damping p, subset S of m NOTs (1≤m<n) and second survival r=1-p’, initial vacuum contributes only basis strings supported on S with populations a² r^k(1-r)^{m-k}; excited input contributes independent Bernoulli occupancies pr on S and qr on complement with weight b²; the sole coherent complement pair S/S^c has modulus ab(qr)^{n/2}. The exact published X-state genuine multipartite concurrence theorem yields 2 max{0,z−∑outside pairs√(D_x D_xbar)}. Group 2^m−1 pairs with proper-subset vacuum terms and 2^{n−1}−2^m pure excited pairs to obtain the displayed binomial R(n,m,p,r). Its A(r) factors strictly decrease in r and B_k(r) nonincrease, hence R decreases strictly in r; F(p)=R(p,0) increases continuously from 0 to +∞, so unique p_c separates finite from only endpoint death, with boundary R(p,1)≥1 meaning already dead before stage two. For p=c2^{−2(n−1)/m}, fixed m,a,b and n→∞, only the 2^{n−1}p^{m/2} term survives in F giving (b/a)c^{m/2}; monotone bracketing proves p_c~(a/b)^{2/m}2^{−2(n−1)/m}. Independently constructed density matrix using Kraus operators n=2..4 and 54 (n,m,p,r) parameter combos, agreement with formula to <1e−10.
 
-## Closest literature and limitations
-Abhignan et al., *Decoherence Mitigation with Local NOT Gates in Multipartite Systems*, arXiv:2604.23556v1 (2026), Sections III.1 and V.1; Hashemi Rafsanjani et al., *Genuinely Multipartite Concurrence of N-qubit X-matrices*, arXiv:1208.2706v2 (2012); Hashemi Rafsanjani and Eberly, *Coherent control of multipartite entanglement*, arXiv:1408.2087v2 (2015). The construction assumes perfect local pulses, a pure two-branch GHZ input, and independent equal-strength amplitude damping across sites. Source priority is subject to potential unindexed equivalent results. No independent scientific audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hashemi Rafsanjani et al 2012 proves exact arbitrary-N X-state concurrence formula and analyzes single-stage GHZ amplitude damping, already including the crucial abstract concurrence tool. Abhignan et al 2026 introduces the two-stage local-NOT protocol with explicit n=2,3,4 formulas, arbitrary-n zero-initial damping discussions and numerical strategy comparisons, but neither primary paper states the full nonzero-p, arbitrary-n proper-m binomial expression nor the unique monotone first-stage budget and exponential sharp asymptotic. No Resultary hit or named broader paper identified this specific phase boundary. The 2012 theorem subsumes the *method*, not the evaluated new protocol-specific sum or threshold.
+
+## value
+
+PASS
+
+A sharp analytic entanglement-sudden-death/survival phase boundary for a physically motivated controllable GHZ protocol, simultaneously for all n and all proper nonempty flip sizes m, plus an exponentially small large-system damping budget. These answer design and scaling questions beyond low-n plots and are nontrivial uses of the full X-concurrence formula; no downstream theorem is required for this invariant to be useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

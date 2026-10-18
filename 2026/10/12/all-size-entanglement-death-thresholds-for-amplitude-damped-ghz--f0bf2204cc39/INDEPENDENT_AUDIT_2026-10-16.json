@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:59:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For pure a|0^n>+b|1^n>, first damping p, subset S of m NOTs (1≤m<n) and second survival r=1-p’, initial vacuum contributes only basis strings supported on S with populations a² r^k(1-r)^{m-k}; excited input contributes independent Bernoulli occupancies pr on S and qr on complement with weight b²; the sole coherent complement pair S/S^c has modulus ab(qr)^{n/2}. The exact published X-state genuine multipartite concurrence theorem yields 2 max{0,z−∑outside pairs√(D_x D_xbar)}. Group 2^m−1 pairs with proper-subset vacuum terms and 2^{n−1}−2^m pure excited pairs to obtain the displayed binomial R(n,m,p,r). Its A(r) factors strictly decrease in r and B_k(r) nonincrease, hence R decreases strictly in r; F(p)=R(p,0) increases continuously from 0 to +∞, so unique p_c separates finite from only endpoint death, with boundary R(p,1)≥1 meaning already dead before stage two. For p=c2^{−2(n−1)/m}, fixed m,a,b and n→∞, only the 2^{n−1}p^{m/2} term survives in F giving (b/a)c^{m/2}; monotone bracketing proves p_c~(a/b)^{2/m}2^{−2(n−1)/m}. Independently constructed density matrix using Kraus operators n=2..4 and 54 (n,m,p,r) parameter combos, agreement with formula to <1e−10.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General N-qubit X-state GMC formula is known, applicable to any such density matrix.",
+          "The 2026 NOT-control paper calculates n≤4 and zero-first-stage special cases; the all-n p>0 threshold not given in source sections/appendices inspected."
+        ],
+        "reasoning": "2012 X-state theorem covers the entanglement measure abstractly, not a closed phase diagram for a new control protocol; 2026 low-n calculations do not imply the exact all-size threshold and asymptotic without extra combinatorics.",
+        "searches": [
+          "https://arxiv.org/pdf/1208.2706",
+          "https://arxiv.org/html/2604.23556v1",
+          "Hashemi Rafsanjani et al 2012 Eq (5) and Appendix",
+          "Abhignan et al 2026 Sections III and V"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1208.2706",
+        "https://arxiv.org/html/2604.23556v1",
+        "https://arxiv.org/abs/1408.2087",
+        "Resultary: GHZ n-qubit amplitude damping intermediate NOT gates all-size concurrence entanglement death phase transition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "X-state concurrence equality is an input to the submitted derivation, not original.",
+          "Population factorization and complement-pair multiplicities 2^m−1 produce an all-size expression not displayed in either primary source."
+        ],
+        "reasoning": "The final result specializes the known general concurrence theorem to a protocol; the new algebraic evaluation, monotone root and asymptotic are genuine extra steps, while prior tools and special cases are explicitly credited.",
+        "searches": [
+          "https://arxiv.org/pdf/1208.2706",
+          "https://arxiv.org/html/2604.23556v1",
+          "2012 Eq (5)",
+          "2026 nonzero damping equations for 2/3/4 qubits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Survival means C(p,p’) positive for every *incomplete* second stage p’<1; complete damping always gives zero.",
+          "X-state GMC and complement-pair concurrence can be written as 2max(0,z−weighted diagonal pair sum), which is equivalent to the stated binomial ratio."
+        ],
+        "reasoning": "Compared ESD/ADE, coherent control, and X-state concurrence aliases; mere equivalent notation for the known general X theorem is not the same as solving the new two-stage channel population sum and threshold.",
+        "searches": [
+          "GHZ n-qubit amplitude damping intermediate NOT gates all-size concurrence entanglement death phase transition",
+          "two stage amplitude damping GHZ intermediate bit flip concurrence exact all N critical initial damping threshold asymptotic",
+          "GHZ entanglement sudden death amplitude damping NOT pulses all n exact phase boundary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Appendix tables compare sample configurations; no exact table for all n,m,p and amplitude ratios.",
+          "Published Resultary GHZ-related results use distinct mixed-state, Hamiltonian or one-stage settings."
+        ],
+        "reasoning": "Finite strategy/parameter tables cannot replace a uniform binomial expression or prove uniqueness of its root for every n,m.",
+        "searches": [
+          "Resultary semantic: GHZ n-qubit amplitude damping intermediate NOT gates all-size concurrence entanglement death phase transition",
+          "https://arxiv.org/html/2604.23556v1",
+          "2026 local NOT paper Appendix V.1 numerical strategy tables"
+        ]
+      },
+      "rationale": "Hashemi Rafsanjani et al 2012 proves exact arbitrary-N X-state concurrence formula and analyzes single-stage GHZ amplitude damping, already including the crucial abstract concurrence tool. Abhignan et al 2026 introduces the two-stage local-NOT protocol with explicit n=2,3,4 formulas, arbitrary-n zero-initial damping discussions and numerical strategy comparisons, but neither primary paper states the full nonzero-p, arbitrary-n proper-m binomial expression nor the unique monotone first-stage budget and exponential sharp asymptotic. No Resultary hit or named broader paper identified this specific phase boundary. The 2012 theorem subsumes the *method*, not the evaluated new protocol-specific sum or threshold.",
+      "residual_risks": [
+        "An unindexed early all-n specialization of X-state concurrence to intermediate-NOT damping could exist; full primary comparisons did not show one.",
+        "Proof requires Markovian independent *identical* site channels, pure two-branch input and proper nonempty NOT mask.",
+        "Root F(p_c)=1 corresponds to limit p'→1 with no strictly finite p' death; this boundary convention is essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The general exact GMC formula is prior; no intermediate two-stage local-NOT control and no derived first-stage threshold for this protocol",
+          "evidence": [
+            "Eq (5): C_GM=2max(0,|z_i|−sum_{j≠i}sqrt(a_j b_j)); method foundational, application distinct."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1208.2706",
+          "material_read": "Full 7-page arXiv PDF; especially Eq (5) page 2, appendix proof of exact X-state concurrence, and section on single-stage damped GHZ; page image checked",
+          "method": "Open access original primary PDF",
+          "title": "Genuinely Multipartite Concurrence of N-qubit X-matrices",
+          "trigger": "General theorem possibly dominates any all-N concurrence claim"
+        },
+        {
+          "assessment": "Protocol and low-n formulas already known; no full arbitrary n,m with nonzero p binomial phase threshold or critical-p large-n scaling stated",
+          "evidence": [
+            "Analytic n=2/3/4 results, numerical local-NOT strategy tables, arbitrary n zero-first-stage remarks; exactly credited."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.23556v1",
+          "material_read": "Full public arXiv HTML main text, explicit sections III and V and Appendix V.1, comparisons of 2-,3-,4-qubit GHZ formulas and parameter sweeps",
+          "method": "Original paper full HTML text inspected",
+          "title": "Decoherence Mitigation with Local NOT Gates in Multipartite Systems",
+          "trigger": "Exact same two-stage amplitude-damping/local NOT protocol"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp analytic entanglement-sudden-death/survival phase boundary for a physically motivated controllable GHZ protocol, simultaneously for all n and all proper nonempty flip sizes m, plus an exponentially small large-system damping budget. These answer design and scaling questions beyond low-n plots and are nontrivial uses of the full X-concurrence formula; no downstream theorem is required for this invariant to be useful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n≥2,1≤m<n,0<p<1 and second-stage survival r∈(0,1]; amplitudes a,b>0 normalized.",
+    "Local-unitary final restoring NOT optional; not a claim about all-m flip or correlated channels, CQT or practical gate imperfections."
+  ],
+  "schema_version": 1
+}
