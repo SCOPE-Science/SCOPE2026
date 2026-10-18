@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The scalar Galerkin and least-squares coefficients are exact. Orthogonal decomposition reduces each Gaussian sketch ratio to a standard Student law; the FOM reciprocal has a strictly positive density at its pole and therefore a \(1/t\) absolute tail for every finite sketch size. The energy-error decomposition proves that its unconditional squared energy loss has infinite expectation. The GMRES coefficient has a finite second moment exactly when \(\ell>2\), and its exact expected residual follows by quadratic expansion. The standalone checker verifies independent algebraic reductions; infinite risk is proved analytically, not inferred from finite sampling.
+PASS
 
-## Originality
+From the actual frozen RESULT.md derive c_F=||Omega b||²/[(Omega b)^T Omega Ab] and c_G=[(Omega Ab)^T Omega b]/||Omega Ab||². Orthogonally decompose Av=a v+d w. Independent standard normal sketches of v and w make (u^T z)/||u||²=Z/sqrt(chi²_ell)=T_ell/sqrt(ell), so c_F^{-1}=a+(d/sqrt ell)T_ell. Rotating to Av/sqrt(m) yields c_G=a/m+(d/(m sqrt ell))T'_ell. The reciprocal denominator density is positive at zero for every finite ell when d>0, giving the displayed 2 f_Y(0)/t tail and all |c_F|^q divergences q>=1; the exact A-orthogonal energy decomposition transfers this to expected squared error. For ell>2 Student variance d²/[m²(ell-2)] and residual expansion give ||b||²(d²/m)(ell-1)/(ell-2); all moment thresholds and eigenvector boundary d=0 were reconstructed. The inspected standard-library verifier samples exact coefficient identities, not rare-tail proofs.
 
-PASS. The defining Güttel–Schweitzer sketched FOM/GMRES paper, the Timsit–Grigori–Balabanov randomized projection analysis, and the later Palitta–Schweitzer–Simoncini full-text analysis contain relevant conditional convergence and stability results but not the one-step reciprocal-Student coefficient law or the all-oversampling moment contrast. Focused semantic comparisons with related published findings did not identify an implication-equivalent result. Standard Student ratio facts themselves are prior.
+## originality
 
-Residual priority risk: an unindexed note, possibly from earlier randomized Gram–Schmidt work, might contain the same probability calculation. This does not invalidate the independently derived theorem, but limits any universal priority claim.
+PASS
 
-## Value
+The sketched projection equations and embedding-conditional stability results were already published. The independent one-dimensional Gaussian ratio computation identifies an unconditional reciprocal pole and a sharp FOM-versus-GMRES risk distinction not stated or implied by the inspected theorems on high-probability convergence or deterministic numerical stability; novelty is best-of-knowledge, not an assertion that Student distributions are new.
 
-PASS. The discrepancy between high-probability sketch guarantees and unconditional mean-risk certification matters for randomized linear solvers: increasing finite oversampling suppresses the catastrophic event probability but never gives a finite FOM mean squared energy. The finite-risk one-step GMRES contrast identifies an intrinsic choice of projection, not a generic sketching failure.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An exact universal separation between the unconditional moments of two established one-step Krylov projections is mathematically motivated by rare projection singularities and high-probability safeguards. Infinite A-error at every finite oversampling size is a concrete all-parameter phenomenon, with exact tail constant and finite-risk comparator; it is not an arbitrary small example or a renamed normal-ratio identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

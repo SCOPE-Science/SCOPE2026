@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T23:42:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the actual frozen RESULT.md derive c_F=||Omega b||²/[(Omega b)^T Omega Ab] and c_G=[(Omega Ab)^T Omega b]/||Omega Ab||². Orthogonally decompose Av=a v+d w. Independent standard normal sketches of v and w make (u^T z)/||u||²=Z/sqrt(chi²_ell)=T_ell/sqrt(ell), so c_F^{-1}=a+(d/sqrt ell)T_ell. Rotating to Av/sqrt(m) yields c_G=a/m+(d/(m sqrt ell))T'_ell. The reciprocal denominator density is positive at zero for every finite ell when d>0, giving the displayed 2 f_Y(0)/t tail and all |c_F|^q divergences q>=1; the exact A-orthogonal energy decomposition transfers this to expected squared error. For ell>2 Student variance d²/[m²(ell-2)] and residual expansion give ||b||²(d²/m)(ell-1)/(ell-2); all moment thresholds and eigenvector boundary d=0 were reconstructed. The inspected standard-library verifier samples exact coefficient identities, not rare-tail proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Quasi-optimality estimates assume an embedding event of high probability, not unconditional expectation.",
+          "Algebraic/stability results discuss reduced projected systems and outlying Ritz behavior but do not prove universal infinite expected FOM error under Gaussian sketches."
+        ],
+        "reasoning": "A theorem guaranteeing high-probability accuracy cannot imply finite unconditional moment when its failure set includes near-poles. The reviewed risk theorem is therefore not covered by those broader conditional statements.",
+        "searches": [
+          "arXiv:2302.07466v1 randomized orthogonal projection methods error estimates",
+          "arXiv:2208.11447v1 sketched Krylov error theorem",
+          "DOI:10.1002/nla.2596 sketched and truncated Krylov methods"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.11447v1 §2.1",
+        "arXiv:2302.07466v1 projection and error-estimate sections",
+        "DOI:10.1002/nla.2596",
+        "arXiv:2011.05090v1",
+        "Resultary semantic search: Gaussian sketched FOM Galerkin Student t reciprocal coefficient infinite expected energy error all finite sketch dimensions SPD one Krylov step versus sketched GMRES"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A spurious FOM Ritz value / observed occasional high errors is compatible with any finite or infinite expected risk and does not calculate the tail.",
+          "Neither an embedding success theorem nor sketch orthogonalization stabilizers assert the sharp positive reciprocal density at zero for every finite ell."
+        ],
+        "reasoning": "The missing implication is the Gaussian ratio with a density that remains strictly positive at its pole even under arbitrary finite oversampling. The accepted risk theorem is a genuine quantitative strengthening of reported irregularity, with a distinct least-squares comparator.",
+        "searches": [
+          "arXiv:2208.11447v1 §2.1",
+          "arXiv:2302.07466v1 §3",
+          "arXiv:2011.05090v1 randomized Gram-Schmidt",
+          "DOI:10.1002/nla.2596"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published sketched FOM uses a Galerkin cross-Gram denominator; GMRES uses sketched least squares; these algebraic coefficients exactly agree with the audited one-step reduction.",
+          "The FOM inverse coefficient's distribution is a *shifted Student reciprocal*, not the Student variable itself."
+        ],
+        "reasoning": "Algebraic identity of coefficient formulae is acknowledged prior work. Neither inspected source computes the unconditional all-ell reciprocal-pole law, sharp absolute tail, and GMRES moment threshold; conditional embedding theorems exclude small denominators.",
+        "searches": [
+          "arXiv:2208.11447v1 §§2–3",
+          "arXiv:2302.07466v1 projection/embedding sections",
+          "Gaussian sketched FOM Galerkin Student t reciprocal coefficient infinite expected energy error all finite sketch dimensions SPD one Krylov step versus sketched GMRES"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed symmetric GMRES(1) finding concerns nonsketched deterministic error amplification, not Gaussian random sketch tails.",
+          "Other nearest matches concern classical iterative optimization error or deterministic unstable test frames."
+        ],
+        "reasoning": "No searched database record or explicit heavy-tail table was found for this particular Gaussian sketched one-step FOM coefficient. Search absence is not novelty proof; precise source-equation comparisons provide the affirmative distinction.",
+        "searches": [
+          "Gaussian sketched FOM Galerkin Student t reciprocal coefficient infinite expected energy error all finite sketch dimensions SPD one Krylov step versus sketched GMRES",
+          "Resultary 2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+          "Gaussian sketch FOM infinite expected error Student reciprocal Gaussian projection Krylov unbounded second moment"
+        ]
+      },
+      "rationale": "The sketched projection equations and embedding-conditional stability results were already published. The independent one-dimensional Gaussian ratio computation identifies an unconditional reciprocal pole and a sharp FOM-versus-GMRES risk distinction not stated or implied by the inspected theorems on high-probability convergence or deterministic numerical stability; novelty is best-of-knowledge, not an assertion that Student distributions are new.",
+      "residual_risks": [
+        "A distributional Krylov-sketch study using alternative terminology could have derived the identical reciprocal shifted-t law outside the inspected sources.",
+        "The result is one Krylov step, exactly Gaussian and unconditional, not a universal practical instability or a claim for guarded/structured sketches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_PROJECTION_NOT_TAIL",
+          "evidence": "The sketched Galerkin equation uses cross Gramian and sketched GMRES uses residual least-squares; no unconditional Student moment theorem in inspected material.",
+          "identifier_or_url": "arXiv:2208.11447v1",
+          "material_read": "PDF opening and §2.1 projection formulas, successful embedding assumptions, §3 comparative discussion",
+          "method": "full-text PDF page/section inspection",
+          "title": "Randomized sketching for Krylov approximations of large-scale matrix functions",
+          "trigger": "One-step sketched FOM/GMRES algebra and prior guarantees"
+        },
+        {
+          "assessment": "CONDITIONAL_NOT_IMPLICATION",
+          "evidence": "The source conditions the analysis on successful subspace embedding; this does not bound unconditional reciprocal-pole tails.",
+          "identifier_or_url": "arXiv:2302.07466v1",
+          "material_read": "PDF introduction, algorithm/projection and embedding-conditional error estimate sections",
+          "method": "full-text PDF page/section inspection",
+          "title": "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers",
+          "trigger": "Potentially dominating sketch Krylov quasioptimality theorem"
+        },
+        {
+          "assessment": "DIFFERENT_TARGET",
+          "evidence": "Matrix-function Krylov stability discussion, not the one-step random Gaussian FOM inverse coefficient distribution.",
+          "identifier_or_url": "DOI:10.1002/nla.2596",
+          "material_read": "Open full scholarly text, sections on Arnoldi relations and numerical stability",
+          "method": "lawful open full-text inspection",
+          "title": "Sketched and Truncated Polynomial Krylov Methods: Evaluation of Matrix Functions",
+          "trigger": "Potential general treatment of sketched Krylov stability and outlying Ritz values"
+        },
+        {
+          "assessment": "RESIDUAL_FULLTEXT_LIMITATION",
+          "evidence": "Randomized Gram-Schmidt orthogonalization is related but a matching unconditional first-step FOM Student moment result was not established from available inspected material.",
+          "identifier_or_url": "arXiv:2011.05090v1",
+          "material_read": "Published abstract, method statements, and cited relation in motivating literature",
+          "method": "bibliographic/accessible-text inspection",
+          "title": "Randomized Gram-Schmidt process with application to GMRES",
+          "trigger": "Potential alias sketched GMRES"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact universal separation between the unconditional moments of two established one-step Krylov projections is mathematically motivated by rare projection singularities and high-probability safeguards. Infinite A-error at every finite oversampling size is a concrete all-parameter phenomenon, with exact tail constant and finite-risk comparator; it is not an arbitrary small example or a renamed normal-ratio identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a non-eigenvector SPD one-step Krylov problem with any finite Gaussian sketch size ell>=2, the sketched FOM coefficient is a reciprocal shifted Student-t variable and has a positive-density pole, hence infinite absolute moments of all orders >=1 and infinite expected squared A-energy solution error; the sketched GMRES coefficient is affine Student with finite variance precisely for ell>2 and an exact expected unsketched squared residual.",
+  "limitations": [
+    "Real SPD, b non-eigenvector, Gaussian i.i.d., exactly one unregularized step; infinity is unconditional and not a failure of conditional embedding guarantees.",
+    "GMRES comparison refers to unsketched Euclidean residual and requires ell>2 for second moment.",
+    "A distributional Krylov-sketch study using alternative terminology could have derived the identical reciprocal shifted-t law outside the inspected sources.",
+    "The result is one Krylov step, exactly Gaussian and unconditional, not a universal practical instability or a claim for guarded/structured sketches."
+  ],
+  "schema_version": 1
+}
