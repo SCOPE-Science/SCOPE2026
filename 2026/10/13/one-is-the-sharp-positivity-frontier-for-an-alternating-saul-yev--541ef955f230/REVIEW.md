@@ -1,34 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The classical directional recurrences are used exactly as stated. For
-\[
-0\le r\le1,
-\]
-both coefficients are nonnegative, so each directional recurrence preserves the nonnegative orthant. For
-\[
-r>1,
-\]
-the first column of the left sweep and the last row of the right sweep give the exact completed-pair corner
-\[
-(P_n)_{n1}
-=
-\beta^{\,n-1}\gamma(1+\gamma)
-=
-\frac{2r^{\,n-1}(1-r)}
-{(1+r)^{n+1}},
-\]
-which is negative for every \(n\ge2\). The \(n=1\) product is \(\gamma^2\). The packaged exact-rational checker independently replays these identities and the \(r=2\) witness.
+## correctness
 
-## Originality
-PASS. The inspected full-text modern treatment supplies the coefficients, the unconditional-stability result, and the historical recommendation to alternate the two directional algorithms. It also remarks that \(\gamma\) may be negative without destroying stability. It does not state the completed-pair entrywise positivity threshold located here.
+PASS
 
-Targeted database and literature searches using positivity, nonnegativity, monotonicity, maximum-principle, alternating-pair, and negative-coefficient language found no implication-equivalent theorem. The accessible Campbell-Yin abstract is stability-focused; because its full body was unavailable, it remains a stated residual risk rather than being treated as evidence of noncoverage.
+With beta=r/(1+r), gamma=(1-r)/(1+r), the left and right recurrence matrices have nonnegative coefficients if 0<=r<=1; forward and reverse induction then prove P_n=RL>=0 for every n. For n>=2, apply the two sweeps to e1: after left sweep v_j=beta^(j-1)gamma. The final component after right sweep is w_n=beta v_(n-1)+gamma v_n=beta^(n-1)gamma(1+gamma)=2r^(n-1)(1-r)/(1+r)^(n+1), strictly negative for r>1. At n=1 the product is gamma^2≥0 for all r>=0. For n=2,r=2 the entry is -4/27, a sharp minimal witness. Independently implemented both sweeps with rational fractions and checked the exact corner for n=2..9 at r=1/2,1,6/5,2,9/2; these bounded checks corroborate, not establish, the full all-n proof. Precisely full-step historical alternation, uniform 1D grid, Dirichlet zeros and constant D.
 
-## Value
-PASS. Unconditional stability can encourage large time steps, whereas nonnegative temperatures or concentrations are a separate physical requirement. The theorem gives the exact pointwise-safety restriction for the historically standard alternating use and shows that two grid unknowns are already enough to expose the gap. The one-node exception demonstrates a real cancellation phenomenon rather than a trivial restatement of the sign of \(\gamma\).
+## originality
 
-## Closest literature and limitations
-The closest inspected source is Chin's full treatment of Saul'yev-type diffusion schemes, followed by the stability-focused Campbell-Yin article. The result is restricted to constant-coefficient one-dimensional diffusion, uniform grids, homogeneous Dirichlet boundaries, exact arithmetic, and successive full-step alternation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Chin gives the classical directional Saulyev coefficients, unconditional Fourier stability and recommended alternation, and notes gamma may turn negative. The inspected full treatment does not claim the completed-two-sweep entrywise positivity iff r<=1, exceptional n=1, or universal explicit negative corner. Campbell and Yin 2007 analyze directional alternating stability but accessible abstract is insufficient for a whole-document noncoverage judgment. Distinguishes monotonicity from stability; residual older discrete maximum-principle priority risk noted.
+
+## value
+
+PASS
+
+A positivity threshold determines whether physically nonnegative diffusion states remain componentwise nonnegative after a complete explicit alternating update despite unconditional von Neumann stability. Exact necessity for all n>=2, a minimal-size witness, and a one-node exception identify a real numerical-PDE scheme boundary rather than a trivial sign of a single sweep.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

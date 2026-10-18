@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,39 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal theorem is proved analytically in `RESULT.md`.
 
-For
-\[
-r=\frac{D\Delta t}{\Delta x^2},
-\qquad
-\beta=\frac{r}{1+r},
-\qquad
-\gamma=\frac{1-r}{1+r},
-\]
-the claimed obstruction for every \(n\ge2\) is
-\[
-(P_n(r))_{n1}
-=
-\beta^{\,n-1}\gamma(1+\gamma)
-=
-\frac{2r^{\,n-1}(1-r)}
-{(1+r)^{n+1}}.
-\]
+# Independent mathematical audit
 
-The embedded `verify.py` constructs the left-to-right and right-to-left matrices directly from their recurrences, using exact rational arithmetic. It checks:
+## correctness
 
-1. the corner formula for dimensions \(2\) through \(9\) and several rational step ratios;
-2. entrywise nonnegativity for representative ratios in the interval \(0\le r\le1\);
-3. the one-node identity
-\[
-P_1(r)=\gamma^2;
-\]
-4. the exact witness
-\[
-n=2,\qquad r=2,\qquad (P_2)_{21}=-\frac4{27}.
-\]
+PASS
 
-The finite checks corroborate the derivation. They do not substitute for the all-dimension induction and closed-entry proof.
+With beta=r/(1+r), gamma=(1-r)/(1+r), the left and right recurrence matrices have nonnegative coefficients if 0<=r<=1; forward and reverse induction then prove P_n=RL>=0 for every n. For n>=2, apply the two sweeps to e1: after left sweep v_j=beta^(j-1)gamma. The final component after right sweep is w_n=beta v_(n-1)+gamma v_n=beta^(n-1)gamma(1+gamma)=2r^(n-1)(1-r)/(1+r)^(n+1), strictly negative for r>1. At n=1 the product is gamma^2≥0 for all r>=0. For n=2,r=2 the entry is -4/27, a sharp minimal witness. Independently implemented both sweeps with rational fractions and checked the exact corner for n=2..9 at r=1/2,1,6/5,2,9/2; these bounded checks corroborate, not establish, the full all-n proof. Precisely full-step historical alternation, uniform 1D grid, Dirichlet zeros and constant D.
 
-Unproved limits include periodic or nonhomogeneous boundaries, variable coefficients, modified Saul'yev coefficients, half-step compositions, group-explicit variants, nonlinear diffusion, and finite precision.
+## originality
+
+PASS
+
+Chin gives the classical directional Saulyev coefficients, unconditional Fourier stability and recommended alternation, and notes gamma may turn negative. The inspected full treatment does not claim the completed-two-sweep entrywise positivity iff r<=1, exceptional n=1, or universal explicit negative corner. Campbell and Yin 2007 analyze directional alternating stability but accessible abstract is insufficient for a whole-document noncoverage judgment. Distinguishes monotonicity from stability; residual older discrete maximum-principle priority risk noted.
+
+## value
+
+PASS
+
+A positivity threshold determines whether physically nonnegative diffusion states remain componentwise nonnegative after a complete explicit alternating update despite unconditional von Neumann stability. Exact necessity for all n>=2, a minimal-size witness, and a one-node exception identify a real numerical-PDE scheme boundary rather than a trivial sign of a single sweep.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

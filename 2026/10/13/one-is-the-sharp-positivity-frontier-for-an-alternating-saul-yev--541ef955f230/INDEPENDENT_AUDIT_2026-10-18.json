@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T12:00:47Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/one-is-the-sharp-positivity-frontier-for-an-alternating-saul-yev--541ef955f230/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/one-is-the-sharp-positivity-frontier-for-an-alternating-saul-yev--541ef955f230/VERIFICATION.md"
+      ],
+      "rationale": "With beta=r/(1+r), gamma=(1-r)/(1+r), the left and right recurrence matrices have nonnegative coefficients if 0<=r<=1; forward and reverse induction then prove P_n=RL>=0 for every n. For n>=2, apply the two sweeps to e1: after left sweep v_j=beta^(j-1)gamma. The final component after right sweep is w_n=beta v_(n-1)+gamma v_n=beta^(n-1)gamma(1+gamma)=2r^(n-1)(1-r)/(1+r)^(n+1), strictly negative for r>1. At n=1 the product is gamma^2≥0 for all r>=0. For n=2,r=2 the entry is -4/27, a sharp minimal witness. Independently implemented both sweeps with rational fractions and checked the exact corner for n=2..9 at r=1/2,1,6/5,2,9/2; these bounded checks corroborate, not establish, the full all-n proof. Precisely full-step historical alternation, uniform 1D grid, Dirichlet zeros and constant D.",
+      "residual_risks": [
+        "Campbell-Yin 2007 and historical Saulyev 1957 complete originals not inspected, so known-equivalent monotonicity thresholds remain a residual originality risk.",
+        "Finite rational sweeps do not prove infinite n; complete proof relies on induction and universal closed negative entry.",
+        "No claim for periodic boundaries, variable coefficients, half-step compositions or floating-point implementations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chin symplectic finite differences treats unconditional stability; Campbell-Yin 2007 DOI:10.1002/num.20233 abstract treats alternating direction stability."
+        ],
+        "reasoning": "Spectral stability is weaker than entrywise nonnegativity: for r>1 all eigenmodes may be stable but the explicit corner is negative. Neither inspected theorem gives a stronger full-pair positive-semigroup classification.",
+        "searches": [
+          "Resultary semantic query: Saul'yev alternating directional explicit diffusion two sweep matrix positivity monotonicity sign threshold r=1"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/one-is-the-sharp-positivity-frontier-for-an-alternating-saul-yev--541ef955f230/RESULT.md",
+        "https://github.com/Resultary/2026",
+        "DOI:10.1002/num.20233",
+        "arXiv:1206.1743"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chin arXiv:1206.1743 full treatment; Campbell-Yin, Numerical Methods for PDE 23 (2007) 1429-1444 abstract."
+        ],
+        "reasoning": "The prior coefficients imply sufficiency r<=1 by elementary induction, but sharp necessity for the composed pair and n=1 exception require a new matrix-entry analysis. Campbell-Yin body unavailable; possible equivalent monotonicity criterion is an explicit risk.",
+        "searches": [
+          "Resultary semantic query: Saul'yev alternating directional explicit diffusion two sweep matrix positivity monotonicity sign threshold r=1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chin arXiv:1206.1743 and DOI:10.1002/num.21885 give beta=r/(1+r), gamma=(1-r)/(1+r) and Saul'yev alternating left/right sweeps."
+        ],
+        "reasoning": "Equivalent terms include cone preservation, monotonicity, positive evolution matrix and discrete maximum principle, not merely Fourier stability. The inspected source analyses coefficients and stability rather than the full-pair matrix positive cone.",
+        "searches": [
+          "Resultary semantic query: Saul'yev alternating directional explicit diffusion two sweep matrix positivity monotonicity sign threshold r=1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query on alternating Saulyev positivity showed unrelated SOR second-iterate positivity frontier (2026/10/4 id 7f04f29ca2ea) and BE-filtered CN positivity (2026/9/20 id 1f6f56bd0eac)."
+        ],
+        "reasoning": "An all-dimension rational recurrence threshold, not a finite enumerated table; known positivity frontiers apply to different algorithms and do not subsume this claim.",
+        "searches": [
+          "Resultary semantic query: Saul'yev alternating directional explicit diffusion two sweep matrix positivity monotonicity sign threshold r=1"
+        ]
+      },
+      "rationale": "Chin gives the classical directional Saulyev coefficients, unconditional Fourier stability and recommended alternation, and notes gamma may turn negative. The inspected full treatment does not claim the completed-two-sweep entrywise positivity iff r<=1, exceptional n=1, or universal explicit negative corner. Campbell and Yin 2007 analyze directional alternating stability but accessible abstract is insufficient for a whole-document noncoverage judgment. Distinguishes monotonicity from stability; residual older discrete maximum-principle priority risk noted.",
+      "residual_risks": [
+        "Campbell-Yin 2007 and historical Saulyev 1957 complete originals not inspected, so known-equivalent monotonicity thresholds remain a residual originality risk.",
+        "Finite rational sweeps do not prove infinite n; complete proof relies on induction and universal closed negative entry.",
+        "No claim for periodic boundaries, variable coefficients, half-step compositions or floating-point implementations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unconditional Fourier stability and coefficient negativity noted; no completed-pair entrywise threshold found in material read",
+          "evidence": [
+            "arXiv:1206.1743",
+            "DOI:10.1002/num.21885"
+          ],
+          "identifier_or_url": "arXiv:1206.1743",
+          "material_read": "Full accessible PDF treatment of one-sided schemes, beta/gamma, alternation and stability; rendered coefficient pages",
+          "method": "open PDF full-text reading, text search and screenshot inspection",
+          "title": "Symplectic finite-difference methods for solving partial differential equations",
+          "trigger": "same historic Saulyev alternation and parameterization"
+        },
+        {
+          "assessment": "May concern same scheme but cannot claim noncoverage based on abstract alone",
+          "evidence": [
+            "Numerical Methods for Partial Differential Equations 23 (2007) 1429-1444"
+          ],
+          "identifier_or_url": "DOI:10.1002/num.20233",
+          "material_read": "Accessible abstract and bibliographic citation only; complete primary body not inspected",
+          "method": "abstract retrieval",
+          "title": "On the stability of alternating-direction explicit methods for advection-diffusion equations",
+          "trigger": "possible competing positivity theorem for alternating Saulyev updates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/one-is-the-sharp-positivity-frontier-for-an-alternating-saul-yev--541ef955f230/RESULT.md",
+        "arXiv:1206.1743",
+        "DOI:10.1002/num.20233"
+      ],
+      "rationale": "A positivity threshold determines whether physically nonnegative diffusion states remain componentwise nonnegative after a complete explicit alternating update despite unconditional von Neumann stability. Exact necessity for all n>=2, a minimal-size witness, and a one-node exception identify a real numerical-PDE scheme boundary rather than a trivial sign of a single sweep.",
+      "residual_risks": [
+        "Campbell-Yin 2007 and historical Saulyev 1957 complete originals not inspected, so known-equivalent monotonicity thresholds remain a residual originality risk.",
+        "Finite rational sweeps do not prove infinite n; complete proof relies on induction and universal closed negative entry.",
+        "No claim for periodic boundaries, variable coefficients, half-step compositions or floating-point implementations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Campbell-Yin 2007 and historical Saulyev 1957 complete originals not inspected, so known-equivalent monotonicity thresholds remain a residual originality risk.",
+    "Finite rational sweeps do not prove infinite n; complete proof relies on induction and universal closed negative entry.",
+    "No claim for periodic boundaries, variable coefficients, half-step compositions or floating-point implementations."
+  ],
+  "schema_version": 1
+}
