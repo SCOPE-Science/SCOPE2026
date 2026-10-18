@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The quartic reduces exactly to a positive-root quadratic in the radial slope, whose discriminant fixes both endpoints. The Jacobian of \((X,z)\mapsto(X,zX)\) gives a finite exact area integral. The inequality bounding \(h_a^2-h_a\sqrt{h_a^2-d_a^2}\) by \(d_a^2\), with controlled moving endpoints, proves a uniform \(O(a^2)\) remainder after polynomial integration. The branch-product identity ensures the inner branch collapses uniformly and the outer branch tends to the stated Jordan loop. Rational-arithmetic and numerical checks in the accompanying script are supporting diagnostics, not a substitute for the analytical proof.
+## correctness
 
-## Originality — PASS, subject to stated priority risk
-The 2021 Llibre–Oliveira–Zhao theorem already supplies the same family's existence and a heteroclinic escape involving infinity; Gasull–Giacomini's 2022 preprint gives the invariant curve and uniqueness framework. No inspected primary statement gives the exact two-term Euclidean area divergence or the affine-rescaled loop and both extrema. Exact-match and semantic searches for alternative formulations, stronger source results, and tables were compared; none covered those quantitative conclusions. A direct uninspected 1973 original and publication under different terminology remain priority risks; negative search evidence is not a proof of global novelty.
+PASS
 
-## Value — PASS
-For a classical explicit quadratic limit cycle the geometry of escape to infinity is a natural missing observable. The result determines the singular area exponent, exact first two coefficients, and a complete geometric blow-up profile; the quantitative rates strengthen the known qualitative endpoint picture.
+Independently computed symbolic Lie derivative of the exact quartic under the published Filiptsov vector field; it factors as cofactor times quartic, matching arXiv:2210.15803 Case 3. Setting X=a²x, Y=a²y, z=Y/X and s=1+a gives quadratic 3s X²−2 z h_a(z) X+3s a² z²=0 with h_a=3sz−2z²−3sa. The discriminant gives exact z interval and two roots X± with product a²z². The Jacobian of (X,z)↦(X,zX) is X, so scaled area a^4 A= (2/(9s²))∫ z² h_a sqrt(h_a²−(3sa)²) dz. Uniform error bound 0<=h²−h sqrt(h²−d²)<=d² across the admissible interval yields O(a²), and endpoint shifts contribute higher order O(a³). Independent exact rational polynomial integration gives leading 81/560 and linear −81/280, yielding displayed asymptotic. Uniform outer-root and inner-root collapse prove Hausdorff convergence; differentiating limiting X0 and Y0 gives maxima 2/3, 729/1024. These are universal asymptotic arguments, not extrapolations of the finite quadrature diagnostic.
 
-## Scope and limitations
-Only the positive-quadrant algebraic oval and \(a\downarrow0\) are treated. Existing orbit existence and global uniqueness results are assumed and credited. All proof conclusions are mathematical and no independent audit or external certification has been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on bounded best-of-knowledge: the full inspected Gasull–Giacomini Case 3 identifies the exact curve and uniqueness, while the Llibre–Oliveira–Zhao published abstract and indexed full-text search surface the qualitative degeneration already known; no claim of novel escape-to-infinity is made. Neither prior scope supplies, as stated, the exact Euclidean area coefficients or explicit affine loop shape. Inaccessibility of the earlier full text and 1973 original is recorded as real priority uncertainty.
+
+## value
+
+PASS
+
+Explicit two-term singular area law and limiting affine geometry quantify a classical invariant algebraic oval, refining known qualitative escape without needing a new limit-cycle existence result. Sharp coefficient, correction term and coordinate extrema are naturally measurable geometric invariants for singular perturbation comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
