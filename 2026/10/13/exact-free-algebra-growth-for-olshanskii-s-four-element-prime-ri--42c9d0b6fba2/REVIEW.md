@@ -1,16 +1,21 @@
-# Review
-## Correctness
-PASS. Direct expansion gives \( (a,b)(c,d)=(0,ac+ad+bd)\). The proof then identifies the product-generated \(f\)-coordinate space with the ideal of all Boolean functions on \(A^n\) vanishing at the origin, using the diagonal products \(q_{ii}=a_i+a_ib_i+b_i\). This ideal has dimension \(4^n-1\); the variable span contributes a disjoint \(n\)-dimensional space. The bundled finite checker agrees for \(n=1,2,3\), but the universal claim rests on the symbolic ideal argument.
+# Independent mathematical audit
 
-## Originality
-PASS. The closest primary source, arXiv:2606.04577v1, gives the same algebra as a nonsimple prime example and proves maximal potential with two-sided bounds, not an exact free-algebra formula. The inspected two-dimensional algebra classifications address isomorphism types rather than term-function growth. Exact-formula and multiplication-table searches found no prior statement implying the claimed dimension. The closest retrieved exact free-algebra result concerns a different two-dimensional affine Lie algebra and has no implication for this ring.
+## correctness
 
-A residual risk remains that older clone or identity-theory literature contains an equivalent term-function calculation under another presentation.
+PASS
 
-## Value
-PASS. The exact formula sharpens an asymptotic existence result for the paper's concrete nonsimple prime witness into a complete rank-by-rank description, and the Boolean-function-ideal identification explains why maximal potential occurs in this example.
+From e^2=f, ef=f, fe=0, f^2=f over F_2 obtain (a,b)(c,d)=(0,ac+ad+bd). All products are f-only. If (0,P) is a product-sum, right multiply by x_i to get Pb_i and left multiply to get P(a_i+b_i); adding gives Pa_i. Hence f-only product space W is an ideal in the full Boolean function algebra on A^n. Its diagonal generators q_ii=a_i+a_ib_i+b_i jointly vanish only at the zero tuple, so finite-function-algebra pointwise interpolation gives W={functions vanishing at 0} of dimension 4^n-1. The variable projections have linearly independent e-coordinate forms of dimension n, disjoint from W, proving dim_F2(F_n)=4^n+n-1, |F_n|=2^(4^n+n-1), and potential 4. Independent Boolean-ideal rank calculations gave 3,15,63 for n=1,2,3; the unrestricted claim follows from the ideal proof.
 
-## Closest literature and limitations
-The result is specific to the displayed four-element ring. It neither classifies all two-dimensional \(\mathbb F_2\)-algebras nor gives exact growth for all finite prime rings. The finite checker is supplementary and does not certify the infinite theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact clone/term-function dimension formula for Olshanskii’s concrete prime nonassociative ring. Olshanskii proved growth potential/maximality and a general two-sided exponential-scale bound, not this exact finite-n dimension. Published affine Lie free-growth formula concerns a genuinely different multiplication and identity signature. Best-of-knowledge originality with older polynomial clone theory risk.
+
+## value
+
+PASS
+
+The full term-function description and exact growth in every free rank for an explicitly exhibited *prime but nonsimple* finite nonassociative ring sharpen the originating maximal-potential theorem. Clone dimensions and exact relatively-free algebra orders are natural structural invariants; the Boolean ideal proof makes the formula independent of numerical tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
