@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The symmetric multiplication map has kernel dimension exactly one because the algebra square is the full two-dimensional vector space. A natural basis exists exactly when the nonzero kernel tensor is a product of two independent linear factors, without any characteristic restriction. The explicit three-square construction is a multiplicative embedding with full, stabilized square, which also proves dimension optimality. Finite-field enumeration follows from the projective count of split, repeated and irreducible binary quadratics; finite-field separability ensures the extension statement. The four-field exhaustive checker independently agrees on all counts and ordered natural-basis and ambient-realization tests. No finite experiment is used to prove a statement over arbitrary fields.
+PASS
 
-## Originality — PASS (residual literature risk)
+For a full-square 2D commutative algebra, mu:Sym^2(S)->S is a surjection with 1D kernel; a natural basis (a,b) exists iff the kernel line is a tensor a odot b with independent a,b, equivalently square-free split binary quadratic. This is valid in characteristic 2 because it is symmetric tensor algebra, not square-map polarization. The explicit 3D evolution construction with i(u)=e1+e3, i(v)=e2+e3 and basis squares i(u^2-uv),i(v^2-uv),i(uv) multiplies correctly and has stable square i(S). Projective quadratic factor enumeration gives q(q+1)/2, q+1, q(q-1)/2 kernel lines with |GL_2(q)| quotient isomorphisms. Independent exhaustive q=2,3 counts (18,18,6),(288,192,144), confirms natural-basis test and stable-square realization.
 
-Hu–Wen ask the stable-term evolution question, provide one three-dimensional counterexample, and do not give this quadratic-kernel trichotomy or complete finite-field distribution. The 2023 classification of already-perfect evolution algebras overlaps the split branch, including natural-basis uniqueness; those facts are credited. General results on embedding commutative algebras as ideals are a distinct condition from being the **full stable square** of a three-dimensional evolution algebra. The latter paper's abstract was accessible but its full paper was not materially checked; prior overlap from that source or older quadratic-tensor classifications remains possible, despite direct statement-level comparisons and mathematical-record searches. Originality is an informed self-review, not a uniqueness or priority certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A recent open question asks when stable derived terms remain evolution algebras. This theorem completely resolves its natural rank-two perfect stratum, shows all three obstruction types actually arise as stable squares in optimal ambient dimension, and distinguishes arithmetic obstruction (quadratically removable over finite fields) from geometric obstruction (repeated factors never removable). The exact all-prime-power census determines how these behaviors distribute among **every** labeled two-dimensional perfect commutative algebra, rather than an arbitrary example or routine tiny improvement.
+The source question asks whether stable derived squares of evolution algebras remain evolution. Prior 2D perfect evolution classifications deal only with algebras already admitting natural bases; general ideal embedding of commutative algebras does not give the specific full stable square of a 3D evolution algebra. The kernel-splitting criterion, minimal same-field realization and every-q labeled tensor census together are not implied by the checked prior statements.
 
-## Scope and risk
+## value
 
-The theorem does not classify higher-dimensional stable derived terms or unlabeled isomorphism classes. The quadratic-extension statement needs finite-field separability. Potential previous formulations using binary quadratic tensors, and an uninspected full text on commutative-algebra embeddings, remain originality risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Resolves a motivated exact two-dimensional obstruction to a recent stable-derived-square question, including field-arithmetic trichotomy, optimal embedding dimension, and finite-field frequencies; distinct from an arbitrary 2D quadratic counting exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
