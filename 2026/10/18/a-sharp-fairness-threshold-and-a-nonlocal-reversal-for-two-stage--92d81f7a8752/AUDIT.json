@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Renewal-reward integration under shape-2 Erlang boosters yields susceptibility F(y)=(1+y)exp(-2y); exact 2-by-2 Perron characteristic polynomial gives fairness Hessian and sharp alpha threshold. For alpha=3/2,c=3/8 the second derivative is strictly positive. The concentrated-boundary Perron polynomial evaluated at the fair eigenvalue is positive by rational bounds 47/100<exp(-3/4)<1/2, establishing a strict global comparison despite local fairness optimality. Exponential boosters permit an exact hyperbolic expression monotonic in allocation magnitude. The standalone program independently passed 228 symbolic/exact/numeric assertions; the proof rather than computations covers continuous domains.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Delmas–Dronnier–Zitt already give spectral-radius concavity and concentration effects under a cost linear in effective susceptibility/vaccinated coverage.",
+        "Duijzer et al. consider final SIR epidemic size and a stockpile distributed across non-interacting populations, not fixed-rate renewal boosters."
+      ],
+      "reasoning": "A general claim that concentration can outperform fairness under disassortative mixing would be covered; this finding does not make it. The different nonlinear map from group-specific renewal dose rates to susceptibility prevents concavity in susceptible fractions from asserting concavity in dose rates. The strict local minimum combined with a lower boundary value specifically illustrates that distinction.",
+      "searches": [
+        "vaccine allocation spectral radius local minimum fair but boundary concentration strictly lower nonconvexity relapse renewal booster gamma two stage disassortative",
+        "arXiv:2112.08756 Proposition 4.1 concavity for disassortative mixing",
+        "Duijzer dose-optimal vaccine allocation multiple populations 2018"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2306.13633 full HTML, Sections 3 and 5",
+      "arXiv:2112.08756 full HTML, Section 4",
+      "DOI:10.1111/poms.12788 abstract and article overview",
+      "published-finding corpus published scientific finding semantic queries on Erlang boosters, vaccination allocation and disassortative spectral thresholds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier renewal-paper source is restricted to assortative fairness and provides general matrix/cost definitions that do not supply the second-derivative sign comparison or strict local/global witness.",
+        "The earlier disassortative concavity theorem applies to the linear fraction-of-susceptibles cost coordinate, not the present fixed sum of reciprocal expected inter-booster intervals."
+      ],
+      "reasoning": "Neither checked result logically implies the evaluated nonlinear rate-constrained theorem without an additional new analysis. Indeed, its strict positive rate-curvature at alpha=3/2 together with the superior boundary allocation shows why a direct unqualified transfer of disassortative concavity would be false.",
+      "searches": [
+        "arXiv:2306.13633 Section 5.3–5.4 matrix spectral radius and dose-rate constraint",
+        "arXiv:2112.08756 Section 4.2 Proposition 4.1 spectral concavity",
+        "disassortative recurrent vaccination unequal allocation epidemic threshold Erlang gamma distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Foutel-Rodier et al. equation (25) gives the same next-generation eigenvalue as the present normalized contact matrix.",
+        "Proposition 6 of arXiv:2306.13633 proves a fair optimum only for assortativity parameter at most one.",
+        "The exact Erlang-2 rate-dependent curvature formula and nonlocal witness are absent from the inspected portions of both source texts."
+      ],
+      "reasoning": "The spectral factor and renewal reward are equivalent restatements of existing primitives, and are not claimed separately as novel. The assessed claim is the exact transition in local rate-allocation curvature, an explicit strict local/global reversal under a recurrent per-time dose cost, and its exponential-clock contrast.",
+      "searches": [
+        "Erlang booster inter vaccination durations disassortative contact matrix optimal allocation epidemic threshold",
+        "two identical groups disassortative cross mixing vaccination allocation bang-bang optimal all doses one group threshold spectral radius",
+        "arXiv:2306.13633 Sections 3–5 / Proposition 6",
+        "arXiv:2112.08756 Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic public finding searches returned vaccination waiting-time biases, multigroup SAIRS thresholds and unrelated allocation results; no returned item reported the exact Erlang-2 contact threshold or its algebraic nonlocal witness.",
+        "Source arXiv:2306.13633 Figure 6 plots selected vaccination allocations but does not tabulate the stated exact phase boundary."
+      ],
+      "reasoning": "The claim is a symbolic theorem rather than an isolated computed constant. Searches of the available scientific record index and accessible paper text found no exact entry that would subsume its parameter characterization, but this is not a proof of universal novelty.",
+      "searches": [
+        "Erlang booster inter vaccination durations disassortative contact matrix optimal allocation epidemic threshold",
+        "vaccine allocation spectral radius local minimum fair but boundary concentration strictly lower nonconvexity relapse renewal booster gamma two stage disassortative",
+        "periodic versus Poisson booster vaccination allocation two disassortatively mixing groups infection reproduction spectral radius"
+      ]
+    },
+    "rationale": "The full primary renewal-vaccination source supplies model and fair-allocation theorem only for alpha<=1; the full disassortative spectral-concavity source handles a different, linear vaccination-coverage cost. A sharp Erlang-2 recurrent dose-rate curvature threshold and an explicit fair-local-minimum but globally inferior allocation are not implications of those results. Priority risk from broader unexamined nonlinear-resource literature remains.",
+    "residual_risks": [
+      "An existing general optimization theorem for nonlinear recurrent dose-rate constraints, if any, may cover the new specialization.",
+      "The Duijzer article was compared at abstract/overview level, not full text.",
+      "The motivating source is inspected in its latest available HTML revision; original 2023 upload date is verified independently, but every prior draft variant was not examined."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes essential primitives and assortative fairness but not the proposed Erlang-2 local-curvature boundary or the explicit nonlocal reversal",
+        "evidence": [
+          "arXiv:2306.13633, equations (18), (25), (27), (28), Proposition 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2306.13633v3",
+        "material_read": "Sections 3.1, 5.3 and 5.4, equations (18), (23)–(28), Propositions 4–6, Figure 6 caption; arXiv submission history to establish source date",
+        "method": "Read searchable full arXiv HTML, checked equations and assumptions against candidate theorem",
+        "title": "Optimal Vaccination Policy to Prevent Endemicity: A Stochastic Model",
+        "trigger": "Exact motivating model: stationary renewal susceptibility, contact matrix, vaccine-rate constraint and fairness result"
+      },
+      {
+        "assessment": "Covers general concavity/concentration principles for linear coverage cost but not fixed recurrent dose-rate nonlinear vulnerability",
+        "evidence": [
+          "arXiv:2112.08756, Section 4.2, Proposition 4.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2112.08756v1",
+        "material_read": "Full accessible arXiv HTML, Section 4.1–4.3 and Proposition 4.1; assumptions on coverage cost and mixing",
+        "method": "Compared objective, vaccinated-coordinate cost, eigenvalue ordering and hypotheses",
+        "title": "Optimal vaccination: Various (counter) intuitive examples",
+        "trigger": "Closest stronger-looking disassortative spectral radius vaccination theorem"
+      },
+      {
+        "assessment": "Noninteracting SIR final-size allocation differs from interacting renewable-dose epidemic threshold; residual full-text priority uncertainty retained",
+        "evidence": [
+          "DOI:10.1111/poms.12788, abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/poms.12788",
+        "material_read": "Article abstract, bibliographic data and method overview only; not full mathematical text",
+        "method": "Compared published problem statement and objective in accessible abstract",
+        "title": "Dose-Optimal Vaccine Allocation over Multiple Populations",
+        "trigger": "Broader dose-allocation optimality might dominate example"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "92d81f7a-8752-44c6-ae63-b6dec34f2c92",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The earlier renewal-vaccination model motivates optimization of the endemic threshold under a fixed rate of doses. The exact new contact/booster threshold identifies a change in local fairness response, and the algebraic witness demonstrates a nonconvex barrier where local rate fairness optimization misses a superior concentrated policy; the exponential versus Erlang-2 contrast isolates renewal-clock shape. The result is a motivated structural boundary rather than a tiny unrelated numerical gain; a universal global optimum is not claimed.",
+    "status": "PASS"
+  }
+}
