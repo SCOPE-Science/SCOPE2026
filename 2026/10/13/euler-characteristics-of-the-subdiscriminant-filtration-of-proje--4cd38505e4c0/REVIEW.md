@@ -1,18 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Generic powers-of-two diagonal conjugation fixes exactly the diagonal projective space and isolated off-diagonal matrix units. Every off-diagonal matrix unit has only the eigenvalue \(0\). The diagonal part is stratified by equality partitions; a \(b\)-block stratum is \(\operatorname{Conf}_b(\mathbb C)/\mathbb C^*\), with compactly supported Euler characteristic \(1\) for \(b=1\) and \((-1)^{b-2}(b-2)!\) for \(b\ge2\). Summation over Stirling-number-many partitions and torus localization proves the closed-level formula, and additivity proves the exact-layer formula.
+## correctness
 
-The bundled checker independently verifies the Stirling recurrences, weight separation, finite-field equality-stratum counts, and small values. Finite checks are regression evidence only.
+PASS
 
-## Originality
-PASS. The directly inspected archival source defines exactly the complex bounded-distinct-eigenvalue matrix varieties and their diagonal equality arrangements but develops invariant-theoretic equations and minimal degrees rather than topology; no Euler or Poincaré occurrence was found. Targeted semantic and web searches using the standard object, subdiscriminant, discriminant-complement, topology, and explicit Stirling-number formulations found no covering formula.
+For n>=2 and 1<=r<=n, the diagonal-conjugation C-star action with weights 2^i makes all ordered nonzero differences distinct. The ambient projective fixed locus comprises a diagonal P^{n-1} and n(n-1) isolated off-diagonal matrix-unit points, all nilpotent and in every r>=1 level. Diagonal classes with exactly b eigenvalues are indexed by set partitions into b blocks and quotient of ordered Conf_b(C) by common C* scaling. For b>=2 normalize the first two entries to difference one; the quotient is C×Conf_{b-2}(C\{0,1}) with χ_c=(-1)^(b-2)(b-2)!, while b=1 contributes 1. Torus localization and additivity give χ_closed=n(n-1)+sum_{b<=r} S(n,b)q_b, exact first layer n(n-1)+1, and higher S(n,r)q_r. Independently enumerate all set partitions through n=8 and verify χ(X_{n,n})=n^2, also n=2,3 boundaries; general proof uses configuration fibration, not finite checks.
 
-Vassiliev's substantially finer topology concerns Hermitian operators, a different real parameter space. A previously recorded eigenvalue-coincidence filtration compares a matrix with a northwest cutoff rather than bounding the number of roots of one characteristic polynomial.
+## originality
 
-Residual risk remains because the localization proof is short and could have appeared under different terminology or as folklore.
+PASS
 
-## Value
-PASS. The result supplies an all-parameter topological invariant for the natural subdiscriminant filtration. The exact eigenvalue strata obey a signed Stirling law, revealing systematic cancellations invisible in the defining-equation literature and producing nonmonotone Euler characteristics for nested singular projective varieties.
+Domokos defines exactly the bounded-distinct-eigenvalue complex matrix subdiscriminant varieties and diagonal equality arrangements, but its Theorem 3.1 characterizes invariant vanishing polynomials, not topological χ. Vassiliev’s related Hermitian spectral strata lie in a real operator space and do not imply this complex projective matrix Euler filtration. Previously published SCOPE projectivized eigenvalue-coincidence filtration counts spectra shared with the northwest corner, an inequivalent condition. There is no observed stronger same-object Euler formula or table supplying the signed Stirling coefficients. Relevant independently inspected published SCOPE comparison: This filtration compares spectra of full n×n matrix with northwest (n−1)×(n−1) compression, and has constant Euler n² at every level; it does not impose or classify the number of distinct eigenvalues of one matrix.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The all-matrix subdiscriminant filtration is a canonical singularity filtration with natural closed and exact eigenvalue multiplicity strata. Its exact Euler values, including nontrivial signed Stirling/arrangement contributions, form a complete all-parameter invariant useful for topological comparison, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
