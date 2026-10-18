@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-dimensional polyhedral numerical-radius reduction is proved by support-face convexity. The universal bound is reduced to five exhaustive molecule/potential configurations. The hard configuration has an explicitly verified four-state decomposition with exact total cost \(R\). A displayed three-by-three operator has a complete symbolic list of supported pairings, each of modulus at most \(1\), and a separate pairing attaining its norm \(R\). The resulting equality is analytic for all real \(t\in[1/2,1]\), including both endpoints.
+## correctness
 
-## Originality — PASS
-The closest primary treatment, Cobollo–Guirao–Montesinos (arXiv:2304.13183v1), classifies three-point, two-dimensional free spaces. Sain–Paul–Bhunia–Bag (arXiv:1809.04778v2) gives a general lower-bound method and examples from other polyhedra. Neither inspected full text supplies this four-point, three-dimensional parameter-dependent numerical-index equality. Published related findings on equilateral metrics and finite graph metrics describe endpoint or different settings and do not imply the interior formula. Residual risk: a differently described classification in unindexed numerical-index literature.
+PASS
 
-## Value — PASS
-A natural first higher-dimensional analogue of the complete three-point numerical-index calculation receives an exact, strictly varying continuum of values and a norm-attaining operator construction. The result is not deducible merely from the known exact Hilbert distortion of the same family: the two invariants involve different operator optimizations. The interpolation and sharp, explicit witnesses make the exact fact useful beyond endpoint recomputation.
+Reconstructed the exact 12 molecule/14 signed potential generating sets for the primal and dual balls. Support-face convexity reduces every operator pairing to finitely many cases. The hard unsupported case decomposes into supported states with weights 2A+2B=(1+6q+q²)/(1+3q); other cases satisfy explicit nonnegative rational inequalities on 0≤q≤1. The displayed operator S has supported numerical pairings bounded by one and a non-supporting pairing of modulus R, proving both inequalities globally. Independent exact Fraction evaluations at six distinct rational q checked the complete molecule/potential case table and ||S||=R, v(S)=1; symbolic algebra independently checked the hard identity. Finite tests corroborate but are not the continuum proof.
 
-## Limitations
-Only real scalars, three equilateral leaves, equal radial distances, and \(\tfrac12\le t\le1\) are treated; no claims about more leaves or nonsymmetric distances. The literature comparison cannot exclude inaccessible or unindexed equivalent formulations. Computational checks do not substitute for the stated analytic proof.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Published three-point/two-dimensional free-space classification, equilateral endpoint index 1/2, different graph metrics, and Hilbert distortion do not imply the exact four-point interior numerical-index function or its extremal operator. Best-of-knowledge originality passes with unindexed-polyhedral-index risk.
+
+## value
+
+PASS
+
+Numerical index is a natural operator geometric invariant; the first symmetric three-dimensional Lipschitz-free transition away from a tree has an explicit strict interpolation and a sharp witness. This is more than reproducing a known endpoint or an unrelated distortion value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-The coordinate model and the two finite generating sets are displayed in `RESULT.md`. An exact symbolic verification follows the finite recipe: for each of the twelve signed molecules and fourteen signed dual potentials, retain pairs satisfying \(f(p)=1\) identically as a function of \(q\); evaluate \(f(Sp)\), clear denominators using \(1+3q>0\), and compare against the listed rational values. There are 48 retained pairs counting the redundant endpoint generator descriptions. All values are bounded by \(1\) analytically on \(0\le q\le1\). Independently, substitution in the explicit four-state decomposition confirms the universal operator-norm bound.
+## correctness
 
-The underlying proof works for all real parameters, not just sampled values. Exact rational and numerical diagnostic tests were used to catch transcription errors; neither constitutes an infinite-parameter proof. The equation \(f(S(e_2-e_1))=R\) is the sharp operator-norm witness, whereas supported pairs give the numerical-radius bound. Independent mathematical validation has not been carried out.
+PASS
+
+Reconstructed the exact 12 molecule/14 signed potential generating sets for the primal and dual balls. Support-face convexity reduces every operator pairing to finitely many cases. The hard unsupported case decomposes into supported states with weights 2A+2B=(1+6q+q²)/(1+3q); other cases satisfy explicit nonnegative rational inequalities on 0≤q≤1. The displayed operator S has supported numerical pairings bounded by one and a non-supporting pairing of modulus R, proving both inequalities globally. Independent exact Fraction evaluations at six distinct rational q checked the complete molecule/potential case table and ||S||=R, v(S)=1; symbolic algebra independently checked the hard identity. Finite tests corroborate but are not the continuum proof.
+
+## originality
+
+PASS
+
+Published three-point/two-dimensional free-space classification, equilateral endpoint index 1/2, different graph metrics, and Hilbert distortion do not imply the exact four-point interior numerical-index function or its extremal operator. Best-of-knowledge originality passes with unindexed-polyhedral-index risk.
+
+## value
+
+PASS
+
+Numerical index is a natural operator geometric invariant; the first symmetric three-dimensional Lipschitz-free transition away from a tree has an explicit strict interpolation and a sharp witness. This is more than reproducing a known endpoint or an unrelated distortion value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
