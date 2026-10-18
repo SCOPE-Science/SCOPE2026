@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The deterministic cycle identity |S triangle T|=|M-1| or M+1 proves a universal pointwise lower bound. Rotational invariance and an equivariant missing-edge deletion rule yield a uniform UST marginal, achieving it. The exact run-count distribution is derived from cyclic compositions and independently checked exhaustively for \\(3\\le n\\le10\\) and four rational biases. Indicator covariances give E M=npq and Var M=\\(npq(1-3pq)\\). The fixed-p CLT follows from stationary 1-dependence; the rare-bias Poisson law follows from a binomial limit and an O(np_n^2) adjacency error. Verified checker output: PASS 19304 exact rational assertions. Assumptions n>=3, 0<p<1 and precise limit conditions are recorded; finite enumeration is not used as proof of the limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.11554v1 Theorem 1 assumes minimum degree at least two and bounds average distance by O(n log k / sqrt k). Section 3.1 constructs a KL/Marton coupling; its conclusions do not state exact cost at degree two.",
+        "Albin et al. 2021 studies fairest edge usage and iid-tree expected overlap, a different optimization."
+      ],
+      "reasoning": "The broad theorem includes the cycle family k=2 but only yields an unspecified O(n) upper bound and cannot determine the exact sharp n/4-order cost or its law. Its high-degree asymptotics are not contradicted or improved. General optimal transport existence is not enough to imply an explicit optimal coupling and distribution without the cycle-specific argument.",
+      "searches": [
+        "product approximations uniform spanning trees determinantal processes independent 1-out graph cycles high minimum degree Mészáros Peled",
+        "Mészáros Peled Product approximations for uniform spanning trees and determinantal processes 2026 arxiv 2610.11554 one-out",
+        "uniform spanning tree independent 1-out graph cycle exact optimal coupling symmetric difference"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.11554v1",
+      "doi:10.1007/978-1-4613-3635-8_5",
+      "doi:10.2307/3215295",
+      "doi:10.1016/j.disc.2020.112282",
+      "Thematic mathematical research-record query variants for exact cycle Wasserstein coupling, biased 1-out sharp cost, and rotational-invariant set transport; nearest retrieved records concern unrelated cycle transport-norm or tree-polytope questions."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mészáros–Peled Theorem 1 guarantees some coupling with a big-O expected discrepancy, whereas their Theorem 2 concerns local neighborhoods.",
+        "Rotational-invariance proof here yields pointwise optimality against every possible tree-edge deletion and preserves the UST marginal; neither implication is a corollary of the reported general bound.",
+        "Circular-run sources address counts and limits, not matching the separate UST marginal."
+      ],
+      "reasoning": "Combining old combinatorial identities with the explicit cycle coupling is necessary: the KL argument has no exact cost, and counting transitions alone gives no marginal-preserving coupling. The new theorem is a constrained sharp optimal-transport result. Its analytic limit regimes apply to the attained minimum rather than merely to run counts.",
+      "searches": [
+        "uniform spanning tree versus independent one-out graph on cycle optimal edge symmetric difference coupling distribution transport biased clockwise choices",
+        "product approximations uniform spanning trees determinantal processes independent 1-out graph cycles high minimum degree Mészáros Peled",
+        "cycle graph uniform spanning tree random 1-out graph optimal coupling exact Wasserstein distance",
+        "exact Wasserstein distance uniform spanning tree of n-cycle versus 1-out random subgraph equals n/4 - 1 + 2^(2-n); optimal transport coupling missing edges",
+        "one-out graph cycle clockwise biased p independent vertices sharp expected symmetric difference n p(1-p)-1+2(p^n+(1-p)^n)",
+        "rotation-invariant random edge subset of cycle coupling uniform spanning tree stochastic optimal distance |missing-edge-count minus one|"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mészáros–Peled arxiv:2610.11554v1 Theorem 1 and Section 3.1 formulate expected Hamming transport, but only derive an order upper bound.",
+        "Research-record search matches centered on cactus transportation norms and general spanning-tree structure rather than this coupling; the inspected own claims involving cycles concern Markov-chain walks and random-map coalescence, not spanning trees."
+      ],
+      "reasoning": "The normalized-Hamming formulation is equivalent to the Wasserstein transport problem after scaling by 1/n. We compared that precise formulation (not merely a title) with prior graph-coupling work and searched its symmetry/one-out aliases. Prior cycle Markov-chain topics cannot imply a bound about joint laws of spanning trees and undirected edge unions without additional statements.",
+      "searches": [
+        "uniform spanning tree versus independent one-out graph on cycle optimal edge symmetric difference coupling distribution transport biased clockwise choices",
+        "one-out random graph random functional digraph cycle missing edges number runs optimal Wasserstein symmetric-difference spanning tree",
+        "cycle graph uniform spanning tree random 1-out graph optimal coupling exact Wasserstein distance",
+        "exact Wasserstein distance uniform spanning tree of n-cycle versus 1-out random subgraph equals n/4 - 1 + 2^(2-n); optimal transport coupling missing edges",
+        "one-out graph cycle clockwise biased p independent vertices sharp expected symmetric difference n p(1-p)-1+2(p^n+(1-p)^n)",
+        "rotation-invariant random edge subset of cycle coupling uniform spanning tree stochastic optimal distance |missing-edge-count minus one|"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Makri–Philippou (1994) considers circular binomial run distributions and gives exact formulas; Koutras et al. (1995) studies circular runs and Poisson approximations.",
+        "The new count is explicitly treated as a known circular-run ingredient; no direct table of optimal UST-versus-one-out transport costs was identified."
+      ],
+      "reasoning": "The cyclic transition enumeration belongs to established run-count mathematics; mere rediscovery would be covered. The resulting constrained cross-law optimal transport under a prescribed UST marginal, and the exact-distance stochastic domination, are the asserted object. Existing circular-run tables do not specify that coupling or its optimality.",
+      "searches": [
+        "one-out random graph random functional digraph cycle missing edges number runs optimal Wasserstein symmetric-difference spanning tree",
+        "random one-out graph cycle missing edges distribution p clockwise oriented sign changes cyclic",
+        "cyclic Bernoulli runs number of runs exact probability binomial distribution biased Bernoulli circular arrangement"
+      ]
+    },
+    "rationale": "Theorem 1 and Section 3.1 of Mészáros–Peled (arXiv:2610.11554v1) prove a general minimum-degree bound via entropy and Marton coupling, not the sharp optimal transport on a cycle, its stochastic-minimality construction, the full optimal cost law, or the \\(p_n\\sim\\lambda/n\\) crossover. The circular-run probability formula and its Poisson asymptotics are credited to prior circular-run literature and are not presented as independently new. The Albin et al. tree-overlap problem minimizes overlap of two iid spanning trees over a variable law rather than coupling a prescribed one-out law to a uniform tree. No direct research record or published comparison implies the stated package. Independent priority checks could still identify a broader preexisting equivariant coupling theorem.",
+    "residual_risks": [
+      "A preexisting group-equivariant optimal coupling principle or unindexed transport result may subsume the general rotation-invariant statement.",
+      "The 1994/1995 circular-run articles were available in abstract/metadata rather than full text, so unobserved additional applications remain possible.",
+      "Priority searches do not constitute an exhaustive bibliographic proof of uniqueness; no independent audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Applicable to cycles at k=2 but supplies only existence big-O rather than exact sharp optimal cost and law; no cycle optimality theorem found in inspected text",
+        "evidence": [
+          "Theorem 1, pp.1-2; Section 3.1, p.10"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.11554v1",
+        "material_read": "Full-text PDF, introduction and Theorems 1-2 pp.1-2, entire UST coupling proof Section 3.1 p.10, text-index searches across 29-page PDF for cycle/cycles/2-regular/optimal/sharpness",
+        "method": "Read PDF full text and rendered theorem/proof pages; compared assumptions, methods, and implications",
+        "title": "Product approximations for uniform spanning trees and determinantal processes",
+        "trigger": "Same UST-versus-one-out edge-process and identical symmetric-difference transport cost"
+      },
+      {
+        "assessment": "Established circular-run distribution methods are prior; no evidence here of UST-versus-one-out optimal coupling",
+        "evidence": [
+          "1994 Runs and Patterns in Probability chapter pp.65-81; abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-1-4613-3635-8_5",
+        "material_read": "Abstract, author/publication metadata, accessible descriptive material; not claimed to have read whole chapter",
+        "method": "Inspected publication description and topic",
+        "title": "Binomial Distributions of Order K on the Circle",
+        "trigger": "The exact distribution of cyclic Bernoulli transitions could be a known run law"
+      },
+      {
+        "assessment": "Run-count and Poisson ingredient covered by older work; no UST coupling implication in visible abstract",
+        "evidence": [
+          "Journal of Applied Probability 32(2), 396-404; abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/3215295",
+        "material_read": "Abstract and journal metadata; full text not obtained",
+        "method": "Inspected Cambridge/ResearchGate abstract and record",
+        "title": "Runs on a Circle",
+        "trigger": "Poisson limits and exact circular run probabilities may already be standard"
+      },
+      {
+        "assessment": "Optimizes iid pairwise spanning-tree overlap with freely chosen tree law, not an exact coupling to the 1-out process",
+        "evidence": [
+          "Discrete Mathematics 344(5) (2021), Article 112282; Section 1 and Theorem 1.2 excerpts"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2020.112282",
+        "material_read": "Accessible article abstract, introduction and theorem excerpts including minimum expected overlap formulation",
+        "method": "Compared optimization variables and fixed marginals",
+        "title": "Fairest edge usage and minimum expected overlap for random spanning trees",
+        "trigger": "Potential dominating optimization principle for coupled spanning trees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7445e6cc-6545-43a6-bc52-9f3fc6ba7302",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2026 UST versus 1-out theorem leaves the sparse-degree cycle benchmark with only a qualitative big-O bound. This result computes the sharp Wasserstein optimum, a coupling attaining it for all monotone edge-distance penalties, an explicit complete finite-size cost distribution, and a Poisson/Gaussian crossover including exact-match probability at rare bias. The statement is motivated by optimal transport of random spanning graphs and not merely by new notation or an isolated numeric instance. Known circular run counting is openly credited as a supporting ingredient.",
+    "status": "PASS"
+  }
+}
