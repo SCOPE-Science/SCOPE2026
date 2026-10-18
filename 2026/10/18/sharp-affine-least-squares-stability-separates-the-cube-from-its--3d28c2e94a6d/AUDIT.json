@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The full affine Gram matrix on normalized centrally symmetric volume is diag(1,Sigma), so its exact kernel is 1+x^T Sigma^-1 y. Convexity forces evaluation maxima at vertices. The cross-polytope first marginal has Beta density d(1-|t|)^(d-1)/2 and variance 2/((d+1)(d+2)); exact integration produces the stated closed norm. On the cube, independent uniform coordinates and the Irwin-Hall CDF give the displayed exact positive-part finite sum. Equality in dimensions 1 and 2 and strict gaps for 3..12 are certified by exact rational arithmetic. For all d>=13, the cross norm exceeds d/2 while the cube norm is at most sqrt(1+3d), and these bounds are strictly separated. The cross asymptotic is immediate and the cube central limit passage follows from uniform L2 boundedness. A standalone script passed 365 checks, including independent small-d quadratures. The positivity defect is (Lambda-1)/2 by kernel normalization, not a separate unproved assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:math/0503650, Theorem 1, Section 2.2.1, pp. 2 and 10-14: exact volume representation and order-sharp moment estimates for linear functionals, not additive shifted moments at each vertex.",
+        "arXiv:1005.2424 Sections 3-5: boundedness through local stable bases on manifolds rather than exact volume-normalized polytopal norms."
+      ],
+      "reasoning": "Barthe et al. provide broader probabilistic information and already cover growth-rate order for linear functionals; the new claim explicitly does NOT count rough growth order as novel. Their moment bounds alone do not identify the exact additive affine kernel integrals, every finite-dimensional norm, or strict cube/cross-polytope inequality. A general explicit formula for any symmetric body as a covariance-weighted integral is elementary here, but is not a published stronger theorem determining these two integrals.",
+      "searches": [
+        "cube least squares affine projection norm sqrt d cross polytope d stability",
+        "Orthogonal affine polynomial projection integral kernel K(x,y)=1+covariance inverse inner product high dimensional convex bodies",
+        "2010 Hangelbroek Narcowich Sun Ward L infinity L2 projector and Barthe Guedon Mendelson Naor lp ball moments implication",
+        "Web: Barthe Guédon Mendelson Naor probabilistic approach geometry lp ball 2005 arxiv representation",
+        "Web: 2010 approximation projection onto linear polynomials lp ball Lebesgue constant"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0503650 Theorem 1, Sections 2.2, 2.2.1",
+      "arXiv:1005.2424 Sections 3-5",
+      "published-finding:99c2b9dd9b34 complete RESULT.md",
+      "published-finding corpus similarity searches on affine projection, dual coordinate balls, positivity defect, cube/crosspolytope",
+      "web searches using least-squares projector, Lebesgue constant, affine cross-polytope, dual cube, and exact norm aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barthe et al., Theorem 1 gives the law on ℓp balls and q-moment comparison; the shifted absolute moment E|1+Σ t_iY_i| and the exact pairwise comparison do not appear in the inspected theorems.",
+        "Published 2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34 proves 2(d+1)((d+1)/(d+2))^d-1 on a simplex, not the formulas for cube and cross-polytope.",
+        "Published 2026/10/11/SCOPE-exponent-invariant-cross-polytope-projection-and-its-sharp-lipsc--5177ec842d41 treats nonlinear nearest-point projection, a different operator and norm."
+      ],
+      "reasoning": "The cross/cube theorem is not a corollary or restriction of the simplex result: in dimensions >=3 neither is affinely a simplex and their uniform-volume laws differ. Barthe supplies a starting distribution and growth estimates, but not the added constant, its sign-changing kernel, exact values or strict dimension classification. The original claim is confined to these new quantitative comparisons; no assertion of novelty is made for known probability representation or generic Cauchy/CLT tools.",
+      "searches": [
+        "crosspolytope ℓ1 ball affine projection Lebesgue function sharp dimension dependence",
+        "cube least squares affine projection norm sqrt d cross polytope d stability",
+        "Sharp Lebesgue constant for degree-one affine least squares L2 projector normalized volume hypercube versus cross-polytope, exact dimensional classification equality n=1,2 strict n>=3",
+        "Orthogonal affine polynomial projection integral kernel K(x,y)=1+covariance inverse inner product high dimensional convex bodies",
+        "2010 Hangelbroek Narcowich Sun Ward L infinity L2 projector and Barthe Guedon Mendelson Naor lp ball moments implication"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1005.2424, Sections 4-5: L-infinity norm of localized-kernel L2 projector, not volume-normalized affine polynomial projector.",
+        "Published result 2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34, complete RESULT.md: exact local-simplex affine kernel and negative mass, differing integration domain."
+      ],
+      "reasoning": "Equivalent language includes affine polynomial projector, least-squares projector, Lebesgue function, negativity defect, and reproducing-kernel L1 norm. Relevant inspected work does not state exact endpoint norms on both dual coordinate bodies nor classify equality precisely in dimensions 1 and 2. The local simplex theorem is not an affine-image theorem on the cross-polytope or cube in dimension >=3.",
+      "searches": [
+        "Exact L infinity norm of L2 orthogonal projection onto affine polynomials on cross polytope l1 ball and cube in high dimension Lebesgue constant",
+        "crosspolytope ℓ1 ball affine projection Lebesgue function sharp dimension dependence",
+        "Sharp Lebesgue constant for degree-one affine least squares L2 projector normalized volume hypercube versus cross-polytope, exact dimensional classification equality n=1,2 strict n>=3",
+        "Web: orthogonal projection onto affine linear polynomials cross polytope L infinity norm exact",
+        "Web: least squares affine approximant ℓ1 ball cross polytope Lebesgue constant projection operator norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic search hits included 2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34 (simplex) and 2026/10/11/SCOPE-sharp-isotropic-constant-range-of-all-hanner-polytopes--7976b0937cd2 (isotropic constants), neither a table for the present affine projector.",
+        "Source arXiv:math/0503650 Table/Section 2.2: moments and Khinchine inequalities, no enumerated exact dual-pair projector norm table."
+      ],
+      "reasoning": "The ten rational gaps use exact displayed formulas and are not transcribed from a known table. No checked database or result table gives the asserted pair of sequences. Unlocated older numerical tables are retained as a priority risk rather than presumed absent.",
+      "searches": [
+        "Exact L infinity norm of L2 orthogonal projection onto affine polynomials on cross polytope l1 ball and cube in high dimension Lebesgue constant",
+        "Sharp Lebesgue constant for degree-one affine least squares L2 projector normalized volume hypercube versus cross-polytope, exact dimensional classification equality n=1,2 strict n>=3",
+        "Exact positivity defect for uniform cube cross-polytope least squares affine projection ℓ_1 versus ℓ_infinity balls",
+        "Web: exact L-infinity norm least squares projection linear affine polynomials cube cross-polytope polynomial approximation",
+        "Web: Lebesgue constant orthogonal projection degree 1 polynomials high dimensional unit cube cross polytope"
+      ]
+    },
+    "rationale": "The novel unit compared is the exact paired affine-projector Lebesgue constants on polar coordinate polytopes and their complete dimensional equality classification, not the already-known distributional representation or general Khinchine moment bounds. Direct published-record and full-text comparisons did not identify an equivalent or dominating formula; older unlocated exact Lebesgue constant calculations are the acknowledged residual priority risk.",
+    "residual_risks": [
+      "An older equivalent sharp degree-one polynomial Lebesgue-constant calculation on cube or cross-polytope may exist under different terminology; no independent bibliographic audit has occurred.",
+      "The Barthe et al. volume representation and order-of-growth of homogeneous moments are known; treating that alone as new would overstate originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the underlying uniform-volume distribution and moment estimates; order-of-growth is background, not claimed new. No exact affine projector dual-pair theorem is stated in the inspected main relevant sections.",
+        "evidence": [
+          "Theorem 1 on page 2: normalized ℓp ball represented by independent generalized-Gaussian coordinates and an exponential denominator.",
+          "Section 2.2.1, pp. 13-14: Khinchine estimates are comparisons up to constants for homogeneous linear functionals, not the affine shifted absolute kernel."
+        ],
+        "identifier_or_url": "arXiv:math/0503650; https://web.math.princeton.edu/~naor/homepage%20files/LPBALL.pdf",
+        "material_read": "Theorem 1, introduction, Section 2.2 (including Lemma 6 and Khinchine Theorem 7, pp. 2 and 9-14 of 29-page author PDF).",
+        "method": "Read text extraction and visually inspected first page; compared the displayed integral and moment statements with the shifted kernel norm.",
+        "title": "A probabilistic approach to the geometry of the ell_p^n ball",
+        "trigger": "Exact same uniform-volume ℓp bodies and moments of linear functionals could dominate the proposed stability bounds."
+      },
+      {
+        "assessment": "Localized kernel approximation on manifolds, not uniform-volume affine polynomials on the two coordinate polytopes.",
+        "evidence": [
+          "Section 4 Proposition 4.1 bounds inverses of Gramians of local stable bases.",
+          "Section 5 obtains Lp bounds depending on manifold and basis parameters, without the present exact constants."
+        ],
+        "identifier_or_url": "arXiv:1005.2424; https://arxiv.org/abs/1005.2424",
+        "material_read": "Full HTML text sections 1, 3-5, especially Section 4 Gram inverse and Section 5 operator bounds.",
+        "method": "Read arXiv HTML full text and targeted section/term searches for affine, cube, simplex and cross-polytope.",
+        "title": "Kernel approximation on manifolds II: The L-infinity norm of the L2 projector",
+        "trigger": "Closest primary literature on endpoint stability of least-squares projector."
+      },
+      {
+        "assessment": "Sharp constant on a single simplex, not the centrally symmetric dual cube and cross-polytope. Affine equivalence exists here only between cube and cross-polytope in dimensions 1 and 2; no implication of their higher-dimensional paired norms.",
+        "evidence": [
+          "Theorem gives 2(d+1)((d+1)/(d+2))^d-1 and vertex maximizing on simplex.",
+          "Explicit limitations confine the theorem to one simplex; no global cube or cross-polytope formulas."
+        ],
+        "identifier_or_url": "published-finding:99c2b9dd9b34; https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34/RESULT.md",
+        "material_read": "Complete RESULT.md, including assumptions, exact Gram kernel, extremal Beta integral, proof, verification and references.",
+        "method": "Direct authorized public repository file read.",
+        "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+        "trigger": "Same affine projector, same negativity defect, and exact sharp endpoint norm; plausible direct coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3d28c2e9-4a6d-4a06-975f-288af0772dce",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharp L∞ operator norms of local L2 least-squares projections quantify worst-case amplification and loss of positivity. The cube/cross-polytope polar pair is a canonical natural object, and the result determines every dimensional constant in explicit finite form, the precise equality-to-strict boundary at dimension three, and the diverging factor sqrt(pi*d/24). These results are not merely small numerical improvements or a chosen finite slice: the theorem settles the complete integer-dimension comparison and exhibits a structural difference between polar geometries even at polynomial degree one.",
+    "status": "PASS"
+  }
+}
