@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T21:17:37.624000Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each zero-sum 3-vertex molecule, three signed edge flows form a one-parameter affine line, and for 0<p<=1 their p-cost is concave between three breakpoints, attaining a global minimum at a breakpoint: an explicit spanning-tree reduction valid also for p=1. For a molecule with two like-signed terminals the direct source/sink star minimizes the ordinary 1-transport cost by strict Euclidean triangle inequalities; its two weighted costs A,B imply ||m||_p<= (A^p+B^p)^(1/p) <= 2^(1/p-1)||m||_1. In the p=1 dual Lipschitz potential hexagon, the six extreme points are +/- distance potentials. Their affine gradients at each vertex bisect the interior angle and have exact norm sec(theta_i/2), proving the upper bound. For any largest-angle vertex a the opposite side is longest; the normalized two-edge star has exact p-cost 2, while the other spanning trees have costs (1+b/c)^p+(a/c)^p>2 and (1+c/b)^p+(a/b)^p>2. A small displacement from a along the sum of two outgoing edge unit vectors has Euclidean length 2cos(theta_max/2), attaining the lower bound exactly. Handles all real 0<p<=1 and all nondegenerate triangle shapes; finite direction-grid verification is not a universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bíma 2023 §3 uses axis-aligned product cubes and ℓ1 metric, 2^d vertices.",
+          "Albiac et al. 2020 §3 uses cubical grid maps in ℓinfty metric.",
+          "Waldron 1998 indexed abstract concerns scalar pointwise interpolation error rather than this free p operator."
+        ],
+        "reasoning": "Cubical results cannot be restricted directly to a single Euclidean simplex with exactly three vertex metrics; a scalar interpolation error bound neither specifies nor implies the exact quasi-transport p norm. Waldron full text was not inspected; no whole-document noncoverage claim is made.",
+        "searches": [
+          "arXiv:2303.03265 Theorem 3.2 cubes l1",
+          "arXiv:2006.08018 Theorem 3.5 cubical p interpolation",
+          "Waldron 1998 simplex interpolation scalar error"
+        ]
+      },
+      "checked_sources": [
+        "Git source RESULT.md tree a23e406a7c6a59618fb449e77817d07767b9fd6b blob 9031e25a069a8d866c1b38b614708a13eecb3a06",
+        "Git source verify_triangle.py blob d4955687c046fbb7f255d7f92a928b0ab9dda5c6",
+        "Jan Bíma, Lipschitz-free spaces and subsets of finite-dimensional spaces, arXiv:2303.03265, §3 Thm 3.2",
+        "Albiac–Ansorena–Cúth–Doucha, Structure of Lipschitz free p-spaces, arXiv:2006.08018, §3 Thm 3.5",
+        "Shayne Waldron, The Error in Linear Interpolation at Vertices of a Simplex, DOI 10.1137/S0036142996313154 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither relevant full primary cubical theorem includes a Euclidean simplex or the three-spanning-tree minimization.",
+          "The new exact lower bound checks that all alternative tree costs exceed the largest-angle-vertex star."
+        ],
+        "reasoning": "Prior general/free-space bounds give at most estimates in different geometry; the exact 2^(1/p-1) factor with sec(theta_max/2) simultaneously requires additional three-point and geometric extremality arguments.",
+        "searches": [
+          "Bíma arXiv:2303.03265 §3",
+          "Albiac Ansorena Cuth Doucha arXiv:2006.08018 Thm 3.5",
+          "Waldron DOI 10.1137/S0036142996313154"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The p=1 constant equals maximal Euclidean gradient norm of affine vertex distance potentials; p<1 additionally requires minimizing quasi-transport costs over 3 spanning trees."
+        ],
+        "reasoning": "This is equivalent to stability of the canonical barycentric affine linear operator from the triangle to the 3-vertex free p-space, not an arbitrary Lipschitz extension or an Lagrange scalar interpolation error estimate.",
+        "searches": [
+          "Euclidean three-point Lipschitz-free p space affine triangle interpolation",
+          "Lagrange finite element gradient seminorm largest triangle angle",
+          "repo:Resultary/2026 \"Lipschitz-free\" \"triangle\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked parametric exact table reports this all-shape/all-p free-space constant.",
+          "Finite numeric checker samples angles but does not prove the asserted continuum."
+        ],
+        "reasoning": "The theorem is a continuous two-parameter interpolation identity, not a finite constant-table entry; a classical p=1 case alone would not imply sharp p<1.",
+        "searches": [
+          "\"2^(1/p-1)\" \"sec\" \"triangle\" \"Lipschitz\"",
+          "barycentric p free space triangle sharp 3 points",
+          "repo:Resultary/2026 \"Lipschitz-free\" \"triangle\""
+        ]
+      },
+      "rationale": "Statement-level comparisons against direct primary mathematical texts found no implication of this full exact claim in the inspected sources; separate specific comparisons below, with documented residual priority risks rather than a negative-search novelty proof.",
+      "residual_risks": [
+        "Classical finite-element literature may state the p=1 secant half-angle identity under different terminology; would not automatically cover p<1.",
+        "Full Waldron 1998 primary article remained unread; could have pertinent broader scalar interpolation results.",
+        "Resultary semantic service failed internally and GitHub code search explicitly reported incomplete results; neither failure nor zero matches supports a global novelty claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cubical vertex sets with ℓ1 ambient metric, not the Euclidean triangle map",
+          "evidence": [
+            "§3 Theorem 3.2 interpolates 2^d cube vertices."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.03265",
+          "material_read": "Full available HTML, introduction, §3 map definition and Theorem 3.2 and proof",
+          "method": "Open-access publisher full-text HTML",
+          "title": "Lipschitz-free spaces and subsets of finite-dimensional spaces",
+          "trigger": "Closest canonical coordinatewise-affine free p interpolation"
+        },
+        {
+          "assessment": "Product cubical interpolation in supremum geometry, not sharp single-triangle free p norm",
+          "evidence": [
+            "§3 Thm3.5 product-hat cubical map."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2006.08018",
+          "material_read": "Full 24-page primary open-access PDF, §3 Theorem 3.5 and supporting coordinatewise hat construction; theorem page screenshot",
+          "method": "ArXiv PDF text and page image",
+          "title": "Structure of Lipschitz free p-spaces F_p(Z^d) and F_p(R^d)",
+          "trigger": "Related p-quasi-Banach interpolation method"
+        },
+        {
+          "assessment": "Related scalar error problem; comparison inconclusive without full text",
+          "evidence": [
+            "Abstract concerns pointwise error of scalar linear interpolation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0036142996313154",
+          "material_read": "Public bibliographic abstract only; primary full article not accessible in this run",
+          "method": "Bibliographic text/abstract",
+          "title": "The Error in Linear Interpolation at the Vertices of a Simplex",
+          "trigger": "Potential scalar simplex interpolation alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Computes the exact nonlinear-in-p quasi-Banach norm of a natural prescribed affine simplex interpolation on every Euclidean triangle, with sharp geometric dependence on maximum angle. Useful as a local cell constant for free p-space interpolation and shape-sensitive stability; distinct from merely providing a nonsharp extension bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git source RESULT.md tree a23e406a7c6a59618fb449e77817d07767b9fd6b blob 9031e25a069a8d866c1b38b614708a13eecb3a06",
+    "Git source verify_triangle.py blob d4955687c046fbb7f255d7f92a928b0ab9dda5c6",
+    "Jan Bíma, Lipschitz-free spaces and subsets of finite-dimensional spaces, arXiv:2303.03265, §3 Thm 3.2",
+    "Albiac–Ansorena–Cúth–Doucha, Structure of Lipschitz free p-spaces, arXiv:2006.08018, §3 Thm 3.5",
+    "Shayne Waldron, The Error in Linear Interpolation at Vertices of a Simplex, DOI 10.1137/S0036142996313154 (abstract only)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Classical finite-element literature may state the p=1 secant half-angle identity under different terminology; would not automatically cover p<1.",
+    "Full Waldron 1998 primary article remained unread; could have pertinent broader scalar interpolation results.",
+    "Resultary semantic service failed internally and GitHub code search explicitly reported incomplete results; neither failure nor zero matches supports a global novelty claim."
+  ],
+  "schema_version": 1
+}
