@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T00:19:15.946046Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For odd SSH length 2M+1, TT† is M×M Jacobi Toeplitz with eigenvalues a²+b²+2ab cos(pi r/(M+1)) and sine eigenvectors. Every nonzero-energy eigenpair is dark precisely when (M+1)|rk for all losses k; Bézout gives r divisible by (M+1)/g, hence g-1 paired energies plus unique zero mode, dimension 2g-1. Dissipativity Re z=-<v,Gamma v>/(2||v||²) and reducing dark subspace ensure every orthogonal component decays; long-time total survival norm is the dark projection. Roots-of-unity identity gives even-site source projector exactly 0 if g divides ell, else g/(M+1). Independently diagonalized several H and checked ranks/projectors. Strict positive a,b,loss rates and nonempty even-site sets essential; does not guarantee individual occupation convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang study uniform B-site or first B loss and protected zero state; Wang and Zhang examine one local loss and decay-gap scales."
+        ],
+        "reasoning": "Dissipative spectral framework can motivate the proof, but neither inspected source covers every sparse B-pattern with possible extra nonzero energy dark pairs.",
+        "searches": [
+          "Yang Molignini Bergholtz Phys Rev Research 5 043229 Appendix A, D",
+          "Wang Zhang 2607.10218"
+        ]
+      },
+      "checked_sources": [
+        "Dissipative boundary state preparation: https://www.researchgate.net/publication/376436411_Dissipative_boundary_state_preparation",
+        "From local weight selection to Zeno slowdown in an open SSH chain with a single local loss: https://arxiv.org/abs/2607.10218",
+        "Assigned RESULT.md and artifacts/verify.py: https://github.com/SCOPE-Science/SCOPE2026/blob/22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/arithmetic-loss-pattern-classification-and-survival-plateaux-in--f5a2406fc87a/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source boundary mode is zero on entire B sublattice; this by itself gives only one dark mode, and full B loss kills all nonzero modes."
+        ],
+        "reasoning": "To derive the assigned >1 dark modes for sparse patterns and even-site input plateaux one needs additional gcd and orthogonal projector computation not supplied in the source.",
+        "searches": [
+          "Yang et al. Eqs(4)-(5), App A/C/D",
+          "assigned sine-basis projection theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yang et al. focus first B-site and full B-sublattice loss, where g=1; Wang–Zhang describes even-length single-site-loss system."
+        ],
+        "reasoning": "General nodal mechanism is prior but exact multi-trap odd-chain gcd plus g/(M+1) initial-source plateau is not equivalent to studied settings.",
+        "searches": [
+          "Resultary: dissipative odd SSH chain multiple local losses gcd dark modes survival probability",
+          "Yang–Molignini–Bergholtz 2023",
+          "Wang–Zhang arXiv:2607.10218"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted semantic search top 12 returned unrelated dark-state/SSH constructions.",
+          "No directly equivalent arithmetic table identified. Known discrete-sine node arithmetic remains a general-principle priority risk."
+        ],
+        "reasoning": "No direct published exact all-pattern table found; absence in search not mathematical proof of novelty.",
+        "searches": [
+          "Resultary: SSH odd chain common nodal sine eigenvectors multi trap gcd",
+          "arXiv:2305.00031",
+          "arXiv:2607.10218"
+        ]
+      },
+      "rationale": "Best-of-knowledge original by direct statement-and-implication comparison to identified primary literature; no known covering theorem found. Scope and residual risks specified.",
+      "residual_risks": [
+        "Uninspected parts of single-loss Wang–Zhang full text and other quantum detection literature might encode all-pattern results in a less direct formulation; safety block prevented further access tool use.",
+        "Claim is one-particle no-jump total survival; finite-dimensional dissipative limit does not imply density matrix convergence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING all sparse patterns; exhibits g=1 boundary cases",
+          "evidence": "Text around initial Hamiltonian and first B loss; Appendix A and D",
+          "identifier_or_url": "https://www.researchgate.net/publication/376436411_Dissipative_boundary_state_preparation",
+          "material_read": "Available full text sections on first B loss, protected boundary E=0, uniform B-sublattice loss, Appendix A spectral diagonalization, Appendix D disorder",
+          "method": "lawful author paper full text rendered in HTML",
+          "title": "Dissipative boundary state preparation",
+          "trigger": "same odd SSH with B-site loss"
+        },
+        {
+          "assessment": "MATERIAL_PRIMARY_LIMITED; no whole-document noncoverage claim",
+          "evidence": "Abstract emphasizes even-length and single local loss",
+          "identifier_or_url": "https://arxiv.org/abs/2607.10218",
+          "material_read": "Abstract and journal abstract on a single impurity and Zeno slowdown; original full text could not be fetched",
+          "method": "arXiv/journal abstract; separate Oxford attempt safety-blocked",
+          "title": "From local weight selection to Zeno slowdown in an open SSH chain with a single local loss",
+          "trigger": "same non-Hermitian local loss spectrum"
+        },
+        {
+          "assessment": "VERIFIED",
+          "evidence": "Eigenpair simplicity, gcd argument, projector plateau, dissipativity",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/arithmetic-loss-pattern-classification-and-survival-plateaux-in--f5a2406fc87a/RESULT.md",
+          "material_read": "Complete proof and 71-line numerical verification source",
+          "method": "pinned GitHub source read; independent NumPy Hermitian projections",
+          "title": "Assigned RESULT.md and artifacts/verify.py",
+          "trigger": "exact proof and finite code"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Classifies for every sparse pattern which additional oscillatory dark modes survive and provides a closed arithmetic survival plateau at each source site, an experimentally motivated finite-chain control question. The gcd principle yields complete pattern decisions, not merely a restatement that wavefunctions vanishing at trap sites are protected.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Dissipative boundary state preparation: https://www.researchgate.net/publication/376436411_Dissipative_boundary_state_preparation",
+    "From local weight selection to Zeno slowdown in an open SSH chain with a single local loss: https://arxiv.org/abs/2607.10218",
+    "Assigned RESULT.md and artifacts/verify.py: https://github.com/SCOPE-Science/SCOPE2026/blob/22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/arithmetic-loss-pattern-classification-and-survival-plateaux-in--f5a2406fc87a/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific assessment independent from previously authored self-review, not formal Lean or expert attestation.",
+    "Best-of-knowledge originality is not exhaustive priority certification.",
+    "Publication blocked until confidentiality sanitization; scientific decision is not imported."
+  ],
+  "residual_risks": [
+    "Uninspected parts of single-loss Wang–Zhang full text and other quantum detection literature might encode all-pattern results in a less direct formulation; safety block prevented further access tool use.",
+    "Claim is one-particle no-jump total survival; finite-dimensional dissipative limit does not imply density matrix convergence."
+  ],
+  "schema_version": 1
+}
