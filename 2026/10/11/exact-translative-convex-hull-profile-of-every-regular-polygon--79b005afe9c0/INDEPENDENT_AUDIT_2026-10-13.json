@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T08:59:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob f6bc2b3ff48b5af5fcaa1e318e63406aa425a092",
+        "Horváth–Lángi arXiv:1302.6164, planar chord-width identity and polygon problem"
+      ],
+      "rationale": "Use the published exact planar formula c^tr(K)=1+max_u d_K(u)w_K(u_perp)/area(K), not a finite polygon enumeration. D=(K−K)/2 preserves widths and has 2rho_D=d_K; hence J=4rho_D(u)h_D(u_perp). For symmetric regular N-gon circumradius R and a=π/N, in an edge-normal angular chamber 0≤θ≤a, rho=R cos(a)/cosθ. If N≡2(mod4), perpendicular support h=R cosθ, J=4R²cos a constant. If 4|N, h=R cos(a−θ), product strictly increases from 4R²cos²a to 4R². Even P_m has D=P_m. Odd P_m has D regular 2m-gon of radius cos(π/(2m)); use 2m≡2(mod4). Divide the three maxima by area(P_m)=m sin(2π/m)/2. This proves all formulas for every m≥3; small cases m=3,4 give 3, m=5 gives (10+sqrt5)/5. Finite numerical sweep 3..40 is only a diagnostic; independent values m3,4,5,6,8,10,12,19,20,37 checked.",
+      "residual_risks": [
+        "The theorem computes the regular-polygon benchmark only, not minimum among all convex m-gons; directional range assumes circumradius 1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horváth–Lángi (2014) derives general c^tr formula, small regular polygon values and asks extremality for all polygons; Horváth–Lángi (2022) characterizes constant volume via Radon central symmetrals; Radon theory explains constancy only."
+        ],
+        "reasoning": "None of these broader structural statements by themselves evaluates max J and c^tr for the non-Radon 4k branch or its precise all-m normalizations.",
+        "searches": [
+          "Horváth–Lángi arXiv:1302.6164 full PDF and open Problem 1",
+          "Horváth–Lángi doi:10.1007/s10711-022-00673-y Theorem 2/3",
+          "Martini–Swanepoel arXiv:math/0409200 Radon characterization"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1302.6164",
+        "doi:10.1007/s10711-022-00673-y",
+        "arXiv:math/0409200 (partial)",
+        "Resultary translative polygon search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general 2014 identity leaves a maximization over direction; the 2022 theorem determines constancy of that direction-dependence for certain symmetrals but no amplitude for the regular 4k polygons."
+        ],
+        "reasoning": "Evaluation of the regular-polygon baseline needs the nontrivial edge-normal chamber computation. It does not settle the source minimization over nonregular polygons for m≥6.",
+        "searches": [
+          "2014 source formula c^tr=1+max(d w)/area and Problem 1",
+          "2022 source Theorem 2 Radon-central-symmetral classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The central-symmetral 4ρ_D h_D formulation equals the chord-width maximum, and the constant-direction case is a Radon curve phenomenon; the cited 2014 text gives the structural identity and low-m cases."
+        ],
+        "reasoning": "The claimed all-m three-branch explicit numbers and 4k range are the additional evaluated data, not a new characterization of Radon curves.",
+        "searches": [
+          "Resultary semantic regular polygon translative convex hull volume function maximal touching translate chord perpendicular width Horvath Langi exact all m",
+          "\"c^tr\" regular m-gons exact values cos pi/m",
+          "radon curves constant translative volume polygon m mod 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published exact m=3,4,5 values and separate centered-hexagon ratio 7/3 agree with the computed m=6 benchmark. Same-title Resultary index result is this audited source and not independent prior discovery."
+        ],
+        "reasoning": "Known low m/table matches are expressly excluded from the originality claim; no all-m table was identified, which is a residual-risk statement rather than positive novelty proof.",
+        "searches": [
+          "Resultary query regular polygon translative all m three branch",
+          "Horváth–Lángi arXiv:1302.6164 known m=3,4,5 values",
+          "Resultary centrally symmetric hexagons exact ratio 7/3"
+        ]
+      },
+      "rationale": "The prior paper establishes the general reduction and the cases m=3,4,5, posing a broader all-m extremal question. Known Radon curves imply directional constancy for appropriate families. The present exact residue-class value and nonconstant 4k directional endpoints for every regular polygon are not implication-given by the general formula without the separate full support/radial calculation. Narrow novelty retained with explicit prior coverage of special cases.",
+      "residual_risks": [
+        "A geometrical textbook or unindexed thesis could have tabulated all-m regular polygon values under a different translative-hull notation.",
+        "Constant-direction 4k+2/odd cases partly follow from existing Radon classification; the amplitude and nonconstant branch supply the precise new result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General reduction and m3..5 are covered; no explicit all-m regular benchmark formula presented in inspected theorem/problem.",
+          "evidence": "Published c^tr expression and Problem 1, plus evaluated triangle square pentagon values.",
+          "identifier_or_url": "arXiv:1302.6164; doi:10.1007/s00605-013-0526-x",
+          "material_read": "Full open-access PDF, planar c^tr chord-width identity, polygon extremal constants, Problem 1 and cited numerical values",
+          "method": "Publisher/preprint PDF, text and rendered mathematical pages",
+          "title": "On the volume of the convex hull of two convex bodies",
+          "trigger": "Exact same invariant and small polygon values"
+        },
+        {
+          "assessment": "Characterizes Radon central symmetral and higher-dimensional relation; does not state evaluated all-m c^tr formula or 4k directional range.",
+          "evidence": "Theorem 2 Radon equivalence and Theorem 3 polar projection body relation.",
+          "identifier_or_url": "doi:10.1007/s10711-022-00673-y",
+          "material_read": "Full openly readable paper, §2 Definition 4, Theorems 2 and 3, Remark 1 and §3 homothetic developments",
+          "method": "Publisher open-access article full HTML",
+          "title": "On the convex hull and homothetic convex hull functions of a convex body",
+          "trigger": "Later likely coverage of translative constant-volume regular polygons"
+        },
+        {
+          "assessment": "Known Radon geometry explains part of the constant case; residual full-literature risk maintained.",
+          "evidence": "Regular 4k+2 polygons are standard Radon polygon examples.",
+          "identifier_or_url": "arXiv:math/0409200",
+          "material_read": "Referenced Radon characterization and published regular polygon implications; no full-document negative assertion claimed",
+          "method": "Literature/abstract-level comparison, not a claimed full read",
+          "title": "Antinorms and Radon curves",
+          "trigger": "Classical alias for the regular 4k+2 polygon constant-direction phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1302.6164 Problem 1",
+        "doi:10.1007/s10711-022-00673-y"
+      ],
+      "rationale": "Regular polygons are the explicitly posed candidate extremizers in a published polygonal convex-hull problem. Exact all-m benchmark values, a full directional phase split by m modulo four and the limit 1+4/pi give usable targets for the still-open minimization problem; they are geometrically motivated by Radon versus non-Radon behavior. This finite-parameter family is independently useful without proving the global extremal conjecture.",
+      "residual_risks": [
+        "Known m=3,4,5 and constant-direction cases are not separately counted as original."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim that regular m-gon minimizes c^tr among all convex m-gons for m≥6.",
+    "The formula (3) directional range is for unit circumradius; all c^tr ratios are affine/scale invariant."
+  ],
+  "schema_version": 1
+}
