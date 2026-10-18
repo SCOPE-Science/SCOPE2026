@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,83 +19,24 @@
 }
 ---
 
-Let
-\[
-2<p<\infty
-\]
-and assume
-\[
-h(F,F')=\sigma_p(F).
-\]
-The fresh theorem and monotonicity give
-\[
-h(F,F')
-\le
-\sigma_2(F)
-\le
-\sigma_p(F),
-\]
-so all three quantities are equal.
+# Independent mathematical audit
 
-Let \(c_p\) minimize \(\sigma_p\), and put
-\[
-r_j=|z_j-c_p|.
-\]
-Then
-\[
-\sigma_2(F)
-\le
-\left(
-\frac1n\sum r_j^2
-\right)^{1/2}
-\le
-\left(
-\frac1n\sum r_j^p
-\right)^{1/p}
-=
-\sigma_p(F).
-\]
-Both inequalities are therefore equalities.
+## correctness
 
-For normalized finite power means and
-\[
-p>2,
-\]
-equality between the second and \(p\)-th means occurs exactly when all entries are equal. Hence
-\[
-r_1=\cdots=r_n=R.
-\]
+PASS
 
-If
-\[
-R=0,
-\]
-all roots coincide and the polynomial already has the required translated-power form.
+Let F have degree n>=2 and finite p>2. Zhang 2026 establishes h(F,F′)<=sigma_2(F), while normalized power-mean monotonicity gives sigma_2<=sigma_p. If h=sigma_p, all inequalities are equal. Choose a p-minimizing center c_p; since sigma_2<=((sum |z_j-c_p|²)/n)^1/2 <=((sum |z_j-c_p|^p)/n)^1/p=sigma_p, strict power-mean equality for p>2 forces all distances |z_j-c_p|=R. If R=0, F=A(z-c)^n. If R>0, affine rescaling puts all zeros exactly on the unit circle and h(F,F′)=1. The finite zero set contains an extremal boundary zero with no critical point at distance <1. Phelps--Rodriguez/Rubinstein boundary rigidity forces the polynomial to be a rotated scalar (z^n-1), hence F=A(z-c)^n-B. Conversely roots of this form are a regular n-gon or all coincide, critical set is central and sigma_p=R by strict convexity/rotational symmetry. The only nontrivial inputs are the valid global p=2 bound and the already-proved boundary equality theorem; not an independent proof of these deep theorems, and Zhang full paper unavailable this run.
 
-If
-\[
-R>0,
-\]
-the affine change
-\[
-z=c_p+Rw
-\]
-puts every zero on the unit circle and changes the Hausdorff distance to
-\[
-1.
-\]
-Some zero attains that distance. Rotating it to \(1\) puts the normalized polynomial exactly under Rubinstein's boundary theorem, which forces a scalar multiple of
-\[
-w^n-1.
-\]
-Undoing the transformations gives
-\[
-F(z)=A(z-c)^n-B.
-\]
+## originality
 
-Conversely, a polynomial of this form has either one repeated root or a regular \(n\)-gon of roots and a unique critical point at its center. Strict convexity and rotational symmetry make that center the \(p\)-variance minimizer, so
-\[
-h(F,F')=\sigma_p(F).
-\]
+PASS
 
-No numerical or finite-computation step enters the proof.
+Khavinson--Pereira--Putinar--Saff--Shimorin 2011 primary arXiv:1010.5167 p3 Conjecture 2 explicitly asks for same equality characterization for p>1 and proves only restricted cases. Zhang arXiv:2610.02035 2026 abstract establishes all-degree p=2 inequality (with Lean formalization) and general p>=2 inequality then follows by monotonicity; its available summary does not announce finite superquadratic equality classification. Resolved Rubinstein endpoint theorem classifies special unit-boundary polynomials but requires same-radius roots, supplied here by strict p-mean equality. The exact bridge is short but a valid conjecture resolution in p>2. Full Zhang text inaccessible and could contain equality discussion not in abstract, so explicit stronger-coverage risk remains.
+
+## value
+
+PASS
+
+Classifies equality for every degree and every finite p>2 in an explicitly named long-standing extremal conjecture; exact equality cases are useful even when numerical bound follows monotonically from p=2. This is a substantial gap because strictness of moment monotonicity and a boundary rigidity theorem must be linked, not only renaming a known inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

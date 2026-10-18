@@ -1,39 +1,21 @@
-# Review of Superquadratic Phelps–Rodrigues rigidity for Borcea variance
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The new \(2\)-variance theorem gives
-\[
-h(F,F')\le\sigma_2(F),
-\]
-while normalized power means give
-\[
-\sigma_2(F)\le\sigma_p(F)
-\]
-for every
-\[
-p>2.
-\]
-If the endpoints are equal, choose a \(p\)-minimizing center. Equality in the intervening power-mean inequality forces all root distances from that center to be identical. After rescaling, every root lies on the unit circle and the normalized Hausdorff distance to the critical set is \(1\).
+PASS
 
-A root realizing that distance has no critical point strictly closer than \(1\). Rubinstein's boundary Phelps–Rodriguez theorem then forces the normalized polynomial to be a scalar multiple of
-\[
-z^n-\omega.
-\]
-The degenerate zero-radius case is a repeated-root polynomial and has the same advertised form. The converse is direct from the regular-polygon zero set and the unique critical point at its center.
+Let F have degree n>=2 and finite p>2. Zhang 2026 establishes h(F,F′)<=sigma_2(F), while normalized power-mean monotonicity gives sigma_2<=sigma_p. If h=sigma_p, all inequalities are equal. Choose a p-minimizing center c_p; since sigma_2<=((sum |z_j-c_p|²)/n)^1/2 <=((sum |z_j-c_p|^p)/n)^1/p=sigma_p, strict power-mean equality for p>2 forces all distances |z_j-c_p|=R. If R=0, F=A(z-c)^n. If R>0, affine rescaling puts all zeros exactly on the unit circle and h(F,F′)=1. The finite zero set contains an extremal boundary zero with no critical point at distance <1. Phelps--Rodriguez/Rubinstein boundary rigidity forces the polynomial to be a rotated scalar (z^n-1), hence F=A(z-c)^n-B. Conversely roots of this form are a regular n-gon or all coincide, critical set is central and sigma_p=R by strict convexity/rotational symmetry. The only nontrivial inputs are the valid global p=2 bound and the already-proved boundary equality theorem; not an independent proof of these deep theorems, and Zhang full paper unavailable this run.
 
-## Originality
+## originality
 
-PASS. The 2011 primary source explicitly formulates the equality characterization for every exponent greater than one and proves it only in restricted configurations. The fresh 2026 source proves the general \(2\)-variance inequality and notes power-mean monotonicity, but it does not state the equality classification for any finite superquadratic exponent.
+PASS
 
-The resolved Phelps–Rodriguez theorem classifies equality for the unit-disk radius problem. It does not by itself apply to a finite moment constraint. The new strict power-mean step is what forces a hypothetical superquadratic equality case onto one circle and makes the boundary rigidity theorem applicable.
+Khavinson--Pereira--Putinar--Saff--Shimorin 2011 primary arXiv:1010.5167 p3 Conjecture 2 explicitly asks for same equality characterization for p>1 and proves only restricted cases. Zhang arXiv:2610.02035 2026 abstract establishes all-degree p=2 inequality (with Lean formalization) and general p>=2 inequality then follows by monotonicity; its available summary does not announce finite superquadratic equality classification. Resolved Rubinstein endpoint theorem classifies special unit-boundary polynomials but requires same-radius roots, supplied here by strict p-mean equality. The exact bridge is short but a valid conjecture resolution in p>2. Full Zhang text inaccessible and could contain equality discussion not in abstract, so explicit stronger-coverage risk remains.
 
-Targeted database and public-literature searches under Borcea equality, Phelps–Rodrigues extremizers, superquadratic variance, and regular-polygon formulations did not locate a covering statement.
+## value
 
-## Value
+PASS
 
-PASS. This settles an entire continuum of cases of an explicit extremal conjecture that has accompanied Borcea's variance problem since its formulation. The conclusion is structural rather than merely numerical: every finite superquadratic extremizer is forced to be a translated and scaled regular polygon.
+Classifies equality for every degree and every finite p>2 in an explicitly named long-standing extremal conjecture; exact equality cases are useful even when numerical bound follows monotonically from p=2. This is a substantial gap because strictness of moment monotonicity and a boundary rigidity theorem must be linked, not only renaming a known inequality.
 
-The proof also sharply identifies the remaining frontier. The argument breaks exactly at the quadratic endpoint, where equality of moments no longer forces circular root geometry, and it gives no leverage on the stronger subquadratic inequalities.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
