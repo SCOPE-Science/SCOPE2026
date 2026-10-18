@@ -1,0 +1,9 @@
+# Review of the semiprime real-cut sign transitions
+
+**Correctness (PASS).** A corrected fractional-part representation of the Riemann zeta function shows \(\zeta(t)<0\) and \(\zeta'(t)<0\) for \(\tfrac12<t<1\). The Möbius power series \(F(z)\) is strictly negative for \(0<z\le 1/\sqrt2\), so the logarithmic derivative formula gives \(U'(t)>0\). The endpoint logarithms have opposite signs and are integrable. After factoring \(e^{\tau y}\) from the upper-cut integral, differentiation yields a strictly positive integrand and the endpoints are opposite infinities. No finite computation is used in the proof.
+
+**Originality (PASS with risk).** Belton (arXiv:2610.11024v1) defines \(U\), \(\Delta_2\), and the upper real-cut integral and establishes their analytic role, but no strict one-crossing theorem is stated. Mathar (arXiv:0803.0900v3) treats older almost-prime Dirichlet polynomial and prime-zeta singularities, not this complete real-cut sign classification. Searches for sign changes, monotonicity, branch equivalences, real zeros, and broader zero-free coverage did not identify a covering theorem. Work on complex prime-zeta zeros above the line \(\Re s=1\) is not logically stronger in the required direction. Fröberg's historical full text and portions of later complex-zero studies were not examined; implicit coverage remains possible. Absence from searches is not treated as novelty proof.
+
+**Value (PASS).** A newly introduced signed density with logarithmic singular endpoints need not have a fixed number of real sign changes, and its Laplace-type integral need not inherit the count. The result identifies both transition laws exactly, for the entire natural parameter ranges, giving structural control of the upper-cut semiprime contribution isolated in the motivating paper. It does not assert sign control of the complete semiprime smooth function or prime-counting errors.
+
+Self-review: passed. Independent audit: not yet performed.
