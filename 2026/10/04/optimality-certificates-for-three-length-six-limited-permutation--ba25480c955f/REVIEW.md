@@ -1,17 +1,21 @@
-# Review of Optimality certificates for three length-six limited-permutation covers
+# Independent mathematical audit
 
-## Correctness
-The claim is reduced to three finite set-cover instances defined directly by the channel. Each upper bound is witnessed by an explicit center list. Each lower bound is witnessed by a nonnegative rational weight function with ball weight at most \(1\) and total weight equal to the proposed cover size. The standard weighted-cover inequality therefore proves the matching lower bound. The bundled verifier reconstructs the universes and all legal channel balls from definitions rather than trusting a solver output.
+## correctness
 
-## Originality
-The closest source is arXiv:2607.19566v1, Section 5.1, Table 3. It gives the same three cover sizes as explicit replacement constructions, but the surrounding text explicitly says that no optimality of any replacement size is claimed. Searches for the channel name, the three multiset types, the exact sizes, set-cover language, and adjacent-swap aliases did not locate a published statement proving these three optima. The 2017 foundational paper treats the general limited-permutation channel rather than these concrete finite covering numbers.
+PASS
 
-Residual originality risk remains because finite covering results can be reported under permutation-cover or set-cover terminology rather than the multiset-type notation used here. The direct non-optimality statement in the closest same-parameter source substantially reduces that risk.
+Reconstructed the 13 matchings of disjoint adjacent swaps in six positions and regenerated every member of the canonical multiset classes. Independent exhaustive exact-rational verification of certificates.json at the assigned Git snapshot: for (2,2,2), (3,1,1,1), (2,2,1,1), universe sizes 90,120,180; explicit distinct upper-cover center sets have 9,15,17 centers and cover every word; nonnegative fractional weights sum to 9,15,17 and have total weight at most 1 in every ball centered at ANY class word (90+120+180 inequalities). This supplies the lower bounds by weak LP duality and relabeling transports each complete certificate to every concrete class. No implicit optimization result, numerical LP, or script exit code is used as proof.
 
-## Value
-These are not arbitrary finite slices: they are three of the five concrete type replacements used in the recent length-six covering bound. Exact optimality shows that the savings contributed by these three rows cannot be increased without changing the local covering construction or using another type. The rational lower certificates are compact and reusable in later searches for sharper global covers.
+## originality
 
-## Limitations
-The remaining two replacement rows, of types \((2,1,1,1,1)\) and all-distinct, are not settled. No global optimality statement for \(K_q(6;1)\) follows.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The motivating Table 3 gives the same numbers as attainable covers but explicitly disclaims optimality. Exact dual packing inequalities prove minimality, not implied by the original upper bounds. Resultary semantic search found the submitted result and neighboring code/packing records, not an earlier proof of these three minima. Best-of-knowledge claim confined to three multiset types.
+
+## value
+
+PASS
+
+Closes a precise finite optimality gap singled out by an explicit published construction using short rational certificates. Knowing the minimum classwise cover sizes, not merely feasible center lists, provides exact benchmarks for the length-six limited-permutation channel and validates optimality of three improvements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
