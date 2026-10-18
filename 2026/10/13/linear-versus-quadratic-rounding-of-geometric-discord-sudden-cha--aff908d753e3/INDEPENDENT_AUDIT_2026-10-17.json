@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T16:50:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md @ f72ca3e46cb308d795ef7173e0e1388b66b976ee",
+        "Frozen verify_discord.py @ c51de619285a5b2a6fdb4e4966a8b13987e25292",
+        "Dakić–Vedral–Brukner arXiv:1004.0190 Eq. (16)"
+      ],
+      "rationale": "Both states have Hermitian perturbation norm a+b+2ε<1 and are full rank; their partial transpose in the second qubit equals themselves because that factor uses only real I,X,Z, hence two-qubit PPT implies separability. Measurement projection gives G=(||x||²+||T||²−λmax(xx^T+TT^T))/4; the source computes the precise 2×2 Gram blocks. I independently rebuilt Bloch matrices and checked the two exact trace/discriminant expressions at four parameter-time cases, plus normalized near-transition finite-difference slopes at z=−1,0,1; they approach the stated universal profile. Local Gram offdiagonal is ε²q versus correlator εq(aq²+b), generating ε² vs ε avoided-crossing widths; positive offdiagonal makes analytic finite-time G for every ε>0. Source Taylor expansions are compact-uniform with derivative because leading radicands are bounded away from zero when 0<b<a; ε=0 returns a cusp at t0. These analytic arguments, not finite sampling, cover all fixed a,b and bounded z.",
+      "residual_risks": [
+        "Hilbert–Schmidt unnormalized squared geometric discord, not entropy-based quantum discord or a general resource monotone.",
+        "Fixed positive gap a>b and compact scaled z; no uniformity as parameters approach degeneracy."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General arbitrary-state spectral discord formula determines G algebraically but does not state two perturbation-width asymptotics.",
+          "General sudden-change eigenvalue-crossing criterion identifies the unperturbed cusp but not matched ε²/ε rounded scaling with a common slope profile."
+        ],
+        "reasoning": "Prior universal formula is a proof ingredient, not an explicit theorem dominating the perturbation-matching asymptotic comparison; the novel specialization requires concrete density families, positivity/PPT, and differentiable scaling limits.",
+        "searches": [
+          "Dakić Vedral Brukner arXiv:1004.0190 Eq16",
+          "Yu Li Fan arXiv:1309.0934 Theorem1 Corollary1",
+          "Yao et al arXiv:1303.4827"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1004.0190 primary PDF / formula",
+        "arXiv:1309.0934 primary manuscript",
+        "arXiv:1303.4827 relevant text",
+        "DOI:10.1007/s10773-014-2094-9 accessible abstract ONLY",
+        "Resultary discord search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Dakić equation can be specialized to derive the formulas but does not give the matched physical perturbations or explicit scale comparison.",
+          "Yu et al establish sharp transitions from eigenvalue crossings; the perturbed offdiagonal blocks turn those crossings into smooth crossovers of different widths."
+        ],
+        "reasoning": "The submission is a computable but substantive new exact specialization of known matrix-discord machinery, not an already stated corollary. The inaccessible non-X decoherence paper prevents a decisive paper-wide noncoverage assertion and remains a residual risk.",
+        "searches": [
+          "Dakić Vedral Brukner arXiv:1004.0190",
+          "Yu Li Fan arXiv:1309.0934",
+          "Chen Fu Fang DOI:10.1007/s10773-014-2094-9 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The geometric discord here is the smaller eigenvalue of the positive 2×2 XZ Gram block divided by four; an avoided level crossing is the linear-algebra alias.",
+          "The two physical perturbation directions generate offdiagonal matrix elements of order ε² and ε, respectively, at equal density-matrix HS perturbation size."
+        ],
+        "reasoning": "Looked for the equivalent spectral avoided-crossing / smoothing width interpretation and not merely paper titles. No inspected full text proves this matched physical two-family theorem; Chen–Fu–Fang remains only abstract-inspected.",
+        "searches": [
+          "Resultary two-qubit Hilbert Schmidt geometric discord dephasing perturbation rounding transition width linear quadratic",
+          "arXiv:1309.0934 eigenvalue sudden change avoided crossings",
+          "arXiv:1004.0190 Gram discord formula",
+          "DOI:10.1007/s10773-014-2094-9 non-X decoherence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related Bell-diagonal discord optimization and dephasing-transition records but not these two full-rank matched error families and scaling widths.",
+          "No exact table of normalized slope curves for both errors found in inspected source materials."
+        ],
+        "reasoning": "This is a continuum asymptotic profile rather than a finite numerical table. Searched published records for matched ε²/ε scales; absence alone does not guarantee historical novelty.",
+        "searches": [
+          "Resultary geometric quantum discord Bell diagonal state perturbed by local Bloch vector smoothing avoided eigenvalue crossing width epsilon squared",
+          "Resultary two-qubit discord dephasing errors linear quadratic rounding",
+          "Published spectral discord dephasing sudden changes"
+        ]
+      },
+      "rationale": "Prior quantum-discord papers provide the Gram-matrix formula, Bell-diagonal sudden-change phenomena, and eigenvalue-crossing criteria. The matched equal-HS physical errors, two scaling exponents, centers and shared slope profile require a nontrivial specialization to two concrete full-rank separable families not stated in read primary sources. Related non-X dephasing paper remains inaccessible and is named as material risk rather than falsely excluded.",
+      "residual_risks": [
+        "The Chen–Fu–Fang DOI:10.1007/s10773-014-2094-9 primary full text was inaccessible after arXiv/OA attempts and an institutional VPN disconnection, so it might contain equivalent non-X dephasing asymptotics.",
+        "Generic eigenvalue avoided-crossing perturbation theory could encode related exponents outside the quantum-discord literature; no universal priority certification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUND_GENERAL_FORMULA_NOT_TWO_ERROR_EXPONENTS",
+          "evidence": "The Gram eigenvalue formula used in the claim is existing mathematics, but the source does not state matched separable preparation errors with ε² vs ε dephasing crossover widths.",
+          "identifier_or_url": "arXiv:1004.0190; PRL 105,190502",
+          "material_read": "Primary paper full PDF and formula derivation inspected, especially two-qubit Gram matrix spectral expression Eq. (16) and Bell-diagonal case",
+          "method": "primary full-PDF equation inspection",
+          "title": "Necessary and Sufficient Condition for Nonzero Quantum Discord",
+          "trigger": "Source of arbitrary two-qubit Hilbert-Schmidt geometric-discord spectral formula"
+        },
+        {
+          "assessment": "FOUND_DEGENERACY_CRITERION_NOT_SPECIFIC_SCALING_PROFILE",
+          "evidence": "Characterizes kinks via eigenvalue switches; it does not give the two specific matched physical perturbations or their normalized crossover profile.",
+          "identifier_or_url": "arXiv:1309.0934",
+          "material_read": "Primary manuscript inspected with attention to eigenvalue-crossing theorem, corollary and Markovian dephasing examples",
+          "method": "relevant full primary text inspection",
+          "title": "The Witness of Sudden Change of Geometric Quantum Correlation",
+          "trigger": "Possible general criterion for avoided crossings and smoothing"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_OVERLAP_RISK",
+          "evidence": "The accessible abstract describes geometric discord dynamics for non-X Bloch geometries; it does not establish equivalence/noncoverage of these exact two matrices. Full-text comparison is a residual risk.",
+          "identifier_or_url": "DOI:10.1007/s10773-014-2094-9",
+          "material_read": "Publisher/metadata abstract only; arXiv/preprint and lawful OA attempts yielded no full text. Authorized institutional request returned vpn_disconnected; no pages were represented as read",
+          "method": "abstract inspection only; institutional full-text attempt blocked",
+          "title": "Geometric Discord of Non-X-Structured State under Decoherence Channels",
+          "trigger": "Highly relevant non-X two-qubit dephasing study that could encode the same perturbation scaling"
+        },
+        {
+          "assessment": "PRIOR_BELL_DIAGONAL_CONTEXT",
+          "evidence": "Existing sudden-change geometry motivates t0 but does not show the two separate small-error exponents and common slope scaling.",
+          "identifier_or_url": "arXiv:1303.4827",
+          "material_read": "Accessible primary source treatment of Bell-diagonal geometric interpretation and sudden changes; relevant setup compared",
+          "method": "relevant primary portions",
+          "title": "Geometric interpretation of the geometric discord",
+          "trigger": "Prior geometric-discord dephasing transitions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dakić primary geometric-discord formula",
+        "Yu–Li–Fan spectral sudden-change criterion",
+        "Audited two exact separable perturbations and analytic uniform scaling"
+      ],
+      "rationale": "The construction isolates how physically distinct but exactly equal Hilbert–Schmidt preparation errors round a genuinely nonanalytic quantum-correlation transition on quadratically versus linearly different time scales. The exact common scaling function is a meaningful robustness benchmark for separable two-qubit discord dynamics, not simply a plotted curve or arbitrary parameter slice.",
+      "residual_risks": [
+        "Applies only to squared Hilbert–Schmidt geometric discord, which is not monotone under all local operations, and two fixed error directions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For two explicit equally sized strictly positive separable two-qubit initial perturbations under independent Markovian dephasing, local Bloch errors round Hilbert–Schmidt geometric-discord sudden change on width ε², cross-correlator errors on width ε, with the identical normalized derivative limit (1+z/√(1+z²))/2 under their exact stated centers/widths.",
+  "limitations": [
+    "Only two explicit separable families, independent Markovian phase damping, fixed 0<b<a and bounded scaled window, no entropy discord."
+  ],
+  "schema_version": 1
+}
