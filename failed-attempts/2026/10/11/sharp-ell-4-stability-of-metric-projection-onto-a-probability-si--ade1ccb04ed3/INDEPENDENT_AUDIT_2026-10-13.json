@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T22:57:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md and verify.py",
+        "Riener arxiv:1001.4464 Theorem 1.3 half-degree principle",
+        "Baronti--Franchetti 1990 Theorem 1.3 and proof pp.333--334",
+        "independent finite centering norm evaluations"
+      ],
+      "rationale": "For real 1<p<infinity, KKT analysis gives the simplex nearest-point map as an exponent-independent soft threshold. Every full-dimensional active set of cardinality k has Jacobian C_k=I_k-(1/k)11^T and all k arise; segment integration shows the sharp global ell_4 Lipschitz constant is max(1,max_{2<=k<=n} ||C_k||_4). Riener/Timofte half-degree symmetry reduces symmetric quartic norm inequality to two-value coordinate vectors; Hölder yields the stated maximum over j,k. Independent numerical checks reproduced the sample k=3 fourth-power norm 1.282440700621 and the larger k trend toward 1+2/sqrt(3). Crucially, the exact two-level formula for ||C_k|| and its continuum envelope are mathematically correct *but are already established in a much older primary theorem*; scientific coverage affects originality, not correctness.",
+      "residual_risks": [
+        "Uniform all-k reduction relies on published quartic theorem; finite checks do not replace that result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1990 source already treats all p in (1,infinity) and every finite k, beyond the target p=4; gives exact continuum limit for same norm.",
+          "Published Resultary cross-polytope theorem handles p-invariant nearest points and active sets for every p."
+        ],
+        "reasoning": "All n and all p stronger norm coverage dominates the special p=4 centering calculation; elementary simplex soft-threshold KKT supplies the codomain translation.",
+        "searches": [
+          "Baronti--Franchetti 1990 theorem 1.3 scanned full pp.333--334",
+          "C. Franchetti 1992 Bull. Austral. Math. Soc. 45 pp.507--511 explicit continuum Lambda_p",
+          "Resultary/2026 SCOPE exponent-invariant cross-polytope projection"
+        ]
+      },
+      "checked_sources": [
+        "Baronti and Franchetti, Riv. Mat. Univ. Parma 16 (1990) pp331--342, Theorem 1.3 pp333--334 full primary PDF",
+        "Franchetti, Bull. Austral. Math. Soc. 45 (1992) pp507--511",
+        "Resultary published exponent-invariant cross-polytope result full text",
+        "Riener arxiv:1001.4464 full paper"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary prior result gives Lip=max_{2<=k<=n}||C_k||_p for exponent-independent soft-threshold maps; Baronti prior gives each ||C_k||_p exactly."
+        ],
+        "reasoning": "Combining these established mathematical statements yields the submitted all-dimensional simplex Lipschitz formula immediately; optimizing phi_4(t) in one variable gives the displayed envelope. This is stronger coverage even without identical simplex wording.",
+        "searches": [
+          "1990 Baronti--Franchetti scanned PDF pp.333--334",
+          "Resultary cross-polytope theorem full RESULT.md",
+          "Riener arxiv:1001.4464 full theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At p=4, phi_4(t)^4=(t^3+(1-t)^3)(t^(1/3)+(1-t)^(1/3))^3; substituting t=j/k gives the source submitted j,k expression exactly."
+        ],
+        "reasoning": "The finite formula is the same centering-operator norm under an algebraic reparameterization, not a new invariant hidden by notation. The remaining nonlinear piece is the established finite-active-set Jacobian norm principle.",
+        "searches": [
+          "Baronti--Franchetti 1990 Theorem 1.3 pp.333--334 original scanned PDF",
+          "Resultary/2026 published cross-polytope metric projection theorem",
+          "Riener arxiv:1001.4464 Theorem 1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1990 Theorem states max_{0<=j<=k} phi_p(j/k) exactly; at p=4 evaluating gives all finite k values and dimension-free 1+2/sqrt(3)."
+        ],
+        "reasoning": "This is an exact pre-existing parameterized table/formula, so the target is not a new calculation of unknown finite constants.",
+        "searches": [
+          "Baronti--Franchetti 1990 Theorem 1.3 and graph of A_p(k)",
+          "Franchetti 1992 formula for A_p",
+          "Resultary exact cross-polytope theorem (including k=3 radical)"
+        ]
+      },
+      "rationale": "DECISIVE published implication: Baronti and Franchetti, “Minimal and polar projections onto hyperplanes in the spaces l_p and l_infinity,” Riv. Mat. Univ. Parma 16 (1990) pp.333--334, Theorem 1.3, prove ||I-(1/k)11^T||_p = max_{0<=j<=k} phi_p(j/k), where phi_p(t)=[t^{1/(p-1)}+(1-t)^{1/(p-1)}]^{(p-1)/p}[t^{p-1}+(1-t)^{p-1}]^{1/p}, and its dimension-free envelope max_t phi_p(t). At p=4, phi_4(j/k)^4 is algebraically *identical* to the submitted j,k summand. Their p=4 envelope is exactly (1+2/sqrt(3))^(1/4). The previously published cross-polytope soft-threshold theorem also proves the active-set reduction Lip=max_k ||C_k|| for the same nonlinear map, with simplex as the signed-positive orthant face variant; simplex KKT/Jacobian translation is elementary. Accordingly every claimed sharp finite and dimension-free constant is covered by this explicit 1990 theorem plus routine known projection reduction. The source comparison was made using actual scanned primary pages, not search-result snippets or paper titles.",
+      "residual_risks": [
+        "1990 theorem is conclusive coverage for every claimed center norm; no independent sharp numerical novelty survives.",
+        "Simplex vs cross-polytope domains differ, but their active Jacobians and KKT map coincide; the target supplies only routine reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY COVERING center block norm and uniform dimension-free formula",
+          "evidence": [
+            "Theorem 1.3 explicitly states ||I-E||_p for uniform-coordinate hyperplane equals max_{j/k} phi_p(j/k), and limit max_t phi_p(t)."
+          ],
+          "identifier_or_url": "https://www.rivmat.unipr.it/fulltext/1990-16-II/1990-16-II-331.pdf",
+          "material_read": "Original scanned full-page figures p.333--336, specifically Theorem 1.3 and proof deriving max_{0<=j<=k} phi_p(j/k), limit Lambda_p and irrational finite gaps",
+          "method": "visual inspection of primary PDF pages",
+          "title": "Minimal and polar projections onto hyperplanes in the spaces l_p and l_infinity",
+          "trigger": "exact centering operator norm possible primary coverage"
+        },
+        {
+          "assessment": "supporting earlier exact continuum-envelope coverage",
+          "evidence": [
+            "Franchetti 1992 cites previously established norm of the minimal hyperplane projection and writes explicit max_t formula."
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/4E7752E23256ED8F90FD3E7BEC4B909A/S0004972700030410a.pdf/lower_bounds_for_the_norms_of_projections_with_small_kernels.pdf",
+          "material_read": "Introduction and formula for A_p, relationship to Franchetti 1990 theorem",
+          "method": "primary PDF textual inspection",
+          "title": "Lower bounds for the norms of projections with small kernels",
+          "trigger": "historical independent continuum projection constant"
+        },
+        {
+          "assessment": "covers nonlinear reduction used by target; not the exact simplex wording but direct piecewise-affine analogue",
+          "evidence": [
+            "Theorem gives max{1,max_k ||C_k||_{p->p}} for soft-threshold map, with proof of all active cells."
+          ],
+          "identifier_or_url": "Resultary/2026/2026/10/11/SCOPE-exponent-invariant-cross-polytope-projection-and-its-sharp-lipsc--5177ec842d41/RESULT.md",
+          "material_read": "Complete finding, p-independent KKT proof, exact general max-active-set theorem and p=4 k=3 special case",
+          "method": "read full published RESULT.md",
+          "title": "Exponent-invariant cross-polytope projection and its sharp Lipschitz threshold",
+          "trigger": "nonlinear nearest-point projection soft-threshold and all-active-set Lipschitz"
+        },
+        {
+          "assessment": "valid proof ingredient but already published; not a novelty source",
+          "evidence": [
+            "Symmetric nonnegative quartic is checked at at most two coordinate values."
+          ],
+          "identifier_or_url": "arxiv:1001.4464",
+          "material_read": "Theorem 1.3 full PDF including page image",
+          "method": "primary arXiv full text and theorem screenshot",
+          "title": "On the degree and half-degree principle for symmetric polynomials",
+          "trigger": "quartic two-value reduction used by source"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Baronti--Franchetti 1990 complete all-dim operator norm formula",
+        "Franchetti 1992 known continuum constant",
+        "published exponent-invariant cross-polytope active-set principle"
+      ],
+      "rationale": "The exact finite fourth-power and dimension-free constants are natural stability quantities, but they are already supplied by Baronti--Franchetti 1990 for the centering blocks. The extra simplex identification follows the familiar soft-threshold active-set formula and the published cross-polytope general principle; evaluating p=4 and differentiating a one-variable rational function is not a substantive new mathematical gap. Code correctness and clearer exposition cannot rescue a covered calculation.",
+      "residual_risks": [
+        "Value rejection concerns lack of independent mathematical contribution; the natural perturbation question itself is meaningful, and source calculation is mathematically sound."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "C proof is valid but O FAIL and V FAIL on direct pre-existing stronger coverage.",
+    "No source repair or disclaimer can turn this covered original into a passing new contribution."
+  ],
+  "schema_version": 1
+}
