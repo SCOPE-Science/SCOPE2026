@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,41 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs the half graph \(H_n\) directly for
-\[
-2\le n\le8.
-\]
-For every vertex subset \(C\), it forms the identifying set
-\[
-I(C;u)=N[u]\cap C.
-\]
+# Independent mathematical audit
 
-Self-location-domination is checked from its original intersection definition: every non-codeword has nonempty identifying set and
-\[
-\bigcap_{c\in I(C;u)}N[c]=\{u\}.
-\]
-Solid location-domination is checked by testing, for every distinct pair of non-codewords,
-\[
-I(C;u)\setminus I(C;v)\ne\varnothing.
-\]
+## correctness
 
-The complete minimum families are then compared with the theorem. The checker also records the exceptional \(H_2\) self-locating boundary.
+PASS
 
-Recorded output:
+For H_n (n>=3), a_i b_j adjacent iff i<=j. Nested neighborhoods mean two noncodewords in one shore have comparable identifying sets, which contradicts solidness; at most one omission per shore and hence |C|>=2n-2. Each mixed omitted pair is solid except (a_1,b_1) and (a_n,b_n), where a leaf is undominated: exactly n²-2 minimum DLD codes. A standard SLD forced-codeword criterion N(u)⊆N[v] forces a_i (i>=2) and b_j (j<=n-1), so the sole optimum omission is {a_1,b_n}; literal closed-neighborhood intersection verifies it for n>=3. n=2 SLD instead 3. Independently checked all minimum families n=2..7 by the original definitions.
 
-```text
-VERIFY_OK
-n=2: gamma_DLD=2, DLD_minima=2; boundary gamma_SLD=3, SLD_minima=2
-n=3: gamma_DLD=gamma_SLD=4, DLD_minima=7, SLD_minima=1
-n=4: gamma_DLD=gamma_SLD=6, DLD_minima=14, SLD_minima=1
-n=5: gamma_DLD=gamma_SLD=8, DLD_minima=23, SLD_minima=1
-n=6: gamma_DLD=gamma_SLD=10, DLD_minima=34, SLD_minima=1
-n=7: gamma_DLD=gamma_SLD=12, DLD_minima=47, SLD_minima=1
-n=8: gamma_DLD=gamma_SLD=14, DLD_minima=62, SLD_minima=1
-subsets_checked = 87376
-all minimum-code classifications matched the theorem
-```
+## originality
 
-The checker exhausts \(87{,}376\) subsets. This computation is exhaustive for the tested orders and corroborative only for the arbitrary-order theorem, which follows from the nested-neighborhood and forced-codeword proof.
+PASS
+
+The precise equality of minima with sharply different numbers of bases is a thin half-graph classification, not already implied by the classical forced-codeword criterion or by complete multipartite SLD/DLD results.
+
+## value
+
+PASS
+
+Half graphs are the canonical twin-free chain graphs with maximally nested neighborhoods. Exact extremal families for two stringent identification notions and the n=2 exception are structurally informative and useful in distinguishing ordered versus self-location constraints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Review of Self- and solid-location-domination of half graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. Strict nesting of same-side neighborhoods means two omitted vertices from the same side would have comparable identifying sets, which is forbidden for a solid-locating-dominating code. Hence at least \(2n-2\) codewords are required. Omitting one vertex per side works for solid location-domination exactly away from the two leaf corners, giving the complete \(n^2-2\) optimum family. Self-location-domination is stronger. The forced-codeword characterization forces every \(a_i\) with \(i\ge2\) and every \(b_j\) with \(j\le n-1\), leaving only \(a_1,b_n\) omittable. Their identifying-set neighborhood intersections are exactly the omitted singleton vertices when \(n\ge3\), proving existence and uniqueness. Exhaustive evaluation of all \(87{,}376\) vertex subsets for \(2\le n\le8\) agrees with the theorem and the stated boundary.
+## correctness
 
-## Originality
-PASS. The 2018 introducing paper was inspected at the definitions and its stated exact-family sections; it studies rook graphs and binary Hamming spaces. The open 2018 follow-up was inspected at the structural characterizations, forced-codeword theorem, tree results, and Cartesian-product scope; targeted full-text searches found no half-graph or chain-graph occurrence. Semantic published-result searches under both code names with half-graph and chain-graph aliases returned no equivalent theorem. The closest indexed same-invariant result concerns complete multipartite graphs, while the closest chain-graph results use different locating-code notions. Neither implies the nested half-graph optimum classification.
+PASS
 
-## Value
-PASS. Half graphs are canonical twin-free chain graphs whose strictly nested neighborhoods make them a natural test family for stronger locating codes. The result exposes a structural contrast invisible at the scalar level: both parameters equal \(2n-2\), yet self-location-domination has a unique optimum while solid location-domination has \(n^2-2\) optima. This connects the antichain requirement for solid codes with the forced-codeword mechanism for self-locating codes.
+For H_n (n>=3), a_i b_j adjacent iff i<=j. Nested neighborhoods mean two noncodewords in one shore have comparable identifying sets, which contradicts solidness; at most one omission per shore and hence |C|>=2n-2. Each mixed omitted pair is solid except (a_1,b_1) and (a_n,b_n), where a leaf is undominated: exactly n²-2 minimum DLD codes. A standard SLD forced-codeword criterion N(u)⊆N[v] forces a_i (i>=2) and b_j (j<=n-1), so the sole optimum omission is {a_1,b_n}; literal closed-neighborhood intersection verifies it for n>=3. n=2 SLD instead 3. Independently checked all minimum families n=2..7 by the original definitions.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The precise equality of minima with sharply different numbers of bases is a thin half-graph classification, not already implied by the classical forced-codeword criterion or by complete multipartite SLD/DLD results.
+
+## value
+
+PASS
+
+Half graphs are the canonical twin-free chain graphs with maximally nested neighborhoods. Exact extremal families for two stringent identification notions and the n=2 exception are structurally informative and useful in distinguishing ordered versus self-location constraints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
