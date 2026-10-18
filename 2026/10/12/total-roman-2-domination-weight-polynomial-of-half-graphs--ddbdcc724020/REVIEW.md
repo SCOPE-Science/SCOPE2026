@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof works for every integer \(n\ge2\) without an unproved classification assumption. Both universal endpoint labels must be positive by their opposite degree-one neighbors. Their positivity makes the total-support condition automatic. Each of the four endpoint-label cases has disjoint, exhaustive canonical boundary indices, yielding an explicit labeling bijection and the formula. Geometric-series algebra proves the rational generating function, exact total count, and minimum-weight classification. The independent neighborhood-based exhaustive method inspected 5,380,830 assignments for \(2\le n\le7\), and a distinct boundary-state transfer method agreed with every coefficient through \(n=18\). Neither finite test alone proves an infinite statement.
+PASS
 
-## Originality — PASS, with residual risk
+Degree-one b1 and an force the universal adjacent endpoints a1,bn positive. With those both positive, every positive vertex has a positive neighbor; all remaining restrictions are zero-neighborhood sums. Split endpoints (2,2),(2,1),(1,2),(1,1). Cases with a 2 endpoint have a unique farthest positive index threshold; case (1,1) has unique first positive a at L and last positive b at R with exactly L≤R+1 and an explicit gap count. These disjoint exhaustive choices yield the three polynomial sums and rational size-generating series by geometric convolution. Setting z=1 gives the closed total and its limit; terms of degree4 give four minimizers at n=2 and exactly one at n≥3. Independently enumerated all 3^(2n) ternary labelings directly against neighborhood definitions n=2..5 and compared every coefficient to the formula: totals 25,209,1825,16265. Arbitrary n follows threshold bijections, not finite data.
 
-The 2019 foundation and the second primary source treat total Roman \(\{2\}\)-domination, including its underlying minimum-weight parameter; the material read does not present this half-graph all-labeling distribution. The closely related published *Roman domination polynomial of chain graphs* concerns ordinary Roman domination rather than total Roman \(\{2\}\)-domination. The published Roman \(\{2\}\) and total Roman enumerators on complete multipartite graphs apply to different invariants or graph classes; nested-neighborhood half graphs of order at least six are not complete multipartite. Searches for aliases (Italian, Ferrers, nested-neighborhood), generating formulas, and the integer sequence found no identical theorem. The latter observation does not prove novelty. The full text of several published research records was inaccessible, and an implicit earlier equivalence remains the principal priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-This exact polynomial counts every feasible deployment of label-zero, label-one and label-two vertices on a natural infinite bipartite family. It yields the entire weight distribution, a rational generating function, an exact total count and an asymptotic acceptance density, refining scalar optimization into enumerative structure. It is more than an exercise in calculating the known minimum value; the endpoint-and-threshold decomposition explains the genuinely different cases.
+Best-of-knowledge original contribution after comparing mathematical implications rather than title matching. No checked theorem logically implies the same polynomial. The new endpoint decomposition and precise L,R threshold restriction are additional facts. No absolute novelty certification; see specific full-text access risks.
 
-## Limits
+## value
 
-The domain is \(n\ge2\) half graphs, not arbitrary bipartite or chain graphs. Independent scientific audit has not occurred. Source-access and indexing limitations restrict confidence about mathematical priority, not the finite-case correctness checks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Half graphs are canonical nested-neighborhood bipartite/chain graphs. The exact entire weight distribution, rational size generating function and limiting acceptance density refine known minimum-weight optimization; the endpoint/threshold decomposition is mathematically natural and independently useful for counting feasible labelings, not a relabelled complete-multipartite enumerator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

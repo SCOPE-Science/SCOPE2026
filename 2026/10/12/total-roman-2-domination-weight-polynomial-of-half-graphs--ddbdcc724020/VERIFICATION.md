@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library. The script has no network requests, third-party packages, or data dependencies.
+## correctness
 
-The first independent method enumerates each of the \(3^{2n}\) functions on \(H_n\) for \(2\le n\le7\) and tests the original two conditions directly for every vertex. Its exact \(5,380,830\) assignments yielded valid-function totals \(25,209,1825,16265,145969,1312697\) for \(n=2,3,4,5,6,7\), respectively. The second method uses a nine-state prefix/suffix transfer with capped neighbor-label sums. It agrees coefficient-by-coefficient with the finite-sum formula for every \(2\le n\le18\). Separately asserted equalities include the closed total count and the predicted minimum coefficient. The captured output is bundled in `verification_output.txt`.
+PASS
 
-The general combinatorial bijection and geometric-series proof, not the finite experiments, establish the formula for every permitted graph order. No independent audit or formal proof certificate is claimed.
+Degree-one b1 and an force the universal adjacent endpoints a1,bn positive. With those both positive, every positive vertex has a positive neighbor; all remaining restrictions are zero-neighborhood sums. Split endpoints (2,2),(2,1),(1,2),(1,1). Cases with a 2 endpoint have a unique farthest positive index threshold; case (1,1) has unique first positive a at L and last positive b at R with exactly L≤R+1 and an explicit gap count. These disjoint exhaustive choices yield the three polynomial sums and rational size-generating series by geometric convolution. Setting z=1 gives the closed total and its limit; terms of degree4 give four minimizers at n=2 and exactly one at n≥3. Independently enumerated all 3^(2n) ternary labelings directly against neighborhood definitions n=2..5 and compared every coefficient to the formula: totals 25,209,1825,16265. Arbitrary n follows threshold bijections, not finite data.
+
+## originality
+
+PASS
+
+Best-of-knowledge original contribution after comparing mathematical implications rather than title matching. No checked theorem logically implies the same polynomial. The new endpoint decomposition and precise L,R threshold restriction are additional facts. No absolute novelty certification; see specific full-text access risks.
+
+## value
+
+PASS
+
+Half graphs are canonical nested-neighborhood bipartite/chain graphs. The exact entire weight distribution, rational size generating function and limiting acceptance density refine known minimum-weight optimization; the endpoint/threshold decomposition is mathematically natural and independently useful for counting feasible labelings, not a relabelled complete-multipartite enumerator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
