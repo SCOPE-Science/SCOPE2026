@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "For all m>=2 the proof computes exact all-triple inclusion ratios using the affine difference rank, an exact flat Walsh spectrum by factoring into m two-bit sums, and exactly Rademacher centered sampling totals; common sample mean and variance follow from the t<=2 inclusion ratios. The SRSWOR count is hypergeometric with mean N/4+sqrt(N)/4 and variance N/16; the standard hypergeometric CLT yields normality; Portmanteau then makes SRSWOR mass at {-1,+1} vanish, so TV tends to one. Boundary N=16 and variance normalization independently reconstructed; exact finite checker executed for N=16,64,256, all inclusion triples at N=16. Finite checks are not offered as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen Theorem 2.1 proves t-design inclusion matching for any t; the text explicitly says its nonnormal counterexample handles only r=2 and conjectures all fixed r.",
+        "Classical finite-population CLTs apply to SRSWOR, not arbitrary competing designs satisfying three inclusion orders."
+      ],
+      "reasoning": "The general combinatorial strength-t identity does not imply existence of a nonnormal sample-total law under a strength-three design. The located broader conditional CLTs require additional assumptions absent from the affine-hyperplane design.",
+      "searches": [
+        "higher order inclusion probability r=3 sampling designs normal limit counterexample",
+        "Low-Order Inclusion Probabilities Do Not Determine Asymptotic Normality Jiahua Chen 2026 projective plane r=3 conjecture finite population",
+        "arXiv:2610.09168v1 Theorem 2.1 and Introduction paragraph on conjecture"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.09168v1 (full HTML)",
+      "arXiv:2104.02292 (arXiv open full text)",
+      "https://encyclopediaofmath.org/wiki/Affine_design",
+      "https://boolean.wiki.uib.no/Bent_Boolean_Functions",
+      "https://onlinelibrary.wiley.com/doi/10.1002/jcd.20256 (abstract only)",
+      "2026/10/4/SCOPE-unit-intensity-weak-limits-under-three-wise-independent-rare-eve--1fdb092554cd",
+      "2026/10/4/SCOPE-sharp-length-threshold-for-modular-freedom-under-three-wise-inde--9498d4f69877",
+      "2026/10/11/SCOPE-exact-walsh-spectrum-multiplicities-for-eight-point-subsets-of-t--b981e436a3b1",
+      "2026/10/4/SCOPE-four-sparse-walsh-spectra-are-controlled-by-affine-dimension-on--1491c27461f4",
+      "2026/9/20/SCOPE-sharp-worst-case-moderate-deviations-randomized-experiments--364da77b6b14",
+      "2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96",
+      "2026/9/20/SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen 2026 explicitly notes its demonstrated assertion only for r=2.",
+        "Published mathematical-record hit on rare three-wise independent Bernoulli sums describes a weak-limit classification for rare events; the sample size and marginals differ.",
+        "Published mathematical-record hit on randomized-experiment moderate deviations covers complete/stratified sampling, not an alternative matched three-wise block design."
+      ],
+      "reasoning": "The exact three-inclusion-order hypothesis strictly strengthens the prior two-order hypothesis; an existence counterexample at order two cannot be promoted to three without a separate construction. This construction supplies one via affine and Walsh identities and proves maximal TV, which is not implied by weak nonnormality alone.",
+      "searches": [
+        "Low-Order Inclusion Probabilities Do Not Determine Asymptotic Normality Jiahua Chen 2026 projective plane r=3 conjecture finite population",
+        "fixed size survey sampling exact first second third inclusion probabilities simple random sampling without replacement affine binary hyperplane 3 design quadratic bent population sample total Rademacher non Gaussian central limit",
+        "2026/10/4/SCOPE-unit-intensity-weak-limits-under-three-wise-independent-rare-eve--1fdb092554cd",
+        "2026/9/20/SCOPE-sharp-worst-case-moderate-deviations-randomized-experiments--364da77b6b14",
+        "arXiv:2610.09168v1 Sections 1,2,4,6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Flat Walsh spectra of quadratic bent functions imply two intersection levels for affine hyperplanes, but do not alone assert any comparison to SRSWOR CLT.",
+        "arXiv:2104.02292 constructs triplewise-independent summand sequences, not fixed-size design indicators with SRSWOR joint inclusion probabilities."
+      ],
+      "reasoning": "The equivalent claim would combine a Hadamard strength-three sampling design with a bent population and a non-Gaussian standardized sample total as a counterexample to CLT transfer. Inspected sources offer only separate ingredients or different sampling assumptions.",
+      "searches": [
+        "affine hyperplane 3-design fixed size sampling same first three inclusion probabilities SRS asymptotic normality bent Boolean Walsh Fourier Rademacher",
+        "Hadamard 3-design hyperplane sampling exact Rademacher sample totals bent quadratic Boolean population",
+        "Walsh bent Fourier affine 3-design limiting distribution probability sampling random hyperplanes",
+        "arXiv:2104.02292"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical Hadamard affine 3-design parameters are described in the Encyclopedia of Mathematics, but no matching sample-total limit in that reference.",
+        "published-finding corpus Walsh-spectrum results cited concern finite Fourier-support enumeration, not the sampling distribution of bounded survey totals."
+      ],
+      "reasoning": "Neither the affine design parameter table nor finite Walsh enumeration specifies the combined SRSWOR-versus-hyperplane limit theorem. A finite lookup of block parameters is insufficient for the CLT comparison.",
+      "searches": [
+        "survey sampling 3-design hyperplane bent functions nonnormal estimator CLT",
+        "2^(2m) affine hyperplane design quadratic Boolean bent function sample total two point distribution",
+        "first second third inclusion probabilities match SRS without replacement central limit theorem nonGaussian bounded ±1 outcome",
+        "2026/10/11/SCOPE-exact-walsh-spectrum-multiplicities-for-eight-point-subsets-of-t--b981e436a3b1",
+        "2026/10/4/SCOPE-four-sparse-walsh-spectra-are-controlled-by-affine-dimension-on--1491c27461f4"
+      ]
+    },
+    "rationale": "Chen 2026 explicitly establishes matching inclusion orders only through two and conjectures a failure of CLT transfer for every fixed order; this construction proves the next unproved order three with bounded outcomes and maximal asymptotic total variation. Existing classical affine 3-design and bent Walsh identities are attributed, not claimed. Related 3-wise independent-summand counterexamples do not imply SRSWOR-compatible fixed-size block sampling. Searches of relevant mathematical records and inspected primary literature gave no equivalent full claim; unindexed older literature is a residual risk.",
+    "residual_risks": [
+      "A previously unindexed or older survey-sampling paper might already join affine Hadamard three-designs and quadratic bent populations into the same counterexample.",
+      "Accessible publisher abstracts cannot rule out a stronger theorem in publisher full text; no noncoverage is asserted from abstracts.",
+      "No independent human literature-priority assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the motivating order-two result and general t-design incidence identity, but explicitly does not prove the r=3 counterexample.",
+        "evidence": [
+          "Introduction: establishes assertion only for r=2 and conjectures failure at every fixed r.",
+          "Theorem 2.1: t-designs share SRSWOR inclusion orders through t."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.09168v1",
+        "material_read": "Abstract; Introduction, including the paragraph conjecturing each fixed higher order and restriction to r=2; Section 2 on t-design inclusion probabilities; Sections 3–4 on the finite-population construction; Section 6 discussion.",
+        "method": "Public arXiv HTML full text; inspected theorem statements and proofs rather than only search snippet",
+        "title": "Low-Order Inclusion Probabilities Do Not Determine Asymptotic Normality",
+        "trigger": "Same design-based CLT question and explicit higher-order conjecture"
+      },
+      {
+        "assessment": "Studies triplewise-independent summands with a common margin, not the present uniform fixed-size SRSWOR inclusion structure.",
+        "evidence": [
+          "Abstract describes triplewise independent random variable sequences and non-Gaussian sample mean limits.",
+          "The inspected model does not enforce a fixed sample size or exact without-replacement inclusion probabilities."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.02292",
+        "material_read": "Accessible full HTML/conversion, introduction, constructions and sections on non-Gaussian asymptotic sample means; bibliographic abstract.",
+        "method": "Open-access arXiv full text and focused search for fixed-size sampling designs and sampling without replacement",
+        "title": "Counterexamples to the classical central limit theorem for triplewise independent random variables having a common arbitrary margin",
+        "trigger": "Closest stochastic analogue of failure of CLT under triplewise dependence"
+      },
+      {
+        "assessment": "Classical existence/design property, does not contain the new survey-sampling law comparison.",
+        "evidence": [
+          "Affine three-designs coincide with Hadamard 3-designs."
+        ],
+        "identifier_or_url": "https://encyclopediaofmath.org/wiki/Affine_design",
+        "material_read": "Definition and classification paragraphs describing Hadamard affine three-designs",
+        "method": "Open-access mathematical encyclopedia page",
+        "title": "Affine design",
+        "trigger": "Classical three-design parameter coverage"
+      },
+      {
+        "assessment": "Establishes underlying bent-function theory; neither the fixed-size sampling design nor CLT comparison is stated.",
+        "evidence": [
+          "Quadratic canonical bent forms have constant-magnitude Walsh coefficients."
+        ],
+        "identifier_or_url": "https://boolean.wiki.uib.no/Bent_Boolean_Functions",
+        "material_read": "Definition through Walsh coefficients and quadratic canonical form",
+        "method": "Open-access technical reference page",
+        "title": "Bent Boolean Functions",
+        "trigger": "Flat Walsh-transform equality for quadratic form"
+      },
+      {
+        "assessment": "Counts classical/affine combinatorial designs; survey-sampling asymptotic comparison not established by accessible abstract; full-text noncoverage remains a risk.",
+        "evidence": [
+          "Abstract concerns number and parameters of affine designs, not CLT for sample totals."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/jcd.20256",
+        "material_read": "Published abstract and bibliography metadata only",
+        "method": "Publisher landing page; no claim of full text inspection",
+        "title": "Exponential bounds on the number of designs with affine parameters",
+        "trigger": "Plausible affine geometry design coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1fde74f9-6207-44e0-881c-df22c96cc7f2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Resolves the first not previously established case r=3 of Chen 2026 explicitly stated fixed-order inclusion conjecture; bounded deterministic population and exactly half-size designs preclude rare-event or heavy-tail pathologies. Equal first three inclusion orders yet limiting sampling laws are exactly discrete versus Gaussian and even become maximally separated in total variation, a substantial obstruction for CLT transfer and higher-order survey-design diagnostics. Not merely a parameter substitution of the order-two construction; it uses a distinct 3-design and a bent-function population. No theorem for r>=4 or universal CLT criterion is claimed.",
+    "status": "PASS"
+  }
+}
