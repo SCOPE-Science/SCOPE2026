@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The lower bound \(\lceil q^2/3\rceil\) counts at most three distinct outputs from any length-four source under deletion of two consecutive positions. The construction covers every ordered pair using seven explicitly listed local rectangle templates, and the row/column block decomposition works for every integer \(q\ge2\). In the nondivisible cases, the unique exceptional corner contributes precisely two repeated output incidences. The standalone checker replays all seven templates and all cases \(2\le q\le100\), while the universal statement follows from the proof.
+
+**Originality — PASS, with residual risk.** Xie, Sun and Ge (2026), arXiv:2606.15379v1, already prove binary perfect two-burst-deletion covering and give a general nonbinary construction (Theorems VI.1 and VI.4). The binary case is credited. The displayed general bound gives \(8\) at \(q=4,n=4\), not the sharp value \(6\), and neither inspected theorem determines the sharp all-alphabet length-four parameter. Lenz et al. (2020), arXiv:1911.09944v4, develop nonburst deletion covering. Published-record searches did not find this exact all-alphabet theorem or its grid-corner-tiling equivalent; unindexed design literature remains possible.
+
+**Value — PASS.** This is the first nontrivial length for a two-adjacent-deletion covering problem: there are three deletion locations, making a nontrivial counting bound and construction possible. The result resolves the natural exact covering cardinality for every alphabet size, sharpens a prior nonbinary existence guarantee, and explicitly exhibits when the uniform three-output volume bound is met without overlap. The construction is systematic rather than a table of isolated numerical examples.
+
+**Limitations.** The deletion positions must be consecutive, the source length is four, and the theorem does not classify all optimal codes or imply optimal longer-length constructions. Prior unindexed equivalent tiling results remain possible. The review independently checks the new proof and its finite certificate within the same scientific review process, not through an external auditor.
+
+Self-review: passed. Independent audit: not yet performed.

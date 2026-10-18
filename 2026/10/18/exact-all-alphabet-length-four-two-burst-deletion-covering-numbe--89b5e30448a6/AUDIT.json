@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "For any 4-word there are exactly three deletion scripts, hence <=3 distinct outputs and |C|>=ceil(q²/3). Every seven recorded rectangular template has three distinct output cells per word and directly covers its whole rectangle, with only the 2x2 and 4x4 templates having precisely two double-incidence cells. Partitioning both alphabet axes into 3-blocks plus a terminal 2-block (q mod3=2) or 4-block (q mod3=1) leaves exactly one exceptional square. Counting codewords yields q²/3 when 3|q and (q²+2)/3 otherwise, which equals ceil(q²/3); duplicate codewords across rectangles are excluded by block membership. Embedded verify.py checks every template and generated q=2..100; no infinite quantifier depends on finite computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xie--Sun--Ge 2026 Theorem VI.4 gives general nonbinary n-length covering construction of size at most q^n/(2n floor(q/2)^2), e.g. 8 for q=4,n=4; it does not furnish 6.",
+        "Xie--Sun--Ge Theorem VI.1 proves binary differential-VT codes are two-burst-deletion perfect-covering: the q=2 special case is prior.",
+        "Lenz et al. 2020 develop nonburst deletion covering bounds without a consecutive-burst theorem."
+      ],
+      "reasoning": "Prior broad q-ary constructions cover the same channel but their numerical upper bounds are weaker at the first nonbinary n=4 cases and do not imply the sharp q^2/3 answer. The q=2 specialization is known and excluded from the novelty assertion; the all-q rectangular tiling and exact capacity are additional.",
+      "searches": [
+        "two burst deletion covering codes length four alphabet divisible by 3 exact q squared over three perfect incidence 2026",
+        "\"two-burst-deletion covering\" \"length four\" exact",
+        "Primary text arxiv:2606.15379v1 Sections II and VI",
+        "Primary text arxiv:1911.09944v4 introductory general-covering results"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.15379v1, full primary sections I,II,VI,VII",
+      "arxiv:1911.09944v4, primary introductory and searched content",
+      "Additional scientific-record queries for equivalent burst deletion, exact small-block parameters, and grid-covering formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general Theorem VI.4 upper q^4/(8 floor(q/2)^2) is 8 at q=4; the constructed sharp bound is 6. Hence its stated bound does not imply the exact result.",
+        "Theorem VI.1 establishes q=2 perfect burst covering, not an arbitrary-alphabet sharp length-four result.",
+        "Lenz et al 2020 treats R-deletion covering without an adjacent-burst model."
+      ],
+      "reasoning": "The sharp theorem would imply the prior existence bound at n=4, not conversely. An all-q formula together with explicit output-exact tilings is strictly more precise than a weaker existence inequality. The overlap at q=2 is fully credited and is not itself the claimed novelty.",
+      "searches": [
+        "two burst deletion covering codes length four alphabet divisible by 3 exact q squared over three perfect incidence 2026",
+        "length four two burst consecutive deletion covering qary ceiling q squared over three L tromino grid exact minimum",
+        "Primary Xie--Sun--Ge 2026 VI.1, VI.4 and Xie conclusion",
+        "Primary Lenz et al 2020 abstract/introduction and full-text burst search"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The channel map Δ(a,b,c,d)={(c,d),(a,d),(a,b)} is exactly a 3-corner incidence-grid tile. The complete seven-template construction covers all 2x2, 3x3, 4x4 component cases.",
+        "No matching full all-q length-four two-adjacent-deletion statement occurred in the retrieved title/abstract results."
+      ],
+      "reasoning": "A fixed-length two-adjacent-deletion covering is mathematically equivalent to covering every cell of a square q-by-q matrix by oriented right-angle three-corner tiles. The full all-q sharp cover theorem is compared in that equivalent vocabulary, not only by its coding terminology. Absence of search matches is not a uniqueness proof; an uncatalogued tiling-equivalent theorem is possible.",
+      "searches": [
+        "perfect covering codes two consecutive deletions length four group orbit cyclic difference directed pairs",
+        "3-edge oriented path decomposition complete directed graph loops minimum edge covering consecutive two deletions",
+        "\"burst deletion\" \"covering\" \"tromino\"",
+        "\"consecutive deletion covering\" length 4 q alphabet"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The directly inspected 2026 primary manuscript reports no length-four q-ary exact covering table or q²/3 formula in its section on burst deletion covering.",
+        "No screened research-record summary or scientific search result retrieved an exact q-ary length-four two-adjacent-deletion capacity list."
+      ],
+      "reasoning": "The theorem is all q, not a recomputation of a small available code table. Possible preexisting finite-grid L-tromino incidence results remain as a specified literature risk.",
+      "searches": [
+        "length four two burst consecutive deletion covering qary ceiling q squared over three L tromino grid exact minimum",
+        "\"two-burst deletion covering\" \"q²\" three",
+        "\"burst deletion\" \"covering\" \"tromino\""
+      ]
+    },
+    "rationale": "Novelty is the exact all-q length-four two-adjacent-deletion covering number and construction, not binary q=2 burst coverage (credited to Xie et al.) or broad q-ary existence (also credited). Direct primary comparison finds Xie et al Theorem VI.4 general upper of q^n/(2n floor(q/2)^2), giving 8 at q=4,n=4 vs exact 6, and no exact all-q formula. Independent published-record searches for equivalent output/tiling conditions found no dominating result; unindexed earlier incidence tilings remain a residual risk.",
+    "residual_risks": [
+      "An earlier unindexed combinatorial-design or noncontiguous L-tromino tiling theorem could imply the same all-q formula.",
+      "Full historical coverage outside the retrieved primary literature is not guaranteed; independently verify originality before external claims of priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BINARY_SPECIAL_CASE_COVERED; NONBINARY_LENGTH_FOUR_EXACT_NOT_COVERED",
+        "evidence": "VI.1 credits binary perfect two-burst coverage. VI.4 gives q^n/(2n floor(q/2)^2) upper bound, not ceil(q^2/3) or a full all-q length-four classification.",
+        "identifier_or_url": "https://arxiv.org/html/2606.15379v1",
+        "material_read": "Abstract, Section I overview, Section II definitions, Section VI-A Theorem VI.1 with proof, Section VI-B Theorem VI.4 with proof, and Section VII open problems.",
+        "method": "Read full-text HTML and compare actual covering implication and the explicit q-ary length-n bound.",
+        "title": "New bounds for covering codes under insertions or deletions",
+        "trigger": "Same q-ary burst-deletion covering model; nearest primary scientific article"
+      },
+      {
+        "assessment": "GENERAL_NONBURST_BOUNDS; NO DIRECT_SAME_CHANNEL_FORMULA_IDENTIFIED",
+        "evidence": "Defines deletion covering by arbitrary subsets of R coordinates and supplies asymptotic covering results, not the fixed two-adjacent-deletion length-four statement.",
+        "identifier_or_url": "https://arxiv.org/pdf/1911.09944",
+        "material_read": "Original arXiv v4 abstract and introduction through treatment of covered words and general covering estimates; full-text searched for burst and consecutive (no matching term).",
+        "method": "Read primary PDF text and page image; targeted full-document textual searches of burst-model vocabulary.",
+        "title": "Covering Codes using Insertions or Deletions",
+        "trigger": "Foundational general insertion/deletion covering predecessor cited by nearest primary work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "89b5e304-48a6-43f6-8f20-12c06911ee03",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This resolves the complete first nontrivial adjacent-two-deletion covering capacity across every alphabet, with a sharp volume bound attained for every q and exact-output partitions when 3|q. That precisely benchmarkable quantity matters because earlier nonbinary burst-deletion code constructions had only weaker general-size guarantees (e.g. 8 instead of optimum 6 for q=4); the reusable incidence-grid tiling mechanism supplies a concrete O(q²)-output constructive design. It is not an arbitrary parameter slice or a mere recomputation of a known table; length four is the first source size with three possible adjacent deletion positions, and every q is covered.",
+    "status": "PASS"
+  }
+}
