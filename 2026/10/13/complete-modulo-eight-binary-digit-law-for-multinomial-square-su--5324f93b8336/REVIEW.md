@@ -1,11 +1,21 @@
-# Scientific review: complete modulo-eight binary-digit law
+# Independent mathematical audit
 
-**Correctness (PASS).** The valuation identity in (6) follows directly from Legendre's formula and binary carry conservation, including carries larger than one (which are excluded from the valuation-one case). The proof partitions all multinomial terms into valuations zero, one, and at least two, and computes their powers modulo eight without dividing by a nonunit. It checks \(n=0\), \(\ell=1\), both parities of \(\ell\), the sharp change at even height four, and the exact independent low-bit/parity census. Direct coefficient-convolution, exact factorial, and one-carry enumerations are reproduced by the packaged executable verifier. Finite verification corroborates; only the analytical steps prove the universal statements.
+## correctness
 
-**Originality (PASS; residual literature risk).** The source introduced the two-parameter sequence and proves index-weighted congruences, but its statements do not provide a level-uniform binary digit law for **each coefficient modulo eight** or exact residue counts on dyadic intervals. Beluhov's prior work already covers two-adic valuation information for corresponding lattice-walk counts, notably the central-binomial and Domb specializations, but neither an exact general modulo-eight value formula nor the odd-level four-residue census follows from the cited valuation bounds. Related published results treat different sums or moduli. Targeted alias, exact-formula, broader-coverage, database, and implication searches found no covering statement; search absence does not prove uniqueness, and an unindexed equivalent remains possible.
+PASS
 
-**Value (PASS).** The precise lowest modulus where one binary carry survives distinguishes square height from all larger even heights. The result classifies every term of a natural level-and-height family and gives a complete distribution theorem on every dyadic block for the full infinite set of levels \(\ell\equiv3\pmod4\), plus sparseness for even levels. It is neither an isolated numerical congruence nor a restatement of the already-known valuation facts.
+Legendre/Kummer valuation gives v2(multinomial(n;k1,...,kL))=sum_{i>=1}c_i where c_i are binary carry integers, so valuation zero means carry-free digits and exactly L^{s2(n)} ordered tuples. Each odd multinomial squared contributes 1 mod 8. Valuation one means one outgoing carry c_{i+1}=1, forcing b_{i+1}=1, d_i=b_i+2, d_{i+1}=0, yielding precisely binom(L,b_i+2)L^{s-b_i-1} disjoint tuples. Their squares contribute 4; valuation>=2 vanishes mod 8. This gives the full formula. At even h>=4 all even multinomial powers vanish mod8. Lucas parity yields the odd/even-L simplifications, and for L=3 mod4 the independent b0 and upper-bit parity each occur 2^{k-2} times, distributing 1,3,5,7 equally for k>=2. n=0,L=1 are included; even-L residues zero when s>=3. Independent exact factorial enumeration of L<=6,n<=10,h in {2,4,6} gave 198 matches, plus dyadic census for L=3,7,11,15,k=2..9. These are finite checks only.
 
-**Scope and limits.** Even heights and modulo eight only; no assertion of new central-binomial or isolated Domb special-case results. Public-source indexing is incomplete, and no external validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sequence itself is Sun 2026 and was also studied as Abelian-square lattice-walk counts; these definitions and special Domb/binomial cases are not new. Sun proves prime-index-weighted sums modulo p, not each coefficient modulo eight. Beluhov 2025 gives strong 2-adic valuations of W_d(n)=binom(2n,n)S_d^(2)(n), which do not fix the unit residue among 1,3,5,7 or the exact dyadic distributions. The already-published SCOPE exceptional-branch theorem for Sun considers a weighted sum over n=1..p-1 mod p; its entire public RESULT.md was read and does not cover termwise mod 8. The all-level one-carry and exact finite-block four-class law remain new on the inspected evidence. Risk: Sun arXiv full v3 text was inaccessible this run (only detailed abstract), and authorized Oxford retrieval was blocked by VPN; this is explicitly not a whole-document noncoverage finding.
+
+## value
+
+PASS
+
+The first modulus at which a *single* binary carry survives squaring is 8; the abrupt transition from height two to all larger even heights is mathematically structural. The theorem gives every term for all levels and indices, a uniform exact four-class equidistribution for every level 3 mod4 and sparsity for even levels. It is a motivated arithmetic classification of a published natural family, not a recomputation of the familiar Domb special case or a narrow arbitrary table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

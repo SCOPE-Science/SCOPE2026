@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T05:15:15.258332Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Legendre/Kummer valuation gives v2(multinomial(n;k1,...,kL))=sum_{i>=1}c_i where c_i are binary carry integers, so valuation zero means carry-free digits and exactly L^{s2(n)} ordered tuples. Each odd multinomial squared contributes 1 mod 8. Valuation one means one outgoing carry c_{i+1}=1, forcing b_{i+1}=1, d_i=b_i+2, d_{i+1}=0, yielding precisely binom(L,b_i+2)L^{s-b_i-1} disjoint tuples. Their squares contribute 4; valuation>=2 vanishes mod 8. This gives the full formula. At even h>=4 all even multinomial powers vanish mod8. Lucas parity yields the odd/even-L simplifications, and for L=3 mod4 the independent b0 and upper-bit parity each occur 2^{k-2} times, distributing 1,3,5,7 equally for k>=2. n=0,L=1 are included; even-L residues zero when s>=3. Independent exact factorial enumeration of L<=6,n<=10,h in {2,4,6} gave 198 matches, plus dyadic census for L=3,7,11,15,k=2..9. These are finite checks only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beluhov main theorem gives exact/bounded powers of 2 dividing lattice-walk W_d and equality conditions, not modulo 8 residue classes of W*_d.",
+          "Sun abstract details a prime-weighted-index congruence; related full SCOPE result proves missing exceptional branch of that same weighted sum."
+        ],
+        "reasoning": "Weighted prime-index modulo-p formulas and valuation information do not logically entail the stated all-index modulo-eight digit law or all-dyadic exact frequency.",
+        "searches": [
+          "arXiv:2506.12789",
+          "arXiv:2607.07638",
+          "2026/10/4/SCOPE-the-exceptional-branch-in-sun-s-multinomial-prime-congruence--54bbd0a326b7"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2506.12789",
+        "https://doi.org/10.48550/arXiv.2607.07638",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-exceptional-branch-in-sun-s-multinomial-prime-congruence--54bbd0a326b7/RESULT.md",
+        "https://oeis.org/A287316",
+        "Resultary semantic: multinomial power sums sum multinomial squares modulo 8 binary digit carries equidistribution odd levels"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Beluhov 2025 states w_d(n) valuations and carry-free counts, including W*=S squared but no unit residues.",
+          "The already published SCOPE formula concerns T_{l,m}(p)=sum_{n=1}^{p-1}(-1)^{mn}/n^{m-1}S_l^(m)(n) mod p, rather than each S_l^(2)(n) mod8."
+        ],
+        "reasoning": "A valuation lower bound or aggregate congruence cannot recover the binary correction or odd-level four-way exact equidistribution without the one-carry enumeration.",
+        "searches": [
+          "arXiv:2506.12789 theorem and Kummer section",
+          "arXiv:2607.07638 abstract",
+          "Resultary published Sun exceptional RESULT.md full"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Beluhov identifies W*_d(n) as Abelian-square word counts equal to sums of squared multinomial coefficients.",
+          "Zero/one-carry valuation counts give digital forms for the same sequence in every level."
+        ],
+        "reasoning": "Explicitly matched Sun multinomial sums, lattice-walk W*_d, Abelian square word counts and the Domb specialization. Valuations of W_d do not determine mod8 unit residues of W*_d.",
+        "searches": [
+          "Resultary semantic: multinomial power sums sum multinomial squares modulo 8 binary digit carries equidistribution odd levels",
+          "arXiv:2506.12789",
+          "OEIS A287316",
+          "S_l^(2)(n) modulo 8 Abelian square count binary carries"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A287316 tabulates the two-parameter Abelian-square count array; A002895 records Domb numbers.",
+          "A mathematical database of initial values does not give a uniform mod8 theorem with all L,n and exactly uniform dyadic residue counts."
+        ],
+        "reasoning": "Known tables and special-level results cannot be promoted into an infinite all-level proof; unsearched OEIS comments or automata literature may nevertheless contain an equivalent theorem.",
+        "searches": [
+          "OEIS:A287316",
+          "OEIS:A002895",
+          "Resultary semantic: multinomial power sums sum multinomial squares modulo 8 binary digit carries equidistribution odd levels",
+          "S_l^(2)(n) modulo 8 Abelian square count binary carries"
+        ]
+      },
+      "rationale": "The sequence itself is Sun 2026 and was also studied as Abelian-square lattice-walk counts; these definitions and special Domb/binomial cases are not new. Sun proves prime-index-weighted sums modulo p, not each coefficient modulo eight. Beluhov 2025 gives strong 2-adic valuations of W_d(n)=binom(2n,n)S_d^(2)(n), which do not fix the unit residue among 1,3,5,7 or the exact dyadic distributions. The already-published SCOPE exceptional-branch theorem for Sun considers a weighted sum over n=1..p-1 mod p; its entire public RESULT.md was read and does not cover termwise mod 8. The all-level one-carry and exact finite-block four-class law remain new on the inspected evidence. Risk: Sun arXiv full v3 text was inaccessible this run (only detailed abstract), and authorized Oxford retrieval was blocked by VPN; this is explicitly not a whole-document noncoverage finding.",
+      "residual_risks": [
+        "Original Sun 2026 arXiv full paper not accessible from this run despite open-access attempts; Oxford authorized access reported VPN disconnected. Only abstract and related full text read, so whole-paper noncoverage is not asserted.",
+        "An equivalent modulo-eight Abelian-square digital formula may exist in underindexed automata/word-count literature.",
+        "Known central-binomial and Domb special-case valuation/congruences are not new in isolation; novelty refers to universal all-level formula and exact dyadic four-residue distribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Derives valuations of W_d and exact carrier-free count, not the modulo-eight unit residue for W*_d or finite dyadic frequency of its odd residue classes.",
+          "evidence": [
+            "Introduction W*_d(n)=S_d^(2)(n), main theorem w_d(n); Section 2 Kummer and carry-free count d^{s2(n)}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2506.12789",
+          "material_read": "Full available arXiv HTML text including 8 sections, theorem parts (a)–(d), and Kummer/carry-free argument; scanned modulo 8 terminology",
+          "method": "Read full indexed primary mathematical paper; checked Section 1 theorem and Section 2 equations",
+          "title": "Powers of 2 in High-Dimensional Lattice Walks",
+          "trigger": "Same squared-multinomial object in Abelian-square alias"
+        },
+        {
+          "assessment": "ABSTRACT-SCOPE ONLY: documented weighted sum over index n mod p; whether the complete paper contains a related digital corollary remains an access risk.",
+          "evidence": [
+            "Submitted 2026-07-08; v3 2026-07-21; stated Theorem 1.1 weighted prime-index congruence."
+          ],
+          "identifier_or_url": "https://doi.org/10.48550/arXiv.2607.07638 ; arXiv:2607.07638v3",
+          "material_read": "Detailed arXiv indexed abstract, history, and explicit weighted prime-congruence statement; full v3 not accessible during this audit",
+          "method": "Tried original arXiv abstract, HTML, PDF, and lawful OA alternate renderers; authorized institutional retrieval reported VPN disconnected. Did NOT claim to inspect full article.",
+          "title": "A new kind of numbers and related congruences",
+          "trigger": "Defines exact S_l^(h) family and could contain dominating modulo-eight formula"
+        },
+        {
+          "assessment": "The conclusion is a dichotomy of aggregate weighted T_{l,m}(p) modulo p; no termwise S_l^(2)(n) mod8 or dyadic residue counts.",
+          "evidence": [
+            "Formula T=0 if p not divides l+1; T=-1 otherwise, mod p."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-exceptional-branch-in-sun-s-multinomial-prime-congruence--54bbd0a326b7/RESULT.md",
+          "material_read": "Entire public RESULT.md via GitHub frozen default-source fetch, including formulas, proof, assumptions and limitations",
+          "method": "Read actual primary finding Git blob 2162bfb910d4be498e5d1d55deb5a684504f8cef, compared quantified objects",
+          "title": "The exceptional branch in Sun’s multinomial prime congruence",
+          "trigger": "Closest published mathematical finding on exact same Sun family"
+        },
+        {
+          "assessment": "Existing two-parameter term table alone cannot imply the all-index modulo-eight congruence.",
+          "evidence": [
+            "Beluhov Section 1 identifies OEIS A287316 as W*_d(n)."
+          ],
+          "identifier_or_url": "https://oeis.org/A287316",
+          "material_read": "Sequence identity and existence documented in Beluhov 2025 Section 1; direct complete OEIS entry not inspected",
+          "method": "Compared the table identification in Beluhov to submitted all-level residue theorem",
+          "title": "OEIS A287316, Abelian-square counts",
+          "trigger": "Exact database alias and term table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first modulus at which a *single* binary carry survives squaring is 8; the abrupt transition from height two to all larger even heights is mathematically structural. The theorem gives every term for all levels and indices, a uniform exact four-class equidistribution for every level 3 mod4 and sparsity for even levels. It is a motivated arithmetic classification of a published natural family, not a recomputation of the familiar Domb special case or a narrow arbitrary table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2506.12789",
+    "https://doi.org/10.48550/arXiv.2607.07638",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-exceptional-branch-in-sun-s-multinomial-prime-congruence--54bbd0a326b7/RESULT.md",
+    "https://oeis.org/A287316",
+    "Resultary semantic: multinomial power sums sum multinomial squares modulo 8 binary digit carries equidistribution odd levels"
+  ],
+  "disposition": "passed",
+  "limitations": "Even heights only, modulus exactly eight, no higher dyadic moduli or odd powers; the source paper literature check retains an explicit access risk.",
+  "residual_risks": [
+    "Original Sun 2026 arXiv full paper not accessible from this run despite open-access attempts; Oxford authorized access reported VPN disconnected. Only abstract and related full text read, so whole-paper noncoverage is not asserted.",
+    "An equivalent modulo-eight Abelian-square digital formula may exist in underindexed automata/word-count literature.",
+    "Known central-binomial and Domb special-case valuation/congruences are not new in isolation; novelty refers to universal all-level formula and exact dyadic four-residue distribution."
+  ],
+  "schema_version": 1
+}
