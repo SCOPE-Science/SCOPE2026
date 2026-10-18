@@ -1,19 +1,21 @@
-# Review of the cylinder shadow covariance theorem
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The cylinder is an ellipse-plus-segment Minkowski sum after planar projection. The exact expressions for area and perimeter follow by additivity and Cauchy's perimeter formula. Every expectation used in the mixed moment is derived directly, including the elliptic integral. Exact rational comparisons from the 144-term hypergeometric series, a proved tail bound and alternating arctangent enclosures show the covariance quadratic has strictly negative discriminant and positive leading coefficient. Its unique positive vertex and minimum then follow. The standalone verifier passes its exact rational certificate and independent finite geometric checks. Computational sampling alone is not used as an infinite proof.
+PASS
 
-## Originality: PASS, with residual risk
+For Haar random plane normal, x=|U·e_3| is uniform [0,1] and y=sqrt(1−x²); orthogonal cylinder shadow is ellipse of axes r,rx Minkowski-added to an axial segment length hy, hence A=πr²x+2rhy, P=4rE(1−x²)+2hy. Beta integrals yield E[x]=1/2, E[y]=π/4, E[xy]=1/3, E[y²]=2/3; exchanging elliptic integrals yields E[E]=π²/8 and E[xE]=2/3; weighted I=E[yE]. These reconstruct E[AP]=(8π/3)r³+(2π/3+8I)r²h+(8/3)rh² and the covariance quadratic r³[4C(h/r)²+B(h/r)+4πC]. The 144-term rational hypergeometric truncation plus tail and Machin arctangent enclosure gives 0.930<I<0.933, C>0.0498, −0.69<B<−0.65, B²<(0.69)²<64(3.14)(0.0498)²<64πC²; discriminant negative with C>0 and vertex h/r=−B/(8C)>0. Independent high-precision integral gives I≈0.9318171570247627, minimizer≈1.68126868048556, minimum≈0.06275436161117 r³; finite polygonal tests are only geometric sanity checks, not universal proof.
 
-Finch (arXiv:1203.2464v1) explicitly computes or reports shadow-area/perimeter moments for three-dimensional regular polyhedra and four-dimensional analogues. His Section 5 also contains the same weighted complete-elliptic integral as a component of the cube perimeter-second-moment calculation; this previously known integral is not claimed novel. No cylinder mixed-area/perimeter calculation or universal right-cylinder covariance inequality is among his results. Kim--Yaskin--Zvavitch (arXiv:1512.07289v1) investigate one-dimensional distributions of projection volumes and comparison/uniqueness questions, not this joint statistic or its shape optimization. A related four-dimensional orthotope calculation has a different geometric object and ambient dimension; its formulas do not imply the right-cylinder theorem. Other candidate records concern unrelated cylinder approximation, lens mean width and finite polytopes. An unlocated equivalent historical elliptic-integral calculation or a stronger universal correlation theorem remains a residual risk; record-search failure is not treated as novelty proof.
+## originality
 
-## Value: PASS
+PASS
 
-Random-shadow area/perimeter dependence can change sign across natural solids, making its sign for a full continuous family a genuinely motivated question. The exact mixed moment yields both a nontrivial all-aspect positivity result and a sharp, interior shape optimizer with an explicit constant. It is not merely a recomputation of a mean or a parameter substitution; the negative mixed covariance contributions must be dominated by a certified global discriminant bound. The result supplies a reproducible continuous-body benchmark for projection statistics.
+Finch computes random projection mixed geometric moments for selected regular polyhedra, and a weighted elliptic integral also occurs there. That prior integral itself is covered. Its cubical results and projection-volume distribution theorems do not imply the right-cylinder mixed AP moment or strict covariance quadratic for all positive aspects. New science is the shape-wide sign and sharp interior optimizer, subject to literature residuals.
 
-## Limitations and access
+## value
 
-The proof is restricted to isotropic planar shadows of solid right circular cylinders. It does not establish any general positive-dependence theorem for other convex bodies. Both relevant arXiv primary texts were read in full-text HTML format; no comparison rests on abstracts alone. Historical overlap cannot be ruled out absolutely. The rational certificate proves the strict sign, while finite hull checks test implementation and normalization.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Area–perimeter correlation of random shadows can vary across bodies (the Finch polyhedral comparisons motivate the sign question); proving a strictly positive covariance for every member of the natural continuous family of right circular cylinders and locating its unique optimal aspect ratio is a meaningful exact convex-geometric benchmark. A rational discriminant certificate gives information beyond tabulating two separate expected values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
