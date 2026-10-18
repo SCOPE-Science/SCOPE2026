@@ -1,29 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the exact Pfaffian multiplicity formula and rewrites it as an adjacent two-step degree ratio. Taking the quotient of neighboring ratios gives
-\[
-\frac{D_{n,s+2}D_{n,s-2}}{D_{n,s}^2}
-=
-\frac{(n^2-s^2)(n^2-(s+1)^2)}
-{16(2s-1)(2s+1)^2(2s+3)}.
-\]
-The sign polynomial has the exact difference
-\[
-Q_n(s+2)-Q_n(s)
-=
--4(2s+3)\bigl(n^2+255s^2+765s+701\bigr)<0,
-\]
-so it can cross zero at most once. Dividing the exact ratio by the appropriate powers of \(n\) gives the bulk limit and the sharp boundary \(1/\sqrt{17}\).
+## correctness
 
-The bundled checker replays the degree product, adjacent ratios, curvature formula, and sign monotonicity for every rank level through \(n=120\). These computations are regression evidence only.
+PASS
 
-## Originality
-PASS. The closest classical source contains the Pfaffian degree product, but the inspected text does not state adjacent logarithmic curvature. Targeted literature searches found analogous curvature results for ordinary and symmetric determinantal varieties, but no skew-symmetric/Pfaffian counterpart.
+The classical Pfaffian multiplicity formula gives D_{n,s}=∏_{1≤i≤j≤s}(n-s-1+i+j)/(i+j), with extended ambient endpoints. Factorial cancellation yields the adjacent ratio D_{n,s}/D_{n,s-2}=∏_{k=-(s-1)}^{s-1}(n+k)/[(2s)! C_{s-1}]; its quotient at s+2 gives exact second ratio [(n²-s²)(n²-(s+1)²)]/[16(2s-1)(2s+1)²(2s+3)]. Independent Sympy factored Q_n(s+2)-Q_n(s) = -4(2s+3)(n²+255s²+765s+701), strictly negative for admissible positive n,s, forcing at most one sign change from log-convex to log-concave. Dividing numerator/denominator by n⁴ yields (1-theta²)²/(256theta⁴), crossing one at 1/sqrt(17). Independent exact fractional degree and curvature comparisons checked 324 cases for 4≤n≤40; symbolic proof covers all.
 
-The generic and symmetric results do not imply the Pfaffian identity: the skew-symmetric rank loci have even-rank spacing and a distinct multiplicity product. Residual risk remains that an unindexed source may have made the same algebraic simplification.
+## originality
 
-## Value
-PASS. Pfaffian rank loci form a canonical classical rank geometry, and their projective degrees are natural enumerative data. The result controls the whole rank profile by one exact curvature formula, proves a one-transition law, and exposes the same \(1/\sqrt{17}\) asymptotic boundary seen in nearby determinantal families.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS at best-of-knowledge level: same-input primary exact degree formula credited, but no printed Pfaffian adjacent-curvature/one-transition result was found, and the closely related published symmetric and generic results do not cover skew-symmetric rank loci. Algebraic simplification may have been independently noticed in unindexed older work.
+
+## value
+
+PASS
+
+Pfaffian skew-symmetric rank loci form a natural canonical nested family of projective varieties; their enumerative degrees admit a coherent exact curvature phase portrait. One-transition behavior and sharp asymptotic threshold reveal cross-rank geometric structure, not a one-number substitution or recomputation of known multiplicities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
