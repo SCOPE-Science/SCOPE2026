@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "All distances and ranges form a genuine metric, with a nondegenerate Lipschitz norm for every 0<t<=2. The dual norm is exactly max(|h|/H, |h|+||z||_infinity). Averaging arbitrary positive quadratic forms over the full signed-permutation isometry group is a valid global Banach–Mazur reduction. The outer q-radius is max(m,rH^2+m(1-H)^2); the inner boundary q-radius is min(rH^2,r/(r+1)), with attainment checked in both branches. Exhaustive ratio regimes make r*=max(H^-2-1,m(2-H)/H) the unique optimal invariant shape, giving both formula branches and their sharp crossover. The metric optimum and asymptotics are directly differentiated. A standalone standard-library verifier passed 63 exact parameter cases, 25,200 rational comparisons, and 286 independent polytope vertices; these tests corroborate rather than prove the infinite assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The published K_{p,q} Hilbert-distance theorem found by published-finding corpus specifies p,q>=3, whereas the two-hub spoke graph has p=2, and it has no variable hub edge.",
+        "A rooted star is a tree with no shared triangles and cannot include the weighted-book family at fixed dimension.",
+        "Dilworth–Kutzarova–Ostrovskii 2018 bounds free-space distances to ell_1 and studies recursively defined graphs; those results do not yield exact Euclidean Hilbert distance here."
+      ],
+      "reasoning": "The broad structural and adjacent graph-class theorems cover different comparisons, different parameter domains, or coarser estimates. At t=2 the book metric equals K_{2,m}, whose squared distance m+1 is a benchmark, but neither this endpoint nor universal John bounds imply the strict interior minimum.",
+      "searches": [
+        "published-finding corpus: book graph Lipschitz dual norm Euclidean ellipsoid Hilbert BM distortion all parameters minimum as edge weight varies",
+        "published-finding corpus: maximal Hilbert distortion for complete bipartite transportation spaces",
+        "published-finding corpus: exact Euclidean distortion for equiradial star Lipschitz free spaces",
+        "Web: 2018 Lipschitz-free spaces finite metric graphs Banach Mazur Euclidean distance graph edge polytope"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1807.03814v1 (2018-07-10)",
+      "arxiv:2102.01219v1 (2021-02-01)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-sharp-l-wner-ellipsoid-edge-invisibility-threshold-for-book-gr--87e035ae5886",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-hilbert-distortion-along-a-one-edge-deformation-of-the-fou--f6a1d49d869f",
+      "published-finding corpus record 2026/10/11/SCOPE-maximal-hilbert-distortion-for-complete-bipartite-transportation--203c5ca21810 (statement and quantified domain)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The public book-graph Löwner theorem computes an outer minimum-volume ellipsoid for the primal root polytope at t=1, with a sharp contact transition at m=3/4; its objective is determinant, not BM radius ratio.",
+        "The public four-point one-edge theorem proves squared distortion 7/3 for its endpoint having one distance two and the other five one, coinciding with m=2,t=1 here.",
+        "The previously recorded weighted-book bulk theorem concerns volume, covariance and probability limits, not Euclidean Banach–Mazur distance; the older book face theorem is combinatorial, not metric-distortion optimization."
+      ],
+      "reasoning": "Neither a volume-minimizing outer ellipsoid nor a covariance tensor determines a global ellipsoidal sandwich. The four-point theorem entails exactly one noted instance, not the m>=3 families or the variable hub length; the new proof obtains exact inner boundary distances and optimizes their ratio for every allowed (m,t).",
+      "searches": [
+        "published-finding corpus: book graph m triangles common edge Hilbertian Banach Mazur Lipschitz-free transportation space exact distance",
+        "published-finding corpus: weighted complete bipartite two hubs sharing leaves plus connecting edge m-distance Banach Mazur",
+        "Public full text: https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-sharp-l-wner-ellipsoid-edge-invisibility-threshold-for-book-gr--87e035ae5886",
+        "Public full text: https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-hilbert-distortion-along-a-one-edge-deformation-of-the-fou--f6a1d49d869f"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The coordinate form is precisely N(h,z)=max(|h|/H, |h|+||z||_infinity), with H=t/2; this is an exact linear reformulation, not a separate theorem.",
+        "The 2018 graph-free-space paper gives the cycle quotient and finite-metric interpretation but no sharp Hilbert distance for this family.",
+        "The available book-graph ellipsoid result explicitly fixes unit hub length and minimizes enclosing volume of the primal symmetric-edge polytope."
+      ],
+      "reasoning": "The alternate norm/capped-cone formulations were searched as possible hidden equivalents. No source examined states the two-branch Banach–Mazur formula, and an outer minimum-volume ellipsoid does not logically identify the ratio of outer and inner Euclidean radii. No novelty inference rests on different titles alone.",
+      "searches": [
+        "published-finding corpus: weighted book graph m common leaves hub edge length t optimal Euclidean Banach Mazur distance real Lipschitz-free space",
+        "published-finding corpus: truncated cone cube unit ball |h|<=H and |h|+||z||_infinity<=1 sharp Hilbert distance and phase transition optimal H",
+        "Web: \"Lipschitz-free\" \"book graphs\" \"Banach Mazur\"",
+        "Web: \"transportation cost\" \"book graph\" \"Banach Mazur\" Euclidean"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest published exact four-point Hilbert-distortion table is for a metric with five distances one and a single varying sixth distance; the present metric has two distinguished nonspoke pairs, one fixed at two.",
+        "The known isolated coincidence at (m,t)=(2,1) gives squared distance 7/3, which matches the new formula and is explicitly not new alone.",
+        "No searchable table or record supplied the exact m-dependent transition t=2/(m+sqrt(m^2-m+1))."
+      ],
+      "reasoning": "The actual record results were compared by six-distance data, dimension and quantified parameter range. The one matching numerical corner cannot dominate an all-m, variable-t theorem; no exact table containing the full claim was located.",
+      "searches": [
+        "published-finding corpus: double hub finite metric with m shared neighbors weighted central edge strict Banach Mazur minimum quadratic forms",
+        "published-finding corpus: four point metric two opposite distances t and 2 four remaining distances one Euclidean Banach Mazur",
+        "published-finding corpus: norm defined by max |h|/H, |h|+max_i|z_i| optimal ellipsoid Banach Mazur distance",
+        "Web: \"Banach-Mazur distance\" \"pyramid\" \"cube\" \"truncated\" norm"
+      ]
+    },
+    "rationale": "Across every integer m>=2 and real 0<t<=2, the theorem optimizes the full Hilbertian ellipsoid-sandwich ratio and identifies a unique m-dependent edge-length minimizer. Inspected existing work covers book-graph outer Loewner ellipsoids at t=1, volume/covariance rather than Hilbert distortion, and a four-point one-edge family overlapping only at m=2,t=1. Published finite-metric structural results supply the setting but not these sharp m,t constants. published-finding corpus searches under graph, norm-equivalent and parameter aliases found no dominating formula. The residual risk of an unindexed equivalent unconditional-body calculation is acknowledged.",
+    "residual_risks": [
+      "An unindexed equivalent minimax calculation for unconditional truncated cube-cones could already exist under a different name.",
+      "Public primary mathematical papers were inspected at the material described; the search is not an exhaustive bibliographic proof of uniqueness.",
+      "Only one isolated four-point parameter is already implied by the published one-edge theorem and is not claimed separately."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the proposed exact Euclidean Hilbertian metric deformation.",
+        "evidence": "The paper identifies Lip_0(M) as F(M)^*, finite graph cycle quotients, and bounds/distances principally against ell_1; no weighted-book Hilbert ellipsoid profile is stated.",
+        "identifier_or_url": "arxiv:1807.03814v1; https://facpub.stjohns.edu/ostrovsm/DilwKutzOstr.pdf",
+        "material_read": "Original open PDF introduction §§1.1–1.3, contents, theorem statements and sections 2, 3, 6; searched full 34-page text for Banach–Mazur, Euclidean and ellipsoid.",
+        "method": "Primary open-access PDF text and page-image inspection plus document-wide term search.",
+        "title": "Lipschitz free spaces on finite metric spaces",
+        "trigger": "Original graph/transport free-space model, potential dominating Banach–Mazur theorem."
+      },
+      {
+        "assessment": "NOT_COVERING the metric-dependent Hilbert distance.",
+        "evidence": "The main theorem classifies extreme molecules by strict metric triangle conditions; it does not optimize Euclidean quadratic distortion.",
+        "identifier_or_url": "arxiv:2102.01219v1; https://arxiv.org/pdf/2102.01219",
+        "material_read": "Primary open PDF introduction and main theorem, visual review of theorem page, document-wide searches for Banach–Mazur and ellipsoid.",
+        "method": "Primary open PDF structured text, page-image inspection, and text search.",
+        "title": "Extreme points in Lipschitz-free spaces over compact metric spaces",
+        "trigger": "Primary MSC 46B20 source on finite metric Lipschitz-free balls and extreme-point structure."
+      },
+      {
+        "assessment": "NOT_COVERING the new weighted Hilbert-distance theorem; contains related but different outer-ellipsoid optimization.",
+        "evidence": "It minimizes enclosing Euclidean volume for P_m at t=1, with contact thresholds, and explicitly does not determine maximum inscribed ellipsoids or Banach–Mazur ratio.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-sharp-l-wner-ellipsoid-edge-invisibility-threshold-for-book-gr--87e035ae5886",
+        "material_read": "Entire public RESULT.md including theorems, normalization, five proof steps, relationships and limitations.",
+        "method": "Public mathematical GitHub file read through approved read-only connector.",
+        "title": "A sharp Löwner ellipsoid edge-invisibility threshold for book-graph symmetric edge polytopes",
+        "trigger": "Exact same unweighted book family at t=1 and ellipsoids, highest-risk apparent predecessor."
+      },
+      {
+        "assessment": "COVERS the isolated m=2,t=1 value 7/3; NOT_COVERING the stated all-m weighted-book profile.",
+        "evidence": "Its four-point family has one varying distance and five unit distances; the weighted book family fixes the leaf pair at two and varies the hub pair, overlapping only at t=1 for m=2.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-hilbert-distortion-along-a-one-edge-deformation-of-the-fou--f6a1d49d869f",
+        "material_read": "Entire public RESULT.md including two-branch formula, full 6-distance hypotheses, inner/outer quadratic proof and limitations.",
+        "method": "Public mathematical GitHub file read through approved read-only connector.",
+        "title": "Exact Hilbert distortion along a one-edge deformation of the four-point equilateral metric",
+        "trigger": "Shares m=2,t=1 metric as a special benchmark."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e649cfd1-b981-46fb-bd72-ca5b9c18e979",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Euclidean Banach–Mazur distance is a natural intrinsic Banach-space invariant. The new exact all-m and continuum-t metric deformation formula reveals a unique unexpected most-Hilbertian edge length at scale 1/m, contrasting with both endpoints where the squared distance tends to or equals dimension m+1. Its sharp competing-radii phase transition and explicit optimum supply reusable benchmark geometry not entailed by prior fixed-parameter volume/covariance or outer-Loewner results. Known four-point equality is credited, and the entire family and parameter optimum—not a routine isolated number—motivate the result.",
+    "status": "PASS"
+  }
+}
