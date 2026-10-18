@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The exact cyclic matching expansion yields \\(D_k=q_n-(a^2+b^2-1)q_{n-2}+(a^2-1)(b^2-1)q_{k-2}q_{n-k-2}-2ab\\cos(n\\theta)\\). The Chebyshev product relation gives \\(D_{k+1}-D_k=\\Delta q_{n-2k-2}\\), with \\(\\Delta=(a^2-1)(b^2-1)\\). At every angular top eigenvalue, an unweighted principal path on \\(n-k\\) vertices has top eigenvalue \\(2\\cos(\\pi/(n-k+1))\\), strictly above the largest \\(q_m\\) root, so \\(q_m\\) remains positive to the right. Monic real-root characteristic polynomials then have strictly ordered largest roots according to the sign of \\(\\Delta\\) for every angle, with equality when \\(\\Delta=0\\). Continuous support gaps imply strict interior containment, and the Perron/triangle argument supplies the radius corollary. The exact finite polynomial and phase checks (39+28) and 7350 numerical comparisons replayed; finite tests are not relied on for universal quantification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chang--Wang (2012) maximizes the *radius* over all permutations and hence covers the endpoint maximizer in some same-side cases, but it does not supply the strict full-range chain for all k.",
+        "Chien--Kirkland--Li--Nakazato (2023) Proposition 2.5 is a general comparison criterion in terms of determinant polynomials; the paper treats weight-permutation inclusions through n=6 and leaves the all-n conjecture open (§7).",
+        "The new proof derives the explicit difference \\(D_{k+1}-D_k=(a^2-1)(b^2-1)U_{n-2k-2}(x/2)\\) and independently bounds the angular top eigenvalue above all roots of this correction; neither conclusion is supplied by the general criteria alone."
+      ],
+      "reasoning": "A general necessary-and-sufficient test is not itself an evaluated monotonicity conclusion: nontrivial determinant factorization and a global sign proof at every phase are required. Preexisting global-radius extrema are acknowledged, and the asserted strict interior inclusion is stronger. A potentially undiscovered general Jacobi rearrangement theorem remains an explicit risk.",
+      "searches": [
+        "doi:10.1016/j.jmaa.2012.04.039 theorem 2.1 maximizing numerical radii permutations",
+        "arxiv:2304.06050 conjecture 1.1 theorem 4.4 proposition 2.5 numerical range inclusion",
+        "finite cyclic weighted shift two defects opposite adjacent optimizing spectral radius position including weak edges",
+        "characteristic polynomial cyclic Jacobi two perturbed bonds P_{k+1}-P_k Chebyshev U_{n-2k-2}"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1080/03081087.2014.1003528; publisher metadata and abstract, date verified",
+      "doi:10.1016/j.jmaa.2012.04.039; publisher indexed text and theorem",
+      "arxiv:2304.06050v2; full source, relevant sections inspected",
+      "Chien and Sheu (2013), The numerical radii of weighted shift matrices and operators; original full PDF",
+      "Published mathematical record searches using the actual scientific queries recorded above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arXiv:2304.06050 the support function equals the largest eigenvalue of Re(e^{iθ}S), and the characteristic polynomial has a phase-dependent full-cycle term; these are compatible inputs but the two-defect spacing factorization and strict all-angular sign are not asserted.",
+        "Chang--Wang (2012) Theorem 2.1 identifies global radius maximizers. Strict containment for every pair of consecutive separations does not follow from knowing a maximizer.",
+        "Chien et al. (2015) publisher abstract introduces q-analog determinantal polynomials applied to radius; unavailable full text could bear on the formula, but is not evidence of an explicit strict angular nesting theorem."
+      ],
+      "reasoning": "The prior supports radius/permutation background and general tests, while the new exact Chebyshev difference plus path interlacing gives strict support inequality for every direction (a strictly stronger object). If a previously published general theorem yields this statement as a direct special case, originality would need reconsideration; no such decisive implication was established in material inspected.",
+      "searches": [
+        "arxiv:2304.06050 Sections 1 2 4 7 weighted cyclic numerical range inclusion and characteristic polynomial",
+        "doi:10.1080/03081087.2014.1003528 weighted shift determinantal polynomials 47A12",
+        "doi:10.1016/j.jmaa.2012.04.039 characterization numerical-radius maximizing permutations",
+        "weighted cyclic shift two exceptional bonds strict nesting of numerical ranges as distance increases general dimension Chebyshev characteristic polynomial",
+        "Chien Kirkland Li Nakazato cyclic shift numerical ranges 2023 conjecture only two non-unit weights solved all n",
+        "weighted cycle Jacobi two marked edges characteristic polynomial difference Chebyshev rearrangement numerical ranges"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2304.06050 (Chien--Kirkland--Li--Nakazato, 2023), Abstract and §§1--2: general angular support-function formalism and permutation conjecture; §§4--6 restrict proved general inclusion comparisons to low dimensions.",
+        "doi:10.1016/j.jmaa.2012.04.039 (Chang--Wang, 2012), Abstract, Theorem 2.1 and proof: complete characterizations of global numerical-radius-maximizing permutations, not an ordering of all intermediate separations.",
+        "Search results on weighted cyclic Jacobi matrices and two impurity edges supplied no explicit all-dimension strict numerical-range nesting result."
+      ],
+      "reasoning": "Unitary reflection of the defect positions, Perron/spectral-radius translation, and numerical-range support functions were compared. The claim is strict interior inclusion for every separation and phase, not merely radius ordering or a global maximizer. Its sign reversal for opposite-side perturbations is not stated in inspected stronger-looking results.",
+      "searches": [
+        "cyclic weighted shift matrix numerical radius two exceptional weights a,b among unit weights strict monotonic separation adjacent distance increase decreases if (a²-1)(b²-1)>0 increases if negative",
+        "weighted cycle largest adjacency eigenvalue two edge defects distance monotone placement Chebyshev matching polynomial",
+        "cyclic shift numerical range inclusion weight permutations Chebyshev 2023 arXiv:2304.06050"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching source or table was found for the parameter family (n,k,a,b), its sign transition, or the angular support-function nesting.",
+        "Nearest results from indexed published mathematical records included “Exact norm and essential-norm power profiles for irreducible weighted shifts” (unilateral power norms, not finite-cycle numerical ranges) and “Exact nearest-neighbor Shapiro doubling on finite cycles” (harmonic analysis on cyclic groups, not weighted cycle spectra)."
+      ],
+      "reasoning": "This is an infinite all-parameter theorem, not a finite numerical table. Negative database searches are only screening evidence, not proof of novelty; specific closely relevant published papers were compared by mathematical implication instead.",
+      "searches": [
+        "weighted cycle graph two edge weights spectral radius distance maximized adjacent less than one",
+        "cyclic Jacobi matrix two impurities defect interaction monotonic distance eigenvalue cycle",
+        "strict numerical range inclusion concentric nested cyclic weighted shifts exactly two perturbed weights edge separation positive opposite products a2-1 b2-1"
+      ]
+    },
+    "rationale": "Strict full numerical-range nesting at every intermediate separation in all dimensions, including sign reversal for one strengthened and one weakened bond, is not stated or directly implied by the inspected Chang--Wang global-radius maximizing theorem (2012) or the full Chien--Kirkland--Li--Nakazato numerical-range permutation treatment (2023); the exact Chebyshev factorization and all-phase root exclusion are genuine additional arguments. Historical deterministic sources and restricted publisher texts leave a disclosed risk of stronger prior spectral-rearrangement results.",
+    "residual_risks": [
+      "Full original text of Chien--Nakazato--Undrakh--Vandanjav (2015) could not be obtained; it may contain a usable determinant identity or stronger comparison.",
+      "The complete original 2012 Chang--Wang PDF was inaccessible; the available publisher-indexed main theorem and proofs support the comparison but not a full-document negative claim.",
+      "An older all-size weighted-cycle spectral rearrangement theorem or periodic Jacobi comparison could imply strict two-bond placement order; no exhaustive priority certification is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general support-function and determinant methods, and low-n permutation inclusions, but no strict all-dimensional two-defect separation chain or mixed-weight direction reversal.",
+        "evidence": "arxiv.org/pdf/2304.06050; §§1--2, 4, 7, Conjecture 1.1, Proposition 2.5, Theorem 4.4.",
+        "identifier_or_url": "arxiv:2304.06050v2",
+        "material_read": "Full 25-page original preprint was accessible. Material read: Abstract, Section 1/Conjecture 1.1, Section 2/Propositions 2.1, 2.2, 2.5, Section 4/Theorem 4.4, and Section 7 conclusion.",
+        "method": "Original arXiv full-text PDF rendered/extracted, with relevant sections inspected.",
+        "title": "Numerical ranges of cyclic shift matrices",
+        "trigger": "Same matrices and numerical-range permutation comparisons; strongest plausible full-range coverage."
+      },
+      {
+        "assessment": "General maximum radius characterization can subsume some endpoint-maximizer consequences, but not strict intermediate numerical-range inclusions. Residual risk from unavailable portions remains.",
+        "evidence": "doi.org/10.1016/j.jmaa.2012.04.039; publisher abstract, §2 main theorem and proof.",
+        "identifier_or_url": "doi:10.1016/j.jmaa.2012.04.039",
+        "material_read": "Publisher-indexed article HTML furnished abstract, introduction, stated Theorem 2.1 and Lemmas 2.2--2.3 plus substantial proof and Section 3 excerpts; original publisher PDF inaccessible.",
+        "method": "Publisher-hosted indexed scholarly text and metadata; full PDF route and lawful access options attempted.",
+        "title": "Maximizing numerical radii of weighted shifts under weight permutations",
+        "trigger": "Exact same weighted cyclic shifts with all permutations and global radius optimization."
+      },
+      {
+        "assessment": "No coverage claim from unread full text. Its possible implications are a named residual bibliographic risk.",
+        "evidence": "doi:10.1080/03081087.2014.1003528; publisher online date 2015-01-21, AMS 47A12/47B37.",
+        "identifier_or_url": "doi:10.1080/03081087.2014.1003528",
+        "material_read": "Publisher metadata, AMS classification 47A12 and 47B37, exact online date, abstract describing q-analog determinant and numerical-radius application; full paper text unavailable.",
+        "method": "Original publisher article landing page/abstract; open-access and preprint searches, institutional-access attempt unsuccessful.",
+        "title": "Determinantal polynomials of a weighted shift operator",
+        "trigger": "Historical initiating numerical-radius determinant source; first online 2015-01-21; primary MSC 47A12."
+      },
+      {
+        "assessment": "Nilpotent/open path and one exceptional bond, not a closed cyclic shift with two bonds and angular numerical-range nesting.",
+        "evidence": "2013 Chien--Sheu, weighted shift numerical-radius theorem for one exceptional weight.",
+        "identifier_or_url": "2013 Chien--Sheu mathematical paper (open full text)",
+        "material_read": "Original eight-page PDF full text, including single-defect nilpotent displacement theorem and discussion.",
+        "method": "Open PDF and page inspection.",
+        "title": "The numerical radii of weighted shift matrices and operators",
+        "trigger": "Closest older strict-placement analysis in nilpotent shifts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "28b6e95d-881d-4333-a3e1-67466de16450",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is an exact natural classification for the smallest nontrivial multiple-defect cyclic-shift family. All angular supports, not only the radius, strictly nest, and the direction reverses precisely for opposed weak/strong defects. The proof supplies a structural Chebyshev difference identity and handles the otherwise difficult subcritical eigenvalue region. The classification resolves a motivated structured slice of the open all-size numerical-range permutation-order problem, rather than a routine specialization or marginal finite increment.",
+    "status": "PASS"
+  }
+}
