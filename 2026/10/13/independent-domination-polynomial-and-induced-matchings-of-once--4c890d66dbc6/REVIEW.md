@@ -1,23 +1,21 @@
-# Scientific review: independent domination of once-subdivided graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The universal claim has an explicit inverse bijection. Starting from an independent dominating set of the full subdivision, the selected original vertices uniquely determine every inserted-edge vertex: it is selected exactly when neither endpoint is. The remaining domination requirement at each unselected original vertex is precisely the absence of an isolated vertex in the induced original-vertex complement. This establishes both directions of the polynomial formula, all cardinalities, and empty and disconnected boundary cases.
+PASS
 
-The matching step bounds the saving \(|W|-|E(G[W])|\) by the number of tree components, which cannot exceed the induced matching number because one edge from each component forms an induced matching. An induced matching supplies equality, and equality characterizes all minimum-size sets. For forests, the independently stated three-state recurrence tracks the root's own inclusion and need for a supporting parent; the excluded-at-root and included-supported-at-root states close the recursion without leaving unsupported vertices. No infinitary inference is made from enumeration.
+A maximal independent set D of S(G) intersects the original vertices in U; for W=V\U each inserted edge vertex z_uv must be selected exactly when both endpoints lie in W. Such D is automatically independent and all z_uv are dominated; original excluded w is dominated iff it has a neighbor in W. This establishes the full W-bijection and exponent n-|W|+|E(G[W])|. In every nonempty admissible W, each tree component contributes +1 to |W|-|E|, each cyclic component <=0, and one edge in every component yields an induced matching, so |W|-|E|<=im(G). The endpoints of a maximum induced matching attain equality. Any extra unicyclic component at equality would provide an extra disjoint induced-matching edge, so the minimum coefficient consists exactly of im(G) nontrivial tree components. Forest DP states A(excluded), B(included supported by child), C(included awaiting parent) have the correct edge and vertex weights; the root uses A+B. Independently enumerate all 76 labeled graphs of order <=4 by brute maximal independent sets and compare exact polynomial/induced matching boundary.
 
-Executable evidence: `CHECK.py` and `CHECK_OUTPUT.txt`, including \(3{,}229{,}975\) directly tested subdivision-graph subsets on exhaustive small and sampled larger base graphs, \(201\) nonisomorphic trees, \(640\) additional random forests, and the explicit \(L_3\) check. The universal conclusion rests on the written proofs; the computations independently probe implementation and boundary errors.
+## originality
 
-## Originality — PASS, with stated uncertainty
+PASS
 
-Jahari–Alikhani (arXiv:1808.07369, first posted 2018-08-21) study independent domination polynomials for compound graphs and paths, not an induced-subgraph description of every maximal independent set of a complete edge subdivision. Dod (arXiv:1602.08250) provides broad inclusion–exclusion and corona identities, but neither the induced-matching optimization equality nor the subtree recursion follows as an immediate stated special case. The 2021 Babikir–Dettlaff–Henning–Lemańska article studies the *number of edges requiring subdivision to raise a parameter*, not enumeration after every edge is subdivided. The 2017 Tsukuda paper describes homotopy types of independence complexes of edge-incidence graphs; homotopy type cannot in general determine the number of maximal faces at each cardinality.
+Best-of-knowledge: older independent-domination-polynomial papers derive general generating identities; subdivision-domination studies generally analyze selected families. A 2019 paper gives some family-specific values including a ladder formula contradicted at L_3 by a concrete four-vertex independent dominating set (the printed value is six), so that formula cannot imply the all-graph bijection. No inspected primary treatment supplies the general no-isolates W correspondence, induced-matching minimum identity, and all-coefficient forest recursion together.
 
-The especially close 2019 study “Independent Domination in Some Subdivision Graphs” gives scalar results for particular graph families, including a ladder assertion (Theorem 3.4) that differs from direct enumeration at the three-rung ladder. Its formula yields six whereas a concrete independent dominating set of four vertices and all \(8{,}192\) direct subset checks give four. The discrepancy is explicitly disclosed rather than silently treating that source as corroboration. It does not contain the all-graph classification or polynomial and therefore does not imply this claim. A semantic search of published research records found nearby results on independent domination of other constructions and induced-matching gaps, with no same-input same-output coverage; this is not a proof of absolute novelty.
+## value
 
-**Residual risks:** an unindexed explicit formula for incidence-graph maximal independent sets could be equivalent; a pre-existing algorithmic or hypergraph formulation may imply this theorem after a nontrivial translation; external review is needed before publication. The 2019 conflicting family-specific assertion should be reconciled by independent readers. These limitations do not introduce a logical dependence into the present self-contained derivation.
+PASS
 
-## Value — PASS
+The universal bijection is a substantial reusable structural description of all maximal independent sets of fully subdivided finite graphs; the induced matching endpoint connects separate natural graph invariants and the exact polynomial-time forest DP enables all-coefficient computations. It also resolves/diagnoses misleading special-case formulas, not merely a small-instance count.
 
-This is not a renamed scalar equality or a single numerical table. The bijection classifies *every* maximal independent set of the subdivision of any base graph, gives all coefficients, explains the minimum through the induced matching invariant of the original graph, and classifies every minimum-size set through induced forests. The explicit forest recursion turns the all-subsets formula into a polynomial-time exact enumerator for an infinite and structurally general class. The connection is motivated by independent-domination subdivision literature and by the difference between ordinary, induced and dominating induced matchings. The concrete ladder boundary comparison further shows why a structural criterion is useful beyond extrapolating small-family formulas.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:08:15.157699Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/independent-domination-polynomial-and-induced-matchings-of-once--4c890d66dbc6/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/independent-domination-polynomial-and-induced-matchings-of-once--4c890d66dbc6/VERIFICATION.md",
+        "Independent mathematical checker independent_1733_checks.py"
+      ],
+      "rationale": "A maximal independent set D of S(G) intersects the original vertices in U; for W=V\\U each inserted edge vertex z_uv must be selected exactly when both endpoints lie in W. Such D is automatically independent and all z_uv are dominated; original excluded w is dominated iff it has a neighbor in W. This establishes the full W-bijection and exponent n-|W|+|E(G[W])|. In every nonempty admissible W, each tree component contributes +1 to |W|-|E|, each cyclic component <=0, and one edge in every component yields an induced matching, so |W|-|E|<=im(G). The endpoints of a maximum induced matching attain equality. Any extra unicyclic component at equality would provide an extra disjoint induced-matching edge, so the minimum coefficient consists exactly of im(G) nontrivial tree components. Forest DP states A(excluded), B(included supported by child), C(included awaiting parent) have the correct edge and vertex weights; the root uses A+B. Independently enumerate all 76 labeled graphs of order <=4 by brute maximal independent sets and compare exact polynomial/induced matching boundary.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "JETIR1904I23 Theorems 3.1–3.8 cover selected subdivision families",
+          "Babikir et al. 2021 measures number of subdivisions required to change independent domination"
+        ],
+        "reasoning": "General independent-domination polynomial identities could calculate particular S(G) by substitution but are not shown to imply the induced matching extremal equality without new reasoning. The 2019 ladder theorem is mathematically incompatible with a four-vertex independent dominating set for L_3.",
+        "searches": [
+          "subdivision graph independent domination number induced matching formula",
+          "2019 Independent Domination in Some Subdivision Graphs",
+          "Babikir Dettlaff Henning Lemanska 2021"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/independent-domination-polynomial-and-induced-matchings-of-once--4c890d66dbc6/RESULT.md",
+        "https://arxiv.org/abs/1602.08250",
+        "https://arxiv.org/abs/1808.07369",
+        "https://www.jetir.org/papers/JETIR1904I23.pdf",
+        "https://doi.org/10.1007/s00373-020-02269-3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2019 Theorem 3.4 ladder formula contradicted by explicit minimal set and brute count",
+          "Dod/Jahari Alikhani polynomial theory operates on arbitrary graphs"
+        ],
+        "reasoning": "The generic definition of maximal independent sets is prior; the forced subdivision-vertex correspondence and tree-component extremization are the needed new deductions. Previously published family formulas and general polynomial machinery do not themselves entail the full classification at the statement level.",
+        "searches": [
+          "2019 JETIR1904I23 theorem 3.4 ladder",
+          "arXiv:1808.07369 full text",
+          "full subdivision graph independent domination polynomial maximal independent sets induced matching number no isolated induced subgraph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dod arXiv:1602.08250 defines independent domination polynomial",
+          "Jahari Alikhani arXiv:1808.07369 studies independent domination polynomial"
+        ],
+        "reasoning": "Independent domination equals counting maximal independent sets; the equivalent incidence/subdivision graph formulation is explicit, and the reviewed theorem gives a particular exact bijection not found in the full inspected standard-polynomial sources.",
+        "searches": [
+          "full subdivision graph independent domination polynomial maximal independent sets induced matching number no isolated induced subgraph",
+          "independent domination subdivision graph induced matching",
+          "arXiv:1602.08250",
+          "arXiv:1808.07369"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "JETIR 2019 exact ladder printed 2 ceil((3k−2)/3), gives 6 at k=3 vs independently verified 4",
+          "Resultary semantic graph-domination hits concern distinct graph families/parameters"
+        ],
+        "reasoning": "No exact table/database was shown to already encode the general n−im(G) identity or coefficient polynomial. A family table is not general coverage, and a failed lookup is not proof of novelty.",
+        "searches": [
+          "full subdivision graph independent domination polynomial maximal independent sets induced matching number no isolated induced subgraph",
+          "\"i(S(G))\" \"induced matching\"",
+          "subdivision graph independent domination polynomial sequence"
+        ]
+      },
+      "rationale": "Best-of-knowledge: older independent-domination-polynomial papers derive general generating identities; subdivision-domination studies generally analyze selected families. A 2019 paper gives some family-specific values including a ladder formula contradicted at L_3 by a concrete four-vertex independent dominating set (the printed value is six), so that formula cannot imply the all-graph bijection. No inspected primary treatment supplies the general no-isolates W correspondence, induced-matching minimum identity, and all-coefficient forest recursion together.",
+      "residual_risks": [
+        "A general line-graph/incidence-graph theorem could subsume the bijection under other names; no exhaustive historical priority certification.",
+        "The 2019 ladder formula conflict applies to the convention read in that paper, and should be verified before public correction.",
+        "Finite independent enumeration only through four vertices; unrestricted proof is combinatorial."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General independent-domination polynomial constructions, not this specific full-subdivision induced-matching correspondence",
+          "evidence": "arXiv:1602.08250, independent domination polynomial definitions and corollaries",
+          "identifier_or_url": "https://arxiv.org/abs/1602.08250",
+          "material_read": "Accessible full arXiv HTML including basic generating identities and polynomial properties",
+          "method": "arXiv HTML sections and named corollary inspection",
+          "title": "The Independent Domination Polynomial",
+          "trigger": "potential stronger general polynomial identity"
+        },
+        {
+          "assessment": "No identified full-subdivision W-bijection or forest state recursion",
+          "evidence": "arXiv:1808.07369",
+          "identifier_or_url": "https://arxiv.org/abs/1808.07369",
+          "material_read": "Full arXiv HTML in relevant definitions and graph operation results",
+          "method": "arXiv full-text HTML inspection",
+          "title": "On the independent domination polynomial of a graph",
+          "trigger": "same invariant, potential direct prior coverage"
+        },
+        {
+          "assessment": "Contains particular family formulas, including a discrepancy for L_3, but not universal enumerator",
+          "evidence": "Theorem 3.4 at PDF pages 4–5; 2ceil((3n−2)/3)",
+          "identifier_or_url": "https://www.jetir.org/papers/JETIR1904I23.pdf",
+          "material_read": "Nine-page PDF, Theorems 3.1–3.8 and especially 3.4, inspected rendered pages and text",
+          "method": "primary PDF rendering and text",
+          "title": "Independent Domination in Some Subdivision Graphs",
+          "trigger": "same subdivision object and independent domination invariant"
+        },
+        {
+          "assessment": "Studies changing independent domination by subdividing selected edges, not enumerator of a full subdivision",
+          "evidence": "Graphs Comb. 37 (2021) 691–709",
+          "identifier_or_url": "https://doi.org/10.1007/s00373-020-02269-3",
+          "material_read": "Abstract and introductory available material (not full paper)",
+          "method": "public publisher description/search",
+          "title": "Independent Domination Subdivision in Graphs",
+          "trigger": "title has all main terms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/independent-domination-polynomial-and-induced-matchings-of-once--4c890d66dbc6/RESULT.md",
+        "https://arxiv.org/abs/1602.08250",
+        "https://arxiv.org/abs/1808.07369",
+        "https://www.jetir.org/papers/JETIR1904I23.pdf",
+        "https://doi.org/10.1007/s00373-020-02269-3"
+      ],
+      "rationale": "The universal bijection is a substantial reusable structural description of all maximal independent sets of fully subdivided finite graphs; the induced matching endpoint connects separate natural graph invariants and the exact polynomial-time forest DP enables all-coefficient computations. It also resolves/diagnoses misleading special-case formulas, not merely a small-instance count.",
+      "residual_risks": [
+        "A general line-graph/incidence-graph theorem could subsume the bijection under other names; no exhaustive historical priority certification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All finite simple graphs including isolates and empty graph; exactly one subdivision per edge.",
+    "Only the special forest recursion has asserted polynomial-time coefficient complexity."
+  ],
+  "schema_version": 1
+}
