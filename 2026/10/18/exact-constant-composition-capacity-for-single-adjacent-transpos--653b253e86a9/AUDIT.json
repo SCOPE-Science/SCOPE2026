@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For each fixed Parikh vector the swap graph is bipartite by inversion parity. The first-unequal-designated-pair involution pairs every odd vertex to an even adjacent vertex, with fixed points necessarily even. This explicitly proves that the even side is maximum, independently of any experimental enumeration. Fixed point counts are exactly F(r), and summing unmatched words gives q^ceil(n/2); boundary n=1 is included. The included checker independently computes matching-based graph optima in 2, 3 and 4 symbol alphabets over the specified finite lengths.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang–Vu–Tan 2023 Theorem 1 constructs a code correcting one 0-deletion OR adjacent transposition with logarithmic redundancy; it does not optimize detection-only capacity.",
+        "Khuat–Kim 2023 constructs q-ary codes to correct one edit or adjacent transposition, requiring stronger nonoverlap than detection.",
+        "Abdel-Ghaffar 1998 abstract studies joint detection of a substitution OR transposition and states codes optimal for that joint model, which cannot imply equality for the larger transposition-only model."
+      ],
+      "reasoning": "Correction of even just one swap forbids shared received words, more than detection forbids, while detection of either a substitution or a swap forbids additional code pairs. Thus reported bounds for either stronger model do not logically dominate an exact optimality claim for swap-only detection. Full 1998 text was not accessible, so its possible additional special-case results remain a risk.",
+      "searches": [
+        "arXiv:2301.11680 section III one-adjacent-transposition correction",
+        "doi:10.1109/OJCOMS.2023.3327435 entire accessible author text",
+        "doi:10.1093/comjnl/41.4.270 abstract",
+        "exact maximum one adjacent transposition detection code fixed length q ary inversion parity q^(ceil(n/2))"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2301.11680v2",
+      "https://doi.org/10.1109/OJCOMS.2023.3327435",
+      "https://doi.org/10.1093/comjnl/41.4.270 (abstract only)",
+      "https://dlmf.nist.gov/26.16",
+      "published-finding corpus semantic search: exact maximum one adjacent transposition detection code fixed length q ary inversion parity q^(ceil(n/2))",
+      "published-finding corpus semantic search: independence number of adjacent-swap word graph with fixed Parikh vector multiset permutations",
+      "published-finding corpus semantic search: error detection single swap code constant composition q-binomial at minus one"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2301.11680 Theorem 1 covers correction of an adjacent transposition or 0-deletion with bound on redundancy, not exact one-swap detection optimum.",
+        "Khuat–Kim 2023, abstract and sections I–IV, constructs mixed-error correcting q-ary codes, not an extremal family for detection alone.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-initial-profile-for-binary-one-0-deletion-or-adjacent-tran--da86d12c66bc is a short-length mixed correction census; results at n=1..7 are not this optimum."
+      ],
+      "reasoning": "Compared error semantics (detection against codewords versus unique decoding after an error) and allowed operations. The closest prior theorems do not yield an upper bound matching the feasible inversion-parity code in the one-swap-only model. The present matching argument supplies the missing upper bound uniformly.",
+      "searches": [
+        "exact maximum one adjacent transposition detection code fixed length q ary inversion parity q^(ceil(n/2))",
+        "independence number of adjacent-swap word graph with fixed Parikh vector multiset permutations",
+        "error detection single swap code constant composition q-binomial at minus one",
+        "\"transposition errors\" \"detection\" \"codes\" parity inversions largest"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "NIST DLMF §26.16 gives multiset inversion-generating q-multinomials, not maximum one-swap-detecting graph independent sets.",
+        "Results from searches contained related one-swap correction papers and multi-swap detection papers but no exact one-swap-only detection optimum."
+      ],
+      "reasoning": "Translated the claim into independence numbers of graphs on multiset permutations under one adjacent unequal swap, with Gaussian q-multinomial evaluations at -1 for the parity counts. This is stronger than parity enumeration alone because parity counts give a feasible independent set but do not rule out larger sets until the saturating matching is constructed.",
+      "searches": [
+        "exact maximum one adjacent transposition detection code fixed length q ary inversion parity q^(ceil(n/2))",
+        "independence number of adjacent-swap word graph with fixed Parikh vector multiset permutations",
+        "\"adjacent transposition\" \"error detecting\" code maximum size inversions",
+        "\"inversion parity\" \"adjacent transpositions\" \"error detection\" codewords"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "DLMF §26.16 gives classical q-multinomial inversion counts for each content vector.",
+        "No retrieved exact table of detection-only optimum D_q(n) or type-wise independent-set optimum."
+      ],
+      "reasoning": "The individual parity cardinalities are standard evaluated combinatorial quantities; the mathematical content asserted here is that the larger parity side is provably maximum for an adjacent-swap conflict graph in every content class, witnessed by a matching. The claimed channel capacity is not merely the old parity-count table, and no novelty is asserted for these counts alone.",
+      "searches": [
+        "error detection single swap code constant composition q-binomial at minus one",
+        "NIST DLMF 26.16 multiset permutations inversion q-multinomial",
+        "independence number of adjacent-swap word graph with fixed Parikh vector multiset permutations"
+      ]
+    },
+    "rationale": "The new claim is the exact independent-set/detection capacity in all q-ary lengths and in every content class. The arXiv 2301.11680 and 2023 Khuat-Kim primary texts treat correcting adjacent swaps combined with edits, not the present weaker detection-only extremum. Abdel-Ghaffar 1998 concerns simultaneous substitution-and-transposition detection, a stronger admissibility requirement whose bounds do not imply the stated detection-only formula; its unavailable full text remains a concrete priority risk. Classical inversion q-multinomials determine the parity class sizes, but not the graph upper bound without the new matching argument. published-finding corpus searches returned related channel results but no logical covering theorem, under best-knowledge comparison.",
+    "residual_risks": [
+      "Full text of the close 1998 joint-detection paper could not be inspected; it may contain transposition-only results not stated in the abstract.",
+      "Inversion-parity enumeration is classical; priority risk concerns whether the matching saturation statement was previously recorded under another graph-theoretic name.",
+      "No independent external validation has yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Discusses one or more swaps plus deletions in the correction regime; no exact maximum for detection-only single swaps found in inspected statements.",
+        "evidence": "Theorem 1: correction of one 0-deletion or one adjacent transposition, with redundancy at most log n + 3.",
+        "identifier_or_url": "https://arxiv.org/html/2301.11680v2",
+        "material_read": "Abstract, Introduction and Related Works, definition of correcting codes, Theorem 1 in Section III-A, section headings III–V and Conclusion",
+        "method": "Accessible arXiv HTML main-text inspection",
+        "title": "Codes for Correcting Asymmetric Adjacent Transpositions and Deletions",
+        "trigger": "Same adjacent-transposition operation; earliest source in assigned age band"
+      },
+      {
+        "assessment": "Corrects any one edit or adjacent swap with constraints and syndromes, without claiming a detection-only all-q,n extremum.",
+        "evidence": "Table 1 and introductory stated contribution: redundancy 2 log_q n + 4 symbols in mixed error correction.",
+        "identifier_or_url": "https://doi.org/10.1109/OJCOMS.2023.3327435",
+        "material_read": "Author full text introduction, related-work comparison Table 1, channel definition, abstract, and construction goals",
+        "method": "Accessible full author manuscript text via public ResearchGate record",
+        "title": "Novel q-ary Code Design for One Edit or Adjacent Transposition Error",
+        "trigger": "General q-ary adjacent-transposition coding"
+      },
+      {
+        "assessment": "UNRESOLVED full-text comparison. Abstract studies joint substitution and transposition detection; those joint-model bounds do not logically imply this swap-only optimum, but an additional special-case treatment cannot be ruled out.",
+        "evidence": "The 1998 abstract explicitly says both substitution and transposition detection; reports bounds q^(n-1) for q<=3 under the joint model.",
+        "identifier_or_url": "https://doi.org/10.1093/comjnl/41.4.270",
+        "material_read": "Journal abstract and bibliographic metadata only; complete text unavailable",
+        "method": "Publisher abstract; attempted lawful full-text retrieval without access",
+        "title": "Detecting Substitutions and Transpositions of Characters",
+        "trigger": "Most plausible older detection-focused predecessor"
+      },
+      {
+        "assessment": "Covers inversion enumerator and its parity specialization, not the channel-specific maximum independent-set/matching theorem.",
+        "evidence": "DLMF §26.16 discusses inversion enumerators of multiset permutations.",
+        "identifier_or_url": "https://dlmf.nist.gov/26.16",
+        "material_read": "Section definitions, inversion statistic, q-multinomial generating polynomial",
+        "method": "Authoritative public reference text",
+        "title": "NIST DLMF §26.16 Multiset Permutations",
+        "trigger": "Known equivalent inversion parity enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "653b253e-86a9-48ba-9eff-a12761b621c0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Single adjacent symbol interchange is a natural human-entry and string-channel error, and maximum detectable code cardinality with no correction demand is its exact combinatorial coding capacity. The result determines this previously unlocated invariant simultaneously for all alphabets and all blocklengths, and refines it by every fixed content class (important in composition-constrained storage). The direct matching certificate exposes optimality rather than merely constructing a half-sized parity code. No downstream theorem is required and neither classical inversion parity alone nor computation alone is claimed as the contribution.",
+    "status": "PASS"
+  }
+}
