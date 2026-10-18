@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The bounded-orbit subspace is reconstructed exactly from the scalar spectral measures: any positive mass outside the closed unit disk forces exponential growth on a positive-mass annulus, while support in the disk makes the orbit contractive. On that subspace, zero unit-circle spectral mass is exactly the dominated-convergence condition for orbit norms to tend to zero. Uniform decay is equivalent, by normality, to a strict operator-norm gap below one. The multiplication-operator examples are checked from essential ranges and nonatomicity. No finite computation is used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The closest current source, arXiv:2610.01196v1, proves that point, approximate-point, and whole spectra are insufficient by using nonnormal shifts, and explicitly asks for a finer spectral characterization. Its normal-operator result is only invariance under adjoint. The inspected Morales and Mazur sources do not state the boundary-projection or strong-gap criteria. Searches over the exact source, aliases, spectral projections, multiplication operators, and same-spectrum normal contractions found no implication-equivalent statement. A possible equivalent formulation in older stability language remains a stated residual risk.
+PASS
 
-## Value
-PASS. The result resolves the motivating spectral question on a natural major class, provides exact criteria for both asymptotic and strong asymptotic expansivity, and shows that even normality does not make the usual three spectral sets sufficient. The example also supplies a canonical separation of the two notions.
+For normal N the spectral measure identity ||N^n x||^2=integral |z|^(2n) dmu_x gives bounded orbits exactly when mu_x has no mass outside |z|<=1: positive mass outside contains an annulus |z|>=1+1/k of positive mass, forcing exponential growth. On the bounded orbit subspace, dominated convergence gives norm decay exactly when E_N(unit circle)=0. Uniform decay is norm-power decay for the normal restricted contraction, equivalent to ||N P||<1 and to a spectral gap r<1; the zero-subspace case is also consistent. For A=M_z on L2(planar disk area), unit-circle mass vanishes but ||A||=1; adding circle-arclength U=M_zeta changes the boundary projection but not the closed-disk spectrum or empty point spectrum. Normality gives approximate-point spectrum equal to whole spectrum. These deductions are complete spectral-theorem arguments, not finite sampling.
 
-## Closest literature and limitations
-Classical spectral-theorem results on strong stability of normal contractions provide ingredients, and Mazur's work gives spectral criteria for ordinary expansivity and shadowing. Those results do not by themselves state the present asymptotic-expansivity classification. The theorem is limited to bounded normal operators on complex Hilbert spaces and does not claim a criterion for nonnormal operators.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The motivating current Bag--Mandal--Das preprint publicly presents the asymptotic-expansivity framework and a spectral-set obstruction; full text was not accessible here. The spectral-projection characterization for normal operators is a direct but nontrivial synthesis of standard normal strong-stability facts and these definitions. The separate normal pair with identical three spectral sets further sharpens the reported example. This supports qualified best-of-knowledge originality with a clear risk of older operator-stability equivalences or an uninspected current-paper result.
+
+## value
+
+PASS
+
+The spectral characterization settles the exact discriminant for a natural operator class in the motivating dynamical notion and distinguishes ordinary from uniform versions. The normal same-spectrum example gives a particularly sharp obstruction showing even normality does not make point/approximate/whole spectral sets a complete test; its explicit measure-class mechanism offers a reusable model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

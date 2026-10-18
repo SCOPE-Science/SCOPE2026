@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The one-sided definitions of asymptotic and strong asymptotic expansivity were checked against arXiv:2610.01196v1. For a bounded normal operator \(N\), the proof was replayed directly from the spectral identity
-\[
-\|N^n x\|^2=\int |z|^{2n}\,d\mu_x(z).
-\]
-Positive spectral mass outside \(\overline{\mathbb D}\) was checked to force unbounded growth by passing to one annulus \(|z|\ge1+1/k\). Zero mass on \(\mathbb T\) then gives pointwise decay with a unit dominating function, so dominated convergence proves ordinary asymptotic expansivity on every bounded forward orbit.
+# Independent mathematical audit
 
-For strong asymptotic expansivity, the restriction to \(E_N(\overline{\mathbb D})H\) is a normal contraction. Uniform decay on the fixed bounded-orbit ball scales to operator-norm decay of its powers, and normality gives \(\|T^n\|=\|T\|^n\), forcing \(\|T\|<1\). The converse follows from geometric decay.
+## correctness
 
-The example was checked without numerical approximation. Coordinate multiplication on planar \(L^2(\mathbb D)\) has essential range \(\overline{\mathbb D}\), empty point spectrum, zero spectral projection on \(\mathbb T\), and norm one. Coordinate multiplication on arclength \(L^2(\mathbb T)\) has nonzero unit-circle spectral projection and empty point spectrum. Their direct sum therefore has the same point, approximate-point, and whole spectra as the planar operator but fails asymptotic expansivity.
+PASS
 
-The proof does not extend automatically to nonnormal operators, where spectral projections with these orthogonality and norm identities need not exist.
+For normal N the spectral measure identity ||N^n x||^2=integral |z|^(2n) dmu_x gives bounded orbits exactly when mu_x has no mass outside |z|<=1: positive mass outside contains an annulus |z|>=1+1/k of positive mass, forcing exponential growth. On the bounded orbit subspace, dominated convergence gives norm decay exactly when E_N(unit circle)=0. Uniform decay is norm-power decay for the normal restricted contraction, equivalent to ||N P||<1 and to a spectral gap r<1; the zero-subspace case is also consistent. For A=M_z on L2(planar disk area), unit-circle mass vanishes but ||A||=1; adding circle-arclength U=M_zeta changes the boundary projection but not the closed-disk spectrum or empty point spectrum. Normality gives approximate-point spectrum equal to whole spectrum. These deductions are complete spectral-theorem arguments, not finite sampling.
+
+## originality
+
+PASS
+
+The motivating current Bag--Mandal--Das preprint publicly presents the asymptotic-expansivity framework and a spectral-set obstruction; full text was not accessible here. The spectral-projection characterization for normal operators is a direct but nontrivial synthesis of standard normal strong-stability facts and these definitions. The separate normal pair with identical three spectral sets further sharpens the reported example. This supports qualified best-of-knowledge originality with a clear risk of older operator-stability equivalences or an uninspected current-paper result.
+
+## value
+
+PASS
+
+The spectral characterization settles the exact discriminant for a natural operator class in the motivating dynamical notion and distinguishes ordinary from uniform versions. The normal same-spectrum example gives a particularly sharp obstruction showing even normality does not make point/approximate/whole spectral sets a complete test; its explicit measure-class mechanism offers a reusable model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
