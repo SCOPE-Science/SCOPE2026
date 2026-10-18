@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Orthogonal angular decomposition reduces each mode of the radial harmonic Bergman commutator to an exact two-dimensional skew block with singular value equal to a beta-distribution standard deviation. Gamma-ratio moments and boundary continuity give a strictly positive \(m^{-\beta}\) coefficient. There are two modes of each nonzero angular degree, hence four singular values for every positive degree. Counting and inversion prove the sharp sorted asymptotic, all quasi-Schatten thresholds, and the logarithmic trace residue. Exact finite checks support, but do not replace, these proofs.
+
+**Originality — PASS, residual bibliographic uncertainty.** Chbichib–Ghiloufi (arXiv:2605.24698) treat multipliers harmonic outside the origin and provide a first-order asymptotic in that different symbol class. Wu (DOI:10.1007/BF01204606) treats harmonic symbols and reports Schatten membership for p>1, but the present bounded radial profiles are nonharmonic. Miao (DOI:10.1007/s00020-007-1508-y) gives a harmonic Bergman Hankel Schatten criterion for \(p\ge2\); such membership conditions do not imply the full coefficient or the \(p<2\) classification. Stroethoff (DOI:10.1017/S0017089500031931) treats compactness. The 2026 and Miao texts were not fully accessible; their uninspected examples and other unindexed radial results remain residual risks. Database searches found no matching published statement, which is not a uniqueness certificate.
+
+**Value — PASS.** Boundary vanishing order is a natural geometric regularity invariant. Its complete sharp singular-value profile across all positive exponents distinguishes nontrace-class and trace-class radial commutators, determines critical weak ideal membership, and yields an exact logarithmic spectral residue. Continuous boundary factors leave the leading law unchanged except for their boundary value. This is more informative than mere compactness or previously available \(p\ge2\) membership tests.
+
+**Limitations.** Real radial multipliers only; the leading factor must be nonzero. No classification for nonradial symbols or vanished first boundary term is implied. Independent originality confirmation is warranted for inaccessible portions of the literature.
+
+Self-review: passed. Independent audit: not yet performed.
