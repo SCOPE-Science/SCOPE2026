@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The domain, alphabet, prefix origin, and subsequence convention are explicit. The standard greedy-arch characterization reduces the index to a finite-state scan. The Thue–Morse digit recurrences yield exactly four length-16 templates. Exhaustive finite inspection of those templates proves five arches per complete block for every input mask and singleton terminal states for each singleton input. Thue–Morse excludes constant length-three factors, so six and only six adjoining triples enter the remainder analysis. All sixteen remainder lengths for each triple give the stated formula. Substitution yields sharp discrepancy bounds, and explicit binary digit identities produce infinitely many equality positions. The packaged verifier reconstructs and checks the critical finite tables and a separate word generation; its finite prefix tests are corroboration rather than a substitute for the infinite proof.
+PASS
 
-## Originality: PASS
+The standard greedy-arch theorem identifies subsequence universality U with the number of complete-alphabet greedy arches. Binary Thue–Morse t(8j+i)=t(j) xor t(i) and the explicit difference coding yield exactly four aligned length-16 templates according to (t(j),t(j+1)). Independently reconstructed these four templates; exhaustive scan of all four against all eight input masks finds exactly five completed arches, and every incoming singleton mask exits as the singleton of the last symbol. Thue–Morse cannot contain 000 or 111 (via even/odd recurrences); the remaining six adjacent triples and all first 0≤r<16 positions give floor(r/3) plus the single correction for k≥1,r=2,t(k−1)≠t(k). Thus U(16k+r)=5k+floor(r/3)+correction for every k, not only tested k. Independent direct difference-word scan confirmed the formula on 160001 prefixes; the finite-table reduction itself is the infinite argument. Remainder check gives -10≤16U(N)-5N≤6, sharp at r=2 for equal/unequal adjacent t; both occur infinitely using t(4j+1)=t(4j+2) and t(4j)≠t(4j+1).
 
-The 2020 Barker et al. paper provides the general invariant and arch characterization; the 2023 Schnoebelen–Veron work provides compositional algorithms for compressed words; and the 2024 Adamson et al. paper treats extremal absent-subsequence counts for fixed index. Readable primary source portions covering definitions, theorems, conclusions, and relevant algorithms contain no ternary Thue all-prefix formula. A targeted comparison against relevant indexed findings found no stronger theorem implying the exact result. An unindexed or independently known computation of the same word remains a residual risk; search nonappearance alone is not a proof of historical novelty.
+## originality
 
-## Value: PASS
+PASS
 
-The formula completely evaluates a standard subsequence-coverage invariant at every prefix of a canonical ternary square-free word, exposing the exact arithmetic obstruction at a single residue modulo sixteen. The slope \(5/16\) and the *sharp uniformly bounded* error characterize global behavior, rather than a sample of prefixes or an isolated numeric invariant. The result is mathematically motivated by the established literature on scattered-subsequence universality; it is neither a relabeling of a general arch algorithm nor an arbitrary short-length census.
+The fundamental Barker et al. arch characterization and general algorithms, Schnoebelen–Veron compressed-word arch operations and Adamson et al. absent-subsequence extremal bounds are acknowledged. They do not state the closed all-prefix 16-residue formula for the specific ternary Thue difference word or its sharp discrepancy. The new four-template/six-context analysis is required to specialize the general invariant. Semantic Resultary query and published primary full text found no stronger word-specific theorem. A poorly indexed older computation of the same squarefree word remains possible.
 
-## Limits and closest literature
+## value
 
-The result does not claim a new algorithm for arbitrary compressed words, nor any classification of circular universality, substring spectra, or absent-subsequence multiplicities. The closest primary papers are Barker et al. (2020), Schnoebelen–Veron (2023), and Adamson et al. (2024). The exact finite transition table is fully included in the proof and checker. The residual literature risk is an earlier unindexed equivalence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Every-prefix coverage by arbitrary scattered subsequences is an established natural word-combinatorics invariant. The exact formula for a canonical ternary squarefree infinite word, global 5/16 density, sharp bounded discrepancy and a nontrivial single-residue correction form a motivated closed classification, not merely an arbitrary numerical prefix census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

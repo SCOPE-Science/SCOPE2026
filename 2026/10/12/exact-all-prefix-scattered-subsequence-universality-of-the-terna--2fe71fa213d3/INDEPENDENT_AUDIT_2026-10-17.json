@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T22:44:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md e8ccd98cdf5a3ca23c66f1ee12dfba988157a99e",
+        "Git verify.py a0407ce275750f43c92b29d2a11b186927b25b44",
+        "https://arxiv.org/abs/2003.04629",
+        "https://arxiv.org/abs/2304.11932"
+      ],
+      "rationale": "The standard greedy-arch theorem identifies subsequence universality U with the number of complete-alphabet greedy arches. Binary Thue–Morse t(8j+i)=t(j) xor t(i) and the explicit difference coding yield exactly four aligned length-16 templates according to (t(j),t(j+1)). Independently reconstructed these four templates; exhaustive scan of all four against all eight input masks finds exactly five completed arches, and every incoming singleton mask exits as the singleton of the last symbol. Thue–Morse cannot contain 000 or 111 (via even/odd recurrences); the remaining six adjacent triples and all first 0≤r<16 positions give floor(r/3) plus the single correction for k≥1,r=2,t(k−1)≠t(k). Thus U(16k+r)=5k+floor(r/3)+correction for every k, not only tested k. Independent direct difference-word scan confirmed the formula on 160001 prefixes; the finite-table reduction itself is the infinite argument. Remainder check gives -10≤16U(N)-5N≤6, sharp at r=2 for equal/unequal adjacent t; both occur infinitely using t(4j+1)=t(4j+2) and t(4j)≠t(4j+1).",
+      "residual_risks": [
+        "The automatic source word is fixed by x(n)=1+t(n)-t(n+1) and prefix begins at n=0; contiguous factors, rotations and other ternary words are not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General string-algorithm results compute U on supplied finite words; they do not assert a uniform digit-explicit formula for every prefix of this infinite sequence.",
+          "Extremal number of absent words at fixed universality index does not determine the universality index of the prescribed Thue difference word."
+        ],
+        "reasoning": "The generic algorithms could be used with additional nontrivial specialization; none of their published consequences dominates the all-prefix 16-block formula.",
+        "searches": [
+          "arxiv:2304.11932 Theorem 6.1 compressed word arch universality",
+          "arxiv:2003.04629 scattered factor universality automata",
+          "arxiv:2407.18599 tight bounds absent subsequences"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2003.04629",
+        "https://arxiv.org/abs/2304.11932",
+        "https://arxiv.org/abs/2407.18599",
+        "Resultary: Thue Morse ternary squarefree difference word scattered subsequence universality arches prefixes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Universal arch characterization is assumed and properly credited.",
+          "The actual proof independently computes five arches in each of four aligned templates and one special remainder from six adjoining contexts."
+        ],
+        "reasoning": "These word-specific digit-recurrence deductions do not follow immediately from a generic arch characterization or absent-subsequence counting bound.",
+        "searches": [
+          "arxiv:2003.04629 arch lemma general finite word",
+          "arxiv:2304.11932 theorem 6.1 SLP compressed universality",
+          "arxiv:2407.18599 extremal absent words"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2304.11932 uses the arch factorization and subword universality terminology equivalent to subsequence U.",
+          "https://arxiv.org/abs/2003.04629 introduces scattered factor universality.",
+          "For any prefix, shortest absent subsequence length is U(N)+1."
+        ],
+        "reasoning": "Names arch-count, k-universal, scattered-factor/subword universality, shortest absent subsequence and ternary Thue/Thue-Morse difference word were matched, not mere title terms.",
+        "searches": [
+          "\"Thue Morse ternary squarefree difference word scattered subsequence universality arches prefixes\"",
+          "ternary Thue squarefree word 5/16 greedy arch subsequence coverage",
+          "\"ternary Thue\" \"arch factorization\" universality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned a binary-word universality distribution and Thue-Morse string-attractor examples, which concern distinct objects/invariants.",
+          "No direct finite table giving all N or the sharp error constants was located."
+        ],
+        "reasoning": "The result covers all N with a uniform bounded discrepancy; a short-prefix table is not a dominating exact database. Unindexed special-word table remains possible.",
+        "searches": [
+          "Resultary: Thue Morse ternary squarefree difference word scattered subsequence universality arches prefixes",
+          "\"ternary Thue\" \"5/16\" subsequence",
+          "ternary squarefree Thue sequence universal scattered word arch count OEIS"
+        ]
+      },
+      "rationale": "The fundamental Barker et al. arch characterization and general algorithms, Schnoebelen–Veron compressed-word arch operations and Adamson et al. absent-subsequence extremal bounds are acknowledged. They do not state the closed all-prefix 16-residue formula for the specific ternary Thue difference word or its sharp discrepancy. The new four-template/six-context analysis is required to specialize the general invariant. Semantic Resultary query and published primary full text found no stronger word-specific theorem. A poorly indexed older computation of the same squarefree word remains possible.",
+      "residual_risks": [
+        "A previously unindexed calculation under squarefree Thue-word terminology may establish an equivalent 5/16 result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPORTS arch characterization; no ternary Thue prefix formula in inspected material.",
+          "evidence": [
+            "Barker et al., arXiv:2003.04629, general scattered-factor universality framework."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+          "material_read": "Lawful primary arXiv full PDF, including first-page scope, definitions and main finite-word universality/algorithm statements.",
+          "method": "Read the primary PDF main mathematical sections; compared the exact word-specific assertion.",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Original arch notion and possible generic coverage."
+        },
+        {
+          "assessment": "Generic compressed-word algorithm does not supply displayed ternary Thue all-prefix constant or remainder formula.",
+          "evidence": [
+            "Schnoebelen–Veron arXiv:2304.11932, Theorem 6.1 for SLP compression."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.11932",
+          "material_read": "Public full 14-page PDF; arch definitions and main algorithmic theorem including Theorem 6.1, conclusion, searched Thue terminology.",
+          "method": "Full lawful primary article read in relevant mathematical sections.",
+          "title": "On arch factorization and subword universality for words and compressed words",
+          "trigger": "Closest possible arch-signature/automatic-word generalization."
+        },
+        {
+          "assessment": "Extremal absent-subsequence counting differs from the prescribed ternary Thue prefix index.",
+          "evidence": [
+            "Adamson et al. arXiv:2407.18599 treats finite-word extrema, not this 16-residue infinite sequence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.18599",
+          "material_read": "Public 31-page primary PDF, abstract, definitions, main extremal statements and relevant subsequence enumeration sections.",
+          "method": "Read lawful public arXiv PDF relevant portions; checked no direct Thue-specific result.",
+          "title": "Tight Bounds for the Number of Absent Subsequences",
+          "trigger": "Potential stronger theorem about shortest absent words and universal embeddings."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2003.04629",
+        "https://arxiv.org/abs/2304.11932",
+        "https://arxiv.org/abs/2407.18599"
+      ],
+      "rationale": "Every-prefix coverage by arbitrary scattered subsequences is an established natural word-combinatorics invariant. The exact formula for a canonical ternary squarefree infinite word, global 5/16 density, sharp bounded discrepancy and a nontrivial single-residue correction form a motivated closed classification, not merely an arbitrary numerical prefix census.",
+      "residual_risks": [
+        "No claim about contiguous factors, circular universality or arbitrary other morphic words."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For ternary Thue–Morse difference word x(n)=1+t(n)-t(n+1), U(16k+r)=5k+floor(r/3)+1_{k≥1,r=2,t(k−1)≠t(k)}; density 5/16 and sharp discrepancy -10≤16U−5N≤6.",
+  "limitations": [
+    "Applies only to ordinary scattered subsequences of zero-origin prefixes of the exact ternary difference word.",
+    "A previously unindexed same-word arch classification cannot be ruled out."
+  ],
+  "schema_version": 1
+}
