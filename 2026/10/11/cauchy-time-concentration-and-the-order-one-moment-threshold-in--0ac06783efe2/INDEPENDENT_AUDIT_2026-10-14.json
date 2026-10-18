@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T22:39:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob d52d7483104496b9cd1af087577ee96c0b12cea3",
+        "verify.py blob b6eca36eeac918aa50850529561b139f44131376",
+        "Llibre–Rondón arXiv:2310.07454, Theorem 2(g)"
+      ],
+      "rationale": "In q=arctan(√κx)/√κ, the ODE becomes Hamiltonian q′=y, y′=−V′(q) with V(q)=κ^{-1}log sec(√κ q); the energy is L_A/(2κ), domain |q|<π/(2√κ) and every positive energy gives a closed oval. The inverted potential density g(v)=√κ/(e^{2κv}−1)^{1/2} is integrable with ∫g=h, giving T_A√L_A→2π. Uniform integral control of time primitives yields the triangular physical-time phase, hence the tangent pushforward Cauchy law. Direct dt/dx produces the stated exact density. After u=log(1+κx²), fixed-p absolute moments reduce to a beta integral for p<1, exactly 4√L/(T√κ) for p=1, and endpoint Laplace/Gamma integral for p>1, giving the claimed constants. **Presentation correction:** in RESULT.md Step 2 the bound I_E−Q_A stated for ∫_q^{Q_A} over possibly negative q is too small: the universal bound is 2(I_E−Q_A), still o(1), so its proof conclusion and theorem remain valid. Independent exact algebraic inspection rather than finite logs establishes limits. The inspected verify.py quadrature is only corroboration.",
+      "residual_risks": [
+        "One displayed bound for the uniform phase-time primitive is missing a factor 2 when q ranges over negative values; the corrected 2(I_E−Q_A)=o(1) establishes exactly the needed conclusion without altering the final claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary global-center results classify periodic trajectories; other Resultary records include a cubic logarithmic phase statistic, period asymptotics and a different asymmetric beta-layer center.",
+          "The audited limit pushes uniform q∈(−h,h) by tangent to get Cauchy x and uses fixed-order moment endpoint asymptotics."
+        ],
+        "reasoning": "Existing broader period and center results are antecedents, not demonstrated stronger statements entailing the specific original-time occupation and all-p moment coefficients.",
+        "searches": [
+          "Llibre–Rondón arXiv:2310.07454 Theorem 2(g)",
+          "Appis–Llibre DOI:10.1007/s00010-024-01051-7",
+          "Resultary search: cubic global center dx=(1+k x^2)y dy=-x Cauchy occupation distribution moment threshold time average"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.07454v1",
+        "DOI:10.1007/s00010-024-01051-7",
+        "Resultary semantic search cubic global center dx=(1+k x^2)y dy=-x Cauchy occupation distribution moment threshold time average"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The period scale follows from the Hamiltonian coordinate transform and is included as a lemma; distributional and moment conclusions require time sampling, tangent pushforward, and beta/Laplace asymptotic integrals."
+        ],
+        "reasoning": "The strongest checked prior statements give periodicity and period behavior, not the claimed time-occupation/moment implication. The specific field’s Cauchy law and threshold are a nontrivial additional analytic observation.",
+        "searches": [
+          "Llibre–Rondón 2023 Theorem 2(g)",
+          "Appis–Llibre 2024 family and period methods",
+          "Resultary search: cubic global center dx=(1+k x^2)y dy=-x Cauchy occupation distribution moment threshold time average"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cubic system maps by X=y, V=−x to X′=V, V′=−X(1+κV²). The claimed law is for original x (thus conjugate velocity −V), not for arbitrary time rescaling."
+        ],
+        "reasoning": "The conjugacy establishes the same global-center family but does not itself state an original-time marginal Cauchy law or high-moment asymptotics. Distinguishing variable and clock removes a possible superficial alias conflict.",
+        "searches": [
+          "Resultary search: cubic global center dx=(1+k x^2)y dy=-x Cauchy occupation distribution moment threshold time average",
+          "Llibre–Rondón arXiv:2310.07454 Theorem 2(g)",
+          "Appis–Llibre 2024 linear-conjugacy system"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published classification tables concern center existence/parameters, not continuous occupancy distributions for every amplitude or all moments p."
+        ],
+        "reasoning": "No numerical trajectory table can establish the infinite-amplitude weak law and sharp p=1 threshold. No exact table duplicating these functions/asymptotics was located.",
+        "searches": [
+          "Resultary search: cubic global center dx=(1+k x^2)y dy=-x Cauchy occupation distribution moment threshold time average",
+          "Appis–Llibre 2024 cubic global center exact parameter cases"
+        ]
+      },
+      "rationale": "The Llibre–Rondón global-center classification and linearly conjugate Appis–Llibre family cover the periodicity context; period methods can cover monotonicity/scaling, which are not claimed as new. Compared with directly relevant published records on other cubic center high-energy periods and logarithmic phases, none of the checked statements gives the complete *original-time x-coordinate* Cauchy distribution together with sharp all-p fixed-order moment threshold and coefficients. The physical-time normalization and statistic differ from velocity moments, logarithmic-energy fractions and other cubic families.",
+      "residual_risks": [
+        "A differently expressed occupation-measure result for the linearly conjugate cubic field could exist; original-time variable and all-p moments were essential search discriminants.",
+        "The Step 2 factor-two presentation slip is recorded but does not create a mathematical gap in the limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_CENTER_NOT_OCCUPATION",
+          "evidence": "Theorem classifies this periodic center subfamily but gives no Cauchy original-time marginal or order-one moment threshold in inspected result.",
+          "identifier_or_url": "arXiv:2310.07454v1",
+          "material_read": "Primary arXiv text including system family, Theorem 2(g), and the global-center parameter case corresponding to κ=2d_1>0, with page-image inspection.",
+          "method": "Open arXiv primary PDF text and screenshot",
+          "title": "Global Centers of a Class of Cubic Polynomial Differential Systems",
+          "trigger": "Precisely matching cubic global-center subfamily"
+        },
+        {
+          "assessment": "COVERS_CENTER_CONTEXT_NOT_MOMENTS",
+          "evidence": "The transformation X=y,V=−x matches the system, but none of the read results states the claimed original-time Cauchy x-statistic or full moment threshold.",
+          "identifier_or_url": "DOI:10.1007/s00010-024-01051-7",
+          "material_read": "Open publisher article material on center classification and the conjugate family x′=y, y′=−x(1+κy²), with statements and methods relating periodicity and period.",
+          "method": "Publisher public full-text article",
+          "title": "Global centers of a family of cubic systems",
+          "trigger": "Linearly conjugate global center, potential stronger coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Llibre–Rondón 2023 cubic center classification",
+        "Appis–Llibre 2024 cubic center period background",
+        "Other Resultary logarithmic-phase and period findings"
+      ],
+      "rationale": "This provides an explicit nontrivial weak-limit law emerging from compact periodic orbits of a concrete cubic global center and a sharp moment-integrability phase transition, including constants and uniform time-phase behavior. Such occupation statistics are a natural dynamical invariant beyond existing center-classification and period monotonicity; the p=1 critical boundary and p>1 amplitudes distinguish weak convergence from uniform integrability.",
+      "residual_risks": [
+        "All asymptotics require A→∞ for fixed κ>0 and fixed p; uniformity in p near1 or κ→0 is not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For x′=(1+κx²)y,y′=−x, κ>0, the original-time occupation distribution on the amplitude-A periodic orbit has an explicit density and converges to centered Cauchy scale 1/√κ; all fixed-order absolute moments change regime exactly at p=1 with constants, and the canonical q=arctan(√κx)/√κ phase tends uniformly to a triangular wave while T_A√log(1+κA²)→2π.",
+  "limitations": [
+    "Moment asymptotics are for fixed p and κ, not a joint critical or zero-κ limit.",
+    "Time is the original physical clock; reparameterized flows need not share the law.",
+    "The intermediate time-primitive bound for the descending negative-q half must be doubled; a direct 2(I_E−Q_A) estimate proves the stated uniform limit."
+  ],
+  "schema_version": 1
+}

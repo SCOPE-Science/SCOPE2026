@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact canonical transformation \(q=\arctan(\sqrt\kappa x)/\sqrt\kappa\) gives a bounded-strip mechanical Hamiltonian with steep logarithmic-secant walls. For every positive energy, its single-well potential has a smooth closed regular level set, and the original-time quadrature follows without time change. The moving-turning-point integral has an integrable inverse-potential Jacobian; splitting at half the energy proves both the period normalization and uniform triangular phase limit, with a separate exponential-tail bound at the moving endpoint. The two-crossing density is normalized by that same period. The exact transformed moment integral is verified algebraically; beta integration establishes the subcritical limit, exact integration handles the critical exponent, and dominated convergence after reversing the high-energy variable establishes the supercritical coefficient. The packaged script checks representative finite quadratures and identities. Those finite checks are supportive only; the proof's integrable bounds address the full infinite ranges.
+## correctness
 
-## Originality — PASS
-The theorem of Llibre and Rondón (arXiv:2310.07454v1, Theorem 2(g)) classifies the global center but does not assert original-time probability or moment laws. Appis–Llibre (DOI:10.1007/s00010-024-01051-7) treats the exactly linearly conjugate cubic family but its theorem is about center existence. **Period asymptotics and monotonicity are explicitly excluded from the new contribution**; the exact conjugacy ensures that no coordinate relabeling can create novelty for them. They do not imply the full time-occupation measure or the sharp moment constants: period is one scalar functional of the orbit, while the new result computes infinitely many coordinate-sensitive observables. Cima–Gasull–Mañosas (DOI:10.1006/jdeq.2000.3912, Theorem C) concerns broad period asymptotics, not coordinate occupation. Actual mathematical-record, bibliographic and theorem-comparison searches revealed no directly covering time-sampled Cauchy/moment statement. There remains a genuine risk of an equivalent result under different nonlinear-oscillator or invariant-measure terminology; absence in searches is not a uniqueness proof.
+PASS
 
-## Value — PASS
-A global center classification gives neither the fraction of original time spent in a spatial region nor which unbounded observables survive a large-orbit limit. The exact Cauchy law and sharp critical moment order provide a structural distinction between weak convergence of compactly supported periodic measures and divergence of their unbounded observables. The full sharp coefficients for every fixed real order, including the logarithmic critical regime, are natural observable consequences of the same geometric degeneration; they are not arbitrary parameter slices or numerical table values.
+In q=arctan(√κx)/√κ, the ODE becomes Hamiltonian q′=y, y′=−V′(q) with V(q)=κ^{-1}log sec(√κ q); the energy is L_A/(2κ), domain |q|<π/(2√κ) and every positive energy gives a closed oval. The inverted potential density g(v)=√κ/(e^{2κv}−1)^{1/2} is integrable with ∫g=h, giving T_A√L_A→2π. Uniform integral control of time primitives yields the triangular physical-time phase, hence the tangent pushforward Cauchy law. Direct dt/dx produces the stated exact density. After u=log(1+κx²), fixed-p absolute moments reduce to a beta integral for p<1, exactly 4√L/(T√κ) for p=1, and endpoint Laplace/Gamma integral for p>1, giving the claimed constants. **Presentation correction:** in RESULT.md Step 2 the bound I_E−Q_A stated for ∫_q^{Q_A} over possibly negative q is too small: the universal bound is 2(I_E−Q_A), still o(1), so its proof conclusion and theorem remain valid. Independent exact algebraic inspection rather than finite logs establishes limits. The inspected verify.py quadrature is only corroboration.
 
-## Literature and scope risks
-The closest original system is also represented by a linear rotation in Appis–Llibre, and previously obtained period information must not be counted twice. The broad separable-Hamiltonian period theory covers methods rather than these occupation statements; differently formulated earlier probability-limit results could exist. No uniform double limit in the moment exponent and amplitude is claimed; the proof applies for fixed \(\kappa>0\) and fixed \(p\ge0\). Numerical quadratures do not independently verify infinite asymptotics.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The Llibre–Rondón global-center classification and linearly conjugate Appis–Llibre family cover the periodicity context; period methods can cover monotonicity/scaling, which are not claimed as new. Compared with directly relevant published records on other cubic center high-energy periods and logarithmic phases, none of the checked statements gives the complete *original-time x-coordinate* Cauchy distribution together with sharp all-p fixed-order moment threshold and coefficients. The physical-time normalization and statistic differ from velocity moments, logarithmic-energy fractions and other cubic families.
+
+## value
+
+PASS
+
+This provides an explicit nontrivial weak-limit law emerging from compact periodic orbits of a concrete cubic global center and a sharp moment-integrability phase transition, including constants and uniform time-phase behavior. Such occupation statistics are a natural dynamical invariant beyond existing center-classification and period monotonicity; the p=1 critical boundary and p>1 amplitudes distinguish weak convergence from uniform integrability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
