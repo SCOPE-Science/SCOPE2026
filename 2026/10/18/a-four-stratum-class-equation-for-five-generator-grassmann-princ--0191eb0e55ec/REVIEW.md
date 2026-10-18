@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The central-even/odd factorization is unique, and commutation reduces exactly to the exterior product of two odd elements. This gives class sizes as powers of \(q\) determined by the odd wedge-kernel rank. The rank-eight case follows from a parity-preserving automorphism taking a nonzero linear term to one generator. In the remaining case, five-dimensional trivectors are classified by alternating forms of ranks two and four. Gaussian subspace counting gives the stated multiplicities. The class-size-weighted counts total \(q^{31}\). Exact degree-three enumeration over \(\mathbb F_3\) and direct finite product checks support the argument without replacing it.
+
+**Originality (PASS within inspected coverage).** The closest Grassmann-algebra sources are Domokos–Zubor (arXiv:1403.2916), Bovdi–Leung (arXiv:1803.03457), and Bavula (arXiv:math/0703352). Their inspected results treat maximal commutative subalgebras, exterior-algebra automorphisms, even units, or inner automorphisms, not the claimed finite-field internal conjugacy-class enumeration. Relevant independently published small-group conjugacy work (Kaur–Prajapati–Prasad, arXiv:2103.05234) addresses other groups. Published-result searches and prior mathematical records were checked by mathematical implication, not title alone; the uncovered possibility of an equivalent older group-theoretic calculation remains a residual risk. Noncoverage is not proof of global novelty.
+
+**Value (PASS).** Internal conjugacy-class sizes and commuting probability are natural invariants of the principal-unit group of a standard finite-dimensional associative algebra. Five exterior generators are the first degree at which nonzero cubic odd terms divide into two distinct alternating-form ranks, creating two separate intermediate class-size strata. The result provides their full exact counts for all odd finite fields, without claiming a general census at higher generator counts.
+
+The computation checks all \(59049\) cubic forms over \(\mathbb F_3\) and uses sampled direct unit multiplications; it does not enumerate the entire group. The absence of an independent external audit is explicit.
+
+Self-review: passed. Independent audit: not yet performed.
