@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T07:50:48.796021Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The equilibrium equations force y=x, exp(x^2)=d and x(z-b)=-k. For d<=1 no solution; for d>1 the two sign branches are exhaustive. The positive branch z=0 iff d=exp((k/b)^2), at which w is free, while the negative branch has w=0. The 3x3 Jacobian cubic at baseline has A=14/5, B_sigma=17 log(17)+sigma*39/(5 sqrt(log(17))), C=(442/5) log(17); Routh AB-C<0 gives exactly two RHP roots in the base block at either branch. Fresh numerical eigenvalues of the base are (-4.248453, 0.724226 +/-7.643808i) at positive x and (-4.746319,0.973159 +/-7.198712i) at negative x; the fiber eigenvalues are respectively -7.911517 and 9.911517, so full unstable indices are 2,3. Direct differentiation gives divergence -a-b+cz, changing sign above z=14/25 at baseline. The supplied rational-Taylor verifier's inequalities are sufficient for the rigorous Routh signs; numerical roots are cross-checks only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The relevant broader results are standard cubic Routh-Hurwitz and the elementary divergence identity; neither includes this model-specific coefficient calculation.",
+          "Resultary nearest distinct-model candidate 2026/10/4/SCOPE-exact-transverse-stability-partition-of-an-equilibrium-line-in-a--d7c3a87b54ee treats Li-Wu-Zhang parameters rather than exp(xy) forcing."
+        ],
+        "reasoning": "Generic Routh theory is a valid tool, not a mathematical statement that implies the exact baseline eigenvalue count without this calculation.",
+        "searches": [
+          "Wang Feng Chen flow exponential xy equilibrium czw divergence correction unstable dimensions",
+          "Wang Feng Chen exact Jacobian Routh hyperchaos stable equilibria"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3389/fphy.2022.906138",
+        "2026/10/4/SCOPE-exact-equilibrium-indices-and-divergence-correction-for-the-wang--d3294422de66",
+        "2026/10/4/SCOPE-exact-transverse-stability-partition-of-an-equilibrium-line-in-a--d7c3a87b54ee"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source asserts stable equilibria; independently reconstructed Routh signs +,+,-,+ in the base cubic force two RHP base eigenvalues.",
+          "The divergence contains cz and cannot be a globally negative constant."
+        ],
+        "reasoning": "The claim refutes the motivating source interpretation. The divergence conclusion is only local and does not infer the chaotic attractor basin, avoiding unjustified stronger conclusions.",
+        "searches": [
+          "doi:10.3389/fphy.2022.906138 stability and divergence comparison",
+          "Wang Feng Chen flow exponential xy equilibrium czw divergence correction unstable dimensions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the exact target record 2026/10/4/SCOPE-exact-equilibrium-indices-and-divergence-correction-for-the-wang--d3294422de66 as its highest-scoring hit; nearest non-target matches concern a different Wang-Chen flow or a Li-Wu-Zhang exponential-flow equilibrium line.",
+          "Wang/Feng/Chen DOI 10.3389/fphy.2022.906138 prints exp(xy) and wdot=czw, making exact-equation equivalence testable."
+        ],
+        "reasoning": "The related equilibrium-line and recurrence papers involve different right-hand sides. A same-name or similar exponent is not enough: none produces the specific cubic and corrected two/three-dimensional index split.",
+        "searches": [
+          "Wang Feng Chen flow exponential xy equilibrium czw divergence correction unstable dimensions",
+          "GitHub SCOPE2026 code search: Wang Feng Chen equilibrium divergence",
+          "Web: Wang Feng Chen four-dimensional chaotic system circuit implementation equilibrium asymptotically stable d 17"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2022 source reports both baseline equilibria stable and one divergence evaluation -2.3, not the two and three unstable dimensions or exceptional w-line."
+        ],
+        "reasoning": "No source table provides the claimed corrected values; the source entries are contradictory rather than covering.",
+        "searches": [
+          "doi:10.3389/fphy.2022.906138 paper equilibrium Table/Section",
+          "Web: Wang Feng Chen 2022 chaotic system equilibrium stability correction"
+        ]
+      },
+      "rationale": "PASS best of knowledge: This is an exact correction to the displayed vector field's published assertion of two stable equilibria, not a restatement of Routh-Hurwitz alone. The source's -2.3 divergence is one substituted state, not its global expression.",
+      "residual_risks": [
+        "The publisher/source may have an unindexed later erratum or independent correction.",
+        "Global boundedness, Lyapunov spectra and hidden-versus-self-excited basin classification were not verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Claims baseline asymptotically stable equilibria and computes -2.3 only for a given initial z; does not supply corrected Routh indices or global divergence",
+          "evidence": "Explicit parameters (a,b,c,d,k)=(2.6,.2,5,17,3) and source point z=.1",
+          "identifier_or_url": "DOI:10.3389/fphy.2022.906138",
+          "material_read": "Publisher full-text vector-field definition, equilibrium/stability discussion, fixed parameters, divergence evaluation, hidden-attractor explanation",
+          "method": "Direct open publisher text and equation-by-equation reconstruction",
+          "title": "A New Four-Dimensional Chaotic System and its Circuit Implementation",
+          "trigger": "Introducing paper: exactly the exponential four-dimensional flow"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: This materially changes the local dynamical interpretation of a published hyperchaotic model, identifies a true exceptional equilibrium line, and prevents using a false stability premise to assert a hidden attractor. It does not overclaim basin structure or average volume contraction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The publisher/source may have an unindexed later erratum or independent correction.",
+    "Global boundedness, Lyapunov spectra and hidden-versus-self-excited basin classification were not verified.",
+    "Both AUDIT.json and METADATA.json retain original operational provenance; publication is not_ready pending confidential-safe transformation, irrespective of science PASS."
+  ],
+  "schema_version": 1
+}
