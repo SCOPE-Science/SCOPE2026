@@ -1,15 +1,21 @@
-# Review of sharp area-constrained distortion gap on degenerating hyperbolic annuli
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Rotational equivariance forces a radial function and twist; the constant hyperbolic Jacobian integrates to \(\cosh R=k\cosh r+C\), with the boundary condition forcing \(C=0\). In the hyperbolic conformal-cylinder coordinates the differential is triangular with diagonal \((1,q_k(r))\) and angular shear \(s\). Its largest singular value is at least one, so \(K\ge1/q_k(\varepsilon)\); the zero-shear stretch attains equality. The exact singular-value trace yields the necessary and sufficient global shear budget. The free optimum is the inverse modulus ratio, attained by affine scaling of the cylinder coordinate. Both sharp asymptotics and the critical matched law follow from controlled Taylor expansions. Numerical spot checks confirmed the formulas but were not used as proofs.
+PASS
 
-## Originality
+PASS: Fixed k>1, 0<ε<b, curvature −1, equivariant degree-one C1 annular diffeomorphisms with J_h≡k and pointwise boundary traces. Rotational equivariance gives F=(R(r),θ+ψ(r)); Jacobian sinh R R′/sinh r=k integrates cosh R=k cosh r+C, and R(ε)=acosh(k cosh ε) forces C=0. Conformal cylinder y=log tanh(r/2), x=θ yields derivative [[1,s],[0,q]], s=sinh r ψ′ and q=k sinh²r/(k²cosh²r−1), with q∈(0,1), q′>0, q_min=q(ε). Since first column has length 1 and determinant q, K≥1/q≥1/q(ε), attained by radial map. Trace/determinant identity K+1/K=(1+s²+q²)/q gives iff inequality s²≤(K0−q)(q−1/K0), including boundary; strict positive interior permits small compact twists, yielding nonunique minimizers. Unrestricted conformal cylinder modulus bound K≥Δy/ΔY is attained by affine cylinder interpolation matching pointwise boundary, and q increasing yields strict 1<K_free<K_area. As ε→0 at fixed k,b, q(ε)∼kε²/(k²−1), Δy∼log(1/ε), ΔY→L(k,b)>0, verifying inverse-square and logarithmic scales. Matched k=1+cε² has radial cosh expansion giving K_area→1+2c and K_free→1 (c=0 exactly identity). No claims outside equivariance/J=k, no finite sample substituted for exact identities.
 
-PASS. The lead 2026 paper defines the almost-symplectic radial stretch and discusses its pointwise distortion and nonextremality in a larger boundary-value class; this is prior input, not the new claim. The inspected lead results and the full-text hyperbolic-annulus modulus paper do not state the **optimal distortion over every equivariant fixed-Jacobian map**, its **complete nonunique minimizing-shear classification**, nor the **puncture asymptotic gap** and \(k-1\asymp\varepsilon^2\) boundary-layer transition. Older spiral-stretch work and related published-finding searches did not provide statement-level coverage. Full-text access to some older literature was incomplete, which remains a residual priority risk.
+## originality
 
-## Value
+PASS
 
-PASS. Area-preserving or uniformly area-scaling quasiconformal maps are natural geometric constraints, and the source presents a specific almost-symplectic radial map whose extremal interpretation is not settled by its formula alone. This theorem identifies a sharp constrained optimum, classifies its nonunique minimizers, and quantitatively distinguishes the geometric cost of preserving the hyperbolic Jacobian from the classical modulus cost. The inverse-square versus logarithmic puncture separation and the exact critical coupling \(k-1\asymp\varepsilon^2\) are structural behaviors useful for studying almost-symplectic deformation and degenerating hyperbolic collars, rather than routine parameter substitutions.
+PASS best-of-knowledge with HIGH residual priority risk: Platis 2026 paper defines the radial stretch and is explicitly entitled extremality; its abstract was obtainable but full text inaccessible via lawful attempts including protected retrieval error. It might cover a portion of the present optimization; do not assert the unread source excludes it. In accessible searches no theorem confirmed the complete all-twist minimizer inequality and sharp constrained/unconstrained degeneration and critical double limit, which are more specific than the known stretch and free modulus. Residual risks are detailed; the access failure alone is not converted into O FAIL or an unsupported novelty guarantee.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: Optimization with a prescribed constant hyperbolic-area multiplier and fixed pointwise annulus boundaries is a natural geometric deformation problem. The exact minimizing shear locus (nonunique, not just radial), strict distortion cost of the constraint, ε−2 vs log puncture separation, and critical k−1∼cε² transition together give mathematically meaningful sharp structure. The unrestricted modulus cost alone was already known and is not presented as a new theorem by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
