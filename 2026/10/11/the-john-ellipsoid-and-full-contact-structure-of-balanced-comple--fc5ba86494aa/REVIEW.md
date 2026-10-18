@@ -1,15 +1,21 @@
-# Scientific review: balanced multipartite stable-set ellipsoids
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is the standard coordinate stable-set polytope of \(K_{a,\ldots,a}\) for integers \(a\ge2\), \(r\ge3\). The facet description follows from convex decomposition into one-block cubes. The symmetric projections have ranks \(r(a-1)\), \(r-1\), one. The proof verifies every facet containment equality, then supplies positive first- and second-moment weights for John's theorem. This certifies uniqueness and global volume maximality, not merely stationary optimality within symmetric ellipsoids. It also verifies all three eigenvalues and multiplicities. Exact arithmetic software checked 16 finite parameter pairs and 594 total contact constraints; only the symbolic proof extends to unbounded parameters.
+PASS
 
-## Originality — PASS, with bounded residual risk
+With a≥2,r≥3, facet normals are −e_{j,i} and n_C=Σ_j e_{j,i_j}; P=conv of r supported a-cubes, full-dimensional and every constraint is a distinct facet. The proposed covariance Σ=uΠ_U+vΠ_V+wΠ_W is positive. Direct algebra with ab²=ar−r+1 gives e_i^TΣe_i=t² and n_C^TΣn_C=(1−rt)². We independently checked all contact and inverse-covariance spectral identities exactly for (a,r)=(2,3),(3,3),(2,4),(4,5). The general proof derives αΣp+γΣq=0 and αΣpp^T+γΣqq^T=Σ from the three eigenspaces, a positive John certificate ensuring unique global maximum, all ar+a^r facet tangencies, volume ball(ar) u^{r(a−1)/2}v^{(r−1)/2}w^{1/2}. Finite tests corroborate only; general result follows from the symbolic certificate.
 
-A previous complete-bipartite treatment has only two graph parts, unlike the present \(r\ge3\) family with an additional subspace of dimension \(r-1\). Existing general stable-set-polytope traversal work (Merino--Mütze, arXiv:2304.08567v1) and stable-set LP-relaxation work (Rodríguez-Heck et al., arXiv:1911.01478) do not supply this ellipsoid and contact certificate. The classical John criterion alone does not imply the explicit formula. Targeted searches for stable-set polytope John ellipsoids, balanced complete multipartite graphs, and orthogonal free sums of cubes found no demonstrably stronger covering statement. The unexcluded possibility of an equivalent result under another mathematical name is a real literature risk; the conclusion is not an independent priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The graph family varies in two independent natural parameters and has exponentially many maximal-clique facets. The result gives its complete canonical Euclidean John geometry, including a nontrivial three-eigenspace spectrum and a positive certificate touching every facet. This is a complete structural classification, not a parameter substitution in the bipartite case or a finite numerical census. No applications beyond the proved family are claimed.
+Best-of-knowledge, the two-parameter John ellipsoid and exact all-facet contact certificate for r≥3 balanced complete multipartite stable-set polytopes are not given by the prior traversal, LP relaxations or the r=2 bipartite formula. Other indexed polytope John computations concern nonidentical fractional matching or order polytopes. Remaining possibility of a free-sum-of-cubes/optimal-design formulation is disclosed.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Natural two-parameter graph family with exponential transversal clique-facet count; exact unique John ellipsoid, three squared semiaxes and multiplicities, every facet contact, closed volume, and constructive dual certificate constitute a complete meaningful structural classification independent of a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

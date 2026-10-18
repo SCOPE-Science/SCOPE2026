@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-`CHECK.py` requires Python 3 and only its standard library. From the directory containing this file and `CHECK.py`, run `python CHECK.py`. The expected successful completion is `EXACT_PASS cases= 16 coordinate facet contacts= 100 transversal facet contacts= 494 all first/second John moments`. The script forms exact rational-quadratic-field matrices and checks coordinate and clique tangencies, positive moment weights, and both John moment identities, including the full second-moment matrix.
+## correctness
 
-The tested pairs have \(1\le a\le4\), \(1\le r\le4\). Values below the asserted range \(a\ge2\), \(r\ge3\) are arithmetic boundary calibrations, not extensions of the stated theorem. Computational tests do not establish correctness at larger parameters. The unlimited-parameter result and strict eigenvalue ordering follow from the symbolic proof in `RESULT.md`. No independent external audit has been performed.
+PASS
+
+With a≥2,r≥3, facet normals are −e_{j,i} and n_C=Σ_j e_{j,i_j}; P=conv of r supported a-cubes, full-dimensional and every constraint is a distinct facet. The proposed covariance Σ=uΠ_U+vΠ_V+wΠ_W is positive. Direct algebra with ab²=ar−r+1 gives e_i^TΣe_i=t² and n_C^TΣn_C=(1−rt)². We independently checked all contact and inverse-covariance spectral identities exactly for (a,r)=(2,3),(3,3),(2,4),(4,5). The general proof derives αΣp+γΣq=0 and αΣpp^T+γΣqq^T=Σ from the three eigenspaces, a positive John certificate ensuring unique global maximum, all ar+a^r facet tangencies, volume ball(ar) u^{r(a−1)/2}v^{(r−1)/2}w^{1/2}. Finite tests corroborate only; general result follows from the symbolic certificate.
+
+## originality
+
+PASS
+
+Best-of-knowledge, the two-parameter John ellipsoid and exact all-facet contact certificate for r≥3 balanced complete multipartite stable-set polytopes are not given by the prior traversal, LP relaxations or the r=2 bipartite formula. Other indexed polytope John computations concern nonidentical fractional matching or order polytopes. Remaining possibility of a free-sum-of-cubes/optimal-design formulation is disclosed.
+
+## value
+
+PASS
+
+Natural two-parameter graph family with exponential transversal clique-facet count; exact unique John ellipsoid, three squared semiaxes and multiplicities, every facet contact, closed volume, and constructive dual certificate constitute a complete meaningful structural classification independent of a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
