@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The quadratic Lorentz norm has the exact Euclidean sandwich
-\[
-\frac{1+\omega}{2}E(z)^2\le N_\omega(z)^2\le E(z)^2,
-\]
-with fully explicit equality loci. Combining it with the Euclidean parallelogram identity gives the sharp Zbăganu bound. Equality in the three comparison steps forces the sum and difference onto distinct coordinate axes of equal length and forces the original vectors onto diagonal rays, yielding exactly the stated symmetry orbit.
+## correctness
 
-## Originality
-PASS. The closest same-object indexed result gives the known Euclidean Banach--Mazur, Jordan--von Neumann, and Ptolemy value \(2/(1+\omega)\), but not a Zbăganu claim. The complete open 2011 Lorentz comparison treats a different James-type constant. Targeted searches did not locate the Zbăganu equality classification. The principal 2010 Zbăganu article remains an explicit access residual because its full body was not available in the checked route.
+PASS
 
-## Value
-PASS. The theorem identifies the full maximizing geometry of a standard Lorentz family and explains why the Zbăganu value joins three other exact constants there. The rigidity of the equality set is structural information not contained in the previously known scalar identities.
+Exact norm sandwich (1+ω)E²/2≤N²≤E² has equality respectively on |u|=|v| and on a coordinate axis. For p=x+y and q=x−y, the sharp chain N(p)N(q)≤E(p)E(q)≤(E(p)^2+E(q)^2)/2=E(x)^2+E(y)^2≤2(N(x)^2+N(y)^2)/(1+ω) holds. Witness x=(1,1), y=(1,−1) attains the bound. Every maximal pair saturates all inequalities, so p,q are equal-length vectors on distinct axes, giving the claimed unique orbit under signs/permutations. Strict 0<ω<1 excludes additional Euclidean endpoint equality cases.
 
-## Closest literature and limitations
-The 2010 Zbăganu paper supplies the invariant and its fixed-point context; the 2011 open article supplies a same-family Lorentz comparison under another geometric constant. The result is restricted to the real two-dimensional exponent-\(2\) Lorentz family and does not give quantitative near-extremizer stability.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The equality-orbit rigidity is not implied by previously known matching scalar constants; best-of-knowledge original despite elementary inequality chain.
+
+## value
+
+PASS
+
+The Zbăganu and Ptolemy constants are natural Banach-space shape invariants; a full symmetry-orbit classification distinguishes which geometric configurations attain a coincident scalar value. This is a small but complete rigidity theorem rather than merely restating the known Jordan–von Neumann value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
