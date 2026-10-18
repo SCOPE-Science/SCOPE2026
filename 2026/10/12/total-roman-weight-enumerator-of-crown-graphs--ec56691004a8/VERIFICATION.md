@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The arbitrary-order verification is the proof in `RESULT.md`: every zero-protection obstruction and every positive-support isolation obstruction is localized at a deleted matching index, and the seven cases partition all possibilities for the two label-\(2\) counts.
+# Independent mathematical audit
 
-The standalone program `artifacts/verify.py` tests the predicate directly from crown-graph adjacency, without using the structural classifier. It enumerates all \(3^{2n}\) labelings for \(3\le n\le6\), forms the brute-force weight distribution, evaluates the displayed closed formula independently, and compares the full coefficient maps and minimum layers.
+## correctness
 
-Replay result:
+PASS
 
-`VERIFY_OK n_range=3..6 labelings=597780 valid_functions=410530 coefficient_checks=52 minimum_checks=4 max_order=12`
+Zero protection at index i depends only on whether the opposite part has zero, one, or at least two defenders labelled 2; when a unique defender is at matching index i, its paired vertex must be positive. Positive-support totality similarly is automatic when there are ≥2 opposite positives but prohibits a matched isolated unique positive. These conditions are necessary/sufficient, giving seven mutually exclusive contributions: all-ones, one-sided single or multi defender, coincident and distinct single defenders, single+multi defender, and multi+multi. Multiplying allowed one-side polynomials yields the displayed RESULT formula. Independent direct adjacency enumeration of all ternary labelings for n=3,4,5 matches each polynomial coefficient; optimum counts are 31,48,100 respectively. The case proof, not finite checks, covers all n.
 
-This computation is finite corroboration only. It does not prove the theorem for arbitrary \(n\), and no extrapolation from the finite range is used in the proof.
+## originality
+
+PASS
+
+General total-Roman parameter bounds of Ahangar et al. and graph-dependent minimal function classifications do not give the complete crown all-weight polynomial. A prior Resultary complete-multipartite total-Roman enumerator is not applicable to crown graphs (matching deletion destroys complete bipartiteness for n≥3). Prior perfect Roman domination of crown graphs concerns a different predicate. No same-claim record returned by targeted semantic query.
+
+## value
+
+PASS
+
+Crown graphs are a canonical one-edge-per-vertex perturbation of complete bipartite graphs, introducing precise missing-neighbor effects. A full all-weight enumerator with exact optimum multiplicities is a natural useful graph invariant and goes far beyond a minimum alone; it detects the sharp minimum shift from 4 on K_{n,n} to 6.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
