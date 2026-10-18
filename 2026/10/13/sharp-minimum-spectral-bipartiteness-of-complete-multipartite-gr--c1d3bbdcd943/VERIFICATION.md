@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The all-parameter proof is analytic. Its critical steps are:
+# Independent mathematical audit
 
-1. the nonzero adjacency spectrum of a complete multipartite graph equals the spectrum of the symmetric quotient \(B=uu^\top-D\);
-2. rank-one interlacing yields \(\theta_i\le -n_{i-1}\) for \(2\le i\le r\);
-3. trace zero converts the target sum into \(-\sum_{i=2}^{r-1}\theta_i\);
-4. equality forces \(-1\) with multiplicity at least \(r-2\), and solving \((B+I)x=0\) shows this happens only when at least \(r-1\) parts are singletons;
-5. the complete-split quotient has \(-1\) with multiplicity \(r-2\) and two remaining roots whose sum is \(r-2\).
+## correctness
 
-`verify.py` independently stress-tests the statement for every nondecreasing positive multipartition with \(3\le r\le7\) and \(r\le N\le18\). It uses a pure-Python Jacobi eigensolver and checks both the inequality and uniqueness of equality.
+PASS
 
-Replay output:
+For fixed N≥r≥3 and complete r-partite K_{n1,…,nr} with positive part sizes, the equitable symmetric quotient B=uu^T−diag(n_i), u_i=√n_i, has nonzero adjacency spectrum θ1>0>θ2≥…≥θr, and N−r further zeros. Arrange n1≤…≤nr. Rank-one interlacing implies θ_{j+1}≤−n_j for j=1,…,r−1. Because tr B=0, θ1+θr=−Σ_{j=2}^{r−1}θj≥Σ_{j=1}^{r−2}n_j≥r−2. Equality forces those small parts singleton and θ2,…,θ_{r−1}=−1. The −1 eigenspace has dimension precisely (# singleton parts−1) (including all-singleton case), forcing r−1 singleton parts. Conversely the complete split quotient has −1 with multiplicity r−2 and the remaining two eigenvalues solve z²−(r−2)z−(r−1)(N−r+1)=0, giving exact equality. r=2 is excluded because any biclique has zero. New independent spectral diagonalization sampled 647 positive multipartitions and 60 equality cases, not an all-parameter proof.
 
-`ALL CHECKS PASSED; parameter_cases=70; partition_cases=1077; equality_cases=70; max_order=18; max_parts=7; max_split_root_error=1.6e-14`
+## originality
 
-The computation is finite and is not used as proof of the infinite theorem. Numerical tolerance is used only in the finite stress test. No independent audit has been performed.
+PASS
+
+The exact extremal functional is λ_max+λ_min, not spectral radius/energy alone. Stevanović–Gutman–Rehman (2015) give unique complete-split minimization for spectral radius and energy among fixed-N fixed-r complete multipartite graphs; their result alone does not constrain a jointly varying least eigenvalue enough to force this same extremum of the sum. Abiad–Kumar–Pragada arXiv:2609.00210 prove upper-extremal spectral-bipartiteness bounds in much broader clique-free settings, not this fixed-multipartite lower problem. No implication-equivalent statement located in checked relevant Resultary searches; residual risk of terminology/index-plus-least adjacency eigenvalue.
+
+## value
+
+PASS
+
+The spectral sum λ1+λN is an explicit measure of deviation from adjacency bipartiteness, and complete multipartite graphs form a canonical extremal model. A sharp fixed-order-and-part-count minimum with a unique split extremizer clarifies the cost of a persistent K_r and gives exact normalized scaling (r−2)/N. The proof needs spectral interlacing and a nontrivial equality multiplicity argument, not a routine table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

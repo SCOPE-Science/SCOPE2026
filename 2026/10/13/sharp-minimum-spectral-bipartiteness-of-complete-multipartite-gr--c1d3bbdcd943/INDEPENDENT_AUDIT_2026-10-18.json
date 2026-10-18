@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:04:38.015569Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed N≥r≥3 and complete r-partite K_{n1,…,nr} with positive part sizes, the equitable symmetric quotient B=uu^T−diag(n_i), u_i=√n_i, has nonzero adjacency spectrum θ1>0>θ2≥…≥θr, and N−r further zeros. Arrange n1≤…≤nr. Rank-one interlacing implies θ_{j+1}≤−n_j for j=1,…,r−1. Because tr B=0, θ1+θr=−Σ_{j=2}^{r−1}θj≥Σ_{j=1}^{r−2}n_j≥r−2. Equality forces those small parts singleton and θ2,…,θ_{r−1}=−1. The −1 eigenspace has dimension precisely (# singleton parts−1) (including all-singleton case), forcing r−1 singleton parts. Conversely the complete split quotient has −1 with multiplicity r−2 and the remaining two eigenvalues solve z²−(r−2)z−(r−1)(N−r+1)=0, giving exact equality. r=2 is excluded because any biclique has zero. New independent spectral diagonalization sampled 647 positive multipartitions and 60 equality cases, not an all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Complete split uniquely minimizes λ1 among fixed-order, fixed-part-count multipartite graphs, but λ_min varies as the part vector varies.",
+          "A general upper bound on λ1+λN under forbidden clique hypotheses is not a lower bound over the restricted r-partite family."
+        ],
+        "reasoning": "Neither a parameter-broader maximum nor the distinct objective spectral-radius theorem dominates the fixed-family minimum claimed here.",
+        "searches": [
+          "Stevanović–Gutman–Rehman DOI:10.26493/1855-3974.499.103",
+          "Abiad–Kumar–Pragada arXiv:2609.00210"
+        ]
+      },
+      "checked_sources": [
+        "Stevanović–Gutman–Rehman (2015), DOI 10.26493/1855-3974.499.103",
+        "Abiad–Kumar–Pragada (2026), arXiv:2609.00210",
+        "Resultary: 2026/9/18/SCOPE-spectral-booksize-equality-balanced-multipartite--75d8398c42c7 (different booksize functional)",
+        "Resultary: 2026/10/11/SCOPE-largest-part-versus-balanced-cut-the-exact-inradius-phase-diagra--fee756ec3437 (different symmetric-edge-polytope invariant)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimization of 2λ1 (graph energy for one-positive-eigenvalue complete multipartite graphs) does not by itself minimize λ1+λ_min when λ_min is not fixed.",
+          "An upper bound for K_{r+1}-free graphs runs in the opposite optimization direction."
+        ],
+        "reasoning": "The new interlacing plus middle-eigenvalue trace identity is the substantive missing implication, and equality multiplicity requires a separate argument.",
+        "searches": [
+          "Stevanović–Gutman–Rehman, Theorem 1.6, 2015",
+          "Abiad–Kumar–Pragada, 2026, upper-bipartiteness theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spectral bipartiteness means λ1+λN as in the recent paper; its extremal direction is an upper bound for K_{r+1}-free graphs.",
+          "The same complete multipartite object in 2015 was optimized for λ1 alone (equivalently energy), not λ1+λN."
+        ],
+        "reasoning": "Exact aliases index+least eigenvalue or largest+smallest were searched; matching graph family or phrase alone does not give the needed lower bound plus uniqueness.",
+        "searches": [
+          "Resultary: complete multipartite graph extreme adjacency eigenvalue sum index plus least eigenvalue spectral bipartiteness r-2 split unique",
+          "Abiad–Kumar–Pragada arXiv:2609.00210"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2015 theorem and spectral formulas allow eigenvalue calculation for given part sizes but contain no same sharp λ1+λN minimizer theorem in the inspected primary text.",
+          "A small-order eigenvalue enumeration cannot establish the N,r-uniform classification."
+        ],
+        "reasoning": "A symbolic extremum over arbitrary positive integer compositions is not recovered merely by known eigenvalue tables; no exact tabulated sum-extremum was seen.",
+        "searches": [
+          "2015 Ars Mathematica Contemporanea complete multipartite adjacency characteristic-polynomial/eigenvalue results",
+          "Resultary: complete multipartite sum of extreme eigenvalues"
+        ]
+      },
+      "rationale": "The exact extremal functional is λ_max+λ_min, not spectral radius/energy alone. Stevanović–Gutman–Rehman (2015) give unique complete-split minimization for spectral radius and energy among fixed-N fixed-r complete multipartite graphs; their result alone does not constrain a jointly varying least eigenvalue enough to force this same extremum of the sum. Abiad–Kumar–Pragada arXiv:2609.00210 prove upper-extremal spectral-bipartiteness bounds in much broader clique-free settings, not this fixed-multipartite lower problem. No implication-equivalent statement located in checked relevant Resultary searches; residual risk of terminology/index-plus-least adjacency eigenvalue.",
+      "residual_risks": [
+        "Older adjacency matrix theory may contain the same index-plus-least-eigenvalue inequality under different naming.",
+        "The bound assumes all r parts nonempty and r≥3; it is not asserted for arbitrary clique-number-r graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_DIFFERENT_EXTREMAL_FUNCTIONAL",
+          "evidence": "λ1 minimizes at split, energy=2λ1; the least eigenvalue is not constant, so this does not prove λ1+λN minimum.",
+          "identifier_or_url": "https://doi.org/10.26493/1855-3974.499.103",
+          "material_read": "Primary article theorem identifying energy/spectral-radius minimizer, characteristic polynomial and adjacency spectrum discussion",
+          "method": "Read accessible primary full-text material via ResearchGate scholarly article view",
+          "title": "On spectral radius and energy of complete multipartite graphs",
+          "trigger": "Identical graph family and claimed complete-split extremizer"
+        },
+        {
+          "assessment": "DIFFERENT_OPTIMIZATION_DIRECTION",
+          "evidence": "General forbidden-clique upper bound, not fixed-r multipartite lower bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.00210",
+          "material_read": "Definition of spectral bipartiteness and principal graph-extremal theorem/abstract",
+          "method": "Read accessible arXiv preprint statements and related passages",
+          "title": "Localization of the Caro–Wei bound and its applications to bipartiteness",
+          "trigger": "Identical spectral-bipartiteness statistic, broader clique-free universe"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The spectral sum λ1+λN is an explicit measure of deviation from adjacency bipartiteness, and complete multipartite graphs form a canonical extremal model. A sharp fixed-order-and-part-count minimum with a unique split extremizer clarifies the cost of a persistent K_r and gives exact normalized scaling (r−2)/N. The proof needs spectral interlacing and a nontrivial equality multiplicity argument, not a routine table lookup.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim for r=2 where all complete bipartite graphs have zero sum and equality is highly nonunique.",
+    "No extrapolation beyond complete r-partite graphs or fixed r and N.",
+    "Publication withheld because original public metadata retain operational provenance and no audited sanitized replacements have been staged."
+  ],
+  "schema_version": 1
+}

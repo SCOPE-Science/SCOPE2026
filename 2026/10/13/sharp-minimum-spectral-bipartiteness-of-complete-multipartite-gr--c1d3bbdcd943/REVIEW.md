@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim follows from an explicit symmetric quotient \(B=uu^\top-D\), rank-one interlacing against \(-D\), the one-positive-eigenvalue property of connected complete multipartite graphs, and the trace-zero identity. The equality case is not inferred from numerics: equality forces all middle quotient eigenvalues to be \(-1\), and a direct eigenspace calculation shows that multiplicity \(r-2\) of \(-1\) requires at least \(r-1\) singleton parts. The converse complete-split spectrum follows from a quadratic factor. The boundary \(r=2\) is expressly excluded because all bicliques have value \(0\).
+## correctness
 
-## Originality
-**PASS.** The closest inspected primary source on complete multipartite adjacency spectra (Stevanović–Gutman–Rehman, DOI 10.26493/1855-3974.499.103) proves that the complete split graph minimizes spectral radius and energy, but it does not optimize the sum of the largest and least adjacency eigenvalues. The recent source arXiv:2609.00210v1 studies spectral bipartiteness and proves general upper bounds for clique-free graphs, not the present lower extremum. Exact and alias searches for complete multipartite graphs, complete split graphs, spectral bipartiteness, and the sum of extreme adjacency eigenvalues found no implication covering this statement. The main residual risk is an older theorem filed under different terminology for \(\lambda_1+\lambda_N\).
+PASS
 
-## Value
-**PASS.** Spectral bipartiteness is an active measure of distance from bipartiteness. The theorem gives a sharp, unique extremizer on the canonical fixed-order/fixed-part-number multipartite family and shows that its normalized value can be exactly \((r-2)/N\), tending to zero for every fixed \(r\ge3\) despite the persistent \(K_r\). This is a structural extremal fact rather than a finite computation or parameter increment.
+For fixed N≥r≥3 and complete r-partite K_{n1,…,nr} with positive part sizes, the equitable symmetric quotient B=uu^T−diag(n_i), u_i=√n_i, has nonzero adjacency spectrum θ1>0>θ2≥…≥θr, and N−r further zeros. Arrange n1≤…≤nr. Rank-one interlacing implies θ_{j+1}≤−n_j for j=1,…,r−1. Because tr B=0, θ1+θr=−Σ_{j=2}^{r−1}θj≥Σ_{j=1}^{r−2}n_j≥r−2. Equality forces those small parts singleton and θ2,…,θ_{r−1}=−1. The −1 eigenspace has dimension precisely (# singleton parts−1) (including all-singleton case), forcing r−1 singleton parts. Conversely the complete split quotient has −1 with multiplicity r−2 and the remaining two eigenvalues solve z²−(r−2)z−(r−1)(N−r+1)=0, giving exact equality. r=2 is excluded because any biclique has zero. New independent spectral diagonalization sampled 647 positive multipartitions and 60 equality cases, not an all-parameter proof.
 
-## Closest literature and limitations
-The 2015 complete-multipartite spectrum paper supplies the closest same-family extremal result, while arXiv:2609.00210v1 supplies the current spectral-bipartiteness context. The new theorem does not extend beyond complete multipartite graphs and does not assert a lower bound for all graphs of clique number \(r\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact extremal functional is λ_max+λ_min, not spectral radius/energy alone. Stevanović–Gutman–Rehman (2015) give unique complete-split minimization for spectral radius and energy among fixed-N fixed-r complete multipartite graphs; their result alone does not constrain a jointly varying least eigenvalue enough to force this same extremum of the sum. Abiad–Kumar–Pragada arXiv:2609.00210 prove upper-extremal spectral-bipartiteness bounds in much broader clique-free settings, not this fixed-multipartite lower problem. No implication-equivalent statement located in checked relevant Resultary searches; residual risk of terminology/index-plus-least adjacency eigenvalue.
+
+## value
+
+PASS
+
+The spectral sum λ1+λN is an explicit measure of deviation from adjacency bipartiteness, and complete multipartite graphs form a canonical extremal model. A sharp fixed-order-and-part-count minimum with a unique split extremizer clarifies the cost of a persistent K_r and gives exact normalized scaling (r−2)/N. The proof needs spectral interlacing and a nontrivial equality multiplicity argument, not a routine table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
