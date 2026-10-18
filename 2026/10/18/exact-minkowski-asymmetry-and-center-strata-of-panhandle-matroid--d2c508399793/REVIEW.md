@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness — PASS
+The starting halfspace system is independently verified from the published vertex description and the cited Proposition 4.4. The reflection-inclusion condition is equivalent to the complete finite linear system \(1\le z_i\le\lambda\), \(z([n])=r(\lambda+1)\), \(z(T)\le\lambda\). Coordinate and tail support extrema all occur because the parameter range admits bases with and without each element and with zero or one tail element. Summing these inequalities supplies three sharp lower bounds, and the constructive block-constant feasible point meets their maximum. The full center-locus and its affine dimension follow from exact equality cases and strict hyperplane slices. Finite exact-arithmetic checks cover 140 triples and 23,440 enumerated bases, and supplement rather than substitute for the general proof.
+
+## Originality — PASS with remaining priority risk
+The 2022 primary paper proves panhandle polytope structure, Ehrhart formulas, and volumes. Material examination of its main results and appendices found no reflection-asymmetry center calculation. The 2023 panhandle Ehrhart-positivity papers study different invariants. The broader Schubert-matroid Ehrhart literature does not furnish an identified implication for these formulas. Published-result search found no directly covering statement. Previously recorded rank-two matroid asymmetry does not imply the present rank-at-least-three theorem, and a recorded general matroid Euclidean inradius concerns a metric rather than affine invariant. The remaining substantive risk is an older or more general theorem expressed as a measure of symmetry for cube slices, affine sections of hypersimplices, or matroid base polytopes without using panhandle terminology. No independent priority certification is claimed.
+
+## Value — PASS
+Panhandle polytopes form the natural hypersimplex-cutting building blocks in the paving-matroid construction, so a full exact affine-symmetry invariant for their entire nondegenerate parameter family is mathematically motivated. The formula depends on three competing structural constraints and supplies a complete phase classification of the minimizing-center set, including dimension changes at equality; it is not an arbitrary small-parameter census or a routine renaming of the input halfspaces. The center-stratum classification adds information unavailable from the asymmetry value alone.
+
+Self-review: passed. Independent audit: not yet performed.
