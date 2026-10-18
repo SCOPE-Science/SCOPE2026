@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T23:53:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N>=3, E={0,1,2}, B any unordered frequency triple in Z_N, column-wise unitary phase changes make V_B*V_B real symmetric diagonal 3 with offdiagonal g(d)=1+2cos(2pi*d/N); Vandermonde determinant is nonzero for three distinct roots. For 3|N the orthogonal balanced sets give rho=1, equality forces vanishing all cross terms. For N mod3=1,2, the balanced g-values (a,a,b) or (b,b,a) yield stated three eigenvalues. For any min gap r<q, strict g(q-1)>a+|b| and principal-submatrix interlacing yield rho strictly above balanced Gershgorin bound; the only remaining unbalanced type for mod3=2 is (q,q,q+2). The exact half-angle polynomial identity a(t-a)-b^2=-4v^2(v-sqrt3)^2 P(v)/(1+v^2)^6, v=tan(pi/(3N)), gives positivity via P(v)<0 for 0<v<1/10 at N>=11. Independently verified all three symbolic trigonometric identities with SymPy; enumerated all unordered triples N=3..33 and verified best value, balanced gap necessity and multiplicities. Small N=3,4,5,6,8 handled in source with explicit eigenvalues; N=7,9,10 handled by previous cases. This verifies infinitely many N analytically rather than extrapolating finite experiments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ferguson et al. Theorem 5.8 provides group/order-dependent general upper estimates for rho, while Theorem 7.5 bounds normalized Riesz ratios via multi-tiling geometry.",
+          "Kunis–Nagel–Strotmann give separated-node stability bounds; Kunis–Nagel analyze nearly colliding pairs."
+        ],
+        "reasoning": "General bounds and a sufficient multi-tiling hypothesis do not determine exact optimizers/equality counts for a fixed 3-point consecutive aperture and discrete frequency mesh. They are broader in group generality but weaker in exactness here.",
+        "searches": [
+          "consecutive triple Fourier matrix Z_N Riesz ratio exact optimal balanced cyclic gaps 3x3 Vandermonde condition numbers",
+          "finite cyclic Fourier Riesz ratio E={0,1,2} exact minimizers balanced three frequencies all N",
+          "arXiv:2103.08167",
+          "arXiv:1812.08645",
+          "arXiv:1904.04487 Theorems 5.8 and 7.5"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1904.04487",
+        "https://doi.org/10.13001/1081-3810.1190",
+        "https://arxiv.org/abs/2103.08167",
+        "Resultary mathematical records; searches consecutive triple Fourier matrix Z_N Riesz ratio exact optimal balanced cyclic gaps 3x3 Vandermonde condition numbers",
+        "Resultary targeted comparison finite cyclic Fourier Riesz ratio E={0,1,2} exact minimizers balanced three frequencies all N"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equality rho=1 iff perfect Fourier orthogonality for 3|N is classical and included in quantitative spectrality framework.",
+          "Fixed-grid N not divisible by 3 forces nonorthogonal matrices; this review derives the optimal imperfection and strict gap geometry."
+        ],
+        "reasoning": "Known perfect conditioning of divisible orders supplies only the r=0 subcase. Published generic estimates and continuous-rescaling classification cannot imply precise nondivisible eigenvalue radicals or unique gap geometry.",
+        "searches": [
+          "consecutive triple Fourier matrix Z_N Riesz ratio exact optimal balanced cyclic gaps 3x3 Vandermonde condition numbers",
+          "finite cyclic Fourier Riesz ratio E={0,1,2} exact minimizers balanced three frequencies all N",
+          "arXiv:1904.04487 Def.3.10 Thms.5.8,7.5",
+          "DOI:10.13001/1081-3810.1190 Abstract/sections on tau"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ferguson–Mayeli–Sothanaphan Definition 3.8 defines rho_E(B)=cond(T(E,B))^2, exactly the eigenvalue ratio optimized here.",
+          "Berman–Feuer (2007) allow continuous interpolation scaling tau to achieve perfect conditioning for a specified node tuple."
+        ],
+        "reasoning": "Equivalent formulations include minimum Gram eigenvalue ratio or squared 2-norm matrix condition over three root-of-unity columns, not only the same notation. The general framework does not state this all-grid minimizer classification, while adjustable tau is a different feasible design variable.",
+        "searches": [
+          "consecutive triple Fourier matrix Z_N Riesz ratio exact optimal balanced cyclic gaps 3x3 Vandermonde condition numbers",
+          "finite cyclic Fourier Riesz ratio E={0,1,2} exact minimizers balanced three frequencies all N",
+          "arXiv:1904.04487 Definition 3.8 and Sections 4–7",
+          "DOI:10.13001/1081-3810.1190"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original published Riesz paper treats examples of growing ratios and broad bounds, not a fixed N-by-N table of three-frequency optimal gaps.",
+          "Direct enumeration N=3..33 matches balanced expected sets with counts N/3 or N; this finite data corroborates but does not prove all orders."
+        ],
+        "reasoning": "No exact prior table or sequence was identified that specifies the claimed optimum/equality classification at every integer N, including indivisibility; finite verification cannot certify absence of a larger database.",
+        "searches": [
+          "consecutive triple Fourier matrix Z_N Riesz ratio exact optimal balanced cyclic gaps 3x3 Vandermonde condition numbers",
+          "finite cyclic Fourier Riesz ratio E={0,1,2} exact minimizers balanced three frequencies all N",
+          "arXiv:1904.04487 examples and tabulations",
+          "N=3..33 direct independent Gram enumeration"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison against the same primary mathematical object, stronger theorems, equivalent reductions, exact tables and indexed related results finds no previously established result implying the full final statement. Searches alone are not novelty proof. Most relevant full primary texts were read where accessible; restricted sources and mathematical priority uncertainties are named below.",
+      "residual_risks": [
+        "An older cyclic three-point interpolation optimizer theorem might be indexed under different terminology; finite database searches are not exhaustive.",
+        "Some secondary Vandermonde stability sources were not re-read in full; no plausible same fixed-grid result identified.",
+        "Numerical enumeration only N<=33; all-order result rests on the separate analytic half-angle inequality proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines same optimal ratio but gives group-level bounds, not exact optimum and all minimizing gap triples for E={0,1,2}",
+          "evidence": "Def.3.8 rho_E(B)=cond(T)^2; Theorems 5.8,7.5 bound rho without fixed-grid extremizer enumeration",
+          "identifier_or_url": "https://arxiv.org/pdf/1904.04487",
+          "material_read": "51-page full lawful arXiv paper available; examined introduction, Definitions 3.8/3.10 at page16, Theorem 5.8 page32 and Theorem 7.5 page44, table of contents and search for 3-consecutive support",
+          "method": "full arXiv PDF text, with page-image inspection of relevant definition and theorems",
+          "title": "Riesz bases of exponentials and multi-tiling in finite abelian groups",
+          "trigger": "Exact same Riesz ratio and finite-group setup"
+        },
+        {
+          "assessment": "Allows continuous scale tau, not optimization among fixed integer roots with tau fixed by N; cannot force nondivisible exact optimum",
+          "evidence": "Berman–Feuer KxK with free real tau, perfect-conditioning existence criterion",
+          "identifier_or_url": "https://doi.org/10.13001/1081-3810.1190",
+          "material_read": "Article abstract and author-posted full text, including setup A_pq=exp(-i2pi p n_q tau/K) and criterion for existence of tunable tau",
+          "method": "open publisher abstract and lawful author-shared full text",
+          "title": "On perfect conditioning of Vandermonde matrices on the unit circle",
+          "trigger": "Three-by-three Vandermonde conditioning exact analogue"
+        },
+        {
+          "assessment": "Generic separation estimates do not decide strict equality for 3-node finite grid",
+          "evidence": "No exact fixed-three-spectrum extremal enumeration stated in available abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2103.08167",
+          "material_read": "Preprint abstract and stated separated-node bound context; full 2021 preprint not exhaustively re-read",
+          "method": "arXiv abstract plus relevant general result metadata",
+          "title": "Multivariate Vandermonde matrices with separated nodes on the unit circle are stable",
+          "trigger": "Potential broader lower bounds on condition numbers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Riesz ratio is the canonical quantitative spectral conditioning invariant; optimizing all frequency triples for the smallest nontrivial consecutive aperture at every cyclic order, with exact arithmetic dependence and the full count of equality designs, is a complete and natural spectral-design classification. It explains optimal imperfect conditioning when 3 does not divide N and quantifies exact loss; not merely a sample calculation or previously known orthogonal divisible case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older cyclic three-point interpolation optimizer theorem might be indexed under different terminology; finite database searches are not exhaustive.",
+    "Some secondary Vandermonde stability sources were not re-read in full; no plausible same fixed-grid result identified.",
+    "Numerical enumeration only N<=33; all-order result rests on the separate analytic half-angle inequality proof."
+  ],
+  "schema_version": 1
+}
