@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T05:16:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For symmetric iid {-1,0,1} law with endpoint mass t, nested minimum and maximum event indicators yield rho_n(t)=[((1-t)^n+t^n)^2-(1-2t)^n] / [(1-t)^n+3t^n-((1-t)^n+t^n)^2]. The numerator >0 and variance >0 on 0<t<=1/2. For t=c/n, local uniform expansions give n rho_n→H(c)=c²/(e^c-1). The global finite-n bound using variance >=ell(1-ell) excludes both nt→0 and nt→infinity for maximizing sequences, so all optimizers localize at unique c*∈(1,2) solving (2-c*)e^c=2. Thus nR_n→c*(2-c*)≈.647610238, nt_n→c*≈1.59362426. Independent rational moment checks recovered n2 t=1/3 rho8/19 and n3 t=3/10 rho81/319; own finite optimization found n16,64,256 convergence. Endpoint t=0 excluded but limit 0 guarantees attained interior maximum for each fixed n. Numerical grid only corroborative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2205.14360",
+          "https://doi.org/10.1016/0167-7152(85)90035-5"
+        ],
+        "reasoning": "General bound rho<=1/n dominates order but permits any leading coefficient ≤1. The proven c*(2-c*)≈.6476 and optimizing t asymptotics are not determined by the broad bound.",
+        "searches": [
+          "Extreme order statistics Pearson correlation minimum maximum symmetric three point distributions rare endpoint asymptotic maximizing probabilities",
+          "Székely Móri universal extreme order correlation 1/n Papadatos discrete nonuniform probabilities"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2205.14360",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sample-size-two-is-the-exact-boundary-for-three-point-uniform-pr--200fa86d60cb",
+        "https://doi.org/10.1007/s00180-021-01103-5",
+        "https://doi.org/10.1016/0167-7152(85)90035-5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2205.14360",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sample-size-two-is-the-exact-boundary-for-three-point-uniform-pr--200fa86d60cb"
+        ],
+        "reasoning": "Knowing uniform t=1/3 is nonoptimal for n>=3 does not determine how best t scales, eliminate nt escaping, or maximize H(c); the new proof uses a global uniform inequality and strict uniqueness.",
+        "searches": [
+          "Extreme order statistics Pearson correlation minimum maximum symmetric three point distributions rare endpoint asymptotic maximizing probabilities",
+          "sample size two exact boundary three point uniform probability extremality derivative n>=3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2205.14360",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sample-size-two-is-the-exact-boundary-for-three-point-uniform-pr--200fa86d60cb"
+        ],
+        "reasoning": "Pearson correlation of extrema along (t,1-2t,t) differs from functional maximal correlation; prior n2 uniform extremal characterization is one finite n only. Reparameterization t=c/n does not appear in the inspected prior results.",
+        "searches": [
+          "Extreme order statistics Pearson correlation minimum maximum symmetric three point distributions rare endpoint asymptotic maximizing probabilities",
+          "three point discrete distribution symmetric endpoint mass min max Pearson correlation asymptotic n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-three-draw-counterexample-to-uniform-probability-extremality-f--72e2dab2ac87",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sample-size-two-is-the-exact-boundary-for-three-point-uniform-pr--200fa86d60cb"
+        ],
+        "reasoning": "Published exact examples 8/19 (n2) and 81/319 (n3) overlap with verification examples, but the claim under review is an all-n asymptotic sharp optimization and all-maximizers limit, not the known small-n numbers.",
+        "searches": [
+          "Extreme order statistics Pearson correlation minimum maximum symmetric three point distributions rare endpoint asymptotic maximizing probabilities",
+          "three draw min max corr rho 81/319 3/10 uniform sample n3 Resultary"
+        ]
+      },
+      "rationale": "Prior Papadatos 2022/2023 characterizes n=2 for a discrete-uniform 3-point law, quotes general Corr(min,max)<=1/n and asks about nonuniform masses; this bound does not identify the optimal rare-endpoint constant or all optimizers. Related published records establish n=3 counterexamples and the nonoptimal uniform point at n>=3, but these local finite-n results do not imply the n→infinity sharp maximizer-scale theorem. López-Blázquez/Salamanca-Miño maximize transformed-variable correlation, a different optimization. The primary inaccessible portions of that source remain an explicit risk.",
+      "residual_risks": [
+        "Maximal-correlation primary article full text not inspected; a hidden specialized ordinary Pearson optimization discussion remains possible.",
+        "An older extreme-order rare-events theorem could provide implicit asymptotic optimization by a different parameterization; no such dominating implication found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_N_ASYMPTOTICS",
+          "evidence": "The paper bounds rho<=1/n and addresses special two-draw uniform optimality but not symmetric rare-endpoint maximizer asymptotics.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.14360",
+          "material_read": "ArXiv rendered full text inspected introduction, n=2 sharp bound and discussion of nonuniform probabilities; source names general Székely–Móri inequality.",
+          "method": "Compared exact statistics (Pearson, no transformed extrema), support, n and hypotheses.",
+          "title": "A discrete analogue of Terrell’s characterization of rectangular distributions",
+          "trigger": "Discrete min/max ordinary Pearson correlation and probability optimization"
+        },
+        {
+          "assessment": "NONIMPLYING_LOCAL_PAPER",
+          "evidence": "Shows local failure of uniform t for all n>=3 but does not give global optimal t~c*/n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sample-size-two-is-the-exact-boundary-for-three-point-uniform-pr--200fa86d60cb",
+          "material_read": "Resultary summary and publicly indexed finding statement concerning derivative of rho_n at t=1/3, n>=3; not full RESULT.md read.",
+          "method": "Used only the exact statement reported by the indexed published result, no blanket absence claims from snippets.",
+          "title": "Sample size two is the exact boundary for three-point uniform-probability extremality",
+          "trigger": "Very close published finite-n family"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+          "evidence": "No whole-document NOT_COVERING claim: a Pearson specialization could appear inside article, remains a risk.",
+          "identifier_or_url": "https://doi.org/10.1007/s00180-021-01103-5",
+          "material_read": "Publisher bibliographic record and abstract/available statement only; full article not obtained.",
+          "method": "Distinguished maximal correlation over functions of extrema from ordinary Pearson correlation varied over parent masses.",
+          "title": "Automatic differentiation and maximal correlation of order statistics from discrete parents",
+          "trigger": "Similar title under alternate maximal-correlation objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The extreme-statistic dependence optimization is a natural longstanding question, and the nonuniform symmetric three-atom family exhibits a nontrivial rare-event transition. The rate c*/n and sharp coefficient plus localization of every maximizer are asymptotic optimization facts requiring a global escape-exclusion argument; finite-n counterexamples and universal 1/n bounds do not settle them.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only symmetric equal endpoint masses, fixed equally spaced three-state support; does not optimize arbitrary probabilities or support geometry.",
+    "Finite-n argmax t_n has no claimed closed form; exact asymptotics proven for all selections of maxima."
+  ]
+}

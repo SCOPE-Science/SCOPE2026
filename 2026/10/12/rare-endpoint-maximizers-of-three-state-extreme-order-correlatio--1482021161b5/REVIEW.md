@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact indicator identities give the finite-sample covariance and variance and hence equation (1). The rare-endpoint scaling \(t=c/n\) yields a locally uniform limit \(c^2/(e^c-1)\). The substantive global step is a uniform inequality in \(u=nt\) showing that all candidate optimizers must stay in a compact positive \(u\)-window; this excludes both boundary-escape regimes. The limit profile has a unique maximum at the positive root of \((2-c)e^c=2\). The argument proves the limit and localization of every optimizer, including existence and parameter boundaries. A separate exact-rational finite replay confirms the moment identities but is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS with residual bibliographic risk. The 2022 primary text gives the discrete-uniform two-draw case, quotes a universal \(1/n\) extreme-correlation upper bound, and raises nonuniform probability-vector optimization as a distinct direction. Those statements neither imply the sharp constant in the restricted three-state family nor determine the unique rare-mass scale. A related 2021 article concerns optimizing nonlinear transformations of order statistics for fixed discrete parents; its complete full text was not available in the inspected material. Candidate-specific published-record and mathematical database searches did not find the same sharp asymptotic and all-optimizers localization. General older occupancy/dependence theory may still implicitly cover it.
+PASS
 
-## Value
-PASS. The theorem identifies how endpoint masses must shrink to retain optimal order-statistic correlation as the iid sample grows. It sharpens the general \(1/n\) envelope to the exact coefficient within a nontrivial natural family, proves a unique universal scaling law, and demonstrates why fixed equal probabilities become exponentially inferior.
+For symmetric iid {-1,0,1} law with endpoint mass t, nested minimum and maximum event indicators yield rho_n(t)=[((1-t)^n+t^n)^2-(1-2t)^n] / [(1-t)^n+3t^n-((1-t)^n+t^n)^2]. The numerator >0 and variance >0 on 0<t<=1/2. For t=c/n, local uniform expansions give n rho_n→H(c)=c²/(e^c-1). The global finite-n bound using variance >=ell(1-ell) excludes both nt→0 and nt→infinity for maximizing sequences, so all optimizers localize at unique c*∈(1,2) solving (2-c*)e^c=2. Thus nR_n→c*(2-c*)≈.647610238, nt_n→c*≈1.59362426. Independent rational moment checks recovered n2 t=1/3 rho8/19 and n3 t=3/10 rho81/319; own finite optimization found n16,64,256 convergence. Endpoint t=0 excluded but limit 0 guarantees attained interior maximum for each fixed n. Numerical grid only corroborative.
 
-## Closest literature and limitations
-Papadatos, arXiv:2205.14360v1 (2022), is the motivating paper; Székely–Móri (1985) gives the universal rectangular-distribution bound; López-Blázquez and Salamanca-Miño (2021), DOI 10.1007/s00180-021-01103-5, treats functional maximal correlation for discrete parents. The conclusion is restricted to ordinary Pearson correlation and symmetric masses on three equally spaced points. The 2021 full text and older terminology-based equivalents remain bibliographic risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Papadatos 2022/2023 characterizes n=2 for a discrete-uniform 3-point law, quotes general Corr(min,max)<=1/n and asks about nonuniform masses; this bound does not identify the optimal rare-endpoint constant or all optimizers. Related published records establish n=3 counterexamples and the nonoptimal uniform point at n>=3, but these local finite-n results do not imply the n→infinity sharp maximizer-scale theorem. López-Blázquez/Salamanca-Miño maximize transformed-variable correlation, a different optimization. The primary inaccessible portions of that source remain an explicit risk.
+
+## value
+
+PASS
+
+The extreme-statistic dependence optimization is a natural longstanding question, and the nonuniform symmetric three-atom family exhibits a nontrivial rare-event transition. The rate c*/n and sharp coefficient plus localization of every maximizer are asymptotic optimization facts requiring a global escape-exclusion argument; finite-n counterexamples and universal 1/n bounds do not settle them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
