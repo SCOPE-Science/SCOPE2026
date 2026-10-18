@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T14:49:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using u_t=βu_(t-1)+(1-β)y_(t-1), bias-corrected v_t=u_t/(1-β^t), and ψ(v)=v/(1+v²), the exact scalar update is y_t=y_(t-1)-cψ(v_t). In the limiting autonomous map the ± symmetric orbit satisfies q=(1-β)/(1+β), 1+q²a²=cq/2, so a=√(s/2-1)/q exists uniquely iff s>2. At either phase the Jacobian has determinant β and trace 1+β-(1-β)cψ'(qa); the 3 Jury expressions equal 2(1+β)(4-s)/s, 4(1+β)(s-2)/s and 1-β, proving 2<s<4 exactly. The actual nonautonomous correction is O(β^t). For c=3, β≤.01, weighted sup norm max(|dy|,|du|/4), source first-step entry, derivative bound below 2/3 on paired radius .05 balls, and geometric forcing <=3β^t imply e_t<=.016(2/3)^(t-1). Independently checked symbolic Jury algebra and numerical recurrence over parameter endpoints including the claimed source interval; finite trajectories alone are not the proof. The objective limit is ρ(1-5β)(1+β)/(4h(1-β)²)>0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bock-Weiss Adam has a separate squared-gradient moving average and a different normalizing denominator.",
+          "Ye-Luo-Zhang approximate Newton requires uniform Hessian comparisons; SOFIM rank-one moment product does not have that property in the tested regime."
+        ],
+        "reasoning": "Those broad dynamics/convex convergence topics do not imply this algorithm-specific exact sharp 2<s<4 interval and source-initialized geometric bound.",
+        "searches": [
+          "arXiv:2210.02070v1 Bock Weiss",
+          "PMLR:70:ye17a Ye Luo Zhang",
+          "arXiv:2403.02833v2",
+          "SOFIM regularized Fisher first moment momentum on strongly convex quadratic attracting limit cycle bias correction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md d7185b4ae7bb57a6e493440f076edcf065f01cde",
+        "Frozen verify.py c41c8bc8765ddbd7f5c6edb8a5516baf9b7a8d16",
+        "Frozen METADATA.json 0cea008bd254d19ee2716aa8591ff594d05f4068, SLOGAN.txt 40a8a6917b530c0b68b684ec643d73b18713ccc7",
+        "arXiv:2403.02833v2 abstract and authorized access attempt (VPN disconnected)",
+        "arXiv:2210.02070v1 Adam source description",
+        "PMLR:70:ye17a general approximation hypotheses",
+        "Resultary semantic SOFIM optimization query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "SOFIM first moment squared is its Fisher preconditioner; Adam second moment is accumulated separately.",
+          "An exact two-step Jacobian criterion for the SOFIM map plus bias correction is derived in the audited claim."
+        ],
+        "reasoning": "The original optimizer update defines the mathematical system but does not itself prove its attracting cycles. An Adam example is not a logical proof about a different state map; approximate Newton local conditions are inapplicable.",
+        "searches": [
+          "arXiv:2403.02833v2 Algorithm 1",
+          "arXiv:2210.02070v1 Theorem 2",
+          "PMLR:70:ye17a Theorems 3-4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The governing scalar normalized recurrence has rational form ψ(v)=v/(1+v²) and a single first moment.",
+          "Resultary 2026/10/4/SCOPE-sharp-partial-adaptivity-phase-transition-in-scalar-padam--64bfa7f15a9c treats Padam second-moment normalization, not SOFIM."
+        ],
+        "reasoning": "Equivalent claims must determine the Fisher-rational map stable 2-cycle and actual source-biased basin, rather than merely generic nonconvergence of stochastic optimizers.",
+        "searches": [
+          "SOFIM regularized Fisher first moment momentum on strongly convex quadratic attracting limit cycle bias correction",
+          "arXiv:2403.02833 regularized Fisher two cycle",
+          "SOFIM nonconvergence scalar strongly convex cycle Fisher information"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest returned indexed Padam/FISTA/Adam-like optimization records are distinct recurrences.",
+          "The submitted result is an analytic cycle-bifurcation formula and convergence theorem, not a known table."
+        ],
+        "reasoning": "Different optimizers can share the phenomenon without reproducing the same exact amplitude/Jury thresholds.",
+        "searches": [
+          "Resultary SOFIM regularized Fisher first moment momentum on strongly convex quadratic attracting limit cycle bias correction",
+          "arXiv:2403.02833 scalar 2-cycle",
+          "SOFIM bias correction stable cycle threshold"
+        ]
+      },
+      "rationale": "The SOFIM defining source specifies first-moment bias correction and regularized rank-one Fisher steps (only abstract/accessible source description and exact package reconstruction read this run). Earlier Bock-Weiss prove Adam cycles with a separate second-moment state, which does not directly imply this 2D Fisher map, its exact sharp Jury window or quantitative source basin. PMLR approximate Newton needs Hessian spectral comparison absent here. Full original SOFIM paper inaccessible despite open-access and authorized institutional attempt; priority remains best-of-knowledge with explicit risk.",
+      "residual_risks": [
+        "The SOFIM primary full PDF/HTML was not retrievable this run; direct full-algorithm priority and exact transcription checks limited to accessible source descriptions and frozen package.",
+        "Some related momentum cycling result might cover an equivalent rational preconditioner under a different algorithm name.",
+        "The sharp window is for limiting autonomous symmetric 2-cycles, not all recurrent dynamics of bias-corrected algorithm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary full-text priority comparison INCOMPLETE, not whole-document NOT_COVERING.",
+          "evidence": [
+            "Rank-one Fisher product and first-moment bias correction are described in the cited algorithm."
+          ],
+          "identifier_or_url": "arXiv:2403.02833v2",
+          "material_read": "Public arXiv abstract, metadata and package algorithm extraction; no independent entire full text: open-access PDF/HTML access failed and authorized Oxford returned vpn_disconnected, job 454e3d7cd77672b683d985ad47c91ce8.",
+          "method": "Metadata and formula-level reconstruction of scalar recurrence",
+          "title": "SOFIM: Stochastic Optimization Using Regularized Fisher Information Matrix",
+          "trigger": "Exact defining algorithm"
+        },
+        {
+          "assessment": "Prior general cycle phenomenon but different preconditioner and state dimension.",
+          "evidence": [
+            "Adam has an independent squared-gradient EMA; SOFIM denominator squares first-moment estimate."
+          ],
+          "identifier_or_url": "arXiv:2210.02070v1",
+          "material_read": "Public arXiv abstract and source description of Adam second-moment recurrence; complete paper not independently inspected this run.",
+          "method": "Algorithm-state and implication comparison",
+          "title": "Non-Convergence and Limit Cycles in the Adam Optimizer",
+          "trigger": "Closest known optimizer cycle phenomenon"
+        },
+        {
+          "assessment": "Local convergence under Hessian approximation hypotheses does not apply to unrestricted constant-step SOFIM recurrent dynamics.",
+          "evidence": [
+            "Two-sided spectral comparison to true Hessian is required."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v70/ye17a.html",
+          "material_read": "Accessible PMLR abstract/conditions summary; full paper not independently read in this run.",
+          "method": "Spectral hypothesis comparison",
+          "title": "Approximate Newton Methods and Their Local Convergence",
+          "trigger": "Source convergence citation and possible stronger theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete exact stability phase transition plus a nontrivial bias-corrected basin of attraction for an optimizer promoted for convex losses is a meaningful structural dynamics result. It distinguishes the optimizer-specific Fisher/momentum nonlinearity from previously known Adam cycling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For scalar strongly convex quadratic f=h x²/2 under SOFIM first-moment Fisher regularization, the autonomous sign-symmetric nonzero two-cycle exists iff s=ηh(1-β)/[ρ(1+β)]>2 and is linearly asymptotically stable iff 2<s<4. For the actual bias-corrected source-initialized update with ηh/ρ=3 and 0≤β≤0.01, every initial normalized y0 within 0.01 of 1/√2 converges geometrically to the alternating nonminimizing orbit.",
+  "limitations": [
+    "Exact sharp s-interval only for sign-symmetric two-cycle of limiting autonomous dynamics.",
+    "Actual nonautonomous source basin only c=3, β≤.01, y0 near 1/√2; no stochastic or global basin claims.",
+    "Original source full text unavailable and authorization disconnected; residual originality/access risk explicitly carried."
+  ],
+  "schema_version": 1
+}
