@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification of priced perfect-matching network allocation
+# Independent mathematical audit
 
-The standalone file `verify_matching.py` requires only Python 3 standard-library modules. From the same directory as `RESULT.md`, execute:
+## correctness
 
-```bash
-python3 verify_matching.py
-```
+PASS
 
-Its expected success line is:
+The connected weighted complete graph has K=N tr[(L+J/N)^(-1)]-N and is strictly convex in independent weights; symmetry and uniqueness force two conductance orbits a,b. The Laplacian nonzero spectrum is 2a+(N-2)b with multiplicity N/2 and Nb with multiplicity N/2-1. Budget m(ta+(N-2)b)=1 converts K to C+A y+B/y, y=2(a/b)+N-2. This proves threshold t=N^2/(N^2-2N+2), deleted matching at/above threshold, interior solution and exact critical window; independently inverted full Laplacians for N=4,6,8,12 and compared values. At t>=2 B<=0 yields monotone objective; boundary properly treated.
 
-```text
-VERIFY_OK 66 exact cases, 660 budget-constrained comparisons; spectrum, matrix inverse, and threshold
-```
+## originality
 
-It evaluates even orders \(N=4,6,8,10,12\), with rational parameters \(r\) chosen so that \(t=2/(1+r^2)\) and the theorem's unique symmetric optimum are rational. It independently constructs the full Laplacian, inverts \(L+J/N\) over exact fractions, checks the spectral resistance formula, checks the budget, tests alternative nonnegative feasible symmetric weights, and checks the difference to deleting the matching. It also tests exact threshold equalities through \(N=14\).
+PASS
 
-The code checks finitely many cases, not all real prices or all graph sizes. Its rational alternative allocations are not a global optimizer proof. Global correctness, uniqueness, and limits require the analytic argument in `RESULT.md`. The critical nonstandard ingredients are the decomposition into matched-pair antisymmetric and pair-symmetric Laplacian eigenspaces and the strict matrix inverse-trace convexity argument.
+Ghosh–Boyd–Saberi establishes general convex resistance optimization and the equal-price complete graph but no distinct perfect-matching price orbit threshold or large-N price window in inspected sections. Bapat–Karimi–Liu calculates fixed-conductance complete multipartite/cocktail-party indices, giving deletion endpoint only. Thus explicit all-price classification and sharp window are not implied by either, though possibly encoded in other network design literature.
 
-No independent scientific audit has been performed.
+## value
+
+PASS
+
+An exact globally unique network optimizer with a sharp edge-class pruning threshold and O(1/N) price window is a nontrivial structural answer to a canonical effective-resistance design problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
