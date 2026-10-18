@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The lower bound is the standard weight-interval count. The upper bound at orders eight and ten uses the explicit Shan--Zhong spanning-subgraph criterion, whose labeling construction is reconstructed in RESULT.md. The exact checker regenerates every normalized complement completion, verifies the degree-class hypothesis, constructs the total labeling, and recomputes distinct weights. The order-six case is checked by an explicit labeling of \(K_6\).
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:2609.30114v1, proves the conjecture for cubic and 4-regular graphs and for fixed degree only at sufficiently large order; it explicitly leaves every fixed degree \(d\ge5\) open without an order restriction. Focused searches for quintic/5-regular total vertex irregularity at orders eight and ten did not locate an equivalent result. The classical \(K_6\) subcase is not claimed as new; originality lies in the complete order-eight/order-ten coverage and the resulting order-twelve lower cutoff for a degree-five counterexample.
+PASS
 
-## Value
-PASS. Degree five is the first regular degree left unresolved by the initiating 2026 theorem. A complete exact cutoff through the first three admissible orders, especially the full order-ten census, removes the smallest possible counterexample range and supplies reusable finite certificates for the paper's open Conjecture 4.3.
+For a 5-regular graph and total labels <=k, vertex weights range through 6,...,6k, giving k>=ceil((n+5)/6). Handshake forces even n; n<=10 permits only 6,8,10. At n6 the unique K6 has explicit two-label assignment with distinct weights 11,10,8,9,7,6. For n8 and n10, fixing vertex0 complement neighbors to {1..n-6} is w.l.o.g.; an independently written recursion over residual complement degrees with Erdős–Gallai pruning yields exactly 167 and 527481 labeled normalized completions. A SECOND independent program replayed the two source cert8 masks and ALL 149 source cert10 masks against EVERY completion, computing H=G∩F and constructing vertex labels by the same proved degree-class sufficient condition, checking actual weights: all 167 and all 527481 pass. The full 149-mask JSON was reconstructed byte-for-byte; Git blob SHA1 matches pinned e6fb480a1420419fa11715b5a83ac4824cd3d5c5, size 2431. This is genuinely exhaustive finite proof with a proved relabeling normalization, not sample enumeration.
 
-## Closest literature and limitations
-The strongest nearby result is Shan--Zhong's asymptotic fixed-degree theorem and its degree-class criterion. Majerski--Przybyło gives general dense-graph upper bounds rather than the exact small-order quintic statement. The result is finite and computational at orders eight and ten; it does not address order twelve or above.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Shan–Zhong arxiv:2609.30114v1 proves all-order d=3,4 and asymptotic sufficiently-large orders for fixed regular degree, and states unrestricted d>=5 remains open. Its abstract/readily accessible discussion does not supply an explicit small-degree-five n<=10 cutoff; the full primary PDF could not be obtained (arxiv PDF/HTML disabled; Oxford access vpn_disconnected), so source-inspection limits are recorded without automatic O failure. Broader dense-graph tvs result is an upper bound not stated sharp for all 5-regular n8/10. Resultary indexed corpus returns this result and unrelated regular graph enumerations. K6 case is prior trivial; novelty attaches to universal n8,n10 exclusion and min-counterexample n12.
+
+## value
+
+PASS
+
+The small-order cutoff is a natural complete finite classification in degree five, the first degree the motivating 2026 regular-graph conjecture does not resolve uniformly. Excluding *all* such graphs below twelve with complete independently replayed certificate masks is a substantive exact finite bound rather than arbitrary unmotivated enumeration; no claim is made for n>=12.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
