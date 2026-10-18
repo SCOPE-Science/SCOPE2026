@@ -1,0 +1,15 @@
+# Scientific review: five-frequency cross fourth moment
+
+## Correctness
+PASS. The proof applies Fourier orthogonality to all differences of a five-point cross, uses no unproved higher-order inequality, and supplies a complete account of zero coefficients and equality. For finite cyclic factors of order at least five, all differences in the integer range from minus two to plus two remain distinct modulo the order, so the same autocorrelation formula holds. The inequalities in the two opposite-pair products are strict away from pairwise equal arm magnitudes at the optimizer. The two antipodal phase relations are necessary from the axial terms and sufficient for every diagonal term. The resulting value is \(27/11\), with a quantitative mass-balance deficit that is pointwise attained for every prescribed admissible triple of center/horizontal/vertical masses by nonnegative equal-pair coefficients. The standalone verification program was run and its output included; numerical tests, including 100 prescribed mass-triple checks, are corroboration, not an infinite proof.
+
+## Originality
+PASS on the available primary and published mathematical evidence, not a uniqueness guarantee. Complete main statements and proofs were inspected in the published five-point Ferrers Fourier result, the ternary five-point split-cone result, and the full-two-axis-subgroup result. The Ferrers support has different pair-sum collisions and sharp value; the ternary case has frequency aliases absent from the claimed domain; the full-axis bound is not sharp when restricted to five coefficients. Public arXiv material was also compared, including the main theorems of Iosevich--Koh--Lee--Pham--Shen (2018) and Ciccone--Gonçalves (2022), whose operators, supports and exponents do not dominate this theorem. The 2024 finite-field sharp extension paper was assessed from available public abstract and theorem descriptions; its full text was not needed for the decisive comparisons. Residual risk: older unindexed exact five-character moment optimizations and equivalent autocorrelation statements.
+
+## Mathematical value
+PASS. The cross is a canonical radius-one symmetric Fourier aperture, arising as a five-point split quadratic zero set over small fields and as the nearest-neighbor stencil on square tori. Its unrestricted sharp fourth-moment norm and full phase structure are intrinsic harmonic invariants; the value \(27/11\) is not obtained by inserting the nearby published Ferrers constant or by a sharp bound on the entire pair of coordinate axes. The exact pointwise-sharp deficit additionally forces quantitative allocation of mass among the center and two arms. The finite-grid nonaliasing threshold provides a natural structural boundary.
+
+## Limits
+No sharp constant or optimizer classification is claimed for square grid orders less than five. No sharp higher-moment or general five-point-support theorem is claimed. Independent validation is not available.
+
+Self-review: passed. Independent audit: not yet performed.
