@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of modulo-eight odd-mex residues
+# Independent mathematical audit
 
-Run `python3 verification/verify.py` using Python 3 standard library only. The verifier constructs the residues from the forced/unrestricted overpartition part factors for every odd minimal excludant with smallest possible size at most 400. Separately, it enumerates ordinary partitions of every index through 24, weighting each part-support set by the number of possible overlinings, and compares with the independently computed closed formula. It also confirms the exact positive-square zero locus and the exclusion of all but residues 0, 2, and 6 in the tested range. Actual recorded standard output is in `verification/check_output.txt`.
+## correctness
 
-The proof is not based on numerical extrapolation. Its decisive infinite checks are: the terms indexed by \(j\ge2\) vanish modulo \(8\); the \(j=1\) term reduces to a rational series modulo \(8\); the inverse theta factor has precisely three terms modulo \(8\); every square coefficient cancels; and nonsquares are twice an odd number modulo \(8\). Direct enumeration and coefficient tests are finite consistency checks only.
+PASS
 
-Scope: coefficients for every positive integer, modulo eight. Higher-power divisibility, closed exact integer values, and external/independent review are not claimed.
+The exact statistic is the ordinary least absent part, counted only when odd, with overlined and ordinary copies both counted for forced sizes. Terms of mex 2j+1 have factor 4^j, so j>=2 vanish mod 8 and j=1 contributes 4q^3/((1-q)(1-q^2)); the j=0 term is (1-q)/(1+q) times the inverse Jacobi theta series. Expand the inverse as 1-2Theta+4Theta^2 and apply Frobenius modulo 2 to obtain the displayed coefficient law. At n=m^2 the two 2-terms cancel and the remaining bracket m-1+floor((m^2-1)/2) is even in either parity. All non-squares have residue 2 or 6; interval-by-interval mod4 balance, with O(sqrt X) exceptional twice-squares, proves density 1/2 each. Independent coefficient DP from forced/unrestricted part sizes mod8 agreed for n=1..100, with zeros exactly the ten squares <=100. Not inferred from the finite test.
+
+## originality
+
+PASS
+
+The initiating same-statistic September 2026 preprint proves an exact generating series and a square test mod4, and its modulo-eight result concerns self-convolution, not direct a(n) coefficient classes. The direct all-n mod8 formula, exact square divisibility by 8, and residue densities provide a nontrivial additional arithmetic consequence rather than an independent generating function. Published-finding similarity searches did not reveal same-statistic coverage; ambiguity in unindexed related 2026 work remains.
+
+## value
+
+PASS
+
+A complete next 2-adic layer for the precise odd-mex overpartition sum closes the natural sharp boundary left by a mod4 square criterion. The exact coefficient law determines the three residue classes and their densities for every index, a reusable arithmetic statement beyond merely computing an existing generating function.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

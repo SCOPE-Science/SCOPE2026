@@ -1,12 +1,21 @@
-# Scientific review: complete modulo-eight odd-mex residues
+# Independent mathematical audit
 
-## Correctness
-PASS. Conditioning on the exact first missing size gives independent forced/unrestricted part-size factors. Modulo eight, only the first two odd minimal-excludant classes contribute. The Jacobi triple product and the inverse of \(1+2\Theta(q)\), truncated exactly modulo eight, convert the complete overpartition product to square- and twice-square-supported theta terms. Coefficient extraction is explicit, including the boundary cases \(n=1,2\); parity evaluation at squares proves the zero criterion, and complete square intervals prove the two nonzero residue densities. An independently implemented direct part-size calculation and ordinary-partition enumeration corroborate the formula through degree 400 and 24, respectively.
+## correctness
 
-## Originality
-PASS with an explicit caveat. The nearest result is Veena V. S. and S. N. Fathima, arXiv:2609.32207v1, Theorems 1.1, 1.4, and 1.7: the paper establishes the exact generating function, square criterion modulo four, and self-convolution congruence modulo eight, but not the explicit residues of the original sum modulo eight or the resulting three-residue distribution. The generating function logically determines these coefficients, but obtaining the stated arithmetic description requires a new coefficientwise reduction and cancellation argument. Sarkar–Thejitha–Fathima arXiv:2609.21649 gives a related mod-four relation, and Aricheta–Donato study a distinct overpartition mex statistic. Targeted searches of published published-finding corpus records and primary literature found no covering identical or stronger arithmetic classification. Those searches cannot rule out an unindexed equivalent result; the full text of arXiv:2609.21649 was not recovered, although its public abstract advertises different, modulo-four statements.
+PASS
 
-## Value
-PASS. This is a complete residue classification of an intrinsically motivated partition statistic, not a check of an arbitrary short progression. It unexpectedly preserves the exact positive-square support of divisibility when the modulus is doubled from four to eight; it also resolves the two remaining residue classes explicitly and proves their equidistribution. The twice-square correction and the floor-square-root term exhibit structure that the prior modulo-four theorem conceals. The result is self-contained modulo the stated known generating-function and Jacobi identities, and makes no claim at higher powers of two.
+The exact statistic is the ordinary least absent part, counted only when odd, with overlined and ordinary copies both counted for forced sizes. Terms of mex 2j+1 have factor 4^j, so j>=2 vanish mod 8 and j=1 contributes 4q^3/((1-q)(1-q^2)); the j=0 term is (1-q)/(1+q) times the inverse Jacobi theta series. Expand the inverse as 1-2Theta+4Theta^2 and apply Frobenius modulo 2 to obtain the displayed coefficient law. At n=m^2 the two 2-terms cancel and the remaining bracket m-1+floor((m^2-1)/2) is even in either parity. All non-squares have residue 2 or 6; interval-by-interval mod4 balance, with O(sqrt X) exceptional twice-squares, proves density 1/2 each. Independent coefficient DP from forced/unrestricted part sizes mod8 agreed for n=1..100, with zeros exactly the ten squares <=100. Not inferred from the finite test.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The initiating same-statistic September 2026 preprint proves an exact generating series and a square test mod4, and its modulo-eight result concerns self-convolution, not direct a(n) coefficient classes. The direct all-n mod8 formula, exact square divisibility by 8, and residue densities provide a nontrivial additional arithmetic consequence rather than an independent generating function. Published-finding similarity searches did not reveal same-statistic coverage; ambiguity in unindexed related 2026 work remains.
+
+## value
+
+PASS
+
+A complete next 2-adic layer for the precise odd-mex overpartition sum closes the natural sharp boundary left by a mod4 square criterion. The exact coefficient law determines the three residue classes and their densities for every index, a reusable arithmetic statement beyond merely computing an existing generating function.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
