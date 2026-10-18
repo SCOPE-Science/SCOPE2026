@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The unique extrema exist by the classical John–Löwner theorem; the action of coordinate permutations and central reflection reduces each quadratic shape matrix to two scalar eigenspaces. The inner formula follows from its two facet-orbit constraints and an exact concave determinant optimization. The outer proof reconstructs every vertex, computes exact squared projections, strictly discards dominated lower shells, proves \(s>t\), classifies contact weights by strict concavity, and solves the log-determinant KKT system with explicit nonnegative multipliers. The initial threshold and dimension-sharp pole exclusion follow from exact inequality manipulations. The local exact rational script supports the formulas; the all-dimensional claims rely on the written proof. The parameter endpoints are excluded.
+## correctness
 
-**Originality — PASS, with residual literature risk.** The complete 2020 source's §3 identifies the vertices and combinatorial properties. The full 2024 source studies Euclidean volumes, dual volumes and Mahler products, not the extremal ellipsoid matrices or their changing contact sets. General ellipsoid theorems assert existence and optimality certificates but do not provide these specific formulas. Prior scalar Euclidean sphere and inradius values concern different optimization objectives and do not imply the anisotropic ellipsoid contacts. No equivalent or stronger result was identified in exact-phrase, equivalent-parameter, or semantically related research searches. The 2025 source was read only at abstract level; undiscovered specialized coverage is a residual risk, not an asserted absence.
+PASS
 
-**Value — PASS.** The central question is a natural geometric extremum for a well-studied family of alcoved zonotopes. The all-dimensional answer collapses an exponential vertex set to an exact linear-size rational candidate algorithm; additionally the first contact bifurcation is sharp with distinct even/odd asymptotic limits. The exclusion of the unique maximum-radius vertices for every dimension at least four distinguishes minimum-volume ellipsoids from minimum-radius spheres and is not recoverable from a routine radius computation. The result identifies the complete outer contact structure, not an arbitrarily sliced small example.
+Reconstructed all vertices ±w_S via active box/difference constraints (strict δ domain), symmetry reduction to H=hh^T and J=I-H, John facet constraints (u+(d-1)v)/d<=1 and 2v<=δ². For Löwner, vertex orbit projections are A_k=d(1-δ+δk/d)^2 and B_k=δ²k(d-k)/d. Dominance of k<ceil(d/2) reduces constraints; concavity of log t+(d-1)log s gives unique optimum and strict s>t. As function of k, A_k t+B_k s is a strictly concave quadratic, so 1 or 2 adjacent maximizers; stationary KKT yields exact candidate enumeration. Checked initial τ_d condition through next-layer inequality and δ>=d-√d as necessary/sufficient pole contact. Independently enumerated KKT rational solutions/contact layers and d*t<1 for d>=4 in 120 cases d=2..21 and six rational δ; original finite verifier reports 348 cases d=2..30. All-d proof rests on inequalities, not finite cases.
 
-**Scientific limitations and risk.** No endpoint claim, no blanket closed-form expression for all later contact thresholds, and no independent validation. Full text of the 2025 related source was not inspected; the main earliest published and adjacent 2024 full texts were inspected as described. Numerical comparisons are supporting evidence only, not infinite proofs.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Compared statements with full-text early construction and two later de la Puente–Clavería papers for this exact polytope. Their results concern face structure, Euclidean/dual volumes and Mahler product; they do not furnish John/Löwner optimal shape or Hamming contact phase changes. Related earlier exact minimum Euclidean enclosing sphere is strictly weaker: Euclidean sphere poles differ from minimum-volume ellipsoid contacts.
+
+## value
+
+PASS
+
+The same natural one-parameter alcoved polytope has a nontrivial two-eigenvalue extremal ellipsoid with exact parity-dependent contact transition and high-dimensional pole avoidance, not predictable from volume or minimum-radius sphere. Finite KKT enumeration gives a reproducible exact closed determination for every d and δ without hidden numerical optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
