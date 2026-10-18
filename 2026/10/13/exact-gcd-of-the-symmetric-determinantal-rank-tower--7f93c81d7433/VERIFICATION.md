@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,54 +18,25 @@
   "schema_version": 1
 }
 ---
-The classical symmetric determinantal degree is evaluated as
-\[
-D_{n,n-q}
-=
-\prod_{j=0}^{q-1}
-\frac{\binom{n+j}{q-j}}{\binom{2j+1}{j}},
-\qquad
-1\le q\le n-1.
-\]
 
-The symbolic proof has two independent parts.
+# Independent mathematical audit
 
-For every prime \(p\mid n\), if
-\[
-q=p^{\nu_p(n)}<n,
-\]
-Legendre's factorial valuation formula is expanded scale by scale. At each scale
-\[
-p^a
-\]
-the complete floor-sum contribution is zero, proving
-\[
-p\nmid D_{n,n-q}.
-\]
+## correctness
 
-For
-\[
-n=2^e,
-\]
-the adjacent-corank ratio gives
-\[
-\nu_2(A_{2m})
-=
-m(e-1)-2\sum_{u=0}^{m-1}s_2(u),
-\]
-and a binary digit-sum inequality yields the lower bound
-\[
-\nu_2(A_q)\ge e-1
-\]
-for every proper corank. Corank two attains equality.
+PASS
 
-The bundled checker evaluates every full symmetric rank tower for
-\[
-2\le n\le120
-\]
-and verifies the theorem exactly. It also verifies the prime-primary witnesses in that range and the power-of-two valuation identities through
-\[
-n=256.
-\]
+From the classical Harris–Tu degree product, the factorial expansion and Legendre floor sums give p-adic valuation zero for corank q=p^{nu_p(n)}<n when p divides n. For t=p^a up to q the period sums cancel; at t>q, n/q is a p-unit, and all six floor contributions cancel. Thus possible common primes dividing the determinant hypersurface degree n disappear except odd prime-power n, excluded by the rank-one Veronese degree 2^{n-1}. At n=2^e, adjacent-corank quotient yields nu_2(A_{2m})=m(e-1)-2 sum_{u<m}s_2(u), and the proved digit-sum bound forces all proper coranks to carry at least e-1 twos; the corank-two degree n(n-1)(n+1)/6 has exactly e-1. Edge n=2 is separately verified. Independent exact rational binomial-product gcd computation for every n from 2 through 58 reproduced the formula; finite checks corroborate the all-n proof.
 
-These computations are regression evidence only.
+## originality
+
+PASS
+
+Harris–Tu/Nie–Ranestad–Sturmfels supply the individual symmetric determinantal degrees; Hosono–Takagi supply geometry of those same rank strata. Published same-sequence work on adjacent-rank curvature is not an arithmetic gcd across all proper ranks. Targeted gcd, common-divisor and prime-adic aliases did not reveal whole-tower coverage; however the result is a possible unindexed consequence of an older combinatorial degree formula, retained as an originality risk.
+
+## value
+
+PASS
+
+The complete family of symmetric secant/rank loci is canonical. Their generic projective intersection counts have a natural universal common divisor, and the sharp power-of-two classification determines exactly when and how strong that universal divisibility constraint is. It is an all-size arithmetic structure theorem, not a recomputation of one known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

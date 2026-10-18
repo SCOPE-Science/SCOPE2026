@@ -1,30 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the classical product formula for symmetric determinantal degrees. A direct Legendre-floor argument shows that, for every prime \(p\mid n\), the corank
-\[
-p^{\nu_p(n)}
-\]
-is a \(p\)-unit degree whenever that corank is proper. This removes every candidate common prime outside the prime-power case; odd prime powers are then excluded by the rank-one quadratic Veronese degree.
+## correctness
 
-For
-\[
-n=2^e,
-\]
-an exact adjacent-corank ratio gives
-\[
-\nu_2(A_{2m})
-=
-m(e-1)-2\sum_{u=0}^{m-1}s_2(u).
-\]
-A proved binary digit-sum inequality implies that all proper degrees have valuation at least \(e-1\), while corank two has valuation exactly \(e-1\). The bundled checker independently verifies the full gcd formula through \(n=120\) and the valuation identities for powers of two through \(n=256\). The finite checks are not used as proof of the infinite theorem.
+PASS
 
-## Originality
-PASS. The inspected algebraic-geometry source studies the same symmetric rank loci, and the standard degree source gives the classical Harris--Tu product, but neither states an exact gcd theorem for the full rank tower. Targeted searches for gcd, common divisor, parity, prime divisibility, and prime-adic aliases found no equivalent result. The closest same-object result located concerns adjacent-rank curvature rather than whole-tower arithmetic.
+From the classical Harris–Tu degree product, the factorial expansion and Legendre floor sums give p-adic valuation zero for corank q=p^{nu_p(n)}<n when p divides n. For t=p^a up to q the period sums cancel; at t>q, n/q is a p-unit, and all six floor contributions cancel. Thus possible common primes dividing the determinant hypersurface degree n disappear except odd prime-power n, excluded by the rank-one Veronese degree 2^{n-1}. At n=2^e, adjacent-corank quotient yields nu_2(A_{2m})=m(e-1)-2 sum_{u<m}s_2(u), and the proved digit-sum bound forces all proper coranks to carry at least e-1 twos; the corank-two degree n(n-1)(n+1)/6 has exactly e-1. Edge n=2 is separately verified. Independent exact rational binomial-product gcd computation for every n from 2 through 58 reproduced the formula; finite checks corroborate the all-n proof.
 
-Residual risk: the arithmetic consequence is short enough that it could occur in older weakly indexed representation-theoretic or enumerative literature.
+## originality
 
-## Value
-PASS. Symmetric rank loci form the complete secant/rank stratification of the quadratic Veronese family. Their projective degrees are natural generic intersection counts, so the gcd is the exact universal modulus shared by all proper rank strata at fixed matrix size. The theorem completely classifies when such universal divisibility exists and gives its exact size.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Harris–Tu/Nie–Ranestad–Sturmfels supply the individual symmetric determinantal degrees; Hosono–Takagi supply geometry of those same rank strata. Published same-sequence work on adjacent-rank curvature is not an arithmetic gcd across all proper ranks. Targeted gcd, common-divisor and prime-adic aliases did not reveal whole-tower coverage; however the result is a possible unindexed consequence of an older combinatorial degree formula, retained as an originality risk.
+
+## value
+
+PASS
+
+The complete family of symmetric secant/rank loci is canonical. Their generic projective intersection counts have a natural universal common divisor, and the sharp power-of-two classification determines exactly when and how strong that universal divisibility constraint is. It is an all-size arithmetic structure theorem, not a recomputation of one known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
