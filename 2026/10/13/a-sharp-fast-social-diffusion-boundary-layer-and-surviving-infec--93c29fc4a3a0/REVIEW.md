@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The ODE is reconstructed verbatim in normalized form from [1, Eq. (27)]. Positive invariance and \(I_D\ge I_0e^{-\gamma T}\) support upper and lower scalar Riccati comparisons for the rescaled risk. The resulting exponential \(\sqrt D\)-scale susceptible bound feeds the exact removal convolution, which proves the positive infected limit and subsequent recovered fraction. The moving-tube argument establishes the instantaneous algebraic risk equilibrium away from time zero. Integration of \(\dot{\log S}\) yields the exact decay exponent; continuous dependence gives the fast-time layer. Three finite numerical checks agree with, but are not proofs of, these limits.
+## correctness
 
-**Originality: PASS, subject to stated search risk.** The original Gaussian SfIR source [1] poses the high-social-diffusion limit as an unsolved question and suggests all three epidemic classes should vanish (apart from recovered) for fixed positive time. This finding identifies a strictly positive infected limit and supplies a nonlinear initial-layer theorem and exact asymptotic coefficients. The closest related complete paper [2] studies a different Gamma-closure contact kinetic model and does not imply this result; relevant indexed mathematical records concern distinct models. No inference of universal uniqueness follows from searches.
+PASS
 
-**Value: PASS.** The correct limit separates an almost instantaneous infection-transfer event from ordinary removal: high social diffusion rapidly exhausts susceptibles but does not remove newly infected people at the same instant. The closed-form logarithmic extinction rate and self-contained fast-layer system give reusable, model-specific quantitative information that answers the motivating research question rather than a routine consistency check.
+The nonnegative population simplex is invariant, I_D>=I0 exp(-gamma T) on finite intervals, and b=w/sqrt(D) obeys a Riccati equation with uniform upper and lower comparison bounds after t~D^-1/2. This forces S_D->0 at each positive time. Exact convolution I=K exp(-gamma t)-S+gamma integral exp[-gamma(t-u)]S(u)du gives I_D->K exp(-gamma t). Uniform compact-time convergence away from zero and scalar moving barriers yield b->sqrt(beta1/I), while bounded convergence of bI in the log S equation yields the claimed exponent. On tau=sqrt(D)t, continuous dependence gives the 3D nonlinear initial layer, converging to S=0,I=K,b=sqrt(beta1/K). Strict positivity and finite-time boundedness assumptions are essential; the proof is specific to ODE, not PDE.
 
-**Limitations and comparison.** The theorem concerns only the normalized four-ODE Gaussian closure of [1]. It assumes fixed positive initial infection and fixed model coefficients other than diffusion; no general claim for the PDE, other social-contact closures or simultaneous large-time/diffusion limits is made. General singular perturbation literature not explicitly traced may contain stronger abstract machinery, an acknowledged originality risk.
+## originality
 
-[1] Berestycki, Desjardins, Weitz and Oury, *Epidemic modeling with heterogeneity and social diffusion*, J. Math. Biol. 86 (2023), 60; DOI 10.1007/s00285-022-01861-w.
+PASS
 
-[2] Dimarco, Perthame, Toscani and Zanella, *Kinetic models for epidemic dynamics with social heterogeneity*, J. Math. Biol. 83 (2021), 4; DOI 10.1007/s00285-021-01630-1.
+The initiating 2023 Gaussian social diffusion article presents precisely Eq.(27) and poses the D->infinity limit as an open problem in Section 5.1, suggesting vanished infection. The audited result gives nonzero fixed-time infection and exact risk/log-depletion asymptotics under explicit fixed-seed ODE assumptions; the parent open question for the PDE is not claimed. Other epidemic kinetic fast-relaxation models use different closures.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Resolves a published mathematical open question in the model under precise assumptions and refutes the proposed vanishing-infection limit for fixed positive seeds. The singular boundary layer, survival mechanism and explicit √D logarithmic coefficient are mathematically informative; scope is ODE only.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

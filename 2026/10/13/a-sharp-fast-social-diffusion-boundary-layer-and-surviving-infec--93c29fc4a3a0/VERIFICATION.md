@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The mathematical argument uses the normalized four-compartment system printed in `RESULT.md`. The exact identity
+## correctness
 
-\[
-I_D(t)=(S_0+I_0)e^{-\gamma t}-S_D(t)+\gamma\int_0^t e^{-\gamma(t-u)}S_D(u)\,du
-\]
+PASS
 
-can be checked by differentiation and the initial condition. The scaled risk equation and the two Riccati comparisons are obtained by direct algebraic substitution. Positive-time convergence follows from a monotone susceptible bound plus dominated convergence, not from finite simulation.
+The nonnegative population simplex is invariant, I_D>=I0 exp(-gamma T) on finite intervals, and b=w/sqrt(D) obeys a Riccati equation with uniform upper and lower comparison bounds after t~D^-1/2. This forces S_D->0 at each positive time. Exact convolution I=K exp(-gamma t)-S+gamma integral exp[-gamma(t-u)]S(u)du gives I_D->K exp(-gamma t). Uniform compact-time convergence away from zero and scalar moving barriers yield b->sqrt(beta1/I), while bounded convergence of bI in the log S equation yields the claimed exponent. On tau=sqrt(D)t, continuous dependence gives the 3D nonlinear initial layer, converging to S=0,I=K,b=sqrt(beta1/K). Strict positivity and finite-time boundedness assumptions are essential; the proof is specific to ODE, not PDE.
 
-The optional numerical experiment `check_sfir_fastdiff.py` solves the transformed stiff ODE in \((\log S,I,w)\) for a fixed positive example at diffusion values \(100,10^4,10^6\), with a Radau integrator. It prints the predicted three limits and errors; it asserts their progressive approximation to the stated values. Run `python check_sfir_fastdiff.py` after installing `requirements.txt` if needed. The analytic proof makes no claim that the solver's floating-point tolerances provide interval-arithmetic or formal certificates.
+## originality
 
-The verified model limits require a fixed strictly positive initial infectious fraction and exclude the initial instant from outer uniform convergence. No full PDE limit, non-fixed initial data, uniform-in-infinite-time limit, or independent external audit is claimed.
+PASS
+
+The initiating 2023 Gaussian social diffusion article presents precisely Eq.(27) and poses the D->infinity limit as an open problem in Section 5.1, suggesting vanished infection. The audited result gives nonzero fixed-time infection and exact risk/log-depletion asymptotics under explicit fixed-seed ODE assumptions; the parent open question for the PDE is not claimed. Other epidemic kinetic fast-relaxation models use different closures.
+
+## value
+
+PASS
+
+Resolves a published mathematical open question in the model under precise assumptions and refutes the proposed vanishing-infection limit for fixed positive seeds. The singular boundary layer, survival mechanism and explicit √D logarithmic coefficient are mathematically informative; scope is ODE only.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

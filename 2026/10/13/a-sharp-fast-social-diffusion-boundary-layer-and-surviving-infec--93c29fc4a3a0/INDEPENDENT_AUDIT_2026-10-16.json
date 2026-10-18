@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:51:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The nonnegative population simplex is invariant, I_D>=I0 exp(-gamma T) on finite intervals, and b=w/sqrt(D) obeys a Riccati equation with uniform upper and lower comparison bounds after t~D^-1/2. This forces S_D->0 at each positive time. Exact convolution I=K exp(-gamma t)-S+gamma integral exp[-gamma(t-u)]S(u)du gives I_D->K exp(-gamma t). Uniform compact-time convergence away from zero and scalar moving barriers yield b->sqrt(beta1/I), while bounded convergence of bI in the log S equation yields the claimed exponent. On tau=sqrt(D)t, continuous dependence gives the 3D nonlinear initial layer, converging to S=0,I=K,b=sqrt(beta1/K). Strict positivity and finite-time boundedness assumptions are essential; the proof is specific to ODE, not PDE.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The kinetic model uses different Gamma-type contact closure; published large-time arguments do not imply fixed positive t as D diverges."
+        ],
+        "reasoning": "A general singular-perturbation theorem may abstract the ODE mechanism, but inspected same-equation primary results do not supply the coefficients.",
+        "searches": [
+          "Gaussian epidemic social diffusion fast limit SfIR Berestycki Desjardins Weitz Oury",
+          "Dimarco et al 2021 kinetic epidemic social heterogeneity",
+          "Berestycki et al Section 7"
+        ]
+      },
+      "checked_sources": [
+        "Berestycki Desjardins Weitz Oury 2023 full primary article",
+        "Dimarco Perthame Toscani Zanella 2021 article context",
+        "Resultary semantic Gaussian social diffusion epidemic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2023 source explicitly calls the large-social-diffusion behavior an open problem and proposes I->0; submitted exact solution yields I=K exp(-gamma t)>0."
+        ],
+        "reasoning": "Published premise equations alone do not mathematically entail the asserted limit without new singular-perturbation proof; the original proposed conclusion differs.",
+        "searches": [
+          "DOI:10.1007/s00285-022-01861-w Eq27 and Section5.1",
+          "Gaussian epidemic social diffusion fast limit SfIR Berestycki Desjardins Weitz Oury"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original four-equation Gaussian risk ODE and its large D question coincide with current model and limit parameter; parent source lacks the outer solution in inspected theorem statements."
+        ],
+        "reasoning": "The result gives a precise fixed-time singular limit, rather than a renamed large-time extinction theorem; order of limits is essential.",
+        "searches": [
+          "Gaussian epidemic social diffusion fast limit SfIR Berestycki Desjardins Weitz Oury",
+          "Berestycki et al 2023 Eq (27), Section 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published numerical simulation and ODE examples are not an exact all-positive-time D->infinity limiting formula."
+        ],
+        "reasoning": "The claim concerns continuous asymptotic dynamics, not a fixed finite database; simulations cannot prove it.",
+        "searches": [
+          "Gaussian epidemic social diffusion fast limit SfIR Berestycki Desjardins Weitz Oury",
+          "Berestycki 2023 numerical Gaussian risk experiments"
+        ]
+      },
+      "rationale": "The initiating 2023 Gaussian social diffusion article presents precisely Eq.(27) and poses the D->infinity limit as an open problem in Section 5.1, suggesting vanished infection. The audited result gives nonzero fixed-time infection and exact risk/log-depletion asymptotics under explicit fixed-seed ODE assumptions; the parent open question for the PDE is not claimed. Other epidemic kinetic fast-relaxation models use different closures.",
+      "residual_risks": [
+        "Limit not proven for underlying PDE or simultaneous large-time/large-D asymptotics.",
+        "Potential abstract singular perturbation models could imply this ODE case but no strong covering result identified after matching equation and scaling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original source gives dynamics and poses large D question, not the positive infected limiting formula",
+          "evidence": "Eq.(27); Section 5.1 large social diffusion problem and suggested zero-infection limit.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-022-01861-w",
+          "material_read": "Public full-text primary article HTML, Eq.(27), Section 5.1 and Section 7 context",
+          "method": "Primary HTML theorem/equation reading",
+          "title": "Epidemic modeling with heterogeneity and social diffusion",
+          "trigger": "Identical four-equation Gaussian model and explicit large-diffusion question"
+        },
+        {
+          "assessment": "Related kinetic model, not same Gaussian SfIR four-ODE diffusion scaling",
+          "evidence": "Distinct social heterogeneity Gamma-type closure.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-021-01630-1",
+          "material_read": "Relevant public article/abstract and model descriptions; not a full appendix audit",
+          "method": "Public primary search text",
+          "title": "Kinetic models for epidemic dynamics with social heterogeneity",
+          "trigger": "Broad social-contact epidemic singular limits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves a published mathematical open question in the model under precise assumptions and refutes the proposed vanishing-infection limit for fixed positive seeds. The singular boundary layer, survival mechanism and explicit √D logarithmic coefficient are mathematically informative; scope is ODE only.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For fixed positive initial susceptible/infected populations and normalized Gaussian SfIR ODE, D->infinity yields S_D(t)->0, I_D(t)->K*exp(-gamma t)>0, R_D(t)->1-K*exp(-gamma t), w_D(t)/sqrt(D)->sqrt(beta1/K)*exp(gamma*t/2), and 1/sqrt(D)*log(S_D(t)/S0)->-2*sqrt(beta1*K)/gamma*(1-exp(-gamma*t/2)) at fixed t>0.",
+  "limitations": [
+    "Limit not proven for underlying PDE or simultaneous large-time/large-D asymptotics.",
+    "Potential abstract singular perturbation models could imply this ODE case but no strong covering result identified after matching equation and scaling.",
+    "No source/publication GitHub writes; publication plan is declarative only."
+  ],
+  "schema_version": 1
+}
