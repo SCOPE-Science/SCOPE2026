@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The complete signed quadratic Euler form is obtained from the originating Theorem 4.6, and the real circulant/signed-Cayley Hessian has an explicit Fourier eigenvalue. Its exact trigonometric zero factorization is valid for coinciding characters, nonunits, and arbitrary finite abelian groups. Character duality and inclusion-exclusion count each of the three zero-mode sets and their intersections without approximations. The nondegeneracy equivalence is proved both ways. A packaged independent matrix-rank checker supports the symbolic argument in small cases.
+
+**Originality — PASS, with residual priority risk.** The originating manuscript supplies the Euler form coefficients and classifies action groupings, but the inspected Theorem 4.6, Sections 6--7, and adjacent statements do not include the full nullity and nondegeneracy classification. Prior cyclic scalar, skew and unit-weight integral cokernel results subsume those cyclic special cases; those are not claimed as new. The substantive scope here is *every* faithful finite abelian planar action, notably the noncyclic two-generator cases and cyclic nonunit cases. Searches of published-finding corpus and indexed literature found no broader covering theorem, but unindexed equivalent deductions remain possible.
+
+**Value — PASS.** The radical is an intrinsic invariant of the symmetric Euler correction for moduli of equivariant length-zero subschemes. Determining exactly which Fourier modes vanish, especially the universal extra-nullity obstruction for **all noncyclic faithful actions**, distinguishes the degeneracies of stacks independently of the published coefficient-grouping classification. The formula is valid across arbitrarily large two-generator groups and can be evaluated without constructing an Euler matrix or guessing its rank. It gives a sharp nondegeneracy criterion in the cyclic cases, including parity resonance.
+
+The result does not claim a new positivity classification, all signatures, integral elementary divisors, or that a null multiplicity direction corresponds to actual geometric deformations. Earlier cyclic cases are covered by prior stronger results.
+
+Self-review: passed. Independent audit: not yet performed.
