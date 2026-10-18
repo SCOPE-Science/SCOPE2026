@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T16:59:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From independent positive alpha-stable S,Sprime, the Tonelli/Laplace identity E[(1+uS/Sprime)^-1]=(1+u^alpha)^-1 holds for u>0. Differentiating the Bernoulli cumulant integral gives Hprime(t)=logistic(alpha t), hence H(t)=alpha^-1 log((1+e^(alpha t))/2). Midpoint Riemann sums yield the same scaled log-MGF Lambda as alpha Bin(N,1/2), and bounded tilted variance plus Chernoff give left/right strict log tails with common rate I. The strictly monotone rate on either side of alpha/2 converts any hypothetical macroscopic quantile separation, including endpoint probability levels, into a contradictory ordering of CDFs. The proof covers real fixed alpha, floor m_N and generalized inverses. Independent numerical quadrature checked the fractional cumulant identity for alpha=0.3,0.5,2/3,0.85 and several positive/negative tilts; finite small-N transport computations only corroborate, not prove asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang–Tang arXiv:1908.10024v1 Proposition 4.5 excludes homogeneous binomials in 2/3 case; Liggett 2021 studies different rounded multiples."
+        ],
+        "reasoning": "No inspected broader optimal-transport theorem subsumes the heterogeneous midpoint quantile construction. A hypothetical general all-LDP-to-W_infinity result would still require the newly established exact mixing identity.",
+        "searches": [
+          "Poisson binomial strong Rayleigh approximation to fractional multiple binomial via stable ratio Lamperti quantiles W infinity sublinear optimal transport large deviations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1908.10024v1, Section 4 Open Problem 4.6 and Proposition 4.5",
+        "https://celebratio.org/Liggett_T/article/858/ (2021)",
+        "arXiv:2204.06040v1, Theorem 1.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tang–Tang arXiv:1908.10024v1 Open Problem 4.6 asks the displayed o(n) approximation; Mattner arXiv:2204.06040 Theorem 1.1 imposes finitely many moments."
+        ],
+        "reasoning": "The published statements cannot imply existence of a whole parameter array with matching fractional log-MGF and o(n) uniform transport; the source explicitly leaves that as an open question.",
+        "searches": [
+          "Poisson binomial strong Rayleigh approximation to fractional multiple binomial via stable ratio Lamperti quantiles W infinity sublinear optimal transport large deviations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lamperti ratio has exact resolvent 1/(1+u^alpha); Tang–Tang formulates W_infinity for strongly Rayleigh laws; Liggett works with rounded strong-Rayleigh multiples."
+        ],
+        "reasoning": "The exact fractional logistic cumulant can also be phrased as logistic-mixture representation or matched Cramér rate for a triangular Poisson-binomial array. Neither the classical stable-ratio density nor a rounded-PGF theorem alone gives the all-level quantile comparison.",
+        "searches": [
+          "Poisson binomial strong Rayleigh approximation to fractional multiple binomial via stable ratio Lamperti quantiles W infinity sublinear optimal transport large deviations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest hits concern Poisson-binomial pair-balancing W1 and cumulant hierarchy, not fractional binomial W_infinity."
+        ],
+        "reasoning": "The claim is an infinite real-alpha asymptotic constructive theorem, not a finite catalogue/table value; searched nearest databases contain different transport or cumulant objects.",
+        "searches": [
+          "Poisson binomial strong Rayleigh approximation to fractional multiple binomial via stable ratio Lamperti quantiles W infinity sublinear optimal transport large deviations"
+        ]
+      },
+      "rationale": "The Lamperti stable-ratio distribution is classical, and Tang–Tang formulate the 2/3 strong-Rayleigh sublinear transport question. The claim supplies a new deterministic full-rate Bernoulli construction and upgrades coincident strict large-deviation tails to W_infinity=o(N). No covering statement located in Resultary or examined direct papers; equivalence under alternate stable-mixture terminology remains possible.",
+      "residual_risks": [
+        "Undetected earlier use of Lamperti stable-ratio quantiles for full-LDP Bernoulli approximation under another name.",
+        "Only o(N) established, not stronger conjectured bounded W_infinity or explicit convergence rate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES_NOT_COVER; frames requested sublinear approximation without this construction",
+          "evidence": [
+            "Open Problem 4.6; Proposition 4.5"
+          ],
+          "identifier_or_url": "arXiv:1908.10024v1, Section 4 Open Problem 4.6 and Proposition 4.5",
+          "material_read": "direct primary PDF text: question, existing homogeneous/equispaced negative examples and open sublinear target",
+          "method": "read primary open-access paper",
+          "title": "The Poisson binomial distribution—Old & New",
+          "trigger": "same exact 2/3-scaled binomial W_infinity approximation question"
+        },
+        {
+          "assessment": "different rounded-multiple generating polynomial property, not unrounded fractional-binomial o(N) W_infinity coupling",
+          "evidence": [
+            "rounded polynomial factorization, not Poisson-binomial transport"
+          ],
+          "identifier_or_url": "https://celebratio.org/Liggett_T/article/858/ (2021)",
+          "material_read": "full accessible article, including statement and polynomial/Hurwitz rounding method",
+          "method": "read accessible article",
+          "title": "Approximating multiples of strong Rayleigh random variables",
+          "trigger": "title and strong Rayleigh multiple approximation closely matched"
+        },
+        {
+          "assessment": "controls finite-moment constraints, not full LDP or maximal transport distance",
+          "evidence": [
+            "Theorem 1.1 on prescribed first few moments"
+          ],
+          "identifier_or_url": "arXiv:2204.06040v1, Theorem 1.1",
+          "material_read": "arXiv abstract and indexed Theorem 1.1 description; full primary text not inspected this run",
+          "method": "open-access indexed text search",
+          "title": "Extreme expectations of Bernoulli convolutions given their first few moments",
+          "trigger": "possible broader Bernoulli convolution extremal theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves the o(n) portion of Tang–Tang Open Problem 4.6 for 2/3 Bin(3n,1/2) and gives a constructive answer uniformly across all fixed real scaling 0<alpha<1. A transport-rate theorem with controlled extreme quantiles is a substantive exact solution to the posed asymptotic approximation problem, not moment fitting.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1908.10024v1, Section 4 Open Problem 4.6 and Proposition 4.5",
+    "https://celebratio.org/Liggett_T/article/858/ (2021)",
+    "arXiv:2204.06040v1, Theorem 1.1"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Undetected earlier use of Lamperti stable-ratio quantiles for full-LDP Bernoulli approximation under another name.",
+    "Only o(N) established, not stronger conjectured bounded W_infinity or explicit convergence rate."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "DOES_NOT_COVER; frames requested sublinear approximation without this construction",
+      "evidence": [
+        "Open Problem 4.6; Proposition 4.5"
+      ],
+      "identifier_or_url": "arXiv:1908.10024v1, Section 4 Open Problem 4.6 and Proposition 4.5",
+      "material_read": "direct primary PDF text: question, existing homogeneous/equispaced negative examples and open sublinear target",
+      "method": "read primary open-access paper",
+      "title": "The Poisson binomial distribution—Old & New",
+      "trigger": "same exact 2/3-scaled binomial W_infinity approximation question"
+    },
+    {
+      "assessment": "different rounded-multiple generating polynomial property, not unrounded fractional-binomial o(N) W_infinity coupling",
+      "evidence": [
+        "rounded polynomial factorization, not Poisson-binomial transport"
+      ],
+      "identifier_or_url": "https://celebratio.org/Liggett_T/article/858/ (2021)",
+      "material_read": "full accessible article, including statement and polynomial/Hurwitz rounding method",
+      "method": "read accessible article",
+      "title": "Approximating multiples of strong Rayleigh random variables",
+      "trigger": "title and strong Rayleigh multiple approximation closely matched"
+    },
+    {
+      "assessment": "controls finite-moment constraints, not full LDP or maximal transport distance",
+      "evidence": [
+        "Theorem 1.1 on prescribed first few moments"
+      ],
+      "identifier_or_url": "arXiv:2204.06040v1, Theorem 1.1",
+      "material_read": "arXiv abstract and indexed Theorem 1.1 description; full primary text not inspected this run",
+      "method": "open-access indexed text search",
+      "title": "Extreme expectations of Bernoulli convolutions given their first few moments",
+      "trigger": "possible broader Bernoulli convolution extremal theorem"
+    }
+  ]
+}
