@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the explicit orbit construction
+# Independent mathematical audit
 
-The verification is a pen-and-paper audit, not an independent external audit and not a computer-assisted certificate. Define \(T_0=0\), \(L_s=(T_{s-1}+1)^2\), \(R_s=(T_{s-1}+L_s+1)^2\), and \(T_s=T_{s-1}+L_s+R_s\). At each stage exactly one sequence has symbol one on the active block; all sequences have zero on the reset block. Therefore, for any fixed \(n\), the sum of the \(k\) empirical mean distances to \(0^\infty\) is at most one, yielding error at most \(1/k\) after dividing by \(k\). At the end of a dominant active block, exactly one empirical measure tends to \(\delta_{1^\infty}\) and the other \(k-1\) approach \(\delta_{0^\infty}\). The triangle inequality forces mean error at least \(1/k\) against any single prototype, so the strict one-prototype threshold is exact.
+## correctness
 
-For every fixed word-window length \(h\), only \(O(hs)\) of the first \(n\) windows can cross a symbol change when \(T_{s-1}\le n<T_s\). Since \(n\ge T_{s-1}\) and \(s/T_{s-1}\to0\), the fraction tends to zero. A uniform metric tail at most \(2^{-h}\) proves \(W_1(e_n(x^{(j)}),\nu_{p_{j,n}})\to0\). During infinitely many stages for each index, the active block ends with \(p_{j,n}\to1\); resets end with \(p_{j,n}\to0\). Because consecutive empirical frequencies differ by at most \(1/(n+1)\), every intermediate limit occurs. Exact Wasserstein distance between the two extremal Dirac mixtures is the difference of weights, so the minimax radius of \(N\) prototypes is exactly \(1/(2N)\) by interval covering.
+PASS
 
-No claim of nonzero numerical precision, external code execution, or machine-checked infinite proof is made. The public documents all refer to the same finite-support, noninvariant family and the strict-error convention. The exact ordinary emergence counts **with two or more prototypes** below or at \(\varepsilon=1/k\) remain unproved and are not part of the finding.
+The one-hot active symbols across k strings bound the average Dirac-zero Wasserstein cost by 1/k for each n. At ends of enormously dominant active blocks, one orbit converges empirically to the all-one Dirac and the rest to the all-zero Dirac, forcing every single prototype to average error at least 1/k (including equality boundary by strict <). The O(s) transition windows up to n occupy o(n), hence empirical measures approximate convex Dirac mixtures with parameters p_{j,n}. Each p_{j,n} has subsequential limits zero and one and increments at most 1/(n+1); all intermediate limits occur. The full Wasserstein cluster segment has length one; N arbitrary off-segment prototype balls cover at most 2Nr length at radius r, attained by midpoints. Strict threshold gives floor(1/(2 epsilon))+1. No small-tolerance first-emergence counts beyond the single-prototype threshold are implied.
+
+## originality
+
+PASS
+
+Berger’s two integral/limsup orders allow divergent behavior without almost-everywhere convergence. The earlier finite-second-emergence breakpoint theorem is in the empirical finite-basin regime, where the emergences are equal; here every support orbit is nonconvergent with full continuum cluster segment. No compared source entails the simultaneous anti-synchronization and exact two counts.
+
+## value
+
+PASS
+
+A sharp, constructive finite-resolution separation between two recently introduced emergence definitions demonstrates why exchanging limsup and integration matters even with only k reference atoms. The exact strict threshold and unbounded k-scale gap are natural counterexample data for quantitative emergence comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

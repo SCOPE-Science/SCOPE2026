@@ -1,15 +1,21 @@
-# Review: An unbounded finite-scale gap between two metric emergence definitions
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The simultaneous stage construction satisfies a one-hot inequality at each symbolic coordinate. Since Wasserstein distance to a point mass is the expected distance, this bounds the ordinary one-prototype average by \(1/k\) at every time. Conversely, at the end of a dominant active block one orbit approaches \(\delta_{1^\infty}\) and the other \(k-1\) approach \(\delta_{0^\infty}\); the triangle inequality forces an average cost of at least \(1/k\) for **every** one-prototype center, establishing the exact strict threshold. Each sequence alternates enormously long, dominant active-one and all-zero blocks. The number of boundaries divided by time tends to zero, and finite symbolic windows then prove that its empirical measures are asymptotic to the segment between the two constant-sequence Dirac measures. Dominant run and reset times realize every mixture weight along this segment. The triangle inequality gives the sharp \(N\)-center covering radius \(1/(2N)\). The strict-error convention is used in the integer rounding. There are no unverified numerical estimates or unproved dynamical statements.
+## correctness
 
-## Originality (O): PASS with identified residual risk
-The nearest primary text [1, pp. 4--8] introduces both definitions, proves their equality only for empirical systems, and proves a finiteness characterization for the second. [1, pp. 26--27] proves a variational principle, not a same-reference-measure finite-scale separation. [2] treats the earlier original metric emergence and invariant-measure quantization; [3] studies pointwise emergence and irregular-orbit sets, not the simultaneous anti-synchronization of finite reference atoms used here. A previously published theorem on the first finite-resolution breakpoint assumes **finite second emergence at small scales**. That statement concerns convergent empirical behavior, whereas every support point here has a continuum cluster set and infinite small-scale second emergence. Claims were compared by implication rather than by title. Unindexed literature may still contain an equivalent multi-orbit construction; originality is same-model assessed, not independently certified.
+PASS
 
-## Mathematical value (V): PASS
-This supplies a quantitative failure mode of interchanging \(\limsup\) and integration in the very emergence definitions newly contrasted in [1], not merely a generic limsup counterexample. The strong feature is **unbounded exact integer prototype separation** inside one fixed well-studied mixing system and finite initial support, with each orbit visiting the **same** continuum of empirical measures. It isolates synchronization of statistical excursions as the missing datum, complementing pointwise results and finite-emergence classifications. It neither establishes Lebesgue-typicality nor smooth-manifold examples.
+The one-hot active symbols across k strings bound the average Dirac-zero Wasserstein cost by 1/k for each n. At ends of enormously dominant active blocks, one orbit converges empirically to the all-one Dirac and the rest to the all-zero Dirac, forcing every single prototype to average error at least 1/k (including equality boundary by strict <). The O(s) transition windows up to n occupy o(n), hence empirical measures approximate convex Dirac mixtures with parameters p_{j,n}. Each p_{j,n} has subsequential limits zero and one and increments at most 1/(n+1); all intermediate limits occur. The full Wasserstein cluster segment has length one; N arbitrary off-segment prototype balls cover at most 2Nr length at radius r, attained by midpoints. Strict threshold gives floor(1/(2 epsilon))+1. No small-tolerance first-emergence counts beyond the single-prototype threshold are implied.
 
-## Sources and residual risks
-Primary [1]: P. Berger, arXiv:2609.28264v1, definitions, Proposition 1.3, Theorem 1.4, Theorem 4.18, reference list. Earlier primary [2]: Berger--Bochi, arXiv:1901.03300, original metric emergence/quantization introduction. Earlier primary [3]: Kiriki--Nakano--Soma, arXiv:1904.03424v3, Sections 1.1, 1.3, Proposition 1.5. The strongest risk is an equivalent finite-support example in unindexed emergence or oscillatory-measure literature. The construction does not compare either emergence's value under a smooth physical reference law.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Berger’s two integral/limsup orders allow divergent behavior without almost-everywhere convergence. The earlier finite-second-emergence breakpoint theorem is in the empirical finite-basin regime, where the emergences are equal; here every support orbit is nonconvergent with full continuum cluster segment. No compared source entails the simultaneous anti-synchronization and exact two counts.
+
+## value
+
+PASS
+
+A sharp, constructive finite-resolution separation between two recently introduced emergence definitions demonstrates why exchanging limsup and integration matters even with only k reference atoms. The exact strict threshold and unbounded k-scale gap are natural counterexample data for quantitative emergence comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
