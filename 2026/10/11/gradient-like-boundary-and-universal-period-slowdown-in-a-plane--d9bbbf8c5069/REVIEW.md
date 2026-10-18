@@ -1,15 +1,21 @@
-# Scientific review: gradient-like boundary and period slowdown
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The exact polynomial identity \(\dot\Phi=z^2-(1+b)y^2\), with \(\Phi=w-bxy\), has been rederived from the four printed equations and verified by independent exact symbolic substitutions. The equilibrium set is exactly \(y=z=0\). For \(b\leq-1\), vanishing of the nonnegative derivative on a time interval entails \(z=0\), then constant \(y\), and if that constant were nonzero the equations would simultaneously require \(w=0\) and \(\dot w=-y^2\ne0\). This proves strict monotonicity off equilibria. LaSalle's invariant-limit-set argument on any bounded forward or two-sided orbit gives the stated limit geometry and the exact nonnegative integral. For compact invariant measures, integrating the coboundary and applying invariance of compact support closes the \(b=-1\) degeneracy. On periodic orbits, the zero-mean constraint \(\int y=0\) and the exact \(L^2\) balance permit the periodic Wirtinger bound. Its possible equality is excluded for both \(a=0\) and \(a\ne0\) by the original ODE. The claim makes no assumption of global boundedness, no unsupported existence assertion for periodic solutions, and no assertion of convergence of the remaining tangential coordinate.
+## correctness
 
-## Originality (O): PASS with stated access risk
-The exact six-page 2016 primary article by Jafari, Sprott and Molaie was read, including its vector field (equation (6)), equilibrium-plane analysis, parameter scans and conclusion. It reports numerical chaos in \(a=4\), \(0.05<b<0.3\) and does not present the derived global sign theorem, stationary-measure classification, or strict lower bound on the period of **every** nonstationary cycle. The closest published mathematical-record matches discuss either a period floor for the separate Genesio flow or exact recurrence/moment identities for different Sprott-type or plane-equilibrium flows; none implies the specific polynomial balance and conclusion for this vector field. The general periodic Wirtinger theorem provides a proof ingredient, not coverage of the model-specific forcing identity. A 2019 numerical article about another or possibly related four-dimensional plane-equilibrium flow remains a **material residual literature risk** because its complete text could not be obtained after lawful full-text searches; the accessible abstract is not construed as a whole-document negative finding. Publication-priority claims are qualified accordingly.
+PASS
 
-## Value (V): PASS
-A system with an entire plane of stationary states makes its bounded orbit and invariant-measure behavior difficult to settle from equilibrium linearization. The exact \(b=-1\) sign boundary organizes the global dynamics of the whole real parameter half-line into a gradient-like regime with no non-equilibrium recurrence, an asymptotic equilibrium-plane theorem, and an exact forward/backward heteroclinic dissipation budget. The same balance controls nonstationary periodic motion quantitatively on the opposite side by a universal, strictly unattainable lower period barrier that diverges at the boundary. The result is more than a normalization check or a finite numerical census: the full infinite-time conclusions use invariance and the sharp functional-inequality equality case. It does not purport to determine existence of recurrent states for \(b>-1\).
+Direct differentiation of exact Eq.(6) gives Phi-dot=z²-(1+b)y² and E={y=z=0}. For b≤-1, the nonnegative integral vanishes on an interval only if z=0 and then y constant; if y !=0, zdot=wy=0 forces w=0 but wdot=-y²<0, contradiction. Strict Φ increase excludes recurrence and, on compact forward/both-sided orbits, LaSalle restricts limit sets to E; bounded x ensures w−Phi=bxy→0. Compact invariant probability stationarity gives E[z²]=(1+b)E[y²], and b=-1 support invariance plus bounded x forces y=0. A periodic orbit has zero-mean y and integral z²=(1+b)y², hence Wirtinger T≥2pi/sqrt(1+b); equality y sinusoidal incompatible with zdot=w(y-a z) for a!=0 or wdot at extremum for a=0. Independent SymPy coboundary/parameter identity checks passed.
 
-## Residual scientific limitations
-The sign boundary is not proved to be the existence boundary for chaos or periodic orbits, nor is the stated strict period barrier proven to be the best possible infimum. The 2019 Bayani and collaborators article remains incompletely accessible. The earliest public-source date is based on the 2016-06-29 download date recorded in the author-hosted full PDF, which is explicit access evidence rather than a journal or manuscript revision date.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original model-specific exact scalar coboundary and its structural b=-1 gradient-like and strict periodic duration consequences. Full 2016 defining paper addresses numerical chaos at b=0.1 and local eigenvalues; a plausible 2019 multistability study remains only abstract-read and residual risk, not evidence of covering the analytical all-a,b theorem.
+
+## value
+
+PASS
+
+The exact b=-1 transition from possible recurrence to a gradient-like flow is an intrinsic dynamical boundary for a canonical chaotic example with a whole plane of equilibria. The forced invariant-measure balance and strict, parameter-dependent period slowdown are mathematically motivated structural constraints, not simulations or arbitrary tiny gains.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

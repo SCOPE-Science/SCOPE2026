@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T20:53:04.752801Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 1d6c86a243993c17b40a34da9f0c494fbedc1873",
+        "Jafari 2016 exact equation(6)",
+        "Independent SymPy _scope06_quick_checks.py"
+      ],
+      "rationale": "Direct differentiation of exact Eq.(6) gives Phi-dot=z²-(1+b)y² and E={y=z=0}. For b≤-1, the nonnegative integral vanishes on an interval only if z=0 and then y constant; if y !=0, zdot=wy=0 forces w=0 but wdot=-y²<0, contradiction. Strict Φ increase excludes recurrence and, on compact forward/both-sided orbits, LaSalle restricts limit sets to E; bounded x ensures w−Phi=bxy→0. Compact invariant probability stationarity gives E[z²]=(1+b)E[y²], and b=-1 support invariance plus bounded x forces y=0. A periodic orbit has zero-mean y and integral z²=(1+b)y², hence Wirtinger T≥2pi/sqrt(1+b); equality y sinusoidal incompatible with zdot=w(y-a z) for a!=0 or wdot at extremum for a=0. Independent SymPy coboundary/parameter identity checks passed.",
+      "residual_risks": [
+        "No existence of periodic orbits for b>-1 is asserted.",
+        "Only bounded-complete trajectories yield limit claims; x-coordinate need not converge.",
+        "Strict period lower bound not asserted sharp as infimum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2016 paper computes equilibrium-plane eigenvalues, Lyapunov exponents and numerical coexistence at a=4,b=0.1, not all-a,b gradient-like transition.",
+          "Bayani (2019) abstract describes multistability/parameter scans for a four-dimensional plane-equilibrium model; exact same polynomial system and any analytic b=-1 bound cannot be checked without full text."
+        ],
+        "reasoning": "General monotone Lyapunov/LaSalle and periodic Wirtinger theorems apply once the model-specific coboundary is found; they do not directly publish the exact b=-1 threshold or strict period scale as a special case. Inaccessible 2019 paper remains priority risk but alone does not warrant FAIL.",
+        "searches": [
+          "Jafari Sprott Molaie four dimensional plane of equilibria w-bxy monotonicity period lower bound Wirtinger",
+          "Jafari 2016 full 6p paper",
+          "Bayani 2019 abstract and DOI"
+        ]
+      },
+      "checked_sources": [
+        "A Simple Chaotic Flow with a Plane of Equilibria https://sprott.physics.wisc.edu/pubs/paper443.pdf",
+        "Dynamical analysis of a new multistable chaotic system with hidden attractor: Antimonotonicity, coexisting multiple attractors, and offset boosting https://doi.org/10.1016/j.physleta.2019.02.005"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stationarity of Φ forces ∫z²=(1+b)∫y², periodic xdot=y gives ∫y=0, Wirtinger gives T≥2pi/sqrt(1+b); equality impossible by evaluating zdot equation when y-a z=0 (a≠0) or wdot at y extremum (a=0).",
+          "For b≤-1, nonnegative Φ-dot and equality-set dynamics yield strict monotonicity, not a general theorem stated by the 2016 source."
+        ],
+        "reasoning": "The exact balance is the nonstandard mathematical input, with standard Wirtinger/LaSalle as legitimate consequences. The combined all-parameter gradient/no-recurrence and strict spectral duration barrier is not directly entailed by source numerics.",
+        "searches": [
+          "Jafari Sprott Molaie four dimensional plane of equilibria w-bxy monotonicity period lower bound Wirtinger",
+          "Jafari 2016 Eq.6 and Table 1",
+          "periodic Wirtinger classical inequality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jafari et al Eq.(6) is exactly xdot=y, ydot=z, zdot=w(y-a z), wdot=b x z-y²+z².",
+          "New first integral derivative d(w-bxy)/dt = z²-(1+b)y² yields a sign transition and Wirtinger barrier."
+        ],
+        "reasoning": "Potential equivalent results would be monotone coboundary functions, no-recurrence theorems, invariant-measure balance, and frequency bounds using energy/zero-mean periodic Wirtinger. The original numerical attractor system does not state such a formula in inspected material.",
+        "searches": [
+          "Jafari Sprott Molaie four dimensional plane of equilibria w-bxy monotonicity period lower bound Wirtinger",
+          "Jafari Sprott Molaie 2016 Eq.6 full PDF",
+          "Bayani et al 2019 DOI:10.1016/j.physleta.2019.02.005"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Jafari Table 1 gives local eigenvalues and numerically measured chaotic Lyapunov spectrum at one parameter pair.",
+          "The claim concerns global sign interval b≤-1 and all periodic orbit periods if b>-1, not finite parameter labels."
+        ],
+        "reasoning": "Table entries or finite simulation cannot prove absence of recurrence for all b≤-1, compact stationary-measure support, or strict T>2pi/sqrt(1+b).",
+        "searches": [
+          "Jafari Sprott Molaie four dimensional plane of equilibria w-bxy monotonicity period lower bound Wirtinger",
+          "Jafari 2016 Table 1 and Figs 1–4",
+          "Bayani 2019 bifurcation figures abstract"
+        ]
+      },
+      "rationale": "Best-of-knowledge original model-specific exact scalar coboundary and its structural b=-1 gradient-like and strict periodic duration consequences. Full 2016 defining paper addresses numerical chaos at b=0.1 and local eigenvalues; a plausible 2019 multistability study remains only abstract-read and residual risk, not evidence of covering the analytical all-a,b theorem.",
+      "residual_risks": [
+        "Bayani 2019 full text unavailable due authorized Oxford vpn_disconnected; cannot assert whole-document noncoverage.",
+        "An indexed general quadratic plane-equilibrium reduction might give identical coboundary in different variables.",
+        "Resultary failed; no negative database evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_VECTOR_FIELD_NOT_ANALYTIC_PARAMETER_TRICHOTOMY",
+          "evidence": "At a=4,b=0.1 source reports chaotic orbits and local equilibrium-plane behavior; no displayed w-bxy derivative or b=-1 global theorem in inspected sections.",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper443.pdf",
+          "material_read": "Inspected original 6-page author-hosted full text, especially Eq.(6) p3, equilibrium plane eigenvalues and numerics Table 1, Figs 1–4, final discussion/references; p3 image confirms both quadratic terms and signs.",
+          "method": "Author-archived primary full PDF parsed text and page image p3; compared all displayed equations and discussion to claimed Phi and period result.",
+          "title": "A Simple Chaotic Flow with a Plane of Equilibria",
+          "trigger": "Original exact four-dimensional vector field and primary closest source."
+        },
+        {
+          "assessment": "POTENTIALLY_RELEVANT_FULL_TEXT_INACCESSIBLE",
+          "evidence": "Abstract describes plane equilibrium, coexistence, parameter scans and offset boosting. Cannot exclude an analytical b=-1/period result in unread sections.",
+          "identifier_or_url": "https://doi.org/10.1016/j.physleta.2019.02.005",
+          "material_read": "Accessible bibliographic identity and abstract only; full paper inaccessible, may describe related but not proven identical vector field.",
+          "method": "Searched arXiv/preprint and lawful OA sources including ResearchGate abstract; then authorized institutional download returned vpn_disconnected (job 5cde6c917602ca6baaff67a25d19a3f4); no bypass.",
+          "title": "Dynamical analysis of a new multistable chaotic system with hidden attractor: Antimonotonicity, coexisting multiple attractors, and offset boosting",
+          "trigger": "Later four-dimensional plane-equilibrium multistability paper and possible exact-model coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Jafari 2016 model/numerical coexistence and local linearization",
+        "Analytic invariant-balance and Wirtinger strict equality exclusion"
+      ],
+      "rationale": "The exact b=-1 transition from possible recurrence to a gradient-like flow is an intrinsic dynamical boundary for a canonical chaotic example with a whole plane of equilibria. The forced invariant-measure balance and strict, parameter-dependent period slowdown are mathematically motivated structural constraints, not simulations or arbitrary tiny gains.",
+      "residual_risks": [
+        "Bound applies conditionally to existing periodic solutions; no theorem that the parameter boundary is sharp for actual periodic-orbit existence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For 4D Jafari–Sprott–Molaie plane-equilibrium flow with all real a,b, Phi=w-bxy has Phi-dot=z²-(1+b)y². For b≤-1 no non-equilibrium recurrence and all bounded orbits approach E, compact invariant measures supported on E; for b>-1 every nonconstant periodic orbit satisfies strict T>2pi/sqrt(1+b).",
+  "limitations": [
+    "Only all bounded forward/two-sided trajectories have specified limits, not all solutions.",
+    "Bayani et al 2019 article inaccessible beyond abstract; authorized VPN unavailable; no bypass.",
+    "Exact stationarity and Wirtinger proof analytic, script alone only checks polynomial identities; Resultary unavailable."
+  ],
+  "schema_version": 1
+}

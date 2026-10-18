@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-The provided `verify.py` was executed using Python with SymPy against the exact vector field defined in the finding. It printed `PASS: exact Lie derivative, equilibrium plane, endpoint and extremal identities`. It checks the Lie derivative of \(\Phi=w-bxy\), parameter specializations at \(b=-1\) and \(b=-2\), the equilibrium plane, and the restrictions \(\dot z=wy\), \(\dot w=-y^2\) when \(z=0\).
+## correctness
 
-Run `python verify.py` from the directory containing this document and script. The script performs symbolic identity checks only: it does **not** certify invariant-set arguments, invariant-measure support, or the periodic Wirtinger inequality and its equality case. Those statements are proved analytically in `RESULT.md`. No numerical trajectory integration or finite parameter enumeration is used as a substitute for a global proof.
+PASS
 
-The original 2016 six-page published PDF was inspected in full at https://sprott.physics.wisc.edu/pubs/paper443.pdf; equation (6) is the source for the original vector field. A related 2019 article by Bayani and collaborators was reviewed at abstract/bibliographic level only, and possible coverage in its unavailable full text remains an explicit originality risk. No independent audit has been performed.
+Direct differentiation of exact Eq.(6) gives Phi-dot=z²-(1+b)y² and E={y=z=0}. For b≤-1, the nonnegative integral vanishes on an interval only if z=0 and then y constant; if y !=0, zdot=wy=0 forces w=0 but wdot=-y²<0, contradiction. Strict Φ increase excludes recurrence and, on compact forward/both-sided orbits, LaSalle restricts limit sets to E; bounded x ensures w−Phi=bxy→0. Compact invariant probability stationarity gives E[z²]=(1+b)E[y²], and b=-1 support invariance plus bounded x forces y=0. A periodic orbit has zero-mean y and integral z²=(1+b)y², hence Wirtinger T≥2pi/sqrt(1+b); equality y sinusoidal incompatible with zdot=w(y-a z) for a!=0 or wdot at extremum for a=0. Independent SymPy coboundary/parameter identity checks passed.
+
+## originality
+
+PASS
+
+Best-of-knowledge original model-specific exact scalar coboundary and its structural b=-1 gradient-like and strict periodic duration consequences. Full 2016 defining paper addresses numerical chaos at b=0.1 and local eigenvalues; a plausible 2019 multistability study remains only abstract-read and residual risk, not evidence of covering the analytical all-a,b theorem.
+
+## value
+
+PASS
+
+The exact b=-1 transition from possible recurrence to a gradient-like flow is an intrinsic dynamical boundary for a canonical chaotic example with a whole plane of equilibria. The forced invariant-measure balance and strict, parameter-dependent period slowdown are mathematically motivated structural constraints, not simulations or arbitrary tiny gains.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
