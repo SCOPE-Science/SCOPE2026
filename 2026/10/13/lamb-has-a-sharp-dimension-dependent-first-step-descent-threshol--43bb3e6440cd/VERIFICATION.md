@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The package verifies LAMB's first-step dimension-dependent descent threshold on an isotropic quadratic.
 
-`verify.py` checks the exact objective-ratio identity, the co-monotone cosine lower bound on randomized layer states, convergence of the explicit sharp family to \(1/\sqrt d\), and both sides of the \(2/\sqrt d\) objective-descent boundary.
+# Independent mathematical audit
 
-The numerical checks are transcription guards. The universal cosine inequality and exact worst-case objective factor are proved analytically in `RESULT.md`.
+## correctness
+
+PASS
+
+On the first step, the pre-trust coordinates are r_i=A x_i/(B|x_i|+epsilon) with A,B>0, preserving signs and magnitude ordering. Sort magnitudes and decompose r magnitude into nonnegative prefix-indicator vectors; each prefix has dot product with x at least ||x||||prefix||/√d. Summing and using triangle inequality gives C(x)=<x,r>/(||x||||r||)>=1/√d. Family x=(M²,M,...,M), M→∞, makes normalized x→e1 and normalized r→uniform, attaining the infimum in the limit. Exact quadratic expansion then yields 1−2η C+η², sharp supremum and thresholds. This requires epsilon>0, no decay, one layer and only the first step. Independently checked the ratio and sharp family numerically across several dimensions, corroborating rather than proving the inequality.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the dimension-sharp isotropic first-step LAMB threshold under phi(z)=z. You et al provide the base LAMB algorithm; Resultary separately has a sharp 2D *anisotropic* conditioned SPD ascent/angle boundary and a LARS (different optimizer) step threshold, neither entails this dimension-only isotropic universal first-step objective criterion.
+
+## value
+
+PASS
+
+Demonstrates a nontrivial dimension scaling obstruction to guaranteed descent despite perfect quadratic conditioning, attributable to two successive normalizations; supplies a sharp usable safety frontier for a canonical algorithmic first-step regime, with exact extremizing family and boundary interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

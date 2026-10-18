@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The first-step pre-trust direction is a coordinatewise monotone saturation of the isotropic quadratic parameter. A sharp co-monotone cosine inequality gives alignment at least \(1/\sqrt d\), and an explicit increasingly anisotropic family approaches equality. Expanding the exactly norm-scaled layer update then gives the stated supremum objective factor and the iff learning-rate threshold.
+PASS
 
-Risk: the theorem is first-step only and uses \(\phi(z)=z\) with zero weight decay.
+On the first step, the pre-trust coordinates are r_i=A x_i/(B|x_i|+epsilon) with A,B>0, preserving signs and magnitude ordering. Sort magnitudes and decompose r magnitude into nonnegative prefix-indicator vectors; each prefix has dot product with x at least ||x||||prefix||/√d. Summing and using triangle inequality gives C(x)=<x,r>/(||x||||r||)>=1/√d. Family x=(M²,M,...,M), M→∞, makes normalized x→e1 and normalized r→uniform, attaining the infimum in the limit. Exact quadratic expansion then yields 1−2η C+η², sharp supremum and thresholds. This requires epsilon>0, no decay, one layer and only the first step. Independently checked the ratio and sharp family numerically across several dimensions, corroborating rather than proving the inequality.
 
-## Originality
+## originality
 
-PASS. The defining LAMB source gives the two normalizations and highlights the \(\phi(z)=z\) interpretation, while later LAMBC work treats unstable trust ratios. Broader signSGD literature already contains dimension-sensitive sign geometry. The inspected sources do not state the sharp LAMB-specific \(1/\sqrt d\) alignment bound or \(2/\sqrt d\) first-step descent ceiling.
+PASS
 
-Residual risk: an equivalent short geometric argument may exist in unindexed optimizer notes.
+Best-of-knowledge PASS for the dimension-sharp isotropic first-step LAMB threshold under phi(z)=z. You et al provide the base LAMB algorithm; Resultary separately has a sharp 2D *anisotropic* conditioned SPD ascent/angle boundary and a LARS (different optimizer) step threshold, neither entails this dimension-only isotropic universal first-step objective criterion.
 
-## Value
+## value
 
-PASS. LAMB's central mechanism is layerwise normalization intended to make update scale robust. The exact threshold shows that on a perfectly conditioned quadratic, the *directional* interaction between coordinatewise Adam normalization and layerwise norm normalization alone creates a square-root dimension penalty for guaranteed descent. This is a sharp structural boundary rather than a generic restatement of signSGD behavior.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Demonstrates a nontrivial dimension scaling obstruction to guaranteed descent despite perfect quadratic conditioning, attributable to two successive normalizations; supplies a sharp usable safety frontier for a canonical algorithmic first-step regime, with exact extremizing family and boundary interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

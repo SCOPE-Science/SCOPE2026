@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T20:56:42.478900Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the first step, the pre-trust coordinates are r_i=A x_i/(B|x_i|+epsilon) with A,B>0, preserving signs and magnitude ordering. Sort magnitudes and decompose r magnitude into nonnegative prefix-indicator vectors; each prefix has dot product with x at least ||x||||prefix||/√d. Summing and using triangle inequality gives C(x)=<x,r>/(||x||||r||)>=1/√d. Family x=(M²,M,...,M), M→∞, makes normalized x→e1 and normalized r→uniform, attaining the infimum in the limit. Exact quadratic expansion then yields 1−2η C+η², sharp supremum and thresholds. This requires epsilon>0, no decay, one layer and only the first step. Independently checked the ratio and sharp family numerically across several dimensions, corroborating rather than proving the inequality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original LAMB convergence theorems assume multi-step stochastic controls, not this sharp first-step isotropic worst case.",
+          "LARS uses layer-normalized gradients without the same coordinatewise Adam saturation."
+        ],
+        "reasoning": "Neither the earlier general convergence guarantee nor LARS sharp frontier entails the stated 2/√d condition for the source-form LAMB first step.",
+        "searches": [
+          "You et al 2019 LAMB convergence theorem",
+          "Resultary sharp-condition-number-frontier-for-objective-descent-in-core-LARS--70b4a7c981f6"
+        ]
+      },
+      "checked_sources": [
+        "You et al arXiv:1904.00962v1 full accessible technical report",
+        "Fong–Chen–Chen arXiv:2011.13584 trust-ratio clipping description",
+        "Bernstein et al arXiv:1802.04434 signSGD geometry",
+        "Resultary LAMB obtuse direction finding 00498ba452dc",
+        "Resultary core LARS condition-number objective frontier 70b4a7c981f6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "SignSGD and trust norm geometry motivate ℓ1/ℓ2 dimension effects, but identifying the exact co-monotone normalized-angle infimum requires the prefix-cone proof and asymptotic witness.",
+          "None of the checked statements asserts isotropic LAMB descent iff η<=2/√d."
+        ],
+        "reasoning": "Rewriting the update reveals relevant geometry, but the extremal cosine and resulting iff boundary are not mere parameter substitution from the inspected algorithms/results.",
+        "searches": [
+          "You et al original LAMB update and choice phi(z)=z",
+          "Bernstein et al arXiv:1802.04434 signSGD",
+          "Fong et al 2020 trust-ratio clipping"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Foundational LAMB update normalizes Adam-like coordinate-preconditioned direction then scales by layer parameter norm.",
+          "Resultary SPD obtuse-first-direction result has sharp condition-number threshold κ=3+2√2 in dimension 2; on isotropic κ=1 the direction stays acute and step-length descent is a different question."
+        ],
+        "reasoning": "Same optimizer family but different property and quantifiers. The assessed statement gives exact dimension-dependent step *magnitude* at isotropic curvature, not anisotropic directional obtuseness.",
+        "searches": [
+          "You et al LAMB arXiv:1904.00962v1 formula phi(z)=z",
+          "Resultary 2026/10/4 SCOPE-sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant records treat conditioned SPD trust behavior or trust-ratio clipping; none of the checked material tabulates the isotropic d-variable sharp bound."
+        ],
+        "reasoning": "This is an analytic all-d sharp inequality, not a finite enumerated invariant; exact database comparison is inapplicable beyond searching for stored frontier formulas.",
+        "searches": [
+          "Resultary search LAMB first-step descent isotropic quadratic dimension trust ratio 2/sqrt d",
+          "Fong–Chen–Chen arXiv:2011.13584"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the dimension-sharp isotropic first-step LAMB threshold under phi(z)=z. You et al provide the base LAMB algorithm; Resultary separately has a sharp 2D *anisotropic* conditioned SPD ascent/angle boundary and a LARS (different optimizer) step threshold, neither entails this dimension-only isotropic universal first-step objective criterion.",
+      "residual_risks": [
+        "The theorem is first-step only, one layer, zero weight decay, phi(z)=z, epsilon>0 and isotropic quadratic.",
+        "The sharpness family approaches, rather than attains, C=1/√d for finite positive epsilon and finite x.",
+        "An uninspected full alternative treatment of normalized sign geometries may contain the exact inequality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_UPDATE_NOT_EXACT_FRONTIER",
+          "evidence": "Defines layer-normalized first-step geometry used here; no sharp isotropic first-step dimension-η iff theorem identified.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.00962",
+          "material_read": "Full accessible technical report (38 pages), LAMB algorithm, trust ratio and phi scaling passages",
+          "method": "Read full primary report and inspected optimizer definitions",
+          "title": "Large Batch Optimization for Deep Learning: Training BERT in 76 minutes",
+          "trigger": "Original LAMB update and exact scale phi"
+        },
+        {
+          "assessment": "DIFFERENT_CONDITIONED_SPD_PROPERTY",
+          "evidence": "Its sharp 2D conditioned SPD angle result does not dominate an isotropic all-d step-size frontier.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc",
+          "material_read": "Published result title and mathematical abstract returned by Resultary semantic search, not full source proof",
+          "method": "Read Resultary summary and compared hypothesis and conclusion",
+          "title": "Sharp conditioning threshold for an obtuse first LAMB direction",
+          "trigger": "High-similarity same optimizer and first step"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Demonstrates a nontrivial dimension scaling obstruction to guaranteed descent despite perfect quadratic conditioning, attributable to two successive normalizations; supplies a sharp usable safety frontier for a canonical algorithmic first-step regime, with exact extremizing family and boundary interpretation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "You et al arXiv:1904.00962v1 full accessible technical report",
+    "Fong–Chen–Chen arXiv:2011.13584 trust-ratio clipping description",
+    "Bernstein et al arXiv:1802.04434 signSGD geometry",
+    "Resultary LAMB obtuse direction finding 00498ba452dc",
+    "Resultary core LARS condition-number objective frontier 70b4a7c981f6"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is first-step only, one layer, zero weight decay, phi(z)=z, epsilon>0 and isotropic quadratic.",
+    "The sharpness family approaches, rather than attains, C=1/√d for finite positive epsilon and finite x.",
+    "An uninspected full alternative treatment of normalized sign geometries may contain the exact inequality."
+  ]
+}
