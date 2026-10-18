@@ -1,0 +1,11 @@
+# Scientific review: Erlang-run boundary law
+
+**Correctness — PASS.** The stationary regenerative law is an affine perpetuity with a contracting multiplier. The equilibrium-age density yields an exact interior stationary density formula. The nontrivial inverse moment is controlled through an iterative Laplace-transform bound, and dominated convergence supplies the sharp power and logarithmic degree. Normalization is independently cross-checked by two exact-rational moment constructions in `check.py` (216 successful assertions). The infinite boundary limit rests on the written proof, not those finite computations.
+
+**Originality — PASS with priority limits.** The main source, Farago–Smith (arXiv:2401.01576v1), develops implicit stationary integral equations and numerics for general waiting laws; it does not calculate the integer-Erlang edge asymptotics. Di Crescenzo–Martinucci (arXiv:0803.1067) treats gamma waiting times for an unconfined integrated telegraph process; Dhar et al. (arXiv:1811.03808) covers exponential waiting in a harmonic trap. Hahn (arXiv:2506.02274) develops qualitative switching-density regularity, not this explicit logarithmic-degree amplitude formula. The main residual risk is an unlocated general phase-type PDMP singularity theorem that could implicitly yield the result.
+
+**Scientific value — PASS.** The logarithmic order \(m-1\) is a directly motivated measure of temporal memory at a physically meaningful confinement boundary. In particular, \(r=1\) is regular for exponential running times but has a sharp logarithmic divergence for all higher integer Erlang shapes. The exact positive entrance-perpetuity coefficient distinguishes a rigorous local law from qualitative threshold heuristics, and the theorem clarifies why long-run hazard, rather than mean run duration alone, determines endpoint behavior.
+
+**Limits.** The result applies to symmetric iid Erlang holds, deterministic sign reversal, linear confinement, and no translational diffusion. The coefficient is specified by an exact convergent expectation rather than an elementary closed expression. Literature priority is not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
