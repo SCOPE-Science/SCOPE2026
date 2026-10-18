@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` contains the exact 87 tetrahedra of the cited `octahedron_space` complex and uses only Python's standard library.
+# Independent mathematical audit
 
-It checks the face vector, every triangular relator in an explicit 24-element permutation representation, all three-vertex cliques, all missing-triangle group elements and their orders, the relevant conjugacy classes, and the derived subgroup.
+## correctness
 
-The scientific use of the representation also uses the independently published premise that this exact complex triangulates \(S^3/T^*\), with \(T^*\) of order \(24\). The verifier establishes a surjection from the simplicial fundamental-group presentation to a 24-element group; the published order therefore makes it an isomorphism.
+PASS
 
-The computation proves only the stated finite theorem for this exact triangulation. It does not prove a triangulation-independent metric statement.
+The 87 frozen facets give f=(15,102,174,87). An independently implemented JS reconstruction computed all 417 triangular cliques, subtracting 174 faces to give 243 candidates. Exact permutation products of the fetched EDGE_WORDS verify each of 174 face relators, and the generated image has order 24. The primary Lutz topology identifies pi1 with the order-24 binary tetrahedral group, so the surjective representation is an isomorphism. Each missing triangle maps nontrivially: 215 order six in two inverse conjugacy classes with hits 110 and 105, 28 order four in one inverse-stable class. The commutator subgroup has order eight and contains exactly the 28 order-four instances, giving the H1 split. Simple cycles cannot have fewer than three edges.
+
+## originality
+
+PASS
+
+Lutz supplies this complex, its 87 facets, H1 and fundamental group, but does not give the missing-triangle conjugacy spectrum. Resultary exact-object/alias search found classifications on other manifolds (Q8, lens spaces, projective complexes), which cannot imply this nonabelian T* triangulation-specific count. No checked source dominates the claim.
+
+## value
+
+PASS
+
+The complete finite geometric loop spectrum of the canonical 15-vertex binary-tetrahedral space shows that minimal noncontractible loops include a genuinely nullhomologous type. This is a motivated systolic and homotopical invariant, not an arbitrary clique count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
