@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T09:52:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/direct-all-factor-w-state-decompositions-strictly-beat-every-blo--d32790c2dc36/RESULT.md",
+        "https://arxiv.org/pdf/2512.05828"
+      ],
+      "rationale": "Set A_B=sum_{i in B}(d_i-2)>0. The existing published bound is U(B)=2^(|B|-1)(A_B+2), also valid for singletons where U({i})=d_i. For disjoint blocks I,J of sizes r,s, direct expansion gives U(I)U(J)-U(I∪J)=2^(r+s-2)[(A_I+2)(A_J+2)-2(A_I+A_J+2)]=2^(r+s-2)A_I A_J>0. Iterating merges proves every partition case. Sample integer arithmetic independently checked; the expansion itself proves universal strictness.",
+      "residual_risks": [
+        "Only comparison of lengths of one specified constructive upper-bound family; says nothing about exact tensor ranks or alternative block bounds."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Canino–Casarotti–Santarsiero Theorem 1.1 gives constructive all-factor partially symmetric rank bound for all k and d_i>=3.",
+          "The proposed blockwise inequality holds solely by numerical comparison of repeated applications of this same theorem, and does not sharpen the certified all-factor upper bound."
+        ],
+        "reasoning": "Published all-factor formula is the dominating complete parameter theorem; its algebraic corollary has no independent novel content.",
+        "searches": [
+          "tensor product W states partially symmetric rank upper bound block partition merging strict improvement",
+          "https://arxiv.org/pdf/2512.05828",
+          "https://arxiv.org/abs/1803.01623"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/direct-all-factor-w-state-decompositions-strictly-beat-every-blo--d32790c2dc36/RESULT.md",
+        "https://arxiv.org/pdf/2512.05828",
+        "https://arxiv.org/abs/1803.01623",
+        "https://arxiv.org/abs/1909.03811"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published U(I), U(J), U(I∪J) imply U(I)U(J)-U(I∪J)=2^(|I|+|J|-2) A_I A_J by one elementary expansion.",
+          "No actual rank strict-submultiplicativity is proven; only the comparison between compositional upper bounds and directly given upper bound."
+        ],
+        "reasoning": "The submission is already fully implied by the exact earlier theorem plus trivial arithmetic, rather than resolving an independent tensor-rank question. The lack of verbatim presentation in prior text is not originality.",
+        "searches": [
+          "tensor product W states partially symmetric rank upper bound block partition merging strict improvement",
+          "https://arxiv.org/pdf/2512.05828"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All-factor formula is identical after rewriting d_i=(d_i-2)+2.",
+          "The claimed supermultiplicative saving is positive because A_I,A_J are sums of integers >=1."
+        ],
+        "reasoning": "Interpreting the statement as bound function submultiplicativity under block merging shows it is a direct elementary corollary of the published formula.",
+        "searches": [
+          "tensor product W states partially symmetric rank upper bound block partition merging strict improvement",
+          "https://arxiv.org/pdf/2512.05828"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Comparison applies to arbitrary finite partitions and degrees; not a finite experimental table.",
+          "Its exact gap follows on expanding two factors of published closed formula."
+        ],
+        "reasoning": "No exact database is needed; the published formula itself is sufficient to compute every claimed saving, so lack of a matching numerical table is immaterial.",
+        "searches": [
+          "tensor product W states partially symmetric rank upper bound block partition merging strict improvement",
+          "https://arxiv.org/pdf/2512.05828"
+        ]
+      },
+      "rationale": "The purported improvement is a mechanical one-line factorization of Canino–Casarotti–Santarsiero’s published all-factor formula U(B)=2^(|B|-1)(sum_{i in B}(d_i-2)+2): the gap equals 2^(r+s-2) A_I A_J. The source Theorem 1.1 already permits applying the direct bound to any union of blocks; repeated substitution yields all proposed comparisons without any new tensor analysis. The result is not independently original merely because the numerical inequality is not typeset verbatim in the source.",
+      "residual_risks": [
+        "None affecting the decisive implication: the primary all-factor bound is explicitly identical.",
+        "Scientific rejection does not claim that actual W-state tensor ranks are multiplicative or strictly submultiplicative."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive coverage: all-factor U formula is identical prior result; partition inequality is algebraic restatement",
+          "evidence": "Theorem 1.1 provides 2^(k-1)(sum d_i-2k+2) for all k>=2,d_i>=3; singleton W_d has rank d.",
+          "identifier_or_url": "arXiv:2512.05828 / https://arxiv.org/pdf/2512.05828",
+          "material_read": "Full accessible 18-page primary PDF; inspected Theorem 1.1, proof construction and corollary comparing older rank bounds",
+          "method": "Read material theorem/proof and checked numerical formula against submitted block U",
+          "title": "A new bound on the rank of tensor product of W-states",
+          "trigger": "Exact parent bound that might dominate the proposed all-factor comparison"
+        },
+        {
+          "assessment": "Older general bounds are weaker than the newer all-factor U formula; they do not rescue independence of the trivial merge arithmetic",
+          "evidence": "Prior 2^(k-1)sum d_i form and specialized W_3 family.",
+          "identifier_or_url": "arXiv:1803.01623",
+          "material_read": "Introductory bound and comparative statement materially referenced in assigned RESULT",
+          "method": "Read accessible summaries and precise inequality descriptions",
+          "title": "On the partially symmetric rank of tensor products of W-states and other symmetric tensors",
+          "trigger": "Earlier blockwise tensor-rank constructions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/direct-all-factor-w-state-decompositions-strictly-beat-every-blo--d32790c2dc36/RESULT.md",
+        "https://arxiv.org/pdf/2512.05828",
+        "https://arxiv.org/abs/1803.01623",
+        "https://arxiv.org/abs/1909.03811"
+      ],
+      "rationale": "Although mathematically correct, the whole proposed theorem is a routine single-step factoring exercise on the exact all-factor formula already published. The partition comparison changes no rank bound, supplies no new decomposition, solves no independent sharpness question and cannot be viewed as a substantive structural lemma. Its verbal reframing as direct-versus-block composition does not rescue intrinsically mechanical content.",
+      "residual_risks": [
+        "No claim about actual rank gap, optimality or strict submultiplicativity of true ranks."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "No new mathematical decomposition or optimality, merely a derived upper-bound comparison.",
+    "Rejecting this record on originality/value leaves the correct source package unchanged."
+  ],
+  "schema_version": 1
+}
