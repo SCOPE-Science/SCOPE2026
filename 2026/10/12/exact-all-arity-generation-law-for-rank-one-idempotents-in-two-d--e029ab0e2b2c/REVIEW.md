@@ -1,12 +1,21 @@
-# Review of the exact all-arity rank-one-idempotent generation law
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof classifies projectors by ordered image/kernel lines, proves the if-and-only-if criterion by recovering all four matrix units, and counts all failure events by exact incidence inclusion-exclusion. Every assumption (finite field, \(r\ge1\), nonzero rank-one idempotents, unital generation) is explicit. Independent matrix-algebra-closure enumeration for the stated small instances passed, including characteristic two and the nonsplit field \(\mathbb F_4\). Finite enumeration is corroboration, not a proof for unbounded \(r\) or arbitrary \(q\).
+## correctness
 
-## Originality — PASS, with literature-access risk
-Petrenko–Sidki (arXiv:math/0512186) analyze arbitrary generating matrix pairs; Sercombe–Shalev (arXiv:2009.01115) establish asymptotic generation for fixed characteristic polynomials and ranks. Those results do not state the exact restricted all-arity formula or the binary three-idempotent threshold. Crestani's 2012 covering/generation article is a plausible source; only its abstract and metadata were accessible, so full-text equivalence remains a named risk. Targeted scientific-index searches and available historical-record comparisons disclosed no identical or dominating claim; search failure is not proof of priority.
+PASS
 
-## Value — PASS
-The exact law treats every tuple length and every finite field for a natural constrained generator class; it yields both a complete success probability and a sharp exceptional minimal arity. The projective-line criterion accounts for genuinely collective generation, when a triple generates without any generating pair. This gives structural information beyond an ordinary aggregate two-generator success rate and does not rest on finite experiments alone.
+Rank-one idempotents correspond ordered distinct image/kernel lines in P1(Fq), q(q+1) total. A tuple generates unital M2 iff no common invariant line: fix P1=E11, obtain E21 from one P_i with nonzero (2,1) entry and E12 from possibly another with nonzero (1,2) entry, and both diagonal units from P1 and I. Inclusion–exclusion of common-line conditions truncates after pair intersections because each projector has exactly two invariant lines. Factor r=2 and special q=2,r=3 yield minimum sizes. Independently enumerated full algebra-span closure q=2 r<=4 and q=3 r<=3; finite checks corroborate general algebra proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Petrenko–Sidki treat unrestricted generator pairs, Sercombe–Shalev analyze asymptotic prescribed-polynomial/rank pair generation, while this is exact for all tuple lengths in constrained rank-one idempotents, with characteristic-two exception. Crestani same-topic article full text inaccessible; record priority risk.
+
+## value
+
+PASS
+
+Exact distribution for a natural constrained generating set in M2(Fq), revealing exceptional minimal arity in characteristic two and a closed all-r formula; useful as rigorous benchmark for constrained random matrix generation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
