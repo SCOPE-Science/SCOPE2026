@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T17:09:21.835461Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each nonempty vertex set T in Q4, the binary incidence code row sum [I16|B] is (1_T,1_{delta(T)}), so its Hamming weight is |T|+|delta(T)|=5|T|−2e(T). Support-minimality is equivalent to connected induced Q4[T]: if disconnected, a component codeword has support contained; if connected, each proper nonempty submask has an internal crossing edge absent from delta(T), preventing support containment. Independently checked all 65535 nonzero masks by connectivity, internal edges and exact weight, yielding the complete 22-term spectrum claimed; its coefficient sum is 37293 and minimum distance is five. The finite enumeration is exhaustive for exactly this 16-vertex graph, not a claim for Qd generally.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kim Corollary 14 counts minimal words by connected induced subsets, sections 4–5 enumerate selected graph families, not Q4 weight statistics.",
+          "Cambie et al. target extremal numbers of connected induced sets; Kurz uses an adjacency matrix rather than edge incidence."
+        ],
+        "reasoning": "The broad correspondence and total counts do not logically supply each weight coefficient; Q4 Hamming boundary refinement requires an additional full finite census.",
+        "searches": [
+          "Boran Kim DOI:10.1007/s40314-025-03580-6 full 17 pages",
+          "Cambie Goedgebeur Jooken arXiv:2311.00075 regular connected sets",
+          "Kurz arXiv:2006.02975 adjacency-matrix graph code"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s40314-025-03580-6, entire 17-page 2026 article",
+        "OEIS A290758",
+        "arXiv:2311.00075",
+        "arXiv:2006.02975",
+        "Resultary semantic searches for minimal incidence-codeword and Q4 subset boundary spectra"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kim correspondence identifies which T yield minimal words; OEIS fixes their number but not their edge cut sizes."
+        ],
+        "reasoning": "The claimed polynomial implies published total via z=1 and realizes Kim correspondence on Q4; the reverse requires a new edge-boundary enumeration of connected T.",
+        "searches": [
+          "DOI:10.1007/s40314-025-03580-6 Corollary 14",
+          "OEIS:A290758"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalence to connected induced subsets follows from Kim Theorem 12/Corollary 14 and is also directly proved using support containment."
+        ],
+        "reasoning": "The natural equivalent graph-side invariant is joint vertex/internal-edge census, not simply the total 37293. No equivalent resolved full distribution found.",
+        "searches": [
+          "connected induced hypercube Q4 subgraphs by boundary weight |T|+|delta(T)|",
+          "binary [48,16] incidence code Q4 minimal codewords spectrum",
+          "Kim minimal binary codewords incidence approach"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A290758 contains total 37293 for Q4; its listing does not give 22 Hamming-weight coefficients of [I16|B(Q4)]."
+        ],
+        "reasoning": "Total of coefficients is known; the weight-resolved table, rather than the sum, is asserted and independently regenerated.",
+        "searches": [
+          "OEIS A290758",
+          "37293 Q4 boundary-weight minimal codewords",
+          "Q4 connected induced subgraphs internal edge histogram"
+        ]
+      },
+      "rationale": "Kim's 2026 full 17-page paper (read completely, pages 1–17) proves the incidence-matrix minimal-codeword/connected-induced-set correspondence and families such as ladders, but no Q4 hypercube Hamming-weight spectrum. OEIS A290758 already lists the 37293 connected-set TOTAL; this is credited. The asserted contribution is the entire weight-resolved distribution by |T|+|delta(T)|, not the known count. Kurz's graph-adjacency construction is a different code.",
+      "residual_risks": [
+        "A separately tabulated graph-theoretic internal-edge/boundary census of connected Q4 sets might duplicate the spectrum under a different index.",
+        "Exhaustive enumeration proves only the stated finite graph Q4, and no higher-dimensional pattern is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers correspondence and selected graph families but no Q4 hypercube weight-resolved spectrum",
+          "evidence": [
+            "Corollary 14 counts connected induced subsets; §5 lists paths, cycles, complete bipartite/multipartite, ladders; no Q4 coefficient distribution"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40314-025-03580-6",
+          "material_read": "Entire 17-page primary, pages 1–17; esp. Definition 1, Theorems 9/12, Corollary 14 on p8 and §5 graph families",
+          "method": "Authorized institutional full text extraction, inspected both first 12 and remaining 12 pages",
+          "title": "Minimal binary codewords derived from the incidence-matrix approach, Boran Kim",
+          "trigger": "Same exact code construction and minimal-word characterization"
+        },
+        {
+          "assessment": "Covers total connected Q4 subsets only",
+          "evidence": [
+            "OEIS A290758, Q4 coefficient 37293"
+          ],
+          "identifier_or_url": "https://oeis.org/A290758",
+          "material_read": "Catalogued count 37293 and sequence subject, not full edge-boundary-weight refinement",
+          "method": "OEIS published data comparison",
+          "title": "Number of (non-null) connected induced subgraphs in n-hypercube Q_n",
+          "trigger": "Potential exact table for Q4"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the canonical [48,16,5] Q4 graph-incidence code, the exact weight spectrum of all minimal words is a natural complete classification of its minimal supports by Hamming weight, relevant to codeword/support geometry and secret-sharing access structures. The exact 22-level refinement is not determined by the known ungraded count and is feasible to use as a complete benchmark.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Exact Q4 code only, not Qd for d≥5.",
+    "Known total 37293 credited, weight-resolved spectrum assessed as new."
+  ]
+}
