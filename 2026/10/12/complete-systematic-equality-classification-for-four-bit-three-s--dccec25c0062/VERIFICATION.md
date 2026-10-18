@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-From the package directory execute `python3 verify.py`. No external Python packages, external code, downloaded papers, or other supplementary files are needed. A complete representative table is bundled as `orbit_representatives.tsv`, checked byte-for-byte against regenerated output.
+# Independent mathematical audit
 
-The verifier independently checks the parity-XOR criterion and the unrestricted direct recovery-set criterion across all \(65536\) systematic parity matrices. It excludes \(0,1,2,3\) parity-column cases. It uses complete inclusion-minimal recovery lists to check the twenty possible three-request multisets for every successful code, computes canonical orbit representatives under the declared \(576\)-element group, independently sums Burnside fixed points, and checks incidence-lemma coverage, parity rank, and minimum Hamming distance.
+## correctness
 
-Expected final line:
+PASS
 
-`VERIFY_OK systematic_optima=7800 orbits=26 batch_all=true incidence_lemma=456 other=7344 burnside=26`
+For each e_i, replacing one of three disjoint recovery sets by singleton systematic coordinate i reduces 3-PIR to two disjoint nonempty parity-subset sums whose systematic companions are disjoint outside i. Independently enumerated all 16^4 ordered parity tuples by parity masks: exactly 7800 qualify. Independently canonicalized S4xS4 orbits: 26; multiset sizes 72 x1,96 x4,144 x3,288 x12,576 x6, sum 7800. Independent incidence test gives 456, parity ranks 3:3000 and 4:4800, all minimum distances exactly 3. For each of 26 orbit representatives, exhaustively tested all 20 three-request multisets using inclusion-minimal recovery subsets; permutation invariance proves 3-batch for all 7800. This exhaustive proof is only for the finite 65536 systematic presentation space, not general codes.
 
-The method proves the finite result for the stated binary systematic generator presentation space. It does not classify nonsystematic generator choices or prove a general three-PIR/three-batch equivalence beyond this finite case.
+## originality
+
+PASS
+
+The 2015 incidence criterion is only sufficient; prior optimal-length and construction theorems give existence/lower bound, not the complete 7800 labeled presentations/26 orbits nor universal PIR-to-batch equivalence within that exact layer. Primary articles inspected at theorem/definition level.
+
+## value
+
+PASS
+
+A complete natural equality-case classification for the first nontrivial four-information three-server systematic setting, resolving representation multiplicities, batch property, rank/distance and the reach of a standard sufficient criterion; not merely computing the previously known optimum eight.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
