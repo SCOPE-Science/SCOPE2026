@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The exact multiplicative formula is stated in the motivating paper and independently derived by grouping gcd classes; the valuation criterion follows by reduction of an integer fraction. For split primes, Dirichlet/PNT-AP supplies infinitely many prime factors contributing already at exponent one, and finite-prime independence plus a second-moment bound forces zero density. For inert primes, the first nontrivial numerator valuation at any other prime occurs only at exponent at least two, making the truncation error summable; the resulting absolutely convergent product has positive factors. The lower/strict-upper bounds and the special five-adic LTE reduction are proved. The executable only confirms finite cases and the approximation.
+
+**Originality (PASS, with residual risk).** De Koninck–Letendre's full preprint bounds how often the entire rational value is integral, which is a strictly different implication from a positive density of denominators divisible by any selected inert prime. OEIS A333696 tabulates denominators without the all-prime density classification. The previous three-adic asymptotic is stronger than this result's isolated zero-density statement at \(\ell=3\), and is explicitly excluded from the originality claim; it does not imply positive products at \(\ell\equiv5\pmod6\) or zero density at all split primes. No published equivalent/stronger statement was found in targeted searches. An implicit or unindexed derivation remains possible.
+
+**Mathematical value (PASS).** The result classifies a natural infinite arithmetic question for every fixed denominator prime, including a sharp distinction between cyclotomic split/inert behavior. For the inert half of odd primes it gives nonzero constants rather than just existence or bounds, with a readable specialization at five. This is mathematically motivated by the gap between rarity of integral sums and the distribution of their residual denominator factors.
+
+**Closest literature and limits.** De Koninck–Letendre, arXiv:2610.10572v1 (2026-10-04); OEIS A333696; standard Dirichlet/PNT-AP and LTE. The theorem gives neither rates nor uniformity in the selected prime; an independent literature and mathematical audit remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
