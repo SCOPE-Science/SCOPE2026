@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact CRT equivalence reconstructs the infinite problem as one residue class per distinct prime. For the odd five-prime case all remaining primes exceed seven and therefore cover at most one position in any block of length at most 11. The eight-row certificate enumerates every one of at most 105 small-prime residue tuples, establishing both attainable length j-1 and impossibility of lengths j and 11. For even support, J(2a)=2J(a) is proved using odd-progressions modulo odd a, and the odd-four-prime classification is established by explicit cover and capacity bounds, including the necessary overlap at length seven. All exponents and boundary cases are included. The actual embedded Python program independently verifies all certificate values and eight entire radical periods; finite sample checks are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hajdu–Saradha Theorem 1.2: H(r)=h(r) for r<=23, including H(5)=14.",
+        "Costello–Watts arxiv:1306.1064: a global upper bound for J(n), not exact fibers."
+      ],
+      "reasoning": "The published maximum H(5)=14 and all larger-r upper bounds dominate only the extremal bound, not the precise values 6,7,8,9,10,11,12 as functions of small prime membership. The new statement recovers the maximum but adds distinct nonmaximum strata.",
+      "searches": [
+        "Jacobsthal function exact four distinct prime factors h(n) prime support",
+        "doi:10.1090/S0025-5718-2012-02581-6",
+        "arxiv:1306.1064"
+      ]
+    },
+    "checked_sources": [
+      "Hagedorn (2008) DOI:10.1090/S0025-5718-08-02166-2 (abstract only)",
+      "Hajdu–Saradha (2012) complete public PDF",
+      "Costello–Watts (2013) complete arXiv PDF",
+      "OEIS A048669 and A395279",
+      "Published primorial difference results and covering density results retrieved by semantic comparison; different mathematical objects and claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hajdu–Saradha Table 1 r=5 establishes H(5)=14 and fixed primes 2,3,5 for maximizing 5-supports.",
+        "Ziller-focused published published-finding corpus finding concerns primorial gap persistence at k=45, not values for arbitrary five-prime sets."
+      ],
+      "reasoning": "New classification implies the old r=5 maximum, but the maximum plus necessary-divisor information cannot imply the distinct nonmaximal values. The published primorial-gap result concerns different support size and property; no implication covering this theorem. Search absence is not novelty proof.",
+      "searches": [
+        "Jacobsthal function j(n) for omega(n)=5 exactly classified by 2 3 5 7",
+        "coverings of consecutive integers by four distinct primes least interval coprime to n prime divisor support 2 3 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jacobsthal J(n) equals greatest gap between successive reduced residues; the equivalent residue cover formulation is standard (Hajdu–Saradha Lemma 2.1).",
+        "Closest public prime-support search result concerns Jordan totient injectivity, not Jacobsthal."
+      ],
+      "reasoning": "The usual aliases g(n), j(n), maximal reduced-residue gap and covering consecutive positions have been explicitly compared. No inspected result gives eight five-prime fibers.",
+      "searches": [
+        "Jacobsthal function j(n) for omega(n)=5 classified by 2 3 5 7 prime divisibility residue coverings eight values 6 7 8 9 10 11 12 14",
+        "https://oeis.org/A048669"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A048669 lists pointwise values; A395279 lists maximum values with H(5)=14.",
+        "Hajdu–Saradha Table 1 gives maxima and fixed necessary primes at the maximum, not all values at omega=5."
+      ],
+      "reasoning": "Numerical sequences can test examples but do not themselves imply the closed eight-way infinite classification; the new finite certificate provides a proof not an extrapolation from table prefixes.",
+      "searches": [
+        "OEIS A048669 Jacobsthal function",
+        "OEIS A395279 maximum exactly five distinct primes",
+        "complete 4-prime Jacobsthal gap spectrum {5,6,7,8,10}"
+      ]
+    },
+    "rationale": "The all-integers omega=5 eight-fiber divisibility classification is strictly stronger than the previously known maximum H(5)=14: all seven nonmaximum values and rigidity under replacement of arbitrary large primes are determined. Hajdu–Saradha (2012) proves maxima and mandatory primes but does not state the intermediate fibers in its inspected full text. OEIS tables and general bounds do not entail the exact support threshold without this finite exhaustive proof. Earlier unindexed or implicit coverage remains a residual risk.",
+    "residual_risks": [
+      "The full 2008 Hagedorn article was not available: an implicit or appendix-level deduction cannot be excluded from its abstract alone.",
+      "An unindexed older source or unstated consequence of a general residue-sieve framework may give an equivalent classification.",
+      "Searches of a finite public research index do not certify novelty or independence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sets primorial program and algorithm; exact all-five-support coverage in full text is unconfirmed. No NOT_COVERING conclusion is drawn from this abstract.",
+        "evidence": [
+          "2008-11-20 public electronic date in the article record",
+          "Abstract formulates h(r)=J(product first r primes), rather than all support strata."
+        ],
+        "identifier_or_url": "doi:10.1090/S0025-5718-08-02166-2",
+        "material_read": "abstract, metadata and date only; complete text inaccessible",
+        "method": "Publicly accessible bibliographic and abstract records",
+        "title": "Computation of Jacobsthal's function h(n) for n<50",
+        "trigger": "Earliest archive-age primary source for primorial gap computations"
+      },
+      {
+        "assessment": "Theorem 1.2 establishes H(5)=14; Theorem 1.3 specifies mandatory primes for maximizers. Lemmas 2.1 and 2.2 supply coverage and doubling antecedents. The full text inspected does not state the eight exact values for every five-prime support.",
+        "evidence": [
+          "PDF pp.1–3: H(r) maximum, H(5)=14, fixed-prime extremal table",
+          "pp.4–6: Lemmas 2.1 and 2.2 (covering and doubling)",
+          "pp.6–12: computational strategy and proofs for maxima, not eight support fibers"
+        ],
+        "identifier_or_url": "doi:10.1090/S0025-5718-2012-02581-6; https://math.unideb.hu/sites/default/files/inline-files/jacobsrevsaradha.pdf",
+        "material_read": "Complete 14-page open PDF, with targeted scrutiny of introduction, Theorems 1.2–1.3, Lemmas 2.1–2.5 and Sections 2–3",
+        "method": "Read publicly available full-text PDF and inspected page imagery",
+        "title": "Disproof of a conjecture of Jacobsthal",
+        "trigger": "Directly relevant theorem on all supports with fixed distinct-prime count"
+      },
+      {
+        "assessment": "The main result concerns explicit upper bounds in terms of distinct-factor count, especially large k; no five-support exact spectrum or threshold partition.",
+        "evidence": [
+          "arxiv:1306.1064, pp.1–5: upper-bound derivation, no classification table"
+        ],
+        "identifier_or_url": "arxiv:1306.1064v1",
+        "material_read": "Complete 5-page public arXiv PDF, including proofs and references",
+        "method": "Read whole open preprint PDF and inspected page imagery",
+        "title": "A short note on Jacobsthal's function",
+        "trigger": "Alternative general upper-bound treatment of the same invariant"
+      },
+      {
+        "assessment": "A048669 tabulates J(n) per integer, A395279 gives the maximum by omega; neither inspection gives the universal eight-fiber criterion.",
+        "evidence": [
+          "A048669: Jacobsthal function table",
+          "A395279: maximum H(5)=14 and Hajdu–Saradha reference"
+        ],
+        "identifier_or_url": "https://oeis.org/A048669; https://oeis.org/A395279",
+        "material_read": "Definitions, initial data, references and maximum sequence",
+        "method": "Read publicly indexed OEIS records",
+        "title": "OEIS A048669 and A395279",
+        "trigger": "Direct exact database/table overlap test"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bcef10ea-8b0d-442a-9242-5141b7fe69b6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Jacobsthal’s function controls gaps between reduced residues, a classical sieve invariant used in prime-gap and coprimality questions. The exact eight-level partition for every integer with five distinct prime factors resolves a natural fixed-support classification, not a selectively chosen finite interval. It identifies complete rigidity under changes in arbitrarily large prime factors and determines all nonmaximal values below the known extremum H(5)=14, giving a reusable small-prime cutoff in residue-cover analysis. Neither the historical maximum nor generic large-k bounds imply this partition; the limitation to exactly five prime factors is explicit.",
+    "status": "PASS"
+  }
+}
