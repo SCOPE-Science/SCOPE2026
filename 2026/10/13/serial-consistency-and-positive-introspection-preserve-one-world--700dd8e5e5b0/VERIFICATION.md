@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked against the broad closure definition in arXiv:2610.01433v1: the closure map is an arbitrary map on sets of formulas, so the proof-consequence construction is admissible without proving extensivity, monotonicity, or idempotence.
+# Independent mathematical audit
 
-For a maximal consistent set \(\Delta\), define \(G=\{\chi:\Box\chi\in\Delta\}\) and put \(\chi\in\operatorname{cl}(X)\) exactly when some finite \(X_0\subseteq X\) satisfies
-\[
-L_\Lambda\vdash
-\left(\bigwedge_{\xi\in X_0}\Box\xi\right)\to\Box\chi.
-\]
-At the actual generator \(G\), closure membership is equivalent to boxed membership in \(\Delta\). The forward implication uses the finite support and Modus Ponens; the reverse implication uses the singleton support. This yields the modal step of the truth lemma.
+## correctness
 
-For \(\mathsf M\), \(\mathsf C\), \(\mathsf K\), and \(\mathsf4\), union the finite supports and compose with the selected axiom. For \(\mathsf N\), the theorem \(\Box\top\) gives the empty-support witness. For \(\mathsf D\), opposite closure members would give finite supports deriving both \(\Box\chi\) and \(\Box\neg\chi\), contradicting \(\neg(\Box\chi\wedge\Box\neg\chi)\) and consistency.
+PASS
 
-For a single non-theorem, use a maximally consistent set over the finite augmented subformula set used by Nishimura. Its generator is finite. The same closure and frame-condition arguments remain valid; the truth bridge is required only for boxed formulas in that finite set. Hence the countermodel has one world and a finite generator.
+Build a maximally L_Λ-consistent Δ and G={χ:□χ∈Δ}. With cl_Λ(X)={χ: some finite X0⊂X has L_Λ⊢(∧_{ξ∈X0}□ξ)→□χ}, the one-world truth bridge follows in both directions: the singleton support proves one direction, and theorem plus boxed members of Δ proves the other. For M,C,N,K,4 the corresponding axiom schemata compose finite proof supports to establish each chosen closure-member condition. For D, hypothetical χ and ¬χ in the closure yield finite supports whose union and the D axiom contradict Δ consistency. Restriction to an appropriately augmented finite subformula set for a single non-theorem yields a finite G, with the truth bridge needed only on the finite set; a closure of G may remain infinite. All 64 axiom selections are covered with no modal inference rules. This verifies the key construction on its stated non-extensive arbitrary-map semantics; the finite-set canonical details depend on the source’s augmented-subformula lemma.
 
-No experiment or finite enumeration is used as proof. No effective decidability or complexity bound is asserted.
+## originality
+
+PASS
+
+Best of knowledge: Nishimura established singleton completeness for the M/C/N/K no-rule family and identifies D and 4 as extensions; the older Kogure–Kurahashi consistency/introspection results assume extensive monotone idempotent closure operators and use N for necessitation. The present argument concerns all 64 no-rule combinations with arbitrary set-operators and a finite one-world witness. Same-object primary full text inaccessible, so coverage is qualified, not categorically disproved.
+
+## value
+
+PASS
+
+Extending an expressly studied family of weak closure logics from four to six axioms while preserving strong completeness and finite singleton countermodels is a motivated structural closure result. The D consistency condition is non-Horn and requires an explicit finite-support consistency argument; it is not merely a renamed axiom or a tiny enumeration of 64 selections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
