@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof reduces the exact one-exception criterion at dimension \(3\) to rational points on
-\[
-E:Y^2=X^3+13X^2-32X.
-\]
-The critical mathematical check is a standard two-isogeny descent. For \(E\), the square classes \(-1\) and \(2\) are excluded modulo \(3\), while \(1\) and \(-2\) are represented. For the two-isogenous curve \(E':Y^2=X^3-26X^2+297X\), all negative square classes are excluded over \(\mathbb R\), and the remaining classes \(3\) and \(11\) are excluded modulo \(16\), leaving only \(1\) and \(33\). The standard rank formula therefore gives rank zero.
+# Independent mathematical audit
 
-The included `verify.py` independently checks these curve-specific local obstructions, verifies all displayed rational points, computes \(|E(\mathbb F_5)|=|E(\mathbb F_7)|=6\), and checks that both allowed nonzero \(X\)-coordinates map to \(t=1\). Its captured output is in `verification_output.txt` and ends with `CHECK_OK`.
+## correctness
 
-The checker does not attempt to re-prove the general two-isogeny descent theorem or the good-reduction torsion theorem. Those are standard external results used transparently in the proof. No finite search is used to assert completeness of \(E(\mathbb Q)\).
+PASS
+
+For nonzero integers r,s, Cheng–Zhang Theorem 5.2 reduces PSI₃ of {r^[8],s} to rational squareness of (t−2)²+8 and 4t+5, t=s/r. q=u−(t−2)≠0, X=−2q, Y=2qv birationally give E:y²=x³+13x²−32x and t=(X²+8X−32)/(4X). E has two-isogenous E′:y²=x³−26x²+297x. Standard 2-isogeny descent: for E square-classes −1,2 impossible mod3 and 1,−2 present; E′ negative classes impossible over real numbers, positive 3,11 excluded mod16; positive classes 1,33 present. Thus each descent image size2 and rank zero. E has good reduction at 5,7, each with six points; six displayed rational points O,(0,0),(4,±12),(−8,±24) exhaust torsion and thus E(Q). Nonzero X maps only to t=1, giving s=r; converse all equal matrices has eigenvalues (3r,0,0). Independently checked modular obstructions, point counts and birational evaluations. No bounded search is used as proof of all Q-points.
+
+## originality
+
+PASS
+
+Cheng–Zhang arXiv:2609.36524v1 explicitly conjecture the fully nonzero 3×3 rigidity and derive only the two-square criterion for a one-exception entry; they use the criterion in higher dimensions, without solving its n=3 rational-point problem. The elliptic curve descent supplies a complete natural one-exception infinite subfamily. No covering published semantic search hit was found, but contemporaneous related preprints and elliptic curve tables pose some priority risk.
+
+## value
+
+PASS
+
+Completely resolves a structurally distinguished infinite subfamily of an explicitly open dimension-three permutation-spectral integrality conjecture, with a nontrivial rank-zero elliptic-curve proof. This is stronger than finite example checks or a routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
