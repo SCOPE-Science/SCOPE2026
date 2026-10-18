@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** Smoothness and the branch divisor follow from separability and Riemann--Hurwitz, and all eight rational points are counted fibre-by-fibre. The quadratic-character expansion, elliptic Frobenius trace \(U^2+3\), restriction to subfields, and Möbius inversion establish the exact formula. The strict bound on proper subfields proves positive counts for every even degree at least six. Independent finite computations check all admissible monic polynomials through degree twelve, with independent extension-field quadratic-character counts at degrees six and eight. Computations supplement rather than replace the infinite argument.
+
+**Originality — PASS, with residual priority risk.** Faber--Grantham's eight-point hyperelliptic upper bound and constructions are prior; these are not newly asserted. The genus-two special cases of the branch-divisor classification are also known and not separately claimed. The additional joint theorem requires irreducibility of all geometric branch points in *every* genus and computes the exact number of such monic polynomials. The inspected Faber--Grantham, Vermeulen, Gao--Kuttner--Wang and Slavov primary texts do not give this fixed-field Möbius--elliptic trace result. Arithmetic-progression methods could yield equivalent consequences and an unindexed exact formula remains possible; this qualification prevents a claim of global priority proof.
+
+**Value — PASS.** A rational-point-maximizing hyperelliptic cover usually permits many arithmetic structures on its branch divisor. Showing maximal point count is compatible with Frobenius transitivity on *all* branch points for every genus provides a natural arithmetic refinement, not merely another construction. The closed formula supplies exact realizations (for example \(12,90,720,5460\) equations in genera \(2,3,4,5\)) and makes this refinement quantitatively explicit across infinitely many genera. The statement does not assert broader Jacobian classifications or isomorphism-class counts.
+
+**Scientific limitations.** Counts are for monic equations rather than isomorphism classes. Priority is limited by potentially unindexed finite-field arithmetic-progression formulas and by the fact that general methods may imply this specialization.
+
+Self-review: passed. Independent audit: not yet performed.
