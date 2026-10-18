@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The phasewise construction shows the exact minimum greedy forbidden-prefix rank for all finite families; the rightmost-embedding test proves preserved common-supersequence feasibility and that each retained position is essential. 3150 exhaustive binary two-string, 39200 exhaustive up-to-four-input, 2000 randomized quaternary tests pass, but the infinite argument is the proof, not finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2603.22591v1, Theorems 4.1 and 6.1: reduction of an already-existing common supersequence without a forbidden pattern",
+        "Dondi 2013 abstract: constrained occurrence count and shortest length"
+      ],
+      "reasoning": "Unconstrained minimization only takes an existing witness; it does not show when an avoiding witness exists. Symbol-count constraints and globally shortest supersequence algorithms do not imply single-scattered-pattern avoidance or the exact rank-max identity.",
+      "searches": [
+        "Two-string minimal common supersequence avoiding arbitrary pattern P as subsequence: O(|A||B|+|P|) dynamic program and rightmost embedding minimalization",
+        "forbidden subsequence P-avoiding minimal common supersequence of A and B; greedy prefix dominance product DAG linear in grid and pattern",
+        "linear-time minimal common supersequence avoiding forbidden scattered subsequence P, joint embedding property"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.22591v1, full text §§1–7",
+      "Dondi 2013 institutional abstract and citation",
+      "McDevitt–Ruškuc 2021 institutional abstract and citation",
+      "Published mathematical-record semantic search with greedy-rank, forbidden-pattern, and joint-embedding aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sopp et al. 2026 §7 explicitly asks for a minimal common supersequence excluding a subsequence P",
+        "Sopp et al. 2026 Theorem 4.1 only reduces a supplied S and §6 handles unconstrained k-string minimization",
+        "Dondi 2013 abstract treats prescribed symbol multiplicities"
+      ],
+      "reasoning": "Even jointly, the cited algorithms require an initial avoiding common supersequence or address another restriction. The missing ingredient supplied here is the rank-max amalgamation, which decides existence and produces an avoiding witness in linear time.",
+      "searches": [
+        "forbidden subsequence P-avoiding minimal common supersequence of A and B; greedy prefix dominance product DAG linear in grid and pattern",
+        "linear-time minimal common supersequence avoiding forbidden scattered subsequence P, joint embedding property",
+        "\"minimal common supersequence\" \"forbidden\" \"subsequence\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2603.22591v1 §7 (the avoidance variant is posed as a question)",
+        "McDevitt–Ruškuc (2021) abstract: consecutive rather than scattered containment"
+      ],
+      "reasoning": "The directedness/atomicity formulation is equivalent to existence of a common avoiding supersequence for a single forbidden scattered word. The closest atomicity paper concerns consecutive subwords, where embeddings and obstruction sets are different, so it does not imply the rank-max statement for scattered subsequences.",
+      "searches": [
+        "principal subsequence avoidance class Av(P) is directed order ideal; any finite family of words avoiding P has common P-avoiding supersequence",
+        "maximal greedy prefix match rank of pattern P on common supersequences equals maximum of pattern ranks of input words",
+        "\"subsequence\" \"joint embedding property\" \"avoid\" word"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No rank-max identity or forbidden scattered pattern construction occurred among the closest checked mathematical-record summaries",
+        "A recent record about absent subsequence counts concerns a different extremal counting invariant"
+      ],
+      "reasoning": "The claim is structural for arbitrary words rather than a finite census. Record search cannot certify uniqueness; the closest available statements differ in quantifier/object and do not imply the present theorem.",
+      "searches": [
+        "Two-string minimal common supersequence avoiding arbitrary pattern P as subsequence: O(|A||B|+|P|) dynamic program and rightmost embedding minimalization",
+        "principal subsequence avoidance class Av(P) is directed order ideal; any finite family of words avoiding P has common P-avoiding supersequence",
+        "maximal greedy prefix match rank of pattern P on common supersequences equals maximum of pattern ranks of input words"
+      ]
+    },
+    "rationale": "The full primary text arXiv:2603.22591v1 asks this precise forbidden-subsequence MCS question in its concluding §7 but proves unconstrained results. Neither related multiplicity-constrained SCS work nor consecutive-subword atomicity implies the scattered-pattern rank-max identity. Targeted published-record and literature searches found no covering result; residual indexing risk remains.",
+    "residual_risks": [
+      "A less visible prior theorem on ideals of scattered-subsequence word orders might imply the rank-max amalgamation even without matching terminology.",
+      "Related constraint papers beyond the inspected abstracts were not exhaustively read.",
+      "No independent validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 4.1 and §6 remove letters from a supplied common supersequence; §7 calls the forbidden-subsequence constraint an open direction. Neither gives the rank-max criterion nor a witness constructed to avoid P.",
+        "evidence": [
+          "arXiv:2603.22591v1 §4 Theorem 4.1",
+          "arXiv:2603.22591v1 §6 Theorem 6.1",
+          "arXiv:2603.22591v1 §7 final sentence"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.22591v1",
+        "material_read": "Full primary HTML: abstract; §§1–4 including Theorem 4.1 and proof; §5 description; §6 including Theorem 6.1; §7 conclusion and references",
+        "method": "Read publisher-equivalent arXiv open HTML full text, not just abstract",
+        "title": "Computing and Enumerating Minimal Common Supersequences Between Two Strings",
+        "trigger": "Direct same-object 2026 preprint; §7 explicitly poses the precise forbidden-subsequence question"
+      },
+      {
+        "assessment": "Constraint is number of occurrences of each symbol for a globally shortest supersequence; it is not a forbidden scattered subsequence nor an inclusion-minimal supersequence. Full text remains uninspected.",
+        "evidence": [
+          "Dondi (2013) abstract explicitly says number-of-occurrences constraint",
+          "DOI:10.1016/j.jda.2013.03.004"
+        ],
+        "identifier_or_url": "https://unibg.unifind.cineca.it/resource/item/37794",
+        "material_read": "University research portal abstract and bibliographic metadata; full article not inspected",
+        "method": "Author-institution abstract and citation metadata",
+        "title": "The constrained shortest common supersequence problem",
+        "trigger": "Plausible title using constrained common supersequences"
+      },
+      {
+        "assessment": "Underlying relation is consecutive subword containment and consecutive subpermutation; not scattered subsequence order. Thus the announced criteria do not directly cover this claim.",
+        "evidence": [
+          "McDevitt and Ruškuc (2021) abstract says consecutive orderings",
+          "DOI:10.1137/20M1338411"
+        ],
+        "identifier_or_url": "https://research-repository.st-andrews.ac.uk/handle/10023/21195",
+        "material_read": "Institutional metadata and abstract; full manuscript not inspected",
+        "method": "Read authors’ institutional research abstract",
+        "title": "Atomicity and Well Quasi-Order for Consecutive Orderings on Words and Permutations",
+        "trigger": "Joint embedding property and forbidden patterns could imply the directed-avoidance statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0880c961-3fd7-458b-90dc-60c41e562572",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Solves exactly the single-forbidden-scattered-subsequence MCS variant explicitly posed in the 2026 source, for arbitrary finite numbers of strings, with a tight rank-max identity, a simple linear-time feasibility/witness construction, and constructive inclusion-minimality. A binary family exhibits unbounded gaps from shortest unconstrained supersequences, showing nontrivial constraint sensitivity. The one-pattern versus multiple-pattern boundary and nonminimum-length scope are explicit.",
+    "status": "PASS"
+  }
+}
