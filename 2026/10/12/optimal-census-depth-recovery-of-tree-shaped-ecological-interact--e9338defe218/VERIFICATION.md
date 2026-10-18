@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or newer. No network, third-party package, precomputed table, random seed or input file is required. All counts are integers. The executable builds every unlabeled tree class by leaf augmentation and canonical center-root encodings, computes the histogram of induced interaction edges for every vertex subset, and asserts the complete design classification.
+## correctness
 
-The observed final markers from an actual execution of the supplied source were:
+PASS
 
-```text
-TREE_SHAPES [(1, 1), (2, 1), (3, 1), (4, 2), (5, 3), (6, 6), (7, 11), (8, 23), (9, 47), (10, 106)]
-OPTIMAL_ONE_DEPTH_SCHEMES {4: (3,), 5: (3, 4), 6: (4,), 7: (4, 5), 8: (5,)}
-NINE_SINGLE_K_PAIR_COLLISIONS {2: 1081, 3: 117, 4: 10, 5: 1, 6: 1, 7: 7, 8: 96}
-OPTIMAL_TWO_DEPTH_SCHEMES_9 ((4, 6), (5, 6), (5, 7), (6, 7), (6, 8))
-VERIFY_OK
-```
+For each n-tree T, law at census depth k is the exact integer induced-edge histogram H_T,k(j)/binom(n,k). For forests, induced components equal k-j, so full depths reindex the subgraph-component polynomial. Exhaustive proof enumerates all unlabeled trees n<=10 inductively by all leaf attachments and canonical center-rooted AHU codes; each graph is generated and duplicate isomorphism types merged. Directly counting all 2^n subsets gives complete H_T,k histograms, not a partial sample. Independently computed via networkx nonisomorphic_trees and separate subset enumeration: numbers of shapes n=4..10 equal 2,3,6,11,23,47,106. Individual sufficient depths are n4:{3}, n5:{3,4}, n6:{4}, n7:{4,5}, n8:{5}; for n9 all seven individual depths fail with collision counts k=2..8 [1081,117,10,1,1,7,96], and exactly five sufficient depth pairs {4,6},{5,6},{5,7},{6,7},{6,8}. At n10 the complete set of depths has one known collision pair. The proof is a rigorous bounded complete census n<=10, not an infinite classification.
 
-The executable also prints both edge sets for the ten-vertex full-data ambiguity. That ambiguity is already known in the cited graph-polynomial literature and is not presented as novel. The cardinality-specific optimal experiment design is the accepted result.
+## originality
 
-The verification covers exactly trees through ten vertices; the code does not establish any assertion for larger tree sizes. Full probability laws are idealized exact inputs and are not inferred here from a finite number of field observations. Independent audit has not been performed.
+PASS
+
+Tittmann–Averbouch–Makowsky 2008/2011 define and study the full subgraph-component polynomial, showing uniqueness for tree orders <=9 and an indistinguishable pair at n=10. Those prior global results do not imply that one exact fixed-cardinality slice suffices through n8 or which pairs of slices suffice at n9. The delimited new theorem is the exact cardinality-sampling design and single-slice collision profile, not the prior full-polynomial ten-tree counterexample.
+
+## value
+
+PASS
+
+Observing a fixed number k of taxa rather than every subset size is a natural constrained sampling design. The exact minimal number and identity of sampling depths is an independently useful finite identification result for all tree topologies up to nine taxa, establishing a sharp one-to-two depth transition; despite no claims for larger trees/noisy samples, a complete natural finite classification has substantive value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
