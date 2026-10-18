@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T03:01:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact continuum constraint in Camacho–de Vicente Eq. (39), after the full-rank Theorem 8 first-row reduction F12=F14=F13=0 and F11=1, gives for row two x=F22,y=F23,z=F24 the condition a²x+2a(1-a)y+(1-a)²z<=1/2 for every a in [0,1]. Writing u=1/2-x,v=1/2-z, copositivity of the homogeneous quadratic on nonnegative pairs is exactly u,v>=0 and y<=1/2+sqrt(uv), including boundary u=0 or v=0. The eigenvalue row equation then gives lambda2<=(1-lambda1)/2-lambda2*u-lambda4*v+lambda3*sqrt(uv). With r=sqrt(u),s=sqrt(v), for fixed s, optimal r=lambda3*s/(2lambda2) respects r<=1/sqrt2 because lambda3<=lambda2. Maximizing over s² in [0,1/2] gives (1-lambda1)/2+(1/2)(lambda3²/(4lambda2)-lambda4)_+. Under lambda3²<=4lambda2lambda4, the strict violation simplifies to lambda2>lambda3+lambda4; otherwise to lambda2/lambda3>(1+sqrt2)/2. Exact rational strict witness (63/100,1/5,3/20,1/50) yields upper bound 121/640 and gap 7/640; it is outside Theorem 8 regions A–C. Preconditions ensure the Bell target and MEMS are entangled. Independent rational optimization and boundary algebra passed; finite grid not mistaken for proof.",
+      "risk": "Necessary obstruction for specified MEMS-to-Bell channel only, not sufficiency or complete spectrum classification.",
+      "sources": [
+        "Frozen RESULT.md",
+        "arXiv:2511.08285v1 Eq. (39), Theorem 8",
+        "independent_checks.py: exact copositivity rational witness"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source Theorem 8 excludes A/B/C; the candidate proves inclusion and an explicit witness outside those sets, showing non-implication by that published statement.",
+          "General MEMS characterization does not assert universal conversion obstruction for the stated full-rank target."
+        ],
+        "reasoning": "An earlier theorem might subsume the row optimization under different words, but checked nearest general results provide only its premises or weaker sectors, not the stronger analytic inequality.",
+        "searches": [
+          "Camacho and de Vicente arXiv:2511.08285v1 entire proof of Theorem 8",
+          "Verstraete–Audenaert–De Bie–De Moor quant-ph/0011110",
+          "Resultary same query as equivalent_formulations"
+        ]
+      },
+      "checked_sources": [
+        "Camacho–de Vicente arXiv:2511.08285v1 (full primary mathematical text)",
+        "de Vicente arXiv:2402.05673 (relevant scope)",
+        "Verstraete et al quant-ph/0011110 (fixed-spectrum MEMS)",
+        "Resultary semantic search: full-rank two-qubit non-entangling continuum envelope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source continuum is sufficient to DERIVE the new inequality after a nontrivial copositive optimization, but its stated A/B/C conclusions are strictly weaker, as witnessed by (63/100,1/5,3/20,1/50)."
+        ],
+        "reasoning": "Having the hypotheses of a new derivation in prior work does not by itself establish that its sharp optimized corollary was previously stated or mathematically trivial; the exact spectral obstruction is the surviving claim.",
+        "searches": [
+          "arXiv:2511.08285v1 Eq. (39), Theorem 8 regions A,B,C",
+          "arXiv:2402.05673",
+          "Resultary fixed-spectrum query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For 0<=x,z<=1/2 the continuum inequality is copositivity of [[1/2-x,1/2-y],[1/2-y,1/2-z]], equivalent to y<=1/2+sqrt((1/2-x)(1/2-z)).",
+          "The 2024 no-go concerns rank-two rather than full-rank ordered spectra."
+        ],
+        "reasoning": "Copositivity is an exact equivalent reformulation of a source constraint, not independently novel; the new result is its optimized spectral inequality and proven strict extension of the published analytic full-rank regions.",
+        "searches": [
+          "Resultary: fixed spectrum two qubit entangled states non-entangling channel Bell diagonal continuum inequality copositive envelope lambda2 lambda3 lambda4",
+          "arXiv:2511.08285v1 Eq. (39), Theorem 8",
+          "arXiv:2402.05673"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source computes discretized infeasibility and explicitly notes that numerically excluded spectra extend beyond its analytic sectors; it does not give this formula as a tabulated exact boundary."
+        ],
+        "reasoning": "The claim is an infinite exact analytic envelope, so a finite numerical feasibility plot is neither a theorem of coverage nor an exact database entry.",
+        "searches": [
+          "Camacho–de Vicente 2026 numerical-feasibility discussion for full rank",
+          "arXiv:2511.08285v1 full rank constraint Eq. (39)",
+          "Resultary continuum-envelope query"
+        ]
+      },
+      "rationale": "The full Camacho–de Vicente preprint provides the continuum constraints and the first-row elimination as prior art; Theorem 8 proves only three coarser analytic rank-four no-go sectors, and its numerical tests go beyond these sectors. The new closed-form max of the exact continuum row inequality yields a strictly larger analytically certified obstruction with a rational spectrum outside all three. The general two-qubit fixed-spectrum MEMS and rank-two no-go are also credited. Literature equivalence searches did not locate prior published optimization in the same parameters; this is best-of-knowledge, not a unique-priority proof.",
+      "residual_risks": [
+        "Later non-entangling spectral-feasibility articles or appendices may contain an equivalent copositive reduction under other variables; unsuccessful targeted search is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The three published analytic regions are covered; optimized closed-form continuum envelope not stated in inspected text.",
+          "evidence": [
+            "Eq. (39) continuum; Theorem 8 regions A/B/C; numerical feasibility wider than analytic area"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.08285v1",
+          "material_read": "Full accessible preprint, especially setup, Eq. (39), rank-four reduction and proof of Theorem 8",
+          "method": "Read full HTML mathematical text and compared actual inequalities",
+          "title": "Nonexistence of maximally entangled mixed states for a fixed spectrum",
+          "trigger": "Identical MEMS, Bell-diagonal target and continuum constraint"
+        },
+        {
+          "assessment": "Prior lower-rank obstruction, no demonstrated full-rank optimized inequality.",
+          "evidence": [
+            "2024 paper: fixed-spectrum failure on rank-two examples"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.05673",
+          "material_read": "Accessible abstract and theorem-level scope as cross-reference; rank-two setting",
+          "method": "Preprint/abstract and source references",
+          "title": "Maximally entangled mixed states for a fixed spectrum do not always exist",
+          "trigger": "Earlier same fixed-spectrum obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source explicitly leaves a strict gap between its coarse analytic no-go areas and numerically infeasible full-rank spectra. This theorem replaces part of that gap with a sharp exact continuum-row necessary spectral inequality, a two-branch closed-form boundary, and an exact full-rank witness beyond all the published analytic sectors. The mathematical object and missing boundary are directly motivated, and the result is not a mere renaming of the numerical infeasibility observation.",
+      "risk": "Not a complete classification or sufficient condition for a non-entangling map.",
+      "sources": [
+        "Camacho–de Vicente 2026 Theorem 8 and numerical feasibility discussion",
+        "Exact rational witness and analytic maximization"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Ordered positive full-rank spectra and strict lambda1>2lambda2+lambda3 only.",
+    "No existence claim when necessary condition holds, and no optimality claim for the full continuum feasibility region.",
+    "Source premises Eq. (39) and first-row reduction are credited and required."
+  ],
+  "schema_version": 1
+}
