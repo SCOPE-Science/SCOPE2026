@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The classification uses the complete dichotomy between pairwise-intersecting edge families and families containing a disjoint pair; direct construction realizes every allowed polarity. Disjoint shape counts give the stated cardinality. Recovering the edge-intersection graph from counts of closed three-edge sets yields the automorphism classification, and an explicit triple of closed sets violates modularity for every larger parameter. A standalone checker independently enumerates 33,864 arbitrary input sets through six vertices and confirms the classification, counts and witness invariants through nine vertices. These finite checks supplement rather than replace the general proof.
+
+**Originality — PASS (qualified).** The closest relevant earlier accessible full text is Zhang, Mi, Li and Liang (2019), which concerns neighborhood-based attribute reduction in formal decision contexts, without the present exact edge-edge overlap lattice or its group classification. Rawson et al. (2023) give a general intersection-complex / concept-lattice correspondence but their available abstract does not report this specialization. General concept-enumeration algorithms in Zhou et al. (2021) also do not imply the formula without a substantial specialized derivation. The uninspected 2023 full text, variant graph terminology, and possible implicit equivalent formulations remain genuine originality risks. No independent priority audit has been performed.
+
+**Mathematical value — PASS.** Exact classification of all closed intents on this canonical highly symmetric family is a natural all-parameter formal-concept problem. The result sharply separates a fourth-degree growth rate from the exponentially sized powerset, determines the entire lattice automorphism group, and identifies a symmetry and modularity transition at the smallest nontrivial size. These are motivated structural invariants rather than arbitrary isolated counts.
+
+**Limitations.** Restricted to the reflexive overlap context of all two-element subsets of a complete graph; not automatically transferable to general line graphs. The priority check does not claim exhaustive access to all relevant publications.
+
+Self-review: passed. Independent audit: not yet performed.
