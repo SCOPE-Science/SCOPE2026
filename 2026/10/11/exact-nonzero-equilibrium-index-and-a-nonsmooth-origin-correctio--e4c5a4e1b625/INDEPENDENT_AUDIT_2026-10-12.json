@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T16:17:33.068626Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From x3'=0 get x3=−x1; x1'=0 yields x1(x2−a−1)=0. If x1=0 then E0=(0,1/b,0); otherwise x2=a+1 and r²+r=1−b(a+1)=c, giving ±r iff c>0. At E± calculate Jσ=[[1,σr,1],[-σ(2r+1),−b,0],[-1,0,−1]], determinant χ(λ)=λ³+bλ²+α λ+α with α=r(2r+1)>0. Region c>0 forces 0<b<1; Routh column [1,b,α(b−1)/b,α] has signs +,+,−,+, exactly two positive-real-part roots and one negative, none on imaginary axis. Independent SymPy determinant and high-precision benchmark roots corroborate algebra. At E0 one-sided derivatives ∂x1(−|x1|)=−1,+1 differ, disproving a classical Jacobian there. Do not extend hyperbolic-index theorem to E0 or claim global dynamics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Routh-Hurwitz criterion is textbook background but requires deriving correct smooth Jacobian for this particular nonlinear model.",
+          "Other financial chaos models retrieved under finance parameters employ different polynomial terms."
+        ],
+        "reasoning": "A general dynamical-systems stability theorem does not by itself enumerate roots/equilibria of the particular nonsmooth printed flow. This result applies standard machinery to correct a named model rather than claiming Routh theory.",
+        "searches": [
+          "doi:10.3934/math.20221012 source Eq.(10) and equilibrium section",
+          "financial absolute-value model unstable equilibrium index correction"
+        ]
+      },
+      "checked_sources": [
+        "2022 AIMS Mathematics doi:10.3934/math.20221012 full relevant PDF pages",
+        "Routh–Hurwitz first-column sign criterion (classical prior mathematics)",
+        "Resultary semantic query attempted and failed search_internal_error; not evidence of no prior correction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source establishes E0 and baseline ± equilibrium coordinates.",
+          "New characteristic polynomial λ³+bλ²+α λ+α and b<1 force Routh first-column +,+,−,+ for every nonzero equilibrium.",
+          "At E0 left/right derivative of −|x1| differ."
+        ],
+        "reasoning": "Previously displayed matrices do not imply the parameter-uniform unstable index; the printed nonsmooth term positively contradicts existence of a classical E0 Jacobian.",
+        "searches": [
+          "doi:10.3934/math.20221012 model Eq.(10), equilibrium discussion",
+          "financial risk dynamical model Sukono Yuningsih Rusyaman Vaidyanathan Sambas |x1| equilibria unstable index nonsmooth Jacobian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source has this precise equation and sample equilibria but lacks parameter-wide Routh sign table.",
+          "The source's putative classical E0 Jacobian is undefined due to |x1|."
+        ],
+        "reasoning": "Identical printed model is used without changing names; an equivalent local stability claim would need exact universal cubic and correction, not merely different parameter symbols.",
+        "searches": [
+          "financial risk dynamical model Sukono Yuningsih Rusyaman Vaidyanathan Sambas |x1| equilibria unstable index nonsmooth Jacobian",
+          "doi:10.3934/math.20221012 equilibrium Jacobian",
+          "absolute-value finance model exact Routh-Hurwitz unstable dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source provides selected numerical sample equilibrium spectra, but no exact parametric branch/index table.",
+          "At a=b? not used: benchmark a=1,b=1/25 is explicitly prior model setting, exact algebra refines it."
+        ],
+        "reasoning": "The numerical baseline table is not a database entry for the entire region c>0; exact branch and nonzero hyperbolic index are not obtained by reusing the source's repeated approximate eigenvalues.",
+        "searches": [
+          "doi:10.3934/math.20221012 baseline numerical eigenvalues",
+          "financial risk dynamical model Sukono Yuningsih Rusyaman Vaidyanathan Sambas |x1| equilibria unstable index nonsmooth Jacobian"
+        ]
+      },
+      "rationale": "Original part is exact existence/characteristic-cubic and fixed two-dimensional unstable index for entire positive-parameter region, plus a concrete correction of the source's mathematically undefined Jacobian at the central equilibrium. Model and special equilibria were published earlier.",
+      "residual_risks": [
+        "Possible unindexed erratum/later thesis on exactly this vector field not excluded.",
+        "Two unstable eigenvalues do not prove global chaos, nor classify nonsmooth equilibrium E0.",
+        "Published source supplies original printed nonlinear model and baseline numerical equilibrium descriptions; no priority claimed there."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier paper establishes model and baseline coordinates but uses classical derivative at E0 where −|x1| has no derivative, and does not supply exact all-positive-parameter Routh branch-index theorem.",
+          "evidence": [
+            "Model equation (10): x2'=1−bx2−|x1|−x1²",
+            "Displayed E0 Jacobian despite nondifferentiability at x1=0",
+            "Numerical spectra and baseline equilibria appear; they are not original here"
+          ],
+          "identifier_or_url": "doi:10.3934/math.20221012; https://www.aimspress.com/article/doi/10.3934/math.20221012",
+          "material_read": "Primary publisher full PDF text at model equation (10), printed baseline parameters, equilibrium coordinates and Jacobian/eigenvalue discussion (pp.18380–18384), with rendered page inspection.",
+          "method": "Read relevant primary pages and visually inspected printed vector field and Jacobian matrices.",
+          "title": "Investigation of chaos behavior and integral sliding mode control on financial risk model",
+          "trigger": "Defines the exact vector field with absolute-value term, baseline equilibria and disputed Jacobians."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies a substantive local stability error in a published named finance flow and supplies complete exact equilibrium-index classification for its full natural positive-parameter regime. More than cheap eigenvalue recomputation: fixes nondifferentiability and uniform stability type.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2022 AIMS Mathematics doi:10.3934/math.20221012 full relevant PDF pages",
+    "Routh–Hurwitz first-column sign criterion (classical prior mathematics)",
+    "Resultary semantic query attempted and failed search_internal_error; not evidence of no prior correction"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No claims about global chaos, attracting sets, or nonsmooth generalized Jacobians at E0.",
+    "Original paper's baseline special equilibria are not new; the all-parameter cubic/index and derivative obstruction are assessed."
+  ],
+  "residual_risks": [
+    "Possible unindexed erratum/later thesis on exactly this vector field not excluded.",
+    "Two unstable eigenvalues do not prove global chaos, nor classify nonsmooth equilibrium E0.",
+    "Published source supplies original printed nonlinear model and baseline numerical equilibrium descriptions; no priority claimed there."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Earlier paper establishes model and baseline coordinates but uses classical derivative at E0 where −|x1| has no derivative, and does not supply exact all-positive-parameter Routh branch-index theorem.",
+      "evidence": [
+        "Model equation (10): x2'=1−bx2−|x1|−x1²",
+        "Displayed E0 Jacobian despite nondifferentiability at x1=0",
+        "Numerical spectra and baseline equilibria appear; they are not original here"
+      ],
+      "identifier_or_url": "doi:10.3934/math.20221012; https://www.aimspress.com/article/doi/10.3934/math.20221012",
+      "material_read": "Primary publisher full PDF text at model equation (10), printed baseline parameters, equilibrium coordinates and Jacobian/eigenvalue discussion (pp.18380–18384), with rendered page inspection.",
+      "method": "Read relevant primary pages and visually inspected printed vector field and Jacobian matrices.",
+      "title": "Investigation of chaos behavior and integral sliding mode control on financial risk model",
+      "trigger": "Defines the exact vector field with absolute-value term, baseline equilibria and disputed Jacobians."
+    }
+  ]
+}
