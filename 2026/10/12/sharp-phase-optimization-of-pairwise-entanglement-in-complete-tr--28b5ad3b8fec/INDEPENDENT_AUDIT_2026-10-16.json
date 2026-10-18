@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:15:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For qubits A,B joined and connected to c further vertices with identical Ising e^(-i theta ZZ/2) interactions and |+> product input, tracing the c signs gives rho_AB matrix entries 1/4 e^(-i theta(st-s't')/2) cos^c(theta(s+t-s'-t')/2). Direct two-qubit partial transpose diagonalizes into eigenpairs lambda1±=(1-y±sqrt((1-y)^2+16x² sin²theta))/8 and lambda2±=(3+y±sqrt((1-y)^2+16x² cos²theta))/8 for x=cos^c theta,y=cos^c2theta. Second pair nonnegative; first gives exact negativity positive iff sin theta cos theta !=0. In p=sin²theta, q=1-p: 4N²+[1-(1-2p)^c]N=pq^c. Odd-binomial lower bound yields N<1/(2c). At theta=z c^(-2/3), global asymptotic is 1/(2c)-c^(-5/3)[z^4/12+1/(2z²)]+o(c^-5/3); its unique minimum coefficient is 3^(2/3)/4 at z=3^(1/6). Bounds on p_c above and below ensure all maximizers enter a compact positive z interval; hence global optimization, not just local. Independently constructed full state vectors and diagonalized partial transposes for c=1..5, three phases each, plus asymptotic trials at c=100,500,2000; finite checks not a general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General weighted-graph reduction Proposition22 includes this partial trace implicitly; source Gnatenko defines tripartite architecture and correlation/distances for other entanglement partitions."
+        ],
+        "reasoning": "A more general formula for a reduced density matrix does not by itself yield the optimized negativity asymptotics; the source does cover the nonnovel partial-trace starting point.",
+        "searches": [
+          "Resultary semantic: weighted tripartite graph state negativity phase c; web: weighted graph state negativity phase complete tripartite",
+          "Gnatenko arXiv:2604.27829 complete manuscript",
+          "Hein arXiv:quant-ph/0602096 §9.2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2604.27829",
+        "https://arxiv.org/pdf/quant-ph/0602096",
+        "Resultary semantic search: Resultary semantic: weighted tripartite graph state negativity phase c; web: weighted graph state negativity phase complete tripartite"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Closed reduced state follows from general weighted graph formalism, but the sign of eigenvalues and exact c->infinity extremum require explicit spectral and global variational analysis."
+        ],
+        "reasoning": "Only the setup and reduction are implied by the broad source; optimization and sharp localization are additional claims.",
+        "searches": [
+          "Resultary semantic: weighted tripartite graph state negativity phase c; web: weighted graph state negativity phase complete tripartite",
+          "Hein Prop22 general reduced state formula",
+          "Gnatenko 2026 graph-state triangle example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Negativity is the unique negative eigenvalue magnitude of the two-qubit partial transpose, not single-qubit-versus-rest entropy.",
+          "Hein weighted-state representation yields conditional-dephasing partial trace but no global theta optimum."
+        ],
+        "reasoning": "Aliases include Ising-weighted graph state, common-neighbor decoherence, two-terminal partial-transpose negativity, graph phase optimization; special family is K_(1,1,c).",
+        "searches": [
+          "Resultary semantic: weighted tripartite graph state negativity phase c; web: weighted graph state negativity phase complete tripartite",
+          "Hein et al. arXiv:quant-ph/0602096 Section9.2 Proposition22"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact M_c asymptotic or optimized phase tabulated in checked source; negativity keyword absent in Gnatenko PDF text."
+        ],
+        "reasoning": "This continuous phase optimizer and asymptotic correction are not standard database entries; absence in a targeted query alone is not a novelty proof.",
+        "searches": [
+          "Resultary semantic: weighted tripartite graph state negativity phase c; web: weighted graph state negativity phase complete tripartite",
+          "Gnatenko arXiv:2604.27829 text search negativity",
+          "Resultary weighted tripartite graph search"
+        ]
+      },
+      "rationale": "Hein et al. give general reduced-density machinery for weighted graph states, and Gnatenko covers tripartite correlators and single-vs-rest entanglement, but neither theorem explicitly optimizes traced two-terminal negativity, derives the closed four-eigenvalue spectrum in this specialization, or proves the fractional stage-size asymptotic.",
+      "residual_risks": [
+        "A separate quantum-information optimization treatment might already specialize weighted multipartite graph states to the same negativity objective.",
+        "The local-unitary reinterpretation requires input states equatorial relative to the original interaction axes; generic tripartite inputs are not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_ENTANGLEMENT_OBSERVABLE",
+          "evidence": "Paper develops EED single-versus-rest and correlators, not global optimization of negativity between the two singleton nodes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.27829",
+          "material_read": "20-page open full primary PDF; setup of three interaction axes, examples, pair correlator sections and conclusions consulted; exact two-terminal negativity keyword not present",
+          "method": "Open-access primary PDF, in-document targeted search and visual page inspection",
+          "title": "Entanglement of multi-qubit quantum graph states and studies structural properties of tripartite graphs with quantum computing",
+          "trigger": "Identical tripartite weighted interaction family"
+        },
+        {
+          "assessment": "COVERS_REDUCTION_ONLY",
+          "evidence": "Proposition22 computes general reduced weighted graph state but supplies no c^(-2/3) optimal phase or c^(-5/3) correction.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0602096",
+          "material_read": "Open 99-page primary review, §9.2 pp.70–73 including Prop22 reduced-state formula and discussion; scoped remaining review background",
+          "method": "arXiv PDF reading, targeted text and page screenshot",
+          "title": "Entanglement in Graph States and its Applications",
+          "trigger": "Potential general weighted-state coverage of all reduced states"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural quantum information task is to choose a uniform Ising interaction phase that maximizes detectable pair entanglement after environment tracing; exact finite-c law, universal upper bound, nontrivial c^(-5/3) correction and optimizer localization supply quantitative engineering and asymptotic content not merely a straightforward partial trace.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2604.27829",
+    "https://arxiv.org/pdf/quant-ph/0602096",
+    "Resultary query: Resultary semantic: weighted tripartite graph state negativity phase c; web: weighted graph state negativity phase complete tripartite"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A separate quantum-information optimization treatment might already specialize weighted multipartite graph states to the same negativity objective.",
+    "The local-unitary reinterpretation requires input states equatorial relative to the original interaction axes; generic tripartite inputs are not covered.",
+    "Public record metadata retains operational provenance; scientific completion does not imply public-file readiness.",
+    "Finite checker calculations are bounded consistency tests; the all-parameter assertions are supported by mathematical reasoning, not only empirical checks."
+  ],
+  "schema_version": 1
+}

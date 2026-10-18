@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The reduced two-qubit matrix and all four partial-transpose eigenvalues are explicitly derived. Jensen's inequality excludes a second negative eigenvalue. The exact quadratic and odd-binomial expansion provide an upper envelope; compactness of the rescaled maximizing phases, established by explicit inequalities, validates rather than assumes the sharp asymptotic expansion. A standalone finite statevector verifier checks 8,211 instances, but the infinite assertions rest on the analytic proof.
+## correctness
 
-**Originality: PASS, with residual risk.** The full 2026 motivating text (arXiv:2604.27829) introduces tripartite weighted states and studies one-versus-rest distances and correlators, not this optimized pair negativity. Hein et al. (arXiv:quant-ph/0602096) already give a broader reduced-state framework, which is credited. The candidate's distinction is the global \(c^{-2/3}\) optimizer location, \(c^{-5/3}\) correction and exact pair-negativity positivity criterion. Targeted searches for aliases, common-neighbor graph states, and optimized negativity did not identify equivalent coverage, though an unindexed specialization is possible. Relevant full primary sections were read, not assessed from abstracts alone.
+PASS
 
-**Value: PASS.** The result quantifies the competition between direct two-qubit entangling gates and collective dephasing by shared graph neighbors, with a sharp phase-tuning law in the first complete tripartite family with arbitrarily many common neighbors. It is neither a generic reduced-state formula nor an arbitrary finite table. The claims make no statements about mixed initial conditions or arbitrary coupling weights.
+For qubits A,B joined and connected to c further vertices with identical Ising e^(-i theta ZZ/2) interactions and |+> product input, tracing the c signs gives rho_AB matrix entries 1/4 e^(-i theta(st-s't')/2) cos^c(theta(s+t-s'-t')/2). Direct two-qubit partial transpose diagonalizes into eigenpairs lambda1±=(1-y±sqrt((1-y)^2+16x² sin²theta))/8 and lambda2±=(3+y±sqrt((1-y)^2+16x² cos²theta))/8 for x=cos^c theta,y=cos^c2theta. Second pair nonnegative; first gives exact negativity positive iff sin theta cos theta !=0. In p=sin²theta, q=1-p: 4N²+[1-(1-2p)^c]N=pq^c. Odd-binomial lower bound yields N<1/(2c). At theta=z c^(-2/3), global asymptotic is 1/(2c)-c^(-5/3)[z^4/12+1/(2z²)]+o(c^-5/3); its unique minimum coefficient is 3^(2/3)/4 at z=3^(1/6). Bounds on p_c above and below ensure all maximizers enter a compact positive z interval; hence global optimization, not just local. Independently constructed full state vectors and diagonalized partial transposes for c=1..5, three phases each, plus asymptotic trials at c=100,500,2000; finite checks not a general proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Hein et al. give general reduced-density machinery for weighted graph states, and Gnatenko covers tripartite correlators and single-vs-rest entanglement, but neither theorem explicitly optimizes traced two-terminal negativity, derives the closed four-eigenvalue spectrum in this specialization, or proves the fractional stage-size asymptotic.
+
+## value
+
+PASS
+
+The natural quantum information task is to choose a uniform Ising interaction phase that maximizes detectable pair entanglement after environment tracing; exact finite-c law, universal upper bound, nontrivial c^(-5/3) correction and optimizer localization supply quantitative engineering and asymptotic content not merely a straightforward partial trace.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
