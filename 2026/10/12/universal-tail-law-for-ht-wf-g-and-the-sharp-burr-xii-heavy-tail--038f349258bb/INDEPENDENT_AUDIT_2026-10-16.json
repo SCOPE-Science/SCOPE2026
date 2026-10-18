@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T12:59:08.531518Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For s=1-G down to0, s[s^{-(1-s)}-1]=exp(s log s)-s ->1, hence A=[s^{-(1-s)}-1]^alpha ~s^-alpha. In exact generator -log S=lambda A+lambda log(lambda+(1-lambda)e^-A), second term is bounded, so -logS~lambda s^-alpha. Burr XII s=(1+x^beta)^-k yields exponent delta=alpha beta k and full strict exponential-comparison trichotomy at delta=1. Tail integrals yield power and off-boundary exponential moments, monotone inversion gives extreme quantile. Weibull baseline gives superexponential double-log scale. Independently tested several normalized exact survival ratios at x=10^7.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chipepa 2026 defines the family, tabulates actuarial risk examples, and calls it heavy-tailed.",
+          "Zhao 2020 provides exponential-comparison concept for Type-I transform, not this composed family limit."
+        ],
+        "reasoning": "Neither inspected source establishes the universal log law or three-regime Burr parameter boundary; they supply formulas from which it can be independently derived.",
+        "searches": [
+          "Heavy-tailed Weibull flexible-G generator Burr XII exponential tail classification threshold alpha beta k 1",
+          "https://doi.org/10.3934/math.2026344",
+          "https://doi.org/10.1371/journal.pone.0237462"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3934/math.2026344",
+        "https://doi.org/10.1371/journal.pone.0237462",
+        "Heavy-tailed Weibull flexible-G generator Burr XII exponential tail classification threshold alpha beta k 1",
+        "2026/10/4/SCOPE-sharp-variance-tail-threshold-in-the-mathrm-beta-1-b-family--f37b2603f904"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original transformation formula algebraically implies the logarithmic asymptotic under s log s ->0.",
+          "The original paper does not report its implication alpha beta k<1 for heavy-tailedness or the Weibull light-tail contrast."
+        ],
+        "reasoning": "The source formula is essential input, but submitted sharp phase analysis corrects the unsupported universal heavy-tail label; not merely copying a stated result.",
+        "searches": [
+          "https://doi.org/10.3934/math.2026344",
+          "Heavy-tailed Weibull flexible-G generator Burr XII exponential tail classification threshold alpha beta k 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact source survival S is used, yielding -logS~lambda(1-G)^-alpha.",
+          "Burr XII (1+x^beta)^-k yields stretched-exponential exponent alpha beta k."
+        ],
+        "reasoning": "Search considered stretched-exponential and generalized-Weibull aliases; no prior equivalent classification of this exact generator was located.",
+        "searches": [
+          "Heavy-tailed Weibull flexible-G generator Burr XII exponential tail classification threshold alpha beta k 1",
+          "https://doi.org/10.3934/math.2026344"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Chipepa simulation sample alpha=0.2 beta=0.3 k=0.2 has delta=.012<1.",
+          "The parameter table is a finite sample, not a sharp all-parameter statement."
+        ],
+        "reasoning": "No numeric table can substitute for a classification of the full continuous parameter family.",
+        "searches": [
+          "Heavy-tailed Weibull flexible-G generator Burr XII exponential tail classification threshold alpha beta k 1",
+          "2026/10/4/SCOPE-sharp-variance-tail-threshold-in-the-mathrm-beta-1-b-family--f37b2603f904",
+          "https://doi.org/10.3934/math.2026344"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Chipepa et al. define the exact HT-WF-G and Burr/Weibull examples but do not identify the sharp delta=1 exponential-comparison phase or superexponential Weibull-end behavior in the inspected source. Zhao et al. supply the definition of heavy-tail for a different generator. A simple asymptotic calculation is new as a source-family diagnosis, though structural algebra is short.",
+      "residual_risks": [
+        "Novelty based on source comparison and targeted searches rather than exhaustive pre-2026 actuarial literature.",
+        "At critical t=lambda no MGF assertion; logarithmic asymptotic cannot give multiplicative equivalent for S."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source gives generator but not delta=1 boundary; its unrestricted heavy-tail nomenclature is too broad",
+          "evidence": "Source formula and risk example delta=.012",
+          "identifier_or_url": "https://doi.org/10.3934/math.2026344",
+          "material_read": "Full publicly accessible scholarly article text: generator Eq 2.4, Burr XII and Weibull specializations, actuarial parameter table and conclusions",
+          "method": "Lawful full-text scholarly reproduction and primary publisher abstract",
+          "title": "Oncological data applications and risk measures of the heavy-tailed Weibull flexible-G family",
+          "trigger": "Exact generator and claims of family-level heavy-tailedness"
+        },
+        {
+          "assessment": "Different generator; no direct HT-WF-Burr parameter phase",
+          "evidence": "Exponential-comparison tail definition",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0237462",
+          "material_read": "Abstract/methods discussion of transform and tail criterion, not a proof of the composed law",
+          "method": "Public scholarly text and metadata",
+          "title": "Type-I heavy tailed family with applications in medicine, engineering and insurance",
+          "trigger": "Origin of exponential-comparison notion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: the asymptotic boundary distinguishes truly heavy from light members of a family explicitly advertised as heavy-tailed; the exact condition alpha beta k<1 and finite exponential-moment behavior are scientifically pertinent to tail model choice, actuarial risk, and valid model terminology.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "MGF exactly at critical t=lambda intentionally unresolved; formula is logarithmic not equivalent S(x) itself.",
+    "Novelty based on source comparison and targeted searches rather than exhaustive pre-2026 actuarial literature.",
+    "At critical t=lambda no MGF assertion; logarithmic asymptotic cannot give multiplicative equivalent for S.",
+    "Signed continuation is a sequence position, not scientific certification; no public publication until provenance sanitization."
+  ],
+  "schema_version": 1
+}

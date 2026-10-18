@@ -1,18 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the exact published survival construction. The identity
-\[
-s\{s^{-(1-s)}-1\}=e^{s\log s}-s\to1
-\]
-shows that the inner Weibull-flexible exponent is asymptotic to \(s^{-\alpha}\). The outer Type-I transform changes the leading negative-log scale only by the factor \(\lambda\). Burr XII and Weibull specializations then follow directly. The heavy-tail boundary, quantile law and moment domains use standard integral and exponential comparisons. The bundled checker evaluates the exact formulas but is not used as the proof.
+## correctness
 
-## Originality
-PASS. The target full PDF was inspected at the generator, Weibull and Burr XII special cases, tail-flexibility discussion and risk section. It contains no universal negative-log tail law or \(\alpha\beta k=1\) phase theorem. The primary Type-I heavy-tailed-G source provides only the outer transform and heavy-tail definition. A recent paper with an explicit tail-index theorem uses a different Topp-Leone generator. Focused searches using the exact DOI, family names, parameter products, tail-index, stretched-exponential and MGF aliases found no covering statement.
+PASS
 
-Residual risk remains from unindexed work or equivalent asymptotics stated under different generator terminology.
+For s=1-G down to0, s[s^{-(1-s)}-1]=exp(s log s)-s ->1, hence A=[s^{-(1-s)}-1]^alpha ~s^-alpha. In exact generator -log S=lambda A+lambda log(lambda+(1-lambda)e^-A), second term is bounded, so -logS~lambda s^-alpha. Burr XII s=(1+x^beta)^-k yields exponent delta=alpha beta k and full strict exponential-comparison trichotomy at delta=1. Tail integrals yield power and off-boundary exponential moments, monotone inversion gives extreme quantile. Weibull baseline gives superexponential double-log scale. Independently tested several normalized exact survival ratios at x=10^7.
 
-## Value
-PASS. Asymptotic tail class is central to a family explicitly introduced for heavy-tailed modeling and actuarial risk. The result gives a complete parameter classification for the paper's Burr XII submodel, an explicit extreme-quantile rate, and a universal theorem that also reveals the Weibull special case to be super-light. The paper's displayed Burr XII risk example remains inside the valid heavy-tail phase, so the conclusion is precise rather than indiscriminate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Chipepa et al. define the exact HT-WF-G and Burr/Weibull examples but do not identify the sharp delta=1 exponential-comparison phase or superexponential Weibull-end behavior in the inspected source. Zhao et al. supply the definition of heavy-tail for a different generator. A simple asymptotic calculation is new as a source-family diagnosis, though structural algebra is short.
+
+## value
+
+PASS
+
+PASS: the asymptotic boundary distinguishes truly heavy from light members of a family explicitly advertised as heavy-tailed; the exact condition alpha beta k<1 and finite exponential-moment behavior are scientifically pertinent to tail model choice, actuarial risk, and valid model terminology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,45 +18,25 @@
   "schema_version": 1
 }
 ---
-For baseline survival \(s\to0\),
-\[
-s\left[s^{-(1-s)}-1\right]
-=
-e^{s\log s}-s
-\to1.
-\]
-Thus
-\[
-A=\left[s^{-G}-1\right]^\alpha
-\sim s^{-\alpha}.
-\]
-The exact generated survival is
-\[
-S=
-\left[
-\frac{e^{-A}}{\lambda+(1-\lambda)e^{-A}}
-\right]^\lambda,
-\]
-so
-\[
--\log S
-=
-\lambda A
-+
-\lambda\log\!\left(\lambda+(1-\lambda)e^{-A}\right)
-\sim
-\lambda s^{-\alpha}.
-\]
 
-For Burr XII, \(s=(1+x^\beta)^{-k}\), giving
-\[
--\log S\sim\lambda x^{\alpha\beta k}.
-\]
-The heavy-tail trichotomy follows by comparing \(p x-\lambda x^{\alpha\beta k}\) for fixed \(p>0\). The quantile law follows by monotone asymptotic inversion.
+# Independent mathematical audit
 
-For Weibull survival \(s=e^{-c x^\omega}\),
-\[
--\log S\sim\lambda e^{\alpha c x^\omega}.
-\]
+## correctness
 
-The bundled checker evaluates the exact formula only as a numerical consistency test. The infinite-domain conclusions are the analytic consequences above. No statement is made about the critical exponential moment exactly at \(t=\lambda\).
+PASS
+
+For s=1-G down to0, s[s^{-(1-s)}-1]=exp(s log s)-s ->1, hence A=[s^{-(1-s)}-1]^alpha ~s^-alpha. In exact generator -log S=lambda A+lambda log(lambda+(1-lambda)e^-A), second term is bounded, so -logS~lambda s^-alpha. Burr XII s=(1+x^beta)^-k yields exponent delta=alpha beta k and full strict exponential-comparison trichotomy at delta=1. Tail integrals yield power and off-boundary exponential moments, monotone inversion gives extreme quantile. Weibull baseline gives superexponential double-log scale. Independently tested several normalized exact survival ratios at x=10^7.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Chipepa et al. define the exact HT-WF-G and Burr/Weibull examples but do not identify the sharp delta=1 exponential-comparison phase or superexponential Weibull-end behavior in the inspected source. Zhao et al. supply the definition of heavy-tail for a different generator. A simple asymptotic calculation is new as a source-family diagnosis, though structural algebra is short.
+
+## value
+
+PASS
+
+PASS: the asymptotic boundary distinguishes truly heavy from light members of a family explicitly advertised as heavy-tailed; the exact condition alpha beta k<1 and finite exponential-moment behavior are scientifically pertinent to tail model choice, actuarial risk, and valid model terminology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
