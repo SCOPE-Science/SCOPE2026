@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T13:56:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/dimension-free-pairwise-swap-implementation-of-the-schur-rank-th--e7be122792a3/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/dimension-free-pairwise-swap-implementation-of-the-schur-rank-th--e7be122792a3/VERIFICATION.md"
+      ],
+      "rationale": "The source first-column growth lower bound gives success probability p_k≥(r+1−k)/(n(k+1)) in high Young sectors h≥r+1, uniformly over prior outcomes; low sectors cannot reach r+1. Geometric domination yields mean n[(r+2)H_r−r], minimal comparison rate≥1/(n(r+1)); source concentration gives failure≤epsilon/2 after M_r growth calls. Each ideal block test on at most r+1 qudits admits source SWAP approximation ≤4(r+1)ln(3/eta) calls at diamond error eta=epsilon/(2M_r); hybrid ≤epsilon/2, total variation ≤epsilon. Independently checked harmonic reciprocal sum, interpretation of high/low; finite partition tests corroborate only.",
+      "residual_risks": [
+        "Independent exact checks are auxiliary; analytic argument carries quantified theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Schur sampling result uses O(n min(n,d)^3 log²(n/epsilon)) tests; this does not imply O(nr² polylog) without new stopping analysis.",
+          "Optimal sample complexity result does not specify low-gate SWAP implementation."
+        ],
+        "reasoning": "Neither full sampler nor copy-optimal decision paper dominates claimed threshold-dependent gate/SWAP bound in d-unbounded regime.",
+        "searches": [
+          "Brahmachari Jakab Pfister Marvian 2026 randomized SWAP unitary Schur sampling",
+          "O’Donnell Wright 2015 quantum spectrum testing",
+          "random SWAP tests first column threshold dimension-free implementation rank weak Schur measurement antisymmetric growth"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.02103",
+        "https://arxiv.org/abs/1501.05028",
+        "Resultary semantic query: random SWAP tests first column threshold dimension-free implementation rank weak Schur measurement antisymmetric growth"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source first-column growth bound p_k≥(h−k)/((n−k)(k+1)), but full-Young diagram algorithm continues beyond threshold and its stated cost depends on d.",
+          "New combination truncates after height r+1 and exactly sums n((r+2)H_r−r) waiting-time reciprocals."
+        ],
+        "reasoning": "This uses prior lemmas nontrivially to establish a new resource upper bound for an existing decision predicate; the papers do not state the sharpened implementation consequence.",
+        "searches": [
+          "arXiv:2610.02103 source growth and stochastic-dominance theorems",
+          "arXiv:1501.05028 Section 6.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weak Schur rank-test criterion is number of rows h=lambda’_1; exact decision matches low/high coarse Schur projectors.",
+          "Existing SWAP method reconstructs entire Young diagram and supports stronger type of instrument but with higher d cost."
+        ],
+        "reasoning": "Output-level binary approximation is strictly narrower than full Schur sampling and is not already established by source’s general full-diagram complexity.",
+        "searches": [
+          "random SWAP tests first column threshold dimension-free implementation rank weak Schur measurement antisymmetric growth",
+          "arXiv:2610.02103 partial Schur sampling first-column rank test",
+          "arXiv:1501.05028 one-sided tester Section 6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Searched published record corpus; matches concern unrelated permutation operators or matrix rank, not SWAP-implemented Young-column rank threshold."
+        ],
+        "reasoning": "No finite exact-table novelty claim; negative corpus result is only supporting search, not priority certification.",
+        "searches": [
+          "random SWAP tests first column threshold dimension-free implementation rank weak Schur measurement antisymmetric growth",
+          "Resultary:antisymmetric Schur first-column rank test pairwise SWAP"
+        ]
+      },
+      "rationale": "Source full Schur-sampling protocol supplies structural lemmas and discusses rank first-column as motivation but does not give the binary threshold stopping/tail analysis and dimension-free SWAP count. Prior optimal one-sided rank tester specifies outcome/sample complexity, not elementary-SWAP implementation. Best-of-knowledge original bounded implementation.",
+      "residual_risks": [
+        "A contemporaneous partial-Schur construction could provide equivalent complexity; arXiv preprint newly posted.",
+        "Proved only classical binary output distribution on permutation-invariant states, not full postmeasurement Schur instrument or sample complexity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPLIES essential lemmas; does not state binary dimension-free count",
+          "evidence": "First-column h and stochastic bound provide ingredients, while original algorithm traverses full partition.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.02103",
+          "material_read": "Read full-text HTML definitions, antisymmetry growth probability, history-dependent geometric domination/concentration, SWAP-test simulation and rank-testing discussion including future optimization",
+          "method": "arXiv OA HTML relevant statements/proofs",
+          "title": "Unitary Schur Sampling of Qudits via Random SWAP Tests: Hunt for Antisymmetry",
+          "trigger": "Identical primitive random-SWAP antisymmetric growth process"
+        },
+        {
+          "assessment": "COVERS sample testing decision predicate but not SWAP cost",
+          "evidence": "One-sided test accepts iff height≤r.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.05028",
+          "material_read": "Open-access primary PDF, Section 6.1 and decision predicate, with representative PDF screenshot",
+          "method": "full PDF relevant section read",
+          "title": "Quantum Spectrum Testing",
+          "trigger": "Reference one-sided rank tester"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.02103",
+        "https://arxiv.org/abs/1501.05028",
+        "Resultary semantic query: random SWAP tests first column threshold dimension-free implementation rank weak Schur measurement antisymmetric growth"
+      ],
+      "rationale": "The partial binary decision is the actual Schur step of a meaningful quantum spectrum/rank tester; avoids unnecessary bottom-of-column certification and later Young columns, removing d dependence while retaining explicit r dependence. No claim to improved copy complexity or full instrument.",
+      "residual_risks": [
+        "Mathematical value is scoped to the motivated gap and does not imply broader conjecture or paper-sized results."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.02103",
+    "https://arxiv.org/abs/1501.05028",
+    "Resultary semantic query: random SWAP tests first column threshold dimension-free implementation rank weak Schur measurement antisymmetric growth",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/dimension-free-pairwise-swap-implementation-of-the-schur-rank-th--e7be122792a3"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A contemporaneous partial-Schur construction could provide equivalent complexity; arXiv preprint newly posted.",
+    "Proved only classical binary output distribution on permutation-invariant states, not full postmeasurement Schur instrument or sample complexity."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "SUPPLIES essential lemmas; does not state binary dimension-free count",
+      "evidence": "First-column h and stochastic bound provide ingredients, while original algorithm traverses full partition.",
+      "identifier_or_url": "https://arxiv.org/abs/2610.02103",
+      "material_read": "Read full-text HTML definitions, antisymmetry growth probability, history-dependent geometric domination/concentration, SWAP-test simulation and rank-testing discussion including future optimization",
+      "method": "arXiv OA HTML relevant statements/proofs",
+      "title": "Unitary Schur Sampling of Qudits via Random SWAP Tests: Hunt for Antisymmetry",
+      "trigger": "Identical primitive random-SWAP antisymmetric growth process"
+    },
+    {
+      "assessment": "COVERS sample testing decision predicate but not SWAP cost",
+      "evidence": "One-sided test accepts iff height≤r.",
+      "identifier_or_url": "https://arxiv.org/abs/1501.05028",
+      "material_read": "Open-access primary PDF, Section 6.1 and decision predicate, with representative PDF screenshot",
+      "method": "full PDF relevant section read",
+      "title": "Quantum Spectrum Testing",
+      "trigger": "Reference one-sided rank tester"
+    }
+  ]
+}
