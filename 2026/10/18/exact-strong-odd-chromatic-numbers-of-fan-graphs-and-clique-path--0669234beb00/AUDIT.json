@@ -1,0 +1,164 @@
+{
+  "correctness": {
+    "rationale": "Necessity and sufficiency of a path word with distance-two-separated equal colors and odd nonempty color classes are established by inspecting all neighbor types in the join. Rigorous parity and three-color periodicity give sharp lower bounds; six explicitly checked seeds plus the length-six oddness-preserving insertion supply universal upper bounds. For n<=6 no triple repetition can fit. The proof covers all r,n>=1, including endpoints and n=1. Direct neighborhood enumeration n<=12 and parity-mask DP n<=80 match but are not used to extrapolate beyond finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2410.02336 Corollary 3.5 gives only outerplanar upper bound 30; Proposition 3.2 covers just the seven-vertex fan.",
+        "arXiv:2505.02736 bounds all outerplanar graph chromatic numbers by a constant, not exact fan orders.",
+        "arXiv:2505.15288 proves bounded expansion uniform bounds rather than exact families.",
+        "arXiv:2610.01441 abstract concerns complexity and block graphs; fans with adjacent triangles are not block graphs."
+      ],
+      "reasoning": "Class-wide upper bounds and restricted algorithmic results cannot determine the varying sharp values 4, 5, 6, 7 for fans. A fan with n>=3 has intersecting triangle blocks and is not a block graph, so the algorithmic exactness result there is inapplicable.",
+      "searches": [
+        "clique joined to path strong odd coloring chi_so(K_r vee P_n) congruences modulo 6",
+        "Caro Petruševski Škrekovski Tuza 2024 G7=K1+P6 outerplanar strong odd chromatic number 7; fan K1+Pn exact progression",
+        "arXiv:2505.02736 outerplanar bound",
+        "arXiv:2505.15288 bounded expansion",
+        "arXiv:2610.01441 block graph algorithm"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2410.02336 (Caro et al., Proposition 3.2 and outerplanar bounds)",
+      "arXiv:2602.03259 (Manattu et al., wheel Theorem 1)",
+      "arXiv:2505.02736 (Goetze et al., outerplanar class bounds)",
+      "arXiv:2401.11653 (Kwon and Park, original strong odd coloring)",
+      "arXiv:2505.15288 (Pilipczuk, bounded expansion)",
+      "arXiv:2610.01441 (Pradhan et al., abstract only)",
+      "2026/10/4/SCOPE-dissociation-polynomial-and-extremal-coefficients-of-fan-graphs--32a1b96e4b8b",
+      "2026/9/17/SCOPE-prescribed-colorings-max-degree-two--9aaf81e2ad5d",
+      "2026/9/19/SCOPE-two-distance-coloring-theta-graphs--c303e162d47",
+      "2026/10/4/SCOPE-odd-independence-and-strong-odd-coloring-of-odd-crown-graphs--3bc0465d6248"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 result proves only chi_so(K_1 join P_6)=7, which is one special case here.",
+        "The 2026 wheel theorem has cyclic boundary conditions and a different exceptional-order pattern.",
+        "The crown-graph record is about matching-deleted complete bipartite graphs, not joins of paths to cliques.",
+        "The theta-graph square chromatic numbers omit odd color-multiplicity requirements and do not entail this family."
+      ],
+      "reasoning": "The full for-all-r,n exact statement strictly extends the old isolated fan example; other inspected results provide definitions, methods, or coarse bounds, not a stronger theorem implying this family. Special case n=6 is explicitly acknowledged as prior work; the finding is the complete remaining infinite-family classification.",
+      "searches": [
+        "Caro Petruševski Škrekovski Tuza 2024 G7=K1+P6 outerplanar strong odd chromatic number 7; fan K1+Pn exact progression",
+        "exact strong odd chromatic number of fan graph K1+P_n, parity constrained square-path coloring",
+        "arXiv:2410.02336 Proposition 3.2",
+        "arXiv:2602.03259 Theorem 1",
+        "2026/10/4/SCOPE-odd-independence-and-strong-odd-coloring-of-odd-crown-graphs--3bc0465d6248",
+        "2026/9/19/SCOPE-two-distance-coloring-theta-graphs--c303e162d47"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2602.03259, pp. 3–5: cyclic odd-color-class / distance-two condition for wheel rims, not paths.",
+        "arXiv:2410.02336, Proposition 3.2: single fan K_1 join P_6 has seven colors."
+      ],
+      "reasoning": "Odd-color-class distance-two path coloring is equivalent to strong odd coloring on a clique–path join, but differs from cyclic rims because no wraparound constraints hold. The published wheel classification and the known n=6 fan example do not imply the complete path-length formula or its boundary transitions.",
+      "searches": [
+        "exact strong odd chromatic number of fan graph K1+P_n, parity constrained square-path coloring",
+        "parity-constrained distance-two coloring of paths with all nonempty color classes of odd cardinality; exact least palette",
+        "arXiv:2602.03259 Theorem 1 (wheel joins)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published fan dissociation-polynomial record concerns induced degree-one subgraphs, not strong odd neighborhood colorings.",
+        "The prescribed color-class-size record concerns graphs with maximum degree <=2; the relevant squared path has maximum degree 4 when n>=5.",
+        "The broad and exact-query mathematical searches returned no published table of these fan strong odd chromatic numbers."
+      ],
+      "reasoning": "No located exact table entails the claimed values. The similar titles describe mathematically different invariants or graph classes; lack of a located table is supporting but not a proof of novelty.",
+      "searches": [
+        "For fan graphs F_n=K1 join path P_n, strong odd chromatic number equals 7 for n=6, 6 for odd n not 3 modulo 6, 4 for n=3 mod6, 5 for even n>=4 except n=6",
+        "exact strong odd chromatic number of fan graph K1+P_n, parity constrained square-path coloring",
+        "2026/10/4/SCOPE-dissociation-polynomial-and-extremal-coefficients-of-fan-graphs--32a1b96e4b8b",
+        "2026/9/17/SCOPE-prescribed-colorings-max-degree-two--9aaf81e2ad5d"
+      ]
+    },
+    "rationale": "The original 2024 outerplanar construction chi_so(K_1 join P_6)=7 is known and explicitly excluded as a novelty claim; neither it, a class-wide upper bound, a wheel classification, nor currently located published comparable graph family entails the exact full fan/clique-path residue formula. Nine exact/alias mathematical database searches completed, and highly relevant accessible primary text sections were inspected. Residual risk of unindexed or recently released equivalent results is stated.",
+    "residual_risks": [
+      "The 2026 very recent complexity paper arXiv:2610.01441 had accessible abstract but not full PDF; it is not clearly a close match, so remote unrecognized overlap remains possible.",
+      "Other papers or unpublished join analyses may contain an equivalent exact fan formula despite no located record.",
+      "The wheel-classification paper uses the same parity and distance-two mechanism but cyclic boundary constraints; carefully distinguish the cyclic theorem from the path result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains exact K_1 join P_6 special case; no all-fan profile or arbitrary clique-path theorem found.",
+        "evidence": [
+          "Proposition 3.2: chi_so(K_1+P_6)=7; Corollary 3.5: class-wide bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2410.02336",
+        "material_read": "Full-text search for fan and G7, Section 3 pp. 7–17, especially Proposition 3.2 on printed p.11",
+        "method": "Open-access PDF full-text inspection and page image check",
+        "title": "On strong odd colorings of graphs",
+        "trigger": "Exact seven-color fan example and possible full family treatment"
+      },
+      {
+        "assessment": "Equivalent odd-size/distance-two mechanism for cyclic rim; no path-join theorem and no implication from wheel case due different wraparound constraints.",
+        "evidence": [
+          "Observations 1–2 and Theorem 1 concern C_n joined to an independent set or one vertex."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2602.03259",
+        "material_read": "Eight-page full text, especially Observations 1–2, Theorem 1 and constructions pp.3–5; text searches for paths",
+        "method": "Open-access PDF full-text inspection and page-image comparison",
+        "title": "On a conjecture about the strong odd chromatic number of planar graphs",
+        "trigger": "Exact wheel joins could dominate path-join statement"
+      },
+      {
+        "assessment": "Universal outerplanar upper bound, not exact fan-by-order determination.",
+        "evidence": [
+          "Outerplanar class upper bounds and extremal examples; no complete fan sequence located."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2505.02736",
+        "material_read": "Main theorem, outerplanar examples and bounds, relevant sections pp.1–9",
+        "method": "Open-access preprint PDF full text and section comparison",
+        "title": "Strong odd coloring in minor-closed classes",
+        "trigger": "General outerplanar bound might contain sharp fan profiles"
+      },
+      {
+        "assessment": "Defines strong odd coloring; sparse degree-based bounds do not entail exact joins.",
+        "evidence": [
+          "Introduces neighborhood parity requirement and gives degree/maximum-average-degree results."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.11653",
+        "material_read": "Abstract and initial definitions and results in accessible preprint text",
+        "method": "Open-access abstract and relevant preprint sections",
+        "title": "Strong odd coloring of sparse graphs",
+        "trigger": "Original definition and sparse upper bounds"
+      },
+      {
+        "assessment": "Existence of a uniform bound does not determine exact periodic values.",
+        "evidence": [
+          "Class-wide bounded-expansion existence theorem, not fan-specific sharp numbers."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.15288",
+        "material_read": "Abstract and main high-level theorem statement",
+        "method": "Open-access abstract and source-level theorem comparison",
+        "title": "Strong odd colorings in graph classes of bounded expansion",
+        "trigger": "A general bounded-expansion theorem could cover fan graphs"
+      },
+      {
+        "assessment": "No apparent exact fan family in abstract; residual uninspected-full-text risk.",
+        "evidence": [
+          "Studies complexity on perfect elimination bipartite graphs, block graph optimal coloring algorithms, and parameterized complexity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.01441",
+        "material_read": "Abstract; full PDF not accessible in this run",
+        "method": "Abstract-level comparison; full-text attempted but unavailable",
+        "title": "On the Classical and Parameterized Complexity of Strong Odd Coloring",
+        "trigger": "Very recent algorithm for restricted graph classes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0669234b-eb00-4bff-afb6-072a8fe6b4b9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Caro et al. singled out one fan K_1 join P_6 as a sharp outerplanar lower-bound witness. Completing the natural entire fan family gives a nontrivial phase transition from all-distinct colors through the sharp sequence 7,6,5,4 and an exactly periodic regime; the number of required colors is not monotone as the path length increases. This is a motivated natural infinite-family classification for an active graph-coloring parameter. The clique-path corollary reuses the proof and is merged into this single claim rather than treated as separate routine research.",
+    "status": "PASS"
+  }
+}
