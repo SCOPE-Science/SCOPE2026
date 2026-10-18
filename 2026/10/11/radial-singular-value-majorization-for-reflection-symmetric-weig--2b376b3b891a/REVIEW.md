@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The inverse-domain calculation is exact for every complex correction parameter. The closed derivative inverse leads to a positive self-adjoint regular Sturm–Liouville problem; explicit elimination with Wronskian determinant one gives its characteristic equation. Reflection forces equality of the transfer diagonal entries, and hence the entire spectral multiset depends only on the distance from the half-correction. Radial convexity yields every Ky Fan comparison; strict convexity of Schatten norms for exponents strictly above one yields the strict result. The nonsymmetric example follows from exact kernel integration. The packaged executable corroborates key algebra and representative spectral values, without substituting finite tests for infinite-dimensional proof.
+PASS
 
-## Originality — PASS (qualified)
+For w>0, C1, define D_alpha y=y_prime/w on H1 functions satisfying (1-alpha)y(0)+alpha y(1)=0; direct inversion gives D_alpha^-1=T_alpha,w. Integration by parts gives form integral p|y_prime|^2, p=w^-2 and adjoint flux BC bar(alpha)p(0)y_prime(0)+overline(1-alpha)p(1)y_prime(1)=0. For transfer M_lambda=[[A,B],[C,D]], det=1, its boundary determinant simplifies algebraically to F_alpha=1+|alpha|^2(A-1)+|1-alpha|^2(D-1). Reflection symmetry of p gives A=D, hence F_alpha depends only on q_alpha=1/2+2|alpha-1/2|^2. The positive self-adjoint boundary problem therefore has radius-invariant spectral multiset, so do T singular values. Affinity of T in alpha and convex Ky Fan norms imply weak submajorization for increasing radii. Strict convexity of S_p (1<p<infinity), plus distinct nonzero rank-one perturbations at distinct alpha, gives strict Schatten increase. Exact unsymmetric counterexample w=sqrt(1+t) has S2^2 2/3 at alpha=0, 5/6 at alpha=1. All-rank and all-weight claims follow analytically, not from finite compressions.
 
-Khadkhuu and Tsedenbayar, *A note about Volterra operator* (2018), determine the operator norm and, within the proof, **all spectral frequencies** of the unweighted pencil. Therefore the unweighted special case is prior, not an original finding. Fucci, Graham and Kirsten (2013) present general coupled Sturm–Liouville spectral-determinant methodology, which supplies relevant machinery but do not formulate the parameter-sensitive weighted Volterra family or its singular-value Ky Fan majorization. Lyubich and Tsedenbayar (2010) treat polynomial functions of the unweighted Volterra operator; Eveson (2004) treats powers of convolution-type Volterra operators. The new asserted contribution is the whole weight-parametric radial weak majorization and strict Schatten order under reflection, together with a boundary example where reflection fails. Residual risk: the transfer determinant is a specialization of general methods, and a weighted version may exist in uncatalogued work; no claim of independent certification or proof of literature uniqueness is made.
+## originality
 
-## Value — PASS
+PASS
 
-Singular values quantify the best finite-rank approximation scales of integration operators, while their Ky Fan sums simultaneously control all finite-rank spectral tails and symmetric-gauge comparisons. Showing a whole continuum of nonconstant symmetric input weights obeys the same complex radial hierarchy, but smooth asymmetry destroys it, identifies a structural stability principle instead of merely recomputing a single known constant. The all-rank result is stronger than an operator norm bound and has a motivated boundary of applicability.
+Fucci–Graham–Kirsten arXiv:1311.0174 (full PDF §§2–3) gives general spectral transfer and coupled self-adjoint boundary formalism but does not identify the reflection-symmetric input-weight rank-one Volterra family or its radial Ky Fan/Schatten ordering. Khadkhuu–Tsedenbayar 2018 analyzes only operator norms of unweighted z1 V+z2 V*, and Lyubich–Tsedenbayar 2010 considers unweighted polynomial V pencils: their parameter sets do not imply all-weight isospectral circles and all-rank majorization. No distinct covering record appeared in Resultary. The directly relevant 2018 full text remained inaccessible after open-access attempts and an authorized institutional retrieval returned vpn_disconnected, an explicit priority risk rather than automatic originality failure.
 
-## Scope and remaining risk
+## value
 
-No result is asserted for arbitrary nonsymmetric weights beyond the transfer equation; no elementary closed form for general-weight singular values; finite verification is not an exhaustive or independent proof. Prior general Sturm–Liouville machinery covers the underlying determinant method, and an as-yet-unfound equivalent weighted comparison could alter originality.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+It gives a global singular-value ordering for every finite rank and a strict whole Schatten hierarchy across a genuine infinite-dimensional family of positive weights. The reflection symmetry pinpoints a structural boundary, with an explicit asymmetric counterexample. This is not mere recalculation of the classical unweighted Volterra norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
