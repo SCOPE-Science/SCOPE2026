@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is finite and exhaustive on a documented complete graph domain. Every connected Atlas graph through seven vertices is checked. Two independent all-pairs shortest-path reconstructions agree exactly. Farness is integer-exact, harmonic centrality uses rational arithmetic, and full permutation checks verify the two seven-vertex orbit sizes and the three six-vertex tie-level orbit sizes. The two seven-vertex leaders have the stated distance multisets and exact scores.
+## correctness
 
-Risk: completeness of the finite input relies on the externally documented Graph Atlas rather than an internally generated isomorphism-complete graph list.
+PASS
 
-## Originality
-**PASS.** Prior work explicitly relates harmonic centrality to closeness and the 2026 harmonic-center paper studies harmonic centers directly, so neither the measures nor their possible qualitative distinction is claimed as new. The accepted claim is the sharp singleton-maximizer boundary and complete first layer. Published-record and web searches using center/maximizer aliases, exact order, exact count, and distance-profile formulations did not locate a covering theorem or table. The 2026 full text was inspected because it is the strongest plausible source; it discusses closeness centers but does not state this comparison boundary.
+For every connected simple undirected Graph Atlas representative on n=2..7 vertices, closeness maximizers minimize exact integer farness Σd, while harmonic maximizers maximize Σ(1/d). Independent BFS and Floyd–Warshall distances agree on inspected representatives, and a separate NetworkX graph_atlas_g census (which reconstructs connected unlabeled graphs rather than reproducing embedded data rows) independently yields connected class counts 1,2,6,21,112,853. Maximizer-set differences occur in 0,0,0,0,3,22 classes for n=2..7; distinct singleton-maximizer differences occur only in two n=7 classes. Both classes have closeness leader distances (1,1,2,2,2,3), farness 11, harmonic score 23/6, and harmonic leader distances (1,1,1,2,3,4), farness 12, harmonic 49/12. Exact all-permutation automorphism checks give size 2 and 7!/2=2520 labeled classes each, 5040 total; n=6 ties give 360+180+360=900 labeled. This is a genuinely exhaustive FINITE n≤7 classification conditional on standard Atlas completeness, not extrapolation to n>7.
 
-Risk: the 2026 paper is exceptionally close in topic, and an unindexed small-graph census may exist.
+## originality
 
-## Value
-**PASS.** Closeness and harmonic centrality are two canonical distance-based ways to identify a central actor. Their distinction is mathematically meaningful: one minimizes total distance, while the other rewards many very short distances. The smallest network where those two unambiguous choices conflict is therefore a natural structural invariant. The common pair of distance profiles in both first-conflict classes gives a concrete explanation of the onset rather than only a census.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Harmonic centrality and closeness are classical, and recent Madaras–Paralič 2026 work directly studies harmonic centers. Its accessible full text deals with harmonic-center geometry and realizability, not the exact first-order distinct unique maximizer comparison. The result is a natural sharp smallest-order obstruction with complete two-isomorphism-class census. A graph atlas annotation or thesis table could conceivably have recorded the same comparison, so originality is best of knowledge.
+
+## value
+
+PASS
+
+Closeness and harmonic centrality are two canonical but inequivalent graph center notions. Their smallest order at which **both** make unambiguous conflicting choices is a natural cutoff; the two nonisomorphic optimal witnesses, identical contrasting distance profiles and exact first-layer frequency explain the mechanism, not just report a tiny graph. The computation is a complete meaningful boundary classification over all connected graphs up to n=7 rather than an arbitrary subset.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
