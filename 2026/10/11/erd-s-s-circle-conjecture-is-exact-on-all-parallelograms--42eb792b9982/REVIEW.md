@@ -1,18 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** At any nonobtuse parallelogram vertex, adjacent side vectors \(a,b\) satisfy \(a\cdot b\ge0\). Along the two boundary chains to the opposite vertex, squared distance has derivatives
-\[
-2a\cdot b+2t\lVert b\rVert^2
-\quad\text{and}\quad
-2a\cdot b+2t\lVert a\rVert^2,
-\]
-so radius is strictly increasing on each chain. A centered circle therefore intersects each chain at most once. Conversely, every boundary point of a nondegenerate polygon has a sufficiently small centered circle meeting the boundary twice. This proves both inequalities and gives \(N(Q)=2\). The bundled checker independently replays the formulas and deterministic intersection sweeps.
+## correctness
 
-## Originality
-**PASS, with a folklore residual risk.** The closest primary full text defines the invariant, records the failure of the universal \(2\)-bound, and develops the general finiteness problem, but contains no parallelogram or centrally symmetric special-case theorem. Searches using parallelogram, centrally symmetric quadrilateral, the notation \(N(K)\), circle-centered-at-a-vertex language, and the Erdős problem did not locate an equivalent published result. The closest stronger-looking quadrilateral result gives only the general bound \(N\le4\), which does not imply the exact value \(2\) for parallelograms.
+PASS
 
-## Value
-**PASS.** Parallelograms are the complete centrally symmetric quadrilateral class and are a canonical Euclidean test family. Because the invariant is not affine-invariant, the statement for all shears and aspect ratios is not a reformulation of the square. The result restores Erdős's original sharp constant on a natural full class and improves the known general quadrilateral upper bound by a factor of two.
+Let P=0 be any nonobtuse vertex, with incident independent edge vectors a,b and a·b≥0. The two boundary paths 0→a→a+b and 0→b→a+b each have strictly increasing radial distance: on their second edges the squared-norm derivatives are 2a·b+2t|b|² and 2a·b+2t|a|², positive for t>0; first edges increase linearly. Consequently any circle centered at P intersects each path at most once, also at shared endpoints (the union bound remains ≤2). Conversely at any polygon boundary point a sufficiently small centered circle meets either both directions of a side or both incident sides, giving ≥2. A parallelogram always has two nonobtuse angles (four in a rectangle); degenerate cases excluded. The proof is exact for all Euclidean side lengths and angles; geometric sample sweeps are corroborative only.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge new exact class theorem for the N(K) circle-intersection problem; not inferred from prior broad finiteness or N≤4 quadrilateral complexity. The proof may be folklore, recorded as a substantive originality risk.
+
+## value
+
+PASS
+
+Determines a geometrically natural full class of convex bodies at the sharp constant of a historically falsified universal Erdős circle conjecture; the two-chain monotonicity provides an explicit witnessing center for all aspect ratios, including highly sheared parallelograms. This is a motivated complete classification, not an arbitrary tiny case or a parameter relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

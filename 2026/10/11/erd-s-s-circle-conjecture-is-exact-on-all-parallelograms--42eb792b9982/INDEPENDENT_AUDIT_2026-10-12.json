@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T01:06:14.909245Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob 5a99b46eac1a9d4b6e4285a4eb4c8c6d3c9e54a3",
+        "frozen verify.py blob c52947e669c89e02a3aa9b92ff22a4ce8cfc417a",
+        "Bárány and Roldán-Pensado, Discrete Comput. Geom. 50 (2013), DOI:10.1007/s00454-013-9507-z",
+        "Roldán Pensado, Problems in Convex Geometry, UCL doctoral thesis (2013), chapter 3"
+      ],
+      "rationale": "Let P=0 be any nonobtuse vertex, with incident independent edge vectors a,b and a·b≥0. The two boundary paths 0→a→a+b and 0→b→a+b each have strictly increasing radial distance: on their second edges the squared-norm derivatives are 2a·b+2t|b|² and 2a·b+2t|a|², positive for t>0; first edges increase linearly. Consequently any circle centered at P intersects each path at most once, also at shared endpoints (the union bound remains ≤2). Conversely at any polygon boundary point a sufficiently small centered circle meets either both directions of a side or both incident sides, giving ≥2. A parallelogram always has two nonobtuse angles (four in a rectangle); degenerate cases excluded. The proof is exact for all Euclidean side lengths and angles; geometric sample sweeps are corroborative only.",
+      "residual_risks": [
+        "Short elementary lemma is susceptible to being rediscovered; no original new computational theorem is needed.",
+        "For a right-angle vertex the derivative vanishes only at the single endpoint t=0, not on an interval."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary source proves N(K) finite for every convex body, not N≤2.",
+          "A complexity-based quadrilateral bound N≤4 does not dominate a sharp uniform bound of 2 for parallelograms."
+        ],
+        "reasoning": "General convex-body finiteness and quadrilateral ≤4 are strictly weaker; affine equivalence to square does not preserve Euclidean circles.",
+        "searches": [
+          "\"convex quadrilateral\" \"circle intersections\" Erdős",
+          "Erdos circle intersection invariant N(K) parallelogram centrally symmetric quadrilateral circle centers boundary at most two"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md blob 5a99b46eac1a9d4b6e4285a4eb4c8c6d3c9e54a3",
+        "frozen verify.py blob c52947e669c89e02a3aa9b92ff22a4ce8cfc417a",
+        "Bárány and Roldán-Pensado, Discrete Comput. Geom. 50 (2013), DOI:10.1007/s00454-013-9507-z",
+        "Roldán Pensado, Problems in Convex Geometry, UCL doctoral thesis (2013), chapter 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bárány–Roldán-Pensado N(K)<∞ applies but cannot imply N(Q)=2.",
+          "The established counterexamples to global N≤2 concern different classes of convex bodies."
+        ],
+        "reasoning": "Prior original conjecture is false generally; this result recovers its exact bound on the complete natural class of parallelograms using nonobtuse-vertex monotonicity.",
+        "searches": [
+          "Bárány Roldán Pensado N(K) quadrilateral parallelogram",
+          "Erdos circle intersection invariant N(K) parallelogram centrally symmetric quadrilateral circle centers boundary at most two"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact invariant N(K) is defined in the 2013 Bárány–Roldán-Pensado paper; inspecting its full argument found no theorem for parallelograms.",
+          "Thesis chapter 3 covers the same circle-counting invariant but not the two-monotone-chain assertion for all parallelograms."
+        ],
+        "reasoning": "Equivalent formulation: every convex parallelogram has a boundary point P from which the Euclidean radial distance along each of the two boundary arcs to the opposite vertex is strictly increasing. This is stronger than merely N(Q)≤2, and is not shown by the inspected sources.",
+        "searches": [
+          "Erdos circle intersection invariant N(K) parallelogram centrally symmetric quadrilateral circle centers boundary at most two",
+          "\"parallelogram\" \"circle\" \"Erdős\" centered boundary intersections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full article and thesis concern geometric existence bounds, not a numerical table of all parallelograms.",
+          "No claimed exact published parallelogram table was identified by these actual queries."
+        ],
+        "reasoning": "There is no fixed discrete parameter-table datum whose entry implies the continuum-wide identity; absence from indexed searches alone is not novelty proof.",
+        "searches": [
+          "\"N(K)\" \"parallelogram\"",
+          "Erdos circle intersection invariant N(K) parallelogram centrally symmetric quadrilateral circle centers boundary at most two"
+        ]
+      },
+      "rationale": "Best-of-knowledge new exact class theorem for the N(K) circle-intersection problem; not inferred from prior broad finiteness or N≤4 quadrilateral complexity. The proof may be folklore, recorded as a substantive originality risk.",
+      "residual_risks": [
+        "Potential unindexed folklore/lecture exercise due to short proof.",
+        "Resultary same-object semantic search attempted but returned temporarily_unavailable/search_completed=false; not interpreted as no matches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for parallelogram equality: general finiteness and N=6 examples do not imply N(Q)=2.",
+          "evidence": [
+            "It disproves the proposed universal N(K)≤2 and establishes existence of some finite bound for every planar convex body.",
+            "No complete parallelogram theorem appears in the inspected journal text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00454-013-9507-z",
+          "material_read": "Journal HTML full accessible article including invariant definition, finite upper bounds and counterexamples.",
+          "method": "Read searchable open journal full text and compared theorem statements and object classes.",
+          "title": "A Question from a Famous Paper of Erdős",
+          "trigger": "Defines exactly the circle-intersection invariant N(K) and global best-bound problem."
+        },
+        {
+          "assessment": "NOT_COVERING: examples and general bounds do not establish every parallelogram has a two-intersection center.",
+          "evidence": [
+            "Examines the original convex-body problem and examples with four or six forced intersections; no statement of all-parallelogram equality in the inspected chapter."
+          ],
+          "identifier_or_url": "https://discovery.ucl.ac.uk/id/eprint/1388895/",
+          "material_read": "Thesis chapter 3 mathematical statements and proofs surrounding the circle-bound problem (relevant pp. 30–43).",
+          "method": "Opened thesis PDF and inspected its relevant mathematical chapter/pages.",
+          "title": "Problems in Convex Geometry",
+          "trigger": "Early primary thesis treatment of the same invariant and triangle/odd-polygon examples."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md blob 5a99b46eac1a9d4b6e4285a4eb4c8c6d3c9e54a3",
+        "frozen verify.py blob c52947e669c89e02a3aa9b92ff22a4ce8cfc417a",
+        "Bárány and Roldán-Pensado, Discrete Comput. Geom. 50 (2013), DOI:10.1007/s00454-013-9507-z",
+        "Roldán Pensado, Problems in Convex Geometry, UCL doctoral thesis (2013), chapter 3"
+      ],
+      "rationale": "Determines a geometrically natural full class of convex bodies at the sharp constant of a historically falsified universal Erdős circle conjecture; the two-chain monotonicity provides an explicit witnessing center for all aspect ratios, including highly sheared parallelograms. This is a motivated complete classification, not an arbitrary tiny case or a parameter relabeling.",
+      "residual_risks": [
+        "The argument is very short, and a referee may consider it known folklore; value is exact sharp class theorem rather than difficult technique."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every nondegenerate Euclidean parallelogram Q, the least possible maximum number of intersections of centered circles with its boundary equals exactly N(Q)=2; any nonobtuse vertex is a witnessing center.",
+  "limitations": [
+    "Euclidean, not affine-invariant; does not extend to all centrally symmetric convex polygons.",
+    "Folklore priority risk; unsuccessful Resultary request does not establish novelty.",
+    "Temporarily unavailable Resultary search was not treated as a novelty-negative result.",
+    "All source Git tree SHAs verified against Git REST trees with truncated=false; all seven package blobs inspected by content or metadata; independent mathematical checks do not supply formal Lean or expert attestation."
+  ],
+  "schema_version": 1
+}
