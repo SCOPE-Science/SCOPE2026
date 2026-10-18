@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` from the directory containing the bundled files. The script uses only Python's standard library and exact integer arithmetic.
+# Independent mathematical audit
 
-It verifies the Chern and Segre class coefficients in the truncated Chow ring, then computes the degree in two ways: projective-bundle pushforward and direct reduction by the projective-bundle relation. The recorded output is:
+## correctness
 
-```text
-CHERN_F_OK [{(0, 0): 1}, {(0, 1): 2, (1, 0): 2}, {(0, 2): 3, (1, 1): 3, (2, 0): 3}, {(1, 2): 3, (2, 1): 3}, {}]
-SEGRE_F_OK [{(0, 0): 1}, {(0, 1): -2, (1, 0): -2}, {(0, 2): 1, (1, 1): 5, (2, 0): 1}, {(1, 2): -3, (2, 1): -3}, {(2, 2): 3}]
-PUSHFORWARD_TERMS [3360, -3360, 1008, -84, 3]
-ROUTE_A_DEGREE 927
-ROUTE_B_DEGREE 927
-VERIFY_OK
-```
+PASS
 
-The verifier checks the intersection arithmetic conditional on the projective-bundle identification from arXiv:2609.09675v1. It does not independently re-prove that source theorem or perform an exhaustive literature search.
+For smooth 7D C=P(F), F=(U⊗V)^* on B=P²×P², with line convention, H=xi+c1(F)=xi+2h+2k. In Z[h,k]/(h³,k³), c(F)=1+(2h+2k)+(3h²+3hk+3k²)+(3h²k+3hk²). The Segre classes through degree4 give pushforward contributions [3360,-3360,1008,-84,3] summing to 927. Independently recomputed the classes and intersection number by splitting-principle algebra; the point K generically recovers U,V by row and column spans, so no multiple-cover degree. Full text of the Dinh geometric identification unavailable; this is the key residual literature/assumption risk.
+
+## originality
+
+PASS
+
+Best-of-knowledge no accessible source or indexed exact table reports the Plücker degree 927 for the 7D matrix-net compression family. Dinh–Ho–Le–Vuong provides the bundle; Chan–Ilten degrees refer to different-dimensional maximal compression loci; tensor-subspace degree formulas use a different embedding. Inaccessible full Dinh manuscript is a residual risk, not itself originality failure.
+
+## value
+
+PASS
+
+The degree 927 is a precise intrinsic enumerative invariant of a natural component singled out by a new matrix-net classification. A complete seven-hyperplane enumerative answer can support future intersection-theoretic comparisons without a general degree theorem; nontrivial Chern/Segre calculation, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
