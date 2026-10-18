@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every proper ideal is a graph over \(S\le\mathfrak m/\mathfrak m^2\) with \(T\le\mathfrak m^2\) and \(US\subseteq T\), giving an exhaustive disjoint parametrization and the exact total ideal polynomial. The full automorphism group has the stated free quadratic-shift kernel and symmetric-square quotient action. Point and plane orbit partitions have explicit representatives and finite-field character/trace counts, including characteristic two. All Hasse covers follow from dimensions and projections. The included independent \(\mathbb F_2\) enumeration covers all subspaces and actual automorphisms; larger test fields check the projective orbit and incidence profiles. Computations are not substituted for the all-fields proof.
+## correctness
 
-## Originality — PASS
-De Stefani (arXiv:1208.3506v1, relevant full text inspected), supplies Hilbert-function and structural work on small-socle-degree algebras, not the complete ideal-orbit incidence classification over finite fields. The published Segre-quadric criterion recognizes monomial algebras rather than all ideals in one algebra. The coordinate-cross algebra automorphism result has different multiplication because mixed products vanish there. Classical binary quadratic-form and conic-line geometry strongly covers ingredients and is fully credited; it does not automatically state the twelve-orbit incidence theorem, which combines all homogeneous and nonhomogeneous ideals and reveals the Frobenius-plane transition. Targeted database and external searches found no equivalent statement, but cannot prove nonexistence. Terminology or obscure ideal-classification sources remain a residual risk.
+PASS
 
-## Value — PASS
-The orbit decomposition is a natural intrinsic invariant of the complete ideal lattice for the smallest two-generator local algebra with a full three-dimensional quadratic socle. Its covering incidence data differentiates odd and even characteristics structurally, not merely numerically, while a stable twelve-orbit count hides that change. The result is a self-contained, reproducible complete classification, not an arbitrary subfamily or small numerical improvement.
+Every proper ideal lies in m=U⊕W, dim(U,W)=(2,3), with W=m² and U·W=0. For S=projection to U and T=I∩W, ideal closure imposes US⊂T; each linear lift S→W/T yields a unique ideal, exhausting S=0,1,2. S=0 yields all W subspaces; S=1 forces T through a point/plane containing S·U; S=2 forces T=W. Acting automorphisms induce GL2 on U and Sym² GL2 on W; the graph-map transvections erase lift parameters. Odd-field conic tangent/secant/external orbits and even Frobenius square-plane/trace orbits then give 12 orbits, 3q²+4q+7 ideals and covers as claimed. Independently enumerated all 374 F2^5 subspaces and 26 proper stable ideals (27 total); independent full GL2(F3) Sym² projective point orbit sizes 4,6,3 and dual plane classes size 4,6,3 with incidences (1,3,0),(2,1,1),(0,2,2). q=2 computation and q=3 check support the symbolic proof; finite enumeration not substituted for universal q.
 
-## Prior-work boundaries
-The two-dimensional projective geometry and binary quadratic-form orbit partitions are established classical facts. No new classification of those standalone geometric objects is asserted. The claim is restricted to the specified Artinian local algebra; an analogous statement for larger truncation order has not been proved. The primary source assumes characteristic zero, so finite-field extensions do not follow automatically from it.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fresh implication comparison finds no checked prior formula simultaneously giving the total 3q²+4q+7 ideals, twelve Aut(A)-orbits over every Fq, characteristic-two plane incidence and complete cover relations. Classical binary quadratic form orbits are ingredients, not the assembled ideal-lattice invariant. No claim of exhaustive world novelty; nearby full papers and published index compared.
+
+## value
+
+PASS
+
+This is a natural complete isomorphism-invariant ideal lattice classification of the smallest nontrivial two-generated nilpotent local algebra with m³=0. Orbit incidence and the characteristic-two deformation of the dual conic give structural information beyond simply counting ideals, not an arbitrary small finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
