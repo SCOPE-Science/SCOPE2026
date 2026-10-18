@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T22:39:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 072a6096a38d90fd4b93e3d3152b71e65507cb85",
+        "Li et al. arXiv:1709.05154v1/v3 Corollary 2.5",
+        "Independent exact SymPy matrix enumeration"
+      ],
+      "rationale": "F=(e1,e1,e2), G=(e1,e1+e2,2e1+e2). The first vector is common, and direct enumeration of remaining two binary choices gives positive definite frame operators [[6,3],[3,2]], [[6,2],[2,1]], [[2,1],[1,2]], [[2,0],[0,1]], with determinants 3,2,3,2. Their exact eigenvalues yield positive common lower (7−√41)/2 and upper 4+√13. I independently recomputed the exact 2×2 matrices, determinants, S_F=diag(2,1), S_G=[[6,3],[3,2]] and inverse matrices using SymPy. The canonical dual vectors are F~=(e1/2,e1/2,e2), G~=(2e1/3−e2,−e1/3+e2,e1/3); choosing F~ indices1,2 and G~ index3 gives three collinear e1 vectors, hence loses the frame lower bound. Scalar g-frame identification is exact. If S_F=S_G=S, a shared invertible S^{-1} applied to every original weave preserves uniform bounds.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2021 paper assumes norm closeness of inverse frame operators for canonical-dual weaving; its counterexample in the introduction concerns canonical Parseval frames.",
+          "The unconditional Corollary 2.5 is printed in the older arXiv source."
+        ],
+        "reasoning": "Conditional weaving results do not entail blanket dual preservation; the known canonical Parseval obstruction does not logically prove the same for canonical duals, so the exact stronger-source coverage was not found.",
+        "searches": [
+          "arXiv:1909.08835, weaving frames and duality",
+          "arXiv:2101.00710, Corollary 5.3",
+          "Resultary search: woven g frames canonical dual frames counterexample nonwoven Li Leng Huang Li Corollary 2.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1709.05154v3",
+        "arXiv:2101.00710v1",
+        "arXiv:1909.08835v1",
+        "Resultary semantic search woven g frames canonical dual frames counterexample nonwoven Li Leng Huang Li Corollary 2.5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary 2.5 concludes canonical duals woven with 1/B,1/A without shared operator hypotheses; the constructed rank-one dual weave disproves that conclusion.",
+          "Corollary 5.3 requires an extra norm inequality, which the bad example need not satisfy."
+        ],
+        "reasoning": "Neither the false published implication nor the later conditional theorem supplies the true unconditional claim. Common S makes all dual weaves a common invertible transform, supplying only one repair criterion.",
+        "searches": [
+          "Li et al arXiv:1709.05154 Corollary 2.5",
+          "arXiv:2101.00710 Corollary 5.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary vector frames are scalar-valued g-frames; each Λ_i S_F^{-1} corresponds to the vector S_F^{-1}f_i."
+        ],
+        "reasoning": "The vector counterexample is exactly within the original g-frame quantifiers and needs no change of theorem subject. Canonical Parseval families S^{-1/2}F are distinct from canonical duals S^{-1}F.",
+        "searches": [
+          "Resultary search: woven g frames canonical dual frames counterexample nonwoven Li Leng Huang Li Corollary 2.5",
+          "Li et al arXiv:1709.05154v3 canonical g-frame definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published example is an index-swapped canonical Parseval pair in R², not the three-vector redundant canonical-dual example with inverse operators."
+        ],
+        "reasoning": "A short finite witness is not a literature-table recomputation if it contradicts an unconditional sourced theorem; no exact database/table was identified that establishes this particular counterexample.",
+        "searches": [
+          "Resultary search: woven g frames canonical dual frames counterexample nonwoven Li Leng Huang Li Corollary 2.5",
+          "arXiv:2101.00710 example of woven Riesz bases and canonical Parseval duals"
+        ]
+      },
+      "rationale": "The original arXiv source v1/v3 publicly states the unconditional canonical-dual corollary. Later Arabyani Neyshaburi–Arefijamaal and Agheshteh Moghaddam–Arefijamaal only give sufficient dual-wovenness hypotheses and a canonical PARSEVAL (S^{-1/2}) non-weaving example, which does not logically subsume separately canonical DUAL (S^{-1}) non-weaving. No checked source gives this particular source-correction or counterexample. The journal final version’s exact theorem text was not verified and is not claimed to match the arXiv version.",
+      "residual_risks": [
+        "The exact final 2020 journal typesetting of the corollary was not verified; the rejection of the broad statement is explicitly scoped to verified arXiv public versions.",
+        "An unindexed source-specific erratum might already identify this mistake."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNCONDITIONAL_COROLLARY_CONTRADICTED",
+          "evidence": "The corollary states separate canonical duals preserve weaving with universal 1/B,1/A bounds; an exactly computed rank-one weaving refutes it.",
+          "identifier_or_url": "arXiv:1709.05154v3",
+          "material_read": "Accessible arXiv primary PDF, canonical g-frame definition and printed Corollary 2.5, including page-image inspection of the corollary on PDF page 4.",
+          "method": "arXiv PDF text and screenshot",
+          "title": "On weaving g-frames for Hilbert spaces",
+          "trigger": "Direct Corollary 2.5 target"
+        },
+        {
+          "assessment": "RELATED_BUT_NOT_SAME_TRANSFORM",
+          "evidence": "The explicit cited failure uses S^{-1/2}, while the present failure uses S^{-1}; the conditional norm test does not cover all woven pairs.",
+          "identifier_or_url": "arXiv:2101.00710v1",
+          "material_read": "Primary PDF introduction and section on duals, specifically a canonical Parseval non-weaving example and Corollary 5.3 conditional canonical-dual preservation.",
+          "method": "Open-access arXiv PDF text, theorem/formula reading",
+          "title": "On Excesses and Duality in Woven Frames",
+          "trigger": "Possible prior known dual counterexample"
+        },
+        {
+          "assessment": "NO_UNCONDITIONAL_PAIR_COVERAGE_IN_READ_MATERIAL",
+          "evidence": "Discusses sufficient duality conditions, not a comprehensive all-woven-pairs inverse-operator preservation statement.",
+          "identifier_or_url": "arXiv:1909.08835v1",
+          "material_read": "Publicly available abstract/introduction and stated sufficient conditions for weaving a frame with canonical or alternate dual frames.",
+          "method": "arXiv bibliographic/intro text and public full-text excerpt",
+          "title": "Weaving Hilbert Space Frames and Duality",
+          "trigger": "Prior generalized duality assertions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Li et al arXiv:1709.05154 Corollary 2.5",
+        "arXiv:2101.00710 Corollary 5.3"
+      ],
+      "rationale": "This concrete counterexample addresses a consequential false blanket stability assertion in weaving frame theory and shows why independently normalizing constituent frames can destroy spanning, even with uniform positive original weaving bounds. The single common-operator sufficient repair identifies the structural issue; it is mathematically motivated beyond a routine frame calculation.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Two woven three-vector frames in R² can have canonical dual frame families that are not woven; a specific mixed canonical-dual weave has rank 1. The unconditional canonical-dual preservation stated in Li–Leng–Huang–Li arXiv:1709.05154 Corollary 2.5 is false, while a common frame operator suffices for preservation.",
+  "limitations": [
+    "Demonstrates failure for separately dualized constituents; it does not show all canonical dual weaves fail.",
+    "Common constituent frame operator is sufficient but not shown necessary.",
+    "No assertion that the uninspected final journal copy repeats the public arXiv corollary verbatim."
+  ],
+  "schema_version": 1
+}

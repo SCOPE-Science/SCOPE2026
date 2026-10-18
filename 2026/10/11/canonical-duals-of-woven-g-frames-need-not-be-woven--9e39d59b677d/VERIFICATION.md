@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,80 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let
-\[
-F=(e_1,e_1,e_2),
-\qquad
-G=(e_1,e_1+e_2,2e_1+e_2).
-\]
-For every partition of the three indices, the mixed frame operator is one of
-\[
-\begin{pmatrix}6&3\\3&2\end{pmatrix},
-\quad
-\begin{pmatrix}6&2\\2&1\end{pmatrix},
-\quad
-\begin{pmatrix}2&1\\1&2\end{pmatrix},
-\quad
-\begin{pmatrix}2&0\\0&1\end{pmatrix}.
-\]
-Their spectra are, respectively,
-\[
-\{4-\sqrt{13},4+\sqrt{13}\},
-\]
-\[
-\left\{\frac{7-\sqrt{41}}2,\frac{7+\sqrt{41}}2\right\},
-\]
-\[
-\{1,3\},
-\qquad
-\{1,2\}.
-\]
-Thus every original weave is a frame.
+# Independent mathematical audit
 
-The individual frame operators are
-\[
-S_F=
-\begin{pmatrix}2&0\\0&1\end{pmatrix},
-\qquad
-S_G=
-\begin{pmatrix}6&3\\3&2\end{pmatrix}.
-\]
-Exact inversion yields
-\[
-\widetilde F=
-\left(\frac12e_1,\frac12e_1,e_2\right)
-\]
-and
-\[
-\widetilde G=
-\left(
-\frac23e_1-e_2,
--\frac13e_1+e_2,
-\frac13e_1
-\right).
-\]
-The mixed dual family for
-\[
-\sigma=\{1,2\}
-\]
-is
-\[
-\left(\frac12e_1,\frac12e_1,\frac13e_1\right),
-\]
-whose frame operator is
-\[
-\begin{pmatrix}11/18&0\\0&0\end{pmatrix}.
-\]
-It therefore has no positive lower frame bound.
+## correctness
 
-For the common-frame-operator repair, if every constituent has the same frame operator \(S\), the canonical-dual weaving energy is the original weaving energy evaluated at \(S^{-1}x\). The bounds
-\[
-\frac{A}{\|S\|^2}
-\quad\text{and}\quad
-B\|S^{-1}\|^2
-\]
-follow immediately.
+PASS
 
-The verified public source arXiv:1709.05154v1 contains the claimed unconditional canonical-dual statement in Corollary 2.5, and v3 contains the same statement. All computations above are exact; no finite numerical experiment is used as evidence for an infinite claim.
+F=(e1,e1,e2), G=(e1,e1+e2,2e1+e2). The first vector is common, and direct enumeration of remaining two binary choices gives positive definite frame operators [[6,3],[3,2]], [[6,2],[2,1]], [[2,1],[1,2]], [[2,0],[0,1]], with determinants 3,2,3,2. Their exact eigenvalues yield positive common lower (7−√41)/2 and upper 4+√13. I independently recomputed the exact 2×2 matrices, determinants, S_F=diag(2,1), S_G=[[6,3],[3,2]] and inverse matrices using SymPy. The canonical dual vectors are F~=(e1/2,e1/2,e2), G~=(2e1/3−e2,−e1/3+e2,e1/3); choosing F~ indices1,2 and G~ index3 gives three collinear e1 vectors, hence loses the frame lower bound. Scalar g-frame identification is exact. If S_F=S_G=S, a shared invertible S^{-1} applied to every original weave preserves uniform bounds.
+
+## originality
+
+PASS
+
+The original arXiv source v1/v3 publicly states the unconditional canonical-dual corollary. Later Arabyani Neyshaburi–Arefijamaal and Agheshteh Moghaddam–Arefijamaal only give sufficient dual-wovenness hypotheses and a canonical PARSEVAL (S^{-1/2}) non-weaving example, which does not logically subsume separately canonical DUAL (S^{-1}) non-weaving. No checked source gives this particular source-correction or counterexample. The journal final version’s exact theorem text was not verified and is not claimed to match the arXiv version.
+
+## value
+
+PASS
+
+This concrete counterexample addresses a consequential false blanket stability assertion in weaving frame theory and shows why independently normalizing constituent frames can destroy spanning, even with uniform positive original weaving bounds. The single common-operator sufficient repair identifies the structural issue; it is mathematically motivated beyond a routine frame calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
