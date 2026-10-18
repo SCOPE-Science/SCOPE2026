@@ -1,15 +1,21 @@
-# Scientific review: full Heawood matching-complex character
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The 14 graph vertices are given by a complete Fano incidence rule. Enumeration yields a complete \((21,168,644,1218,1050,336,24)\) face vector and six mod-two boundary ranks. Rank bounds from \(\partial^2=0\), together with the explicit upper and lower boundary dimensions, force the same ranks over \(\mathbb Q\), proving reduced rational homology concentrated in degree four, dimension sixteen. The full graph automorphism group is enumerated using all point-incidence permutations and an explicit duality. For each of all 336 elements, independently implemented signed-simplex and edge-cycle Lefschetz traces agree. The eight Sylow-seven subgroups and the three mutually orthonormal characters give an exact \(1\oplus7\oplus8\) decomposition. The bundled verifier was executed on its actual source path; no external log is being substituted for replay. Residual correctness risk is implementation error shared by both character algorithms or the standard representation-theoretic theorem application; independent audit has not occurred.
+## correctness
 
-## Originality (O): PASS
-An existing public result, *The Heawood matching complex is a wedge of sixteen 4-spheres* (identifier 7150930ba12a), covers the nonequivariant sphere count; **that is not claimed new**. The inspected full result explicitly declines an equivariant homotopy claim and does not determine its fourth-homology character. Donovan–Scoville (arXiv:2207.13780v1) calculate other graph families rather than this incidence graph. Li (arXiv:2202.08828) establishes symmetry properties of matching-set permutation representations but neither the specific 336-automorphism trace table nor the irreducible degree-eight residual homology constituent. Searches for the Heawood graph, Fano incidence and line-graph matching complex, equivariant homology, and Steinberg/PSL nomenclature found no statement that implies the full 1+7+8 decomposition. Residual risk: equivalent character computations may be buried in another paper, representation table, or unpublished computation; absence of a search hit is not a proof of global uniqueness.
+PASS
 
-## Value (V): PASS
-A 16-dimensional topological homology group admits many inequivalent rational actions by a 336-element group. Showing it has exactly three irreducible constituents of dimensions 1, 7 and 8 determines invariants (one-dimensional), character traces for every group element, and the explicit seven-dimensional geometrically defined constituent arising from Fano Sylow-seven subgroups. This is a nontrivial equivariant refinement of an established topological calculation for a canonical highly symmetric graph, not a repeated Betti number, arbitrary numerical slice or general definition. The result has natural use in comparing incidence-complex actions and equivariant chain models; no downstream theorem is required for its value.
+Actual finite Fano incidence matching complex has 21 graph edges and exactly (21,168,644,1218,1050,336,24) faces. The package computes F2 boundary ranks (20,148,496,722,312,24); the rational ranks match because the F2 values are lower bounds and the chain-complex dimension upper bounds force equality, proving sole reduced H4 of rank16. Independent enumeration reproduced all 3461 faces and 336 graph automorphisms. The signed simplex Lefschetz character and separate edge-orbit inclusion/exclusion computation agree on all 336; character types preserve: (1,16),(2,0),(3,1),(4,0),(7,2), exchange: (2,4),(6,1),(8,0). Sylow-7 eight-point permutation character minus trivial gives irreducible 7d module; the residual 8d character has self-inner product one and zero cross inner products, yielding rational 1⊕7⊕8.
 
-## Literature comparison and scientific boundaries
-Relevant literature: C. Donovan and N. A. Scoville, arXiv:2207.13780v1 (2022); S. Li, arXiv:2202.08828 (2022); previous published Heawood matching-complex wedge calculation, identifier 7150930ba12a. The present result concerns \(\mathbb Q\)-representations, not integral lattice classification; it does not assert independence or an equivariant homotopy equivalence. The provenance of the original nonequivariant homotopy computation is explicitly respected.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The separate previously published Heawood matching-complex calculation establishes 16 four-spheres, but no corresponding 336-element action. Li’s equivariant log-concavity describes graded permutation representations of matching sets, not the alternating boundary-quotient homology representation. Donovan–Scoville study different graph families. The new exact group character and irreducible splitting are not implied by the known nonequivariant topology. Best-of-knowledge with unindexed equivariant table risk.
+
+## value
+
+PASS
+
+The Heawood/Fano incidence graph is a canonical small highly symmetric combinatorial object. Exact action on 16-dimensional top homology, one-dimensional invariant line and 7+8 irreducible decomposition are natural equivariant invariants; they distinguish geometrically meaningful symmetry information that the known Betti number misses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

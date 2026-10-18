@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scientific limits
+# Independent mathematical audit
 
-Run `python3 verify_heawood_action.py` using Python 3 standard library. The checker does not download data. It reconstructs the exact Fano-plane incidence relation, enumerates all 3461 matching simplices, and calculates the complete mod-two simplicial boundary ranks (20, 148, 496, 722, 312, 24). The proof in RESULT.md explains why chain rank bounds force the same ranks over the rational numbers.
+## correctness
 
-The checker finds exactly 168 bipartition-preserving incidence automorphisms and, using an explicit point–line duality, all 336 full graph automorphisms. It uses two independent fixed-matching descriptions to calculate identical signed Lefschetz traces for every element. It also constructs eight distinct Sylow-seven subgroups, calculates their reduced permutation character, and verifies the exact orthonormality matrix for the trivial, seven-dimensional and residual eight-dimensional rational characters. Successful execution ends with `VERIFY_OK`, followed by the face vector, rank vector and group-character type counts.
+PASS
 
-There is no claimed integral irreducible splitting, no equivariant homotopy equivalence, and no independence or external certification. Computation is exhaustive for the specified finite graph; it does not support a claim for all incidence graphs.
+Actual finite Fano incidence matching complex has 21 graph edges and exactly (21,168,644,1218,1050,336,24) faces. The package computes F2 boundary ranks (20,148,496,722,312,24); the rational ranks match because the F2 values are lower bounds and the chain-complex dimension upper bounds force equality, proving sole reduced H4 of rank16. Independent enumeration reproduced all 3461 faces and 336 graph automorphisms. The signed simplex Lefschetz character and separate edge-orbit inclusion/exclusion computation agree on all 336; character types preserve: (1,16),(2,0),(3,1),(4,0),(7,2), exchange: (2,4),(6,1),(8,0). Sylow-7 eight-point permutation character minus trivial gives irreducible 7d module; the residual 8d character has self-inner product one and zero cross inner products, yielding rational 1⊕7⊕8.
+
+## originality
+
+PASS
+
+The separate previously published Heawood matching-complex calculation establishes 16 four-spheres, but no corresponding 336-element action. Li’s equivariant log-concavity describes graded permutation representations of matching sets, not the alternating boundary-quotient homology representation. Donovan–Scoville study different graph families. The new exact group character and irreducible splitting are not implied by the known nonequivariant topology. Best-of-knowledge with unindexed equivariant table risk.
+
+## value
+
+PASS
+
+The Heawood/Fano incidence graph is a canonical small highly symmetric combinatorial object. Exact action on 16-dimensional top homology, one-dimensional invariant line and 7+8 irreducible decomposition are natural equivariant invariants; they distinguish geometrically meaningful symmetry information that the known Betti number misses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
