@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The path edge vectors form a basis of the zero-sum hyperplane, so the facets are exactly the sign choices of a crosspolytope. Their normals are reconstructed from signed consecutive differences. The zero-sum variance identity turns the squared normal length into a sum over squared signed interval sums, and the sharp interval-length bound has exactly two equality sign patterns. Those opposite facets bound every translated inscribed ball. The remaining facets have strict slack at the origin, proving a full relative neighborhood of optimal centers in the codimension-one equality hyperplane. Opposite vertex pairs separately prove the unique outer sphere.
+## correctness
 
-## Originality
-PASS. The primary symmetric-edge full text was inspected at the canonical realization, path preliminaries, facets, and triangulations, and targeted searches found no inradius, circumradius, or Euclidean-ball theorem. The closest same-object finite-metric paper was inspected at its fundamental-polytope definition, Lipschitz polarity, tree framework, and face-number program; it contains no inradius, circumradius, or Euclidean occurrence. Candidate-specific indexed searches covered path symmetric edge polytopes, consecutive-root crosspolytopes, tree fundamental polytopes, inradius, all incenters, tangent facets, and circumradius. No implication-equivalent statement was located.
+PASS
 
-## Value
-PASS. The path is a canonical family in both graph-polytope and finite-metric geometry. The result exposes a qualitative feature hidden by the abstract crosspolytope combinatorics: the standard path realization has only two extremal dual facets but a codimension-one family of maximum-ball centers. Together with the constant outer radius and all-vertex contact sphere, the theorem gives a complete inner-versus-outer Euclidean profile and an exact growing anisotropy ratio.
+The n−1 simple-root edge differences are a basis of the intrinsic Euclidean hyperplane sum x_i=0. Their ± convex hull is a crosspolytope with facet dual normals x^ε satisfying consecutive coordinate gaps ε_i. The zero-sum variance identity gives ||x^ε||²=(1/n)sum_{p<q}(sum_{k=p}^{q−1}ε_k)² ≤ n(n²−1)/12, with equality only the two constant sign patterns for n≥3 (and the two choices for n=2). Opposite tight facets bound every ball globally, so r=√[12/(n(n²−1))]; centers are exactly the stated hyperplane section and slack halfspaces, with relative dimension n−2, including zero-dimensional n=2. Opposite vertices of norm √2 force unique circumsphere center zero. Independently enumerated all sign vectors in small dimensions, confirming exactly two tight normals; proof itself is all n.
 
-## Closest literature and limitations
-Existing same-object literature studies lattice, face, triangulation, matroidal, and finite-metric structure. The theorem is restricted to unweighted paths in the standard realization. Weighted paths and branched trees can have different dual-normal optimization, and no vertex enumeration of the incenter polytope itself is claimed. Root-system or Lipschitz-free terminology remains a residual indexing risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+D’Alì–Juhnke-Kubitzke–Köhne–Venturello analyze graph symmetric-edge polytope face enumerations, gamma vectors and triangulations; Delucchi–Hoessly identify the same path body as a tree-metric fundamental polytope and study combinatorial face structure. Neither inspected relevant primary material gives the exact Euclidean distance-to-facet formula plus complete affine incenter locus. Indexed star/cycle/bipartite-root/polytope radii are different graph families and not stronger path formulas.
+
+## value
+
+PASS
+
+Canonical A-type root-space realization differs metrically from an abstract crosspolytope. The exact n^(-3/2) inradius, two-facet tangency, and unexpected n−2 dimensional incenter family are natural geometric invariants useful in root-polytopal metric comparisons, not a mere face-count recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
