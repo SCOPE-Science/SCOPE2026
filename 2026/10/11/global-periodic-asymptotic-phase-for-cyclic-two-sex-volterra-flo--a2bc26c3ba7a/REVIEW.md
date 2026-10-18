@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is reconstructed directly from the common symmetric inheritance tensor, with \(x,y\in\Delta^2\), \(0<\theta\le1\), and \(s_i(0)>0\) for all three coordinates. The exact reduction gives \(d(t)=e^{-t}d(0)\) and an \(e^{-2t}\) quadratic forcing of the neutral cyclic replicator. A positive-product lower bound follows from \(|d_i|\le s_i\), and the sharpened bound follows from that lower bound. The regular level curves of the product are smooth single periodic orbits; the action–angle derivative estimate controls the inverse-flow variation, proving the stated asymptotic phase estimate rather than only convergence in distance to a periodic set. The centered level is treated separately through a nondegenerate quadratic maximum. The algebraic identities were checked symbolically; the proof is analytic and does not rely on the finite experiment.
+PASS
 
-## Originality — PASS, with limitations
+Independently recomputed symmetric offspring bilinear reduction: d′=−d, and s_i′=θs_i(s_{i+1}−s_{i−1})−θd_i(d_{i+1}−d_{i−1}); exact component differences vanish after simplex constraints. For collective support s_i>0, |d_i|≤s_i yields |(log H)′|≤2θD e^(−t), so H≥H0 exp(−2θD)>0. Improved 1/s_i≤1/m0 gives logarithmic tail θD²e^(−2t)/(2m0). All regular product levels are smooth circles with action-angle DΦ_t=O(1+|t|), and integrable inverse-flow forcing produces unique phase and O((1+t)²e^(−2t)) tracking. Strict nondegenerate maximum at u gives central O(e^(−t)). Numerical test is not the proof.
 
-Primary closest: Rasulov, arXiv:2610.06895v1, Section 3.2, Lemma 6 and Example 1, shows periodicity on \(x=y\) but gives no off-diagonal three-type persistence/product limit/periodic asymptotic phase. The fully inspected earlier Rasulov Mathematical Notes paper (DOI:10.1134/S0001434624110208), especially Eq. (2.6), already has the sex-difference exponential identity in a different two-type extreme-operator setting; that elementary identity is not asserted to be original in isolation. The 2011 Rozikov–Jamilov work studies discrete operators. published-finding corpus overlap searches and both owned ledgers revealed no implication-equivalent claim. The related 2024 Lobachevskii article (DOI:10.1134/S199508022460448X) remained full-text inaccessible despite OA search and an unsuccessful authorized access attempt; its abstract mentions fixed points and solutions but not this theorem, which is a residual risk, not a certified negative result. General asymptotically autonomous theory may contain qualitative special cases, but the concrete full-support bound and tracking rate are not established by the inspected primary statements.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The original diagonal periodicity result leaves the natural four-dimensional off-diagonal initial-value problem open. The combination of rigorous nonextinction, quantitative stabilization of a first integral destroyed by the transient two-sex imbalance, and unique phase tracking determines the entire omega-limit classification for a natural full-support family. The support hypothesis is the biologically relevant boundary: when a type is absent from both sexes, nonextinction cannot hold. The statement is an explicit structural completion of a motivated population model, not a routine numerical refinement or renamed symmetry reduction.
+The closest Rasulov (2026) cyclic example establishes diagonal periodicity only; Rasulov (2024) proves sex-difference decay in a two-type operator, not full-support three-type off-diagonal nonextinction and a uniquely phased periodic limit. General asymptotically autonomous theorems are possible comparators but do not by themselves supply the explicit product floor, e^(−2t) tail and model-specific center dichotomy on the checked statements. Plausible inaccessible same-object sources are explicitly retained as residual risks and not treated as novelty certificates.
 
-## Residual risks and limits
+## value
 
-The result is restricted to symmetric offspring probabilities on the three-cycle, continuous time, and positive collective support. Constants are not uniform at zero-product or central limiting levels. An independently verified comparison with the inaccessible 2024 Lobachevskii paper and any differently phrased stable-foliation/replicator results remains outstanding. No independent scientific audit has been undertaken.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Natural four-dimensional off-diagonal dynamics of a biologically motivated cyclic three-type two-sex system left open by its diagonal periodic orbit analysis; proves complete support-preserving omega-limit dichotomy, exact quantitative recovery and unique asymptotic phase. The quantitative invariant-product stabilization is useful independently, not simply a trivial sex-difference observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

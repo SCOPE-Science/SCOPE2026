@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The scientific result is a self-contained analytic theorem. To replay the decisive identities, form the symmetric bilinear offspring map from the \((1\pm\theta)/2\) coefficients in RESULT.md, define \(s=(x+y)/2\), \(d=(x-y)/2\), and use \(\sum s_i=1\), \(\sum d_i=0\). An actual SymPy expansion of all three components gave zero for each difference between the exact quadratic offspring map and its reduced expression. A separate symbolic expansion gave zero for the derivative of the product under the unforced cyclic field.
+## correctness
 
-The check of the nonlinear bounds is elementary: the triangle inequality and \(|d_i|\le s_i\) imply \(|\partial_t\log H|\le2\theta De^{-t}\), while the resulting \(s_i\ge m_0\) implies the improved \(|\partial_t\log H|\le\theta D^2e^{-2t}/m_0\). Integration produces the exact numerical factors. The periodic phase argument uses a smooth transversal through the regular product levels and its associated coordinates, in which the flow is angular translation with an energy-dependent angular frequency. Differentiation gives growth at most linear in time, and integration against the quadratic forcing yields the claimed \(O((1+t)^2e^{-2t})\) tracking. The central maximum is nondegenerate and yields the separate \(O(e^{-t})\) estimate.
+PASS
 
-A numerical diagnostic used \(\theta=1/2\), \(s(0)=(1/2,1/3,1/6)\), \(d(0)=(1/15,-1/20,-1/60)\), and SciPy `solve_ivp` with relative tolerance `1e-11` and absolute tolerance `1e-13`. It observed positive coordinates and the expected decay. The numerical computation is **not** evidence for the universal quantifiers, uniqueness, or convergence rates; those come from the analytical proof above. No external certification or independent audit is claimed.
+Independently recomputed symmetric offspring bilinear reduction: d′=−d, and s_i′=θs_i(s_{i+1}−s_{i−1})−θd_i(d_{i+1}−d_{i−1}); exact component differences vanish after simplex constraints. For collective support s_i>0, |d_i|≤s_i yields |(log H)′|≤2θD e^(−t), so H≥H0 exp(−2θD)>0. Improved 1/s_i≤1/m0 gives logarithmic tail θD²e^(−2t)/(2m0). All regular product levels are smooth circles with action-angle DΦ_t=O(1+|t|), and integrable inverse-flow forcing produces unique phase and O((1+t)²e^(−2t)) tracking. Strict nondegenerate maximum at u gives central O(e^(−t)). Numerical test is not the proof.
 
-Limitations: the assertion excludes missing collective species, asymmetric offspring laws, higher-dimensional cyclic analogues, and discrete operator iterates. The preceding source comparison was same-model only; the 2024 Lobachevskii full text could not be checked. Scientific originality remains subject to independent inspection of that residual source and alternative terminology.
+## originality
+
+PASS
+
+The closest Rasulov (2026) cyclic example establishes diagonal periodicity only; Rasulov (2024) proves sex-difference decay in a two-type operator, not full-support three-type off-diagonal nonextinction and a uniquely phased periodic limit. General asymptotically autonomous theorems are possible comparators but do not by themselves supply the explicit product floor, e^(−2t) tail and model-specific center dichotomy on the checked statements. Plausible inaccessible same-object sources are explicitly retained as residual risks and not treated as novelty certificates.
+
+## value
+
+PASS
+
+Natural four-dimensional off-diagonal dynamics of a biologically motivated cyclic three-type two-sex system left open by its diagonal periodic orbit analysis; proves complete support-preserving omega-limit dichotomy, exact quantitative recovery and unique asymptotic phase. The quantitative invariant-product stabilization is useful independently, not simply a trivial sex-difference observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

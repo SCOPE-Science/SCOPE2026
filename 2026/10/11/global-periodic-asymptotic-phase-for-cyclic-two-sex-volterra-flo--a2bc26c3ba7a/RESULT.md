@@ -124,7 +124,7 @@ Earlier two-sex continuous-time studies by Rasulov (2024) handle particular two-
 
 ## Limitations
 
-The theorem requires common symmetric daughter/son heredity, the three-cycle, \(0<\theta\le1\), and full **collective** three-type support at the initial time. For initially absent types the product bound vanishes and other boundary dynamics are possible. The assertion is for the **continuous** ODE rather than the discrete update. The exact limiting product and asymptotic phase depend on the initial pair, and no closed elementary expression for either is asserted. Tracking constants need not be uniform as the limiting product approaches zero or its maximum \(1/27\). The result does not prove any statement for asymmetric female/male heredity, higher-dimensional cycles, or stochastic noise. A same-model scientific review is not an independent audit.
+The theorem requires common symmetric daughter/son heredity, the three-cycle, \(0<\theta\le1\), and full **collective** three-type support at the initial time. For initially absent types the product bound vanishes and other boundary dynamics are possible. The assertion is for the **continuous** ODE rather than the discrete update. The exact limiting product and asymptotic phase depend on the initial pair, and no closed elementary expression for either is asserted. Tracking constants need not be uniform as the limiting product approaches zero or its maximum \(1/27\). The result does not prove any statement for asymmetric female/male heredity, higher-dimensional cycles, or stochastic noise. A self-review is not an independent audit.
 
 ## References
 
