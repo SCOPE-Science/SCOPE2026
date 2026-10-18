@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Every feasible allocation satisfies two exact Walsh Rayleigh-quotient averaged bounds. The min of the bounds optimizes exactly at the claimed matching-budget amount when t<d, while the singleton bound is sharp for t>=d. Direct complete Walsh diagonalization realizes each optimum. Equality in test-character Rayleigh inequalities forces eigenvector identities, giving unique all-edge weights for t!=d and an exactly characterized one-dimensional face at t=d, including boundary endpoints. Test script passed 2310 checks but is not treated as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. 2006 establishes an SDP for arbitrary weighted connected graphs and edge prices; it does not state a solved closed-form for the present folded-cube family.",
+        "Boyd et al. 2009 is about discrete-time transition stochastic matrices and SLEM, not the continuous-time Laplacian gap under a total rate cost."
+      ],
+      "reasoning": "The general convex/SDP problem includes this instance but does not *mathematically state* the price threshold or solve the all-optimal-assignments equality system. A general solver formulation is not automatically a stronger explicit theorem. An undiscovered general uniqueness theorem plus folded-cube specialization could potentially cover the rigidity, retained as risk.",
+      "searches": [
+        "doi:10.1137/S0036144504443821",
+        "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "hypercube antipodal edges phase transition edge price optimal Laplacian second eigenvalue",
+        "Walsh characters hypercube antipodal jump spectral gap convex semidefinite edge weighting optimization"
+      ]
+    },
+    "checked_sources": [
+      "Sun, Boyd, Xiao, Diaconis (2006), DOI: 10.1137/S0036144504443821",
+      "Boyd, Diaconis, Parrilo, Xiao (2009), https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+      "Chen and Chen (2011), https://xblk.ecnu.edu.cn/CN/Y2011/V2011/I2/39",
+      "The Kirchhoff Index of Folded Hypercubes and Some Variant Networks (2014), DOI: 10.1155/2014/380874"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The present theorem gives value 4B/[M(d+t)] for t<d, value 2B/(Md) for t>=d, uniqueness on either side, and exactly the one-dimensional face at t=d.",
+        "Sun et al. establishes global formulation/optimality conditions but not these closed forms or their equality conditions for this graph.",
+        "Chen and Chen and Liu et al. give unweighted Laplacian spectral data / resistance invariants, with no priced optimizer statement in inspected available material."
+      ],
+      "reasoning": "Known Walsh eigenvalues imply only a symmetric subclass optimization. The nontrivial implication from optimality of unrestricted weights to their forced symmetry uses separate equality arguments for all singleton/pair test characters and complementary-edge weight consistency. That is not a direct corollary of unweighted eigenvalue tables alone.",
+      "searches": [
+        "doi:10.1137/S0036144504443821",
+        "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "doi:10.1155/2014/380874",
+        "folded hypercube antipodal matching weighted fastest mixing Markov process algebraic connectivity price threshold",
+        "folded hypercube spectrum fastest mixing continuous time optimal weighted conductance cost antipodal edge phase critical price d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen and Chen 2011 derives Laplacian spectrum for the unweighted folded hypercube, not a price-constrained optimization (publisher abstract).",
+        "Sun et al. 2006, Sections 1 and 5, general continuous-time rate allocation, with examples of paths and cycles; no folded-cube example in the full PDF.",
+        "Boyd et al. 2009, Section 3.2.2, ordinary hypercube eigenvalues for discrete-time Markov-chain SLEM."
+      ],
+      "reasoning": "A weighted folded cube diagonalizes in Walsh coordinates if orbit-constant weights are imposed. This gives the candidate value but does not imply all independent edge assignments are orbit-constant. No searched source gave the phase t=d, the all-weights uniqueness away from it, or the full critical face.",
+      "searches": [
+        "folded hypercube antipodal matching weighted fastest mixing Markov process algebraic connectivity price threshold",
+        "hypercube hypercube plus antipodal long-range edges optimal conductance allocation spectral gap budget",
+        "folded hypercube spectrum fastest mixing continuous time optimal weighted conductance cost antipodal edge phase critical price d",
+        "\"folded hypercube\" \"fastest mixing\" \"Markov\"",
+        "\"folded hypercube\" \"weighted\" \"spectral gap\" \"antipodal\"",
+        "https://xblk.ecnu.edu.cn/CN/Y2011/V2011/I2/39"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest cube-spectral entry concerns centro-affine facet spectrum of a cross-polytope, not optimizing weights on hypercube edges.",
+        "The metric graph Q3 result is on equilateral metric lengths and edge contraction, not a folded discrete graph with antipodal links.",
+        "The Rips folded-cube reference concerns independence complexes, not edge-weighted spectral-gap maximization."
+      ],
+      "reasoning": "These are different invariants, objects or objective functions. Neither their parameters nor their conclusions imply the claimed threshold or all-optimizer set. Exact price + support/face searches did not locate a pertinent table.",
+      "searches": [
+        "folded cube fastest diffusion unique symmetric optimizer critical cost",
+        "price critical face hypercube antipodal matching algebraic connectivity all maximizers",
+        "folded hypercube antipodal matching weighted fastest mixing Markov process algebraic connectivity price threshold",
+        "hypercube hypercube plus antipodal long-range edges optimal conductance allocation spectral gap budget",
+        "hypercube antipodal edges phase transition edge price optimal Laplacian second eigenvalue"
+      ]
+    },
+    "rationale": "The precise two-edge-class priced folded-hypercube fastest-diffusion phase transition and its complete all-edge-variable optimizer classification were not found in the inspected sources. The foundational continuous-time FMMP SDP and unweighted Walsh cube spectra are explicitly prior art; the added global equality rigidity and flat critical optimal face are specific mathematical contributions. The comparison is best-knowledge, not proof of historical uniqueness.",
+    "residual_risks": [
+      "An unindexed equivalent optimization of antipodal-augmented hypercubes might have been missed.",
+      "The full Chen and Chen 2011 article was not available through the accessed publisher link; its synopsis specifies unweighted spectra.",
+      "An abstract application of general semidefinite optimality theory could imply the special result without explicitly stating it; no such complete implication was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General convex allocation framework and examples on other graphs; does not state the priced folded-hypercube threshold or all optimizer rigidity",
+        "evidence": "Sections 1, 5.1-5.3, pp. 681-699, DOI 10.1137/S0036144504443821",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Full 19-page author-hosted PDF: introduction, SDP formulation, duality, Sections 5.1-5.3 examples and conclusions",
+        "method": "Full PDF text and page-image inspection, keyword searches for cube and hypercube",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Same optimization objective, linear costs and possible generic dominating theorem"
+      },
+      {
+        "assessment": "Discrete-time SLEM problem; ordinary hypercube example, not priced antipodal links; no complete critical optimal-face statement",
+        "evidence": "Section 3.2.2, p. 800, ordinary hypercube Laplacian eigenvalues 2k",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Full PDF relevant Sections 2-3, specifically Section 3.2.2 and its hypercube spectrum, plus problem specification",
+        "method": "Extracted PDF text and PDF page images; search for antipodal and hypercube",
+        "title": "Fastest Mixing Markov Chain on Graphs With Symmetries",
+        "trigger": "Symmetry reduction and ordinary cube explicitly treated"
+      },
+      {
+        "assessment": "Unweighted adjacency and Laplacian eigenvalues, no indicated conductance optimization; full text not inspected and coverage remains residual risk",
+        "evidence": "2011-03-25 public online date; abstract describes only spectra",
+        "identifier_or_url": "https://xblk.ecnu.edu.cn/CN/Y2011/V2011/I2/39",
+        "material_read": "Publisher landing page abstract, metadata, accessible material; full paper link did not produce retrievable text",
+        "method": "Read bilingual title/abstract and dated bibliographic data; checked follow-on 2014 full-text references",
+        "title": "Spectrum of folded hypercubes",
+        "trigger": "Exact same folded hypercube graph family and known spectrum"
+      },
+      {
+        "assessment": "Unweighted graph effective-resistance sum; no variable conductance prices or fastest-diffusion design",
+        "evidence": "Definition of FQ_n, Lemma 2 and statement of Kirchhoff-index objectives, DOI 10.1155/2014/380874",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2014/380874",
+        "material_read": "Accessible full HTML: abstract, definitions, spectral lemma, Kirchhoff-index theorems",
+        "method": "Inspected full-text article and searched for optimization/conductance",
+        "title": "The Kirchhoff Index of Folded Hypercubes and Some Variant Networks",
+        "trigger": "Same graph and use of its Laplacian eigenvalues"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2ceddd7c-09e4-4ac1-bea3-22c3f9450917",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural nonlocal augmentation of a high-dimensional interconnection graph has an exact linear-in-dimension price cutoff determining whether all antipodal links should be bought. The theorem classifies all independently variable optimizers, including surprising exact rigidity of every critical allocation and a flat transition face, rather than merely exhibiting orbit-constant candidates. This supplies a usable explicit resource-design rule not directly present in the foundational general framework.",
+    "status": "PASS"
+  }
+}
