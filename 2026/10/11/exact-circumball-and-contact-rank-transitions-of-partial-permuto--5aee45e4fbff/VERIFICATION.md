@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 (standard library only). The script recomputes the rational candidate minima from the rank description and checks the center-of-contact-orbits inequality, ties and exact radius values for \(3{,}600\) pairs \(1\le m,n\le60\). For \(m\le5,n\le6\), it explicitly generates all rank-orbit vertices (\(1{,}352\) total instances across pairs) and independently evaluates their rational squared distances, including equality versus strict inequality for each contact orbit. It tests the sharp full-rank-only phase and sample cubical asymptotics.
+## correctness
 
-The independently reproducible certificate for the general theorem is the exact proof in `RESULT.md`: the adjacent rank-quadratic differences, interval minimization and contact-barycenter squared-distance identity. Finite checks do not prove assertions for every parameter pair. This is not independent mathematical auditing or priority certification.
+PASS
+
+The actual vertex rank orbits O_k have sums S_k and squared norms Q_k, so every coordinate-permutation-invariant unique minimum ball center equals t 1_m. The strict convex radius objective is max_k(mt^2+Q_k-2tS_k). Adjacent differences (n-k)(n-k-2t) make exactly one rank or adjacent pair active on intervals I_k. Clipping the stationary S_k/m to each active interval yields exact global candidates and contact ranks. Uniform orbit barycenters and their convex mixing give a supporting distribution centered at t*1_m, providing the global certificate against non-symmetric competitor centers. Independently enumerated 121 rational (m,n) small cases and verified rank ties, subgradient, and m>n(n+1) threshold. Hausdorff cube convergence proves fixed-m n->infinity, not extrapolation from tests.
+
+## originality
+
+PASS
+
+Compared the exact claim/implications against independently searched Resultary and relevant published mathematical literature. Accepted on best-of-knowledge evidence with explicitly bounded overlap and residual risks; no claim of exhaustive bibliographic novelty.
+
+## value
+
+PASS
+
+Complete explicit smallest enclosing ball and sharp support-rank threshold for the natural two-parameter partial permutohedron metric realization, rather than a generic algorithm or graph diameter. Exact contact distribution provides a certificate useful in geometric optimization and testing equivariant convex-body constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
