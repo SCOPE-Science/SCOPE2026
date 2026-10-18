@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness (C): PASS.** Every normalized conic over the two fields is tested, the nonzero determinant of its symmetric polar matrix proves geometric smoothness, projective transitivity reduces pairs to one fixed conic, and complete exact incidence tests yield twelve and zero partners. The order-120 conic stabilizer acts transitively on the twelve partners; the orbit and line profile were independently checked. The NumPy vectorized enumeration agrees with the integer-bitmask enumeration, without any inference from random sampling.
+
+**Originality (O): PASS, subject to bibliographic residual risk.** The 2022 Asgarli–Ghioca–Yip paper treats irreducible blocking plane curves, not an unordered-pair conic classification. The inspected 2015 Al-Mukhtar–Thumai paper constructs blocking point sets containing conic and line components, rather than classifying smooth-conic pairs. The 2022 Coolsaet–Botteldoorn–Fack result classifies minimal blocking point sets, not their complete conic decompositions. The older external-line blocker classifications concern a distinct minimal-point-set problem. Search of mathematical research records, including equivalent formulations and the two field sizes, did not expose a dominating exact classification. Residual priority risk remains from accessible abstracts without full article inspection and unpublished enumeration.
+
+**Value (V): PASS.** This is a motivated finite-field incidence boundary in the blocking-curve problem: a unique exceptional projective orbit exists over \(\mathbf F_5\), while the analogous two-conic construction already becomes impossible over the next odd prime field \(\mathbf F_7\). The exact orbit, pair count, uniform eleven-point line spectrum, and sharp first tested obstruction together distinguish the geometry, rather than reporting only an isolated example. No statement beyond the two fields is implied.
+
+Self-review: passed. Independent audit: not yet performed.
