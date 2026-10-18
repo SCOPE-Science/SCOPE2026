@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and evidence
 
-`verify.py` requires only Python 3 and its standard library. Execute `python3 verify.py` in the same directory. It reports 46,233 enumerated recursive trees, 120 exact conditional identities, eight exact root-degree/Wiener covariances, and 3,689 exact recursion and conditional-parent-averaging identities. Finite checks use `fractions.Fraction` rather than rounded arithmetic. The age-threshold ratio illustrations employ floating point, solely to display the proved large-size result.
+# Independent mathematical audit
 
-The proof of all-size equations (1)–(4) is in `RESULT.md`. Its nonstandard step is the expected sum of distances from a fixed-label vertex: the birth-time boundary and later uniform-attachment recursion are stated explicitly there. Finite enumerations do not establish a universal infinite formula; the algebraic recurrence does. A full historical novelty guarantee and independent audit have not been performed. The older fixed-label distance-distribution article noted in the references was not inspected in complete form.
+## correctness
+
+PASS
+
+The leaf attachment identity W_(m+1)=W_m+m+S_U and s_v(m)=m*(H_m+H_(v-1)-3+2/v) give the conditional deviation delta_(i,v). Future independent attachments multiply that deviation by prod_(m=i)^(n-1)(1+2/m)=n(n+1)/(i(i+1)). g(v)=H_(v-1)+1+2/v has g(1)=g(2)=3, strictly rises for v>=2. Mean-zero parent average forces a crossing, while g(floor(a i)) - ((i+1)/(i-1))H_(i-1)->1+log(a) gives tau_i/i=e^-1. Sum conditional P_i=1 covariance across i to derive the exact root-degree covariance n(n+1)*(3/2-3/(n+1)-H_(n-1)^(2)+H_(n-1)/n). Independent complete enumeration n=2..7 checked conditional means, Wiener means and covariance. Scope restricted to uniform recursive labelled trees.
+
+## originality
+
+PASS
+
+Neininger (2002) full primary 11 pages establish E[W_n] and covariance W_n with *internal path length*, not root degree or single specified parent choice. Prior Resultary root-degree/path-length regression concerns a different distance statistic; related root-degree/leaf covariance also differs. Dobrow 1996 fixed-labelled pair distance paper is plausible indirectly equivalent source but its full text was inaccessible; this residual risk alone does not cancel the new conditional mixed-statistic classification.
+
+## value
+
+PASS
+
+Exact conditional response as a function of vertex age, its sharp natural exp(-1) sign boundary and the negative root-degree/Wiener covariance classify a meaningful mixed statistic of uniform recursive trees, useful for sensitivity of global pairwise distances to local attachment choices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
