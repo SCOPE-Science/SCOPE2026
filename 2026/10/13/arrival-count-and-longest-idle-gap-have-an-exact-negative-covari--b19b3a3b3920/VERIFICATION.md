@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,29 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The domain is a homogeneous Poisson process of rate \(\lambda>0\) observed on a fixed interval \([0,t]\), with both boundary gaps included in the maximum.
+# Independent mathematical audit
 
-The proof depends on four exact steps:
+## correctness
 
-1. Conditional on \(N(t)=n\), the \(n+1\) normalized gaps are \(\operatorname{Dirichlet}(1,\ldots,1)\).
-2. The maximum coordinate of a uniform \(m\)-simplex vector has mean \(H_m/m\), obtained by integrating its inclusion-exclusion tail.
-3. The exponential generating function of harmonic numbers is
-   \[
-   \sum_{m\ge1}H_m\frac{x^m}{m!}
-   =
-   e^x\operatorname{Ein}(x).
-   \]
-4. For \(N\sim\operatorname{Poisson}(\mu)\),
-   \[
-   \operatorname{Cov}(N,g(N))
-   =
-   \mu\frac{d}{d\mu}\mathbb E[g(N)].
-   \]
+PASS
 
-`checker.py` verifies the finite binomial-harmonic identity exactly over a large dimension range and checks the harmonic exponential-generating-function coefficients and the differentiated covariance series with exact rational arithmetic.
+Conditional on count n, n uniform points on [0,t] give Dirichlet(1,...,1) normalized n+1 gaps, including the right censored last gap; integrate the exact inclusion-exclusion tail to get E[L|N=n]=t H_{n+1}/(n+1) even at n=0. The harmonic exponential generating function e^μ Ein(μ) yields E[L]=t Ein(μ)/μ. Poisson score identity Cov(N,g(N))=μ d/dμ E[g(N)] gives t/μ[1-e^{-μ}-Ein(μ)]. Its negative sign follows from derivative of Ein(μ)-1+e^{-μ} being [1-(1+μ)e^{-μ}]/μ>0. Independent 90-term direct Poisson mixture at μ=3,t=2 computed covariance -0.4924422686878027 versus analytic -0.49244226868780216; checked both small μ -λt²/4 and large μ -(log μ+γ-1)/λ. Correct only for homogeneous Poisson fixed window including both endpoint gaps.
 
-The finite checker is supplementary. The theorem for all \(\lambda>0\) and \(t>0\) follows from the analytic argument above.
+## originality
 
-The result does not cover the longest completed interarrival interval when the terminal censored gap is omitted, nor inhomogeneous Poisson processes.
+PASS
+
+Known uniform simplex maximum mean and Poisson longest-gap marginal laws fully credited. Their combination with the standard Poisson score identity yields an exact *joint* count/gap covariance and universal strict sign; no inspected exact formula under cross-moment aliases. This is a concise, natural quantitative extension, with sizeable old-spacing-literature residual risk.
+
+## value
+
+PASS
+
+Count and maximal idle gap are canonical observables of the same Poisson process; their exact negative covariance (all intensities and windows) measures a meaningful dependence absent from the known separate marginal formulas. The derivation is short but the joint statistic and sign are independently useful, with modest rather than paper-sized mathematical scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T00:45:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on count n, n uniform points on [0,t] give Dirichlet(1,...,1) normalized n+1 gaps, including the right censored last gap; integrate the exact inclusion-exclusion tail to get E[L|N=n]=t H_{n+1}/(n+1) even at n=0. The harmonic exponential generating function e^μ Ein(μ) yields E[L]=t Ein(μ)/μ. Poisson score identity Cov(N,g(N))=μ d/dμ E[g(N)] gives t/μ[1-e^{-μ}-Ein(μ)]. Its negative sign follows from derivative of Ein(μ)-1+e^{-μ} being [1-(1+μ)e^{-μ}]/μ>0. Independent 90-term direct Poisson mixture at μ=3,t=2 computed covariance -0.4924422686878027 versus analytic -0.49244226868780216; checked both small μ -λt²/4 and large μ -(log μ+γ-1)/λ. Correct only for homogeneous Poisson fixed window including both endpoint gaps.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A full marginal longest-gap distribution permits in principle computing E[L] but does not determine Cov(N,L) unless the Poissonized conditional decomposition is retained. The primary paper discusses Poissonized spacings and large deviations, not the mixed covariance."
+        ],
+        "reasoning": "The algebra reuses prior ingredients; the exact mixed dependence and strict sign are distinct questions not asserted by the cited longer marginal results.",
+        "searches": [
+          "Omwonylee 2020 full PDF Sections 1–3; Onn–Weissman 2011 marginal simplex results"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search: Poisson process longest gap number of arrivals covariance joint distribution expected maximum uniform spacings",
+        "DOI:10.1017/S0004972719000972, https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A29AFEB336344478075509B912415EC/S0004972719000972a.pdf/large-deviations-for-the-longest-gap-in-poisson-processes.pdf",
+        "DOI:10.1007/s10479-009-0567-7 (Onn–Weissman, 2011)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once E[L|N=n]=t H_{n+1}/(n+1) is known, using its exponential generating function and μ d/dμ Poisson expectation produces the new formula by short but non-vacuous calculation."
+        ],
+        "reasoning": "This is not an original conditional mean or a novel score identity; the original, motivated joint covariance and universal strict sign are the claim, with modest scope acknowledged.",
+        "searches": [
+          "Onn–Weissman maximal-simplex expectation; classical Poisson score identity; Omwonylee 2020"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent statement may be the Poisson count score identity for the expectation of the maximum uniform spacing or a mixed moment E[N(t)L_t]. Both aliases checked; known conditional maximal-coordinate mean explicitly credited."
+        ],
+        "reasoning": "The existing marginal law and conditional mean are not themselves the explicit joint count-gap covariance, although combining known identities gives it economically.",
+        "searches": [
+          "Poisson process longest gap number of arrivals covariance joint distribution expected maximum uniform spacings; DOI:10.1017/S0004972719000972; DOI:10.1007/s10479-009-0567-7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary found a distinct uniform-compositions count versus maximum record, not a Poisson arrival–gap mixed moment; targeted full-text search in Omwonylee for covariance found no match."
+        ],
+        "reasoning": "No indexed matching explicit Ein covariance table was located; overlapping classical random-spacing literature remains a genuine risk.",
+        "searches": [
+          "Poisson process longest gap number of arrivals covariance joint distribution expected maximum uniform spacings; Resultary top-15 2026-10-17; DOI:10.1017/S0004972719000972"
+        ]
+      },
+      "rationale": "Known uniform simplex maximum mean and Poisson longest-gap marginal laws fully credited. Their combination with the standard Poisson score identity yields an exact *joint* count/gap covariance and universal strict sign; no inspected exact formula under cross-moment aliases. This is a concise, natural quantitative extension, with sizeable old-spacing-literature residual risk.",
+      "residual_risks": [
+        "Homogeneous Poisson and terminal censored gap included; not inhomogeneous processes or the completed-gap-only statistic.",
+        "Old maximal-spacing literature can contain equivalent score-derived covariance under a different symbol; published Omwonylee full text sampled and keyword-searched but no exhaustive literature guarantee.",
+        "Unindexed same-object prior or stronger theorem might independently subsume this claim; search absence never proves novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_MARGINAL_GAP_AND_CONDITIONAL_SPACING_NOT_EXPLICIT_CROSS_COVARIANCE",
+          "evidence": "Conditional uniform spacings and longest-gap distribution are prior facts. The inspected sections concern marginal distribution and large deviations rather than Cov(N(t),L_t).",
+          "identifier_or_url": "DOI:10.1017/S0004972719000972, https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A29AFEB336344478075509B912415EC/S0004972719000972a.pdf/large-deviations-for-the-longest-gap-in-poisson-processes.pdf",
+          "material_read": "11-page primary PDF definitions, conditional maximal-uniform-spacing identity and large-deviation theorems, searched full PDF text for covariance",
+          "method": "Lawful publisher full-text PDF opened and first pages screenshot inspected",
+          "title": "Large Deviations for the Longest Gap in Poisson Processes",
+          "trigger": "Exactly same fixed-window longest gap, potential covariance already in distributional results"
+        },
+        {
+          "assessment": "KNOWN_MAX_SPACING_MEAN_CREDITED",
+          "evidence": "The conditional mean t H_{n+1}/(n+1) is a known maximal-uniform-simplex-coordinate formula, not counted as the new finding.",
+          "identifier_or_url": "DOI:10.1007/s10479-009-0567-7 (Onn–Weissman, 2011)",
+          "material_read": "Bibliographic/accessible abstract and source relation; no complete publisher PDF access in this run",
+          "method": "Abstract and source cross-reference comparison",
+          "title": "Generating uniform random vectors over a simplex with implications to the volume of a certain polytope and to multivariate extremes",
+          "trigger": "Known harmonic expectation of maximum Dirichlet spacing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Count and maximal idle gap are canonical observables of the same Poisson process; their exact negative covariance (all intensities and windows) measures a meaningful dependence absent from the known separate marginal formulas. The derivation is short but the joint statistic and sign are independently useful, with modest rather than paper-sized mathematical scope.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a rate-λ homogeneous Poisson process on [0,t] with both boundary gaps, Cov(N(t),L_t)=t[1-e^{-μ}-Ein(μ)]/μ<0 where μ=λt, with sharp small/large μ asymptotics.",
+  "limitations": [
+    "Homogeneous Poisson and terminal censored gap included; not inhomogeneous processes or the completed-gap-only statistic.",
+    "Old maximal-spacing literature can contain equivalent score-derived covariance under a different symbol; published Omwonylee full text sampled and keyword-searched but no exhaustive literature guarantee."
+  ],
+  "schema_version": 1
+}
