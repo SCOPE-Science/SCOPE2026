@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T03:01:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the disease-free equilibrium the eight infected/latent coordinates (EC,EM,ECM,IC,IM,ICM,Er,Ir) decouple from stable noninfected compartments at linear order. The nonnegative new-infection matrix F has F14=F16=βa,F25=F26=βc,F28=βb,F78=βr; V is lower triangular with positive diagonal (a,b,c,d,e,u,g,h), and off-diagonal transfers ECM<-φC EC, ECM<-φM EM, IC<-θC EC, IM<-θM EM, ICM<-θCM ECM, Ir<-θr Er. Exact inversion reduces FV^-1 nonzero eigenvalues to 3x3 G=[[A,B,0],[C,D,βb θr/(gh)],[0,0,βr θr/(gh)]] with w=θCM/(cu), A=βa(θC/d+φC w)/a, B=βa φM w/b, C=βc φC w/a, D=βc(θM/e+φM w)/b. Perron eigenvalue of coupled human 2x2 is (A+D+sqrt((A-D)^2+4BC))/2; max with rodent value gives exact strict local DFE threshold by nonsingular-M-matrix NGM theorem. Every parameter in the exhibited rational witness is positive and G evaluates exactly [[329/180,56/45,0],[8/45,47/180,1/4],[0,0,1/4]], human threshold 47/45+sqrt(27049)/180>1 while source separate Rc=7/8,Rm=1/8,Rr=1/4. Independently rebuilt F,V symbolically, checked all matrix entries and exact witness. Equality Rfull=1 and global dynamics explicitly excluded.",
+      "risk": "Strict local DFE stability of equations as literally printed, not global equilibria, epidemic predictions, or purported simulation implementation.",
+      "sources": [
+        "Frozen source Eq.(1) as restated in RESULT.md and primary Acheneje full article",
+        "Diekmann–Heesterbeek–Roberts 2010 next-generation matrix theorem",
+        "van den Driessche–Watmough 2002 M-matrix threshold theorem",
+        "independent_checks.py symbolic 8x8 to 3x3 identity"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A different shared-exposed model has additive R0 not max, establishing the general phenomenon; it does not imply these A,B,C,D rational paths.",
+          "Generic next-generation theory implies stability once the correct F and V are built but does not furnish them for these printed equations."
+        ],
+        "reasoning": "A general algorithmic theorem can be used to prove a concrete correction without already stating or implying the model-specific arithmetic contradiction as an established finding.",
+        "searches": [
+          "Resultary 2026/10/4/SCOPE-a-shared-exposed-class-makes-the-multistrain-invasion-threshold--742f77f7a142",
+          "van den Driessche–Watmough Math Biosci 180 (2002)",
+          "Acheneje full 2025 article"
+        ]
+      },
+      "checked_sources": [
+        "Acheneje et al Discover Public Health (2025) complete open-access equations and threshold theorem",
+        "Diekmann et al J R Soc Interface 2010",
+        "van den Driessche & Watmough 2002",
+        "Resultary distinct shared-exposed multistrain coupled-threshold finding",
+        "Independent exact symbolic F/V/G check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full printed equations already contain the terms from which G follows; their published threshold is a different, false expression when φC,φM>0. Generic spectral theory justifies the derivation but does not assert that counterexample as a corollary of the published incorrect R0."
+        ],
+        "reasoning": "The general fact coupling matters does not settle the literal 15-equation coefficient structure; explicit open-set positive-parameter instability against the stated paper rule is the surviving correction.",
+        "searches": [
+          "Acheneje et al DOI 10.1186/s12982-025-00893-z Eq.(1), full threshold section",
+          "Diekmann–Heesterbeek–Roberts 2010",
+          "Resultary shared exposed multistrain finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full Jacobian criterion is equivalently the Perron radius of a reduced entry-compartment next-generation matrix G, with human off-diagonal product BC>0 whenever the specified cross-progression and transmission rates are positive."
+        ],
+        "reasoning": "The spectral-radius reduction is standard; the exact non-triangular source-specific human block and contradiction are the claimed new computations.",
+        "searches": [
+          "Resultary: COVID Mpox coinfection next generation reproduction number fifteen compartments cross exposed infectious threshold matrix",
+          "Acheneje et al DOI 10.1186/s12982-025-00893-z Eq.(1) Sections 3.1–3.3",
+          "Diekmann–Heesterbeek–Roberts 2010"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source component table/threshold gives max(7/8,1/8,1/4)=7/8 at positive witness; exact full matrix has rho>1."
+        ],
+        "reasoning": "The source numerical or separate-model table is demonstrably inconsistent with the literal full model; there is no prior correct table giving G for this specific printed system.",
+        "searches": [
+          "Acheneje et al 2025 component reproduction numbers and Theorem 11",
+          "Resultary combined co-infection threshold search"
+        ]
+      },
+      "rationale": "Acheneje et al (2025), the same 15-class COVID–Mpox source, print cross-progression paths φC EC+φM EM into co-exposure and simultaneous infectivity from ICM, yet compute separate-disease reproduction ratios and assert the maximum as the full threshold. Standard Diekmann and van den Driessche methods give a general construction but not its model-specific coupled 2x2 Perron block or the strictly positive contradiction. Resultary has a qualitatively analogous shared-exposed coupled-threshold failure for a different multistrain model; it is not this matrix. The exact published-model correction is a substantive new statement best-of-knowledge.",
+      "residual_risks": [
+        "An unindexed correction/erratum or manuscript postscript might already compute this exact G.",
+        "The full printed model is biologically debatable because co-exposure receives unforced single-exposure progression; mathematics is conditional on literal equations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The published max of separate component R values omits the linear cross-progressions appearing in its full printed ODE.",
+          "evidence": [
+            "EC and EM directly feed ECM through φC and φM; ICM transmits both; Theorem 11 uses separate maximum"
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/s12982-025-00893-z",
+          "material_read": "Complete accessible publisher article, especially printed Eq. (1), force-of-infection definitions, Sections 3.1–3.3 and Theorem 11",
+          "method": "Read full HTML primary paper, matched each linear transfer and infection path",
+          "title": "Mathematical modelling on the transmission dynamics of the co-infection of COVID-19 and Monkeypox with treatment as a control strategy",
+          "trigger": "Exact fifteen-compartment source whose claimed DFE threshold is tested"
+        },
+        {
+          "assessment": "Generic method, not a published calculation of this COVID–Mpox 15-equation model.",
+          "evidence": [
+            "rho(FV^-1) at disease-free equilibrium is the invasion threshold for correctly split models"
+          ],
+          "identifier_or_url": "https://doi.org/10.1098/rsif.2009.0386",
+          "material_read": "Relevant mathematical definition and nonsingular-M-matrix threshold theorem, not a model-specific coefficient table",
+          "method": "Read established theorem and formula as supporting background",
+          "title": "The construction of next-generation matrices for compartmental epidemic models",
+          "trigger": "General threshold theorem applicable to the infected subsystem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An open set of all-positive parameters flips the local DFE stability verdict from the paper’s reported subcritical maximum to a supercritical coupled Perron root. This is a substantive correctness correction to a fifteen-compartment epidemiological model and explains exactly which latent co-infection pathways cause the failure; not a textbook reapplication without a model-specific consequence. The claim carefully excludes public-health predictions and does not infer nonlinear endemic prevalence.",
+      "risk": "Model source equations only, not validation of biological mechanism, simulation code or empirical outcomes.",
+      "sources": [
+        "Acheneje et al printed Theorem 11 and Eq.(1)",
+        "All-positive exact rational witness and standard next-generation theorem"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Applies only to published fifteen-equation deterministic ODE at the disease-free equilibrium with positive rates.",
+    "No conclusion at Rfull=1 or about global dynamics/endemic coexistence.",
+    "Biological fidelity and source implementation unverified."
+  ],
+  "schema_version": 1
+}
