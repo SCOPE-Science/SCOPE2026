@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+
+The offspring generating function defines a proper positive Sibuya distribution. The branching semigroup solves an elementary transformed ODE exactly, and the explosion-time law has a positive density. Conditioning uses the density-weighted branching identity for any fixed \(T>0\). Differentiating the exact transform gives the finite-time one-particle probability and conditional mean. Two independent small parameters appear: \(u\) from exponential semigroup time and \(w=E(u)\asymp u^{1/(1-\alpha)}\) from population scaling. Their competing powers yield the three regimes in the claim. The coefficient's signed-measure threshold follows from gamma Laplace transforms and the boundedness of transforms of finite signed measures. The proof specifies quantifiers, normalization and the necessary compact-Laplace-argument restriction. The stand-alone numerical script checks finite formulas and subleading residuals; it is not used as an infinite proof.
+
+## Originality — PASS (subject to listed risks)
+
+The closest primary work is Harris, Johnston and Pardo (arXiv:2610.01810, Sections 3 and 5): it establishes the limiting \(\Gamma(\alpha,1)\) law and general conditional probability-generating-function machinery but not the explicit first/second correction hierarchy or its critical coefficient representation for Sibuya reproduction. Sagitov and Lindo (arXiv:1502.07538, Sections 2, 6 and 7) develop a power-form branching-semigroup family, a relevant stronger antecedent for the semigroup itself; their studied conditional law is not the fixed explosion-time boundary layer here. Targeted literature and mathematical-result searches for explosion-conditioned Sibuya laws, semigroup aliases, gamma first corrections and shape transitions found no covering claim. The formulas are new conclusions drawn from known machinery, not a claim that the machinery is new. Residual risk: a differently worded special-function calculation or theta-branching result may already imply the same complete expansion.
+
+## Mathematical value — PASS
+
+The recent general theorem gives a universal gamma scaling limit but no guidance on finite-distance accuracy or the effect of fixing the explosion time. This result provides a complete analytic benchmark for a canonical infinite-mean offspring law: the exact conditional count transform, first finite-time bias with explicit dependence on \(T\), and a genuine crossover in the next power as the Sibuya exponent passes one half. The exact one-particle probability exposes a small-count boundary layer; the signed-transform threshold distinguishes when the first correction admits an ordinary finite signed gamma-law interpretation. These structural boundary data are relevant to quantitative approximations and simulations of near-explosion populations, not just a change of notation. The result is limited to one offspring family and does not establish a correction for arbitrary slowly varying tails.
+
+Self-review: passed. Independent audit: not yet performed.
