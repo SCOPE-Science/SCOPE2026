@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The root coordinates, signed incidence, ordinary adjacency, spectra, and all degree-zero-through-79 Gegenbauer multiplier signs were recomputed from the embedded executable's exact operations. In higher degrees, the stated probability-integral representation and a Gaussian integral bound imply strict positive definiteness independently of the finite checks. The sample norm and probability-normalized harmonic norm are explicitly distinguished. The cutoff includes all integer degrees, both parities, and every orientation of the antipodal representatives.
+
+**Originality — PASS, with residual risk.** A direct comparison of the all-degree interpolation statement against identified spherical-code/design literature, exceptional-root graph literature, accessible related results, and the recoverable claims of earlier published harmonic-sampling findings did not establish a prior theorem whose statement implies the precise joint \(E_6\)/\(E_7\) rank cutoff and cubic defect. Known adjacency spectra plus the classical addition theorem substantially reduce the problem, but the universal positivity and sharp cutoff must still be checked; those ingredients are not represented as new. Full text of a plausible 1976 root-graph source and of Delsarte–Goethals–Seidel remained inaccessible; an implicit older equivalent is the principal residual risk, and priority is not independently certified.
+
+**Mathematical value — PASS.** These are two classical exceptional root-line interpolation problems, not arbitrary subsamples. The sharp, all-degree classification reveals a cubic loss of exactly six/seven data dimensions despite ample harmonic dimension, a quartic mean constraint, and unconditional full interpolation from degree five. Exact projectors turn the classification into constructive minimal-norm recovery, with quantitative large-degree stability.
+
+Self-review: passed. Independent audit: not yet performed.
