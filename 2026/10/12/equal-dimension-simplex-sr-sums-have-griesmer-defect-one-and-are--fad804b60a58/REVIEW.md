@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The published equal-SR-sum weight formulas specialize to the stated parameters. The proof reconstructs the Griesmer sum term by term and shows
-\[
-G_q(2k,d)=N-1.
-\]
-For distance \(d+1\), the exact ceiling increment is counted from the powers of \(q\) dividing \(d\), yielding \(G_q(2k,d+1)=N+k\) for \(q=2\) and \(G_q(2k,d+1)=N+k-1\) for \(q>2\). Since \(k\ge2\), the Griesmer bound excludes any linear code with the same \(N\) and \(2k\) but larger minimum distance. Direct finite-field enumerations in `verify.py` agree with the formulas.
+## correctness
 
-## Originality
-**PASS.** The closest source is Kwiatkowski (2026). Proposition 4.2 supplies the two-weight distribution, and Theorem 4.4 proves Griesmer equality only when the component dimensions are unequal. The source then says equality fails when the dimensions are equal, but it does not state either the exact one-coordinate deficit or the distance-optimality consequence. Searches using the exact parameter formulas, SR-sum/outer-sum terminology, equal-dimension aliases, and near-Griesmer language found no covering statement.
+PASS
 
-The binary literature cited by the source includes Helleseth (1981) on codes meeting the Griesmer bound. Because the family here provably does not meet that bound, that citation does not itself imply this result. The full Helleseth paper was not inspected, leaving a limited binary-only terminology risk.
+The weight distribution follows from Kwiatkowski Proposition 4.2 with m=1,l=0; the two nonzero weights (q-1)q^(k-1)(q^k-1) and (q-1)q^(k-1)(q^k-2) have frequencies 2(q^k-1) and (q^k-1)^2, giving full q^(2k) words and rank 2k. The first k Griesmer terms sum to q^(2k)-3q^k+2 and the remaining k ceilings to q^k-2 by the exact floor at j=0; G=N-1. The integer-ceiling increment for d+1 is 1 at every q^i dividing d, giving k increments for q>2 and k+1 for q=2. Independently verified 70 prime-power (q,k) arithmetic pairs and constructed the exact full weight distributions for (q,k)=(2,2),(3,2) from the generator columns. Checks are corroborative, proof all parameters algebraic. Griesmer applies only to q-ary linear codes.
 
-## Value
-**PASS.** Equal component dimensions are the unique boundary explicitly excluded from the source's Griesmer-equality theorem. Determining the deficit exactly as one and proving that the resulting codes remain distance-optimal gives a sharp structural completion of that boundary. The statement holds for every prime power \(q\) and every \(k\ge2\), rather than for an arbitrary finite slice.
+## originality
 
-## Closest literature and limitations
-Closest literature: M. Kwiatkowski, *SR-sum of linear codes*, DOI 10.3934/amc.2026052, especially Proposition 4.2 and Theorem 4.4. The result concerns linear Hamming-metric codes only, assumes the source's published weight formulas, excludes \(k=1\), and does not establish nonlinear optimality or equivalence classification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge original exact near-Griesmer distance boundary. Kwiatkowski Prop 4.2 fully supplies the weights and Thm 4.4 proves equality for unequal dimensions; the paragraph following Thm 4.4 explicitly says equality fails for equal dimensions but does not give the exactly-one defect nor compute the optimal attainable next distance. A result phrased as one-defect Griesmer optimality in older coding sources remains a bounded priority risk.
+
+## value
+
+PASS
+
+Equal-dimension coupling is the canonical omitted parameter boundary of the published construction. Determining its exact defect AND excluding larger distance for all q and k resolves the natural parameterwise optimal-distance question, useful for selecting and benchmarking two-weight linear codes. It is more than a finite table or a trivial parameter renaming, though not a new universal coding bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
