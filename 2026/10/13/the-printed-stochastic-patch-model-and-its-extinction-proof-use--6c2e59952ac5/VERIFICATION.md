@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,54 +18,25 @@
   "schema_version": 1
 }
 ---
-The bundled checker verifies the two variance minimizations exactly.
 
-For independent Brownian drivers it checks
-\[
-\min_{0\le p\le1}
-\left[
-\sigma_1^2p^2+\sigma_2^2(1-p)^2
-\right]
-=
-\frac{\sigma_1^2\sigma_2^2}
-{\sigma_1^2+\sigma_2^2}.
-\]
+# Independent mathematical audit
 
-For the common positive Brownian loading printed in the model it checks
-\[
-\min_{0\le p\le1}
-\left[
-\sigma_1p+\sigma_2(1-p)
-\right]^2
-=
-\min\{\sigma_1^2,\sigma_2^2\}.
-\]
+## correctness
 
-For
-\[
-r=\frac38,
-\qquad
-\sigma_1=\sigma_2=1,
-\]
-it verifies
-\[
-\Lambda=\frac34,
-\qquad
-v_{\mathrm{ind}}=\frac12,
-\qquad
-v_{\mathrm{com}}=1.
-\]
-Thus
-\[
-\Lambda>v_{\mathrm{ind}}
-\]
-but
-\[
-\Lambda<v_{\mathrm{com}}.
-\]
+PASS
 
-The proof of exponential extinction in the witness is analytic and uses the exact common-noise total-population equation together with
-\[
-B_1(t)/t\to0
-\]
-almost surely.
+In the actual Eq. (1.4)-(1.5), both diffusion coordinates use B1. With Y=x1+theta*x2 and p=x1/Y, common-noise quadratic variation is [sigma1*p+sigma2*(1-p)]^2, whose sharp minimum for positive sigmas is min(sigma1^2,sigma2^2). The proof of Theorem 4.4 uses B1,B2 and independent variance sigma1^2*p^2+sigma2^2*(1-p)^2 with minimum sigma1^2*sigma2^2/(sigma1^2+sigma2^2). Perron comparison then gives sufficient common-noise extinction condition Lambda<min(sigma_i^2). For symmetric pollution-free r=3/8, migration d>0, sigmas=1, Lambda=3/4 lies above independent bound 1/2 but below common bound 1; Ito on log(x1+x2) yields drift <=-1/8, a.s. exponential extinction. Exact symbolic minima independently checked.
+
+## originality
+
+PASS
+
+Source 2020 Eqs. (1.4)-(1.5) visibly repeat B1 while Theorem 4.4 proof Eq. (4.7) uses B2 and the sum-of-squares Ito correction. Covariance-dependent population results of Zou-Fan-Wang and Hening-Nguyen-Yin are prior, but no located primary source states this specific printed/proved mismatch or sharp revised threshold for the printed system. The author-paper comparison is direct.
+
+## value
+
+PASS
+
+Perfect environmental correlation is a model-defining biological assumption; it changes the uniform logarithmic Ito correction. The factor-two equal-intensity gap and strict extinction witness quantify a material parameter region missed by the published sufficient bound. It is more than swapping an inert Brownian symbol.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

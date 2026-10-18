@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T10:11:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the actual Eq. (1.4)-(1.5), both diffusion coordinates use B1. With Y=x1+theta*x2 and p=x1/Y, common-noise quadratic variation is [sigma1*p+sigma2*(1-p)]^2, whose sharp minimum for positive sigmas is min(sigma1^2,sigma2^2). The proof of Theorem 4.4 uses B1,B2 and independent variance sigma1^2*p^2+sigma2^2*(1-p)^2 with minimum sigma1^2*sigma2^2/(sigma1^2+sigma2^2). Perron comparison then gives sufficient common-noise extinction condition Lambda<min(sigma_i^2). For symmetric pollution-free r=3/8, migration d>0, sigmas=1, Lambda=3/4 lies above independent bound 1/2 but below common bound 1; Ito on log(x1+x2) yields drift <=-1/8, a.s. exponential extinction. Exact symbolic minima independently checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General stochastic population work explicitly distinguishes perfectly correlated and independent environmental noise."
+        ],
+        "reasoning": "Published covariance principles imply the two variance formulas but do not provide the particular source mismatch or the source-specific spectral-threshold correction; their generality is credited.",
+        "searches": [
+          "Zou Fan Wang 2013 Effects of Dispersal for a Logistic Growth Population in Random Environments",
+          "Hening Nguyen Yin 2018 stochastic population environmental covariance matrix"
+        ]
+      },
+      "checked_sources": [
+        "Dai, Wang, Yan, Mao, Xiong, AIMS Mathematics 5 (2020), DOI 10.3934/math.2020434, Eqs (1.4)-(1.5), (4.7)-(4.9)",
+        "Zou, Fan, Wang, Abstract and Applied Analysis 2013, DOI 10.1155/2013/912579",
+        "Hening, Nguyen, Yin, Journal of Mathematical Biology 76 (2018), DOI 10.1007/s00285-017-1153-2",
+        "Resultary semantic query: two patches common Brownian vs independent extinction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source independent-noise sufficient condition uses sigma1^2*sigma2^2/(sigma1^2+sigma2^2); replacing covariance in the proof yields min sigma_i^2 for its literally printed correlated system."
+        ],
+        "reasoning": "The source theorem does not explicitly give the latter threshold; its weaker independent criterion can still be sufficient under common noise, so this does NOT prove Theorem 4.4 itself false. It proves a model/proof mismatch and sharpened sufficient bound.",
+        "searches": [
+          "Dai Wang Yan Mao Xiong Theorem 4.4 single species chemotaxis polluted stochastic 2020",
+          "DOI 10.3934/math.2020434 erratum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original source Eq (1.4)-(1.5) says B1 in both patches; Theorem 4.4 proof Eqs (4.7)-(4.9) uses B2 and adds squared noise amplitudes."
+        ],
+        "reasoning": "Common one-Brownian and independent two-Brownian systems are not equivalent by noise-label renaming: off-diagonal covariance is sigma1*sigma2*x1*x2 in the first, zero in the second. These give different sharp variance minima.",
+        "searches": [
+          "Resultary: stochastic population two patches common Brownian noise vs independent extinction Dai Wang Yan Mao Xiong 2020",
+          "DOI 10.3934/math.2020434 corrections B1 B2",
+          "perfect correlation patch population extinction Ito variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact example r=3/8 and sigma=1 is an analytical witness, not an independently unknown table entry."
+        ],
+        "reasoning": "Database/table check is specifically inapplicable: the claim corrects a stochastic-model formula and sufficient inequality; figures cannot establish the intended Brownian coupling without simulation code.",
+        "searches": [
+          "AIMS Mathematics 2020 DOI math.2020434 Figure 2 sigma1 sigma2",
+          "Resultary stochastic patch correlation extinction bound"
+        ]
+      },
+      "rationale": "Source 2020 Eqs. (1.4)-(1.5) visibly repeat B1 while Theorem 4.4 proof Eq. (4.7) uses B2 and the sum-of-squares Ito correction. Covariance-dependent population results of Zou-Fan-Wang and Hening-Nguyen-Yin are prior, but no located primary source states this specific printed/proved mismatch or sharp revised threshold for the printed system. The author-paper comparison is direct.",
+      "residual_risks": [
+        "If the repeated B1 in the model is a transcription error, the published proof may be for the intended independent-noise model.",
+        "The stronger corrected common-noise sufficient condition does not imply that the independent-noise model persists in the witness regime.",
+        "Simulation source is unavailable, so no claim about Brownian coupling used to draw figures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Printed model both B1; proof mixes B1/B2 and uses independent-square quadratic variation.",
+          "evidence": "Eqs (1.4)-(1.5), (4.1), (4.7), (4.8), (4.9), Theorem 4.4.",
+          "identifier_or_url": "https://www.researchgate.net/publication/344021913_Survival_analysis_of_single-species_population_diffusion_models_with_chemotaxis_in_polluted_environment",
+          "material_read": "Full accessible article mathematical text at Eq (1.4)-(1.5), preliminaries defining effective variance, Lemma 4.1, Theorem 4.4 and Eqs (4.7)-(4.9), persistence remarks.",
+          "method": "read publisher-equivalent article rendering and mathematical source equations",
+          "title": "Survival analysis of single-species population diffusion models with chemotaxis in polluted environment",
+          "trigger": "exact same stochastic model and alleged proof mismatch"
+        },
+        {
+          "assessment": "Explicit independent driving Brownian motions in prior model, not a source-specific fix to Dai et al.",
+          "evidence": "Independent B1,B2 assumption, distinct covariance model.",
+          "identifier_or_url": "https://doi.org/10.1155/2013/912579",
+          "material_read": "Source-reported independent Brownian assumption and literature comparison at available full-text/abstract context, not every appendix.",
+          "method": "read exposed mathematical assumption and cited structural comparison",
+          "title": "Effects of Dispersal for a Logistic Growth Population in Random Environments",
+          "trigger": "close cited earlier two-patch SDE"
+        },
+        {
+          "assessment": "Prior covariance-sensitive theory, no asserted exact 2020 erratum.",
+          "evidence": "General environmental covariance includes perfect correlation.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-017-1153-2",
+          "material_read": "Accessible abstract/assumption material on general noise correlation and extinction, not complete full-text theorem-by-theorem comparison.",
+          "method": "read available source-level summary",
+          "title": "Stochastic population growth in spatially heterogeneous environments: the density-dependent case",
+          "trigger": "broader covariance framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Perfect environmental correlation is a model-defining biological assumption; it changes the uniform logarithmic Ito correction. The factor-two equal-intensity gap and strict extinction witness quantify a material parameter region missed by the published sufficient bound. It is more than swapping an inert Brownian symbol.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "If the repeated B1 in the model is a transcription error, the published proof may be for the intended independent-noise model.",
+    "The stronger corrected common-noise sufficient condition does not imply that the independent-noise model persists in the witness regime.",
+    "Simulation source is unavailable, so no claim about Brownian coupling used to draw figures."
+  ],
+  "schema_version": 1
+}

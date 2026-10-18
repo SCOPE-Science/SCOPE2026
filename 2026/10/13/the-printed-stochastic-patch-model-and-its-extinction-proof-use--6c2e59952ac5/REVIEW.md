@@ -1,29 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Equations (1.4)-(1.5) print one Brownian motion in both patch equations, whereas the later proofs use two Brownian motions and a sum-of-squares quadratic variation. Recomputing the weighted-total Itô correction gives the sharp independent-noise floor
-\[
-\frac{\sigma_1^2\sigma_2^2}{\sigma_1^2+\sigma_2^2}
-\]
-and the sharp common-noise floor
-\[
-\min\{\sigma_1^2,\sigma_2^2\}.
-\]
-The exact symmetric witness has logarithmic total-population drift at most \(-1/8\), proving exponential extinction almost surely.
+PASS
 
-## Originality
+In the actual Eq. (1.4)-(1.5), both diffusion coordinates use B1. With Y=x1+theta*x2 and p=x1/Y, common-noise quadratic variation is [sigma1*p+sigma2*(1-p)]^2, whose sharp minimum for positive sigmas is min(sigma1^2,sigma2^2). The proof of Theorem 4.4 uses B1,B2 and independent variance sigma1^2*p^2+sigma2^2*(1-p)^2 with minimum sigma1^2*sigma2^2/(sigma1^2+sigma2^2). Perron comparison then gives sufficient common-noise extinction condition Lambda<min(sigma_i^2). For symmetric pollution-free r=3/8, migration d>0, sigmas=1, Lambda=3/4 lies above independent bound 1/2 but below common bound 1; Ito on log(x1+x2) yields drift <=-1/8, a.s. exponential extinction. Exact symbolic minima independently checked.
 
-PASS. Correlation-dependent stochastic population survival is prior theory. The accepted contribution is source-specific: the printed 2020 model is perfectly correlated, its proofs are independent-noise proofs, and the exact replacement changes the sufficient extinction margin. Exact source and alias searches found no published correction.
+## originality
 
-## Value
+PASS
 
-PASS. The paper interprets environmental noise intensity as a driver of extinction and persistence. Correlation is therefore not a cosmetic Brownian label: it changes the quadratic variation and doubles the sharp uniform extinction margin for equal patch noise. The strict witness shows a parameter range that the printed common-noise model certifies extinct but the source's stated threshold does not cover.
+Source 2020 Eqs. (1.4)-(1.5) visibly repeat B1 while Theorem 4.4 proof Eq. (4.7) uses B2 and the sum-of-squares Ito correction. Covariance-dependent population results of Zou-Fan-Wang and Hening-Nguyen-Yin are prior, but no located primary source states this specific printed/proved mismatch or sharp revised threshold for the printed system. The author-paper comparison is direct.
 
-## Closest literature and limitations
+## value
 
-A related two-patch stochastic diffusion paper explicitly assumes mutually independent Brownian motions. General stochastic patch-population theory treats environmental covariance, including perfectly correlated noise, as structural and capable of changing persistence/extinction behavior.
+PASS
 
-The result does not determine which noise structure was used in unavailable simulation code and does not claim that every source theorem fails under common noise.
+Perfect environmental correlation is a model-defining biological assumption; it changes the uniform logarithmic Ito correction. The factor-two equal-intensity gap and strict extinction witness quantify a material parameter region missed by the published sufficient bound. It is more than swapping an inert Brownian symbol.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
