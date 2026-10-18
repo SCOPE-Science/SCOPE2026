@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source equations were transcribed line-by-line. Exact arithmetic reproduces the shared weak combinatorics \( (13;16,6,4,2) \). The complete incidence-lattice automorphism groups are obtained from a colored Levi graph, and every candidate projectivity is uniquely reconstructed from four dual line-points in general position and then checked on all thirteen lines. The exhaustive profiles are \(C_2\) with only the identity projective for \(\mathcal A\), and order-\(8\) \(D_8\) with projective subgroup \(V_4\) for \(\mathcal B\).
+## correctness
 
-## Originality
-PASS. The inspected primary full text states the equations, weak combinatorics, and free/plus-one-generated distinction but contains no automorphism, stabilizer, or symmetry computation. Exact and alias searches in the published research index found no covering claim. The closest hits concern different arrangements and cannot imply the result. Residual risk remains that supplemental data or older unlabeled matroid literature contains the same finite-group calculation.
+PASS
 
-## Value
-PASS. These are the explicit arrangements realizing the smallest known counterexample in the source to the Numerical Terao Conjecture. Determining their full geometric isotropy adds a natural exact invariant: the common weak combinatorics conceals a fourfold projective-symmetry jump, while both arrangements exhibit the same index-two gap between abstract lattice symmetry and projective realizability. The result is not presented as a causal explanation of the homological difference.
+Over Q(i) and Q(sqrt(5)) the actual thirteen dual line-coefficient points from the source equations yield exactly 16 double, 6 triple, 4 quadruple and 2 quintuple intersections in each arrangement. The complete colored incidence graph of lines and all multiplicity-at-least-three points reconstructs the full lattice, since every remaining line-pair intersection is double; exact graph-isomorphism enumeration independently gives 2 and 8 lattice permutations with respective element-order profiles (1,1) and (1,5,2 for orders 1,2,4). For every lattice permutation a unique candidate dual projectivity is determined by a four-point projective frame, and testing all thirteen images leaves respectively 1 and 4 maps. These are C2 and D8 in the lattices, trivial and V4 in the projective stabilizers. The finite enumeration is exhaustive through the lattice-permutation upper bound, not merely a random sample.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The published numerical-Terao pair has exactly these two arrangements and freeness contrast. Its full available primary manuscript does not state or imply their computed isotropy groups, and neither an unrelated line-arrangement stabilizer theorem nor knowledge of the common weak-combinatorics fixes either group. The source-reconstructible but nontrivial projectivity test is an additional exact result; priority against unpublished supporting code remains uncertain.
+
+## value
+
+PASS
+
+The smallest published Numerical Terao counterexample is a natural geometric test case, and both its intersection-lattice and projective stabilizers are intrinsic finite-group invariants. The complete symmetry jump distinguishes these realizations beyond their common weak combinatorics and is not a generic textbook deduction from the homological exponents; useful for deformation, realization-space and arrangement automorphism questions, without claiming it causes the freeness contrast.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
