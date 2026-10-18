@@ -1,0 +1,15 @@
+# Scientific review: triangle–induced-hole covariance
+
+## Correctness — PASS
+The claim is a full finite-parameter mixed-covariance identity, not an extrapolation of sample experiments. For an indexed triangle and indexed induced \(\ell\)-cycle the events use disjoint edge sets when their vertices overlap in zero or one positions, have compatibility probability \(2/(\ell-1)\) when overlapping in two positions, and are impossible together when overlapping in three positions. Summing exactly \(3\binom{n-3}{\ell-2}\) and \(\binom{n-3}{\ell-3}\) such positions per triangle gives the stated formula, with the normalization \((\ell-1)!/2\) cycles per \(\ell\)-set. The strictly decreasing affine factor proves uniqueness of the root, its sign law, and the boundaries; exact algebra proves monotonicity and the asymptotic shift. Reproducible finite independent enumeration and rational checks are available in `verify.py`; these tests are corroboration, not the infinite proof. Risks: extensions to fixed-edge-count graphs or growing \(\ell\) are unproved, and no joint-association claim is made.
+
+## Originality — PASS, with historical-priority risk
+The inspected 2010 Ellis–Ferry material provides overlap polynomials for the variance of **one ordinary subgraph count**, not this mixed induced-hole covariance. Sah–Sawhney's accessible 2020 preprint addresses local-limit laws and exceptional densities for **single induced-motif counts**, without stating the evaluated finite-size mixed formula or its hierarchy. Janson's 1990 asymptotic random-graph theory is relevant but was accessible only in abstract form. Searches for equivalent terms (induced hole/chordless cycle, triangle, mixed counts, covariance, threshold) and published mathematical-research descriptions did not locate an exactly covering theorem. A general higher-order U-statistic identity might imply this calculation with some algebra; independent historical-priority review is outstanding. No unpublished or inaccessible paper was represented as inspected in full.
+
+## Mathematical value — PASS
+Triangles quantify local transitivity, while induced holes are the elementary chordless obstructions underlying chordality and broader network cycle structure. Their joint sign is not determined by separate means or variances. The theorem supplies a complete all-\(n\), all-\(\ell\) finite-size phase boundary, sharply identifies the small-vertex obstruction \(n=\ell\), proves ordered sign thresholds, and explains why the natural limiting edge-density fraction is **not** the exact finite-size zero. These distinguish it from an isolated numerical covariance or an arbitrary parameter slice.
+
+## Closest literature and limits
+Ellis–Ferry (2010), doi:10.1016/j.dam.2009.11.012; Sah–Sawhney (2020), arXiv:2006.11369; Janson (1990), doi:10.1002/rsa.3240010103. General graph-factor and overlap methods may yield parts of the calculation, so priority remains a risk. The exact theorem assumes independent edges and \(n\ge\ell\ge4\).
+
+Self-review: passed. Independent audit: not yet performed.
