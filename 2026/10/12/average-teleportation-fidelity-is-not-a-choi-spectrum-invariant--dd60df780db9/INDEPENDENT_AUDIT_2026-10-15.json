@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T21:56:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each d>=2 take |Phi_d>=d^{-1/2}sum_j|jj>. The normalized Choi state of any unitary U is the rank-one projector onto (I⊗U)|Phi_d>, hence every such channel has eigenvalues (1,0,...,0), independent of U. The target-relative entanglement fidelity equals |Tr(U)|^2/d^2; the Haar-average identity F_avg=(d F_e+1)/(d+1) therefore yields F_avg(U)=(|Tr U|^2+d)/(d(d+1)). U=I gives 1; U=diag(1,omega,...,omega^{d-1}) with omega=e^{2πi/d} gives 1/(d+1). Source Appendix B.4 instead uses (d+sum λ_i²)/(d(d+1)), producing 1/d with normalized pure Choi and producing 1 with the unnormalized Choi spectrum (d,0,...), so neither convention rescues the formula. This is a universal algebraic contradiction, not an inference from dimensions 2–12. Verified actual appendix and its separate correct identity in main section and pseudocode.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical result treats arbitrary trace-preserving quantum operations, a strictly broader channel family",
+          "For a unitary channel the spectrum is independent of the implemented gate while its fidelity to a FIXED target varies"
+        ],
+        "reasoning": "Broader classical coverage forbids originality claims for the formula or distinction in isolation; only the 2026 source-specific error diagnosis is assessed as new. No independent local erratum was verified.",
+        "searches": [
+          "general CPTP entanglement fidelity versus Choi purity unitary channel target-relative Nielsen 2002",
+          "Choi spectrum purity does not determine average gate fidelity identity channel teleportation channel error Engineering Traversable Wormholes Quantum Computer appendix B4 2026"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.2139/ssrn.6308559 Appendix B.4 and Section 7.4",
+        "ResearchGate 400905247 full author text",
+        "arXiv:quant-ph/0205035v2",
+        "Horodecki et al Phys Rev A 60 1888 (1999) via Nielsen original references",
+        "Resultary query: Choi spectrum purity does not determine average gate fidelity identity channel teleportation channel error Engineering Traversable Wormholes Quantum Computer appendix B4 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All unitary Choi matrices have equal pure spectra, including U=I and traceless U",
+          "The 2002 theorem assigns average fidelities 1 and 1/(d+1)"
+        ],
+        "reasoning": "Prior general identity logically disproves the erroneous expression once it is proposed. It does not constitute a pre-2026 discussion of the particular new error; accepted as a source-focused correction, with a narrow-scientific-value risk.",
+        "searches": [
+          "source DOI:10.2139/ssrn.6308559 Appendix B.4 versus Nielsen Eq 3",
+          "Choi spectrum purity does not determine average gate fidelity identity channel teleportation channel error Engineering Traversable Wormholes Quantum Computer appendix B4 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nielsen Eq (3) F_avg=(d F_e+1)/(d+1), and Eq (2) specifies target unitary",
+          "Wormhole article main text around Section 7.4 writes F_e=<Phi|rho_E|Phi>, not sum eigenvalues squared"
+        ],
+        "reasoning": "The classical general identity covers the algebraic counterexamples but, published before the 2026 manuscript, does not itself identify that source’s incompatible appendix expression; novelty claim is restricted to the identified inconsistency.",
+        "searches": [
+          "Choi spectrum purity does not determine average gate fidelity identity channel teleportation channel error Engineering Traversable Wormholes Quantum Computer appendix B4 2026",
+          "Nielsen 2002 arXiv:quant-ph/0205035v2 average gate fidelity Choi overlap",
+          "Horodecki entanglement fidelity relation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full anchor text Appendix B.4 has F=(d+sum_i lambda_i^2)/(d(d+1))",
+          "Same paper’s pseudocode computes entanglement overlap and the correct average relation"
+        ],
+        "reasoning": "Not a database calculation: exact comparison is between two explicit equations in the 2026 source; searches did not find a correction to that appendix.",
+        "searches": [
+          "\"Engineering Traversable Wormholes\" \"Choi\" \"eigenvalues\" \"fidelity\"",
+          "\"Appendix B.4\" \"teleportation fidelity\" correction erratum"
+        ]
+      },
+      "rationale": "The Horodecki/Nielsen fidelity theorem and distinction between overlap and purity are classical, not original. The remaining specific claim diagnoses the incorrect Appendix B.4 expression of a paper released in 2026, under both Choi normalizations. The anchor paper itself states the correct overlap identity in Section 7.4/pseudocode but does not flag or reconcile its appendix; no full-text earlier published diagnosis of this precise discrepancy was found in targeted Resultary and external searches. A source-specific criticism is not a new gate-fidelity theorem, and the possibility of independent corrections remains.",
+      "residual_risks": [
+        "The mathematically correct formula was already in the manuscript’s main text and pseudocode, making the novelty and value only a localized correction.",
+        "No evidence that published numerical outputs actually used the appendix formula.",
+        "A not-indexed erratum or prior independent correction of Appendix B.4 may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exactly the alleged wrong expression; main text and pseudocode already give the right one",
+          "evidence": "Appendix B.4 states eigenvalue-squares rule; main section F_avg=(dF_e+1)/(d+1), F_e=<Phi|rho_E|Phi>; pseudocode agrees with main text.",
+          "identifier_or_url": "DOI:10.2139/ssrn.6308559; https://www.researchgate.net/publication/400905247_Engineering_Traversable_Wormholes_on_a_Quantum_Computer",
+          "material_read": "Read substantial complete author-distributed manuscript text including main fidelity definition, Appendix B.4, and Appendix D Choi tomography pseudocode",
+          "method": "Full HTML-text reading and cross-section formula comparison",
+          "title": "Engineering Traversable Wormholes on a Quantum Computer (Bhattacharjee et al.)",
+          "trigger": "The exact Appendix B.4 formula must be authenticated against the source"
+        },
+        {
+          "assessment": "Classical theorem supplies all target-relative algebra, not the source-specific 2026 diagnosis",
+          "evidence": "Theorem Eq (3) and targeted Eq (2)/(17) explicitly use entanglement overlap.",
+          "identifier_or_url": "arXiv:quant-ph/0205035v2; https://arxiv.org/html/quant-ph/0205035v2",
+          "material_read": "Read complete three-page HTML source including definitions Eq (2), Eq (3), proof and Eq (17)",
+          "method": "Primary theorem text and proof",
+          "title": "A simple formula for the average gate fidelity of a quantum dynamical operation (Nielsen)",
+          "trigger": "Strongest general prior theorem potentially covering formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The appendix misidentifies target-relative fidelity as spectral purity, yielding a wrong performance score even for the identity operation under one normalization and declaring all unitary coherent errors perfect under the other. This would materially mislead process-tomographic characterization; the two contradictory cases pinpoint exactly why diagonalizing the Choi state loses the target overlap. Value is limited to the localized correction, not to the elementary classical fidelity formula, and does not presume that the paper’s numerical tables used the incorrect expression.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only standard Haar-average channel fidelity relative to a chosen unitary; no nonunitary target statement.",
+    "The anchor has a localized appendix inconsistency, not a demonstrated faulty experimental pipeline."
+  ],
+  "schema_version": 1
+}
