@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The Shannon order comparison is reduced to the exact integer product \(P(a)=\prod_i a_i^{a_i}\); inverse Simpson and Berger–Parker comparisons reduce to \(S(a)=\sum_i a_i^2\) and \(M(a)=\max a_i\). The standalone finite checker exhaustively enumerates 49,958 pairs of equal-census, equal-richness partitions and checks both orientations, while a separately programmed partition-count dynamic recurrence verifies completeness. No exceptions occur through census nineteen, and exactly one oriented pair occurs at census twenty. Exact numerical witnesses and continuity of Hill curves prove the two finite-order crossings. Nothing beyond the explicitly finite census range is inferred from enumeration.
+
+**Originality — PASS, with risk.** Hill (1973), Tóthmérész (1995), Jost (2006), and Liu et al. (2006 online / 2007 issue) establish the interpretation and non-comparability of diversity rankings. In the accessible full Liu paper, definitions, demonstrations and empirical tables do not provide the sharp equal-richness twenty-individual threshold or the unique four-species boundary pair. Tóthmérész's paper remained full-text inaccessible, and hidden equivalent results in diversity-profile literature remain possible. A general rank reversal without the equal-richness condition does not entail the fixed-richness Shannon comparison.
+
+**Value — PASS.** Shannon, inverse Simpson and reciprocal dominance are standard ecological indices that respond differently to rarity and concentration. Enforcing identical richness and total abundance controls two confounders; the precise first census and single boundary pair identify the earliest genuine strict triple-order conflict after those controls. Two crossings follow without assuming that any one index supplies a canonical total ordering. The sharp finite classification is intrinsically a meaningful boundary fact, independent of any downstream large-network theorem.
+
+**Limitations.** Exact integer abundances; no statement about sample-estimation uncertainty, other order triples, or all possible crossover counts. An independent scientific validation remains unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
