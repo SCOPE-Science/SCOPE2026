@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every stable set is contained in a single multipartite class. The threshold equation has a unique solution for at least three classes; its nonnegative coefficients sum to one. The squared distance of every stable-set indicator is computed exactly and is bounded by the proposed radius, with equality precisely for full classes of size at least the threshold. Because the center is a convex combination of equality contacts, the weighted squared-distance identity proves global optimality and uniqueness among all ambient Euclidean centers. Active-set algebra and the invariance under adjoining small classes follow exactly. The included checker enumerates bounded instances using rational arithmetic, but no finite test substitutes for the all-parameter proof.
+## correctness
 
-## Originality
-PASS. Full-text primary and closely related 2-level polytope sources were inspected for their stable-set objects, vertex/facet structures, and plausible Euclidean metric comparisons; no enclosing-sphere or small-class screening theorem was found. Targeted indexed and literature searches used complete multipartite stable-set, Chebyshev center, Euclidean circumradius, free sum, anchored coordinate cubes, and minimum enclosing sphere aliases. Previously recorded perfect-graph inradius, symmetric edge polytope, graphical zonotope, and fractional stable-set results do not imply the new outer-radius statement. The residual risk of an equivalent older coordinate-cube formulation is explicit.
+PASS
 
-## Value
-PASS. The graph polytope is canonical in perfect-graph and 2-level convex geometry. The result gives the full outer Euclidean ball, its unique center, all contact vertices, and an exact rank-like screening law by part sizes. The plateau under adding arbitrarily many small partite classes demonstrates meaningful metric invariance under growing graph size, not a routine isolated numerical evaluation.
+All 0/1 stable-set vertices are subsets of a single part. The scalar F(h)=sum_i(1-h/a_i)_+ decreases continuously from k>2 to zero, determining unique 0<h<max a_i; p_i=(1-h/a_i)_+/2 are nonnegative with sum one. For a size-s subset of class i the exact squared distance to c is B+s(1-2p_i), bounded by B+h with equality precisely for full classes a_i>=h. The center is a convex combination of positive-weight contact vertices, so the variance identity forces every other center y to radius squared at least R^2+||y-c||^2, proving global minimality and uniqueness. Algebra gives h=(|I|-2)/(sum_{i in I}1/a_i), the rational radius, and stability under adding b<=h. Fresh exact rational profiles (1,1,1),(1,2,3,6),(10,10,10,1),(10,10,10,1,1,1) verify contacts and the 20/3 plateau; the symbolic proof is infinite.
 
-## Closest literature and limitations
-Kohl--Olsen--Sanyal treat stable-set anti-blocking and signed unconditional constructions; Aprile--Cevallos--Faenza develop 2-level perfect stable-set polytope combinatorics. Neither inspected text supplies the present metric statement. The theorem is for at least three positive classes, their ordinary stable-set polytope, and the standard unweighted Euclidean indicator coordinates. The two-class, fractional, signed, and affine-distorted cases are outside scope.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact ordinary stable-set polytope and complete-multipartite part-size invariant have not been found in the primary graph-polytope sources read or the targeted database comparisons. The same convex body is a convex hull of orthogonally supported anchored coordinate cubes, searched as an alias. Prior perfect-graph 2-level combinatorics, signed unconditional constructions, generic enclosing-ball methods and other polytope inradii do not already imply the threshold h, contact set and screening plateau.
+
+## value
+
+PASS
+
+The ordinary complete-multipartite stable-set polytope is canonical for perfect-graph/2-level geometry. The theorem determines the unique Euclidean enclosing center, every contact vertex, exact rational active-set rule and invariant plateau on adjoining any number of sufficiently small classes. The threshold and contact geometry are meaningful all-profile statements rather than a routine table or unmotivated finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

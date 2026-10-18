@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-For the complete all-parameter proof see `RESULT.md`.
 
-Critical steps checked independently:
-- every stable-set vertex is \(\mathbf1_S\), with \(S\subseteq V_i\) for one class;
-- the scalar defining function decreases from \(k>2\) to zero, giving exactly one threshold \(h\);
-- setting \(p_i=(1-h/a_i)_+/2\) yields \(\sum_i p_i=1\);
-- the squared vertex distances are
-  \[\|\mathbf1_S-c\|^2=B+|S|(1-2p_i);\]
-- \(a_i(1-2p_i)=\min\{a_i,h\}\), so precisely the claimed full-class vertices are contacts;
-- the positive-weight contacts average to \(c\), and the variance identity produces the strict lower bound \(R^2+\|y-c\|^2\) for every competing center \(y\ne c\);
-- the active-set root is \(h=(m-2)/(\sum_{i\in I}1/a_i)\), giving exact rational squared radius;
-- adjoining any class of size no larger than \(h\) preserves the root and radius.
+# Independent mathematical audit
 
-`verify.py` exhaustively enumerates integer part-size profiles with bounded total order and all their stable-set indicator vertices using `fractions.Fraction`. It checks the active-set formulas, contact equality cases, the weighted-average certificate, and sample exact-radius plateaus. These finite tests are corroborative and are not an exhaustive infinite-parameter proof.
+## correctness
+
+PASS
+
+All 0/1 stable-set vertices are subsets of a single part. The scalar F(h)=sum_i(1-h/a_i)_+ decreases continuously from k>2 to zero, determining unique 0<h<max a_i; p_i=(1-h/a_i)_+/2 are nonnegative with sum one. For a size-s subset of class i the exact squared distance to c is B+s(1-2p_i), bounded by B+h with equality precisely for full classes a_i>=h. The center is a convex combination of positive-weight contact vertices, so the variance identity forces every other center y to radius squared at least R^2+||y-c||^2, proving global minimality and uniqueness. Algebra gives h=(|I|-2)/(sum_{i in I}1/a_i), the rational radius, and stability under adding b<=h. Fresh exact rational profiles (1,1,1),(1,2,3,6),(10,10,10,1),(10,10,10,1,1,1) verify contacts and the 20/3 plateau; the symbolic proof is infinite.
+
+## originality
+
+PASS
+
+The exact ordinary stable-set polytope and complete-multipartite part-size invariant have not been found in the primary graph-polytope sources read or the targeted database comparisons. The same convex body is a convex hull of orthogonally supported anchored coordinate cubes, searched as an alias. Prior perfect-graph 2-level combinatorics, signed unconditional constructions, generic enclosing-ball methods and other polytope inradii do not already imply the threshold h, contact set and screening plateau.
+
+## value
+
+PASS
+
+The ordinary complete-multipartite stable-set polytope is canonical for perfect-graph/2-level geometry. The theorem determines the unique Euclidean enclosing center, every contact vertex, exact rational active-set rule and invariant plateau on adjoining any number of sufficiently small classes. The threshold and contact geometry are meaningful all-profile statements rather than a routine table or unmotivated finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
