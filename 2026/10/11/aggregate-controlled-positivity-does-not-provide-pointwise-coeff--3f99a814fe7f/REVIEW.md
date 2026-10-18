@@ -1,33 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The example satisfies the source's continuous controlled \(g\)-fusion-frame definition with two positive invertible controls. The ordinary energy operators \(A_1,A_2\) are positive and sum to \(T^{-1}\), so the total controlled energy is exactly \(\langle Uf,f\rangle\) and has positive frame bounds.
+## correctness
 
-The first pointwise mixed operator is
-\[
-T A_1U=
-\begin{pmatrix}
-3/5&2/5\\
-3/10&1/5
-\end{pmatrix},
-\]
-which is not self-adjoint and has quadratic value \(-1/10\) at \((-3,5)^{\mathsf T}\). Therefore the positive square root required by the source construction does not exist.
+PASS
 
-The repaired coefficient operator is valid under pointwise positivity and square-root measurability, with norm at most \(\sqrt B\).
+Exact independent rational matrix arithmetic verifies the complete hypotheses: T=diag(2,1), U=[[2,1],[1,1]] positive invertible, A1=(1/10)[[1,1],[1,1]] and A2=[[2/5,-1/10],[-1/10,9/10]] positive, with A1+A2=T^{-1}. Taking Lambda_i=A_i^(1/2), the two-atom controlled energy is <T(A1+A2)Uf,f>=<Uf,f>, with strictly positive bounds (3+-sqrt(5))/2. Yet M1=T A1 U=[[3/5,2/5],[3/10,1/5]] is nonsymmetric and its quadratic value at (-3,5) is exactly -1/10, so it is not positive and has no positive self-adjoint square root of the kind the source requires. The counterexample leaves the aggregate frame operator U well defined. With additional pointwise M_x>=0 and strong square-root field measurability, Jf(x)=v(x)M_x^(1/2)f is bounded by sqrt(B); this is sufficient, not asserted necessary. This checks the precise theorem hypothesis and square-root step rather than confusing algebraic square roots with positive roots.
 
-## Originality
-PASS. Exact-source, theorem-number, pointwise-square-root, aggregate-versus-pointwise positivity, analysis-operator, and controlled-\(g\)-fusion searches were compared with the checked literature and prior scientific results.
+## originality
 
-A prior correction for the same 2021 source concerns Theorem 3.8 and a missing commutation hypothesis in a global controlled-frame equivalence. Its witness uses equal controls and does not imply the present pointwise-square-root obstruction. A separate aggregate controlled-frame criterion concerns positivity of the integrated mixed operator; the present example shows explicitly that aggregate positivity does not imply positivity of the coefficient operators.
+PASS
 
-The 2023 discrete paper adds the missing per-index positivity assumption but does not state this continuous counterexample or correct Theorem 3.4 explicitly.
+The source itself assumes only a global integrated inequality yet inserts individual positive square roots. A separate published correction of the SAME Ghosh–Samanta paper concerns Theorem 3.8 and the commutation of the global frame operator with a control, whereas this failure concerns pointwise factorization in Propositions 3.3 and Theorem 3.4. Shakoory et al. (2023) expressly insert per-index positivity before using the corresponding discrete square-root operator, supporting the missing assumption without presenting this two-atom continuous counterexample. The older same-object and later-paper comparisons do not make this precise counterexample a printed corollary.
 
-## Value
-PASS. The disputed construction defines the analysis and synthesis operators used to represent controlled coefficient data. If the pointwise square root does not exist, the stated coefficient Hilbert-space model cannot even be formed. The counterexample is minimal enough to isolate the exact distinction between global frame positivity and local operator positivity, while the repair is directly usable.
+## value
 
-## Closest literature and limitations
-The closest later source is the 2023 discrete \((C,C')\)-controlled \(g\)-fusion paper, which explicitly assumes positivity of each mixed coefficient operator before defining its square-root analysis map. This supports the repair but does not cover the continuous theorem-specific counterexample.
+PASS
 
-The result does not exclude arbitrary algebraic square roots of nonpositive operators. It concerns the positive square root required by the published norm identity. No weakest measurable-field assumption is claimed.
+The finding invalidates the formation of an analysis/synthesis coefficient space central to the cited continuous-frame theory under its stated hypotheses, and gives a minimal finite-dimensional exact obstruction plus a directly usable sufficient repair. This is more than a harmless normalization or type check because the norm identity in the published proof cannot even be formulated.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

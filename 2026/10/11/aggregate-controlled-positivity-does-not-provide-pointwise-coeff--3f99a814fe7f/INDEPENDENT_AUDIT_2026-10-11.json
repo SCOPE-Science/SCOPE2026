@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T18:14:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact independent rational matrix arithmetic verifies the complete hypotheses: T=diag(2,1), U=[[2,1],[1,1]] positive invertible, A1=(1/10)[[1,1],[1,1]] and A2=[[2/5,-1/10],[-1/10,9/10]] positive, with A1+A2=T^{-1}. Taking Lambda_i=A_i^(1/2), the two-atom controlled energy is <T(A1+A2)Uf,f>=<Uf,f>, with strictly positive bounds (3+-sqrt(5))/2. Yet M1=T A1 U=[[3/5,2/5],[3/10,1/5]] is nonsymmetric and its quadratic value at (-3,5) is exactly -1/10, so it is not positive and has no positive self-adjoint square root of the kind the source requires. The counterexample leaves the aggregate frame operator U well defined. With additional pointwise M_x>=0 and strong square-root field measurability, Jf(x)=v(x)M_x^(1/2)f is bounded by sqrt(B); this is sufficient, not asserted necessary. This checks the precise theorem hypothesis and square-root step rather than confusing algebraic square roots with positive roots.",
+      "risk": "One must distinguish a positive self-adjoint square root from an arbitrary algebraic square root of an operator.",
+      "sources": [
+        "Exact frozen RESULT.md proof",
+        "Ghosh–Samanta original paper arXiv:2110.11234",
+        "Independent SymPy rational algebra"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A later discrete framework imposes the extra hypothesis, not a theorem deriving it from aggregate positivity.",
+          "The separate Theorem 3.8 counterexample uses control/frame operator noncommutation, not a nonpositive local M_x with globally positive sum."
+        ],
+        "reasoning": "No inspected stronger counterexample or correction covers the exact continuous coefficient-space theorem-specific failure.",
+        "searches": [
+          "Ghosh–Samanta arXiv:2110.11234 sections 2-3",
+          "Shakoory–Ahmadi–Rahimlou–Sadri 2023 section 3",
+          "Published same-source Theorem 3.8 correction"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh–Samanta arXiv:2110.11234v1",
+        "Shakoory et al. 2023 DOI:10.52547/ijmsi.18.1.179",
+        "Published Theorem3.8 correction on the same 2021 source"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Global sum M1+M2=U positive yet M1 is non-self-adjoint, directly disproving implication from integrated positivity to pointwise positive roots.",
+          "The discrete paper assumes positivity instead of proving it; that hypothesis is logically stronger and not guaranteed in the 2021 continuous source.",
+          "Theorem3.8 correction concerns a different operator interchange, so it does not imply the new local obstruction."
+        ],
+        "reasoning": "The current witness settles the exact logical gap in the published coefficient-square-root argument, rather than repeating a general operator fact without instantiation.",
+        "searches": [
+          "Ghosh–Samanta definition and Prop3.3 proof",
+          "2023 discrete conditional analysis-construction",
+          "Other same-source Theorem3.8 counterexample"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source uses the unique positive square root of M_x, while only its integrated quadratic form is constrained.",
+          "The later discrete paper states per-index positivity before defining the square-root analysis map."
+        ],
+        "reasoning": "Equivalent formulations as noncommuting mixed positive factors, Kolmogorov pointwise factorization and controlled coefficient field were checked.",
+        "searches": [
+          "Ghosh–Samanta arXiv:2110.11234 Proposition 3.3 and Theorem 3.4 positivity square root",
+          "Query: controlled g-fusion frame aggregate versus pointwise positivity coefficient operator",
+          "Shakoory et al. DOI:10.52547/ijmsi.18.1.179 section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The particular 2-atom 2x2 negative quadratic form equals -1/10 exactly and appears as a mathematical witness, not a numerical fit.",
+          "The later source explicitly states a structural assumption; it does not give this two-atom data or refute the continuous theorem."
+        ],
+        "reasoning": "An exact matrix witness is novel only to the extent the prior literature lacks a theorem-specific counterexample; absence of an identical table is not itself novelty proof.",
+        "searches": [
+          "Exact symbolic matrix query T A1 U and 2-atom controlled frames",
+          "Independent 2x2 rational verification",
+          "Author-upload full-text discrete paper (2023)"
+        ]
+      },
+      "rationale": "The source itself assumes only a global integrated inequality yet inserts individual positive square roots. A separate published correction of the SAME Ghosh–Samanta paper concerns Theorem 3.8 and the commutation of the global frame operator with a control, whereas this failure concerns pointwise factorization in Propositions 3.3 and Theorem 3.4. Shakoory et al. (2023) expressly insert per-index positivity before using the corresponding discrete square-root operator, supporting the missing assumption without presenting this two-atom continuous counterexample. The older same-object and later-paper comparisons do not make this precise counterexample a printed corollary.",
+      "residual_risks": [
+        "A previously unindexed correction may have isolated exactly Theorems 3.3/3.4.",
+        "The mathematical research index returned a temporary service outage, not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PUBLISHED_STEP_REQUIRES_UNASSUMED_POINTWISE_POSITIVITY",
+          "evidence": "The paper assumes controlled integrated frame inequalities and then uses M_x^(1/2) and its norm identity for each parameter without an M_x>=0 hypothesis.",
+          "identifier_or_url": "arXiv:2110.11234v1",
+          "material_read": "Primary full 25-page arXiv paper inspected, including positive-square-root definition, Definition 3.1, Proposition 3.3 and its proof, Theorem 3.4 and its proof; source proof pages viewed visually.",
+          "method": "Lawful open arXiv PDF and visual inspection",
+          "title": "Continuous controlled generalized fusion frames in Hilbert spaces",
+          "trigger": "Exact theorem being corrected"
+        },
+        {
+          "assessment": "LOCAL_POSITIVITY_ASSUMED_NOT_DERIVED",
+          "evidence": "Immediately after Definition 3.1, the source says if each mixed coefficient operator is positive, then the associated square-root field and analysis operator can be defined.",
+          "identifier_or_url": "DOI:10.52547/ijmsi.18.1.179",
+          "material_read": "Author-upload full primary text, Section 3 around Definition 3.1 and controlled coefficient construction through Theorem 3.2, inspected in detail; no claim of reading unrelated later sections.",
+          "method": "Lawful author-upload full text reading",
+          "title": "(C,C′)-Controlled g-Fusion Frames in Hilbert Spaces",
+          "trigger": "Closest later source expressly supplying the missing hypothesis"
+        },
+        {
+          "assessment": "DIFFERENT_THEOREM_CORRECTION",
+          "evidence": "Theorem 3.8 loses commutation of global T and S; it does not provide pointwise M_x negative despite a valid aggregate controlled frame.",
+          "identifier_or_url": "Frozen repository RESULT.md of 2026/10/11/a-noncommuting-frame-operator-breaks-a-controlled-g-fusion-chara--5dc36c6d6334",
+          "material_read": "Full read-only scientific RESULT.md inspected for Theorem 3.8 correction and witness.",
+          "method": "Read-only published repository text",
+          "title": "A noncommuting frame operator breaks a controlled g-fusion characterization",
+          "trigger": "Potential prior correction of the same source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finding invalidates the formation of an analysis/synthesis coefficient space central to the cited continuous-frame theory under its stated hypotheses, and gives a minimal finite-dimensional exact obstruction plus a directly usable sufficient repair. This is more than a harmless normalization or type check because the norm identity in the published proof cannot even be formulated.",
+      "risk": "Source-specific counterexamples can be narrow, but here they invalidate a repeated core construction.",
+      "sources": [
+        "Ghosh–Samanta arXiv:2110.11234",
+        "Shakoory et al. 2023"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The pointwise positive-square-root coefficient field used in Proposition 3.3 and Theorem 3.4 of Ghosh–Samanta (arXiv:2110.11234) need not exist for a genuine continuous controlled \\(g\\)-fusion frame: positive aggregate controlled energy does not imply that each mixed coefficient operator is self-adjoint positive. The exact real two-atom example proves failure; pointwise positivity plus measurability suffices for the specified coefficient construction.",
+  "limitations": [
+    "Only the positive-square-root coefficient representation is refuted; the global frame operator remains positive.",
+    "The sufficiency repair also requires measurability of the square-root field and is not asserted optimal.",
+    "The example is in real two-dimensional Hilbert space with counting measure, as permitted by the source."
+  ],
+  "schema_version": 1
+}
