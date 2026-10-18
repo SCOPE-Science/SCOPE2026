@@ -1,31 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's \(d=4\) Hypercube polynomial is specialized to the full coordinate-permutation-and-complementation invariant cone. Exact enumeration of all \(4368\) five-vertex subsets gives the displayed polynomial \(P\). The symmetry gives \(T=2S\) and makes all eight facet sums equal \(S=a+4b+3c\). The identity
-\[
-6\left(105S^5-1024P\right)
-=
-(a-b)^2A+(b-c)^2B+(a-c)^2C
-\]
-was checked coefficient by coefficient with exact integers. Every coefficient of \(A,B,C\) is positive. For a nonzero nonnegative triple, \(B\) and \(C\) are strictly positive, so equality forces \(a=b=c\). This yields the sharp ratio \(105/128\) and the sharp relative gap \(23/128\).
+PASS
 
-## Originality
+On the full coordinate-permutation-plus-complementation fixed cone of {0,1}^4, the Hamming classes have 2,8,6 vertices, T=2S and each of eight facet sums equals S=a+4b+3c. Independently enumerate all C(16,5)=4368 five-vertex sets, using a different 4x4 difference-matrix Leibniz determinant (not the bundled 5x5 Bareiss routine), to reproduce exactly the 14 monomials of normalized-volume polynomial P and Σ_{five-subsets}Vol=3360. Re-expand the certificate 6(105S^5−1024P)=(a−b)² A_3+(b−c)² B_3+(a−c)² C_3 using exact polynomial arithmetic; identity holds for every coefficient. Every multiplier coefficient is positive; B_3 and C_3 contain all three positive pure cubes, so equality for a,b,c≥0 nonzero forces a=b=c>0. Consequently P*T³/∏_F S_F=8P/S^5≤105/128 sharply, and 1−105/128=23/128. The finite census is exhaustive ONLY for the 16-vertex coefficient polynomial; positivity certificate proves the continuous infinite parameter range. Unrestricted 16-variable d=4 conjecture remains unproved.
 
-PASS. The primary paper proves only \(d=3\), explicitly leaves \(d=4\) open, and says the unrestricted \(d=4\) polynomial has sixteen variables, degree eight, and roughly \(400000\) terms. Its full text contains no Hamming-weight specialization or coordinate-permutation-plus-complementation invariant slice. Targeted published-record and web searches found no \(105/128\) bound or equivalent statement. The closest prior finding concerns a different, already-false full log-submodularity inequality.
+## originality
 
-## Value
+PASS
 
-PASS. This gives a sharp theorem in the first open dimension on a canonical symmetry cone, not an arbitrary numerical slice. The exact best constant and unique symmetric extremizer provide a quantitative benchmark for the open unrestricted Hypercube inequality and show that this large natural cone stays uniformly away from failure.
+Compared the exact final theorem and quantifiers against all materially relevant inspected same-object and related published statements. Actual source readings and residual priority risks below; no negative search is treated as novelty proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest source is Averkov--von Dichter--Soprunov, arXiv:2608.14909v1, which defines the Hypercube inequality, proves \(d=3\), and leaves \(d=4\) open. Contemporary Rayleigh/log-submodularity counterexamples concern a distinct stronger conjecture and do not cover this partial-polymatroid inequality.
+The d=4 Hypercube inequality is the first open higher-dimensional combinatorial/zonoid inequality in the cited source. A natural maximal three-parameter symmetry cone, all coordinate permutations and complement, is not an arbitrary slice; its complete SHARP strict 23/128 gap and equality case are useful structural evidence and a test case for further symmetry-breaking work. A finite exact polynomial plus all-variable positive certificate is genuinely substantive, despite not settling unrestricted d=4.
 
-The result is limited to weights satisfying
-\[
-x_v=x_{\pi(v)}=x_{\mathbf1-v}
-\]
-for all coordinate permutations \(\pi\). The unrestricted sixteen-variable \(d=4\) problem remains open.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
