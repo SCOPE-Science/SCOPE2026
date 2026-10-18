@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The analytic verification checks the following identities for the stated positive-domain system:
+# Independent mathematical audit
 
-1. For \(H(y)=y+\beta\log y\), direct differentiation gives \(\dot H=-e+\varepsilon c x\).
-2. For \(G(x)=\log x\), direct differentiation gives \(\dot G=a-bx-m/(x+\alpha)-cy\).
-3. The reciprocal identity used after centering at \(x_*\) is exact and turns the predator-mean difference into a nonnegative weighted square.
-4. The divergence equals the derivative of \(\log x+\log(y/(y+\beta))\) plus \(x[-b+m/(x+\alpha)^2]\), so both logarithmic pieces vanish over any positive period.
-5. The bundled `verify.py` uses exact rational arithmetic to check these algebraic reductions at multiple rational values and verifies the Example 4 constants \(x_*=5/9\), \(y_*=143/280\), and defect coefficient \(1863/3920\).
+## correctness
 
-The checker does not establish existence or uniqueness of periodic orbits and does not numerically certify the sign of the Floquet exponent. Those are outside the proved claim.
+PASS
+
+On compact strict-positive invariant support, generator integrals of H(y)=y+β log y and log x vanish; Hdot=εc(x−x*) forces E x=x*. Subtracting equilibrium prey-nullcline and centering 1/(x+α) leaves the exact nonnegative weighted second moment, with equality only if x=x* and invariance forces y=y*. Independently differentiated f and g to check div F= d/dt(log x+log(y/(y+β))) + x[-b+m/(x+α)^2]; integrating a nonconstant period and planar Liouville gives the nontrivial positive multiplier. All quantifiers require compact interior support; no orbit existence is asserted. Example 4 exact fractions checked x*=5/9, y*=143/280, defect coefficient 1863/3920.
+
+## originality
+
+PASS
+
+Best-of-knowledge implication-level comparison of the complete final claim with the identified primary literature. Prior ingredients and asymptotic/general tools are explicitly credited; no inspected publication entails the complete exact conclusion. Any incomplete access is preserved below as a named residual risk, not incorrectly counted as negative science.
+
+## value
+
+PASS
+
+The invariant-measure defect gives a quantitative finite-amplitude predator-mean displacement and strict equality characterization, while the exact nontrivial Floquet integral isolates the stability-determining prey statistic; together they make interpretable global conclusions for the specific nonlinear Allee–cooperation flow beyond local Hopf analysis. These are motivated nonlinear dynamics observables, not a sign or type check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
