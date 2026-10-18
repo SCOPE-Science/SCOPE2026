@@ -1,15 +1,21 @@
-# Review: scaled Lorentz-cone metric projection
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem has a complete finite-dimensional proof. The planar formula is established by explicit minimization on two rays and induced rank-one operator norms, followed by a continuous piecewise-linear global bound and attainable local lower bound. In higher dimension the outward supporting normal, its inverse duality-map vector, and a transverse boundary tangent give a strict expansivity witness for every non-Hilbert exponent and every positive slope. The proof handles \(n=1\) and \(p=2\) separately. Numerical tests check 3,750 planar pairs and 12 higher-dimensional witnesses, but do not prove generality.
+## correctness
 
-## Originality — PASS, subject to literature risk
-Németh and Zhang (arXiv:1405.7835, Theorem 2) and their follow-up (arXiv:1503.06119, Theorem 3.1) study Euclidean projections onto cylinders and isotonicity relative to a cone-induced order. Those are different maps and inequalities from the new projection **onto** the scaled Lorentz cone measured with an ambient \(\ell_p\) norm. General Hilbert-convex nonexpansivity does not imply the strict-converse classification or exact planar parameter formula. Older equivalent Banach-cone or wedge calculations cannot be ruled out exhaustively.
+PASS
 
-## Value — PASS
-The cone is a natural constraint in convex optimization and conic geometry. Sharp perturbation stability matters when the projection is applied in a non-Euclidean norm. The all-exponent and all-aperture classification, especially the planar symmetric exception and its disappearance in dimension three, gives mathematically motivated geometric information beyond a routine instance of Hilbert projection theory.
+In n=2, the wedge metric projection is a continuous piecewise linear selection of identity, zero and rank-one ray projections with coefficients (κ^{q-1}t±u)/(1+κ^q). Exact ℓp→ℓp rank-one operator norm equals [(1+κ^p)^{1/p}(1+κ^{q(q-1)})^{1/q}]/(1+κ^q); finite linear-region segmentation gives global norm and an interior ray region gives sharpness. Hölder equality occurs exactly at p=2 or κ=1. For n≥3 independently checked boundary y=(κ,c,s), outward normal f=(-1,κc,κs), v=J_q(f), tangency h=(κc,1,0), and nonzero dual derivative ⟨J_p(h),v⟩=(κc)^{q-1}-(κc)^{p-1} whenever p≠2 and κc≠1. First-order convex KKT ensures P(y+δv)=y; a nearby cone-boundary z(η) gives strict expansion. For p=2 Hilbert projection is 1-Lipschitz; n=1 is positive-part. Calculated planar sample constants at (p,κ)=(1.5,.3),(3,1),(4,2) match the stated formula; finite tests are not proof. Proof addresses all positive slopes but makes no quantitative claim for n≥3 beyond nonexpansivity failure.
 
-## Scope and remaining limits
-The result is for real finite-dimensional \(\ell_p\), \(1<p<\infty\), and strictly positive cone aperture. Higher-dimensional Lipschitz constants away from the Hilbert exponent are not calculated. Neither absolute historical priority nor independent mathematical certification is asserted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+A separate published Resultary theorem already gives every planar ℓp cone Lipschitz constant, so the planar formula is explicitly recognized as a special case; not independently new. The genuinely additional result is the all-aperture, n≥3 nonexpansivity obstruction including the symmetric κ=1 exception disappearing in higher dimension, not implied by the 2D theorem or Euclidean isotonic-projection papers.
+
+## value
+
+PASS
+
+The precise dimension-jump obstruction identifies when metric projection remains nonexpansive across all ambient exponents and cone slopes, structurally distinguishing Hilbert geometry from the symmetric planar exception. It is a meaningful stability classification, not a random parameter calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
