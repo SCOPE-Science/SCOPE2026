@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The transform and normalization follow directly from the verified Brion exponential-simplex identity. Lagrange interpolation yields the zero at all complete reciprocal nodes. The exact imaginary Hessian on the real-zero tangent plane has determinant equal to minus the positive barycentric-weight product divided by a square; thus its signature is (1,1) for every node. The real-analytic implicit-function theorem and Morse lemma give precisely two transversely crossing real-analytic curves. Affine invariance follows by substitution. Exact checks cover 120 weight sets; independent moment-series and high-precision branch checks validate normalization and local slopes. Tests are not used as proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baldoni et al. (arXiv:0809.2083), Corollary 12 formula (10) explicitly evaluates an exponential integral over an arbitrary simplex.",
+        "Gallatin (arXiv:1109.5262), pp. 2–4 and 17, derives a Gauss-law reduction for polyhedral Fourier transforms and discusses physical diffraction and Porod asymptotics."
+      ],
+      "reasoning": "Both stronger-domain sources cover the underlying transform as a computable function, an essential prior ingredient. Neither states a classification of all complete reciprocal nodes, their transverse null tangent lines, or the universal saddle Hessian sign. Deriving those facts requires the Taylor-jet cancellation, four-factor Vandermonde-sign identity, and a real-analytic Morse argument. Their explicit formulas are cited and not claimed as original.",
+      "searches": [
+        "Brion exponential integral of a tetrahedron and local zero set singularity, barycentric denominator sign, crossing zero branches",
+        "arXiv:0809.2083 Section 3.2 Corollary 12",
+        "arXiv:1109.5262 Sections 2,4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0809.2083",
+      "arXiv:1109.5262",
+      "https://www.sasview.org/docs/user/models/truncated_tetrahedron.html",
+      "DOI:10.1107/S160057672201130X (abstract only)",
+      "Indexed published Fourier-support findings on the finite-field affine 3-simplex"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Baldoni et al. calculate the exponential simplex integral without analyzing Morse topology of its complex real-frequency zeros.",
+        "Gallatin treats Fourier transforms and diffraction of polyhedra, not phase-aligned nodes and ordinary double-point zero crossings.",
+        "Yang et al. (2023), DOI:10.1107/S160057672201130X, describe singularities in a rational form-factor formula; accessible abstract and SasView summary indicate removable numerical denominator singularities rather than Fourier-zero singularity germs."
+      ],
+      "reasoning": "The new statement is a topological classification of common real zeros of two analytic functions; it is not the general existence of a four-term form-factor expression. A planar triangle zero-fold statement changes dimension and includes a density perturbation, and cannot force the two transverse curves of the unperturbed three-dimensional transform. We do not claim publication-priority certainty; the original mathematical transform formulas were previously known.",
+      "searches": [
+        "simplex Fourier transform common phase reciprocal lattice zero real zero set local Morse singularity",
+        "three-dimensional simplex Fourier zeros nonisolated reciprocal lattice nodes quadrics",
+        "2023 Form factor of any polyhedron and its singularities derived from a projection method"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brion exponential simplex integral: Baldoni et al., arXiv:0809.2083, Section 3.2, Corollary 12, pp. 11–13.",
+        "The index result on the ternary affine 3-simplex concerns finite-field Fourier support of finitely supported signals, not local zeros of a Euclidean-volume Fourier transform.",
+        "The preferred-orientation tetrahedron result concerns a quantum-graph spectral problem, not this nodal germ."
+      ],
+      "reasoning": "Queries explicitly tested the equivalent terms ordinary double point, transverse nodal curves, reciprocal lattice node, tetrahedral aperture and real Fourier-zero singularity. The closest indexed statements involve different objects or invariants and do not imply the two-branch real zero germ at every tetrahedral reciprocal node. The general transform formula is known, but the negative transverse Hessian determinant and Morse classification are not given as statements in the inspected source.",
+      "searches": [
+        "Fourier transform of the three dimensional standard simplex or tetrahedron at integer reciprocal lattice nodes: quadratic saddle restriction and two transverse nodal curves (ordinary double points)",
+        "Fourier transform uniform regular tetrahedron zeros reciprocal lattice singular nodes tangential crossing plane frequencies Hessian",
+        "simplex Fourier transform common phase reciprocal lattice zero real zero set local Morse singularity",
+        "three-dimensional simplex Fourier zeros nonisolated reciprocal lattice nodes quadrics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "SasView tetrahedral form-factor documentation gives the four-term exponential/rational formula and cases of apparent denominator singularities; it does not describe real nodal curve intersections.",
+        "Indexed finite-field tetrahedral Fourier-support and polyhedral diffraction results were distinguished from this all-integer local real-zero classification."
+      ],
+      "reasoning": "The available named tables and explicit form-factor formulas concern function evaluation or removable representation poles, rather than the topology of the exact complex zeros. Their algebra contains ingredients for further analysis, but no same-formulation nodal-branch table or dominating zero-set theorem was identified. A negative search is not a uniqueness proof.",
+      "searches": [
+        "3-dimensional tetrahedral aperture Fraunhofer diffraction nodal line crossing at Fourier zeros integer phase aligned frequencies",
+        "SasView truncated_tetrahedron form factor amplitude Fourier transform of tetrahedron singularities",
+        "arXiv:0809.2083 zero set"
+      ]
+    },
+    "rationale": "Reviewed the relevant complete sections of two primary exponential/simplex Fourier references and a complete tetrahedron form-factor implementation. Their stronger general function formulas are credited, but the all-node local real zero-set structure, universal saddle determinant and explicit tangent lines are not explicitly established there or in indexed scientific comparisons. The related 2023 form-factor paper was only accessible as an abstract and remains a named risk. Priority cannot be certified.",
+    "residual_risks": [
+      "The explicit tetrahedral Fourier-transform formula is classical and could have been used to derive the same nodal germ in unindexed optics or diffraction literature.",
+      "The Yang et al. 2023 full text was not inspected; only accessible abstract and detailed tetrahedron implementation documentation were read.",
+      "Similar statements might be phrased as generic phase-aligned double zeros or interference nodal-line crossings."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact Fourier-transform input, but not the reciprocal-node zero topology or transverse Hessian calculation.",
+        "evidence": [
+          "Corollary 12 explicitly states exponential integral as a vertex sum of phases over products of linear-form differences.",
+          "The cited section discusses regularity of linear forms and integrals, not local common zeros of real and imaginary parts."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0809.2083",
+        "material_read": "Full Section 3.2, pp. 10–13, particularly Lemma 8 and Corollary 12 formulas (5) and (10), and references to Brion.",
+        "method": "Read PDF text and inspected the page showing Corollary 12.",
+        "title": "How to Integrate a Polynomial over a Simplex",
+        "trigger": "Exact exponential-simplex vertex-sum formula could dominate the claim."
+      },
+      {
+        "assessment": "General Fourier-polyhedron method and diffraction motivation; no reciprocal-node crossing classification in the inspected material.",
+        "evidence": [
+          "Section 4 describes reduction of a volume integral to face and edge integrals.",
+          "Section 2 describes Fourier transforms of indicator functions as shape data."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1109.5262",
+        "material_read": "Abstract, introduction, Section 2 pp. 2–4 and Section 4 pp. 17–18, including three-dimensional polyhedral reduction.",
+        "method": "Read arXiv full-text pages and visually inspected pages 1 and 17; text searched for zeros and three-dimensional transforms.",
+        "title": "Fourier, Gauss, Fraunhofer, Porod and the Shape from Moments Problem",
+        "trigger": "Direct prior primary treatment of Fourier transforms of polyhedra and diffraction zeros."
+      },
+      {
+        "assessment": "Same transform up to sign and linear change of coordinates, but numerical denominator singularities are not zeros of the transform and no nodal-germ topology is stated.",
+        "evidence": [
+          "Lines 34–43 give the four-exponential tetrahedral Fourier form factor.",
+          "Lines 57–75 distinguish removable expression singularities from physical zero-set singularities."
+        ],
+        "identifier_or_url": "https://www.sasview.org/docs/user/models/truncated_tetrahedron.html",
+        "material_read": "Complete documented definition and tetrahedral form-factor formula, the four singular-expression cases, validation and references.",
+        "method": "Read complete page text, lines 15–107, and searched for real zero crossings.",
+        "title": "truncated_tetrahedron model documentation",
+        "trigger": "Directly displays the tetrahedron form-factor amplitude and apparent singularities."
+      },
+      {
+        "assessment": "Apparent singularities of vertex formulas are a different question from transverse intersections of actual real Fourier zeros; incomplete full-text inspection remains a priority risk.",
+        "evidence": [
+          "The accessible abstract emphasizes explicit polyhedron formulas and their singularities, and numerical verifications.",
+          "The cited SasView implementation describes singular cases as denominator cancellations."
+        ],
+        "identifier_or_url": "DOI:10.1107/S160057672201130X",
+        "material_read": "Accessible abstract, introductory excerpt, and published documentation citing the work; complete publisher full text not accessible.",
+        "method": "Read indexed abstract and related form-factor documentation, not the full publication.",
+        "title": "Form factor of any polyhedron and its singularities derived from a projection method",
+        "trigger": "A highly relevant tetrahedral form-factor article using the word singularities."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "30f9a120-0ad2-45af-a049-e2f5c34ef630",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Fourier-zero set of a 3D aperture is generically a curve. The theorem classifies every completely phase-aligned reciprocal node in an infinite natural lattice as an ordinary double intersection, determines the two tangent directions directly from arithmetic Vandermonde weights, and extends the result to every affine tetrahedron. This is a natural geometric invariant of the diffraction zero set and more than a selected example, normalization check or unmotivated finite computation.",
+    "status": "PASS"
+  }
+}
