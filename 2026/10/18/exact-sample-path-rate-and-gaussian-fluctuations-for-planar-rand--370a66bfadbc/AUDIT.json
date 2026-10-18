@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The exact residual line search is an orthogonal rank-one projection. Independent direction angles give a stationary 1-dependent sequence of logarithmic cosine factors; its law is a Poisson kernel with parameter q, and adjacent-difference law has parameter q squared. Strong law/1-dependent CLT apply because logarithmic singularities have finite moments. Fourier/Poisson averaging yields drift 2 log((1+q squared)/2) and an explicit variance computed through the disk automorphism and dilogarithm covariance identity. A standalone checker reproduces exact symbolic fourth-moment characteristic polynomial and independently integrates the drift/variance/covariance for seven q values and simulates four Gaussian systems. Initial residual direction only contributes one finite term.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu et al give residual nonincrease for exact line search, with stronger correction-accuracy assumptions for convergence; the Gaussian oracle is uninformative.",
+        "Random Pursuit treats random exact linesearch but focuses on expected convergence-rate bounds and general function classes.",
+        "Approximately Exact Line Search treats an approximate oracle, with broad convergence-rate results but no planar Gaussian log CLT."
+      ],
+      "reasoning": "The general convergence literature could dominate the nondivergence or convergence portions, which are not claimed as new by themselves, but not the closed q-dependent almost-sure rate and positive dilogarithmic fluctuation variance. A general convergence bound need not imply an exact limit distribution.",
+      "searches": [
+        "2023 randomized block adaptive linear system solvers residual adaptive row sampling Markov chain convergence exact rates",
+        "planar Gaussian rank-one sketch-and-project exact exponent expected error versus almost-sure energy random pursuit",
+        "Stable iterative refinement line search Gaussian random directions 2023 Wu Kalantzis Horesh Squillante",
+        "arxiv:2309.07865",
+        "arxiv:1111.0194",
+        "arxiv:2011.04721"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2309.07865",
+      "arxiv:1111.0194",
+      "arxiv:2011.04721",
+      "Mathematical-record semantic searches for random Gaussian line search, random projection Lyapunov exponents, CLTs, dilogarithms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previous exact mean-square planar projection root differs from the computed almost-sure factor for all finite q, so the former does not specify typical decay or CLT variance.",
+        "The stable iterative refinement paper states residual nonincrease and correction-accuracy-dependent convergence, rather than a fluctuation limit for iid Gaussian directions.",
+        "A stationary one-dependent CLT could be derived using general probability theorems, but identifying the exact dependence kernel and the nonstandard dilogarithmic asymptotic variance requires additional argument."
+      ],
+      "reasoning": "Known rank-one projection moments cover mean-square rates only. Known probability limit theorems provide abstract Gaussianity given moments/mixing but not the application-specific drift and explicit variance. The precise new claim is not a corollary of the statements compared.",
+      "searches": [
+        "random pursuit 2 dimensional anisotropic exact line search almost sure convergence logarithmic cosine angle",
+        "planar Gaussian rank-one sketch-and-project exact exponent expected error versus almost-sure energy random pursuit",
+        "Stable iterative refinement line search Gaussian random directions 2023 Wu Kalantzis Horesh Squillante",
+        "arxiv:2309.07865",
+        "arxiv:1111.0194"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Same dynamics as planar Gaussian sketch-and-project under residual factorization and Hessian H=A squared; earlier exact E norm squared rate has Perron root (3+q squared+sqrt(1+14q squared+q fourth))/8 rather than log-typical exponent.",
+        "Stich et al analyze random pursuit expected optimization convergence; Wu et al introduce exact residual line search for noisy correction methods."
+      ],
+      "reasoning": "Matching the rank-one projection and Gaussian direction distribution exposes the closest equivalence. An expected squared-energy asymptotic does not determine logarithmic sample-path drift or the asymptotic variance, since Jensen gives a strict gap; neither cited primary paper derives the one-dependent logarithmic fluctuation law.",
+      "searches": [
+        "almost sure Lyapunov exponent planar Gaussian sketch-and-project subspace Newton random rank-one projection quadratic exact 2log(1+q^2)/2",
+        "random pursuit 2 dimensional anisotropic exact line search almost sure convergence logarithmic cosine angle",
+        "random product of Gaussian direction orthogonal projections explicit log convergence CLT dilogarithm",
+        "arxiv:1111.0194",
+        "arxiv:2309.07865"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed searches returned no mathematical finding with the explicit planar log-cosine central limit variance or the dilogarithm expression. Closest hits address other deterministic/coordinate projection problems.",
+        "Primary papers contain no exact tabulation of the stated variance in inspected proof/result sections."
+      ],
+      "reasoning": "The claimed invariant is an infinite-horizon stochastic fluctuation law, not a finite numeric value. Search was conducted using both raw projection and equivalent random pursuit/line-search terminology; negative retrieval alone is not uniqueness proof.",
+      "searches": [
+        "almost sure Lyapunov exponent planar Gaussian sketch-and-project subspace Newton random rank-one projection quadratic exact 2log(1+q^2)/2",
+        "random product of Gaussian direction orthogonal projections explicit log convergence CLT dilogarithm",
+        "Stable iterative refinement line search Gaussian random directions 2023 Wu Kalantzis Horesh Squillante"
+      ]
+    },
+    "rationale": "The closest accessible prior calculation provides exact MEAN-SQUARE planar Gaussian projection rate, not an almost-sure logarithmic exponent or a 1-dependent dilogarithmic CLT variance. The source iterative-refinement paper supplies exact line search with nondivergence and sufficient correction accuracy, but its stated claims do not cover independent uninformative corrections or their pathwise fluctuations. Random Pursuit offers expected convergence rates but not this exact CLT. Multiple Index searches for equivalent random-projection, Lyapunov and angle-log expressions found no covering result; unindexed or implicit derivations remain a risk.",
+    "residual_risks": [
+      "Exact formula may have an equivalent unindexed historical expression under products of random rank-one projections, Poisson-kernel angle processes, or log-cosine observables.",
+      "The oldest random-pursuit literature could contain an unstated equivalent computation in a source not located; no literature search proves unique novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces exact residual minimization but does not state Gaussian-directions log pathwise limit or CLT",
+        "evidence": [
+          "Exact residual line search is the common method; paper focuses on nondivergence and accuracy-conditioned convergence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.07865",
+        "material_read": "Full open-access manuscript mathematical update/algorithm and theoretical results with correction-accuracy conditions; submission record for 2023-09-14",
+        "method": "arXiv open access full text and abstract/source metadata",
+        "title": "Stable iterative refinement algorithms for solving linear systems",
+        "trigger": "2023 line-search iterative refinement with inaccurate basic linear-system corrections"
+      },
+      {
+        "assessment": "Expected convergence-rate results do not give the planar explicit log CLT",
+        "evidence": [
+          "Random directions and line-search oracle are closely related; the claim evaluated is a sharper distributional asymptotic."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1111.0194",
+        "material_read": "Open-access full text including algorithms, convergence theorems and appendix describing the random pursuit method",
+        "method": "arXiv OA manuscript",
+        "title": "Optimization of Convex Functions with Random Pursuit",
+        "trigger": "Potentially stronger random-direction exact-line-search coverage"
+      },
+      {
+        "assessment": "Approximate line search with general convergence theory, not the exact Gaussian planar fluctuation law",
+        "evidence": [
+          "Different oracle and rate assertions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2011.04721",
+        "material_read": "Open-access full text introduction, algorithmic assumptions, mathematical results",
+        "method": "arXiv OA manuscript",
+        "title": "Approximately Exact Line Search",
+        "trigger": "Possible general coverage of line-search stochastic rate statements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "370a66bf-adbc-45a8-bda0-aba57e524f0b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The relevant algorithmic gap is what exact residual line search achieves when basic correction directions are completely uninformative and correction-accuracy hypotheses fail. Almost-sure exponential convergence and a closed q-dependent fluctuation law quantify typical trajectories and uncertainty, while the known mean-square rate demonstrably misrepresents the typical rate. Explicit dilogarithmic covariance and CLT are nontrivial mathematically motivated distributional information rather than a routine one-step inequality or numerical recomputation.",
+    "status": "PASS"
+  }
+}
