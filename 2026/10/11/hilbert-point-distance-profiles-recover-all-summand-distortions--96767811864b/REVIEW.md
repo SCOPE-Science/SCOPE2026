@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses the published exact \(\ell_p\)-sum distance formula to obtain the exact power sum \(S(r)=\sum_i d_i^r\). Dominant-exponential extraction recovers distinct \(d_i\) values and multiplicities recursively. The one-sided \(p=2\) asymptotics use exact formulas for \(r(2\pm h)\); lower distortion levels are exponentially suppressed, yielding the stated cusp or flatness. The accompanying computation is only a consistency check.
+## correctness
 
-## Originality
-PASS. The closest source, Grundbacher--Kobos, gives the exact profile formula and Corollary 2.3's minimum/symmetry/endpoints, but the inspected full text does not state reconstruction of the component-distance multiset or a differentiability/cusp classification. Targeted searches for inverse reconstruction, aliases involving power sums, multiplicity, differentiability, and Hilbert-exponent cusps found no covering indexed result. Nearby indexed results concern different functionals or fixed Banach planes.
+PASS
 
-Residual risk: a generic finite-exponential-sum inversion principle is classical in spirit and may be recorded elsewhere. The originality assessment is specifically for the Banach--Mazur profile consequence and its geometric interpretation, not for the abstract limit trick by itself.
+The published Grundbacher–Kobos formula f(p)=||(d_i)||_{2p/|p-2|} is substituted with p_r=2r/(r-2), yielding exactly S(r)=f(p_r)^r=sum_i d_i^r for all r>2. A finite ordered exponential sum has D1=lim S(r)^(1/r), m1=lim S(r)/D1^r, and subtracting m1 D1^r inductively identifies all remaining distances and multiplicities. For p=2±h, r=4/h±2, so the lower levels are O(e^{-c/h}); division by r gives cusp derivatives ±D log m/4 when maximum multiplicity m>=2 and C-infinity flatness at p2 for m=1. Source checker was read; finite sampling is illustrative, not the proof. The exact-data hypothesis is indispensable.
 
-## Value
-PASS. The result answers a natural inverse question created by the new exact distance formula: what structural information about the summands is visible from the scalar \(p\)-profile? It shows that a germ at the single distinguished exponent \(p=2\) contains the entire finite multiset of Euclidean distortions. The cusp coefficient detects tied worst summands, while uniqueness of the worst summand produces infinite flatness. This supplies structural information not contained in the source's qualitative profile bounds.
+## originality
 
-## Closest literature and limitations
-The lead source is F. Grundbacher and T. Kobos, *Exact Banach--Mazur distances of certain \(\ell_p\)-sums and cones*, arXiv:2603.18268v1. Theorem 1.1 is the essential premise; Corollary 2.3 is the closest statement. The claim reconstructs only scalar Euclidean distortions, not the summand spaces or dimensions, and does not assert stable numerical recovery from noisy data.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Grundbacher–Kobos already gives the complete forward profile, so the inverse result is a mathematical consequence of a known stronger forward formula, not a new Banach–Mazur distance computation. Nonetheless no source inspected gives the injectivity/inversion of the Hilbert germ or its cusp/flatness stratification as a result, and a finite-exponential identification argument is required. This modest inverse statement is treated as a distinct conclusion rather than an independent reproof of the formula; high residual risk of being considered a routine corollary.
+
+## value
+
+PASS
+
+The exact local germ has the unexpectedly global ability to recover EVERY component distortion level, and the nonsmoothness order discriminates the number of worst components. This is a natural inverse-identifiability result for finite sum geometry, though ill conditioned and not a stable algorithm; the combined explicit recovery and singularity statement is more useful than an isolated power-mean limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
