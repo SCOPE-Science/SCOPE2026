@@ -1,21 +1,21 @@
-# Review: The asymmetrical eight-vertex Klein bottle has mod-two cosystolic profile \(5,6,6\)
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Exact face-equation reduction gives \(\dim Z^1=9\), vertex coboundaries give \(\dim B^1=7\), and the resulting \(512\) cocycles split into four classes of \(128\) representatives. Every cocycle is exhaustively classified by support weight and cup-square bit. The minimum data for the three nonzero classes are exactly \((5,1,1),(6,5,0),(6,3,1)\). The explicit weight-five cocycle is replayed from the facet data, and every minimum support is checked to be one simple cycle in the dual graph. The checker also reconstructs the closed connected surface and independently confirms trivial simplicial automorphism group.
+## correctness
 
-Risk: the numerical multiplicities rely on a finite exhaustive checker. This is appropriate here because all \(2^9=512\) cocycles are enumerated, the linear-algebra dimensions are independently checked, and the supplied code is self-contained.
+PASS
 
-## Originality
-**PASS.** Cervone's exact-object source gives the 1133 triangulation, uniqueness, asymmetry, and nearby mod-two homology context, but not a classwise cocycle support spectrum. Full-text inspection and targeted term searches found no cocycle, cohomology, or systolic statement. Lutz's survey supplies minimality and classification context, not the cochain metric. Focused semantic searches under exact-object, dual-cycle, cosystole, and cohomology-code aliases found no covering result.
+Independently reconstructed 16 listed facets, 24 edges and 16 face-evenness equations. Reimplemented GF(2) Gaussian elimination gives face-equation rank 15, so Z¹ has dimension 9 and EXACTLY 512 cocycles, and vertex coboundaries rank7 give 128 coboundaries and H¹ dimension2 with exactly three nonzero cosets. Exhaustively enumerated all 512 cocycles, partitioned by 128-element coboundary cosets, evaluated Alexander–Whitney mod2 cup square on fundamental facet chain and support minima: exactly (5,1,1), (6,5,0), (6,3,1). Independently checked explicit unique weight-five support and connectivity/degree-2 for all nine minimizers in the dual cubic graph: each is a simple dual cycle. This independent complete enumeration proves the exact finite theorem; no extrapolation or verifier-log-only inference. Correctness of labeling as Cervone’s 1133 is supported by the primary classification.
 
-The closest same-object comparison is a primal homology-cycle census. It does not imply this claim: the present invariant is shortest support in cohomology, equivalently a dual-cell one-cycle problem under Poincaré duality, and additionally records classwise multiplicities and cup-square type. No prior statement inspected dominates those data.
+## originality
 
-Residual risk: an older unindexed computation may describe the dual cubic map's shortest nonseparating cycles without using cohomology language.
+PASS
 
-## Value
-**PASS.** The 1133 complex is a canonical vertex-minimal Klein-bottle triangulation, and mod-two one-cosystole is a natural discrete systolic and cohomological-code invariant. The full profile reveals a genuine class distinction invisible from the abstract group \(H^1\cong\mathbf F_2^2\): one square-nonzero class has a unique five-edge dual representative, the unique square-zero class first appears at six edges with five minimizers, and the remaining square-nonzero class also begins at six edges but with three minimizers. This is a complete natural finite classification, not a single arbitrary support calculation.
+The full exact-object Cervone triangulation classification was inspected for unique 1133/no-symmetry and its homology discussion; it supplies geometry and homology dimension but not classwise dual cocycle length/multiplicity/cup square. Lutz provides minimal triangulation context. Compared primal homology-cycle metrics, dual cubic-map shortest cycles and F2 cohomological codeword-distance aliases; none of the actually read same-object results entails the classwise table. Bounded priority risk remains for obscure alternate indexing.
 
-## Closest literature and limitations
-The checked exact-object source is Cervone, DOI 10.1007/BF01265307, with the archived public snapshot `webarchive:20040309191227:vmkb.pdf`. Lutz, arXiv:math/0506372v1, supplies the vertex-minimal manifold context. The theorem is restricted to the fixed 1133 triangulation and mod-two cohomology; no claim is made about other triangulations or coefficients.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+This is an exhaustive exact natural cohomological/systolic invariant of a distinguished vertex-minimal Klein-bottle triangulation. It separates the three nonzero classes by both shortest dual-cycle length and multiplicity and links them to the cohomological cup-square quadratic type, supplying a reusable exact surface/coding benchmark. One canonical finite object and an exhaustive proof are acceptable without any conjectured infinite-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
