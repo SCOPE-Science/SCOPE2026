@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T02:16:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all integers n>=1, W_n=exp(-Z_n)=n min_i exp(-X_i) has density (1-w/n)^(n-1), 0<w<n, so E exp(-tZ_n)=n^(t+1)B(t+1,n) and E Z_n=H_n-log n. Differentiating forward KL to unrestricted Gumbel(location mu, inverse scale t>0), minimizing first over mu, gives F_n(t)=1/n+(t-1)(H_n-log n)-log t+log A_n(t). Its derivative H_n-1/t-sum_{j=1}^n 1/(t+j) and strictly positive second derivative ensure the unique t_n>1; F_n' at 1 is -1/(n+1), and F_n' at infinity is H_n>0. The consecutive-n derivative comparison gives t_{n+1}<t_n, with t_1=(1+sqrt(5))/2. The mean-value theorem gives n(t_n-1)->6/pi^2; Taylor at 1 gives n^2 KL_min->1/2-3/pi^2. The support lower bound makes reverse KL infinite; no reverse-KL claim. Independent bisection at n=1,2,10,30,100,1000 verifies roots and n^2 risk approaching ~0.196036, but does not prove the all-n limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Johnson derives entropy and convergence in KL to standard Gumbel, including exponential maximum entropy; it does not give beta_n optimizers or 1/2-3/pi^2.",
+          "Zarfaty et al. calibrate distribution-function approximation/norming sequences rather than forward-KL projection.",
+          "Central-rank entropic CLT has a different asymptotic regime."
+        ],
+        "reasoning": "General extreme-value convergence and functional approximations do not imply the exact full-family KL optimum or its sharp n^-2 constant.",
+        "searches": [
+          "Johnson arXiv:2007.03569 complete PDF Proposition 2.4, Theorem 4.4, Remark 4.6",
+          "Zarfaty Barkai Kessler arXiv:2006.13677 Section II on location and width norming",
+          "Cardone Dytso Rush arXiv:2205.04621 central order statistics"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2007.03569",
+        "arXiv:2006.13677",
+        "arXiv:2205.04621",
+        "Resultary semantic search for Gumbel information projection"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Johnson already provides entropy, and F_n(1) follows by beta substitution; the new minimizer requires differentiating and minimizing over t and extracting the second-order optimized risk.",
+          "Norming-sequence matching neither minimizes KL nor implies optimal t_n monotonicity."
+        ],
+        "reasoning": "The published entropy formula is a premise but does not mechanically determine the unique two-parameter KL optimum or asymptotic loss constant without a further optimization theorem.",
+        "searches": [
+          "Johnson arXiv:2007.03569 PDF Remark 4.6 and Proposition 2.4",
+          "Zarfaty arXiv:2006.13677 Section II"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Forward KL is a cross-entropy minimization over the full Gumbel location-scale family; t=1/beta converts to a convex one-parameter digamma/harmonic root equation.",
+          "Johnson arXiv:2007.03569 Proposition 2.4 supplies a general relative-entropy identity but not this optimization."
+        ],
+        "reasoning": "The equivalent language is information projection, optimal target Gumbel, and finite-sample relative-entropy calibration; relevant published statements inspect convergence to a fixed target, not a joint finite-n argmin.",
+        "searches": [
+          "Resultary semantic search: optimal KL divergence Gumbel fit exponential maximum finite sample sharp scale information projection",
+          "web: exponential order-statistic maximum KL information projection gamma beta harmonic numbers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact optimum table or identity was identified in checked results; this is a searched non-detection, not proof of absolute novelty."
+        ],
+        "reasoning": "The result is continuous-parametric optimization for all n, not a discrete database lookup; exact tables of unoptimized entropy are different data.",
+        "searches": [
+          "Resultary semantic search: optimal KL divergence Gumbel fit exponential maximum finite sample sharp scale information projection",
+          "web query exact combination n squared KL 1/2-3/pi squared exponential Gumbel"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact claim after comparison of named equivalent formulations, stronger results, exact tables and prior implications; disclosed residual literature risks.",
+      "residual_risks": [
+        "Older order-statistic information-projection or extreme-value fitting sources outside indexed literature could contain the same optimization; no exhaustive priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_NOT_COVERING_FINITE_KL_OPTIMUM",
+          "evidence": "Exact relative entropy and entropy identities; no variable-scale KL argmin theorem in inspected primary work.",
+          "identifier_or_url": "arXiv:2007.03569",
+          "material_read": "Open-access complete paper; Proposition 2.4, Theorem 4.4, Remark 4.6 and statements on fixed limiting Gumbel",
+          "method": "Open-access primary PDF reading and page inspection",
+          "title": "Information-theoretic convergence of extreme values to the Gumbel distribution",
+          "trigger": "Same exponential maximum and relative entropy"
+        },
+        {
+          "assessment": "DIFFERENT_CALIBRATION",
+          "evidence": "Distribution/width matching methods are not exact forward-KL minimization.",
+          "identifier_or_url": "arXiv:2006.13677",
+          "material_read": "Open-access paper, introductory exposition and Section II on norming and finite-size distribution corrections",
+          "method": "Open-access PDF reading and targeted text search",
+          "title": "Accurately approximating extreme value statistics",
+          "trigger": "Gumbel location and width adjustments"
+        },
+        {
+          "assessment": "INAPPLICABLE_RANK",
+          "evidence": "Central Gaussian order statistic asymptotics exclude the maximum-rank Gumbel model.",
+          "identifier_or_url": "arXiv:2205.04621",
+          "material_read": "Public abstract and regime description for central ranks with rank proportion in (0,1)",
+          "method": "Public paper record and targeted search",
+          "title": "Entropic Central Limit Theorem for Order Statistics",
+          "trigger": "Potentially broad entropy approximation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact unrestricted finite-sample information projection of the exponential maximum onto the two-parameter Gumbel family is a natural statistical calibration problem. The sharp loss reduction from 1/2 to 1/2-3/pi^2, uniqueness and explicit t_n equation provide a useful non-routine quantitative refinement of entropic extreme-value convergence, with sharp finite-n boundaries.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2007.03569",
+    "arXiv:2006.13677",
+    "arXiv:2205.04621",
+    "Resultary semantic search for Gumbel information projection"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Older order-statistic information-projection or extreme-value fitting sources outside indexed literature could contain the same optimization; no exhaustive priority guarantee.",
+    "Public source metadata contains operational provenance; publication is withheld pending authorized sanitization.",
+    "Finite checker executions are bounded; general theorems rest on reconstructed symbolic arguments and clear assumptions."
+  ],
+  "schema_version": 1
+}

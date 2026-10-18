@@ -1,15 +1,21 @@
-# Review of optimal finite-sample Gumbel calibration of exponential maxima
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all integers \(n\ge1\), the beta representation of the exponential maximum gives exact moments and differential entropy. Minimizing first over the Gumbel location yields the scalar objective, whose second derivative \(t^{-2}+\sum_{j=1}^{n}(t+j)^{-2}\) is positive for every \(t>0\). The derivative crosses zero exactly once; boundary behavior is covered. A comparison across sample sizes and Taylor expansion at the unique root prove the strict scale ordering and both sharp asymptotic limits. Direct quadrature, moments, and a standard-library verifier corroborate finite numerical cases, without replacing analytic proof.
+PASS
 
-## Originality — PASS, with bibliographic uncertainty
+For all integers n>=1, W_n=exp(-Z_n)=n min_i exp(-X_i) has density (1-w/n)^(n-1), 0<w<n, so E exp(-tZ_n)=n^(t+1)B(t+1,n) and E Z_n=H_n-log n. Differentiating forward KL to unrestricted Gumbel(location mu, inverse scale t>0), minimizing first over mu, gives F_n(t)=1/n+(t-1)(H_n-log n)-log t+log A_n(t). Its derivative H_n-1/t-sum_{j=1}^n 1/(t+j) and strictly positive second derivative ensure the unique t_n>1; F_n' at 1 is -1/(n+1), and F_n' at infinity is H_n>0. The consecutive-n derivative comparison gives t_{n+1}<t_n, with t_1=(1+sqrt(5))/2. The mean-value theorem gives n(t_n-1)->6/pi^2; Taylor at 1 gives n^2 KL_min->1/2-3/pi^2. The support lower bound makes reverse KL infinite; no reverse-KL claim. Independent bisection at n=1,2,10,30,100,1000 verifies roots and n^2 risk approaching ~0.196036, but does not prove the all-n limits.
 
-Johnson (arXiv:2007.03569, Proposition 2.4, Theorem 4.4, Remark 4.6) gives the forward-relative-entropy identity, fixed-target convergence and exact entropy of the normalized exponential maximum. The new result does not claim those ingredients: it performs the unrestricted finite-sample location-scale information projection and obtains its unique root and optimized asymptotic constant. Zarfaty, Barkai, and Kessler (arXiv:2006.13677) improve extreme-value norming by distribution-function matching and fitting rather than forward-KL minimization; Cardone, Dytso, and Rush (arXiv:2205.04621) study entropic Gaussian limits for central ranks, not maximum-rank Gumbel calibration. Targeted comparisons did not identify an implying result, but unindexed historical fitting studies or the inaccessible full treatise of Reiss could overlap. A failed search is not a proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-The precise best finite-sample Gumbel law for maxima of exponentials is a natural question in information-theoretic extreme-value approximation. This theorem determines it for every integer sample size and supplies the sharp forward-KL improvement \(1/2-3/\pi^2\) versus \(1/2\) under optimized location alone. The scope is deliberately limited to this canonical parent and this direction of divergence; no universal extreme-value convergence theorem or statistical fitting procedure is asserted.
+Best-of-knowledge original exact claim after comparison of named equivalent formulations, stronger results, exact tables and prior implications; disclosed residual literature risks.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact unrestricted finite-sample information projection of the exponential maximum onto the two-parameter Gumbel family is a natural statistical calibration problem. The sharp loss reduction from 1/2 to 1/2-3/pi^2, uniqueness and explicit t_n equation provide a useful non-routine quantitative refinement of entropic extreme-value convergence, with sharp finite-n boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
