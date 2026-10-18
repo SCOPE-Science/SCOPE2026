@@ -1,11 +1,21 @@
-# Scientific review: heterogeneous three-point orientation phase
+# Independent mathematical audit
 
-**Correctness — PASS.** The closed ordered parameter domain, signs, and normalizations are specified. The proof first uses log-concavity under convolution to locate the possible modal indices. Eight finite-degree homogeneous coefficient comparisons are nonnegative on the *entire* ordered simplex, with all 160 exact coefficients provided. Five additional factorizations show that only two sign patterns can win and that their difference is \((1-2c)(5ab-a-b)\). The polynomial checker was run against the supplied coefficient table; independent rational-grid evaluation passed all 120 ordered triples and is corroboration only. Boundary cases, strict uniqueness and limitations have been separately checked.
+## correctness
 
-**Originality — PASS, with priority risk.** Kurauskas, arXiv:2603.11043v1, proves an asymptotic inequality and sets up signed standard-extremal candidates, but does not compute this heterogeneous exact sign phase. Madiman–Wang–Woo's strong-Sperner majorization closes gaps in a fixed ordering; it does not decide which reflection maximizes the peak of a three-site convolution. Singhal treats Bernoulli summands. Earlier equal-parameter calculations are not represented as new. Targeted primary-text, published-record, and mathematical-web searches found no statement implying the mixed-parameter formula. Unindexed finite-parameter identities remain a priority risk.
+PASS
 
-**Value — PASS.** The exact optimization of standard-extremal sign choices is an explicit quantitative ingredient in a current concentration-function conjecture. This classification covers the entire nontrivial three-variable, three-site heterogeneous parameter chamber. The unexpected structural fact is that the optimal orientation depends on the two *smallest* concentration parameters but not on the largest; both optimization regimes occur on open sets. The result is narrower than the conjecture over arbitrary distributions, and no such stronger conclusion is asserted.
+Sign reversal of a (t,t,1−2t) law reverses p_t(z), leaving four candidates up to global reflection. Log-concavity of each support convolution localizes modes, and the source exact ordered-simplex barycentric substitution gives eight homogeneous cubic modal comparisons with 20 coefficients apiece, all nonnegative. I independently reconstructed all 160 integer coefficients using separate JS polynomial convolution of the actual ordered vertices; all exactly matched COEFFICIENTS.tsv with minimum 0. Five coefficient factorizations dominate two mixed patterns, leaving A=ab+ac+bc−3abc and B=7abc−4ab−ac−bc+a+b, with A−B=(1−2c)(5ab−a−b). Strictly ordered interior cases have unique optimal sign up to global reversal, ties at equality, and endpoints follow weak inequalities; rational examples corroborate but do not prove continuum theorem.
 
-**Closest literature and limits.** Kurauskas (2026), arXiv:2603.11043v1, Introduction/Definitions 2.1–2.5; Madiman–Wang–Woo (2019), arXiv:1712.00913, Theorem 1.4; Singhal (2022), arXiv:1912.02886, Bernoulli sign optimization. No independent mathematical audit or external validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: no inspected preceding concentration result computes the complete ordered heterogeneous three-variable sign optimum for the three-atom canonical extremal laws or the phase 5ab=a+b. Kurauskas gives an asymptotic concentration bound and states exact conjectural sign-selection, Madiman--Wang--Woo give gap-closing majorization, and Singhal treats Bernoulli laws; none directly implies the stated fixed-three-variable reflection optimization.
+
+## value
+
+PASS
+
+The signed optimal ordering of the standard three-atom concentration extremizers is an explicit finite case of Kurauskas’s natural conjectural extremal formalism. It supplies a complete heterogeneous chamber classification with an unexpected two-smaller-parameter boundary independent of the largest, a precise fact unavailable from the asymptotic bound and potentially useful in understanding higher-summand signed convolutions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

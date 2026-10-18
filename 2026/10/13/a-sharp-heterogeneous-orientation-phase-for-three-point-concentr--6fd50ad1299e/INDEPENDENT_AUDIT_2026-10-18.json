@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T00:59:08.228275Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Sign reversal of a (t,t,1−2t) law reverses p_t(z), leaving four candidates up to global reflection. Log-concavity of each support convolution localizes modes, and the source exact ordered-simplex barycentric substitution gives eight homogeneous cubic modal comparisons with 20 coefficients apiece, all nonnegative. I independently reconstructed all 160 integer coefficients using separate JS polynomial convolution of the actual ordered vertices; all exactly matched COEFFICIENTS.tsv with minimum 0. Five coefficient factorizations dominate two mixed patterns, leaving A=ab+ac+bc−3abc and B=7abc−4ab−ac−bc+a+b, with A−B=(1−2c)(5ab−a−b). Strictly ordered interior cases have unique optimal sign up to global reversal, ties at equality, and endpoints follow weak inequalities; rational examples corroborate but do not prove continuum theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gap-closing majorization transforms arrangements of coefficients; here all four orientation choices already have contiguous three-point supports.",
+          "The Bernoulli sign optimization concerns two-atom summands, not the triple three-atom convolution."
+        ],
+        "reasoning": "The cited general or adjacent theorems lack the exact extremal comparison on fixed (a,b,c). General concentration domination is weaker/different from choosing which of the allowed sign patterns wins.",
+        "searches": [
+          "Kurauskas 2026 arXiv:2603.11043 Theorem 1.1 / Conjecture 1.3",
+          "Madiman Wang Woo 2019 arXiv:1712.00913 Theorem 1.4",
+          "Singhal 2022 arXiv:1912.02886 Bernoulli arbitrary probabilities"
+        ]
+      },
+      "checked_sources": [
+        "Kurauskas arXiv:2603.11043 full HTML relevant sections",
+        "Madiman--Wang--Woo arXiv:1712.00913 Theorem 1.4 descriptions",
+        "Singhal arXiv:1912.02886 published abstract",
+        "Resultary heterogenous three-point signs semantic query",
+        "Actual COEFFICIENTS.tsv 160 exact integers + check.py Git blobs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A−B=(1−2c)(5ab−a−b) is a strict heterogeneous orientation transition; which sign wins is independent of c in the interior.",
+          "Prior asymptotic and gap-closing statements do not provide the four candidate peaks, modal index inequalities or pairwise orientation dominance."
+        ],
+        "reasoning": "The claim supplies a concrete finite exact classification required by the broader sign-selection problem and is not a routine substitution into a proved prior formula; it does not claim arbitrary-law concentration.",
+        "searches": [
+          "Kurauskas 2026 standard-extremal conjecture and proof of asymptotic bound",
+          "Madiman Wang Woo 2019 Theorem 1.4",
+          "Frozen RESULT.md exact sign-factor identities and certificate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kurauskas conjecture ranges over signed standard-extremal distributions but does not evaluate heterogeneous fixed triple signs.",
+          "The current result identifies the exact peak of each candidate convolution, with two branches separated by (1−2c)(5ab−a−b)."
+        ],
+        "reasoning": "The claim is an exact finite three-variable subproblem rather than the full conjecture; an asymptotic comparison cannot select the precise signs or establish the c-independent boundary.",
+        "searches": [
+          "Kurauskas arXiv:2603.11043 signed standard extremal three point nu_alpha best orientation three summands",
+          "Madiman Wang Woo arXiv:1712.00913 three point convolution rearrangement sign",
+          "Resultary semantic search Kurauskas discrete concentration three point distributions signed sums orientation phase heterogeneous three variables"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 8x20 polynomial coefficient certificate was reconstructed independently: all 160 entries match the frozen table and are nonnegative.",
+          "No inspected preceding table or exact database gives the two-branch heterogeneous maximum."
+        ],
+        "reasoning": "The certificate provides a finite algebraic proof over the entire real ordered simplex, not a recomputation of a known enumeration; other published tables on three-point moments/correlations would not settle the signed concentration functional.",
+        "searches": [
+          "Published concentration literature exact three-point 3-fold signed convolution Kurauskas",
+          "Actual frozen COEFFICIENTS.tsv 8x20 integer positivity certificate Git blob 6be878cb375b8c9b0b59bce7ec2d95b877fb10d2",
+          "Resultary semantic search three point signed orientation concentration"
+        ]
+      },
+      "rationale": "Best-of-knowledge: no inspected preceding concentration result computes the complete ordered heterogeneous three-variable sign optimum for the three-atom canonical extremal laws or the phase 5ab=a+b. Kurauskas gives an asymptotic concentration bound and states exact conjectural sign-selection, Madiman--Wang--Woo give gap-closing majorization, and Singhal treats Bernoulli laws; none directly implies the stated fixed-three-variable reflection optimization.",
+      "residual_risks": [
+        "A previously published unpublished note or unindexed finite convolution identity could contain the phase formula.",
+        "Claim is limited to canonical three-atom distributions and only three signed summands; cannot infer the unrestricted concentration conjecture."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_CONJECTURE_NO_EXACT_THREE_VARIABLE_CLASSIFICATION",
+          "evidence": [
+            "Asymptotic bound and explicit sign choice issue; no displayed heterogeneous 3-summand phase in the inspected result."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.11043v1",
+          "material_read": "Full accessible HTML rendering examined, especially Introduction, Theorem 1.1, Conjecture 1.3, standard-extremal definitions and sections around proof; relevant appendix compared.",
+          "method": "Read mathematical statements/definitions directly and map them to assigned fixed triple.",
+          "title": "An asymptotically optimal bound for the concentration function of a sum of independent integer random variables",
+          "trigger": "Defines the canonical extremal laws and could cover signs"
+        },
+        {
+          "assessment": "INAPPLICABLE_TO_SELECTION",
+          "evidence": [
+            "Gap-closing rearrangement does not select between four signed convolution candidates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1712.00913",
+          "material_read": "Theorem 1.4 and described discrete majorization mechanism; whole-paper exclusion not claimed from partial material.",
+          "method": "Compare operations allowed by theorem to reflections of already gap-free laws.",
+          "title": "Majorization and Rényi Entropy Inequalities via Sperner Theory",
+          "trigger": "Possible domination by general rearrangement result"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT",
+          "evidence": [
+            "Two-point Bernoulli sign choices, not three-point canonical laws."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1912.02886",
+          "material_read": "Abstract and stated Bernoulli setting; no claim of complete full-text inspection.",
+          "method": "Compare two-site Bernoulli supports with assigned three-site laws.",
+          "title": "Erdős–Littlewood–Offord problem with arbitrary probabilities",
+          "trigger": "Earlier signed sum optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The signed optimal ordering of the standard three-atom concentration extremizers is an explicit finite case of Kurauskas’s natural conjectural extremal formalism. It supplies a complete heterogeneous chamber classification with an unexpected two-smaller-parameter boundary independent of the largest, a precise fact unavailable from the asymptotic bound and potentially useful in understanding higher-summand signed convolutions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kurauskas arXiv:2603.11043 full HTML relevant sections",
+    "Madiman--Wang--Woo arXiv:1712.00913 Theorem 1.4 descriptions",
+    "Singhal arXiv:1912.02886 published abstract",
+    "Resultary heterogenous three-point signs semantic query",
+    "Actual COEFFICIENTS.tsv 160 exact integers + check.py Git blobs"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Finite three-summand canonical distributions only; not unrestricted concentration conjecture.",
+    "Uniqueness holds only in strict ordered interior off tie boundary."
+  ]
+}
