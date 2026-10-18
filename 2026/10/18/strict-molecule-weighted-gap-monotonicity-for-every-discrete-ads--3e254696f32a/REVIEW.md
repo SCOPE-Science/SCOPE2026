@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The theorem follows from Pinsky's established gap-density integral and a complete elementary argument: integration by parts produces the exact difference integral; the change of variables isolates a reflected kernel; its log-reflection derivative is strictly negative for every integer rod length; pairing the positive and negative halves proves the strict sign throughout the physical gap range. Every endpoint and quantified parameter is covered. Finite consistency checks passed 1554 assertions; they are not the proof.
+
+**Originality — PASS (best knowledge, not independent priority certification).** Pinsky (arXiv:2608.04730v1, Theorem 2 and remark after Table 1) presented the strict increase as unproved. The more directly relevant later 2026 full-text treatment, *The bonded-molecule density of one-dimensional random sequential adsorption is decreasing in k, and an exact reduction for the gap densities*, proves the same conclusion only for finite rod lengths from two through twenty via exact certificates (Theorem 7.1) and explicitly identifies lengths twenty-one and above as open (section 1.4 and section 9.2). Its integration-by-parts formula, finite-range result, and other monotonicity theorem are not claimed as new. The uniform reflected-kernel inequality is not contained in the inspected results and closes the explicitly stated gap. Searches of research records and accessible previous claims found no direct covering statement; an unindexed equivalent theorem remains a priority risk.
+
+**Value — PASS.** The result resolves the natural all-rod-length monotonicity conjecture for the vacancy-molecule distribution of discrete sequential adsorption, not merely a special numerical instance. The point is substantive because the closest work required hundreds of exact certificates and stopped at a finite parameter cutoff. The proof supplies a simple geometric comparison valid uniformly across all lengths.
+
+**Limitations.** The result concerns limiting expectations, not finite-segment or samplewise monotonicity. Equality and behavior beyond the physically defined gap range are not asserted. Priority has not been externally adjudicated.
+
+Self-review: passed. Independent audit: not yet performed.
