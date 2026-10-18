@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks and proof limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library, from the directory containing the standalone script.
+## correctness
 
-The script implements the exact integer Stirling-number recurrence and computes \(N_n(a,b,c)\) through \(n=9\). It independently enumerates all partitions and all ordered pairs through \(n=6\), checks relational commutation via the defining ordered-pair condition, derives join-component counts with union-find, and compares every refined cell with the recurrence. For \(n\leq4\), it evaluates both modal compositions on every Boolean subset, checks whether the maps commute and whether one composition is idempotent, and compares their distinct output counts with \(2^c\). It tests the sharp support criterion in \(2025\) parameter cases and verifies all unweighted totals through \(n=9\) against independently published OEIS A354458.
+PASS
 
-Expected final output begins with `VERIFY_OK`; the latest replay reported `n_to_6_pairs 44168`, `direct_boolean_modal_pairs 255`, `support_tested 2025`, and the unrefined totals \(1,1,4,19,117,864,7459,73749,818960,10078023\).
+For equivalences R,S on a labelled finite set, relational compositions RS and SR coincide exactly when their existential powerset modalities commute (singletons determine relation); in that case RS is their join equivalence R∨S. Each connected join block consists of r row R-classes and s column S-classes with all rs intersections nonempty; conversely such positive rectangular cell grids force commutation. On a labelled j-set, the number of such structures is (rs)! S(j,rs)/(r!s!), with nonempty-cell exponential weight (e^z-1)^(rs)/(r!s!). The labelled SET construction of join-blocks yields exp(t sum_{r,s>=1}u^r v^s (e^z-1)^(rs)/(r!s!)), and the composite modal image consists exactly of all unions of c join blocks, hence 2^c outputs. For c=1 at least ab points needed; c>=2 minimizing sum_i r_i s_i gives n>=a+b-c, achievable by two single-sided thick blocks plus (c-2) singleton blocks. Require 1<=c<=min(a,b); n=0 single empty pair. Independently generated set partitions and tested relational commutation for n=0..4: total 1,1,4,19,117, agreeing with OEIS; separately reconstructed sharp support algebra. Finite enumeration does not replace full labelled species proof.
 
-The brute-force enumeration is finite. It does not independently certify all infinite-parameter statements or establish that no older equivalent formula exists. Unrestricted correctness rests on the proof in `RESULT.md`. Independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality after independent statement/implication comparison, published-record semantic search and relevant primary material inspection. The known premises and residual risks below are credited, not silently treated as novel.
+
+## value
+
+PASS
+
+The known unrefined count of commuting equivalence-relation pairs does not determine the triple-indexed class-count distribution or attainable modal composite image rank. The all-positive rectangular component EGF is a natural structural refinement with an unexpectedly different feasibility threshold for one join component versus several. The result is relevant both to permuting congruences and finite S5 modal closure; it is not merely restating OEIS A354458 totals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

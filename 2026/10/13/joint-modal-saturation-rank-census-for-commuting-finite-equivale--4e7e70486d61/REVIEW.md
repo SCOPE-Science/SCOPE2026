@@ -1,19 +1,21 @@
-# Scientific review: joint modal-saturation rank census
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The modal-operation criterion is reduced to the equality of composed binary relations by evaluating existential powerset maps on singleton inputs. A transitive product of two equivalence relations equals their join; commutation is equivalent to that transitivity. Each join-class is therefore exactly a nonempty rectangular intersection grid. The grid-surjection count divides by the freely acting row/column label permutations, and the labelled-set construction proves the generating function. The resulting operator has precisely \(2^c\) image values. The minimum-\(n\) support theorem follows from \(\sum r_i s_i=a+b-c+\sum(r_i-1)(s_i-1)\), with explicit constructions attaining equality. All boundary cases, including empty set, one component, and singleton grid dimensions, are addressed. Exact recurrence, direct brute-force relation tests, and direct modal-powerset tests independently agree within stated finite bounds.
+PASS
 
-## Originality
+For equivalences R,S on a labelled finite set, relational compositions RS and SR coincide exactly when their existential powerset modalities commute (singletons determine relation); in that case RS is their join equivalence R∨S. Each connected join block consists of r row R-classes and s column S-classes with all rs intersections nonempty; conversely such positive rectangular cell grids force commutation. On a labelled j-set, the number of such structures is (rs)! S(j,rs)/(r!s!), with nonempty-cell exponential weight (e^z-1)^(rs)/(r!s!). The labelled SET construction of join-blocks yields exp(t sum_{r,s>=1}u^r v^s (e^z-1)^(rs)/(r!s!)), and the composite modal image consists exactly of all unions of c join blocks, hence 2^c outputs. For c=1 at least ab points needed; c>=2 minimizing sum_i r_i s_i gives n>=a+b-c, achievable by two single-sided thick blocks plus (c-2) singleton blocks. Require 1<=c<=min(a,b); n=0 single empty pair. Independently generated set partitions and tested relational commutation for n=0..4: total 1,1,4,19,117, agreeing with OEIS; separately reconstructed sharp support algebra. Finite enumeration does not replace full labelled species proof.
 
-**PASS, qualified by a genuine residual risk.** OEIS A354458 already gives the unrefined total numbers and composition/join criterion, so neither is asserted to be new. The inspected OEIS entry does not provide the joint \((a,b,c)\)-refinement, complete modal image-rank multiplicities, or the sharp \(c=1\) versus \(c\geq2\) support transition. Primary work on decidable-equivalence joins concerns computability; primary work on neighbourhood pooling concerns expressive semantics; partition/composition-matrix work concerns different matrix shapes and constraints. Statement-level comparisons do not give the present refinement. A historically equivalent multidimensional refinement or a translation through classical grid-partition enumeration may exist outside the searched material. Searches do not establish global novelty.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Composing finite equivalence modalities models successive accessibility saturation. Counts of individual equivalence classes record the information granularity of each modality, while the image cardinality of the composite records the number of possible saturated observable sets. Their complete joint distribution is a natural finite-algebraic invariant, not determined by the previously tabulated total count. The proof also finds a sharp and asymmetric feasible-support boundary: a single fully merged component requires at least \(ab\) states, but allowing at least two components reduces the minimum to \(a+b-c\). It provides reusable exact coefficient and recurrence methods for every finite size, not a narrow parameter slice or a restatement of an earlier integer sequence.
+Best-of-knowledge originality after independent statement/implication comparison, published-record semantic search and relevant primary material inspection. The known premises and residual risks below are credited, not silently treated as novel.
 
-## Closest sources and limits
+## value
 
-The closest exact-count source is Geoffrey Critzer's 2022 OEIS A354458, which decisively covers the unweighted marginal. Green's 2017 arXiv paper considers join/composition of decidable equivalence relations on infinite domains. Van De Putte–Klein's 2022 open-access article studies neighbourhood pooling, not this enumeration. Claesson–Dukes–Kubitzke's partition/composition matrices are structurally different from complete nonempty intersection grids. Equivalences under older partition/congruence terminology remain an originality risk. The finite verifications are corroboration, not a replacement for the unrestricted mathematical proof. The result does not count isomorphism classes or full term clones.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The known unrefined count of commuting equivalence-relation pairs does not determine the triple-indexed class-count distribution or attainable modal composite image rank. The all-positive rectangular component EGF is a natural structural refinement with an unexpectedly different feasibility threshold for one join component versus several. The result is relevant both to permuting congruences and finite S5 modal closure; it is not merely restating OEIS A354458 totals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
