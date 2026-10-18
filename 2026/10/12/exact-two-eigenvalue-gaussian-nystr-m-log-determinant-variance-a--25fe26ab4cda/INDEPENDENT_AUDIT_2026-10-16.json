@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T07:08:12.261351Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The rank-one Nyström residual is PSD of rank one, so the preconditioned M has eigenvalues 1 and exp Z. Conditional independent Gaussian trace probing gives error Z(χ1²−1) and exact MSE=2 E Z². The determinant lemma expresses Z as log ratio of two diagonal angular quadratic forms; uniform Fourier expansions with radii u,v followed by orthogonality give E Z=m and Var Z=2[Li2(u²)+Li2(v²)−2Li2(uv)]. Ahat<=A and tr Ahat<=a force Z>=log(1+b), strictly if a>b almost surely; equality if a=b. For fixed b and contrast a→∞, Cauchy ratio s=√(b/a) ω2/ω1 and domination by logarithmic integrable envelope yield exact excess coefficient 8[log(1+b)+2 log 2] in units sqrt(b/a). Fresh independent high-precision angular quadrature/dilog comparisons at positive spectral pairs agree; proof covers continuum and limiting regime.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cortinovis–Toni Theorem 2 is a bound with sketch size at least four, not rank one in dimension two.",
+          "Saibaba–Alexanderian–Ipsen assess compressed subspace iteration logdet approximation, not this P^{-1/2}(I+A)P^{-1/2} independent Gaussian probe statistic."
+        ],
+        "reasoning": "Theorem domain excludes submitted dimension/sketch rank and different method does not dominate exact risk; no direct stronger coverage found.",
+        "searches": [
+          "Cortinovis Toni 2026 Theorem 2 Gaussian Nystrom rank oversampling l>=4",
+          "Saibaba Alexanderian Ipsen arXiv:1605.04893 randomized matrix free trace log determinant estimators"
+        ]
+      },
+      "checked_sources": [
+        "Cortinovis–Toni arXiv:2601.05778v2, full primary HTML and Theorem 2",
+        "Saibaba–Alexanderian–Ipsen arXiv:1605.04893",
+        "Persson–Kressner arXiv:2209.11023",
+        "Resultary semantic Gaussian Nystrom single probe logdet variance two eigenvalues exact dilogarithm asymptotic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General approximation inequalities bound log matrix error, but do not yield the exact expected Z² over random Gaussian 2D directions.",
+          "The ideal-top-eigenvector comparator has MSE=2 log²(1+b), whereas theorem proves an exact excess for random sketch."
+        ],
+        "reasoning": "Existing conditional variance result plus general sketch bounds do not imply the signed, sharp square-root asymptotic coefficient without the new integration.",
+        "searches": [
+          "Persson Kressner arXiv:2209.11023 randomized low rank approximation monotone matrix functions",
+          "Cortinovis Toni arXiv:2601.05778 Section on one Gaussian probe"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cortinovis–Toni conditional probe identity E[(w^T log M w −Tr log M)^2 | sketch] = 2||log M||_F² is a direct used antecedent.",
+          "New formula additionally integrates over random Nyström sketch, producing dilogarithmic joint MSE dependent on a,b."
+        ],
+        "reasoning": "The conditional identity alone is not equivalent to the explicit unconditional angular/dilog moment calculation.",
+        "searches": [
+          "Cortinovis Toni arXiv:2601.05778 detecting when one probe vector enough preconditioned log determinant approximation",
+          "Resultary semantic Gaussian Nystrom single probe logdet variance two eigenvalues exact dilogarithm asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The output is an analytic function for all real a>=b>0, not a list of discrete empirical table values.",
+          "Finite high-precision angular integrals corroborate but cannot substitute for the Fourier and Cauchy derivation."
+        ],
+        "reasoning": "No relevant table could mechanically imply this all-continuum exact moment identity and high-contrast coefficient.",
+        "searches": [
+          "two eigenvalue gaussian nystrom preconditioned logdet exact risk dilogarithm table",
+          "Resultary semantic Gaussian Nystrom single probe logdet variance two eigenvalues exact dilogarithm asymptotic"
+        ]
+      },
+      "rationale": "PASS, best of knowledge. Cortinovis–Toni 2026 establish conditional Gaussian-probe variance and broad estimates for the same algorithm, but the inspected main rank-oversampling bound assumes ℓ>=4 rather than exactly one sketch direction in 2×2, and does not compute the unconditional joint law over sketch and probe. Saibaba et al. and Persson–Kressner address different logdet estimators or matrix-function approximation targets. The dilogarithmic exact two-eigenvalue risk and sharp square-root contrast penalty appear not to be directly implied by inspected results. Possible equivalent 2D angular-integration literature remains a risk.",
+      "residual_risks": [
+        "Equivalent angular logarithm moment identities could exist in obscure stochastic numerical linear algebra literature.",
+        "Limit a→∞ fixes b>0 and does not provide uniform b-dependent bounds, higher dimensions or finite-precision behavior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source defines estimator and general bounds, but inspected Theorem 2 ℓ>=4 does not cover 2×2 ℓ=1 exact unconditional formula.",
+          "evidence": "Theorem 2 is oversampled ℓ>=4 and upper bounds; conditional Gaussian variance depends on log M, which source does not integrate explicitly in 2D.",
+          "identifier_or_url": "arXiv:2601.05778v2 / doi:10.1002/nla.70106",
+          "material_read": "Full open primary HTML loaded; introduction, estimator construction, conditional Gaussian trace variance, main theorem statements and Nyström bound including sketch rank assumption materially read",
+          "method": "Original OA HTML/journal full-text reading",
+          "title": "Detecting when one probe vector is enough for preconditioned log-determinant approximation",
+          "trigger": "Exactly same algorithm and most plausible strong coverage"
+        },
+        {
+          "assessment": "Different estimator target; no whole-document exclusion claimed.",
+          "evidence": "Theorem 7 mentioned in assigned text concerns log det(I+Q^T A Q), not random Nyström preconditioned trace probe.",
+          "identifier_or_url": "arXiv:1605.04893",
+          "material_read": "Bibliographic/abstract-level identification of compressed determinant estimator; complete text not inspected",
+          "method": "Primary abstract/assigned citation comparison",
+          "title": "Randomized matrix-free trace and log-determinant estimators",
+          "trigger": "Another possible direct stochastic-logdet estimator"
+        },
+        {
+          "assessment": "Bounds on matrix function approximation do not automatically yield exact joint logdet estimator risk.",
+          "evidence": "Target is matrix-function approximation, not unconditional one-probe logdet variance.",
+          "identifier_or_url": "arXiv:2209.11023",
+          "material_read": "Primary bibliographic/abstract description of monotone matrix function sketch approximation",
+          "method": "Limited source inspection",
+          "title": "Randomized low-rank approximation of monotone matrix functions",
+          "trigger": "Possible stronger approximation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A natural smallest nontrivial rank-deficient Nyström sketch provides a meaningful exact benchmark for the currently studied logdet method. The discovered sqrt(b/a) excess, rather than 1/a, quantifies rare sketch orientations and separates random/ideal preconditioners; a narrow exact invariant is motivated by the stochastic estimator, not arbitrary parameter slicing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equivalent angular logarithm moment identities could exist in obscure stochastic numerical linear algebra literature.",
+    "Limit a→∞ fixes b>0 and does not provide uniform b-dependent bounds, higher dimensions or finite-precision behavior.",
+    "Recursive tree completeness cannot be independently verified with the available read-only GitHub connector; assigned tree SHA used as guard, not independently certified.",
+    "Public provenance sanitization incomplete; scientific acceptance is separate from publication readiness."
+  ],
+  "schema_version": 1
+}

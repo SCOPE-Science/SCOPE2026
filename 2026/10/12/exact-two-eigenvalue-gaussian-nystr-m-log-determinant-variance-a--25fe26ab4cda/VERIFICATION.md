@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction checks and proof limits
 
-Execute `python verify.py` in an environment with the versions specified in `requirements.txt`. The test implements the theorem's dilogarithm expression and computes the same moments by numerical integration over a uniform angular direction. It also reconstructs Gaussian Nyström preconditioners and the preconditioned matrices after independent orthogonal rotations, comparing the matrix logarithm against the exact scalar determinant formula and the two-step Lanczos expression. In the high-contrast regime it integrates the *excess* over ideal spectral preconditioning in a scaled Cauchy variable; naive fixed-angle quadrature is not accurate enough to resolve rare directions.
+# Independent mathematical audit
 
-The expected successful result is `VERIFY_OK` with counts `100` independent angular integrals, `480` direct-matrix orientations, `480` two-step Lanczos tests, and `4` spectral-gap scales. All computations use ordinary finite-precision scientific software. A finite test is not an exhaustive proof, does not certify an infinite limit, and is not evidence of novelty. The mathematical proof in `RESULT.md` establishes the exact and asymptotic claims for every stated input. An independent audit has not been performed.
+## correctness
+
+PASS
+
+PASS. The rank-one Nyström residual is PSD of rank one, so the preconditioned M has eigenvalues 1 and exp Z. Conditional independent Gaussian trace probing gives error Z(χ1²−1) and exact MSE=2 E Z². The determinant lemma expresses Z as log ratio of two diagonal angular quadratic forms; uniform Fourier expansions with radii u,v followed by orthogonality give E Z=m and Var Z=2[Li2(u²)+Li2(v²)−2Li2(uv)]. Ahat<=A and tr Ahat<=a force Z>=log(1+b), strictly if a>b almost surely; equality if a=b. For fixed b and contrast a→∞, Cauchy ratio s=√(b/a) ω2/ω1 and domination by logarithmic integrable envelope yield exact excess coefficient 8[log(1+b)+2 log 2] in units sqrt(b/a). Fresh independent high-precision angular quadrature/dilog comparisons at positive spectral pairs agree; proof covers continuum and limiting regime.
+
+## originality
+
+PASS
+
+PASS, best of knowledge. Cortinovis–Toni 2026 establish conditional Gaussian-probe variance and broad estimates for the same algorithm, but the inspected main rank-oversampling bound assumes ℓ>=4 rather than exactly one sketch direction in 2×2, and does not compute the unconditional joint law over sketch and probe. Saibaba et al. and Persson–Kressner address different logdet estimators or matrix-function approximation targets. The dilogarithmic exact two-eigenvalue risk and sharp square-root contrast penalty appear not to be directly implied by inspected results. Possible equivalent 2D angular-integration literature remains a risk.
+
+## value
+
+PASS
+
+PASS. A natural smallest nontrivial rank-deficient Nyström sketch provides a meaningful exact benchmark for the currently studied logdet method. The discovered sqrt(b/a) excess, rather than 1/a, quantifies rare sketch orientations and separates random/ideal preconditioners; a narrow exact invariant is motivated by the stochastic estimator, not arbitrary parameter slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
