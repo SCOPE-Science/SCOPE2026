@@ -1,24 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Stationarity of arbitrary antiderivatives of \(x\) gives \(\mathbb E[v\mid x]=0\). The generator of \(\phi(x)v\) then yields
-\[
-\mathbb E[\phi'(x)v^2]=\mathbb E[x\phi(x)].
-\]
-Its distributional form reconstructs the kinetic-energy projection exactly from the position marginal. Monomial tests give the full moment hierarchy, and the mechanical-energy derivative gives the damping balance; together they imply
-\[
-\mathbb E[x^4]=3\mathbb E[x^2].
-\]
-The endpoint \(\mathbb E[x^2]=3\) is excluded by equality rigidity and invariance.
+## correctness
 
-Risk: compact support is used to justify unrestricted antiderivative tests and the finite-measure distribution argument.
+PASS
 
-## Originality
-PASS. The strongest inspected same-object prior work is a complete article devoted to rigorous van der Pol long-time averages. It writes the exact system and bounds the average of \(x^2+v^2\), but targeted complete-text searches found no moment, variance, conditional, virial, or fourth-moment formulation matching the accepted theorem. Direct semantic and exact-phrase searches likewise found no same-object implication.
+PASS. Invariance against antiderivatives H(x) gives E[v|x]=0, and against phi(x)v gives E[phi_prime(x)v²]=E[x phi(x)] with damping term cancelled by the conditional mean. In distributions eta_prime=-x rho; mean x=0 and compact support make q(x)=integral_[x,infty) s rho(ds) compact supported with q_prime=-x rho, and finiteness excludes constant-Lebesgue ambiguity, so eta=q(x)dx. Monomial phi gives hierarchy E[x^k v²]=E[x^(k+2)]/(k+1); stationary energy gives E[(1-x²)v²]=0, hence E[x⁴]=3E[x²]. Cauchy–Schwarz and invariance exclude E[x²]=3 for non-origin invariant measures; kinetic density and zero balance force both sides of |x|=1 visited in kinetic mass. Independent sparse/symbolic generator checks k0..11 and energy confirmed algebra but not distributional argument.
 
-Risk: the original 1920 article was not used for whole-document noncoverage, and an equivalent historical virial identity could remain unindexed.
+## originality
 
-## Value
-PASS. The theorem reconstructs an entire stationary kinetic-energy marginal, not just one scalar average, and it produces an infinite exact moment hierarchy. The parameter-independent fourth-moment law and strict RMS ceiling provide immediate reproducibility checks for numerical or experimental stationary data and tie recurrent motion to both signs of the nonlinear damping.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS best-of-knowledge. Fantuzzi–Goluskin–Huang–Chernyshenko full primary time-average paper studies the identical van der Pol vector field but SOS bounds long-time averages x²+v² rather than exact marginal inversion and the fourth moment identity; complete text and targeted searches were inspected. The virial test-function identity for all compact stationary measures is stronger than a single orbit numerical bound and reconstructs kinetic mass as a function of position law, not inferable from the previously published SOS bounds. The generator calculus is classical, so older unindexed moment identities for this oscillator remain risk.
+
+## value
+
+PASS
+
+PASS. From the physically natural stationary position marginal, the precise kinetic-energy density and all stationary moments are reconstructed, giving a parameter-independent fourth-moment constraint and necessary pump/dissipation threshold crossing for all compact invariant states. The full distributional identity is more meaningful than a single cheap polynomial identity, and could inform moment-bounding of stationary nonlinear oscillations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

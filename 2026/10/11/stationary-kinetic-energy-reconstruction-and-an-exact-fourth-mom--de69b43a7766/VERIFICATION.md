@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,37 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses only the Python standard library and exact rational sparse-polynomial arithmetic.
 
-For the vector field
-\[
-\dot x=v,\qquad
-\dot v=\mu(1-x^2)v-x,
-\]
-it verifies, for monomial test functions through degree eight, the generator decomposition
-\[
-L\!\left(\frac{x^{k+1}v}{k+1}\right)
-=
-x^kv^2
-+
-\frac{\mu x^{k+1}(1-x^2)v}{k+1}
--
-\frac{x^{k+2}}{k+1}.
-\]
-This is the exact polynomial identity used after the conditional damping term is shown analytically to have zero stationary mean.
+# Independent mathematical audit
 
-It also verifies
-\[
-L\!\left(\frac{x^2+v^2}{2}\right)
-=
-\mu(1-x^2)v^2.
-\]
+## correctness
 
-Finally, exact rational arithmetic verifies that the \(k=0\) and \(k=2\) hierarchy identities together with the energy balance imply
-\[
-\mathbb E[x^4]=3\mathbb E[x^2].
-\]
+PASS
 
-The stored output in `verification_output.txt` is `VERIFY_OK`.
+PASS. Invariance against antiderivatives H(x) gives E[v|x]=0, and against phi(x)v gives E[phi_prime(x)v²]=E[x phi(x)] with damping term cancelled by the conditional mean. In distributions eta_prime=-x rho; mean x=0 and compact support make q(x)=integral_[x,infty) s rho(ds) compact supported with q_prime=-x rho, and finiteness excludes constant-Lebesgue ambiguity, so eta=q(x)dx. Monomial phi gives hierarchy E[x^k v²]=E[x^(k+2)]/(k+1); stationary energy gives E[(1-x²)v²]=0, hence E[x⁴]=3E[x²]. Cauchy–Schwarz and invariance exclude E[x²]=3 for non-origin invariant measures; kinetic density and zero balance force both sides of |x|=1 visited in kinetic mass. Independent sparse/symbolic generator checks k0..11 and energy confirmed algebra but not distributional argument.
 
-The all-test-function conditional identity, distributional reconstruction of the kinetic-energy projection, and strict equality cases are analytic arguments in `RESULT.md`; they are not inferred from finite numerical experiments.
+## originality
+
+PASS
+
+PASS best-of-knowledge. Fantuzzi–Goluskin–Huang–Chernyshenko full primary time-average paper studies the identical van der Pol vector field but SOS bounds long-time averages x²+v² rather than exact marginal inversion and the fourth moment identity; complete text and targeted searches were inspected. The virial test-function identity for all compact stationary measures is stronger than a single orbit numerical bound and reconstructs kinetic mass as a function of position law, not inferable from the previously published SOS bounds. The generator calculus is classical, so older unindexed moment identities for this oscillator remain risk.
+
+## value
+
+PASS
+
+PASS. From the physically natural stationary position marginal, the precise kinetic-energy density and all stationary moments are reconstructed, giving a parameter-independent fourth-moment constraint and necessary pump/dissipation threshold crossing for all compact invariant states. The full distributional identity is more meaningful than a single cheap polynomial identity, and could inform moment-bounding of stationary nonlinear oscillations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
