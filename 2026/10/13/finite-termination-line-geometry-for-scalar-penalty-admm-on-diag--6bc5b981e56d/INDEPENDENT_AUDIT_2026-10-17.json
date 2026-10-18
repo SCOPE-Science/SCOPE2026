@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T13:47:38.748043Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md, VERIFICATION.md and verify.py at frozen blobs",
+        "Independent Fraction matrix multiplication in /mnt/data/.admm_check.py"
+      ],
+      "rationale": "Exact scaled error updates give the rank-one 2×2 block M with det M=0 and trace 1-alpha*rho*(a+b)/((rho+a)*(rho+b)). Cayley–Hamilton yields M²=(tr M) M; any nonzero trace creates a persistent eigenmode, whereas zero traces annihilate all modes in at most two cycles. Solving tr=0 is exactly ab=tau(a+b)-rho² with tau=rho(alpha-1) and 0<tau<=rho. The KKT z-optimality gives rho u^+=B z^+ in error coordinates. Independently recomputed exact Fraction modal matrices for (a,b)=(1,5),(2,6), rho=4, alpha=15/8: [[5/18,-2/9],[25/72,-5/18]] and [[3/20,-1/10],[9/40,-3/20]], both square to zero.",
+      "residual_risks": [
+        "Exact arithmetic only; noncommuting/nonpositive Hessians, matrix penalties, floating-point termination excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghadimi proves factor zero at rho=delta, alpha=2 for isotropic second Hessian. General-Hessian normalization changes the metric in original variables. Giselsson–Boyd prove rate bounds and metric choices, not a scalar penalty diagonal-pair classification."
+        ],
+        "reasoning": "A larger class admitting matrix-valued penalty is not a stronger statement about existence of one original-coordinate scalar rho; warm-start result is a proper special case.",
+        "searches": [
+          "Ghadimi Teixeira Shames Johansson arXiv:1306.2454 Theorem 2 Remark 2 Appendix C",
+          "Giselsson Boyd arXiv:1410.8479 Theorem 2",
+          "Resultary Warm-start correction for one-step over-relaxed ADMM on regularized quadratics"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1306.2454 full PDF",
+        "arXiv:1410.8479 full PDF",
+        "Resultary ADMM semantic search; warm-start finding URL https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-warm-start-correction-for-one-step-over-relaxed-admm-on-regulari--ecccb6037a89"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Isotropic theorem implies cancellation only for a_i varying and b_i constant at rho=b, alpha=2; current criterion also admits b_i heterogeneous, e.g. pairs (1,5),(2,6) with alpha=15/8."
+        ],
+        "reasoning": "The published isotropic statement is a contained special case of the new line family, not a theorem logically forcing the entire heterogeneous scalar-line classification.",
+        "searches": [
+          "arXiv:1306.2454 original spectrum and isotropic optimal parameters",
+          "arXiv:1410.8479 DR metric selection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The known rank-one modal factor for B=delta I shares a spectral form, but it fixes one Hessian eigenvalue and does not classify all coordinatewise (a_i,b_i) with a common scalar penalty."
+        ],
+        "reasoning": "Recognizing both Hessians as jointly diagonal and requiring simultaneous eigenvalue zero yields a new equivalent affine-line condition; general DR splitting parametrizations may conceal it (residual risk).",
+        "searches": [
+          "overrelaxed ADMM diagonal quadratic consensus finite termination nilpotent iteration scalar rho alpha spectral line curvature [Resultary 20 hits]",
+          "ADMM Douglas Rachford nilpotent iteration heterogeneous diagonal modes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No natural finite database/table relevant to a continuous parameter line classification; exact examples are witnesses, not novelty proof."
+        ],
+        "reasoning": "Compared analytic rate theorems and operator spectra, rather than relying on absent finite tables.",
+        "searches": [
+          "overrelaxed ADMM diagonal quadratic consensus finite termination nilpotent iteration scalar rho alpha spectral line curvature [Resultary 20 hits]",
+          "diagonal quadratic scalar penalty ADMM exact finite termination table"
+        ]
+      },
+      "rationale": "Complete common-line geometric criterion for arbitrary heterogeneous commuting diagonal pairs under scalar-Euclidean penalty is not covered by known isotropic spectral annihilation or metric-selection rate bounds inspected; best-of-knowledge only.",
+      "residual_risks": [
+        "An older equivalent Douglas–Rachford nilpotence spectral criterion in disguised parameters is possible; extensive historical priority not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published isotropic factor and normalization; not exact scalar-original-coordinate heterogeneous line classification",
+          "evidence": [
+            "Theorem 2 optimal isotropic rho=delta alpha=2",
+            "Appendix C spectral factor"
+          ],
+          "identifier_or_url": "arXiv:1306.2454 / optimization-online:3917",
+          "material_read": "Full 38-page paper, Theorem 2, Remark 2, Appendix C, exact eigenvalue factor and metric normalization",
+          "method": "Lawful arXiv/OA full PDF text plus inspection of PDF page images",
+          "title": "Optimal Parameter Selection for the Alternating Direction Method of Multipliers (ADMM): Quadratic Problems",
+          "trigger": "Identical mode splitting and finite-step special case"
+        },
+        {
+          "assessment": "Rate analysis and metric changes; no matching scalar penalty all-initialization nilpotence criterion found",
+          "evidence": [
+            "Theorem 2 and surrounding metric assumptions"
+          ],
+          "identifier_or_url": "arXiv:1410.8479",
+          "material_read": "Full 29-page primary paper, convergence-rate theorem and discussion of metric selection",
+          "method": "Lawful arXiv full PDF and inspected PDF page image",
+          "title": "Linear Convergence and Metric Selection for Douglas–Rachford Splitting and ADMM",
+          "trigger": "Possible broader metric theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ghadimi et al. finite convergence isotropic benchmark",
+        "Giselsson–Boyd metric-selection context"
+      ],
+      "rationale": "The result identifies exactly when one practical scalar penalty and over-relaxation parameter annihilate every heterogeneous quadratic coordinate, with sharp necessary and sufficient geometric conditions and two-step termination; useful for algorithm design and tests without requiring an arbitrary new algorithm.",
+      "residual_risks": [
+        "Hypotheses require simultaneous diagonalization in the original scalar Euclidean metric; excludes numerical robustness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For positive diagonal Hessians A,B and a common scalar Euclidean ADMM penalty rho, finite termination from every (z,u) initialization under fixed standard 0<alpha<=2 occurs iff all (a_i+b_i,a_i b_i) lie on p=tau s-rho^2 for one 0<tau<=rho; alpha=1+tau/rho. All errors vanish by the second completed cycle.",
+  "limitations": [
+    "Single original-coordinate scalar penalty, fixed rho and alpha, positive diagonal Hessians; no noncommuting, singular, varying-parameter, or finite-precision classification."
+  ],
+  "schema_version": 1
+}

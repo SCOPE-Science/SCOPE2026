@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Each diagonal mode has an exact two-state error matrix with determinant \(0\) and trace
-\[
-\zeta_i=1-\frac{\alpha\rho(a_i+b_i)}{(\rho+a_i)(\rho+b_i)}.
-\]
-Cayley--Hamilton gives \(M_i^2=\zeta_iM_i\), so finite termination for every initialization is equivalent to \(\zeta_i=0\) in every mode. Solving those equations gives the line criterion and \(0<\tau\le\rho\). The rational witness is replayed by `verify.py`.
+## correctness
 
-## Originality
-PASS. Ghadimi--Teixeira--Shames--Johansson prove the zero-factor result for an isotropic second quadratic with Hessian \(\delta I\), and their general-Hessian change of variables alters the augmented metric in the original coordinates. This finding instead fixes one scalar Euclidean penalty and gives a necessary-and-sufficient heterogeneous curvature-line criterion. Giselsson--Boyd provide broader metric-selection theory but do not state this scalar-penalty classification. Targeted statement-level literature searches found no implication-equivalent result.
+PASS
 
-Residual risk remains that older quadratic Douglas--Rachford literature may contain an equivalent simultaneous-diagonalization formula from which the line condition follows implicitly.
+Exact scaled error updates give the rank-one 2×2 block M with det M=0 and trace 1-alpha*rho*(a+b)/((rho+a)*(rho+b)). Cayley–Hamilton yields M²=(tr M) M; any nonzero trace creates a persistent eigenmode, whereas zero traces annihilate all modes in at most two cycles. Solving tr=0 is exactly ab=tau(a+b)-rho² with tau=rho(alpha-1) and 0<tau<=rho. The KKT z-optimality gives rho u^+=B z^+ in error coordinates. Independently recomputed exact Fraction modal matrices for (a,b)=(1,5),(2,6), rho=4, alpha=15/8: [[5/18,-2/9],[25/72,-5/18]] and [[3/20,-1/10],[9/40,-3/20]], both square to zero.
 
-## Value
-PASS. Exact finite termination is a natural endpoint of ADMM tuning. The line geometry answers when a single scalar penalty and one standard relaxation can annihilate all modes despite two heterogeneous diagonal Hessians, and distinguishes that scalar possibility from matrix-valued preconditioning.
+## originality
 
-## Closest literature and limitations
-The closest direct source is Ghadimi et al. (first public posting 2013-06-10), which contains the isotropic \(\delta I\) zero-factor formula. Giselsson--Boyd supplies the closest broader metric-selection framework. The theorem is limited to positive diagonal Hessians in the Euclidean coordinates of the scalar penalty, exact arithmetic, and constant parameters.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete common-line geometric criterion for arbitrary heterogeneous commuting diagonal pairs under scalar-Euclidean penalty is not covered by known isotropic spectral annihilation or metric-selection rate bounds inspected; best-of-knowledge only.
+
+## value
+
+PASS
+
+The result identifies exactly when one practical scalar penalty and over-relaxation parameter annihilate every heterogeneous quadratic coordinate, with sharp necessary and sufficient geometric conditions and two-step termination; useful for algorithm design and tests without requiring an arbitrary new algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
