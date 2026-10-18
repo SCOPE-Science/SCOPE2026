@@ -1,0 +1,19 @@
+# Scientific review: Exact halfspace-depth law for three symmetric convex slices
+
+## Correctness — PASS
+The proof specifies full-dimensional compact convex bodies, a three-slice measure, its halfspace-depth convention, and a one-sided cap-volume discrepancy. Its critical steps are independently reconstructable: convexity of depth regions places a maximizing point at a center of one of the slices; a steep tilt gives the exact depth of each outer center; the middle-center halfspace mass is the middle half-volume plus an outer signed cap difference; and symmetry of those differences identifies the infimum with a reflected supremum. Complemented halfspaces yield the exact nesting equivalence. The strict nested quarter bound follows by a two-branch contradiction. For equal volumes, the half-mass cap bounds give the strict one-third bound, with an explicit mutually transverse thin-rectangle family proving sharpness in every dimension at least two. Exact rational polygon clipping tests pass 3,952 finite checks; their finite scope is not treated as proof of the all-direction claim.
+
+## Originality — PASS, with bibliographic limitations
+Cheng–Basu, arXiv:2609.32953v1, supplies a sharp \(2/9\) **lower bound** for three planar convex slices under midpoint inclusion; it does not give exact depths for arbitrarily shaped symmetric slices nor the nonnested halfspace-cap discrepancy and sharp equal-volume one-third threshold without midpoint inclusion. The published *Exact three-slice halfspace depth by reflected-core pairing* treats one homothetic reflected-included slice and two identical outer slices; its specialized law agrees with the nested homothetic symmetric case but cannot imply the arbitrary three-body nonnested formula or the crossed-rectangle sharpness. The published *Equal-area three-slice centerpoints improve to \(8/27\)* assumes midpoint inclusion and derives translation rigidity, absent in the present nonnested regime. All three primary mathematical texts were inspected materially; no equivalent formula or dominating theorem was identified. A prior unindexed signed-halfspace-discrepancy identity remains possible, so historical priority is not independently certified.
+
+## Mathematical value — PASS
+The theorem gives a complete characterization of maximum Tukey halfspace depth for an infinite class of arbitrary, separately shaped three-slice convex configurations in all dimensions. Its one-sided cap discrepancy is an exact quantitative measure of the loss caused by incomparable outer slices, and its vanishing detects geometric inclusion. The nested case collapses to a three-volume formula with sharp universal quarter bound. The equal-volume, non-midpoint regime has a different, sharp one-third infimum approached by transverse thin rectangles, sharply contrasting with the depth one-half of three identical centered slices. This resolves a motivated, structural special problem suggested by the recent three-slice centerpoint theorem; it is not an isolated finite-table computation or a relabeling of the homothetic case.
+
+## Closest sources and limitations
+- H. Cheng and A. Basu, *A centerpoint theorem for three planar convex bodies*, arXiv:2609.32953v1 (26 September 2026), full HTML Sections 1–4 inspected.
+- *Exact three-slice halfspace depth by reflected-core pairing* (2026), original published mathematical result inspected in full.
+- *Equal-area three-slice centerpoints improve to \(8/27\)* (2026), original published mathematical result inspected in full.
+
+Central symmetry and affine alignment of symmetry centers are required. The equal-volume sharpness family does not satisfy the midpoint-inclusion hypothesis for a convex three-slice stack. The new formula leaves the geometric discrepancy variational for incomparable outer slices. General asymmetry, additional slices, and a complete priority search are outside its claims.
+
+Self-review: passed. Independent audit: not yet performed.
