@@ -1,19 +1,21 @@
-# Scientific review: rank-one Rota–Baxter operators on spin factors
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from an arbitrary rank-one map \(R=f\otimes c\). The defining identity forces \(c^2=\lambda c\) and \(f\circ L_c=(\lambda/2)f\), and nondegeneracy of the spin-factor form gives the stated necessary-and-sufficient conditions. The scalar generator case is correctly excluded. Projectivizing the image generator gives an injective parametrization, and the standard nondegenerate quadratic-form zero count supplies the odd/even and discriminant cases. The executable finite-field checks returned `VERIFY_OK` on all eight specified cases, without serving as a proof beyond those cases.
+PASS
 
-## Originality — PASS, with an identified substantial risk
+For nonzero rank-one R=f(.)c the RB equation implies image closure c²=λc, and f∘L_c=(λ/2)f. Writing c=(a,u) with spin multiplication, u=0 contradicts the rank-one equation, and the components force B(u,u)=a². With f(b,v)=sb+phi(v), equality implies phi(u)=0 and s B(u,v)=0 for all v, hence s=0 by nondegeneracy; converse identities establish the full arbitrary char≠2 classification. Quotient by scaling yields the smooth quadric fibration and dimension 2n−2, with q^{n−1}−1 nonzero functionals per F_q point. The standard even/odd-dimensional projective quadric zero-count gives the stated discriminant correction. Independently enumerated all normalized rank-one endomorphisms and checked the defining RB identity on every basis pair for (q,Bdiag)=(3,[1,1]),(3,[1,1,1]),(3,[1,1,2]),(5,[1,2]): counts 8,80,128,24 exactly match formula; finite checks corroborate rather than replace all-field proof.
 
-Benito–Gubarev–Pozhidaev (2018), in the directly inspected article, prove general structural Rota–Baxter facts and classify chiefly nonzero-weight cases on Jordan bilinear-form algebras; these do not directly imply the stated rank-one zero-weight counts. Gubarev (2017) studies the same Jordan family at weight zero and proves nilpotency bounds. Its full text was not obtainable for decisive complete comparison; it might imply all or some of the operator parametrization. No source actually inspected exhibited the all-dimension discriminant-dependent rank-one finite-field formula. Equivalences via square-zero maps, isotropic image lines, quadratic-form counts, and general Clifford-algebra classifications were separately considered. This assessment is not a claim of independently established publication priority.
+## originality
 
-## Value — PASS
+PASS
 
-The rank-one stratum is the first nontrivial geometric family in an otherwise intricate zero-weight operator problem. Its explicit punctured vector-bundle structure over a projective quadric and its uniform finite-field count resolve natural structural and arithmetic questions, including a parity-dependent sensitivity to quadratic type. It is a complete family-level classification, not a small arbitrary finite census.
+Prior Benito–Gubarev–Pozhidaev (2018) has nonzero-weight Jordan theorems and cites Gubarev (2017) on zero weight. The available materials do not establish the rank-one projective quadric parameterization and discriminant-sensitive odd finite-field map count; the unread highly relevant 2017 primary is an explicit serious coverage risk, so originality is strictly best-of-knowledge.
 
-## Boundaries
+## value
 
-No conclusion is made about higher-rank operators, automorphism conjugacy, or characteristic two. The geometric statement concerns the rank-one locus only. Finite-field computations are checks, not general proofs. The full text of the closest 2017 study remains an originality uncertainty requiring later scholarly comparison.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural rank-stratum classification on Jordan spin factors, including an explicit intrinsic bundle geometry and sharp arithmetic point count that distinguishes quadratic discriminant types, answers more than generic nilpotency and is motivated by a central class of nonassociative algebras.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

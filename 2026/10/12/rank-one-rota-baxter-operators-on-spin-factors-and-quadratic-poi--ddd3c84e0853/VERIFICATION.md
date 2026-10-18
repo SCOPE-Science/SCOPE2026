@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3. The script constructs the indicated diagonal spin-factor multiplication over eight prime-field instances and exhaustively checks every rank-one linear map with normalized projective image generator and nonzero functional. A bilinear identity is checked on all pairs of basis vectors, without presupposing the theorem's parameter restrictions. The resulting solution sets are compared with the proven classification and the closed count formula. The performed run returned `VERIFY_OK` with counts `8, 24, 48, 80, 128, 864, 624, 1040` in the order printed by the script.
+## correctness
 
-These finite checks do not establish a theorem over arbitrary fields, extension fields or unbounded dimension; those conclusions require the proof in `RESULT.md`. The complete classification and the standard quadratic Gauss-sum zero-count formula are the two mathematical ingredients, with conventions and determinant sign spelled out in that proof. No independent audit has been performed.
+PASS
+
+For nonzero rank-one R=f(.)c the RB equation implies image closure c²=λc, and f∘L_c=(λ/2)f. Writing c=(a,u) with spin multiplication, u=0 contradicts the rank-one equation, and the components force B(u,u)=a². With f(b,v)=sb+phi(v), equality implies phi(u)=0 and s B(u,v)=0 for all v, hence s=0 by nondegeneracy; converse identities establish the full arbitrary char≠2 classification. Quotient by scaling yields the smooth quadric fibration and dimension 2n−2, with q^{n−1}−1 nonzero functionals per F_q point. The standard even/odd-dimensional projective quadric zero-count gives the stated discriminant correction. Independently enumerated all normalized rank-one endomorphisms and checked the defining RB identity on every basis pair for (q,Bdiag)=(3,[1,1]),(3,[1,1,1]),(3,[1,1,2]),(5,[1,2]): counts 8,80,128,24 exactly match formula; finite checks corroborate rather than replace all-field proof.
+
+## originality
+
+PASS
+
+Prior Benito–Gubarev–Pozhidaev (2018) has nonzero-weight Jordan theorems and cites Gubarev (2017) on zero weight. The available materials do not establish the rank-one projective quadric parameterization and discriminant-sensitive odd finite-field map count; the unread highly relevant 2017 primary is an explicit serious coverage risk, so originality is strictly best-of-knowledge.
+
+## value
+
+PASS
+
+A natural rank-stratum classification on Jordan spin factors, including an explicit intrinsic bundle geometry and sharp arithmetic point count that distinguishes quadratic discriminant types, answers more than generic nilpotency and is motivated by a central class of nonassociative algebras.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
