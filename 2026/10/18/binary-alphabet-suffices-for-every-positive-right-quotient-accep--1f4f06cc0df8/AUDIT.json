@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "All parameters and boundary cases are explicit: k=alpha+1>=2,d=n+1>=2,m<=k-1. In the B product group, a^k yields pure increment k and (ab)^(k-1) yields increment k-1, whose gcd is one; this proves the full S_k x Z_d action. The proof then derives reachability, pairwise distinguishing words, exact stabilizer of accepted suffix projections, the quotient final set [k-1] and its minimality. Unary source Corollary 32 handles all smaller alpha; zero cases follow from quotient emptiness/nonemptiness. Independently coded finite-state checks cover all 60 triples k=2..6,d=2..5,m=1..k-1; they corroborate rather than prove infinite assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "German Theorem 3.1 specifies an existential choice of finite input alphabet and the proof gives 3-letter A,B.",
+        "Rauch–Holzer Corollary 32 explicitly bounds unary positive-target complexity by mn.",
+        "German arXiv:2605.13385v1 concerns reversal and binary witnesses, not right quotient."
+      ],
+      "reasoning": "A broader input-parameter domain with an unrestricted alphabet does not dominate a statement fixing the alphabet to exactly two letters. The 2026 reversal result has different operation semantics. The full fixed-binary statement is not a formal corollary of any examined source without the new coupled-cycle argument.",
+      "searches": [
+        "binary alphabet accepting state complexity right quotient permutation automata 2026 sharp alphabet size 2",
+        "right quotient languages of permutation automata over binary alphabet versus ternary alphabet point stabilizer wreath group",
+        "arXiv:2208.14731 Section 3.7",
+        "arXiv:2605.10852v1 Theorem 3.1"
+      ]
+    },
+    "checked_sources": [
+      "German, arXiv:2605.10852v1, Sections 2-3 and Appendix 0.A (full relevant primary text).",
+      "Rauch and Holzer, arXiv:2208.14731, Section 3.7 and Corollary 32 (primary PDF and page image).",
+      "German, arXiv:2605.13385v1 (original abstract, different operation)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "German uses generators (sigma,0), (tau,0), and (identity,1) for its suffix automaton; no two-generator independence is proved there.",
+        "The new construction uses only (sigma,1),(tau,0). Its powers yield identity permutations with consecutive counter shifts k,k-1, hence the full direct product for every modulus.",
+        "The unary source gives alpha <= mn, thus cannot prove the new unbounded binary result."
+      ],
+      "reasoning": "The new claim implies the previously known unrestricted-spectrum identity but not conversely. It also sharpens alphabet optimality: the one-letter bound from the primary source plus a binary construction prove that two is the exact minimum for unbounded positive spectra. The stabilizer and quotient-final-set mechanism is borrowed, not claimed as original.",
+      "searches": [
+        "arXiv:2605.10852v1 Sections 2-3 and Appendix 0.A",
+        "arXiv:2208.14731 Corollary 32",
+        "binary two-letter complete accepting state spectrum for right quotients of permutation automata m n alpha all positive integers stabilizer cyclic counter"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "German arXiv:2605.10852v1 Section 3 derives full spectrum by a ternary high-target witness; his second automaton uses a separate counter letter c.",
+        "Rauch and Holzer arXiv:2208.14731 Section 3.7 gives unary spectrum [1,mn] for positive inputs."
+      ],
+      "reasoning": "Equivalent phrasing includes binary two-generator permutation witnesses, fixed-alphabet quotient spectra, and minimal alphabet for unbounded quotient accepting-state complexity. The examined unrestricted theorem does not quantify over every fixed alphabet; it constructs three-letter witnesses. The unary theorem excludes the new assertion on one letter. No equivalent two-letter construction was located.",
+      "searches": [
+        "\"right quotient\" \"binary\" \"permutation automata\" \"accepting\"",
+        "binary alphabet two letter witnesses permutation automata right quotient accepting-state complexity full spectrum unbounded ternary constructions group stabilizer",
+        "arXiv:2605.10852v1 Section 3 and Appendix 0.A"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest exact spectral table is in Rauch–Holzer (2022), Corollary 32, for unary alphabets.",
+        "The closest unrestricted spectral identity is German (2026), Theorem 3.1, without a two-letter witness.",
+        "Search results under the full claim and fixed-binary aliases returned no directly equivalent binary result."
+      ],
+      "reasoning": "The existing tables are for the unary and unspecified-alphabet versions. Query failure is not uniqueness evidence; the exact two-letter witness and explicit group proof are compared mathematically with the published entries.",
+      "searches": [
+        "\"2605.10852\" \"binary\" quotient",
+        "accepting state complexity right quotient permutation automata unary binary alphabet m n alpha",
+        "Samuel German Unary-to-Nonunary Transition right quotient 2605.10852 binary alphabet extension 2026"
+      ]
+    },
+    "rationale": "The verified new part is the fixed-two-letter universal high-range witness and sharp nonunary alphabet threshold. It differs in an essential quantified restriction from German 2026, whose reviewed proof uses 3 letters; Rauch–Holzer 2022 proves only the bounded unary spectrum. The direct-product generation by (sigma,1),(tau,0) and gcd(k,k-1)=1 supplies the missing binary step. Searches found no precise or dominating covering result, with residual risk of unindexed/differently formulated literature.",
+    "residual_risks": [
+      "A prior two-generator direct-product encoding or exact fixed-binary quotient-spectrum result may exist under different terminology or in unindexed literature.",
+      "The May 2026 original paper has later proceedings versions; available abstracts still describe ternary witnesses, but a different full version might contain added material.",
+      "The later reversal paper was inspected only at abstract level; its original abstract is operationally distinct, but no whole-document noncoverage claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the fixed-binary claim: witness explicitly requires c to cycle the counter; its theorem quantifies over some alphabet, not a specific binary alphabet.",
+        "evidence": [
+          "Section 3 defines Sigma={a,b,c} and B uses (sigma,0),(tau,0),(id,1).",
+          "Theorem 3.1 states an unrestricted-alphabet positive spectrum; Appendix establishes stabilizer under three letters."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.10852v1",
+        "material_read": "Full directly relevant Sections 2-3, all witness transition definitions and minimality and quotient lemmas, Theorem 3.1, and Appendix 0.A.",
+        "method": "Publisher-independent open HTML mathematical text, examined exact transitions, quantifiers and the final theorem.",
+        "title": "A Unary-to-Nonunary Transition in the Accepting-State Spectrum of Right Quotient for Permutation Automata",
+        "trigger": "Same exact operation, permutation automata, arbitrary positive m,n,alpha; high-range ternary witness potentially covers binary as a corollary."
+      },
+      {
+        "assessment": "NOT_COVERING the binary high-range claim; proves unary interval [1,mn] and says larger alphabets remained open at publication.",
+        "evidence": [
+          "Corollary 32 yields exactly [1,mn] for m,n>0 in unary.",
+          "The text notes quotient for larger alphabets was left open."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.14731",
+        "material_read": "Section 3.7 on pages 11-12 of the 13-page preprint, including Lemmas 28-31 and Corollary 32, with the scanned page inspected.",
+        "method": "Open arXiv primary PDF text extraction and visual page inspection.",
+        "title": "On the Accepting State Complexity of Operations on Permutation Automata",
+        "trigger": "Exact unary spectrum and right-quotient final-set construction; possible implication for binary spectrum."
+      },
+      {
+        "assessment": "DIFFERENT OPERATION: reversal, so the stated abstract result cannot imply a right-quotient spectrum directly. Full text not used to assert noncoverage.",
+        "evidence": [
+          "Its statement uses reversal L^R rather than quotient KL^{-1}."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.13385",
+        "material_read": "The original arXiv abstract and theorem-level summary only; the full text was not examined.",
+        "method": "Original public arXiv abstract and release metadata.",
+        "title": "Exact Accepting-State Spectrum for Reversal of Permutation Automata",
+        "trigger": "A nearby later binary-permutation-alphabet accepting-state spectrum result by the same author."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1f4f06cc-0df8-4d35-a2b5-5d57a68ace00",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determining the least alphabet size for the unrestricted quotient accepting-state spectrum is a structural, motivated refinement of a fresh 2026 result. The exact binary threshold (versus bounded unary) resolves a natural missing parameter, and a uniform group construction demonstrates why a third letter is unnecessary at every modulus. It neither merely recomputes a table nor renames the original ternary witness; its key coprime pure-shift identity is new to the examined proof.",
+    "status": "PASS"
+  }
+}
