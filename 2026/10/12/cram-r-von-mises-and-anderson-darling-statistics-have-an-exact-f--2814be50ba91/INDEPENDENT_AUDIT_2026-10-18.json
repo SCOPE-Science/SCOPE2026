@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T12:18:49.322678Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any fully specified continuous iid null and n>=1, the uniform transform writes W² and A² as quadratic empirical-process forms. The diagonal functions q_W(u)=u²-u+1/3 and q_A(u)=-1-log[u(1-u)] have covariance 1/18, while integrated squared Brownian-bridge kernel with the AD weight is 1/18. Hoeffding diagonal/degenerate pair decomposition gives Cov(W²,A²)=1/(18n)+2(n-1)/(18n)=(2n-1)/(18n); analogous integrals give (4n-3)/(180n) and [10-6n+(2n-3)π²/3]/n. Endpoint integrals finite; n=1 consistent. Independent high-precision integration of Cov(q_W,q_A)=1/18 and K-integral=1/18 confirms critical constants. Analytic identities, not finite n tests, prove universal n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full-text generalized Anderson–Darling/CvM methodology includes kernels and spectral representations, but the finite-sample diagonal correction requires using the same observations in both tests."
+        ],
+        "reasoning": "Generic joint weighted-process formula may cover this as a corollary; specific theorem not located, so residual risk is explicit rather than silently proven absent.",
+        "searches": [
+          "Resultary semantic query: Cramér von Mises Anderson Darling exact finite sample covariance 2n-1 18n",
+          "Hwang–Kuriki arXiv:2404.06040 and classical Brownian-bridge quadratic-form literature"
+        ]
+      },
+      "checked_sources": [
+        {
+          "identifier_or_url": "https://arxiv.org/abs/2404.06040",
+          "material_read": "Full arXiv manuscript sections defining generalized weighted tests, kernels, spectral results and references, targeted searches for cross-statistic covariance",
+          "title": "Integrated empirical measures and generalizations of classical goodness-of-fit statistics"
+        },
+        {
+          "identifier_or_url": "https://doi.org/10.1029/2004WR003204",
+          "material_read": "Public article full accessible text, emphasis on marginal statistics and parameter-estimation context",
+          "title": "Cramer–von Mises and Anderson–Darling goodness of fit tests for extreme value distributions with unknown parameters"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cov=diag(1/18)/n+2(n-1)Kcross/n, Kcross=1/18. Existing individual variances do not imply it without joint Kcross."
+        ],
+        "reasoning": "New cross-weight evaluation plus finite-n decomposition supplies missing connection; broader covariance machinery is prior.",
+        "searches": [
+          "Resultary semantic query: Cramér von Mises Anderson Darling exact finite sample covariance 2n-1 18n",
+          "Hoeffding decomposition; Laio separate moments; Hwang–Kuriki generalized tests"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Laio treats marginal moments of CvM/AD, Hwang–Kuriki develops separately weighted functionals and kernels."
+        ],
+        "reasoning": "Their marginal variance identities alone do not fix cross covariance; no explicit joint-value equivalence located in inspected mathematical passages.",
+        "searches": [
+          "Resultary semantic query: Cramér von Mises Anderson Darling exact finite sample covariance 2n-1 18n",
+          "Laio 2004 Water Resources Research 40 doi:10.1029/2004WR003204; Hwang–Kuriki arXiv:2404.06040"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact covariance table (2n-1)/(18n) or 0.97892295 limit found in those inspected tables or findings."
+        ],
+        "reasoning": "Negative search is only bounded evidence; no claim of exhaustive literature coverage.",
+        "searches": [
+          "Resultary semantic query: Cramér von Mises Anderson Darling exact finite sample covariance 2n-1 18n",
+          "Resultary semantic search; Laio 2004 tables and Hwang–Kuriki manuscript"
+        ]
+      },
+      "rationale": "Best-of-knowledge exact cross-statistic finite-n covariance not found in primary treatments of individual CvM/AD moments or generalized goodness-of-fit eigenstructures. The general weighted empirical-process machinery gives a route, but prior results inspected do not tabulate or entail an already-evaluated exact joint formula without fresh cross-integration. A general two-weight joint-moment theorem may imply this immediately, retained as a material priority risk.",
+      "residual_risks": [
+        "A prior general mixed moment formula for two weighted CvM statistics could subsume exact specialization.",
+        "Composite null and estimated parameters alter the kernel; no claims there or about joint tails."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No inspected theorem giving this exact finite-n mixed covariance; general machinery is close",
+          "evidence": [
+            "Separate eigenstructure/kernel treatments"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.06040",
+          "material_read": "Full arXiv manuscript sections defining generalized weighted tests, kernels, spectral results and references, targeted searches for cross-statistic covariance",
+          "method": "arXiv full text",
+          "title": "Integrated empirical measures and generalizations of classical goodness-of-fit statistics",
+          "trigger": "same CvM and generalized AD objects"
+        },
+        {
+          "assessment": "Different composite null setting and no located joint finite-n covariance",
+          "evidence": [
+            "Separate EDF test treatments and marginal moments"
+          ],
+          "identifier_or_url": "https://doi.org/10.1029/2004WR003204",
+          "material_read": "Public article full accessible text, emphasis on marginal statistics and parameter-estimation context",
+          "method": "Journal HTML full text",
+          "title": "Cramer–von Mises and Anderson–Darling goodness of fit tests for extreme value distributions with unknown parameters",
+          "trigger": "both named statistics and marginal moment computations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These are two canonical, differently tail-weighted goodness-of-fit tests; quantifying exact covariance and limiting correlation ≈0.9789229548736679 directly measures their nonindependence and informs joint interpretation or redundant use. Exact all-sample correction is a naturally needed invariant, not arbitrary numeric computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "identifier_or_url": "https://arxiv.org/abs/2404.06040",
+      "material_read": "Full arXiv manuscript sections defining generalized weighted tests, kernels, spectral results and references, targeted searches for cross-statistic covariance",
+      "title": "Integrated empirical measures and generalizations of classical goodness-of-fit statistics"
+    },
+    {
+      "identifier_or_url": "https://doi.org/10.1029/2004WR003204",
+      "material_read": "Public article full accessible text, emphasis on marginal statistics and parameter-estimation context",
+      "title": "Cramer–von Mises and Anderson–Darling goodness of fit tests for extreme value distributions with unknown parameters"
+    }
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The findings are best-of-knowledge scientific assessments, not exhaustive priority guarantees or formal proof/expert attestation.",
+    "Publication is withheld due to private metadata in public files; this does not alter completed scientific judgment."
+  ],
+  "residual_risks": [
+    "A prior general mixed moment formula for two weighted CvM statistics could subsume exact specialization.",
+    "Composite null and estimated parameters alter the kernel; no claims there or about joint tails."
+  ],
+  "schema_version": 1
+}

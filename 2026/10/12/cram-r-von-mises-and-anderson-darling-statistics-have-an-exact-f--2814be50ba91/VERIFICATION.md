@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,29 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The standalone checker evaluates the diagonal one-observation functions
-\[
-q_W(u)=u^2-u+\frac13
-\]
-and
-\[
-q_A(u)=-1-\log(u(1-u))
-\]
-by numerical quadrature and verifies their means, variances, and covariance against the closed constants.
+# Independent mathematical audit
 
-It separately evaluates the three squared Brownian-bridge kernel integrals over the triangle \(0<s<t<1\), doubles them by symmetry, and compares with
-\[
-\frac1{90},\qquad
-\frac1{18},\qquad
-\frac{\pi^2}{3}-3.
-\]
+## correctness
 
-The checker then reconstructs the exact finite-sample covariance and both variances from the Hoeffding decomposition for \(1\le n\le100\), checks the resulting correlations are valid, and verifies the limiting correlation numerically.
+PASS
 
-The numerical calculations are supplementary. The identities for arbitrary \(n\) follow from the exact decomposition and elementary integrals in `RESULT.md`.
+For any fully specified continuous iid null and n>=1, the uniform transform writes W² and A² as quadratic empirical-process forms. The diagonal functions q_W(u)=u²-u+1/3 and q_A(u)=-1-log[u(1-u)] have covariance 1/18, while integrated squared Brownian-bridge kernel with the AD weight is 1/18. Hoeffding diagonal/degenerate pair decomposition gives Cov(W²,A²)=1/(18n)+2(n-1)/(18n)=(2n-1)/(18n); analogous integrals give (4n-3)/(180n) and [10-6n+(2n-3)π²/3]/n. Endpoint integrals finite; n=1 consistent. Independent high-precision integration of Cov(q_W,q_A)=1/18 and K-integral=1/18 confirms critical constants. Analytic identities, not finite n tests, prove universal n.
 
-Independent audit has not been performed.
+## originality
 
-Deterministic replay result: `VERIFY_OK integral_checks=8 finite_formula_checks=400 limit=0.9789229548736679`.
+PASS
+
+Best-of-knowledge exact cross-statistic finite-n covariance not found in primary treatments of individual CvM/AD moments or generalized goodness-of-fit eigenstructures. The general weighted empirical-process machinery gives a route, but prior results inspected do not tabulate or entail an already-evaluated exact joint formula without fresh cross-integration. A general two-weight joint-moment theorem may imply this immediately, retained as a material priority risk.
+
+## value
+
+PASS
+
+These are two canonical, differently tail-weighted goodness-of-fit tests; quantifying exact covariance and limiting correlation ≈0.9789229548736679 directly measures their nonindependence and informs joint interpretation or redundant use. Exact all-sample correction is a naturally needed invariant, not arbitrary numeric computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

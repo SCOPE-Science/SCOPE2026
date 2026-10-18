@@ -1,36 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Both statistics are written as quadratic forms of the same centered uniform empirical-process sum. The exact finite-sample decomposition separates diagonal one-observation terms from the degenerate two-observation kernel. Conditional centering makes the mixed diagonal/off-diagonal terms vanish.
+PASS
 
-The diagonal functions are explicitly
-\[
-q_W(u)=u^2-u+\frac13
-\]
-and
-\[
-q_A(u)=-1-\log(u(1-u)).
-\]
-Their variances and covariance are elementary beta-logarithmic integrals. The off-diagonal terms reduce to squared Brownian-bridge covariance-kernel integrals. Substitution gives the exact covariance and both exact marginal variances, with no asymptotic approximation.
+For any fully specified continuous iid null and n>=1, the uniform transform writes W² and A² as quadratic empirical-process forms. The diagonal functions q_W(u)=u²-u+1/3 and q_A(u)=-1-log[u(1-u)] have covariance 1/18, while integrated squared Brownian-bridge kernel with the AD weight is 1/18. Hoeffding diagonal/degenerate pair decomposition gives Cov(W²,A²)=1/(18n)+2(n-1)/(18n)=(2n-1)/(18n); analogous integrals give (4n-3)/(180n) and [10-6n+(2n-3)π²/3]/n. Endpoint integrals finite; n=1 consistent. Independent high-precision integration of Cov(q_W,q_A)=1/18 and K-integral=1/18 confirms critical constants. Analytic identities, not finite n tests, prove universal n.
 
-A standalone checker recomputes the integral identities numerically at high precision and checks the finite formulas over one hundred sample sizes.
+## originality
 
-## Originality
+PASS
 
-PASS, with a residual generic-weight risk. The strongest full source inspected, Hwang--Kuriki, treats generalized Anderson--Darling and generalized Cramér--von Mises statistics in one framework and gives their separate covariance kernels and eigenstructures, but no cross-statistic covariance was found. Laio likewise treats both statistics side by side and computes marginal moments separately from empirical-process covariance kernels; targeted full-text searches found no joint covariance or correlation.
+Best-of-knowledge exact cross-statistic finite-n covariance not found in primary treatments of individual CvM/AD moments or generalized goodness-of-fit eigenstructures. The general weighted empirical-process machinery gives a route, but prior results inspected do not tabulate or entail an already-evaluated exact joint formula without fresh cross-integration. A general two-weight joint-moment theorem may imply this immediately, retained as a material priority risk.
 
-The closest own-ledger finding pairs Cramér--von Mises with Watson, not Anderson--Darling. Its stated claim does not imply the present weighted cross-covariance or the Anderson--Darling variance correction.
+## value
 
-The residual risk is that a sufficiently general published joint-moment theorem for two weighted Cramér--von Mises functionals could imply the result as a specialization even if the explicit formula was not recorded.
+PASS
 
-## Value
+These are two canonical, differently tail-weighted goodness-of-fit tests; quantifying exact covariance and limiting correlation ≈0.9789229548736679 directly measures their nonindependence and informs joint interpretation or redundant use. Exact all-sample correction is a naturally needed invariant, not arbitrary numeric computation.
 
-PASS. Cramér--von Mises and Anderson--Darling are canonical goodness-of-fit tests that differ mainly in tail weighting. Their very high exact and limiting correlation directly measures how much information their null fluctuations share.
-
-The result is more informative than separate marginal moments: the asymptotic correlation is about \(0.979\), while the finite-sample correction is explicit for every \(n\). This is useful when interpreting agreement, redundancy, or combined use of the two tests.
-
-Self-review: passed. Independent audit: not yet performed.
-
-
-Deterministic replay: `VERIFY_OK integral_checks=8 finite_formula_checks=400 limit=0.9789229548736679`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
