@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker reconstructs
-\[
-P=[-1,1]^3\cap\left\{\lVert x\rVert_1\le\frac32\right\}
-\]
-from exact rational vertices.
+# Independent mathematical audit
 
-It verifies that the six normalized centers
-\[
-z_1,\ldots,z_6
-\]
-all belong to \(\partial P\). For every distinct pair it verifies
-\[
-z_i-z_j\notin\operatorname{int}P,
-\]
-which is exactly the pairwise nonoverlap condition after the actual translation vectors are doubled.
+## correctness
 
-The six coordinate facets and eight sign facets are reconstructed from their defining equalities. Exact edge-length tests show that the former have four equal edges and the latter six equal edges, each with squared length \(1/2\).
+PASS
 
-Every facet is triangulated from its centroid. A triangle is accepted only when one center makes all four defining inequalities for membership in a translated \(\operatorname{int}P\) strict at all three vertices. Otherwise the triangle is divided into four midpoint triangles. The deterministic recursion terminates with \(438\) terminal triangles at maximum depth \(3\).
+The six centers have l1 norm 3/2 and all 15 differences are outside int P. A separate exact Fraction-based reconstruction built the 24 vertices, six square and eight hexagonal facets, then recursively triangulated the complete boundary and found 438 covered leaves at maximum depth 3 with strict minimum inequality slack 1/16. Finite facet subdivision, certified using convexity, covers the continuous boundary exactly; via the central-symmetry boundary-cover criterion P+2z_i is a touching pairwise interior-disjoint blocking family. No lower bound b(P)>=6 is established.
 
-For each accepted triangle, convexity upgrades the three strict vertex memberships to containment of the entire triangle. The least exact slack among every certified triangle vertex and every defining inequality is
-\[
-\frac1{16}.
-\]
-Thus the coverage certificate has positive rational clearance.
+## originality
 
-The checker uses no random sampling or floating-point comparison in the scientific tests. The universal blocking implication is supplied by the standard centrally symmetric boundary-cover lemma; the finite code verifies its hypotheses for this body and these six vectors.
+PASS
 
-No lower bound on the blocking number is verified or claimed.
+The exact regular truncated-octahedron six-blocker certificate is not implied by Dalla-Larman-Mani-Levitska-Zong foundational blocking characterization or Wang-Zhang 2024 results for rhombic dodecahedra, cylinders and l_p balls. Separate published cuboctahedron six-blocker concerns the distinct P with l1 cutoff 2, and cube-octahedron illumination concerns another invariant.
+
+## value
+
+PASS
+
+The regular truncated octahedron is a canonical three-dimensional Archimedean space-filling polytope; an explicit six-blocker is a motivated upper bound at the conjectured dimensional scale. Complete exact polyhedral certificate with positive slack is mathematically reusable, without claiming sharpness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
