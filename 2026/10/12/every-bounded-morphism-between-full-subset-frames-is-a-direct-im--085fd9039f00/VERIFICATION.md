@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify_medvedev.py` in the extracted file directory with standard Python 3; no external dependencies are required. The checker independently enumerates every set-theoretic map between all worlds of the full nonempty powerset frames for all nine pairs \(1\le n,m\le3\). At each source world, it computes the image of all accessible worlds and compares it with the accessible worlds of the image, which is exactly the conjunction of forth and back. It compares the complete set of passing world maps against maps induced by all functions on underlying sets and checks the Stirling-number onto count.
+## correctness
 
-A replay from the packaged checker reports `VERIFY_OK all_maps_checked= 826113 all_p_morphisms= 56`. Expected morphism counts for source sizes \(n=1,2,3\), by target sizes \(m=1,2,3\), are respectively \((1,2,3)\), \((1,4,9)\), and \((1,8,27)\). Onto counts are \((1,0,0)\), \((1,2,0)\), and \((1,6,6)\). The checker matches all entries.
+PASS
 
-These finite checks do not establish the theorem for arbitrary size or infinite sets. That scope is proved by the singleton-image, back-lifting, and inverse-image-intersection arguments in RESULT.md. No independent external audit or certification has been performed.
+Every p-morphism from the full nonempty powerset P_X under reverse inclusion maps maximal singleton worlds to maximal singleton worlds, defining unique c:X->Y. For every A, monotonicity gives c[A] subset F(A); lifting every singleton {y} subset F(A) yields B subset A with F(B)={y}, then an x in B forces y=c(x), proving equality. Conversely A intersect c^{-1}[T] is nonempty and maps onto every nonempty T subset c[A]; no choice or finiteness hypothesis is used. Identity/composition, m^n hom-counts and m!Stirling(n,m) onto counts follow exactly. Independently enumerated all 826113 arbitrary world maps for n,m in 1..3 and found precisely 56 p-morphisms, all induced by c. The finite enumeration is only corroboration of the written unrestricted-set proof.
+
+## originality
+
+PASS
+
+Prior special maps and singleton saturation do not by themselves prove uniqueness for all source and target frames, including infinite sets. A historical categorical reformulation could dominate. The best plausible equivalence is an order-theoretic or semilattice duality theorem asserting that all bounded morphisms are direct images. Neither inspected accessible abstract nor the cited exact examples establishes that complete all-hom correspondence. Search failure is not definitive. Material priority limits are recorded separately.
+
+## value
+
+PASS
+
+A genuine complete classification of morphisms between a natural semantics family, not only a hom-count computation: it tells when a bounded morphism is onto, identifies images as generated subframes, and exposes a categorical equivalence with sets and functions. These facts are useful to validity-transfer and quotient questions and include arbitrary infinite frames; the source examples alone do not determine the result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
