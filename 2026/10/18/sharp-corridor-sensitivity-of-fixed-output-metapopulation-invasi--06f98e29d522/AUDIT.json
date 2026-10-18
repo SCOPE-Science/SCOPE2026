@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The model Jacobian threshold follows from a positive Metzler operator. Exact similarity yields symmetric \\(H_{ij}=A_{ij}\\sqrt{q_iq_j/(d_id_j)}\\). Adding uv changes only endpoint degrees; each previously existing edge retains at least \\(1/\\sqrt2\\) of its weight, with an additional strictly positive uv entry. Testing against the strictly positive Perron eigenvector proves the strict universal ratio. On the three-site path closed to a triangle the respective roots are \\(\\sqrt b\\) and \\((1+\\sqrt{1+8b})/4\\). Their ratio strictly decreases continuously from infinity to \\(1/\\sqrt2\\), proving exactly the full attainable interval with no finite exceptions. The genuine standalone finite checker uses symmetric eigensolvers and confirms 769,905 finite cases. Numerical tests are corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1371/journal.pcbi.1004251, full text Methods, matrix \\(M_{ij}=A_iA_j f(\\mathrm{distance})\\), and patch-removal analysis.",
+        "doi:10.1098/rspb.2015.0203, accessible abstract and Discussion summary: for regular degree d network its dispersal spectral radius is d, unlike the column-normalized operator here, for which it is 1 with homogeneous quality.",
+        "doi:10.1016/j.jtbi.2011.11.027, abstract: topology families and metapopulation regional abundance vary with demographic ratios."
+      ],
+      "reasoning": "An arbitrary-positive-matrix theorem covering individual edge insertions with exactly the renormalization \\(d_u\\mapsto d_u+1\\) and \\(d_v\\mapsto d_v+1\\) would dominate the proposed claim, but none was identified. Degree-per-edge capacity, abundance orderings, and patch deletions are not that operation. Access to parts of two cited articles remained incomplete; their precise uninspected sections are a residual risk, not declared fully ruled out.",
+      "searches": [
+        "The effects of connectivity on metapopulation persistence network symmetry degree correlations Shtilerman Stone 2015",
+        "metapopulation dispersal equal probabilities neighbors fixed colonization pressure degree normalized eigenvalue edge addition paradox",
+        "ecological metapopulation patch occupancy rescue effect dispersal stochastic finite network colonization one edge extinction expected time"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1038/35008063",
+      "doi:10.1371/journal.pcbi.1004251",
+      "doi:10.1098/rspb.2015.0203",
+      "doi:10.1016/j.jtbi.2011.11.027",
+      "arxiv:1504.07669",
+      "doi:10.1103/PhysRevE.88.062802"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "doi:10.1038/35008063: introduces a spectral habitat capacity but does not state a fixed-export edge perturbation theorem in the accessible material.",
+        "doi:10.1371/journal.pcbi.1004251: kernel-weighted symmetric matrix whose entries for old links remain fixed when a link is added, unlike this matrix.",
+        "arxiv:1504.07669: studies change in a normalized Laplacian spectral gap."
+      ],
+      "reasoning": "Neither the identity between local invasion and a Perron threshold nor entrywise monotonicity of the additive-link unnormalized matrix implies a one-edge universal bound in a degree-renormalized matrix. In fact the latter operation is non-monotone. The new claim combines a sharp lower constant with complete surjectivity, and a three-vertex family; general Perron–Frobenius and Rayleigh tools are prior methods, not covering the resulting quantified theorem.",
+      "searches": [
+        "degree-normalized patch colonization fixed emigration effort adding corridor can lower metapopulation spectral persistence threshold",
+        "spectral radius diag(q) adjacency degree inverse addition edge lower bound square root two",
+        "Shtilerman Stone 2015 effects connectivity in-out degree correlation metapopulation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.1371/journal.pcbi.1004251, Methods: colonization links use a patch-value/distance dispersal kernel.",
+        "arxiv:1504.07669: normalized graph Laplacian second eigenvalue, not a quality-weighted Perron root."
+      ],
+      "reasoning": "Similarity transforms the matrix into a symmetric degree-normalized, heterogeneously weighted adjacency matrix. This equivalent formulation was compared with weighted random walks, SIS invasion operators, and normalized-Laplacian Braess phenomena. The latter concern different eigenvalues; the published metapopulation dispersion matrices are not degree-renormalized by one added route. Neither mathematical statement entails the strict sqrt(2) factor or whole interval.",
+      "searches": [
+        "fixed dispersal budget normalized adjacency metapopulation capacity adding links edge spectral radius",
+        "sharp edge addition ratio spectral radius weighted random walk diag quality degree normalized adjacency graph lower \\(1/\\sqrt2\\) upper infinite",
+        "weighted random walk substochastic killing diagonal survival principal eigenvalue graph edge addition Braess paradox Perron three vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest searched findings on epidemic spectral thresholds concern coupled SEIR mobility and rank-one regular splitting, not degree-renormalized habitat-edge insertion.",
+        "The source full text and abstracts examined provide no published ratio table enumerating every positive value above \\(1/\\sqrt2\\)."
+      ],
+      "reasoning": "Exact searches for the three-patch path-to-triangle family, weighted-walk ratios, sharp universal constant, and complete range yielded no matching theorem or table. Lack of an indexed hit does not establish priority, and the present result is proved analytically rather than inferred from a finite numeric database.",
+      "searches": [
+        "three patch path triangle edge insertion per-patch fixed emigration degree-normalized colonization spectral radius ratio sharp sqrt2 threshold heterogeneous extinction",
+        "metapopulation fixed-degree budget spectral capacity edge addition complete attainable ratio range",
+        "sharp edge addition ratio spectral radius weighted random walk diag quality degree normalized adjacency graph lower \\(1/\\sqrt2\\) upper infinite"
+      ]
+    },
+    "rationale": "The exact claim is a strict universal lower bound and complete attainable open interval for the ratio of Perron roots of heterogeneously weighted column-normalized dispersal operators after a single graph-edge addition. The closest inspected metapopulation models hold dispersal per existing link or use symmetric patch-value/distance kernels, not a fixed exporting rate redistributed among links when an edge is inserted. The normalized-Laplacian spectral-gap paradox does not imply this Perron-root ratio. Actual searches returned no covering record; lack of records is not used as a uniqueness proof. Related partially accessible sources remain a documented originality risk.",
+    "residual_risks": [
+      "Unindexed theorem in spectral graph theory for positive diagonal times random-walk matrices may imply the result without its ecological framing.",
+      "Full texts of Hanski–Ovaskainen (2000), Shtilerman–Stone (2015), and Gilarranz–Bascompte (2012) were not all accessible; only inspected parts support the noncoverage comparison.",
+      "Priority is not certified by database queries or partition ownership; a lawful full-text or independent literature review could reveal an equivalent theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces spectral landscape capacity, but accessible text does not claim a sharp fixed-export added-corridor ratio; full-text coverage remains unresolved",
+        "evidence": [
+          "Nature 404 (2000), 755–758; landscape matrix capacity formulation."
+        ],
+        "identifier_or_url": "doi:10.1038/35008063",
+        "material_read": "Publisher/PubMed abstract and bibliographic information; not full text",
+        "method": "Scientific abstract and cross-reference comparison",
+        "title": "The metapopulation capacity of a fragmented landscape",
+        "trigger": "Foundational spectral metapopulation source; possible general capacity theorem"
+      },
+      {
+        "assessment": "The dispersal matrix uses patch-value/distance edge kernels, including symmetric \\(M_{ij}=A_iA_j f(\\mathrm{distance})\\); insertion adds coupling without redistributing the full output from old edges. Its patch-removal and landscape-randomization results do not cover the quantified one-edge ratio here.",
+        "evidence": [
+          "Methods (2015) distinguishes Poisson patch dynamics, NIMFA approximation and patch-value kernel; matrix and removal at Methods."
+        ],
+        "identifier_or_url": "doi:10.1371/journal.pcbi.1004251",
+        "material_read": "Full open-access article, especially Introduction, Methods, Results, Discussion, references and supplementary-information descriptions",
+        "method": "Section-level reading and comparison of matrix entries, normalization and intervention",
+        "title": "Metapopulation Persistence in Random Fragmented Landscapes",
+        "trigger": "Full primary source with directly matching occupancy differential equations and spectral threshold"
+      },
+      {
+        "assessment": "Regular-degree network has spectral radius d in accessible Discussion, but this fixed-export normalized matrix has radius 1 when quality is homogeneous; a different baseline operator. Cannot categorically exclude an uninspected appendix theorem.",
+        "evidence": [
+          "2015 abstract emphasizes in–out-degree correlation; Discussion regular graph λ_m=d."
+        ],
+        "identifier_or_url": "doi:10.1098/rspb.2015.0203",
+        "material_read": "Abstract and accessible Discussion/regular-network comparison, plus limited preview, not entire full text",
+        "method": "Compare regular-network eigenvalue normalization, source claims and definitions; full download attempts unavailable",
+        "title": "The effects of connectivity on metapopulation persistence: network symmetry and degree correlations",
+        "trigger": "Strongly plausible network spectral primary source"
+      },
+      {
+        "assessment": "Discusses aggregate regional abundances and comparisons among families as a function of extinction/colonization ratio, not the asserted fixed-export single-edge worst-case ratio in accessible material; residual incomplete-source risk remains.",
+        "evidence": [
+          "First public online date 2011-12-08; abstract states abundance rankings vary across degree-distribution families."
+        ],
+        "identifier_or_url": "doi:10.1016/j.jtbi.2011.11.027",
+        "material_read": "PubMed abstract and indexed results excerpt; complete lawful full text not available",
+        "method": "Compare graph-family abundance question to edge-wise capacity bound",
+        "title": "Spatial network structure and metapopulation persistence",
+        "trigger": "Related ecological network persistence under varied network degree patterns"
+      },
+      {
+        "assessment": "Concerns the spectral gap or second eigenvalue of a normalized Laplacian, not the positive Perron root of a positive weighted dispersal operator with arbitrary patch extinction rates. No implication of the stated universal sharp ratio.",
+        "evidence": [
+          "arXiv initial public date 2015-04-28; normalized-Laplacian spectral gap."
+        ],
+        "identifier_or_url": "arxiv:1504.07669",
+        "material_read": "ArXiv primary PDF text and first pages, including abstract and mathematical target",
+        "method": "Compare eigenvalue functional and matrix model",
+        "title": "Braess's paradox for the spectral gap in random graphs and delocalization of eigenvectors",
+        "trigger": "Known counterintuitive spectral effect of edge addition using degree normalization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "06f98e29-d522-4cbc-9e32-802bed61e9b2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A fixed per-patch emigration budget creates a real ecological tradeoff: a new route competes with old routes. Prior spectral-capacity theory does not itself quantify how unfavorable a single route can be across arbitrary heterogeneous landscapes. The theorem is a sharp all-network robustness bound with the entire attainable range and the smallest realizing habitat network, simultaneously bounding ecological harm and showing unbounded possible benefit. Both structural and intervention interpretations are motivated independently of computation; it is not a trivial baseline normalization check.",
+    "status": "PASS"
+  }
+}
