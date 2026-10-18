@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:20:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every qubit binary POVM observable is O=aI+t n.sigma with |a|+t<=1; the correlations are a+t n.r. For each preparation, the two measured Bloch-vector projections can be preserved by a pure Bloch representative, including the third with only one relevant projection. The angular function h(theta)=asin(a+t cos(theta)) satisfies -1<=hprime<=0 because t^2(1-c^2)<=1-(a+tc)^2 follows from |a|+t<=1, including endpoints by continuity. Maximal spherical distance between two polar angles is min(theta1+theta2,2pi-theta1-theta2); 1-Lipschitz monotonicity pushes the three-point estimate to theta1+theta2=pi. The scalar bound asin(a+tc)+asin(a-tc) <= pi/2+asin(a-t) follows for a>=0 by monotonicity in c and c=1, and for a<=0 by bounding the left side by 2asin(a)<=0. Applied with the second observable geodesic-Lipschitz and reversed observables, this yields |Q|<=3pi/2. Explicit projective measurements give correlations (1/sqrt2,1/sqrt2,1/sqrt2,-1/sqrt2,-1), reaching equality. Independent fresh random 20,000 scalar triples passed and sharpness checked numerically; this sampling is not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Later cited source titles/abstracts concern state discrimination and independent-device determinant witnesses.",
+          "The 2010 original does not prove full qubit correlation-set characterization."
+        ],
+        "reasoning": "Different witness functionals or added independence assumptions do not imply the five-term J3 bound. Full inaccessible comparators remain risk, not noncoverage proof.",
+        "searches": [
+          "Brunner Navascués Vértesi arXiv:1209.5643",
+          "Bowles Quintino Brunner arXiv:1311.1525",
+          "Gallego et al arXiv:1010.5064v1"
+        ]
+      },
+      "checked_sources": [
+        "Gallego et al arXiv:1010.5064v1 full HTML Eq.(8)",
+        "Brunner et al arXiv:1209.5643, bibliographic high-level",
+        "Bowles et al arXiv:1311.1525, bibliographic high-level",
+        "Resultary J3 arcsine semantic search, 8 hits",
+        "Git RESULT.md and verify_j3.py at assignment tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original J3 bound explicitly marked as numerically evidenced, so its proof is absent from that source.",
+          "The later witnesses use differing equations and assumptions."
+        ],
+        "reasoning": "The independent analytic three-point Lipschitz inequality is the missing mathematical implication; numerical examples cannot supply it.",
+        "searches": [
+          "arXiv:1010.5064v1 Eq.(8) and discussion",
+          "arXiv:1209.5643 and arXiv:1311.1525 bibliographic comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The five-term arcsine J3 in Eq.(8) exactly matches the audited functional.",
+          "Source explicitly calls the numerical bound strong evidence rather than a proved statement."
+        ],
+        "reasoning": "Bloch-sphere angular reformulation is equivalent to Eq.(8), but original authors did not establish it analytically.",
+        "searches": [
+          "Gallego et al 2010 arXiv:1010.5064v1 Eq.(8)",
+          "Resultary semantic: arcsine J3 nonlinear qubit prepare measure witness three states 3pi/2 analytic proof Gallego"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Eq.(8) states J3 bound 3pi/2 as numerically supported, with an attaining strategy but no analytic certificate.",
+          "Retrieved top semantic hits were unrelated qubit/qutrit optimization results."
+        ],
+        "reasoning": "An equality example or finite numerical bound is not a table establishing the universal inequality for all POVMs.",
+        "searches": [
+          "Gallego et al arXiv:1010.5064v1 Eq.(8) and equality example",
+          "Resultary quantum J3 semantic result list"
+        ]
+      },
+      "rationale": "Gallego et al original Eq.(8) explicitly describes exactly this J3<=3pi/2 as backed only by strong numerical evidence; the current all-POVM Bloch-sphere proof resolves that analytic assertion. Subsequent dimension-witness papers employ different state-discrimination or determinant tests; none of the accessible statements implies the precise five-term arcsine inequality. Full texts of two later comparators could not be fetched, leaving a stated indexing/access risk.",
+      "residual_risks": [
+        "A later analytic proof may be poorly indexed or in inaccessible full text; absence from returned semantic hits does not establish priority with certainty.",
+        "Bound only for three preparations/two binary qubit measurements; no higher-dimensional witness or robustness margin."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The original explicitly proposes J3 as conjectural/numerical, not analytically proved",
+          "evidence": "Eq.(8) lines 93-97: strong numerical evidence J3<=3pi/2 and equality",
+          "identifier_or_url": "https://arxiv.org/html/1010.5064v1",
+          "material_read": "Complete arXiv HTML including Eqs.(3),(7),(8), discussion around Eq.(8), conclusions",
+          "method": "Read paper HTML and its exact formula and numerical-evidence phrasing",
+          "title": "Device-independent tests of classical and quantum dimensions",
+          "trigger": "Originating five-term arcsine witness and exact parameter scope"
+        },
+        {
+          "assessment": "Alternative state-discrimination witness; whole-text noncoverage not asserted",
+          "evidence": "arXiv:1209.5643",
+          "identifier_or_url": "https://arxiv.org/abs/1209.5643",
+          "material_read": "Bibliographic information and accessible high-level summaries; attempt to read HTML failed",
+          "method": "Abstract-level statement comparison only",
+          "title": "Dimension witnesses and quantum state discrimination",
+          "trigger": "Plausible later analytical witness covering older bound"
+        },
+        {
+          "assessment": "Independent-device determinant family differs from the J3 arcsine formula",
+          "evidence": "arXiv:1311.1525",
+          "identifier_or_url": "https://arxiv.org/abs/1311.1525",
+          "material_read": "Bibliographic and abstract-level information; full text not accessible in this execution",
+          "method": "Abstract-level statement comparison only",
+          "title": "Certifying the dimension of classical and quantum systems in a prepare-and-measure scenario with independent devices",
+          "trigger": "Plausible stronger nonlinear witness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This proves a sharp, explicitly conjectural bound needed to use a seminal nonlinear dimension witness, including biased qubit measurements and mixed states. The analytic one-Lipschitz spherical mechanism is substantive and not an isolated numerical adjustment.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Gallego et al arXiv:1010.5064v1 full HTML Eq.(8)",
+    "Brunner et al arXiv:1209.5643, bibliographic high-level",
+    "Bowles et al arXiv:1311.1525, bibliographic high-level",
+    "Resultary J3 arcsine semantic search, 8 hits",
+    "Git RESULT.md and verify_j3.py at assignment tree"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A later analytic proof may be poorly indexed or in inaccessible full text; absence from returned semantic hits does not establish priority with certainty.",
+    "Bound only for three preparations/two binary qubit measurements; no higher-dimensional witness or robustness margin.",
+    "No formal certificate, expert attestation, or automated publication is asserted.",
+    "Public-facing record METADATA.json includes operational scope_run_id and has not been sanitized under authorized owner supervision."
+  ],
+  "schema_version": 1
+}

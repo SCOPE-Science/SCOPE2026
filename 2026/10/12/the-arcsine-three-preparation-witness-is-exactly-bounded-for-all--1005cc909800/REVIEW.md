@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The observable parametrization \(O=aI+b\cdot\sigma\) is exact for every binary qubit POVM, and the contraction condition gives \(\lvert a\rvert+\lVert b\rVert\le1\). Mixed states can be lifted to pure Bloch vectors without changing the two relevant correlations because two measurement Bloch vectors span at most a plane. The arcsine response has spherical gradient norm at most one. The remaining three-point estimate is reduced to a one-variable endpoint inequality, and applying it to both the observables and their negatives yields the absolute-value bound. The displayed projective strategy attains equality.
+## correctness
 
-Risk: derivative formulas at endpoint correlations \(\pm1\) are interpreted by continuity. This causes no gap because the Lipschitz inequality holds on the interior and extends to the compact sphere continuously.
+PASS
 
-## Originality
-PASS. The defining paper, arXiv:1010.5064v1, labels the bound as supported by “strong numerical evidence” and proposes it as a nonlinear qubit witness rather than proving it analytically. The full text of Brunner--Navascués--Vértesi, arXiv:1209.5643, explicitly describes the earlier approach as one whose quantum-witness validity generally had to be tested numerically and develops a different state-discrimination family. Bowles--Quintino--Brunner, arXiv:1311.1525, develops a different determinant witness under an independence assumption. Exact-expression and reformulation searches did not locate an implication-equivalent proof.
+Every qubit binary POVM observable is O=aI+t n.sigma with |a|+t<=1; the correlations are a+t n.r. For each preparation, the two measured Bloch-vector projections can be preserved by a pure Bloch representative, including the third with only one relevant projection. The angular function h(theta)=asin(a+t cos(theta)) satisfies -1<=hprime<=0 because t^2(1-c^2)<=1-(a+tc)^2 follows from |a|+t<=1, including endpoints by continuity. Maximal spherical distance between two polar angles is min(theta1+theta2,2pi-theta1-theta2); 1-Lipschitz monotonicity pushes the three-point estimate to theta1+theta2=pi. The scalar bound asin(a+tc)+asin(a-tc) <= pi/2+asin(a-t) follows for a>=0 by monotonicity in c and c=1, and for a<=0 by bounding the left side by 2asin(a)<=0. Applied with the second observable geodesic-Lipschitz and reversed observables, this yields |Q|<=3pi/2. Explicit projective measurements give correlations (1/sqrt2,1/sqrt2,1/sqrt2,-1/sqrt2,-1), reaching equality. Independent fresh random 20,000 scalar triples passed and sharpness checked numerically; this sampling is not the universal proof.
 
-Risk: a later proof may be poorly indexed or phrased in a substantially different language. No searched source supplied stronger coverage or an implication that settles this exact five-term arcsine inequality.
+## originality
 
-## Value
-PASS. This resolves an explicit analytic gap in an early prepare-and-measure dimension-witness construction. The result is not a parameter tweak: it upgrades a numerically supported boundary into a sharp theorem for the full qubit model allowed by the source, including mixed preparations and arbitrary binary POVMs. The proof isolates a reusable geometric mechanism—biased qubit observables produce one-Lipschitz arcsine functions on the Bloch sphere—and identifies the exact equality scale.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gallego et al original Eq.(8) explicitly describes exactly this J3<=3pi/2 as backed only by strong numerical evidence; the current all-POVM Bloch-sphere proof resolves that analytic assertion. Subsequent dimension-witness papers employ different state-discrimination or determinant tests; none of the accessible statements implies the precise five-term arcsine inequality. Full texts of two later comparators could not be fetched, leaving a stated indexing/access risk.
+
+## value
+
+PASS
+
+This proves a sharp, explicitly conjectural bound needed to use a seminal nonlinear dimension witness, including biased qubit measurements and mixed states. The analytic one-Lipschitz spherical mechanism is substantive and not an isolated numerical adjustment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
