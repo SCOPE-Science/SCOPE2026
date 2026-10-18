@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the exact local age numerators \(rk+[kd]_a\) and \(rk+[-kd]_b\), then treats the two canonical boundary components separately. On \(d=r\), the \(b\)-chart juniors are precisely \(k\le\lfloor b/r\rfloor\), while the \(a\)-chart has additional equalities only at \(a=r\) and \(a=2r\). On \(a=r+d\) with \(d<r\), the \(a\)-chart has only \(k=1\), and the \(b\)-chart is strict except at \(d=0\). The resulting histogram and sum follow exactly. The checker recomputes the full Reid--Tai classification in a containing box for \(2\le r\le30\) and replays the boundary through \(r=300\).
+## correctness
 
-## Originality
-PASS. Kasprzyk provides general weighted-projective terminal/canonical criteria, and Ghirlanda gives a local-class-group age formulation for simplicial toric varieties. Neither inspected source states the all-dimensional two-heavy age-one profile, the histogram \((2r-2,r,1,1)\), or the total \(4r+6\). Multiple targeted published-finding corpus searches for the family, junior elements, and the exact formulas returned no equivalent record.
+PASS
 
-Residual risk: age-one elements are standard objects in quotient-singularity and McKay literature, so an equivalent family-specific count could exist under different terminology and evade semantic search.
+For P(1^r,a,b), r≥2, d=b-a, the a- and b-chart nonidentity ages have integer numerators rk+[kd]_a and rk+[-kd]_b. Solving equality to the respective modulus on the canonical nonterminal boundary d=r or a=r+d yields, on d=r, j_b=1+floor(a/r) and j_a nonzero only at a=r (one) and 2r (two). On a=r+d, 0≤d<r, the a-chart contributes one junior; the b-chart contributes one only if d=0. These disjoint components have 2r and r pairs; their J histogram is J=1:2r-2, J=2:r, J=3:1 and J=5:1, hence sum 4r+6. The r=2 endpoint and d=0 (equal heavy weights) are handled explicitly. The pre-existing canonical triangle is an external input, independently checked in bounded cases; the all-r junior count follows from modular case splits, not finite extrapolation.
 
-## Value
-PASS. The theorem refines a yes/no canonical-versus-terminal boundary into a complete local discrepancy-zero multiplicity profile. It identifies exactly how non-terminality is witnessed in each heavy chart, isolates two exceptional spaces, and gives a uniform aggregate formula. This is useful input for studying crepant birational models and local McKay-type data in the two-heavy family.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Kasprzyk's canonical/terminal classifications and Ghirlanda's local age criterion cover the criteria and boundary, but not the equality-case multiplicity profile. Closely related published Resultary records characterize the two-heavy canonical triangle and the first-element Reid--Tai age minimum, not the full count of every age-one group element. The local multiplicity refinement is not a formal restatement of the pre-existing boundary theorem.
+
+## value
+
+PASS
+
+Counting the number of local junior elements rather than merely detecting canonical/nonterminal singularities determines exact age-one multiplicity across a natural toric boundary. Two exceptional weight pairs, a missing multiplicity 4, and aggregate 4r+6 offer concrete reusable local singularity data; not claimed to count distinct global crepant divisors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
