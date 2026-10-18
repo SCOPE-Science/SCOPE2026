@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The analytic proof classifies all vertices by their fractional-edge support, then counts them via parity of the leaf-edge assignments; the toric orbit stratification converts the exact vertex count into the ordinary complex topological Euler characteristic.
+# Independent mathematical audit
 
-The companion `check_vertices.py` was executed with NumPy and SymPy. It enumerates all independent active-facet systems for three simple connected unicyclic trivalent graphs, reconstructs rational candidates, checks their inequalities exactly, and checks rank of all active normals over the rationals.
+## correctness
 
-Observed successful finite checks:
+PASS
 
-- Three-cycle, three leaves: 8 binary and 4 half-cycle vertices, total 12.
-- Four-cycle, four leaves: 16 binary and 8 half-cycle vertices, total 24.
-- Three-cycle with pendant trivalent branch, four leaves: 16 binary and 8 half-cycle vertices, total 24.
+Local tripod tetrahedron inequalities give 0<=all edges<=1 and full dimension. In fractional edge support every internal vertex has degree >=2 and at most one independent active equation; each tree component has at least two original-leaf endpoints and E>I, while a cycle-plus-tail component has E>I. Thus a vertex can be either wholly binary or fractional exactly on the unique cycle. At its cycle vertices, unit leg 0 forces neighboring cycle coordinates equal, unit leg 1 forces sum 1. Odd branch-leg parity uniquely forces all cycle coordinates 1/2; even parity leaves a free parameter and hence is not a vertex. Rooted trivalent binary propagation maps leaf assignments to branch leg values, yielding exactly two binary vertices per even leaf-parity assignment (2^n total) and one half-cycle vertex per odd assignment (2^(n-1)). Torus-orbit stratification gives complex Euler char 3*2^(n-1). The exact analytic proof supports arbitrary graph shape, with finite active-facet tests for three graph shapes used only as checks.
 
-These checks do not prove the theorem for larger graphs; the combinatorial perturbation and parity arguments supply that proof. The finite checks do not establish originality or independent validation. The referenced articles concern generator bounds, deformation families, and Hilbert functions; possible literature outside the inspected sources is a residual originality risk.
+## originality
+
+PASS
+
+Buczyńska 2012 Theorem 2.33 gives an odd-cycle-leg parity condition for degree-two semigroup generators, but generators need not be polytope extreme vertices. Its deformation/Hilbert-function invariance does not imply an exact fixed-point count or leaf-parity fiber classification. Earlier Buczyńska–Wiśniewski treats trees; later phylogenetic-semigroup paper bounds generators. No stronger all-unicyclic Euler/fixed-point count located in Resultary or targeted literature. Novelty is only the classification of vertices and exact fixed-point count, not parity generators or local polytope equations.
+
+## value
+
+PASS
+
+Torus-fixed-point numbers and ordinary topological Euler characteristic are natural geometric invariants of phylogenetic toric varieties. The complete combinatorial classification for every trivalent genus-one network is structurally useful and shape independent; it cannot be recovered from Hilbert series invariance alone. It is a motivated invariant rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
