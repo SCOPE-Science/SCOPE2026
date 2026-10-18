@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T21:59:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Original UPHCT likelihood from pinned RESULT and 2026 AIMS primary paper checked directly. Set δ=1/γ; all δ powers cancel, yielding L(δ)=(1+δ)^ν(1+δs*)^(−R*) Π(1+δxi)^(−2−Ri). Score D(δ)=ν/(1+δ)−R*s*/(1+δs*)−Σ(2+Ri)xi/(1+δxi). For yi∈(0,1), yi/(1+δyi)≥yi/(1+δ), so D≤(ν−T)/(1+δ), strict if T=ν with interior times. If T≥ν, likelihood strictly declines in δ>0 and has supremum only δ=0, γ=∞, uniform limit. If T<ν, D(0)>0, L(∞)=0 and D asymptotically negative, so a finite global maximum exists (uniqueness not claimed). Complete iid case T=2Σxi gives xbar<1/2, with positive boundary event probability [γ/(2γ+1)]^n. Independent score evaluations for two complete samples and one censored sample confirm signs; proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Muhammad 2016 model has numerical likelihood estimation without the UPHCT exact boundary.",
+          "Jiang 2013 finite support bathtub lifetime model treats different support/location parameter."
+        ],
+        "reasoning": "No broader checked theorem entails this explicit weighted-time threshold for this censored likelihood; general likelihood boundary principles do not substitute for checking its exact score sign.",
+        "searches": [
+          "UPHCT one parameter lifetime progressive hybrid censoring gamma maximum likelihood finite boundary sample mean uniform T criterion",
+          "bounded support lifetime distributions likelihood boundary MLE progressive hybrid censoring existence"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md 568e3c121e8606e500f6952a9249842dfd78eec9 and complete tree e4e89601d60f6eef70926551d1722af385cdc625",
+        "Almetwally 2026 AIMS full original equations (3.1)–(3.3)",
+        "Muhammad 2016 cited numerical work",
+        "Related Jiang 2013 finite-support MLE"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published source offers score equation and numerical root finding; solving score assumes an interior stationary point exists.",
+          "Proof constructs admissible samples with T≥ν and strictly monotone likelihood; these have no interior solution."
+        ],
+        "reasoning": "The source method does not guarantee finite MLE globally, so T<ν is not implied by its reported finite-data numerical plots and in fact supplies missing necessary/sufficient domain restriction.",
+        "searches": [
+          "UPHCT one parameter lifetime progressive hybrid censoring gamma maximum likelihood finite boundary sample mean uniform T criterion",
+          "AIMS 11 2026 statistical inference unit parameter gamma maximum likelihood Newton Raphson"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Almetwally 2026 equations (3.1)–(3.3) agree with the transformed likelihood used in the proof; paper prescribes Newton–Raphson.",
+          "The criterion uses weighted sum of all observed failures and removals, not a generic location-at-support-boundary argument."
+        ],
+        "reasoning": "Same model source supplies algebra needed to derive result but does not assert the universal iff T<ν in inspected material; deriving a new boundary classification is an additional theorem.",
+        "searches": [
+          "UPHCT one parameter lifetime progressive hybrid censoring gamma maximum likelihood finite boundary sample mean uniform T criterion",
+          "Almetwally 10.3934/math.2026009 censored likelihood score boundary MLE",
+          "Muhammad finite support gamma/(gamma+x) survival identifiability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source AIMS 2026 gives three finite-profile real datasets but no exhaustive censoring criterion table.",
+          "Resultary semantic search nearest matches concern F-distribution half mass and risk models rather than this one-parameter UPHCT family."
+        ],
+        "reasoning": "No exact database or table appeared that maps T to finite MLE. The new finding is a full symbolic iff criterion, not numeric table extraction.",
+        "searches": [
+          "UPHCT one parameter lifetime progressive hybrid censoring gamma maximum likelihood finite boundary sample mean uniform T criterion",
+          "sample mean greater half one parameter unit lifetime likelihood gamma infinity boundary",
+          "Resultary published censored MLE finite existence threshold"
+        ]
+      },
+      "rationale": "Almetwally 2026 exact source writes f,S, UPHCT L and Newton–Raphson estimation, illustrates finite profile maxima, but no iff existence boundary T<ν in examined full text. Muhammad 2016 finite-support parent distribution discusses numerical estimation rather than same censoring criterion; Jiang 2013 different bounded-support model has unrelated boundary behavior. Resultary semantic lookup surfaced different lifetime thresholds, none same likelihood. Criterion corrects the implicit blanket assumption of interior numerical maximization; inaccessible old statistical appendices remain minor risk.",
+      "residual_risks": [
+        "Interior data and positive failure count ν assumed; ν=0 all-censored degenerate design outside stated nondegenerate observation model.",
+        "Finite MLE uniqueness not established and not claimed; proper Bayesian inference can be well-defined on a sample without finite MLE.",
+        "An unindexed note may already derive the condition, but no decisive same-model prior theorem located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No generic finite-MLE existence theorem stated in inspected relevant sections; finite samples with T≥ν refute universal interior inference",
+          "evidence": [
+            "AIMS Mathematics 11 (2026) 211–242, DOI 10.3934/math.2026009; eqs (3.1)–(3.3)"
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/1/PDF/math-11-01-009.pdf",
+          "material_read": "Primary full PDF, source model density and survival, equations (3.1) likelihood, (3.2) log-likelihood, (3.3) score, numerical estimation method and profile-likelihood discussion; p.7 visually inspected",
+          "method": "journal OA PDF with page screenshot and mathematical reading",
+          "title": "Statistical inference for a one-parameter lifetime model under unified progressive hybrid censoring with binomial random removals",
+          "trigger": "Exact model and censor likelihood targeted by correction"
+        },
+        {
+          "assessment": "Model provenance, no inspected same progressive-censoring iff rule",
+          "evidence": [
+            "Muhammad (2016) parent finite support model"
+          ],
+          "identifier_or_url": "https://www.m-hikari.com/ams/ams-2016/ams-1-4-2016/p/muhammadAMS1-4-2016.pdf",
+          "material_read": "Published original 2016 source numerical estimation excerpts and bibliographic discussion; entire PDF not verified",
+          "method": "OA/search extracts",
+          "title": "A new two parameter distribution with a finite support",
+          "trigger": "Parent bounded support distribution model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies an exact, data-computable condition that determines whether the finite MLE exists under the specific progressive censor design. Without the test Newton iterations can drift to infinity and finite observed-information/Wald reporting is invalid for a positive-probability sample set; this is a methodologically motivated correction with direct inferential consequences, not a routine score algebra restatement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Interior data and positive failure count ν assumed; ν=0 all-censored degenerate design outside stated nondegenerate observation model.",
+    "Finite MLE uniqueness not established and not claimed; proper Bayesian inference can be well-defined on a sample without finite MLE.",
+    "An unindexed note may already derive the condition, but no decisive same-model prior theorem located.",
+    "The metadata still has private provenance; plan not ready despite scientific acceptance; no publication, certification or GitHub write.",
+    "Potential newer/relevant full text not read as specifically documented; no unsuccessful novelty search asserted conclusive."
+  ],
+  "schema_version": 1
+}

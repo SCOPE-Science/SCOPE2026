@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Starting from the source's UPHCT likelihood, the reciprocal parameter \(\delta=1/\gamma\) reduces the likelihood to a product of \(1+\delta y\) factors. The inequality \(y/(1+\delta y)\ge y/(1+\delta)\) proves that the likelihood is boundary-monotone exactly on the stated side of the weighted-time threshold. On the other side, its derivative starts positive and becomes negative while the likelihood tends to zero, proving existence of a finite maximizer. The packaged checker independently verifies representative complete and censored cases.
+## correctness
 
-## Originality
-PASS. The primary 2026 full text was inspected at the model definition, likelihood, score, numerical MLE procedure, and all three profile-likelihood discussions. Focused source/claim searches and comparison with the 2016 parent-model paper found no exact finite-MLE existence criterion. A broader 2013 finite-support paper discusses a different boundary-estimation phenomenon and does not imply the theorem here.
+PASS
 
-Residual risk remains from a possible unindexed correction and from the fact that uniqueness of the finite maximizer is not classified.
+Original UPHCT likelihood from pinned RESULT and 2026 AIMS primary paper checked directly. Set δ=1/γ; all δ powers cancel, yielding L(δ)=(1+δ)^ν(1+δs*)^(−R*) Π(1+δxi)^(−2−Ri). Score D(δ)=ν/(1+δ)−R*s*/(1+δs*)−Σ(2+Ri)xi/(1+δxi). For yi∈(0,1), yi/(1+δyi)≥yi/(1+δ), so D≤(ν−T)/(1+δ), strict if T=ν with interior times. If T≥ν, likelihood strictly declines in δ>0 and has supremum only δ=0, γ=∞, uniform limit. If T<ν, D(0)>0, L(∞)=0 and D asymptotically negative, so a finite global maximum exists (uniqueness not claimed). Complete iid case T=2Σxi gives xbar<1/2, with positive boundary event probability [γ/(2γ+1)]^n. Independent score evaluations for two complete samples and one censored sample confirm signs; proof is analytic.
 
-## Value
-PASS. The source's classical inference, bootstrap, and asymptotic uncertainty calculations require a finite MLE. The new criterion is an exact pre-optimization diagnostic and shows that valid samples of positive probability can have no finite MLE. It therefore changes how numerical likelihood output must be interpreted and when Wald-style inference is defined.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Almetwally 2026 exact source writes f,S, UPHCT L and Newton–Raphson estimation, illustrates finite profile maxima, but no iff existence boundary T<ν in examined full text. Muhammad 2016 finite-support parent distribution discusses numerical estimation rather than same censoring criterion; Jiang 2013 different bounded-support model has unrelated boundary behavior. Resultary semantic lookup surfaced different lifetime thresholds, none same likelihood. Criterion corrects the implicit blanket assumption of interior numerical maximization; inaccessible old statistical appendices remain minor risk.
+
+## value
+
+PASS
+
+Identifies an exact, data-computable condition that determines whether the finite MLE exists under the specific progressive censor design. Without the test Newton iterations can drift to infinity and finite observed-information/Wald reporting is invalid for a positive-probability sample set; this is a methodologically motivated correction with direct inferential consequences, not a routine score algebra restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
