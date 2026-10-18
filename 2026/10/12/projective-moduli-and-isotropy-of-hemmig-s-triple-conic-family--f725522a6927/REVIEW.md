@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The argument identifies intrinsic incidence data forcing any equivalence to preserve the common point and residual line, enumerates all six conic permutations, and checks necessary and sufficient parameter relations by exact coefficient comparison. Exact pullback identities, the factorization of \(J(\lambda)-J(\mu)\), and all stabilizer fixed-point equations are replayed by the packaged verifier.
+## correctness
 
-## Originality
-PASS. Hemmig's Lemma 4.31 is the closest primary result: it proves only the symmetry fixing \(\Lambda\) and exchanging \(\Gamma_\lambda\) with \(\Delta_\lambda\), and only at \(\lambda=1\). The inspected section and theorem do not give the six-transform parameter quotient, the complete invariant \(J\), or the full isotropy stratification. Targeted searches by source, exact equations, cross-ratio aliases, and stabilizer terminology found no covering result. A same-author dissertation is retained as an unresolved residual source because only its repository-level material was inspected.
+PASS
 
-## Value
-PASS. The result is a natural complete moduli calculation for the auxiliary triple used in a sharp complement counterexample: it identifies exactly which nominal parameters encode the same projective geometry and exactly where isotropy jumps. This is a structural classification, not a routine recomputation of a tabulated invariant.
+The triple has a unique common point P=[0:1:0], pairwise residual points A,B,C_lambda collinear on y=0, intrinsically constraining any projectivity to matrix [ax+bz:hy:dx+ez]. Six possible member permutations and residual line actions yield exactly the six equations (lambda-mu)(lambda*mu-1)(lambda+mu+1)(lambda*mu+lambda+1)(lambda*mu+mu+1)(lambda*mu+lambda+mu)=0. Each case has an explicit invertible projective map from the frozen RESULT.md; the inspected exact rational-function verifier checks every conic pullback. Independently factored J(lambda)-J(mu) and verified invariance under all six transforms. The S3 action stabilizers give exceptional C2 and C3 loci; no larger stabilizers occur for allowed lambda.
 
-## Closest literature and limitations
-The closest literature is M. Hemmig, *Isomorphisms between complements of projective plane curves*, arXiv:1902.06324v1 and DOI 10.46298/epiga.2019.volume3.5541. The result is restricted to this one-parameter family over \(\mathbb C\), and no classification of arbitrary triple-conic configurations or associated degree-eight curve automorphisms is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hemmig 2019 Lemma 4.31 introduces exactly the conics and studies only the involution preserving Lambda and swapping the other two at lambda=1. It does not compare unordered triples across all parameters or classify all six permutations and stabilizers. Classical six anharmonic fractional linear substitutions describe a cross-ratio, but proving their realization by projective automorphisms of these embedded conics is a new object-specific classification. No dominating prior projective orbit classification identified by Resultary search.
+
+## value
+
+PASS
+
+A complete projective moduli quotient and all exceptional automorphism strata answer natural intrinsic questions about the family used in plane-curve complement constructions. Both generic rigidity and exceptional cyclic isotropy are geometrically useful, beyond a restatement of J-invariance for four abstract points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact replay script `artifacts/verify.py` uses only the Python standard library. It verifies the six projective pullback identities over the rational-function field \(\mathbb Q(\lambda)\), checks that \(J\) is invariant under all six parameter transforms, proves by coefficient equality the six-factor numerator identity for \(J(\lambda)-J(\mu)\), and checks the fixed-point formulas that yield the three \(C_2\) points and the \(C_3\) locus.
+# Independent mathematical audit
 
-The script is a verifier for the explicit algebraic identities used in the proof; it is not a substitute for the geometric argument that the common point and residual line force the six-permutation exhaustion. That geometric reduction is stated in `RESULT.md` and follows directly from the pairwise intersection pattern of the three conics.
+## correctness
 
-No floating-point approximation, finite-field sampling, or partial enumeration is used to establish the infinite-field claim.
+PASS
+
+The triple has a unique common point P=[0:1:0], pairwise residual points A,B,C_lambda collinear on y=0, intrinsically constraining any projectivity to matrix [ax+bz:hy:dx+ez]. Six possible member permutations and residual line actions yield exactly the six equations (lambda-mu)(lambda*mu-1)(lambda+mu+1)(lambda*mu+lambda+1)(lambda*mu+mu+1)(lambda*mu+lambda+mu)=0. Each case has an explicit invertible projective map from the frozen RESULT.md; the inspected exact rational-function verifier checks every conic pullback. Independently factored J(lambda)-J(mu) and verified invariance under all six transforms. The S3 action stabilizers give exceptional C2 and C3 loci; no larger stabilizers occur for allowed lambda.
+
+## originality
+
+PASS
+
+Hemmig 2019 Lemma 4.31 introduces exactly the conics and studies only the involution preserving Lambda and swapping the other two at lambda=1. It does not compare unordered triples across all parameters or classify all six permutations and stabilizers. Classical six anharmonic fractional linear substitutions describe a cross-ratio, but proving their realization by projective automorphisms of these embedded conics is a new object-specific classification. No dominating prior projective orbit classification identified by Resultary search.
+
+## value
+
+PASS
+
+A complete projective moduli quotient and all exceptional automorphism strata answer natural intrinsic questions about the family used in plane-curve complement constructions. Both generic rigidity and exceptional cyclic isotropy are geometrically useful, beyond a restatement of J-invariance for four abstract points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
