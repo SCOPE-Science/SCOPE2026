@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For all odd n≥3, digit decomposition r=(n-1)u+d yields S((n-1)x)=B S(x) exactly. On Fourier vector v_z, Bv_z=A(z)v_{z^-1}; B² eigenvalues are 0 for z=1 and -((z-1)/(z+1))² for z≠1. The finite odd-binomial expansion annihilates all nonconstant modes because z^n=1, and has value n at 0; thus P_n(B²)=J_n. This proves all n,i,x with no finite extrapolation. Included checker replays exact integer projector matrices for 12 odd n and direct digit sums; checker tests do not replace the proof. Boundaries n≥3 odd, i=0..n-1, x integer≥0 explicitly handled.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1207.0404v6 §2 Eqs. (3)-(4) identifies tangent-square eigenvalues through root-of-unity products; §3 Eq. (11) gives the annihilating polynomial.",
+        "arXiv:1209.5705v3 §4 Eq. (38) provides the digit-recursion system without a universal proof of Eq. (74)."
+      ],
+      "reasoning": "The known tangent polynomial annihilates nonconstant Fourier modes, but does not itself assert its action on all residue-prefix vectors. Combining a new uniform matrix bridge with the constant-mode normalization yields an actual rank-one projector and the proposed full-interval result. Closely related ingredients are explicitly credited; no prior source inspected states this matrix identity as a proved theorem.",
+      "searches": [
+        "General Newman sums base 2m and residue 2m+1, matrix Cayley-Hamilton tangent power sum universal identity",
+        "Odd n Newman digit sums binomial recurrence all endpoints spectral projector matrix identity",
+        "arxiv:1207.0404v6 §3 Eq. (11)",
+        "arxiv:1209.5705v3 §4 Eq. (38)"
+      ]
+    },
+    "checked_sources": [
+      "Shevelev--Moses 2012 arXiv:1209.5705v3 (full accessible HTML, §1 Eq.(15), §4 Eq.(38), §10 Eq.(74))",
+      "Shevelev--Moses 2012 arXiv:1207.0404v6 (full accessible HTML, §§2-3 and digit-sum section)",
+      "Targeted external literature queries for a later proof of the named conjecture",
+      "Semantic published mathematical findings records for the Shevelev--Moses formula and Fourier/projector aliases",
+      "Accessible prior theorem ledger: all claim fields/titles scanned, closest sparse-digit findings checked for implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2012 digit-function paper expressly calls Eq. (74) a generalization of its conjecture, not a proved result.",
+        "The 2012 tangent-sum paper proves eigenvalue identities for full blocks but does not give the all-residue, all-x projector equation."
+      ],
+      "reasoning": "The new theorem implies both conjectures and has the stronger endpoint x=0 and matrix formulation. Earlier results constitute essential lemmas and could facilitate a retrospective deduction; a specific already-stated theorem that entails all of Eq. (74) without the missing matrix step was not found. The work is presented as a proof of a known conjecture, not as new special-function eigenvalues.",
+      "searches": [
+        "Shevelev Moses conjecture equation (74) all residues S_n,i(x) general n odd digit sums base n-1",
+        "Odd n Newman digit sums binomial recurrence all endpoints spectral projector matrix identity",
+        "arxiv:1207.0404v6 Theorem 1-2 and Eq. (11)",
+        "arxiv:1209.5705v3 Eq. (15), Eq. (38), Eq. (74)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1209.5705v3 §1 Eq. (15) is the i=0 identity labelled hypothetical; §10 Eq. (74) formulates exactly the all-residue identity as conjectural.",
+        "The new matrix form P_n(B²)=J_n implies Eq. (74) coordinatewise for arbitrary vector cutoffs."
+      ],
+      "reasoning": "The conjectured statement is identical in substance, so it is not claimed as a newly formulated identity. Originality concerns proving the explicitly unresolved all-odd-modulus assertion, uniformly including arbitrary finite prefix x and every residue. The Fourier basis argument supplies the missing proof.",
+      "searches": [
+        "Shevelev Moses conjecture identity (15) digit functions with large periods 2012 odd n all n signed binomial linear recurrence S_n,0((n-1)^{2j}x)",
+        "Shevelev Moses conjecture equation (74) all residues S_n,i(x) general n odd digit sums base n-1",
+        "Shevelev Moses A family of digit functions with large periods complete proof for all odd n",
+        "arxiv:1209.5705v3 Eq. (15), Eq. (74)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1209.5705v3 §1 reports computations for odd n through 35 and 1≤x≤1000, not an infinite proof.",
+        "Exact integer matrix tests in the included verifier confirm the identity for odd n=3..25 only, not the universal mathematical conclusion."
+      ],
+      "reasoning": "Finite tables and verification algorithms do not prove all odd moduli and all integer cutoffs. No complete table or database entry encountered supplied an independently established universal theorem; finite output is not used as evidence of novelty.",
+      "searches": [
+        "Digit sums base n minus 1, multiples of n, alternating binomial coefficients, exact identity for odd n and any x",
+        "Shevelev Moses A family of digit functions with large periods complete proof for all odd n",
+        "\"A family of digit functions with large periods\" conjecture solution proof odd n Shevelev Moses"
+      ]
+    },
+    "rationale": "The authors explicitly posed the all-residue, all-cutoff formula as Conjecture (74) and the residue-zero case as conjectural (15) in arXiv:1209.5705v3. They proved only n=3,5 and supplied an n-dependent checking method. Their earlier arXiv:1207.0404 established an odd-binomial polynomial for tangent squares but not the rank-one matrix projector on all residue partial sums. A new universal argument proves P_n(B^2)=J_n and therefore resolves both conjectures. Targeted literature and research-record searches found no already-proved identical statement; residual risk of unindexed equivalent proof remains.",
+    "residual_risks": [
+      "A later independent proof or a general circulant-matrix theorem not indexed by searched literature could entail the same result; absence from search does not certify uniqueness.",
+      "The older paper provides necessary spectral polynomial and the conjecture paper supplies the digit transition; the result is a newly assembled universal argument rather than wholly new spectral theory."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact statement appeared as an open conjecture, not a theorem for general odd n. Published matrix transition and low-modulus proofs credited.",
+        "evidence": [
+          "§1 Eq. (15), paragraphs on computations n=3,5,...,35 and 1≤x≤1000",
+          "§4 Eq. (38) and next sentence describes proving (15) as the general problem",
+          "§10 Eq. (74) explicitly labelled conjecture"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1209.5705v3",
+        "material_read": "Complete accessible HTML, including §§1–5, 9–10, equations (15),(38),(40),(74) and references",
+        "method": "Read original full-text HTML and compare exact quantifiers, recurrence, proposed versus proven assertions",
+        "title": "A family of digit functions with large periods",
+        "trigger": "Source of explicit all-modulus and all-residue conjectures"
+      },
+      {
+        "assessment": "Contains spectral polynomial and root-of-unity ingredients, but not full rank-one matrix identity resolving Eq. (74).",
+        "evidence": [
+          "§2 Eqs. (3)-(4) root-of-unity tangent factors",
+          "§3 Eq. (11) odd-binomial polynomial",
+          "§5 concerns full power-of-base block sums rather than general residue prefix vectors"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1207.0404v6",
+        "material_read": "Full relevant §§1–3, digit-theoretic application §5 and paper theorem scope",
+        "method": "Read original full-text HTML and compare its tangent-square polynomial and Newman full-block results with all-cutoff projector identity",
+        "title": "Tangent power sums and their applications",
+        "trigger": "Closest plausible general spectral polynomial covering conjecture"
+      },
+      {
+        "assessment": "Coefficient valuation for powers of a generating function, not signed modular digit-class prefix sums; no entailment of Eq. (74).",
+        "evidence": [
+          "Summary gives a specific valuation formula for the tenth power; no assertion about odd-base Newman prefix sums."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/17/SCOPE-exact-tenth-power-thue-morse-valuations--2cde9accbbd3",
+        "material_read": "Search-result mathematical title and summary only, not full artifact",
+        "method": "Compare source theorem objects and parameters from returned summary",
+        "title": "Exact 2-adic valuations for the tenth power of the Thue--Morse generating function",
+        "trigger": "Semantic search for Newman and Thue–Morse identities"
+      },
+      {
+        "assessment": "Distinct generating-series coefficient problem; no implication for conjectured vector interval identity.",
+        "evidence": [
+          "Summary classifies automatic odd parts of several Thue-Morse powers, not the claimed modular prefix identity."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-automatic-odd-parts-thue-morse-3-5-9--39839f2d9a7f",
+        "material_read": "Search-result title and scientific summary only",
+        "method": "Compare normalized coefficient and digit-sum notions",
+        "title": "Automatic odd parts for the cubic, fifth and ninth Thue-Morse powers",
+        "trigger": "High-ranked archive overlap hit in targeted search"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b63c3068-a659-4b60-b77d-12d4410c567f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The new matrix projector furnishes one uniform all-modulus proof of an explicitly conjectured infinite identity (arXiv:1209.5705v3 Eq. (74)), including full interval-residue vectors. It simultaneously discharges the original Eq. (15) and shows a dimension-independent collapse of (n+1)/2 signed digit-statistic transforms to total parity; the structurally meaningful proof connects a known tangent polynomial with arbitrary-prefix digit transforms, where prior work supplied only low-modulus proofs and computational tests.",
+    "status": "PASS"
+  }
+}
