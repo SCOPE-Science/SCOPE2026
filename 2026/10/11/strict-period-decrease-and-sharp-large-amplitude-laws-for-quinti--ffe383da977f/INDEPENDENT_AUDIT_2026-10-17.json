@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:19:06.754235Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact integral H=p(x)^2y^2/2+∫_0^x p(s)^2s(1+βs^4)ds with p=e^{αx^4/4} is conserved under x'=y, y'=-x-αx³y²-βx⁵. Its even coercive potential yields precisely one compact smooth oval for each A>0. The time-preserving coordinate z=∫_0^x p(s)ds gives z''+h(z)=0 with h(Φ(x))/Φ(x)=x(1+βx^4)/B(x), B=Φ/p. When α>0, B' + αx³B=1 and B>x/(1+αx⁴), so x/B increases; α=0<β gives k(z)=1+βz⁴. The exact period quadrature 4∫_0^1[2∫_u^1 t k(Rt)dt]^-1/2du is strictly decreasing with R for α+β>0 and constant 2π otherwise. Expanding h(z)=z+(β+α/5)z⁵+O(z⁹) yields T(A)=2π[1-(α+5β)A⁴/16+O(A⁸)]. Pure β-axis dominated convergence gives T~[(2√3)/(3√β)] B(1/6,1/2) A^-2. For α>0, exact endpoint-layer scaling with q=αA⁴ has pointwise kernel e^-u/sqrt(1-e^-2u) dominated by 4e e^-u/4 /sqrt(min(u,1)), yielding sqrtα A² sqrt(1+βA⁴)T→2π. I independently verified conservation and fifth-order force jet symbolically and independently checked pure-β period quadratures at finite amplitudes, which are not proofs of the infinite family.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Da Cruz–Llibre Theorem 1 exactly identifies α=-a32>=0 and β=-a50>=0 but does not specify return time as a function of turning amplitude.",
+          "Yang–Zeng abstract concerns sufficient period criteria in Liénard systems; available material did not include both high-amplitude constants."
+        ],
+        "reasoning": "A qualitative center classification cannot entail strict monotone period bijection or boundary-layer coefficient. Inaccessible full general period-criteria text is named as residual risk.",
+        "searches": [
+          "arxiv:2312.05709v1 da Cruz Llibre global centers quintic",
+          "Yang Zeng period function Lienard systems 2013 DOI 10.1017/S0308210511000096",
+          "Chanda Ghose-Choudhury Guha Jacobi-Maupertuis Lienard 2018"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2312.05709v1",
+        "https://doi.org/10.1017/S0308210511000096",
+        "https://ejde.math.txstate.edu/Volumes/2018/120/chanda.pdf",
+        "Resultary query: quintic global centers period monotone amplitude physical time asymptotics alpha x^3 y^2 beta x^5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier existence of all periodic orbits does not determine original-time period monotonicity; time reparameterizations preserve orbits but change T(A).",
+          "Pure quintic α=0 supports only one boundary of the theorem; α>0 yields a new e^-u boundary-layer constant."
+        ],
+        "reasoning": "The prior theorems are necessary context and special cases but no inspected implication yields the complete α,β>=0 physical-period law.",
+        "searches": [
+          "arxiv:2312.05709v1",
+          "doi:10.1017/S0308210511000096",
+          "doi:10.1155/2017/7396063"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The time-preserving transformation z=∫exp(αx^4/4)dx changes the equation to conservative z+h(z)=0, but does not replace the physical period by an energy-normalized parameter.",
+          "Published harmonic (α=β=0) and pure quintic (α=0) cases are strict subfamilies, not all-(α,β) conclusions."
+        ],
+        "reasoning": "The periodic energy coordinate is a proof technique, not a known general formula for all α,β; physical time, not rescaled flow time, is the compared quantity.",
+        "searches": [
+          "Resultary: quintic global centers period monotone amplitude physical time asymptotics alpha x^3 y^2 beta x^5",
+          "nonlinear oscillator Jacobi last multiplier generalized Lienard period amplitude"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The conservative α=0 axis has published exact solutions, but the exponentially weighted velocity-nonlinearity α>0 boundary layer does not follow from its table.",
+          "Resultary returned another sharp critical-period birth result for different equation x+x+a x³+x⁵+bxy=0; coefficients and dynamics differ."
+        ],
+        "reasoning": "This is a continuous two-parameter theorem and one-parameter return function, not a missing entry of a finite period table.",
+        "searches": [
+          "Resultary: complete monotone quintic center physical period map high energy",
+          "Belendez Arribas exact unforced quintic oscillator 2017"
+        ]
+      },
+      "rationale": "Best-of-knowledge original physical-time all-amplitude strict period function and both sharp high-A parameter-regime coefficients for precisely the da Cruz–Llibre nonnegative global-center stratum. Their Theorem 1 classifies centers, not periods. Classical oscillator and Liénard period comparison literature supplies general tools and partial special cases; material read did not establish the joint global quantitative conclusion. Incompletely inspected Yang–Zeng final text remains an overlap risk.",
+      "residual_risks": [
+        "The final Yang–Zeng 2013 Liénard-period paper not read in full; possible differently worded general theorem remains.",
+        "All-amplitude period conclusions rest on analytic quadrature, not finite Python tests."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes global-center existence for the claimed parameter locus, not strict T(A) or sharp amplitude asymptotic",
+          "evidence": "Theorem 1: a32<=0, a50<=0 and remaining four a-coefficients zero.",
+          "identifier_or_url": "https://arxiv.org/html/2312.05709v1",
+          "material_read": "Full HTML primary Theorem 1, introduction and section 4 global-center material; statement of the conditions",
+          "method": "Lawful arXiv primary full-text HTML",
+          "title": "Global Centers in a Class of Quintic Polynomial Differential System",
+          "trigger": "Same exact six-parameter polynomial ODE and α=-a32, β=-a50 specialization"
+        },
+        {
+          "assessment": "Potential overlap in uninspected criteria; cannot assert whole-document noncoverage",
+          "evidence": "Known focus on criteria for monotonic and critical period functions, not identified large-amplitude constants.",
+          "identifier_or_url": "https://doi.org/10.1017/S0308210511000096",
+          "material_read": "Indexed journal abstract and displayed bibliographic details; full text not materially read",
+          "method": "Primary publisher abstract discovery",
+          "title": "The period function of Liénard systems",
+          "trigger": "General period-function criteria that could dominate special equation"
+        },
+        {
+          "assessment": "Known multiplier method credited; does not determine the specific resulting full amplitude return map",
+          "evidence": "General transformation of velocity-quadratic equations to energy conservation.",
+          "identifier_or_url": "https://ejde.math.txstate.edu/Volumes/2018/120/chanda.pdf",
+          "material_read": "Abstract and first-integral construction in published source",
+          "method": "Primary lawful OA PDF relevant theory sections",
+          "title": "Jacobi-Maupertuis metric of Liénard type equations and Jacobi Last Multiplier",
+          "trigger": "Position-dependent multiplier in the time-preserving oscillator proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Completes the period portrait on a nontrivial natural two-parameter global-center locus, giving uniqueness of each prescribed physical period and sharp crossover between A^-2 and A^-4 decay. Exact times matter in center dynamics and are not implied by a phase portrait or topological existence classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2312.05709v1",
+    "https://doi.org/10.1017/S0308210511000096",
+    "https://ejde.math.txstate.edu/Volumes/2018/120/chanda.pdf",
+    "Resultary query: quintic global centers period monotone amplitude physical time asymptotics alpha x^3 y^2 beta x^5"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Parameters α,β>=0; α=β=0 is constant 2π, not strictly decreasing",
+    "The high-A limit is for each fixed parameter pair, not uniform as α→0.",
+    "Full directory tree enumeration unavailable via connected reader."
+  ],
+  "residual_risks": [
+    "The final Yang–Zeng 2013 Liénard-period paper not read in full; possible differently worded general theorem remains.",
+    "All-amplitude period conclusions rest on analytic quadrature, not finite Python tests."
+  ],
+  "schema_version": 1
+}
