@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the exact perfect-square reflection formula
+# Independent mathematical audit
 
-From this directory execute `python3 verify.py` using Python 3.8 or later; it uses the standard library only. Its successful output is:
+## correctness
 
-```text
-VERIFY_OK direct_reversal_census_lengths=0..100 gap_count_lengths=101..2000 ordinary_even_lengths=2..2000
-```
+PASS
 
-The direct census constructs the first sufficiently many symbols with marked positions \(0,1,4,9,\ldots\) and builds the complete set of length-\(n\) factors at \(0\le n\le100\). For those lengths, the final chosen square gap is larger than \(n\), so all one-mark placements occur and every factor with at least two \(1\)'s has its first pair earlier in the prefix. Canonical representatives are the lexicographic minima of each word and its reversal; their set size is compared to the formula.
+Index factors with >=2 ones by first consecutive square gap 2k+1 and leading-zero budget B_0=0, B_k=2k-2; reverse pairs only occur among exactly-two-one factors with both outside zero budgets feasible. Counting N_k and reversals C_k yields even contribution min(m-k,2k-1), sum 2+floor((m+1)^2/3), and odd increment 1. All-zero/isolated-one classes and n=0,1 handled separately; ordinary factor asymptotic n²/8 gives limit 2/3. Independent direct finite-prefix factor/reversal census checked every n=2..100, corroboration not infinite proof.
 
-A different routine implements the independent gap-parameter counting rule, including duplicate reversal pairs. It is compared with the closed formula for \(101\le n\le2000\) and with the ordinary-even-count formula for \(2\le n\le2000\). Runtime and computing environment may vary; these are finite checks, not infinite completeness certificates. The infinite assertion follows from the bijective gap analysis and finite symbolic sums in `RESULT.md`. Independent scientific review and external certification have not been performed.
+## originality
+
+PASS
+
+Definition/theory of reflection complexity is established, but the exact periodicity-unrelated *perfect-square characteristic word* counting formula requires increasing unequal square gaps and a special reversal-pair census, not automatic-sequence reflection results.
+
+## value
+
+PASS
+
+Reflection complexity is a natural recently studied invariant; obtaining a full-length explicit formula and a nontrivial 2/3 asymptotic ratio for the sparse squares word supplies a standalone exact example outside standard automatic-word classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
