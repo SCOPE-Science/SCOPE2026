@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T04:14:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every fixed alpha>0 and xi>0, direct expansion of S_L(x)=(1+xi*x/(1+xi))exp(-xi*x) yields S_L~xi/(1+xi)*x*exp(-xi*x). The exact DUS tail 1-H=e(1-exp(-S_L))/(e-1) has derivative e/(e-1) at S_L=0, and the APT map has derivative alpha*log(alpha)/(alpha-1)>0 at H=1 (equal to one when alpha=1). Their product proves the stated K(alpha,xi)>0; differentiating the exact CDF yields f~xi*K*x*exp(-xi*x), so the hazard limit is xi. Tail integration for positive t proves the MGF converges precisely t<xi; for t<=0 finiteness follows from X>=0, and divergence at t=xi gives radius xi of the nonnegative-coefficient moment series. Explicit alpha=1 and alpha<1 parameter boundaries were checked analytically. The exact proof, not a finite numerical plot, supports all-parameter statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Differentiability of monotone transformations at a survival endpoint is a general calculus principle, and heavy-tailed laws are classically characterized by absence of positive exponential moments.",
+          "The source equations do imply the new asymptotic after a first-order expansion, despite the source prose describing alpha as tail-shaping and invoking heavy tails."
+        ],
+        "reasoning": "General endpoint derivative theory is the proof mechanism, but was not found as a published APT-DUSL conclusion; a correction of the concrete source claim with its exact constant, hazard and MGF radius is not a previously advertised general result. Neither a generic light-tail definition nor other transformed heavy-tail models assert the target distribution-specific conclusion.",
+        "searches": [
+          "Resultary: alpha power transformed DUS Lindley exponential tail rate asymptotic hazard moment generating function heavy-tail correction",
+          "web fast: \"Modeling Lifetime Data with a Novel Alpha-Power DUS Lindley Distribution\" \"heavy-tailed\" alpha",
+          "publisher source: DOI 10.3390/math14142469, "
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/math14142469 (full publisher model equations, introduction, MGF section, conclusion)",
+        "doi:10.1029/2021WR030506 (standard heavy-tail definition)",
+        "Resultary query: alpha power transformed DUS Lindley exponential tail rate asymptotic hazard moment generating function heavy-tail correction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original author equations imply S_L~xi*x/(1+xi)*exp(-xi*x), 1-H~e*S_L/(e-1), and 1-F~c(alpha)*(1-H).",
+          "The original narrative emphasizes alpha-dependent tail behavior and heavy-tailed empirical flexibility, with no mathematical statement that the model can have zero positive exponential moments."
+        ],
+        "reasoning": "The submitted finding is an explicit correction/delineation of the source claims, not a new definition of heavy-tailed: all parameter values yield at least some finite positive exponential moment. This does not deny pre-asymptotic tail and shape effects.",
+        "searches": [
+          "Resultary: alpha power transformed DUS Lindley exponential tail rate asymptotic hazard moment generating function heavy-tail correction",
+          "web fast: \"Modeling Lifetime Data with a Novel Alpha-Power DUS Lindley Distribution\" \"heavy-tailed\" alpha",
+          "publisher source: DOI 10.3390/math14142469, "
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jamil et al., Mathematics 14 (2026), 2469, DOI 10.3390/math14142469, publishes the APT-DUSL CDF/PDF and a tail-flexibility interpretation, but does not state the precise exp(-xi*x)*x survival asymptotic or MGF domain.",
+          "The accessible model-specific indexed sources checked did not state the complete model-specific correction."
+        ],
+        "reasoning": "The equivalent parameter aliases alpha-power/DUS-Lindley/APT-DUSL were compared with the exact model, not merely heavy-tail keywords. No prior explicit exact-tail model theorem or corrigendum was identified; this remains a bounded, not exhaustive, literature claim.",
+        "searches": [
+          "Resultary: alpha power transformed DUS Lindley exponential tail rate asymptotic hazard moment generating function heavy-tail correction",
+          "web fast: \"Modeling Lifetime Data with a Novel Alpha-Power DUS Lindley Distribution\" \"heavy-tailed\" alpha",
+          "publisher source: DOI 10.3390/math14142469, "
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected publisher full text gives the transformed model definitions and MGF moment series, but no exact convergence boundary t<xi.",
+          "The published introduction and conclusion attribute tail flexibility to the alpha parameter; no linked correction was found."
+        ],
+        "reasoning": "This is a theorem about a parameterized probability family rather than a preexisting numeric table. The most relevant database is the source publisher record and any corrigendum; no identical corrected formula appeared in the checked record.",
+        "searches": [
+          "Resultary: alpha power transformed DUS Lindley exponential tail rate asymptotic hazard moment generating function heavy-tail correction",
+          "web fast: \"Modeling Lifetime Data with a Novel Alpha-Power DUS Lindley Distribution\" \"heavy-tailed\" alpha",
+          "publisher source: DOI 10.3390/math14142469, "
+        ]
+      },
+      "rationale": "Best-of-knowledge originality judged against exact antecedent model, broader results, tables and mathematical implication. The new complete statement is not covered by the inspected sources; the named residual risks and incomplete full-text material prevent any claim of exhaustive priority or external certification.",
+      "residual_risks": [
+        "Heavy-tailed may be used informally by the source to mean high kurtosis or strong finite-range skew, not the strict asymptotic class.",
+        "A recently released corrigendum or other model-specific unindexed article may not be discoverable.",
+        "The result does not determine global hazard-shape phase transitions or deny large finite quantiles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the definition, not the corrected exact exponential asymptotic/MGF domain; heavy-tail usage is at least ambiguous and, if asymptotic, false.",
+          "evidence": "Section 2 transformation equations; introduction states alpha determines tail behavior and discusses heavy-tailed behavior; Section 4.4 MGF series; Section 8 interpretation.",
+          "identifier_or_url": "https://www.mdpi.com/2227-7390/14/14/2469",
+          "material_read": "Publisher HTML introduction, full CDF/PDF transformation identities and parameter interpretation, MGF treatment, conclusion and limitations.",
+          "method": "Primary source HTML and mathematical formula comparison.",
+          "title": "Modeling Lifetime Data with a Novel Alpha-Power DUS Lindley Distribution",
+          "trigger": "Exact originating 2026 model and its heavy-tail interpretation."
+        },
+        {
+          "assessment": "Definition-level comparator only, does not claim the particular APT-DUSL correction.",
+          "evidence": "Heavy-tail class of a nonnegative law excludes finite positive exponential moments.",
+          "identifier_or_url": "doi:10.1029/2021WR030506",
+          "material_read": "Accessible definition and mathematical criterion for exponential moments; not APT-DUSL-specific.",
+          "method": "Definition comparison with the source and exact MGF calculation.",
+          "title": "Understanding Heavy Tails of Flood Peak Distributions",
+          "trigger": "Fixes asymptotic heavy-tail terminology."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source treats parametric tail control and apparent ability to handle heavy-tailed lifetime data as material reasons to adopt the model. The analysis proves that alpha never changes the exponential rate, asymptotic hazard, or positive-MGF boundary, ruling out genuine heavy tails under the standard exponential-moment definition. This is a targeted correction of a consequential model interpretation, not merely a routine renaming of a distribution; asymptotic and finite-sample flexibility are carefully distinguished.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Heavy-tailed may be used informally by the source to mean high kurtosis or strong finite-range skew, not the strict asymptotic class.",
+    "A recently released corrigendum or other model-specific unindexed article may not be discoverable.",
+    "The result does not determine global hazard-shape phase transitions or deny large finite quantiles."
+  ]
+}

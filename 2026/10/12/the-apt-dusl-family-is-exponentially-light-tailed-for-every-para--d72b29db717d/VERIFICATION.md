@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,63 +18,25 @@
   "schema_version": 1
 }
 ---
-Let
-\[
-S_L(x)
-=
-\left(
-1+\frac{\xi x}{1+\xi}
-\right)e^{-\xi x}.
-\]
-For the DUS-Lindley CDF \(H\),
-\[
-1-H(x)
-=
-\frac{e\{1-e^{-S_L(x)}\}}{e-1}
-\sim
-\frac{e}{e-1}S_L(x).
-\]
 
-For the alpha-power transformation, define
-\[
-c(\alpha)
-=
-\begin{cases}
-\dfrac{\alpha\log\alpha}{\alpha-1},&\alpha\ne1,\\[4pt]
-1,&\alpha=1.
-\end{cases}
-\]
-Then
-\[
-1-F(x)
-\sim
-c(\alpha)\{1-H(x)\}.
-\]
-Therefore
-\[
-1-F(x)
-\sim
-c(\alpha)\frac{e}{e-1}\frac{\xi}{1+\xi}
-x e^{-\xi x}.
-\]
+# Independent mathematical audit
 
-The density has the corresponding asymptotic
-\[
-f(x)
-\sim
-c(\alpha)\frac{e}{e-1}\frac{\xi^2}{1+\xi}
-x e^{-\xi x},
-\]
-so
-\[
-h(x)\to\xi.
-\]
+## correctness
 
-The tail-integral identity for exponential moments then gives
-\[
-\mathbb E[e^{tX}]<\infty
-\quad\Longleftrightarrow\quad
-t<\xi.
-\]
+PASS
 
-The included checker evaluates the exact transformed CDF and PDF and confirms the survival ratio, density ratio, limiting hazard, and boundary integrand for several parameter pairs.
+For every fixed alpha>0 and xi>0, direct expansion of S_L(x)=(1+xi*x/(1+xi))exp(-xi*x) yields S_L~xi/(1+xi)*x*exp(-xi*x). The exact DUS tail 1-H=e(1-exp(-S_L))/(e-1) has derivative e/(e-1) at S_L=0, and the APT map has derivative alpha*log(alpha)/(alpha-1)>0 at H=1 (equal to one when alpha=1). Their product proves the stated K(alpha,xi)>0; differentiating the exact CDF yields f~xi*K*x*exp(-xi*x), so the hazard limit is xi. Tail integration for positive t proves the MGF converges precisely t<xi; for t<=0 finiteness follows from X>=0, and divergence at t=xi gives radius xi of the nonnegative-coefficient moment series. Explicit alpha=1 and alpha<1 parameter boundaries were checked analytically. The exact proof, not a finite numerical plot, supports all-parameter statements.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality judged against exact antecedent model, broader results, tables and mathematical implication. The new complete statement is not covered by the inspected sources; the named residual risks and incomplete full-text material prevent any claim of exhaustive priority or external certification.
+
+## value
+
+PASS
+
+The source treats parametric tail control and apparent ability to handle heavy-tailed lifetime data as material reasons to adopt the model. The analysis proves that alpha never changes the exponential rate, asymptotic hazard, or positive-MGF boundary, ruling out genuine heavy tails under the standard exponential-moment definition. This is a targeted correction of a consequential model interpretation, not merely a routine renaming of a distribution; asymptotic and finite-sample flexibility are carefully distinguished.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
