@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The CDF inversion and the formula Q_a′(u)=h(u^(1/a))/[u(-log u)] have been recomputed. Direct logarithmic differentiation gives h′/h=[1-(1-z)/(-log z)-z/(-log(1-z))]/[z(1-z)]<0 by two instances of log x<x-1. Since u^(1/a) increases with a for 0<u<1, quantile derivatives strictly decrease with a. Integration yields the full strict dispersive order. Uniform quantile coupling yields strictly ordered absolute pairwise differences, and finite moments ensure strict variance order. Standalone standard-library checker passed 2585 numerical assertions; finite checks are not treated as infinite proof. No unstated regularity or boundary limit is required.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Khaledi–Kochar 2000 Theorem 2.1 yields for a DFR parent X_{i:n+1} <=disp X_{i:n}, but it does not compare maxima with increasing sample size for the IFR log-exponential parent.",
+        "Das et al. 2025 Theorem 3.13 concerns a Kumaraswamy-G family with common random sample count and decreasing-hazard conditions.",
+        "Jeon–Kochar–Park 2006 overview concerns general dispersive orders and their implications, without the exact power-CDF example in its accessible abstract."
+      ],
+      "reasoning": "The investigated broad ordering theorems either require DFR, impose distinct model assumptions, or compare different shapes at a fixed sample size. Direct substitution fails on the positive-reversed-hazard parent here. More general not-yet-located sufficient conditions could imply the derivative argument and remain a risk.",
+      "searches": [
+        "\"dispersive\" \"sample maxima\" \"n\" \"m\" sample",
+        "\"dispersive\" \"Gumbel\" \"order statistics\"",
+        "\"exponentiated exponential\" \"dispersive order\" shape parameter",
+        "arxiv:2508.14855, Section 3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.11129v1: full HTML §1–2",
+      "doi:10.1016/j.spl.2026.110790: publisher/indexed abstract, full text not available",
+      "Kochar SPL27 (1996), lawful author-hosted full PDF four pages",
+      "Khaledi–Kochar SPL46 (2000), lawful author-hosted full PDF five pages",
+      "arxiv:2508.14855: full HTML, sections 1–3",
+      "Jeon–Kochar–Park 2006, publisher abstract and bibliography"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Doumas, arXiv:2603.11129v1, §2 eqs. (10)–(18): identifies Var(log max iid exponentials) and conjectured monotonicity.",
+        "Giam, doi:10.1016/j.spl.2026.110790, published abstract: proves strict variance decrease, but no dispersive ordering is stated in that available material.",
+        "Khaledi and Kochar, SPL 46 (2000) Theorem 2.1 and Remark: order statistics of DFR parents; log E is IFR (hazard exp(y)), so conditions fail.",
+        "Kochar, SPL 27 (1996) Theorems 2.1/3.2: DFR premise and/or comparison of different ranks; not the stated IFR maximum comparison.",
+        "Das et al., arXiv:2508.14855, Theorems 3.13–3.14: dispersive comparisons among Kumaraswamy-generated model parameters at common random sample size, with decreasing-hazard hypothesis."
+      ],
+      "reasoning": "Strict dispersion implies strict variance decrease via paired uniforms, but variance decrease cannot imply strict dispersion (a second-moment inequality alone does not constrain all interquantile gaps). Therefore the present claim is stronger than the Giam abstract. The historical general theorems studied do not have applicable premises: log E has failure rate exp(y), which increases. No direct prior implication found among the inspected full texts, subject to stated access risk.",
+      "searches": [
+        "arxiv:2603.11129v1 Section 2 equations 15–18",
+        "doi:10.1016/j.spl.2026.110790 published abstract",
+        "doi:10.1016/S0167-7152(99)00110-8 Theorem 2.1",
+        "Kochar 1996 SPL27 Theorem 2.1",
+        "arxiv:2508.14855 Theorem 3.13"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Quantile Q_a(u)=log(-log(1-u^(1/a))); strict Q_b(v)-Q_b(u)<Q_a(v)-Q_a(u) is the equivalent dispersive-order formulation.",
+        "Kochar 1996 pp.271–274 and Khaledi–Kochar 2000 pp.257–261 use dispersion ordering but impose DFR on parents."
+      ],
+      "reasoning": "Compared quantile-gap order with aliases: log maxima, minima of Gumbels, exponentiated (power) Gumbel CDF, dispersive variability. No inspected theorem states the same strict order on this power-CDF family. DFR theory cannot imply the result for the IFR log-exponential parent.",
+      "searches": [
+        "\"logarithm\" \"maximum\" \"dispersive order\" \"exponential\"",
+        "\"exponentiated Gumbel\" \"dispersive order\"",
+        "Dispersive order logarithm maximum iid Exp(1) as number of observations n increases; quantile spread Q_n(beta)-Q_n(alpha), stochastic ordered variability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The queried published research index returned as near matches records on exponential sample range/sample-variance covariance, quantile curvature of gamma sums, and standardized anti-concentration, rather than the claimed strict power-CDF quantile ordering.",
+        "Known sequence a_n=pi^2/6+n*w_n-n^2*c_n^2 is explicitly the already published *variance* coefficient, not a new numeric table."
+      ],
+      "reasoning": "Search by source identifiers, exact parameters, aliases, and quantile-dispersion formulation showed no direct record of the stronger claim. This is bounded deduplication evidence, not uniqueness proof; the established variance sequence is not claimed as novel.",
+      "searches": [
+        "Conjecture Doumas 2026 alternating binomial logarithmic sums coefficient π²/6 + n w_n − n² c_n² strictly decreases in n; variance log max iid exponential monotonic dispersive order",
+        "Variance of log maximum n iid standard exponential random variables decreases with sample size quantile derivative derivative of h(t) monotonic 2026",
+        "Dispersive ordering logarithms of exponential maxima sequential sample sizes order statistics variance monotone reversed hazard",
+        "Dispersive order logarithm maximum iid Exp(1) as number of observations n increases; quantile spread Q_n(beta)-Q_n(alpha), stochastic ordered variability",
+        "Doumas 2026 arxiv:2603.11129 Kia Keng Giam 2026 coefficient pi squared sixth n wn minus n squared cn squared decreasing stronger quantile order",
+        "Log maximum of independent standard exponential variables dispersively decreasing quantile derivative decreasing in sample size",
+        "\"Decreasing nature of a sequence related to the Coupon Collector's problem\" Giam dispersive"
+      ]
+    },
+    "rationale": "The candidate is a full strict interquantile-width ordering over positive real CDF exponents, while the most directly relevant 2026 paper proves only variance monotonicity in its accessible abstract. The historical general dispersive theorems inspected require DFR or compare different families/parameters and do not supply the claim as a direct corollary. Complete Giam full text and broader transform-order priority are residual risks; no search is represented as proof of novelty.",
+    "residual_risks": [
+      "Giam 2026 full article was inaccessible in available lawful channels and might contain a stronger unstated auxiliary theorem.",
+      "An earlier general comparison theorem for exponentiated CDFs or reverse-hazard elasticity might subsume the exact case even if titles do not match.",
+      "Bounded public literature and research-index searches cannot establish global priority or uniqueness; independent expert/library verification is needed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers positivity and variance representation; leaves monotonicity open at that submission, does not assert quantile spread ordering.",
+        "evidence": "Equation (15) identifies Var(log maximum); last paragraph of Remark 1 mentions monotonicity conjecture.",
+        "identifier_or_url": "https://arxiv.org/html/2603.11129v1",
+        "material_read": "Full HTML paper, introduction and probability derivation §§1–2, including eqs. (1)–(18), Remark 1 and references.",
+        "method": "Read primary arXiv full text and check its definitions, eqs. and claims.",
+        "title": "An inequality involving alternating binomial sums",
+        "trigger": "Exact same log-max exponential variance coefficient, open conjecture"
+      },
+      {
+        "assessment": "Establishes already-known strict variance monotonicity; the stronger dispersive theorem is not stated in the available abstract; full-text coverage remains a material risk.",
+        "evidence": "Published abstract says a_n is strictly decreasing, without quantile-order claim.",
+        "identifier_or_url": "https://doi.org/10.1016/j.spl.2026.110790",
+        "material_read": "Published abstract and bibliographic metadata only; full article inaccessible in attempted lawful channels.",
+        "method": "Read indexed published abstracts; did not infer full-text content.",
+        "title": "Decreasing nature of a sequence related to the Coupon Collector's problem",
+        "trigger": "Later resolution of the exact variance-monotonicity problem"
+      },
+      {
+        "assessment": "DFR hypotheses exclude log E, whose hazard exp(y) is strictly increasing; theorem is not direct coverage.",
+        "evidence": "Sections 2–3 and abstract specify DFR distribution and relative ranks.",
+        "identifier_or_url": "https://web.pdx.edu/~kochar/Papers/d_papers/SPL1996.pdf",
+        "material_read": "All four pages, definitions, Lemmas 2.1–2.2 and Theorems 2.1/3.1/3.2 and their proofs",
+        "method": "Opened lawful author-hosted full PDF and inspected document text and page images.",
+        "title": "Dispersive ordering of order statistics",
+        "trigger": "A broad established dispersive-order theorem might dominate the claimed result"
+      },
+      {
+        "assessment": "The variable-sample-size comparison requires DFR parent; parent log E is IFR. Order direction/assumptions do not furnish the claimed statement.",
+        "evidence": "Theorem 2.1 and its Remark, page 260, apply to DFR random variables.",
+        "identifier_or_url": "https://web.pdx.edu/~kochar/Papers/d_papers/SPL2000.pdf",
+        "material_read": "All five pages, Theorem 1.1, Lemma 2.1, Theorem 2.1 and Remark, proof and references",
+        "method": "Opened lawful author-hosted full PDF and inspected actual page images and extracted text.",
+        "title": "On dispersive ordering between order statistics in one-sample and two-sample problems",
+        "trigger": "Same stochastic order and varying sample size"
+      },
+      {
+        "assessment": "The dispersive comparison is restricted to different Kumaraswamy-generated populations with common random sample size/decreasing hazard conditions, not the integer-to-continuous power-CDF sample-size claim.",
+        "evidence": "Theorem 3.13 and §3 opening require fixed/common random sample size and specified parameter majorization.",
+        "identifier_or_url": "https://arxiv.org/html/2508.14855",
+        "material_read": "Full HTML document, abstract, model in §1, definitions in §2, §3 statement and assumptions of Theorem 3.13",
+        "method": "Read primary arXiv HTML theorem and assumptions.",
+        "title": "Ordering results for random maxima and minima from two dependent Kumaraswamy generalized distributed samples",
+        "trigger": "Recent dispersive comparisons for extreme order statistics and random sample sizes"
+      },
+      {
+        "assessment": "Confirms that dispersive order implies variance ordering, not a statement about this exact family.",
+        "evidence": "Abstract says quantile-gap definition and variance implication.",
+        "identifier_or_url": "https://doi.org/10.1007/s00362-005-0285-4",
+        "material_read": "Full abstract, extensive reference list, not the inaccessible full body",
+        "method": "Read publisher landing-page abstract and references, then followed the closest cited primary papers.",
+        "title": "Dispersive ordering—some applications and examples",
+        "trigger": "Survey of general implications of dispersive ordering"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a7fe4307-f778-4439-8319-c92346ad1f1d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The same probability family controls the previously studied multiperson coupon-collector variance coefficient. The present claim identifies the strictly ordered *entire* quantile-width profile for every sample size and noninteger effective exponent. This is not a re-expression of the known variance inequality: it gives a simultaneous coupling of all two-observation absolute gaps, yielding every increasing distance-risk comparison. It is a motivated structural strengthening and natural extension to the power-CDF family, not a numerical variant or a reprinted theorem.",
+    "status": "PASS"
+  }
+}

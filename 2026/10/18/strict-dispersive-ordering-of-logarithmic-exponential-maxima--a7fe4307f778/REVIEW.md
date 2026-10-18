@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness: PASS.** The quantile is obtained by inverting the explicit CDF; differentiating and factoring produces an elementary function \(h\) with a rigorously negative logarithmic derivative on \((0,1)\). Integrating pointwise derivative inequalities gives the asserted strict order for every pair of parameters and probabilities. The independent-copy coupling and finite-moment justification prove the stated strict variance implication. `verify.py` tests the finite diagnostics but does not substitute for the infinite proof.
+
+**Originality: PASS, qualified.** Doumas (2026) proves positivity of the variance coefficient and asks about monotonicity; Giam (2026) **already proves strict variance monotonicity**. The claim reviewed here is strictly stronger: strict ordering of *each* quantile gap for all positive real parameters. Neither the published abstract of Giam nor the accessible primary results inspected from Kochar (1996), Khaledi–Kochar (2000), and Das et al. (2025) states this comparison. The classical DFR order-statistic theorem is not applicable because the logarithmic exponential parent is IFR. Inaccessible full text of Giam and possible general transform-order coverage remain material priority risks. No independent priority certification is implied.
+
+**Value: PASS.** The relevant coupon-collector coefficient controls variance, but variance alone cannot control all interquantile widths. Here a single monotone quantile derivative yields the stronger distributional spread order and, under a common coupling, simultaneous strict shrinkage of every two-sample absolute gap. The extension to real parameters is natural for the power-CDF family and describes a global structure rather than an isolated numerical improvement.
+
+Self-review: passed. Independent audit: not yet performed.
