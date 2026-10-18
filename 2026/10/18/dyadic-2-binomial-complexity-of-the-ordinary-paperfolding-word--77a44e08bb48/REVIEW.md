@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof reduces every 2-binomial class to the weight and the sum of one positions. The parity-refined length-four base cases follow from all four adjacent binary pairs occurring at both start-index parities, with explicit witnesses. The two exact even/odd lifting maps cover every index and preserve the asserted extreme-group disjointness and central arithmetic progression by induction. The attached program independently checks the lifts and short direct factor scans. It is the induction, not those bounded scans, that covers all exponents.
+
+**Originality — PASS on the evidence inspected.** The closest papers on paperfolding calculate ordinary abelian complexity (Madill–Rampersad) and run-reduced factor/abelian complexity (Campbell–Currie–Rampersad). Rigo–Salimov calculate binomial complexity for Sturmian and Thue–Morse words; the later generalized Thue–Morse results concern a different sequence. The numeric sequence \(2^{k+1}+k+1\) appears as a generic OEIS arithmetic formula, but no paperfolding or scattered-subsequence interpretation was found there. Public indexed research searches of the formula, invariant, synonymous positional-moment formulation, and the related literature did not identify a dominating result. The accessible related claim about 2-abelian paperfolding factors counts contiguous pairs, and neither it nor the above results supplies the scattered-pair class counts. Residual risk: inaccessible or unindexed equivalent work.
+
+**Mathematical value — PASS.** This is an exact infinite family with a weight-resolved class spectrum, not a small numerical gain. It separates the constant ordinary abelian complexity at dyadic lengths from a refined complexity growing linearly in factor length and explains the logarithmic central correction through a digit-recursive parity-index recurrence. The precise three-group splitting gives a useful structural benchmark for binomial-complexity studies of automatic words.
+
+**Scope and risk.** The result is proved only for the regular binary word and lengths \(2^k\), \(k\ge2\), and it does not imply a nondyadic formula. The included code is an internal reproducibility check and not independent validation; indexing and source coverage are not a proof of universal novelty.
+
+Self-review: passed. Independent audit: not yet performed.
