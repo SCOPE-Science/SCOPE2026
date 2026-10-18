@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof independently derives oddness, squarefreeness, \(M\ge3\), the complete modulo-\(3\) residue trichotomy, and the modulo-\(5\) incompatibilities. Every extremal-product comparison follows from monotonicity of \(1+1/(p-2)\). The finite endpoints are certified by outward-rounded integer interval arithmetic in `verify.py`, including the closest below/above threshold pair.
+## correctness
 
-## Originality
-PASS. Mandal's arXiv:2507.02930v1 proves only \(\omega(n)\ge17\) generally and a \(48\)-factor special multiplier branch. The closest later public result, opaque identifier `25be8c179689`, proves \(\omega(n)\ge2859\) using modulo-\(3\) classification alone. Direct statement-and-proof comparison shows neither implies the modulo-\(5\)-thinned extremal streams used here. Searches for \(617427\), \(617426\), the crossing prime \(26375269\), and equivalent Schemmel-totient formulations did not locate a stronger covering theorem.
+PASS
 
-## Value
-PASS. The result strengthens the closest located general bound by more than two orders of magnitude and identifies a structural reason modulo \(5\) becomes effective after the multiplier is forced to \(3\) or \(5\). The cutoff is natural because it is the exact point where the final admissible extremal stream crosses its multiplier threshold.
+PASS: Reconstructed squarefree odd reduction from MS2(n)=phi(n)-1; M odd>=3, mod-3 trichotomy and M congruences, and mod-5 incompatibility for the only M=3/5 branches. Since (p-1)/(p-2) decreases, the seven fixed-count prime-stream products dominate all smaller supports. Independent Eratosthenes sieve through 30,000,000 reproduced seven exact terminal primes; log-sum gaps include -1.68808882428e-8 at p=26375263 and +2.10334192285e-8 at p=26375269. Inspect source integer outward-rounding code with K=12 and log threshold bounding: float replay alone is not an exact certificate, so the symbolic reduction and the inspected integer-interval method remain necessary. Conclusion omega(n)>=617427; no existence asserted.
 
-## Closest literature and limitations
-The 2022 and 2025 primary papers establish the structural setting and earlier lower bounds; the closest 2026 public record gives the \(2859\) comparison point. The theorem does not prove existence and does not claim that \(617427\) is optimal under stronger congruence information.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): Old theorem omega>=2859 never implies omega>=617427; the omitted mod-5 structural condition is indispensable to the claimed strict increase. Neither inspected result dominates the stricter modulo-5-constrained extremal products; the 2026 bound 2859 is quantitatively much weaker, even though it uses the same general ratio. Residual literature/access risks are explicitly recorded.
+
+## value
+
+PASS
+
+PASS: This significant support obstruction for a classical unresolved Schemmel-totient divisibility problem strengthens the closest located general theorem omega>=2859 by >200-fold. The additional mod-5 restriction is structurally motivated by forced small odd multiplier and cutoff is the actual transition of the final restricted prime stream, not an arbitrary parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

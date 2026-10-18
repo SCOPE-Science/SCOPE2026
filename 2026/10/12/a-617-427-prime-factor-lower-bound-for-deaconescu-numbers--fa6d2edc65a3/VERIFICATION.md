@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` reproduces the seven finite inequalities used in the proof with a standard-library sieve through \(30000000\) and integer interval arithmetic only.
+# Independent mathematical audit
 
-For \(m=p-2\), it encloses
-\[
-\log\left(1+\frac1m\right)
-\]
-with a twelve-term alternating series plus the next-term remainder. Threshold logarithms are enclosed by the positive atanh series with a geometric tail bound. Every rational term is outward-rounded after scaling by \(10^{24}\), so strict interval separation is an exact integer certificate.
+## correctness
 
-The replay checks the unrestricted \(1\pmod3\) product below \(5\); the even \(3\mid n\) product below \(7\); the unrestricted \(2\pmod3\) product below \(5\); both modulo-\(5\)-thinned \(2\pmod3\) products below \(3\); the odd \(3\mid n\), modulo-\(5\)-thinned product below \(5\); and the next-term crossing above \(5\).
+PASS
 
-A valid run ends with:
-`VERIFY_OK lower_bound=617427 crossing_prime=26375269`
+PASS: Reconstructed squarefree odd reduction from MS2(n)=phi(n)-1; M odd>=3, mod-3 trichotomy and M congruences, and mod-5 incompatibility for the only M=3/5 branches. Since (p-1)/(p-2) decreases, the seven fixed-count prime-stream products dominate all smaller supports. Independent Eratosthenes sieve through 30,000,000 reproduced seven exact terminal primes; log-sum gaps include -1.68808882428e-8 at p=26375263 and +2.10334192285e-8 at p=26375269. Inspect source integer outward-rounding code with K=12 and log threshold bounding: float replay alone is not an exact certificate, so the symbolic reduction and the inspected integer-interval method remain necessary. Conclusion omega(n)>=617427; no existence asserted.
 
-The computation does not enumerate Deaconescu numbers and does not prove existence.
+## originality
+
+PASS
+
+PASS (best of knowledge): Old theorem omega>=2859 never implies omega>=617427; the omitted mod-5 structural condition is indispensable to the claimed strict increase. Neither inspected result dominates the stricter modulo-5-constrained extremal products; the 2026 bound 2859 is quantitatively much weaker, even though it uses the same general ratio. Residual literature/access risks are explicitly recorded.
+
+## value
+
+PASS
+
+PASS: This significant support obstruction for a classical unresolved Schemmel-totient divisibility problem strengthens the closest located general theorem omega>=2859 by >200-fold. The additional mod-5 restriction is structurally motivated by forced small odd multiplier and cutoff is the actual transition of the final restricted prime stream, not an arbitrary parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
