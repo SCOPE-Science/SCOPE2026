@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The lower bound counts distinct length-eight windows and the 32-point equality rigidity forces exactly eight residue classes. The hexadecimal cycles are both verified de Bruijn cycles. All eight obstruction rows for the 33-example identify missed seven-factors for the residue sets, while the 33-witness repairs its sole missed shorter factor; the 32-example has a valid residue-class attractor. The bounded order-four statement is exhaustively checked over all 495 canonical balanced candidates, with 16 retained as valid de Bruijn cycles. No random or incomplete search underlies the assertion. The standalone verifier was executed and its printed output matched `verification_output.txt`.
+
+**Originality (PASS within examined evidence).** Mantaci et al. (2021) give definitions and asymptotic de Bruijn bounds, not this pair of exact circular minima. Whittington (2024) raises the issue of shorter-factor coverage and gives a prime-order construction but no covering composite-order-eight classification. Béal, Crochemore and Romana (2025/2026) tabulate a size-33 *greedy linear* attractor, which does not entail the exact circular separation. Targeted research-record and existing-claim comparisons disclosed no stronger statement. Residual risk: unpublished or differently worded order-eight circular-attractor tables and results implicit in more general statements. Novelty is not inferred solely from an unsuccessful search.
+
+**Value (PASS).** The result identifies the first power-of-two order at which the sharp factor-window packing lower bound ceases to determine the optimal circular string attractor uniformly across de Bruijn necklaces. Two exact witnesses at identical order isolate the obstruction as the requirement to cover shorter factors, rather than covering the distinct eight-windows. This directly addresses the mathematical mechanism motivating optimal de Bruijn attractors; it is a finite structural boundary, not a claimed general asymptotic theorem.
+
+Scientific limitations: the example is binary and order eight, with a bounded earlier-order census. Independent priority assessment and scientific audit have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
