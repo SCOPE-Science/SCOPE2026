@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T18:11:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K_(d,t), inclusion–exclusion in each sign orthant gives vol(K)=2^d/d! sum_(j=0)^floor(t) (-1)^j C(d,j)(t-j)^d, including knots. The support h_K(y) fills the k largest |y_i| first (fractional knapsack): sum_(i=1)^k z_i+(t-k)z_(k+1). On each signed and ordered chamber z_i=sum_(j>=i)u_j, jacobian1 and polar inequality sum_(i<=k)i*u_i + t sum_(i>k)u_i <=1 give vol(K°)=2^d/(k!t^(d-k)). These are analytic all-d identities. The primal truncated-power formula is C^1 at internal integers d>=2, while polar log derivative jumps by1/m, giving P(m+)′-P(m-)′=P(m)/m>0. For d=3 independent SymPy differentiation confirms branch derivatives -32(2t^3-9t+6)/(3t^3) on (1,2) and 16(2t^3-9t²+21)/(3t²) on (2,3), strict concavity of first, unique zero of second branch derivative, cusp min at2, and endpoint product32/3. Independent exact Fraction spot checks in d=2..6 agree with stated P formula, including knots and endpoints. Distinct interior peak magnitudes follow the supplied exact rational inequalities.",
+      "residual_risks": [
+        "No full extrema classification for dimensions d>3.",
+        "Finite checks do not establish universal dimension formula; proof is analytic simplex and chamber integration."
+      ],
+      "sources": [
+        "Frozen RESULT.md blob 6bf263d0fba93f65b122022fa29759d89c0acec8",
+        "Frozen verify.py blob 987a546b476254a416aa565a35befd013313b290",
+        "Independent SymPy exact 3D derivative/factorization checks",
+        "Independent rational sample evaluations d=2..6"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general known bound P(K)>=4^d/d! applies to every K_(d,t) but determines no interior product values or stationary points.",
+          "Barthe–Fradelizi available abstract discusses sharp LOWER bounds for symmetric classes; full source inaccessible."
+        ],
+        "reasoning": "A dominating theorem would supply the pointwise continuous-parameter formula or explicit equivalent volumes; generic lower bounds and reflection symmetry do not logically determine it. Full Barthe comparison is a material residual risk.",
+        "searches": [
+          "arxiv:2301.06131 §3.4–3.5 unconditional Mahler inequality",
+          "arxiv:1303.4197 symplectic measurements Mahler",
+          "Barthe Fradelizi 2013 many hyperplane symmetries DOI:10.1353/ajm.2013.0018"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2301.06131 (Fradelizi–Meyer–Zvavitch 2023)",
+        "https://arxiv.org/pdf/1303.4197 (Artstein-Avidan–Karasev–Ostrover 2013)",
+        "DOI:10.1353/ajm.2013.0018; author manuscript https://perso.math.u-pem.fr/fradelizi.matthieu/pdf/symmetries-ajm.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "P(K)>=4^d/d! constrains each point but permits infinitely many different nonconstant profiles.",
+          "Same bodies in illumination/graph-metric work concern different invariants and do not imply Lebesgue-volume products.",
+          "In d=3 the two distinct interior maxima and cusp minimum are not implied by a universal lower bound."
+        ],
+        "reasoning": "The claim provides new equalities and phase locations beyond universal Mahler inequalities; inaccessible Barthe full-text remains a named uncertainty.",
+        "searches": [
+          "Fradelizi Meyer Zvavitch 2023 known unconditional lower bound",
+          "Barthe Fradelizi 2013 reflection group inequalities",
+          "SCOPE previously published cube-cross-polytope illumination and graph metric"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primal volume equals a cube-sum truncated distribution, i.e. Irwin–Hall polynomial.",
+          "Polar equals conv(B_1^d,(1/t)B_infty^d) and its support constraint uses top-k weights."
+        ],
+        "reasoning": "Recognized inclusion–exclusion / Irwin–Hall and dual convex-hull aliases as possible known components; the claim combines them into the whole exact Mahler product and phase diagram.",
+        "searches": [
+          "Mahler volume product B_infty^d cap t B_1^d",
+          "top-k coordinate norm polar support fractional knapsack",
+          "cube intersection scaled cross-polytope volume via Irwin Hall distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2023 survey's unconditional and three-dimensional sections state sharp bounds but do not tabulate a variable t path.",
+          "Exact rational samples independently reconstructed, e.g. d=3: P(1)=32/3, P(3/2)=128/9, P(2)=40/3, P(3)=32/3."
+        ],
+        "reasoning": "Compared full family using named balls, polar convex hull, Irwin–Hall volume and cuboctahedral special case; no affirmative covering table verified, but index outage is not a negative search result.",
+        "searches": [
+          "\"cube\" \"cross-polytope\" \"Mahler\" \"intersection\" volume product",
+          "\"Mahler\" \"cuboctahedron\" volume product two peaks",
+          "\"volume product\" \"B_1\" \"B_infty\" intersection",
+          "Resultary batch query: Mahler volume product intersection cube cross-polytope clipped l1 linfty balls parameter t polar volume"
+        ]
+      },
+      "rationale": "Best-of-knowledge original parameterized cube/cross-polytope Mahler profile and complete d=3 phase classification; exact Irwin–Hall primal volume alone is familiar, but neither it nor a universal Mahler inequality yields the combined result.",
+      "residual_risks": [
+        "Barthe–Fradelizi 2013 is highly relevant; full OA source timed out and authorized institutional access returned VPN disconnected, so an exact historical comparison remains possible.",
+        "The exact family may occur in unindexed top-k norm-ball literature or mathematical tables.",
+        "Resultary batch was not completed; a failed semantic search cannot certify novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves/recalls universal lower bounds and equality structure, but no parameter-specific cube-intersection volume product or pair of interior maxima in the read sections.",
+          "evidence": [
+            "§3.4, PDF p.18–19 gives P(K)>=4^d/d! for unconditional bodies by induction; §3.5 treats three-dimensional symmetric Mahler lower bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.06131 (Fradelizi–Meyer–Zvavitch 2023)",
+          "material_read": "49-page preprint contents, Sections 3.4 and 3.5 (PDF pp.18–21) on unconditional and 3D sharp lower bounds, definitions and results.",
+          "method": "OA arXiv full PDF searched by section and materially read corresponding text.",
+          "title": "Volume Product",
+          "trigger": "Most comprehensive accessible primary survey of Mahler volume products and unconditional bodies"
+        },
+        {
+          "assessment": "General capacity/volume-product inequalities do not imply exact volumes along a variable cube/cross-polytope intersection path.",
+          "evidence": [
+            "The paper studies symplectic measurements and Mahler lower-bound links, not a top-coordinate constrained cube volume curve."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1303.4197 (Artstein-Avidan–Karasev–Ostrover 2013)",
+          "material_read": "OA preprint abstract/introduction and relevant Mahler-conjecture scope; 17-page full PDF available; no claim of full-page-by-page inspection.",
+          "method": "OA arXiv PDF opened and compared theorem scope.",
+          "title": "From Symplectic Measurements to the Mahler Conjecture",
+          "trigger": "Primary Mahler lower-bound and symplectic-capacity comparison source"
+        },
+        {
+          "assessment": "Available abstract states sharp LOWER bounds for reflection-invariant families; it does not disclose a pointwise formula for K_(d,t). Full-text comparison remains unresolved and is a material residual literature risk, not an automatic scientific rejection.",
+          "evidence": [
+            "The paper abstract emphasizes Mahler conjecture lower bounds for highly symmetric bodies rather than a parameterized cube–cross-polytope intersection."
+          ],
+          "identifier_or_url": "DOI:10.1353/ajm.2013.0018; author manuscript https://perso.math.u-pem.fr/fradelizi.matthieu/pdf/symmetries-ajm.pdf",
+          "material_read": "Author manuscript search-result abstract, institutional metadata and OA-landing page; full 37-page text could not be opened (OA timed out, institutional VPN disconnected).",
+          "method": "OA author PDF retrieval attempted; authorized institutional Oxford attempted once, returned vpn_disconnected (private).",
+          "title": "The volume product of convex bodies with many hyperplane symmetries",
+          "trigger": "Directly concerns the same reflection-symmetric bodies; possible strong prior theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The intersection path is a canonical interpolation between dual unconditional Mahler minimizers (cube and cross-polytope); a continuous exact all-dimensional product and a nontrivial 3D two-maxima/cusp-minimum phase diagram answer natural invariant questions, not arbitrary table recomputations.",
+      "residual_risks": [
+        "Does not strengthen the general Mahler lower bound and does not classify higher-dimensional extrema."
+      ],
+      "sources": [
+        "Mahler universal unconditional bound, Fradelizi–Meyer–Zvavitch 2023 §3.4",
+        "Canonical cube/cross-polytope polar duality"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No full extrema classification for dimensions d>3.",
+    "Finite checks do not establish universal dimension formula; proof is analytic simplex and chamber integration.",
+    "Barthe–Fradelizi 2013 is highly relevant; full OA source timed out and authorized institutional access returned VPN disconnected, so an exact historical comparison remains possible.",
+    "The exact family may occur in unindexed top-k norm-ball literature or mathematical tables.",
+    "Resultary batch was not completed; a failed semantic search cannot certify novelty.",
+    "Does not strengthen the general Mahler lower bound and does not classify higher-dimensional extrema."
+  ]
+}
