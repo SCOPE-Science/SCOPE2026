@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. On \(f(x)=\lambda x^2/2\), the gradient-difference quotient is exactly \(\lambda\), so the source local estimate including its stabilizer is \(\lambda+\delta\). For the normalized unit direction, the source short-step formula gives \(t=\lambda|x|/M\), and exact quadratic expansion makes the sufficient-decrease test equivalent to \(M\ge\lambda\). This proves the exact backtracking count, iterate map, and absorbing-band criterion. Exact rational replay verifies the source-default checkpoint count \(N=8\) and the displayed factors. No finite experiment is used to justify the general theorem.
+## correctness
 
-## Originality
-PASS. The defining 2025 source was inspected at the algorithmic level, including local curvature estimation, backtracking, adjustable scaling, defaults, and convergence discussion. It does not state the one-dimensional backtracking-count classification, the absorbing one-backtrack band, or the rate continuum. The closest broad primary literature gives generic backtracking for Frank-Wolfe variants but lacks the source-specific checkpoint feedback. Focused published-result searches for adjustable scaling, one-backtrack absorption, scalar quadratic specialization, and the source identifier found no implication-equivalent statement.
+PASS
 
-## Value
-PASS. The checkpoint rule is a distinctive practical mechanism of the new method, and the theorem isolates what its feedback actually regulates on constant curvature. A balanced checkpoint can freeze any scale in a full interval whose exact contraction factors range from nearly zero to nearly \(1-1/\beta\). The source-default trajectory additionally shows a concrete and non-obvious tradeoff: reducing backtracking from two trials to one can move the iteration away from a nearly exact scalar curvature step. This is a structural diagnostic for tuning the feedback rather than a routine restatement of generic backtracking.
+From the frozen RESULT.md, the gradient-difference estimate is lambda+delta and the sufficient-decrease test for x!=0 is exactly beta^j gamma(lambda+delta)>=lambda, yielding minimal j and x+=[1-tau/(beta^j gamma)]x. Each gamma in (tau/beta,tau) fails at j=0 and succeeds at j=1; r trials per r-block leave it unchanged by the reported feedback rule. The endpoint terminates in one step rather than supplying an infinite nonzero-iterate orbit. Independent Fraction arithmetic verified 8 updates, gamma_8=214358881/400000000, rho_8=0.06698523967383464 and rho_8^2=0.00448702233416. The universal band is proved algebraically, not inferred from finite tests.
 
-## Closest literature and limitations
-Generic Frank-Wolfe backtracking localizes an accepted curvature estimate within a multiplicative backtracking factor, but it does not imply the checkpointed fixed band because it has no aggregate-backtrack update of \(\gamma\). The finding is restricted to the scalar constant-curvature case and makes no claim about wall-clock superiority or failure of the source convergence theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality is the checkpoint-absorbing continuum and its exact default feedback trajectory, not the classical curvature backtracking or local quadratic contraction formula. The original source algorithm was indexed and relevant descriptions read, but the complete 2025 primary PDF could not be materially read because lawful OA downloads were oversized and authorized retrieval reported VPN disconnected. This qualified risk cannot be silently described as whole-paper noncoverage.
+
+## value
+
+PASS
+
+The balanced one-backtrack band is a motivated exact counterpoint to the interpretation of curvature adaptation: identical backtracking cost can coexist with a continuum of exact convergence rates, and reducing backtracking trials can worsen the per-iteration scalar contraction. This source-specific dynamical invariant can guide analyses of work-versus-step quality; it does not assert numerical wall-clock impact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
