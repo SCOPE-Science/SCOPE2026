@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,48 +18,25 @@
   "schema_version": 1
 }
 ---
-## Structural check
-The source factorization at the third level gives, up to translation and reflection,
-\[
-S=B_1+d_1B_2+d_2B_3.
-\]
-After sorting the positive weights as \(\{1,u,v\}\), the complete subset-sum list
-\[
-0,1,u,v,1+u,1+v,u+v,1+u+v
-\]
-shows that every collision is caused by \(u=1\), \(u=v\), or \(v=u+1\). This produces exactly five entropy types.
 
-## Curvature check
-With \(h(p)=-p\log p-(1-p)\log(1-p)\) and \(s=p(1-p)\), the five formulas are
-\[
-3h,
-\quad
-3h-3s\log3,
-\quad
-3h-2s\log2,
-\quad
-(3-s)h,
-\quad
-(3-s)h-2s\log2.
-\]
-The first three have immediate negative second derivative because \(h''=-1/s\) and \(s\le1/4\). For \(G=(3-s)h\),
-\[
-G''=
-2h+
-2(2p-1)\log\frac{1-p}{p}
-+1-\frac3s.
-\]
-The logarithmic middle term is nonpositive, \(h\le\log2\), and \(3/s\ge12\), so
-\[
-G''\le-11+2\log2<0.
-\]
-The final type adds \(4\log2\) to this curvature and still satisfies
-\[
-G''+4\log2\le-11+6\log2<0.
-\]
+# Independent mathematical audit
 
-## Literature check
-The complete direct preprint arXiv:2609.05546 was inspected. It states the conjecture, proves only the binomial and fully non-overlapping regimes, and reports computation for other sequences. The closely related weighted-Bernoulli paper arXiv:2609.01529 was inspected through its main argument; it fixes unbiased Bernoulli variables and does not provide the varying-bias Shannon-concavity theorem.
+## correctness
 
-## Limits
-The verification establishes the theorem only for the third recursive level. It does not certify the conjecture for four or more Bernoulli coordinates, where multiple simultaneous subset-sum collisions can occur.
+PASS
+
+The actual Neunhäuserer recursion product MGF at n=3 yields, up to translation and p<->1-p, weighted iid Bernoulli sum B1+d1B2+d2B3 with positive integer d1,d2. Sorting weights to {1,u,v} (1<=u<=v), only equal-weight or largest=sum of other two subset-sum collisions occur, i.e. u=1, v=u, or v=u+1. These exhaust exactly five entropy expressions: 3h, 3h-3s log3, 3h-2s log2, (3-s)h, (3-s)h-2s log2, s=p(1-p). Independently built all eight subset configurations for 78 weight types 1<=u<=11,u<=v<=12 and four biases, all matched their predicted formula. Analytic strict curvature follows h=-1/s, s<=1/4, h<=log2, (2p-1)log((1-p)/p)<=0, and G<=-11+2log2 with G=(3-s)h. Thus all h3 strictly concave on (0,1), symmetric and unique maximum at 1/2. Numeric checks do not supply the infinite-weight proof; the collision argument does.
+
+## originality
+
+PASS
+
+The full six-page Neunhäuserer arXiv:2609.05546v2 (Sept 22 2026) was read, including Proposition 2.2 product MGF, Conjecture 3.1, Proposition 3.1 proving only two extremal regimes, and empirical Section 4. Its n=3 partial-overlap case is not proven there, and the author explicitly says no general proof is known outside these regimes. The full relevant beginning of Li arXiv:2609.01529v2 was read: all weighted-sum theorems take independent Bernoulli(1/2), varying entropy order, not common bias p. Classical Shepp–Olkin covers unweighted sum, not arbitrary additive-collision three-weight patterns. No matching published general p 3-weight theorem found by targeted searches.
+
+## value
+
+PASS
+
+The source posed a concrete entropy concavity conjecture; n=3 is the first possible genuinely partially overlapping stage. Proving all positive integer weight patterns uniformly and classifying exactly five collision geometries settles an intrinsically motivated open first layer, not just an arbitrary numerical example. The result can support work on recursive Bernoulli convolutions and biased weighted-sum entropies; the n>=4 conjecture remains open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T09:10:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual Neunhäuserer recursion product MGF at n=3 yields, up to translation and p<->1-p, weighted iid Bernoulli sum B1+d1B2+d2B3 with positive integer d1,d2. Sorting weights to {1,u,v} (1<=u<=v), only equal-weight or largest=sum of other two subset-sum collisions occur, i.e. u=1, v=u, or v=u+1. These exhaust exactly five entropy expressions: 3h, 3h-3s log3, 3h-2s log2, (3-s)h, (3-s)h-2s log2, s=p(1-p). Independently built all eight subset configurations for 78 weight types 1<=u<=11,u<=v<=12 and four biases, all matched their predicted formula. Analytic strict curvature follows h=-1/s, s<=1/4, h<=log2, (2p-1)log((1-p)/p)<=0, and G<=-11+2log2 with G=(3-s)h. Thus all h3 strictly concave on (0,1), symmetric and unique maximum at 1/2. Numeric checks do not supply the infinite-weight proof; the collision argument does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Neunhäuserer Proposition 3.1 is for a_n=n+1 or all a_(n+1)>=2a_n, not mixed patterns.",
+          "Li Theorem 1.4 etc require uniform Bernoulli vector and compare entropy orders, not second derivative in p.",
+          "Shepp–Olkin applies to unweighted Bernoulli sums and does not cover 3=1+2 collision."
+        ],
+        "reasoning": "The three-weight partial-overlap families lie outside the hypotheses of cited stronger-looking concavity results; the new theorem is not their immediate special case.",
+        "searches": [
+          "arxiv:2609.05546v2 Proposition 3.1",
+          "arxiv:2609.01529v2 Theorems 1.4 1.5",
+          "Shepp Olkin Bernoulli sum entropy concavity 1972",
+          "Resultary semantic query: Neunhauserer recursive overlap Bernoulli distributions entropy concavity 3 weighted Bernoulli sums (12 returned findings including distinct Rényi-Tsallis two-summand comparison)"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.05546",
+        "https://arxiv.org/abs/2609.01529",
+        "Resultary semantic query: Neunhauserer recursive overlap Bernoulli distributions entropy concavity 3 weighted Bernoulli sums (12 returned findings including distinct Rényi-Tsallis two-summand comparison)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source states no proof for other overlap sequences; neither binomial nor nonoverlap hypotheses covers {1,2,3} or {1,1,2}.",
+          "Li uniform-vector Rényi comparisons at p=1/2 say nothing about curvature for 0<p<1."
+        ],
+        "reasoning": "None of the inspected prior conclusions implies the five-formula strict-concavity result over all p and all positive integer d1,d2; residual obscure overlap remains explicitly acknowledged.",
+        "searches": [
+          "arxiv:2609.05546v2 Conjecture 3.1 Proposition 3.1 Section 4",
+          "arxiv:2609.01529v2 Theorem 1.4",
+          "Shepp–Olkin 1972",
+          "Resultary semantic query: Neunhauserer recursive overlap Bernoulli distributions entropy concavity 3 weighted Bernoulli sums (12 returned findings including distinct Rényi-Tsallis two-summand comparison)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Neunhäuserer Proposition 2.2 identifies distribution as translated sum of independent Bernoulli weighted bits.",
+          "All equivalences of positive three weights reduce to five collision types, including {1,2,3} and {1,1,2}."
+        ],
+        "reasoning": "The source recursion is indeed equivalent to biased weighted subset sums, and this was a key search alias. The source proves only nonoverlap and ordinary binomial cases, not the full five-type n3 statement.",
+        "searches": [
+          "Resultary semantic query: Neunhauserer recursive overlap Bernoulli distributions entropy concavity 3 weighted Bernoulli sums (12 returned findings including distinct Rényi-Tsallis two-summand comparison)",
+          "recursive overlap Bernoulli entropy concavity n3 3 weighted bits",
+          "three weighted Bernoulli sum Shannon entropy common p concavity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source Section 4 contains only symbolic/numeric experiments with larger overlap sequences and no exhaustive analytic three-level theorem.",
+          "No identified table of five entropy formulas as a function of common bias p."
+        ],
+        "reasoning": "A numerical table at finitely many p values cannot imply global curvature; the work supplies analytic universal inequalities. Absence of an indexed table alone is not novelty proof.",
+        "searches": [
+          "Resultary semantic query: Neunhauserer recursive overlap Bernoulli distributions entropy concavity 3 weighted Bernoulli sums (12 returned findings including distinct Rényi-Tsallis two-summand comparison)",
+          "\"three weights\" \"entropy\" \"strictly concave\" Bernoulli",
+          "arxiv:2609.05546 Section 4 computational evidence"
+        ]
+      },
+      "rationale": "The full six-page Neunhäuserer arXiv:2609.05546v2 (Sept 22 2026) was read, including Proposition 2.2 product MGF, Conjecture 3.1, Proposition 3.1 proving only two extremal regimes, and empirical Section 4. Its n=3 partial-overlap case is not proven there, and the author explicitly says no general proof is known outside these regimes. The full relevant beginning of Li arXiv:2609.01529v2 was read: all weighted-sum theorems take independent Bernoulli(1/2), varying entropy order, not common bias p. Classical Shepp–Olkin covers unweighted sum, not arbitrary additive-collision three-weight patterns. No matching published general p 3-weight theorem found by targeted searches.",
+      "residual_risks": [
+        "An older three-weight biased Bernoulli entropy lemma may be unindexed under subset-sum terminology.",
+        "Neunhäuserer source v2, not merely v1, was checked; later versions could supersede without implying historical absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MGF verifies weighted sum representation; source proves only binomial/nonoverlap and explicitly lacks proof for other sequences.",
+          "evidence": "Proposition 2.2 product MGF; Conjecture 3.1; Proposition 3.1; p4 statement no proof otherwise.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.05546",
+          "material_read": "All six pages of arXiv v2 dated Sept22 2026, including Props 2.1-2.2, Conjecture 3.1, Proposition 3.1 and Section 4 experiments",
+          "method": "Lawful complete PDF text extraction, pages 1-6",
+          "title": "Recursive overlap Bernoulli distributions and an entropy concavity conjecture",
+          "trigger": "Exact originating recursive construction, conjecture and possible n3 solution"
+        },
+        {
+          "assessment": "Theorem framework fixes X uniform on {0,1}^n, i.e. p=1/2, and compares orders of Rényi entropy, not variation of biased Shannon entropy.",
+          "evidence": "Conjecture 1.1, Theorem 1.4, Theorem 1.5 hypotheses on uniformly distributed X.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.01529",
+          "material_read": "Pages 1-6 of 11-page arXiv v2: introduction, Theorems 1.4/1.5, stated hypotheses and proof setup; remaining pages not claimed read",
+          "method": "Lawful PDF text extraction",
+          "title": "Multiplicative comparisons of Rényi entropies for weighted Bernoulli sums",
+          "trigger": "Strongest plausible weighted-Bernoulli comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source posed a concrete entropy concavity conjecture; n=3 is the first possible genuinely partially overlapping stage. Proving all positive integer weight patterns uniformly and classifying exactly five collision geometries settles an intrinsically motivated open first layer, not just an arbitrary numerical example. The result can support work on recursive Bernoulli convolutions and biased weighted-sum entropies; the n>=4 conjecture remains open.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.05546",
+    "https://arxiv.org/abs/2609.01529",
+    "Resultary semantic query: Neunhauserer recursive overlap Bernoulli distributions entropy concavity 3 weighted Bernoulli sums (12 returned findings including distinct Rényi-Tsallis two-summand comparison)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only n=3 of recursive overlap construction, not n>=4.",
+    "Three iid common-bias Bernoulli bits and positive integer weights containing one weight 1, Shannon entropy only.",
+    "Does not establish general Rényi-order or variable-independent-parameter concavity."
+  ],
+  "schema_version": 1
+}

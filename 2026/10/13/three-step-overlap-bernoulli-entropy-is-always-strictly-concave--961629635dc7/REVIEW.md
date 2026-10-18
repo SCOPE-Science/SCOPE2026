@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The recursive moment-generating function identifies the third-level distribution with a translated three-weight iid Bernoulli sum. The eight subset sums were classified exhaustively: after sorting the weights as \(\{1,u,v\}\), every collision is forced by \(u=1\), \(u=v\), or \(v=u+1\). This yields five exact entropy formulas. Their second derivatives are strictly negative throughout \((0,1)\) by elementary analytic bounds. No finite experiment is used as proof.
+## correctness
 
-## Originality
-**PASS.** The direct source states the all-level entropy-concavity conjecture and proves only the binomial and fully non-overlapping regimes; its remaining overlap evidence is computational. The theorem here proves every third-level case, including the first partial-overlap configurations outside those regimes. A highly relevant recent weighted-Bernoulli Rényi paper was inspected and fixes unbiased bits rather than proving Shannon curvature under a varying common bias. Focused searches found no stronger theorem that implies the result.
+PASS
 
-The principal residual risk is an older equivalent three-weight entropy theorem under subset-sum or additive-combinatorics terminology.
+The actual Neunhäuserer recursion product MGF at n=3 yields, up to translation and p<->1-p, weighted iid Bernoulli sum B1+d1B2+d2B3 with positive integer d1,d2. Sorting weights to {1,u,v} (1<=u<=v), only equal-weight or largest=sum of other two subset-sum collisions occur, i.e. u=1, v=u, or v=u+1. These exhaust exactly five entropy expressions: 3h, 3h-3s log3, 3h-2s log2, (3-s)h, (3-s)h-2s log2, s=p(1-p). Independently built all eight subset configurations for 78 weight types 1<=u<=11,u<=v<=12 and four biases, all matched their predicted formula. Analytic strict curvature follows h=-1/s, s<=1/4, h<=log2, (2p-1)log((1-p)/p)<=0, and G<=-11+2log2 with G=(3-s)h. Thus all h3 strictly concave on (0,1), symmetric and unique maximum at 1/2. Numeric checks do not supply the infinite-weight proof; the collision argument does.
 
-## Value
-**PASS.** The result resolves the first genuinely unresolved finite level of a current conjecture and supplies a complete structural classification, including the two nontrivial collision families \(\{1,u,u+1\}\) and \(\{1,1,2\}\). It is a natural finite cutoff rather than a routine parameter substitution.
+## originality
 
-## Closest literature and limitations
-The direct source is J. Neunhäuserer, arXiv:2609.05546v1 (2 September 2026). J. Li, arXiv:2609.01529v1, is the closest inspected work on weighted Bernoulli entropy but addresses Rényi comparisons at unbiased parameter \(1/2\). The proof here stops at three Bernoulli coordinates and makes no claim for the richer collision geometry at higher levels.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full six-page Neunhäuserer arXiv:2609.05546v2 (Sept 22 2026) was read, including Proposition 2.2 product MGF, Conjecture 3.1, Proposition 3.1 proving only two extremal regimes, and empirical Section 4. Its n=3 partial-overlap case is not proven there, and the author explicitly says no general proof is known outside these regimes. The full relevant beginning of Li arXiv:2609.01529v2 was read: all weighted-sum theorems take independent Bernoulli(1/2), varying entropy order, not common bias p. Classical Shepp–Olkin covers unweighted sum, not arbitrary additive-collision three-weight patterns. No matching published general p 3-weight theorem found by targeted searches.
+
+## value
+
+PASS
+
+The source posed a concrete entropy concavity conjecture; n=3 is the first possible genuinely partially overlapping stage. Proving all positive integer weight patterns uniformly and classifying exactly five collision geometries settles an intrinsically motivated open first layer, not just an arbitrary numerical example. The result can support work on recursive Bernoulli convolutions and biased weighted-sum entropies; the n>=4 conjecture remains open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
