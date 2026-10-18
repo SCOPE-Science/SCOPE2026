@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof uses three algebraic steps that do not depend on computation: recovering the unique floor/ceiling maps, excluding all other shapes of their common core, and constructing maps satisfying all five identities for the two shapes. The count uses independent subset choices and Vandermonde's identity.
+## correctness
 
-The accompanying `farl_twochain_verify.py` evaluates the axioms directly on finite tables. It enumerates all possible core subalgebras for carrier sizes \((2,2),(2,3),(3,3),(3,4),(4,4),(3,5)\). It independently enumerates candidate left adjoints as join-preserving maps on axis generators for \((2,2),(2,3),(3,3),(3,4)\), then constructs the right adjoint from the Galois condition. The latter route enumerates 16, 108, 1296, and 12000 candidates. The two methods reproduce the predicted rectangle and diagonal counts and output `VERIFY_OK`.
+PASS
 
-These finite verifications do not prove the general theorem. The theorem's unrestricted quantification is justified by the separate symbolic proof. Independent audit and independent validation are not performed.
+FARL adjunction/interiority force extensive idempotent g and common fixed set D with unique floor/ceiling f,g. Implication and both Frobenius laws force a nonzero axis point to give rectangle; absent axis point forces strict coordinate synchronization. Converse checks axioms for both shapes, and Vandermonde counts 2^(m+n-4)+C(m+n-4,m-2). Independent exhaustive all 4^8 map pairs for C2×C2 yielded exactly 2.
+
+## originality
+
+PASS
+
+Prior FARL=monadic equivalence (Resultary Oct4) and relative completeness (Castaño et al.) credited. Two-factor rectangle/diagonal classification and exact count not given by inspected full RESULT of prior record.
+
+## value
+
+PASS
+
+Classification of all admissible monadic/FARL cores on fixed two Gödel-chain product gives a finite natural family of operation counts, including new mixed rectangular/synchronized cases. Distinct from the elementary one-chain powers of two.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
