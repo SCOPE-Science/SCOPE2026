@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof quantifies over every permitted transformation on five points. The two orbit types of ordered distinct \(2\)-subset pairs are handled separately. For any non-permutation of rank \(2\), \(3\), or \(4\), a collapsed fiber gives an intersecting distinguished pair, and a short fiber-size argument gives a disjoint distinguished pair. The natural \(A_5\) action is transitive on each orbit type, so one even permutation followed by the chosen transformation distinguishes any prescribed pair. The verifier exhausts all \(3000\) permitted transformations and every ordered pair of distinct \(2\)-subsets.
+## correctness
 
-## Originality
-PASS. The direct source defines strong sync-maximality, proves only
-\[
-\text{\(4\)-transitive}\Longrightarrow
-\text{strongly sync-maximal}\Longrightarrow
-\text{primitive},
-\]
-and explicitly leaves proper containment open. It does not state that \(A_5\) is strong or give the stronger one-group-element separator. Exact-property, exact-group, rank-based, later-literature, semantic-index, current-ledger, and prior-ledger comparisons found no covering statement.
+PASS
 
-Residual risk remains for an unindexed or unpublished observation of the same elementary degree-five argument.
+The proof partitions ordered pairs of distinct 2-subsets into intersecting and disjoint orbit types, both transitive under A5. Every non-injective rank>=2 map f collapses one pair, yet permits a pair of each orbit type that is not collapsed; the disjoint case uses a fiber of size >=3 or a size-two fiber with two differing points in its complement. Thus a single f∘g distinguishes any prescribed ordered pair. The order 60 of A5 excludes 4-transitivity, which requires at least 120 ordered 4-tuples. Fresh independent enumeration of all 60 even permutations, 60 intersecting ordered pair configurations, 30 disjoint configurations, and all 3000 allowed maps (ranks 2:300,3:1500,4:1200) independently reproduced witnesses. This is exhaustive only because n=5 is fixed; the orbit proof supplies the group-theoretic reason.
 
-## Value
-PASS. The result resolves the lower-containment half of an explicit structural open problem: \(4\)-transitivity is sufficient but not necessary for strong sync-maximality. The stronger separator statement explains the mechanism rather than merely recording a computational exception.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hoffmann introduced strong sync-maximality and proved 4-transitive => strong => primitive while asking whether either inclusion is strict. His theorem does not imply that the natural A5 action is strongly sync-maximal; the candidate gives the missing lower strictness witness and an even stronger one-element property. Searches of semantic indexed findings and exact property/A5 literature returned no covering prior example. A prior unindexed observation remains possible.
+
+## value
+
+PASS
+
+The result settles a specific explicitly posed containment question in synchronization theory (properness of the 4-transitive inclusion), furnishing a small natural sharply 3-transitive example and transparent obstruction/witness analysis. It is not merely a random five-state computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
