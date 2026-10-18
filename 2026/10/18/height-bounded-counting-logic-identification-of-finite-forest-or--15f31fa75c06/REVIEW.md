@@ -1,0 +1,15 @@
+# Review: Height-bounded counting-logic identification of finite forest orders
+
+## Correctness — PASS
+The all-size proof is a two-stage reconstruction: (i) within strict posets, round-two predecessor-depth counts force each principal strict ideal to be a chain; (ii) rooted descendant-tree types are determined by round \(r\) colours at subtree height at most \(r\), leading to identification after \(\max\{1,h\}\) rounds. The next round records the sequence of ancestor subtree types, so colour classes are exactly automorphism orbits. This gives the stated \(C^2\) characteristic-rank bound. The six-vertex DAG witness is verified by an explicit stable three-class equitable partition. The first-failure size is certified by exhaustive topological DAG enumeration through six vertices. The height-two rank lower witness is given explicitly with a rank-three distinguishing formula. Both standalone programs were executed from their final source files; outputs are retained in `verification_output.txt`. Finite runs corroborate but do not prove the unbounded assertion.
+
+## Originality — PASS with residual priority risk
+Arvind–Köbler–Rattan–Verbitsky (arXiv:1502.01255, 2015) treat undirected adjacency and identify ordinary forests by colour refinement; the full strict ancestor-order relation is not the Hasse cover relation. Kiefer–Schweitzer–Selman (arXiv:1503.08792, 2015) classify structures identified among **all** finite binary relational structures; the present six-vertex pair establishes that such global identification fails for a target of the current natural class, whereas the relative-to-posets result holds. Targeted published-record and literature searches did not locate the relative height bound, orbit reconstruction and sharp DAG/poset distinction together. The general classification is stronger on its global domain, but does not directly entail identification relative to the non-\(C^2\)-axiomatised poset class. Earlier specialised work might nevertheless cover some or all of the present results.
+
+## Value — PASS
+Forest orders are a natural model of ancestral hierarchies whose language names *all* comparisons rather than only immediate parent edges. Height-sensitive counting-logic identification is independent of unrestricted branching or universe size, and the exact orbit result gives a canonical structural invariant. The six-element acyclic counterexample makes the semantic promise mathematically necessary, while the seven-element height-two witness shows that the rank question is not simply a degree-count exercise. The result supplies a motivated structural and logical boundary, not merely a computation or renaming.
+
+## Scientific limits
+Comparison with general published classifications is by explicit implication analysis, not a claim of worldwide uniqueness. The minimal DAG bound relies on exhaustive, reproducible finite computation. No claim is made that the height bound is optimal at heights other than two or that finite experiments establish infinite assertions.
+
+Self-review: passed. Independent audit: not yet performed.
