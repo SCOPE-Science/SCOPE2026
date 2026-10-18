@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Exact local edge-conflict analysis yields a star conflict graph plus isolated choice, so the polynomial factors as stated. The strict Newton binomial-normalization failure at index 2 proves non-real roots for every d>=4; lower d are explicitly real-rooted. A complete six-isomorphism-class forest census yields unique order-six failure; all smaller/disconnected forests factor into real-rooted cases. Exact standard-library independent tests support the enumerative identities but do not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical counting-MSO results apply to computation on bounded-treewidth inputs, not real-rootedness or minimum-order obstruction classification.",
+        "Brešar–Samadi 2024 Section 3 computes the maximum packing size only; its output cannot determine polynomial zeros."
+      ],
+      "reasoning": "A broad treewidth counting theorem is a covering result for algorithmic computation, but does not imply the real-rootedness classification now claimed. The exact analytic threshold and global six-vertex uniqueness are distinct stronger information.",
+      "searches": [
+        "Courcelle Mosbah MSO semiring evaluations weighted counting bounded treewidth",
+        "Brešar Samadi arXiv:2403.00750 tree dynamic programming",
+        "\"edge open packing\" polynomial \"real-rooted\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2403.00750v1 Section 3",
+      "DOI 10.1051/ro/2022171 full text",
+      "arXiv:2406.04020 Section 2",
+      "Kneis–Langer–Rossmanith 2011 general MSO-evaluation discussion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The direct 2022 and 2024 papers study scalar extremal edge-open-packing quantities.",
+        "The all-parameter family factorization and the six-vertex zero geometry require information about all coefficients, beyond these scalar results."
+      ],
+      "reasoning": "Known maximum edge-open-packing values do not imply real zero sets of the full counting polynomial. Ordinary-star independence polynomials imply the broom formula once the compatibility reduction is recognized, but do not cover the unique smallest graph isomorphism class globally.",
+      "searches": [
+        "arXiv:2403.00750v1 Section 3",
+        "DOI:10.1051/ro/2022171 full introduction and main results",
+        "arXiv:2406.04020 Section 2",
+        "\"edge open packing\" polynomial \"real-rooted\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The broom edge-open-packing conflict graph is one isolated vertex plus a star; its ordinary independence polynomial gives the factorization.",
+        "Brešar–Dravec–Hedžet–Samadi (2024) warns that edge-open packing is not open packing of a line graph."
+      ],
+      "reasoning": "The usual independence-polynomial rephrasing is stated explicitly, not presented as new. The claimed novelty is a sharp real-zero threshold and globally unique first forest obstruction, not a general counting algorithm.",
+      "searches": [
+        "\"edge open packing polynomial\" real rooted trees",
+        "edge open packing independence polynomial non-real-rooted smallest tree broom first counterexample root location",
+        "arXiv:2406.04020 Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No covering edge-open-packing real-rootedness census or exact six-vertex table was identified in the checked sources.",
+        "The six exact coefficient polynomials are computed anew from graph edge conflicts and listed explicitly in RESULT.md."
+      ],
+      "reasoning": "The searches did not surface an equivalent published table. This limited negative result is not an assertion of global uniqueness across unindexed literature.",
+      "searches": [
+        "edge-open packing polynomial real roots real-rootedness of forests six vertex tree subdivided star",
+        "edge open packing polynomial of subdivided star broom threshold real zeros",
+        "Published mathematical-record search: edge-open packing polynomial real roots real-rootedness of forests six vertex tree subdivided star"
+      ]
+    },
+    "rationale": "The direct primary EOP papers (2022 and 2024) address scalar extremal invariants rather than zeros. Classical generic counting on bounded treewidth does not imply the all-parameter root threshold or minimal graph size. The independence-polynomial-of-a-star identity is acknowledged as a known tool, while the sharp acyclic classification is the assessed claim. Residual unindexed literature risk remains.",
+    "residual_risks": [
+      "A differently named independence-polynomial result might already imply the broom threshold when applied to its exact conflict graph.",
+      "An inaccessible or unindexed edge-open-packing zero-polynomial result could cover the six-vertex obstruction and its uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Scalar maximum packing algorithms, no real-zero or six-vertex polynomial census.",
+        "evidence": "Brešar and Samadi (2024), arXiv:2403.00750v1, Section 3.",
+        "identifier_or_url": "https://arxiv.org/pdf/2403.00750",
+        "material_read": "Accessible full PDF: introduction, definitions, tree algorithm Section 3 and conclusions",
+        "method": "Read full relevant primary text and compared mathematical output and parameters",
+        "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+        "trigger": "Closest direct paper about edge open packing in trees"
+      },
+      {
+        "assessment": "Does not state real-rootedness or smallest non-real-rooted forest.",
+        "evidence": "Chelladurai, Kalimuthu and Soundararajan (2022), DOI:10.1051/ro/2022171.",
+        "identifier_or_url": "https://www.numdam.org/item/10.1051/ro/2022171.pdf",
+        "material_read": "Accessible complete PDF: introduction, definitions, special family bounds and parameter results",
+        "method": "Read full relevant primary text",
+        "title": "Edge open packing sets in graphs",
+        "trigger": "Definition and foundational results"
+      },
+      {
+        "assessment": "Compares maximum parameters and notes line-graph open packing is distinct, not a polynomial-zero theorem.",
+        "evidence": "Brešar, Dravec, Hedžet and Samadi (2024), arXiv:2406.04020.",
+        "identifier_or_url": "https://arxiv.org/pdf/2406.04020",
+        "material_read": "Accessible PDF introduction and Section 2 tree equality statements",
+        "method": "Read original result and reduction warnings",
+        "title": "Induced matching vs edge open packing: trees and product graphs",
+        "trigger": "Plausible equivalent graph parameter"
+      },
+      {
+        "assessment": "Explains general availability of weighted counting, not real-root location and minimal obstruction classification.",
+        "evidence": "Kneis–Langer–Rossmanith (2011), discussion of Courcelle–Mosbah semiring evaluations.",
+        "identifier_or_url": "https://doi.org/10.1016/j.disopt.2011.06.001",
+        "material_read": "Public abstract and introductory statement of the extension to MSO evaluation with semiring homomorphisms",
+        "method": "Read overview and theorem context",
+        "title": "Courcelle’s theorem—A game-theoretic approach",
+        "trigger": "Broader weighted counting results that may subsume a forest counting algorithm"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "27fa2986-4ad3-4df0-98cc-739b13cc5693",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact first non-real-rooted forest and its uniqueness locate a natural zero-geometry boundary. A uniform infinite-family threshold proves the phenomenon is structural and persistent, not a numerical anomaly. Real-rootedness is a meaningful stronger property than coefficient unimodality and contrasts with matching-polynomial real-rootedness for forests. Neither an arbitrary slice nor only a pointwise special-case check.",
+    "status": "PASS"
+  }
+}
