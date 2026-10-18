@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof gives three explicit constructions of weights \(N\), \(2k\), and \(h_k(s)\). For the lower bound, any function below both \(N\) and \(2k\) must have an empty vertex and a fully nonempty part. Counting singleton colors that require external support together with colors missing from that full part yields the two simultaneous lower bounds \(W\ge k+p\) and \(W\ge2a-p+1\), whose integer minimax is exactly \(a+\lfloor k/2\rfloor+1\). This covers all cases. Definition-level exhaustive replay agrees on every multipartite profile through order five for \(k=2,3,4\), and the bipartite specialization agrees with the published formula over the tested range.
+## correctness
 
-## Originality
-PASS. The 2026 same-invariant paper gives complexity and general bounds and contains no complete-multipartite treatment in the accessible full article. The 2021 primary paper proves the exact complete-bipartite formula; the present theorem specializes to it exactly but adds all multipartite graphs with three or more parts. Semantic searches under the invariant, generalized-prism identity, and multipartite aliases found no covering theorem. The closest indexed complete-multipartite rainbow result concerns ordinary 2-rainbow domination, which lacks the total singleton-support condition. Residual risk remains from poorly indexed literature or alternate notation.
+PASS
 
-## Value
-PASS. The parameter is computationally difficult in general and directly equals total domination in generalized prisms. The result gives a closed exact formula on a canonical dense graph class for every number of colors, strictly extends a published two-part theorem, and isolates the structural mechanism that makes the answer depend only on the order and smallest part size.
+For connected complete multipartite graph with r>=2 positive parts, N total, s=min n_i and k>=2, the formula gamma_krt=min{N,2k,k if s<=floor(k/2) else s+floor(k/2)+1} has explicit constructions. Lower bound: W<N forces an empty vertex; W<2k forces a fully labeled part A (otherwise each color must occur in two other parts relative to some empty). With a=|A| and p singleton vertices, support requirements imply W>=k+p and W>=2a-p+1. For a>floor(k/2) their integer minimax gives a+floor(k/2)+1, while the small-part case needs at least k incidences. This covers all boundary cases, including k odd. Fresh independent definition-level exhaustive checks over several profiles through order 6 for k=2,3 agree; source supplied larger checks were not accepted as proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2021 Ojakian–Škrekovski–Tepeh full primary paper Proposition 3 establishes the complete bipartite r=2 case and matches its specialization, but a two-part theorem does not cover r>=3. The 2026 same-invariant primary paper proves complexity/general bounds without an arbitrary multipartite exact theorem in inspected text. A closely named 2-rainbow domination result in Resultary lacks the singleton-support condition. Generalized-prism total domination was searched as an equivalent formulation. No covering higher-part theorem identified; residual indexing risk remains.
+
+## value
+
+PASS
+
+An exact formula for a recognized computationally difficult domination invariant over the entire natural class of complete multipartite graphs, all k>=2, strictly extends the established biclique slice. The fact that only N and minimum part size control the optimum follows from a nontrivial singleton-support structural argument and is useful for generalized-prism total domination; this is more than an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

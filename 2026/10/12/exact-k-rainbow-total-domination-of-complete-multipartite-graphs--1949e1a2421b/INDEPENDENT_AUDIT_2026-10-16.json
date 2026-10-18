@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T00:14:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For connected complete multipartite graph with r>=2 positive parts, N total, s=min n_i and k>=2, the formula gamma_krt=min{N,2k,k if s<=floor(k/2) else s+floor(k/2)+1} has explicit constructions. Lower bound: W<N forces an empty vertex; W<2k forces a fully labeled part A (otherwise each color must occur in two other parts relative to some empty). With a=|A| and p singleton vertices, support requirements imply W>=k+p and W>=2a-p+1. For a>floor(k/2) their integer minimax gives a+floor(k/2)+1, while the small-part case needs at least k incidences. This covers all boundary cases, including k odd. Fresh independent definition-level exhaustive checks over several profiles through order 6 for k=2,3 agree; source supplied larger checks were not accepted as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ojakian–Škrekovski–Tepeh 2021 Proposition 3 covers K_{a,b}; r>=3 remains outside its domain.",
+          "Erveš–Kraner Šumenjak–Tepeh 2026 treats same invariant with bounds/complexity, not exact complete multipartite values in accessible text."
+        ],
+        "reasoning": "The exact multipartite theorem strictly extends prior r=2 results; general bounds do not determine these values.",
+        "searches": [
+          "complete multipartite graph k rainbow total domination number generalized prism total domination exact"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md tree 3a450d779724753d39ccd37728a7fe76fc413fc7",
+        "arXiv:2003.09470, full primary PDF Proposition 3",
+        "DOI:10.1007/s40840-026-02060-2, accessible publisher text",
+        "DOI:10.1007/s40840-024-01747-8, intro",
+        "Resultary record 2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58",
+        "Resultary live search: complete multipartite graph k rainbow total domination number generalized prism total domination exact"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2021 full primary PDF Proposition 3 gives the exact two-shore formula but no all-part result.",
+          "The proof for r>=3 needs a fully nonempty part and two independent lower bounds on singleton support and missing colors."
+        ],
+        "reasoning": "The two-part formula does not formally imply values for arbitrary r; this new structural argument is necessary for the final formula.",
+        "searches": [
+          "complete multipartite graph k rainbow total domination number generalized prism total domination exact"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Established identity gamma_krt(G)=gamma_t(G□K_k) makes total domination of generalized prisms an equivalent scalar claim.",
+          "The 2021 bipartite formulas specialize to the present minimum when r=2."
+        ],
+        "reasoning": "Equivalent generalized-prism formulation and known two-part specialization were both checked rather than comparing invariant names only.",
+        "searches": [
+          "complete multipartite graph k rainbow total domination number generalized prism total domination exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58 concerns ordinary 2-rainbow domination without required singleton support.",
+          "Fresh exhaustive label enumeration on small multipartite profiles for k=2,3 agrees with formula."
+        ],
+        "reasoning": "The nearest exact database result is a different domination parameter, not a covering table. The new result is for all positive part sizes and arbitrary k.",
+        "searches": [
+          "complete multipartite graph k rainbow total domination number generalized prism total domination exact"
+        ]
+      },
+      "rationale": "The 2021 Ojakian–Škrekovski–Tepeh full primary paper Proposition 3 establishes the complete bipartite r=2 case and matches its specialization, but a two-part theorem does not cover r>=3. The 2026 same-invariant primary paper proves complexity/general bounds without an arbitrary multipartite exact theorem in inspected text. A closely named 2-rainbow domination result in Resultary lacks the singleton-support condition. Generalized-prism total domination was searched as an equivalent formulation. No covering higher-part theorem identified; residual indexing risk remains.",
+      "residual_risks": [
+        "Complete-multipartite k-rainbow total domination could appear in unindexed literature under product-graph terminology.",
+        "General minimum functions are not enumerated and no optimal labeling classification is claimed.",
+        "Bounded checks are corroboration only, proof analytic for all r,k."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage: entire r=2 specialization, not r>=3",
+          "evidence": "Proposition 3 states the bipartite piecewise gamma_krt(K_{a,b}) formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.09470",
+          "material_read": "Full freely accessible primary paper PDF, especially page with Proposition 3 and definitions; page-image reviewed",
+          "method": "Primary PDF text and PDF page-image inspection",
+          "title": "Bounding the k-rainbow total domination number",
+          "trigger": "Closest exact prior theorem for K_{a,b}"
+        },
+        {
+          "assessment": "Not covering higher multipartite exact formula within inspected text",
+          "evidence": "Paper treats NP-completeness and general bounds, not complete multipartite classification.",
+          "identifier_or_url": "https://doi.org/10.1007/s40840-026-02060-2",
+          "material_read": "Open full publisher text: definition, generalized-prism connection, complexity and bounds",
+          "method": "Direct accessible Springer primary article inspection",
+          "title": "On k-Rainbow Total Domination and a Related Conjecture",
+          "trigger": "Recent same-invariant paper"
+        },
+        {
+          "assessment": "Lists known exact complete-bipartite and other families, not an all-r complete multipartite theorem in inspected passages",
+          "evidence": "Prior exact complete-bipartite values described.",
+          "identifier_or_url": "https://doi.org/10.1007/s40840-024-01747-8",
+          "material_read": "Publisher introductory/preliminary discussion accessible, not whole document",
+          "method": "Primary bibliographic/introduction inspection",
+          "title": "Complexity of 2-Rainbow Total Domination Problem",
+          "trigger": "Earlier same-invariant reference list/prior family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact formula for a recognized computationally difficult domination invariant over the entire natural class of complete multipartite graphs, all k>=2, strictly extends the established biclique slice. The fact that only N and minimum part size control the optimum follows from a nontrivial singleton-support structural argument and is useful for generalized-prism total domination; this is more than an arbitrary finite census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md tree 3a450d779724753d39ccd37728a7fe76fc413fc7",
+    "arXiv:2003.09470, full primary PDF Proposition 3",
+    "DOI:10.1007/s40840-026-02060-2, accessible publisher text",
+    "DOI:10.1007/s40840-024-01747-8, intro",
+    "Resultary record 2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58",
+    "Resultary live search: complete multipartite graph k rainbow total domination number generalized prism total domination exact"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Complete-multipartite k-rainbow total domination could appear in unindexed literature under product-graph terminology.",
+    "General minimum functions are not enumerated and no optimal labeling classification is claimed.",
+    "Bounded checks are corroboration only, proof analytic for all r,k.",
+    "Best-of-knowledge scientific judgment, not mathematical certification.",
+    "Source metadata contains operational provenance; no publication files generated or sanitized."
+  ],
+  "schema_version": 1
+}

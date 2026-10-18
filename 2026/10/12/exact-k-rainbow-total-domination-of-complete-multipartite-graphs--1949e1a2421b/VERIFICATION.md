@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof is the certificate for the infinite theorem. It separates every candidate by whether the weight already reaches \(N\) or \(2k\), then proves that any lighter function has a fully nonempty part and satisfies the exact singleton-support lower bound.
+# Independent mathematical audit
 
-`verify.py` independently reconstructs the definition on all complete-multipartite profiles of orders two through five for \(k=2,3,4\). For every vertex assignment by subsets of \([k]\), it tests the empty-vertex rainbow condition and the singleton-support condition directly, computes the true optimum, and compares it with the theorem. It also compares the theorem with the published complete-bipartite piecewise formula on a larger finite parameter range.
+## correctness
 
-The finite exhaustive range is not a proof of the arbitrary-order theorem. It is a regression and boundary check for the analytic derivation. The external literature comparison remains subject to ordinary indexing risk, and independent audit has not been performed.
+PASS
+
+For connected complete multipartite graph with r>=2 positive parts, N total, s=min n_i and k>=2, the formula gamma_krt=min{N,2k,k if s<=floor(k/2) else s+floor(k/2)+1} has explicit constructions. Lower bound: W<N forces an empty vertex; W<2k forces a fully labeled part A (otherwise each color must occur in two other parts relative to some empty). With a=|A| and p singleton vertices, support requirements imply W>=k+p and W>=2a-p+1. For a>floor(k/2) their integer minimax gives a+floor(k/2)+1, while the small-part case needs at least k incidences. This covers all boundary cases, including k odd. Fresh independent definition-level exhaustive checks over several profiles through order 6 for k=2,3 agree; source supplied larger checks were not accepted as proof.
+
+## originality
+
+PASS
+
+The 2021 Ojakian–Škrekovski–Tepeh full primary paper Proposition 3 establishes the complete bipartite r=2 case and matches its specialization, but a two-part theorem does not cover r>=3. The 2026 same-invariant primary paper proves complexity/general bounds without an arbitrary multipartite exact theorem in inspected text. A closely named 2-rainbow domination result in Resultary lacks the singleton-support condition. Generalized-prism total domination was searched as an equivalent formulation. No covering higher-part theorem identified; residual indexing risk remains.
+
+## value
+
+PASS
+
+An exact formula for a recognized computationally difficult domination invariant over the entire natural class of complete multipartite graphs, all k>=2, strictly extends the established biclique slice. The fact that only N and minimum part size control the optimum follows from a nontrivial singleton-support structural argument and is useful for generalized-prism total domination; this is more than an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
