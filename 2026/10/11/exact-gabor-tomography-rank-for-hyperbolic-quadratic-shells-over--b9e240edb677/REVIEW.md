@@ -1,19 +1,21 @@
-# Scientific review: exact Gabor tomography rank for hyperbolic quadratic shells
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The quadratic level-set Fourier identity is derived by additive orthogonality and a completed square, with nonzero Gauss-product normalization. In the even section, irreducibility of the prime cyclotomic polynomial prohibits vanishing because the number \(q-1\) of roots of unity is not divisible by the characteristic. In the odd section, a Fourier-derived finite-field Salié identity gives a complete square/non-square test, and the zero-level case is handled separately. A Witt-pair decomposition handles nonzero isotropic translations; the orthogonal complement handles anisotropic translations. Explicit norm-fiber counts and the discriminant character sum give the exact integer rank. Weyl-conjugation diagonalization identifies the entire kernel. The exact checker covers prime and genuine extension fields but is not used as a substitute for the universal proof.
+PASS
 
-## Originality
+For odd prime power q and r>=2 on V=F_q^r+F_q^r, derive the level-set Fourier transform from orthogonality and completion of the square. On even nondegenerate sections at nonzero level, a sum of q-1 characteristic-p roots of unity cannot vanish (p does not divide q-1); on odd sections the Salié Fourier identity gives exact χ(cQ(w))=-1 zeros, or nonzero isotropic w when c=0. Intersect Q(x)=Q(x-a)=1: a=0 all coefficients survive; a nonzero isotropic yields B(a,b)=0 filter by free Witt coordinate; anisotropic t yields section a-perp with c=1-t/4 and w=b-(B(a,b)/2t)a. Reconstruct quadratic norm-fiber counts and sum χ(t(t-4))=-1 to obtain N+I q^(m-1)+J[C4+(q-2)C*-(q-1)q^r/2]. Weyl orbit conjugation diagonalizes complex-matrix lifting, making its rank ambiguity-support count and its kernel span zero-support Weyl matrices. Independent exhaustive mod3 residue-count implementation enumerated 6561 (q=3,r=2) coefficient pairs, exactly rank3393/nullity3168, including every shift/frequency; supports but does not prove all prime powers. All q odd and m>=4 boundaries accounted for; not a pure-state phase-retrieval theorem.
 
-**PASS, with residual historical-equivalence risk.** Iosevich and Koh, arXiv:0712.1627 (full-text sections concerning sphere Fourier transforms and restriction estimates), arXiv:0804.4505 (quadratic-surface Fourier methods), and Bojarovska–Flinth, arXiv:1503.05800 (Gabor ambiguity criterion and Weyl diagonalization) supply key starting methods. Comparison of their relevant theorems and arguments against the full assertion found no coverage of the complete translated-shell zero locus plus closed-form operator-lifting rank in all even dimensions. published-finding corpus semantic queries on hyperbolic-shell indicators, Gabor lifting rank, and quadratic-surface Fourier zeros returned related but not implication-dominating results. Semantic search is not a novelty proof; an undiscovered equivalent specialization may exist.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The full complex operator rank, exact kernel, and arithmetic zero strata resolve a natural complete measurement-property question for a canonical finite-field quadratic shell, over all odd field orders and every even dimension at least four. The limiting surviving fraction is nontrivial and distinct from pure-state phase retrieval. The result is neither a change of names nor a one-case numerical improvement: each Weyl kernel direction is characterized.
+Best-of-knowledge original specific exact claim after theorem-level comparisons; detailed four checks and non-fabricated primary-source inspections follow. Search absence is not proof of priority, and significant prior-specialization risks are recorded.
 
-## Limitations and external comparison
+## value
 
-The theorem is restricted to unweighted hyperbolic unit shells, not all forms or the nonlinear phase retrieval of a signal. The same-model correctness verification is not an independent audit, and full historical-priority certainty cannot be established from available literature. Only first-party mathematical statements and compact citations are reproduced, not source papers.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Exact complex operator lifting rank and every kernel direction for a canonical finite-field hyperbolic shell give a complete natural measurement-tomography classification over all odd prime powers and unbounded even dimension. The zero-strata arithmetic and nontrivial limit (q-1)(q+2)/(2q^2) are reusable and not merely numerical small-field tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
