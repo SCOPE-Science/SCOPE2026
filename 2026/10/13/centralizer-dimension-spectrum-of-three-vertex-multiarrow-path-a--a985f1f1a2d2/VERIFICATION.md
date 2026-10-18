@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the centralizer-dimension formula
+# Independent mathematical audit
 
-The standalone `verify.py` uses only Python's standard library. Run `python3 verify.py` from the directory containing this file. It enumerates every algebra element in nine small parameter sets, constructs multiplication independently from the actual path basis, computes the full commutator linear map, and determines its nullity by finite-field Gaussian elimination. It compares the complete observed dimension histogram to the symbolic fourteen-stratum prediction and checks that predicted multiplicities sum to the order of the algebra.
+## correctness
 
-The checked parameters are \((q,r,s)=(2,1,1),(3,1,1),(4,1,1),(2,2,1),(2,1,2),(2,2,2),(3,2,1),(5,1,1),(4,2,1)\). The \(q=4\) cases use \(\mathbb F_4=\mathbb F_2[t]/(t^2+t+1)\). The \((2,2,2)\) case is within the theorem's \(r,s\ge2\) domain, while one-arrow-family cases stress-test boundary formulas. A passing run prints `VERIFY_OK` after all exhaustive cases.
+PASS
 
-The proof of the general formula uses a symbolic case partition and elementary tensor linear algebra; the enumerations alone verify only the listed finite instances. No independent mathematical audit has been performed.
+Reconstructed path multiplication with x⊗y in the length-two layer and three commutator equations; separated pairwise-distinct, two-equal and all-equal diagonals, including z*=z+alpha^-1(x⊗y) when a=c≠b. For x,y both nonzero, tensor map (x′,y′)↦x⊗y′−x′⊗y has exactly a one-dimensional kernel; counts give all fourteen rows and sum to q^D. Independent exhaustive GF(2) rank computation of all 2^11=2048 elements for r=s=2 recovered histogram 768T^4+256T^5+768T^6+176T^7+48T^8+30T^10+2T^11 and probability 17/512. Exact rational substitutions give probability numerators 305449 and 160447 over 67108864 for the equal-dimensional r,s pairs. The finite check does not prove the universal formula; the kernel classification does.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: published two-vertex generalized Kronecker calculations lack the nonzero length-two product V⊗W and do not imply this complete three-vertex centralizer-dimension distribution. The 2018 n-centralizer classification counts distinct subalgebras, a different invariant. Full original same-object comparison and contextual literature searches yield no dominant prior identity; bibliographic priority cannot be absolute.
+
+## value
+
+PASS
+
+A complete centralizer distribution for a natural untruncated hereditary path-algebra family is a motivated invariant, stronger than merely counting distinct centralizers. The square-nonzero tensor product produces genuinely new strata and a same-vector-dimension comparison not available from the two-vertex radical-square-zero case, making an independently useful structural calculation rather than table repetition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

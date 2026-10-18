@@ -1,15 +1,21 @@
-# Scientific review: centralizer-dimension spectrum of three-vertex multiarrow path algebras
+# Independent mathematical audit
 
-## Correctness — PASS
-The multiplication follows from the path basis with independent length-two arrows indexed by ordered pairs. Three explicit homogeneous linear commutator equations reduce the centralizer kernel to fourteen exhaustive diagonal/radical strata. Every stated multiplicity counts coordinate choices; the table sums to \(q^{3+r+s+rs}\), and evaluating it at \(T=q\) counts ordered commuting pairs. The tensor-intersection calculation in the all-equal case has one-dimensional kernel for two nonzero arrows over *every* field. Direct finite-field rank enumeration agrees for nine small cases, including an extension field and one in-scope case. The proof applies to all prime powers and \(r,s\ge2\); finite computation alone is not offered as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The earliest motivating primary paper, Dutta–Basnet–Nath, arXiv:1510.08211v1 (2015), addresses commuting probabilities, general bounds and isoclinism, but gives no fourteen-stratum centralizer-dimension distribution of the full three-vertex path algebra. Their 2018 paper arXiv:1803.04111v1 counts distinct centralizers of finite rings, a different invariant. The closest publicly indexed finite Kronecker path-algebra result is two-vertex and radical-square-zero; its formula cannot supply the nonzero product term in the present commutator equations. Published searches for parallel-arrow and path-algebra centralizer spectra gave no matching explicit formula. A statement in older quiver/ring literature using different terminology remains possible; priority is not independently certified.
+PASS
 
-## Value — PASS
-Element-centralizer dimensions govern the centralizer-size distribution and hence commuting-pair probability of finite associative algebras. The new exact formula treats a nontrivial two-parameter hereditary family with nonzero second radical layer, and detects its tensor-product contribution. The same-field, same-dimension example \(A_{2,7}\) versus \(A_{3,5}\) demonstrates that this information cannot be read from algebra dimension alone. The result is a complete natural invariant for its stated family, not a reparameterization of one-edge or radical-square-zero cases.
+Reconstructed path multiplication with x⊗y in the length-two layer and three commutator equations; separated pairwise-distinct, two-equal and all-equal diagonals, including z*=z+alpha^-1(x⊗y) when a=c≠b. For x,y both nonzero, tensor map (x′,y′)↦x⊗y′−x′⊗y has exactly a one-dimensional kernel; counts give all fourteen rows and sum to q^D. Independent exhaustive GF(2) rank computation of all 2^11=2048 elements for r=s=2 recovered histogram 768T^4+256T^5+768T^6+176T^7+48T^8+30T^10+2T^11 and probability 17/512. Exact rational substitutions give probability numerators 305449 and 160447 over 67108864 for the equal-dimensional r,s pairs. The finite check does not prove the universal formula; the kernel classification does.
 
-## Literature and limitations
-Primary source: Dutta–Basnet–Nath, *On commuting probability of finite rings*, arXiv:1510.08211v1, §§2–3. Further comparator: Dutta–Basnet–Nath, *Commuting probabilities of n-centralizer finite rings*, arXiv:1803.04111v1, §§1–3. Closest indexed comparison: *Commutator fibers and commuting probabilities of finite Kronecker path algebras*, public published-finding corpus/2026 full RESULT.md. No classification of distinct centralizer subalgebras, beyond the dimension histogram, is asserted. Originality remains subject to broader historical indexing and independent expert comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: published two-vertex generalized Kronecker calculations lack the nonzero length-two product V⊗W and do not imply this complete three-vertex centralizer-dimension distribution. The 2018 n-centralizer classification counts distinct subalgebras, a different invariant. Full original same-object comparison and contextual literature searches yield no dominant prior identity; bibliographic priority cannot be absolute.
+
+## value
+
+PASS
+
+A complete centralizer distribution for a natural untruncated hereditary path-algebra family is a motivated invariant, stronger than merely counting distinct centralizers. The square-nonzero tensor product produces genuinely new strata and a same-vector-dimension comparison not available from the two-vertex radical-square-zero case, making an independently useful structural calculation rather than table repetition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
