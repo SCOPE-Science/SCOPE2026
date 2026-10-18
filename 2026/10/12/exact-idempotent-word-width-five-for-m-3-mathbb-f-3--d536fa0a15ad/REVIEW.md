@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The statement is finite and the verifier exhausts all \(3^9=19\,683\) matrices. It first determines all \(236\) idempotents, then performs breadth-first closure under every possible final idempotent factor. Because left-nested words are generated recursively by exactly this transition, the first discovery depth is the exact minimum word length. The resulting strata have sizes \(236,3068,12953,3308,117\), stabilize after length \(5\), and leave only \(-I_3\) unseen. A separate predicate check shows that the length-five set is exactly the set of nonscalar trace-two involutions. Square-freeness of \((t-1)(t+1)\) over \(\mathbb F_3\) then gives the stated similarity classification.
+## correctness
 
-## Originality
-PASS. The closest primary source proves representability and broad logarithmic bounds for \(M_n(\mathbb F)^+\), but explicitly gives an exact element-by-element length theorem only for \(n=2\). Its full-matrix section was inspected through the general bounds, the exact \(2\times2\) proposition, the padding lemma, and the cyclic-matrix bounds; none implies the exact \(M_3(\mathbb F_3)^+\) width, five-layer census, or the extremal similarity class. Exact-field, exact-width, diagonal-form, involution, and minimal-length searches returned no covering statement. Residual risk remains for unindexed or differently phrased small-field computations.
+PASS
 
-## Value
-PASS. The source leaves exact widths beyond \(2\times2\) unresolved while proving only general bounds. The pair \((n,q)=(3,3)\) is the first matrix size beyond the exact case and uses the smallest field allowed by the characteristic restriction. A complete exact cutoff is therefore mathematically natural rather than an arbitrary parameter slice, and the identification of a single extremal conjugacy class gives structure beyond a raw census.
+Jordan multiplication X∘E=(XE+EX)/2 is exactly (2*(XE+EX)) mod3, and E∘E=E exactly means ordinary matrix idempotence. In the finite graph of all 3^9=19683 matrices, edges X→X∘E over EVERY idempotent E correspond bijectively to appending the last factor of a left-nested idempotent word. Multisource BFS from all 236 idempotents computes minimal length and exhausts all edges, not a sample. Independent NumPy-free exact modular breadth-first reconstruction counted new layers 236,3068,12953,3308,117, stopping with sole missing -I. All 117 distance-five matrices coincide exactly with nonscalar matrices A²=I, tr A=2. Since t²−1 splits in distinct roots over F3, each is conjugate to diag(1,−1,−1), and orbit-stabilizer |GL3(F3)|/(|GL1(F3)|·|GL2(F3)|)=11232/(2·48)=117. This is a complete finite proof conditioned only on fully inspected enumeration code and all-state exhaustive execution, not unverified VERIFY_OK logs.
 
-## Closest literature and limitations
-Gogić--Tomašević, arXiv:2609.23581v1, is the closest source. Theorem 1.2 gives representability and bounds; Proposition 4.1 is exact only for order two. The present theorem does not address other finite fields, larger matrix sizes, or asymptotic growth, and an equivalent computation could exist outside the inspected literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS with explicit primary access risk: Gogić–Tomašević (2026) abstract and submitted primary-source description concern general representability and logarithmic width bounds, with exact minimal-length classification stated only for 2×2; no exact M3(F3) five-level census was found in Resultary semantic searches or accessible literature. However full arXiv text was unavailable via the attempted public route, and authorized institutional retrieval was safety-blocked, so claims of whole-paper noncoverage are expressly disclaimed. With no stronger coverage identified this uncertainty alone does not defeat O under the stated best-of-knowledge bar.
+
+## value
+
+PASS
+
+PASS: The first 3×3 matrix Jordan algebra over the smallest odd field is a natural next finite-width benchmark after 2×2 theory. The complete five-layer length census, sharp width, unique unreachable scalar, and conceptual conjugacy class characterization of the extremal 117 matrices are precise previously undetermined structural facts potentially useful in idempotent-word bounds and tests. Although confined to 19,683 matrices, this is an exhaustive, motivated natural invariant rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

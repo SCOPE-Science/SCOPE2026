@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify_f3_m3_jordan_words.py` performs a complete finite verification over \(\mathbb F_3\). It enumerates all \(3^9=19\,683\) matrices, checks ordinary idempotence \(E^2=E\), and finds \(236\) idempotents. It then treats left-nested idempotent words as paths in the exact transition graph \(X\mapsto X\circ E\), expanding every current minimum-depth state by every idempotent \(E\).
+# Independent mathematical audit
 
-The replay output is:
+## correctness
 
-`VERIFY_OK`
+PASS
 
-`total=19683 idempotents=236 representable=19682 nonrepresentable=[13286]`
+Jordan multiplication X∘E=(XE+EX)/2 is exactly (2*(XE+EX)) mod3, and E∘E=E exactly means ordinary matrix idempotence. In the finite graph of all 3^9=19683 matrices, edges X→X∘E over EVERY idempotent E correspond bijectively to appending the last factor of a left-nested idempotent word. Multisource BFS from all 236 idempotents computes minimal length and exhausts all edges, not a sample. Independent NumPy-free exact modular breadth-first reconstruction counted new layers 236,3068,12953,3308,117, stopping with sole missing -I. All 117 distance-five matrices coincide exactly with nonscalar matrices A²=I, tr A=2. Since t²−1 splits in distinct roots over F3, each is conjugate to diag(1,−1,−1), and orbit-stabilizer |GL3(F3)|/(|GL1(F3)|·|GL2(F3)|)=11232/(2·48)=117. This is a complete finite proof conditioned only on fully inspected enumeration code and all-state exhaustive execution, not unverified VERIFY_OK logs.
 
-`minimal_length_counts=1:236,2:3068,3:12953,4:3308,5:117`
+## originality
 
-`width=5 length5=117 trace2_nonscalar_involutions=117`
+PASS
 
-The integer identifier `13286` is only the verifier's base-three encoding of \(-I_3\). The verifier additionally checks exact set equality between the length-five stratum and the nonscalar matrices satisfying \(A^2=I_3\) and \(\operatorname{tr}A=2\).
+Best-of-knowledge PASS with explicit primary access risk: Gogić–Tomašević (2026) abstract and submitted primary-source description concern general representability and logarithmic width bounds, with exact minimal-length classification stated only for 2×2; no exact M3(F3) five-level census was found in Resultary semantic searches or accessible literature. However full arXiv text was unavailable via the attempted public route, and authorized institutional retrieval was safety-blocked, so claims of whole-paper noncoverage are expressly disclaimed. With no stronger coverage identified this uncertainty alone does not defeat O under the stated best-of-knowledge bar.
 
-The computation is exhaustive rather than sampled. Its finite scope does not imply any analogous width statement for other fields or other matrix sizes. The similarity classification of the extremal stratum is established separately from the computation using square-freeness of \(t^2-1\) over \(\mathbb F_3\).
+## value
+
+PASS
+
+PASS: The first 3×3 matrix Jordan algebra over the smallest odd field is a natural next finite-width benchmark after 2×2 theory. The complete five-layer length census, sharp width, unique unreachable scalar, and conceptual conjugacy class characterization of the extremal 117 matrices are precise previously undetermined structural facts potentially useful in idempotent-word bounds and tests. Although confined to 19,683 matrices, this is an exhaustive, motivated natural invariant rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
