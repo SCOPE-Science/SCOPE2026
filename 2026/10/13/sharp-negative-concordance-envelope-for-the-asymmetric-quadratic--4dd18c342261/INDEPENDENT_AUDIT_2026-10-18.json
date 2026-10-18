@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:04:38.015622Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final theorem quantifies genuine continuous copulas Cφ(u,v)=uv[u+(1−u)φ(v)] with φ differentiable in (0,1), φ≤1, vφ(v)→0 at zero, φ+vφ′≥0, vφ′≤1, and mandatory continuity at v=1 with φ→1. Since vφ is nondecreasing from 0, φ≥0; integrating φ′≤1/v to the upper endpoint gives φ(v)≥max(0,1+ln v). With D(v)=v(1−φ(v)), the Spearman rho is −2∫D(v)dv and its infimum is −(1−e^{−2})/2≈−0.432332358381694. Equality would force φ=max(0,1+ln v) identically, whose kink at e^{-1} violates interior differentiability, so lower endpoint unattained. Density c(u,v)=1−(1−2u)D′(v) is nonnegative under the two derivative bounds; integration by parts with D(0)=D(1)=0 gives Kendall tau=−4/3∫D=(2/3)rho. The explicit soft-maximum φ_ε(v)=ε ln[1+(e^{1/ε}−1)v^{1/ε}] is smooth and admissible for ε>0, approaches the kink as ε↓0, and approaches φ≡1 as ε→∞; continuity in ε fills the entire open-lower/closed-upper segment. Independent symbolic checks and high-precision integration corroborate constants and limiting family, but unrestricted conclusion follows analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General quadratic-section characterizations are structurally broader but do not impose the specific derivative restriction vφ′≤1 or determine its resulting extremal concordance infimum.",
+          "The 2025 source gives the exact class constraints; it computes example-specific ranges rather than a universal optimum."
+        ],
+        "reasoning": "Broader copula identities do not cover the distinctive extra-derivative-constrained capacity bound unless optimized over that smaller subclass; no such optimization appears in the inspected primary passages.",
+        "searches": [
+          "Rodríguez-Lallena–Úbeda-Flores, DOI:10.1007/s00184-009-0256-1, Theorems 1 and 6 and Corollary 3",
+          "Bentoumi–El Ktaibi–Chesneau DOI:10.3934/math.20251091, Proposition 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Bentoumi, El Ktaibi and Chesneau (2025), AIMS Mathematics DOI:10.3934/math.20251091",
+        "Rodríguez-Lallena and Úbeda-Flores (2010), Metrika DOI:10.1007/s00184-009-0256-1",
+        "Rodríguez-Lallena and Úbeda-Flores (2008), Kybernetika https://www.kybernetika.cz/content/2008/6/879/paper.pdf",
+        "Resultary: 2026/10/4/SCOPE-a-sharp-directional-predictability-range-inside-the-marshall-olk--86500b4e25f2 (different copula model)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Quadratic-section rho/tau proportionality determines only the slope of the dependence plane line, not its attainable negative endpoint.",
+          "The source derivative bound vφ′≤1 implies φ≥1+ln v, and the nonnegativity bound φ≥0 produces a new integrated obstacle optimized by a nondifferentiable kink approximated by smooth CDFs."
+        ],
+        "reasoning": "The sharp interval and unattainability require a scheme-specific constrained variational argument; they are not implied by the known ratio or four tabulated subclasses.",
+        "searches": [
+          "Bentoumi–El Ktaibi–Chesneau 2025 Proposition 3.1, association tables",
+          "Rodríguez-Lallena–Úbeda-Flores 2010 Corollary 3 and general validity characterization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Spearman–Kendall identity rho=(3/2)tau is mathematically equivalent and already known for quadratic-section copulas, and thus expressly excluded from novelty.",
+          "The identified Resultary Marshall–Olkin sharp directional predictability result describes a different copula family and invariant."
+        ],
+        "reasoning": "The same rho/tau line is covered, but the constrained all-tuning-function attained rho interval with log-obstacle endpoint is an additional specific statement.",
+        "searches": [
+          "Resultary: asymmetric quadratic copula derivative phi(v) v phi'(v) ≤1 sharp Spearman rho min (1-exp(-2))/2",
+          "Rodríguez-Lallena–Úbeda-Flores (2010), Corollary 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Four tabulated example families only attain rho to −1/3 and tau to −2/9; the claimed optimal infimum −(1−e^{-2})/2 lies strictly below the tabulated minimum and is unattained.",
+          "The known rank-correlation ratio is not a table of sharp attainable values for the 2025 admissible function class."
+        ],
+        "reasoning": "The full infinite-dimensional tuning-class envelope is neither the four-example table nor a reformulation of its endpoints.",
+        "searches": [
+          "Bentoumi–El Ktaibi–Chesneau (2025), Tables 1–2",
+          "Rodríguez-Lallena–Úbeda-Flores (2010), associated quadratic-section dependence formulas"
+        ]
+      },
+      "rationale": "Bentoumi–El Ktaibi–Chesneau (2025) Proposition 3.1 defines this exact asymmetric scheme, gives twelve examples and association tables for four with rho down to −1/3; their inspected tables/analysis do not optimize over every admissible tuning function. Rodríguez-Lallena–Úbeda-Flores (2010) Corollary 3 already proves the rho–tau proportion for the broader quadratic-section copula family: that ratio is explicitly PRIOR, not novelty. Their general quadratic-section theorems do not impose φ′≤1/v and do not give this class-specific logarithmic envelope, unattainability or smooth saturating family. This assessment covers only that restricted envelope and its exact attainable range; older FGM/constrained variation optimization may contain an equivalent bound.",
+      "residual_risks": [
+        "An unindexed paper optimizing a derivative-bounded quadratic-section/generalized FGM subclass could contain the same exponential endpoint.",
+        "The 2025 source interior inequalities plus isolated φ(1)=1 alone allow discontinuous formal expressions; the result correctly requires a genuine continuous copula and does not generalize to the discontinuous enlarged formal class.",
+        "The rho/tau proportionality is known prior mathematics and excluded from original contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ORIGINATING_SCHEME_NO_FULL_CLASS_ENVELOPE",
+          "evidence": "The four studied models cover negative rho only to −1/3 and do not give all-admissible derivative-constrained logarithmic optimum or endpoint nonattainment.",
+          "identifier_or_url": "https://doi.org/10.3934/math.20251091",
+          "material_read": "Proposition 3.1, association-measure derivations and Tables 1–2 in complete 2025 primary PDF",
+          "method": "Read lawful full text and page images of definitions and tables",
+          "title": "A new scheme for simple asymmetric bivariate copulas and applications",
+          "trigger": "Identical class of admissible tuning functions and same copula formula"
+        },
+        {
+          "assessment": "KNOWN_RATIO_BUT_NO_IDENTIFIED_SUBCLASS_ENDPOINT",
+          "evidence": "Corollary 3 supplies rho=(3/2)tau; general quadratic-section admissibility criteria do not state this narrower logarithmic obstruction for vφ′≤1.",
+          "identifier_or_url": "https://doi.org/10.1007/s00184-009-0256-1",
+          "material_read": "Theorems 1 and 6 and Corollary 3 in primary article accessible text",
+          "method": "Read complete article text via lawful ResearchGate scholarly view",
+          "title": "Multivariate copulas with quadratic sections in one variable",
+          "trigger": "Broader mathematically equivalent quadratic-section structure, risk of direct implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact attainable concordance range determines the model capacity and inferential limits of a recently introduced copula construction. The source tabulated only four subclasses with rho≥−1/3, whereas the full admissible class reaches arbitrarily close to −0.43233; the strict unattained endpoint and explicit smooth family are substantive functional-constraint results. The universal rank-correlation ratio is prior and is used only to express the two-coordinate range.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The claim is restricted to genuine continuous copulas in the 2025 derivative-constrained differentiable family, not all FGM/quadratic copulas.",
+    "Endpoint differentiability excludes exact attainment of the lower bound; only the one-sided infimum is sharp.",
+    "Publication withheld because original public metadata retain operational provenance and no audited sanitized replacements have been staged."
+  ],
+  "schema_version": 1
+}
