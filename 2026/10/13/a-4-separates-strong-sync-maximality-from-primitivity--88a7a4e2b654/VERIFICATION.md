@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json`.
+# Independent mathematical audit
 
-The verifier constructs the natural degree-\(4\) alternating group, checks its point stabilizer and hence its \(2\)-transitivity, and generates the complete transformation monoid obtained after adjoining
-\[
-f=(0,0,1,1).
-\]
-For every element of that monoid it confirms that \(\{0,1\}\) and \(\{2,3\}\) have equal image cardinalities.
+## correctness
 
-A separate pair-state traversal checks the proof invariant directly: every reachable ordered pair is either two singletons, two identical two-subsets, or two complementary two-subsets.
+PASS
 
-As a supplementary stress test, all \(84\) rank-\(2\) and all \(144\) rank-\(3\) transformations on four points are exhausted. There are \(36\) rank-\(2\) failures of the strong condition and no rank-\(3\) failures. The main separation proof uses only the explicit displayed rank-\(2\) witness.
+A4 on four points is 2-transitive: the stabilizer of any point is cyclic of order three on the other points, hence primitive. For f=(0,0,1,1), X={0,1}, Y={2,3}, ordered image pairs under either any even permutation or f stay among (singleton,singleton), (same 2-subset,same 2-subset), and (complementary 2-subsets). Thus every transformation in M=<A4,f> maps X,Y to sets of equal size; no map collapses precisely one to a singleton, violating Hoffmann strong sync-maximality. Independently generated A4 (12 permutations) and full transformation monoid (52 elements), verified the equality for every element. The invariant proof establishes the complete nonexistence claim.
 
-Independent audit has not been performed.
+## originality
+
+PASS
+
+Hoffmann 2021 defines strong sync-maximality and proves 4-transitive implies strong implies primitive, explicitly posing whether containments are proper. A4 is a well-known primitive non-4-transitive group, but that alone does not refute strong sync-maximality; the explicit rank-2 map and invariant supply the missing counterexample to the upper inclusion. The later primitive automata paper addresses a different synchronization condition. No earlier exact A4 strong-property witness was located in targeted searches.
+
+## value
+
+PASS
+
+The small degree-four counterexample resolves the mathematically explicit strictness question for strongly sync-maximal versus primitive groups. The invariant gives a reusable obstruction by complementary-pair symmetry, beyond a naked computational table. It does not settle the lower 4-transitive inclusion or higher-degree classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
