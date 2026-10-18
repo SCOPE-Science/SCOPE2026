@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,81 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let
-\[
-\varepsilon_j=2^{-2j},
-\qquad
-\alpha_j=2^{-j},
-\qquad
-\Lambda_j=P_j+\varepsilon_jI.
-\]
-The spectrum of \(\Lambda_j\) is
-\[
-\{\varepsilon_j,1+\varepsilon_j\},
-\]
-with \(1+\varepsilon_j\) occurring on \(e_j\). Hence
-\[
-m(\Lambda_j)=\varepsilon_j,
-\qquad
-\|\Lambda_j\|=1+\varepsilon_j.
-\]
+# Independent mathematical audit
 
-The geometric sum is
-\[
-\sum_{j=1}^{\infty}\varepsilon_j^2
-=
-\sum_{j=1}^{\infty}16^{-j}
-=
-\frac1{15}.
-\]
-For each coordinate \(k\), the coefficient in the unscaled frame quadratic form is
-\[
-(1+\varepsilon_k)^2+\frac1{15}-\varepsilon_k^2
-=
-1+2\varepsilon_k+\frac1{15}.
-\]
-Thus the exact lower limiting coefficient is
-\[
-\frac{16}{15},
-\]
-and the maximal coefficient, attained at \(k=1\), is
-\[
-1+\frac12+\frac1{15}
-=
-\frac{47}{30}.
-\]
+## correctness
 
-Since
-\[
-D_j=\alpha_j\Lambda_j^{-1},
-\]
-the product is
-\[
-D_j\Lambda_j=\alpha_jI.
-\]
-Therefore
-\[
-\sum_j\|D_j\Lambda_jx\|^2
-=
-\left(\sum_j4^{-j}\right)\|x\|^2
-=
-\frac13\|x\|^2.
-\]
+PASS
 
-The two eigenvalues of \(D_j\) are
-\[
-\frac{\alpha_j}{1+\varepsilon_j}
-\quad\text{and}\quad
-\frac{\alpha_j}{\varepsilon_j}=2^j.
-\]
-Therefore
-\[
-\|D_j\|=2^j
-\]
-and the full block diagonal operator is unbounded.
+In H=ℓ²(N) let P_j be e_j-projection, ε_j=2^{−2j}, α_j=2^{−j}, Λ_j=P_j+ε_jI. Each Λ_j is a positive invertible diagonal operator with eigenvalues 1+ε_j and ε_j, so its norm tends to 1 but minimum modulus ε_j tends to 0. By Tonelli, Σ_j||Λ_j x||²=Σ_k[1+2ε_k+E]|x_k|² with E=Σ_j ε_j²=1/15; frame lower bound 16/15 and upper bound 47/30 are exact. Let D_j=α_j Λ_j^{-1}; D_jΛ_j=α_j I and Σ α_j²=1/3, so scaled analysis is a tight g-frame, yet ||D_j||=α_j/ε_j=2^j→infinity, making ambient ⊕D_j unbounded. Independently recomputed exact fractions, spectra and geometric sums without finite truncation. Primary Ahmadi–Rahimi Proposition 3.1 and Kumar–Malhotra–Khanna Theorem 24 both infer uniform lower singular bounds from only liminf operator norms, which the example explicitly refutes while preserving invertibility of every block.
 
-The complete target proofs were inspected in the published PDFs. Both use the positive lower-bound constants of the analysis blocks after assuming only a positive lower limit for the operator norms. The counterexample makes these two quantities diverge in opposite directions.
+## originality
 
-No truncation, floating-point certificate, or experimental extrapolation is used.
+PASS
+
+The 2021 Ahmadi–Rahimi and 2024 Kumar–Malhotra–Khanna COMPLETE original article proofs were directly inspected: each falsely promotes liminf_j||Λ_j||>0 to an eventual uniform lower bound on min singular values, concluding global ambient block multiplier boundedness. The precise infinite positive invertible diagonal-block counterexample is not contained in those original propositions; they are target false claims, not covering resolutions. A different published Resultary K-frame record concerns unbounded scalar scaling for a rank-one K-frame with closed-range issues and lacks this all-invertible g-frame block construction with operator norms tending to one; related analysis-range criteria are acknowledged as PRIOR. Targeted Resultary searches revealed no distinct identical correction, with nonindexed errata a residual risk.
+
+## value
+
+PASS
+
+Disproving two directly related published bounded-preconditioner theorems with a nondegenerate invertible block example is a motivated corrective finding. It isolates a substantive operator-theoretic error—maximal singular values do not control the required minimum moduli—and distinguishes boundedness of D on the ambient coefficient sum from boundedness of D◦T_Λ* on actual analysis vectors. Positive invertible analysis blocks and exact tightness rule out easy kernel or finite-dimensional corner cases; a future frame-theory reader needs this precise obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
