@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The assertion is made for the normal-fan variety over any algebraically closed field and only for \(m\ge3\). An integral affine coordinate deletion gives a lattice basis, and explicit convex-combination inequalities prove the exhaustive facet description. Active-facet subcubes exhaust every normal cone; the three displayed primitive circuit configurations are the only minimal dependencies. Independent active rays extend to saturated lattice bases, so there are no hidden simplicial quotient singularities. Each primitive relation yields the claimed saturated toric invariant ring, the two conifold types, or the rank-one \(2\times m\) determinantal type. Its multiplicity follows from the Segre degree. The non-\(\mathbb Q\)-Gorenstein assertion follows directly from the imbalance \(2\ne m\). Exact face and lattice checks for \(m=2,3,4\) were run as independent finite cross-checks, not substituted for the proof.
+
+## Originality — PASS (qualified)
+The general graph edge-polytope description, facet theorem, and global simplicity classification are established literature. In particular Ohsugi--Hibi 2008 Theorem 1.8 treats global simplicity, while Tran--Ziegler 2014 Theorem 19 provides a general facet criterion and Section 5 considers windmills with four-vertex complete-graph blades. Neither inspected paper supplies the present complete singular orbit-closure basket for friendship windmills built from three-vertex blades. A previously recorded chart computation for this same family addresses local algebra at base-edge fixed points, not the full reduced singular locus or the two infinite strata counts. The two-triangle wedge case is covered by earlier work and is expressly outside the present novelty claim. Semantic-record queries and alternative-terminology web searches found no covering result, but cannot rule out unindexed equivalent literature; it is the material residual risk.
+
+## Mathematical value — PASS
+This gives complete reduced singular-support geometry for a natural infinite family of normal projective graph toric varieties. It distinguishes \(\binom m2 2^{m-2}+m2^{m-1}\) conifold-type components from \(2^m\) higher-codimension determinantal components, proves the sharp \(\mathbb Q\)-Gorenstein boundary, and excludes every further singular component. The mixed-dimensional locus and different generic singularity classes are substantial geometry not obtained from a scalar global smoothness statement.
+
+## Closest literature and limitations
+Ohsugi--Hibi, arXiv:0804.4287 (Theorem 1.8); Tran--Ziegler, DOI:10.37236/3633 (Theorem 19, Section 5); and standard toric cone criteria in Cox--Little--Schenck. The classification concerns reduced support and generic transverse models; it does not compute the nonreduced singular scheme or all nongeneric analytic germs. An unindexed mathematically equivalent classification would defeat originality even if phrased differently.
+
+Self-review: passed. Independent audit: not yet performed.
