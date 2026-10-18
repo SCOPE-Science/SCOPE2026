@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T05:53:41.208561Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The one-deletion-plus-at-most-s-substitution output set includes the Hamming radius-s ball of the fixed last-coordinate deletion. Distinct correcting codewords must therefore have punctured prefixes at Hamming distance at least 2s+1. At n≤2s+1 the prefix length n−1≤2s forces M=1; at n=2s+2 the prefixes differ in every one of the 2s+1 coordinates, so the first symbol injects the code into a q-element alphabet, giving M≤q. The q constant words have disjoint descendant Hamming balls at radius s and attain M=q. Independent literal output-ball enumerations covered q=2,3 and s=0,1,2, with all correct short-block pair-compatibility tests (finite corroboration only). The quantifiers include s=0 and n=1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A_q(n−1,2s+1) contains the fixed-puncturing image; q^{n-2s-1} dominates the upper part for n≥2s+2, and the maximum pairwise Hamming distance is n−1."
+        ],
+        "reasoning": "The cited all-q Singleton family plus this immediate necessary subchannel implication already covers the exact short-length upper bounds, not merely a title match.",
+        "searches": [
+          "Classical Singleton bound A_q(N,D)≤q^(N−D+1)",
+          "Smagloy et al., arXiv:2005.09352 §II error-ball definition and §III bounds"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2005.09352",
+        "https://doi.org/10.1109/TIT.2023.3319088",
+        "classical coding theory, A_q(N,D)≤q^(N−D+1)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard Hamming radius-s balls intersect at center distance ≤2s. Puncturing a common fixed position is a permissible deletion output; therefore a deletion-plus-substitution code is necessarily a punctured ordinary Hamming s-error-correcting code."
+        ],
+        "reasoning": "This straightforward implication together with q repetition code gives all of M_{q,s}(n) on n≤2s+2. No independent nonstandard content survives the reduction.",
+        "searches": [
+          "Smagloy et al. arXiv:2005.09352, defs DS_{1,s}",
+          "classical Hamming distance criterion d≥2s+1",
+          "classical Singleton theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After fixed last-symbol deletion any valid code injects into length-(n−1) Hamming code with minimum distance 2s+1; Singleton yields |C|≤q^{(n−1)−2s} whenever n−1≥2s+1. At n=2s+2 this is q."
+        ],
+        "reasoning": "The asserted first nontrivial size follows by trivial constant-word witness; the theorem is equivalent at this boundary to elementary Hamming separation.",
+        "searches": [
+          "Resultary query: single deletion at most s substitutions correcting codes exact minimum length 2s+2 alphabet q code size q",
+          "Smagloy et al., arXiv:2005.09352 channel error-ball definitions",
+          "standard Hamming A_q(n,d), Singleton bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Longer-length tables such as the binary s=1 lengths 7–8 record new code sizes but no distinct natural table at n=2s+2."
+        ],
+        "reasoning": "The missing numerical table cannot rescue a corollary already determined in general by Hamming distance and Singleton; no database novelty is needed to establish redundancy.",
+        "searches": [
+          "Resultary query: single deletion at most s substitutions correcting codes exact minimum length 2s+2 alphabet q code size q",
+          "Resultary:2026/10/4/SCOPE-exact-binary-one-deletion-one-substitution-codes-at-lengths-seve--49b7ae777343",
+          "arXiv:2005.09352 quantitative bounds"
+        ]
+      },
+      "rationale": "This exact boundary is an immediate coding-theoretic corollary of the classical q-ary Hamming/Singleton bound after the obvious common-position puncturing: the necessary punctured Hamming code has length n−1 and distance 2s+1, hence at boundary at most q words, and constant codewords trivially attain it. The first-length feasibility obstruction needs no deletion-specific lemma beyond a one-line inclusion of one puncturing output ball. Thus although the channel is a legitimate model and primary combined-error papers do not print these exact short-block numbers, the entire finding is mathematically covered by an elementary specialization of established Hamming theory; changed terminology or n,s parameters do not establish originality.",
+      "residual_risks": [
+        "The exact combined-channel cutoff might not be written verbatim in the inspected code-theory literature; the rejection rests on a direct, mathematically decisive prior-theorem implication rather than a verbatim search match.",
+        "Full 2023 journal update and older coding textbooks were not completely inspected; greater coverage would reinforce rather than be necessary for the Singleton implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_BASE_NOT_EXACT_FORMULA",
+          "evidence": "The analyzed source defines the same channel; its published upper bounds concern larger n, but necessary fixed-puncturing Hamming-code reduction is already a routine standard implication.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.09352",
+          "material_read": "Six-page 2020 conference preprint PDF, pages 1–3 including channel balls, Claim 1, Theorem 4 nonbinary and Theorem 7 binary multiple-substitution bounds",
+          "method": "lawful arXiv PDF and rendered pages",
+          "title": "Single-Deletion Single-Substitution Correcting Codes",
+          "trigger": "same combined deletion/substitution channel"
+        },
+        {
+          "assessment": "FULL_TEXT_NOT_INSPECTED",
+          "evidence": "Journal article abstract confirms nonbinary and s-substitution asymptotic/nonasymptotic context; uninspected appendix could contain a comparable formula.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2023.3319088",
+          "material_read": "Published journal bibliographic abstract and model description; full 2023 journal article not read independently",
+          "method": "university publication metadata",
+          "title": "Single-Deletion Single-Substitution Correcting Codes (journal)",
+          "trigger": "extended primary version might include threshold"
+        },
+        {
+          "assessment": "STRONG_COVERAGE",
+          "evidence": "A_q(2s+1,2s+1)≤q; direct all-distance bound excludes pairs at n≤2s+1.",
+          "identifier_or_url": "classical coding theory, A_q(N,D)≤q^(N−D+1)",
+          "material_read": "The standard all-parameter theorem and its direct coordinate-puncturing proof applied to the source statement",
+          "method": "elementary independent mathematical implication",
+          "title": "Singleton bound for q-ary Hamming codes",
+          "trigger": "dominating parameter after deletion mapping"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The first feasible length is a natural model parameter, but here both sides of the proposed “sharp threshold” collapse through routine prefix puncturing, classical Hamming sphere separation/Singleton, and repetition. There is no new structural characterization of deletion overlap, nontrivial extremizer classification, or threshold mechanism beyond that textbook reduction. Under the same standard used for other elementary deductions, correctness and all-parameter notation alone do not make this independently worthwhile.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The exact combined-channel cutoff might not be written verbatim in the inspected code-theory literature; the rejection rests on a direct, mathematically decisive prior-theorem implication rather than a verbatim search match.",
+    "Full 2023 journal update and older coding textbooks were not completely inspected; greater coverage would reinforce rather than be necessary for the Singleton implication."
+  ],
+  "schema_version": 1
+}
