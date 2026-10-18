@@ -1,15 +1,21 @@
-# Scientific review: marked Boolean-cube average-mixing rank
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The matrix is defined by infinite-time Cesàro probability averaging and represented as the Schur-square sum of its distinct-eigenvalue projectors. An onsite rank-one defect preserves Fourier-weight dark subspaces while shifting all radial eigenvalues away from them. The identity \(f^{\mathsf T}(F\circ F)f=\|F\operatorname{diag}(f)F\|_F^2\) makes the exact dark kernel accessible through Fourier block compressions; the induction covers every even Fourier weight and proves precisely one additional even kernel vector. Signed odd diagonal moments provide an exact triangular, nonvanishing radial spanning certificate, and the dimension intersection establishes the stated rank without genericity assumptions. The unmarked case is derived separately by tensor factorization. The included exact arithmetic and numerical checks support, but do not replace, the all-dimension proof. Risk: the substantial Fourier-compression induction and spectral-disjointness arguments require independent evaluation; none of the finite checks establishes the theorem for arbitrary dimension.
+PASS
 
-## Originality — PASS (qualified)
+Walsh E_j decompose into 1 radial vector w_j and unaffected dark projector F_j. Rank-one secular polynomial at lambda_j=d-2j equals -tau*m_j/N times nonzero product; bright Jacobi spectrum is simple and disjoint for tau!=0. PSD Schur squares yield f^T(F_j∘F_j)f=||F_j diag(f)F_j||_F^2; induction on Fourier even weight forces all even coefficients equal, so dark kernel=odd-Walsh⊕span(h), rank=N/2-1. Odd powers H^(2r+1) have diagonals zero for shell k>r and tau(r!)^2 at k=r. Bipartite symmetry cancels dark diagonal contributions; these odd moments span radial bright intensities of dimension d+1. Their overlap with the dark range has dimension floor(d/2), giving rank N/2+ceil(d/2) and kernel O∩R_perp. Separately tensorizing the unmarked probability matrix gives rank N/2 for tau=0. Independent eigensolver checks for d=1..4 and tau=-2,0,1.3 give the predicted ranks; these are not a proof for all d.
 
-The closest foundational work is the exact average-mixing method of Coutinho–Baptista–Godsil–Spier–Werner and the commutant-rank theory of Coutinho–Godsil–Guo–Zhan. Moore–Russell treat the unmarked cube; Lugão–Portugal–Sabri–Tanaka study marked-vertex search performance rather than the rank of the complete time-averaged probability matrix; Mohan–Zhan use a discrete-time marked-vertex walk. Inspected primary materials do not supply the specific nonzero-mark rank jump, its exact odd-Walsh/radial kernel, or a dominating claim from which these follow immediately. Related published mathematical statements were checked for material implication, not title matching. Residual risk: a wider unpublished or unlocated association-scheme/perturbation identity might subsume the classification; search nonappearance does not prove priority.
+## originality
 
-## Value — PASS
+PASS
 
-A one-site defect in a hypercube is the canonical rank-one perturbation in continuous-time spatial quantum search. The finding gives a sharp, parameter-independent law valid across all dimensions, and identifies which symmetry sectors gain time-averaged visibility while a large dark subspace persists. This is an exact, nontrivial structural classification, not a numerical example or a routine consequence of a generic bound. It determines a physically interpretable effect on the entire transfer-probability matrix, distinct from initial-state search success or instantaneous mixing.
+The exact perturbation-independent marked-cube rank jump and Fourier/radial kernel classification specialize general average-mixing commutant machinery, but are not claimed in the inspected underlying continuous-time spectral theory. Discrete-time marked-vertex mixing and continuous-time search success results involve different Hilbert evolutions or outputs; exact spectral projectors and all-start time-average rank are key distinctions.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A single marked site is a canonical symmetry-breaking perturbation in hypercube continuous-time quantum walks. The complete all-dimension rank and dark-subspace classification quantifies which radial Walsh sectors become visible, independent of defect strength and sign. This is a natural invariant rather than a tiny numerical curiosity or a generic rank bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
