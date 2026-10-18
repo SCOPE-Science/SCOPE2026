@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The exact small-divisor pairing gives |S′(n)|=(tau(n)-2)/2 for nonsquares and (tau(n)-1)/2 for squares; the square threshold is correctly excluded as O(sqrt X). For nonsquare least-prime-p integers, tau(n)<=2(p+1) bounds the number of other distinct prime factors by u=floor log2(p+1). Patterns with u distinct first-power primes contribute via Landau, and the allowed exponent of p satisfies (e+1)2^u<=2(p+1), i.e. e<=E. Every other finite exponent pattern has fewer free first-power primes; summable prime-square weights and Landau show negligible total. Exhaustive independent divisor-set and divisor-count checks succeeded for n=2..250000, including every perfect square; they do not replace Landau or the infinite argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nataraj (2022), Theorem 1: zero density of all Schreier integers; Corollary 1: zero density for each smallest-prime stratum, with a Landau comparison.",
+        "Published published-finding corpus entries titled “Fixed-prime-factor layers of exponential-perfect numbers” and “Fixed-prime-support asymptotics for refactorable numbers” concern exponential-perfect integers and the condition tau(n)|n respectively; neither implies Schreier membership."
+      ],
+      "reasoning": "A zero-density theorem, even with an upper bound of the correct scale, does not determine a stratum-specific asymptotic coefficient. The indexed exponent-pattern density laws have distinct defining arithmetic properties; no domination or implication to the Schreier least-prime problem was found.",
+      "searches": [
+        "published-finding corpus: Karthik Nataraj 2022 Schreier numbers density zero Corollary 1 exact leading coefficient",
+        "published-finding corpus: Schreier number number of divisors tau(n) threshold least prime factor classification Landau prime-power exponent asymptotic",
+        "Web: \"Schreier numbers\" exact asymptotic least prime factor prime p Nataraj"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2209.06900 (full-text transcription of origin)",
+      "Chu project note PDF (Section 3, visible page inspection)",
+      "Landau (1909), theorem restated in Nataraj; original unavailable",
+      "Published published-finding corpus entry: Fixed-prime-factor layers of exponential-perfect numbers",
+      "Published published-finding corpus entry: Fixed-prime-support asymptotics for refactorable numbers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nataraj derives the divisor pairing and restricts the number of distinct primes above the smallest prime, then proves global density zero; it does not distinguish the extra leading contribution p^2 q_1...q_u allowed for selected primes.",
+        "Chu supplies the Schreier definition, elementary gap and density questions, but not least-prime local coefficients.",
+        "Landau’s fixed-factor asymptotic supplies the general prime counting input, but alone does not identify which prime-exponent patterns obey the Schreier small-divisor constraint."
+      ],
+      "reasoning": "The claimed result requires jointly classifying admissible maximal prime-factor layers and adding their precise Landau contributions. Nataraj's qualitative result and local comparison do not present the correct coefficient C_p for E_p=2, and cannot simply be cited as a stronger theorem implying the full statement. The higher-layer exclusion and the e=2 switch are explicit proof additions.",
+      "searches": [
+        "Primary full text: Nataraj 2022, Theorem 1 / Lemma 1 / Corollary 1 / Section 6",
+        "Primary: Chu, Numbers with Small/Large Divisors Satisfying Some Recurrence Relation, Section 3",
+        "published-finding corpus: Asymptotic distribution Schreier numbers least prime factor p power exponents Landau exact local density"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nataraj (2022), Corollary 1, arXiv:2209.06900, counts Schreier integers with least prime p only to establish zero ordinary density and displays an exponent-one Landau comparison; no complete constant C_p incorporating both exponent-one and exponent-two p-layers is formulated.",
+        "Chu, project note, Section 3 (Problem 3.8) poses the density question but contains no least-prime asymptotic."
+      ],
+      "reasoning": "The exact new target is N_p(X) with a fixed *least* prime and sharp coefficient C_p; it is not an unrestricted almost-prime count nor the zero ordinary density. The local comparison in Nataraj refers to an exponent-one leading pattern; the displayed C_p includes a second leading p-power pattern when E_p=2. For example p=2 yields 1/2+1/4, not 1/2. The source's asymptotic-comparison notation is a residual interpretation risk; it does not supply the claimed E_p-dependent coefficient.",
+      "searches": [
+        "published-finding corpus: Schreier numbers nontrivial small divisors asymptotic count with fixed smallest prime factor 2,3,5,11",
+        "Web: \"Schreier numbers\" \"least prime factor\" counting",
+        "Web: \"Schreier numbers\" asymptotic least prime count fixed prime"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches for an OEIS sequence or table explicitly tabulating Schreier-number least-prime counting constants produced no matching table. The arithmetic verifier enumerated these values through X=250000 independently, but the finite counts cannot establish a limiting coefficient.",
+        "The closest published-finding corpus returns concern other arithmetic sets, not an exact Schreier least-prime density table."
+      ],
+      "reasoning": "No exact tabulation of the quantity C_p or a table implication covering the asymptotic was located. Failure to find such a table is only a residual-risk statement, not a proof of originality.",
+      "searches": [
+        "Web: site:oeis.org \"Schreier numbers\" \"small divisors\"",
+        "Web: site:oeis.org \"Schreier\" \"nontrivial divisors\"",
+        "published-finding corpus: For every fixed prime p, count Schreier numbers with least prime factor p asymptotic x/log x"
+      ]
+    },
+    "rationale": "The closest 2022 paper proves zero ordinary density and sketches the leading exponent-one Landau comparison, but it does not formulate the complete fixed-prime coefficient incorporating the permitted square of the least prime. The present exact phase condition E_p∈{1,2} and C_p=sum_{e<=E_p}p^{-e} are not implied by the cited zero-density statement. Targeted published-finding corpus and primary-literature comparisons found no equivalent sharp coefficient; the source Corollary 1 comparison remains an explicitly documented interpretation risk.",
+    "residual_risks": [
+      "Nataraj Corollary 1 displays an asymptotic comparison of the local count with an exponent-one prime-factor layer; its intended precision and relationship to the omitted p^2 layer require particular attention.",
+      "Potential equivalent sharp local asymptotics in unindexed material or undiscovered later literature.",
+      "The original 1909 Landau monograph was not obtained, though the fixed-factor result is classical and quoted in the inspected 2022 source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct closest source: proves zero ordinary density, not the E_p-dependent local sharp constant. A displayed asymptotic comparison in Corollary 1 warrants separate caution.",
+        "evidence": [
+          "2022 v1 posted 2022-09-14; full text lines 88--231, 233--312, 374--464, 877--974 in the accessible transcription."
+        ],
+        "identifier_or_url": "arxiv:2209.06900 | https://www.researchgate.net/publication/363584847_Schreier_Numbers_and_Nontrivial_Small_Divisors_Satisfying_Linear_Recurrence_of_Order_at_Most_Two",
+        "material_read": "Accessible primary-paper HTML transcription: definitions and the statements of Theorems 1--4; detailed Section 2 (Lemma 1, Corollary 1 and Landau comparison); the Section 3 gap discussion; Section 6 and references. The full proof of the unrelated recurrence classification was not reviewed.",
+        "method": "Compared exact stated assertions and parameter coverage at theorem/corollary level with the fixed-least-prime coefficient, including p-power exponents.",
+        "title": "Schreier Numbers and Nontrivial Small Divisors Satisfying Linear Recurrence of Order at Most Two",
+        "trigger": "same object; density, divisor count, least prime and Landau comparison"
+      },
+      {
+        "assessment": "Gives Schreier-number definition, simple gap result and global density questions, but no sharp least-prime asymptotics.",
+        "evidence": [
+          "Problem 3.8 asks about Schreier density; Proposition 3.5 gives a gap bound, not a local counting asymptotic."
+        ],
+        "identifier_or_url": "https://web.williams.edu/Mathematics/sjmiller/public_html/polymathreumiller/ChuPossibleProjects.pdf",
+        "material_read": "Section 3.1--3.2 on pp. 2--3, especially Problems 3.7--3.10 and Proposition 3.5; references on p. 4.",
+        "method": "Read page text and inspected the visible page containing statements, looking for asymptotic stratification by least prime.",
+        "title": "Numbers with Small/Large Divisors Satisfying Some Recurrence Relation",
+        "trigger": "early originating density questions and Schreier arithmetic notions"
+      },
+      {
+        "assessment": "Provides a generic analytic counting theorem, not Schreier membership or the coefficient switch.",
+        "evidence": [
+          "Nataraj 2022, Section 2 and reference [14]."
+        ],
+        "identifier_or_url": "Landau (1909), pp. 203--211; cited by Nataraj (2022), ref. [14]",
+        "material_read": "Classical theorem statement as restated and used in the read Nataraj Section 2; original monograph pages not directly obtained.",
+        "method": "Used the standard fixed-factor asymptotic only as an attributed mathematical input; no whole-document noncoverage assertion.",
+        "title": "Handbuch der Lehre von der Verteilung der Primzahlen",
+        "trigger": "standard distribution of integers with fixed numbers of prime factors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e0e89ca8-38a3-4830-98ef-a95b5a09107f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The paper motivating the question proves vanishing density, but this does not tell how numerous Schreier integers are inside each fixed least-prime stratum. The theorem gives a complete asymptotic hierarchy with explicit constants, shows phase transitions when the permissible number of other prime factors increases, and identifies exactly when a second p-power layer changes the leading constant (for p=2 from 1/2 to 3/4). These are natural quantitative data directly tied to the small-divisor Schreier condition; the result does not claim a globally summed asymptotic or paper-scale consequence.",
+    "status": "PASS"
+  }
+}
