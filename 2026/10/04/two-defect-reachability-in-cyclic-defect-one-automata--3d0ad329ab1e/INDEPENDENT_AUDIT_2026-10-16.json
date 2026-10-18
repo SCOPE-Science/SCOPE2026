@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T12:56:11.074503Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Reconstructed the full normal form b a^k b a^j; a leading a power fixes Q. After first b and rotation, the missing h lies either inside the two-element duplicate kernel (then the second image still has n-1 states) or outside (then the second b omits exactly e and b(h)). The bijection b:Q\\K -> Q\\{e,d} makes the obtainable oriented nonzero hole differences all residues except rho=d-e. An unordered pair is excluded in both orientations iff n even, rho=n/2 and the pair is antipodal. Witness k=h-e mod n and j=x-e mod n gives length <=2n, for ALL n>=3; the exceptional case is only about exactly two b occurrences, not global reachability. Independent exhaustive brute-image enumeration (not source verifier) over all rank-n-1 b for n=3,4,5,6 checked 18,144,1200,10800 transformations, yielding exceptional maps only at even antipodal parameters (48/144 at n4 with two unreachable pairs; 2160/10800 at n6 with three). Infinite proof is structural, not inferred from finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu studies standardized completely reachable automata and obtains different general Don bounds.",
+          "Ferens–Szykuła bound 5n/2 for n-2 sets requires complete reachability; present 2n needs only a cyclic permutation and arbitrary rank-n-1 letter."
+        ],
+        "reasoning": "Neither completeness-dependent bound implies reachability and the exact antipodal obstruction for non-completely-reachable automata. Hoffmann primitivity criterion does not apply generally at composite n.",
+        "searches": [
+          "circular automata defect-one letter reach two missing states n-2 subset two occurrences duplication exclusion difference",
+          "Zhu Around Don conjecture binary completely reachable automata arXiv:2402.19089",
+          "Ferens Szykula Recognizing Completely Reachable Automata in Quadratic Time 2026"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1507.06070v2",
+        "https://arxiv.org/abs/2007.09104",
+        "https://arxiv.org/abs/2311.00077",
+        "https://arxiv.org/abs/2402.19089",
+        "https://doi.org/10.1145/3798283",
+        "Resultary semantic query: circular automata defect-one letter reach two missing states n-2 subset two occurrences duplication exclusion difference"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Don gcd(rho,n)=1 implies all k-subsets, while n=9,rho=3 violates gcd but is covered by the new codimension-two statement.",
+          "In even antipodal case the theorem does not assert global nonreachability; no stronger claim inferred."
+        ],
+        "reasoning": "Don gives the coprime special case but no converse on exactly-two-b words, and noncoprime parameters escape his sufficient hypothesis.",
+        "searches": [
+          "arXiv:1507.06070 Section 4 Proposition 2",
+          "arXiv:2402.19089",
+          "Don 2016 paper circular rank n-1 coprime"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Don Proposition 2 characterizes coprime displacement as sufficient for all k-subsets with n(n-k) length; present iff classifies two-b holes even with noncoprime displacement.",
+          "Don Section 2.3 states a general lower coverage count C(n,2)-n, not exact noncoprime formula."
+        ],
+        "reasoning": "A defect-one letter equals a 1-deficient label; normalized b a^k b a^j is a special concatenation of Don deficient words. Existing 1-contracting estimates do not determine the complete missing-pair set for arbitrary cyclic displacement.",
+        "searches": [
+          "circular automata defect-one letter reach two missing states n-2 subset two occurrences duplication exclusion difference",
+          "Don The Cerny conjecture and 1-contracting automata arXiv:1507.06070 Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent full finite census n=3..6 reproduces the missing-pair pattern; no preexisting published general table or exact iff found in inspected primary works."
+        ],
+        "reasoning": "This is a uniform structural classification, not recomputation of a fixed numerical database. Search coverage is not proof of absence.",
+        "searches": [
+          "circular automata defect-one letter reach two missing states n-2 subset two occurrences duplication exclusion difference",
+          "rank n-1 circular automata n=4 n=6 missing antipodal pairs database"
+        ]
+      },
+      "rationale": "PASS, best-of-knowledge: Don 2016 Proposition 2/Section 4 proves n(n-k) subset reachability for circular rank-defect-one machines when gcd(rho,n)=1 and his introduction observes generic 1-contracting reachability for at least C(n,2)-n codimension-two sets. Here the exact two-b classification holds for arbitrary rho, including noncoprime n=9,rho=3, and isolates the one antipodal obstruction, with explicit <=2n witnesses. Don does not give this precise all-displacements iff statement. Other reachability results require complete reachability, primitivity, or stronger hypotheses. Sharpness via Cerny family is preexisting, not a novel separate claim.",
+      "residual_risks": [
+        "A hidden older transformation-semigroup formulation might give the same exact two-occurrence classification; searches cannot certify novelty.",
+        "Cerny sharpness is cited prior result rather than independently proved from original bound in this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Coprime condition essential to his full k reachability proof, does not state exact noncoprime two-b classification",
+          "evidence": "Section 2.3 paragraph after Lemma 1 and Section 4 Proposition 2/its proof",
+          "identifier_or_url": "https://arxiv.org/html/1507.06070v2",
+          "material_read": "Full HTML sections 1–4, including Definition 2, Theorem 2, Proposition 2 and its proof, remarks on n-2 subsets",
+          "method": "Read original complete arXiv HTML primary text",
+          "title": "Henk Don, The Cerny conjecture and 1-contracting automata",
+          "trigger": "Exact same circular 1-deficient automata and n(n-k) bound"
+        },
+        {
+          "assessment": "General completely-reachable bound does not cover noncomplete members; sharp Cerny examples prior",
+          "evidence": "General shortest subset-reaching bounds and examples",
+          "identifier_or_url": "https://doi.org/10.1145/3798283",
+          "material_read": "Relevant readable full OA article sections and theorem statement",
+          "method": "Web full-text material reading",
+          "title": "Ferens and Szykula, Recognizing Completely Reachable Automata in Quadratic Time",
+          "trigger": "Potential stronger general reaching threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Resolves the natural first nontrivial two-defect subset-reachability layer for the broad class of all cyclic-letter plus arbitrary defect-one-letter automata, identifies a sharp parity boundary, and gives explicit uniformly short words beyond coprime/complete-reachability assumptions; not a mere restatement of Don general bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Not a claim about globally unreachable antipodal targets using more than two b letters.",
+    "No target-by-target shortest-word classification; uniform coefficient sharpness relies on known classical example."
+  ],
+  "schema_version": 1
+}
