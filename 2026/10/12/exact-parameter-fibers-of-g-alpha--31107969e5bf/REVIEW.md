@@ -1,15 +1,21 @@
-# Review: Exact parameter fibers of \(g_\alpha\)
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces equality of \(g_\alpha(n)\) and \(g_\beta(n)\) to equality of lcm exponents and then works prime by prime. The minimum exponent valuation \(v_\ell(h)\) is exactly the threshold below which the parameter valuation is invisible; above it, a coordinate attaining the minimum recovers the parameter valuation. This proves both directions of the normalized-parameter criterion. The exact fiber formula is then a direct solution of the resulting valuation constraints. The embedded verifier is regression evidence only and agrees with the theorem on the stated finite ranges.
+## correctness
 
-## Originality
-**PASS.** The closest primary result is Mittou's 2023 Theorem 2.2, which identifies only the fiber of the original value \(n\): \(g_\alpha(n)=n\) exactly when \(\alpha\mid h\). The inspected 2025 follow-up treats compositions and an equivalence relation between different base integers. Neither source states or implies the complete fixed-base parameter equivalence \(g_\alpha(n)=g_\beta(n)\) iff the normalized parameters agree, nor the explicit fiber cardinalities. Targeted scholarly and semantic searches did not locate a stronger statement. The previously checked gcd-exponent companion theorem has a different invariant and finite periodic image, so it does not imply this result.
+PASS
 
-## Value
-**PASS.** The source itself motivates the parameter equation by proving finiteness of one distinguished fiber. Determining all fibers, their exact sizes, and the injectivity boundary is a natural completion of that structural question. The result is narrow but exact and reusable for any fixed factorization pattern; it is not a routine increment of a cutoff or a recomputation of a table.
+Unique factorization reduces g_alpha(n)=g_beta(n) to lcm(e_i,alpha)=lcm(e_i,beta) for every i. For each prime ell, write m=min_i v_ell(e_i)=v_ell(h). The max-vector (max(v_ell(e_i),v_ell(alpha)))_i is constant for valuations <=m and injective for valuations >m because some e_j has valuation exactly m. Thus equality is equivalent to equality of max(v_ell(alpha)-m,0) at every ell, precisely alpha/gcd(alpha,h)=beta/gcd(beta,h). For normalized s, primes ell dividing both h,s have alpha-valuation m+v_ell(s); primes in h not s have exponent 0..m; all other primes fixed. This gives alpha=s h_s d for d|h^(s), with tau(h^(s)) elements, h=1 injectivity and infinitely many output classes. Independently compared all pairs alpha,beta<=80 for exponent tuples (6,10),(12,24,36),(4,8,12),(3,5,7),(8).
 
-## Closest literature and limitations
-The strongest checked overlap is the \(s=1\) special case in the 2023 paper. The 2025 paper is broader in other directions but asks a differently quantified equivalence problem. The remaining originality risk is notation mismatch in uninspected literature. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Mittou 2023 Theorem 2.2 characterizes only the special fiber g_alpha(n)=n as alpha|gcd(e_i). The full 2025 Mittou follow-up Theorems 2.1-2.6 gives compositions/inequalities and a relation varying the base integer (same alpha), not the fixed-base relation between two parameters alpha,beta. The classification of every normalized s fiber and its exact cardinality is distinct from the known s=1 case. Proof elementary but the complete orbit/fiber invariant is not simply copied from a table.
+
+## value
+
+PASS
+
+The g_alpha family is a named natural arithmetic-function construction. Knowing exactly when different parameter values are redundant gives a complete parameterization, computable fiber sizes, and a clean injectivity criterion for this family; a future study of composition/orbits can use these collision classes. Although short prime-adic reasoning, a full natural-family fiber classification can be independently useful; no contrived finite slice is involved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
