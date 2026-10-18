@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is symbolic and applies to every \(n\ge3\). The bundled `verify.py` is a finite corroboration of its two critical ingredients.
+## correctness
 
-First, for each \(3\le n\le9\), the script constructs the crown graph from its adjacency rule and computes shortest-path distances by breadth-first search. It checks that each same-side pair with indices \(i\ne j\) is distinguished by exactly the four vertices in \(P_i\cup P_j\), while every opposite-side pair is distinguished by all \(2n\) vertices. It therefore confirms that the minimum distinctive-set size is \(4\).
+PASS
 
-Second, the script exhausts all \(2^{2n}\) vertex subsets. For each \(k\in\{1,2,3,4\}\), it independently tests the generator condition against the verified distinctive sets, finds the minimum size, counts all minimum bases, and checks their pair-occupancy profiles. The expected outputs are \(n-1,n,2n-1,2n\) and \(n2^{n-1},2^n,2n,1\).
+For Cr_n=K_{n,n} minus a perfect matching, n>=3, compute d(a_i,a_j)=2 for i!=j, d(a_i,b_j)=1 for i!=j and d(a_i,b_i)=3. Every same-side pair i,j is distinguished exactly by P_i union P_j, every opposite-side pair by all 2n vertices. A set S is k-metric exactly when all c_i+c_j>=k with c_i=|S intersect P_i| in {0,1,2}; these constraints imply |S|>=k for the other pair type. Optimizing the smallest two c_i proves minimum sizes (n-1,n,2n-1,2n) and, crucially, ALL minimum occupancy profiles and exact counts (n*2^(n-1), 2^n,2n,1) for k=1..4; k>4 impossible. Independent fresh BFS and subset enumeration at n=3..6 reproduced distances, minimal sizes, profile types and counts. It is corroboration; the proof is the all-n integer-inequality reduction.
 
-A successful run prints one line beginning `VERIFY_OK`. Exhaustive verification through \(n=9\) does not replace the infinite proof; it is intended to detect indexing, boundary, and counting errors in the closed formulas.
+## originality
+
+PASS
+
+Vertex-pair k-metric dimension on matching-deleted bicliques is not the edge metric dimension or ordinary complete-bipartite dimension. The primary k-metric framework already proves a general bound on maximal k and treats complete bipartite graphs. Its stated theorems do not specialize directly to this deleted-matching profile/ALL bases. The nearest semantic corpus crown record is specifically EDGE metric bases; apparent coincidence of n-1 and n2^(n-1) at k=1 does not entail the full vertex k-hierarchy. Search and full-text inspection found no theorem directly implying all four dimensions and optimizer counts; best-of-knowledge only.
+
+## value
+
+PASS
+
+A complete k-metric hierarchy for a canonical sparse perturbation of K_{n,n}, including ALL metric bases and the fault-tolerant k=2 row, is a natural exact graph invariant. The same-side pair distinction and occupancy inequalities also give a reusable characterization rather than an isolated small-case computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

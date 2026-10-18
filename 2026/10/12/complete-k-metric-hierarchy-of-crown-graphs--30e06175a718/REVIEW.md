@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the graph distances from the definition of \(\operatorname{Cr}_n\). For a same-side pair indexed by \(i,j\), the distinctive set is exactly \(P_i\cup P_j\); every opposite-side pair is distinguished by every vertex. Therefore a candidate \(S\) is a \(k\)-metric generator exactly when its occupancy profile \(c_i=|S\cap P_i|\) satisfies \(c_i+c_j\ge k\) for all distinct \(i,j\). The four minima and basis classifications then follow by optimizing entries from \(\{0,1,2\}\). The bundled exhaustive verifier independently reconstructs distances and checks every subset for \(3\le n\le9\).
+## correctness
 
-## Originality
-PASS, with a residual indexing risk. The foundational \(k\)-metric paper arXiv:1312.6840 was inspected through its full text and searched for crown, matching, and complete-bipartite-minus-matching formulations. It defines the parameter and gives general machinery but not this crown hierarchy. arXiv:1409.2695 was inspected for the fault-tolerant equivalence and likewise contains no crown or matching-deletion computation. arXiv:1605.06709 was inspected because it broadens \(k\)-metric theory and treats complete bipartite graphs in related settings; it contains no crown or perfect-matching-deletion theorem. Focused published-finding corpus searches under the same aliases returned no statement implying the retained claim.
+PASS
 
-## Value
-PASS. The finding gives the complete robustness ladder for a standard distance-transitive family, not only a single scalar value. It simultaneously identifies the maximal feasible \(k\), determines every \(\dim_k\), classifies all minimum bases, counts them exactly, and isolates fault-tolerant metric dimension as a transparent matching-transversal case. The reduction to the deleted-pair occupancy profile is reusable for robustness and redundancy questions on related matching-deleted networks.
+For Cr_n=K_{n,n} minus a perfect matching, n>=3, compute d(a_i,a_j)=2 for i!=j, d(a_i,b_j)=1 for i!=j and d(a_i,b_i)=3. Every same-side pair i,j is distinguished exactly by P_i union P_j, every opposite-side pair by all 2n vertices. A set S is k-metric exactly when all c_i+c_j>=k with c_i=|S intersect P_i| in {0,1,2}; these constraints imply |S|>=k for the other pair type. Optimizing the smallest two c_i proves minimum sizes (n-1,n,2n-1,2n) and, crucially, ALL minimum occupancy profiles and exact counts (n*2^(n-1), 2^n,2n,1) for k=1..4; k>4 impossible. Independent fresh BFS and subset enumeration at n=3..6 reproduced distances, minimal sizes, profile types and counts. It is corroboration; the proof is the all-n integer-inequality reduction.
 
-## Closest literature and limitations
-The closest prior work is the general theory of \(k\)-metric dimension (arXiv:1312.6840) and the equivalent \(k=2\) fault-tolerant formulation (arXiv:1409.2695). The later general-approach paper arXiv:1605.06709 broadens the framework but does not state the matching-deleted biclique result. The theorem does not enumerate nonminimum generators or cover nonperfect matching deletions. Literature searches cannot exclude unindexed sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Vertex-pair k-metric dimension on matching-deleted bicliques is not the edge metric dimension or ordinary complete-bipartite dimension. The primary k-metric framework already proves a general bound on maximal k and treats complete bipartite graphs. Its stated theorems do not specialize directly to this deleted-matching profile/ALL bases. The nearest semantic corpus crown record is specifically EDGE metric bases; apparent coincidence of n-1 and n2^(n-1) at k=1 does not entail the full vertex k-hierarchy. Search and full-text inspection found no theorem directly implying all four dimensions and optimizer counts; best-of-knowledge only.
+
+## value
+
+PASS
+
+A complete k-metric hierarchy for a canonical sparse perturbation of K_{n,n}, including ALL metric bases and the fault-tolerant k=2 row, is a natural exact graph invariant. The same-side pair distinction and occupancy inequalities also give a reusable characterization rather than an isolated small-case computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

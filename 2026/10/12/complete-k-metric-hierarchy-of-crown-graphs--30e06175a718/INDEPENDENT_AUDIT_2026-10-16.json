@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T12:10:43.569199Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Cr_n=K_{n,n} minus a perfect matching, n>=3, compute d(a_i,a_j)=2 for i!=j, d(a_i,b_j)=1 for i!=j and d(a_i,b_i)=3. Every same-side pair i,j is distinguished exactly by P_i union P_j, every opposite-side pair by all 2n vertices. A set S is k-metric exactly when all c_i+c_j>=k with c_i=|S intersect P_i| in {0,1,2}; these constraints imply |S|>=k for the other pair type. Optimizing the smallest two c_i proves minimum sizes (n-1,n,2n-1,2n) and, crucially, ALL minimum occupancy profiles and exact counts (n*2^(n-1), 2^n,2n,1) for k=1..4; k>4 impossible. Independent fresh BFS and subset enumeration at n=3..6 reproduced distances, minimal sizes, profile types and counts. It is corroboration; the proof is the all-n integer-inequality reduction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Estrada-Moreno et al. identify maximum feasible k by minimum size of distinctive sets and discuss complete bipartite graphs; matching deletion changes same-side distinctions to four-vertex sets."
+        ],
+        "reasoning": "These general machinery statements alone do not infer the four exact occupancy minima or bases for matching-deleted bicliques; no directly covering graph-specific theorem was found.",
+        "searches": [
+          "arXiv:1312.6840 full The k-metric dimension of a graph",
+          "arXiv:1605.06709 The k-metric dimension of graphs: a general approach"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1312.6840",
+        "arXiv:1605.06709",
+        "arXiv:1409.2695",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Maximal feasible k=4 follows from the prior general distinctive-set criterion once the new four-vertex distinction is calculated; the full profile inequality and minimizer census are additional."
+        ],
+        "reasoning": "Explicitly credits framework/term equivalence; derives all-n optimizer structure by a new specialized calculation rather than presenting the general criterion as new.",
+        "searches": [
+          "arXiv:1312.6840 k-metric maximal k criterion",
+          "arXiv:1409.2695 fault tolerant metric dimension"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cr_n is the bipartite double cover of K_n, also K_{n,n} minus a perfect matching; in contrast Resultary edge-metric-bases-of-crown-graphs--b5b3c45f23e8 counts distances to edges."
+        ],
+        "reasoning": "An equivalent theorem must distinguish vertex pairs for all k=1..4 and count bases; the edge-distance theorem uses different landmark targets and only superficially matches the k=1 row.",
+        "searches": [
+          "Resultary crown metric hierarchy matching-deleted biclique k-metric dimensions",
+          "web queries: \"k-metric dimension\" \"crown graph\"; \"crown graph\" \"k-metric\" dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest Resultary exact crown table is for edge metric bases of crowns, not vertex k-metric dimensions."
+        ],
+        "reasoning": "Neither the displayed edge-metric table nor the complete-bipartite formula supplies the four-row vertex k-metric table with basis counts.",
+        "searches": [
+          "Resultary query complete k metric dimension resolving sets crown graph K_n,n minus perfect matching",
+          "published k-metric tables and crown graph vertex metric bases"
+        ]
+      },
+      "rationale": "Vertex-pair k-metric dimension on matching-deleted bicliques is not the edge metric dimension or ordinary complete-bipartite dimension. The primary k-metric framework already proves a general bound on maximal k and treats complete bipartite graphs. Its stated theorems do not specialize directly to this deleted-matching profile/ALL bases. The nearest semantic corpus crown record is specifically EDGE metric bases; apparent coincidence of n-1 and n2^(n-1) at k=1 does not entail the full vertex k-hierarchy. Search and full-text inspection found no theorem directly implying all four dimensions and optimizer counts; best-of-knowledge only.",
+      "residual_risks": [
+        "Unindexed literature under bipartite-double-cover or bipartite Kneser graph aliases may give an equivalent all-k theorem.",
+        "The general maximal-k criterion and the k=2 fault-tolerant interpretation are prior art; no novelty claimed for them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_CROWN_CLASSIFICATION",
+          "evidence": "Maximal admissible k is controlled by minimum distinctive-set cardinality; complete bipartite examples do not equal deletion of a perfect matching.",
+          "identifier_or_url": "arXiv:1312.6840",
+          "material_read": "Full accessible primary text, definitions and distinctive-set/maximum-k theorems and graph examples",
+          "method": "Primary full-text reading",
+          "title": "The k-metric dimension of a graph",
+          "trigger": "Foundational k-metric notion and potential general domination"
+        },
+        {
+          "assessment": "GENERAL_THEORY_NOT_MATCHING_DELETE_PROFILE",
+          "evidence": "No displayed complete crown k=1..4 optimizer table in inspected mathematical statements.",
+          "identifier_or_url": "arXiv:1605.06709",
+          "material_read": "Accessible full-text treatment of k-metric and truncated-distance cases",
+          "method": "Primary full-text reading",
+          "title": "The k-metric dimension of graphs: a general approach",
+          "trigger": "Later comprehensive general theory may cover matching deletions"
+        },
+        {
+          "assessment": "EQUIVALENCE_K2_CREDITED",
+          "evidence": "Fault-tolerant resolving sets correspond to 2-distinguishing landmarks; no crown optimizer census established.",
+          "identifier_or_url": "arXiv:1409.2695",
+          "material_read": "Accessible full-text problem definitions and cases",
+          "method": "Primary full-text reading",
+          "title": "Minimum Fault-Tolerant, local and strong metric dimension of graphs",
+          "trigger": "Fault-tolerant row k=2 might already be solved"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Counts edge-distance resolving bases; does not provide the full vertex k-metric hierarchy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8",
+          "material_read": "Published finding title and full semantic summary; not a primary full paper",
+          "method": "Published finding semantic record",
+          "title": "Edge metric bases of crown graphs",
+          "trigger": "Near exact numeric overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete k-metric hierarchy for a canonical sparse perturbation of K_{n,n}, including ALL metric bases and the fault-tolerant k=2 row, is a natural exact graph invariant. The same-side pair distinction and occupancy inequalities also give a reusable characterization rather than an isolated small-case computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed literature under bipartite-double-cover or bipartite Kneser graph aliases may give an equivalent all-k theorem.",
+    "The general maximal-k criterion and the k=2 fault-tolerant interpretation are prior art; no novelty claimed for them.",
+    "Finite independent computational tests corroborate the analytic proof and are not an infinite proof or external attestation.",
+    "No public file may disclose operational provenance; scientific acceptance does not imply publication readiness."
+  ],
+  "schema_version": 1
+}
