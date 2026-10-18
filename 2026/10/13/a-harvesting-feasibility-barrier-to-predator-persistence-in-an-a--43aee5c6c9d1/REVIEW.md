@@ -1,15 +1,21 @@
-# Review of the harvesting-feasibility barrier
+# Independent mathematical audit
 
-## Correctness — PASS
-The feasible triangle bounds prey by \(h_l/\eta\); the monotonic functional response and \(0\le\psi\le1\) give the stated uniform logarithmic predator decay. At a harvest event, zero restocking and positive proportional losses further decrease predator density. Pulse resets leave a strict gap below the trigger, producing a uniform inter-event lower bound on the compact triangle and ruling out Zeno behavior. These arguments prove the global no-positive-cycle conclusion. The exact Fraction verifier recomputes each witness value, both coexistence equilibria, and the source's case-(1) inequalities. Finite arithmetic verifies the parameters only; the dynamical assertion is analytically proved.
+## correctness
 
-## Originality — PASS
-The closest text is Xu and Zou [1], whose Theorem 2.2(1) claims an order-one existence conclusion using a proposed loss of stability of the semitrivial cycle. It does not state the current no-positive-cycle bound, and its proof seeks a positive orbit. A prior specific calculation for the same model establishes only stability of the predator-free cycle, not global absence of coexistence cycles; both claims are logically different. Full-text comparison with Tian–Gao–Sun [2] reveals an alternative anti-predator law instead of this density-dependent predator Allee law; Xiao–Dai [3] also uses another free-flow model. An inaccessible 2021 general-framework paper remains an access risk. This is a limited evidence-based originality judgment, not a claim of comprehensive priority.
+PASS
 
-## Mathematical value — PASS
-Positive coexistence equilibria of the free-flow model can coexist with a low harvest trigger that excludes all predator persistence: this is an exact biologically interpretable obstruction to using the published parameter inequalities as a **positive** coexistence-cycle criterion. The witness satisfies every explicit case-(1) assumption and demonstrates the mismatch without relying on simulation. The distinction between the source theorem's literal wording and its intended strictly positive conclusion is essential: the semitrivial periodic orbit is not excluded, and no categorical falsehood of the literal existence statement is claimed.
+The theorem concerns feasible positive solutions of the exact Xu–Zou state-dependent impulsive equations with zero predator restocking, 0≤psi≤1 and strict deficit δ=µ-ea(h_l/η)/(1+aq(h_l/η))>0. On H=ηx+(1-η)y≤h_l, x≤h_l/η; monotonicity of ax/(1+aqx) yields y-dot/y≤-δ. Every pulse multiplies y by 1-p2 E_l in (0,1). Therefore y(t)≤y(0)e^{-δt}(1-p2E_l)^N(t); positive periodic solutions of ANY impulse order are excluded. Post-jump H≤κh_l, κ<1, and bounded dot H on the compact triangle yield a positive minimum inter-pulse time, so no Zeno problem. Independent exact fraction checks confirmed ψ(y)=y/(1+y), two positive unharvested equilibria (5,1),(20/3,7/9), source case-(1) h_l=1/2≤min(h*=3,ηK=5), pbar=1/19>p2=1/100 and δ=5/12. The coexistence points lie outside the accessible triangle. The literal source theorem may include a predator-free order-1 orbit, which is not disproved.
 
-## Closest literature and residual risks
-[1] Xu–Zou (2026), DOI 10.3934/math.2026025; [2] Tian–Gao–Sun (2023), DOI 10.3934/mbe.2023071; [3] Xiao–Dai (2015), DOI 10.1155/2015/816325; [4] Tian–Liu–Sun (2024), DOI 10.3934/era.2024297; [5] Zhu–Wang–Ouyang (2021), DOI 10.1080/17513758.2021.1937721. The result assumes zero restocking and a sufficient strict prey-cap inequality; general completeness and experimental validity are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier same-model local Floquet stability work reduces the semitrivial multiplier to (1-p2E_l)e^{-µT}<1, refuting a local instability claim, but explicitly does not exclude disjoint strictly positive periodic trajectories. The current full feasible-triangle decay bound excludes ALL strictly positive cycles under δ>0 and gives a new exact simultaneous-theorem-hypotheses witness. Xu–Zou 2026 original printed Theorem 2.2(1) is an existence claim with a positive-cycle argument, not a proof of the global exclusion. No searched published same-model theorem or cited neighboring weighted-harvest model implies the specific strict-positive impossibility at these exact parameters. O PASS with risk of a generic unpublished barrier and literal semitrivial ambiguity.
+
+## value
+
+PASS
+
+A strict feasibility barrier for predator persistence exposes a substantive missing hypothesis in a recent impulsive-fishery positive-periodic-orbit argument, even with two unharvested coexistence equilibria and every printed numerical case-(1) inequality satisfied. It is a global invariant obstruction, stronger than a local stability calculation, with exact biological-variable parameter witness; not merely a sign or formatting check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
