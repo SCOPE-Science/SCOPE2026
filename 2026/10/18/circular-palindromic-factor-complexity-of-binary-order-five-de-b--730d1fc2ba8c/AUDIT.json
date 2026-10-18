@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "A fixed-edge DFS exhausts Euler circuits of the binary four-bit de Bruijn graph. Separately, all 2^16 local incoming-to-outgoing pairings are examined, retaining precisely 32-cycles in the edge permutation. Both enumerate identical sets of 2048 rotation classes; every candidate has all 32 length-five windows distinct. Direct cyclic factor enumeration and outward odd/even palindrome-center expansion agree as sets of strings for every candidate. Exact outputs are 22:32,23:32,24:200,27:192,28:920,29:544,30:128 with 51 full palindrome-complexity profiles; 528 symmetry orbits and the rational moments agree with independent recomputation. The standalone code checks the actual accompanying CSV tables. This is exhaustive only for the specified finite domain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Burris et al., arXiv:1608.08480, Sections 1–5, construct and analyze unoriented de Bruijn sequences, a different covering object.",
+        "Anisiu et al., arXiv:1002.2723, Proposition 2, use de Bruijn words to generate all palindromes of a specified length, without enumerating how many distinct palindromes occur in each de Bruijn cycle."
+      ],
+      "reasoning": "The general fact that all binary words through length five occur supplies exactly 20 short palindromes per cycle. It does not specify the remaining palindromes of lengths six to 32 or the seven-point spectrum.",
+      "searches": [
+        "palindrome distribution de Bruijn cycles order five",
+        "arXiv:1608.08480",
+        "de Bruijn sequences palindromes lengths rich words distribution order five"
+      ]
+    },
+    "checked_sources": [
+      "Anisiu–Anisiu–Kása, arXiv:1002.2723, full accessible text",
+      "Burris–Motta–Shipman, arXiv:1608.08480, full accessible text",
+      "Classical binary de Bruijn circuit enumeration and local edge permutation characterization"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The cycles 00000100110100011101100101011111 and 00000100011010011101100101011111 both have longest circular palindrome length seven but distinct counts 22 and 23, directly verified from complete sets.",
+        "Unoriented de Bruijn sequences cover reversal pairs of order-length factors, whereas ordinary de Bruijn cycles contain every directed order-five factor exactly once."
+      ],
+      "reasoning": "A distribution of the maximum palindrome length, a palindromic partition length, or reflection-covering existence cannot logically yield the full distribution of distinct palindromic factor counts. The explicitly exhibited pair separates maximum length from count.",
+      "searches": [
+        "palindromic length binary de Bruijn cycles order five longest palindrome",
+        "circular palindromic factor count binary de Bruijn cycles",
+        "arXiv:1608.08480"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Anisiu et al., arXiv:1002.2723, Sections 2–4, treat palindrome generation and general finite-word complexity, not the 2048-cycle census.",
+        "The circular palindrome total counts distinct strings once each; it is not the palindromic defect of an arbitrarily chosen linear rotation."
+      ],
+      "reasoning": "Palindromic richness and the sum of circular palindrome complexity by length are equivalent formulations of P(B), both searched and compared; the inspected material does not tabulate this distribution.",
+      "searches": [
+        "de Bruijn cycle circular palindrome richness number distinct palindrome factors distribution",
+        "palindromic defect de Bruijn sequences palindromic complexity rotations paper",
+        "arXiv:1002.2723"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Two full primary article texts were inspected for explicit order-five total-palindrome tables and none was found.",
+        "The published count of 2048 binary order-five de Bruijn cycles is a population size, not a table of the claimed palindrome totals."
+      ],
+      "reasoning": "Neither an indexed exact table nor a table with an obviously dominating invariant was identified in the inspected materials. This cannot rule out an unindexed enumeration.",
+      "searches": [
+        "de Bruijn cycles palindromic factor complexity spectrum order 5",
+        "de Bruijn cycle circular palindrome richness number distinct palindrome factors distribution",
+        "arXiv:1002.2723"
+      ]
+    },
+    "rationale": "Anisiu et al. study generating palindromes from de Bruijn words and generic palindrome complexity, not the population distribution of distinct circular palindromes in ordinary order-five cycles. Burris et al. study unoriented reversal-covering sequences, not this invariant. A longest-palindrome spectrum does not determine the new quantity, as two cycles sharing maximum length seven but with totals 22 and 23 demonstrate. Relevant indexed searches did not identify the 7-class or 51-profile spectrum. Residual risk from unindexed earlier enumeration remains.",
+    "residual_risks": [
+      "Unindexed, unpublished, or inaccessible earlier tabulation of this exact 2048-cycle palindromic-factor spectrum cannot be excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Background for palindrome complexity and de Bruijn generating constructions; no per-cycle circular-palindrome population classification.",
+        "evidence": [
+          "Proposition 2 generates all length-k palindromes from a suitable de Bruijn word, not the set present inside each order-five cycle.",
+          "Section 4 takes averages over unrestricted words and establishes broad bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1002.2723",
+        "material_read": "Complete available article text, including Sections 2, 3, and 4 and their propositions, theorems, and conclusions.",
+        "method": "Read accessible full HTML text with definitions, proof statements, and de Bruijn discussion.",
+        "title": "Properties of palindromes in finite words",
+        "trigger": "De Bruijn words and total palindromic complexity of finite words appear directly relevant."
+      },
+      {
+        "assessment": "Different problem: unoriented covers, existence and length bounds; no distribution of distinct circular palindromes in the ordinary order-five population.",
+        "evidence": [
+          "Theorem 4.3 classifies existence of optimally short unoriented sequences by alphabet/order.",
+          "Section 5 concerns edge duplication for unoriented graphs, not the claimed finite statistic."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1608.08480v1",
+        "material_read": "Full accessible HTML text, Sections 1–5 and references, including Theorem 4.3 and Proposition 5.1.",
+        "method": "Read actual full article HTML, including the definitions of reversal-pair covering and graph construction.",
+        "title": "An Unoriented Variation on de Bruijn Sequences",
+        "trigger": "Directly concerns reversed factors and de Bruijn cycles, plausibly a stronger symmetry-based classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "730d1fc2-ba8c-4325-b56b-1400bc81125c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of distinct palindromic factors is a standard combinatorial complexity invariant. De Bruijn cycles provide a natural 2048-member complete finite family with all factor sets of lengths one to five identical, so deviations in longer palindromic factors isolate global cyclic arrangement. The exact nonconsecutive spectrum, missing 25 and 26, sharp extrema, 51 full complexity profiles and symmetry decomposition supply substantive finer information not implied by the previously known defining universality or longest-palindrome statistic. The exact tables provide reusable benchmarks for future structural classifications.",
+    "status": "PASS"
+  }
+}
