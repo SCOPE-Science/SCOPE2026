@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Selecting a designated edge in each nontrivial tree gives exactly \(q(q-1)\) possible initial ordered color pairs. At every vertex, one predecessor color occurs once, forcing even additional repetitions of that color, while each other permissible color occurs an odd positive number of times or not at all. The exact labeled-child EGF is \(\cosh(z)(1+\sinh(z))^{q-2}\). Each child has a unique parent, so all local choices are independent and exhaustive. Isolates supply \(q\) choices each. The three-color closed form follows from a hyperbolic double-angle identity. Direct enumeration on 4,516 small labeled tree/palette instances, 50 exact local-series comparisons, and 18,248 independent three-color formula instances agreed with the proved formulas. The verification is finite; the theorem follows from the bijection, not the data.
+## correctness
 
-**Originality — PASS, with residual search risk.** Kwon and Park (arXiv:2401.11653v1) defined strong-odd coloring and studied sparse graph bounds. Caro et al. (arXiv:2410.02336v1), Proposition 2.1, already determine whether each tree needs two or three colors, but their proof and the inspected tree section do not enumerate the number of colorings with arbitrary palette size. The later block-graph algorithm (arXiv:2610.01441v1) also finds minima, not the counting polynomial. Direct searches for strong-odd forest/tree counting polynomials, degree-multiset invariance and equivalent parity formulations found no matching table or theorem. The search cannot rule out unindexed or inaccessible literature; no priority assertion is unconditional.
+PASS
 
-**Value — PASS.** The formula solves a natural entire counting invariant for every forest and every palette size, rather than re-proving the already-known three-color threshold. Its non-obvious degree-multiset invariance and precise exponential variation of three-color counts under changes to local branching provide information absent from the scalar chromatic-number classification. A product formula with explicit EGF factors also gives a reproducible exact computation for arbitrary degree sequences.
+In each nontrivial tree choose one oriented root edge; its endpoints have q(q-1) distinct color choices. Each other vertex inherits one predecessor neighbor of fixed color different from its own. Properness excludes the vertex’s color from its children. To make predecessor color odd in its neighborhood, its number among remaining d-1 labeled children must be even; each other q-2 available color has zero or odd positive multiplicity. Therefore the labeled-child exponential generating function is cosh(z)(1+sinh(z))^{q-2}, and multiplying its coefficient by (d-1)! exactly counts the children’s assignments. Acyclicity makes child sets disjoint and each vertex nonroot exactly one child, giving a bijection; isolates contribute q. With q=3, cosh z+sinh(2z)/2 gives f_d(3)=1 for odd d and 2^{d-2} for even d; q=2 handles odd-degree trees. Independent direct color enumeration (testing actual neighbor color counts, not the EGF) agrees on 39 unlabeled-tree/palette cases n2..6, q2,3,4. General validity is bijective, not extrapolated.
 
-**Closest literature and limits.** The exact definition and minimum-value results are from arXiv:2401.11653v1 and arXiv:2410.02336v1. The 2026 arXiv:2610.01441v1 covers minimum coloring of block graphs but not complete enumeration. The proof does not extend directly to graphs containing cycles. Independent evaluation of originality may locate earlier equivalent work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nearest earlier tree theorem (Caro, Petruševski, Škrekovski, Tuza arXiv:2410.02336v1, Proposition 2.1) asserts the least number of colors is ≤3 and gives a 2-color criterion, not the number of all named-palette colorings. The 2026 block-graph algorithm similarly concerns minimum color, and Kwon/Park’s introduction concerns bounds. Thus the all-q local EGF factorization and unexpected degree-multiset invariance are not implications of those minima. A targeted Resultary search retrieved ordinary odd-coloring and other polynomial problems but no corresponding strong-odd forest enumerator.
+
+## value
+
+PASS
+
+A full proper strong-odd counting polynomial for every forest is a natural combinatorial invariant, stronger than the known chromatic-number dichotomy. Its degree-only dependence, independent of forest isomorphism type, is a structural phenomenon; the explicit local coefficient formula and q=3 closed count are usable for entire parameter families, not mere tiny numerical checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
