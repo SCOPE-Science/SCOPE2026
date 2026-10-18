@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The zero-mean polynomial factorization \(P(z)=(1-z)R(z)\) gives a convergent positive-kernel Mellin representation of dimension \(q-1\) for every real \(x>0\) and \(s>0\). Andréief's identity proves sign-regularity of every collocation minor and every prefix Wronskian. A Rolle induction bounds positive real zeros, while the Wronskian at \(s=1\) is exactly the Stieltjes-jet matrix up to row signs. Dimension and a nonzero-minor argument establish both sharpness assertions. Precision checks from the attached reproducibility script corroborate, but do not replace, these analytic arguments.
+
+**Originality — PASS, with risk.** Bayad–Rihane, arXiv:2610.13136v1, gives the relevant coefficient decompositions and formulas, but the inspected paper does not prove invertibility of its first \(q-1\) Stieltjes constants, a strict determinant inequality or the sharp positive-real zero-count theorem. Chatterjee–Murty, arXiv:1405.6982, treats arithmetic nonvanishing of one value \(L(1,f)\) under special algebraic hypotheses and does not settle finite-jet recovery over arbitrary complex mean-zero data. Targeted mathematical-result and literature searches produced no equivalent theorem. General Chebyshev and total-positivity theorems provide a possible route to implicit prior coverage; this remains the primary residual risk, not a proof of novelty.
+
+**Mathematical value — PASS.** The leading question is a natural finite inverse problem posed by a newly studied family of generalized Stieltjes coefficients. A sharp information count, a strict all-period determinant inequality, and an exact realizable zero budget give structural information not supplied by coefficient evaluation formulas alone. The theorem does not assert favorable numerical conditioning, and the period and zero-mean condition are essential to its statement.
+
+Self-review: passed. Independent audit: not yet performed.
