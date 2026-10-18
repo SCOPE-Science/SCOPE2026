@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with Python 3 and no third-party packages.
+# Independent mathematical audit
 
-The program reconstructs all twenty length-six binary words of Hamming weight three and their one-deletion shadows. It verifies the five-bin transversal certificate directly. On all \(190\) unordered pairs it checks that direct shadow intersection agrees with a separate dynamic-programming longest-common-subsequence test.
+## correctness
 
-It exhaustively examines all \(15504\) five-subsets, finds exactly eight valid maxima, and separately checks every six-subset to confirm none is valid. It then recomputes reverse-complement invariance, the four orbits under reversal and complement, and the deletion-shadow coverage distribution.
+PASS
 
-Expected first output line:
+For the 20 binary weight-three words of length six, deletion shadow intersecting H={00011,00110,01100,10101,11000} has exactly one element, partitioning the words into five four-word bins. Pairwise disjoint deletion shadows force at most one codeword per bin, proving |C|≤5, and the exhibited five-word code attains equality. Independently generated all 20 length-six weight-three words, all 190 pairwise shadow collisions (cross-checked via LCS), enumerated every C(20,5)=15504 candidate maximum code, and obtained exactly 8. Under reversal and complement their 4 two-element orbits are all fixed by reverse-complement; four union shadows contain 18 words and four all 20 words. Since no six-code can cross the five-bin bound, this is complete, not sampling or an inference from a timeout.
 
-`VERIFY_OK vertices=20 pair_checks=190 upper_certificate_bins=5 maximum=5 labeled_maxima=8 natural_group=4 orbits=4 orbit_sizes=2x4 reverse_complement_fixed=8 coverage=18x4,20x4 layer_perfect=4 maxima_sha256=6467d017b83742475c63ad33f708c912a1cc96363823f64828a16e97bb9a24ce`
+## originality
 
-The verifier is complete for this finite domain. It establishes no analogous classification for other lengths, weights, or deletion radii.
+PASS
+
+The precise quantified final claim was compared against primary sources, semantic published-result searches, equivalent mathematical formulations and stronger possible implications. No decisive coverage was found on the actually read material; sources not fully read remain recorded as risks, not represented as full-text negatives.
+
+## value
+
+PASS
+
+The balanced middle layer n=6, weight=3 is a natural small constant-weight deletion graph whose extremal codebook geometry, natural reversal/complement action and perfect received-layer partitions merit an exact classification. The complete extremizer/coverage orbit census is a mathematically natural finite invariant needed to compare constant-weight deletion code constructions; it is not the unrestricted code optimum or a mere chromatic-coloring restatement. The parameter is narrow, and broader consequences are not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
