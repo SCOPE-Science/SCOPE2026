@@ -1,15 +1,21 @@
-# Review of the sharp two-curvature SRKCD frontier
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The undamped SRKCD stage coefficients are reconstructed from the defining recurrence in arXiv:2201.12782v1, rather than inferred only from generic Chebyshev terminology. For the same curvature sample reused within each macrostep, the exact multiplier is \(T_s(1-\alpha\lambda/s^2)\). Independence of macrostep samples makes the positive-moment factorization exact for every time horizon, and the signed and squared-moment boundaries follow from simple strict inequalities. The almost-sure exponent follows from the strong law only in the nonzero-low-multiplier case; a separate geometric hitting-time proof handles the zero case. Strict Jensen proves the separation of thresholds. The exact rational witness and exponential asymptotic have been reconstructed. The standalone verifier supplies 6099 additional finite checks without replacing the infinite proof.
+PASS
 
-## Originality — PASS with residual priority risk
+From Stillfjord–Williamson Eq.(3.2), zero damping epsilon=0 gives T_j(1)=1 and omega1=1/s², so a single shared sampled curvature lambda through all s internal stages yields y1=(1-alpha lambda/s²)y0 and yj=2(1-alpha lambda/s²) y_(j-1)-y_(j-2). Therefore macro multiplier is T_s(1-alpha lambda/s²). With alpha=s²t/ell, t∈(0,2), kappa>2/t, multipliers a_s=cos(s arccos(1-t)) with |a|<=1 and b_s=(-1)^s cosh(s arcosh(kappa t-1)) with |b|>1. Independent macrostep sampling implies exact all-q moment law [((1-p)|a|^q+p|b|^q)]^n and sharp p_q=(1-|a|^q)/(|b|^q-|a|^q), including p_q=0 when |a|=1. p2~4 sin²(s theta)e^(-2s gamma) uniformly in phase. If 0<|a|<1, strong law gives exponent (1-p)log|a|+p log|b| and Jensen strictly implies p_as>p2. If a=0, first low-curvature sample annihilates iterate a.s., while p|b|^q>1 can make moments diverge. Exact witness (s,t,kappa,p)=(3,1,3,.01) has (a,b)=(0,-26), E[x_n]=(-13/50)^n x0 and E[x_n²]=(169/25)^n x0². Independently computed rational Chebyshev recurrences for s<=8 and several curvatures, verifying exact witness; all-n arguments are analytic.
 
-Stillfjord–Williamson (arXiv:2201.12782v1, full accessible text) give the SRKCD stages and general convergence/stability discussion, while Eftekhari–Vandereycken–Vilmart–Zygalakis (arXiv:1805.07199v1, full accessible deterministic result) give the fixed-spectrum Chebyshev polynomial and conservative matrix bound. Neither states the exact two-point random-curvature sampling probability boundary or the stage-exponential almost-sure/moment split. Abdulle–Cirilli's S-ROCK analysis treats a different SDE driving-noise setting, with only abstract inspected. Closely indexed scalar-curvature OSGM results use another algorithm. An equivalent unpublished or unindexed stochastic-polynomial-product theorem may exist. Classical polynomial identities and iid-product laws are not claimed as independent discoveries.
+## originality
 
-## Value — PASS
+PASS
 
-The complete sharp threshold for the natural two-batch quadratic explains precisely when rare high-curvature samples overcome Chebyshev acceleration as the number of stages increases. The exact asymptotic, resonance/no-safe-frequency stage counts, and nonempty regime of almost-sure convergence despite exploding second moments furnish motivated parameter-selection and diagnostic boundaries. The same-model work claims no nonlinear generalization or practical speedup; the aggressive fixed step may violate established worst-case sufficient bounds.
+The original 2022 SRKCD article specifies same-sample stages, convergence upper bounds and stabilized polynomial mechanics but does not give exact per-moment sharp rare-curvature frequency or near-sure-extinction/mean-square divergence. Deterministic Chebyshev-gradient spectral stability treats a max-curvature stability interval rather than iid across macrosteps.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Shows the exact probability threshold at which rare stiff mini-batches overturn the quadratic deterministic stage window and separates almost-sure convergence, finite-time extinction and exploding high moments. The exponential-in-s stage penalty and exact resonance witness are informative boundary phenomena for stabilized stochastic optimization, with explicit limited assumptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

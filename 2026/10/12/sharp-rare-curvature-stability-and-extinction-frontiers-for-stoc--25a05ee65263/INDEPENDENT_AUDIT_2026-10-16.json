@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:15:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From Stillfjord–Williamson Eq.(3.2), zero damping epsilon=0 gives T_j(1)=1 and omega1=1/s², so a single shared sampled curvature lambda through all s internal stages yields y1=(1-alpha lambda/s²)y0 and yj=2(1-alpha lambda/s²) y_(j-1)-y_(j-2). Therefore macro multiplier is T_s(1-alpha lambda/s²). With alpha=s²t/ell, t∈(0,2), kappa>2/t, multipliers a_s=cos(s arccos(1-t)) with |a|<=1 and b_s=(-1)^s cosh(s arcosh(kappa t-1)) with |b|>1. Independent macrostep sampling implies exact all-q moment law [((1-p)|a|^q+p|b|^q)]^n and sharp p_q=(1-|a|^q)/(|b|^q-|a|^q), including p_q=0 when |a|=1. p2~4 sin²(s theta)e^(-2s gamma) uniformly in phase. If 0<|a|<1, strong law gives exponent (1-p)log|a|+p log|b| and Jensen strictly implies p_as>p2. If a=0, first low-curvature sample annihilates iterate a.s., while p|b|^q>1 can make moments diverge. Exact witness (s,t,kappa,p)=(3,1,3,.01) has (a,b)=(0,-26), E[x_n]=(-13/50)^n x0 and E[x_n²]=(169/25)^n x0². Independently computed rational Chebyshev recurrences for s<=8 and several curvatures, verifying exact witness; all-n arguments are analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original SRKCD convergence theorem imposes sufficient step restrictions, and deterministic RKC work bounds spectral max; neither covers sampled steps deliberately unstable for rare high curvature."
+        ],
+        "reasoning": "Prior stronger statements in other parameter regimes do not dominate the exact two-curvature threshold and a.s./mean-square separation of this deliberately aggressive step regime.",
+        "searches": [
+          "Resultary semantic: stochastic Chebyshev descent moment instability; web: SRKCD random moment stability Chebyshev",
+          "Stillfjord–Williamson arXiv:2201.12782 §§2–3",
+          "Eftekhari et al. arXiv:1805.07199 Proposition1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2201.12782",
+        "https://arxiv.org/pdf/1805.07199",
+        "Resultary semantic search: Resultary semantic: stochastic Chebyshev descent moment instability; web: SRKCD random moment stability Chebyshev"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chebyshev multiplier follows directly from the source algorithm, and iid factorization from elementary probability, but distinguishing sharp q-moment and almost-sure frontiers over parameter ranges and resonance requires that combination with a new complete boundary analysis."
+        ],
+        "reasoning": "The random-gradient threshold is not a direct corollary of deterministic worst-case stability when high-curvature batch lies outside the deterministic stability interval.",
+        "searches": [
+          "Resultary semantic: stochastic Chebyshev descent moment instability; web: SRKCD random moment stability Chebyshev",
+          "Stillfjord–Williamson Eq.3.2",
+          "Eftekhari 2018 deterministic stability function"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Undamped same-sample stages are equivalent to Chebyshev multiplication T_s; iid scalar product moments give a Lyapunov-exponent gap."
+        ],
+        "reasoning": "Aliases Chebyshev random multiplicative product, SRKCD batch-curvature moment stability and stochastic stabilized step sensitivity; differentiates per-step sampling from stagewise independent noise.",
+        "searches": [
+          "Resultary semantic: stochastic Chebyshev descent moment instability; web: SRKCD random moment stability Chebyshev",
+          "Stillfjord–Williamson arXiv:2201.12782 §3 Eq.(3.2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact rare-event p_q stage diagram or moment-threshold table found; source numerical graphs show different practical training behavior."
+        ],
+        "reasoning": "The continuous exact threshold is not a database calculation; the bounded finite recurrence checker tests algebra only.",
+        "searches": [
+          "Resultary semantic: stochastic Chebyshev descent moment instability; web: SRKCD random moment stability Chebyshev",
+          "Resultary stochastic Chebyshev descent search",
+          "Stillfjord–Williamson experiments §§4–5"
+        ]
+      },
+      "rationale": "The original 2022 SRKCD article specifies same-sample stages, convergence upper bounds and stabilized polynomial mechanics but does not give exact per-moment sharp rare-curvature frequency or near-sure-extinction/mean-square divergence. Deterministic Chebyshev-gradient spectral stability treats a max-curvature stability interval rather than iid across macrosteps.",
+      "residual_risks": [
+        "The simple scalar iid product factorization is classical; originality attaches to its precise application and complete sharp SRKCD phase diagram, not a general random-product theorem.",
+        "Exact extinction is an algebraic resonance in exact arithmetic and is not robust under generic phase perturbation or finite precision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ALGORITHM_PREMISE_ONLY",
+          "evidence": "Uses one xi_k through all j stages and omega0=1+epsilon/s²; no sharp iid two-curvature q-moment sampling threshold stated.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.12782",
+          "material_read": "Open full 22-page source PDF, §§2–3, Eq.(3.2) p.11, stochastic batch independence p.3, damping discussion and result scope",
+          "method": "Open-access arXiv full text, equation-level reading and page screenshot",
+          "title": "SRKCD: a stabilized Runge–Kutta method for stochastic optimization",
+          "trigger": "Exact stochastic internal-stage sampling semantics and convergence theorem"
+        },
+        {
+          "assessment": "DETERMINISTIC_NOT_RANDOM_FRONTIER",
+          "evidence": "Deterministic spectral interval does not characterize iid macrostep moment growth when rare high-curvature multiplier has modulus >1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1805.07199",
+          "material_read": "Open full 20-page primary PDF, mathematical setup and §2 polynomial stability statements, Proposition1",
+          "method": "Open-access arXiv PDF and targeted reading",
+          "title": "Explicit stabilised gradient descent for faster strongly convex optimisation",
+          "trigger": "Potential stronger deterministic Chebyshev-step stability theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Shows the exact probability threshold at which rare stiff mini-batches overturn the quadratic deterministic stage window and separates almost-sure convergence, finite-time extinction and exploding high moments. The exponential-in-s stage penalty and exact resonance witness are informative boundary phenomena for stabilized stochastic optimization, with explicit limited assumptions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2201.12782",
+    "https://arxiv.org/pdf/1805.07199",
+    "Resultary query: Resultary semantic: stochastic Chebyshev descent moment instability; web: SRKCD random moment stability Chebyshev"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The simple scalar iid product factorization is classical; originality attaches to its precise application and complete sharp SRKCD phase diagram, not a general random-product theorem.",
+    "Exact extinction is an algebraic resonance in exact arithmetic and is not robust under generic phase perturbation or finite precision.",
+    "Public record metadata retains operational provenance; scientific completion does not imply public-file readiness.",
+    "Finite checker calculations are bounded consistency tests; the all-parameter assertions are supported by mathematical reasoning, not only empirical checks."
+  ],
+  "schema_version": 1
+}
