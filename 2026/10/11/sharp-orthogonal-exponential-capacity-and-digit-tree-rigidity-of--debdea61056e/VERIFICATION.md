@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the finite modular-hyperbola Fourier theorem
+# Independent mathematical audit
 
-The attached `verify_hyperbola.py` uses exact integer arithmetic for all Fourier-zero tests. For a primitive \(p^k\)-th root \(\zeta\), an integer polynomial \(F\) of degree less than \(p^k\) vanishes at \(\zeta\) exactly when its residue-class coefficient blocks indexed modulo \(p^{k-1}\) agree, because \(\Phi_{p^k}(X)=\sum_{j=0}^{p-1}X^{jp^{k-1}}\). The checker applies that criterion independently to the actual exponential-sum exponents.
+## correctness
 
-The checker tests all \(p^{2k}\) frequency pairs for ten moduli: \((3,1),(3,2),(3,3),(3,4),(5,1),(5,2),(5,3),(7,1),(7,2),(11,2)\). Total Fourier-pair tests: 40,746. It also checks the explicit optimal \(p^{k-1}\)-frequency line construction, and exhaustively counts maximal compatible child-digit subsets for primes \(3\) and \(5\). Their respective counts are 27 and 120. On success the script prints `VERIFY_OK`.
+PASS
 
-The infinite-prime-power capacity theorem, precise zero criterion and all-family tree characterization rely on the mathematical proof in `RESULT.md`, not on these finite computations. In particular, exact small-case enumeration is not presented as exhaustive across all primes or all depths. Independent validation has not been performed.
+For nonzero frequency difference (a,b), factor p^j where j is its minimum truncated p-adic valuation: K_k(a,b)=p^j K_{k-j}(a',b'). At m=1 a cyclotomic coefficient polynomial has p-1 total counts and cannot vanish at the primitive pth root; for m>=2 primitive stationary-phase cancellation gives zeros exactly when a'b' is zero or a nonsquare mod p, while the two lifted stationary phases and nonzero quadratic Gauss sum prove nonvanishing for nonzero squares. Orthogonality is exactly the first unequal base-p digit compatibility relation at a depth <=k-2. Distinct siblings have distinct v-u, hence <=p children; terminal level permits <=1. Construction {(j,0):0<=j<p^(k-1)} attains p^(k-1), strictly less than phi(p^k), even when k=1. Independent exact cyclotomic checks for p,k=(3,1),(3,2),(3,3),(5,2) matched the predicted zeros on all 1440 frequency pairs; these finite checks only corroborate the proof. Inspected bundled verify_hyperbola.py and all actual source package files, never treated VERIFY_OK as universal proof.
+
+## originality
+
+PASS
+
+The prime-power Kloosterman zero evaluations used in the proof are classical, and are not claimed as new. Gurak/Salié and Iosevich–Murphy–Pakianathan do not, in the specifically examined material, establish the p^(k-1) maximal orthogonal packing for this ring hyperbola together with its all-family digit-tree criterion. Resultary found nearby parabolic/cubic spectral classifications on different curves. Best-of-knowledge new structural classification; older equivalent spectral-set packing formulation remains possible.
+
+## value
+
+PASS
+
+The modular hyperbola is a canonical arithmetic curve. A sharp obstruction to a full orthogonal character basis plus an all-depth if-and-only-if combinatorial classification of every partial orthogonal spectrum is useful in finite-ring Fourier frame/spectral-set questions; not merely recomputing a known Kloosterman value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
