@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact published orbit presentation reconstructs the stated 13-vertex complex and its published face vector. The finite proof then checks all 533 tetrahedral links, all 91 short-link tetrahedra, all pair incidences in the distinguished 13-block orbit, and every possible positive-index bistellar center. The definition of the bistellar index is explicit, and the no-move claim is limited to indices \(1\) through \(5\) in this fixed 5-dimensional triangulation.
+## correctness
 
-## Originality
-PASS. The exact-object preprint gives the complex and symmetry, and Kühnel's tight-embedding paper identifies one short-link tetrahedron, but the inspected statements do not give the complete link spectrum, the \(39+39+13\) short-link orbit decomposition, the \(2\text{-}(13,4,1)\) design, or the all-index bistellar obstruction. Focused searches of equivalent and stronger formulations produced no covering result. The earlier census article remains a stated residual risk because searchable full text was unavailable.
+PASS
 
-## Value
-PASS. Short links have an explicit topological role in tight handle surgery, so their full classification is naturally motivated. The projective-plane orbit is a rigid incidence structure on all 13 vertices, and the no-positive-index-move theorem explains a sharp contrast between local shortness and bistellar simplifiability.
+Independently regenerated all 156 facets from six Köhler–Lutz 13:3 affine orbits, constructed complete faces and links, and checked f=(13,78,286,533,468,156). For 533 tetrahedra links are connected cycles of sizes 3:91,4:195,5:195,6:52. Short links split into three affine orbits (13,39,39), with the 13-block orbit covering all 78 vertex pairs once; hence a 2-(13,4,1) projective plane of order three. Independently enumerated all candidates for each i=1,...,5, tested absent complementary simplex and full link equals its boundary; none qualifies. This finite test is exhaustive for precisely this labeled 13-vertex complex, not an inference about arbitrary triangulations. Script independently recomputed the claimed census; existing package verification script was read but not trusted as sole proof.
 
-## Closest literature and limitations
-Köhler--Lutz identify the triangulation, face vector, and affine symmetry; Kühnel singles out one short-link tetrahedron. The present result is exact only for this labeled complex. It does not prove uniqueness, vertex-minimality, or impossibility of bistellar paths that begin by adding a vertex.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Full published 2005 facet-orbit source and 2004 discussion are genuine antecedents: 3-neighborliness, f-vector and one short tetrahedron are already known. Neither read text entails exact link spectrum, projective-plane orbit incidence or simultaneous exclusion of all positive-index bistellar moves without the new exhaustive combinatorial calculations. Targeted Resultary search found nearby homology-carrier results for same manifold, not these claims. Best-of-knowledge PASS with older census access risk.
+
+## value
+
+PASS
+
+A complete symmetry-resolved local link census is a meaningful exact combinatorial invariant of the minimal-known 13-vertex triangulation of a naturally prominent 5-manifold. The 2-(13,4,1) embedded projective-plane orbit is a structurally interpretable incidence feature; total absence of positive-index bistellar moves is a rigorous algorithmic boundary for triangulation modifications. The finite computation is exhaustive and independently reproducible, not a tiny arbitrary sample or already published table reprinting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
