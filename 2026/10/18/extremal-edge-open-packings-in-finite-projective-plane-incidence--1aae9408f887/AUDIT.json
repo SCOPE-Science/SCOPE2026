@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md: Assumptions and scope; Proof (construction, mixed-leaf bound, single-side equality, count).",
+      "verify.py and verification_output.txt: independent exact pair-conflict and finite maximal-clique tests at q=2,3; construction checks at q=2,3,5,7."
+    ],
+    "limitations": [
+      "No assertion of projective-plane existence for every order.",
+      "Finite verifications corroborate but do not establish the infinite theorem."
+    ],
+    "rationale": "For an edge-open packing, orient every induced star; let \\(X\\) denote line leaves and \\(Y\\) point leaves. Each selected edge has one leaf, so \\(|B|=|X|+|Y|\\). The two leaf types are mutually nonincident. If both occur, fix a line \\(L\\) in \\(X\\) and point \\(y\\) in \\(Y\\). Let \\(Z\\) be the off-\\(L\\) points on other \\(X\\)-lines. Each such line has \\(q\\) off-\\(L\\) points; each point of \\(Z\\) lies on at most \\(q\\) such lines since its joining line to \\(y\\) is forbidden. Hence \\(q(|X|-1)\\le q|Z|\\) and \\(|Y|\\le q^2-|Z|\\), giving \\(|B|\\le q^2+1<q(q+1)\\). If one leaf type occurs, two distinct centers have a joining line that cannot be a leaf; at most \\(v-1\\) leaves remain. Equality forces this to be the sole missing line, all centers onto it, and every other line to attach to its intersection point. Duality gives the other type and exactly \\(2v\\) distinct optimal sets. Single-center cases have at most \\(q+1\\) edges. The argument covers every existing plane of order \\(q\\ge3\\), including non-Desarguesian planes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brešar and Samadi, arXiv:2403.00750v1, Theorem 4.1: \\(\\rho_e^o(G)\\le|E(G)|/\\delta(G)\\), with equality characterized.",
+        "For a plane incidence graph the bound is \\(q^2+q+1\\), while the proved optimum is \\(q^2+q\\)."
+      ],
+      "reasoning": "The generic inequality is one larger. Its equality characterization alone neither classifies the strictly smaller \\(v-1\\)-maximizers nor determines their exact number \\(2v\\). The scalar bound may be sharpened by combining separate geometric constructions and exclusions, but the present all-maximizers rigidity/count is not implied by the cited general theorem.",
+      "searches": [
+        "arXiv:2403.00750v1 theorem 4.1",
+        "doi:10.1051/ro/2022171 degree upper bound",
+        "projective plane Levi graph edge open packing number maximal stars",
+        "projective plane incidence graph maximum induced star forest edge set"
+      ]
+    },
+    "checked_sources": [
+      "Chelladurai–Kalimuthu–Soundararajan, DOI 10.1051/ro/2022171: full relevant article text.",
+      "Brešar–Samadi, arXiv:2403.00750v1: full relevant theorem and proof.",
+      "Kostochka–Raspaud–Xu, arXiv:2010.00429v2: primary introduction and principal statements.",
+      "Kelmans, DIMACS 96-31 (1996): public abstract only, explicit access limitation.",
+      "Related published point-line incidence results were compared by mathematical claim: magnitude homology, sub-incidence density and metric-complex homotopy do not imply the stated edge-open-packing theorem."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The two edge-open-packing papers establish generic bounds, complexity and equality at the generic bound, not the full classification and count of optimizers of size \\(q(q+1)\\) on finite projective planes.",
+        "The injective-edge-coloring work fixes a different objective: number of classes in a coloring, not largest class size or rigidity."
+      ],
+      "reasoning": "No inspected result asserts or implies the entire new statement for all finite projective planes of order \\(q\\ge3\\), specifically its exact \\(2(q^2+q+1)\\) optimum configurations. The order-two case lies outside the stated theorem.",
+      "searches": [
+        "doi:10.1051/ro/2022171; sections 1-3",
+        "arXiv:2403.00750v1 theorem 4.1 and section 4.2",
+        "arXiv:2010.00429v2 section 1",
+        "projective plane Levi graph edge open packing number maximal stars",
+        "projective plane incidence graph maximum induced star forest edge set",
+        "injective edge coloring projective plane incidence maximum color-class size",
+        "edge open packing projective planes classification all extremal line centers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An edge-open packing is precisely a single injective edge-color class; induced endpoint subgraphs are disjoint stars (Chelladurai et al., Definition 1.1 and Remark 1.3).",
+        "Kostochka, Raspaud and Xu, arXiv:2010.00429, Sections 1.1 and 1.3, minimize total color count instead of maximizing one class size."
+      ],
+      "reasoning": "Terminologies agree on feasible sets but the known color-index statements neither imply the exact class-size maximum nor its full geometric equality classification.",
+      "searches": [
+        "projective plane Levi graph edge open packing number maximal stars",
+        "projective plane incidence graph maximum induced star forest edge set",
+        "injective edge coloring projective plane incidence maximum color-class size",
+        "arXiv:2010.00429v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available full-text work tabulates or proves other graph classes; no covering plane-incidence table in the inspected sources.",
+        "Exact q=3 enumeration in verification_output.txt finds 26 optima and is presented as verification, not as a claimed new published table."
+      ],
+      "reasoning": "No verified existing table with this full parameter family or counts was located; absence of a search hit is not proof of novelty. An unindexed calculation remains a residual risk.",
+      "searches": [
+        "finite projective plane Levi graph maximum edge-open-packing table",
+        "edge open packing projective geometry incidence graph PG(2,q) exact maximum",
+        "injective edge coloring projective plane incidence maximum color-class size"
+      ]
+    },
+    "rationale": "The 2022 primary article proves general edge-open-packing bounds and values for several standard families but does not state this point-line incidence classification. Theorem 4.1 of arXiv:2403.00750 characterizes attainment of the generic degree upper bound \\(|E|/\\delta=v\\), not all maximizers at the strictly smaller value \\(v-1\\). Bounds on the injective chromatic index concern minimum numbers of color classes, not the exact set of largest classes. Actual searches across direct and equivalent formulations and related published work found no theorem implying the full all-order geometric classification and its enumeration. Historical unindexed overlap remains possible.",
+    "residual_risks": [
+      "Earlier equivalence may be described as maximum induced star forest or maximal injective color class in an unindexed combinatorial-geometry source.",
+      "The full 1996 technical report by Kelmans was not inspected; its accessible abstract states a different vertex-coverage objective.",
+      "Non-Desarguesian finite planes were not computationally sampled; theorem proof depends only on their defining axioms, not on coordinates.",
+      "No independent priority review or mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No theorem classifying projective-plane incidence graphs; generic degree bound only.",
+        "evidence": [
+          "Chelladurai–Kalimuthu–Soundararajan (2022), Sections 1-3.",
+          "https://www.researchgate.net/publication/364182825_Edge_open_packing_sets_in_graphs"
+        ],
+        "identifier_or_url": "https://doi.org/10.1051/ro/2022171",
+        "material_read": "CC-BY primary article text: Definition 1.1, Section 2 standard graphs, regular-degree bounds and related results.",
+        "method": "Read publisher-linked public full-text transcription and inspected relevant theorem passages.",
+        "title": "Edge open packing sets in graphs",
+        "trigger": "Original definition and upper bound might already solve the incidence-graph case."
+      },
+      {
+        "assessment": "Equality at \\(v\\) and general edge-deletion bounds do not classify all \\(v-1\\)-maximizers of these incidence graphs.",
+        "evidence": [
+          "arXiv:2403.00750v1, Theorem 4.1, Section 4.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.00750v1",
+        "material_read": "Full HTML: problem definition and proof of Theorem 4.1, especially Section 4.1, plus effect-of-deletion results Section 4.2.",
+        "method": "Read primary arXiv full text and checked exact bound/quantifiers.",
+        "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+        "trigger": "Generic extremal classification at \\(\\rho_e^o=|E|/\\delta\\) might subsume a near-extremal classification."
+      },
+      {
+        "assessment": "Targets minimum total colors, not maximum possible class cardinality or its extremal classification.",
+        "evidence": [
+          "arXiv:2010.00429v2, Sections 1.1-1.3."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2010.00429v2",
+        "material_read": "Full HTML introduction, definitions, previous results and statements of main theorems in Section 1.",
+        "method": "Read primary arXiv HTML sections 1.1-1.3.",
+        "title": "Injective edge-coloring of graphs with given maximum degree",
+        "trigger": "An injective edge-color class is an edge-open packing."
+      },
+      {
+        "assessment": "The stated objective maximizes covered vertices for bounded-size induced-star packings; no covering incidence-graph edge-count result appears in the accessible abstract.",
+        "evidence": [
+          "Kelmans (1996), DIMACS technical report 96-31, public abstract."
+        ],
+        "identifier_or_url": "https://archive.dimacs.rutgers.edu/archive/TechnicalReports/abstracts/1996/96-31.html",
+        "material_read": "Public abstract; full technical-report text not inspected.",
+        "method": "Compared stated objective and hypotheses in accessible abstract.",
+        "title": "Packing of induced stars in a graph",
+        "trigger": "Earlier terminology induced-star packing may hide an equivalent result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1aae9408-f887-42b8-85ba-22951656e93b",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "RESULT.md: mixed-leaf double count and complete equality classification.",
+      "General upper bound and equality case in arXiv:2403.00750v1 establish the structural gap being closed."
+    ],
+    "limitations": [
+      "Potential historical overlap under alternative terminology remains as noted under originality."
+    ],
+    "rationale": "A canonical infinite class of finite incidence geometries has an exact edge-open-packing invariant, uniform across all existing projective-plane orders \\(q\\ge3\\), without requiring Desarguesian coordinates. The theorem gives a one-step improvement over the generic regular-degree bound together with a complete geometric rigidity and counting classification, not just a scalar special-case value. The mixed-leaf obstruction uses a substantive incidence double count and excludes all other optimal shapes.",
+    "status": "PASS"
+  }
+}
