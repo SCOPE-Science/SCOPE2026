@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The source's exact center locus is checked against its full Section 4 planar reduction. The reversible planar reduction, Fourier-mode polar expansion, recursive radial integrals and strict sum-of-squares inequality establish the no-isochrony theorem for all real parameters. `check_periods.py` reconstructs every algebraic identity from exact rational Fourier coefficients. The argument distinguishes a local center from an isochronous center and retains physical time.
+## correctness
 
-**Originality — PASS.** The motivating primary paper (2023, Theorem 5 and Sections 4–6) establishes the center conditions and limit-cycle bifurcation but does not determine the period constants or exclude isochrony; its conclusion identifies the isochronous-center question for further study. Gu–Zegeling–Huang (2023, Section 5, full preprint) classifies isochrony in a different multiplicative Kolmogorov vector field, not this threefold-symmetric cubic system. Classical reversible-cubic families with two invariant straight lines and the 2024 classification of *global* isochronous centers lack an implication covering every local center in this parameter locus. Relevant published-result and exact-equation searches did not reveal a prior covering statement; that negative search is not by itself proof of novelty. A later comprehensive equivalence could still emerge.
+PASS
 
-**Value — PASS.** This is a complete local isochrony decision for a natural and published **entire** center locus, not an arbitrary parameter slice. The strict fourth-order defect on the real curve where the second-order defect cancels gives an explicit local period obstruction in exactly the delicate parameter regime. It resolves the motivating paper's remaining period question for this concrete family and creates a starting point for critical-period analysis without claiming a count of critical periods.
+In the exact model u-dot=(-x+y^2)u, so near (1,0,0), -x+y^2<-1/2 and no nonzero u orbit can be periodic. The invariant plane has the exact translated reversible center system Xdot=-Y+aXY+bX^2Y+cY^3, Ydot=X+X^2+2Y^2+2XY^2, with b=(2a-c)/3+4/9 on the complete center locus. In polar coordinates, rdot=r^2R2+r^3R3 and theta-dot=1+rH1+r^2H2; the reviewed script represents the original-time radial and period recursions by exact rational finite Fourier series, and its T2/T3/T4 integrals contain no time-rescaling. Independent algebra checks confirm that imposing T2=0 gives T3=0 and T4=pi Q(a)/4608; the sum-of-squares decomposition Q(a)=3(a^2-23a/3)^2+(2912/3)(a+1203/364)^2+5396458/91 is globally strictly positive. Hence no choice of the unrestricted real parameters A,D permits all period constants to vanish. An analytic planar elliptic reversible system has a center; no finite test substitutes for the symbolic identities and positivity.
 
-**Scope and residual risk.** No assertion is made about global period monotonicity, the full period annulus, other three-dimensional polynomial families, or noncenter parameters. General reversible-cubic classification results could subsume isolated special cases; no identified theorem subsumes the full two-parameter exclusion. Independent audit and external validation have not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The motivating 2023 Huang et al. article classifies centers and limit-cycle focus values and expressly raises further isochronous-center investigation, not an all-parameter physical-time period obstruction. A distinct cubic Kolmogorov isochrony result has different vector-field terms and equilibrium geometry; the general reversible-cubic and global-isochrony classifications do not clearly dominate this entire local center locus. The same-title Resultary hit is the submitted publication index, not independent priority evidence. Full original equation-bearing §4 access was limited by publisher 429; comparison retains this specific risk.
+
+## value
+
+PASS
+
+This settles a question explicitly motivated by the original cubic Z3 center model over its entire natural center parameter locus, including the nontrivial T2=0 curve. The strictly positive fourth-order obstruction provides a sharp local structural fact meaningful for future period-criticality studies, without needing a global-period theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
