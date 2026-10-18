@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conic Hessian determinants are \(2\), \(7200\), and \(160\), so the components are smooth for all primes at least seven. Direct elimination gives the complete conic–conic intersection polynomials and their collision primes \(7\) and \(11\). The four line restrictions give the only further transverse-to-tangent jumps, at \(11\) and \(109\), and exact evaluations exclude hidden line incidences elsewhere. The characteristic-seven identity \(\ell_1-\ell_4=-70T+175Z\) proves equal special fibres. Contact multiplicities follow from root multiplicities in smooth local charts, and Bézout exhausts every pairwise intersection. Standalone exact-arithmetic verification and sample finite-field point counts agree; finite sampling is not treated as proof.
+PASS
 
-## Originality — PASS
+PASS: From the actual integral Q1=XZ-T^2, Q2=X^2-10TX+25XZ-36Z^2, Q3=4XZ-5T^2+8TZ-12Z^2 and four lines, independently computed symbolic restrictions Q2(t,t^2,1)=(t+1)(t-2)(t-3)(t-6), Q3(t,t^2,1)=-(t-2)(t-6), and resultant_x(Q2,Q3)=(t-2)(t-6)(5t-8)^2. Independently recomputed four ell_i–Q3 quadratic discriminants 16*109/25,-176,64,64/25; Hessian determinants and support exclusions in the source bound bad primes to 7,11,109. The line coefficient identity ell1-ell4=-70T+175Z proves literal reduced special-fibre equality at 7. Smooth local restrictions and Bézout give the branch contact multiplicities and exhaust geometric incidences. An independently coded complete rational-projective Fp incidence sweep reproduced exceptional vectors at p=7: (6,7,9,6), p=11: (7,8,9,9), p=109: (9,8,10,10), and good-prime samples. Quadratic splitting and Chebotarev establish the 1/4 sign densities; finite field checks do not prove infinitely many good primes.
 
-The source [1] already provides these four conics/lines, their complex incidence types, a two-component realization space, the Zariski-pair distinction, and the elimination polynomials whose discriminants yield the quadratic splitting fields. Those statements, as well as the easy quadratic-splitting consequences, are not credited as new. The accepted contribution is their **complete, sharp prime-characteristic singular-incidence specialization**, especially the identity of two geometrically distinct characteristic-zero representatives modulo \(7\) and the precise contact-order jumps at \(11\) and \(109\). The related work [2] addresses different degree-seven conic–line families and complex topology. Focused searches of published research records and the source's complete relevant discussion did not identify prior equivalent coverage. An unpublished or poorly indexed modular calculation remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The source arrangements encode a nontrivial complex Zariski pair. Identifying a prime at which representatives from different complex realization-space components become literally the same special fibre is a geometrically meaningful degeneration, not a cosmetic parameter substitution. The exact exceptional-prime and local-contact classifications distinguish three mechanisms and provide a complete arithmetic boundary for all four fixed models. The Frobenius spectrum is a useful accompanying arithmetic description but not the sole justification of significance.
+Best-of-knowledge PASS for the complete modular degeneration/incidence classification and the surprising merger of two distinct characteristic-zero Zariski-pair representatives. Amram et al. already construct all four divisors, their complex topology and the characteristic-zero elimination polynomials from which splitting fields are elementary consequences. Those are credited and not claimed new. Their full 24-page paper treats complex realization space, branched-cover splitting types and complex complements, not this exact p>=7 exceptional-support table. Other published work studies different conic-line arrangements. An unindexed modular reduction of the same equations is a real priority risk.
 
-## Limits and close comparisons
+## value
 
-The theorem does not extend to small excluded characteristics, other integral presentations, fundamental groups or singularity-scheme lengths. The complex result [1] already entails its displayed elimination equations; the new modular comparisons are not stated there. Work [2] on other conic–line families and general complex-arrangement literature does not imply the fixed-model finite-characteristic classification. Remaining risk: unindexed earlier computations using the same equations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The first positive-characteristic prime merges two representatives whose complex complements constitute a nontrivial Zariski pair, a structurally important boundary for specialization of arrangement geometry. The complete support/contact degeneration table distinguishes separate collision mechanisms at 7,11,109, and rules out all other bad primes for this fixed integral model. A named exact singularity classification of a natural published geometric family can be useful even though its field-splitting corollary is a routine consequence of prior eliminants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
