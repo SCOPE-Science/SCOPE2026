@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact verification instructions
 
-Use Python 3 and the two attached scripts in the same directory. No external packages or external data are required. Execute `python3 verify_k34.py` then `python3 verify_k34_mod2.py`.
+# Independent mathematical audit
 
-The first program enumerates the 32,000 possible outgoing assignments on the seven vertices, retains 12,800 acyclic choices (empty face included), and checks the six positive-dimensional face counts as well as the 24 vertex count. It greedily constructs 5,887 augmented matching pairs, then exhaustively topologically sorts all 60,480 oriented incidences. After discarding the empty-face pair there is one critical vertex, 297 critical four-faces and 729 critical five-faces. The signed integral boundary has 4,162 nonzero entries (each \(\pm1\) before elimination). All 297 boundary rows are eliminated by integer unit pivots, leaving 432 unpaired five-cells. Expected terminal marker: `VERIFY_OK`.
+## correctness
 
-The independently written second program enumerates faces afresh and performs exhaustive mod-two boundary reduction. It checks the ranks \((1,23,211,981,2376,2592)\) in dimensions zero through five, obtains degree-five reduced rank 432 and vanishing lower reduced homology, and checks the Euler number 432 from the matrix–forest formula. Expected marker: `MOD2_OK`. The mod-two cross-check would not by itself prove integral torsion-freeness or homotopy splitting; those conclusions use the first program's unimodular integer reduction and the CW-cell attaching argument.
+PASS
 
-The scripts certify a finite exact instance only. They do not assert an infinite-parameter theorem, an external audit, or certification by a proof assistant.
+Reconstructed K3,4 with 24 directed incidence primitives and enumerated exactly 12,800 rooted-forest faces (including empty), f=(24,234,1192,3357,4968,3024). Independent greedy-element matching gave 5,887 augmented pairs, 297 critical 4-faces, 729 critical 5-faces, and acyclicity after topologically sorting all 60,480 Hasse covers. Independently recursively computed the SIGNED integer 297x729 Morse boundary (4,162 nonzero entries, all unit magnitude). Exact unimodular elimination found 297 unit pivots and 432 zero columns. The basepoint+4,5-cell CW complex has attaching maps classified by π4 of a 4-sphere wedge, permitting 297 degree-one cancellations. This proves the integral homotopy wedge, not merely mod-2 homology or Euler characteristic.
+
+## originality
+
+PASS
+
+The exact K3,4 wedge multiplicity and homotopy type are not furnished by the inspected graph-forest enumeration, general connectivity/shellability results, nor neighboring K3,3/K2,n calculations; best-of-knowledge originality passes with residual historical risk.
+
+## value
+
+PASS
+
+Computing the full integral homotopy type of a natural first nonsmall complete-bipartite rooted-forest complex gives a motivated finite exact invariant beyond the face-vector/Euler characteristic and general connectivity bounds; 432 is supported by a complete cell attachment computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
