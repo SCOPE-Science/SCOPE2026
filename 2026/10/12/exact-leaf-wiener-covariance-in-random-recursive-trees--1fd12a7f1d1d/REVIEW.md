@@ -1,16 +1,21 @@
-# Review
-## Correctness
-PASS. The one-step recursive-tree identities are exact. The Wiener increment is \(n+D_n(U_n)\), the leaf increment is \(1-J_n\), and the only new mixed term is \(J_nD_n(U_n)\). Introducing the leaf-transmission sum closes that term exactly. Its own conditional recursion closes through \(L_n\) and \(W_n\). The resulting harmonic formulas satisfy the initial conditions and recurrences, and exhaustive tree enumeration through \(n=9\) agrees exactly.
+# Independent mathematical audit
 
-## Originality
-PASS, with a specific older-literature risk. Complete primary text for the leaf process contains no Wiener-index treatment, while complete primary text for recursive-tree Wiener tails contains no leaf treatment. The foundational Wiener paper's accessible abstract discusses covariance with internal path length rather than leaves. Exact-form and alias searches found no displayed leaf-Wiener identity.
+## correctness
 
-A prior exact result for leaf count versus internal path length is not stronger: Wiener growth depends on the transmission of the random attachment vertex, and the proof here requires a separate leaf-transmission statistic.
+PASS
 
-## Value
-PASS. Leaves and the Wiener index measure complementary local branching and global metric spread. The theorem gives their full finite covariance, a strict negative-sign threshold, and a nonzero normalized covariance limit. The auxiliary transmission closure provides a reusable mechanism rather than a one-off numerical moment.
+For uniform recursive tree (n>=2), L_{n+1}=L_n+1-J_n and W_{n+1}=W_n+n+D_n(U_n). With S_n=sum_leaf D_n(v), sum_all D_n(v)=2W_n gives the conditional closure E[S_{n+1}|T_n]=S_n+(1-1/n)L_n+n+2W_n/n. Solving yields E[W]=n(n+1)H_n-2n²; E[S]=n(n+1)H_{n-1}-(n-1)(7n+6)/4. Subtracting mixed mean recursion gives b_{n+1}=(n+1)b_n/n-(n-1)(n-2)/(4n), b_2=0, hence Cov(L,W)=nH_n-n(n+5)/4+1/2, zero n=2,3 and negative n>=4. Mean distance normalization tends to -1/2. Fresh exact-fraction enumeration over all recursive trees n=2..8 recomputed leaf count, Wiener index and transmissions directly, without treating finite samples as infinite proof.
 
-## Closest literature and limitations
-The closest leaf literature gives marginal Markov-chain laws, while the closest Wiener literature gives moments, limit laws, tails, and dependence with internal path length. The result is restricted to uniform recursive attachment and unit edges, and it asserts second-moment dependence rather than stochastic ordering or a joint limit law.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier random-recursive-tree work treats Wiener moments and covariance with internal path length or treats the marginal leaf process. Neither supplies the leaf-transmission auxiliary and its exact mixed-moment closure in the inspected relevant text. The known leaf/internal-path-length covariance does not determine Wiener covariance since Wiener increments depend on all vertex transmissions, not just depth. Resultary and exact harmonic-form searches exposed different operand pairs, no equivalent formula. Foundational Neininger full text not available, retained priority risk.
+
+## value
+
+PASS
+
+Leaf abundance and Wiener index capture genuinely different local branching versus global distance statistics in a canonical random-tree model. The exact finite-n covariance, sign transition, and nonzero limiting covariance with mean pairwise distance make a useful dependence invariant; the auxiliary transmission recurrence gives a reusable proof mechanism. This is not a routine marginal expectation nor a numerical finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

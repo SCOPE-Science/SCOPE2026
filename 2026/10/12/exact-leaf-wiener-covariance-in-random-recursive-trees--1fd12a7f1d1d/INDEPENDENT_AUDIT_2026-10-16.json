@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T00:14:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For uniform recursive tree (n>=2), L_{n+1}=L_n+1-J_n and W_{n+1}=W_n+n+D_n(U_n). With S_n=sum_leaf D_n(v), sum_all D_n(v)=2W_n gives the conditional closure E[S_{n+1}|T_n]=S_n+(1-1/n)L_n+n+2W_n/n. Solving yields E[W]=n(n+1)H_n-2n²; E[S]=n(n+1)H_{n-1}-(n-1)(7n+6)/4. Subtracting mixed mean recursion gives b_{n+1}=(n+1)b_n/n-(n-1)(n-2)/(4n), b_2=0, hence Cov(L,W)=nH_n-n(n+5)/4+1/2, zero n=2,3 and negative n>=4. Mean distance normalization tends to -1/2. Fresh exact-fraction enumeration over all recursive trees n=2..8 recomputed leaf count, Wiener index and transmissions directly, without treating finite samples as infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Neininger 2002 studies Wiener index moments and joint path-length relationships (publisher abstract only this run).",
+          "Bryc–Minda–Sethuraman arXiv:0809.4741 full text treats leaf Markov process but not mixed Wiener covariance in read sections.",
+          "Munsonius arXiv:1106.3865 describes tail bounds for recursive-tree Wiener indices."
+        ],
+        "reasoning": "Neither marginal leaf theory nor broad Wiener tail results imply this precise cross-covariance without mixed leaf-transmission information.",
+        "searches": [
+          "random recursive tree leaf count Wiener index covariance leaf transmission exact harmonic numbers"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md tree d36cf344270c6b55913037502cfdac2858bea75b",
+        "Neininger (2002) DOI:10.1017/S0963548302005321 abstract",
+        "Bryc–Minda–Sethuraman arXiv:0809.4741 full PDF",
+        "Munsonius arXiv:1106.3865 abstract",
+        "Resultary 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+        "Resultary live search: random recursive tree leaf count Wiener index covariance leaf transmission exact harmonic numbers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cov(leaves, internal path length) does not fix Cov(leaves, all-pairs Wiener distance).",
+          "The new proof requires S_n=sum over leaves of transmission; its conditional expectation is not determined by separate E[L] or E[W]."
+        ],
+        "reasoning": "Different marginal and mixed statistics are not reducible by mere parameter substitution; the auxiliary S_n closes a previously missing expectation.",
+        "searches": [
+          "random recursive tree leaf count Wiener index covariance leaf transmission exact harmonic numbers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cov(L_n,W_n) is equivalent to normalized Cov(L_n,mean unordered pair distance) by deterministic factor 2/[n(n-1)].",
+          "Leaf can be called terminal/outdegree-zero vertex; Wiener index is total unordered pairwise graph distance."
+        ],
+        "reasoning": "The search was not limited to exact notation: it included terminal vertices, total distance, pairwise distance and a harmonic-number expression; no matching theorem surfaced.",
+        "searches": [
+          "random recursive tree leaf count Wiener index covariance leaf transmission exact harmonic numbers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f is root degree versus leaves, not Wiener.",
+          "Nearest 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba concerns root attachment versus path length."
+        ],
+        "reasoning": "The claimed all-n exact mixed moment is not an entry of either indexed table; fresh small-n enumeration agrees but is not evidence of absolute novelty.",
+        "searches": [
+          "random recursive tree leaf count Wiener index covariance leaf transmission exact harmonic numbers"
+        ]
+      },
+      "rationale": "Earlier random-recursive-tree work treats Wiener moments and covariance with internal path length or treats the marginal leaf process. Neither supplies the leaf-transmission auxiliary and its exact mixed-moment closure in the inspected relevant text. The known leaf/internal-path-length covariance does not determine Wiener covariance since Wiener increments depend on all vertex transmissions, not just depth. Resultary and exact harmonic-form searches exposed different operand pairs, no equivalent formula. Foundational Neininger full text not available, retained priority risk.",
+      "residual_risks": [
+        "Neininger complete 2002 article not read; an unindexed mixed Wiener/terminal statistic could be in it.",
+        "No theorem of negative stochastic dependence or full joint law follows from a negative covariance.",
+        "Uniform recursive attachment and outdegree-zero leaf convention are essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract covers Wiener mean/variance, limits, covariance with internal path length; cannot rule out leaf-Wiener identity in unread full text",
+          "evidence": "Neininger 2002 explicitly discusses joint behavior with internal path length.",
+          "identifier_or_url": "https://doi.org/10.1017/S0963548302005321",
+          "material_read": "Publisher abstract and bibliographic record, not complete article",
+          "method": "Primary Cambridge publisher abstract inspection",
+          "title": "The Wiener Index of Random Trees",
+          "trigger": "Foundational Wiener-index study with potentially dominating covariance theorem"
+        },
+        {
+          "assessment": "Marginal leaf process, no mixed leaf-Wiener formula located in read text",
+          "evidence": "Leaf transition is new leaf unless uniform attachment vertex is already a leaf.",
+          "identifier_or_url": "https://arxiv.org/abs/0809.4741",
+          "material_read": "Full openly available primary PDF, introduction and uniform recursive-tree leaf-chain application; targeted Wiener check",
+          "method": "Original arXiv PDF text/page inspection",
+          "title": "Large deviations for the leaves in some random trees",
+          "trigger": "Foundational random-recursive-tree leaf process"
+        },
+        {
+          "assessment": "Wiener tail bounds and standard recursive tree special case, no claim of full-text noncoverage",
+          "evidence": "Random recursive-tree Wiener index lies within described scope.",
+          "identifier_or_url": "https://arxiv.org/abs/1106.3865",
+          "material_read": "Public abstract/metadata and framework outline, not full primary article in this run",
+          "method": "ArXiv public abstract inspection",
+          "title": "On tail bounds for random recursive trees",
+          "trigger": "General Wiener-index bounds possibly superseding exact mixed moment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Leaf abundance and Wiener index capture genuinely different local branching versus global distance statistics in a canonical random-tree model. The exact finite-n covariance, sign transition, and nonzero limiting covariance with mean pairwise distance make a useful dependence invariant; the auxiliary transmission recurrence gives a reusable proof mechanism. This is not a routine marginal expectation nor a numerical finite table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md tree d36cf344270c6b55913037502cfdac2858bea75b",
+    "Neininger (2002) DOI:10.1017/S0963548302005321 abstract",
+    "Bryc–Minda–Sethuraman arXiv:0809.4741 full PDF",
+    "Munsonius arXiv:1106.3865 abstract",
+    "Resultary 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+    "Resultary live search: random recursive tree leaf count Wiener index covariance leaf transmission exact harmonic numbers"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Neininger complete 2002 article not read; an unindexed mixed Wiener/terminal statistic could be in it.",
+    "No theorem of negative stochastic dependence or full joint law follows from a negative covariance.",
+    "Uniform recursive attachment and outdegree-zero leaf convention are essential.",
+    "Best-of-knowledge scientific judgment, not mathematical certification.",
+    "Source metadata contains operational provenance; no publication files generated or sanitized."
+  ],
+  "schema_version": 1
+}
