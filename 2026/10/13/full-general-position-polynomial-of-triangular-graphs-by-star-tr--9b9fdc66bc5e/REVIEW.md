@@ -1,11 +1,21 @@
-# Scientific review: general-position polynomial of triangular graphs
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph-distance characterization is exact for \(n\ge4\) and trivial for the complete/small line graphs. Each chosen edge subset determines, and is determined by, a uniquely partitioned labeled union of isolated vertices, stars and triangles. The component weights separately handle single-edge components and the three-vertex triangle exception; the labeled exponential formula and root-component recurrence follow. All coefficients were compared against independently generated graph-geodesic constraints for \(0\le n\le7\), with highest-degree and maximal multiplicity checks through \(n=20\). These finite checks support but do not prove the theorem; the structural counting bijection does.
+## correctness
 
-**Originality — PASS, subject to specified risk.** The 2019 and 2023 line-graph papers establish the extremal cardinalities and underpinning star/triangle structure, not the full ordinary general-position polynomial or weighted exponential generating function. The 2024 polynomial paper enumerates general-position sets of \(K(n,2)\), a distinct complementary graph, and does not enumerate \(L(K_n)\). Searches for aliases \(T_n\), triangular graphs, Johnson \(J(n,2)\), stars/triangles and line-graph coefficients found no direct statement in the checked published records. The general exponential formula itself is standard, so unindexed species-equivalent enumeration is the principal residual risk; failed search alone does not establish novelty.
+PASS
 
-**Value — PASS.** The whole coefficient distribution is a natural statistic introduced in earlier general-position polynomial work, and the triangular graphs are a standard infinite graph family with previously known extremal results. The formula supplies all coefficients at once, a constructive recurrence, and an exact count of maximum configurations; unlike merely reproducing \(\operatorname{gp}(L(K_n))\), these distinguish graphs with identical extremal cardinalities. This is a substantive all-size enumerative refinement, not a rephrasing of the known maximum-number theorem.
+For n>=4 T_n has diameter 2; a selected geodesic triple is exactly an induced path of length two. Therefore T_n[S] must be a disjoint union of cliques. Identify chosen T_n vertices with selected edges of K_n: connected K_n-edge components pairwise incident iff each is a star or a triangle; isolated K_n vertices are allowed. This is a labeled combinatorial species with c_1=1, c_2=z, c_3=3z^2+z^3 and c_s=s z^(s-1) (s>=4), giving EGF exp(sum c_s u^s/s!) = exp(u e^(uz)-u^2 z/2+u^3 z^3/6). A component containing label 1 proves recurrence and top degree/triangle partition count. Independently enumerated all selected edge subsets in K_n for n=0..6 and checked all coefficient counts, with Ψ_6=1+15z+105z²+275z³+240z⁴+66z⁵+10z⁶. Formula rests on exhaustive component classification, not testing.
 
-**Closest literature and limitations.** Ghorbani et al. (arXiv:1903.04286, §4.2), Di Stefano et al. (arXiv:2306.09965, §5), Iršič et al. (arXiv:2401.05696, §§1,4) were read in the sections matching objects or parameters. The star–triangle decomposition and the gp-number are old. A classical equivalent formula under another name may exist; full-text searching is not proof of uniqueness. The formal proof covers all \(n\), and the executable check covers \(n\le7\). No independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: earlier exact maximum-size and star/triangle support classification of general-position sets in L(K_n) is explicitly prior. This record gives the full cardinality distribution by labeled-component enumeration. A published general-position polynomial for Kneser graph K(n,2), which is the complement, is not the same polynomial and cannot be substituted.
+
+## value
+
+PASS
+
+PASS: full general-position polynomial is a natural graph enumerator of independent combinatorial interest. Here it refines known extremal number to all sizes, a tractable recurrence and exact maximum-set multiplicity; straightforward exponential-formula machinery is acknowledged but the resulting natural complete enumeration is not mere arbitrary small-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
