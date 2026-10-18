@@ -1,0 +1,19 @@
+# Review of a sharp kurtosis clock ordering for harmonic diffusion with distributed resetting
+
+## Correctness
+
+**PASS.** The stationary equilibrium-renewal-age representation is valid for every strictly positive renewal interarrival distribution with finite positive mean and independent centered reset draws. The conditional Gaussian solution of the harmonic stochastic differential equation gives the exact fourth-cumulant identity \(K_4=\kappa_R L_2+3(v-q)^2(L_2-L_1^2)\), with \(q=D/k\) and \(L_j=\mathbb E[e^{-2jkA}]\). For uniform and exponential stationary ages the respective normalized factors are \(F_{\rm det}=1-\tanh\tau/\tau\) and \(F_{\rm Poi}=4\tau^2/(1+2\tau)^2\). The exact positive polynomial \(\tau^2(24\tau+7)\) and the elementary hyperbolic inequality establish the strict all-parameter order. Differentiation establishes both uniqueness and boundaries of sign transitions; direct substitution proves the binary-reset opposite-sign example. The independent program produces 428 successful numerical and symbolic assertions, as corroboration only.
+
+## Originality
+
+**PASS within the inspected sources, with a nonzero priority risk.** The stationary renewal-age machinery is general prior work of Eule and Metzger, and Olsen's published moment recursion already gives the Poisson-distributed-reset part of the model. The distinguishing result here is an explicit *sharp cross-protocol inequality at equal mean reset interval*, its exact equality boundary, the complete deterministic-clock sign classification for arbitrary centered reset laws, and a concrete equal-mean sign disagreement. Guéneau, Majumdar and Schehr analyze resetting of a *driving noise* rather than independent restoration of the observed position; Trajanovski et al. analyze a harmonically trapped particle with resetting but emphasize propagators and first two moments. Inspected literature and semantic mathematical-record searches did not establish this exact cross-protocol inequality. The general renewal results make the new formula derivable, so a prior specialization or equivalent inequality not retrieved remains possible. Novelty has not been independently audited.
+
+## Scientific value
+
+**PASS.** In a physically standard harmonic trap, periodic and Poisson reset schedules can have the same mean interval, same reset-position law, and same thermal diffusivity but opposite signs of the stationary fourth cumulant. Since sign changes from negative to positive are not implied by steady-state variance alone, the exact, strict clock order and sharp parameter windows quantify a real measurement distinction between reset protocols. The arbitrary centered-distribution criterion isolates the competition between reset-law fourth cumulant and age-mixture variance. The precise structural limits are essential: stationary deterministic resetting must be sampled with uniform phase, and ordering concerns fourth cumulants divided by a positive survival factor, not unnormalized magnitudes or arbitrary renewal clocks.
+
+## Source coverage and limitations
+
+Primary text inspected: Eule and Metzger, arXiv:1510.07876 (renewal-reset construction and non-Poisson schedules); Olsen, arXiv:2310.04840 (published Poisson resetting to a distribution and harmonic moment equations); Guéneau, Majumdar and Schehr, arXiv:2306.09453 (the forcing-noise reset distinction). Trajanovski et al., arXiv:2301.12304, was checked through accessible abstract and summary material only; it is therefore retained as an access limitation rather than counted as a full-text exclusion. The 2025 Shankari–Sahoo study concerns active OU motion with resetting and lies outside the motivating source's first-public-date window; its available summary does not state the matched-mean fourth-cumulant ordering. General renewal formulas may provide an implicit route to the theorem, and wider mathematical priority is not certified.
+
+Self-review: passed. Independent audit: not yet performed.
