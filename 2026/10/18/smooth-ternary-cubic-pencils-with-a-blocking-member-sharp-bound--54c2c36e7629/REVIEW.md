@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** Distinct rational members of a rational-basepoint-free pencil have disjoint rational point sets. Every smooth ternary cubic has at least one rational point by Hasse, and a smooth blocking cubic requires at least six: these facts exclude two blocking members. Complete enumeration of every projective ternary cubic, every relevant projective coordinate transform, and every complementary pencil generator supplies the four exact profile frequencies. The verification program proves geometric smoothness by ideals equal to one on each projective affine chart; a rational-point sieve does not substitute for these tests. The source and executable code specify the count's exact equivalences and quantifiers.
+
+**Originality: PASS, with residual risk.** The closest primary paper [2] studies proportions of blocking members in pencils and obtains a general lower bound, not this sharp constrained all-smooth ternary-pencil census. The earlier construction paper [1] gives an example blocking cubic, while [3] studies nonblocking pencils; neither entails the 312-pencil distribution. Published mathematical-result searches for equivalent formulations, the exact counts, blocking-pencil bounds, and finite-field genus-one pencil profiles did not expose a covering source. An old or differently indexed tabulation could remain undiscovered.
+
+**Value: PASS.** A sharp one-blocking-member obstruction and complete census address the same natural blocking-versus-nonblocking pencil geometry studied in [2] in the first odd prime field. The four exact residual-fiber cardinality profiles refine the sharp bound and distinguish geometric configurations; the count is not a renaming of the existing classification of individual blocking cubics. The arithmetic incidence information is useful for low-degree pencil constructions and examples.
+
+**Limitations.** The no-basepoint condition is rational, not geometric; all four rational fibers must be geometrically smooth. There is no claim of a theorem over larger finite fields, nor any claim that literature-search absence proves absolute novelty. All numerical census steps depend on replaying the included exhaustive verifier.
+
+Self-review: passed. Independent audit: not yet performed.
