@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Fully quantified proof: the adversarial objective is concave and invariant, hence symmetric attainment; the failing spoke dominates the hub-edge outage. A 4x4 exact Laplacian quotient yields a simple cubic Fiedler eigenvalue, strictly increasing and strictly concave in the hub/spoke ratio. A strictly decreasing derivative numerator supplies a unique price threshold and a unique symmetric optimum. Symmetry leaves the hub edge fixed, proving its weight identical across all unrestricted optima. Implicit differentiation yields the cubic root formula, m=2 exact value and asymptotic. The actual standalone program verified six symbolic identities and 1,295 numerical/direct-matrix checks. Finite checks are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2006 continuous-time Markov-process optimization theorem is broad enough to optimize each fixed post-outage network as an SDP but does not optimize the worst post-outage network with one common pre-failure conductance assignment.",
+        "The 2007 symmetry reduction can reduce convex invariant programs, but its published examples and statements address intact discrete-time mixing, not the one-failure robust construction.",
+        "The 2013 edge-rewiring work (abstract inspected) changes graph edges discretely to improve intact algebraic connectivity and does not establish a continuous failure-resilient price threshold."
+      ],
+      "reasoning": "General semidefinite programming machinery, and nominal graph-symmetry reductions, neither state nor logically fix the optimizer of the different max-min over outages without new spectral comparisons. A decisive stronger explicit fault-survivability theorem for this same graph was not found. The unavailable full rewiring source is a residual risk rather than evidence of noncoverage.",
+      "searches": [
+        "algebraic connectivity maximize worst edge failure continuous weights budget paper semidefinite",
+        "spectral network robustness worst-case edge removal algebraic connectivity optimization convex",
+        "worst-case algebraic connectivity edge failure budget",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "https://ar5iv.labs.arxiv.org/html/0709.0955",
+        "Optimizing algebraic connectivity by edge rewiring Sydney Scoglio Gruenbacher 2013 full text pdf"
+      ]
+    },
+    "checked_sources": [
+      "Sun, Boyd, Xiao & Diaconis, SIAM Review 48 (2006), DOI:10.1137/S0036144504443821; full-text sections inspected.",
+      "Boyd, Diaconis, Parrilo & Xiao, arXiv:0709.0955, 2007; full HTML relevant theorem and exact-example sections inspected.",
+      "Sydney, Scoglio & Gruenbacher, Applied Mathematics and Computation 219 (2013), DOI:10.1016/j.amc.2012.11.002; abstract/metadata only.",
+      "Published research-record search for book-graph spectral-gap, bridge conductance, one-edge-outage, and priced-network aliases."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For the present graph, intact symmetric spectral gap equals twice the spoke weight regardless of the hub-edge weight, hence positive hub price forces the hub edge to zero. The present post-outage gap instead equals the smallest root of a different four-dimensional reduced spectral pencil.",
+        "A prior equal-priced worst-outage resistance design on alternating cycles has a Kirchhoff-index objective, rather than the spectral gap on a book graph; it cannot imply the threshold by graph or invariant specialization.",
+        "Earlier priced-rim deletion criteria for intact fastest diffusion concern cycle edges and no failure, rather than a single priced edge with compulsory use under faults."
+      ],
+      "reasoning": "The graph, objective, edge-failure quantifiers and support direction are all essential. The exact new implication is that *every* unrestricted optimal assignment has positive common-edge conductance iff its price lies below a cubic-algebraic threshold, whereas nominal maximizers always omit it. This is not an algebraic renaming or parameter specialization of the closest inspected claims.",
+      "searches": [
+        "fault resilient consensus spectral gap algebraic connectivity weighted book graphs graph K_{2,m} optional bridge edge deletion threshold",
+        "Sharp critical price for optional central edge of book graph K_2 join independent m vertices maximizing minimum post single spoke outage Laplacian Fiedler eigenvalue; spectral fault tolerant diffusion, bridge conductance",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "https://ar5iv.labs.arxiv.org/html/0709.0955",
+        "Optimizing algebraic connectivity by edge rewiring Sydney Scoglio Gruenbacher 2013 full text pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. (2006), Section 1.2, optimize the intact weighted Laplacian second eigenvalue with linearly priced rates, not a minimum across surviving edge-deleted Laplacians.",
+        "Boyd et al. (2007), Sections 1.1 and 3.1.2, optimize intact discrete-time chain SLEM and display the complete-bipartite spectrum; they do not give a priced optional hub edge under adversarial deletion."
+      ],
+      "reasoning": "A generic epigraph SDP with one spectral constraint per possible edge deletion is an equivalent computational formulation; its existence does not imply the cubic closed critical price or compulsory hub-edge decision. The intact K_{2,m} problem shares a graph core but, as shown in the proof, always excludes the priced hub edge, whereas this worst-outage objective sometimes requires it. No compared published result yields the same implication.",
+      "searches": [
+        "single edge failure robust algebraic connectivity optimal conductance allocation K_{2,m} complete bipartite graph with additional hub edge priced network resilience",
+        "fault resilient consensus spectral gap algebraic connectivity weighted book graphs graph K_{2,m} optional bridge edge deletion threshold",
+        "Sharp critical price for optional central edge of book graph K_2 join independent m vertices maximizing minimum post single spoke outage Laplacian Fiedler eigenvalue; spectral fault tolerant diffusion, bridge conductance",
+        "K_{2,m} algebraic connectivity edge failure weight",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "https://ar5iv.labs.arxiv.org/html/0709.0955"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Boyd et al. report the intact K_{m,n} Laplacian spectrum and discrete-time SLEM optimization, not a fault-tolerance bridge-price table.",
+        "The retrieved publication records on book-graph spectral polytopes concern different invariants (ellipsoidal size/shape), not the minimum spectral gap after one deleted edge."
+      ],
+      "reasoning": "Specific graph names, aliases (book graph, common-edge fan of triangles, K_2 joined with an independent set) and edge-failure/fault-resilient spectral-gap wording were checked. No inspected exact table gives the displayed cubic threshold or all-price classification. A missing record is not proof that no such result exists.",
+      "searches": [
+        "single edge failure robust algebraic connectivity optimal conductance allocation K_{2,m} complete bipartite graph with additional hub edge priced network resilience",
+        "weighted complete bipartite link failure algebraic connectivity edge weight optimization worst case",
+        "Sharp critical price for optional central edge of book graph K_2 join independent m vertices maximizing minimum post single spoke outage Laplacian Fiedler eigenvalue; spectral fault tolerant diffusion, bridge conductance",
+        "K_{2,m} algebraic connectivity edge failure weight",
+        "complete bipartite robust algebraic connectivity single edge",
+        "book graph algebraic connectivity optimal edge weights bridge",
+        "arxiv:0709.0955, section 3.1.2 complete bipartite",
+        "doi:10.1137/S0036144504443821, sections 1 and 5"
+      ]
+    },
+    "rationale": "No inspected source/available prior claim gives the new one-outage robust book-graph threshold or implies the compulsory priced bridge. The two primary full texts treat intact Markov mixing/semidefinite programming; a related edge-rewiring source was accessible only at the abstract level. Multiple semantic literature/database queries and own prior mathematical-claim comparisons found no equivalent statement, but unindexed prior work remains a risk.",
+    "residual_risks": [
+      "A specialized fault-tolerant network-design paper or general theorem not indexed in the consulted sources might imply this exact price classification.",
+      "The full text of the 2013 discrete edge-rewiring article was not available; its abstract concerns a different control variable and intact objective.",
+      "A publication using a different name for the book graph or singular-backup spectral design could contain the same result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOMINAL_MODEL_ONLY; no one-edge-outage max-min in the inspected theorem and results.",
+        "evidence": "Definition (1) maximizes one intact graph eigenvalue under sum of linearly priced conductances; printed page 683. Published electronically on 2006-11-02.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Author-hosted PDF title/abstract, pp. 681–683 (model, budget and convexity), printed p. 696 (path and cycle examples), and searchable section headings/results on optimality and duality.",
+        "method": "Accessible primary PDF inspected through rendered pages and text, including model/objective and published graph cases.",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Foundational continuously variable, linearly priced Laplacian spectral-gap objective and exact primary MSC 90C22."
+      },
+      {
+        "assessment": "NO_DIRECT_IMPLICATION: intact discrete-time mixing rather than the post-failure continuous-time spectral-gap minimax problem.",
+        "evidence": "Theorem 2.1 ensures a symmetric optimum for the intact convex FMMC problem; §3.1.2 evaluates nominal bipartite SLEM and §5.3.1 its symmetry blocks.",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/0709.0955",
+        "material_read": "Open full HTML, Sections 1.1, 2.2, 3.1.2 and 5.3.1: objective, invariance theorem, complete-bipartite graph eigenvalues and block decomposition.",
+        "method": "Primary arXiv v1 HTML inspected at model, theorem, and exact-graph-example sections; targeted searches over document for fault/failure terminology.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Plausible stronger graph-orbit reduction, explicit complete-bipartite calculations, and analogous named structures."
+      },
+      {
+        "assessment": "DISTINCT_PROBLEM_BY_ABSTRACT_ONLY; unresolved full-text risk explicitly retained.",
+        "evidence": "The abstract describes choice of one or more edges to rewire to increase intact algebraic connectivity, not priced conductance allocation guaranteeing post-failure spectral gaps.",
+        "identifier_or_url": "https://doi.org/10.1016/j.amc.2012.11.002",
+        "material_read": "Publication abstract and bibliographic metadata only; full article was not accessible through identified public/open-access pages.",
+        "method": "Searched title/full-text availability, compared abstract objective, article DOI and graph-operation model.",
+        "title": "Optimizing algebraic connectivity by edge rewiring",
+        "trigger": "Potentially related edge-change and robustness terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "623a2d5d-5f81-431b-b9c8-5477c1e2b36c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides a complete explicit cost decision for protecting diffusion spectral decay against one failed edge, for every book size and every positive price and budget. The backup edge is provably unused by every nominal optimizer yet mandatory under fault tolerance below a sharp algebraic price, with \\(t_c(2)=3+2\\sqrt2\\) and \\(m t_c(m)\\to2\\). These are structural consequences of a motivated resilient design problem, not a renamed basic eigenvalue identity; the result need not solve general robust graphs to be useful.",
+    "status": "PASS"
+  }
+}
