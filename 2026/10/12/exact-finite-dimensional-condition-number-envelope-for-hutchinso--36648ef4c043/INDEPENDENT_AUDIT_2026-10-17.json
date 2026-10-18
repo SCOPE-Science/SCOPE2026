@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T15:54:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact one-probe variance is 2(||A||_F^2-sum a_ii^2), and Cauchy--Schwarz bounds the diagonal-square sum by tr(A)^2/n. Real Schur--Horn attains this lower bound for every eigenvalue spectrum with a constant diagonal. Scaling spectrum to [1,kappa] reduces to maximizing Q/S^2. The single-coordinate derivative 2(ts-q)/(s+t)^3 has only a minimum internally; thus some optimizer uses endpoints. With r upper eigenvalues the objective derivative changes + to - exactly at r=n/(kappa+1), so neighboring integer multiplicities suffice, including kappa=1 zero case. Corrected no unsupported inference from finite grid: independent exact Fraction check n=2..35 with rational kappa plus n=4,kappa=3 witness 1/6; analytic proof covers continuum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Roosta--Ascher bound depends on columns/diagonal via K_H and target tail probability; it is not the claimed condition-number-only exact variance maximum."
+        ],
+        "reasoning": "A stronger concentration bound does not automatically yield the exact variance supremum or its Schur--Horn realizability.",
+        "searches": [
+          "arXiv:1308.2475 full text Hutchinson parameter K_H",
+          "Avron Toledo 2011 article variance"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1308.2475",
+        "DOI:10.1145/1944345.1944349",
+        "DOI:10.1007/s10208-021-09525-9",
+        "Resultary semantic search Hutchinson Rademacher trace estimator sharp worst relative variance spectral condition number finite dimension eigenvalue multiplicity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known scalar continuous envelope (kappa-1)^2/(2 kappa n) loses the integer r correction, and known variance identity alone leaves basis orientation unresolved."
+        ],
+        "reasoning": "Proof requires bringing established ingredients together with discrete optimization; it is not implied as a verbatim corollary of the specific published sample-size theorems inspected.",
+        "searches": [
+          "arXiv:1308.2475 Section 2",
+          "bounded ratio continuous Kantorovich inequality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The variance identity is classical, and a continuous upper bound on relative spectral variance is familiar; no located source states exactly this finite n integer endpoint optimizer for Hutchinson with sharp orientation."
+        ],
+        "reasoning": "Equivalent descriptions via bounded-data coefficient-of-variation and range-constrained sample variance are a genuine possible historical overlap, recorded as residual risk, not ruled out by superficial titles.",
+        "searches": [
+          "Hutchinson Rademacher trace estimator sharp worst relative variance spectral condition number finite dimension eigenvalue multiplicity",
+          "Hutchinson coefficient variation finite n range exact endpoint spectrum",
+          "Schur Horn Rademacher variance condition number"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search results centered on unrelated sharp spectra and trace-class conditioning, not exact stochastic trace variance tables."
+        ],
+        "reasoning": "The statement is an all-n analytic extremum rather than a preexisting finite table of instances; no exact covering table retrieved.",
+        "searches": [
+          "Hutchinson Rademacher trace estimator sharp worst relative variance spectral condition number finite dimension eigenvalue multiplicity",
+          "Resultary Rademacher Hutchinson finite-n variance envelope query"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with notable scalar-extremal risk: Avron--Toledo and Roosta-Khorasani--Ascher establish Hutchinson identity and sample complexity / columnwise off-diagonal energies, rather than the exact finite n spectral-kappa envelope. The continuous Kantorovich-type inequality and Schur--Horn theorem are acknowledged as known ingredients. Originality limited to their sharp finite integer-multiplicity combination for Rademacher variance; an older bounded finite sample coefficient-of-variation theorem may encode same formula.",
+      "residual_risks": [
+        "Classical finite bounded-range coefficient-of-variation extremal inequalities may yield the same floor/ceiling law indirectly.",
+        "Avron--Toledo full primary text was not verified in this run; exact hidden coverage cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published sample-size bound does not provide finite n condition-number-only exact variance supremum",
+          "evidence": "Theorem uses matrix-dependent K_H, not upper/lower spectral endpoint integer multiplicities.",
+          "identifier_or_url": "arXiv:1308.2475",
+          "material_read": "Open primary full text, including Section 2 estimator analysis and off-diagonal-energy parameter, PDF visually inspected",
+          "method": "arXiv full PDF plus page screenshot",
+          "title": "Improved Bounds on Sample Size for Implicit Matrix Trace Estimators",
+          "trigger": "Direct Rademacher Hutchinson theory and nearest general numerical result"
+        },
+        {
+          "assessment": "Potential coverage remains uncertain beyond accessible material; known emphasis is variance identity and sampling bounds",
+          "evidence": "Off-diagonal energy determines variance, which is a premise, not itself the finite κ envelope.",
+          "identifier_or_url": "DOI:10.1145/1944345.1944349",
+          "material_read": "Public article abstract/indexed article excerpts; full paper NOT confirmed read",
+          "method": "Accessible scholarly index and excerpt",
+          "title": "Randomized algorithms for estimating the trace of an implicit symmetric positive semi-definite matrix",
+          "trigger": "Seminal proof of variance identity and sample complexity"
+        },
+        {
+          "assessment": "Focuses stable-rank/tail bounds; no exact finite-dimensional κ optimizer identified",
+          "evidence": "Bounds formulated in tail/sample terms rather than deterministic κ,n variance extremum.",
+          "identifier_or_url": "DOI:10.1007/s10208-021-09525-9",
+          "material_read": "Public publisher summary and indexed theorem excerpts, not a verified complete full-paper reading",
+          "method": "Publisher-accessible scholarly material",
+          "title": "On Randomized Trace Estimates for Indefinite Matrices with an Application to Determinants",
+          "trigger": "Broad later trace-estimator concentration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp worst-case variance bound using only matrix dimension and condition number is a natural numerical-linear-algebra performance invariant; exact finite-n integer spectral multiplicity changes practical guarantees beyond a smooth continuous bound. Equality is genuinely attainable by SPD matrices, not just scalar eigenvalue sequences.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1308.2475",
+    "DOI:10.1145/1944345.1944349",
+    "DOI:10.1007/s10208-021-09525-9",
+    "Resultary semantic search Hutchinson Rademacher trace estimator sharp worst relative variance spectral condition number finite dimension eigenvalue multiplicity"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Real SPD matrices, ordinary independent Rademacher probes, and variance only (not tail probabilities).",
+    "Uses freedom of matrix orientation; a fixed diagonal basis may have smaller variance.",
+    "Classical finite bounded-range coefficient-of-variation extremal inequalities may yield the same floor/ceiling law indirectly.",
+    "Avron--Toledo full primary text was not verified in this run; exact hidden coverage cannot be ruled out."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "Published sample-size bound does not provide finite n condition-number-only exact variance supremum",
+      "evidence": "Theorem uses matrix-dependent K_H, not upper/lower spectral endpoint integer multiplicities.",
+      "identifier_or_url": "arXiv:1308.2475",
+      "material_read": "Open primary full text, including Section 2 estimator analysis and off-diagonal-energy parameter, PDF visually inspected",
+      "method": "arXiv full PDF plus page screenshot",
+      "title": "Improved Bounds on Sample Size for Implicit Matrix Trace Estimators",
+      "trigger": "Direct Rademacher Hutchinson theory and nearest general numerical result"
+    },
+    {
+      "assessment": "Potential coverage remains uncertain beyond accessible material; known emphasis is variance identity and sampling bounds",
+      "evidence": "Off-diagonal energy determines variance, which is a premise, not itself the finite κ envelope.",
+      "identifier_or_url": "DOI:10.1145/1944345.1944349",
+      "material_read": "Public article abstract/indexed article excerpts; full paper NOT confirmed read",
+      "method": "Accessible scholarly index and excerpt",
+      "title": "Randomized algorithms for estimating the trace of an implicit symmetric positive semi-definite matrix",
+      "trigger": "Seminal proof of variance identity and sample complexity"
+    },
+    {
+      "assessment": "Focuses stable-rank/tail bounds; no exact finite-dimensional κ optimizer identified",
+      "evidence": "Bounds formulated in tail/sample terms rather than deterministic κ,n variance extremum.",
+      "identifier_or_url": "DOI:10.1007/s10208-021-09525-9",
+      "material_read": "Public publisher summary and indexed theorem excerpts, not a verified complete full-paper reading",
+      "method": "Publisher-accessible scholarly material",
+      "title": "On Randomized Trace Estimates for Indefinite Matrices with an Application to Determinants",
+      "trigger": "Broad later trace-estimator concentration"
+    }
+  ]
+}

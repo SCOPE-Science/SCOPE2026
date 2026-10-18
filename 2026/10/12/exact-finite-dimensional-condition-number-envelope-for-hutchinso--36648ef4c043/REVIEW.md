@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact Rademacher variance formula reduces orientation dependence to the squared diagonal. Cauchy--Schwarz supplies the sharp lower bound \(\sum_i a_{ii}^2\ge \operatorname{tr}(A)^2/n\), and real Schur--Horn supplies equality for any prescribed spectrum. The remaining spectral ratio is coordinatewise endpoint-maximized because each one-variable slice has only an interior minimum. The resulting integer objective is unimodal with continuous maximizer \(n/(\kappa+1)\), proving the floor/ceiling law. The independent-probe factor \(1/m\) is immediate. Exact replay verifies representative rational cases and the equality witness.
+## correctness
 
-## Originality
-PASS, with explicit residual risk. Classical and modern trace-estimation literature gives the variance identity, general sample-complexity bounds, matrix-dependent off-diagonal-energy bounds, and later stable-rank/tail estimates. The closest inspected archive source, Roosta-Khorasani--Ascher, defines a columnwise off-diagonal-energy parameter and proves sufficient sample bounds, but does not state the exact condition-number-only finite-dimensional variance envelope, the two-adjacent-integers multiplicity law, or Schur--Horn attainability. Focused published-finding corpus and web searches for condition-number, relative-variance, Schur--Horn, endpoint-spectrum, and equivalent formulations found no implication-equivalent result. The simple continuous \((\kappa-1)^2/(2\kappa n)\) corollary is recognized as Kantorovich-type prior structure and is not the novelty claim.
+PASS
 
-## Value
-PASS. Condition number is routinely available or targeted by preconditioning, while Hutchinson variance is basis- and matrix-structure dependent. The theorem gives the exact worst uncertainty compatible with only \((n,\kappa)\), identifies the extremal spectrum and orientation, and quantifies the finite-dimensional gap left by continuous bounded-ratio inequalities. It is a natural complete extremal classification rather than an arbitrary numerical slice.
+Exact one-probe variance is 2(||A||_F^2-sum a_ii^2), and Cauchy--Schwarz bounds the diagonal-square sum by tr(A)^2/n. Real Schur--Horn attains this lower bound for every eigenvalue spectrum with a constant diagonal. Scaling spectrum to [1,kappa] reduces to maximizing Q/S^2. The single-coordinate derivative 2(ts-q)/(s+t)^3 has only a minimum internally; thus some optimizer uses endpoints. With r upper eigenvalues the objective derivative changes + to - exactly at r=n/(kappa+1), so neighboring integer multiplicities suffice, including kappa=1 zero case. Corrected no unsupported inference from finite grid: independent exact Fraction check n=2..35 with rational kappa plus n=4,kappa=3 witness 1/6; analytic proof covers continuum.
 
-## Closest literature and limitations
-Hutchinson supplies the estimator and variance analysis; Avron--Toledo and Roosta-Khorasani--Ascher analyze probabilistic sample complexity and matrix-dependent behavior; later stable-rank work sharpens tail bounds. The principal residual risk is that an older inequality on bounded finite samples or coefficient of variation may encode the same spectral endpoint optimization without trace-estimation terminology. The claim is therefore limited to the exact finite-\(n\) Hutchinson formulation and does not claim novelty for the underlying continuous Kantorovich-type scalar inequality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS with notable scalar-extremal risk: Avron--Toledo and Roosta-Khorasani--Ascher establish Hutchinson identity and sample complexity / columnwise off-diagonal energies, rather than the exact finite n spectral-kappa envelope. The continuous Kantorovich-type inequality and Schur--Horn theorem are acknowledged as known ingredients. Originality limited to their sharp finite integer-multiplicity combination for Rademacher variance; an older bounded finite sample coefficient-of-variation theorem may encode same formula.
+
+## value
+
+PASS
+
+A sharp worst-case variance bound using only matrix dimension and condition number is a natural numerical-linear-algebra performance invariant; exact finite-n integer spectral multiplicity changes practical guarantees beyond a smooth continuous bound. Equality is genuinely attainable by SPD matrices, not just scalar eigenvalue sequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
