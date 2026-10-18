@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "An exact Pell matrix factorization yields M^(2r)-I=2T_rB with primitive B. Cassini's identity excludes odd primes outside T_r, while the two-adic parity excludes unaccounted powers of 2. The polynomial A(y,x+2y)-A(x,y)=14x^3 produces an integral quotient Phi satisfying 7S_n=T_r Phi_n. At primes of T_r other than 3 and 7, Phi_0 is a unit; at 7 it is a unit and cancels exactly one factor; at 3 all Phi_n vanish for 4|r but Phi_0 has valuation precisely one. Periods modulo 3 and 7 determine the trigger conditions. The cubic rank-four recurrence makes the infinite gcd computable from four windows. Exact checks for 480 lengths and 7200 further windows agree but are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mbirika–Schrader–Spilker, Theorems 15–19 (m=1), Partial Result 29 (m=2)",
+        "Anand et al., Theorem 1.6 (unpowered consecutive Pell sums)",
+        "Mbirika–Spilker, arXiv:2204.12626 (squares of generalized Fibonacci)"
+      ],
+      "reasoning": "The Pell paper explicitly distinguishes powers m=1 and m=2 and does not establish m=3. The first-power fixed-multiple result concerns different summands. The recurrence coefficient in the generalized Fibonacci square paper is 1 rather than 2, so neither theorem implies the cubic Pell law.",
+      "searches": [
+        "gcd consecutive cubes Pell numbers associated Pell numbers sums k exact formula",
+        "2024 Pell third power sums closed form gcd Mbirika",
+        "Pell numbers third power consecutive sum gcd P_r Q_r factor 7 3",
+        "arXiv:2301.05758 Section 6 Partial Result 29"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2301.05758v1",
+      "JIS:26-2023-23.6.4",
+      "arXiv:2407.12868v1",
+      "arXiv:2204.12626v1",
+      "OEIS:A000129",
+      "OEIS:A001333",
+      "OEIS:A374490"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2023 primary study: closed first-power formulas and square-power partial results",
+        "2024 study: first-power sums and fixed-multiple criterion",
+        "2022 study: generalized Fibonacci squared windows"
+      ],
+      "reasoning": "The new theorem gives an exact cubic window gcd with factors 3 and 7; formulas for degree one and degree two do not control cubic reductions or the coefficient-14 antidifference. The compared results contain no stronger all-powers statement covering degree three.",
+      "searches": [
+        "arXiv:2301.05758 Pell powers GCD Theorem 15 Partial Result 29",
+        "arXiv:2407.12868 Pell consecutive first power sums",
+        "arXiv:2204.12626 generalized Fibonacci squares gcd"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2301.05758v1, Sections 4–6",
+        "arXiv:2407.12868v1, introduction and Theorem 1.6",
+        "No identical statement found in the targeted searches"
+      ],
+      "reasoning": "The sum-of-cubes and shifted-window formulations would be equivalent under index shift. Neither the cubic wording nor its half-index 3/7 valuation form was found in the inspected publications. Absence from search results does not establish universal uniqueness.",
+      "searches": [
+        "Pell cubes gcd consecutive sums k terms",
+        "Pell third powers gcd sums windows",
+        "GCD of sums cubes Pell",
+        "Pell numbers cubic gcd sliding window H(k)=gcd_n sum_{j=0}^{k-1} P_{n+j}^3 formula k even half index and factor 3 7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A000129 gives Pell terms",
+        "OEIS:A001333 gives associated Pell terms",
+        "OEIS:A374490 concerns cubes of ordinary consecutive integers, not Pell cubes"
+      ],
+      "reasoning": "The classical term tables define the input sequences, not the infinite gcd of all cubic windows. The retrieved gcd-of-cubes table A374490 is for n consecutive integer cubes and is not the same invariant. No covering table was identified.",
+      "searches": [
+        "OEIS A000129 Pell numbers",
+        "OEIS A001333 associated Pell numbers",
+        "site:oeis.org Pell consecutive cubes gcd",
+        "1, 1, 1, 2, 1, 1, 1, 36 Pell"
+      ]
+    },
+    "rationale": "The primary 2023 Pell GCD study defines general power windows but proves first-power braid formulas and gives partial results for squares; its full-text Sections 4–6 contain no cubic formula. The 2024 Pell consecutive-sum paper handles first powers and fixed-multiple identities. The 2022 generalized Fibonacci paper handles squares, and classical Pell sequence tables do not imply the cubic valuation law. Searches for exact and equivalent cubic window descriptions found no covering theorem. Residual risk: undiscovered equivalent work.",
+    "residual_risks": [
+      "An equivalent cubic Pell-window theorem could occur in unindexed or differently titled literature.",
+      "The 2022 generalized Fibonacci square paper was inspected at abstract level only; its stated scope is different and does not by itself imply cubic Pell windows."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: Section 4 treats unpowered sums, Section 6 squares; no degree-three Pell formula identified",
+        "evidence": "Theorems 15–19 on first powers; Partial Result 29 on squares; Question 30 asks about further squared-sequence cases; paper's primary MSC 11B39",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Mbirika/mbir5.pdf",
+        "material_read": "Introduction, definitions and all theorem statements in Sections 4–6, primary concluding discussion and references, with targeted full-text searches for cubes and m=3",
+        "method": "Primary 24-page PDF text inspection, page views, theorem searches",
+        "title": "Pell and Associated Pell Braid Sequences as GCDs of Sums of k Consecutive Pell, Balancing, and Related Numbers",
+        "trigger": "Exact sequence and identical sliding-window gcd framework; plausible degree-general result"
+      },
+      {
+        "assessment": "NOT_COVERING for the new cubic gcd: investigates sums of first powers and fixed-multiple characterizations",
+        "evidence": "Theorem 1.6 explicitly sums unpowered Pell terms; paper states its aim as fixed multiples of recurrence terms",
+        "identifier_or_url": "https://arxiv.org/pdf/2407.12868",
+        "material_read": "Abstract, definitions, Section 1.1 and Theorem 1.6, Section 2 statements; document-wide searches for cubes and cubed",
+        "method": "ArXiv full PDF text and page inspection",
+        "title": "Sum of Consecutive Terms of Pell and Related Sequences",
+        "trigger": "Later paper with closely matching Pell consecutive-sum title and potentially stronger scope"
+      },
+      {
+        "assessment": "Different recurrence and exponent, so stated results do not imply the cubic Pell theorem",
+        "evidence": "The abstract gives an exact formula specifically for squares of G_n with G_{n+2}=G_{n+1}+G_n",
+        "identifier_or_url": "https://arxiv.org/abs/2204.12626",
+        "material_read": "ArXiv abstract and published-result formula",
+        "method": "Primary arXiv abstract inspection",
+        "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+        "trigger": "Comparable higher-power window-gcd framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a22e3ce2-4b44-42b4-8468-7d94999ee5b1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is an exact complete classification for a natural infinite family of third-power sliding-window gcds, directly motivated by a published framework studying first and second powers. The cubic antidifference produces a genuinely new exceptional denominator prime 7; a separate 3-adic lifting phenomenon occurs exactly at indices divisible by four. The two independent local triggers and the half-index braid provide structural content beyond routine termwise recurrence manipulation or finite enumeration.",
+    "status": "PASS"
+  }
+}
