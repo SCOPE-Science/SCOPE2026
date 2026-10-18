@@ -1,12 +1,21 @@
-# Review of Minimum total vertex-edge dominating sets of crown graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. Vertex-edge domination is equivalent to \(N[D]\) being a vertex cover. Every two-vertex set either lies in one side or is a deleted matched pair and therefore fails totality, or is an adjacent cross-pair \(\{a_i,b_j\}\) with \(i\ne j\), in which case \(a_jb_i\) is an uncovered edge outside \(N[D]\). A three-set with two vertices on one side and one on the other is total exactly when the opposite selected index differs from both same-side indices; then its closed neighborhood misses at most one vertex, so it vertex-edge dominates every edge. This proves the value, the complete minimum-set classification, and the count. Exhaustive verification of all \(87{,}360\) subsets for \(3\le n\le8\) agrees exactly.
+## correctness
 
-## Originality
-PASS. The foundational 2017 work introduces total vertex-edge domination and treats bipartite hardness and trees, not crowns. A fully inspected 2019 same-parameter paper is entirely about tree bounds and contains no crown, complete-bipartite, bipartite, or matching occurrence. The 2021 algorithmic paper treats chain graphs and threshold graphs; crowns are not chain graphs. A 2025 paper studies several graph operations and characterizes the value-\(2\) case, but its accessible abstract does not state a crown result. Exact and semantic searches under crown, matching-deletion, complete-bipartite, and total vertex-edge terminology found no equivalent theorem or minimum-set classification.
+PASS
 
-## Value
-PASS. Crown graphs are the canonical perfect-matching deletion of balanced complete bipartite graphs. The result gives a sharp perturbation law from \(2\) to \(3\) together with every optimizer and an exact multiplicity \(n(n-1)(n-2)\). The distinct-index mechanism records precisely how the missing matching destroys every two-vertex solution, making the classification a natural structural benchmark rather than a routine scalar calculation.
+Total vertex-edge domination of D is equivalent to the complement of N[D] containing no edge (N[D] is a vertex cover) together with G[D] having no isolated selected vertices. All one-/two-vertex sets fail totality, except an adjacent pair {a_i,b_j} with i!=j, and that pair leaves the genuine edge a_j b_i outside N[D], so gamma>=3. A total three-set must have two vertices on one shore and one opposite; every one of its two same-shore vertices must see the lone opposite vertex, forcing three distinct matching indices. Each such triple covers all opposite vertices and all but potentially one same-shore vertex by N[D], hence is VE-dominating. Two orientations yield exactly n(n-1)(n-2) minima for all n>=3. Independent subset-level exhaustions for 3<=n<=8 reproduce the complete family.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The graph family K_nn with one perfect matching removed is not a tree or chain graph; published tree-specific TVE bounds and general bipartite NP-completeness do not yield the all-size minimum-set count. Complete determination of every minimizing triple uses crown-specific missing matching indices. Full introducing paper inaccessible, retained priority risk.
+
+## value
+
+PASS
+
+The invariant is defined and motivated in graph domination theory; removal of a perfect matching from a biclique provably raises its total vertex-edge minimum from 2 to 3, and ALL minimum three-vertex witnesses are classified by distinct matching indices. The closed formula n(n-1)(n-2) is a complete natural infinite-family census, not just a test case or renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

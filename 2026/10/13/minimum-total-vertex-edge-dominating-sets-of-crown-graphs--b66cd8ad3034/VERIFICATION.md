@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,44 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs
-\[
-\operatorname{Cr}_n=K_{n,n}-M
-\]
-for
-\[
-3\le n\le8.
-\]
+# Independent mathematical audit
 
-For each vertex subset \(D\), it tests the total condition by checking that every selected vertex has a selected neighbor. It tests vertex-edge domination using the exact equivalence
-\[
-D\text{ is vertex-edge dominating}
-\quad\Longleftrightarrow\quad
-N[D]\text{ is a vertex cover}.
-\]
+## correctness
 
-It computes every minimum set and compares the complete family with
-\[
-\{a_i,a_j,b_k\}
-\quad\text{and}\quad
-\{a_k,b_i,b_j\},
-\]
-where \(i,j,k\) are pairwise distinct.
+PASS
 
-Recorded output:
+Total vertex-edge domination of D is equivalent to the complement of N[D] containing no edge (N[D] is a vertex cover) together with G[D] having no isolated selected vertices. All one-/two-vertex sets fail totality, except an adjacent pair {a_i,b_j} with i!=j, and that pair leaves the genuine edge a_j b_i outside N[D], so gamma>=3. A total three-set must have two vertices on one shore and one opposite; every one of its two same-shore vertices must see the lone opposite vertex, forcing three distinct matching indices. Each such triple covers all opposite vertices and all but potentially one same-shore vertex by N[D], hence is VE-dominating. Two orientations yield exactly n(n-1)(n-2) minima for all n>=3. Independent subset-level exhaustions for 3<=n<=8 reproduce the complete family.
 
-```text
-VERIFY_OK
-n=3: gamma_tve=3, minimum_sets=6
-n=4: gamma_tve=3, minimum_sets=24
-n=5: gamma_tve=3, minimum_sets=60
-n=6: gamma_tve=3, minimum_sets=120
-n=7: gamma_tve=3, minimum_sets=210
-n=8: gamma_tve=3, minimum_sets=336
-subsets_checked = 87360
-all minimum sets matched the pairwise-distinct-index classification
-```
+## originality
 
-The checker exhausts \(87{,}360\) vertex subsets. The finite computation is corroborative only; the arbitrary-order theorem follows from the closed-neighborhood vertex-cover proof.
+PASS
+
+The graph family K_nn with one perfect matching removed is not a tree or chain graph; published tree-specific TVE bounds and general bipartite NP-completeness do not yield the all-size minimum-set count. Complete determination of every minimizing triple uses crown-specific missing matching indices. Full introducing paper inaccessible, retained priority risk.
+
+## value
+
+PASS
+
+The invariant is defined and motivated in graph domination theory; removal of a perfect matching from a biclique provably raises its total vertex-edge minimum from 2 to 3, and ALL minimum three-vertex witnesses are classified by distinct matching indices. The closed formula n(n-1)(n-2) is a complete natural infinite-family census, not just a test case or renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
