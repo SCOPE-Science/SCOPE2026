@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A shift-equivariant regular conditional probability \(p_t\) of the next symbol, supplemented with independent stationary uniforms, gives an explicit shift-invariant joining with an iid fair second coordinate. The two branches of the maximal Bernoulli coupling give exactly \(\mathbb E|p_t-1/2|\) mismatches. Conditional-entropy identity, symmetry/concavity of binary entropy, and inverse-branch monotonicity establish the claimed bound with correct inequality direction. Bias-\(p\) iid examples saturate at all entropies by the one-coordinate total-variation lower bound. Both entropy endpoints and natural extension of one-sided measures are covered. No numerical inference or unchecked lemma is used.
+PASS
 
-## Originality — PASS, with named residual risk
+The shift-covariant probability p_t=P(X_t=1|X_{s<t}) exists for a stationary binary process. Conditional maximal Bernoulli coupling with independent uniforms makes each Y_t fair even conditional on the complete joint strict past (X,U), hence Y is iid fair and (X,Y) stationary. The mismatch is E|p_t-1/2|. Entropy rate h=E H_b(p_t); concavity plus binary symmetry give h<=H_b(1/2-E|p_t-1/2|), whose increasing inverse gives dbar<=1/2-H_b^-1(h). iid bias p=H_b^-1(h) attains the bound by one-coordinate total variation and coordinatewise joining. Endpoints h=0,ln2 and one-sided natural extensions follow without ergodicity hypotheses.
 
-The closest full mathematical sources are Climenhaga–Kumari 2026 (Theorem A) and Marton 1996 (Proposition 1). Both yield square-root effective bounds and neither states the exact inverse-binary-entropy envelope or its all-entropy sharpness. The new continuum-optimal function is strictly stronger than the square-root inequality except at maximal entropy, and is not implied by their displayed bounds. Database searches for the claim, inverse entropy aliases, stationary fair Bernoulli transport, and the original source title returned no equivalent statement. Previously recorded research statements concerning maximal-entropy structure, symbolic generators, or unrelated Bernoulli statistics are implication-incomparable. Residual risk: older rate-distortion or causal-coupling literature might contain this elementary sharp specialization under alternate notation, even though no decisive match was found.
+## originality
 
-## Value — PASS
+PASS
 
-An exact natural quantitative invariant is identified for **all** invariant binary processes and all entropy levels, with a universal stationary coupling and saturating ergodic examples. This replaces a qualitative/unquantified square-root neighborhood with an optimal nonlinear profile; it includes dependent, nonergodic, and zero-entropy measures. The extension is not presented as a new general result for arbitrary mixing SFTs. Although the proof is short, the optimal all-level profile supplies a concrete sharp boundary relevant to effective uniqueness and process transport.
+The closest general Climenhaga–Kumari mixing-SFT result and Marton product inequality are square-root entropy/transport estimates, not the exact inverse binary entropy sharp profile. Statement-level checks and the Resultary semantic search found no decisive covering claim, but unindexed causal-coupling/rate-distortion literature is a genuine unresolved priority risk.
 
-## Closest literature and limits
+## value
 
-Marton's 1996 product-reference construction bounds mean Hamming transport by the square root of informational divergence, as confirmed from the original article (pp. 857–866). Climenhaga and Kumari's full preprint proves the general SFT result with an unspecified constant (Theorem A, p. 1), not the all-level formula. No claim is made about exact profiles for larger alphabets or SFT restrictions, nor about a complete characterization of equality processes. Independent validation has not been performed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The complete sharp entropy-versus-Ornstein-distance profile is a canonical quantitative invariant of all binary stationary processes. It improves an unspecified square-root neighborhood to the exact nonlinear boundary at every entropy and supplies saturating processes and an explicit stationary optimal coupling; this is not simply a renamed single-time Pinsker inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

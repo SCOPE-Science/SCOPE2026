@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the entropy–distance envelope
 
-The theorem is proved analytically in RESULT.md; there are no auxiliary programs, numerical inputs, or external certificates. The following checks were independently reconstructed within the same scientific review:
+# Independent mathematical audit
 
-- With conditional \(p_t\ge1/2\), the Bernoulli maximal coupling sets \(Y_t=1\) only on an \(X_t=1\) event of conditional probability \(1/(2p_t)\), giving fair output and mismatch \(p_t-1/2\).
-- With conditional \(p_t<1/2\), all \(X_t=1\) events remain one and a fraction of zero events become one, giving fair output and mismatch \(1/2-p_t\).
-- Conditioning on the complete strict past of \((X,U)\) gives the fair bit, which implies the joint output sequence has independent fair coordinates. Shift-equivariance gives an invariant joining.
-- Concavity of the binary entropy function and monotonicity of the increasing inverse branch yield the direction of the bound; the two endpoint cases require no continuity extrapolation.
-- The one-site marginal total-variation lower bound and iid optimal coupling prove equality for every prescribed entropy; the one-sided natural extension preserves the quantity.
+## correctness
 
-This is a same-model mathematical check, not a claim of independent audit or formal proof certification. Limitation: a full classification of all equality cases and a higher-alphabet analogue are not established. Literature originality comparisons and their residual risks are recorded in REVIEW.md and AUDIT.json.
+PASS
+
+The shift-covariant probability p_t=P(X_t=1|X_{s<t}) exists for a stationary binary process. Conditional maximal Bernoulli coupling with independent uniforms makes each Y_t fair even conditional on the complete joint strict past (X,U), hence Y is iid fair and (X,Y) stationary. The mismatch is E|p_t-1/2|. Entropy rate h=E H_b(p_t); concavity plus binary symmetry give h<=H_b(1/2-E|p_t-1/2|), whose increasing inverse gives dbar<=1/2-H_b^-1(h). iid bias p=H_b^-1(h) attains the bound by one-coordinate total variation and coordinatewise joining. Endpoints h=0,ln2 and one-sided natural extensions follow without ergodicity hypotheses.
+
+## originality
+
+PASS
+
+The closest general Climenhaga–Kumari mixing-SFT result and Marton product inequality are square-root entropy/transport estimates, not the exact inverse binary entropy sharp profile. Statement-level checks and the Resultary semantic search found no decisive covering claim, but unindexed causal-coupling/rate-distortion literature is a genuine unresolved priority risk.
+
+## value
+
+PASS
+
+The complete sharp entropy-versus-Ornstein-distance profile is a canonical quantitative invariant of all binary stationary processes. It improves an unspecified square-root neighborhood to the exact nonlinear boundary at every entropy and supplies saturating processes and an explicit stationary optimal coupling; this is not simply a renamed single-time Pinsker inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
