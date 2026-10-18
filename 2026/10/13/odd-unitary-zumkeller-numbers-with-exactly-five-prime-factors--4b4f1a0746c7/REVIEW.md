@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The infinite part is proved symbolically. The necessary unitary-abundancy inequality forces the first three primes, restricts the last two primes to four short branches, and leaves only three nonsquarefree exponent patterns. The packaged exact verifier then checks a distinct proper unitary-divisor subset summing to \(\sigma^*(n)/2-n\) for each of all \(90\) candidates. The four-prime upper bound proves the least-odd corollary. The finite certificate is not used as evidence for any unbounded search claim.
+## correctness
 
-## Originality — PASS
-The focal paper by Das, OEIS A290466, targeted searches for the standard and equivalent formulations, searches using the concrete value \(15015\), and the closest exact published classification were compared at the statement/implication level. None of the checked sources states or implies the odd five-prime-support classification. The closest exact same-object result concerns even integers with exactly three distinct prime factors and is inapplicable to this domain. Residual risk remains for obscure or differently indexed literature.
+PASS
 
-## Value — PASS
-The theorem resolves the first possible support size for odd unitary Zumkeller numbers and simultaneously gives a sharp minimum. The \(90\)-case list is a natural complete classification forced by the structure, not an arbitrary computational slice, and the result supplies explicit reproducible witnesses for every positive case.
+The necessary sigma*(n)>=2n makes the five smallest primes 3,5,7 obligatory, and gives s<=32(r+1)/(3r-32) with r in {11,13,17,19}. The resulting squarefree supports number 87. Exact monotone abundancy bounds exclude exponent repetition except s^2 for r=11 and s=13,17,19. Independent full certificate check from witnesses.json confirmed all 90 distinct candidates and each exact proper-unitary-divisor subset sums to sigma*/2-n. Independently rederived all 90 cases and used integer bitset subset sums, obtaining 90 successes and least n=15015. Four-or-fewer-prime odd numbers have sigma*/n<=768/385<2.
 
-## Closest literature and limitations
-Das (2024) is the closest primary source and provides the same object and general restrictions but not this classification. OEIS A290466 is the natural exact database but contains no corresponding theorem. The result does not address odd cases with at least six distinct prime factors.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Das (2024) establishes necessary unitary abundancy and subset-sum criteria but does not classify odd numbers with exactly five distinct prime factors. OEIS A290466 catalogs numbers without this structural family. Published even three-prime support classification has disjoint parity/support.
+
+## value
+
+PASS
+
+A complete naturally bounded support stratum with precise 90-count, explicit rational prime/exponent pruning, and independently checkable finite witnesses; 15015 is a sharp least odd value rather than a tiny arbitrary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
