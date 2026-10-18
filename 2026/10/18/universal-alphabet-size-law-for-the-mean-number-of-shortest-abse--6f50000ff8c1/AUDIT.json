@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The all-length proof is a bijective factorization of pairs (host,target) using greedy full-alphabet arches, with a unique last letter per arch and a fixed ambient alphabet. An absent shortest target has exactly one greedy match in each completed arch and none in the incomplete suffix. Exhaustive terminal-letter cases give diagonal and off-diagonal transition series; explicit full-support inclusion-exclusion and the symmetric matrix row sum prove the rational generating function. The ternary polynomial identity is exact. Dominance of the unique positive aperiodic renewal pole proves the mean asymptotic. Independent finite direct enumeration of 17,349 source words, arch pair counts and 36 ternary coefficients agrees. Finite checks are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2407.18599 studies minimum and maximum absent counts for a fixed universality index; these bounds do not furnish the complete uniform length-n expectation.",
+        "arxiv:2504.21471 studies per-input enumeration and does not assert ensemble generating functions."
+      ],
+      "reasoning": "A per-input enumeration algorithm allows brute-force evaluation for any fixed length, but a finite algorithm is not an already-stated exact rational identity uniform in n. The new general q transition law explicitly accounts for all greedy arch classes. Extremal-in-index theorems do not determine average-over-length behavior.",
+      "searches": [
+        "arxiv:2407.18599 Sections 3-4 tight bounds for number of absent subsequences",
+        "arxiv:2504.21471 Sections 1-3 efficient enumeration",
+        "exact total count shortest absent scattered subsequences all words length n ternary alphabet rational generating function",
+        "General q ary alphabet total counts shortest absent subsequences formula arch factorization generating series q variable"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2108.13968 (Kosche et al., 2021)",
+      "arxiv:2407.18599 (Adamson et al., 2024)",
+      "arxiv:2504.21471 (Manea et al., 2025)",
+      "Published research record: Exact full-support insertion radius of subsequence universality",
+      "Published research record: Closed-form law for binary subsequence universality",
+      "Previously established binary shortest-absent first moment, reviewed only for scope exclusion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.4 of arxiv:2108.13968 characterizes absent patterns through arches for a specified host word. The present proof independently sums constrained arch transitions over all host words and all targets.",
+        "Proposition 1 and nearby results in arxiv:2407.18599 optimize missing counts at fixed universality index, which cannot determine an unconditional length-n first moment without an additional distributional analysis.",
+        "arxiv:2504.21471 addresses enumeration output delay and preprocessing."
+      ],
+      "reasoning": "The new rational law is not a numerical restatement of the primary per-word characterization, nor a corollary of a published universal upper or lower bound. Deriving it requires a new exact full-alphabet arch transition count and a symmetric matrix renewal sum. The previously established binary mean is not part of the novelty claim.",
+      "searches": [
+        "arxiv:2108.13968 Theorem 3.4",
+        "arxiv:2407.18599 Proposition 1",
+        "arxiv:2504.21471 introduction and main contributions",
+        "mean shortest absent scattered subsequences over q>=3 length n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2108.13968 gives greedy arch factorization and individual-word absent-subsequence structural characterizations.",
+        "arxiv:2407.18599 gives sharp conditional extremal bounds, without a length-indexed average.",
+        "A previously known binary first-moment generating function is a different fixed alphabet size and is explicitly excluded."
+      ],
+      "reasoning": "Equivalent terminology searched includes shortest absent scattered subsequences, missing subsequences, universality index, arch factorization, expected count and mean generating function. The new statement counts over all q-ary words at each length for every \\(q\\ge3\\). Known binary data do not imply this by a simple symbol relabeling, since full-alphabet arch completion and off-diagonal terminal cases depend on q.",
+      "searches": [
+        "\"shortest absent subsequences\" \"average\" \"random\" \"alphabet\"",
+        "\"shortest absent subsequences\" \"generating function\" \"ternary\"",
+        "\"shortest absent subsequences\" \"expectation\" \"alphabet\"",
+        "\"number of shortest absent subsequences\" ternary",
+        "arxiv:2108.13968 Sections 2-3",
+        "arxiv:2407.18599 Sections 2-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching closed-form rational sequence or table was identified in the accessible indexed searches or semantically retrieved published record titles and summaries.",
+        "The ternary coefficients were independently produced by direct enumeration and derived from the proof rather than copied from a database."
+      ],
+      "reasoning": "Sequence matches or a fixed coefficient table alone would not automatically imply an all-length generating function. No indexed table or formula subsuming this claim was encountered; absence of a match does not constitute a proof of novelty.",
+      "searches": [
+        "\"3, 6, 12, 60, 204, 576, 1908\" subsequence",
+        "\"1-4z+5z^2-14z^3+20z^4-4z^5\" shortest absent",
+        "Exact ternary mean shortest missing scattered subsequences generating function 3(1-z)^2/(1-4z+5z^2-14z^3+20z^4-4z^5)"
+      ]
+    },
+    "rationale": "The inspected founding arch/absent-subsequence paper gives structural results for each host word, a 2024 paper gives extremal counts at fixed universality index, and a later 2025 paper gives faster per-input enumeration. None of the inspected claims supplies the all-length mean over \\(q\\ge3\\) alphabets or implies the explicitly calculated ternary quintic without an additional derivation. The known binary result is excluded by scope. There remains a genuine risk of unindexed equivalent enumeration.",
+    "residual_risks": [
+      "Unindexed or differently named q-ary mean enumeration may exist.",
+      "Some searched corpus records provide titles and summaries rather than inspected full text; none of those inspected summaries contained a plausible dominating q-ary mean theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides fundamental individual-word results and arch factorization, but no all-length \\(q\\ge3\\) ensemble mean was identified.",
+        "evidence": [
+          "Definition 2.3 on page 202 defines arches.",
+          "Theorem 3.4 on pages 204-205 locates SAS greedy matches in arches.",
+          "The introduction characterizes the paper contributions as individual-word structural and algorithmic tools."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+        "material_read": "Abstract and introduction, Section 2 definitions, Section 3 up through Theorem 3.4 and its worked examples, section roadmap of later algorithms; searched the 42-page parsed full text for average, random and generating function.",
+        "method": "Accessible arXiv PDF text and rendered page inspection.",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Foundational shortest-absent-subsequence definitions and arch characterization; possible exact count coverage."
+      },
+      {
+        "assessment": "Extremal counts by universality index, not unconditional all-word first moments.",
+        "evidence": [
+          "Section 3 explicitly asks for the minimum number of absent subsequences among words of a given universality index.",
+          "Proposition 1 characterizes extremizers, not a full length-conditioned distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.18599",
+        "material_read": "Abstract and introduction, Section 2 definitions, Section 3 lower bound and Proposition 1 through proof, section outline; searched full 31-page text for average, expected value, distribution, generating function.",
+        "method": "Accessible arXiv PDF text and rendered first page.",
+        "title": "Tight Bounds for the Number of Absent Subsequences",
+        "trigger": "Possibly dominating alphabet-wide enumeration or missing-pattern counts."
+      },
+      {
+        "assessment": "Per-word enumeration complexity results do not state an unconditional q-ary mean generating function.",
+        "evidence": [
+          "Introduction describes output-linear and constant-delay enumeration algorithms for a given string and a longest minimal absent subsequence computation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2504.21471",
+        "material_read": "Abstract, introduction with statement of contributions, Section 2 definitions including canonical greedy embedding, early Section 3 roadmap.",
+        "method": "Accessible arXiv PDF text and rendered page.",
+        "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+        "trigger": "Later potentially covering counting algorithm."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6f50000f-f8c1-4e46-a632-53ca84c563aa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem determines a natural average-case output-size invariant for missing scattered subsequences on every fixed alphabet \\(q\\ge3\\) and for every host length. It gives the first nonbinary explicit rational mean with a fifth-order recurrence and a rigorous exponential expected-size growth law. Average-case complexity is not determined by existing per-word algorithms, binary-only means or extremal bounds. The extra off-diagonal terminal class and inclusion-exclusion renewal are substantive, rather than a relabeling or isolated low-n table.",
+    "status": "PASS"
+  }
+}
