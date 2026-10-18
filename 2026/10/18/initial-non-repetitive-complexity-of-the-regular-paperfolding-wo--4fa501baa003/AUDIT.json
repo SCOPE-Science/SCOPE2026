@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For every \\(j\\ge0\\), the identities \\(f_{2j}=j\bmod2\\) and \\(f_{2j+1}=f_j\\) forbid alternating length-four factors. Consequently the parity of the start position is recognized by factors of length at least eight. For \\(n\\ge16\\), identical even-start length-\\(n\\) factors correspond exactly to identical length-\\(\\lfloor n/2\rfloor\\) factors, and odd-start factors to length-\\(\\lceil n/2\rceil\\) factors; the alternating phase is fixed by the shorter-factor equality. Monotonicity then gives \\(R(n)=2R(\\lfloor n/2\rfloor)\\). An explicit list certifies twenty-four distinct length-eight factors, and positions eight and twenty-four have identical length-fifteen factors; direct comparison covers the seven shorter base cases. Induction yields \\(R(n)=3\\cdot2^{\\lfloor\\log_2n\rfloor}\\) for \\(n\\ge8\\), with unique earlier start \\(2^{\\lfloor\\log_2n\rfloor}\\). The standalone program `verify.py` tests every length through 320 and seventeen selected larger lengths through 8191, with exact integer windows. No infinite claim rests on finite tests alone.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Allouche 1992 Theorem 1 gives p_f(n)=4n for n>=7, and Lemma 2 separates starting parity for sufficiently long factors.",
+        "Allouche and Bousquet-Mélou 1994 abstract asserts representative positions P_n of cardinality 4n; full text was inaccessible.",
+        "Burns 2022 Theorem 3.4 gives the last *first* occurrence among factors via the appearance function; this is a different statistic."
+      ],
+      "reasoning": "A complete set of representative positions, a global count of distinct factors, or the latest first occurrence does not by itself specify when the first repeated position occurs. No accessible stronger theorem was found that logically determines the claimed first-duplicate law. The 1994 full-text risk remains explicit.",
+      "searches": [
+        "doi:10.1017/S0004972700011655 (Allouche 1992) full PDF",
+        "doi:10.1016/0304-3975(94)90028-0 (Allouche and Bousquet-Mélou 1994) abstract; full-text access attempt",
+        "arxiv:2210.14719 (Burns 2022) full PDF §§2–3",
+        "published-finding corpus: canonical positions for factors regular paperfolding non-repetitive prefix complexity"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1507.08206",
+      "doi:10.1017/S0004972700011655",
+      "arxiv:2210.14719",
+      "doi:10.1016/0304-3975(94)90028-0 (abstract only)",
+      "oeis:A337120",
+      "published-finding corpus:2026/9/8/SCOPE079",
+      "published-finding corpus:2026/10/4/SCOPE-unbounded-prefix-normal-defect-of-the-ordinary-paperfolding-word--a7708413f1f3",
+      "Accessible historical first-repetition records for Cantor and period-doubling words"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier mathematical findings on regular paperfolding address 2-abelian and 2-binomial factor complexity; those relations identify words using different equivalences.",
+        "Earlier mathematical findings on initial non-repetitive complexity address Cantor and period-doubling words, not the regular paperfolding word.",
+        "published-finding corpus hit 2026/9/8/SCOPE079 addresses string attractors for finite prefixes of paperfolding and Rudin-Shapiro, not earliest factor collision."
+      ],
+      "reasoning": "A first-duplicate result for a different infinite word does not imply this result. Total, abelian, binomial, appearance, and attractor invariants are not logical substitutes for the first literal factor collision in the regular paperfolding word.",
+      "searches": [
+        "Accessible earlier research claims: exact searches for paperfolding, non-repetitive complexity, first repeated factor, and first collision",
+        "published-finding corpus: paperfolding word repeated factors index 3 times power of two 2^k factor first collision",
+        "published-finding corpus: binary automatic sequences initial non-repetitive complexity paperfolding Rudin Shapiro Baum Sweet"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nicholson and Rampersad, arXiv:1507.08206, abstract and §1 expressly list Thue-Morse, Fibonacci, Tribonacci; document-wide search for paperfold returned no hit.",
+        "published-finding corpus nearest family hits concern paperfolding prefix-normal defect and dyadic attractors, not factor first collisions."
+      ],
+      "reasoning": "Initial non-repetitive complexity, first repeated factor position, prefix-collision length, and first duplicate starting index are equivalent descriptions once the word and indexing are fixed. No accessible examined source states an equivalent all-length paperfolding law.",
+      "searches": [
+        "published-finding corpus: regular paperfolding word initial non-repetitive complexity first repeated prefix factors 2-automatic first occurrence",
+        "published-finding corpus: Exact initial nonrepetitive complexity of regular paperfolding word R(n)=3 times largest power of 2 <= n and matching position 2^floor(log2(n))",
+        "Web: \"paperfolding\" \"initial non-repetitive complexity\" theorem factor",
+        "Web: \"regular paperfolding\" \"nonrepetitive\" complexity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A337120 records total factor complexity with p_f(n)=4n for n>=7, rather than the initial non-repetitive complexity.",
+        "The queried numerical prefix of the first-repeat sequence did not produce a database entry in the returned search results."
+      ],
+      "reasoning": "Total subword counts are not tables of first repeated positions, and a missing sequence-search hit is not a proof of novelty.",
+      "searches": [
+        "OEIS A337120 paperfolding factor complexity",
+        "Web: site:oeis.org \"1,3,3,8,8,12,12,24,24,24\"",
+        "Web: site:oeis.org \"3,3,8,8,12,12,24,24,24\""
+      ]
+    },
+    "rationale": "Searched primary literature, the named database, accessible historical claim rows, and published semantic results for this exact regular-paperfolding prefix collision law. The 2015 originating work treats other automatic/morphic words, the 1992 paper computes global factor counts, and the 2022 appearance theorem computes the last new-factor position. Neither endpoint implies first collision. The 1994 canonical-positions article is a residual access risk (abstract read, full text unavailable), not evidence of absence.",
+    "residual_risks": [
+      "The complete Allouche–Bousquet-Mélou (1994) canonical-positions text was inaccessible; its unspecified full results could contain an equivalent first-collision fact.",
+      "Published or unindexed equivalent formulas could have been missed; none of the searched resources establishes priority conclusively."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the statistic and treats three named words, but does not give a paperfolding formula.",
+        "evidence": [
+          "arXiv:1507.08206 pp.1–3 (definition and scope); text search returned no paperfolding occurrence"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1507.08206",
+        "material_read": "Abstract, introduction, initial-complexity definition, listed scope of results; document-wide paperfold text search",
+        "method": "Direct text/PDF inspection and page-image inspection",
+        "title": "Initial non-repetitive complexity of infinite words",
+        "trigger": "Focal definition and foundational formulas"
+      },
+      {
+        "assessment": "Theorem gives ordinary complexity p_f(n)=4n, not the earliest factor repetition.",
+        "evidence": [
+          "Allouche 1992 §3 Lemma 2 separates factor start parities; Theorem 1 counts all distinct factors"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0004972700011655",
+        "material_read": "Full-text PDF, especially §§2–5, Lemma 2 and factor-count theorem; page image checked",
+        "method": "Direct accessible published PDF reading",
+        "title": "The number of factors in a paperfolding sequence",
+        "trigger": "Same word and factor complexity"
+      },
+      {
+        "assessment": "Exact last new-factor starting position, distinct from earliest duplicate.",
+        "evidence": [
+          "Burns 2022 §2 appearance-function definition; Theorem 3.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2210.14719",
+        "material_read": "Introduction, definitions, §3 Lemmas 3.1–3.3 and Theorem 3.4",
+        "method": "Direct accessible full-text PDF reading",
+        "title": "The appearance function for paper-folding words",
+        "trigger": "Closest all-length prefix first-appearance statistic"
+      },
+      {
+        "assessment": "Abstract asserts a common set of representative positions of cardinality 4n, not an earliest-duplicate position. Because full text was not read, possible equivalent information remains an originality risk.",
+        "evidence": [
+          "Allouche and Bousquet-Mélou 1994 abstract on canonical position sets P_n"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0304-3975(94)90028-0",
+        "material_read": "Abstract only; full text unavailable after open-access and authorized access attempts",
+        "method": "Publisher-indexed abstract inspection; full-text access unsuccessful",
+        "title": "Canonical positions for the factors in paperfolding sequences",
+        "trigger": "Plausible stronger factor-location information"
+      },
+      {
+        "assessment": "Counts the total number of distinct factors, not first collision.",
+        "evidence": [
+          "OEIS A337120 formula p_f(n)=4n for n>=7"
+        ],
+        "identifier_or_url": "https://oeis.org/A337120",
+        "material_read": "Sequence definition, formulas, examples and references",
+        "method": "Read web database entry",
+        "title": "OEIS A337120",
+        "trigger": "Exact existing tables on regular paperfolding factors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4fa501ba-a003-4b6b-a18b-39428f048cb2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The initial non-repetitive complexity of a classical automatic word is determined exactly at every positive length, including its earlier collision partner. The parity-recognition/decimation proof reveals a sharp binary staircase and ratios to factor length and the known \\(p_f(n)=4n\\) with distinct lower and upper limits. Global counts and the appearance function cannot determine this first-collision timing; the theorem gives a natural complete classification rather than an arbitrary finite slice, parameter renaming, or small numerical gain.",
+    "status": "PASS"
+  }
+}
