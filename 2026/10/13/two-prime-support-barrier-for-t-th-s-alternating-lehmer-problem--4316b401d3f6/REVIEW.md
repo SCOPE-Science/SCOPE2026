@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a prime power, the congruence \(\beta(p^a)\mid p^a-1\) combines with \((p+1)\beta(p^a)=p^{a+1}+(-1)^a\) to force \(\beta(p^a)\mid p+(-1)^a\); the lower bound \(\beta(p^a)\ge p^{a-1}(p-1)\) then leaves only \(2^2\). For two odd prime supports, the multiplicative ratio is below \(2\), forcing quotient \(1\), which contradicts \(\beta(p^a)\beta(q^b)<p^aq^b-1\). For support \(\{2,q\}\), parity forces the odd-prime exponent to be even; the ratio is then strictly below \(3\), while the quotient is odd, again forcing quotient \(1\) and the same contradiction. Every factorization type with at most two distinct primes is covered.
+## correctness
 
-## Originality
-PASS. The primary 2011 preprint states exactly the ambient divisibility question as an open problem and reports only a computation through \(10^6\). Targeted searches for the exact condition, prime-power variants, semiprime variants, and two-prime-support formulations found no theorem covering all arbitrary exponents. Classical Lehmer theory dominates only the squarefree subcase because there \(\beta=\varphi\); it does not imply the nonsquarefree support classification proved here. A 2024 similarly titled article uses a different, nonmultiplicative divisor-ordering function.
+PASS
 
-## Value
-PASS. The result gives an infinite structural barrier for an explicitly posed Lehmer-type problem, replacing a finite search on the first natural prime-support layers. It proves that any nontrivial counterexample must cross from at most two to at least three distinct prime factors and does so uniformly over all exponents.
+For β(p^a)=(p^{a+1}+(-1)^a)/(p+1), direct algebra gives 0<β<p^a and β>=p^{a-1}(p-1), equality only a=1. If β(p^a)|p^a−1, then β(p^a)|p+(-1)^a, forcing a=2,p=2 among composite prime powers (n=4). For distinct odd p<q, n/β(n)<= (p/(p−1))(q/(q−1))<=15/8<2 so quotient k=(n−1)/β(n)=1, contradicting β(n)<n−1. For 2^a q^b, denominator β(n) is odd (n−1 odd), and β(q^b) odd forces b even; strict q^b/β(q^b)<q/(q−1) gives n/β(n)<3, and k odd forces k=1, again impossible. No exponent upper bound was assumed. Independent exact factoring/enumeration of 40,115 composite integers of support <=2 through n=120000 returned only n=4, corroboration not universal proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Tóth primary survey poses β(n)|n−1 as Problem 4 with composite n=4 exception and reports finite search; it does not prove this uniform support <=2 exclusion in the inspected full paper. Classical Lehmer totient results bound squarefree candidates since β(n)=φ(n) there but do not cover nonsquarefree factors. Caragiu–Swieringa 2024 alternating divisor is nonmultiplicative under a different definition. Resultary matched unrelated divisor functions but no implication of this claim. Possible unindexed elementary argument remains a residual risk.
+
+## value
+
+PASS
+
+Tóth’s explicit open analogue of Lehmer’s problem naturally asks for structural obstructions. Excluding every composite with at most two distinct prime factors, with arbitrary exponents rather than a numerical cutoff, is a substantive infinite reduction; the parity argument handles the nonsquarefree case omitted by the classical squarefree analogy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

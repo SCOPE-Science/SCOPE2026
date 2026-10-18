@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T08:55:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For β(p^a)=(p^{a+1}+(-1)^a)/(p+1), direct algebra gives 0<β<p^a and β>=p^{a-1}(p-1), equality only a=1. If β(p^a)|p^a−1, then β(p^a)|p+(-1)^a, forcing a=2,p=2 among composite prime powers (n=4). For distinct odd p<q, n/β(n)<= (p/(p−1))(q/(q−1))<=15/8<2 so quotient k=(n−1)/β(n)=1, contradicting β(n)<n−1. For 2^a q^b, denominator β(n) is odd (n−1 odd), and β(q^b) odd forces b even; strict q^b/β(q^b)<q/(q−1) gives n/β(n)<3, and k odd forces k=1, again impossible. No exponent upper bound was assumed. Independent exact factoring/enumeration of 40,115 composite integers of support <=2 through n=120000 returned only n=4, corroboration not universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Tóth 2011 survey Problem 4 asks whether any composite n!=4 exists and gives finite computer observations; classical squarefree Lehmer constraints do not cover p^a q^b with a,b arbitrary."
+        ],
+        "reasoning": "No identified general theorem covers all nonsquarefree ω<=2 candidates.",
+        "searches": [
+          "Toth alternating sum of divisors beta n divides n minus one two distinct prime factors Lehmer 4",
+          "alternating Lehmer beta(n) divides n-1 omega(n) two prime factor support",
+          "Tóth A survey of the alternating sum-of-divisors function Problem 4",
+          "Lehmer totient problem at least seven prime factors"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1111.4842",
+        "DOI:10.17654/0972555524006",
+        "https://arxiv.org/abs/1111.4842",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/bb51cd72c959a3871b26f4537e3e25ff5cb2b772/2026/10/13/two-prime-support-barrier-for-t-th-s-alternating-lehmer-problem--4316b401d3f6/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tóth explicitly poses full composite β(n)|(n-1), only 4 known; no support factor theorem in material inspected."
+        ],
+        "reasoning": "Published problem statement and finite Maple search do not imply the uniform omega<=2 exclusion; original research result is strictly stronger within this structured family.",
+        "searches": [
+          "Toth alternating sum of divisors beta n divides n minus one two distinct prime factors Lehmer 4",
+          "alternating Lehmer beta(n) divides n-1 omega(n) two prime factor support",
+          "arXiv:1111.4842v1 § Problem 4",
+          "DOI:10.2478/ausm-2014-0007"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For squarefree n, β(n)=φ(n); the classical Lehmer restriction applies only to that proper subfamily."
+        ],
+        "reasoning": "The multiplicative β is not the different function defined by sign-alternating ordered divisors in some 2024 work; aliases checked by the exact prime-power formula.",
+        "searches": [
+          "Toth alternating sum of divisors beta n divides n minus one two distinct prime factors Lehmer 4",
+          "alternating Lehmer beta(n) divides n-1 omega(n) two prime factor support",
+          "Toth beta sum alternating divisors Lehmer totient phi squarefree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite β divisibility search is not a proof of infinite classification; Resultary neighboring alternating-divisor totient-gap item concerns a different invariant."
+        ],
+        "reasoning": "The universal support barrier is not an inferred table entry, and a failed database search is not treated as novelty proof.",
+        "searches": [
+          "Toth alternating sum of divisors beta n divides n minus one two distinct prime factors Lehmer 4",
+          "alternating Lehmer beta(n) divides n-1 omega(n) two prime factor support",
+          "beta(n) divides n-1 OEIS low prime factor search",
+          "Resultary 2026/10/4/SCOPE-exact-first-three-fibers-of-the-alternating-divisor-totient-gap--5f607fcab7e7"
+        ]
+      },
+      "rationale": "Tóth primary survey poses β(n)|n−1 as Problem 4 with composite n=4 exception and reports finite search; it does not prove this uniform support <=2 exclusion in the inspected full paper. Classical Lehmer totient results bound squarefree candidates since β(n)=φ(n) there but do not cover nonsquarefree factors. Caragiu–Swieringa 2024 alternating divisor is nonmultiplicative under a different definition. Resultary matched unrelated divisor functions but no implication of this claim. Possible unindexed elementary argument remains a residual risk.",
+      "residual_risks": [
+        "An earlier unindexed argument remains possible.",
+        "Literature searches are bounded; no claim of proved global novelty or complete publication coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Poses open problem and finite search, not the two-prime uniform theorem.",
+          "evidence": "Problem 4 asks about composite n≠4, with cited Maple search n≤10^6.",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.4842",
+          "material_read": "Full PDF text and page containing Problem 4 and squarefree β=φ discussion",
+          "method": "Web PDF text and screenshot inspection",
+          "title": "A survey of the alternating sum-of-divisors function",
+          "trigger": "Primary exact same β(n) equation"
+        },
+        {
+          "assessment": "Different nonmultiplicative divisor-ordering construction; cannot imply β(p^a) formula.",
+          "evidence": "Study orders divisors and alternates signs, unlike Tóth multiplicative β.",
+          "identifier_or_url": "DOI:10.17654/0972555524006",
+          "material_read": "Title, abstract/source description only",
+          "method": "Bibliographic search",
+          "title": "On the alternating sum-of-divisors",
+          "trigger": "Plausible title alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Tóth’s explicit open analogue of Lehmer’s problem naturally asks for structural obstructions. Excluding every composite with at most two distinct prime factors, with arbitrary exponents rather than a numerical cutoff, is a substantive infinite reduction; the parity argument handles the nonsquarefree case omitted by the classical squarefree analogy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "ω(n)>=3 remains open; no claim to settle Tóth Problem 4 generally.",
+    "An earlier unindexed argument remains possible."
+  ],
+  "schema_version": 1
+}
