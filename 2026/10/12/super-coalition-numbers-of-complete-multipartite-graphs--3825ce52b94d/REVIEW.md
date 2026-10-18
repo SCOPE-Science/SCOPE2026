@@ -1,11 +1,21 @@
-# Review
-## Correctness
-PASS. The proof reconstructs the super-domination witness condition in complete multipartite graphs and derives the complete complement criterion. Every coalition partner union therefore leaves at most two vertices, which gives the global four-block upper bound. The partner-graph argument classifies four-block partitions: a disjoint-edge pair forces the exceptional graph \(K_{2,2}\), while matching number one forces a star whose three leaf blocks occupy three distinct non-singleton partite classes. The converse constructions are explicit. The order-two exception is checked separately. Exhaustive enumeration through order \(8\) agrees with the theorem and is not used as an infinite proof.
+# Independent mathematical audit
 
-## Originality
-PASS. The initiating 2026 preprint defines the invariant and gives general bounds and several standard families, but no complete-multipartite classification. Its Theorem 3.6 asserts \(C_s(G)=3\) for every graph with a universal vertex; the explicit four-block partition of \(K_{1,2,2,2}\) disproves that statement. The closest published complete-multipartite result classifies super dominating sets themselves, not super coalition partitions; it supplies the known two-omission structural criterion but not the block-pairing phase transition. Targeted searches for complete-multipartite, complete-bipartite, biclique, parameter-notation, and non-singleton-part formulations found no equivalent super-coalition theorem. Residual risk remains for poorly indexed terminology and for later revisions published after the checked version.
+## correctness
 
-## Value
-PASS. This is a natural complete classification for a newly introduced coalition invariant on a canonical graph family. It exposes a sharp structural threshold controlled only by the number of non-singleton partite classes and identifies an infinite family of counterexamples to a general theorem in the initiating paper. The correction is substantive because it changes all complete multipartite graphs with a singleton class and at least three non-singleton classes from the claimed value \(3\) to the exact value \(4\).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Reconstructed super domination via omitted complement C: D is super dominating exactly for |C|≤1 or |C|=2 with omitted vertices in distinct non-singleton partite classes. In a super-coalition partition every partner pair leaves ≤2 omitted vertices, forcing ≤4 blocks. For four blocks, the partner graph has no isolates: a matching of size 2 forces all blocks singleton and G=K2,2; otherwise it is a 3-leaf star and those leaves must occupy three distinct parts of size≥2. Both conditions give explicit constructions; 3 blocks always possible at N≥3 by pairing complements of singletons. Exhaustive independently written direct-definition enumeration matched the formula for all connected complete multipartite part profiles of orders 2–7, corroborating but not replacing the proof.
+
+## originality
+
+PASS
+
+Published Resultary record 315739371089 gives the same complete-multipartite super-dominating SET criterion; explicitly credited. It does not define or classify super-COALITION partitions. Initiating Alikhani–Ghanbari paper studies other graph families and asserts C_s=3 for universal vertices, refuted by explicit K1,2,2,2 partition. Distinct global block-partner classification passes best-of-knowledge.
+
+## value
+
+PASS
+
+An exact natural-family coalition-number classification with a sharp combinatorial threshold and a genuine universal-vertex counterexample to an asserted theorem. The star-versus-matching structure explains the four-block transition, beyond merely recomputing the known scalar super domination number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
