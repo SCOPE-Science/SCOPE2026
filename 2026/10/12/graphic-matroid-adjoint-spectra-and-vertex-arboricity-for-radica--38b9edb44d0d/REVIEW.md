@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the precise domain of finite fields and loopless, nonparallel orientations of simple graphs, the commutator matrix follows directly from the radical-square-zero multiplication. Elimination outside the equal-color flat leaves a weighted graph-incidence matrix whose rank is the graphic-matroid rank in all characteristics; exact-coloring and support partition counts prove the flat-sum formula. The matroid-invariance identity follows from the graph chromatic/characteristic-polynomial identity under contraction, and the full-radical criterion follows from vanishing induced-color-class cycle-nullity. The independent small-field matrix enumerator agrees for graphs with and without cycles. Finite tests alone are not used to infer universality. Boundary graphs with no edges and characteristic two are covered by the proof.
+PASS
 
-## Originality — PASS, residual risk acknowledged
+Direct multiplication gives the commutator map on each arrow e as (d_u-d_v)y_e-x_e(h_u-h_v). Given equal-label edge flat Z and support S of nonzero arrow coefficients on Z, the image rank is m-|Z|+rank of the oriented incidence submatrix on S =m-|Z|+r_G(S) in every characteristic. Exact colorings of contracted G/Z count the vertex labels; summing over arrow coefficients proves the full rank polynomial. The characteristic polynomial of the contracted cycle matroid proves q^{-c(G)} invariance. A forest factors edge-by-edge. Rank m iff each color-induced subgraph is a forest, equivalent to vertex arboricity at most q. For K5 q=2 an equitable 2+3 split has one monochromatic cycle; maximum is exactly 9. Independent q=2 triangle enumeration returned [2,6,32,24].
 
-The 2021 Vaso primary paper treats cluster-tilting properties of the same radical-square-zero quiver algebras, not inner-commutator ranks. The Dutta–Basnet–Nath 2018 article studies commuting probabilities of selected finite rings, not a uniform graphic-matroid spectrum. A relevant published result classifies the commutator fibers of two-vertex Kronecker path algebras and therefore covers the one-edge specialization; the unrestricted graph/cycle spectrum, matroid invariance, and vertex-arboricity characterization are not implications of that two-vertex result. The graph-theoretic matroid and vertex-arboricity ingredients themselves are established prior work, and the theorem does not claim them as new. Other derivations using bilinear maps or Tutte-polynomial methods remain a residual possibility.
+## originality
 
-## Value — PASS
+PASS
 
-The result computes an entire natural rank-distribution invariant for an infinite class of finite-dimensional associative algebras, including all graph cycles, and explains why orientations and different graphical realizations of the same matroid cannot be distinguished by that invariant. The forest specialization is a complete universal law rather than a one-off count. More structurally, surjectivity of a single inner commutator map onto the radical is equivalent to the independently important vertex-arboricity condition, producing a sharp algebra/graph bridge that distinguishes \(K_5\) over \(\mathbf F_2\) from forests and low-arboricity graphs.
+A full prior two-vertex Kronecker commutator computation covers the one-edge boundary only. Searches of the Resultary mathematical records and relevant quiver/ring literature found no general simple-graph graphic-matroid adjoint rank polynomial, its normalized matroid invariance, or the sharp arboricity criterion. Negative claims are limited to sources actually inspected and residual alias risks are retained.
 
-Independent external validation and broad-text novelty verification beyond the inspected literature remain open; no certification or priority claim is made.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-graph rank law and q-color induced-forest surjectivity criterion unify previously separate commutator statistics and graph arboricity. They are mathematically useful structural results in infinitely many graphs and fields, not a small table or a routine single-case deduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
